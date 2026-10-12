@@ -15,6 +15,7 @@ import time
 import races_classes
 import ue2net
 import vgmsg
+import combat
 import zone
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
@@ -683,15 +684,31 @@ def handle_message(sock, server, addr, state, payload, args):
             if text.startswith("!") and args.dev_commands:
                 for m in dev_command(text):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == combat.TARGET_EVENT:
+            # Target selected (click, Tab): u64 entity id; 0 = target cleared.
+            player = state.get("player")
+            eid = struct.unpack_from("<Q", payload, 10)[0] if len(payload) >= 18 else 0
+            npc = player.npcs.get(eid) if player else None
+            print(f"  >>> ZONE target {eid:#x} ({npc.name if npc else '-'})")
+            if player:
+                player.target = eid or None
+            send_message(sock, addr, state, combat.targets(npc))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0xD0:
             # Use ability (FUN_0042ca80): i32 ability handle (MsgAbilityInfo field 5).
             handle = struct.unpack_from("<i", payload, 10)[0]
             player = state.get("player")
-            names = {a[0]: a[2] for a in getattr(player, "abilities", [])}
-            print(f"  >>> ZONE use ability {handle} ({names.get(handle, '?')})")
-            if handle in names:
-                send_message(sock, addr, state, build_system_text(
-                    f"You use {names[handle]}, but you have no target.", SYSTEM_TEXT_COMBAT))
+            ability = next((a for a in getattr(player, "abilities", []) if a[0] == handle), None)
+            print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
+            if ability:
+                lines, npc = combat.use_ability(player, ability)
+                colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR,
+                           "white": SYSTEM_TEXT_WHITE}
+                for text, kind in lines:
+                    send_message(sock, addr, state, build_system_text(text, colours[kind]))
+                if npc:
+                    send_message(sock, addr, state, combat.target_health(npc))
+                    if not npc.alive:
+                        send_message(sock, addr, state, zone.npc_update(state, args, npc, {"Health": 0}))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x54B, 0x54C):
             # Hotbar slot changed (0x54b MsgHotkeyAdd) or cleared (0x54c bank+slot).
             event = struct.unpack_from("<I", payload, 2)[0]

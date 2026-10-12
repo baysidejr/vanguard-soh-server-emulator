@@ -10,6 +10,7 @@ import time
 
 import rpc
 import vgmsg
+import combat
 import ue2net
 from netcache import NetCache
 from packagemap import PackageMap
@@ -95,8 +96,22 @@ def handle_unreal(send, state, payload, args):
                 loc = tuple(a + b for a, b in zip(player.spawned_at, off))
                 eid = getattr(args, "npc_entity_id", None) or (0x2000000 + n)
                 b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, eid)
+                player.npcs[eid] = combat.Npc(eid, name, FIRST_NPC_CHANNEL + n, cls_path)
                 print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
                 send(unreal_message(ue.build([b])))
+
+
+def npc_update(state, args, npc, values):
+    """A zone message updating replicated properties of an NPC's pawn."""
+    ue, player = state["ue"], state["player"]
+    pm = package_map(args, player.level)
+    cls = npc.cls_path.split(".", 1)[1]
+    w = ue2net.BitWriter()
+    for rep_index, max_index, write in pm.net_cache.props(cls, values):
+        w.serialize_int(rep_index, max_index)
+        write(w)
+    data, nbits = w.packed()
+    return unreal_message(ue.build([ue.actor_bunch(npc.channel, data, nbits)]))
 
 
 def zone_event(event_id, data=b""):
@@ -293,6 +308,8 @@ class Player:
         self.equipment = starter_equipment(klass)
         self.abilities = list(DEFAULT_ABILITIES)
         self.coins = DEFAULT_COINS
+        self.npcs = {}                    # entity id -> combat.Npc seen by this player
+        self.target = None                # entity id from client event 0x5d
 
 
 PC_CHANNEL = 1
