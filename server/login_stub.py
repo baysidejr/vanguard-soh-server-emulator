@@ -298,6 +298,8 @@ def movement_tick(zone_sock, clients, args):
             # npc_turns only attacks living players, so they were alive before.
             for m in combat_results(state, args, player, lines, None, True, player.auto_attack):
                 send_message(zone_sock, addr, state, m)
+            if player.health > 0:
+                npc_special(state, npc, now)
     for w in world.all_worlds():
         players = w.players()
         for npc in w.npcs.values():
@@ -370,6 +372,31 @@ def use_ability(state, args, player, ability):
         send(effects.cooldown(handle, refresh))
 
 
+def npc_special(state, npc, now):
+    """After a melee swing an NPC may use one of its special abilities on the
+    player: a DoT/debuff ("Venom Bite") shown in the harmful effects window."""
+    player, send = state["player"], state["send"]
+    for a in npc.abilities:
+        if random.random() >= a.get("chance", 0.2):
+            continue
+        name, eid = a["name"], effect_id(player, a["name"]) + 500
+        if a.get("kind", "dot") == "dot":
+            ticks, interval = a.get("ticks", 4), a.get("interval", 3.0)
+            player.__dict__.setdefault("effects", [])
+            old = next((e for e in player.effects if e["id"] == eid), None)
+            if old is not None:
+                old["ticks"] = ticks                 # reapplied: refresh, keep the tick rhythm
+            else:
+                player.effects.append({"kind": "incoming", "id": eid, "name": name, "npc": npc,
+                                       "damage": a.get("damage", [2, 4]), "ticks": ticks,
+                                       "interval": interval, "next": now + interval})
+            desc = f"Deals damage every {interval:g} seconds."
+            send(effects.effect_add(eid, name, desc, a.get("icon", 553), ticks * interval, ticks * interval,
+                                    harmful=True))
+            send(build_system_text(f"{npc.name} uses {name} on you!", SYSTEM_TEXT_ERROR))
+        return
+
+
 def effect_id(player, name):
     return 7000 + sum(name.encode("utf-8")) % 1000
 
@@ -431,6 +458,22 @@ def effects_tick(state, args, now):
             elif now >= e["next_note"]:
                 e["next_note"] = now + 5
                 send(effects.effect_timer(e["id"], e["ends"] - now, e["duration"]))
+        elif e["kind"] == "incoming" and now >= e["next"]:
+            e["ticks"] -= 1
+            e["next"] = now + e["interval"]
+            if player.health > 0:
+                dmg = random.randint(*e["damage"])
+                was_alive = player.health > 0
+                player.health = max(player.health - dmg, 0)
+                player.last_combat = now
+                lines = [(f"{e['npc'].name}'s {e['name']} hits YOU for {dmg} damage.", "error")]
+                if player.health == 0:
+                    lines.append(("You have been slain!", "error"))
+                for m in combat_results(state, args, player, lines, None, was_alive, player.auto_attack):
+                    send(m)
+            if e["ticks"] <= 0 or player.health <= 0:
+                player.effects.remove(e)
+                send(effects.effect_remove(e["id"]))
         elif e["kind"] == "dot" and now >= e["next"]:
             npc = e["npc"]
             e["ticks"] -= 1

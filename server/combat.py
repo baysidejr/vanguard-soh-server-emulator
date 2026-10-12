@@ -64,6 +64,7 @@ class Npc:
         self.depleted_until = 0.0
         self.station = False          # crafting station (mobs.json "station")
         self.trainer = False          # ability trainer (mobs.json "trainer")
+        self.abilities = []           # special attacks (mobs.json "abilities")
         self.prop = False             # scenery (mobs.json "prop"): can't be attacked
         self.banker = False           # bank access (mobs.json "banker")
         self.repairs = False          # repairs gear (mobs.json "repair")

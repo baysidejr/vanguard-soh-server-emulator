@@ -183,6 +183,7 @@ def populate_world(w, args):
         if template.get("title"):
             npc.props["m_PlayerDisplayTitle"] = template["title"]
         npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
+        npc.abilities = list(template.get("abilities", []))
         npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
         npc.loot_table = template.get("loot")
         npc.roll_loot = args.content.roll_loot

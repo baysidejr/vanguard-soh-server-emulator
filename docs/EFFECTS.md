@@ -5,6 +5,8 @@
 - Deadly Shot I (a DoT) hits once, then shows a "Deadly Shot I" debuff icon in the target window. It ticks 4 times every 3 s ("Your Deadly Shot I hits Ashen Wolf for 4 damage.") and the wolf's health bar drops.
 - Reusing an ability before its refresh time is refused.
 
+**NPC special attacks (verified live):** after a melee swing, a mob template's `abilities` may fire, for example the Canyon Widow's Venom Bite: "Canyon Widow uses Venom Bite on you!". This adds a harmful effect icon with a countdown (`0x23a` harmful=1). It ticks "Canyon Widow's Venom Bite hits YOU for 5 damage.", and `0x23b` removes the icon at the end. A reapply refreshes the tick count.
+
 The code is in `server/effects.py` and `login_stub.use_ability` / `apply_buff` / `apply_dot` / `effects_tick`. The dev commands `!learn <ability>` and `!use <ability>` help with testing.
 
 ## What an ability does
@@ -33,6 +35,5 @@ Real ability data (costs, damage, durations) was server-side. The emulator guess
 | `0x27b` | `eid64 source, eid64 target, i32 instance, bool8 heal, u8 kind, i32 amount, i32 bonus, u8 outcome, u8 type, u8, wstr ability, bool8, bool8` | client-built combat sentence. **Sent live, but nothing printed.** The layout or a pending-instance rule is off, so tick and heal lines use system text for now |
 
 Not done yet:
-- NPC buffs and debuffs on players
 - maintained effects (`0x23e`)
 - confirming whether the `0x259` sweep shows on the hotbar (the abilities tested weren't on the bar)
