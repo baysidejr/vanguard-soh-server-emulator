@@ -476,6 +476,16 @@ def load_characters():
         return []
 
 
+def save_character_position(name, loc):
+    chars = load_characters()
+    for c in chars:
+        if c["first"] == name:
+            c["position"] = list(loc)
+            c["position_chunk"] = list(character_chunk(c))
+            save_characters(chars)
+            return
+
+
 def save_characters(chars):
     with open(CHARACTERS_FILE, "w", encoding="utf-8") as f:
         json.dump(chars, f, indent=2)
@@ -548,6 +558,11 @@ def handle_message(sock, server, addr, state, payload, args):
             char = next((c for c in load_characters() if c["first"] == name), {"first": name})
             args.current_char_id = character_id(char)
             args.current_char_name = name
+            # Resume where the character last stood (same chunk only, for now).
+            saved = char.get("position")
+            same_chunk = tuple(char.get("position_chunk", ())) == character_chunk(char)
+            args.current_char_position = saved if saved and same_chunk else None
+            args.save_position = lambda loc, n=name: save_character_position(n, loc)
             args.current_char_race = character_race_class(char)[0] if char.get("raw") else 0x0E
             args.current_level = args.zone_level or chunk_name(*character_chunk(char))
             send_message(sock, addr, state, build_set_name_id(char))

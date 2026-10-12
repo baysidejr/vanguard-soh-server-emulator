@@ -6,6 +6,7 @@ docs/PROTOCOL.md, ue2net.py, packagemap.py and netcache.py.
 """
 
 import struct
+import time
 
 import rpc
 import ue2net
@@ -79,6 +80,11 @@ def log_client_rpc(state, b, args):
         state["position"] = loc
         if moved:
             print(f"  >>> UNREAL {name}: position {loc}")
+            save = getattr(args, "save_position", None)
+            now = time.time()
+            if save and now - state.get("position_saved", 0) > 2.0:
+                save(loc)
+                state["position_saved"] = now
         return
     print(f"  >>> UNREAL RPC {name} {params}")
 
@@ -127,6 +133,9 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
 def spawn_location(args, pm):
     if args.spawn_location:
         return tuple(float(v) for v in args.spawn_location.split(","))
+    saved = getattr(args, "current_char_position", None)
+    if saved:
+        return tuple(float(v) for v in saved)
     starts = [s for s in pm.packages[0][1].player_starts() if s]
     return starts[0] if starts else (0.0, 0.0, 0.0)
 
