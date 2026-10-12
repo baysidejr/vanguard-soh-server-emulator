@@ -214,9 +214,15 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Stats.** Dispatcher `FUN_00577bc0`: `0x2d3` creates one stat (MsgSingleStatInfo, `FUN_00577790`), `0x2d5` is an i32 count followed by creates, and `0x2d4` MsgStatUpdate (`FUN_00576c90`) changes a stat that already exists, found by instance id + category. Creating HP (`0xd2`), Endurance (`0xe0`) and Energy (`0xee`) fills the HUD bars and the character window (`PCAdvHitpointsMax`...). The attribute values (`PCAdvStrength`...) are only set on the **update** path (`FUN_00573070`), so the server creates the stats and then sends an update for each attribute. Stat ids (wire field 0): Strength 3, Constitution `0x6f`, Dexterity `0x73`, Vitality `0x9a`, Intelligence `0x9e`, Wisdom `0xaa`; resists Fire `0x37`, Physical `0x72`, Mental `0x89`, Arcane `0xa3`, Cold `0xba`, Spiritual `0xbd`, Shadow `0x100`, Holy `0x101`, Planar `0x102`. Skills are stats with kind (field 10) 2 and a list subtype (field 12): 0 weapon types, 2 wield types, 3 armor, 4 combat, 7 perception and concealment, 8 resistance, 9 spell schools, 0x15 harvesting, 0x1e general (kind 4 + subtype 1 = weapon specialization); field 8 is the cap the bar fills toward. The full stat id → name table (260 ids, `FUN_00d03670`) is `server/stat_names.py`. Field layouts are in `server/vgmsg.py`. MsgScore field 35 = XP bar fraction and field 42 = Armor Class. Verified live: the character window shows the server's values.
 
+**MsgScore** field map (all 111 fields, `FUN_005e8260`): [MSGSCORE.md](MSGSCORE.md). Fields 0–4 are the bind point; Attack/Ranged display −field 45/52; Defense = 100·(10·field 63)^0.7.
+
+**Inventory** (verified live): `0x195` resets the inventory UI and creates the 50-slot main grid, then one `0x197` MsgSingleItemInfo per item (field 7 equip slot = −1, field 15 container = −1, field 16 slot, field 6 quantity, field 13 icon number from `VGUIAssets/Global/Icons/iconsTK.xml`), then `0x1bb` coins in copper (no chat line; `0x1aa` prints one). Details: [INVENTORY.md](INVENTORY.md).
+
+**Chat channels:** zone event `0x0f` channel 3 = Say ("X says, ..."), 5 = Emote; other values print "[???]".
+
 **Open:**
 - Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client, receive their properties, and **their meshes load** (with `DevLoad` unsuppressed the client loads e.g. `UEM_elf_M_char` skeleton + hair/chest/leg/feet meshes for race 4), but they are not drawn — not even 90 units beside the player. Tried: bNetOwner, entity ids, `m_iModelNum = -1`, `m_Customization[64]`, `bHidden = 0`, `DrawScale = 1`, spawning after `0x485`. Model building: pawn PostNetReceive (`FUN_00bcc5a0`) → `FUN_00bcb8e0(race, model)` when `m_iRaceId`/`m_iModelNum` change. Reproduce with `python login_stub.py --test-npc`.
-- Remaining MsgScore fields (Defense, Attack, Ranged, resists panel); skill group header values; armor skills (subtype 3) don't show yet.
+- Skill group header values; armor skills (subtype 3) don't show yet.
 - Gender, face sliders and gear (`m_AttachmentGroups` = SGOAttachmentGroupInfoPair {slot, attachment, package}).
 
 ## Reference

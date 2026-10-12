@@ -19,6 +19,7 @@ The unmodified client, talking only to this emulator:
 - [x] Character window: name, level, race and class
 - [x] Attributes (Strength...), hit points, endurance and energy; full HUD bars
 - [x] Skills list (weapon, combat, perception... groups)
+- [x] Full character sheet: defense, attack, ranged, XP bars ([docs/MSGSCORE.md](docs/MSGSCORE.md))
 - [x] Inventory: items in the bag and coins ([docs/INVENTORY.md](docs/INVENTORY.md))
 - [ ] Full appearance (gender, face, gear), NPCs, other players
 
