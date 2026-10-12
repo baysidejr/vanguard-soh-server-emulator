@@ -10,7 +10,8 @@
 > - **Counter.** The correction entry lists the actions of the counter family (90). Using "Skim Slag" sends the normal `0xf6`. The server answers with an all-empty `0x2f9` ("Complication has been removed: Slag Buildup") and `0x2fa` with step -1 (white screen text "Complication resolved").
 > - **Rejections.** Running out of AP sends `0x2ec {"", 6}`; an action that isn't allowed now sends `0x2ec {"", 7}`.
 > - **Data.** Recipes in `recipes.json` now take `stages`, `max_ap`, a per-step `ap`, and `complications` (stage, chance, penalty, and the counter action).
-> - **Still open:** tools and utilities (`0x2ec` codes 3/4 "Missing tool", `0x300` usable items, `0x2fb` catalysts).
+> - **Tools (verified live).** A step may name a `tool`, an item that must be in the bags. Smelt Ore needs Crucible Tongs, which Orin sells. Without it the server sends `0x2ec {"Crucible Tongs", 3}`, and the client prints "Missing tool: Crucible Tongs".
+> - **Still open:** toolbelts, utilities (`0x300` usable items) and catalysts (`0x2fb`).
 
 
 This comes from static analysis only (Ghidra via REA) and has not been tested live. [O] means I read it in code; [I] means I inferred it.

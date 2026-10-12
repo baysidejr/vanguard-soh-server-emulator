@@ -1504,6 +1504,10 @@ def craft_action(state, session, action):
         send(craft.rejected(7))
         return
     n, si, st = step
+    tool = st.get("tool")
+    if tool and not any(i[1] == tool for i in player.items):
+        send(craft.rejected(craft.MISSING_TOOL, tool))       # "Missing tool: <tool>"
+        return
     if session["ap"] + st.get("ap", 20) > max_ap:
         send(craft.rejected(6))
         return

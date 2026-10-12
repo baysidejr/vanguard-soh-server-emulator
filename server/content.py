@@ -130,6 +130,10 @@ def validate(directory=CONTENT_DIR):
         if isinstance(m, dict) and isinstance(m.get("parley"), str) and m["parley"] not in dip.get("parleys", {}):
             problems.append(f"mob {mid}: unknown parley {m['parley']}")
     for rid, r in c.recipes.items():
+        for stage in r.get("stages", [{"steps": r.get("steps", [])}]):
+            for st in stage["steps"]:
+                if st.get("tool") and st["tool"] not in c.items:
+                    problems.append(f"recipe {rid}: tool {st['tool']!r} not in items.json")
         for name in list(r.get("inputs", {})) + [r.get("output")]:
             if name not in c.items:
                 problems.append(f"recipe {rid}: item {name!r} not in items.json")

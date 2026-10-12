@@ -25,6 +25,9 @@ CLIENT_EVENTS = (USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2)
 STATION = 0x4                        # EntityTypes bit
 MAX_AP = 100
 RECIPE_OK, RECIPE_MISSING = 0xFF, 2
+# 0x2ec action rejected {wstr name, u8 code}: 1 missing item, 3 missing tool,
+# 4 missing tool of type, 6 not enough action points, 7 not now.
+MISSING_TOOL, NO_AP, NOT_NOW = 3, 6, 7
 
 
 def _event(event_id, data=b""):
