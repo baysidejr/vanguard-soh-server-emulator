@@ -193,7 +193,10 @@ def main():
     parser.add_argument("--world-port", type=int, default=10100, help="world server port (ClientWorldApi default 0x2774)")
     parser.add_argument("--world-address", default="127.0.0.1", help="world/zone address sent to the client")
     parser.add_argument("--zone-port", type=int, default=10102, help="zone server port (ClientZoneApi has no default)")
-    parser.add_argument("--zone-level", default="Entry", help="level name sent in the UE2 WELCOME")
+    parser.add_argument("--zone-level", default=None,
+                        help="force the level sent in the UE2 WELCOME (default: the character's chunk)")
+    parser.add_argument("--spawn-location", default="0,0,0",
+                        help="x,y,z of the replicated PlayerController")
     parser.add_argument("--client-dir", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
                         help="client install folder (package GUIDs for the UE2 package map)")
     parser.add_argument("--spawn-class", default="Engine.PlayerController",
@@ -201,8 +204,8 @@ def main():
     parser.add_argument("--spawn-rotation", action="store_true",
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
-    args.package_map = PackageMap(args.client_dir, args.zone_level)
-    args.net_cache = NetCache([(n, p) for n, p, _ in args.package_map.packages])
+    args.current_level = args.zone_level or chunk_name(*DEFAULT_CHUNK)
+    args.package_maps = {}
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     login_sock.bind((args.host, args.port))
@@ -346,6 +349,21 @@ def build_character_create_result(result, name):
     return event_message(0x386, data)
 
 
+# Default start: chunk (-19, 12). Chunks are Assets/Maps/chunk_<x>_<y>.vgr with
+# negative coordinates written as n<abs>; the client streams the neighbours in.
+DEFAULT_CHUNK = (-19, 12)
+
+
+def chunk_name(x, y):
+    def c(v):
+        return f"n{-v}" if v < 0 else str(v)
+    return f"chunk_{c(x)}_{c(y)}"
+
+
+def character_chunk(char):
+    return tuple(char.get("chunk", DEFAULT_CHUNK))
+
+
 def build_character_record(char):
     # World event 0x19 (FUN_005f0770) adds one character-select entry. Fixed layout:
     # +0x000/+0x080/+0x100 wchar[64] (the +0x100 one is matched against the world
@@ -364,6 +382,7 @@ def build_character_record(char):
     struct.pack_into("<I", rec, 0x180, klass)
     struct.pack_into("<I", rec, 0x184, 1)
     struct.pack_into("<I", rec, 0x19c, race)
+    struct.pack_into("<ii", rec, 0x1a4, *character_chunk(char))
     rec[0x1b7:0x1f7] = character_appearance(char)
     rec += (" ".join(["0"] * 180)).encode("ascii") + b"\0"
     return event_message(0x19, bytes(rec))
@@ -489,21 +508,32 @@ def handle_unreal(sock, addr, state, payload, args):
         send_message(sock, addr, state, unreal_message(ue.build([b])))
 
 
+def package_map(args, level):
+    """PackageMap + NetCache for a level, built once (chunk files are large)."""
+    if level not in args.package_maps:
+        pm = PackageMap(args.client_dir, level)
+        pm.net_cache = NetCache([(n, p) for n, p, _ in pm.packages])
+        args.package_maps[level] = pm
+    return args.package_maps[level]
+
+
 def spawn_bunch(ue, args):
-    pm = args.package_map
+    pm = package_map(args, args.current_level)
     index = pm.object_index(args.spawn_class)
     rotation = (0, 0, 0) if args.spawn_rotation else None
     cls = args.spawn_class.split(".", 1)[1]
-    cache = args.net_cache.class_cache(cls)
+    cache = pm.net_cache.class_cache(cls)
     props = []
     try:
         # Vanguard replicates bNetOwner; the client adopts an owned PlayerController
         # as its local player (UNetConnection::HandleClientPlayer).
-        owner = args.net_cache.field(cls, "bNetOwner")
+        owner = pm.net_cache.field(cls, "bNetOwner")
         props.append((owner.index, cache["max"], lambda w: w.bit(1)))
     except KeyError:
         pass
-    b = ue.actor_open_bunch(1, index, pm.max_object_index, rotation=rotation, properties=props)
+    location = tuple(float(v) for v in args.spawn_location.split(","))
+    b = ue.actor_open_bunch(1, index, pm.max_object_index, location=location, rotation=rotation,
+                            properties=props)
     print(f"  <- UNREAL actor open ch=1 {args.spawn_class} (index {index}/{pm.max_object_index}) "
           f"{b.nbits} bits: {b.data.hex(' ')}")
     return b
@@ -518,7 +548,8 @@ def unreal_control_reply(text, args):
         return ["CHALLENGE VER=3186 CHALLENGE=12345 STATS=0"]
     if word == "LOGIN":
         # USES lines fill the client's package map before WELCOME (FUN_009677e0).
-        return args.package_map.uses_lines() + [f"WELCOME LEVEL={args.zone_level} LONE=0"]
+        level = args.current_level
+        return package_map(args, level).uses_lines() + [f"WELCOME LEVEL={level} LONE=0"]
     if word == "JOIN" and args.spawn_class:
         return ["<SPAWN>"]
     return []
@@ -567,7 +598,9 @@ def handle_message(sock, server, addr, state, payload, args):
             # (seen: 01 00 ff ff 01 00 ff ff 00 00 00 00). Reply: connect to zone.
             name = data[:128].decode("utf-16-le", "replace").split("\0")[0]
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
-            msg = build_zone_connect_event(args.world_address, args.zone_port, "Chunk_0_0")
+            char = next((c for c in load_characters() if c["first"] == name), {})
+            args.current_level = args.zone_level or chunk_name(*character_chunk(char))
+            msg = build_zone_connect_event(args.world_address, args.zone_port, args.current_level)
             n = send_message(sock, addr, state, msg)
             print(f"  <- sent WORLD event 8 (connect to zone {args.world_address}:{args.zone_port}) ({n} packets)")
             return
