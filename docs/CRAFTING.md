@@ -1,6 +1,6 @@
 # Crafting (refining) message flow in VGClient.exe
 
-> **Verified live (2026-10-12):** U on the Camp Forge (EntityTypes 0x4) → Crafting Setup with "Copper Ingot" under Normal Recipes → select (0xfe) → Begin (0xfb, 0xfc) → crafting window (Grade, Action Pts 100/100, Stage 1: Smelting) → step → Smelt action (0xf6) → "You create Copper Ingot.", "You gain 120 crafting experience!", "Your crafting session ends."; 2 Copper Ore used, ingot in the bag. Implemented in `server/craft.py` and `login_stub.handle_craft_event`; recipes in `server/content/recipes.json`.
+> **Verified live (2026-10-12):** U on the Camp Forge (EntityTypes 0x4) → Crafting Setup with "Copper Ingot" under Normal Recipes → select (0xfe) → Begin (0xfb, 0xfc) → crafting window (Grade, Action Pts 100/100, Stage 1: Smelting) → step → Smelt action (0xf6) → "You create Copper Ingot.", "You gain 120 crafting experience!", "Your crafting session ends."; 2 Copper Ore used, ingot in the bag. Implemented in `server/craft.py` and `login_stub.handle_craft_event`; recipes in `server/content/recipes.json`. The station uses race 572 (BlacksmithForge static prop, table offset 0xe4af0); the client labels it "Crafting Station – Right-click to interact", but its model does not draw yet (open).
 
 
 This comes from static analysis only (Ghidra via REA) and has not been tested live. [O] means I read it in code; [I] means I inferred it.
