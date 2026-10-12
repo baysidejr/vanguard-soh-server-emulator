@@ -21,7 +21,7 @@ STRIKE_VISUALS = {"mining": 20084, "lumberjacking": 20083, "quarrying": 20085,
 NODE_DEPLETED_VISUAL = 20004
 STRIKES = 4                         # progress steps (the bar max is 18)
 STRIKE_SECONDS = 1.5
-ERR_ALREADY, ERR_HARVESTED, ERR_CANT_ATTACK = 0x77, 0x7A, 0x159
+ERR_ALREADY, ERR_HARVESTED, ERR_NEED_SKILL, ERR_CANT_ATTACK = 0x77, 0x7A, 0x7B, 0x159
 
 
 def _event(event_id, data=b""):
@@ -53,9 +53,28 @@ def error(code):
     return _event(0x0E, struct.pack("<h", code))
 
 
-def consider(node):
-    """0x3da kind 3: con 11 = "easy for you to start harvesting", + tool line."""
+def tool_failed(tool, reason=0x22):
+    """0x252: "You failed to use <tool> because ..." (0x20 rank too low, 0x21 wrong
+    type, 0x22 no tool for this resource, 0x23 wrong resource)."""
+    return _event(0x252, (tool + "\0").encode("utf-16-le") + struct.pack("<i", reason))
+
+
+def con_level(skill, node):
+    """10 trivial .. 14 much too difficult, from the player's skill against the
+    node's required skill ("skill") and its difficulty ("difficulty")."""
+    need, diff = node.harvest.get("skill", 1), node.harvest.get("difficulty", 10)
+    if skill < need:
+        return 14
+    if skill < diff - 5:
+        return 13
+    if skill < diff + 5:
+        return 12
+    return 11 if skill < diff + 20 else 10
+
+
+def consider(node, skill=1):
+    """0x3da kind 3: "<node> is easy for you to start harvesting." + tool line."""
     tool = node.harvest.get("tool", "Mining")
-    data = struct.pack("<iiii", 3, 11, 0, 1)
+    data = struct.pack("<iiii", 3, con_level(skill, node), 0, 1)
     data += (node.name + "\0").encode("utf-16-le") + (tool + "\0").encode("utf-16-le")
     return _event(0x3DA, data)

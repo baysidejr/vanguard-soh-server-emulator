@@ -1026,10 +1026,40 @@ def handle_harvest_event(state, event):
         send(harvest.error(harvest.ERR_ALREADY))
     elif time.time() < npc.depleted_until:
         send(harvest.error(harvest.ERR_HARVESTED))
+    elif not harvest_tool(player, npc.harvest["kind"]):
+        send(harvest.tool_failed(npc.harvest.get("tool", "Mining")))
+    elif player_skill(player, harvest.SKILLS[npc.harvest["kind"]]) < npc.harvest.get("skill", 1):
+        send(harvest.error(harvest.ERR_NEED_SKILL))
     else:
         state["harvest"] = {"npc": npc, "step": 0, "next": time.time() + harvest.STRIKE_SECONDS}
         send(harvest.open_window(npc, npc.harvest["kind"]))
         send(harvest.begun())
+
+
+def harvest_tool(player, kind):
+    """The equipped harvesting tool (slot 0x35) if it works on this resource kind."""
+    for _id, name, _icon, slot in player.equipment:
+        tpl = ARGS.content.item(name)
+        if slot == vgmsg.EQUIP_SLOTS["HARVESTTOOL"] and tpl.get("harvest") == kind:
+            return name
+    return None
+
+
+def player_skill(player, stat_id):
+    return next((v for sid, v, _ in player.skills if sid == stat_id), 0)
+
+
+def skill_up(state, stat_id, name, ceiling):
+    """Raise a skill by 1 (up to `ceiling` and the skill cap): stat update 0x2d4
+    and a chat line. Saved with the character."""
+    player, send = state["player"], state["send"]
+    value = player_skill(player, stat_id)
+    if value >= min(ceiling, zone.SKILL_CAP):
+        return
+    player.skills = [(sid, v + 1 if sid == stat_id else v, sub) for sid, v, sub in player.skills]
+    send(zone.zone_event(0x2D4, vgmsg.stat_update(stat_id, value + 1, maximum=zone.SKILL_CAP)))
+    send(build_system_text(f"Your {name} skill has increased to {value + 1}.", SYSTEM_TEXT_WHITE))
+    save_character_field(player.name, "skills", {str(sid): v for sid, v, _ in player.skills})
 
 
 def harvest_tick(state, now):
@@ -1064,6 +1094,11 @@ def harvest_tick(state, now):
         send(build_system_text(f"You harvest {qty} {name}.", SYSTEM_TEXT_WHITE))
         save_character_field(player.name, "items", [list(i) for i in player.items])
         quest_items_changed(state)
+        # Skill-ups: likely while the node is still a challenge, rare once trivial.
+        skill = player_skill(player, harvest.SKILLS[kind])
+        ceiling = npc.harvest.get("difficulty", 10) + 20
+        if random.random() < (0.75 if skill < npc.harvest.get("difficulty", 10) + 5 else 0.25):
+            skill_up(state, harvest.SKILLS[kind], kind.capitalize(), ceiling)
     else:
         send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
     send(harvest.ended())
@@ -1728,6 +1763,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.appearance = character_appearance(char)
             player.hotbar = char.get("hotbar")
             player.quests = quest.QuestLog(char.get("quests"))
+            saved_skills = {int(k): v for k, v in char.get("skills", {}).items()}
+            player.skills = [(sid, saved_skills.get(sid, v), sub) for sid, v, sub in player.skills]
             if "items" in char:
                 player.items = zone.normalize_items(char["items"])
             if "coins" in char:
@@ -1931,7 +1968,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player = state.get("player")
             npc = player.npcs.get(player.target) if player and player.target else None
             if npc:
-                send_message(sock, addr, state, harvest.consider(npc) if npc.harvest
+                send_message(sock, addr, state, harvest.consider(npc, player_skill(player, harvest.SKILLS[npc.harvest["kind"]])) if npc.harvest
                              else combat.consider(player, npc))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CHUNK_CHANGE_EVENT:
             chunk_handoff(state, payload, args)

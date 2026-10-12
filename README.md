@@ -41,7 +41,8 @@ The unmodified client, talking only to this emulator:
 - [x] Harvesting resource nodes (mining a copper vein) and crafting at a station (smelting a copper ingot)
 - [x] Diplomacy: a parley with an NPC (statement cards, the conversation bar, winning, diplomacy XP)
 - [x] Multi-step quests: kill, collect and talk steps, prerequisite quests, item rewards
-- [ ] harvesting tools and skills; multi-stage crafting with complications; real diplomacy decks and NPC strategy; returning to character select after /camp
+- [x] Harvesting tools (equip slot 0x35) and skills with skill-ups
+- [ ] Multi-stage crafting with complications; real diplomacy decks and NPC strategy; returning to character select after /camp
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 

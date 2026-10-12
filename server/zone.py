@@ -403,6 +403,7 @@ DEFAULT_SKILLS = [
     (0x88, 30, 4),      # Parry
     (0x4c, 12, 7),      # Sneak
     (0xfd, 40, 0x1e),   # Swimming
+    (0x0f, 1, 0x15),    # Mining
 ]
 SKILL_CAP = 50
 
@@ -453,7 +454,8 @@ ITEM_CONTENT = content.Content()
 
 
 ITEM_TYPE_IDS = {"misc": 3, "shield": 0, "weapon": 1, "armor": 4, "ranged": 9, "jewelry": 10,
-                 "container": 11, "ammo": 20}
+                 "container": 11, "ammo": 20,
+                 "harvest_tool": 16}
 
 
 def damage_encoding(lo, hi):

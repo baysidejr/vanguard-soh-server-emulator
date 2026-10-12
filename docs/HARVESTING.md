@@ -1,6 +1,12 @@
 # Harvesting in VGClient.exe: resource nodes, start/stop, progress UI, rewards
 
-> **Verified live (2026-10-12):** a Copper Ore Vein (SGONPCPawn race 172, EntityTypes 0x800); /con gives the harvesting lines; U (or the client's 0x109) opens the Harvesting window "Mining - Copper Ore Vein" with a progress bar; four strikes later "You harvest 3 Copper Ore." and the ore is in the bag. Implemented in `server/harvest.py` and `login_stub.handle_harvest_event/harvest_tick`; nodes are mob templates with a `harvest` block. Tools and harvesting skills are not checked yet. Use the static-prop races (e.g. 536 OreMedium) for visible nodes: race 172 (RockOre) showed only a name plate.
+> **Verified live (2026-10-12):** a Copper Ore Vein (SGONPCPawn race 172, EntityTypes 0x800); /con gives the harvesting lines; U (or the client's 0x109) opens the Harvesting window "Mining - Copper Ore Vein" with a progress bar; four strikes later "You harvest 3 Copper Ore." and the ore is in the bag. Implemented in `server/harvest.py` and `login_stub.handle_harvest_event/harvest_tick`; nodes are mob templates with a `harvest` block. 
+
+> **Tools and skills (verified live 2026-10-12):**
+> - **Tool check.** Harvesting needs a tool in the equip slot `0x35` "Harvesting Tool" whose items.json `harvest` kind matches the node. A "Miner's Pick" has item type 16 and right-click equips it to slot `0x35`. Without the tool the server sends `0x252 {"Mining", 0x22}`, and the client prints "You failed to use Mining because you do not have a tool that harvests the right type of resource equipped."
+> - **Skill check.** Mining is skill stat `0x0f` (subtype 0x15). If it is below the node's `skill`, the server sends `0x0e 0x7b`.
+> - **/con.** The con value is 10–14, computed from the player's skill against the node's `difficulty`.
+> - **Skill-ups.** A successful harvest may raise the skill by 1. The server sends `0x2d4` and the chat line "Your Mining skill has increased to N." Skill values are saved with the character. Use the static-prop races (e.g. 536 OreMedium) for visible nodes: race 172 (RockOre) showed only a name plate.
 
 
 Static analysis only (Ghidra via REA, plus the client's .u/.aby packages read with `server/upackage.py`).
