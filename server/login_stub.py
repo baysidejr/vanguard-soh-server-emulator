@@ -386,12 +386,14 @@ def build_set_name_id(char):
     # World event 10 (FUN_0062aaf0) becomes the console command
     #   SetNameID "<+0x80>" "<+0x00>" "<+0xe0>" "<+0x130>" "<+0x1b0>" <+0x234> <u64 +0x230> <+0x248>
     # (FUN_00413590), which fills the session object read by BECOME_PC (+0xc0 = id).
-    # String meanings are a best guess: first name, last name, world, -, chunk.
+    # Strings: +0x00 first name, +0x80 last name, +0xe0 world, +0x1b0 the name
+    # shown in the character window (verified: a chunk name put there showed up
+    # as the character's name); +0x130 unknown.
     rec = bytearray(0x24C)
     rec[0x000:0x080] = wfield(char["first"], 0x80)
     rec[0x080:0x0e0] = wfield(char.get("last", ""), 0x60)
     rec[0x0e0:0x130] = wfield(char.get("world", WORLD_NAME), 0x50)
-    rec[0x1b0:0x230] = wfield(chunk_name(*character_chunk(char)), 0x80)
+    rec[0x1b0:0x230] = wfield(char["first"], 0x80)
     struct.pack_into("<Q", rec, 0x230, character_id(char))
     return event_message(10, bytes(rec))
 
@@ -569,6 +571,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 name=name,
                 char_id=character_id(char),
                 race=character_race_class(char)[0] if char.get("raw") else 0x0E,
+                klass=character_race_class(char)[1] if char.get("raw") else 0x1C,
                 level=args.zone_level or chunk_name(*character_chunk(char)),
                 position=saved if saved and same_chunk else None,
                 save_position=lambda loc, n=name: save_character_position(n, loc))

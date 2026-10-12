@@ -66,6 +66,7 @@ def handle_unreal(send, state, payload, args):
         loc = player.spawned_at or (0.0, 0.0, 0.0)
         send(zone_event(0x3DE, vgmsg.score(
             x=loc[0], y=loc[1], z=loc[2], race=player.race,
+            class_byte=player.klass, adv_class=player.klass,
             adv_level=10, adv_exp=500, adv_exp_next=1000,
             craft_level=1, harvest_level=1, dip_level=1, move_speed=1.0)))
         print("  <- ZONE event 0x3de (MsgScore)")
@@ -123,11 +124,12 @@ class Player:
     the world server on Play and claimed by the zone connection with the same
     session key (see login_stub.py)."""
 
-    def __init__(self, name="", char_id=None, race=0x0E, level="", position=None,
+    def __init__(self, name="", char_id=None, race=0x0E, klass=0x1C, level="", position=None,
                  save_position=None):
         self.name = name
         self.char_id = char_id
         self.race = race
+        self.klass = klass
         self.level = level
         self.position = position          # saved spawn point, or None
         self.save_position = save_position
