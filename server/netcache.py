@@ -64,6 +64,22 @@ def function_params(p, func_index):
     return [info[i][:4] for i in order if info[i][2] & CPF_PARM and not info[i][2] & CPF_RETURN]
 
 
+def byte_enum_size(p, extra):
+    """Number of values of a ByteProperty's enum (0 = plain byte). extra starts
+    at the property's Category; net properties then have a u16 RepOffset and
+    ByteProperty a compact Enum reference."""
+    _, pos = _compact(extra, 0)          # category
+    pos += 2                              # RepOffset (CPF_Net)
+    enum_ref, _ = _compact(extra, pos)
+    if enum_ref <= 0:
+        return 0                          # none, or an import (not resolved here)
+    e = p.exports[enum_ref - 1]
+    raw = p.raw[e["offset"]:e["offset"] + e["size"]]
+    _, _, epos = _field_header(raw)
+    count, _ = _compact(raw, epos)
+    return count
+
+
 class NetField:
     def __init__(self, name, kind, array_dim=1, prop_class=None, extra=b"", params=None):
         self.name = name
@@ -71,10 +87,33 @@ class NetField:
         self.array_dim = array_dim
         self.extra = extra
         self.params = params or []    # functions: [(name, kind, flags, extra)] in order
+        self.enum_size = 0            # ByteProperty with an enum: number of values
         self.index = None
 
     def __repr__(self):
         return f"<{self.kind} {self.name} #{self.index}>"
+
+    def writer(self, value):
+        """A function w(BitWriter) that serializes value as this property's
+        NetSerializeItem: bool 1 bit, int/float 32 bits, byte 8 bits or
+        SerializeInt(value, enum size), string = FString bytes."""
+        import struct as _s
+        from ue2net import compact_index
+        k = self.kind
+        if k == "BoolProperty":
+            return lambda w: w.bit(1 if value else 0)
+        if k == "IntProperty":
+            return lambda w: w.bits(int(value) & 0xFFFFFFFF, 32)
+        if k == "FloatProperty":
+            return lambda w: w.bits(_s.unpack("<I", _s.pack("<f", float(value)))[0], 32)
+        if k == "ByteProperty":
+            if self.enum_size:
+                return lambda w: w.serialize_int(int(value), self.enum_size)
+            return lambda w: w.bits(int(value) & 0xFF, 8)
+        if k == "StrProperty":
+            raw = str(value).encode("latin-1", "replace") + bytes(1)
+            return lambda w: w.bytes_(compact_index(len(raw)) + raw)
+        raise ValueError(f"{self.name}: {k} not supported")
 
 
 class NetCache:
@@ -102,7 +141,10 @@ class NetCache:
                 sup, nxt, pos = _field_header(raw)
                 dim, flags = struct.unpack_from("<II", raw, pos)
                 if flags & CPF_NET:
-                    fields.append(NetField(e["name"], kind, dim, extra=raw[pos + 8:]))
+                    f = NetField(e["name"], kind, dim, extra=raw[pos + 8:])
+                    if kind == "ByteProperty":
+                        f.enum_size = byte_enum_size(p, raw[pos + 8:])
+                    fields.append(f)
             elif kind == "Function":
                 sup, _, _ = _field_header(raw)
                 flags = struct.unpack_from("<I", raw, len(raw) - 6)[0]
@@ -138,6 +180,13 @@ class NetCache:
             if f.index == index:
                 return f
         return None
+
+    def props(self, class_name, values):
+        """[(rep_index, max_index, writer)] for actor_open_bunch from
+        {property name: value}."""
+        cache = self.class_cache(class_name)
+        return [(f.index, cache["max"], f.writer(v))
+                for f, v in ((self.field(class_name, n), v) for n, v in values.items())]
 
     def field(self, class_name, field_name):
         for f in self.class_cache(class_name)["all"]:

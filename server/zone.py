@@ -107,25 +107,26 @@ FIRST_NPC_CHANNEL = 3
 # non-owned pawn (SGONPCPawn or SGOPCPawn) does not render - it likely needs
 # appearance/model data we don't send yet.
 TEST_NPCS = [
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Emulator Guide", 0x0E, (450.0, 0.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x0E, (150.0, 0.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x0E, (-150.0, 0.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x0E, (0.0, 150.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x0E, (0.0, -150.0, 0.0)),
 ]
 
 
 def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
     """Open an actor channel for a non-player pawn (same layout as the player's
     pawn, without bNetOwner)."""
-    nc = pm.net_cache
     cls = cls_path.split(".", 1)[1]
-    cache = nc.class_cache(cls)
-    raw = name.encode("latin-1", "replace") + bytes(1)
-    props = [
-        (nc.field(cls, "m_iRaceId").index, cache["max"], lambda w: w.bits(race, 32)),
-        (nc.field(cls, "Health").index, cache["max"], lambda w: w.bits(100, 32)),
-        (nc.field(cls, "m_PlayerDisplayName").index, cache["max"],
-         lambda w: w.bytes_(ue2net.compact_index(len(raw)) + raw)),
-        (nc.field(cls, "EntityIDLowInt").index, cache["max"], lambda w: w.bits(entity_id & 0xFFFFFFFF, 32)),
-        (nc.field(cls, "EntityIDHighInt").index, cache["max"], lambda w: w.bits(entity_id >> 32, 32)),
-    ]
+    props = pm.net_cache.props(cls, {
+        "bHidden": False,
+        "m_iRaceId": race,
+        "Health": 100,
+        "m_iModelNum": -1,          # the race's default model (FUN_00bcb8e0)
+        "m_PlayerDisplayName": name,
+        "EntityIDLowInt": entity_id & 0xFFFFFFFF,
+        "EntityIDHighInt": entity_id >> 32,
+    })
     return ue.actor_open_bunch(channel, pm.object_index(cls_path), pm.max_object_index,
                                location=location, extra=(0xFF, -1, 0x3F800000), properties=props)
 
@@ -155,25 +156,17 @@ def spawn_bunches(ue, args):
 
     pawn_cls = args.pawn_class.split(".", 1)[1] if args.pawn_class else None
     if pawn_cls:
-        cache = nc.class_cache(pawn_cls)
-        props = [(nc.field(pawn_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
+        values = {
+            "bNetOwner": True,
+            "m_iRaceId": getattr(args, "current_char_race", 0x0E),
+            "Health": 100,
+            "m_PlayerDisplayName": getattr(args, "current_char_name", ""),
+        }
         cid = getattr(args, "current_char_id", None)
         if cid is not None:
-            props.append((nc.field(pawn_cls, "EntityIDLowInt").index, cache["max"],
-                          lambda w, v=cid & 0xFFFFFFFF: w.bits(v, 32)))
-            props.append((nc.field(pawn_cls, "EntityIDHighInt").index, cache["max"],
-                          lambda w, v=cid >> 32: w.bits(v, 32)))
-        def put_int(v):
-            return lambda w: w.bits(v & 0xFFFFFFFF, 32)
-
-        def put_str(s):
-            raw = s.encode("latin-1", "replace") + bytes(1)
-            return lambda w: w.bytes_(ue2net.compact_index(len(raw)) + raw)
-
-        for fname, write in (("m_iRaceId", put_int(getattr(args, "current_char_race", 0x0E))),
-                             ("Health", put_int(100)),
-                             ("m_PlayerDisplayName", put_str(getattr(args, "current_char_name", "")))):
-            props.append((nc.field(pawn_cls, fname).index, cache["max"], write))
+            values["EntityIDLowInt"] = cid & 0xFFFFFFFF
+            values["EntityIDHighInt"] = cid >> 32
+        props = nc.props(pawn_cls, values)
         # Pawn subclasses carry three extra fields (FUN_00962350); these are the
         # client's own defaults (0xff, -1, 1.0f).
         b = ue.actor_open_bunch(PAWN_CHANNEL, pm.object_index(args.pawn_class), pm.max_object_index,
@@ -184,7 +177,7 @@ def spawn_bunches(ue, args):
 
     pc_cls = args.spawn_class.split(".", 1)[1]
     cache = nc.class_cache(pc_cls)
-    props = [(nc.field(pc_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
+    props = nc.props(pc_cls, {"bNetOwner": True})
     if pawn_cls:
         def pawn_ref(w):
             w.bit(1)                                   # actor, by channel
