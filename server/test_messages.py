@@ -195,6 +195,37 @@ class ParleyTests(unittest.TestCase):
         self.assertEqual(p.outcome(), "lost")
 
 
+class ServiceMessageTests(unittest.TestCase):
+    def test_craft_stages_and_complications(self):
+        import content
+        import craft
+        r = content.Content().recipes["copper_ingot"]
+        steps = craft.all_steps(r)
+        self.assertEqual([si for _, si, _ in steps], [0, 0, 1, 1])
+        rec = craft.recipe_record(r)
+        self.assertIn("Preparation".encode("utf-16-le"), rec)
+        comp = craft.complications([(r["complications"][0], 100)])
+        empty = craft.complications([])
+        self.assertEqual(struct.unpack_from("<I", comp, 2)[0], 0x2F9)
+        # Three empty slots: 3 x (wstr "" + i32 + wstr "" + i32 + 2 wstr "" + 3 i32) = 3 x 28 bytes.
+        self.assertEqual(len(empty) - 10, 84)
+        self.assertEqual(craft.grade_letter(749), "B")
+
+    def test_trainer_list_layout(self):
+        import trainer
+        start, listing = trainer.begin([(570007, "Smash I", "Smash.", 553, 100)])
+        self.assertEqual(struct.unpack_from("<I", start, 2)[0], 0x492)
+        body = listing[10:]
+        self.assertEqual(struct.unpack_from("<i", body, 0)[0], 1)
+        self.assertEqual(struct.unpack_from("<iif", body, len(body) - 12), (570007, 553, 100.0))
+
+    def test_bank_slots(self):
+        import bank
+        self.assertEqual(bank.free_slot([(1, "a", 0, 1, 0), (2, "b", 0, 1, 2)]), 1)
+        self.assertIsNone(bank.free_slot([(n, "x", 0, 1, n) for n in range(bank.CAPACITY)]))
+        self.assertEqual(len(bank.start("Bank", 5)) - 10, len("Bank\0".encode("utf-16-le")) + 12)
+
+
 class TradeTests(unittest.TestCase):
     def test_full_bag_cancels_whole_trade(self):
         from unittest import mock
