@@ -13,6 +13,7 @@ import struct
 import time
 
 import ue2net
+import vgmsg
 import zone
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
@@ -207,7 +208,9 @@ def main():
     parser.add_argument("--npc-entity-id", type=lambda v: int(v, 0), default=None,
                         help="entity id for the --test-npc pawn (experiments)")
     parser.add_argument("--test-stats", action="store_true",
-                        help="send stat ids 1..60 with value 100+id (to map stat ids)")
+                        help="fill MsgScore fields 35+ with their own index (to map UI slots)")
+    parser.add_argument("--dev-commands", action="store_true",
+                        help="enable !stat / !event chat commands (see dev_command)")
     parser.add_argument("--test-npc", action="store_true",
                         help="also spawn a test pawn next to the player (does not render yet)")
     parser.add_argument("--spawn-rotation", action="store_true",
@@ -507,6 +510,44 @@ PENDING_PLAYERS = {}
 LOGIN_CONN = {}
 
 
+def dev_command(text):
+    """Developer chat commands (only with --dev-commands), for probing the client:
+      !stat id=value[,field=value...] ...   send MsgSingleStatInfo records (0x2d5).
+        Field names: kind, category, subtype, base, f<N> (raw wire field N).
+      !upd id=value[,field=value...] ...    send MsgStatUpdate (0x2d4) per stat.
+      !event id [hexbytes]                  send a raw zone event."""
+    words = text[1:].split()
+    if not words:
+        return []
+    if words[0] == "stat":
+        recs = []
+        for spec in words[1:]:
+            parts = spec.split(",")
+            sid, value = (int(x, 0) for x in parts[0].split("="))
+            kw = dict(p.split("=") for p in parts[1:])
+            raw = {int(k[1:]): int(v, 0) for k, v in kw.items() if k.startswith("f")}
+            opts = {k: int(v, 0) for k, v in kw.items() if not k.startswith("f")}
+            recs.append(vgmsg.stat_info(sid, value, raw=raw, **opts))
+        print(f"  <- dev: {len(recs)} stat record(s)")
+        return [zone.zone_event(0x2D5, vgmsg.stat_list(recs))]
+    if words[0] == "upd":
+        out = []
+        for spec in words[1:]:
+            parts = spec.split(",")
+            sid, value = (int(x, 0) for x in parts[0].split("="))
+            kw = dict(p.split("=") for p in parts[1:])
+            raw = {int(k[1:]): int(v, 0) for k, v in kw.items() if k.startswith("f")}
+            opts = {k: int(v, 0) for k, v in kw.items() if not k.startswith("f")}
+            out.append(zone.zone_event(0x2D4, vgmsg.stat_update(sid, value, raw=raw, **opts)))
+        print(f"  <- dev: {len(out)} stat update(s)")
+        return out
+    if words[0] == "event":
+        data = bytes.fromhex("".join(words[2:]))
+        print(f"  <- dev: zone event {words[1]} ({len(data)} bytes)")
+        return [zone.zone_event(int(words[1], 0), data)]
+    return []
+
+
 def build_chat_line(speaker, text, channel=0):
     """Zone event 0x0f (MsgTwoStringsAndInt): shown as "[channel][speaker]: text"."""
     data = (text + chr(0)).encode("utf-16-le") + (speaker + chr(0)).encode("utf-16-le")
@@ -598,6 +639,9 @@ def handle_message(sock, server, addr, state, payload, args):
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
+            if text.startswith("!") and args.dev_commands:
+                for m in dev_command(text):
+                    send_message(sock, addr, state, m)
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:

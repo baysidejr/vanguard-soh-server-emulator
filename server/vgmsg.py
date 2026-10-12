@@ -52,15 +52,57 @@ def score(probe=False, **kw):
 
 # MsgSingleStatInfo (zone 0x2d3 one stat, 0x2d5 = i32 count + records; handler
 # FUN_00577790). Wire order (inferred from where the handler stores each field):
-# 0 stat id, 1 ?, 2 category (0 attribute...), 3 base, 4 ?, 5 ?, 6 current (shown),
-# 7 ?, 8 ?, 9 ?, 10 type (5 = special), 11 ?, 12 subtype (UI hook), 13 ?, 14 ?
+# 0 stat id (+0x5c), 1 instance id (+4), 2 category (+0x4c; 0 adventuring,
+# 1 crafting, 3 harvesting), 3 base (+0x28), 4 (+0x30), 5 (+0x2c), 6 current (+0x34),
+# 7 (+0x3c), 8 max (+0x40), 9 (+0x38), 10 kind (+8; 1 attribute, 5 special),
+# 11 (+0x44), 12 subtype (+0x48, UI hook), 13 (+0x50), 14 (+0x54)
 STAT_TYPES = "iib" "iiiiiii" "bbb" "ii"
 
 
-def stat_info(stat_id, value, category=0, subtype=0, base=None):
+def stat_info(stat_id, value, category=0, subtype=0, base=None, kind=0, raw=None,
+              maximum=None):
+    """kind (wire field 10, stat +8): for category 0, 1 = attribute, 2/4 = skill,
+    5 = expendable, 6 = absorption (FUN_00556c50)."""
     v = [0] * len(STAT_TYPES)
     v[0], v[2], v[3], v[6], v[12] = stat_id, category, value if base is None else base, value, subtype
+    v[1] = stat_id        # instance id (+4); 0x2d4 updates find the stat by it
+    if maximum is not None:
+        v[8] = maximum    # +0x40: bar maximum (current/max drive the HUD bars)
+    v[10] = kind
+    for i, x in (raw or {}).items():
+        v[i] = x
     return pack(STAT_TYPES, v)
+
+
+# Stat ids (wire field 0, stat +0x5c) the character window looks up by name
+# (FUN_00573070: category 0 -> PCAdv*/Stat* UI vars).
+STAT_IDS = {
+    "strength": 0x03, "constitution": 0x6F, "dexterity": 0x73, "vitality": 0x9A,
+    "intelligence": 0x9E, "wisdom": 0xAA,
+    "hit_points": 0xD2, "endurance": 0xE0, "energy": 0xEE,
+    "res_fire": 0x37, "res_physical": 0x72, "res_mental": 0x89, "res_arcane": 0xA3,
+    "res_cold": 0xBA, "res_spiritual": 0xBD, "res_shadow": 0x100, "res_holy": 0x101,
+    "res_planar": 0x102,
+}
+ATTRIBUTES = ("strength", "constitution", "dexterity", "vitality", "intelligence", "wisdom")
+
+
+# MsgStatUpdate (zone 0x2d4, handler FUN_00576c90): changes a stat created by
+# 0x2d3/0x2d5, found by (instance id, category). Only this path refreshes the
+# character window's attribute values (FUN_00573070). Field order inferred from
+# the handler's stack layout:
+# 0 instance id, 1 category, 2 base (+0x28), 3 (+0x30), 4 (+0x2c), 5 current (+0x34),
+# 6 (+0x3c), 7 max (+0x40), 8 (+0x38), 9 byte (+0x44), 10 (+0x50), 11 (+0x54), 12 stat id
+STAT_UPDATE_TYPES = "ib" "iiiiiii" "b" "iii"
+
+
+def stat_update(stat_id, value, category=0, base=None, maximum=None, raw=None):
+    v = [0] * len(STAT_UPDATE_TYPES)
+    v[0], v[1], v[2], v[5], v[12] = stat_id, category, value if base is None else base, value, stat_id
+    v[7] = value if maximum is None else maximum
+    for i, x in (raw or {}).items():
+        v[i] = x
+    return pack(STAT_UPDATE_TYPES, v)
 
 
 def stat_list(records):

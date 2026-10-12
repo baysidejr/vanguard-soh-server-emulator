@@ -70,16 +70,9 @@ def handle_unreal(send, state, payload, args):
             adv_level=10, adv_exp=500, adv_exp_next=1000, adv_exp_frac=0.5, armor_class=25,
             craft_level=1, harvest_level=1, dip_level=1, move_speed=1.0)))
         print("  <- ZONE event 0x3de (MsgScore)")
-        if args.test_stats:
-            # value = 100*category + subtype, so the screen shows which slot is which
-            recs = []
-            for cat, subs in ((0, (0, 1, 4, 7, 9, 0x1E)),
-                              (1, (5, 6, 10, 11, 14, 15, 18, 19, 24, 25, 28, 29))):
-                for s in subs:
-                    recs.append(vgmsg.stat_info(1000 + 100 * cat + s, 100 * cat + s + 10,
-                                                category=cat, subtype=s))
-            send(zone_event(0x2D5, vgmsg.stat_list(recs)))
-            print("  <- ZONE event 0x2d5 (test stats 1..60)")
+        for m in stat_messages(player):
+            send(m)
+        print("  <- ZONE events 0x2d5/0x2d4 (stats)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
         if args.test_npc:
@@ -129,6 +122,30 @@ def package_map(args, level):
     return args.package_maps[level]
 
 
+DEFAULT_STATS = {
+    "strength": 40, "constitution": 40, "dexterity": 30, "vitality": 30,
+    "intelligence": 20, "wisdom": 20,
+    "hit_points": 210, "endurance": 100, "energy": 100,
+}
+
+
+def stat_messages(player):
+    """Zone events that fill the character window and HUD bars.
+
+    Stats are created with MsgStatList (0x2d5) and then updated with
+    MsgStatUpdate (0x2d4): the attribute UI vars (PCAdvStrength...) are only set
+    on the update path (FUN_00576c90 -> FUN_00573070); HP/End/Energy are set on
+    creation (FUN_005763b0)."""
+    recs = []
+    for name, value in player.stats.items():
+        kind = 1 if name in vgmsg.ATTRIBUTES else 0
+        recs.append(vgmsg.stat_info(vgmsg.STAT_IDS[name], value, kind=kind, maximum=value))
+    out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
+    for name in vgmsg.ATTRIBUTES:
+        out.append(zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[name], player.stats[name])))
+    return out
+
+
 class Player:
     """One character in the zone: who it is and where it should appear. Built by
     the world server on Play and claimed by the zone connection with the same
@@ -144,6 +161,8 @@ class Player:
         self.position = position          # saved spawn point, or None
         self.save_position = save_position
         self.spawned_at = None
+        # Character sheet values (no real character progression yet).
+        self.stats = dict(DEFAULT_STATS)
 
 
 PC_CHANNEL = 1
