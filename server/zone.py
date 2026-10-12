@@ -174,10 +174,10 @@ FIRST_NPC_CHANNEL = 3
 # non-owned pawn (SGONPCPawn or SGOPCPawn) does not render - it likely needs
 # appearance/model data we don't send yet.
 TEST_NPCS = [
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (0.0, 90.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (0.0, -90.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x04, (0.0, 150.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x02, (0.0, -150.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (-60.0, 50.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (-60.0, -50.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x0E, (-120.0, 0.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x02, (-180.0, 40.0, 0.0)),
 ]
 
 
@@ -202,11 +202,18 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
                                location=location, extra=(0xFF, -1, 0x3F800000), properties=props)
 
 
+SPAWN_Z_LIFT = 90.0   # observed: spawn z 4900 -> pawn at 4990 (= CollisionHeight)
+
+
 def spawn_location(args, pm, player):
     if args.spawn_location:
         return tuple(float(v) for v in args.spawn_location.split(","))
     if player.position:
-        return tuple(float(v) for v in player.position)
+        # The saved position is the client's ClientLoc (pawn centre). The client
+        # places a spawned pawn SPAWN_Z_LIFT above the given location, so
+        # without this the character would rise 90 units at every login.
+        x, y, z = (float(v) for v in player.position)
+        return (x, y, z - SPAWN_Z_LIFT)
     starts = [s for s in pm.packages[0][1].player_starts() if s]
     return starts[0] if starts else (0.0, 0.0, 0.0)
 
