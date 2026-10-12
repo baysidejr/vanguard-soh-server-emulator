@@ -485,6 +485,12 @@ WORLD_CONN = {}
 LOGIN_CONN = {}
 
 
+def build_chat_line(speaker, text, channel=0):
+    """Zone event 0x0f (MsgTwoStringsAndInt): shown as "[channel][speaker]: text"."""
+    data = (text + chr(0)).encode("utf-16-le") + (speaker + chr(0)).encode("utf-16-le")
+    return event_message(0x0F, data + struct.pack("<i", channel))
+
+
 def build_zone_connect_event(host, port, name):
     # World event 8 (FUN_0062aaf0 case 8): u32 port, wchar[64] host at +4,
     # wchar[64] name at +0x84. The client formats "%s:%d", logs "Connecting to
@@ -539,6 +545,7 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
             char = next((c for c in load_characters() if c["first"] == name), {"first": name})
             args.current_char_id = character_id(char)
+            args.current_char_name = name
             args.current_level = args.zone_level or chunk_name(*character_chunk(char))
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x})")
@@ -551,6 +558,14 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE login request: account={login[0]!r} session={login[1]!r}")
             send_message(sock, addr, state, build_login_reply(True))
             print("  <- sent ZONE PacketLoginReply(success=1)")
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
+            # Say (client event 0x74): wstr text. The client echoes "You say, ..."
+            # itself, so nothing goes back to the speaker. Other players would get
+            # zone event 0x0f via build_chat_line (verified live: field order is
+            # text, speaker; channel 0 renders as "[???]" - Say's id is unknown).
+            text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
+            speaker = getattr(args, "current_char_name", "Someone")
+            print(f"  >>> ZONE say from {speaker!r}: {text!r}")
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:

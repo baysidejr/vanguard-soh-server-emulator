@@ -51,6 +51,8 @@ def handle_unreal(send, state, payload, args):
     for b in out:
         send(unreal_message(ue.build([b])))
     if "<SPAWN>" in replies:
+        motd = "Welcome to the Vanguard emulator."
+        send(zone_event(0x70, (motd + "\0").encode("utf-16-le")))   # message of the day
         for event_id in args.zone_in_events:
             # Zone events after the spawn. 0x485 (no payload) sets the client's
             # "world loaded" flags (subsystem manager +0x2b1, +0xd8).
