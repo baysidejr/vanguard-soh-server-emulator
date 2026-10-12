@@ -94,6 +94,34 @@ def package_map(args, level):
 
 PC_CHANNEL = 1
 PAWN_CHANNEL = 2
+FIRST_NPC_CHANNEL = 3
+
+# Test pawn for --test-npc: (class, name, race, offset from the player's spawn
+# point). The client spawns it and applies the properties, but as of now a
+# non-owned pawn (SGONPCPawn or SGOPCPawn) does not render - it likely needs
+# appearance/model data we don't send yet.
+TEST_NPCS = [
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Emulator Guide", 0x0E, (60.0, 160.0, 0.0)),
+]
+
+
+def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
+    """Open an actor channel for a non-player pawn (same layout as the player's
+    pawn, without bNetOwner)."""
+    nc = pm.net_cache
+    cls = cls_path.split(".", 1)[1]
+    cache = nc.class_cache(cls)
+    raw = name.encode("latin-1", "replace") + bytes(1)
+    props = [
+        (nc.field(cls, "m_iRaceId").index, cache["max"], lambda w: w.bits(race, 32)),
+        (nc.field(cls, "Health").index, cache["max"], lambda w: w.bits(100, 32)),
+        (nc.field(cls, "m_PlayerDisplayName").index, cache["max"],
+         lambda w: w.bytes_(ue2net.compact_index(len(raw)) + raw)),
+        (nc.field(cls, "EntityIDLowInt").index, cache["max"], lambda w: w.bits(entity_id & 0xFFFFFFFF, 32)),
+        (nc.field(cls, "EntityIDHighInt").index, cache["max"], lambda w: w.bits(entity_id >> 32, 32)),
+    ]
+    return ue.actor_open_bunch(channel, pm.object_index(cls_path), pm.max_object_index,
+                               location=location, extra=(0xFF, -1, 0x3F800000), properties=props)
 
 
 def spawn_location(args, pm):
@@ -157,6 +185,11 @@ def spawn_bunches(ue, args):
                             location=location, rotation=rotation, properties=props)
     print(f"  <- UNREAL actor open ch={PC_CHANNEL} {args.spawn_class} {b.nbits} bits: {b.data.hex(' ')}")
     out.append(b)
+    for n, (cls_path, name, race, off) in enumerate(TEST_NPCS if args.test_npc else []):
+        loc = tuple(a + b for a, b in zip(location, off))
+        b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, 0x2000000 + n)
+        print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
+        out.append(b)
     if pawn_cls:
         # RPC PlayerController.ClientRestart() (no parameters in this build): the
         # client takes the pawn and enters its walking state.
