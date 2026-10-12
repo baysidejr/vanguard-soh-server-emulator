@@ -91,6 +91,37 @@ class BitWriter:
         for byte in data:
             self.bits(byte, 8)
 
+    def packed(self):
+        """(bytes, bit count) without a terminator, for bunch payloads."""
+        out = bytearray((len(self.bitlist) + 7) // 8)
+        for i, b in enumerate(self.bitlist):
+            if b:
+                out[i >> 3] |= 1 << (i & 7)
+        return bytes(out), len(self.bitlist)
+
+    def vector(self, v):
+        """FVector::SerializeCompressed (client reader FUN_00962170)."""
+        ints = [int(round(c)) for c in v]
+        biggest = max(abs(i) for i in ints)
+        # appCeilLogTwo(1 + biggest), clamped to 1..20, minus one
+        n = 1 + biggest
+        ceil_log2 = (n - 1).bit_length()
+        bits = max(1, min(20, ceil_log2)) - 1
+        self.serialize_int(bits, 20)
+        bias = 1 << (bits + 1)
+        top = 1 << (bits + 2)
+        for i in ints:
+            self.serialize_int(i + bias, top)
+
+    def rotator(self, r):
+        """FRotator::SerializeCompressed (FUN_00960d40): per component a flag bit,
+        then the top byte if non-zero."""
+        for c in r:
+            b = (int(c) >> 8) & 0xFF
+            self.bit(1 if b else 0)
+            if b:
+                self.bits(b, 8)
+
     def finish(self):
         """Terminator bit, then pad to a whole byte."""
         bits = self.bitlist + [1]
@@ -158,9 +189,10 @@ def read_fstrings(data):
 
 class Bunch:
     def __init__(self, channel, data, reliable=True, control=False, open_=False, close=False,
-                 ch_type=CHTYPE_CONTROL, seq=0):
+                 ch_type=CHTYPE_CONTROL, seq=0, nbits=None):
         self.channel = channel
         self.data = data
+        self.nbits = len(data) * 8 if nbits is None else nbits
         self.reliable = reliable
         self.control = control
         self.open = open_
@@ -198,7 +230,7 @@ def decode_packet(data):
         if rest:
             payload += bytes([r.bits(rest)])
         bunches.append(Bunch(channel, payload, bool(reliable), bool(control), bool(open_),
-                             bool(close), ch_type, seq))
+                             bool(close), ch_type, seq, nbits))
     return packet_id, acks, bunches
 
 
@@ -220,8 +252,9 @@ def encode_packet(packet_id, acks=(), bunches=()):
             w.serialize_int(b.seq, MAX_CHSEQUENCE)
         if b.reliable or b.open:
             w.serialize_int(b.ch_type, CHTYPE_MAX)
-        w.serialize_int(len(b.data) * 8, MAX_BUNCH_BITS)
-        w.bytes_(b.data)
+        w.serialize_int(b.nbits, MAX_BUNCH_BITS)
+        for i in range(b.nbits):
+            w.bit((b.data[i >> 3] >> (i & 7)) & 1)
     return w.finish()
 
 
@@ -252,6 +285,31 @@ class UnrealSession:
         self.out_reliable[0] = seq
         data = b"".join(fstring(t) for t in texts)
         return Bunch(0, data, reliable=True, control=True, ch_type=CHTYPE_CONTROL, seq=seq)
+
+    def actor_open_bunch(self, channel, class_index, max_object_index, location=(0, 0, 0),
+                         rotation=None, extra=None):
+        """Open an actor channel and spawn an actor of the given class on the client
+        (UActorChannel::ReceivedBunch, FUN_00964ab0). Payload: object reference
+        (bit 0 = not an actor channel, then SerializeInt(class, MaxObjectIndex)),
+        compressed location, rotation if the class has bNetInitialRotation, and
+        for Pawn subclasses Vanguard's extra byte + 2 u32s. Properties follow;
+        none are sent here."""
+        w = BitWriter()
+        w.bit(0)
+        w.serialize_int(class_index, max_object_index)
+        w.vector(location)
+        if rotation is not None:
+            w.rotator(rotation)
+        if extra is not None:
+            byte, a, b = extra
+            w.bits(byte, 8)
+            w.bits(a & 0xFFFFFFFF, 32)
+            w.bits(b & 0xFFFFFFFF, 32)
+        data, nbits = w.packed()
+        seq = self.out_reliable.get(channel, 0) + 1
+        self.out_reliable[channel] = seq
+        return Bunch(channel, data, reliable=True, control=True, open_=True,
+                     ch_type=CHTYPE_ACTOR, seq=seq, nbits=nbits)
 
     def build(self, bunches=()):
         """One outgoing packet carrying pending acks and the given bunches."""

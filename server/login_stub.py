@@ -13,6 +13,7 @@ import struct
 import time
 
 import ue2net
+from packagemap import PackageMap
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
 #   00 01 | u32be protocol(3) | u32be connectCode | u32be maxRawPacketSize | cstring
@@ -192,7 +193,14 @@ def main():
     parser.add_argument("--world-address", default="127.0.0.1", help="world/zone address sent to the client")
     parser.add_argument("--zone-port", type=int, default=10102, help="zone server port (ClientZoneApi has no default)")
     parser.add_argument("--zone-level", default="Entry", help="level name sent in the UE2 WELCOME")
+    parser.add_argument("--client-dir", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
+                        help="client install folder (package GUIDs for the UE2 package map)")
+    parser.add_argument("--spawn-class", default="Engine.PlayerController",
+                        help="actor class opened on an actor channel after JOIN ('' = none)")
+    parser.add_argument("--spawn-rotation", action="store_true",
+                        help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
+    args.package_map = PackageMap(args.client_dir, args.zone_level)
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     login_sock.bind((args.host, args.port))
@@ -462,10 +470,28 @@ def handle_unreal(sock, addr, state, payload, args):
                 replies.extend(unreal_control_reply(text, args))
         else:
             print(f"  >>> UNREAL bunch {b!r} data={b.data[:32].hex(' ')}")
-    out = [ue.control_bunch(t) for t in replies]
+    out = []
     for t in replies:
+        if t == "<SPAWN>":
+            out.append(spawn_bunch(ue, args))
+            continue
+        out.append(ue.control_bunch(t))
         print(f"  <- UNREAL control -> {t!r}")
-    send_message(sock, addr, state, unreal_message(ue.build(out)))
+    # One packet per bunch keeps every packet well under the 512-byte bunch limit.
+    if not out:
+        send_message(sock, addr, state, unreal_message(ue.build()))
+    for b in out:
+        send_message(sock, addr, state, unreal_message(ue.build([b])))
+
+
+def spawn_bunch(ue, args):
+    pm = args.package_map
+    index = pm.object_index(args.spawn_class)
+    rotation = (0, 0, 0) if args.spawn_rotation else None
+    b = ue.actor_open_bunch(1, index, pm.max_object_index, rotation=rotation)
+    print(f"  <- UNREAL actor open ch=1 {args.spawn_class} (index {index}/{pm.max_object_index}) "
+          f"{b.nbits} bits: {b.data.hex(' ')}")
+    return b
 
 
 def unreal_control_reply(text, args):
@@ -476,7 +502,10 @@ def unreal_control_reply(text, args):
     if word == "HELLO":
         return ["CHALLENGE VER=3186 CHALLENGE=12345 STATS=0"]
     if word == "LOGIN":
-        return [f"WELCOME LEVEL={args.zone_level} LONE=0"]
+        # USES lines fill the client's package map before WELCOME (FUN_009677e0).
+        return args.package_map.uses_lines() + [f"WELCOME LEVEL={args.zone_level} LONE=0"]
+    if word == "JOIN" and args.spawn_class:
+        return ["<SPAWN>"]
     return []
 
 
