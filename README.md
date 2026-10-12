@@ -60,7 +60,32 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
    .\VGClient.exe --sessionid=12345678
    ```
 
-Characters are saved to `server/characters.json`. The emulator prints every packet it receives, decoded where the format is known.
+Characters are saved to `server/characters.json`: position, chunk, level, XP, coins, bag, equipment and hotbar. The emulator prints every packet it receives, decoded where the format is known.
+
+Several clients can connect at once. Start a second copy with a different `--sessionid`; players in the same chunk see each other and share the NPCs.
+
+### Things to try in game
+- Click an NPC to target it. Use your hotbar abilities, or press **`** (auto-attack). Press **U** on a corpse to loot it.
+- Press **U** on Orin the Trader, or say "Hail", then pick "Show me your wares." Right-click an item to buy it; right-click a bag item while the window is open to sell it.
+- Right-click bag items to equip them, and right-click paper-doll items to take them off.
+- Group with another player using `/invite Name` and `/groupacceptinvite`.
+- Chat with `/shout`, `/tell Name …`, `/ooc`, `/g`, `/emote …`, `/wave`. Use `/sit` to rest and `/camp` to camp.
+- Walk or teleport past a chunk edge to enter the neighbouring zone.
+
+### Developer commands
+Start the server with `python login_stub.py --dev-commands`, then type these in the game's chat box:
+
+| Command | Effect |
+| --- | --- |
+| `!tp x y z` | Teleport (`~` keeps the current coordinate) |
+| `!target <name>` | Target an NPC by name |
+| `!hurt N` | Lose N health |
+| `!anim id [me]` | Play an animation on the target or yourself |
+| `!prop <property> <value> [me]` | Set a replicated pawn property |
+| `!move dx dy` | Move the targeted NPC |
+| `!item`, `!stat`, `!upd`, `!event`, `!chat`, `!sys`, `!exec` | Send raw messages (see `dev_command` in `login_stub.py`) |
+
+World content (mobs, loot, items, vendors and spawns) lives in `server/content/`. Run `python content.py` to check it for mistakes.
 
 ## How it was built
 
