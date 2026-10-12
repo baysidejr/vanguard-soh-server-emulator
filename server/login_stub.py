@@ -805,6 +805,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.level_number = char.get("adventure_level", player.level_number)
             player.appearance = character_appearance(char)
             player.hotbar = char.get("hotbar")
+            if "items" in char:
+                player.items = [tuple(i) for i in char["items"]]
             player.xp = char.get("adventure_xp", player.xp)
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
                                 or player.abilities)
@@ -881,6 +883,7 @@ def handle_message(sock, server, addr, state, payload, args):
                     msgs = combat.loot_messages(npc)
                 elif event in (combat.LOOT_TAKE, combat.LOOT_TAKE_ALL):
                     msgs = combat.take_loot(player, npc, struct.unpack_from("<i", payload, 10)[0])
+                    save_character_field(player.name, "items", [list(i) for i in player.items])
                 else:
                     msgs = []
                 for m in msgs:
