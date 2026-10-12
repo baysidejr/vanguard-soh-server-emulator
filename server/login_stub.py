@@ -421,8 +421,19 @@ def camp_tick(state, now):
     if state.get("position") != camp["pos"]:
         state.pop("camp")
         state["send"](zone.zone_event(0x40D))
+    elif camp.get("closing"):
+        if now >= camp["closing"]:
+            # Closing the zone connection is what returns the client to character
+            # select: its connection-closed handler (FUN_00bf4850) runs /camp, which
+            # finds no zone connection and goes back (FUN_0061fe50), then asks the
+            # world server for the character list again (world 0x19).
+            state.pop("camp")
+            if state.get("terminate"):
+                state["terminate"]()
+            state["closed"] = True
+            print(f"  {state['player'].name} camped: zone connection closed")
     elif now >= camp["until"]:
-        state.pop("camp")
+        camp["closing"] = now + 1.0
         state["send"](zone.zone_event(0x40C))
         print(f"  {state['player'].name} finished camping")
     elif now >= camp["next_note"]:
@@ -440,6 +451,10 @@ def world_tick(zone_sock, clients, args):
             continue
         if "send" in state:
             camp_tick(state, now)
+            if state.get("closed"):
+                clients.pop((server, addr), None)
+                leave_world(state, args)
+                continue
             harvest_tick(state, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":
@@ -832,6 +847,12 @@ def npc_dialog(state, npc):
         elif q.get("giver") == tpl and all(r in log.done for r in q.get("requires", [])):
             opts.append((q["name"], q["id"], quest.OPTION_TYPE))
             greeting = greeting or q.get("greeting")
+    # Start clean: 0x55f closes an open Dialogue window and frees all its options
+    # (0x2bf only replaces quest options), and an empty 0x3ea clears the text
+    # (0x3ea appends). Not during a parley: 0x55f would ask to leave it.
+    if not state.get("parley"):
+        out.append(zone.zone_event(quest.END_CONVERSATION))
+    out.append(quest.npc_text(npc.entity_id, ""))
     out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
     if npc.parley:
         opts.append(("Let's talk business. (Parley)", diplomacy.PARLEY_OPTION_ID,
@@ -1265,7 +1286,10 @@ def serve(sock, server, data, addr, clients, args):
             protocol, code, max_raw = struct.unpack_from(">III", data, 2)
             name = data[14:].split(b"\0", 1)[0].decode("latin-1")
             print(f"  connect: protocol={protocol} code=0x{code:08x} maxRaw={max_raw} name={name!r}")
-            clients[key] = {"out_seq": 0, "seen": set(), "max_raw": min(max_raw, MAX_RAW_PACKET)}
+            clients[key] = {"out_seq": 0, "seen": set(), "max_raw": min(max_raw, MAX_RAW_PACKET),
+                            # UdpLibrary Terminate (reason 6, application) for this connection.
+                            "terminate": lambda sock=sock, addr=addr, code=code: sock.sendto(
+                                b"\x00\x05" + struct.pack(">IH", code, 6), addr)}
             reply = build_confirm(code, max_raw)
             sock.sendto(reply, addr)
             print(f"  <- sent confirm ({len(reply)} bytes)")

@@ -16,6 +16,7 @@ OFFER, IN_PROGRESS, READY, DONE = 0, 1, 3, 4
 OPTION_TYPE = 7
 CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO = 0x15C, 0x15D, 0x160, 0x161, 0x164
 CLIENT_EVENTS = (CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO)
+END_CONVERSATION = 0x55F   # no payload: closes the Dialogue window, frees its options
 
 
 def _event(event_id, data=b""):

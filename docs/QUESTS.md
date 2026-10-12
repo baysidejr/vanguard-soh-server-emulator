@@ -14,7 +14,7 @@
 >
 > Accepting only works at the giver, and completing only at the turn-in NPC. "Supplies for the Forge" was played through: kill 2 wolves → gather 2 Copper Ore → talk to the Thestran Guard → turn in to Orin (coin, Round Shield, XP). The dev command `!give <item> [qty]` helps testing.
 >
-> **Open:** if the Dialogue window is still open, its text and the Parley option pile up when the player talks to another NPC. A clear message is not yet known.
+> **Dialogue reset:** each dialogue opens with `0x55f` (end conversation: closes the window and frees every option) and an empty `0x3ea` (clears the text), so text and options no longer pile up.
 
 > **Verified live (2026-10-12):** Orin's dialogue (0x3ea greeting + 0x2bf option, type 7) → click (0x15c) → quest page 0x2c0 with objectives and coin reward → Accept (0x15d) → 0x2c1 + 0x2cb: quest tracker "[10] Wanderer Trouble – Defeat Robed Wanderers (1/3)" updates on kills (0x2cc); turning in via the "(complete)" option sends 0x2c5, coin and 0x3d5 XP. Active quests are resent at login (0x2cb). Implemented in `server/quest.py`, `login_stub.npc_dialog/handle_quest_event`; quests are data in `server/content/quests.json`.
 

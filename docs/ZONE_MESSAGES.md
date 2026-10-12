@@ -51,7 +51,7 @@ Classes `(none)` = handler ignores payload (signal); `(raw)` = handler reads the
 | 0x55c | MsgSendSingleSGOString | wstr name | FUN_00621730 | 0x55c "ConsentEchoGave" / 0x55d "ConsentEchoRevoked". Observed. |
 | 0x55d | MsgSendSingleSGOString | wstr name | FUN_00621730 | ConsentEchoRevoked. Observed. |
 | 0x55e | (none) |  | inline | "ConsentFailTimer" message. Observed. |
-| 0x55f | (none) |  | FUN_0061fd90 | FUN_004c8680(1,0,0). Unknown. |
+| 0x55f | (none) |  | FUN_0061fd90 | End conversation (verified live). FUN_004c8680(1,0,0) → FUN_004c7700: closes an open Dialogue window and frees all its options (FUN_004c3b60). It does not clear the text; an empty 0x3ea does that. |
 | 0x57d | ? |  | inline | Corpse/consent related (FUN_00b7e3c0 lookup + local player). Not decoded. |
 | 0x57e | ? |  | inline | as 0x57d. Not decoded. |
 | 0x57f | ? |  | inline | as 0x57d. Not decoded. |
