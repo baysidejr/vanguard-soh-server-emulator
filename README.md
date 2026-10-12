@@ -30,7 +30,9 @@ The unmodified client, talking only to this emulator:
 - [x] Looting corpses into the bag (saved); appearance sliders on the player's character
 - [x] Standing and walking on the real terrain anywhere in the chunk; spawn on flat ground
 - [x] Gear on the character model (armor, bow); NPCs dressed too
-- [ ] Hand-held weapons on the model; zoning between chunks; more than one player
+- [x] Several players in the same world: they see each other move, chat, and share the same NPCs
+- [x] World content (mobs, loot, spawns) loaded from JSON files: see [docs/CONTENT_EDITOR.md](docs/CONTENT_EDITOR.md)
+- [ ] Hand-held weapons on the model; zoning between chunks; groups
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 

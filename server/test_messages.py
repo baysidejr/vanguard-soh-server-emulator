@@ -101,5 +101,24 @@ class BitWriterTests(unittest.TestCase):
         self.assertEqual(nbits, 1 + 1 + 8 + 1)     # flag, flag + byte, flag
 
 
+class NetFieldTests(unittest.TestCase):
+    def test_integer_location_is_a_vector(self):
+        # Regression: an all-int Location was once written as a Rotator.
+        import netcache
+        import rpc
+        f = netcache.NetField("Location", "StructProperty")
+        w = ue2net.BitWriter()
+        f.writer((-31000, -5500, 442))(w)
+        data, nbits = w.packed()
+        self.assertEqual(rpc.read_vector(rpc.BitReader(data, nbits)), (-31000, -5500, 442))
+
+    def test_rotation_is_a_rotator(self):
+        import netcache
+        f = netcache.NetField("Rotation", "StructProperty")
+        w = ue2net.BitWriter()
+        f.writer((0, 32768, 0))(w)
+        self.assertEqual(w.packed()[1], 11)
+
+
 if __name__ == "__main__":
     unittest.main()

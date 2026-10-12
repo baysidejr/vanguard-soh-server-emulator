@@ -18,6 +18,7 @@ import vgmsg
 import class_abilities
 import combat
 import content
+import world
 import zone
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
@@ -260,21 +261,22 @@ MOVE_TICK = 0.25
 
 
 def movement_tick(zone_sock, clients, args):
-    """Four times a second: NPCs that chase and attack."""
+    """Four times a second: NPCs that chase and attack their target player."""
     now = time.time()
     for (server, addr), state in list(clients.items()):
         player = state.get("player")
         if server != "ZONE" or player is None or "ue" not in state:
             continue
-        player.live_position = state.get("position")
         for lines, npc in combat.npc_turns(player, now):
             # npc_turns only attacks living players, so they were alive before.
             for m in combat_results(state, args, player, lines, None, True, player.auto_attack):
                 send_message(zone_sock, addr, state, m)
-        for npc in player.npcs.values():
-            values = combat.chase_step(npc, state.get("position"), MOVE_TICK)
+    for w in world.all_worlds():
+        for npc in w.npcs.values():
+            target = npc.aggro_on.live_position if npc.aggro_on else None
+            values = combat.chase_step(npc, target, MOVE_TICK)
             if values:
-                send_message(zone_sock, addr, state, zone.npc_update(state, args, npc, values))
+                w.broadcast(lambda s, npc=npc, values=values: zone.npc_update(s, args, npc, values))
 
 
 def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
@@ -290,10 +292,15 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
         out += player_death(state, args, player)
     if npc:
         out.append(combat.target_health(npc))
-        if not npc.alive:
+        if not npc.alive and not npc.death_shown:
+            # Everyone in the chunk sees it fall.
             print(f"  <- {npc.name} died")
-            out += [zone.npc_update(state, args, npc, {"Health": 0, "m_bIsDead": 1}),
-                    combat.play_animation(npc, combat.ANIM_DEATH)]
+            npc.death_shown = True
+            w = state.get("world")
+            if w is not None:
+                w.broadcast(lambda s: [m for m in (
+                    zone.npc_update(s, args, npc, {"Health": 0, "m_bIsDead": 1}),
+                    combat.play_animation(npc, combat.ANIM_DEATH)) if m is not None])
     for amount in player.pending_rewards:
         out.append(combat.experience_reward(amount, npc.entity_id if npc else player.char_id))
         player.xp += amount
@@ -321,7 +328,8 @@ def player_death(state, args, player):
 
 
 def world_tick(zone_sock, clients, args):
-    """Once a second for each player in the zone: regeneration, NPC respawns."""
+    """Once a second: per player auto-attack swings and regeneration; per world
+    NPC respawns (shown to everyone in the chunk)."""
     now = time.time()
     for (server, addr), state in list(clients.items()):
         player = state.get("player")
@@ -334,17 +342,37 @@ def world_tick(zone_sock, clients, args):
                     send_message(zone_sock, addr, state, m)
             elif action[0] == "health":
                 send_message(zone_sock, addr, state, zone.health_update(player))
-            elif action[0] == "respawn":
-                npc = action[1]
-                print(f"  <- respawn {npc.name}")
-                send_message(zone_sock, addr, state,
-                             zone.npc_update(state, args, npc, {"Health": npc.max_health, "m_bIsDead": 0,
-                                                                "Location": npc.home,
-                                                                "Velocity": (0.0, 0.0, 0.0),
-                                                                "PawnPosition": (npc.home, (0, 0, 0),
-                                                                                 (0.0, 0.0, 0.0))}))
-                if player.target == npc.entity_id:
-                    send_message(zone_sock, addr, state, combat.target_health(npc))
+    for w in world.all_worlds():
+        for s in list(w.members.values()):
+            if now - s.get("last_seen", now) > 30:      # client gone without a disconnect
+                leave_world(s, args)
+        for npc in combat.respawns(w.npcs, now):
+            print(f"  <- respawn {npc.name}")
+            npc.death_shown = False
+            values = {"Health": npc.max_health, "m_bIsDead": 0, "Location": npc.home,
+                      "Velocity": (0.0, 0.0, 0.0),
+                      "PawnPosition": (npc.home, (0, npc.yaw, 0), (0.0, 0.0, 0.0))}
+
+            def build(s, npc=npc, values=values):
+                out = [zone.npc_update(s, args, npc, values)]
+                if s["player"].target == npc.entity_id:
+                    out.append(combat.target_health(npc))
+                return [m for m in out if m is not None]
+            w.broadcast(build)
+
+
+def leave_world(state, args):
+    """A zone connection ended: remove the player from its chunk and close its
+    pawn on everyone else's client."""
+    w, player = state.get("world"), state.get("player")
+    if w is None or player is None:
+        return
+    w.members.pop(player.char_id, None)
+    for npc in w.npcs.values():
+        if npc.aggro_on is player:
+            npc.aggro, npc.aggro_on, npc.moving = False, None, False
+    w.broadcast(lambda s: zone.close_actor(s, player.char_id))
+    print(f"  {player.name} left {w.level}")
 
 
 def serve(sock, server, data, addr, clients, args):
@@ -373,9 +401,15 @@ def serve(sock, server, data, addr, clients, args):
         elif data[:2] == b"\x00\x05" and len(data) >= 8:
             reason = struct.unpack_from(">H", data, 6)[0]
             print(f"  client disconnected, reason {reason} ({DISCONNECT_REASONS.get(reason, '?')})")
-            clients.pop(key, None)
+            gone = clients.pop(key, None)
+            if gone and server == "ZONE":
+                leave_world(gone, args)
         else:
             state = clients.setdefault(key, {"out_seq": 0, "seen": set(), "max_raw": 512})
+            state["last_seen"] = time.time()
+            if server == "ZONE" and "send" not in state:
+                state["send"] = lambda m, sock=sock, addr=addr, state=state: (
+                    send_message(sock, addr, state, m) if m is not None else None)
             for kind, seq, payload in reliable_messages(data):
                 ack = build_ack_all(kind, seq)
                 sock.sendto(ack, addr)
@@ -836,10 +870,16 @@ def handle_message(sock, server, addr, state, payload, args):
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
+            w = state.get("world")
+            if w is not None and not text.startswith("!"):
+                w.broadcast(lambda s: build_chat_line(speaker, text, CHAT_SAY), exclude=state)
             if text.startswith("!") and args.dev_commands:
                 for m in dev_command(text, state.get("player")):
                     if isinstance(m, tuple) and m[0] == "npc_update":
-                        m = zone.npc_update(state, args, m[1], m[2])
+                        if state.get("world"):
+                            state["world"].broadcast(
+                                lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
+                        continue
                     elif isinstance(m, tuple) and m[0] == "pawn_update":
                         loc = m[2]["Location"]
                         send_message(sock, addr, state, zone.player_teleport(loc))

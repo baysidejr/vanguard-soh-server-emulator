@@ -250,6 +250,16 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Ground and terrain (fixed 2026-10-12).** Terrain collision works; what made pawns sink was Vanguard's ground-stick code. `APawn::TickSimulated` calls `FUN_00bb81f0`, which keeps the pawn on the ground from a cache (`LastValidServerPosition` +0x8e4, `LastStickToMeshZ` +0x8d4) and re-traces down from that cached height. Only the replicated `PawnPosition` (CompressedPosition, `FUN_007f9680` from PostNetReceive) updates the cache. So the server sends `PawnPosition` in the pawn's spawn bunch, with every teleport (`0x3e5`) and with NPC moves. Wire format (`FUN_00b08440`, case 0x5d): Location as SerializeCompressed, Pitch byte, Yaw byte (no flag bits), Velocity as SerializeCompressed. The chunk's PlayerStarts are not usable spawns (one over a canyon, one over the sea), so a new character spawns on flat land found in the terrain heightmap (`server/terrain.py`: z = Location.z + h × 10, x/y = (u−256) × 400).
 
+**Multiplayer** (verified live with two clients, 2026-10-12): `server/world.py` keeps one shared world per chunk with its NPCs and players.
+- Each connection has its own actor channel per world actor; UE2 channels are per connection.
+- Another player's pawn is opened on a new channel with the same properties as the owner's pawn, minus `bNetOwner`.
+- Movement from each `ServerMove` `ClientLoc` is relayed at 10 Hz as `Location`, `Rotation`, `Velocity` and `PawnPosition`. Yaw comes from `View` & 0x7FFF × 2.
+- Say (`0x74`) reaches the others as `0x0f` channel 3 ("Justins says, ...").
+- NPC movement, deaths and respawns go to everyone in the chunk.
+- A player who disconnects, or sends nothing for 30 s, has their pawn removed from the others' clients with an actor channel close.
+
+Pitfall: a Vector property must be written as SerializeCompressed even when its values are whole numbers. The encoder once picked rotator or vector by number type, and an integer `Location` came out as a rotator.
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

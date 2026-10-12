@@ -32,9 +32,14 @@ class Npc:
         self.location = location
         self.home = location
         self.loot = None              # items left on the corpse (None = not rolled yet)
-        self.aggro = False            # chasing the player
+        self.aggro = False            # chasing aggro_on
+        self.aggro_on = None          # the zone.Player it fights
         self.moving = False
         self.next_attack = 0.0
+        self.death_shown = False      # death already broadcast
+        self.race = 0
+        self.gear = []
+        self.yaw = 0
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
         self.loot_table = None        # content/loot.json table id
@@ -152,7 +157,7 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         lines.append((f"You have slain {npc.name}!", "white"))
         player.pending_rewards.append(KILL_XP)
     else:
-        npc.aggro = True          # it fights back from the world tick (npc_turns)
+        npc.aggro, npc.aggro_on = True, player   # fights back from the tick (npc_turns)
     return lines, npc
 
 
@@ -194,7 +199,10 @@ def npc_turns(player, now, rng=random):
     out = []
     pos = getattr(player, "live_position", None)
     for npc in player.npcs.values():
-        if not (npc.alive and npc.aggro) or player.health <= 0 or now < npc.next_attack:
+        if not (npc.alive and npc.aggro and npc.aggro_on is player) or now < npc.next_attack:
+            continue
+        if player.health <= 0:
+            npc.aggro, npc.aggro_on, npc.moving = False, None, False
             continue
         if pos and math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1]) > MELEE_RANGE + 40:
             continue
@@ -209,7 +217,7 @@ def npc_attacks(player, npc, rng=random):
     0x2d4 update of the Health stat; see zone.health_update)."""
     if player.health <= 0:
         return []
-    npc.aggro = True
+    npc.aggro, npc.aggro_on = True, player
     dmg = rng.randint(*npc.damage)
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, NPC_AUTO_ATTACK))
     player.health = max(player.health - dmg, 0)
@@ -252,9 +260,21 @@ REGEN_DELAY = 6          # seconds out of combat before health comes back
 REGEN_PER_SECOND = 10
 
 
+def respawns(npcs, now):
+    """NPCs (of one world) that come back to life now."""
+    back = []
+    for npc in npcs.values():
+        if npc.died_at and now - npc.died_at >= npc.respawn:
+            npc.health, npc.died_at = npc.max_health, None
+            npc.aggro, npc.aggro_on, npc.moving = False, None, False
+            npc.location, npc.loot = npc.home, None
+            back.append(npc)
+    return back
+
+
 def tick(player, now):
-    """Once a second: returns ('health',) when the player's health changed and
-    ('respawn', npc) for NPCs that come back."""
+    """Once a second for one player: auto-attack swings ('swing', lines, npc) and
+    regeneration ('health',)."""
     out = []
     if player.auto_attack and now >= player.next_swing:
         player.next_swing = now + AUTO_ATTACK_SECONDS
@@ -268,11 +288,6 @@ def tick(player, now):
     if 0 < player.health < player.stats["hit_points"] and now - player.last_combat >= REGEN_DELAY:
         player.health = min(player.health + REGEN_PER_SECOND, player.stats["hit_points"])
         out.append(("health",))
-    for npc in player.npcs.values():
-        if npc.died_at and now - npc.died_at >= npc.respawn:
-            npc.health, npc.died_at = npc.max_health, None
-            npc.aggro, npc.moving, npc.location, npc.loot = False, False, npc.home, None
-            out.append(("respawn", npc))
     return out
 
 

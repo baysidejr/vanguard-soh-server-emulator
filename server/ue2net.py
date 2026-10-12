@@ -315,6 +315,14 @@ class UnrealSession:
         return Bunch(channel, data, reliable=True, control=True, open_=True,
                      ch_type=CHTYPE_ACTOR, seq=seq, nbits=nbits)
 
+    def actor_close_bunch(self, channel):
+        """Close an actor channel: the client destroys the actor (bClose is only
+        read on control bunches)."""
+        seq = self.out_reliable.get(channel, 0) + 1
+        self.out_reliable[channel] = seq
+        return Bunch(channel, b"", reliable=True, control=True, close=True,
+                     ch_type=CHTYPE_ACTOR, seq=seq)
+
     def actor_bunch(self, channel, data=b"", nbits=0):
         """A reliable bunch on an already-open actor channel (properties/RPCs)."""
         seq = self.out_reliable.get(channel, 0) + 1

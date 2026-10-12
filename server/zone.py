@@ -12,6 +12,7 @@ import rpc
 import vgmsg
 import combat
 import content
+import world
 import ue2net
 from netcache import NetCache
 from packagemap import PackageMap
@@ -87,28 +88,78 @@ def handle_unreal(send, state, payload, args):
         for m in hud_messages():
             send(m)
         print("  <- ZONE events 0x598 (show hotbar, compass, menu bar)")
-        # Other pawns go out after the world-loaded event: the client only builds
-        # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
-        # World NPCs from content/spawns/<chunk>.json (content.py), after the
-        # world-loaded event: the client only builds a pawn's mesh once that flag is set.
-        pm = package_map(args, player.level)
-        for n, (spawn, template) in enumerate(args.content.spawns(player.level, args.client_dir)):
-            channel = FIRST_NPC_CHANNEL + n
-            eid = 0x2000000 + n
-            loc = (float(spawn["x"]), float(spawn["y"]), float(spawn["z"]))
-            yaw = int(spawn.get("yaw", 0))
-            cls_path = f"{content.PAWN_PACKAGE}.{template['pawn_class']}"
-            b = npc_bunch(ue, pm, channel, cls_path, template["name"], template["race"], loc, eid,
-                          gear=template.get("gear", []), facing=(0, yaw, 0))
-            npc = combat.Npc(eid, template["name"], channel, cls_path,
-                             max_health=template["health"], location=loc)
-            npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
-            npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
-            npc.loot_table = template.get("loot")
-            npc.roll_loot = args.content.roll_loot
-            player.npcs[eid] = npc
-            print(f"  <- UNREAL actor open ch={channel} {template['name']!r} ({spawn['mob']}) at {loc}")
-            send(unreal_message(ue.build([b])))
+        # Join the shared world for this chunk: NPCs from content/spawns/<chunk>.json
+        # and the other players. Sent after the world-loaded event: the client only
+        # builds a pawn's mesh (FUN_00bcb8e0) once that flag is set.
+        w = world.world_for(player.level)
+        if not w.populated:
+            populate_world(w, args)
+        state["world"] = w
+        player.npcs = w.npcs
+        w.members[player.char_id] = state
+        for npc in w.npcs.values():
+            send(open_npc(state, args, npc))
+        for other in w.others(state):
+            send(open_remote_player(state, args, other["player"]))
+            other["send"](open_remote_player(other, args, player))
+            print(f"  <- {player.name} and {other['player'].name} now see each other")
+
+
+def populate_world(w, args):
+    """Create the shared NPCs of a chunk from content/spawns/<chunk>.json."""
+    for n, (spawn, template) in enumerate(args.content.spawns(w.level, args.client_dir)):
+        eid = 0x2000000 + n
+        loc = (float(spawn["x"]), float(spawn["y"]), float(spawn["z"]))
+        npc = combat.Npc(eid, template["name"], None,
+                         f"{content.PAWN_PACKAGE}.{template['pawn_class']}",
+                         max_health=template["health"], location=loc)
+        npc.race = template["race"]
+        npc.gear = [tuple(g) for g in template.get("gear", [])]
+        npc.yaw = int(spawn.get("yaw", 0))
+        npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
+        npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
+        npc.loot_table = template.get("loot")
+        npc.roll_loot = args.content.roll_loot
+        w.npcs[eid] = npc
+        print(f"  world {w.level}: {template['name']!r} ({spawn['mob']}) at {loc}")
+    w.populated = True
+
+
+def open_npc(state, args, npc):
+    """Open this connection's actor channel for a world NPC (current state)."""
+    ue, player = state["ue"], state["player"]
+    pm = package_map(args, player.level)
+    channel = world.channel_for(state, npc.entity_id, allocate=True)
+    b = npc_bunch(ue, pm, channel, npc.cls_path, npc.name, npc.race, npc.location,
+                  npc.entity_id, gear=npc.gear, facing=(0, npc.yaw, 0),
+                  dead=not npc.alive)
+    print(f"  <- UNREAL actor open ch={channel} {npc.name!r} for {player.name}")
+    return unreal_message(ue.build([b]))
+
+
+def open_remote_player(state, args, other):
+    """Open this connection's actor channel for another player's pawn: the same
+    properties as the owner's pawn, without bNetOwner."""
+    ue, player = state["ue"], state["player"]
+    pm = package_map(args, player.level)
+    channel = world.channel_for(state, other.char_id, allocate=True)
+    cls = args.pawn_class.split(".", 1)[1]
+    loc = other.live_position or other.spawned_at
+    values = player_pawn_values(other, loc)
+    values.pop("bNetOwner", None)
+    b = ue.actor_open_bunch(channel, pm.object_index(args.pawn_class), pm.max_object_index,
+                            location=loc, extra=(0xFF, -1, 0x3F800000),
+                            properties=pm.net_cache.props(cls, values))
+    return unreal_message(ue.build([b]))
+
+
+def close_actor(state, entity_id):
+    """Close this connection's channel for a world actor (it left)."""
+    channel = state.get("channels", {}).pop(entity_id, None)
+    if channel is None:
+        return None
+    ue = state["ue"]
+    return unreal_message(ue.build([ue.actor_close_bunch(channel)]))
 
 
 XP_PER_LEVEL = 1000
@@ -137,8 +188,19 @@ def health_update(player):
 
 
 def npc_update(state, args, npc, values):
-    """A zone message updating replicated properties of an NPC's pawn."""
-    return pawn_update(state, args, npc.channel, npc.cls_path, values)
+    """A zone message updating replicated properties of an NPC's pawn on this
+    connection (None if it has no channel for it)."""
+    channel = world.channel_for(state, npc.entity_id)
+    if channel is None:
+        return None
+    return pawn_update(state, args, channel, npc.cls_path, values)
+
+
+def remote_player_update(state, args, other, values):
+    channel = world.channel_for(state, other.char_id)
+    if channel is None:
+        return None
+    return pawn_update(state, args, channel, args.pawn_class, values)
 
 
 def player_pawn_update(state, args, values):
@@ -182,6 +244,9 @@ def log_client_rpc(state, b, args, player):
     if loc is not None:
         moved = state.get("position") != loc
         state["position"] = loc
+        player.live_position = loc
+        if moved:
+            broadcast_movement(state, args, player, loc, params.get("View"))
         if moved:
             print(f"  >>> UNREAL {name}: position {loc}")
             save = player.save_position
@@ -196,6 +261,30 @@ def log_client_rpc(state, b, args, player):
     print(f"  >>> UNREAL RPC {name} {params}")
     if name == "ServerUse":
         state["use_requested"] = True
+
+
+MOVE_BROADCAST_SECONDS = 0.1
+MAX_BROADCAST_SPEED = 1200.0    # units/s; running is ~440
+
+
+def broadcast_movement(state, args, player, loc, view):
+    """Show this player's movement to everyone else in the chunk (10 Hz)."""
+    w = state.get("world")
+    now = time.time()
+    if w is None or now - state.get("move_sent", 0) < MOVE_BROADCAST_SECONDS:
+        return
+    prev, prev_t = state.get("move_prev", (loc, now))
+    dt = max(now - prev_t, 0.05)
+    vel = tuple((a - b) / dt for a, b in zip(loc, prev))
+    if sum(v * v for v in vel) > MAX_BROADCAST_SPEED ** 2:
+        # A teleport or a stall, not walking: the other clients would keep
+        # extrapolating along a huge velocity, so send none.
+        vel = (0.0, 0.0, 0.0)
+    state["move_sent"], state["move_prev"] = now, (loc, now)
+    yaw = world.view_yaw(view)
+    values = {"Location": loc, "Rotation": (0, yaw, 0), "Velocity": vel,
+              "PawnPosition": (loc, (0, yaw, 0), vel)}
+    w.broadcast(lambda s: remote_player_update(s, args, player, values), exclude=state)
 
 
 def package_map(args, level):
@@ -367,6 +456,7 @@ class Player:
         self.coins = DEFAULT_COINS
         self.npcs = {}                    # entity id -> combat.Npc seen by this player
         self.target = None                # entity id from client event 0x5d
+        self.live_position = None         # last ClientLoc from ServerMove
         self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
         self.last_combat = 0.0
         self.pending_displays = []        # 0x3d1 messages queued by combat
@@ -380,10 +470,9 @@ class Player:
 
 PC_CHANNEL = 1
 PAWN_CHANNEL = 2
-FIRST_NPC_CHANNEL = 3
 
 def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id, gear=(),
-              facing=(0, 0, 0)):
+              facing=(0, 0, 0), dead=False):
     """Open an actor channel for a non-player pawn (same layout as the player's
     pawn, without bNetOwner)."""
     cls = cls_path.split(".", 1)[1]
@@ -393,7 +482,8 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id, gear=(
         "bSimulateGravity": True,   # else TickSimulated forces PHYS_Flying (hover)
         "m_bGMHide": False,
         "m_iRaceId": race,
-        "Health": 100,
+        "Health": 0 if dead else 100,
+        "m_bIsDead": 1 if dead else 0,
         "m_iModelNum": -1,          # the race's default model (FUN_00bcb8e0)
         "m_Customization": [0x32] * 64,   # appearance sliders (pawn +0xaa8)
         "m_PlayerDisplayName": name,
@@ -463,6 +553,35 @@ def default_ground_spawn(args, level):
     return (x, y, z + 100.0)
 
 
+def player_pawn_values(player, location, yaw=0):
+    """Replicated properties of a player's pawn (own or seen by others)."""
+    values = {
+        "bNetOwner": True,
+        # The client runs this pawn as a SimulatedProxy; APawn::TickSimulated
+        # (FUN_00a03070) then sets PHYS_Flying every tick unless
+        # bSimulateGravity is set, which made the character hover.
+        "bSimulateGravity": True,
+        "m_iRaceId": player.race,
+        "Health": 100,
+        "m_PlayerDisplayName": player.name,
+    }
+    gear = gear_attachments(player)
+    if gear:
+        values["m_AttachmentGroups"] = gear
+    if getattr(player, "appearance", None):
+        # The 64 appearance sliders from character creation (pawn +0xaa8);
+        # PostNetReceive applies them through FUN_00bcaab0.
+        values["m_Customization"] = list(player.appearance)
+    # PawnPosition seeds the client's ground-stick cache (LastValidServerPosition,
+    # FUN_007f9680); without it the pawn re-sticks from a stale height and sinks.
+    values["PawnPosition"] = (location, (0, yaw, 0), (0.0, 0.0, 0.0))
+    cid = player.char_id
+    if cid is not None:
+        values["EntityIDLowInt"] = cid & 0xFFFFFFFF
+        values["EntityIDHighInt"] = cid >> 32
+    return values
+
+
 def spawn_bunches(ue, args, player):
     """Spawn the player's pawn and PlayerController on actor channels.
 
@@ -478,30 +597,7 @@ def spawn_bunches(ue, args, player):
 
     pawn_cls = args.pawn_class.split(".", 1)[1] if args.pawn_class else None
     if pawn_cls:
-        values = {
-            "bNetOwner": True,
-            # The client runs this pawn as a SimulatedProxy; APawn::TickSimulated
-            # (FUN_00a03070) then sets PHYS_Flying every tick unless
-            # bSimulateGravity is set, which made the character hover.
-            "bSimulateGravity": True,
-            "m_iRaceId": player.race,
-            "Health": 100,
-            "m_PlayerDisplayName": player.name,
-        }
-        gear = gear_attachments(player)
-        if gear:
-            values["m_AttachmentGroups"] = gear
-        if getattr(player, "appearance", None):
-            # The 64 appearance sliders from character creation (pawn +0xaa8);
-            # PostNetReceive applies them through FUN_00bcaab0.
-            values["m_Customization"] = list(player.appearance)
-        # PawnPosition seeds the client's ground-stick cache (LastValidServerPosition,
-        # FUN_007f9680); without it the pawn re-sticks from a stale height and sinks.
-        values["PawnPosition"] = (location, (0, 0, 0), (0.0, 0.0, 0.0))
-        cid = player.char_id
-        if cid is not None:
-            values["EntityIDLowInt"] = cid & 0xFFFFFFFF
-            values["EntityIDHighInt"] = cid >> 32
+        values = player_pawn_values(player, location)
         props = nc.props(pawn_cls, values)
         # Pawn subclasses carry three extra fields (FUN_00962350); these are the
         # client's own defaults (0xff, -1, 1.0f).

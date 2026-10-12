@@ -128,8 +128,11 @@ class NetField:
         if k == "StructProperty" and isinstance(value, tuple) and len(value) == 3:
             # UStructProperty::NetSerializeItem special-cases Rotator (per
             # component a flag bit + top byte) and Vector (SerializeCompressed).
-            # The struct name isn't kept here, so go by the value: ints = rotator.
-            if all(isinstance(c, int) for c in value):
+            # The struct name isn't kept here, so go by the property name:
+            # Rotation/DesiredRotation/... are Rotators, the rest (Location,
+            # Velocity, Acceleration...) Vectors. (Going by int-vs-float once sent
+            # an integer Location as a rotator.)
+            if "Rotation" in self.name:
                 return lambda w: w.rotator(value)
             return lambda w: w.vector(value)
         raise ValueError(f"{self.name}: {k} not supported")
