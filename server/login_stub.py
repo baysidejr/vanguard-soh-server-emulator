@@ -201,6 +201,8 @@ def main():
                         help="client install folder (package GUIDs for the UE2 package map)")
     parser.add_argument("--spawn-class", default="Engine.PlayerController",
                         help="actor class opened on an actor channel after JOIN ('' = none)")
+    parser.add_argument("--pawn-class", default="SGOUnrealAbstractionLayer.SGOPCPawn",
+                        help="pawn class spawned for the player ('' = none)")
     parser.add_argument("--spawn-rotation", action="store_true",
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
@@ -494,10 +496,7 @@ def handle_unreal(sock, addr, state, payload, args):
     out = []
     for t in replies:
         if t == "<SPAWN>":
-            out.append(spawn_bunch(ue, args))
-            # An empty follow-up bunch makes the client re-run its "is this my
-            # PlayerController" check (end of UActorChannel::ReceivedBunch).
-            out.append(ue.actor_bunch(1))
+            out.extend(spawn_bunches(ue, args))
             continue
         out.append(ue.control_bunch(t))
         print(f"  <- UNREAL control -> {t!r}")
@@ -517,31 +516,55 @@ def package_map(args, level):
     return args.package_maps[level]
 
 
-def spawn_bunch(ue, args):
-    pm = package_map(args, args.current_level)
-    index = pm.object_index(args.spawn_class)
-    rotation = (0, 0, 0) if args.spawn_rotation else None
-    cls = args.spawn_class.split(".", 1)[1]
-    cache = pm.net_cache.class_cache(cls)
-    props = []
-    try:
-        # Vanguard replicates bNetOwner; the client adopts an owned PlayerController
-        # as its local player (UNetConnection::HandleClientPlayer).
-        owner = pm.net_cache.field(cls, "bNetOwner")
-        props.append((owner.index, cache["max"], lambda w: w.bit(1)))
-    except KeyError:
-        pass
+PC_CHANNEL = 1
+PAWN_CHANNEL = 2
+
+
+def spawn_location(args, pm):
     if args.spawn_location:
-        location = tuple(float(v) for v in args.spawn_location.split(","))
-    else:
-        starts = [s for s in pm.packages[0][1].player_starts() if s]
-        location = starts[0] if starts else (0.0, 0.0, 0.0)
+        return tuple(float(v) for v in args.spawn_location.split(","))
+    starts = [s for s in pm.packages[0][1].player_starts() if s]
+    return starts[0] if starts else (0.0, 0.0, 0.0)
+
+
+def spawn_bunches(ue, args):
+    """Spawn the player's pawn and PlayerController on actor channels.
+
+    Vanguard replicates Actor.bNetOwner; an owned PlayerController makes the
+    client run UNetConnection::HandleClientPlayer and take it as the local
+    player. Controller.Pawn points at the pawn's channel."""
+    pm = package_map(args, args.current_level)
+    nc = pm.net_cache
+    location = spawn_location(args, pm)
     print(f"  spawn location {location}")
-    b = ue.actor_open_bunch(1, index, pm.max_object_index, location=location, rotation=rotation,
-                            properties=props)
-    print(f"  <- UNREAL actor open ch=1 {args.spawn_class} (index {index}/{pm.max_object_index}) "
-          f"{b.nbits} bits: {b.data.hex(' ')}")
-    return b
+    rotation = (0, 0, 0) if args.spawn_rotation else None
+    out = []
+
+    pawn_cls = args.pawn_class.split(".", 1)[1] if args.pawn_class else None
+    if pawn_cls:
+        cache = nc.class_cache(pawn_cls)
+        props = [(nc.field(pawn_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
+        # Pawn subclasses carry three extra fields (FUN_00962350); these are the
+        # client's own defaults (0xff, -1, 1.0f).
+        b = ue.actor_open_bunch(PAWN_CHANNEL, pm.object_index(args.pawn_class), pm.max_object_index,
+                                location=location, rotation=rotation,
+                                extra=(0xFF, -1, 0x3F800000), properties=props)
+        print(f"  <- UNREAL actor open ch={PAWN_CHANNEL} {args.pawn_class} {b.nbits} bits: {b.data.hex(' ')}")
+        out.append(b)
+
+    pc_cls = args.spawn_class.split(".", 1)[1]
+    cache = nc.class_cache(pc_cls)
+    props = [(nc.field(pc_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
+    if pawn_cls:
+        def pawn_ref(w):
+            w.bit(1)                                   # actor, by channel
+            w.serialize_int(PAWN_CHANNEL, ue2net.MAX_CHANNELS)
+        props.append((nc.field(pc_cls, "Pawn").index, cache["max"], pawn_ref))
+    b = ue.actor_open_bunch(PC_CHANNEL, pm.object_index(args.spawn_class), pm.max_object_index,
+                            location=location, rotation=rotation, properties=props)
+    print(f"  <- UNREAL actor open ch={PC_CHANNEL} {args.spawn_class} {b.nbits} bits: {b.data.hex(' ')}")
+    out.append(b)
+    return out
 
 
 def unreal_control_reply(text, args):
