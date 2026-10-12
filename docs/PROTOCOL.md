@@ -220,6 +220,16 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Chat channels:** zone event `0x0f` channel 3 = Say ("X says, ..."), 5 = Emote; other values print "[???]".
 
+**Standing on the ground** (verified live). The client runs the player's pawn as a simulated proxy, and `APawn::TickSimulated` (`FUN_00a03070`) forces `PHYS_Flying` unless the pawn has `bSimulateGravity` set, so the character hovered. Replicating `bSimulateGravity = True` on the pawn makes it fall and land (Physics 1, Base set). Replicating `Role`/`RemoteRole` does not help: the client zeroes Role 3, and Role 4 broke the location. The stub spawns 90 units below the saved z (`SPAWN_Z_LIFT`) and ignores near-origin positions when saving.
+
+**Equipment** (verified live): each worn item is first sent as a `0x197` item (the stub uses bag slot 49 − n), then `0x1a7` {i32 item handle, u8 0, u8 equip slot} moves it onto the paper doll. Slots include HEAD 0, CHEST 6, PRIMARYHAND 28, SECONDARYHAND 29, TWOHANDS 36, RANGED 42 (`vgmsg.EQUIP_SLOTS`).
+
+**Abilities** (verified live): `0x21b` resets the ability book, one `0x215` MsgAbilityInfo (68 fields: name, description, handle, command, type text, level, id, icon, cast/recovery/refresh times, ranges, costs...) per ability, then `0x21d` ends the list. Using an ability sends client event `0xd0` {i32 handle}. Details: [ABILITIES.md](ABILITIES.md).
+
+**Hotbar and HUD windows** (verified live): `0x54e` is a hotkey list (i32 count, then per entry `wiiiwwi`: bank name such as `m_wb`, slot, ability id or −1, item instance or −1, two strings, i32) that fills the bars; the client reports changes with `0x54b` (set) and `0x54c` (clear). After character select the hotbar, compass, menu bar, bag bar and lag meter are loaded but hidden; zone event `0x598` (wstr console command) runs a client console command, and `SGOUI toggle "<window>"` shows each one. It toggles, so send it once per session.
+
+**System text.** Zone event `0x192` (wstr text, i32 colour) prints a line into the chat window without a speaker: 3 white, 4 red, 5 orange (combat), 6 blue, 7 tan.
+
 **Open:**
 - Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client, receive their properties, and **their meshes load** (with `DevLoad` unsuppressed the client loads e.g. `UEM_elf_M_char` skeleton + hair/chest/leg/feet meshes for race 4), but they are not drawn — not even 90 units beside the player. Tried: bNetOwner, entity ids, `m_iModelNum = -1`, `m_Customization[64]`, `bHidden = 0`, `DrawScale = 1`, spawning after `0x485`. Model building: pawn PostNetReceive (`FUN_00bcc5a0`) → `FUN_00bcb8e0(race, model)` when `m_iRaceId`/`m_iModelNum` change. Reproduce with `python login_stub.py --test-npc`.
 - Skill group header values; armor skills (subtype 3) don't show yet.
@@ -232,7 +242,7 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 | Table | Values |
 | --- | --- |
 | World status (`FUN_00cda3b0`) | 2 Loading, 3 Locked, 4 Up, 5 Low, 6 Medium, 7 High, other Down |
-| Race (`FUN_00d02540`) | 0 Cat Person, 1 Deep Dwarf, 2 Dwarf, 3 Dark Elf, 4 High Elf, 5 Wood Elf, 6 Gnome, 7 Goblin, 8 Half Elf, 9 Lesser Giant, 0x0a Halfling, 0x0c Kojani, 0x0d Qaliathari, 0x0e Thestran, 0x0f Mordebi, 0x11 Raki, 0x12 Vulmane, 0x13 Kojan Barbarian, 0x14 Varanthari, 0x15 Varanjar, 0x16 Kurashasa |
+| Race (`FUN_00d02540`) | 0 Cat Person, 1 Deep Dwarf, 2 Dwarf, 3 Dark Elf, 4 High Elf, 5 Wood Elf, 6 Gnome, 7 Goblin, 8 Half Elf, 9 Lesser Giant, 0x0a Halfling, 0x0b Orc (also 0x10), 0x0c Kojani, 0x0d Qaliathari, 0x0e Thestran, 0x0f Mordebi, 0x11 Raki, 0x12 Vulmane, 0x13 Kojan Barbarian, 0x14 Varanthari, 0x15 Varanjar, 0x16 Kurashasa |
 | Class (`FUN_00d07120`) | 2 Bard, 4 Paladin, 5 Cleric, 7 Druid, 0x0e Psionicist, 0x0f Monk, 0x13 Ranger, 0x14 Dread Knight, 0x15 Rogue, 0x16 Shaman, 0x19 Sorcerer, 0x1b Disciple, 0x1c Warrior, 0x2c Blood Mage, 0x2d Necromancer (plus crafting and diplomacy classes) |
 | Disconnect reason | 0 None, 1 IcmpError, 2 Timeout, 3 OtherSideTerminated, 4 ManagerDeleted, 5 ConnectFail, 6 Application, 7 UnreachableConnection, 8 UnacknowledgedTimeout, 9 NewConnectionAttempt, 10 ConnectionRefused, 11 ConnectError, 12 ConnectingToSelf, 13 ReliableOverflow, 14 ApplicationReleased, 15 CorruptPacket, 16 ProtocolMismatch |
 
