@@ -200,7 +200,13 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **HUD.** Zone event `0x485` (no payload) sent after the spawn sets the client's world-loaded flags; the HUD appears (vitals, chat, minimap, XP bar). A map of about 790 server→client zone event ids, their VGMessages classes and field layouts is in [ZONE_MESSAGES.md](ZONE_MESSAGES.md) (layouts mostly observed, purposes mostly inferred).
 
-**Open:** character stats (MsgScore `0x3de`, MsgStatUpdate `0x2d4`), the pawn's appearance, movement, and NPCs.
+**Movement.** After the spawn the server calls the RPC `PlayerController.ClientRestart()` (no parameters in this build; an actor bunch whose payload is just its RepIndex 67). The client then moves the pawn and sends unreliable `ServerMove` (#60) / `ShortServerMove` (#82) RPCs. RPC payload: RepIndex, then per parameter a present bit + value (bools: one bit), see `server/rpc.py`.
+
+**Pawn properties** sent at spawn: `bNetOwner`, `EntityIDLowInt/HighInt` (= character id), `m_iRaceId`, `Health`, `m_PlayerDisplayName` (FString). With these the character model is visible.
+
+**Chat.** Zone event `0x70` (wstr) = message of the day. Client Say = zone event `0x74` (wstr); the client echoes it locally. Zone event `0x0f` (wstr text, wstr speaker, i32 channel) posts a chat line ("[channel][speaker]: text").
+
+**Open:** character stats (MsgScore `0x3de`, MsgStatUpdate `0x2d4`), gender/face/gear, NPCs, other players.
 
 ## Reference
 
