@@ -29,6 +29,7 @@ class Content:
         self.directory = directory
         self.mobs = _load(os.path.join(directory, "mobs.json"))
         self.loot = _load(os.path.join(directory, "loot.json"))
+        self.items = _load(os.path.join(directory, "items.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -55,6 +56,10 @@ class Content:
             self._terrain[level] = terrain.Terrain(path)
         z = self._terrain[level].height(x, y)
         return (z if z is not None else 0.0) + COLLISION_HEIGHT
+
+    def item(self, name):
+        """Item template {icon, slot, mesh} by name ({} if unknown)."""
+        return self.items.get(name, {})
 
     def roll_loot(self, table_id, rng=random):
         """[(name, icon, quantity)] dropped from a loot table."""

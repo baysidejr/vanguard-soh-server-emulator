@@ -323,6 +323,20 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     return out
 
 
+EQUIP_EVENT = 0x8E
+
+
+def gear_changed(state, args, player):
+    """After equipment changed: the model for everyone in the chunk, and save."""
+    values = {"m_AttachmentGroups": zone.gear_attachments(player)}
+    state["send"](zone.player_pawn_update(state, args, values))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    save_character_field(player.name, "equipment", [list(e) for e in player.equipment])
+
+
 def set_combat_stance(state, args, player, on, out):
     """m_CombatState = 1 draws weapons (verified live); everyone in the chunk sees it."""
     if getattr(player, "stance", False) == on:
@@ -877,6 +891,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.hotbar = char.get("hotbar")
             if "items" in char:
                 player.items = [tuple(i) for i in char["items"]]
+            if "equipment" in char:
+                player.equipment = [tuple(e) for e in char["equipment"]]
             player.xp = char.get("adventure_xp", player.xp)
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
                                 or player.abilities)
@@ -971,6 +987,20 @@ def handle_message(sock, server, addr, state, payload, args):
                     msgs = []
                 for m in msgs:
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == EQUIP_EVENT:
+            # Equip to the item's default slot (right-click in a bag, FUN_005042b0):
+            # i32 item handle, u8.
+            player = state.get("player")
+            handle = struct.unpack_from("<i", payload, 10)[0]
+            print(f"  >>> ZONE equip item {handle}: {payload[10:].hex(' ')}")
+            if player:
+                result = zone.equip_item(player, handle)
+                if isinstance(result, str):
+                    send_message(sock, addr, state, build_system_text(result, SYSTEM_TEXT_ERROR))
+                else:
+                    for m in result:
+                        send_message(sock, addr, state, m)
+                    gear_changed(state, args, player)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3D8:
             # Auto-attack toggle (` key, /autoattacktoggle): no payload.
             player = state.get("player")

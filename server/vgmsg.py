@@ -156,7 +156,7 @@ EQUIP_SLOTS = {
 
 
 def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
-                   container=-1, quality=1, equip_slot=-1):
+                   container=-1, quality=1, equip_slot=-1, default_slot=-1, allowed_slots=()):
     """An item in a bag: equip slot -1, container -1 = the main grid
     (gamevar InventoryContainerID_-1, 50 slots), slot 0..49. Icon is a
     number formatted %05d in the client icon map (443 = the client's fallback)."""
@@ -165,7 +165,18 @@ def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
                       f["quantity"]: quantity, f["equip_slot"]: equip_slot, f["icon"]: icon,
                       f["container"]: container, f["slot"]: slot, 81: 1.0,
                       f["handle"]: item_id,
-                      f["quality"]: quality})
+                      f["quality"]: quality,
+                      # Field 8 (item +0x5c): the slot right-click equips to (-1 = none).
+                      # Fields 18-21 (+0x78..+0x84): bit mask of allowed equip slots
+                      # (FUN_004fd590 tests bit `slot`); right-click needs the default set.
+                      8: default_slot, **slot_mask(allowed_slots)})
+
+
+def slot_mask(slots):
+    words = [0, 0, 0, 0]
+    for s in slots:
+        words[s // 32] |= 1 << (s % 32)
+    return {18 + i: (w - (1 << 32) if w >= 1 << 31 else w) for i, w in enumerate(words)}
 
 
 def item_info(raw=None, probe=False):

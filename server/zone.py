@@ -356,8 +356,10 @@ DEFAULT_ITEMS = [
 # Starter weapons per adventuring class (races_classes.ADVENTURING_CLASSES):
 # [(name, icon, slot tag)]. Icons are iconsTK.xml numbers.
 CLASS_STARTER_WEAPONS = {
-    0x1C: [("Militia Longsword", 423, "PRIMARYHAND")],                  # Warrior
-    0x04: [("Crusader's Mace", 425, "PRIMARYHAND")],                    # Paladin
+    0x1C: [("Militia Longsword", 423, "PRIMARYHAND"),
+           ("Round Shield", 443, "SECONDARYHAND")],                      # Warrior
+    0x04: [("Crusader's Mace", 425, "PRIMARYHAND"),
+           ("Round Shield", 443, "SECONDARYHAND")],                      # Paladin
     0x14: [("Blackened Blade", 422, "PRIMARYHAND")],                    # Dread Knight
     0x13: [("Hunter's Shortsword", 422, "PRIMARYHAND"),
            ("Yew Longbow", 427, "RANGED")],                              # Ranger
@@ -375,11 +377,30 @@ CLASS_STARTER_WEAPONS = {
 }
 
 
+STARTER_OUTFIT = [("Traveler's Robe", 442, "CHEST"), ("Traveler's Leggings", 442, "LEGS"),
+                  ("Traveler's Boots", 442, "FEET")]
+
+
 def starter_equipment(klass):
-    """(item id, name, icon, equip slot) for the class's starter weapons."""
-    kit = CLASS_STARTER_WEAPONS.get(klass, CLASS_STARTER_WEAPONS[0x1C])
+    """(item id, name, icon, equip slot) for the class's starter weapons and outfit."""
+    kit = CLASS_STARTER_WEAPONS.get(klass, CLASS_STARTER_WEAPONS[0x1C]) + STARTER_OUTFIT
     return [(2001 + n, name, icon, vgmsg.EQUIP_SLOTS[slot])
             for n, (name, icon, slot) in enumerate(kit)]
+
+
+ITEM_CONTENT = content.Content()
+
+
+def item_equip_fields(name):
+    """inventory_item keyword arguments that make an item equippable."""
+    tpl = ITEM_CONTENT.item(name)
+    if "slot" not in tpl:
+        return {}
+    slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
+    allowed = [slot]
+    if slot in (vgmsg.EQUIP_SLOTS["LEFTFINGER"], vgmsg.EQUIP_SLOTS["RIGHTFINGER"]):
+        allowed = [vgmsg.EQUIP_SLOTS["LEFTFINGER"], vgmsg.EQUIP_SLOTS["RIGHTFINGER"]]
+    return {"default_slot": slot, "allowed_slots": allowed}
 # Abilities: (handle, ability id, name, icon, description, refresh seconds).
 DEFAULT_ABILITIES = [
     (1, 1001, "Strike", 553, "A basic melee attack.", 0.0),
@@ -426,11 +447,13 @@ def inventory_messages(player):
     then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
     out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
     for slot, (item_id, name, icon, qty) in enumerate(player.items):
-        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty)))
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty,
+                                                          **item_equip_fields(name))))
     # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
     # u8 lookup kind, u8 equip slot) moves them to the paper doll.
     for n, (item_id, name, icon, equip_slot) in enumerate(player.equipment):
-        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, icon)))
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, icon,
+                                                          **item_equip_fields(name))))
         out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))
     out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
     return out
@@ -506,23 +529,55 @@ SPAWN_Z_LIFT = 90.0   # observed: spawn z 4900 -> pawn at 4990 (= CollisionHeigh
 
 
 # Gear on the character model: pawn m_AttachmentGroups[60] of (mesh type,
-# mesh number, inventory slot). Mesh types (FUN_00bb0200): 9 CHEST, 12 FEET,
-# 14 HAND, 15 HEAD, 16 LEG, 18 SHOULDER, 23 BOW, 26 DAGGER, 29 MACE, 31 STAFF,
-# 33 SWORD, 34 SHIELD. The mesh is <TYPE>_ITEMS.[M_|F_]<TYPE>_<n> in
-# Assets/Characters/Meshes. Slots are vgmsg.EQUIP_SLOTS (28 right hand, 29 left).
-STARTER_GEAR = [(9, 111000, 6), (16, 111000, 32), (12, 111000, 26)]   # chest, legs, boots
-CLASS_WEAPON_GEAR = {
-    0x1C: [(33, 1000, 28), (34, 1000, 29)],   # Warrior: sword and shield
-    0x04: [(29, 1, 28), (34, 1000, 29)],      # Paladin: mace and shield
-    0x13: [(33, 1, 28), (23, 1, 42)],         # Ranger: sword and bow
-    0x15: [(26, 1000, 28)],                   # Rogue: dagger
-}
+# mesh number, inventory slot), built from the equipped items' "mesh" in
+# content/items.json. Mesh types (FUN_00bb0200): 9 CHEST, 12 FEET, 14 HAND,
+# 15 HEAD, 16 LEG, 18 SHOULDER, 23 BOW, 26 DAGGER, 28 HAMMER, 29 MACE, 31 STAFF,
+# 33 SWORD, 34 SHIELD. Slots are vgmsg.EQUIP_SLOTS (28 right hand, 29 left).
 
 
-def gear_attachments(player):
-    """m_AttachmentGroups elements (index -> (pkg, mesh, slot))."""
-    gear = STARTER_GEAR + CLASS_WEAPON_GEAR.get(player.klass, [(31, 1000, 28)])
-    return [g for g in gear]
+def gear_attachments(player, slots=60):
+    """m_AttachmentGroups: one (mesh type, mesh number, slot) per equipped item
+    with a model (content/items.json), padded with empty (-1, -1, -1) entries so
+    removed pieces are cleared on the client."""
+    gear = []
+    for _id, name, _icon, slot in player.equipment:
+        mesh = ITEM_CONTENT.item(name).get("mesh")
+        if mesh:
+            gear.append((mesh[0], mesh[1], slot))
+    return gear + [(-1, -1, -1)] * (min(slots, len(gear) + 8) - len(gear))
+
+
+def equip_item(player, handle):
+    """Move a bag item onto the paper doll (client event 0x8e). Whatever was in
+    that slot (or blocks it, e.g. a two-hander) goes back to the bag. Returns a
+    chat error (str) or the zone messages that update the client."""
+    item = next((i for i in player.items if i[0] == handle), None)
+    if item is None:
+        return "That item is not in your bags."
+    tpl = ITEM_CONTENT.item(item[1])
+    if "slot" not in tpl:
+        return "That item does not equip."
+    slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
+    hands = {vgmsg.EQUIP_SLOTS[s] for s in ("PRIMARYHAND", "SECONDARYHAND", "TWOHANDS")}
+    blocked = {slot}
+    if slot == vgmsg.EQUIP_SLOTS["TWOHANDS"]:
+        blocked |= hands
+    elif slot in hands:
+        blocked.add(vgmsg.EQUIP_SLOTS["TWOHANDS"])
+    msgs = []
+    bag_slot = player.items.index(item)
+    player.items.remove(item)
+    for old in [e for e in player.equipment if e[3] in blocked]:
+        # The old piece takes the bag slot the new one leaves.
+        player.equipment.remove(old)
+        player.items.insert(bag_slot, (old[0], old[1], old[2], 1))
+        msgs.append(zone_event(0x197, vgmsg.inventory_item(old[0], old[1], bag_slot, old[2], 1,
+                                                           **item_equip_fields(old[1]))))
+        bag_slot = 49 - len(player.equipment) - len(msgs)
+    player.equipment.append((item[0], item[1], item[2], slot))
+    # 0x1a7 (FUN_0050feb0): i32 item handle, u8 0, u8 slot moves it to the paper doll.
+    msgs.append(zone_event(0x1A7, struct.pack("<iBB", item[0], 0, slot)))
+    return msgs
 
 
 def spawn_location(args, pm, player):
