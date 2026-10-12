@@ -274,6 +274,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Merchants** (verified live): NPC dialog `0x2bb` {u64 npc} + `0x2b5` ("Show me your wares."); window `0x283`, items `0x285` MsgClientMerchantItem (f32 price in copper), `0x28c` publish; buy `0xe7` {handle, qty}, sell `0xe8` {handle, qty}, close `0xe6`/`0xf4` → `0x284` {u8 3}. Details: [MERCHANTS.md](MERCHANTS.md).
 
+**Groups** (verified live): invite `0xb0` {wstr name} → `0x6b3` popup; accept `0xb1` → `0x6b2` {group id} to the leader, `0x6bb` member rows both ways, `0x6cb` leader; leave `0xae` → `0x6a1` / `0x6bc` / `0x6be`; member position `0x695` and vitals `0x68b`/`0x68c` every second. Details: [GROUPS.md](GROUPS.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

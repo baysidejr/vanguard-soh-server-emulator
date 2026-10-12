@@ -17,6 +17,7 @@ import ue2net
 import vgmsg
 import class_abilities
 import combat
+import group
 import content
 import merchant
 import world
@@ -386,6 +387,7 @@ def world_tick(zone_sock, clients, args):
                 send_message(zone_sock, addr, state, zone.health_update(player))
             elif action[0] == "endurance":
                 send_message(zone_sock, addr, state, zone.endurance_update(player))
+    group_tick()
     for w in world.all_worlds():
         for s in list(w.members.values()):
             if now - s.get("last_seen", now) > 30:      # client gone without a disconnect
@@ -405,10 +407,112 @@ def world_tick(zone_sock, clients, args):
             w.broadcast(build)
 
 
+# Online zone connections, for groups and chat across connections.
+ONLINE = {}            # lower-case character name -> zone connection state
+ZONE_BY_SESSION = {}   # session key -> zone connection state (world chat -> player)
+
+
+def group_states(player):
+    g = getattr(player, "group", None)
+    return [ONLINE[m.name.lower()] for m in g.members if m.name.lower() in ONLINE] if g else []
+
+
+def handle_group_event(state, event, payload):
+    """Client group commands (group.CLIENT_EVENTS); see group.py."""
+    player = state["player"]
+    send = state["send"]
+    text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0] if len(payload) > 10 else ""
+    if event == group.INVITE:
+        name = text
+        if not name and player.target:
+            other = next((s for s in ONLINE.values() if s["player"].char_id == player.target), None)
+            name = other["player"].name if other else ""
+        target = ONLINE.get(name.lower())
+        g = getattr(player, "group", None)
+        if target is None or target is state:
+            send(build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
+        elif g and g.leader is not player:
+            send(group.error(1))
+        elif getattr(target["player"], "group", None):
+            send(group.error(2))
+        elif g and len(g.members) >= group.MAX_MEMBERS:
+            send(group.error(3))
+        else:
+            target["player"].pending_invite = state
+            target["send"](group.invite_popup(player, g.members if g else [player]))
+        print(f"  >>> ZONE group invite {name!r} from {player.name}")
+    elif event in (group.ACCEPT, group.DECLINE):
+        inviter = getattr(player, "pending_invite", None)
+        player.pending_invite = None
+        print(f"  >>> ZONE group {'accept' if event == group.ACCEPT else 'decline'} by {player.name}")
+        if inviter is None or inviter.get("player") is None:
+            return
+        if event == group.DECLINE:
+            inviter["send"](group.declined(player.name))
+            return
+        leader = inviter["player"]
+        g = getattr(leader, "group", None)
+        if g is None:
+            g = leader.group = group.Group(leader)
+            inviter["send"](group.formed(g))
+        for m_state in group_states(leader):
+            m_state["send"](group.member_added(player))
+            send(group.member_added(m_state["player"]))
+        g.members.append(player)
+        player.group = g
+        send(group.leader_is(g.leader))
+    elif event == group.LEAVE:
+        leave_group(state)
+    elif event == group.DISBAND:
+        g = getattr(player, "group", None)
+        if g and g.leader is player:
+            for m_state in group_states(player):
+                m_state["send"](group.disbanded())
+                m_state["player"].group = None
+
+
+def leave_group(state):
+    player = state["player"]
+    g = getattr(player, "group", None)
+    if g is None:
+        return
+    player.group = None
+    g.members.remove(player)
+    if "send" in state:
+        state["send"](group.you_left())
+    if len(g.members) <= 1:
+        for m_state in [ONLINE[m.name.lower()] for m in g.members if m.name.lower() in ONLINE]:
+            m_state["send"](group.disbanded())
+            m_state["player"].group = None
+        return
+    if g.leader is player:
+        g.leader = g.members[0]
+    for m_state in [ONLINE[m.name.lower()] for m in g.members if m.name.lower() in ONLINE]:
+        m_state["send"](group.member_left(player))
+        m_state["send"](group.leader_is(g.leader))
+
+
+def group_tick():
+    """Once a second: members' positions and vitals to the rest of the group."""
+    for state in list(ONLINE.values()):
+        player = state.get("player")
+        if not getattr(player, "group", None) or "send" not in state:
+            continue
+        for m_state in group_states(player):
+            if m_state is not state:
+                state["send"](group.member_position(m_state["player"]))
+                for m in group.member_vitals(m_state["player"]):
+                    state["send"](m)
+
+
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
     w, player = state.get("world"), state.get("player")
+    if player is not None:
+        leave_group(state)
+        if ONLINE.get(player.name.lower()) is state:
+            ONLINE.pop(player.name.lower(), None)
     if w is None or player is None:
         return
     w.members.pop(player.char_id, None)
@@ -917,6 +1021,10 @@ def handle_message(sock, server, addr, state, payload, args):
         if login:
             print(f"  >>> ZONE login request: account={login[0]!r} session={login[1]!r}")
             state["player"] = PENDING_PLAYERS.pop(login[1], None)
+            state["session"] = login[1]
+            ZONE_BY_SESSION[login[1]] = state
+            if state["player"]:
+                ONLINE[state["player"].name.lower()] = state
             send_message(sock, addr, state, build_login_reply(True))
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -1044,6 +1152,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL):
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_group_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3D8:
             # Auto-attack toggle (` key, /autoattacktoggle): no payload.
             player = state.get("player")
@@ -1114,6 +1225,11 @@ def handle_message(sock, server, addr, state, payload, args):
             # /tell X -> 'tell "X" ...', /g -> "gsay ..."): u16 6, u32 0x14, u32 len, wstr.
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
             print(f"  >>> WORLD command {struct.unpack_from('<I', payload, 2)[0]:#x}: {text!r}")
+            zone_state = ZONE_BY_SESSION.get(state.get("session"))
+            if zone_state and zone_state.get("player") and text.startswith("gsay "):
+                speaker = zone_state["player"].name
+                for m_state in group_states(zone_state["player"]):
+                    m_state["send"](build_chat_line(speaker, text[5:], group.CHAT_GROUP))
         else:
             print(f"  >>> WORLD message type {msg_type} ({len(payload)} bytes) - paste this to Claude")
         return

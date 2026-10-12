@@ -550,6 +550,8 @@ class Player:
         self.pending_displays = []        # 0x3d1 messages queued by combat
         self.pending_rewards = []         # experience from kills
         self.auto_attack = False
+        self.group = None                 # group.Group
+        self.pending_invite = None        # inviter's zone connection state
         self.hotbar = None                # {"bank:slot": hotkey record hex} once changed
         self.level_number = 10            # adventuring level (self.level is the map name)
         self.xp = 500                     # toward the next level (XP_PER_LEVEL)

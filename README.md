@@ -32,7 +32,8 @@ The unmodified client, talking only to this emulator:
 - [x] Gear on the character model (armor, bow); NPCs dressed too
 - [x] Several players in the same world: they see each other move, chat, and share the same NPCs
 - [x] World content (mobs, loot, spawns) loaded from JSON files: see [docs/CONTENT_EDITOR.md](docs/CONTENT_EDITOR.md)
-- [ ] Hand-held weapons on the model; zoning between chunks; groups
+- [x] Groups (invite, accept, group window with live bars, group chat), merchants (buy/sell), equip/unequip, real item tooltips, NPC wandering
+- [ ] Zoning between chunks; quests; shout/tell chat; trading between players
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 
