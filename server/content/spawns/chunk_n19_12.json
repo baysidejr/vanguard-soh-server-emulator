@@ -1,9 +1,35 @@
 {
-  "_comment": "Spawns in chunk_n19_12 (Sundering Wastelands). x, y world units; z optional (terrain height is used); yaw 0..65535 (0 = +x, 16384 = +y). respawn in seconds. Placeholder camp next to the default spawn point (-31200, -5600).",
+  "_comment": "Spawns in chunk_n19_12 (Sundering Wastelands). x, y world units; z optional (terrain height is used); yaw 0..65535 (0 = +x, 16384 = +y). respawn in seconds. Placeholder camp next to the default spawn point (-31200, -5600). wander: stroll radius around the spawn point (0 or missing = stands still).",
   "spawns": [
-    {"mob": "wastes_robed_elf", "x": -30940, "y": -5440, "yaw": 32768, "respawn": 60},
-    {"mob": "wastes_robed_dwarf", "x": -30940, "y": -5760, "yaw": 32768, "respawn": 60},
-    {"mob": "wastes_thestran_guard", "x": -30880, "y": -5540, "yaw": 32768, "respawn": 60},
-    {"mob": "wastes_dwarf_scout", "x": -31080, "y": -5640, "yaw": 32768, "respawn": 60}
+    {
+      "mob": "wastes_robed_elf",
+      "x": -30940,
+      "y": -5440,
+      "yaw": 32768,
+      "respawn": 60,
+      "wander": 300
+    },
+    {
+      "mob": "wastes_robed_dwarf",
+      "x": -30940,
+      "y": -5760,
+      "yaw": 32768,
+      "respawn": 60
+    },
+    {
+      "mob": "wastes_thestran_guard",
+      "x": -30880,
+      "y": -5540,
+      "yaw": 32768,
+      "respawn": 60
+    },
+    {
+      "mob": "wastes_dwarf_scout",
+      "x": -31080,
+      "y": -5640,
+      "yaw": 32768,
+      "respawn": 60,
+      "wander": 300
+    }
   ]
 }

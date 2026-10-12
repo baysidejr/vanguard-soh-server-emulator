@@ -42,6 +42,10 @@ class Npc:
         self.yaw = 0
         self.level = 1
         self.stance = False           # weapons drawn (m_CombatState)
+        self.wander = 0.0             # stroll radius around home (0 = stand still)
+        self.wander_goal = None       # (x, y) it is walking to
+        self.next_wander = 0.0
+        self.ground_z = None          # f(x, y) -> standing z (terrain)
         self.props = {}               # extra replicated pawn properties from the template
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
@@ -234,28 +238,58 @@ NPC_SPEED = 220.0            # units per second while chasing
 MELEE_RANGE = 90.0
 
 
-def chase_step(npc, target, dt):
-    """Move an aggressive NPC toward target (x, y, z). Returns the replicated
-    properties to send, or None when nothing changed."""
-    if not npc.alive or not npc.aggro or target is None:
-        return None
+def move_toward(npc, target, dt, speed, stop_at):
+    """Step npc toward target (x, y); returns the replicated properties, or None
+    when it was already standing within stop_at."""
     dx, dy = target[0] - npc.location[0], target[1] - npc.location[1]
     dist = math.hypot(dx, dy)
-    yaw = int(math.degrees(math.atan2(dy, dx)) * 65536 / 360) & 0xFFFF
-    if dist <= MELEE_RANGE:
+    yaw = int(math.degrees(math.atan2(dy, dx)) * 65536 / 360) & 0xFFFF if dist > 1 else npc.yaw
+    if dist <= stop_at:
         if not npc.moving:
             return None
         npc.moving = False
+        npc.yaw = yaw
         return {"Velocity": (0.0, 0.0, 0.0), "Rotation": (0, yaw, 0),
                 "PawnPosition": (npc.location, (0, yaw, 0), (0.0, 0.0, 0.0))}
-    step = min(NPC_SPEED * dt, dist - MELEE_RANGE)
-    npc.location = (npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step,
-                    npc.location[2])
-    npc.moving = True
-    vel = (dx / dist * NPC_SPEED, dy / dist * NPC_SPEED, 0.0)
+    step = min(speed * dt, dist - stop_at)
+    z = npc.location[2]
+    if npc.ground_z:
+        z = npc.ground_z(npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step)
+    npc.location = (npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step, z)
+    npc.moving, npc.yaw = True, yaw
+    vel = (dx / dist * speed, dy / dist * speed, 0.0)
     # PawnPosition also resets the client's ground-stick cache (see zone.py).
     return {"Location": npc.location, "Rotation": (0, yaw, 0), "Velocity": vel,
             "PawnPosition": (npc.location, (0, yaw, 0), vel)}
+
+
+WANDER_SPEED = 90.0          # a stroll
+WANDER_PAUSE = (4.0, 12.0)   # seconds standing between strolls
+LEASH = 1500.0               # an NPC chasing further than this from home gives up
+
+
+def chase_step(npc, target, dt, rng=random, now=None):
+    """One movement step for an NPC: chase its attacker (target = x, y, z), walk
+    home after losing it, or wander around home within npc.wander. Returns the
+    replicated properties to send, or None."""
+    if not npc.alive:
+        return None
+    now = time.time() if now is None else now
+    if npc.aggro and target is not None:
+        if math.hypot(npc.location[0] - npc.home[0], npc.location[1] - npc.home[1]) > LEASH:
+            npc.aggro, npc.aggro_on, npc.wander_goal = False, None, npc.home
+        else:
+            return move_toward(npc, target, dt, NPC_SPEED, MELEE_RANGE)
+    if npc.wander_goal is not None:
+        values = move_toward(npc, npc.wander_goal, dt,
+                             NPC_SPEED if npc.wander_goal == npc.home else WANDER_SPEED, 5.0)
+        if not npc.moving:
+            npc.wander_goal, npc.next_wander = None, now + rng.uniform(*WANDER_PAUSE)
+        return values
+    if npc.wander > 0 and now >= npc.next_wander:
+        angle, r = rng.uniform(0, 2 * math.pi), rng.uniform(0.3, 1.0) * npc.wander
+        npc.wander_goal = (npc.home[0] + r * math.cos(angle), npc.home[1] + r * math.sin(angle))
+    return None
 
 
 RESPAWN_SECONDS = 60
@@ -270,7 +304,7 @@ def respawns(npcs, now):
         if npc.died_at and now - npc.died_at >= npc.respawn:
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
-            npc.location, npc.loot = npc.home, None
+            npc.location, npc.loot, npc.wander_goal = npc.home, None, None
             back.append(npc)
     return back
 

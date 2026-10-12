@@ -116,6 +116,9 @@ def populate_world(w, args):
         npc.race = template["race"]
         npc.gear = [tuple(g) for g in template.get("gear", [])]
         npc.yaw = int(spawn.get("yaw", 0))
+        npc.wander = float(spawn.get("wander", 0))
+        npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
+        npc.next_wander = time.time() + n
         npc.level = template.get("level", 1)
         npc.props = {"m_GameplayLevel": npc.level}
         if template.get("title"):
