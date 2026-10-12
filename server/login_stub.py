@@ -807,6 +807,7 @@ def complete_trade(t, args):
         s_state["send"](merchant.coins(p.coins))
         save_character_field(p.name, "items", [list(i) for i in p.items])
         save_character_field(p.name, "coins", p.coins)
+        quest_items_changed(s_state)
     end_trade(t, trade.done())
     print("  trade completed")
 
@@ -816,15 +817,19 @@ def npc_dialog(state, npc):
     player, content_ = state["player"], ARGS.content
     log = player.quests
     out, opts, greeting = [], [], None
-    for key in npc.quests:
-        q = content_.quests[key]
+    tpl = npc.template_id
+    greeting = quest_talk(state, npc)
+    have = have_items(player)
+    for key, q in content_.quests.items():
         if key in log.done:
             continue
         if key in log.active:
-            ready = log.active[key] >= sum(q["kill"].values())
-            opts.append((f"{q['name']}" + (" (complete)" if ready else " (in progress)"), q["id"],
-                         quest.OPTION_TYPE))
-        else:
+            prog = log.active[key]
+            if quest.ready(q, prog, have) and quest.turn_in(q) == tpl:
+                opts.append((f"{q['name']} (complete)", q["id"], quest.OPTION_TYPE))
+            elif q.get("giver") == tpl:
+                opts.append((f"{q['name']} (in progress)", q["id"], quest.OPTION_TYPE))
+        elif q.get("giver") == tpl and all(r in log.done for r in q.get("requires", [])):
             opts.append((q["name"], q["id"], quest.OPTION_TYPE))
             greeting = greeting or q.get("greeting")
     out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
@@ -842,6 +847,11 @@ def quest_by_id(qid):
     return next(((k, q) for k, q in ARGS.content.quests.items() if q["id"] == qid), (None, None))
 
 
+def have_items(player):
+    """have(name) -> how many of that item are in the player's bags."""
+    return lambda name: sum(i[3] for i in player.items if i[1] == name)
+
+
 def handle_quest_event(state, event, payload):
     player, send = state["player"], state["send"]
     log = player.quests
@@ -852,29 +862,61 @@ def handle_quest_event(state, event, payload):
         return
     npc = player.npcs.get(player.target) if player.target else None
     npc_eid = npc.entity_id if npc else 0
+    tpl = npc.template_id if npc else None
+    have = have_items(player)
     if event == quest.CLICK_OPTION:
         if key in log.active:
-            ready = log.active[key] >= sum(q["kill"].values())
-            if ready:
+            prog = log.active[key]
+            if quest.ready(q, prog, have) and tpl == quest.turn_in(q):
                 finish_quest(state, key, q)
             else:
-                send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key]))
-        elif key not in log.done:
+                send(quest.page(q, npc_eid, quest.IN_PROGRESS, prog, have=have))
+        elif key not in log.done and tpl == q.get("giver"):
             send(quest.page(q, npc_eid, quest.OFFER))
     elif event == quest.ACCEPT and key not in log.active and key not in log.done:
-        log.active[key] = 0
+        # Only from the giver, and only once the quests it requires are done.
+        if tpl != q.get("giver") or not all(r in log.done for r in q.get("requires", [])):
+            return
+        log.active[key] = quest.new_progress()
         send(quest.accepted(q))
-        send(quest.page(q, npc_eid, quest.IN_PROGRESS, 0, journal=True))
+        send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True, have=have))
         save_character_field(player.name, "quests", log.to_json())
+        quest_advance(state, key, q, npc_eid, quiet=True)
     elif event == quest.REQUEST_INFO and key in log.active:
-        send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True))
+        send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True, have=have))
     elif event in (quest.CONTINUE, quest.COMPLETE) and key in log.active:
-        if log.active[key] >= sum(q["kill"].values()):
+        if quest.ready(q, log.active[key], have) and tpl == quest.turn_in(q):
             finish_quest(state, key, q)
+
+
+def quest_advance(state, key, q, source_eid, quiet=False):
+    """Move past finished steps and update the tracker. quiet: only send an
+    update if the step changed (e.g. right after accepting)."""
+    player = state["player"]
+    prog = player.quests.active[key]
+    st, have = quest.steps(q), have_items(player)
+    before = dict(prog)
+    while prog["step"] < len(st) - 1 and quest.step_done(st[prog["step"]], prog, have):
+        prog["step"] += 1
+        prog["count"] = 0
+    if quiet and prog == before:
+        return
+    state["send"](quest.progress_update(q, source_eid, prog, quest.ready(q, prog, have), have))
+    save_character_field(player.name, "quests", player.quests.to_json())
 
 
 def finish_quest(state, key, q):
     player, send = state["player"], state["send"]
+    # Items gathered for "collect" steps are handed over.
+    have = have_items(player)
+    for step in quest.steps(q):
+        for name, n in step.get("collect", {}).items():
+            if have(name) < n:
+                send(build_system_text(f"You need {n} {name}.", SYSTEM_TEXT_ERROR))
+                return
+    for step in quest.steps(q):
+        for name, n in step.get("collect", {}).items():
+            take_items(state, name, n)
     del player.quests.active[key]
     player.quests.done.add(key)
     send(quest.finished(q))
@@ -883,6 +925,8 @@ def finish_quest(state, key, q):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
+    for name in reward.get("items", []):
+        give_item(state, name)
     if reward.get("xp"):
         for m in award_xp(player, reward["xp"], player.char_id):
             send(m)
@@ -891,18 +935,80 @@ def finish_quest(state, key, q):
 
 
 def quest_kill(state, npc):
-    """Count a kill toward the player's active quests."""
+    """Count a kill toward the current kill step of the player's active quests."""
     player = state["player"]
-    for key, count in list(player.quests.active.items()):
+    for key, prog in list(player.quests.active.items()):
         q = ARGS.content.quests.get(key)
-        if not q or npc.template_id not in q["kill"]:
+        st = quest.steps(q) if q else []
+        if prog["step"] >= len(st):
             continue
-        total = sum(q["kill"].values())
-        if count >= total:
+        step = st[prog["step"]]
+        if npc.template_id not in step.get("kill", {}) or prog["count"] >= quest.step_need(step):
             continue
-        player.quests.active[key] = count + 1
-        state["send"](quest.progress_update(q, npc.entity_id, count + 1, count + 1 >= total))
-        save_character_field(player.name, "quests", player.quests.to_json())
+        prog["count"] += 1
+        quest_advance(state, key, q, npc.entity_id)
+
+
+def quest_talk(state, npc):
+    """Talking to an NPC finishes a current "talk" step for it. Returns that
+    step's "say" text (the NPC's line) or None."""
+    player = state["player"]
+    line = None
+    for key, prog in list(player.quests.active.items()):
+        q = ARGS.content.quests.get(key)
+        st = quest.steps(q) if q else []
+        if prog["step"] < len(st) and st[prog["step"]].get("talk") == npc.template_id \
+                and prog["count"] == 0:
+            prog["count"] = 1
+            line = line or st[prog["step"]].get("say")
+            quest_advance(state, key, q, npc.entity_id)
+    return line
+
+
+def quest_items_changed(state):
+    """Bags changed: update quests whose current step collects items."""
+    player = state.get("player")
+    if player is None or not hasattr(player, "quests"):
+        return
+    for key, prog in list(player.quests.active.items()):
+        q = ARGS.content.quests.get(key)
+        st = quest.steps(q) if q else []
+        if prog["step"] < len(st) and "collect" in st[prog["step"]]:
+            quest_advance(state, key, q, player.char_id)
+
+
+def give_item(state, name, qty=1):
+    """Put a new item in the player's bags; False if they are full."""
+    player, send = state["player"], state["send"]
+    slot = zone.free_bag_slot(player)
+    if slot is None:
+        send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
+        return False
+    item_id, icon = zone.new_item_id(player), zone.item_icon(name, 443)
+    player.items.append((item_id, name, icon, qty, slot))
+    send(zone.zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty,
+                                                     **zone.item_equip_fields(name))))
+    send(build_system_text(f"You receive {name}." if qty == 1 else f"You receive {qty} {name}.",
+                           SYSTEM_TEXT_WHITE))
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    return True
+
+
+def take_items(state, name, need):
+    """Remove `need` of an item from the bags (whole stacks first come first)."""
+    player, send = state["player"], state["send"]
+    for item in [i for i in player.items if i[1] == name]:
+        if need <= 0:
+            break
+        take = min(need, item[3])
+        need -= take
+        if take == item[3]:
+            player.items.remove(item)
+            send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+        else:
+            player.items[player.items.index(item)] = item[:3] + (item[3] - take, item[4])
+            send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - take)))
+    save_character_field(player.name, "items", [list(i) for i in player.items])
 
 
 def handle_harvest_event(state, event):
@@ -957,6 +1063,7 @@ def harvest_tick(state, now):
         send(zone.zone_event(0x197, record))
         send(build_system_text(f"You harvest {qty} {name}.", SYSTEM_TEXT_WHITE))
         save_character_field(player.name, "items", [list(i) for i in player.items])
+        quest_items_changed(state)
     else:
         send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
     send(harvest.ended())
@@ -1070,28 +1177,13 @@ def finish_craft(state, r):
         send(craft.end())
         return
     for name, need in r["inputs"].items():
-        for item in [i for i in player.items if i[1] == name]:
-            if need <= 0:
-                break
-            take = min(need, item[3])
-            need -= take
-            if take == item[3]:
-                player.items.remove(item)
-                send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
-            else:
-                player.items[player.items.index(item)] = item[:3] + (item[3] - take, item[4])
-                send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - take)))
+        take_items(state, name, need)
     name = r["output"]
-    slot = zone.free_bag_slot(player)
-    if slot is not None:
-        item_id, icon = zone.new_item_id(player), zone.item_icon(name, 443)
-        player.items.append((item_id, name, icon, 1, slot))
-        send(zone.zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, 1,
-                                                         **zone.item_equip_fields(name))))
+    if give_item(state, name):
         send(build_system_text(f"You create {name}.", SYSTEM_TEXT_WHITE))
+        quest_items_changed(state)
     send(combat.experience_reward(r.get("xp", 50), player.char_id, kind=1))
     send(craft.end())
-    save_character_field(player.name, "items", [list(i) for i in player.items])
     print(f"  {player.name} crafted {name}")
 
 
@@ -1451,6 +1543,11 @@ def dev_command(text, player=None):
         # !questkill: count a kill of the target's kind toward active quests (testing).
         npc = player.npcs.get(player.target)
         return [("quest_kill", npc)] if npc else []
+    if words[0] == "give" and len(words) >= 2 and player:
+        # !give <item name> [qty]: put an item from items.json in the bags (testing).
+        qty = int(words[-1]) if words[-1].isdigit() and len(words) > 2 else 1
+        name = " ".join(words[1:-1] if qty > 1 or words[-1] == "1" else words[1:])
+        return [("give", name, qty)]
     if words[0] == "tradeadd" and len(words) >= 2 and player:
         # !tradeadd <bag slot>: offer that bag item in the open trade (what dragging it
         # into the trade window sends: client event 0xc4 {handle, seq, qty}).
@@ -1683,6 +1780,10 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "quest_kill":
                         quest_kill(state, m[1])
                         continue
+                    elif isinstance(m, tuple) and m[0] == "give":
+                        if give_item(state, m[1], m[2]):
+                            quest_items_changed(state)
+                        continue
                     elif isinstance(m, tuple) and m[0] == "trade_event":
                         handle_trade_event(state, m[1], bytes(10) + m[2], args)
                         continue
@@ -1745,6 +1846,8 @@ def handle_message(sock, server, addr, state, payload, args):
                     msgs = []
                 for m in msgs:
                     send_message(sock, addr, state, m)
+                if msgs:
+                    quest_items_changed(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (EQUIP_EVENT, UNEQUIP_EVENT):
             # Right-click: in a bag = equip to the item's default slot (0x8e,
             # FUN_005042b0); on the paper doll = unequip (0x98). i32 handle, u8.
@@ -1789,6 +1892,8 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL) and player is not None:
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+                if event == merchant.REQ_BUY:
+                    quest_items_changed(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in diplomacy.CLIENT_EVENTS:
             if state.get("player"):
                 handle_parley_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

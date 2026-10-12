@@ -1,5 +1,5 @@
 {
-  "_comment": "Quests. giver: mob template id of the NPC that offers and takes them. kill: {mob template id: count}. reward: xp, coin (copper). Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Quests. giver: mob template id of the NPC that offers it; turn_in: who takes it back (default giver). requires: quest keys finished first. steps: in order, each one of kill {mob: n}, collect {item: n} (handed over at turn-in) or talk <mob> (with optional say text), plus objective (tracker text). A top-level kill is one kill step. reward: xp, coin (copper), items. Placeholder data (docs/CONTENT_EDITOR.md).",
   "wanderer_trouble": {
     "id": 5001,
     "name": "Wanderer Trouble",
@@ -9,8 +9,53 @@
     "description": "Orin the Trader wants the robed wanderers driven off from his camp.",
     "summary": "Defeat 3 Robed Wanderers near Orin's camp.",
     "accept_text": "You agree to help Orin with the wanderers.",
-    "kill": {"wastes_robed_elf": 3},
+    "kill": {
+      "wastes_robed_elf": 3
+    },
     "objective": "Defeat Robed Wanderers",
-    "reward": {"xp": 400, "coin": 250}
+    "reward": {
+      "xp": 400,
+      "coin": 250
+    }
+  },
+  "forge_supplies": {
+    "id": 5002,
+    "name": "Supplies for the Forge",
+    "level": 10,
+    "giver": "camp_merchant",
+    "requires": [
+      "wanderer_trouble"
+    ],
+    "greeting": "You handled those wanderers well. I could use a hand getting the forge running again.",
+    "description": "Orin needs copper for the camp forge, and the wolves keep scaring off his miners. He also wants word sent to the guard.",
+    "summary": "Hunt 2 Ashen Wolves, gather 2 Copper Ore, tell the Thestran Guard, then return to Orin.",
+    "accept_text": "You agree to help Orin get the forge running.",
+    "steps": [
+      {
+        "objective": "Hunt Ashen Wolves",
+        "kill": {
+          "wastes_wolf": 2
+        }
+      },
+      {
+        "objective": "Gather Copper Ore",
+        "collect": {
+          "Copper Ore": 2
+        }
+      },
+      {
+        "objective": "Tell the Thestran Guard the road is clear",
+        "talk": "wastes_thestran_guard",
+        "say": "Orin sent you? Good news. Tell him the guard will watch the mine road."
+      }
+    ],
+    "turn_in": "camp_merchant",
+    "reward": {
+      "xp": 600,
+      "coin": 400,
+      "items": [
+        "Round Shield"
+      ]
+    }
   }
 }

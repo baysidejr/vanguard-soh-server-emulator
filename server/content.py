@@ -96,11 +96,25 @@ def validate(directory=CONTENT_DIR):
     for qid, q in c.quests.items():
         if q.get("giver") not in c.mobs:
             problems.append(f"quest {qid}: unknown giver {q.get('giver')}")
-        if not q.get("kill"):
-            problems.append(f"quest {qid}: needs a kill objective (the only kind supported)")
-        for mob in q.get("kill", {}):
-            if mob not in c.mobs:
-                problems.append(f"quest {qid}: unknown kill target {mob}")
+        if q.get("turn_in", q.get("giver")) not in c.mobs:
+            problems.append(f"quest {qid}: unknown turn_in {q.get('turn_in')}")
+        steps = q.get("steps") or [{"kill": q.get("kill")}]
+        for n, step in enumerate(steps):
+            kinds = [k for k in ("kill", "collect", "talk") if step.get(k)]
+            if len(kinds) != 1:
+                problems.append(f"quest {qid} step {n}: needs exactly one of kill, collect, talk")
+            for mob in list(step.get("kill") or {}) + ([step["talk"]] if step.get("talk") else []):
+                if mob not in c.mobs:
+                    problems.append(f"quest {qid} step {n}: unknown mob {mob}")
+            for name in step.get("collect") or {}:
+                if name not in c.items:
+                    problems.append(f"quest {qid} step {n}: item {name!r} not in items.json")
+        for name in q.get("reward", {}).get("items", []):
+            if name not in c.items:
+                problems.append(f"quest {qid}: reward item {name!r} not in items.json")
+        for r in q.get("requires", []):
+            if r not in c.quests:
+                problems.append(f"quest {qid}: requires unknown quest {r}")
     for rid, r in c.recipes.items():
         for name in list(r.get("inputs", {})) + [r.get("output")]:
             if name not in c.items:

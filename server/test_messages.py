@@ -149,6 +149,31 @@ class NetFieldTests(unittest.TestCase):
         self.assertEqual(w.packed()[1], 11)
 
 
+class QuestStepTests(unittest.TestCase):
+    Q = {"id": 1, "name": "T", "steps": [
+        {"objective": "Kill", "kill": {"wolf": 2}},
+        {"objective": "Gather", "collect": {"Ore": 2}},
+        {"objective": "Talk", "talk": "guard"}]}
+
+    def test_old_saves_and_single_kill_quests(self):
+        import quest
+        log = quest.QuestLog({"active": {"a": 2}})
+        self.assertEqual(log.active["a"], {"step": 0, "count": 2})
+        q = {"kill": {"wolf": 3}, "objective": "Kill"}
+        self.assertEqual(quest.status_line(q, log.active["a"]), "Kill (2/3)")
+        self.assertFalse(quest.ready(q, log.active["a"], lambda n: 0))
+        self.assertTrue(quest.ready(q, {"step": 0, "count": 3}, lambda n: 0))
+
+    def test_collect_step_counts_bag_items(self):
+        import quest
+        prog = {"step": 1, "count": 0}
+        self.assertEqual(quest.status_line(self.Q, prog, lambda n: 5 if n == "Ore" else 0), "Gather (2/2)")
+        self.assertTrue(quest.step_done(self.Q["steps"][1], prog, lambda n: 2))
+        self.assertFalse(quest.ready(self.Q, prog, lambda n: 2))
+        self.assertTrue(quest.ready(self.Q, {"step": 2, "count": 1}, lambda n: 0))
+        self.assertEqual(quest.status_line(self.Q, {"step": 2, "count": 0}), "Talk")
+
+
 class TradeTests(unittest.TestCase):
     def test_full_bag_cancels_whole_trade(self):
         from unittest import mock

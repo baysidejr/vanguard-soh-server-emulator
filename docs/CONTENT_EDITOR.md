@@ -32,7 +32,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Recipes and resource nodes | recipes (inputs, stages, actions, output), node types, yields, respawn | `server/content/recipes.json` (one recipe), `harvest` and `station` blocks in mobs.json |
 | Diplomacy | statement cards per class or level, NPC parley decks and strategy, parley rewards (faction, items, dialogue unlocks), presence requirements | three fixed cards in `server/diplomacy.py`; `"parley": true` in mobs.json |
 | Encounters | boss phases, triggers, adds, scripted events | none |
-| Quests | givers, text, steps, objectives, rewards | `server/content/quests.json`: one kill quest (multi-step, item/collect objectives and item rewards not yet supported) |
+| Quests | givers, text, steps, objectives, rewards | `server/content/quests.json`: two placeholder quests (kill, collect and talk steps, prerequisites, item rewards); quest dialogue trees (0x2af responses) not yet used |
 | NPC dialog and merchants | conversation trees, vendor inventories and prices, trainers | `server/content/merchants.json` (one placeholder vendor); dialog is only "Show me your wares." |
 | Starting areas and bind points | per race or class start location and bind spots | flat land found in the heightmap (`zone.default_ground_spawn`) |
 | Dungeon membership | which chunks or areas are dungeons, entrances | unknown; most dungeons are inside overworld chunks |

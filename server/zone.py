@@ -16,6 +16,7 @@ import merchant
 import harvest
 import craft
 import diplomacy
+import quest
 import world
 import ue2net
 from netcache import NetCache
@@ -103,12 +104,12 @@ def handle_unreal(send, state, payload, args):
                 send(craft.learn_action(r, n))
         # Quest journal: active quests (0x2cb entries) so the tracker and log are filled.
         import quest
-        for key, progress in player.quests.active.items():
+        have = lambda name: sum(i[3] for i in player.items if i[1] == name)
+        for key, prog in player.quests.active.items():
             q = args.content.quests.get(key)
             if q:
-                total = sum(q["kill"].values())
-                send(quest.page(q, 0, quest.READY if progress >= total else quest.IN_PROGRESS,
-                                progress, journal=True))
+                send(quest.page(q, 0, quest.READY if quest.ready(q, prog, have) else quest.IN_PROGRESS,
+                                prog, journal=True, have=have))
         # "SGOUI toggle" flips the windows, so only on the first zone-in of a session
         # (a chunk handoff keeps the client's UI).
         if not player.hud_shown:
@@ -149,7 +150,9 @@ def populate_world(w, args):
         npc.station = bool(template.get("station"))
         npc.parley = bool(template.get("parley"))
         npc.template_id = spawn["mob"]
-        npc.quests = [k for k, q in args.content.quests.items() if q.get("giver") == spawn["mob"]]
+        npc.quests = [k for k, q in args.content.quests.items()
+                      if spawn["mob"] in (q.get("giver"), quest.turn_in(q))
+                      or any(s.get("talk") == spawn["mob"] for s in quest.steps(q))]
         npc.wander = float(spawn.get("wander", 0))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.next_wander = time.time() + n
