@@ -250,6 +250,15 @@ def main():
             world_tick(zone_sock, clients, args)
 
 
+def player_death(state, args, player):
+    """The player's pawn falls (m_bIsDead + death animation) and the release
+    popup opens."""
+    print(f"  <- {player.name} died")
+    return [zone.player_pawn_update(state, args, {"Health": 0, "m_bIsDead": 1}),
+            combat.play_animation(player.char_id, combat.ANIM_DEATH),
+            combat.death_popup(300)]
+
+
 def world_tick(zone_sock, clients, args):
     """Once a second for each player in the zone: regeneration, NPC respawns."""
     now = time.time()
@@ -547,6 +556,11 @@ def dev_command(text, player=None):
     words = text[1:].split()
     if not words:
         return []
+    if words[0] == "hurt" and len(words) >= 2 and player:
+        # !hurt N: lower your own health (the next hit from an NPC can kill you).
+        player.health = max(player.health - int(words[1], 0), 1)
+        player.last_combat = time.time()
+        return [zone.health_update(player)]
     if words[0] == "anim" and len(words) >= 2 and player:
         me = "me" in words[2:]
         nums = [int(w, 0) for w in words[1:] if w != "me"]
@@ -717,6 +731,17 @@ def handle_message(sock, server, addr, state, payload, args):
             if text.startswith("!") and args.dev_commands:
                 for m in dev_command(text, state.get("player")):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in combat.RELEASE_EVENTS:
+            # "Release to Bind" (0x542) on the death popup. No teleport yet: the
+            # player gets up where they fell, at full health.
+            player = state.get("player")
+            print(f"  >>> ZONE release ({payload[2:6].hex(' ')})")
+            if player and player.health <= 0:
+                player.health = player.stats["hit_points"]
+                for m in (combat.death_popup(0, False),
+                          zone.player_pawn_update(state, args, {"Health": 100, "m_bIsDead": 0}),
+                          zone.health_update(player)):
+                    send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == combat.TARGET_EVENT:
             # Target selected (click, Tab): u64 entity id; 0 = target cleared.
             player = state.get("player")
@@ -733,12 +758,16 @@ def handle_message(sock, server, addr, state, payload, args):
             ability = next((a for a in getattr(player, "abilities", []) if a[0] == handle), None)
             print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
             if ability:
+                was_alive = player.health > 0
                 lines, npc = combat.use_ability(player, ability)
                 colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR,
                            "white": SYSTEM_TEXT_WHITE}
                 for text, kind in lines:
                     send_message(sock, addr, state, build_system_text(text, colours[kind]))
                 send_message(sock, addr, state, zone.health_update(player))
+                if was_alive and player.health == 0:
+                    for m in player_death(state, args, player):
+                        send_message(sock, addr, state, m)
                 if npc:
                     send_message(sock, addr, state, combat.target_health(npc))
                     if not npc.alive:

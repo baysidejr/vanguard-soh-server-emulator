@@ -53,10 +53,19 @@ ANIM_EVENT = 0x2E             # server -> client: u64 entity id, i32 animation, 
 ANIM_DEATH = 1               # FUN_00bbb490: 1..3 are death animations (pawn stays down)
 
 
-def play_animation(npc, anim, arg=0):
+def play_animation(who, anim, arg=0):
     """0x2e (handler FUN_0061fd10 -> pawn FUN_00bbb490): animation ids resolve
-    through FUN_00bb33e0."""
-    return struct.pack("<HIIQii", 2, ANIM_EVENT, 16, npc.entity_id, anim, arg)
+    through FUN_00bb33e0. who = an Npc or an entity id."""
+    eid = who if isinstance(who, int) else who.entity_id
+    return struct.pack("<HIIQii", 2, ANIM_EVENT, 16, eid, anim, arg)
+
+
+RELEASE_EVENTS = (0x542,)    # client -> server, no payload: "Release to Bind"
+DEATH_POPUP_EVENT = 0x540    # MsgIntAndBool (FUN_005e70b0): "DeathReleasePopup"
+
+
+def death_popup(seconds, show=True):
+    return struct.pack("<HIIiB", 2, DEATH_POPUP_EVENT, 5, seconds, int(show))
 
 
 # Damage range per ability id (MsgAbilityInfo field 20); 0 = no damage (buffs, shouts).
@@ -67,6 +76,8 @@ def use_ability(player, ability, rng=random):
     """ability = a DEFAULT_ABILITIES tuple. Returns [(text, colour kind)], where
     kind is 'combat', 'error' or 'white', and the NPC that changed (or None)."""
     name = ability[2]
+    if player.health <= 0:
+        return [("You can't do that while dead.", "error")], None
     npc = player.npcs.get(player.target) if player.target else None
     if npc is None:
         return [(f"You use {name}, but you have no target.", "combat")], None

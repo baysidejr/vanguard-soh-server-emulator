@@ -109,15 +109,23 @@ def health_update(player):
 
 def npc_update(state, args, npc, values):
     """A zone message updating replicated properties of an NPC's pawn."""
+    return pawn_update(state, args, npc.channel, npc.cls_path, values)
+
+
+def player_pawn_update(state, args, values):
+    return pawn_update(state, args, PAWN_CHANNEL, args.pawn_class, values)
+
+
+def pawn_update(state, args, channel, cls_path, values):
     ue, player = state["ue"], state["player"]
     pm = package_map(args, player.level)
-    cls = npc.cls_path.split(".", 1)[1]
+    cls = cls_path.split(".", 1)[1]
     w = ue2net.BitWriter()
     for rep_index, max_index, write in pm.net_cache.props(cls, values):
         w.serialize_int(rep_index, max_index)
         write(w)
     data, nbits = w.packed()
-    return unreal_message(ue.build([ue.actor_bunch(npc.channel, data, nbits)]))
+    return unreal_message(ue.build([ue.actor_bunch(channel, data, nbits)]))
 
 
 def zone_event(event_id, data=b""):
