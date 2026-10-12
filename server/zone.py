@@ -122,6 +122,14 @@ def spawn_bunches(ue, args):
                             location=location, rotation=rotation, properties=props)
     print(f"  <- UNREAL actor open ch={PC_CHANNEL} {args.spawn_class} {b.nbits} bits: {b.data.hex(' ')}")
     out.append(b)
+    if pawn_cls:
+        # RPC PlayerController.ClientRestart() (no parameters in this build): the
+        # client takes the pawn and enters its walking state.
+        w = ue2net.BitWriter()
+        w.serialize_int(nc.field(pc_cls, "ClientRestart").index, cache["max"])
+        data, nbits = w.packed()
+        out.append(ue.actor_bunch(PC_CHANNEL, data, nbits))
+        print(f"  <- UNREAL RPC ClientRestart on ch={PC_CHANNEL}")
     return out
 
 
