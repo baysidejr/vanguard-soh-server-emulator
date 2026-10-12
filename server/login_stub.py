@@ -545,6 +545,12 @@ def dev_command(text):
         # !chat <channel> <text...>: zone event 0x0f from "Tester"
         print(f"  <- dev: chat channel {words[1]}")
         return [build_chat_line("Tester", " ".join(words[2:]), int(words[1], 0))]
+    if words[0] == "sys" and len(words) >= 3:
+        # !sys <channel> <text...>: zone event 0x192 (wstr text, i32 channel)
+        text = " ".join(words[2:])
+        print(f"  <- dev: system text channel {words[1]}")
+        return [zone.zone_event(0x192, (text + chr(0)).encode("utf-16-le")
+                                + struct.pack("<i", int(words[1], 0)))]
     if words[0] == "item":
         # !item [probe] [N=value ...]: zone event 0x197 (add an item to the inventory)
         probe = "probe" in words[1:]
@@ -561,6 +567,15 @@ def dev_command(text):
         print(f"  <- dev: zone event {words[1]} ({len(data)} bytes)")
         return [zone.zone_event(int(words[1], 0), data)]
     return []
+
+
+# Zone event 0x192 (wstr text, i32 colour/channel): plain server text in the chat
+# window. Verified colours: 3 white, 4 red, 5 orange, 6 blue, 7 tan.
+SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
+
+
+def build_system_text(text, channel=SYSTEM_TEXT_WHITE):
+    return event_message(0x192, (text + chr(0)).encode("utf-16-le") + struct.pack("<i", channel))
 
 
 CHAT_SAY = 3      # "<speaker> says, "text"" (FUN_00621d60; verified live)
@@ -667,6 +682,9 @@ def handle_message(sock, server, addr, state, payload, args):
             player = state.get("player")
             names = {a[0]: a[2] for a in getattr(player, "abilities", [])}
             print(f"  >>> ZONE use ability {handle} ({names.get(handle, '?')})")
+            if handle in names:
+                send_message(sock, addr, state, build_system_text(
+                    f"You use {names[handle]}, but you have no target.", SYSTEM_TEXT_COMBAT))
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:
