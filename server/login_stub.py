@@ -195,8 +195,8 @@ def main():
     parser.add_argument("--zone-port", type=int, default=10102, help="zone server port (ClientZoneApi has no default)")
     parser.add_argument("--zone-level", default=None,
                         help="force the level sent in the UE2 WELCOME (default: the character's chunk)")
-    parser.add_argument("--spawn-location", default="0,0,0",
-                        help="x,y,z of the replicated PlayerController")
+    parser.add_argument("--spawn-location", default=None,
+                        help="x,y,z of the replicated PlayerController (default: the level's first PlayerStart)")
     parser.add_argument("--client-dir", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
                         help="client install folder (package GUIDs for the UE2 package map)")
     parser.add_argument("--spawn-class", default="Engine.PlayerController",
@@ -531,7 +531,12 @@ def spawn_bunch(ue, args):
         props.append((owner.index, cache["max"], lambda w: w.bit(1)))
     except KeyError:
         pass
-    location = tuple(float(v) for v in args.spawn_location.split(","))
+    if args.spawn_location:
+        location = tuple(float(v) for v in args.spawn_location.split(","))
+    else:
+        starts = [s for s in pm.packages[0][1].player_starts() if s]
+        location = starts[0] if starts else (0.0, 0.0, 0.0)
+    print(f"  spawn location {location}")
     b = ue.actor_open_bunch(1, index, pm.max_object_index, location=location, rotation=rotation,
                             properties=props)
     print(f"  <- UNREAL actor open ch=1 {args.spawn_class} (index {index}/{pm.max_object_index}) "

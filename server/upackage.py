@@ -101,6 +101,27 @@ class Package:
         return None
 
 
+    def actor_location(self, index):
+        """Location of an actor export, from its tagged properties (a Vector
+        StructProperty: name, info byte 0x3A, struct name, 3 floats)."""
+        if "Location" not in self.names or "Vector" not in self.names:
+            return None
+        loc, vec = self.names.index("Location"), self.names.index("Vector")
+        e = self.exports[index]
+        raw = self.raw[e["offset"]:e["offset"] + e["size"]]
+        for j in range(len(raw) - 16):
+            n, pos = _compact(raw, j)
+            if n == loc and raw[pos] == 0x3A:
+                s, pos2 = _compact(raw, pos + 1)
+                if s == vec and pos2 + 12 <= len(raw):
+                    return struct.unpack_from("<3f", raw, pos2)
+        return None
+
+    def player_starts(self):
+        return [self.actor_location(i) for i, e in enumerate(self.exports)
+                if self.class_name(e["class"]) == "PlayerStart"]
+
+
 if __name__ == "__main__":
     import sys
     for path in sys.argv[1:]:
