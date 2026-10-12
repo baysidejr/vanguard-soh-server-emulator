@@ -135,10 +135,10 @@ FIRST_NPC_CHANNEL = 3
 # non-owned pawn (SGONPCPawn or SGOPCPawn) does not render - it likely needs
 # appearance/model data we don't send yet.
 TEST_NPCS = [
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x0E, (150.0, 0.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x0E, (-150.0, 0.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x0E, (0.0, 150.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x0E, (0.0, -150.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (0.0, 90.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (0.0, -90.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x04, (0.0, 150.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x02, (0.0, -150.0, 0.0)),
 ]
 
 
@@ -148,9 +148,11 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
     cls = cls_path.split(".", 1)[1]
     props = pm.net_cache.props(cls, {
         "bHidden": False,
+        "DrawScale": 1.0,
         "m_iRaceId": race,
         "Health": 100,
         "m_iModelNum": -1,          # the race's default model (FUN_00bcb8e0)
+        "m_Customization": [0x32] * 64,   # appearance sliders (pawn +0xaa8)
         "m_PlayerDisplayName": name,
         "EntityIDLowInt": entity_id & 0xFFFFFFFF,
         "EntityIDHighInt": entity_id >> 32,

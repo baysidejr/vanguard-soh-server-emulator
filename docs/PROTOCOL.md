@@ -211,7 +211,7 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 **Chunk travel.** Zone events `0x1` / `0x9` (raw: eid64-like pair = chunk x, y; bool; wstr) call `VGPlanet::MoveViewActorToChunk(x, y)` (`FUN_0099eda0`) — not yet used.
 
 **Open:**
-- Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client and receive their properties (race, health, name, entity id) but do not render, even with the player's own entity id. Their visuals likely depend on native SGO entity data not yet sent (`./login_stub.py --test-npc` reproduces this).
+- Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client, receive their properties, and **their meshes load** (with `DevLoad` unsuppressed the client loads e.g. `UEM_elf_M_char` skeleton + hair/chest/leg/feet meshes for race 4), but they are not drawn — not even 90 units beside the player. Tried: bNetOwner, entity ids, `m_iModelNum = -1`, `m_Customization[64]`, `bHidden = 0`, `DrawScale = 1`, spawning after `0x485`. Model building: pawn PostNetReceive (`FUN_00bcc5a0`) → `FUN_00bcb8e0(race, model)` when `m_iRaceId`/`m_iModelNum` change. Reproduce with `python login_stub.py --test-npc`.
 - Character stats: MsgScore `0x3de` feeds the character sheet and XP bar (UI variables `AdvExpPctSelf`, `nAdvLevelSelf`, ... set in `FUN_005e8260`); field-to-variable mapping still to do.
 - Gender, face sliders and gear (`m_AttachmentGroups` = SGOAttachmentGroupInfoPair {slot, attachment, package}).
 

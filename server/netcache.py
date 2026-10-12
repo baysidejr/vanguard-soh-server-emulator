@@ -185,8 +185,19 @@ class NetCache:
         """[(rep_index, max_index, writer)] for actor_open_bunch from
         {property name: value}."""
         cache = self.class_cache(class_name)
-        return [(f.index, cache["max"], f.writer(v))
-                for f, v in ((self.field(class_name, n), v) for n, v in values.items())]
+        out = []
+        for name, value in values.items():
+            f = self.field(class_name, name)
+            if f.array_dim > 1:
+                # Static arrays: one entry per element; the element index byte
+                # follows the RepIndex (ReceivedBunch reads it when ArrayDim > 1).
+                for i, v in enumerate(value):
+                    write = f.writer(v)
+                    out.append((f.index, cache["max"],
+                                lambda w, i=i, write=write: (w.bits(i, 8), write(w))))
+            else:
+                out.append((f.index, cache["max"], f.writer(value)))
+        return out
 
     def field(self, class_name, field_name):
         for f in self.class_cache(class_name)["all"]:
