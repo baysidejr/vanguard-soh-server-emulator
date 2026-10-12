@@ -52,6 +52,7 @@ class Npc:
         self.harvest = None           # resource node settings (mobs.json "harvest")
         self.depleted_until = 0.0
         self.station = False          # crafting station (mobs.json "station")
+        self.trainer = False          # ability trainer (mobs.json "trainer")
         self.parley = False           # offers a diplomacy parley (mobs.json "parley")          # merchants.json list id (vendors can't be attacked)
         self.attack_visual = NPC_AUTO_ATTACK
         self.aggro_radius = 0.0       # attacks players that come this close (0 = only if hit)
@@ -143,7 +144,7 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}, but you have no target.", "combat")], None
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
-    if npc.merchant or npc.harvest or npc.station:
+    if npc.merchant or npc.harvest or npc.station or npc.trainer:
         return [(f"You can't attack {npc.name}.", "error")], None
     cost = ABILITY_COST if ability[5] > 0 else 0      # instant openers are free
     if player.endurance < cost:

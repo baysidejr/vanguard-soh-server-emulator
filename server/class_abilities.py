@@ -58,9 +58,8 @@ def display_name(tag):
     return " ".join(w if w in ("I", "II", "III", "IV", "V") else w.capitalize() for w in words)
 
 
-def starting_abilities(client_dir, klass, count=4):
-    """DEFAULT_ABILITIES-style tuples (handle, ability id, name, icon, description,
-    refresh seconds) for the class, or [] if its package is missing."""
+def class_ability_list(client_dir, klass):
+    """[(ability id, tag)] of a class's rank-I abilities, in package order."""
     prefix = CLASS_PREFIX.get(klass)
     if not prefix:
         return []
@@ -70,10 +69,31 @@ def starting_abilities(client_dir, klass, count=4):
         if up.endswith("_I") and not any(s in up for s in _SKIP) and display_name(tag) not in names:
             picked.append((aid, tag))
             names.add(display_name(tag))
-    picked = picked[:count]
-    return [(n + 1, aid, display_name(tag), _ICONS[n % len(_ICONS)],
-             f"{display_name(tag)}.", 0.0 if n == 0 else 5.0 * n)
-            for n, (aid, tag) in enumerate(picked)]
+    return picked
+
+
+def ability_tuple(n, aid, tag):
+    """DEFAULT_ABILITIES-style tuple for the n-th ability of a class."""
+    return (n + 1, aid, display_name(tag), _ICONS[n % len(_ICONS)],
+            f"{display_name(tag)}.", 0.0 if n == 0 else 5.0 * min(n, 6))
+
+
+def starting_abilities(client_dir, klass, count=4, learned=()):
+    """DEFAULT_ABILITIES-style tuples (handle, ability id, name, icon, description,
+    refresh seconds) for the class plus the ones learned from trainers, or [] if
+    its package is missing."""
+    return [ability_tuple(n, aid, tag) for n, (aid, tag) in enumerate(class_ability_list(client_dir, klass))
+            if n < count or aid in learned]
+
+
+def trainable(client_dir, klass, learned, count=4, offered=6):
+    """Trainer offers [(n, ability id, tag, cost copper)]: the next abilities the
+    character doesn't know yet (placeholder costs: 1 silver per step)."""
+    out = []
+    for n, (aid, tag) in enumerate(class_ability_list(client_dir, klass)):
+        if n >= count and aid not in learned and len(out) < offered:
+            out.append((n, aid, tag, 100 * (n - count + 1)))
+    return out
 
 
 if __name__ == "__main__":

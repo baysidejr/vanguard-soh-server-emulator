@@ -55,7 +55,7 @@ def handle_unreal(send, state, payload, args):
                     args.harvest_begin(state)
                 elif npc and npc.station:
                     args.craft_event(state, craft.USE_STATION, b"")
-                elif npc and npc.alive and (npc.merchant or npc.quests):
+                elif npc and npc.alive and (npc.merchant or npc.quests or npc.trainer):
                     for m in args.npc_dialog(state, npc):
                         send(m)
                 elif npc and not npc.alive:
@@ -148,6 +148,7 @@ def populate_world(w, args):
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
         npc.station = bool(template.get("station"))
+        npc.trainer = bool(template.get("trainer"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
         npc.quests = [k for k, q in args.content.quests.items()

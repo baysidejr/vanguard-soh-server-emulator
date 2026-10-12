@@ -24,6 +24,7 @@ import trade
 import quest
 import harvest
 import craft
+import trainer
 import diplomacy
 import content
 import merchant
@@ -861,6 +862,8 @@ def npc_dialog(state, npc):
         out.append(quest.options(npc.entity_id, opts))
     if npc.merchant:
         out.append(zone.zone_event(merchant.DIALOG_WARES))
+    if npc.trainer:
+        out.append(zone.zone_event(trainer.OPTION))
     return out
 
 
@@ -1187,6 +1190,53 @@ def handle_parley_event(state, event, data):
         state.pop("parley", None)
         for m in diplomacy.ended() if event == diplomacy.CANCEL else [diplomacy.close()]:
             send(m)
+
+
+def handle_trainer_event(state, event, data):
+    """Ability trainer (trainer.py): list what the class can learn next, sell it."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE trainer event {event:#x}: {data.hex(' ')}")
+    learned = getattr(player, "learned", [])
+    offers = class_abilities.trainable(ARGS.client_dir, player.klass, learned)
+    if event == trainer.START:
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not npc.trainer:
+            return
+        if state.get("training"):
+            send(trainer.end())         # 0x493 appends: clear the earlier list
+        state["training"] = True
+        for m in trainer.begin([(aid, class_abilities.display_name(tag), f"{class_abilities.display_name(tag)}.",
+                                 class_abilities._ICONS[n % len(class_abilities._ICONS)], cost)
+                                for n, aid, tag, cost in offers]):
+            send(m)
+    elif event == trainer.TRAIN:
+        aid = struct.unpack_from("<i", data, 0)[0]
+        offer = next((o for o in offers if o[1] == aid), None)
+        if not state.get("training"):
+            send(trainer.result(aid, trainer.NOT_TRAINING))
+        elif offer is None:
+            send(trainer.result(aid, trainer.NOT_AVAILABLE))
+        elif player.coins < offer[3]:
+            send(trainer.result(aid, trainer.CANT_AFFORD))
+        else:
+            n, _, tag, cost = offer
+            player.coins -= cost
+            send(merchant.coins(player.coins))
+            learned.append(aid)
+            player.learned = learned
+            ability = class_abilities.ability_tuple(n, aid, tag)
+            ability = (max([a[0] for a in player.abilities] + [0]) + 1,) + ability[1:]
+            player.abilities.append(ability)
+            send(zone.zone_event(0x215, vgmsg.ability_info(ability[0], aid, ability[2], ability[3],
+                                                         ability[4], refresh=ability[5])))
+            send(trainer.result(aid, trainer.OK))
+            send(build_system_text(f"You have learned {ability[2]}.", SYSTEM_TEXT_WHITE))
+            save_character_field(player.name, "coins", player.coins)
+            save_character_field(player.name, "learned_abilities", learned)
+            print(f"  {player.name} learned {ability[2]}")
+    elif event == trainer.STOP:
+        state.pop("training", None)
+        send(trainer.end())
 
 
 def finish_parley(state, p, result):
@@ -1834,7 +1884,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if "equipment" in char:
                 player.equipment = [tuple(e) for e in char["equipment"]]
             player.xp = char.get("adventure_xp", player.xp)
-            player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
+            player.learned = list(char.get("learned_abilities", []))
+            player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
+                                                                   learned=player.learned)
                                 or player.abilities)
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
@@ -1863,7 +1915,7 @@ def handle_message(sock, server, addr, state, payload, args):
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             hail_target = state.get("player") and state["player"].npcs.get(state["player"].target)
-            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and (hail_target.merchant or hail_target.quests):
+            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and (hail_target.merchant or hail_target.quests or hail_target.trainer):
                 for m in npc_dialog(state, hail_target):
                     send_message(sock, addr, state, m)
             w = state.get("world")
@@ -1993,6 +2045,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
                     quest_items_changed(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trainer.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_trainer_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in diplomacy.CLIENT_EVENTS:
             if state.get("player"):
                 handle_parley_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
