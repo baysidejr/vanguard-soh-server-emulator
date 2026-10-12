@@ -230,6 +230,8 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **System text.** Zone event `0x192` (wstr text, i32 colour) prints a line into the chat window without a speaker: 3 white, 4 red, 5 orange (combat), 6 blue, 7 tan.
 
+**Targeting and combat** (verified live 2026-10-12, `server/combat.py`). Clicking a pawn sends client event `0x5d` {u64 entity id}; the client draws the selection ring. The server confirms with zone event `0x3e0` MsgPlayerCharacterUpdate {offensive target u64 + u8 health, defensive target u64 + u8, third u64 + u8} (handler `FUN_005e7df0`; without it the target window stays at 0%). `0x3e1` {u64 entity id, u8 health 0–255} updates the target window's health bar (`FUN_005ea760`, shown as byte·100/255) and is ignored unless the id is the confirmed offensive target. On death the server replicates `Health = 0` and `m_bIsDead = 1` (pawn `+0x3e8`; the name plate turns grey) and sends zone event `0x2e` {u64 entity id, i32 animation, i32 arg} with animation 1, which plays the death animation (`FUN_0061fd10` → `FUN_00bbb490`; ids 1–3 are death animations, resolved by `FUN_00bb33e0`). Damage numbers are placeholders.
+
 **Open:**
 - (Solved) Non-owned pawns: SGOPCPawn and SGONPCPawn render, with name plates and minimap entries, once they also carry `bSimulateGravity = True` (verified live 2026-10-12; `python login_stub.py --test-npc`). Without it they hover, and earlier tests did not show them.
 - Skill group header values; armor skills (subtype 3) don't show yet.

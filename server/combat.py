@@ -47,6 +47,16 @@ def targets(offensive=None, defensive=None):
     return struct.pack("<HII", 2, TARGETS_EVENT, len(data)) + data
 
 
+ANIM_EVENT = 0x2E             # server -> client: u64 entity id, i32 animation, i32 arg
+ANIM_DEATH = 1               # FUN_00bbb490: 1..3 are death animations (pawn stays down)
+
+
+def play_animation(npc, anim, arg=0):
+    """0x2e (handler FUN_0061fd10 -> pawn FUN_00bbb490): animation ids resolve
+    through FUN_00bb33e0."""
+    return struct.pack("<HIIQii", 2, ANIM_EVENT, 16, npc.entity_id, anim, arg)
+
+
 # Damage range per ability id (MsgAbilityInfo field 20); 0 = no damage (buffs, shouts).
 ABILITY_DAMAGE = {1001: (8, 14), 1002: (5, 9), 1003: (12, 20), 1004: (0, 0)}
 

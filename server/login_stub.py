@@ -708,7 +708,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 if npc:
                     send_message(sock, addr, state, combat.target_health(npc))
                     if not npc.alive:
-                        send_message(sock, addr, state, zone.npc_update(state, args, npc, {"Health": 0}))
+                        send_message(sock, addr, state, zone.npc_update(state, args, npc, {"Health": 0, "m_bIsDead": 1}))
+                        send_message(sock, addr, state, combat.play_animation(npc, combat.ANIM_DEATH))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x54B, 0x54C):
             # Hotbar slot changed (0x54b MsgHotkeyAdd) or cleared (0x54c bank+slot).
             event = struct.unpack_from("<I", payload, 2)[0]
