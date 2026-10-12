@@ -31,7 +31,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
 | Encounters | boss phases, triggers, adds, scripted events | none |
 | Quests | givers, text, steps, objectives, rewards | none (only the quest UI exists in the client) |
-| NPC dialog and merchants | conversation trees, vendor inventories, trainers | none |
+| NPC dialog and merchants | conversation trees, vendor inventories and prices, trainers | `server/content/merchants.json` (one placeholder vendor); dialog is only "Show me your wares." |
 | Starting areas and bind points | per race or class start location and bind spots | flat land found in the heightmap (`zone.default_ground_spawn`) |
 | Dungeon membership | which chunks or areas are dungeons, entrances | unknown; most dungeons are inside overworld chunks |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |

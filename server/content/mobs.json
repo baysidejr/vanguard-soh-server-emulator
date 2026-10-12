@@ -1,5 +1,5 @@
 {
-  "_comment": "Mob templates. pawn_class: SGONPCPawn (creatures/NPCs) or SGOPCPawn (player-like). race: races_classes.RACES id. gear: m_AttachmentGroups entries [mesh type, mesh number, inventory slot] (docs/GEAR.md). damage: [min, max] per hit. loot: a table in loot.json. level -> m_GameplayLevel; title -> m_PlayerDisplayTitle (optional). Placeholder data until the content editor exists (docs/CONTENT_EDITOR.md).",
+  "_comment": "Mob templates. pawn_class: SGONPCPawn (creatures/NPCs) or SGOPCPawn (player-like). race: races_classes.RACES id. gear: m_AttachmentGroups entries [mesh type, mesh number, inventory slot] (docs/GEAR.md). damage: [min, max] per hit. loot: a table in loot.json. level -> m_GameplayLevel; title -> m_PlayerDisplayTitle (optional). Placeholder data until the content editor exists (docs/CONTENT_EDITOR.md). merchant: a merchants.json list id (makes the NPC a vendor that can't be attacked).",
   "wastes_robed_elf": {
     "name": "Robed Wanderer",
     "pawn_class": "SGOPCPawn",
@@ -131,5 +131,35 @@
       ]
     ],
     "loot": "common_scraps"
+  },
+  "camp_merchant": {
+    "name": "Orin the Trader",
+    "title": "Merchant",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 500,
+    "damage": [
+      0,
+      0
+    ],
+    "gear": [
+      [
+        9,
+        111002,
+        6
+      ],
+      [
+        16,
+        111002,
+        32
+      ],
+      [
+        12,
+        111002,
+        26
+      ]
+    ],
+    "merchant": "camp_supplies"
   }
 }

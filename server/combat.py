@@ -46,6 +46,7 @@ class Npc:
         self.wander_goal = None       # (x, y) it is walking to
         self.next_wander = 0.0
         self.ground_z = None          # f(x, y) -> standing z (terrain)
+        self.merchant = None          # merchants.json list id (vendors can't be attacked)
         self.props = {}               # extra replicated pawn properties from the template
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
@@ -133,6 +134,8 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}, but you have no target.", "combat")], None
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
+    if npc.merchant:
+        return [(f"You can't attack {npc.name}.", "error")], None
     cost = ABILITY_COST if ability[5] > 0 else 0      # instant openers are free
     if player.endurance < cost:
         return [("You do not have enough endurance.", "error")], None
@@ -189,7 +192,8 @@ def experience_reward(amount, source, rest_bonus=0, kind=0, group=0):
 def toggle_auto_attack(player):
     """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state."""
     npc = player.npcs.get(player.target) if player.target else None
-    if not player.auto_attack and (npc is None or not npc.alive or player.health <= 0):
+    if not player.auto_attack and (npc is None or not npc.alive or npc.merchant
+                                   or player.health <= 0):
         return [("You have no valid target to attack.", "error")]
     player.auto_attack = not player.auto_attack
     player.next_swing = time.time()

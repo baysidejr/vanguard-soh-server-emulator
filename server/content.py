@@ -30,6 +30,7 @@ class Content:
         self.mobs = _load(os.path.join(directory, "mobs.json"))
         self.loot = _load(os.path.join(directory, "loot.json"))
         self.items = _load(os.path.join(directory, "items.json"))
+        self.merchants = _load(os.path.join(directory, "merchants.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -79,11 +80,17 @@ def validate(directory=CONTENT_DIR):
         for key in ("name", "pawn_class", "race", "health"):
             if key not in m:
                 problems.append(f"mob {mid}: missing {key}")
+        if m.get("merchant") and m["merchant"] not in c.merchants:
+            problems.append(f"mob {mid}: unknown merchant list {m['merchant']}")
         if m.get("loot") and m["loot"] not in c.loot:
             problems.append(f"mob {mid}: unknown loot table {m['loot']}")
         for g in m.get("gear", []):
             if len(g) != 3:
                 problems.append(f"mob {mid}: gear entry {g} needs [type, mesh, slot]")
+    for lid, entries in c.merchants.items():
+        for e in entries:
+            if e.get("item") not in c.items:
+                problems.append(f"merchant {lid}: item {e.get('item')!r} not in items.json")
     spawn_dir = os.path.join(directory, "spawns")
     for name in sorted(os.listdir(spawn_dir)):
         data = _load(os.path.join(spawn_dir, name))

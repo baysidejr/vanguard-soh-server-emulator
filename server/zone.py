@@ -12,6 +12,7 @@ import rpc
 import vgmsg
 import combat
 import content
+import merchant
 import world
 import ue2net
 from netcache import NetCache
@@ -44,9 +45,12 @@ def handle_unreal(send, state, payload, args):
         elif b.channel == PC_CHANNEL and not b.open:
             log_client_rpc(state, b, args, player)
             if state.pop("use_requested", False):
-                # "Use" (U key) on a dead target opens its loot window.
+                # "Use" (U key): a merchant opens its dialog; a dead target its loot.
                 npc = player.npcs.get(player.target) if player.target else None
-                if npc and not npc.alive:
+                if npc and npc.alive and npc.merchant:
+                    for m in merchant.dialog(npc):
+                        send(m)
+                elif npc and not npc.alive:
                     for m in combat.loot_messages(npc):
                         send(m)
                     print(f"  <- ZONE loot window for {npc.name}")
@@ -116,6 +120,7 @@ def populate_world(w, args):
         npc.race = template["race"]
         npc.gear = [tuple(g) for g in template.get("gear", [])]
         npc.yaw = int(spawn.get("yaw", 0))
+        npc.merchant = template.get("merchant")
         npc.wander = float(spawn.get("wander", 0))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.next_wander = time.time() + n

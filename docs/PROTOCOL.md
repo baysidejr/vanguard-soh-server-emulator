@@ -272,6 +272,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Combat stance and NPC labels** (verified live): pawn `m_CombatState = 1` draws weapons; sheathed weapons sit at the hip, and shields on the back. `m_GameplayLevel` is the level, and `m_PlayerDisplayTitle` puts a second line under the name ("Guard"). The full list of replicated SGONPCPawn properties is printed by `netcache.py` (124 fields, e.g. `m_bIsAggro`, `m_FactionId`, `m_Rank`, `GroundSpeed`, `m_Gender`).
 
+**Merchants** (verified live): NPC dialog `0x2bb` {u64 npc} + `0x2b5` ("Show me your wares."); window `0x283`, items `0x285` MsgClientMerchantItem (f32 price in copper), `0x28c` publish; buy `0xe7` {handle, qty}, sell `0xe8` {handle, qty}, close `0xe6`/`0xf4` → `0x284` {u8 3}. Details: [MERCHANTS.md](MERCHANTS.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

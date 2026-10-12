@@ -18,6 +18,7 @@ import vgmsg
 import class_abilities
 import combat
 import content
+import merchant
 import world
 import zone
 
@@ -897,6 +898,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.hotbar = char.get("hotbar")
             if "items" in char:
                 player.items = [tuple(i) for i in char["items"]]
+            if "coins" in char:
+                player.coins = char["coins"]
             if "equipment" in char:
                 player.equipment = [tuple(e) for e in char["equipment"]]
             player.xp = char.get("adventure_xp", player.xp)
@@ -924,6 +927,10 @@ def handle_message(sock, server, addr, state, payload, args):
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
+            hail_target = state.get("player") and state["player"].npcs.get(state["player"].target)
+            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and hail_target.merchant:
+                for m in merchant.dialog(hail_target):
+                    send_message(sock, addr, state, m)
             w = state.get("world")
             if w is not None and not text.startswith("!"):
                 w.broadcast(lambda s: build_chat_line(speaker, text, CHAT_SAY), exclude=state)
@@ -1009,6 +1016,34 @@ def handle_message(sock, server, addr, state, payload, args):
                     for m in result:
                         send_message(sock, addr, state, m)
                     gear_changed(state, args, player)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
+                merchant.REQ_OPEN, merchant.REQ_BUY, merchant.REQ_SELL, merchant.REQ_CLOSE,
+                merchant.REQ_CLOSE2):
+            event = struct.unpack_from("<I", payload, 2)[0]
+            player = state.get("player")
+            npc = player.npcs.get(player.target) if player and player.target else None
+            print(f"  >>> ZONE merchant event {event:#x}: {payload[10:].hex(' ')}")
+            msgs = []
+            if event in (merchant.REQ_CLOSE, merchant.REQ_CLOSE2):
+                msgs = [merchant.close_window(3)]
+            elif npc is None or not npc.merchant or not npc.alive:
+                msgs = [merchant.close_window(2)]          # "please target the merchant"
+            elif event == merchant.REQ_OPEN:
+                msgs = merchant.open_window(args.content, npc)
+            elif event == merchant.REQ_BUY:
+                handle, qty = struct.unpack_from("<ii", payload, 10)
+                msgs = merchant.buy(args.content, npc, player, handle, qty,
+                                    lambda iid, name, icon, q, slot: zone.zone_event(
+                                        0x197, vgmsg.inventory_item(iid, name, slot, icon, q,
+                                                                    **zone.item_equip_fields(name))))
+            elif event == merchant.REQ_SELL:
+                handle = struct.unpack_from("<i", payload, 10)[0]
+                msgs = merchant.sell(args.content, npc, player, handle)
+            for m in msgs:
+                send_message(sock, addr, state, m)
+            if event in (merchant.REQ_BUY, merchant.REQ_SELL):
+                save_character_field(player.name, "items", [list(i) for i in player.items])
+                save_character_field(player.name, "coins", player.coins)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3D8:
             # Auto-attack toggle (` key, /autoattacktoggle): no payload.
             player = state.get("player")
