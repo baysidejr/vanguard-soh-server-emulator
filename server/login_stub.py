@@ -355,7 +355,7 @@ def use_ability(state, args, player, ability):
         if spec["kind"] == "heal":
             amount = random.randint(*spec["amount"])
             player.health = min(player.health + amount, player.stats["hit_points"])
-            send(build_system_text(f"Your {name} heals you for {amount} hit points.", SYSTEM_TEXT_COMBAT))
+            send(effects.combat_text(player.char_id, player.char_id, name, amount, heal=True))
             send(zone.health_update(player))
         else:
             apply_buff(state, player, name, spec, now)
@@ -466,7 +466,8 @@ def effects_tick(state, args, now):
                 was_alive = player.health > 0
                 player.health = max(player.health - dmg, 0)
                 player.last_combat = now
-                lines = [(f"{e['npc'].name}'s {e['name']} hits YOU for {dmg} damage.", "error")]
+                send(effects.combat_text(e["npc"].entity_id, player.char_id, e["name"], dmg))
+                lines = []
                 if player.health == 0:
                     lines.append(("You have been slain!", "error"))
                 for m in combat_results(state, args, player, lines, None, was_alive, player.auto_attack):
@@ -485,7 +486,7 @@ def effects_tick(state, args, now):
                 continue
             dmg = random.randint(*e["damage"])
             npc.health = max(npc.health - dmg, 0)
-            send(build_system_text(f"Your {e['name']} hits {npc.name} for {dmg} damage.", SYSTEM_TEXT_COMBAT))
+            send(effects.combat_text(player.char_id, npc.entity_id, e["name"], dmg))
             lines = []
             if not npc.alive:
                 npc.died_at = now
@@ -2718,6 +2719,12 @@ def dev_command(text, player=None):
         loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
         print(f"  <- dev: teleport to {loc}")
         return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
+    if words[0] == "ctext" and player:
+        # !ctext [kind] [heal] [self]: try the client-built combat text (0x27b).
+        kind = int(words[1]) if len(words) > 1 else 1
+        heal = len(words) > 2 and words[2] == "1"
+        target = player.char_id if len(words) > 3 or not player.target else player.target
+        return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
     if words[0] == "questkill" and player:
         # !questkill: count a kill of the target's kind toward active quests (testing).
         npc = player.npcs.get(player.target)

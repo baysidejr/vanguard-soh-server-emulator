@@ -92,7 +92,7 @@ def interrupted():
     return _event(0x260)
 
 
-def combat_text(source, target, ability, amount, heal=False, crit=False):
+def combat_text(source, target, ability, amount, heal=False, crit=False, kind=1, dmg_type=0):
     """0x27b: the client writes the sentence ("Your X hits/heals ...")."""
-    return _event(0x27B, struct.pack("<QQiBBiiBBB", source, target, next(_instances), int(heal), 1,
-                                     amount, 0, 3 if crit else 2, 0, 0) + _w(ability) + struct.pack("<BB", 0, 0))
+    return _event(0x27B, struct.pack("<QQiBBiiBBB", source, target, next(_instances), int(heal), kind,
+                                     amount, 0, 3 if crit else 2, dmg_type, 0) + _w(ability) + struct.pack("<BB", 0, 0))
