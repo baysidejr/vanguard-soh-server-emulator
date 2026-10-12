@@ -283,6 +283,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Sit and camp** (verified live): `/sit` and `/stand` send zone `0x73` {u8 1/0}; the server sets pawn `m_bResting` (1 = sitting) for everyone, and regeneration triples while resting. `/camp` sends `0x40b`; the server answers `0x40b` ("It will take 20 seconds…"), `0x40e` {i32 seconds} countdowns, then `0x40c` ("You finish setting up your camp."). Moving cancels it with `0x40d`. Open: what returns the client to character select after camping.
 
+**Trade** (verified live): invite `0xc0` {wstr name} → `0x208` popup; accept `0xc3` → `0x205` opens the inviter's window; offers `0xc4`/`0xc5`/`0xc6` → `0x1fc`/`0x1fe`/`0x20a` (mine) and `0x1fd`/`0x1ff`/`0x20b` (theirs); accept `0xc7` → `0x202`/`0x203`, both → items and coins move, `0x201`. Details: [TRADE.md](TRADE.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

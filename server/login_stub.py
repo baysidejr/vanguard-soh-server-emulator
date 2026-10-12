@@ -19,6 +19,7 @@ import class_abilities
 import chat
 import combat
 import group
+import trade
 import content
 import merchant
 import world
@@ -625,12 +626,142 @@ def chunk_handoff(state, payload, args):
     world_send(state, build_zone_connect_event(args.world_address, args.zone_port, level))
 
 
+def handle_trade_event(state, event, payload, args):
+    """Player trade (trade.py)."""
+    player, send = state["player"], state["send"]
+    t = state.get("trade")
+    if event == trade.INVITE:
+        name = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0] if len(payload) > 10 else ""
+        if not name and player.target:
+            other = next((s for s in ONLINE.values() if s["player"].char_id == player.target), None)
+            name = other["player"].name if other else ""
+        target = ONLINE.get(name.lower())
+        print(f"  >>> ZONE trade invite {name!r} from {player.name}")
+        if target is None or target is state or target.get("trade") or target.get("trade_invite"):
+            send(build_system_text(f"You can't trade with {name or 'that'} right now.", SYSTEM_TEXT_ERROR))
+            return
+        target["trade_invite"] = state
+        state["trade_invite_to"] = target
+        target["send"](trade.invited(player.name))
+    elif event in (trade.ACCEPT_INVITE, trade.DECLINE, trade.BUSY):
+        inviter = state.pop("trade_invite", None)
+        if inviter is None:
+            return
+        inviter.pop("trade_invite_to", None)
+        if event != trade.ACCEPT_INVITE:
+            inviter["send"](trade.declined())
+            return
+        t = trade.Trade(inviter, state)
+        inviter["trade"] = state["trade"] = t
+        inviter["send"](trade.open_window(player.name))
+        print(f"  trade opened: {inviter['player'].name} <-> {player.name}")
+    elif event == trade.CANCEL_INVITE:
+        target = state.pop("trade_invite_to", None)
+        if target is not None:
+            target.pop("trade_invite", None)
+            target["send"](trade.invite_cancelled())
+    elif t is None:
+        return
+    elif event == trade.CANCEL:
+        end_trade(t, trade.cancelled())
+    elif event in (trade.ADD, trade.REMOVE, trade.COIN):
+        side, other = t.side(state), t.other(state)
+        changed = False
+        if event == trade.ADD:
+            handle, _seq, qty = struct.unpack_from("<iii", payload, 10)
+            item = next((i for i in player.items if i[0] == handle), None)
+            if item and handle not in side.items and len(side.items) < trade.MAX_ITEMS:
+                side.items.append(handle)
+                t.seq += 1
+                send(trade.my_item(t.seq, len(side.items) - 1, handle))
+                other["send"](trade.their_item(t_item_record(item, t.seq)))
+                changed = True
+            elif item is None:
+                send(trade.refused(1))
+        elif event == trade.REMOVE:
+            handle = struct.unpack_from("<i", payload, 10)[0]
+            if handle in side.items:
+                side.items.remove(handle)
+                t.seq += 1
+                send(trade.my_item_removed(t.seq, handle))
+                other["send"](trade.their_item_removed(t.seq, handle))
+                changed = True
+        else:
+            copper = struct.unpack_from("<q", payload, 10)[0]
+            side.coins = max(0, min(copper, player.coins))
+            t.seq += 1
+            send(trade.my_coins(side.coins, t.seq))
+            other["send"](trade.their_coins(side.coins, t.seq))
+            changed = True
+        if changed and any(sd.accepted for _, sd in t.pairs):
+            for s_state, s_side in t.pairs:
+                s_side.accepted = False
+                s_state["send"](trade.reset_accepts(t.seq))
+    elif event == trade.ACCEPT:
+        seq = struct.unpack_from("<i", payload, 10)[0]
+        if seq != t.seq:
+            return
+        t.side(state).accepted = True
+        send(trade.i_accepted(t.seq))
+        t.other(state)["send"](trade.they_accepted(t.seq))
+        if all(sd.accepted for _, sd in t.pairs):
+            complete_trade(t, args)
+
+
+def t_item_record(item, seq):
+    item_id, name, icon, qty, _slot = item
+    return vgmsg.inventory_item(item_id, name, 0, icon, qty, container=seq,
+                                **zone.item_equip_fields(name))
+
+
+def end_trade(t, message):
+    for s_state, _ in t.pairs:
+        s_state.pop("trade", None)
+        s_state["send"](message)
+
+
+def complete_trade(t, args):
+    """Both accepted: move the offered items and coins, then 0x201."""
+    (a, sa), (b, sb) = t.pairs
+    moves = []
+    for giver, side, taker in ((a, sa, b), (b, sb, a)):
+        for handle in side.items:
+            item = next((i for i in giver["player"].items if i[0] == handle), None)
+            if item:
+                moves.append((giver, item, taker))
+    for giver, item, taker in moves:
+        gp, tp = giver["player"], taker["player"]
+        slot = zone.free_bag_slot(tp)
+        if slot is None:
+            end_trade(t, trade.cancelled())
+            return
+        gp.items.remove(item)
+        giver["send"](zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+        new_id = zone.new_item_id(tp)
+        tp.items.append((new_id, item[1], item[2], item[3], slot))
+        taker["send"](zone.zone_event(0x197, vgmsg.inventory_item(
+            new_id, item[1], slot, item[2], item[3], **zone.item_equip_fields(item[1]))))
+    for giver, side, taker in ((a, sa, b), (b, sb, a)):
+        amount = min(side.coins, giver["player"].coins)
+        giver["player"].coins -= amount
+        taker["player"].coins += amount
+    for s_state in (a, b):
+        p = s_state["player"]
+        s_state["send"](merchant.coins(p.coins))
+        save_character_field(p.name, "items", [list(i) for i in p.items])
+        save_character_field(p.name, "coins", p.coins)
+    end_trade(t, trade.done())
+    print("  trade completed")
+
+
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
     w, player = state.get("world"), state.get("player")
     if player is not None and not state.get("handoff"):
         leave_group(state)
+        if state.get("trade"):
+            end_trade(state["trade"], trade.cancelled())
         if ONLINE.get(player.name.lower()) is state:
             ONLINE.pop(player.name.lower(), None)
     if w is None or player is None:
@@ -958,6 +1089,13 @@ def dev_command(text, player=None):
         loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
         print(f"  <- dev: teleport to {loc}")
         return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
+    if words[0] == "tradeadd" and len(words) >= 2 and player:
+        # !tradeadd <bag slot>: offer that bag item in the open trade (what dragging it
+        # into the trade window sends: client event 0xc4 {handle, seq, qty}).
+        item = next((i for i in player.items if i[4] == int(words[1])), None)
+        return [("trade_event", trade.ADD, struct.pack("<iii", item[0], 0, item[3]))] if item else []
+    if words[0] == "tradecoin" and len(words) >= 2 and player:
+        return [("trade_event", trade.COIN, struct.pack("<qi", int(words[1]), 0))]
     if words[0] == "target" and len(words) >= 2 and player:
         # !target <part of a name>: target the nearest-listed NPC whose name matches.
         want = " ".join(words[1:]).lower()
@@ -1179,6 +1317,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "trade_event":
+                        handle_trade_event(state, m[1], bytes(10) + m[2], args)
+                        continue
                     elif isinstance(m, tuple) and m[0] == "self_prop":
                         m = zone.player_pawn_update(state, args, m[2])
                     elif isinstance(m, tuple) and m[0] == "pawn_update":
@@ -1282,6 +1423,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL):
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.CLIENT_EVENTS:
             if state.get("player"):
                 handle_group_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
