@@ -206,7 +206,14 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Chat.** Zone event `0x70` (wstr) = message of the day. Client Say = zone event `0x74` (wstr); the client echoes it locally. Zone event `0x0f` (wstr text, wstr speaker, i32 channel) posts a chat line ("[channel][speaker]: text").
 
-**Open:** character stats (MsgScore `0x3de`, MsgStatUpdate `0x2d4`), gender/face/gear, NPCs, other players.
+**Position persistence.** The server saves the last `ClientLoc` per character and spawns there next time (same chunk).
+
+**Chunk travel.** Zone events `0x1` / `0x9` (raw: eid64-like pair = chunk x, y; bool; wstr) call `VGPlanet::MoveViewActorToChunk(x, y)` (`FUN_0099eda0`) — not yet used.
+
+**Open:**
+- Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client and receive their properties (race, health, name, entity id) but do not render, even with the player's own entity id. Their visuals likely depend on native SGO entity data not yet sent (`./login_stub.py --test-npc` reproduces this).
+- Character stats: MsgScore `0x3de` feeds the character sheet and XP bar (UI variables `AdvExpPctSelf`, `nAdvLevelSelf`, ... set in `FUN_005e8260`); field-to-variable mapping still to do.
+- Gender, face sliders and gear (`m_AttachmentGroups` = SGOAttachmentGroupInfoPair {slot, attachment, package}).
 
 ## Reference
 

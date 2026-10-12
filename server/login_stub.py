@@ -204,6 +204,8 @@ def main():
                         help="pawn class spawned for the player ('' = none)")
     parser.add_argument("--zone-in-events", default="0x485",
                         help="comma-separated payload-less zone events sent after the spawn")
+    parser.add_argument("--npc-entity-id", type=lambda v: int(v, 0), default=None,
+                        help="entity id for the --test-npc pawn (experiments)")
     parser.add_argument("--test-npc", action="store_true",
                         help="also spawn a test pawn next to the player (does not render yet)")
     parser.add_argument("--spawn-rotation", action="store_true",

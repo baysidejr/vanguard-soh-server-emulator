@@ -107,7 +107,7 @@ FIRST_NPC_CHANNEL = 3
 # non-owned pawn (SGONPCPawn or SGOPCPawn) does not render - it likely needs
 # appearance/model data we don't send yet.
 TEST_NPCS = [
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Emulator Guide", 0x0E, (60.0, 160.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Emulator Guide", 0x0E, (450.0, 0.0, 0.0)),
 ]
 
 
@@ -196,7 +196,7 @@ def spawn_bunches(ue, args):
     out.append(b)
     for n, (cls_path, name, race, off) in enumerate(TEST_NPCS if args.test_npc else []):
         loc = tuple(a + b for a, b in zip(location, off))
-        b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, 0x2000000 + n)
+        b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, getattr(args, "npc_entity_id", None) or (0x2000000 + n))
         print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
         out.append(b)
     if pawn_cls:
