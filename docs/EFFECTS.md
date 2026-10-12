@@ -1,7 +1,7 @@
 # Ability effects: buffs, damage over time, heals, cooldowns
 
 **Verified live (2026-10-12, Ranger):**
-- Ferocity I (a buff) puts an icon with a countdown ("26s", then "9s") in the player's effects area. Expiry (`0x23b` plus the "wears off" line) is implemented but its end was not watched live.
+- Ferocity I (a buff) puts an icon with a countdown ("26s", then "9s") in the player's effects area. Expiry was watched live: after 30 s Evasive Style I's icon goes away and "Evasive Style I wears off." prints.
 - Deadly Shot I (a DoT) hits once, then shows a "Deadly Shot I" debuff icon in the target window. It ticks 4 times every 3 s ("Your Deadly Shot I hits Ashen Wolf for 4 damage.") and the wolf's health bar drops.
 - Reusing an ability before its refresh time is refused.
 
@@ -36,4 +36,4 @@ Real ability data (costs, damage, durations) was server-side. The emulator guess
 
 Not done yet:
 - maintained effects (`0x23e`)
-- confirming whether the `0x259` sweep shows on the hotbar (the abilities tested weren't on the bar)
+- the hotbar cooldown sweep: `0x259 {handle, left, total}` is sent for abilities used from the bar (Precision Style I, Ferocity I) but no sweep appears. The handler (`FUN_00427f00`) looks the ability up by handle, stores the floats at +0x124/+0x11c, sets +0x130 unless +0x166 is set, and calls `FUN_006ad020` for the book/bar slots it finds (`FUN_00421190`/`FUN_00421560`/`FUN_004216f0`); one of those lookups probably misses
