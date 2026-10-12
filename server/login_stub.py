@@ -202,11 +202,14 @@ def main():
                         help="actor class opened on an actor channel after JOIN ('' = none)")
     parser.add_argument("--pawn-class", default="SGOUnrealAbstractionLayer.SGOPCPawn",
                         help="pawn class spawned for the player ('' = none)")
+    parser.add_argument("--zone-in-events", default="0x485",
+                        help="comma-separated payload-less zone events sent after the spawn")
     parser.add_argument("--spawn-rotation", action="store_true",
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
     args.current_level = args.zone_level or chunk_name(*DEFAULT_CHUNK)
     args.package_maps = {}
+    args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     login_sock.bind((args.host, args.port))

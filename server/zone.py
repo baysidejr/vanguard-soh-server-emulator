@@ -47,6 +47,16 @@ def handle_unreal(send, state, payload, args):
         send(unreal_message(ue.build()))
     for b in out:
         send(unreal_message(ue.build([b])))
+    if "<SPAWN>" in replies:
+        for event_id in args.zone_in_events:
+            # Zone events after the spawn. 0x485 (no payload) sets the client's
+            # "world loaded" flags (subsystem manager +0x2b1, +0xd8).
+            send(zone_event(event_id))
+            print(f"  <- ZONE event {event_id:#x} (no payload)")
+
+
+def zone_event(event_id, data=b""):
+    return struct.pack("<HII", 2, event_id, len(data)) + data
 
 
 def package_map(args, level):
