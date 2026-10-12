@@ -36,6 +36,9 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | NPC dialog and merchants | conversation trees, vendor inventories and prices, trainers | `server/content/merchants.json` (one placeholder vendor); dialog is only "Show me your wares." |
 | Starting areas and bind points | per race or class start location and bind spots | flat land found in the heightmap (`zone.default_ground_spawn`) |
 | Dungeon membership | which chunks or areas are dungeons, entrances | unknown; most dungeons are inside overworld chunks |
+| NPC services | which NPCs are bankers, trainers, repairers, crafting stations; bank sizes; repair prices; what each trainer teaches | `banker`, `trainer`, `repair`, `station` flags in mobs.json; 40 bank slots; repair 2 copper per point per item level; trainers teach the next 6 class abilities at 1 silver steps |
+| Item durability | wear per death or per hit, which item types wear | 10 points per death on equipped non-misc items |
+| Crafting tools and complications | tool per recipe step, complication tables per recipe or stage, counter actions | one tool (Crucible Tongs) and one complication (Slag Buildup) in recipes.json |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)
