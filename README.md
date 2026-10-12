@@ -28,8 +28,9 @@ The unmodified client, talking only to this emulator:
 - [x] Per-class starting abilities with their real animations and effects; auto-attack
 - [x] NPCs chase and attack; player death, death window and release; experience and level ups (saved)
 - [x] Looting corpses into the bag (saved); appearance sliders on the player's character
-- [ ] Terrain collision (the character falls through the ground outside the starting canyon)
-- [ ] Gear on the character model; real spawn points; zoning between chunks
+- [x] Standing and walking on the real terrain anywhere in the chunk; spawn on flat ground
+- [x] Gear on the character model (armor, bow); NPCs dressed too
+- [ ] Hand-held weapons on the model; zoning between chunks; more than one player
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 
