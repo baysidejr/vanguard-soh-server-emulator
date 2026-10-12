@@ -25,6 +25,7 @@ import quest
 import harvest
 import craft
 import trainer
+import bank
 import diplomacy
 import content
 import merchant
@@ -864,6 +865,8 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(merchant.DIALOG_WARES))
     if npc.trainer:
         out.append(zone.zone_event(trainer.OPTION))
+    if npc.banker:
+        out.append(zone.zone_event(bank.OPTION))
     return out
 
 
@@ -1191,6 +1194,104 @@ def handle_parley_event(state, event, data):
         state.pop("parley", None)
         for m in diplomacy.ended() if event == diplomacy.CANCEL else [diplomacy.close()]:
             send(m)
+
+
+def bank_record(item_id, name, icon, qty, slot):
+    return vgmsg.inventory_item(item_id, name, slot, icon, qty, **zone.item_equip_fields(name))
+
+
+def save_bank(player):
+    save_character_field(player.name, "bank", [list(i) for i in player.bank])
+    save_character_field(player.name, "bank_coins", player.bank_coins)
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    save_character_field(player.name, "coins", player.coins)
+
+
+def handle_bank_event(state, event, data):
+    """Banking (bank.py): items and coins between the bags and the bank."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE bank event {event:#x}: {data.hex(' ')}")
+    if event == bank.BEGIN:
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not npc.banker:
+            send(bank.error(bank.ERR_NOT_BANKER))
+            return
+        state["banking"] = True
+        send(bank.start("Bank", player.bank_coins))
+        for i in player.bank:
+            send(bank.item(bank_record(*i)))
+        return
+    if not state.get("banking"):
+        send(bank.error(bank.ERR_NOT_BANKING))
+        return
+    if event == bank.END:
+        state.pop("banking", None)
+        send(bank.stop())
+    elif event in (bank.TO_BANK, bank.TO_BANK_ANY):
+        handle, qty = struct.unpack_from("<ii", data, 0)
+        slot = struct.unpack_from("<i", data, 8)[0] if event == bank.TO_BANK else -1
+        it = next((i for i in player.items if i[0] == handle), None)
+        if it is None:
+            return
+        if not 0 <= slot < bank.CAPACITY or any(b[4] == slot for b in player.bank):
+            slot = bank.free_slot(player.bank)
+        if slot is None:
+            send(bank.error(bank.ERR_BANK_FULL))
+            return
+        if 0 < qty < it[3]:
+            # Part of a stack: the rest stays in the bag, the part is a new bank item.
+            player.items[player.items.index(it)] = it[:3] + (it[3] - qty, it[4])
+            send(zone.zone_event(0x1AE, struct.pack("<ii", handle, it[3] - qty)))
+            new = (zone.new_item_id(player), it[1], it[2], qty, slot)
+            player.bank.append(new)
+            send(bank.item(bank_record(*new)))
+        else:
+            player.items.remove(it)
+            player.bank.append(it[:4] + (slot,))
+            send(bank.stored(handle, slot))
+        save_bank(player)
+    elif event in (bank.FROM_BANK, bank.FROM_BANK_ANY):
+        handle, qty = struct.unpack_from("<ii", data, 0)
+        it = next((i for i in player.bank if i[0] == handle), None)
+        if it is None:
+            return
+        slot = struct.unpack_from("<i", data, 12)[0] if event == bank.FROM_BANK else -1
+        if not 0 <= slot < zone.BAG_SLOTS or any(i[4] == slot for i in player.items):
+            slot = zone.free_bag_slot(player)
+        if slot is None:
+            send(bank.error(bank.ERR_BAGS_FULL))
+            return
+        player.bank.remove(it)
+        player.items.append(it[:4] + (slot,))
+        send(bank.retrieved(handle, -1, slot))
+        save_bank(player)
+        quest_items_changed(state)
+    elif event == bank.MOVE:
+        handle, qty, slot = struct.unpack_from("<iii", data, 0)
+        it = next((i for i in player.bank if i[0] == handle), None)
+        if it is None or not 0 <= slot < bank.CAPACITY:
+            return
+        other = next((i for i in player.bank if i[4] == slot), None)
+        if other is not None:
+            player.bank[player.bank.index(other)] = other[:4] + (it[4],)
+        player.bank[player.bank.index(it)] = it[:4] + (slot,)
+        send(bank.clear())
+        for i in player.bank:
+            send(bank.item(bank_record(*i)))
+        save_bank(player)
+    elif event in (bank.DEPOSIT_COIN, bank.WITHDRAW_COIN):
+        amount = struct.unpack_from("<q", data, 0)[0]
+        if event == bank.DEPOSIT_COIN:
+            amount = max(0, min(amount, player.coins))
+            player.coins -= amount
+            player.bank_coins += amount
+        else:
+            amount = max(0, min(amount, player.bank_coins))
+            player.bank_coins -= amount
+            player.coins += amount
+        send(bank.bank_coins(player.bank_coins))
+        send(merchant.coins(player.coins))
+        save_bank(player)
 
 
 def handle_trainer_event(state, event, data):
@@ -1747,6 +1848,18 @@ def dev_command(text, player=None):
         qty = int(words[-1]) if words[-1].isdigit() and len(words) > 2 else 1
         name = " ".join(words[1:-1] if qty > 1 or words[-1] == "1" else words[1:])
         return [("give", name, qty)]
+    if words[0] in ("bankput", "bankget") and len(words) >= 2 and player:
+        # !bankput <bag slot> / !bankget <bank slot> [coins]: the client's 0x14d / 0x14f
+        # (or 0x93 / 0x94 with "coins <copper>"), for testing without dragging.
+        if words[1] == "coins" and len(words) >= 3:
+            event = bank.DEPOSIT_COIN if words[0] == "bankput" else bank.WITHDRAW_COIN
+            return [("bank", event, struct.pack("<q", int(words[2])))]
+        pool = player.items if words[0] == "bankput" else getattr(player, "bank", [])
+        it = next((i for i in pool if i[4] == int(words[1])), None)
+        if it is None:
+            return []
+        event = bank.TO_BANK_ANY if words[0] == "bankput" else bank.FROM_BANK_ANY
+        return [("bank", event, struct.pack("<ii", it[0], it[3]))]
     if words[0] == "tradeadd" and len(words) >= 2 and player:
         # !tradeadd <bag slot>: offer that bag item in the open trade (what dragging it
         # into the trade window sends: client event 0xc4 {handle, seq, qty}).
@@ -1933,6 +2046,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 player.items = zone.normalize_items(char["items"])
             if "coins" in char:
                 player.coins = char["coins"]
+            player.bank = zone.normalize_items(char.get("bank", []))
+            player.bank_coins = char.get("bank_coins", 0)
             if "equipment" in char:
                 player.equipment = [tuple(e) for e in char["equipment"]]
             player.xp = char.get("adventure_xp", player.xp)
@@ -1967,7 +2082,8 @@ def handle_message(sock, server, addr, state, payload, args):
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             hail_target = state.get("player") and state["player"].npcs.get(state["player"].target)
-            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and (hail_target.merchant or hail_target.quests or hail_target.trainer):
+            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and (hail_target.merchant or hail_target.quests or hail_target.trainer
+                                       or hail_target.banker):
                 for m in npc_dialog(state, hail_target):
                     send_message(sock, addr, state, m)
             w = state.get("world")
@@ -1982,6 +2098,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "quest_kill":
                         quest_kill(state, m[1])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "bank":
+                        handle_bank_event(state, m[1], m[2])
                         continue
                     elif isinstance(m, tuple) and m[0] == "give":
                         if give_item(state, m[1], m[2]):
@@ -2097,6 +2216,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
                     quest_items_changed(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in bank.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_bank_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trainer.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trainer_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
@@ -2182,13 +2304,13 @@ def handle_message(sock, server, addr, state, payload, args):
             event = struct.unpack_from("<I", payload, 2)[0]
             print(f"  >>> ZONE hotbar {'set' if event == 0x54B else 'clear'}: {payload[10:].hex(' ')}")
             player = state.get("player")
-            (bank,), pos = read_wstrings(payload[10:], 0, 1)
+            (hotbar_bank,), pos = read_wstrings(payload[10:], 0, 1)
             slot = struct.unpack_from("<i", payload, 10 + pos)[0]
             if player is not None:
                 if player.hotbar is None:
                     player.hotbar = {f"m_wb:{s}": vgmsg.hotkey(s, a[1]).hex()
                                      for s, a in enumerate(player.abilities[:12])}
-                key = f"{bank}:{slot}"
+                key = f"{hotbar_bank}:{slot}"
                 if event == 0x54B:
                     player.hotbar[key] = payload[10:].hex()
                 else:
