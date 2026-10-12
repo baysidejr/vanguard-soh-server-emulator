@@ -1,0 +1,47 @@
+# Content editor: what the client doesn't have
+
+Vanguard's world content lived in SOE's database, not in the client. This file tracks every piece of server-only data we find, so a hosted, crowdsourced **encounter editor** can be built at the end of the project. People will use it to place spawns, draw patrol routes, build encounters and write quests. Everything is saved as shared JSON that anyone can reuse.
+
+Status: the editor is planned for the end of the project. Until then, the server is built data-driven so the editor can write the same files.
+
+## What the client provides
+
+Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
+
+- **World geometry for every chunk:** terrain heightmaps (`server/terrain.py`), about 54,000 compound objects, 3,900 static meshes, water and lava volumes, lights, fog, weather.
+- **Map markers:**
+  - 431 `PlayerStart`s. These are not reliable spawns: in `chunk_n19_12` one hangs over a canyon and one is over the sea.
+  - 12 `PathNode`s, which look like leftovers.
+  - Effect markers that hint at inhabited places: bonfires, chimney smoke, crafting steam.
+- **Models:** all character and creature models, and item meshes (`Assets/Characters/Meshes/<TYPE>_ITEMS.uem`, see [GEAR.md](GEAR.md)).
+- **Ability visuals:** for player classes and NPCs (`Assets/Abilities/*.aby`, including `NPC_ABILITIES` and `NPC_BASE_ABILITIES`, see [ABILITY_VISUALS.md](ABILITY_VISUALS.md)).
+- **UI and messages:** item icons (`VGUIAssets/Global/Icons/iconsTK.xml`), UI text, and every message layout.
+
+## What the client does not have
+
+| Data | What it needs | Current placeholder in the server |
+| --- | --- | --- |
+| Mob spawns | chunk, position, facing, mob template, respawn time, spawn groups and camps | four test "Guides" in `zone.TEST_NPCS` |
+| Patrol and wander paths | waypoints per mob or group, wander radius, speed | NPCs only chase their attacker (`combat.chase_step`) |
+| Mob templates | name, race or creature model, level, health, damage, abilities, gear (`m_AttachmentGroups`), faction, con color | fixed 100 HP, 3–9 damage, shared robe outfit (`zone.NPC_GEAR`) |
+| Loot tables | items, chances, quantities, coin per mob template | three fixed items (`combat.LOOT_TABLE`) |
+| Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
+| Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
+| Encounters | boss phases, triggers, adds, scripted events | none |
+| Quests | givers, text, steps, objectives, rewards | none (only the quest UI exists in the client) |
+| NPC dialog and merchants | conversation trees, vendor inventories, trainers | none |
+| Starting areas and bind points | per race or class start location and bind spots | flat land found in the heightmap (`zone.default_ground_spawn`) |
+| Dungeon membership | which chunks or areas are dungeons, entrances | unknown; most dungeons are inside overworld chunks |
+| Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
+
+## Planned editor (end of project)
+
+1. **In-game builder mode.** GM chat commands on our server, with the real client as the 3D editor:
+   - `!spawn <template>` places a mob at your feet.
+   - `!path add`, `!wander <radius>` and `!respawn <seconds>` set movement and respawns.
+   - `!camp`, `!delete`, `!undo` and `!save` manage what you've placed.
+2. **Web forms** for mob templates, loot tables, items, quests and dialog, plus a chunk map drawn from the heightmap with spawns plotted on it.
+3. **Shared JSON in a git repository.** For example `content/spawns/<chunk>.json`, `content/mobs/*.json` and `content/quests/*.json`.
+   - Contributions arrive as pull requests, checked by a validation script (model ids exist, positions are on terrain, levels are sane).
+   - The content gets a data license (for example CC-BY-SA), separate from the code's AGPL.
+4. **Importers.** Scripts that turn old fan wiki and guide data (and VGOEmu data, if they share it) into draft JSON for builders to verify in game.
