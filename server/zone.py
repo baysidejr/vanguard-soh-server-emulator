@@ -317,6 +317,7 @@ class Player:
         self.npcs = {}                    # entity id -> combat.Npc seen by this player
         self.target = None                # entity id from client event 0x5d
         self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
+        self.last_combat = 0.0
 
 
 PC_CHANNEL = 1

@@ -238,11 +238,35 @@ def main():
     # Per-(server, client) state: next outgoing reliable seq, reliable seqs already handled.
     clients = {}
 
+    next_tick = time.time() + 1
     while True:
-        ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [])
+        ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
+                                    max(next_tick - time.time(), 0))
         for sock in ready:
             data, addr = sock.recvfrom(65535)
             serve(sock, names[sock], data, addr, clients, args)
+        if time.time() >= next_tick:
+            next_tick = time.time() + 1
+            world_tick(zone_sock, clients, args)
+
+
+def world_tick(zone_sock, clients, args):
+    """Once a second for each player in the zone: regeneration, NPC respawns."""
+    now = time.time()
+    for (server, addr), state in list(clients.items()):
+        player = state.get("player")
+        if server != "ZONE" or player is None or "ue" not in state:
+            continue
+        for action in combat.tick(player, now):
+            if action[0] == "health":
+                send_message(zone_sock, addr, state, zone.health_update(player))
+            elif action[0] == "respawn":
+                npc = action[1]
+                print(f"  <- respawn {npc.name}")
+                send_message(zone_sock, addr, state,
+                             zone.npc_update(state, args, npc, {"Health": npc.max_health, "m_bIsDead": 0}))
+                if player.target == npc.entity_id:
+                    send_message(zone_sock, addr, state, combat.target_health(npc))
 
 
 def serve(sock, server, data, addr, clients, args):

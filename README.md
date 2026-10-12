@@ -22,7 +22,10 @@ The unmodified client, talking only to this emulator:
 - [x] Full character sheet: defense, attack, ranged, XP bars ([docs/MSGSCORE.md](docs/MSGSCORE.md))
 - [x] Inventory: items in the bag and coins ([docs/INVENTORY.md](docs/INVENTORY.md))
 - [x] Equipment on the paper doll; ability book with usable abilities ([docs/ABILITIES.md](docs/ABILITIES.md))
-- [ ] Full appearance (gender, face, gear), NPCs, other players
+- [x] Standing on the ground; hotbar, compass, menu bar and bag bar shown at login
+- [x] Other characters and NPCs drawn, with name plates and minimap entries (`--test-npc`)
+- [x] Targeting, target window, abilities that hit, NPCs that strike back, death animation, respawn, health regeneration
+- [ ] Full appearance (gender, face, gear); per-class abilities; ability animations and effects
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 

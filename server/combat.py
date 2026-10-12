@@ -12,6 +12,7 @@ unless the id is its current offensive target.
 Damage numbers are placeholders: there are no real combat formulas yet."""
 import random
 import struct
+import time
 
 TARGET_EVENT = 0x5D          # client -> server: u64 entity id
 TARGET_HEALTH_EVENT = 0x3E1  # server -> client: u64 entity id, u8 health
@@ -26,6 +27,7 @@ class Npc:
         self.cls_path = cls_path
         self.max_health = max_health
         self.health = max_health
+        self.died_at = None
 
     @property
     def alive(self):
@@ -75,6 +77,9 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}.", "combat")], None
     dmg = rng.randint(lo, hi)
     npc.health = max(npc.health - dmg, 0)
+    player.last_combat = time.time()
+    if not npc.alive:
+        npc.died_at = time.time()
     lines = [(f"Your {name} hits {npc.name} for {dmg} damage.", "combat")]
     if not npc.alive:
         lines.append((f"You have slain {npc.name}!", "white"))
@@ -97,3 +102,22 @@ def npc_attacks(player, npc, rng=random):
     if player.health == 0:
         lines.append(("You have been slain!", "error"))
     return lines
+
+
+RESPAWN_SECONDS = 30
+REGEN_DELAY = 6          # seconds out of combat before health comes back
+REGEN_PER_SECOND = 10
+
+
+def tick(player, now):
+    """Once a second: returns ('health',) when the player's health changed and
+    ('respawn', npc) for NPCs that come back."""
+    out = []
+    if 0 < player.health < player.stats["hit_points"] and now - player.last_combat >= REGEN_DELAY:
+        player.health = min(player.health + REGEN_PER_SECOND, player.stats["hit_points"])
+        out.append(("health",))
+    for npc in player.npcs.values():
+        if npc.died_at and now - npc.died_at >= RESPAWN_SECONDS:
+            npc.health, npc.died_at = npc.max_health, None
+            out.append(("respawn", npc))
+    return out
