@@ -1,6 +1,6 @@
 # Quests: NPC dialogue, offer/accept, journal, counters, turn-in (VGClient.exe static analysis)
 
-> Static analysis; implementation and live test in progress.
+> **Verified live (2026-10-12):** Orin's dialogue (0x3ea greeting + 0x2bf option, type 7) → click (0x15c) → quest page 0x2c0 with objectives and coin reward → Accept (0x15d) → 0x2c1 + 0x2cb: quest tracker "[10] Wanderer Trouble – Defeat Robed Wanderers (1/3)" updates on kills (0x2cc); turning in via the "(complete)" option sends 0x2c5, coin and 0x3d5 XP. Active quests are resent at login (0x2cb). Implemented in `server/quest.py`, `login_stub.npc_dialog/handle_quest_event`; quests are data in `server/content/quests.json`.
 
 
 Tags: [O] = read directly in decompiled code or assembly. [I] = inferred. All payloads are packed little-endian in field-registration order (see ZONE_MESSAGES.md). wstr = UTF-16LE text ending in 0x0000. "C->S" means the client sends it through FUN_004cfb00(id, msg); a C->S id with no payload uses FUN_004cfb50.

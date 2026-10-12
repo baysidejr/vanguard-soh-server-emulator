@@ -47,8 +47,8 @@ def handle_unreal(send, state, payload, args):
             if state.pop("use_requested", False):
                 # "Use" (U key): a merchant opens its dialog; a dead target its loot.
                 npc = player.npcs.get(player.target) if player.target else None
-                if npc and npc.alive and npc.merchant:
-                    for m in merchant.dialog(npc):
+                if npc and npc.alive and (npc.merchant or npc.quests):
+                    for m in args.npc_dialog(state, npc):
                         send(m)
                 elif npc and not npc.alive:
                     for m in combat.loot_messages(npc):
@@ -89,6 +89,14 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
+        # Quest journal: active quests (0x2cb entries) so the tracker and log are filled.
+        import quest
+        for key, progress in player.quests.active.items():
+            q = args.content.quests.get(key)
+            if q:
+                total = sum(q["kill"].values())
+                send(quest.page(q, 0, quest.READY if progress >= total else quest.IN_PROGRESS,
+                                progress, journal=True))
         # "SGOUI toggle" flips the windows, so only on the first zone-in of a session
         # (a chunk handoff keeps the client's UI).
         if not player.hud_shown:
@@ -125,6 +133,8 @@ def populate_world(w, args):
         npc.gear = [tuple(g) for g in template.get("gear", [])]
         npc.yaw = int(spawn.get("yaw", 0))
         npc.merchant = template.get("merchant")
+        npc.template_id = spawn["mob"]
+        npc.quests = [k for k, q in args.content.quests.items() if q.get("giver") == spawn["mob"]]
         npc.wander = float(spawn.get("wander", 0))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.next_wander = time.time() + n
@@ -557,6 +567,8 @@ class Player:
         self.chunk = None                 # (x, y) of the current chunk
         self.hud_shown = False            # HUD windows toggled on this session
         self.group = None                 # group.Group
+        import quest
+        self.quests = quest.QuestLog()
         self.pending_invite = None        # inviter's zone connection state
         self.hotbar = None                # {"bank:slot": hotkey record hex} once changed
         self.level_number = 10            # adventuring level (self.level is the map name)

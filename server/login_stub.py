@@ -20,6 +20,7 @@ import chat
 import combat
 import group
 import trade
+import quest
 import content
 import merchant
 import world
@@ -230,6 +231,9 @@ def main():
                                               level=args.zone_level or chunk_name(*DEFAULT_CHUNK))
     args.package_maps = {}
     args.content = content.Content()
+    args.npc_dialog = npc_dialog
+    global ARGS
+    ARGS = args
     args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -300,6 +304,9 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     if npc:
         out.append(combat.target_health(npc))
         if not npc.alive and not npc.death_shown:
+            for m_state in (group_states(player) or [state]):
+                if m_state.get("world") is state.get("world"):
+                    quest_kill(m_state, npc)
             # Everyone in the chunk sees it fall.
             print(f"  <- {npc.name} died")
             npc.death_shown = True
@@ -443,6 +450,8 @@ def world_tick(zone_sock, clients, args):
                 return [m for m in out if m is not None]
             w.broadcast(build)
 
+
+ARGS = None           # parsed command line (set in main)
 
 # Online zone connections, for groups and chat across connections.
 ONLINE = {}            # lower-case character name -> zone connection state
@@ -752,6 +761,97 @@ def complete_trade(t, args):
         save_character_field(p.name, "coins", p.coins)
     end_trade(t, trade.done())
     print("  trade completed")
+
+
+def npc_dialog(state, npc):
+    """Dialogue window for a talking NPC: greeting, quest options, merchant option."""
+    player, content_ = state["player"], ARGS.content
+    log = player.quests
+    out, opts, greeting = [], [], None
+    for key in npc.quests:
+        q = content_.quests[key]
+        if key in log.done:
+            continue
+        if key in log.active:
+            ready = log.active[key] >= sum(q["kill"].values())
+            opts.append((f"{q['name']}" + (" (complete)" if ready else " (in progress)"), q["id"],
+                         quest.OPTION_TYPE))
+        else:
+            opts.append((q["name"], q["id"], quest.OPTION_TYPE))
+            greeting = greeting or q.get("greeting")
+    out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
+    if opts:
+        out.append(quest.options(npc.entity_id, opts))
+    if npc.merchant:
+        out.append(zone.zone_event(merchant.DIALOG_WARES))
+    return out
+
+
+def quest_by_id(qid):
+    return next(((k, q) for k, q in ARGS.content.quests.items() if q["id"] == qid), (None, None))
+
+
+def handle_quest_event(state, event, payload):
+    player, send = state["player"], state["send"]
+    log = player.quests
+    qid = struct.unpack_from("<i", payload, 10)[0] if len(payload) >= 14 else -1
+    key, q = quest_by_id(qid)
+    print(f"  >>> ZONE quest event {event:#x} quest {qid} ({key})")
+    if q is None:
+        return
+    npc = player.npcs.get(player.target) if player.target else None
+    npc_eid = npc.entity_id if npc else 0
+    if event == quest.CLICK_OPTION:
+        if key in log.active:
+            ready = log.active[key] >= sum(q["kill"].values())
+            if ready:
+                finish_quest(state, key, q)
+            else:
+                send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key]))
+        elif key not in log.done:
+            send(quest.page(q, npc_eid, quest.OFFER))
+    elif event == quest.ACCEPT and key not in log.active and key not in log.done:
+        log.active[key] = 0
+        send(quest.accepted(q))
+        send(quest.page(q, npc_eid, quest.IN_PROGRESS, 0, journal=True))
+        save_character_field(player.name, "quests", log.to_json())
+    elif event == quest.REQUEST_INFO and key in log.active:
+        send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True))
+    elif event in (quest.CONTINUE, quest.COMPLETE) and key in log.active:
+        if log.active[key] >= sum(q["kill"].values()):
+            finish_quest(state, key, q)
+
+
+def finish_quest(state, key, q):
+    player, send = state["player"], state["send"]
+    del player.quests.active[key]
+    player.quests.done.add(key)
+    send(quest.finished(q))
+    reward = q.get("reward", {})
+    if reward.get("coin"):
+        player.coins += reward["coin"]
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+    if reward.get("xp"):
+        for m in award_xp(player, reward["xp"], player.char_id):
+            send(m)
+    save_character_field(player.name, "quests", player.quests.to_json())
+    print(f"  {player.name} completed quest {q['name']}")
+
+
+def quest_kill(state, npc):
+    """Count a kill toward the player's active quests."""
+    player = state["player"]
+    for key, count in list(player.quests.active.items()):
+        q = ARGS.content.quests.get(key)
+        if not q or npc.template_id not in q["kill"]:
+            continue
+        total = sum(q["kill"].values())
+        if count >= total:
+            continue
+        player.quests.active[key] = count + 1
+        state["send"](quest.progress_update(q, npc.entity_id, count + 1, count + 1 >= total))
+        save_character_field(player.name, "quests", player.quests.to_json())
 
 
 def leave_world(state, args):
@@ -1089,6 +1189,10 @@ def dev_command(text, player=None):
         loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
         print(f"  <- dev: teleport to {loc}")
         return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
+    if words[0] == "questkill" and player:
+        # !questkill: count a kill of the target's kind toward active quests (testing).
+        npc = player.npcs.get(player.target)
+        return [("quest_kill", npc)] if npc else []
     if words[0] == "tradeadd" and len(words) >= 2 and player:
         # !tradeadd <bag slot>: offer that bag item in the open trade (what dragging it
         # into the trade window sends: client event 0xc4 {handle, seq, qty}).
@@ -1268,6 +1372,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.level_number = char.get("adventure_level", player.level_number)
             player.appearance = character_appearance(char)
             player.hotbar = char.get("hotbar")
+            player.quests = quest.QuestLog(char.get("quests"))
             if "items" in char:
                 player.items = zone.normalize_items(char["items"])
             if "coins" in char:
@@ -1304,8 +1409,8 @@ def handle_message(sock, server, addr, state, payload, args):
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             hail_target = state.get("player") and state["player"].npcs.get(state["player"].target)
-            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and hail_target.merchant:
-                for m in merchant.dialog(hail_target):
+            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and (hail_target.merchant or hail_target.quests):
+                for m in npc_dialog(state, hail_target):
                     send_message(sock, addr, state, m)
             w = state.get("world")
             if w is not None and not text.startswith("!"):
@@ -1316,6 +1421,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         if state.get("world"):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "quest_kill":
+                        quest_kill(state, m[1])
                         continue
                     elif isinstance(m, tuple) and m[0] == "trade_event":
                         handle_trade_event(state, m[1], bytes(10) + m[2], args)
@@ -1423,6 +1531,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL):
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in quest.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_quest_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)

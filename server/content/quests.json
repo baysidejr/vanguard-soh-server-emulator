@@ -1,0 +1,16 @@
+{
+  "_comment": "Quests. giver: mob template id of the NPC that offers and takes them. kill: {mob template id: count}. reward: xp, coin (copper). Placeholder data (docs/CONTENT_EDITOR.md).",
+  "wanderer_trouble": {
+    "id": 5001,
+    "name": "Wanderer Trouble",
+    "level": 10,
+    "giver": "camp_merchant",
+    "greeting": "Those robed wanderers keep pestering my customers. Would you thin them out for me?",
+    "description": "Orin the Trader wants the robed wanderers driven off from his camp.",
+    "summary": "Defeat 3 Robed Wanderers near Orin's camp.",
+    "accept_text": "You agree to help Orin with the wanderers.",
+    "kill": {"wastes_robed_elf": 3},
+    "objective": "Defeat Robed Wanderers",
+    "reward": {"xp": 400, "coin": 250}
+  }
+}

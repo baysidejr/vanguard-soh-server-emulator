@@ -30,7 +30,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
 | Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
 | Encounters | boss phases, triggers, adds, scripted events | none |
-| Quests | givers, text, steps, objectives, rewards | none (only the quest UI exists in the client) |
+| Quests | givers, text, steps, objectives, rewards | `server/content/quests.json`: one kill quest (multi-step, item/collect objectives and item rewards not yet supported) |
 | NPC dialog and merchants | conversation trees, vendor inventories and prices, trainers | `server/content/merchants.json` (one placeholder vendor); dialog is only "Show me your wares." |
 | Starting areas and bind points | per race or class start location and bind spots | flat land found in the heightmap (`zone.default_ground_spawn`) |
 | Dungeon membership | which chunks or areas are dungeons, entrances | unknown; most dungeons are inside overworld chunks |

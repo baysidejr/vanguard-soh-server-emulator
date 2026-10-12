@@ -35,7 +35,8 @@ The unmodified client, talking only to this emulator:
 - [x] Groups (invite, accept, group window with live bars, group chat), merchants (buy/sell), equip/unequip, real item tooltips, NPC wandering
 - [x] Chat: say, shout, tell, OOC, group, emotes and social animations
 - [x] Walking (or teleporting) across chunk edges into the neighbouring zone
-- [ ] Quests; trading between players; NPCs in other chunks
+- [x] Quests from NPCs (offer page, tracker, kill counts, turn-in rewards) and player-to-player trading
+- [ ] Multi-step quests and quest items; NPCs in other chunks; crafting, harvesting, diplomacy
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 

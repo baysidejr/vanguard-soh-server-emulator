@@ -46,6 +46,8 @@ class Npc:
         self.wander_goal = None       # (x, y) it is walking to
         self.next_wander = 0.0
         self.ground_z = None          # f(x, y) -> standing z (terrain)
+        self.quests = []              # quest keys this NPC gives (content/quests.json)
+        self.template_id = None
         self.merchant = None          # merchants.json list id (vendors can't be attacked)
         self.props = {}               # extra replicated pawn properties from the template
         self.damage = NPC_DAMAGE

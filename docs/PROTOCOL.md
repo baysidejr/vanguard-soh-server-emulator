@@ -285,6 +285,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Trade** (verified live): invite `0xc0` {wstr name} → `0x208` popup; accept `0xc3` → `0x205` opens the inviter's window; offers `0xc4`/`0xc5`/`0xc6` → `0x1fc`/`0x1fe`/`0x20a` (mine) and `0x1fd`/`0x1ff`/`0x20b` (theirs); accept `0xc7` → `0x202`/`0x203`, both → items and coins move, `0x201`. Details: [TRADE.md](TRADE.md).
 
+**Quests** (verified live): NPC text `0x3ea` {eid64, wstr}; options `0x2bf` (type 7 → client `0x15c` {quest id}); quest page `0x2c0` / journal entry `0x2cb` (same layout); accept `0x15d` → `0x2c1`; progress `0x2cc` (status text "(1/3)" — the client has no counter field); done `0x2c5`. Details: [QUESTS.md](QUESTS.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**
