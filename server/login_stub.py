@@ -12,6 +12,8 @@ import socket
 import struct
 import time
 
+import ue2net
+
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
 #   00 01 | u32be protocol(3) | u32be connectCode | u32be maxRawPacketSize | cstring
 # Connect confirm parsed in UdpConnection::ProcessCookedPacket case 2 (FUN_00c01e70):
@@ -189,6 +191,7 @@ def main():
     parser.add_argument("--world-port", type=int, default=10100, help="world server port (ClientWorldApi default 0x2774)")
     parser.add_argument("--world-address", default="127.0.0.1", help="world/zone address sent to the client")
     parser.add_argument("--zone-port", type=int, default=10102, help="zone server port (ClientZoneApi has no default)")
+    parser.add_argument("--zone-level", default="Entry", help="level name sent in the UE2 WELCOME")
     args = parser.parse_args()
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -436,6 +439,47 @@ def build_zone_connect_event(host, port, name):
     return event_message(8, data)
 
 
+def unreal_message(packet):
+    # Zone message type 1 carries one UE2 packet: u16le 1, u32le length, bytes.
+    return struct.pack("<HI", 1, len(packet)) + packet
+
+
+def handle_unreal(sock, addr, state, payload, args):
+    """Zone type 1: a UE2 UNetConnection packet (see ue2net.py)."""
+    (length,) = struct.unpack_from("<I", payload, 2)
+    packet = payload[6:6 + length]
+    ue = state.setdefault("ue", ue2net.UnrealSession())
+    try:
+        packet_id, acks, bunches = ue.receive(packet)
+    except ValueError as e:
+        print(f"  >>> UNREAL undecodable packet ({e}): {packet.hex(' ')}")
+        return
+    replies = []
+    for b in bunches:
+        if b.channel == 0 and b.ch_type == ue2net.CHTYPE_CONTROL:
+            for text in ue2net.read_fstrings(b.data):
+                print(f"  >>> UNREAL control <- {text!r}")
+                replies.extend(unreal_control_reply(text, args))
+        else:
+            print(f"  >>> UNREAL bunch {b!r} data={b.data[:32].hex(' ')}")
+    out = [ue.control_bunch(t) for t in replies]
+    for t in replies:
+        print(f"  <- UNREAL control -> {t!r}")
+    send_message(sock, addr, state, unreal_message(ue.build(out)))
+
+
+def unreal_control_reply(text, args):
+    """Server side of the UE2 login handshake (UWorld::NotifyReceivedText):
+    HELLO -> CHALLENGE, LOGIN -> WELCOME. The client then loads the level and
+    sends JOIN."""
+    word = text.split(" ", 1)[0]
+    if word == "HELLO":
+        return ["CHALLENGE VER=3186 CHALLENGE=12345 STATS=0"]
+    if word == "LOGIN":
+        return [f"WELCOME LEVEL={args.zone_level} LONE=0"]
+    return []
+
+
 def send_character_list(sock, addr, state):
     chars = [c for c in load_characters() if c["world"] == WORLD_NAME]
     for char in chars:
@@ -490,6 +534,8 @@ def handle_message(sock, server, addr, state, payload, args):
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2:
             print_client_log(payload)
+        elif msg_type == 1:
+            handle_unreal(sock, addr, state, payload, args)
         elif msg_type == 9:
             # Ping: u16 9 + 64-bit client timestamp. The client's type-9 handler
             # (FUN_006edcd0) computes latency as now - timestamp, so echo it back.

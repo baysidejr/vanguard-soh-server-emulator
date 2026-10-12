@@ -12,7 +12,8 @@ The unmodified client, talking only to this emulator:
 - [x] Sees the server list ("Stub World")
 - [x] Lists, creates, customizes and deletes characters, with 3D previews
 - [x] Connects to the world server, then to a zone server after **Play**
-- [ ] Enters the game world — needs the Unreal Engine 2 network handshake (next milestone)
+- [x] Completes the Unreal Engine 2 handshake (HELLO → CHALLENGE → LOGIN → WELCOME → JOIN) and loads a level
+- [ ] Spawns the player in the world (next milestone: UE2 actor replication)
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 

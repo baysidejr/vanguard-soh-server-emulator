@@ -147,7 +147,32 @@ The client logs into the zone, then asks Unreal to travel to `<host>:<port>/Entr
 
 When Play is pressed the client also drops the login-server connection (Terminate, reason 6 "Application"). That is normal.
 
-**Open:** the client sent no Unreal packet on its own after `Browse: 127.0.0.1:10102/Entry.vgr`. The next step is finding the first Unreal packet the server must send, then the UE2 control-channel handshake and level load.
+### Unreal Engine 2 channel (zone type 1)
+
+Zone message type 1 = `u16 1, u32 length, packet`: one UE2 `UNetConnection` packet, carried by the client's `UdpUnrealConnection` (`FUN_00bd1310`). Field widths come from `UNetConnection::ReceivedPacket` (`FUN_0095f230`); `server/ue2net.py` re-encodes the captured client HELLO byte for byte.
+
+| Field | Encoding |
+| --- | --- |
+| PacketId | SerializeInt(32768), 15 bits |
+| per item: IsAck | 1 bit; ack → AckPacketId SerializeInt(32768) |
+| bunch header | bControl, [bOpen, bClose], bReliable, ChIndex SerializeInt(1024) 10 bits, ChSequence SerializeInt(4096) 12 bits (reliable), ChType SerializeInt(8) 3 bits (reliable or open), DataBits SerializeInt(4096) 12 bits |
+| terminator | one 1 bit, then zero padding; bits are LSB-first |
+| control text | FString: compact-index length incl. NUL, 8-bit chars, NUL |
+
+**Login handshake (verified live 2026-10-11):**
+
+```
+client → HELLO REVISION=0 MINVER=3151 VER=3186
+server → CHALLENGE VER=3186 CHALLENGE=12345 STATS=0
+client → LOGIN
+server → WELCOME LEVEL=Entry LONE=0
+client → JOIN                      (log: "INITIAL LEVEL LOAD COMPLETE", "Sending join.")
+client → zone event 0x71 BECOME_PC (20 bytes: ff×8, then zeros)
+```
+
+The client loads the named level (loading screen, full bar) and then waits to be spawned. No `USES` package-map lines were needed for WELCOME to be accepted.
+
+**Open:** answering `BECOME_PC`: spawn and replicate the player controller and pawn over UE2 actor channels.
 
 ## Reference
 
@@ -173,7 +198,7 @@ When Play is pressed the client also drops the login-server connection (Terminat
 
 **Open questions**
 
-- What the server must send first on the Unreal channel (zone type 1).
+- What the server must send after `BECOME_PC` (zone event 0x71) to spawn the player.
 - Meaning of the `0x66` header's first 0x80 bytes and the extra slot field.
 - Exact semantics of the 12 bytes after the name in Play and of the 180 appearance integers.
 - Event numbers for the delete and customize results as the client expects them; remaining events `0x5dd`, `0x5df`, `0x5e1`, `0x725`.
