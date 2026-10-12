@@ -1,9 +1,68 @@
 {
-  "_comment": "Refining recipes. id: recipe id; inputs: {item name: count}; output: item name; steps: [{name, action}] with action = actions.json id; xp: crafting experience. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Refining recipes. id: recipe id; inputs: {item name: count}; output: item name; stages: up to 4 {name, steps: [{name, description, action (action id), ap}]} done in order (or one stage: stage + steps); max_ap: action points (default 100); xp: crafting experience; complications: [{name, description, stage (index), chance, penalty (quality lost per action while active), counter: {action, family (unused by steps), name, description, ap, strength (health removed per use, of 100)}}]. Placeholder data (docs/CONTENT_EDITOR.md).",
   "copper_ingot": {
-    "id": 5001, "name": "Copper Ingot", "description": "Smelt copper ore into an ingot.",
-    "icon": 475, "inputs": {"Copper Ore": 2}, "output": "Copper Ingot", "xp": 120,
-    "stage": "Smelting",
-    "steps": [{"name": "Smelt Ore", "description": "Melt the ore and pour the ingot.", "action": 30001}]
+    "id": 5001,
+    "name": "Copper Ingot",
+    "description": "Smelt copper ore into an ingot.",
+    "icon": 475,
+    "inputs": {
+      "Copper Ore": 2
+    },
+    "output": "Copper Ingot",
+    "xp": 120,
+    "max_ap": 120,
+    "stages": [
+      {
+        "name": "Preparation",
+        "steps": [
+          {
+            "name": "Sort Ore",
+            "description": "Pick the best pieces of ore.",
+            "action": 30001,
+            "ap": 20
+          },
+          {
+            "name": "Heat Crucible",
+            "description": "Bring the crucible up to heat.",
+            "action": 30002,
+            "ap": 20
+          }
+        ]
+      },
+      {
+        "name": "Smelting",
+        "steps": [
+          {
+            "name": "Smelt Ore",
+            "description": "Melt the ore down.",
+            "action": 30003,
+            "ap": 20
+          },
+          {
+            "name": "Pour Ingot",
+            "description": "Pour the metal into the mould.",
+            "action": 30004,
+            "ap": 20
+          }
+        ]
+      }
+    ],
+    "complications": [
+      {
+        "name": "Slag Buildup",
+        "description": "Slag in the melt lowers quality with every action.",
+        "stage": 1,
+        "chance": 0.6,
+        "penalty": 100,
+        "counter": {
+          "action": 30090,
+          "family": 90,
+          "name": "Skim Slag",
+          "description": "Skim the slag off the melt.",
+          "ap": 15,
+          "strength": 100
+        }
+      }
+    ]
   }
 }

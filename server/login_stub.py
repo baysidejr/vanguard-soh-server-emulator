@@ -1001,7 +1001,7 @@ def quest_items_changed(state):
             quest_advance(state, key, q, player.char_id)
 
 
-def give_item(state, name, qty=1):
+def give_item(state, name, qty=1, quiet=False):
     """Put a new item in the player's bags; False if they are full."""
     player, send = state["player"], state["send"]
     slot = zone.free_bag_slot(player)
@@ -1012,8 +1012,9 @@ def give_item(state, name, qty=1):
     player.items.append((item_id, name, icon, qty, slot))
     send(zone.zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty,
                                                      **zone.item_equip_fields(name))))
-    send(build_system_text(f"You receive {name}." if qty == 1 else f"You receive {qty} {name}.",
-                           SYSTEM_TEXT_WHITE))
+    if not quiet:
+        send(build_system_text(f"You receive {name}." if qty == 1 else f"You receive {qty} {name}.",
+                               SYSTEM_TEXT_WHITE))
     save_character_field(player.name, "items", [list(i) for i in player.items])
     return True
 
@@ -1296,20 +1297,71 @@ def handle_craft_event(state, event, data):
     elif event == craft.CONFIRM and session["recipe"]:
         send(craft.workbench())
     elif event == craft.BEGIN and session["recipe"]:
-        for m in craft.started():
+        session.update(stage=0, done=set(), ap=0, quality=500, comp=None, had_comp=False)
+        for m in craft.started(session["quality"]):
             send(m)
     elif event == craft.ACTION and session["recipe"]:
-        r = session["recipe"]
-        n = session["step"]
-        session["ap"] += 10
-        send(combat.display_ability(player.char_id, combat.NO_ENTITY, 30203))
-        for m in craft.action_done(r, n, session["ap"]):
-            send(m)
-        session["step"] += 1
-        if session["step"] < len(r["steps"]):
-            send(craft.ready())
+        craft_action(state, session, struct.unpack_from("<i", data, 0)[0])
+
+
+def craft_action(state, session, action):
+    """One crafting action: a step of the current stage, or a complication's counter."""
+    player, send = state["player"], state["send"]
+    r = session["recipe"]
+    comp = session.get("comp")
+    max_ap = r.get("max_ap", craft.MAX_AP)
+    if comp and action == comp[0]["counter"]["action"]:
+        k = comp[0]["counter"]
+        if session["ap"] + k.get("ap", 15) > max_ap:
+            send(craft.rejected(6))
             return
-        finish_craft(state, r)
+        session["ap"] += k.get("ap", 15)
+        comp[1] -= k.get("strength", 50)
+        send(zone.zone_event(0x2ED))
+        send(zone.zone_event(0x2F6, struct.pack("<i", session["ap"])))
+        if comp[1] <= 0:
+            session["comp"] = None
+            send(craft.complications([]))
+            send(craft.screen_text("Complication resolved"))
+        else:
+            send(craft.complications([tuple(comp)]))
+        return
+    step = next(((n, si, st) for n, si, st in craft.all_steps(r)
+                 if st["action"] == action and si == session["stage"] and n not in session["done"]), None)
+    if step is None:
+        send(craft.rejected(7))
+        return
+    n, si, st = step
+    if session["ap"] + st.get("ap", 20) > max_ap:
+        send(craft.rejected(6))
+        return
+    session["ap"] += st.get("ap", 20)
+    session["done"].add(n)
+    gain, grade = random.choice([(150, "Excellent!"), (100, "Great!"), (100, "Great!"), (50, "Good")])
+    if comp:
+        gain, grade = gain - comp[0].get("penalty", 100), "Poor"
+    session["quality"] = max(0, min(1000, session["quality"] + gain))
+    stage_steps = [x for x in craft.all_steps(r) if x[1] == si]
+    progress = 252 * sum(1 for x in stage_steps if x[0] in session["done"]) // len(stage_steps)
+    send(combat.display_ability(player.char_id, combat.NO_ENTITY, 30203))
+    for m in craft.action_done(r, n, si, session["ap"], progress, session["quality"], grade):
+        send(m)
+    # A complication may show up during its stage (once per session).
+    for c in r.get("complications", []):
+        if (not session["comp"] and not session["had_comp"] and c.get("stage", 0) == si
+                and random.random() < c.get("chance", 0.5)):
+            session["comp"], session["had_comp"] = [c, 100], True
+            send(craft.alert(c["name"]))
+            send(craft.complications([(c, 100)]))
+    if progress < 252:
+        return
+    if si + 1 < len(craft.stages(r)):
+        session["stage"] = si + 1
+        for m in craft.next_stage(si + 1):
+            send(m)
+        return
+    send(craft.screen_text(f"Quality: Grade {craft.grade_letter(session['quality'])}"))
+    finish_craft(state, r)
 
 
 def finish_craft(state, r):
@@ -1323,7 +1375,7 @@ def finish_craft(state, r):
     for name, need in r["inputs"].items():
         take_items(state, name, need)
     name = r["output"]
-    if give_item(state, name):
+    if give_item(state, name, quiet=True):
         send(build_system_text(f"You create {name}.", SYSTEM_TEXT_WHITE))
         quest_items_changed(state)
     send(combat.experience_reward(r.get("xp", 50), player.char_id, kind=1))

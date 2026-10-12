@@ -100,8 +100,10 @@ def handle_unreal(send, state, payload, args):
         # Recipe book and crafting actions (silent adds).
         for r in args.content.recipes.values():
             send(craft.learn_recipe(r))
-            for n in range(len(r["steps"])):
+            for n in range(len(craft.all_steps(r))):
                 send(craft.learn_action(r, n))
+            for c in r.get("complications", []):
+                send(craft.learn_counter(c))
         # Quest journal: active quests (0x2cb entries) so the tracker and log are filled.
         import quest
         have = lambda name: sum(i[3] for i in player.items if i[1] == name)

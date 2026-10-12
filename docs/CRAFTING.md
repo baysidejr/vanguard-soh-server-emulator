@@ -2,6 +2,16 @@
 
 > **Verified live (2026-10-12):** U on the Camp Forge (EntityTypes 0x4) → Crafting Setup with "Copper Ingot" under Normal Recipes → select (0xfe) → Begin (0xfb, 0xfc) → crafting window (Grade, Action Pts 100/100, Stage 1: Smelting) → step → Smelt action (0xf6) → "You create Copper Ingot.", "You gain 120 crafting experience!", "Your crafting session ends."; 2 Copper Ore used, ingot in the bag. Implemented in `server/craft.py` and `login_stub.handle_craft_event`; recipes in `server/content/recipes.json`. The station is a robed NPC for now: race 572 (computed from the BlacksmithForge prop table offset) falls back to the client's placeholder figure, and the skeletal smelter races don't draw. A real forge model is open.
 
+> **Stages, quality and complications (verified live 2026-10-12):** Copper Ingot now has two stages, each with two steps.
+> - **Stages.** "Stage 1: Preparation" has Sort Ore and Heat Crucible; "Stage 2: Smelting" has Smelt Ore and Pour Ingot. Each action costs action points (120 in total).
+> - **Each action:** the server sends `0x2ed`, `0x2f6` (AP used), `0x30a {step, 100}`, `0x2f7 {stage, 0..252}`, `0x2f8` (quality 0–1000; the window shows grade D/C/B/A at 250/500/750) and `0x2fa` (a 2 s grade flash on the step).
+> - **Next stage.** When a stage's steps are done, the server sends `0x30d`, then `0x2f7 {next stage, 0}`. **`0x2f5` is sent only once, at Begin.** It repaints the window as stage 1, so sending it later undoes a stage advance.
+> - **Complication.** During stage 2, "Slag Buildup" may appear (60% chance). The server sends `0x308` (red "New Complication: Slag Buildup" screen text) and `0x2f9` (3 complication slots; the client prints "New complication: Slag Buildup!"). While it is active, each action loses 100 quality.
+> - **Counter.** The correction entry lists the actions of the counter family (90). Using "Skim Slag" sends the normal `0xf6`. The server answers with an all-empty `0x2f9` ("Complication has been removed: Slag Buildup") and `0x2fa` with step -1 (white screen text "Complication resolved").
+> - **Rejections.** Running out of AP sends `0x2ec {"", 6}`; an action that isn't allowed now sends `0x2ec {"", 7}`.
+> - **Data.** Recipes in `recipes.json` now take `stages`, `max_ap`, a per-step `ap`, and `complications` (stage, chance, penalty, and the counter action).
+> - **Still open:** tools and utilities (`0x2ec` codes 3/4 "Missing tool", `0x300` usable items, `0x2fb` catalysts).
+
 
 This comes from static analysis only (Ghidra via REA) and has not been tested live. [O] means I read it in code; [I] means I inferred it.
 Frame: zone event `u16 2, u32 id, u32 len, payload`. Payloads are packed little-endian, and each wstr is UTF-16LE including its NUL terminator.

@@ -45,7 +45,8 @@ The unmodified client, talking only to this emulator:
 - [x] /camp returns to character select
 - [x] Diplomacy card costs, expression pools, NPC opponent, win and loss (data-driven)
 - [x] Ability trainer: buy the next class abilities
-- [ ] Multi-stage crafting with complications; per-character diplomacy decks
+- [x] Multi-stage crafting with quality grades and complications
+- [ ] Crafting tools and utilities; per-character diplomacy decks
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
