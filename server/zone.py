@@ -300,9 +300,7 @@ PAWN_CHANNEL = 2
 FIRST_NPC_CHANNEL = 3
 
 # Test pawn for --test-npc: (class, name, race, offset from the player's spawn
-# point). The client spawns it and applies the properties, but as of now a
-# non-owned pawn (SGONPCPawn or SGOPCPawn) does not render - it likely needs
-# appearance/model data we don't send yet.
+# point).
 TEST_NPCS = [
     ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (-60.0, 50.0, 0.0)),
     ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (-60.0, -50.0, 0.0)),
@@ -318,7 +316,7 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
     props = pm.net_cache.props(cls, {
         "bHidden": False,
         "DrawScale": 1.0,
-        "Physics": 0,               # PHYS_None: stay where spawned
+        "bSimulateGravity": True,   # else TickSimulated forces PHYS_Flying (hover)
         "m_bGMHide": False,
         "m_iRaceId": race,
         "Health": 100,

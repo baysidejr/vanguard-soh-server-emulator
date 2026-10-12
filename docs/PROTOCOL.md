@@ -231,7 +231,7 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 **System text.** Zone event `0x192` (wstr text, i32 colour) prints a line into the chat window without a speaker: 3 white, 4 red, 5 orange (combat), 6 blue, 7 tan.
 
 **Open:**
-- Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client, receive their properties, and **their meshes load** (with `DevLoad` unsuppressed the client loads e.g. `UEM_elf_M_char` skeleton + hair/chest/leg/feet meshes for race 4), but they are not drawn — not even 90 units beside the player. Tried: bNetOwner, entity ids, `m_iModelNum = -1`, `m_Customization[64]`, `bHidden = 0`, `DrawScale = 1`, spawning after `0x485`. Model building: pawn PostNetReceive (`FUN_00bcc5a0`) → `FUN_00bcb8e0(race, model)` when `m_iRaceId`/`m_iModelNum` change. Reproduce with `python login_stub.py --test-npc`.
+- (Solved) Non-owned pawns: SGOPCPawn and SGONPCPawn render, with name plates and minimap entries, once they also carry `bSimulateGravity = True` (verified live 2026-10-12; `python login_stub.py --test-npc`). Without it they hover, and earlier tests did not show them.
 - Skill group header values; armor skills (subtype 3) don't show yet.
 - Gender, face sliders and gear (`m_AttachmentGroups` = SGOAttachmentGroupInfoPair {slot, attachment, package}).
 

@@ -1,5 +1,7 @@
 # Why replicated (non-owned) SGO pawns are never animated or drawn
 
+> **Resolved (2026-10-12).** Remote pawns (SGOPCPawn and SGONPCPawn) render, with name plates and minimap entries. Their instances look the same as the local player's: `+0x74` and `+0x80` stay 0 on the player too, so those are not "rendered" markers. What changed is that the pawns now replicate `bSimulateGravity = True` like the player's pawn, and the camera was zoomed out (the default camera sat against a wall). The analysis below is kept as background on the EMotionFX mesh path.
+
 All findings come from static analysis of VGClient.exe in Ghidra through REA. I also scanned the PE bytes read-only for vtable-call patterns. Nothing was launched and nothing was modified.
 
 - **[O]** means observed in the decompiled or disassembled code.
