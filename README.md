@@ -17,7 +17,8 @@ The unmodified client, talking only to this emulator:
 - [x] Shows the in-game HUD (vitals, chat, minimap) and a message of the day
 - [x] The character is visible and walks around; the server tracks its position
 - [x] Character window: name, level, race and class
-- [ ] Attributes/stats, full appearance (gender, face, gear), NPCs, other players
+- [x] Attributes (Strength...), hit points, endurance and energy; full HUD bars
+- [ ] Skills, full appearance (gender, face, gear), NPCs, other players
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 
