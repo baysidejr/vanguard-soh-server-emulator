@@ -55,7 +55,7 @@ def handle_unreal(send, state, payload, args):
                     args.harvest_begin(state)
                 elif npc and npc.station:
                     args.craft_event(state, craft.USE_STATION, b"")
-                elif npc and npc.alive and (npc.merchant or npc.quests or npc.trainer or npc.banker):
+                elif npc and npc.alive and npc.talks():
                     for m in args.npc_dialog(state, npc):
                         send(m)
                 elif npc and not npc.alive:
@@ -681,8 +681,10 @@ def free_bag_slot(player):
 
 
 def new_item_id(player):
-    return max([i[0] for i in player.items] + [e[0] for e in player.equipment]
-               + [b[0] for b in getattr(player, "bank", [])] + [10000]) + 1
+    new = max([i[0] for i in player.items] + [e[0] for e in player.equipment]
+              + [b[0] for b in getattr(player, "bank", [])] + [10000]) + 1
+    getattr(player, "durability", {}).pop(str(new), None)     # ids are reused: no stale wear
+    return new
 
 
 def normalize_items(items):

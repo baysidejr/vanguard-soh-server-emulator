@@ -112,12 +112,12 @@ def ignore_removed(p, uid):
 
 
 def friend_list(entries):
-    return _social(0x4F9, struct.pack("<i", len(entries)) + b"".join(friend_info(p, n + 1)
+    return _social(0x4F9, struct.pack("<i", len(entries)) + b"".join(friend_info(p, p.get("uid", n + 1))
                                                                      for n, p in enumerate(entries)))
 
 
 def ignore_list(entries):
-    return _social(0x4FA, struct.pack("<i", len(entries)) + b"".join(friend_info(p, n + 1)
+    return _social(0x4FA, struct.pack("<i", len(entries)) + b"".join(friend_info(p, p.get("uid", n + 1))
                                                                      for n, p in enumerate(entries)))
 
 

@@ -108,6 +108,9 @@ class Parley:
         """The NPC plays an affordable card (usually its strongest). Returns its id."""
         options = [cid for cid in self.config["npc_cards"]
                    if all(self.theirs[k] >= n for k, n in self.cards[str(cid)].get("cost", {}).items())]
+        if not options:
+            self.round += 1
+            return None                 # nothing affordable: the NPC passes
         options.sort(key=lambda cid: -self.cards[str(cid)].get("push", 0))
         cid = options[0] if rng.random() < 0.6 else rng.choice(options)
         self._apply(self.cards[str(cid)], self.theirs, -1)
@@ -148,8 +151,9 @@ def points(p):
 def round_messages(p, npc_cid):
     """After the player's card (already applied and shown with update/points)
     the NPC answers with npc_cid, then it is the player's turn again."""
-    return [_event(0x333), _event(0x218, card(npc_cid, p.cards[str(npc_cid)])),
-            _event(0x325, _w(p.line())), update(p), points(p), _event(0x256), _event(0x334)]
+    npc_card = [_event(0x218, card(npc_cid, p.cards[str(npc_cid)]))] if npc_cid is not None else []
+    return ([_event(0x333)] + npc_card
+            + [_event(0x325, _w(p.line())), update(p), points(p), _event(0x256), _event(0x334)])
 
 
 def error(code, arg=0):

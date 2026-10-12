@@ -21,6 +21,14 @@ TARGETS_EVENT = 0x3E0        # server -> client: offensive, defensive, third tar
 
 
 class Npc:
+    def talks(self):
+        """Opens a dialogue when used or hailed."""
+        return bool(self.merchant or self.quests or self.trainer or self.banker or self.parley or self.repairs)
+
+    def service(self):
+        """A vendor, trainer, node, station...: can't be attacked."""
+        return bool(self.talks() or self.harvest or self.station)
+
     def __init__(self, entity_id, name, channel, cls_path, max_health=100, location=(0.0, 0.0, 0.0)):
         self.entity_id = entity_id
         self.name = name
@@ -146,7 +154,7 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}, but you have no target.", "combat")], None
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
-    if npc.merchant or npc.harvest or npc.station or npc.trainer or npc.banker:
+    if npc.service():
         return [(f"You can't attack {npc.name}.", "error")], None
     cost = ABILITY_COST if ability[5] > 0 else 0      # instant openers are free
     if player.endurance < cost:

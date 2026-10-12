@@ -126,6 +126,8 @@ def validate(directory=CONTENT_DIR):
                 problems.append(f"parley {pid}: unknown card {cid}")
         if not p.get("npc_cards"):
             problems.append(f"parley {pid}: needs npc_cards")
+        elif not any(not dip["cards"].get(str(cid), {}).get("cost") for cid in p["npc_cards"]):
+            problems.append(f"parley {pid}: needs at least one npc card without a cost")
     for mid, m in c.mobs.items():
         if isinstance(m, dict) and isinstance(m.get("parley"), str) and m["parley"] not in dip.get("parleys", {}):
             problems.append(f"mob {mid}: unknown parley {m['parley']}")

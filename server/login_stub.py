@@ -12,6 +12,8 @@ import select
 import socket
 import struct
 import time
+import traceback
+import zlib
 
 import races_classes
 import ue2net
@@ -524,13 +526,17 @@ def world_send(zone_state, message):
         send_message(conn[0], conn[1], conn[2], message)
 
 
+def ignores(listener, speaker_name):
+    return listener is not None and speaker_name.lower() in [n.lower() for n in getattr(listener, "ignores", [])]
+
+
 def world_chat(zone_state, command, reply):
     """Chat commands from the world connection (see chat.py)."""
     player = zone_state["player"]
     verb, name, text = chat.parse(command)
     if verb == "shout":
         for s in ONLINE.values():
-            if s is not zone_state:
+            if s is not zone_state and not ignores(s.get("player"), player.name):
                 world_send(s, chat.line(text, player.name, chat.SHOUT))
         reply(chat.echo(text, chat.SHOUT))
     elif verb == "tell":
@@ -540,7 +546,8 @@ def world_chat(zone_state, command, reply):
         elif target is None:
             reply(chat.error(chat.ERR_NOT_ONLINE))
         else:
-            world_send(target, chat.line(text, player.name, chat.TELL))
+            if not ignores(target["player"], player.name):
+                world_send(target, chat.line(text, player.name, chat.TELL))
             reply(chat.echo_to(text, target["player"].name, chat.TELL))
     elif verb == "gsay":
         members = group_states(player)
@@ -564,9 +571,14 @@ def social_entry(name):
     if s and s.get("player"):
         p = s["player"]
         return {"name": p.name, "level": p.level_number, "klass": p.klass, "chunk": tuple(p.chunk),
-                "online": True, "afk": s.get("afk", False), "anon": s.get("anon", False),
-                "lfg": s.get("lfg", False), "diplomacy_level": 1}
-    return {"name": name, "online": False}
+                "online": True, "afk": getattr(p, "afk", False), "anon": getattr(p, "anon", False),
+                "lfg": getattr(p, "lfg", False), "diplomacy_level": 1, "uid": social_uid(p.name)}
+    return {"name": name, "online": False, "uid": social_uid(name)}
+
+
+def social_uid(name):
+    """A stable id per character name for friend/ignore entries."""
+    return zlib.crc32(name.lower().encode("utf-8")) & 0x7FFFFFFF
 
 
 def social_login(state):
@@ -593,7 +605,7 @@ def notify_friends(state, online):
             continue
         friends = [n.lower() for n in getattr(other, "friends", [])]
         if player.name.lower() in friends:
-            world_send(s, social.friend_status(entry, friends.index(player.name.lower()) + 1))
+            world_send(s, social.friend_status(entry, entry["uid"]))
 
 
 def handle_social_world(zone_state, event, data, reply):
@@ -615,16 +627,18 @@ def handle_social_world(zone_state, event, data, reply):
             return
         name = known[name.lower()]
         field = "friends" if event == social.FRIEND else "ignores"
-        names = getattr(player, field)
+        names = getattr(player, field, None)
+        if names is None:
+            names = []
+            setattr(player, field, names)
         entry = social_entry(name)
+        uid = entry["uid"]
         if name.lower() in [n.lower() for n in names]:
-            uid = [n.lower() for n in names].index(name.lower()) + 1
             names[:] = [n for n in names if n.lower() != name.lower()]
             reply(social.friend_removed(entry, uid) if event == social.FRIEND else social.ignore_removed(entry, uid))
         else:
             names.append(name)
-            reply(social.friend_added(entry, len(names)) if event == social.FRIEND
-                  else social.ignore_added(entry, len(names)))
+            reply(social.friend_added(entry, uid) if event == social.FRIEND else social.ignore_added(entry, uid))
         save_character_field(player.name, field, names)
 
 
@@ -633,16 +647,16 @@ def handle_social_zone(state, event, data):
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE social {event:#x}: {data.hex(' ')}")
     if event == social.AFK and data:
-        state["afk"] = bool(data[0])
-        send(build_system_text("You are now AFK." if state["afk"] else "You are no longer AFK.",
+        player.afk = bool(data[0])
+        send(build_system_text("You are now AFK." if player.afk else "You are no longer AFK.",
                                SYSTEM_TEXT_WHITE))
     elif event == social.ANON:
-        state["anon"] = not state.get("anon", False)
-        send(build_system_text("You are now anonymous." if state["anon"] else "You are no longer anonymous.",
+        player.anon = not getattr(player, "anon", False)
+        send(build_system_text("You are now anonymous." if player.anon else "You are no longer anonymous.",
                                SYSTEM_TEXT_WHITE))
     elif event == social.LFG and data:
-        state["lfg"] = bool(data[0])
-        send(build_system_text("You are now looking for a group." if state["lfg"]
+        player.lfg = bool(data[0])
+        send(build_system_text("You are now looking for a group." if player.lfg
                                else "You are no longer looking for a group.", SYSTEM_TEXT_WHITE))
     elif event == social.RANDOM and len(data) >= 8:
         lo, hi = struct.unpack_from("<ii", data, 0)
@@ -940,6 +954,9 @@ def complete_trade(t, args):
         slot = zone.free_bag_slot(tp)
         new_id = zone.new_item_id(tp)
         tp.items.append((new_id, item[1], item[2], item[3], slot))
+        wear = getattr(giver["player"], "durability", {}).pop(str(item[0]), None)
+        if wear is not None and hasattr(tp, "durability"):
+            tp.durability[str(new_id)] = wear
         taker["send"](zone.zone_event(0x197, vgmsg.inventory_item(
             new_id, item[1], slot, item[2], item[3], **zone.item_equip_fields(item[1]))))
     for giver, side, taker in ((a, sa, b), (b, sb, a)):
@@ -1070,6 +1087,10 @@ def finish_quest(state, key, q):
             if have(name) < n:
                 send(build_system_text(f"You need {n} {name}.", SYSTEM_TEXT_ERROR))
                 return
+    reward_items = q.get("reward", {}).get("items", [])
+    if zone.BAG_SLOTS - len(player.items) < len(reward_items):
+        send(build_system_text("You need more room in your bags for the reward.", SYSTEM_TEXT_ERROR))
+        return
     for step in quest.steps(q):
         for name, n in step.get("collect", {}).items():
             take_items(state, name, n)
@@ -1362,6 +1383,7 @@ def handle_repair_event(state, event, data):
                                 else merchant.ERR_CANT_AFFORD))
             break
         player.coins -= price
+        player.durability = getattr(player, "durability", {})
         player.durability[str(handle)] = 100
         # Resend the item with full durability (bag items in place; equipped items
         # are recreated and put back on the paper doll).
@@ -1379,11 +1401,11 @@ def handle_repair_event(state, event, data):
         send(build_system_text(f"{name} has been repaired.", SYSTEM_TEXT_WHITE))
     send(merchant.coins(player.coins))
     save_character_field(player.name, "coins", player.coins)
-    save_character_field(player.name, "durability", player.durability)
+    save_character_field(player.name, "durability", getattr(player, "durability", {}))
 
 
-def bank_record(item_id, name, icon, qty, slot):
-    return vgmsg.inventory_item(item_id, name, slot, icon, qty, **zone.item_equip_fields(name))
+def bank_record(item_id, name, icon, qty, slot, durability=100):
+    return vgmsg.inventory_item(item_id, name, slot, icon, qty, **zone.item_equip_fields(name, durability))
 
 
 def save_bank(player):
@@ -1405,7 +1427,7 @@ def handle_bank_event(state, event, data):
         state["banking"] = True
         send(bank.start("Bank", player.bank_coins))
         for i in player.bank:
-            send(bank.item(bank_record(*i)))
+            send(bank.item(bank_record(*i, getattr(player, "durability", {}).get(str(i[0]), 100))))
         return
     if not state.get("banking"):
         send(bank.error(bank.ERR_NOT_BANKING))
@@ -1447,9 +1469,19 @@ def handle_bank_event(state, event, data):
         if slot is None:
             send(bank.error(bank.ERR_BAGS_FULL))
             return
-        player.bank.remove(it)
-        player.items.append(it[:4] + (slot,))
-        send(bank.retrieved(handle, -1, slot))
+        if 0 < qty < it[3]:
+            player.bank[player.bank.index(it)] = it[:3] + (it[3] - qty, it[4])
+            send(bank.clear())
+            for i in player.bank:
+                send(bank.item(bank_record(*i, getattr(player, "durability", {}).get(str(i[0]), 100))))
+            new = (zone.new_item_id(player), it[1], it[2], qty, slot)
+            player.items.append(new)
+            send(zone.zone_event(0x197, vgmsg.inventory_item(new[0], new[1], slot, new[2], qty,
+                                                             **zone.item_equip_fields(new[1]))))
+        else:
+            player.bank.remove(it)
+            player.items.append(it[:4] + (slot,))
+            send(bank.retrieved(handle, -1, slot))
         save_bank(player)
         quest_items_changed(state)
     elif event == bank.MOVE:
@@ -1463,7 +1495,7 @@ def handle_bank_event(state, event, data):
         player.bank[player.bank.index(it)] = it[:4] + (slot,)
         send(bank.clear())
         for i in player.bank:
-            send(bank.item(bank_record(*i)))
+            send(bank.item(bank_record(*i, getattr(player, "durability", {}).get(str(i[0]), 100))))
         save_bank(player)
     elif event in (bank.DEPOSIT_COIN, bank.WITHDRAW_COIN):
         amount = struct.unpack_from("<q", data, 0)[0]
@@ -1535,7 +1567,13 @@ def finish_parley(state, p, result):
         print(f"  {player.name} lost a parley with {p.npc.name}")
         return
     send(diplomacy.won())
-    reward = p.config.get("reward", {})
+    reward = dict(p.config.get("reward", {}))
+    won = getattr(player, "parleys_won", [])
+    if p.npc.template_id in won:
+        reward.pop("coin", None)             # coin only for the first win per NPC
+    else:
+        player.parleys_won = won + [p.npc.template_id]
+        save_character_field(player.name, "parleys_won", player.parleys_won)
     if reward.get("coin"):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
@@ -1565,7 +1603,7 @@ def handle_craft_event(state, event, data):
         if npc is None or not npc.station:
             send(craft.station_error(0))
             return
-        state["craft"] = {"recipe": None, "step": 0, "ap": 0}
+        state["craft"] = {"recipe": None, "begun": False}
         send(craft.open_window())
     elif session is None:
         return
@@ -1579,15 +1617,18 @@ def handle_craft_event(state, event, data):
         elif not has_inputs(player, r):
             send(craft.recipe_result(craft.RECIPE_MISSING, r["id"]))
         else:
-            session["recipe"] = r
+            session.update(recipe=r, begun=False)
             send(craft.recipe_result(craft.RECIPE_OK, r["id"]))
     elif event == craft.CONFIRM and session["recipe"]:
         send(craft.workbench())
     elif event == craft.BEGIN and session["recipe"]:
-        session.update(stage=0, done=set(), ap=0, quality=500, comp=None, had_comp=False)
+        session.update(begun=True, stage=0, done=set(), ap=0, quality=500, comp=None, had_comp=False)
         for m in craft.started(session["quality"]):
             send(m)
-    elif event == craft.ACTION and session["recipe"]:
+    elif event == craft.ACTION:
+        if not session.get("begun"):
+            send(craft.rejected(craft.NOT_NOW))
+            return
         craft_action(state, session, struct.unpack_from("<i", data, 0)[0])
 
 
@@ -1661,6 +1702,10 @@ def finish_craft(state, r):
     state.pop("craft", None)
     if not has_inputs(player, r):
         send(build_system_text("You no longer have the materials.", SYSTEM_TEXT_ERROR))
+        send(craft.end())
+        return
+    if zone.free_bag_slot(player) is None:
+        send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
         send(craft.end())
         return
     for name, need in r["inputs"].items():
@@ -1760,6 +1805,10 @@ def serve(sock, server, data, addr, clients, args):
                     except struct.error as e:
                         # A client message shorter than its handler expects.
                         print(f"  >>> malformed message ({e}): {message[:64].hex(' ')}")
+                    except Exception:
+                        # A bug in one handler must not take the server down for everyone.
+                        print(f"  >>> handler error for {message[:16].hex(' ')}")
+                        traceback.print_exc()
 
 
 def app_messages(payload):
@@ -2248,6 +2297,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.bank = zone.normalize_items(char.get("bank", []))
             player.durability = dict(char.get("durability", {}))
             player.friends = list(char.get("friends", []))
+            player.parleys_won = list(char.get("parleys_won", []))
             player.ignores = list(char.get("ignores", []))
             player.bank_coins = char.get("bank_coins", 0)
             if "equipment" in char:
@@ -2286,8 +2336,7 @@ def handle_message(sock, server, addr, state, payload, args):
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             hail_target = state.get("player") and state["player"].npcs.get(state["player"].target)
-            if text.lower().startswith("hail") and hail_target and hail_target.alive                     and (hail_target.merchant or hail_target.quests or hail_target.trainer
-                                       or hail_target.banker):
+            if text.lower().startswith("hail") and hail_target and hail_target.alive and hail_target.talks():
                 for m in npc_dialog(state, hail_target):
                     send_message(sock, addr, state, m)
             w = state.get("world")
