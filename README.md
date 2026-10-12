@@ -37,9 +37,10 @@ The unmodified client, talking only to this emulator:
 - [x] Walking (or teleporting) across chunk edges into the neighbouring zone
 - [x] Quests from NPCs (offer page, tracker, kill counts, turn-in rewards) and player-to-player trading
 - [x] Sitting and camping; endurance costs; NPCs in more than one zone
-- [ ] Creature models (wolves, spiders...); multi-step quests and quest items; crafting, harvesting, diplomacy; returning to character select after /camp
+- [x] Creatures (wolves, bears, spiders... any of the client's 330 creature races)
+- [ ] Multi-step quests and quest items; crafting, harvesting, diplomacy; returning to character select after /camp
 
-See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
+See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
 ## Requirements
 

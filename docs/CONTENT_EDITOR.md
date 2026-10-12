@@ -15,7 +15,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
   - 431 `PlayerStart`s. These are not reliable spawns: in `chunk_n19_12` one hangs over a canyon and one is over the sea.
   - 12 `PathNode`s, which look like leftovers.
   - Effect markers that hint at inhabited places: bonfires, chimney smoke, crafting steam.
-- **Models:** all character and creature models, and item meshes (`Assets/Characters/Meshes/<TYPE>_ITEMS.uem`, see [GEAR.md](GEAR.md)).
+- **Models:** all character and creature models (332 race ids incl. creatures, with variant numbers: [CREATURES.md](CREATURES.md)), and item meshes (`Assets/Characters/Meshes/<TYPE>_ITEMS.uem`, see [GEAR.md](GEAR.md)).
 - **Ability visuals:** for player classes and NPCs (`Assets/Abilities/*.aby`, including `NPC_ABILITIES` and `NPC_BASE_ABILITIES`, see [ABILITY_VISUALS.md](ABILITY_VISUALS.md)).
 - **UI and messages:** item icons (`VGUIAssets/Global/Icons/iconsTK.xml`), UI text, and every message layout.
 

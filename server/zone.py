@@ -140,6 +140,10 @@ def populate_world(w, args):
         npc.next_wander = time.time() + n
         npc.level = template.get("level", 1)
         npc.props = {"m_GameplayLevel": npc.level}
+        if "model" in template:
+            npc.props["m_iModelNum"] = template["model"]
+        if "gender" in template:
+            npc.props["m_Gender"] = template["gender"]
         if template.get("title"):
             npc.props["m_PlayerDisplayTitle"] = template["title"]
         npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
