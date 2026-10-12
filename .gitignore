@@ -1,0 +1,15 @@
+# This repo lives inside a Vanguard: Saga of Heroes client install.
+# Allow-list: ignore everything, then allow only the emulator's own files.
+# Game client files are copyrighted by SOE/Daybreak and must never be committed.
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/docs/
+!/server/
+
+# Local runtime data
+/server/characters.json
+/server/stub_log.txt
+/server/__pycache__/
+*.pyc
