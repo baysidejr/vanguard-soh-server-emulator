@@ -159,6 +159,8 @@ def populate_world(w, args):
                       if spawn["mob"] in (q.get("giver"), quest.turn_in(q))
                       or any(s.get("talk") == spawn["mob"] for s in quest.steps(q))]
         npc.wander = float(spawn.get("wander", 0))
+        npc.path = [tuple(p[:2]) for p in spawn.get("path", [])]
+        npc.path_pause = float(spawn.get("pause", 2.0))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.next_wander = time.time() + n
         npc.aggro_radius = float(template.get("aggro_radius", 0))

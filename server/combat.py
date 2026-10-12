@@ -51,6 +51,9 @@ class Npc:
         self.level = 1
         self.stance = False           # weapons drawn (m_CombatState)
         self.wander = 0.0             # stroll radius around home (0 = stand still)
+        self.path = []                # patrol waypoints [(x, y)], walked in a loop
+        self.path_index = 0
+        self.path_pause = 2.0         # seconds standing at each waypoint
         self.wander_goal = None       # (x, y) it is walking to
         self.next_wander = 0.0
         self.ground_z = None          # f(x, y) -> standing z (terrain)
@@ -313,8 +316,13 @@ def chase_step(npc, target, dt, rng=random, now=None):
         values = move_toward(npc, npc.wander_goal, dt,
                              NPC_SPEED if npc.wander_goal == npc.home else WANDER_SPEED, 5.0)
         if not npc.moving:
-            npc.wander_goal, npc.next_wander = None, now + rng.uniform(*WANDER_PAUSE)
+            pause = npc.path_pause if npc.path else rng.uniform(*WANDER_PAUSE)
+            npc.wander_goal, npc.next_wander = None, now + pause
         return values
+    if npc.path and now >= npc.next_wander:
+        npc.wander_goal = tuple(npc.path[npc.path_index])
+        npc.path_index = (npc.path_index + 1) % len(npc.path)
+        return None
     if npc.wander > 0 and now >= npc.next_wander:
         angle, r = rng.uniform(0, 2 * math.pi), rng.uniform(0.3, 1.0) * npc.wander
         npc.wander_goal = (npc.home[0] + r * math.cos(angle), npc.home[1] + r * math.sin(angle))

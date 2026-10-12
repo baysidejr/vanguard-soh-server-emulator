@@ -142,6 +142,10 @@ def validate(directory=CONTENT_DIR):
                 problems.append(f"recipe {rid}: item {name!r} not in items.json")
     spawn_dir = os.path.join(directory, "spawns")
     for name in sorted(os.listdir(spawn_dir)):
+        for s in _load(os.path.join(spawn_dir, name)).get("spawns", []):
+            if any(len(p) < 2 for p in s.get("path", [])):
+                problems.append(f"{name}: {s['mob']} path points need [x, y]")
+    for name in sorted(os.listdir(spawn_dir)):
         data = _load(os.path.join(spawn_dir, name))
         for n, s in enumerate(data.get("spawns", [])):
             if s.get("mob") not in c.mobs:

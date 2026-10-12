@@ -1,5 +1,5 @@
 {
-  "_comment": "Spawns in chunk_n19_12 (Sundering Wastelands). x, y world units; z optional (terrain height is used); yaw 0..65535 (0 = +x, 16384 = +y). respawn in seconds. Placeholder camp next to the default spawn point (-31200, -5600). wander: stroll radius around the spawn point (0 or missing = stands still).",
+  "_comment": "Spawns in chunk_n19_12 (Sundering Wastelands). x, y world units; z optional (terrain height is used); yaw 0..65535 (0 = +x, 16384 = +y). respawn in seconds. Placeholder camp next to the default spawn point (-31200, -5600). wander: stroll radius around the spawn point (0 or missing = stands still). path: patrol waypoints [[x, y], ...] walked in a loop (pause: seconds at each point; the spawn point is the start).",
   "spawns": [
     {
       "mob": "wastes_robed_elf",
@@ -21,7 +21,26 @@
       "x": -30880,
       "y": -5540,
       "yaw": 32768,
-      "respawn": 60
+      "respawn": 60,
+      "path": [
+        [
+          -30880,
+          -5540
+        ],
+        [
+          -30700,
+          -5300
+        ],
+        [
+          -30900,
+          -5100
+        ],
+        [
+          -31100,
+          -5300
+        ]
+      ],
+      "pause": 3
     },
     {
       "mob": "wastes_dwarf_scout",

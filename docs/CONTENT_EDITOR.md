@@ -24,7 +24,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Data | What it needs | Current placeholder in the server |
 | --- | --- | --- |
 | Mob spawns | chunk, position, facing, mob template, respawn time, spawn groups and camps | `server/content/spawns/<chunk>.json`: one placeholder camp in chunk_n19_12 |
-| Patrol and wander paths | waypoints per mob or group, wander radius, speed | NPCs only chase their attacker (`combat.chase_step`) |
+| Patrol and wander paths | waypoints per mob or group, wander radius, speed | spawns can have `wander` (radius) or `path` (patrol waypoints, `pause` seconds at each); the Thestran Guard patrols (verified live) |
 | Mob templates | name, race or creature model, level, health, damage, aggro radius, abilities, gear (`m_AttachmentGroups`), faction | `server/content/mobs.json`: 4 placeholder templates (no abilities, faction or creature models yet) |
 | Loot tables | items, chances, quantities, coin per mob template | `server/content/loot.json`: one placeholder table |
 | Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
