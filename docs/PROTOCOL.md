@@ -240,6 +240,10 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **NPC movement** (verified live): replicated `Location`, `Rotation` and `Velocity` updates on an NPC pawn's actor channel move it (UE2 struct encoding: Rotator = per component a flag bit + top byte; Vector = SerializeCompressed). The stub sends them four times a second while an NPC chases its attacker (`combat.chase_step`).
 
+**Teleport** (verified live): zone event `0x3e5` MsgForceLocationSet {f32 x, y, z, i32 pitch, yaw, roll, i32} moves the local player (`FUN_006203d0` → `FUN_00b721d0`, FarMoveActor; the client echoes `0x3e5`). Replicated `Location` and the `ClientSetLocation` RPC are ignored for the own pawn. A destination inside solid geometry is refused.
+
+**Appearance**: the 64 slider bytes from character creation (the same ones the character-select record carries at `+0x1b7`) are replicated as the pawn's `m_Customization[64]`.
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

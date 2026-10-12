@@ -127,6 +127,14 @@ def player_pawn_update(state, args, values):
     return pawn_update(state, args, PAWN_CHANNEL, args.pawn_class, values)
 
 
+def player_teleport(location, rotation=(0, 0, 0), tag=0):
+    """Zone event 0x3e5 MsgForceLocationSet (FUN_006203d0 -> FUN_00b721d0): f32 x,
+    y, z, i32 pitch, yaw, roll, i32. The client FarMoveActor()s its own pawn and
+    echoes 0x3e5 back. (Replicated Location and the ClientSetLocation RPC are
+    ignored for the local pawn.)"""
+    return zone_event(0x3E5, struct.pack("<fffiiii", *location, *rotation, tag))
+
+
 def pawn_update(state, args, channel, cls_path, values):
     ue, player = state["ue"], state["player"]
     pm = package_map(args, player.level)
@@ -423,6 +431,10 @@ def spawn_bunches(ue, args, player):
             "Health": 100,
             "m_PlayerDisplayName": player.name,
         }
+        if getattr(player, "appearance", None):
+            # The 64 appearance sliders from character creation (pawn +0xaa8);
+            # PostNetReceive applies them through FUN_00bcaab0.
+            values["m_Customization"] = list(player.appearance)
         cid = player.char_id
         if cid is not None:
             values["EntityIDLowInt"] = cid & 0xFFFFFFFF

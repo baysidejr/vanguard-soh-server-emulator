@@ -80,3 +80,36 @@ def decode_rpc(net_cache, class_name, data, nbits, max_object_index):
         elif r.bit():
             args[name] = read_value(r, kind, extra, max_object_index)
     return field.name, args
+
+
+def encode_rpc(net_cache, class_name, function, values):
+    """(data, nbits) of a server->client RPC bunch: RepIndex, then per parameter
+    a present bit + value (bools are just their bit). values: {param: value};
+    missing parameters are sent as absent."""
+    import ue2net
+    cache = net_cache.class_cache(class_name)
+    field = net_cache.field(class_name, function)
+    w = ue2net.BitWriter()
+    w.serialize_int(field.index, cache["max"])
+    for name, kind, flags, extra in field.params:
+        v = values.get(name)
+        if kind == "BoolProperty":
+            w.bit(1 if v else 0)
+            continue
+        if v is None:
+            w.bit(0)
+            continue
+        w.bit(1)
+        if kind == "FloatProperty":
+            w.bits(struct.unpack("<I", struct.pack("<f", float(v)))[0], 32)
+        elif kind == "IntProperty":
+            w.bits(int(v) & 0xFFFFFFFF, 32)
+        elif kind == "ByteProperty":
+            w.bits(int(v) & 0xFF, 8)
+        elif kind == "StructProperty" and extra == "Rotator":
+            w.rotator(v)
+        elif kind == "StructProperty" and extra == "Vector":
+            w.vector(v)
+        else:
+            raise ValueError(f"{name}: {kind} not supported")
+    return w.packed()

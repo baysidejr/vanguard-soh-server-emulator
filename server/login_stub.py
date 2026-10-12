@@ -258,11 +258,17 @@ MOVE_TICK = 0.25
 
 
 def movement_tick(zone_sock, clients, args):
-    """Four times a second: NPCs that chase their attacker."""
+    """Four times a second: NPCs that chase and attack."""
+    now = time.time()
     for (server, addr), state in list(clients.items()):
         player = state.get("player")
         if server != "ZONE" or player is None or "ue" not in state:
             continue
+        player.live_position = state.get("position")
+        for lines, npc in combat.npc_turns(player, now):
+            # npc_turns only attacks living players, so they were alive before.
+            for m in combat_results(state, args, player, lines, None, True, player.auto_attack):
+                send_message(zone_sock, addr, state, m)
         for npc in player.npcs.values():
             values = combat.chase_step(npc, state.get("position"), MOVE_TICK)
             if values:
@@ -510,7 +516,7 @@ def build_character_record(char):
     rec[0x080:0x100] = wfield(char["last"])
     rec[0x100:0x180] = wfield(char["world"])
     struct.pack_into("<I", rec, 0x180, klass)
-    struct.pack_into("<I", rec, 0x184, 1)
+    struct.pack_into("<I", rec, 0x184, char.get("adventure_level", 10))
     struct.pack_into("<I", rec, 0x19c, race)
     struct.pack_into("<ii", rec, 0x1a4, *character_chunk(char))
     rec[0x1b7:0x1f7] = character_appearance(char)
@@ -628,6 +634,12 @@ def dev_command(text, player=None):
                         npc.location[2])
         print(f"  <- dev: move {npc.name} to {npc.location}")
         return [("npc_update", npc, {"Location": npc.location})]
+    if words[0] == "tp" and len(words) >= 4 and player:
+        # !tp x y z: move your own pawn (replicated Location); "~" keeps a coordinate.
+        cur = getattr(player, "live_position", None) or player.spawned_at or (0.0, 0.0, 0.0)
+        loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
+        print(f"  <- dev: teleport to {loc}")
+        return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
     if words[0] == "hurt" and len(words) >= 2 and player:
         # !hurt N: lower your own health (the next hit from an NPC can kill you).
         player.health = max(player.health - int(words[1], 0), 1)
@@ -779,6 +791,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 position=saved if saved and same_chunk else None,
                 save_position=lambda loc, n=name: save_character_position(n, loc))
             player.level_number = char.get("adventure_level", player.level_number)
+            player.appearance = character_appearance(char)
             player.xp = char.get("adventure_xp", player.xp)
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
                                 or player.abilities)
@@ -808,6 +821,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 for m in dev_command(text, state.get("player")):
                     if isinstance(m, tuple) and m[0] == "npc_update":
                         m = zone.npc_update(state, args, m[1], m[2])
+                    elif isinstance(m, tuple) and m[0] == "pawn_update":
+                        m = zone.player_teleport(m[2]["Location"])
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in combat.RELEASE_EVENTS:
             # "Release to Bind" (0x542) on the death popup. No teleport yet: the

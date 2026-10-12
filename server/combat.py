@@ -33,6 +33,7 @@ class Npc:
         self.home = location
         self.aggro = False            # chasing the player
         self.moving = False
+        self.next_attack = 0.0
 
     @property
     def alive(self):
@@ -146,7 +147,7 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         lines.append((f"You have slain {npc.name}!", "white"))
         player.pending_rewards.append(KILL_XP)
     else:
-        lines += npc_attacks(player, npc, rng)
+        npc.aggro = True          # it fights back from the world tick (npc_turns)
     return lines, npc
 
 
@@ -180,10 +181,26 @@ def auto_attack_state(on):
 
 
 NPC_DAMAGE = (3, 9)
+NPC_ATTACK_SECONDS = 2.5
+
+
+def npc_turns(player, now, rng=random):
+    """Aggressive NPCs in melee range attack. Returns [(lines, npc)]."""
+    out = []
+    pos = getattr(player, "live_position", None)
+    for npc in player.npcs.values():
+        if not (npc.alive and npc.aggro) or player.health <= 0 or now < npc.next_attack:
+            continue
+        if pos and math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1]) > MELEE_RANGE + 40:
+            continue
+        npc.next_attack = now + NPC_ATTACK_SECONDS
+        player.last_combat = now
+        out.append((npc_attacks(player, npc, rng), npc))
+    return out
 
 
 def npc_attacks(player, npc, rng=random):
-    """The NPC strikes back once. Lowers player.health (the HUD bar follows a
+    """The NPC strikes once. Lowers player.health (the HUD bar follows a
     0x2d4 update of the Health stat; see zone.health_update)."""
     if player.health <= 0:
         return []
