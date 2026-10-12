@@ -96,9 +96,6 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
-        # Diplomacy cards in the parley strategy slots.
-        for m in diplomacy.login_messages():
-            send(m)
         # Recipe book and crafting actions (silent adds).
         for r in args.content.recipes.values():
             send(craft.learn_recipe(r))

@@ -976,6 +976,9 @@ def handle_parley_event(state, event, data):
         if npc is None or not npc.parley:
             return
         state["parley"] = {"npc": npc, "status": diplomacy.MIDDLE, "card": None, "dp": 0, "round": 0}
+        for m in diplomacy.deck_messages(resend=state.get("deck_sent", False)):
+            send(m)
+        state["deck_sent"] = True
         send(diplomacy.open_parley(npc.entity_id))
     elif p is None:
         return

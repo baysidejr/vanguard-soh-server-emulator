@@ -1,6 +1,6 @@
 """Diplomacy parleys (docs/DIPLOMACY.md; client handler FUN_00556560).
 
-At login: 0x331 {i32 slots}, 0x21f {i32 n, n x card}, 0x238 {i32 card, i32 slot}.
+At parley start: 0x331 {i32 slots}, 0x21c, 0x21f {i32 n, n x card}, 0x237 {i32 card, i32 slot}.
 NPC dialogue option type 10 -> client 0x125 {i32 id}
   -> 0x31d open {eid64 npc, u8 status (bar, 11 = middle), u8 dp, u8 opp dp,
      u8 x8 expression pools, u8 parley type, wstr}
@@ -42,10 +42,15 @@ def card(cid, name, expression, push, icon=443):
             + struct.pack("<3i", -1, -1, -1))
 
 
-def login_messages():
-    out = [_event(0x331, struct.pack("<i", len(CARDS))),
-           _event(0x21F, struct.pack("<i", len(CARDS)) + b"".join(card(*c) for c in CARDS))]
-    out += [_event(0x238, struct.pack("<ii", c[0], n)) for n, c in enumerate(CARDS)]
+def deck_messages(resend=False):
+    """Deck and strategy slots, sent when a parley starts: a client UI rebuild
+    after login empties the card lists, so cards sent at login don't show.
+    On a later parley the old slot entries are removed first (0x239), or the
+    same card in the same slot is ignored."""
+    out = [_event(0x239, struct.pack("<iB", c[0], 1)) for c in CARDS] if resend else []
+    out += [_event(0x331, struct.pack("<i", len(CARDS))), _event(0x21C),
+            _event(0x21F, struct.pack("<i", len(CARDS)) + b"".join(card(*c) for c in CARDS))]
+    out += [_event(0x237, struct.pack("<ii", c[0], n)) for n, c in enumerate(CARDS)]
     return out
 
 

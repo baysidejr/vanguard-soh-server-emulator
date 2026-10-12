@@ -293,6 +293,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Crafting** (verified live): station = NPC pawn with `EntityTypes` bit 0x4; client `0xfa` → `0x2ea` window; recipes `0x2ef` (silent add) at login; select `0xfe` → `0x2eb` {0xff ok}; `0xfb` → `0x303`; `0xfc` → `0x2f6`/`0x2f8`/`0x2f7`/`0x2f5`; action `0xf6` {action, -1} → `0x2ed`, `0x2f6`, `0x2f7`, `0x2f8`, `0x2fa`; done → inputs removed, output `0x197`, `0x3d5` kind 1, `0x2fd`. Details: [CRAFTING.md](CRAFTING.md).
 
+**Diplomacy** (verified live): an NPC dialogue option of type 10 sends client `0x125 {id}`. The server sends the deck (`0x331` slot count, `0x21c` clear, `0x21f` cards, `0x237` card into slot; this must happen at parley start, since a UI rebuild after login empties the lists) and then `0x31d`, which opens the parley window. Select a card with `0xd9`; the server answers `0x332`. Play with `0xda`; the server answers `0x32c`/`0x337`/`0x333`/`0x218`/`0x325`/`0x256`/`0x334`. A win is `0x324` plus `0x3d5` kind 2. Details: [DIPLOMACY.md](DIPLOMACY.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

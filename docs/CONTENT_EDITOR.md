@@ -30,6 +30,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
 | Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
 | Recipes and resource nodes | recipes (inputs, stages, actions, output), node types, yields, respawn | `server/content/recipes.json` (one recipe), `harvest` and `station` blocks in mobs.json |
+| Diplomacy | statement cards per class or level, NPC parley decks and strategy, parley rewards (faction, items, dialogue unlocks), presence requirements | three fixed cards in `server/diplomacy.py`; `"parley": true` in mobs.json |
 | Encounters | boss phases, triggers, adds, scripted events | none |
 | Quests | givers, text, steps, objectives, rewards | `server/content/quests.json`: one kill quest (multi-step, item/collect objectives and item rewards not yet supported) |
 | NPC dialog and merchants | conversation trees, vendor inventories and prices, trainers | `server/content/merchants.json` (one placeholder vendor); dialog is only "Show me your wares." |

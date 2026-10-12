@@ -1,0 +1,86 @@
+# Diplomacy (parleys)
+
+**Verified live:** Orin the Trader offers a parley. Playing "Reasoned Argument" twice moves the bar from 11 to 17. The window then shows "You Win!" and chat prints "You gain 150 diplomacy experience!". The Complete button closes the parley. A second parley in the same session opens with the deck refilled.
+
+The client's parley manager handles server messages in `FUN_00556560`. All messages below are zone events (type 2). `wstr` means UTF-16LE text ending in a 0 character. Server code is in `server/diplomacy.py`; the handler is `handle_parley_event` in `login_stub.py`.
+
+## Starting a parley
+
+- An NPC dialogue option of **type 10** is a parley option. Add it to the normal `0x2bf` option list as `{wstr text, i32 id, i32 10}`. When the player clicks it, the client sends `0x125 {i32 id}`.
+- The server answers with **`0x31d`** MsgParlayBeginToClient:
+  `{eid64 npc, u8 status, u8 dp, u8 opp dp, u8 x8 expression pools (Inspire, OppInspire, Reason, OppReason, Flatter, OppFlatter, Demand, OppDemand), u8 parley type, wstr}`.
+- Parley types: 0 Entertain, 1 Convince, 2 Interview, 3 Gossip, 4 Incite. The window title becomes "Parley - <type>".
+- The bar (`ParlayDialogStatus`) runs from 0 to 21 and starts at 11. Above 11 the player controls the conversation. The window shows the bar as an offset from the middle (3, 6, ...).
+- An NPC opts in with `"parley": true` in `mobs.json`.
+
+## Deck and strategy slots
+
+The deck must be sent **when the parley starts, not at login.** A UI rebuild after login (`FUN_005e1f40` → `FUN_0054f140`) recreates the `DiplomacyRepertoire` and `DiplomacyStrategy` lists empty, so cards sent at login disappear. The slot count survives, which is why the bar showed 3 empty slots.
+
+At every `0x125`, before `0x31d`, the server sends:
+
+```
+0x239 {i32 card, bool8 1}   x each card   (only from the second parley on: removes stale slot entries,
+                                           because a card already in the same slot is ignored)
+0x331 {i32 3}                             strategy slot count
+0x21c                                     clear the deck (0x21f does not de-duplicate)
+0x21f {i32 n} + n x card                  the deck
+0x237 {i32 card, i32 slot}  x each card   put each card in a slot (0-based) and refresh the UI list
+```
+
+The card format is MsgAbilityParlayCard (parser `FUN_0041fe00`):
+`i32 id, wstr name, i32, i32 icon, i32 influence, i32 influence max, u8 x4 costs (reason, inspire, flatter, demand), i32 x8 results, u8 x3 refresh (min, max, left), wstr special text, i32 statement type, i32 expression (0x11 Demand, 0x12 Reason, 0x13 Inspire, 0x14 Flatter), i32, bool8 equipped, i32 x3 required items (-1 = none)`.
+
+A card can only be played if it is in a strategy slot and its refresh count is 0.
+
+Other card messages:
+- `0x217`: add one card.
+- `0x21a {i32}`: remove a card.
+- `0x220 {i32, bool8}`: set the equipped flag.
+- `0x238`: same as `0x237` but does not refresh the UI list.
+- `0x256`: a new round; every card's refresh count goes down by 1.
+- `0x266` and `0x267`: refresh timers.
+
+The client sends `0xd7 {card, slot}` and `0xd8 {card, bool8}` when the player drags cards into or out of slots. The server does not handle them yet.
+
+## A round
+
+1. The player clicks a slotted card. The client sends **`0xd9 {i32 card}`** and the server answers with **`0x332 {i32 card}`** (the card is shown as "my statement").
+2. The player presses Speak. The client sends **`0xda`** (Listen / pass sends `0x12c`). The server answers with, in order:
+
+| Message | Payload | Effect |
+|---|---|---|
+| `0x32c` | 9 x u8: status + 8 pools | the bar and expression pools |
+| `0x337` | `{i32 dp, i32 opp dp}` | dialog points (the speech-bubble counters) |
+| `0x333` | none | my turn ends |
+| `0x218` | one card | the NPC's statement card |
+| `0x325` | `{wstr}` | NPC line in the Dialogue window |
+| `0x32c` | 9 x u8 | the bar after the NPC's card |
+| `0x256` | none | new round (refresh countdown) |
+| `0x334` | none | my turn. The client prints "You've gained/lost control of the conversation!" when the bar crosses the middle |
+
+Errors use `0x330 {i32 code, i32 arg}`. Examples: 4 card not prepared, 5 refreshing, 7–10 not enough Inspire/Reason/Flatter/Demand, 0xc not your turn, 0xf parley over, 0x11 need more presence.
+
+## Ending
+
+- Won: **`0x324`**. The window shows "You Win!" and the Farewell button becomes Complete. Then `0x3d5` MsgExperienceRewardResult with kind 2 prints "You gain N diplomacy experience!".
+- Lost: `0x31f {bool8}`.
+- Aborted: `0x31e` ("Your parley has ended.").
+- The client sends `0x12a` if the player closes the dialogue mid-parley. The server answers with `0x31e` and `0x338`.
+- The client sends `0x12b` when Complete is pressed after the parley is over. `0x338` from the server closes the parley UI.
+
+## What the emulator does now
+
+- There are three fixed cards: Reasoned Argument (+3), Inspiring Words (+2) and Flattery (+2).
+- The NPC always plays "Skeptical Look", and the bar is moved only by the player's card push.
+- The player wins at 17 and gets 150 diplomacy XP.
+- Not done yet:
+  - card costs and expression pools
+  - NPC strategy
+  - losing
+  - rewards (faction, items, unlocked dialogue)
+  - per-character decks and drag-to-slot (`0xd7`/`0xd8`)
+  - the `0x321` option format with presence requirements
+  - Civic Diplomacy (`0x33d`, `0x340`, `0x341`)
+
+Unknown fields: the trailing wstr in `0x31d`; card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.
