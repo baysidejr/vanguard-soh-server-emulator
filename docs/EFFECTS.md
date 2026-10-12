@@ -1,7 +1,7 @@
 # Ability effects: buffs, damage over time, heals, cooldowns
 
 **Verified live (2026-10-12, Ranger):**
-- Ferocity I (a buff) puts an icon with a countdown ("26s") in the player's effects area. When it ends, "Ferocity I wears off." prints and the icon goes away.
+- Ferocity I (a buff) puts an icon with a countdown ("26s", then "9s") in the player's effects area. Expiry (`0x23b` plus the "wears off" line) is implemented but its end was not watched live.
 - Deadly Shot I (a DoT) hits once, then shows a "Deadly Shot I" debuff icon in the target window. It ticks 4 times every 3 s ("Your Deadly Shot I hits Ashen Wolf for 4 damage.") and the wolf's health bar drops.
 - Reusing an ability before its refresh time is refused.
 
