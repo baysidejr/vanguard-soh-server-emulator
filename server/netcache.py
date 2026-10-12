@@ -113,6 +113,14 @@ class NetField:
         if k == "StrProperty":
             raw = str(value).encode("latin-1", "replace") + bytes(1)
             return lambda w: w.bytes_(compact_index(len(raw)) + raw)
+        if k == "StructProperty" and self.name == "PawnPosition":
+            # CompressedPosition {vector Location; rotator Rotation; vector
+            # Velocity} (FUN_00b08440, struct name case 0x5d): Location
+            # compressed, Pitch and Yaw top bytes (no flag bits, Roll = 0),
+            # Velocity compressed.
+            loc, rot, vel = value
+            return lambda w: (w.vector(loc), w.bits((int(rot[0]) >> 8) & 0xFF, 8),
+                              w.bits((int(rot[1]) >> 8) & 0xFF, 8), w.vector(vel))
         if k == "StructProperty" and self.name == "m_AttachmentGroups":
             # SGOAttachmentGroupInfoPair {int PackageIndex, AttachmentIndex,
             # VGInventorySlot}: a plain struct, members in order, 32 bits each.

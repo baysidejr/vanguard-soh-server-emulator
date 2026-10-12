@@ -397,6 +397,7 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
         "m_Customization": [0x32] * 64,   # appearance sliders (pawn +0xaa8)
         "m_PlayerDisplayName": name,
         "Rotation": NPC_FACING,
+        "PawnPosition": (location, NPC_FACING, (0.0, 0.0, 0.0)),
         "m_AttachmentGroups": NPC_GEAR,
         "EntityIDLowInt": entity_id & 0xFFFFFFFF,
         "EntityIDHighInt": entity_id >> 32,
@@ -440,8 +441,28 @@ def spawn_location(args, pm, player):
         # without this the character would rise 90 units at every login.
         x, y, z = (float(v) for v in player.position)
         return (x, y, z - SPAWN_Z_LIFT)
+    # No saved position: the chunks' PlayerStarts are not real spawn points (in
+    # chunk_n19_12 one hangs over a canyon, the other over the sea), so stand on
+    # flat land from the terrain heightmap.
+    ground = default_ground_spawn(args, player.level)
+    if ground:
+        return ground
     starts = [s for s in pm.packages[0][1].player_starts() if s]
     return starts[0] if starts else (0.0, 0.0, 0.0)
+
+
+def default_ground_spawn(args, level):
+    import os
+    import terrain
+    path = os.path.join(args.client_dir, "Assets", "Maps", level + ".vgr")
+    try:
+        land = terrain.Terrain(path).flat_land(count=1)
+    except (OSError, StopIteration, KeyError, ValueError):
+        return None
+    if not land:
+        return None
+    x, y, z = land[0]
+    return (x, y, z + 100.0)
 
 
 def spawn_bunches(ue, args, player):
@@ -476,6 +497,9 @@ def spawn_bunches(ue, args, player):
             # The 64 appearance sliders from character creation (pawn +0xaa8);
             # PostNetReceive applies them through FUN_00bcaab0.
             values["m_Customization"] = list(player.appearance)
+        # PawnPosition seeds the client's ground-stick cache (LastValidServerPosition,
+        # FUN_007f9680); without it the pawn re-sticks from a stale height and sinks.
+        values["PawnPosition"] = (location, (0, 0, 0), (0.0, 0.0, 0.0))
         cid = player.char_id
         if cid is not None:
             values["EntityIDLowInt"] = cid & 0xFFFFFFFF

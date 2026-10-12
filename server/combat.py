@@ -231,13 +231,16 @@ def chase_step(npc, target, dt):
         if not npc.moving:
             return None
         npc.moving = False
-        return {"Velocity": (0.0, 0.0, 0.0), "Rotation": (0, yaw, 0)}
+        return {"Velocity": (0.0, 0.0, 0.0), "Rotation": (0, yaw, 0),
+                "PawnPosition": (npc.location, (0, yaw, 0), (0.0, 0.0, 0.0))}
     step = min(NPC_SPEED * dt, dist - MELEE_RANGE)
     npc.location = (npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step,
                     npc.location[2])
     npc.moving = True
-    return {"Location": npc.location, "Rotation": (0, yaw, 0),
-            "Velocity": (dx / dist * NPC_SPEED, dy / dist * NPC_SPEED, 0.0)}
+    vel = (dx / dist * NPC_SPEED, dy / dist * NPC_SPEED, 0.0)
+    # PawnPosition also resets the client's ground-stick cache (see zone.py).
+    return {"Location": npc.location, "Rotation": (0, yaw, 0), "Velocity": vel,
+            "PawnPosition": (npc.location, (0, yaw, 0), vel)}
 
 
 RESPAWN_SECONDS = 60

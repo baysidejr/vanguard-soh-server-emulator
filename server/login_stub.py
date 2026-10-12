@@ -338,7 +338,9 @@ def world_tick(zone_sock, clients, args):
                 send_message(zone_sock, addr, state,
                              zone.npc_update(state, args, npc, {"Health": npc.max_health, "m_bIsDead": 0,
                                                                 "Location": npc.home,
-                                                                "Velocity": (0.0, 0.0, 0.0)}))
+                                                                "Velocity": (0.0, 0.0, 0.0),
+                                                                "PawnPosition": (npc.home, (0, 0, 0),
+                                                                                 (0.0, 0.0, 0.0))}))
                 if player.target == npc.entity_id:
                     send_message(zone_sock, addr, state, combat.target_health(npc))
 
@@ -837,7 +839,12 @@ def handle_message(sock, server, addr, state, payload, args):
                     if isinstance(m, tuple) and m[0] == "npc_update":
                         m = zone.npc_update(state, args, m[1], m[2])
                     elif isinstance(m, tuple) and m[0] == "pawn_update":
-                        m = zone.player_teleport(m[2]["Location"])
+                        loc = m[2]["Location"]
+                        send_message(sock, addr, state, zone.player_teleport(loc))
+                        # PawnPosition resets the client's ground-stick cache
+                        # (LastValidServerPosition); without it the pawn snaps back.
+                        m = zone.player_pawn_update(state, args, {"PawnPosition": (
+                            loc, (0, 0, 0), (0.0, 0.0, 0.0))})
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in combat.RELEASE_EVENTS:
             # "Release to Bind" (0x542) on the death popup: back to the bind point
