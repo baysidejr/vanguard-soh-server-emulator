@@ -14,7 +14,8 @@ The unmodified client, talking only to this emulator:
 - [x] Connects to the world server, then to a zone server after **Play**
 - [x] Completes the Unreal Engine 2 handshake (HELLO → CHALLENGE → LOGIN → WELCOME → JOIN) and loads a level
 - [x] Enters the 3D world: loads the character's chunk (with neighbours) and takes control of a replicated PlayerController at a PlayerStart
-- [ ] Shows the character's pawn, the in-game UI, movement and NPCs
+- [x] Shows the in-game HUD (vitals, chat, minimap)
+- [ ] Character stats, the pawn's appearance, movement and NPCs
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 

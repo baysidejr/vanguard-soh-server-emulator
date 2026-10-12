@@ -198,7 +198,9 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Debugging tip:** comment out `Suppress=DevNetTraffic` in `bin/paths.ini` to get "Spawn …" and "<property> for …" lines in `bin/Logs/VGClient.log`.
 
-**Open:** the character's pawn (SGOPCPawn) and appearance, the in-game UI, movement, and NPCs.
+**HUD.** Zone event `0x485` (no payload) sent after the spawn sets the client's world-loaded flags; the HUD appears (vitals, chat, minimap, XP bar). A map of about 790 server→client zone event ids, their VGMessages classes and field layouts is in [ZONE_MESSAGES.md](ZONE_MESSAGES.md) (layouts mostly observed, purposes mostly inferred).
+
+**Open:** character stats (MsgScore `0x3de`, MsgStatUpdate `0x2d4`), the pawn's appearance, movement, and NPCs.
 
 ## Reference
 
