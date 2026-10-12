@@ -75,6 +75,17 @@ class CombatMessages(unittest.TestCase):
         self.assertEqual(len({i[0] for i in player.items}), len(player.items))   # unique ids
         self.assertEqual(header(out[-1])[0], 0x1ED)
 
+    def test_loot_stays_on_corpse_when_bags_full(self):
+        player = Player()
+        player.items = [(100 + s, "Rock", 443, 1, s) for s in range(zone.BAG_SLOTS)]
+        npc = combat.Npc(5, "Rat", 3, "x.y", max_health=1)
+        npc.health = 0
+        combat.loot_messages(npc)
+        before = list(npc.loot)
+        combat.take_loot(player, npc, -1)
+        self.assertEqual(npc.loot, before)
+        self.assertEqual(len(player.items), zone.BAG_SLOTS)
+
     def test_chase_step_moves_toward_target(self):
         npc = combat.Npc(5, "Rat", 3, "x.y", location=(0.0, 0.0, 0.0))
         npc.aggro = True
@@ -88,6 +99,22 @@ class ZoneMessages(unittest.TestCase):
         event, data = header(zone.player_teleport((1.0, 2.0, 3.0)))
         self.assertEqual(event, 0x3E5)
         self.assertEqual(struct.unpack("<fffiiii", data), (1.0, 2.0, 3.0, 0, 0, 0, 0))
+
+    def test_two_hander_needs_room_for_both_hands(self):
+        two = next(n for n, t in zone.ITEM_CONTENT.items.items()
+                   if isinstance(t, dict) and t.get("slot") == "TWOHANDS")
+        player = Player()
+        player.items = [(100 + s, "Rock", 443, 1, s) for s in range(zone.BAG_SLOTS - 1)]
+        player.items.append((200, two, 443, 1, zone.BAG_SLOTS - 1))
+        player.equipment = [(300, "Rusty Sword", 443, vgmsg.EQUIP_SLOTS["PRIMARYHAND"]),
+                            (301, "Round Shield", 443, vgmsg.EQUIP_SLOTS["SECONDARYHAND"])]
+        self.assertIsInstance(zone.equip_item(player, 200), str)
+        self.assertEqual(len(player.items), zone.BAG_SLOTS)
+        self.assertEqual(len(player.equipment), 2)
+        player.items.pop(0)                       # one free slot: now it fits
+        zone.equip_item(player, 200)
+        self.assertEqual(sorted(i[0] for i in player.items if i[0] >= 300), [300, 301])
+        self.assertTrue(all(i[4] is not None for i in player.items))
 
     def test_hotkey_record(self):
         rec = vgmsg.hotkey(3, 610004)
@@ -120,6 +147,35 @@ class NetFieldTests(unittest.TestCase):
         w = ue2net.BitWriter()
         f.writer((0, 32768, 0))(w)
         self.assertEqual(w.packed()[1], 11)
+
+
+class TradeTests(unittest.TestCase):
+    def test_full_bag_cancels_whole_trade(self):
+        from unittest import mock
+        import login_stub
+        import trade
+        sent = {"a": [], "b": []}
+
+        def conn(key, items):
+            p = Player()
+            p.name, p.coins, p.items = key, 100, items
+            return {"player": p, "send": sent[key].append}
+        a = conn("a", [(1, "Rock", 443, 1, 0), (2, "Rock", 443, 1, 1)])
+        b = conn("b", [(100 + s, "Rock", 443, 1, s) for s in range(zone.BAG_SLOTS - 1)])
+        t = trade.Trade(a, b)
+        a["trade"] = b["trade"] = t
+        t.side(a).items = [1, 2]                  # b has room for only one
+        with mock.patch.object(login_stub, "save_character_field"):
+            login_stub.complete_trade(t, None)
+        self.assertEqual(len(a["player"].items), 2)
+        self.assertEqual(len(b["player"].items), zone.BAG_SLOTS - 1)
+        self.assertNotIn("trade", a)
+        t = trade.Trade(a, b)
+        t.side(a).items, t.side(b).items = [1, 2], [100]   # b gives one back: fits
+        with mock.patch.object(login_stub, "save_character_field"):
+            login_stub.complete_trade(t, None)
+        self.assertEqual(len(b["player"].items), zone.BAG_SLOTS)
+        self.assertEqual(len({i[4] for i in b["player"].items}), zone.BAG_SLOTS)
 
 
 if __name__ == "__main__":

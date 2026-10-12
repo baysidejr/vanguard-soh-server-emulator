@@ -255,7 +255,12 @@ def main():
         ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
                                     max(min(next_tick, next_move) - time.time(), 0))
         for sock in ready:
-            data, addr = sock.recvfrom(65535)
+            try:
+                data, addr = sock.recvfrom(65535)
+            except ConnectionResetError:
+                # Windows reports an ICMP "port unreachable" from a client that
+                # went away as an error on the next recvfrom; just carry on.
+                continue
             serve(sock, names[sock], data, addr, clients, args)
         if time.time() >= next_move:
             next_move = time.time() + MOVE_TICK
@@ -273,7 +278,7 @@ def movement_tick(zone_sock, clients, args):
     now = time.time()
     for (server, addr), state in list(clients.items()):
         player = state.get("player")
-        if server != "ZONE" or player is None or "ue" not in state:
+        if server != "ZONE" or player is None or "ue" not in state or state.get("handoff"):
             continue
         for lines, npc in combat.npc_turns(player, now):
             # npc_turns only attacks living players, so they were alive before.
@@ -425,7 +430,7 @@ def world_tick(zone_sock, clients, args):
     now = time.time()
     for (server, addr), state in list(clients.items()):
         player = state.get("player")
-        if server != "ZONE" or player is None or "ue" not in state:
+        if server != "ZONE" or player is None or "ue" not in state or state.get("handoff"):
             continue
         if "send" in state:
             camp_tick(state, now)
@@ -439,6 +444,13 @@ def world_tick(zone_sock, clients, args):
             elif action[0] == "endurance":
                 send_message(zone_sock, addr, state, zone.endurance_update(player))
     group_tick()
+    for s in list(ONLINE.values()):
+        if s.get("handoff") and now - s.get("last_seen", now) > 60:
+            # Handed off to another chunk but the new zone login never came: log out.
+            s.pop("handoff")
+            if PENDING_PLAYERS.get(s.get("session", "")) is s.get("player"):
+                PENDING_PLAYERS.pop(s.get("session", ""))
+            leave_world(s, args)
     for w in world.all_worlds():
         for s in list(w.members.values()):
             if now - s.get("last_seen", now) > 30:      # client gone without a disconnect
@@ -544,11 +556,19 @@ def handle_group_event(state, event, payload):
         print(f"  >>> ZONE group {'accept' if event == group.ACCEPT else 'decline'} by {player.name}")
         if inviter is None or inviter.get("player") is None:
             return
+        if ONLINE.get(inviter["player"].name.lower()) is not inviter:
+            return      # the inviter logged out meanwhile
         if event == group.DECLINE:
             inviter["send"](group.declined(player.name))
             return
         leader = inviter["player"]
         g = getattr(leader, "group", None)
+        if getattr(player, "group", None):
+            send(group.error(2))
+            return
+        if g and len(g.members) >= group.MAX_MEMBERS:
+            send(group.error(3))
+            return
         if g is None:
             g = leader.group = group.Group(leader)
             inviter["send"](group.formed(g))
@@ -615,9 +635,11 @@ def chunk_handoff(state, payload, args):
     chunk x, y shrinks with chunk y (docs/PROTOCOL.md, Chunk travel)."""
     player = state.get("player")
     cx, cy = struct.unpack_from("<ii", payload, 10)
+    if player is None:
+        return
     old = getattr(player, "chunk", None) or DEFAULT_CHUNK
     loc = state.get("position") or player.spawned_at
-    if player is None or loc is None or (cx, cy) == tuple(old):
+    if loc is None or (cx, cy) == tuple(old):
         return
     dx, dy = cx - old[0], cy - old[1]
     # The last ClientLoc is usually still on the old side of the edge, so keep the
@@ -653,7 +675,8 @@ def handle_trade_event(state, event, payload, args):
             name = other["player"].name if other else ""
         target = ONLINE.get(name.lower())
         print(f"  >>> ZONE trade invite {name!r} from {player.name}")
-        if target is None or target is state or target.get("trade") or target.get("trade_invite"):
+        if (target is None or target is state or target.get("trade") or target.get("trade_invite")
+                or t is not None or state.get("trade_invite_to")):
             send(build_system_text(f"You can't trade with {name or 'that'} right now.", SYSTEM_TEXT_ERROR))
             return
         target["trade_invite"] = state
@@ -665,6 +688,10 @@ def handle_trade_event(state, event, payload, args):
             return
         inviter.pop("trade_invite_to", None)
         if event != trade.ACCEPT_INVITE:
+            inviter["send"](trade.declined())
+            return
+        if t is not None or inviter.get("trade"):
+            send(trade.cancelled())     # closes the window the client opened on 0xc3
             inviter["send"](trade.declined())
             return
         t = trade.Trade(inviter, state)
@@ -745,14 +772,21 @@ def complete_trade(t, args):
             item = next((i for i in giver["player"].items if i[0] == handle), None)
             if item:
                 moves.append((giver, item, taker))
-    for giver, item, taker in moves:
-        gp, tp = giver["player"], taker["player"]
-        slot = zone.free_bag_slot(tp)
-        if slot is None:
+    # Check both bags first so a full bag cancels the whole trade, not half of it.
+    for s_state in (a, b):
+        p = s_state["player"]
+        incoming = sum(1 for _, _, tk in moves if tk is s_state)
+        outgoing = sum(1 for gv, _, _ in moves if gv is s_state)
+        if len(p.items) - outgoing + incoming > zone.BAG_SLOTS:
+            s_state["send"](build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
             end_trade(t, trade.cancelled())
             return
-        gp.items.remove(item)
+    for giver, item, taker in moves:
+        giver["player"].items.remove(item)
         giver["send"](zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+    for giver, item, taker in moves:
+        tp = taker["player"]
+        slot = zone.free_bag_slot(tp)
         new_id = zone.new_item_id(tp)
         tp.items.append((new_id, item[1], item[2], item[3], slot))
         taker["send"](zone.zone_event(0x197, vgmsg.inventory_item(
@@ -865,13 +899,24 @@ def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
     w, player = state.get("world"), state.get("player")
+    # Trades and trade invites don't survive a zone reconnect (chunk handoff either).
+    if state.get("trade"):
+        end_trade(state["trade"], trade.cancelled())
+    target = state.pop("trade_invite_to", None)
+    if target is not None and target.get("trade_invite") is state:
+        target.pop("trade_invite", None)
+        target["send"](trade.invite_cancelled())
+    inviter = state.pop("trade_invite", None)
+    if inviter is not None and inviter.get("trade_invite_to") is state:
+        inviter.pop("trade_invite_to", None)
+        inviter["send"](trade.declined())
     if player is not None and not state.get("handoff"):
         leave_group(state)
-        if state.get("trade"):
-            end_trade(state["trade"], trade.cancelled())
         if ONLINE.get(player.name.lower()) is state:
             ONLINE.pop(player.name.lower(), None)
-    if w is None or player is None:
+    # Only if this connection is still the one in the world (a re-login or a
+    # handoff back to this chunk may have replaced it under the same id).
+    if w is None or player is None or w.members.get(player.char_id) is not state:
         return
     w.members.pop(player.char_id, None)
     for npc in w.npcs.values():
@@ -904,6 +949,8 @@ def serve(sock, server, data, addr, clients, args):
             # so answer every keep-alive with one of our own.
             sock.sendto(b"\x00\x06", addr)
             print("  <- sent keep-alive: 00 06")
+            if key in clients:
+                clients[key]["last_seen"] = time.time()
         elif data[:2] == b"\x00\x05" and len(data) >= 8:
             reason = struct.unpack_from(">H", data, 6)[0]
             print(f"  client disconnected, reason {reason} ({DISCONNECT_REASONS.get(reason, '?')})")
@@ -924,7 +971,11 @@ def serve(sock, server, data, addr, clients, args):
                     continue  # client resend; already answered
                 state["seen"].add(seq)
                 for message in app_messages(payload):
-                    handle_message(sock, server, addr, state, message, args)
+                    try:
+                        handle_message(sock, server, addr, state, message, args)
+                    except struct.error as e:
+                        # A client message shorter than its handler expects.
+                        print(f"  >>> malformed message ({e}): {message[:64].hex(' ')}")
 
 
 def app_messages(payload):
@@ -1535,7 +1586,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 msgs = merchant.sell(args.content, npc, player, handle)
             for m in msgs:
                 send_message(sock, addr, state, m)
-            if event in (merchant.REQ_BUY, merchant.REQ_SELL):
+            if event in (merchant.REQ_BUY, merchant.REQ_SELL) and player is not None:
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in quest.CLIENT_EVENTS:

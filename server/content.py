@@ -55,8 +55,8 @@ class Content:
         if level not in self._terrain:
             path = os.path.join(client_dir or os.path.join(self.directory, "..", ".."),
                                 "Assets", "Maps", level + ".vgr")
-            self._terrain[level] = terrain.Terrain(path)
-        z = self._terrain[level].height(x, y)
+            self._terrain[level] = terrain.Terrain(path) if os.path.exists(path) else None
+        z = self._terrain[level].height(x, y) if self._terrain[level] else None
         return (z if z is not None else 0.0) + COLLISION_HEIGHT
 
     def item(self, name):

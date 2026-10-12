@@ -396,11 +396,11 @@ def take_loot(player, npc, handle):
     out = []
     for item in [i for i in (npc.loot or []) if handle in (-1, i[0])]:
         item_id, name, icon, qty = item
-        npc.loot.remove(item)
         import zone
         slot = zone.free_bag_slot(player)
         if slot is None:
-            break
+            break           # bags full: the item stays on the corpse
+        npc.loot.remove(item)
         # Each item in the bag needs its own id (it is also the client's handle).
         new_id = zone.new_item_id(player)
         player.items.append((new_id, name, icon, qty, slot))

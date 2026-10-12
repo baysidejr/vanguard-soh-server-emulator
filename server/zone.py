@@ -697,9 +697,13 @@ def equip_item(player, handle):
     elif slot in hands:
         blocked.add(vgmsg.EQUIP_SLOTS["TWOHANDS"])
     msgs = []
+    displaced = [e for e in player.equipment if e[3] in blocked]
+    # The first displaced piece takes the new item's bag slot; the rest need free ones.
+    if len(player.items) - 1 + len(displaced) > BAG_SLOTS:
+        return "Your bags are full."
     player.items.remove(item)
     bag_slot = item[4]
-    for old in [e for e in player.equipment if e[3] in blocked]:
+    for old in displaced:
         # The old piece takes the bag slot the new one leaves (then any free slot).
         player.equipment.remove(old)
         if bag_slot is None:
