@@ -34,6 +34,7 @@ class Content:
         self.quests = _load(os.path.join(directory, "quests.json"))
         self.recipes = _load(os.path.join(directory, "recipes.json"))
         self.diplomacy = _load(os.path.join(directory, "diplomacy.json"))
+        self.abilities = _load(os.path.join(directory, "abilities.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):

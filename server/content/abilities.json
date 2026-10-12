@@ -1,0 +1,27 @@
+{
+  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number. Real numbers were server data (docs/CONTENT_EDITOR.md).",
+  "Adamant Foeman I": {
+    "kind": "buff",
+    "stat": "constitution",
+    "bonus": 15,
+    "duration": 45.0
+  },
+  "Decimate I": {
+    "kind": "dot",
+    "damage": [
+      4,
+      8
+    ],
+    "ticks": 4,
+    "interval": 3.0
+  },
+  "Deadly Shot I": {
+    "kind": "dot",
+    "damage": [
+      3,
+      7
+    ],
+    "ticks": 4,
+    "interval": 3.0
+  }
+}

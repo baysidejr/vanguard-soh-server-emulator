@@ -28,7 +28,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Mob templates | name, race or creature model, level, health, damage, aggro radius, abilities, gear (`m_AttachmentGroups`), faction | `server/content/mobs.json`: 4 placeholder templates (no abilities, faction or creature models yet) |
 | Loot tables | items, chances, quantities, coin per mob template | `server/content/loot.json`: one placeholder table |
 | Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
-| Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class, trainer prices and which trainer teaches what | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
+| Abilities (gameplay) | costs, ranges, damage, cooldowns, effect kind (buff/DoT/heal), durations, stat bonuses, level per class, trainer prices and which trainer teaches what | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
 | Recipes and resource nodes | recipes (inputs, stages, actions, output), node types, yields, respawn | `server/content/recipes.json` (one recipe), `harvest` (kind, item, quantity, tool, skill, difficulty) and `station` blocks in mobs.json; tools in items.json (`harvest_tool`) |
 | Diplomacy | statement cards per class or level, NPC parley decks and strategy, parley rewards (faction, items, dialogue unlocks), presence requirements | `server/content/diplomacy.json`: 7 placeholder cards, one player deck, one parley (Orin); `parley` key in mobs.json |
 | Encounters | boss phases, triggers, adds, scripted events | none |

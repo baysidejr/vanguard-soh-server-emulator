@@ -29,6 +29,7 @@ import craft
 import trainer
 import bank
 import social
+import effects
 import diplomacy
 import content
 import merchant
@@ -310,6 +311,129 @@ def movement_tick(zone_sock, clients, args):
                 w.broadcast(lambda s, npc=npc, values=values: zone.npc_update(s, args, npc, values))
 
 
+def use_ability(state, args, player, ability):
+    """An ability from the hotbar: its effect kind (effects.classify) decides what
+    it does; the refresh time starts the hotbar cooldown sweep."""
+    send = state["send"]
+    handle, _aid, name, icon, _desc, refresh = ability[:6]
+    now = time.time()
+    cooldowns = player.__dict__.setdefault("cooldowns", {})
+    if now < cooldowns.get(handle, 0):
+        send(zone.zone_event(0x242, struct.pack("<B", 7)))       # error sound
+        send(build_system_text(f"{name} is not ready yet ({cooldowns[handle] - now:.0f}s).", SYSTEM_TEXT_ERROR))
+        return
+    spec = effects.classify(name, args.content.abilities)
+    was_alive, attacking = player.health > 0, player.auto_attack
+    if spec["kind"] in ("heal", "buff"):
+        if player.health <= 0:
+            send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+            return
+        cost = combat.ABILITY_COST if refresh > 0 else 0
+        if player.endurance < cost:
+            send(build_system_text("You do not have enough endurance.", SYSTEM_TEXT_ERROR))
+            return
+        player.endurance -= cost
+        send(zone.endurance_update(player))
+        visual = ability[1] if ability[1] >= 500000 else None
+        if visual:
+            send(combat.display_ability(player.char_id, player.char_id, visual))
+        if spec["kind"] == "heal":
+            amount = random.randint(*spec["amount"])
+            player.health = min(player.health + amount, player.stats["hit_points"])
+            send(build_system_text(f"Your {name} heals you for {amount} hit points.", SYSTEM_TEXT_COMBAT))
+            send(zone.health_update(player))
+        else:
+            apply_buff(state, player, name, spec, now)
+    else:
+        lines, npc = combat.use_ability(player, ability)
+        for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
+            send(m)
+        if spec["kind"] == "dot" and npc is not None and npc.alive and player.last_combat >= now:
+            apply_dot(state, player, npc, name, spec, now)
+        elif npc is None or player.last_combat < now:
+            return                       # the ability didn't go off: no cooldown
+    if refresh > 0:
+        cooldowns[handle] = now + refresh
+        send(effects.cooldown(handle, refresh))
+
+
+def effect_id(player, name):
+    return 7000 + sum(name.encode("utf-8")) % 1000
+
+
+def apply_buff(state, player, name, spec, now):
+    send = state["send"]
+    stat, bonus, duration = spec["stat"], spec["bonus"], spec["duration"]
+    eid = effect_id(player, name)
+    player.__dict__.setdefault("effects", [])
+    old = next((e for e in player.effects if e["id"] == eid), None)
+    if old is not None:
+        player.effects.remove(old)               # recast: refresh the timer, keep one bonus
+    else:
+        player.stats[stat] = player.stats.get(stat, 0) + bonus
+    desc = f"Increases {stat.capitalize()} by {bonus}."
+    player.effects.append({"kind": "buff", "id": eid, "name": name, "desc": desc, "icon": spec["icon"],
+                           "stat": stat, "bonus": bonus, "ends": now + duration, "duration": duration,
+                           "next_note": now + 5})
+    send(effects.effect_add(eid, name, desc, spec["icon"], duration, duration))
+    base = player.stats[stat] - bonus
+    send(zone.zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[stat], player.stats[stat], base=base)))
+
+
+def apply_dot(state, player, npc, name, spec, now):
+    eid = effect_id(player, name)
+    player.__dict__.setdefault("effects", [])
+    player.effects[:] = [e for e in player.effects if not (e["id"] == eid and e.get("npc") is npc)]
+    desc = f"Deals damage every {spec['interval']:g} seconds."
+    player.effects.append({"kind": "dot", "id": eid, "name": name, "desc": desc, "icon": spec["icon"],
+                           "npc": npc, "damage": spec["damage"], "ticks": spec["ticks"],
+                           "interval": spec["interval"], "next": now + spec["interval"]})
+    if player.target == npc.entity_id:
+        state["send"](effects.target_effect_add(eid, name, desc, spec["icon"], player.char_id))
+
+
+def effects_tick(state, args, now):
+    """Buff timers and expiry, damage-over-time ticks."""
+    player, send = state["player"], state["send"]
+    for e in list(getattr(player, "effects", [])):
+        if e["kind"] == "buff":
+            if now >= e["ends"]:
+                player.effects.remove(e)
+                player.stats[e["stat"]] -= e["bonus"]
+                send(effects.effect_remove(e["id"]))
+                sid = vgmsg.STAT_IDS[e["stat"]]
+                send(zone.zone_event(0x2D4, vgmsg.stat_update(sid, player.stats[e["stat"]])))
+                send(build_system_text(f"{e['name']} wears off.", SYSTEM_TEXT_WHITE))
+            elif now >= e["next_note"]:
+                e["next_note"] = now + 5
+                send(effects.effect_timer(e["id"], e["ends"] - now, e["duration"]))
+        elif e["kind"] == "dot" and now >= e["next"]:
+            npc = e["npc"]
+            e["ticks"] -= 1
+            e["next"] = now + e["interval"]
+            if not npc.alive or e["ticks"] < 0:
+                player.effects.remove(e)
+                if player.target == npc.entity_id:
+                    send(effects.target_effect_remove(npc.entity_id, e["id"]))
+                continue
+            dmg = random.randint(*e["damage"])
+            npc.health = max(npc.health - dmg, 0)
+            send(build_system_text(f"Your {e['name']} hits {npc.name} for {dmg} damage.", SYSTEM_TEXT_COMBAT))
+            lines = []
+            if not npc.alive:
+                npc.died_at = now
+                lines.append((f"You have slain {npc.name}!", "white"))
+                player.pending_rewards.append(combat.KILL_XP)
+            else:
+                npc.aggro, npc.aggro_on = True, player
+            for m in combat_results(state, args, player, lines, npc, player.health > 0, player.auto_attack):
+                send(m)
+            if e["ticks"] == 0 or not npc.alive:
+                player.effects.remove(e)
+                if player.target == npc.entity_id:
+                    send(effects.target_effect_remove(npc.entity_id, e["id"]))
+
+
 def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     """Zone messages after a combat step: ability visuals, chat lines, health
     bars, deaths and the auto-attack state."""
@@ -473,6 +597,7 @@ def world_tick(zone_sock, clients, args):
                 leave_world(state, args)
                 continue
             harvest_tick(state, now)
+            effects_tick(state, args, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":
                 _, lines, npc = action
@@ -1512,6 +1637,23 @@ def handle_bank_event(state, event, data):
         save_bank(player)
 
 
+def learn_ability(state, n, aid, tag):
+    """Add a class ability to the book (0x215) and save it."""
+    player, send = state["player"], state["send"]
+    learned = getattr(player, "learned", [])
+    if aid not in learned:
+        learned.append(aid)
+    player.learned = learned
+    ability = class_abilities.ability_tuple(n, aid, tag)
+    ability = (max([a[0] for a in player.abilities] + [0]) + 1,) + ability[1:]
+    player.abilities.append(ability)
+    send(zone.zone_event(0x215, vgmsg.ability_info(ability[0], aid, ability[2], ability[3],
+                                                 ability[4], refresh=ability[5])))
+    send(build_system_text(f"You have learned {ability[2]}.", SYSTEM_TEXT_WHITE))
+    save_character_field(player.name, "learned_abilities", learned)
+    print(f"  {player.name} learned {ability[2]}")
+
+
 def handle_trainer_event(state, event, data):
     """Ability trainer (trainer.py): list what the class can learn next, sell it."""
     player, send = state["player"], state["send"]
@@ -1542,18 +1684,9 @@ def handle_trainer_event(state, event, data):
             n, _, tag, cost = offer
             player.coins -= cost
             send(merchant.coins(player.coins))
-            learned.append(aid)
-            player.learned = learned
-            ability = class_abilities.ability_tuple(n, aid, tag)
-            ability = (max([a[0] for a in player.abilities] + [0]) + 1,) + ability[1:]
-            player.abilities.append(ability)
-            send(zone.zone_event(0x215, vgmsg.ability_info(ability[0], aid, ability[2], ability[3],
-                                                         ability[4], refresh=ability[5])))
-            send(trainer.result(aid, trainer.OK))
-            send(build_system_text(f"You have learned {ability[2]}.", SYSTEM_TEXT_WHITE))
             save_character_field(player.name, "coins", player.coins)
-            save_character_field(player.name, "learned_abilities", learned)
-            print(f"  {player.name} learned {ability[2]}")
+            learn_ability(state, n, aid, tag)
+            send(trainer.result(aid, trainer.OK))
     elif event == trainer.STOP:
         state.pop("training", None)
         send(trainer.end())
@@ -2089,6 +2222,20 @@ def dev_command(text, player=None):
         qty = int(words[-1]) if words[-1].isdigit() and len(words) > 2 else 1
         name = " ".join(words[1:-1] if qty > 1 or words[-1] == "1" else words[1:])
         return [("give", name, qty)]
+    if words[0] == "use" and len(words) >= 2 and player:
+        # !use <ability name>: use a known ability as if from the hotbar (testing).
+        want = " ".join(words[1:]).lower()
+        ability = next((a for a in player.abilities if a[2].lower().startswith(want)), None)
+        return [("use", ability)] if ability else []
+    if words[0] == "learn" and len(words) >= 2 and player:
+        # !learn <ability name>: learn a class ability without a trainer (testing).
+        want = " ".join(words[1:]).lower()
+        for n, (aid, tag) in enumerate(class_abilities.class_ability_list(ARGS.client_dir, player.klass)):
+            if class_abilities.display_name(tag).lower().startswith(want):
+                if any(a[1] == aid for a in player.abilities):
+                    return []
+                return [("learn", n, aid, tag)]
+        return []
     if words[0] == "wear" and player:
         # !wear [points]: damage equipped gear (testing repairs).
         pts = int(words[1]) if len(words) > 1 else 25
@@ -2352,6 +2499,12 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "quest_kill":
                         quest_kill(state, m[1])
                         continue
+                    elif isinstance(m, tuple) and m[0] == "use":
+                        use_ability(state, args, state["player"], m[1])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "learn":
+                        learn_ability(state, *m[1:])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "bank":
                         handle_bank_event(state, m[1], m[2])
                         continue
@@ -2393,6 +2546,13 @@ def handle_message(sock, server, addr, state, payload, args):
             if player:
                 player.target = eid or None
             send_message(sock, addr, state, combat.targets(npc))
+            if player:
+                # The target window's effect list belongs to the current target.
+                send_message(sock, addr, state, effects.target_effects_clear())
+                for e in getattr(player, "effects", []):
+                    if e["kind"] == "dot" and e["npc"] is npc:
+                        send_message(sock, addr, state, effects.target_effect_add(
+                            e["id"], e["name"], e["desc"], e["icon"], player.char_id))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0xD0:
             # Use ability (FUN_0042ca80): i32 ability handle (MsgAbilityInfo field 5).
             handle = struct.unpack_from("<i", payload, 10)[0]
@@ -2400,10 +2560,7 @@ def handle_message(sock, server, addr, state, payload, args):
             ability = next((a for a in getattr(player, "abilities", []) if a[0] == handle), None)
             print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
             if ability:
-                was_alive, attacking = player.health > 0, player.auto_attack
-                lines, npc = combat.use_ability(player, ability)
-                for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
-                    send_message(sock, addr, state, m)
+                use_ability(state, args, player, ability)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 combat.LOOT_REQUEST, combat.LOOT_TAKE, combat.LOOT_TAKE_ALL, combat.LOOT_CLOSE):
             # Loot window: request (u64 corpse), take one (i32 handle), take all (-1), close.
