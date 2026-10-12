@@ -25,16 +25,31 @@ def pack(types, values):
 # variables the handler sets right after reading each field.
 SCORE_TYPES = ("fff" "ii" "bbb" "iii" "b" "iii" "b" "iii" "ff" "ii" "ii" "iii" "b" "f"
                "ooooo" "ffffff" "f" "i" "bb" "ffff" "i" "f" "i" "f" "ii" + "f" * 56)
+# Field map from the handler FUN_005e8260 (see docs/MSGSCORE.md).
 SCORE_FIELDS = {
-    "x": 0, "y": 1, "z": 2, "chunk_x": 3, "chunk_y": 4,
-    "race": 5, "gender": 6, "class_byte": 7,
-    "adv_level": 8, "adv_exp": 9, "adv_class": 10,
-    "craft_level": 12, "craft_exp": 13, "harvest_level": 14,
-    "dip_level": 16, "dip_exp": 17, "aa_points": 18,
-    "adv_exp_next": 21, "aa_spent": 25, "aa_exp": 26, "move_speed": 29,
-    # Verified with a probe (each field = its own index): the XP bar shows
-    # field 35 x 100 %, the character window's Armor Class shows field 42.
-    "adv_exp_frac": 35, "armor_class": 42,
+    # 0-4: bind (respawn) point, shown only as strBindLocationSelf.
+    "bind_x": 0, "bind_y": 1, "bind_z": 2, "bind_chunk_x": 3, "bind_chunk_y": 4,
+    "race": 5, "gender": 6, "adv_class": 7,
+    "adv_level": 8, "adv_exp": 9, "adv_rest_exp": 10,
+    "craft_class": 11, "craft_level": 12, "craft_exp": 13, "craft_rest_exp": 14,
+    "dip_class": 15, "dip_level": 16, "dip_exp": 17, "dip_rest_exp": 18,
+    "adv_exp_debt_frac": 19, "adv_exp_recovery_frac": 20,
+    "adv_exp_amount": 21, "adv_exp_amount_next": 22,
+    "harvest_class": 23, "harvest_level": 24,
+    "aa_points": 25, "aa_spent": 26, "aa_exp": 27,
+    "movement_mode": 28,          # 1 walking, 2 running
+    "move_speed": 29,
+    "is_gm": 30, "is_dev": 31, "is_test": 32, "invulnerable": 33, "can_aggro": 34,
+    "adv_exp_frac": 35, "adv_rest_frac": 36, "craft_exp_frac": 37, "craft_rest_frac": 38,
+    "dip_exp_frac": 39, "dip_rest_frac": 40, "aa_exp_frac": 41,
+    "armor_class": 42, "craft_trade": 43,
+    # Attack block: the window shows -field (send negative values).
+    "attack": 45, "attack_max": 46, "offhand_frac": 47, "spell_attack": 50, "ranged": 52,
+    "defense_input": 63,          # AdvDefense = 100 * (10 * x) ** 0.7
+    "melee_mitigation": 64, "spell_mitigation": 65,
+    "melee_evasion": 69, "spell_evasion": 70, "block": 71, "dodge": 72, "parry": 73,
+    "energy_regen": 74, "flurry_resist": 75, "rampage_resist": 76,
+    "energy_regen_s": 102, "hp_regen_s": 103, "endurance_regen_s": 104,
 }
 assert len(SCORE_TYPES) == 111, len(SCORE_TYPES)
 

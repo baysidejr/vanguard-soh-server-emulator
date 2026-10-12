@@ -65,10 +65,15 @@ def handle_unreal(send, state, payload, args):
         # Character sheet (MsgScore). Field meanings are inferred; see vgmsg.py.
         loc = player.spawned_at or (0.0, 0.0, 0.0)
         send(zone_event(0x3DE, vgmsg.score(probe=args.test_stats,
-            x=loc[0], y=loc[1], z=loc[2], race=player.race,
-            class_byte=player.klass, adv_class=player.klass,
-            adv_level=10, adv_exp=500, adv_exp_next=1000, adv_exp_frac=0.5, armor_class=25,
-            craft_level=1, harvest_level=1, dip_level=1, move_speed=1.0)))
+            bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
+            adv_class=player.klass, adv_level=10,
+            adv_exp_amount=500, adv_exp_amount_next=1000, adv_exp_frac=0.5,
+            armor_class=25, craft_level=1, harvest_level=1, dip_level=1,
+            movement_mode=2, move_speed=1.0, craft_trade=0xFF,
+            attack=-40.0, attack_max=-40.0, ranged=-25.0, spell_attack=-10.0,
+            defense_input=6.0, melee_mitigation=0.05, spell_mitigation=0.02,
+            melee_evasion=0.05, spell_evasion=0.02, block=5.0, dodge=8.0, parry=6.0,
+            hp_regen_s=2.0, endurance_regen_s=5.0, energy_regen_s=3.0)))
         print("  <- ZONE event 0x3de (MsgScore)")
         for m in stat_messages(player):
             send(m)
