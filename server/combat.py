@@ -27,7 +27,7 @@ class Npc:
 
     def service(self):
         """A vendor, trainer, node, station...: can't be attacked."""
-        return bool(self.talks() or self.harvest or self.station)
+        return bool(self.talks() or self.harvest or self.station or self.prop)
 
     def __init__(self, entity_id, name, channel, cls_path, max_health=100, location=(0.0, 0.0, 0.0)):
         self.entity_id = entity_id
@@ -64,6 +64,7 @@ class Npc:
         self.depleted_until = 0.0
         self.station = False          # crafting station (mobs.json "station")
         self.trainer = False          # ability trainer (mobs.json "trainer")
+        self.prop = False             # scenery (mobs.json "prop"): can't be attacked
         self.banker = False           # bank access (mobs.json "banker")
         self.repairs = False          # repairs gear (mobs.json "repair")
         self.parley = False           # offers a diplomacy parley (mobs.json "parley")          # merchants.json list id (vendors can't be attacked)

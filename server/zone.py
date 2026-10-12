@@ -150,6 +150,7 @@ def populate_world(w, args):
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
         npc.station = bool(template.get("station"))
+        npc.prop = bool(template.get("prop"))
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))
         npc.repairs = bool(template.get("repair"))
@@ -169,6 +170,8 @@ def populate_world(w, args):
         npc.attack_visual = template.get("attack_visual", combat.CREATURE_AUTO_ATTACK
                                          if template["race"] >= 64 else combat.NPC_AUTO_ATTACK)
         npc.props = {"m_GameplayLevel": npc.level}
+        if "scale" in template:
+            npc.props["DrawScale"] = float(template["scale"])
         if npc.harvest:
             npc.props["EntityTypes"] = harvest.HARVESTABLE
         if npc.station:

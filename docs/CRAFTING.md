@@ -12,6 +12,8 @@ Other static-mesh races that load (checked against the packages):
 
 Ore race 536 has a broken package name, so the vein now uses 537.
 
+**Camp props (verified live):** mob templates with `"prop": true` are scenery that can't be attacked. The camp now has a campfire (race 1087 at `"scale": 0.1`, since the mesh is building-sized at 1.0), a supply chest (1072) and a banner (631). `scale` sets the pawn's replicated DrawScale. The tents (619, 654) are full-size pavilions that cover the camp, so none is placed.
+
 > **Stages, quality and complications (verified live 2026-10-12):** Copper Ingot now has two stages, each with two steps.
 > - **Stages.** "Stage 1: Preparation" has Sort Ore and Heat Crucible; "Stage 2: Smelting" has Smelt Ore and Pour Ingot. Each action costs action points (120 in total).
 > - **Each action:** the server sends `0x2ed`, `0x2f6` (AP used), `0x30a {step, 100}`, `0x2f7 {stage, 0..252}`, `0x2f8` (quality 0–1000; the window shows grade D/C/B/A at 250/500/750) and `0x2fa` (a 2 s grade flash on the step).
