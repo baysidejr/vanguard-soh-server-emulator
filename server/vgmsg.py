@@ -107,3 +107,28 @@ def stat_update(stat_id, value, category=0, base=None, maximum=None, raw=None):
 
 def stat_list(records):
     return struct.pack("<i", len(records)) + b"".join(records)
+
+
+# MsgSingleItemInfo (zone 0x197 add to inventory; 0x1a6/0x1b7/0x1d4... other
+# containers; handler FUN_00512d40 -> FUN_00516610). Field meanings are being
+# mapped with the !item dev command; see item_info().
+ITEM_TYPES = ("o" "i" "wwww" "iii" "ii" "ii" "iiiii" "iiii" "wwww" "ww" "wwwww" "iii"
+              + "wwwi" * 3 + "ii" + "www" * 3 + "i" + "www" * 3 + "ww" + "iiiiiii" + "b"
+              + "ii" + "ff" + "iiiiii" + "ff" + "bbbb" + "iiii" + "bbbbbb" + "iiiiii" + "f"
+              + "ooo" + "www" + "i")
+
+
+def item_info(raw=None, probe=False):
+    """Pack an item record. raw: {field index: value}. probe fills every field
+    with something recognisable (strings 'S<index>', ints the index)."""
+    values = []
+    for n, t in enumerate(ITEM_TYPES):
+        if t == "w":
+            values.append(f"S{n}" if probe else "")
+        elif t in "if":
+            values.append(n if probe else 0)
+        else:
+            values.append(0)
+    for n, x in (raw or {}).items():
+        values[n] = x
+    return pack(ITEM_TYPES, values)

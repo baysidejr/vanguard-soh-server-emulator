@@ -541,6 +541,21 @@ def dev_command(text):
             out.append(zone.zone_event(0x2D4, vgmsg.stat_update(sid, value, raw=raw, **opts)))
         print(f"  <- dev: {len(out)} stat update(s)")
         return out
+    if words[0] == "chat" and len(words) >= 3:
+        # !chat <channel> <text...>: zone event 0x0f from "Tester"
+        print(f"  <- dev: chat channel {words[1]}")
+        return [build_chat_line("Tester", " ".join(words[2:]), int(words[1], 0))]
+    if words[0] == "item":
+        # !item [probe] [N=value ...]: zone event 0x197 (add an item to the inventory)
+        probe = "probe" in words[1:]
+        raw = {}
+        for spec in words[1:]:
+            if "=" in spec:
+                k, v = spec.split("=", 1)
+                t = vgmsg.ITEM_TYPES[int(k)]
+                raw[int(k)] = v.replace("_", " ") if t == "w" else (float(v) if t == "f" else int(v, 0))
+        print(f"  <- dev: item {raw}")
+        return [zone.zone_event(0x197, vgmsg.item_info(raw, probe=probe))]
     if words[0] == "event":
         data = bytes.fromhex("".join(words[2:]))
         print(f"  <- dev: zone event {words[1]} ({len(data)} bytes)")
@@ -548,8 +563,12 @@ def dev_command(text):
     return []
 
 
-def build_chat_line(speaker, text, channel=0):
-    """Zone event 0x0f (MsgTwoStringsAndInt): shown as "[channel][speaker]: text"."""
+CHAT_SAY = 3      # "<speaker> says, "text"" (FUN_00621d60; verified live)
+CHAT_EMOTE = 5    # "<speaker> text"; other values print "[???][speaker]: text"
+
+
+def build_chat_line(speaker, text, channel=CHAT_SAY):
+    """Zone event 0x0f (MsgTwoStringsAndInt): text, speaker, i32 channel."""
     data = (text + chr(0)).encode("utf-16-le") + (speaker + chr(0)).encode("utf-16-le")
     return event_message(0x0F, data + struct.pack("<i", channel))
 
@@ -635,7 +654,7 @@ def handle_message(sock, server, addr, state, payload, args):
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
             # itself, so nothing goes back to the speaker. Other players would get
             # zone event 0x0f via build_chat_line (verified live: field order is
-            # text, speaker; channel 0 renders as "[???]" - Say's id is unknown).
+            # text, speaker; channel CHAT_SAY = 3 shows "<speaker> says, ...").
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
