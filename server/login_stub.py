@@ -26,6 +26,7 @@ import harvest
 import craft
 import trainer
 import bank
+import social
 import diplomacy
 import content
 import merchant
@@ -555,6 +556,120 @@ def world_chat(zone_state, command, reply):
             if s is not zone_state:
                 world_send(s, chat.channel_line(text, player.name, "OOC"))
         reply(chat.echo_to(text, "OOC", chat.CHANNEL))
+
+
+def social_entry(name):
+    """The who/friend record of a character by name (online or not)."""
+    s = ONLINE.get(name.lower())
+    if s and s.get("player"):
+        p = s["player"]
+        return {"name": p.name, "level": p.level_number, "klass": p.klass, "chunk": tuple(p.chunk),
+                "online": True, "afk": s.get("afk", False), "anon": s.get("anon", False),
+                "lfg": s.get("lfg", False), "diplomacy_level": 1}
+    return {"name": name, "online": False}
+
+
+def social_login(state):
+    """Friend and ignore lists for the player; tell friends who list them."""
+    player = state["player"]
+    world_send(state, social.friend_list([social_entry(n) for n in getattr(player, "friends", [])]))
+    world_send(state, social.ignore_list([social_entry(n) for n in getattr(player, "ignores", [])]))
+    # Once per login, not on every chunk handoff.
+    if player.name.lower() not in ANNOUNCED:
+        ANNOUNCED.add(player.name.lower())
+        notify_friends(state, online=True)
+
+
+ANNOUNCED = set()
+
+
+def notify_friends(state, online):
+    """0x4f6 "X is now online." / "X has gone offline." to everyone who lists X."""
+    player = state["player"]
+    entry = social_entry(player.name) if online else {"name": player.name, "online": False}
+    for s in list(ONLINE.values()):
+        other = s.get("player")
+        if s is state or other is None:
+            continue
+        friends = [n.lower() for n in getattr(other, "friends", [])]
+        if player.name.lower() in friends:
+            world_send(s, social.friend_status(entry, friends.index(player.name.lower()) + 1))
+
+
+def handle_social_world(zone_state, event, data, reply):
+    """World type 5: /who, /friend, /ignore."""
+    player = zone_state["player"]
+    if event == social.WHO:
+        f = social.parse_who(data)
+        found = [e for e in (social_entry(s["player"].name) for s in ONLINE.values() if s.get("player"))
+                 if social.who_matches(f, e)]
+        for m in social.who_messages(found):
+            reply(m)
+    elif event in (social.FRIEND, social.IGNORE) and data:
+        name = social.read_name(data).strip()
+        if not name:
+            return
+        known = {c["first"].lower(): c["first"] for c in load_characters()}
+        if name.lower() not in known:
+            reply(build_system_text(f"There is no character named {name}.", SYSTEM_TEXT_ERROR))
+            return
+        name = known[name.lower()]
+        field = "friends" if event == social.FRIEND else "ignores"
+        names = getattr(player, field)
+        entry = social_entry(name)
+        if name.lower() in [n.lower() for n in names]:
+            uid = [n.lower() for n in names].index(name.lower()) + 1
+            names[:] = [n for n in names if n.lower() != name.lower()]
+            reply(social.friend_removed(entry, uid) if event == social.FRIEND else social.ignore_removed(entry, uid))
+        else:
+            names.append(name)
+            reply(social.friend_added(entry, len(names)) if event == social.FRIEND
+                  else social.ignore_added(entry, len(names)))
+        save_character_field(player.name, field, names)
+
+
+def handle_social_zone(state, event, data):
+    """Zone events: /afk, /anon, /lfg flags, /random, /inspect."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE social {event:#x}: {data.hex(' ')}")
+    if event == social.AFK and data:
+        state["afk"] = bool(data[0])
+        send(build_system_text("You are now AFK." if state["afk"] else "You are no longer AFK.",
+                               SYSTEM_TEXT_WHITE))
+    elif event == social.ANON:
+        state["anon"] = not state.get("anon", False)
+        send(build_system_text("You are now anonymous." if state["anon"] else "You are no longer anonymous.",
+                               SYSTEM_TEXT_WHITE))
+    elif event == social.LFG and data:
+        state["lfg"] = bool(data[0])
+        send(build_system_text("You are now looking for a group." if state["lfg"]
+                               else "You are no longer looking for a group.", SYSTEM_TEXT_WHITE))
+    elif event == social.RANDOM and len(data) >= 8:
+        lo, hi = struct.unpack_from("<ii", data, 0)
+        lo, hi = (lo, hi) if lo <= hi else (hi, lo)
+        text = f"**A Magic Die is rolled by {player.name}. It could have been any number from {lo} to {hi}, " \
+               f"but this time it turned up a {random.randint(lo, hi)}."
+        w = state.get("world")
+        if w is not None:
+            w.broadcast(lambda s: build_system_text(text, SYSTEM_TEXT_WHITE))
+        else:
+            send(build_system_text(text, SYSTEM_TEXT_WHITE))
+    elif event == social.INSPECT:
+        name = social.read_name(data).strip()
+        target = ONLINE.get(name.lower()) if name else None
+        if target is None and player.target is not None:
+            target = next((s for s in ONLINE.values() if s.get("player") and s["player"].char_id == player.target),
+                          None)
+        if target is None or target.get("world") is not state.get("world"):
+            send(build_system_text("You must target a player to inspect.", SYSTEM_TEXT_ERROR))
+            return
+        t = target["player"]
+        dur = getattr(t, "durability", {})
+        records = [vgmsg.inventory_item(item_id, n, slot, zone.item_icon(n, icon), equip_slot=slot,
+                                        **zone.item_equip_fields(n, dur.get(str(item_id), 100)))
+                   for item_id, n, icon, slot in t.equipment]
+        for m in social.inspect_messages(t.name, races_classes.class_name(t.klass), t.level_number, records):
+            send(m)
 
 
 def group_states(player):
@@ -1578,6 +1693,8 @@ def leave_world(state, args):
         leave_group(state)
         if ONLINE.get(player.name.lower()) is state:
             ONLINE.pop(player.name.lower(), None)
+            ANNOUNCED.discard(player.name.lower())
+            notify_friends(state, online=False)
     # Only if this connection is still the one in the world (a re-login or a
     # handoff back to this chunk may have replaced it under the same id).
     if w is None or player is None or w.members.get(player.char_id) is not state:
@@ -2130,6 +2247,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 player.coins = char["coins"]
             player.bank = zone.normalize_items(char.get("bank", []))
             player.durability = dict(char.get("durability", {}))
+            player.friends = list(char.get("friends", []))
+            player.ignores = list(char.get("ignores", []))
             player.bank_coins = char.get("bank_coins", 0)
             if "equipment" in char:
                 player.equipment = [tuple(e) for e in char["equipment"]]
@@ -2155,6 +2274,8 @@ def handle_message(sock, server, addr, state, payload, args):
             if state["player"]:
                 ONLINE[state["player"].name.lower()] = state
             send_message(sock, addr, state, build_login_reply(True))
+            if state["player"]:
+                social_login(state)
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -2303,6 +2424,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 merchant.REQ_REPAIR_OPEN, merchant.REQ_REPAIR, merchant.REQ_REPAIR_ALL):
             if state.get("player"):
                 handle_repair_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in social.ZONE_EVENTS:
+            if state.get("player"):
+                handle_social_zone(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in bank.CLIENT_EVENTS:
             if state.get("player"):
                 handle_bank_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
@@ -2442,6 +2566,13 @@ def handle_message(sock, server, addr, state, payload, args):
             pass  # the refreshed account list (0x66) goes out on the login connection
         elif msg_type == 2:
             print_client_log(payload)
+        elif msg_type == 5 and len(payload) >= 10:
+            event = struct.unpack_from("<I", payload, 2)[0]
+            print(f"  >>> WORLD social {event:#x}: {payload[10:42].hex(' ')}")
+            zone_state = ZONE_BY_SESSION.get(state.get("session"))
+            if zone_state and zone_state.get("player"):
+                handle_social_world(zone_state, event, payload[10:],
+                                    lambda m: send_message(sock, addr, state, m))
         elif msg_type == 6 and len(payload) >= 10:
             # Slash command text (/shout -> "shout ...", /ooc -> "regionsay ...",
             # /tell X -> 'tell "X" ...', /g -> "gsay ..."): u16 6, u32 0x14, u32 len, wstr.
