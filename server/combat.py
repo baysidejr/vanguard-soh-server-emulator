@@ -409,3 +409,18 @@ def take_loot(player, npc, handle):
     if not npc.loot:
         out.append(_event(LOOT_END_EVENT))
     return out
+
+
+CONSIDER_REQUEST = 0x3D9     # client, no payload (/con on the current target)
+CONSIDER_RESULT = 0x3DA      # MsgConsiderResult (FUN_005e7670)
+
+
+def consider(player, npc):
+    """0x3da {i32 kind 0 (combat), i32 con 0..7, i32 difficulty 0..5, i32 level,
+    wstr name, wstr}. con: 0 trivial ... 4 fair fight ... 7 "Do you have a
+    deathwish?"; chosen from the level difference."""
+    diff = npc.level - player.level_number
+    con = 4 if diff == 0 else max(0, min(7, 4 + (diff // 2 if diff > 0 else -((-diff + 1) // 2))))
+    data = struct.pack("<iiii", 0, con, 1, npc.level)
+    data += (npc.name + "\0").encode("utf-16-le") + "\0".encode("utf-16-le")
+    return struct.pack("<HII", 2, CONSIDER_RESULT, len(data)) + data

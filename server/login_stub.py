@@ -1555,6 +1555,11 @@ def handle_message(sock, server, addr, state, payload, args):
             state["camp"] = {"until": time.time() + CAMP_SECONDS, "pos": state.get("position"),
                              "next_note": time.time() + 5}
             send_message(sock, addr, state, zone.zone_event(0x40B))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == combat.CONSIDER_REQUEST:
+            player = state.get("player")
+            npc = player.npcs.get(player.target) if player and player.target else None
+            if npc:
+                send_message(sock, addr, state, combat.consider(player, npc))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CHUNK_CHANGE_EVENT:
             chunk_handoff(state, payload, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x313, 0x314):

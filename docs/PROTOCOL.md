@@ -287,6 +287,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Quests** (verified live): NPC text `0x3ea` {eid64, wstr}; options `0x2bf` (type 7 → client `0x15c` {quest id}); quest page `0x2c0` / journal entry `0x2cb` (same layout); accept `0x15d` → `0x2c1`; progress `0x2cc` (status text "(1/3)" — the client has no counter field); done `0x2c5`. Details: [QUESTS.md](QUESTS.md).
 
+**Consider** (verified live): `/con` sends client `0x3d9` (no payload, current target). The server answers `0x3da` MsgConsiderResult {i32 kind 0 = combat (3 = harvesting), i32 con 0..7 (0 "could win blindfolded", 4 "fair fight", 7 "deathwish"), i32 difficulty 0..5, i32 level, wstr name, wstr tool}; the client prints the coloured line (`FUN_005e7670`).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**
