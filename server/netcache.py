@@ -195,9 +195,31 @@ class NetCache:
                     write = f.writer(v)
                     out.append((f.index, cache["max"],
                                 lambda w, i=i, write=write: (w.bits(i, 8), write(w))))
+            elif f.kind == "NameProperty":
+                index, count = self.name_index(value)
+                out.append((f.index, cache["max"],
+                            lambda w, index=index, count=count: w.serialize_int(index, count + 1)))
             else:
                 out.append((f.index, cache["max"], f.writer(value)))
         return out
+
+    def name_index(self, name):
+        """FName on the wire (UPackageMapLevel FUN_00b164f0): SerializeInt(index,
+        total + 1), index = position in the package map's concatenated name
+        tables (packages in USES order); total = None."""
+        base = 0
+        found = None
+        for _, p in self.packages:
+            if found is None:
+                lowered = [n.lower() for n in p.names]
+                if str(name).lower() in lowered:
+                    found = base + lowered.index(str(name).lower())
+            base += len(p.names)
+        if name is None or found is None:
+            if name is not None:
+                raise KeyError(f"name {name!r} is not in any package of the map")
+            return base, base
+        return found, base
 
     def field(self, class_name, field_name):
         for f in self.class_cache(class_name)["all"]:
