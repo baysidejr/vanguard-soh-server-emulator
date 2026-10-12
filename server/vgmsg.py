@@ -182,3 +182,32 @@ def item_info(raw=None, probe=False):
     for n, x in (raw or {}).items():
         values[n] = x
     return pack(ITEM_TYPES, values)
+
+
+# MsgAbilityInfo (zone 0x215 adds an ability to the book; handler FUN_00432570,
+# registrar FUN_0041e2b0). 68 fields; see docs/ABILITIES.md. The client sends
+# zone event 0xd0 (i32 handle) when the player uses it.
+ABILITY_TYPES = ("wwww" "i" "oob" "wwww" "iiiiiii" "ii" "ffff" "o" "w" "iii" "bbo" "ooo"
+                 "bi" "oo" "i" + "o" * 8 + "bbb" + "i" * 7 + "o" + "i" * 8)
+assert len(ABILITY_TYPES) == 68, len(ABILITY_TYPES)
+ABILITY_BOOK_ADVENTURING, ABILITY_BOOK_DIPLOMACY, ABILITY_BOOK_GENERAL = 0, 2, 1
+
+
+def ability_info(handle, ability_id, name, icon, description="", level=1, book=0,
+                 type_text="Melee", cast=0.0, recovery=0.0, refresh=5.0, max_range=5):
+    v = [0] * 68
+    for n, t in enumerate(ABILITY_TYPES):
+        if t == "w":
+            v[n] = ""
+    v[0], v[1], v[4] = name, description, handle
+    v[9] = type_text
+    v[12] = book
+    v[18], v[19], v[20] = level, ability_id, icon
+    v[21], v[22], v[23], v[24] = cast, recovery, refresh, 0.0
+    v[29] = max_range
+    v[30] = v[31] = 0xFF          # ability kind / song part: none
+    v[36], v[37] = 0xFF, -1       # requirements: any
+    v[50] = v[51] = 0xFF          # target type
+    for n in range(60, 68):
+        v[n] = -1                 # allowed combat forms: any
+    return pack(ABILITY_TYPES, v)

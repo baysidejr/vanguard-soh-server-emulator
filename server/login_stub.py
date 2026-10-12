@@ -661,6 +661,12 @@ def handle_message(sock, server, addr, state, payload, args):
             if text.startswith("!") and args.dev_commands:
                 for m in dev_command(text):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0xD0:
+            # Use ability (FUN_0042ca80): i32 ability handle (MsgAbilityInfo field 5).
+            handle = struct.unpack_from("<i", payload, 10)[0]
+            player = state.get("player")
+            names = {a[0]: a[2] for a in getattr(player, "abilities", [])}
+            print(f"  >>> ZONE use ability {handle} ({names.get(handle, '?')})")
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:

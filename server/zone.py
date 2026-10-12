@@ -81,6 +81,9 @@ def handle_unreal(send, state, payload, args):
         for m in inventory_messages(player):
             send(m)
         print("  <- ZONE events 0x195/0x197/0x1bb (inventory)")
+        for m in ability_messages(player):
+            send(m)
+        print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
         if args.test_npc:
@@ -187,7 +190,25 @@ DEFAULT_ITEMS = [
 DEFAULT_EQUIPMENT = [
     (2001, "Militia Longsword", 422, vgmsg.EQUIP_SLOTS["PRIMARYHAND"]),
 ]
+# Abilities: (handle, ability id, name, icon, description, refresh seconds).
+DEFAULT_ABILITIES = [
+    (1, 1001, "Strike", 553, "A basic melee attack.", 0.0),
+    (2, 1002, "Shield Bash", 692, "Bash the target with your shield.", 10.0),
+    (3, 1003, "Rend", 607, "A vicious cut that leaves the target bleeding.", 15.0),
+    (4, 1004, "Battle Cry", 560, "A shout that draws the attention of nearby foes.", 30.0),
+]
 DEFAULT_COINS = 12345   # copper: 1 gold 23 silver 45 copper
+
+
+def ability_messages(player):
+    """0x21b clears the ability book, one 0x215 per ability, 0x21d marks it loaded
+    (FUN_0042bd80 / FUN_00432570). The client creates the book lists itself."""
+    out = [zone_event(0x21B)]
+    for handle, ability_id, name, icon, desc, refresh in player.abilities:
+        out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
+                                                       refresh=refresh)))
+    out.append(zone_event(0x21D))
+    return out
 
 
 def inventory_messages(player):
@@ -226,6 +247,7 @@ class Player:
         self.skills = list(DEFAULT_SKILLS)
         self.items = list(DEFAULT_ITEMS)
         self.equipment = list(DEFAULT_EQUIPMENT)
+        self.abilities = list(DEFAULT_ABILITIES)
         self.coins = DEFAULT_COINS
 
 

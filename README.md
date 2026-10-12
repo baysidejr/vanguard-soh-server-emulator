@@ -21,6 +21,7 @@ The unmodified client, talking only to this emulator:
 - [x] Skills list (weapon, combat, perception... groups)
 - [x] Full character sheet: defense, attack, ranged, XP bars ([docs/MSGSCORE.md](docs/MSGSCORE.md))
 - [x] Inventory: items in the bag and coins ([docs/INVENTORY.md](docs/INVENTORY.md))
+- [x] Equipment on the paper doll; ability book with usable abilities ([docs/ABILITIES.md](docs/ABILITIES.md))
 - [ ] Full appearance (gender, face, gear), NPCs, other players
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
