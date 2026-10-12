@@ -64,12 +64,22 @@ def handle_unreal(send, state, payload, args):
             print(f"  <- ZONE event {event_id:#x} (no payload)")
         # Character sheet (MsgScore). Field meanings are inferred; see vgmsg.py.
         loc = player.spawned_at or (0.0, 0.0, 0.0)
-        send(zone_event(0x3DE, vgmsg.score(
+        send(zone_event(0x3DE, vgmsg.score(probe=args.test_stats,
             x=loc[0], y=loc[1], z=loc[2], race=player.race,
             class_byte=player.klass, adv_class=player.klass,
-            adv_level=10, adv_exp=500, adv_exp_next=1000,
+            adv_level=10, adv_exp=500, adv_exp_next=1000, adv_exp_frac=0.5, armor_class=25,
             craft_level=1, harvest_level=1, dip_level=1, move_speed=1.0)))
         print("  <- ZONE event 0x3de (MsgScore)")
+        if args.test_stats:
+            # value = 100*category + subtype, so the screen shows which slot is which
+            recs = []
+            for cat, subs in ((0, (0, 1, 4, 7, 9, 0x1E)),
+                              (1, (5, 6, 10, 11, 14, 15, 18, 19, 24, 25, 28, 29))):
+                for s in subs:
+                    recs.append(vgmsg.stat_info(1000 + 100 * cat + s, 100 * cat + s + 10,
+                                                category=cat, subtype=s))
+            send(zone_event(0x2D5, vgmsg.stat_list(recs)))
+            print("  <- ZONE event 0x2d5 (test stats 1..60)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
         if args.test_npc:

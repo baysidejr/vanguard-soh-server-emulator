@@ -32,12 +32,36 @@ SCORE_FIELDS = {
     "craft_level": 12, "craft_exp": 13, "harvest_level": 14,
     "dip_level": 16, "dip_exp": 17, "aa_points": 18,
     "adv_exp_next": 21, "aa_spent": 25, "aa_exp": 26, "move_speed": 29,
+    # Verified with a probe (each field = its own index): the XP bar shows
+    # field 35 x 100 %, the character window's Armor Class shows field 42.
+    "adv_exp_frac": 35, "armor_class": 42,
 }
 assert len(SCORE_TYPES) == 111, len(SCORE_TYPES)
 
 
-def score(**kw):
+def score(probe=False, **kw):
     values = [0] * len(SCORE_TYPES)
+    if probe:
+        # Every float/int from field 35 on gets its own index, to map UI slots.
+        for i in range(35, len(SCORE_TYPES)):
+            values[i] = i if SCORE_TYPES[i] in "if" else 0
     for name, v in kw.items():
         values[SCORE_FIELDS[name]] = v
     return pack(SCORE_TYPES, values)
+
+
+# MsgSingleStatInfo (zone 0x2d3 one stat, 0x2d5 = i32 count + records; handler
+# FUN_00577790). Wire order (inferred from where the handler stores each field):
+# 0 stat id, 1 ?, 2 category (0 attribute...), 3 base, 4 ?, 5 ?, 6 current (shown),
+# 7 ?, 8 ?, 9 ?, 10 type (5 = special), 11 ?, 12 subtype (UI hook), 13 ?, 14 ?
+STAT_TYPES = "iib" "iiiiiii" "bbb" "ii"
+
+
+def stat_info(stat_id, value, category=0, subtype=0, base=None):
+    v = [0] * len(STAT_TYPES)
+    v[0], v[2], v[3], v[6], v[12] = stat_id, category, value if base is None else base, value, subtype
+    return pack(STAT_TYPES, v)
+
+
+def stat_list(records):
+    return struct.pack("<i", len(records)) + b"".join(records)
