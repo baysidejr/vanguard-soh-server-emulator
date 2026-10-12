@@ -16,6 +16,7 @@ import races_classes
 import ue2net
 import vgmsg
 import class_abilities
+import chat
 import combat
 import group
 import content
@@ -424,6 +425,50 @@ def world_tick(zone_sock, clients, args):
 # Online zone connections, for groups and chat across connections.
 ONLINE = {}            # lower-case character name -> zone connection state
 ZONE_BY_SESSION = {}   # session key -> zone connection state (world chat -> player)
+
+
+WORLD_BY_SESSION = {}  # session key -> (sock, addr, state) of the world connection
+
+
+def world_send(zone_state, message):
+    """Send a world-server message (chat) to the player of a zone connection."""
+    conn = WORLD_BY_SESSION.get(zone_state.get("session"))
+    if conn:
+        send_message(conn[0], conn[1], conn[2], message)
+
+
+def world_chat(zone_state, command, reply):
+    """Chat commands from the world connection (see chat.py)."""
+    player = zone_state["player"]
+    verb, name, text = chat.parse(command)
+    if verb == "shout":
+        for s in ONLINE.values():
+            if s is not zone_state:
+                world_send(s, chat.line(text, player.name, chat.SHOUT))
+        reply(chat.echo(text, chat.SHOUT))
+    elif verb == "tell":
+        target = ONLINE.get((name or "").lower())
+        if target is zone_state:
+            reply(chat.error(chat.ERR_TELL_SELF))
+        elif target is None:
+            reply(chat.error(chat.ERR_NOT_ONLINE))
+        else:
+            world_send(target, chat.line(text, player.name, chat.TELL))
+            reply(chat.echo_to(text, target["player"].name, chat.TELL))
+    elif verb == "gsay":
+        members = group_states(player)
+        if not members:
+            reply(chat.error(chat.ERR_NO_GROUP))
+            return
+        for m_state in members:
+            if m_state is not zone_state:
+                world_send(m_state, chat.line(text, player.name, chat.GROUP))
+        reply(chat.echo(text, chat.GROUP))
+    elif verb == "regionsay":
+        for s in ONLINE.values():
+            if s is not zone_state:
+                world_send(s, chat.channel_line(text, player.name, "OOC"))
+        reply(chat.echo_to(text, "OOC", chat.CHANNEL))
 
 
 def group_states(player):
@@ -1178,6 +1223,32 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.CLIENT_EVENTS:
             if state.get("player"):
                 handle_group_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x313, 0x314):
+            # 0x314 /emote {wstr}; 0x313 social {eid64 target, wstr name, wstr}. The
+            # client prints nothing itself: send the emote line (zone 0x0f type 5) and,
+            # for socials, play SOCIAL_ABILITIES_<id> (0x3d1) to everyone nearby.
+            event = struct.unpack_from("<I", payload, 2)[0]
+            player = state.get("player")
+            w = state.get("world")
+            if player and event == 0x314:
+                text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
+                msgs = [build_chat_line(player.name, text, CHAT_EMOTE)]
+            elif player:
+                target = struct.unpack_from("<Q", payload, 10)[0]
+                name = payload[18:].decode("utf-16-le", "replace").split(chr(0))[0].upper()
+                aid = chat.social_ids(args.client_dir).get(name)
+                print(f"  >>> ZONE social {name} -> {aid}")
+                msgs = []
+                if aid:
+                    msgs.append(combat.display_ability(player.char_id, target, aid))
+                    msgs.append(build_chat_line(player.name, name.lower().replace("_", " ") + "s.",
+                                                CHAT_EMOTE))
+            else:
+                msgs = []
+            for m in msgs:
+                send_message(sock, addr, state, m)
+                if w is not None:
+                    w.broadcast(lambda s, m=m: m, exclude=state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3D8:
             # Auto-attack toggle (` key, /autoattacktoggle): no payload.
             player = state.get("player")
@@ -1226,6 +1297,7 @@ def handle_message(sock, server, addr, state, payload, args):
             # dispatcher (FUN_00d9aa60) reads type 4 with the same reader (FUN_00d9a900).
             print(f"  >>> WORLD login request: account={login[0]!r} session={login[1]!r}")
             state["session"] = login[1]
+            WORLD_BY_SESSION[login[1]] = (sock, addr, state)
             reply = build_reliable(state["out_seq"], build_login_reply(True))
             state["out_seq"] += 1
             sock.sendto(reply, addr)
@@ -1249,10 +1321,8 @@ def handle_message(sock, server, addr, state, payload, args):
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
             print(f"  >>> WORLD command {struct.unpack_from('<I', payload, 2)[0]:#x}: {text!r}")
             zone_state = ZONE_BY_SESSION.get(state.get("session"))
-            if zone_state and zone_state.get("player") and text.startswith("gsay "):
-                speaker = zone_state["player"].name
-                for m_state in group_states(zone_state["player"]):
-                    m_state["send"](build_chat_line(speaker, text[5:], group.CHAT_GROUP))
+            if zone_state and zone_state.get("player"):
+                world_chat(zone_state, text, lambda m: send_message(sock, addr, state, m))
         else:
             print(f"  >>> WORLD message type {msg_type} ({len(payload)} bytes) - paste this to Claude")
         return

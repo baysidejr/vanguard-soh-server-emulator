@@ -229,6 +229,7 @@ The other chat commands go elsewhere:
 - `/shout`, `/ooc`, `/tell` and `/g` go to the **world** server as message type 6 {u16 6, u32 0x14, u32 byte length, wstr}. The string is the command text: `shout hello`, `regionsay ...` (OOC), `tell "Name" ...`, `gsay ...`.
 - `/emote` is zone event `0x314` {wstr}.
 - Socials such as `/wave` are zone event `0x313` {u64 target (−1), wstr "WAVE"}.
+- Replies to world chat also go over the world connection as type 6: `0x0f` line {text, speaker, i32 type: 3 say, 4 shout, 5 emote, 8 group, 0x0f tell}, `0x11`/`0x12` echoes to the sender, `0x13` channel line, `0x0e` errors (verified live). Socials play `SOCIAL_ABILITIES_<id>` with `0x3d1`. Details: [CHAT.md](CHAT.md).
 
 **Standing on the ground** (verified live). The client runs the player's pawn as a simulated proxy, and `APawn::TickSimulated` (`FUN_00a03070`) forces `PHYS_Flying` unless the pawn has `bSimulateGravity` set, so the character hovered. Replicating `bSimulateGravity = True` on the pawn makes it fall and land (Physics 1, Base set). Replicating `Role`/`RemoteRole` does not help: the client zeroes Role 3, and Role 4 broke the location. The stub spawns 90 units below the saved z (`SPAWN_Z_LIFT`) and ignores near-origin positions when saving.
 
