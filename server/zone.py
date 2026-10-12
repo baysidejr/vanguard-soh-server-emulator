@@ -140,10 +140,32 @@ def stat_messages(player):
     for name, value in player.stats.items():
         kind = 1 if name in vgmsg.ATTRIBUTES else 0
         recs.append(vgmsg.stat_info(vgmsg.STAT_IDS[name], value, kind=kind, maximum=value))
+    for sid, value, subtype in player.skills:
+        recs.append(vgmsg.stat_info(sid, value, kind=2, subtype=subtype, maximum=SKILL_CAP))
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
         out.append(zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[name], player.stats[name])))
     return out
+
+
+# Skills: (stat id, value, list subtype). Subtypes pick the character window
+# list (FUN_00556c50, kind 2): 0 weapon types, 2 wield types, 3 armor,
+# 4 combat, 7 perception and concealment, 8 resistance, 9 spell schools,
+# 0x15 harvesting, 0x1e general.
+DEFAULT_SKILLS = [
+    (0x16, 25, 0),      # Mace
+    (0xe3, 30, 0),      # Longsword
+    (0xc6, 30, 0),      # One-handed Slashing
+    (0x45, 20, 2),      # One-handed Wielding
+    (0x3c, 20, 2),      # Sword and Shield Wielding
+    (0x34, 30, 3),      # Heavy Armor
+    (0x9c, 25, 4),      # Block
+    (0x58, 35, 4),      # Dodge
+    (0x88, 30, 4),      # Parry
+    (0x4c, 12, 7),      # Sneak
+    (0xfd, 40, 0x1e),   # Swimming
+]
+SKILL_CAP = 50
 
 
 class Player:
@@ -163,6 +185,7 @@ class Player:
         self.spawned_at = None
         # Character sheet values (no real character progression yet).
         self.stats = dict(DEFAULT_STATS)
+        self.skills = list(DEFAULT_SKILLS)
 
 
 PC_CHANNEL = 1
