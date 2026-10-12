@@ -24,6 +24,7 @@ import trade
 import quest
 import harvest
 import craft
+import diplomacy
 import content
 import merchant
 import world
@@ -827,6 +828,9 @@ def npc_dialog(state, npc):
             opts.append((q["name"], q["id"], quest.OPTION_TYPE))
             greeting = greeting or q.get("greeting")
     out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
+    if npc.parley:
+        opts.append(("Let's talk business. (Parley)", diplomacy.PARLEY_OPTION_ID,
+                     diplomacy.OPTION_TYPE))
     if opts:
         out.append(quest.options(npc.entity_id, opts))
     if npc.merchant:
@@ -959,6 +963,43 @@ def harvest_tick(state, now):
     npc.depleted_until = now + npc.respawn
     depleted = combat.display_ability(npc.entity_id, combat.NO_ENTITY, harvest.NODE_DEPLETED_VISUAL)
     send(depleted)
+
+
+def handle_parley_event(state, event, data):
+    """A parley (diplomacy.py): each played card pushes the bar; at WIN_AT the
+    player wins and gets diplomacy XP."""
+    player, send = state["player"], state["send"]
+    p = state.get("parley")
+    print(f"  >>> ZONE parley event {event:#x}: {data.hex(' ')}")
+    if event == diplomacy.START:
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not npc.parley:
+            return
+        state["parley"] = {"npc": npc, "status": diplomacy.MIDDLE, "card": None, "dp": 0, "round": 0}
+        send(diplomacy.open_parley(npc.entity_id))
+    elif p is None:
+        return
+    elif event == diplomacy.SELECT:
+        p["card"] = struct.unpack_from("<i", data, 0)[0]
+        send(diplomacy.selected(p["card"]))
+    elif event in (diplomacy.PLAY, diplomacy.PASS):
+        push = next((c[3] for c in diplomacy.CARDS if c[0] == p["card"]), 0) if event == diplomacy.PLAY else -1
+        p["status"] = max(0, min(21, p["status"] + push))
+        p["dp"] += 1 if push > 0 else 0
+        line = diplomacy.NPC_LINES[min(p["round"], len(diplomacy.NPC_LINES) - 1)]
+        p["round"] += 1
+        npc_card = (40100, "Skeptical Look", diplomacy.REASON, 1)
+        for m in diplomacy.round_messages(p["status"], p["dp"], line, npc_card):
+            send(m)
+        if p["status"] >= diplomacy.WIN_AT:
+            state.pop("parley")
+            send(diplomacy.won())
+            send(combat.experience_reward(150, p["npc"].entity_id, kind=2))
+            print(f"  {player.name} won a parley with {p['npc'].name}")
+    elif event in (diplomacy.CANCEL, diplomacy.CLOSE):
+        state.pop("parley", None)
+        for m in diplomacy.ended() if event == diplomacy.CANCEL else [diplomacy.close()]:
+            send(m)
 
 
 def recipe_by_id(rid):
@@ -1745,6 +1786,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL) and player is not None:
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in diplomacy.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_parley_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in craft.CLIENT_EVENTS:
             if state.get("player"):
                 handle_craft_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

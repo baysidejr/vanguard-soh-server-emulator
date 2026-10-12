@@ -15,6 +15,7 @@ import content
 import merchant
 import harvest
 import craft
+import diplomacy
 import world
 import ue2net
 from netcache import NetCache
@@ -95,6 +96,9 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
+        # Diplomacy cards in the parley strategy slots.
+        for m in diplomacy.login_messages():
+            send(m)
         # Recipe book and crafting actions (silent adds).
         for r in args.content.recipes.values():
             send(craft.learn_recipe(r))
@@ -146,6 +150,7 @@ def populate_world(w, args):
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
         npc.station = bool(template.get("station"))
+        npc.parley = bool(template.get("parley"))
         npc.template_id = spawn["mob"]
         npc.quests = [k for k, q in args.content.quests.items() if q.get("giver") == spawn["mob"]]
         npc.wander = float(spawn.get("wander", 0))

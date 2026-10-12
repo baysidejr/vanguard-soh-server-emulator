@@ -51,7 +51,8 @@ class Npc:
         self.merchant = None
         self.harvest = None           # resource node settings (mobs.json "harvest")
         self.depleted_until = 0.0
-        self.station = False          # crafting station (mobs.json "station")          # merchants.json list id (vendors can't be attacked)
+        self.station = False          # crafting station (mobs.json "station")
+        self.parley = False           # offers a diplomacy parley (mobs.json "parley")          # merchants.json list id (vendors can't be attacked)
         self.attack_visual = NPC_AUTO_ATTACK
         self.aggro_radius = 0.0       # attacks players that come this close (0 = only if hit)
         self.props = {}               # extra replicated pawn properties from the template
