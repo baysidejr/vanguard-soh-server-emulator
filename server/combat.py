@@ -139,9 +139,23 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         npc.died_at = time.time()
         player.auto_attack = False
         lines.append((f"You have slain {npc.name}!", "white"))
+        player.pending_rewards.append(KILL_XP)
     else:
         lines += npc_attacks(player, npc, rng)
     return lines, npc
+
+
+KILL_XP = 150
+XP_EVENT = 0x3D5             # MsgExperienceRewardResult (FUN_005e3510)
+
+
+def experience_reward(amount, source, rest_bonus=0, kind=0, group=0):
+    """0x3d5: i32 amount, i32 rest bonus, u8 kind (0 adventuring, 1 crafting,
+    2 diplomacy), u8 group (0 solo, 1 group, 2 brotherhood, 3 raid), bool8
+    "recover" instead of "gain", u64 source entity, bool8/bool8 XP-capped
+    (class/race). Prints "You gain N adventuring experience!"."""
+    data = struct.pack("<iiBBBQBB", amount, rest_bonus, kind, group, 0, source, 0, 0)
+    return struct.pack("<HII", 2, XP_EVENT, len(data)) + data
 
 
 def toggle_auto_attack(player):

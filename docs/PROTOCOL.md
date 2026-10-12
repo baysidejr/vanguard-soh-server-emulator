@@ -236,6 +236,8 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Auto-attack** (verified live): the ` key (`/autoattacktoggle`) sends client event `0x3d8` (no payload). The server answers with `0x3df` MsgSingleBool (Begin/StopAutoattacking, `FUN_005e26a0`) and `0x3c2` MsgSingleByte bInCombat (`FUN_005e1660`; the portrait shows crossed swords), then swings every 2 s with `0x3d1` visual 0 (GENERIC_AUTO_ATTACK).
 
+**Experience** (verified live): zone event `0x3d5` MsgExperienceRewardResult {i32 amount, i32 rest bonus, u8 kind (0 adventuring, 1 crafting, 2 diplomacy), u8 group (0 solo, 1 group, 2 brotherhood, 3 raid), bool8 recover, u64 source entity, bool8 capped by class, bool8 capped by race} prints "You gain N adventuring experience!" (`FUN_005e3510`). The XP bar follows a fresh MsgScore (`0x3de`) with the new XP fields.
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

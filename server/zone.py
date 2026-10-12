@@ -64,17 +64,7 @@ def handle_unreal(send, state, payload, args):
             send(zone_event(event_id))
             print(f"  <- ZONE event {event_id:#x} (no payload)")
         # Character sheet (MsgScore). Field meanings are inferred; see vgmsg.py.
-        loc = player.spawned_at or (0.0, 0.0, 0.0)
-        send(zone_event(0x3DE, vgmsg.score(probe=args.test_stats,
-            bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
-            adv_class=player.klass, adv_level=10,
-            adv_exp_amount=500, adv_exp_amount_next=1000, adv_exp_frac=0.5,
-            armor_class=25, craft_level=1, harvest_level=1, dip_level=1,
-            movement_mode=2, move_speed=1.0, craft_trade=0xFF,
-            attack=-40.0, attack_max=-40.0, ranged=-25.0, spell_attack=-10.0,
-            defense_input=6.0, melee_mitigation=0.05, spell_mitigation=0.02,
-            melee_evasion=0.05, spell_evasion=0.02, block=5.0, dodge=8.0, parry=6.0,
-            hp_regen_s=2.0, endurance_regen_s=5.0, energy_regen_s=3.0)))
+        send(score_message(player, probe=args.test_stats))
         print("  <- ZONE event 0x3de (MsgScore)")
         for m in stat_messages(player):
             send(m)
@@ -99,6 +89,25 @@ def handle_unreal(send, state, payload, args):
                 player.npcs[eid] = combat.Npc(eid, name, FIRST_NPC_CHANNEL + n, cls_path)
                 print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
                 send(unreal_message(ue.build([b])))
+
+
+XP_PER_LEVEL = 1000
+
+
+def score_message(player, probe=False):
+    """MsgScore (0x3de): the character sheet, level and XP bar."""
+    loc = player.spawned_at or (0.0, 0.0, 0.0)
+    return zone_event(0x3DE, vgmsg.score(probe=probe,
+        bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
+        adv_class=player.klass, adv_level=player.level_number,
+        adv_exp_amount=player.xp, adv_exp_amount_next=XP_PER_LEVEL,
+        adv_exp_frac=player.xp / XP_PER_LEVEL,
+        armor_class=25, craft_level=1, harvest_level=1, dip_level=1,
+        movement_mode=2, move_speed=1.0, craft_trade=0xFF,
+        attack=-40.0, attack_max=-40.0, ranged=-25.0, spell_attack=-10.0,
+        defense_input=6.0, melee_mitigation=0.05, spell_mitigation=0.02,
+        melee_evasion=0.05, spell_evasion=0.02, block=5.0, dodge=8.0, parry=6.0,
+        hp_regen_s=2.0, endurance_regen_s=5.0, energy_regen_s=3.0))
 
 
 def health_update(player):
@@ -327,7 +336,10 @@ class Player:
         self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
         self.last_combat = 0.0
         self.pending_displays = []        # 0x3d1 messages queued by combat
+        self.pending_rewards = []         # experience from kills
         self.auto_attack = False
+        self.level_number = 10            # adventuring level (self.level is the map name)
+        self.xp = 500                     # toward the next level (XP_PER_LEVEL)
         self.next_swing = 0.0
 
 

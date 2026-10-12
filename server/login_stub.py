@@ -267,6 +267,16 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
         if not npc.alive:
             out += [zone.npc_update(state, args, npc, {"Health": 0, "m_bIsDead": 1}),
                     combat.play_animation(npc, combat.ANIM_DEATH)]
+    for amount in player.pending_rewards:
+        out.append(combat.experience_reward(amount, npc.entity_id if npc else player.char_id))
+        player.xp += amount
+        while player.xp >= zone.XP_PER_LEVEL:
+            player.xp -= zone.XP_PER_LEVEL
+            player.level_number += 1
+            out.append(build_system_text(f"You have reached level {player.level_number}!",
+                                         SYSTEM_TEXT_WHITE))
+        out.append(zone.score_message(player))
+    player.pending_rewards.clear()
     if player.auto_attack != was_attacking:
         out += combat.auto_attack_state(player.auto_attack)
     return out
