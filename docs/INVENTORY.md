@@ -148,4 +148,4 @@ The second item goes in f16 = 1, and so on up to 49. For a bag item, set f14 = s
 - **Unequip:** right-clicking an equipped item sends `0x98` {i32 handle, u8 0}. The server answers `0x1a9` {i32 handle, i32 bag slot, i32 container} (`FUN_00511100`), which puts it back into a bag slot. The same message returns a replaced piece to the bag when an item is swapped.
 - **Model:** the pawn's `m_AttachmentGroups` is resent so everyone sees the new gear (see [GEAR.md](GEAR.md)).
 - **Item templates** (equip slot, 3D model): `server/content/items.json`.
-- **Open:** every item icon shows a red background and its tooltip reads "Durability: 0%". The cause is another item field, still being mapped.
+- The red icons and "Durability: 0%" are fixed: see [ITEM_FIELDS.md](ITEM_FIELDS.md), which also corrects fields 74 (item type), 76 (level), 77 (damage base), 82 (delay) and 100 (255 = a normal item) in the table above.
