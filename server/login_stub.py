@@ -366,6 +366,28 @@ def character_chunk(char):
     return tuple(char.get("chunk", DEFAULT_CHUNK))
 
 
+def character_id(char):
+    """Stable 64-bit id for a character (the client echoes it in BECOME_PC)."""
+    if "id" not in char:
+        import zlib
+        char["id"] = 0x1000000 + (zlib.crc32((char["first"] + char.get("world", "")).encode()) & 0xFFFFFF)
+    return char["id"]
+
+
+def build_set_name_id(char):
+    # World event 10 (FUN_0062aaf0) becomes the console command
+    #   SetNameID "<+0x80>" "<+0x00>" "<+0xe0>" "<+0x130>" "<+0x1b0>" <+0x234> <u64 +0x230> <+0x248>
+    # (FUN_00413590), which fills the session object read by BECOME_PC (+0xc0 = id).
+    # String meanings are a best guess: first name, last name, world, -, chunk.
+    rec = bytearray(0x24C)
+    rec[0x000:0x080] = wfield(char["first"], 0x80)
+    rec[0x080:0x0e0] = wfield(char.get("last", ""), 0x60)
+    rec[0x0e0:0x130] = wfield(char.get("world", WORLD_NAME), 0x50)
+    rec[0x1b0:0x230] = wfield(chunk_name(*character_chunk(char)), 0x80)
+    struct.pack_into("<Q", rec, 0x230, character_id(char))
+    return event_message(10, bytes(rec))
+
+
 def build_character_record(char):
     # World event 0x19 (FUN_005f0770) adds one character-select entry. Fixed layout:
     # +0x000/+0x080/+0x100 wchar[64] (the +0x100 one is matched against the world
@@ -544,6 +566,13 @@ def spawn_bunches(ue, args):
     if pawn_cls:
         cache = nc.class_cache(pawn_cls)
         props = [(nc.field(pawn_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
+        char = getattr(args, "current_char", None)
+        if char:
+            cid = character_id(char)
+            props.append((nc.field(pawn_cls, "EntityIDLowInt").index, cache["max"],
+                          lambda w, v=cid & 0xFFFFFFFF: w.bits(v, 32)))
+            props.append((nc.field(pawn_cls, "EntityIDHighInt").index, cache["max"],
+                          lambda w, v=cid >> 32: w.bits(v, 32)))
         # Pawn subclasses carry three extra fields (FUN_00962350); these are the
         # client's own defaults (0xff, -1, 1.0f).
         b = ue.actor_open_bunch(PAWN_CHANNEL, pm.object_index(args.pawn_class), pm.max_object_index,
@@ -626,8 +655,11 @@ def handle_message(sock, server, addr, state, payload, args):
             # (seen: 01 00 ff ff 01 00 ff ff 00 00 00 00). Reply: connect to zone.
             name = data[:128].decode("utf-16-le", "replace").split("\0")[0]
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
-            char = next((c for c in load_characters() if c["first"] == name), {})
+            char = next((c for c in load_characters() if c["first"] == name), {"first": name})
+            args.current_char = char
             args.current_level = args.zone_level or chunk_name(*character_chunk(char))
+            send_message(sock, addr, state, build_set_name_id(char))
+            print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x})")
             msg = build_zone_connect_event(args.world_address, args.zone_port, args.current_level)
             n = send_message(sock, addr, state, msg)
             print(f"  <- sent WORLD event 8 (connect to zone {args.world_address}:{args.zone_port}) ({n} packets)")
