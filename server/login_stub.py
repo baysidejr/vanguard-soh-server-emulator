@@ -552,6 +552,11 @@ def dev_command(text):
         print(f"  <- dev: system text channel {words[1]}")
         return [zone.zone_event(0x192, (text + chr(0)).encode("utf-16-le")
                                 + struct.pack("<i", int(words[1], 0)))]
+    if words[0] == "exec" and len(words) >= 2:
+        # !exec <console command>: zone event 0x598 (wstr) runs it on the client
+        command = " ".join(words[1:])
+        print(f"  <- dev: client exec {command!r}")
+        return [zone.zone_event(0x598, (command + chr(0)).encode("utf-16-le"))]
     if words[0] == "item":
         # !item [probe] [N=value ...]: zone event 0x197 (add an item to the inventory)
         probe = "probe" in words[1:]

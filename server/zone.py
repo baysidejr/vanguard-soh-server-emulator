@@ -84,6 +84,9 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
+        for m in hud_messages():
+            send(m)
+        print("  <- ZONE events 0x598 (show hotbar, compass, menu bar)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
         if args.test_npc:
@@ -239,6 +242,17 @@ def ability_messages(player):
             for slot, (_, ability_id, *_rest) in enumerate(player.abilities[:12])]
     out.append(zone_event(0x54E, vgmsg.hotkey_list(keys)))
     return out
+
+
+# In-game system windows the client leaves hidden after character select; they
+# are shown with the client's own console command (zone event 0x598 = wstr command,
+# run via FUN_00b75140). "toggle" flips visibility, so send once per session.
+HUD_WINDOWS = ["Hotkeys", "Compass", "Window Controller", "Containers", "Lag Meter"]
+
+
+def hud_messages():
+    return [zone_event(0x598, (f'SGOUI toggle "{name}"' + chr(0)).encode("utf-16-le"))
+            for name in HUD_WINDOWS]
 
 
 def inventory_messages(player):
