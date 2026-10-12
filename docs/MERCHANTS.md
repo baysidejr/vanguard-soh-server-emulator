@@ -145,3 +145,21 @@ Escrow / repair (not needed for a basic vendor) [O]:
 5. 0xe9 {handle}: send 0x1d9 {handle}, 0x197, 0x1aa.
 6. 0xea {handle}: send 0x289 {handle, f32 sell value}.
 7. 0xe6 / 0xf4: send 0x284 {u8 3}. Server-side close (out of range): send 0x284 {u8 1}.
+
+## Repair (verified live 2026-10-12)
+
+A merchant with `"repair": true` in mobs.json (Orin) also offers "I need to repair my gear." (`0x2ba`, option type 0x10).
+
+1. Clicking the option sends client `0xf1`. The server answers with `0x55f` (closes the dialogue), `0x29d` (clear), `0x297` (opens the Repair Merchant window), one `0x29f {i32 handle, f32 cost copper}` per damaged item, and `0x29e` (publish the list).
+2. Repair one item: client `0xf2 {i32 handle}`. Repair all: client `0xf3`.
+3. For each repaired item the server:
+   - sets durability to 100;
+   - resends the item record (`0x197` with field 106 = 100; an equipped item also gets `0x1a7` to put it back on the paper doll);
+   - sends `0x2a0 {handle}`, which removes its row;
+   - prints "<item> has been repaired."
+4. It then sends `0x1aa` with the new coin total.
+5. If the player can't afford it, the server sends `0x0e` with 0xfb (or 0xff for repair all).
+
+Durability is item field 106 and is saved per character (`durability`). Each death takes 10 points from every equipped item that isn't a misc item and prints "Your equipment has been damaged.". The new value shows after a repair or the next login. The dev command `!wear [points]` damages equipped gear for testing. The price is a placeholder: 2 copper per missing point per item level.
+
+A smaller in-place update exists: `0x1dc` MsgInvItemBaseDataUpdate overwrites many item fields at once. It is not used yet.

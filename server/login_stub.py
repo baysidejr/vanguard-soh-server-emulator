@@ -408,9 +408,21 @@ def player_death(state, args, player):
     """The player's pawn falls (m_bIsDead + death animation) and the release
     popup opens."""
     print(f"  <- {player.name} died")
-    return [zone.player_pawn_update(state, args, {"Health": 0, "m_bIsDead": 1}),
-            combat.play_animation(player.char_id, combat.ANIM_DEATH),
-            combat.death_popup(300)]
+    out = [zone.player_pawn_update(state, args, {"Health": 0, "m_bIsDead": 1}),
+           combat.play_animation(player.char_id, combat.ANIM_DEATH),
+           combat.death_popup(300)]
+    # Death wears equipped gear (shown on the next login or after a repair).
+    dur = getattr(player, "durability", None)
+    if dur is not None and player.equipment:
+        for item_id, name, _icon, _slot in player.equipment:
+            if args.content.item(name).get("type", "misc") != "misc":
+                dur[str(item_id)] = max(0, dur.get(str(item_id), 100) - DEATH_WEAR)
+        save_character_field(player.name, "durability", dur)
+        out.append(build_system_text("Your equipment has been damaged.", SYSTEM_TEXT_ERROR))
+    return out
+
+
+DEATH_WEAR = 10
 
 
 CAMP_SECONDS = 20
@@ -863,6 +875,8 @@ def npc_dialog(state, npc):
         out.append(quest.options(npc.entity_id, opts))
     if npc.merchant:
         out.append(zone.zone_event(merchant.DIALOG_WARES))
+    if npc.repairs:
+        out.append(zone.zone_event(merchant.DIALOG_REPAIR))
     if npc.trainer:
         out.append(zone.zone_event(trainer.OPTION))
     if npc.banker:
@@ -1194,6 +1208,63 @@ def handle_parley_event(state, event, data):
         state.pop("parley", None)
         for m in diplomacy.ended() if event == diplomacy.CANCEL else [diplomacy.close()]:
             send(m)
+
+
+def damaged_items(player):
+    """[(handle, name, durability, equipped?)] for items below 100%."""
+    dur = getattr(player, "durability", {})
+    out = [(i[0], i[1], dur[str(i[0])], False) for i in player.items if dur.get(str(i[0]), 100) < 100]
+    out += [(e[0], e[1], dur[str(e[0])], True) for e in player.equipment if dur.get(str(e[0]), 100) < 100]
+    return out
+
+
+def handle_repair_event(state, event, data):
+    """Repair at a merchant with "repair": true: list damaged items, fix them for coin."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE repair event {event:#x}: {data.hex(' ')}")
+    npc = player.npcs.get(player.target) if player.target else None
+    if npc is None or not npc.repairs:
+        send(zone.zone_event(merchant.WINDOW_CLOSE, struct.pack("<B", 2)))
+        return
+    damaged = damaged_items(player)
+
+    def cost(name, d):
+        return merchant.repair_cost(ARGS.content.item(name).get("level", 1), d)
+    if event == merchant.REQ_REPAIR_OPEN:
+        send(zone.zone_event(0x55F))          # the repair window replaces the dialogue
+        for m in merchant.repair_window([(h, cost(n, d)) for h, n, d, _ in damaged]):
+            send(m)
+        return
+    if event == merchant.REQ_REPAIR:
+        handle = struct.unpack_from("<i", data, 0)[0]
+        todo = [x for x in damaged if x[0] == handle]
+    else:
+        todo = damaged
+    for handle, name, d, equipped in todo:
+        price = cost(name, d)
+        if player.coins < price:
+            send(merchant.error(merchant.ERR_REPAIR_ALL if event == merchant.REQ_REPAIR_ALL
+                                else merchant.ERR_CANT_AFFORD))
+            break
+        player.coins -= price
+        player.durability[str(handle)] = 100
+        # Resend the item with full durability (bag items in place; equipped items
+        # are recreated and put back on the paper doll).
+        if equipped:
+            n = next(k for k, e in enumerate(player.equipment) if e[0] == handle)
+            item_id, name, icon, slot = player.equipment[n]
+            send(zone.zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, zone.item_icon(name, icon),
+                                                             **zone.item_equip_fields(name))))
+            send(zone.zone_event(0x1A7, struct.pack("<iBB", item_id, 0, slot)))
+        else:
+            it = next(i for i in player.items if i[0] == handle)
+            send(zone.zone_event(0x197, vgmsg.inventory_item(it[0], it[1], it[4], zone.item_icon(it[1], it[2]),
+                                                             it[3], **zone.item_equip_fields(it[1]))))
+        send(merchant.repaired(handle))
+        send(build_system_text(f"{name} has been repaired.", SYSTEM_TEXT_WHITE))
+    send(merchant.coins(player.coins))
+    save_character_field(player.name, "coins", player.coins)
+    save_character_field(player.name, "durability", player.durability)
 
 
 def bank_record(item_id, name, icon, qty, slot):
@@ -1848,6 +1919,13 @@ def dev_command(text, player=None):
         qty = int(words[-1]) if words[-1].isdigit() and len(words) > 2 else 1
         name = " ".join(words[1:-1] if qty > 1 or words[-1] == "1" else words[1:])
         return [("give", name, qty)]
+    if words[0] == "wear" and player:
+        # !wear [points]: damage equipped gear (testing repairs).
+        pts = int(words[1]) if len(words) > 1 else 25
+        for item_id, _name, _icon, _slot in player.equipment:
+            player.durability[str(item_id)] = max(0, player.durability.get(str(item_id), 100) - pts)
+        save_character_field(player.name, "durability", player.durability)
+        return [build_system_text(f"Equipment worn by {pts}.", SYSTEM_TEXT_WHITE)]
     if words[0] in ("bankput", "bankget") and len(words) >= 2 and player:
         # !bankput <bag slot> / !bankget <bank slot> [coins]: the client's 0x14d / 0x14f
         # (or 0x93 / 0x94 with "coins <copper>"), for testing without dragging.
@@ -2047,6 +2125,7 @@ def handle_message(sock, server, addr, state, payload, args):
             if "coins" in char:
                 player.coins = char["coins"]
             player.bank = zone.normalize_items(char.get("bank", []))
+            player.durability = dict(char.get("durability", {}))
             player.bank_coins = char.get("bank_coins", 0)
             if "equipment" in char:
                 player.equipment = [tuple(e) for e in char["equipment"]]
@@ -2216,6 +2295,10 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
                     quest_items_changed(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
+                merchant.REQ_REPAIR_OPEN, merchant.REQ_REPAIR, merchant.REQ_REPAIR_ALL):
+            if state.get("player"):
+                handle_repair_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in bank.CLIENT_EVENTS:
             if state.get("player"):
                 handle_bank_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

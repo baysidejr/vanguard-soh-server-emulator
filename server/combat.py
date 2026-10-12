@@ -54,6 +54,7 @@ class Npc:
         self.station = False          # crafting station (mobs.json "station")
         self.trainer = False          # ability trainer (mobs.json "trainer")
         self.banker = False           # bank access (mobs.json "banker")
+        self.repairs = False          # repairs gear (mobs.json "repair")
         self.parley = False           # offers a diplomacy parley (mobs.json "parley")          # merchants.json list id (vendors can't be attacked)
         self.attack_visual = NPC_AUTO_ATTACK
         self.aggro_radius = 0.0       # attacks players that come this close (0 = only if hit)

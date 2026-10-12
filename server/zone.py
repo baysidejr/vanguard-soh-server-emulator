@@ -152,6 +152,7 @@ def populate_world(w, args):
         npc.station = bool(template.get("station"))
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))
+        npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
         npc.quests = [k for k, q in args.content.quests.items()
@@ -487,11 +488,11 @@ def item_icon(name, fallback):
     return ITEM_CONTENT.item(name).get("icon", fallback)
 
 
-def item_equip_fields(name):
+def item_equip_fields(name, durability=100):
     """inventory_item keyword arguments from content/items.json: equip slots and
     the tooltip/usability fields (see docs/INVENTORY.md, item field table)."""
     tpl = ITEM_CONTENT.item(name)
-    extra = {94: 1, 100: 255, 106: 100, 99: tpl.get("rarity", 1), 76: tpl.get("level", 1)}
+    extra = {94: 1, 100: 255, 106: durability, 99: tpl.get("rarity", 1), 76: tpl.get("level", 1)}
     # Field 74 = item type; 0 would be "Shield", 3 is a plain item.
     extra[74] = ITEM_TYPE_IDS[tpl.get("type", "misc")]
     if tpl.get("type", "misc") == "misc":
@@ -561,14 +562,15 @@ def inventory_messages(player):
     (FUN_00513170; field 0 = InventorySpaceAvailable), then one 0x197 per item,
     then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
     out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
+    dur = getattr(player, "durability", {})
     for item_id, name, icon, qty, slot in player.items:
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, item_icon(name, icon), qty,
-                                                          **item_equip_fields(name))))
+                                                          **item_equip_fields(name, dur.get(str(item_id), 100)))))
     # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
     # u8 lookup kind, u8 equip slot) moves them to the paper doll.
     for n, (item_id, name, icon, equip_slot) in enumerate(player.equipment):
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, item_icon(name, icon),
-                                                          **item_equip_fields(name))))
+                                                          **item_equip_fields(name, dur.get(str(item_id), 100)))))
         out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))
     out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
     return out

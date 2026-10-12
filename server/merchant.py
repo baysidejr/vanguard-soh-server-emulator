@@ -8,12 +8,19 @@ Flow (docs/MERCHANTS.md; from the client's dispatchers FUN_004c9170 / FUN_005472
   client 0xe7 {i32 handle, i32 qty} buy  -> 0x197 item into the bag, 0x1aa new coin total
   client 0xe8 {i32 handle, i32 qty} sell -> 0x1a5 {handle, 0} remove, 0x1aa coin total
   client 0xe6 / 0xf4 close               -> 0x284 {u8 3} (closes quietly)
-Errors: 0x0e {i16 code}: 0xfb can't afford, 0x100 no inventory space, 0x103 can't sell that."""
+Repair (docs/MERCHANTS.md): option 0x2ba (type 0x10) -> client 0xf1
+  -> 0x297 repair window, 0x29f {i32 handle, f32 cost} per damaged item, 0x29e publish
+  client 0xf2 {i32 handle} repair one, 0xf3 repair all -> 0x1aa coins, item resent, 0x2a0 {handle}
+Errors: 0x0e {i16 code}: 0xfb can't afford, 0x100 no inventory space, 0x103 can't sell that,
+0xff couldn't afford to repair everything."""
 import struct
 
 DIALOG_OPEN, DIALOG_WARES = 0x2BB, 0x2B5
 WINDOW_CLEAR, WINDOW_OPEN, WINDOW_ITEM, WINDOW_PUBLISH, WINDOW_CLOSE = 0x28B, 0x283, 0x285, 0x28C, 0x284
 REQ_OPEN, REQ_BUY, REQ_SELL, REQ_CLOSE, REQ_CLOSE2 = 0xE5, 0xE7, 0xE8, 0xE6, 0xF4
+REQ_REPAIR_OPEN, REQ_REPAIR, REQ_REPAIR_ALL = 0xF1, 0xF2, 0xF3
+DIALOG_REPAIR = 0x2BA
+ERR_REPAIR_ALL = 0xFF
 COINS_CHANGED = 0x1AA          # i64 total copper, with a "You receive/lose" chat line
 ITEM_REMOVED = 0x1A5           # {i32 handle, bool8}
 MERCHANT_ERROR = 0x0E          # {i16 code}
@@ -101,3 +108,19 @@ def sell(content, npc, player, handle):
     player.items.remove(item)
     player.coins += value
     return [_event(ITEM_REMOVED, struct.pack("<iB", handle, 0)), coins(player.coins)]
+
+
+def repair_window(entries):
+    """entries: [(handle, cost copper)] for the damaged items."""
+    return ([_event(0x29D), _event(0x297)]
+            + [_event(0x29F, struct.pack("<if", h, float(c))) for h, c in entries] + [_event(0x29E)])
+
+
+def repaired(handle):
+    return _event(0x2A0, struct.pack("<i", handle))
+
+
+def repair_cost(level, durability):
+    """Placeholder price: 2 copper per missing point per item level."""
+    return max(1, (100 - durability) * 2 * max(1, level))
+
