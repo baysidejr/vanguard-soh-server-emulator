@@ -698,10 +698,21 @@ def equip_item(player, handle):
         blocked.add(vgmsg.EQUIP_SLOTS["TWOHANDS"])
     msgs = []
     displaced = [e for e in player.equipment if e[3] in blocked]
-    # The first displaced piece takes the new item's bag slot; the rest need free ones.
-    if len(player.items) - 1 + len(displaced) > BAG_SLOTS:
+    split = item[3] > 1
+    # Equipping from a stack keeps the rest in the bag, so every displaced piece
+    # needs a free slot; otherwise the first one takes the equipped item's slot.
+    if len(player.items) - (0 if split else 1) + len(displaced) > BAG_SLOTS:
         return "Your bags are full."
-    player.items.remove(item)
+    if split:
+        # 0x1ae {handle, count} shrinks the stack; the equipped one is a new item.
+        player.items[player.items.index(item)] = item[:3] + (item[3] - 1, item[4])
+        msgs.append(zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - 1)))
+        item = (new_item_id(player), item[1], item[2], 1, None)
+        msgs.append(zone_event(0x197, vgmsg.inventory_item(
+            item[0], item[1], -1, item_icon(item[1], item[2]), 1, equip_slot=slot,
+            **item_equip_fields(item[1]))))
+    else:
+        player.items.remove(item)
     bag_slot = item[4]
     for old in displaced:
         # The old piece takes the bag slot the new one leaves (then any free slot).

@@ -95,6 +95,8 @@ def validate(directory=CONTENT_DIR):
     for qid, q in c.quests.items():
         if q.get("giver") not in c.mobs:
             problems.append(f"quest {qid}: unknown giver {q.get('giver')}")
+        if not q.get("kill"):
+            problems.append(f"quest {qid}: needs a kill objective (the only kind supported)")
         for mob in q.get("kill", {}):
             if mob not in c.mobs:
                 problems.append(f"quest {qid}: unknown kill target {mob}")
