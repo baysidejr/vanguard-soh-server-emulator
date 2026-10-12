@@ -260,7 +260,10 @@ def log_client_rpc(state, b, args, player):
             now = time.time()
             # Ignore positions at the world origin: the client reports one when the
             # pawn's location was never set (e.g. wrong net role).
-            plausible = abs(loc[0]) > 2 or abs(loc[1]) > 2
+            # Also ignore positions outside this chunk (crossing into a neighbour is
+            # not handled yet; see docs/PROTOCOL.md "Chunk travel").
+            plausible = ((abs(loc[0]) > 2 or abs(loc[1]) > 2)
+                         and abs(loc[0]) <= CHUNK_HALF and abs(loc[1]) <= CHUNK_HALF)
             if save and plausible and now - state.get("position_saved", 0) > 2.0:
                 save(loc)
                 state["position_saved"] = now
@@ -270,6 +273,7 @@ def log_client_rpc(state, b, args, player):
         state["use_requested"] = True
 
 
+CHUNK_HALF = 102400.0          # chunks are 204800 units wide, centred on 0
 MOVE_BROADCAST_SECONDS = 0.1
 MAX_BROADCAST_SPEED = 1200.0    # units/s; running is ~440
 
