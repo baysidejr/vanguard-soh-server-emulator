@@ -13,8 +13,7 @@ import struct
 import time
 
 import ue2net
-from packagemap import PackageMap
-from netcache import NetCache
+import zone
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
 #   00 01 | u32be protocol(3) | u32be connectCode | u32be maxRawPacketSize | cstring
@@ -492,126 +491,6 @@ def build_zone_connect_event(host, port, name):
     return event_message(8, data)
 
 
-def unreal_message(packet):
-    # Zone message type 1 carries one UE2 packet: u16le 1, u32le length, bytes.
-    return struct.pack("<HI", 1, len(packet)) + packet
-
-
-def handle_unreal(sock, addr, state, payload, args):
-    """Zone type 1: a UE2 UNetConnection packet (see ue2net.py)."""
-    (length,) = struct.unpack_from("<I", payload, 2)
-    packet = payload[6:6 + length]
-    ue = state.setdefault("ue", ue2net.UnrealSession())
-    try:
-        packet_id, acks, bunches = ue.receive(packet)
-    except ValueError as e:
-        print(f"  >>> UNREAL undecodable packet ({e}): {packet.hex(' ')}")
-        return
-    replies = []
-    for b in bunches:
-        if b.channel == 0 and b.ch_type == ue2net.CHTYPE_CONTROL:
-            for text in ue2net.read_fstrings(b.data):
-                print(f"  >>> UNREAL control <- {text!r}")
-                replies.extend(unreal_control_reply(text, args))
-        else:
-            print(f"  >>> UNREAL bunch {b!r} data={b.data[:32].hex(' ')}")
-    out = []
-    for t in replies:
-        if t == "<SPAWN>":
-            out.extend(spawn_bunches(ue, args))
-            continue
-        out.append(ue.control_bunch(t))
-        print(f"  <- UNREAL control -> {t!r}")
-    # One packet per bunch keeps every packet well under the 512-byte bunch limit.
-    if not out:
-        send_message(sock, addr, state, unreal_message(ue.build()))
-    for b in out:
-        send_message(sock, addr, state, unreal_message(ue.build([b])))
-
-
-def package_map(args, level):
-    """PackageMap + NetCache for a level, built once (chunk files are large)."""
-    if level not in args.package_maps:
-        pm = PackageMap(args.client_dir, level)
-        pm.net_cache = NetCache([(n, p) for n, p, _ in pm.packages])
-        args.package_maps[level] = pm
-    return args.package_maps[level]
-
-
-PC_CHANNEL = 1
-PAWN_CHANNEL = 2
-
-
-def spawn_location(args, pm):
-    if args.spawn_location:
-        return tuple(float(v) for v in args.spawn_location.split(","))
-    starts = [s for s in pm.packages[0][1].player_starts() if s]
-    return starts[0] if starts else (0.0, 0.0, 0.0)
-
-
-def spawn_bunches(ue, args):
-    """Spawn the player's pawn and PlayerController on actor channels.
-
-    Vanguard replicates Actor.bNetOwner; an owned PlayerController makes the
-    client run UNetConnection::HandleClientPlayer and take it as the local
-    player. Controller.Pawn points at the pawn's channel."""
-    pm = package_map(args, args.current_level)
-    nc = pm.net_cache
-    location = spawn_location(args, pm)
-    print(f"  spawn location {location}")
-    rotation = (0, 0, 0) if args.spawn_rotation else None
-    out = []
-
-    pawn_cls = args.pawn_class.split(".", 1)[1] if args.pawn_class else None
-    if pawn_cls:
-        cache = nc.class_cache(pawn_cls)
-        props = [(nc.field(pawn_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
-        char = getattr(args, "current_char", None)
-        if char:
-            cid = character_id(char)
-            props.append((nc.field(pawn_cls, "EntityIDLowInt").index, cache["max"],
-                          lambda w, v=cid & 0xFFFFFFFF: w.bits(v, 32)))
-            props.append((nc.field(pawn_cls, "EntityIDHighInt").index, cache["max"],
-                          lambda w, v=cid >> 32: w.bits(v, 32)))
-        # Pawn subclasses carry three extra fields (FUN_00962350); these are the
-        # client's own defaults (0xff, -1, 1.0f).
-        b = ue.actor_open_bunch(PAWN_CHANNEL, pm.object_index(args.pawn_class), pm.max_object_index,
-                                location=location, rotation=rotation,
-                                extra=(0xFF, -1, 0x3F800000), properties=props)
-        print(f"  <- UNREAL actor open ch={PAWN_CHANNEL} {args.pawn_class} {b.nbits} bits: {b.data.hex(' ')}")
-        out.append(b)
-
-    pc_cls = args.spawn_class.split(".", 1)[1]
-    cache = nc.class_cache(pc_cls)
-    props = [(nc.field(pc_cls, "bNetOwner").index, cache["max"], lambda w: w.bit(1))]
-    if pawn_cls:
-        def pawn_ref(w):
-            w.bit(1)                                   # actor, by channel
-            w.serialize_int(PAWN_CHANNEL, ue2net.MAX_CHANNELS)
-        props.append((nc.field(pc_cls, "Pawn").index, cache["max"], pawn_ref))
-    b = ue.actor_open_bunch(PC_CHANNEL, pm.object_index(args.spawn_class), pm.max_object_index,
-                            location=location, rotation=rotation, properties=props)
-    print(f"  <- UNREAL actor open ch={PC_CHANNEL} {args.spawn_class} {b.nbits} bits: {b.data.hex(' ')}")
-    out.append(b)
-    return out
-
-
-def unreal_control_reply(text, args):
-    """Server side of the UE2 login handshake (UWorld::NotifyReceivedText):
-    HELLO -> CHALLENGE, LOGIN -> WELCOME. The client then loads the level and
-    sends JOIN."""
-    word = text.split(" ", 1)[0]
-    if word == "HELLO":
-        return ["CHALLENGE VER=3186 CHALLENGE=12345 STATS=0"]
-    if word == "LOGIN":
-        # USES lines fill the client's package map before WELCOME (FUN_009677e0).
-        level = args.current_level
-        return package_map(args, level).uses_lines() + [f"WELCOME LEVEL={level} LONE=0"]
-    if word == "JOIN" and args.spawn_class:
-        return ["<SPAWN>"]
-    return []
-
-
 def send_character_list(sock, addr, state):
     chars = [c for c in load_characters() if c["world"] == WORLD_NAME]
     for char in chars:
@@ -656,7 +535,7 @@ def handle_message(sock, server, addr, state, payload, args):
             name = data[:128].decode("utf-16-le", "replace").split("\0")[0]
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
             char = next((c for c in load_characters() if c["first"] == name), {"first": name})
-            args.current_char = char
+            args.current_char_id = character_id(char)
             args.current_level = args.zone_level or chunk_name(*character_chunk(char))
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x})")
@@ -672,7 +551,7 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:
-            handle_unreal(sock, addr, state, payload, args)
+            zone.handle_unreal(lambda m: send_message(sock, addr, state, m), state, payload, args)
         elif msg_type == 9:
             # Ping: u16 9 + 64-bit client timestamp. The client's type-9 handler
             # (FUN_006edcd0) computes latency as now - timestamp, so echo it back.
