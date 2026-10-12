@@ -11,6 +11,7 @@ import time
 import rpc
 import vgmsg
 import combat
+import content
 import ue2net
 from netcache import NetCache
 from packagemap import PackageMap
@@ -88,16 +89,26 @@ def handle_unreal(send, state, payload, args):
         print("  <- ZONE events 0x598 (show hotbar, compass, menu bar)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
-        if args.test_npc:
-            pm = package_map(args, player.level)
-            for n, (cls_path, name, race, off) in enumerate(TEST_NPCS):
-                loc = tuple(a + b for a, b in zip(player.spawned_at, off))
-                eid = getattr(args, "npc_entity_id", None) or (0x2000000 + n)
-                b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, eid)
-                player.npcs[eid] = combat.Npc(eid, name, FIRST_NPC_CHANNEL + n, cls_path,
-                                             location=loc)
-                print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
-                send(unreal_message(ue.build([b])))
+        # World NPCs from content/spawns/<chunk>.json (content.py), after the
+        # world-loaded event: the client only builds a pawn's mesh once that flag is set.
+        pm = package_map(args, player.level)
+        for n, (spawn, template) in enumerate(args.content.spawns(player.level, args.client_dir)):
+            channel = FIRST_NPC_CHANNEL + n
+            eid = 0x2000000 + n
+            loc = (float(spawn["x"]), float(spawn["y"]), float(spawn["z"]))
+            yaw = int(spawn.get("yaw", 0))
+            cls_path = f"{content.PAWN_PACKAGE}.{template['pawn_class']}"
+            b = npc_bunch(ue, pm, channel, cls_path, template["name"], template["race"], loc, eid,
+                          gear=template.get("gear", []), facing=(0, yaw, 0))
+            npc = combat.Npc(eid, template["name"], channel, cls_path,
+                             max_health=template["health"], location=loc)
+            npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
+            npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
+            npc.loot_table = template.get("loot")
+            npc.roll_loot = args.content.roll_loot
+            player.npcs[eid] = npc
+            print(f"  <- UNREAL actor open ch={channel} {template['name']!r} ({spawn['mob']}) at {loc}")
+            send(unreal_message(ue.build([b])))
 
 
 XP_PER_LEVEL = 1000
@@ -371,18 +382,8 @@ PC_CHANNEL = 1
 PAWN_CHANNEL = 2
 FIRST_NPC_CHANNEL = 3
 
-# Test pawn for --test-npc: (class, name, race, offset from the player's spawn
-# point).
-TEST_NPCS = [
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (260.0, 160.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (260.0, -160.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x0E, (320.0, 60.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x02, (120.0, -40.0, 0.0)),
-]
-NPC_FACING = (0, 32768, 0)   # Rotation (pitch, yaw, roll); yaw 32768 = half a turn
-
-
-def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
+def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id, gear=(),
+              facing=(0, 0, 0)):
     """Open an actor channel for a non-player pawn (same layout as the player's
     pawn, without bNetOwner)."""
     cls = cls_path.split(".", 1)[1]
@@ -396,9 +397,9 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
         "m_iModelNum": -1,          # the race's default model (FUN_00bcb8e0)
         "m_Customization": [0x32] * 64,   # appearance sliders (pawn +0xaa8)
         "m_PlayerDisplayName": name,
-        "Rotation": NPC_FACING,
-        "PawnPosition": (location, NPC_FACING, (0.0, 0.0, 0.0)),
-        "m_AttachmentGroups": NPC_GEAR,
+        "Rotation": facing,
+        "PawnPosition": (location, facing, (0.0, 0.0, 0.0)),
+        "m_AttachmentGroups": [tuple(g) for g in gear],
         "EntityIDLowInt": entity_id & 0xFFFFFFFF,
         "EntityIDHighInt": entity_id >> 32,
     })
@@ -421,9 +422,6 @@ CLASS_WEAPON_GEAR = {
     0x13: [(33, 1, 28), (23, 1, 42)],         # Ranger: sword and bow
     0x15: [(26, 1000, 28)],                   # Rogue: dagger
 }
-
-
-NPC_GEAR = [(9, 111001, 6), (16, 111001, 32), (12, 111001, 26), (33, 1000, 28), (34, 1000, 29)]
 
 
 def gear_attachments(player):

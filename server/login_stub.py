@@ -17,6 +17,7 @@ import ue2net
 import vgmsg
 import class_abilities
 import combat
+import content
 import zone
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
@@ -215,7 +216,7 @@ def main():
     parser.add_argument("--dev-commands", action="store_true",
                         help="enable !stat / !event chat commands (see dev_command)")
     parser.add_argument("--test-npc", action="store_true",
-                        help="also spawn a test pawn next to the player (does not render yet)")
+                        help="no longer needed: NPCs always come from content/spawns/<chunk>.json")
     parser.add_argument("--spawn-rotation", action="store_true",
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
@@ -223,6 +224,7 @@ def main():
     args.default_player = lambda: zone.Player(name="Someone",
                                               level=args.zone_level or chunk_name(*DEFAULT_CHUNK))
     args.package_maps = {}
+    args.content = content.Content()
     args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

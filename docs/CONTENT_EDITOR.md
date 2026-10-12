@@ -4,6 +4,8 @@ Vanguard's world content lived in SOE's database, not in the client. This file t
 
 Status: the editor is planned for the end of the project. Until then, the server is built data-driven so the editor can write the same files.
 
+Content already loaded from JSON (`server/content.py`; run `python content.py` to validate): `content/mobs.json`, `content/loot.json` and `content/spawns/<chunk>.json`. A spawn's z is optional and comes from the terrain heightmap.
+
 ## What the client provides
 
 Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
@@ -21,10 +23,10 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 | Data | What it needs | Current placeholder in the server |
 | --- | --- | --- |
-| Mob spawns | chunk, position, facing, mob template, respawn time, spawn groups and camps | four test "Guides" in `zone.TEST_NPCS` |
+| Mob spawns | chunk, position, facing, mob template, respawn time, spawn groups and camps | `server/content/spawns/<chunk>.json`: one placeholder camp in chunk_n19_12 |
 | Patrol and wander paths | waypoints per mob or group, wander radius, speed | NPCs only chase their attacker (`combat.chase_step`) |
-| Mob templates | name, race or creature model, level, health, damage, abilities, gear (`m_AttachmentGroups`), faction, con color | fixed 100 HP, 3–9 damage, shared robe outfit (`zone.NPC_GEAR`) |
-| Loot tables | items, chances, quantities, coin per mob template | three fixed items (`combat.LOOT_TABLE`) |
+| Mob templates | name, race or creature model, level, health, damage, abilities, gear (`m_AttachmentGroups`), faction, con color | `server/content/mobs.json`: 4 placeholder templates (no abilities, faction or creature models yet) |
+| Loot tables | items, chances, quantities, coin per mob template | `server/content/loot.json`: one placeholder table |
 | Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
 | Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
 | Encounters | boss phases, triggers, adds, scripted events | none |

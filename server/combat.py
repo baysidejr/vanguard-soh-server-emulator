@@ -35,6 +35,10 @@ class Npc:
         self.aggro = False            # chasing the player
         self.moving = False
         self.next_attack = 0.0
+        self.damage = NPC_DAMAGE
+        self.respawn = 60             # seconds after death
+        self.loot_table = None        # content/loot.json table id
+        self.roll_loot = None         # content.Content.roll_loot
 
     @property
     def alive(self):
@@ -206,7 +210,7 @@ def npc_attacks(player, npc, rng=random):
     if player.health <= 0:
         return []
     npc.aggro = True
-    dmg = rng.randint(*NPC_DAMAGE)
+    dmg = rng.randint(*npc.damage)
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, NPC_AUTO_ATTACK))
     player.health = max(player.health - dmg, 0)
     lines = [(f"{npc.name} hits YOU for {dmg} damage.", "error")]
@@ -265,7 +269,7 @@ def tick(player, now):
         player.health = min(player.health + REGEN_PER_SECOND, player.stats["hit_points"])
         out.append(("health",))
     for npc in player.npcs.values():
-        if npc.died_at and now - npc.died_at >= RESPAWN_SECONDS:
+        if npc.died_at and now - npc.died_at >= npc.respawn:
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.moving, npc.location, npc.loot = False, False, npc.home, None
             out.append(("respawn", npc))
@@ -296,7 +300,11 @@ def loot_messages(npc):
     then 0x1ef, which builds the rows (docs/LOOT.md)."""
     import vgmsg
     if npc.loot is None:
-        npc.loot = list(LOOT_TABLE)
+        if npc.roll_loot and npc.loot_table:
+            npc.loot = [(5001 + n, name, icon, qty)
+                        for n, (name, icon, qty) in enumerate(npc.roll_loot(npc.loot_table))]
+        else:
+            npc.loot = list(LOOT_TABLE)
     out = [_event(LOOT_END_EVENT), _event(LOOT_OPEN_EVENT, struct.pack("<QB", npc.entity_id, 1))]
     for slot, (item_id, name, icon, qty) in enumerate(npc.loot):
         out.append(_event(LOOT_ITEM_EVENT, vgmsg.inventory_item(item_id, name, slot, icon=icon,
