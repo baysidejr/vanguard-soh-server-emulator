@@ -41,6 +41,13 @@ def handle_unreal(send, state, payload, args):
                 replies.extend(unreal_control_reply(text, args, player))
         elif b.channel == PC_CHANNEL and not b.open:
             log_client_rpc(state, b, args, player)
+            if state.pop("use_requested", False):
+                # "Use" (U key) on a dead target opens its loot window.
+                npc = player.npcs.get(player.target) if player.target else None
+                if npc and not npc.alive:
+                    for m in combat.loot_messages(npc):
+                        send(m)
+                    print(f"  <- ZONE loot window for {npc.name}")
         else:
             print(f"  >>> UNREAL bunch {b!r} data={b.data[:32].hex(' ')}")
     out = []
@@ -176,6 +183,8 @@ def log_client_rpc(state, b, args, player):
                 state["position_saved"] = now
         return
     print(f"  >>> UNREAL RPC {name} {params}")
+    if name == "ServerUse":
+        state["use_requested"] = True
 
 
 def package_map(args, level):

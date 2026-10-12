@@ -239,7 +239,7 @@ def chase_step(npc, target, dt):
             "Velocity": (dx / dist * NPC_SPEED, dy / dist * NPC_SPEED, 0.0)}
 
 
-RESPAWN_SECONDS = 30
+RESPAWN_SECONDS = 60
 REGEN_DELAY = 6          # seconds out of combat before health comes back
 REGEN_PER_SECOND = 10
 
@@ -265,4 +265,25 @@ def tick(player, now):
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.moving, npc.location = False, False, npc.home
             out.append(("respawn", npc))
+    return out
+
+
+LOOT_OPEN_EVENT = 0x1E8      # MsgEntityIDAndBool (FUN_00520be0): "LootFrom"
+LOOT_ITEM_EVENT = 0x1F2      # MsgSingleItemInfo (FUN_005230c0)
+LOOT_CLEAR_EVENT = 0x1F8     # no payload: FUN_0051fd60 clears the list (FUN_0050ef30)
+
+# Placeholder loot: (item id, name, icon, quantity).
+LOOT_TABLE = [(5001, "Tattered Cloth", 442, 2), (5002, "Rough Stone", 443, 1),
+              (5003, "Copper Ring", 472, 1)]
+
+
+def loot_messages(npc):
+    import vgmsg
+    """Items first (0x1f2 adds each to the loot list, FUN_0045dd40), then 0x1e8
+    opens the window from that list."""
+    out = [struct.pack("<HII", 2, LOOT_CLEAR_EVENT, 0)]
+    for slot, (item_id, name, icon, qty) in enumerate(LOOT_TABLE):
+        data = vgmsg.inventory_item(item_id, name, slot, icon=icon, quantity=qty)
+        out.append(struct.pack("<HII", 2, LOOT_ITEM_EVENT, len(data)) + data)
+    out.append(struct.pack("<HIIQB", 2, LOOT_OPEN_EVENT, 9, npc.entity_id, 1))
     return out

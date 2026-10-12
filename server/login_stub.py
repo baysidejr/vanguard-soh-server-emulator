@@ -289,6 +289,7 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     if npc:
         out.append(combat.target_health(npc))
         if not npc.alive:
+            print(f"  <- {npc.name} died")
             out += [zone.npc_update(state, args, npc, {"Health": 0, "m_bIsDead": 1}),
                     combat.play_animation(npc, combat.ANIM_DEATH)]
     for amount in player.pending_rewards:
@@ -335,7 +336,9 @@ def world_tick(zone_sock, clients, args):
                 npc = action[1]
                 print(f"  <- respawn {npc.name}")
                 send_message(zone_sock, addr, state,
-                             zone.npc_update(state, args, npc, {"Health": npc.max_health, "m_bIsDead": 0}))
+                             zone.npc_update(state, args, npc, {"Health": npc.max_health, "m_bIsDead": 0,
+                                                                "Location": npc.home,
+                                                                "Velocity": (0.0, 0.0, 0.0)}))
                 if player.target == npc.entity_id:
                     send_message(zone_sock, addr, state, combat.target_health(npc))
 
