@@ -68,13 +68,40 @@ def death_popup(seconds, show=True):
     return struct.pack("<HIIiB", 2, DEATH_POPUP_EVENT, 5, seconds, int(show))
 
 
+DISPLAY_EVENT = 0x3D1        # MsgDisplayAbility (FUN_00439510): play an ability's visuals
+PHASE_MISS, PHASE_HIT, PHASE_CRIT, PHASE_BLOCK, PHASE_DODGE, PHASE_PARRY = 0, 2, 3, 4, 5, 6
+NPC_AUTO_ATTACK = 9          # MELEE_ABILITIES_9 GENERIC_NPC_AUTO_ATTACK
+NO_ENTITY = 0xFFFFFFFFFFFFFFFF
+_display_ids = iter(range(1, 1 << 31))
+
+
+def display_ability(caster, target, visual_id, phase=PHASE_HIT, instance=None):
+    """0x3d1 (57 bytes): the client looks visual_id up as an Ability object in
+    Assets/Abilities (FUN_007f3640, e.g. 570001 -> WAR_ABILITIES_570001) and plays
+    the Actions of the record for this phase on the caster and the target.
+    caster/target are entity ids (target NO_ENTITY for none)."""
+    display = next(_display_ids)
+    data = struct.pack("<QQiiiiBBBBiiBBBBBfi", caster, target, visual_id, display,
+                       display if instance is None else instance, -1,
+                       0, 0, 0, 0, 0, 0, phase, 0, 0, 0, 0, 0.0, 0)
+    return struct.pack("<HII", 2, DISPLAY_EVENT, len(data)) + data
+
+
+# Visual (Assets/Abilities export number) for each ability id in the book.
+ABILITY_VISUALS = {1001: 570001,   # BRUTAL_STRIKE_I
+                   1002: 570022,   # SHIELD_BASH_I
+                   1003: 570043,   # LIFE_REND_I
+                   1004: 570015}   # SHOUT_FURY_I
+
+
 # Damage range per ability id (MsgAbilityInfo field 20); 0 = no damage (buffs, shouts).
 ABILITY_DAMAGE = {1001: (8, 14), 1002: (5, 9), 1003: (12, 20), 1004: (0, 0)}
 
 
 def use_ability(player, ability, rng=random):
     """ability = a DEFAULT_ABILITIES tuple. Returns [(text, colour kind)], where
-    kind is 'combat', 'error' or 'white', and the NPC that changed (or None)."""
+    kind is 'combat', 'error' or 'white', and the NPC that changed (or None).
+    Visual effects to send are appended to player.pending_displays."""
     name = ability[2]
     if player.health <= 0:
         return [("You can't do that while dead.", "error")], None
@@ -84,8 +111,13 @@ def use_ability(player, ability, rng=random):
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
     lo, hi = ABILITY_DAMAGE.get(ability[1], (6, 10))
+    visual = ABILITY_VISUALS.get(ability[1])
     if hi == 0:
+        if visual:
+            player.pending_displays.append(display_ability(player.char_id, NO_ENTITY, visual))
         return [(f"You use {name}.", "combat")], None
+    if visual:
+        player.pending_displays.append(display_ability(player.char_id, npc.entity_id, visual))
     dmg = rng.randint(lo, hi)
     npc.health = max(npc.health - dmg, 0)
     player.last_combat = time.time()
@@ -108,6 +140,7 @@ def npc_attacks(player, npc, rng=random):
     if player.health <= 0:
         return []
     dmg = rng.randint(*NPC_DAMAGE)
+    player.pending_displays.append(display_ability(npc.entity_id, player.char_id, NPC_AUTO_ATTACK))
     player.health = max(player.health - dmg, 0)
     lines = [(f"{npc.name} hits YOU for {dmg} damage.", "error")]
     if player.health == 0:

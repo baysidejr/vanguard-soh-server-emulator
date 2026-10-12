@@ -113,6 +113,13 @@ class NetField:
         if k == "StrProperty":
             raw = str(value).encode("latin-1", "replace") + bytes(1)
             return lambda w: w.bytes_(compact_index(len(raw)) + raw)
+        if k == "StructProperty" and isinstance(value, tuple) and len(value) == 3:
+            # UStructProperty::NetSerializeItem special-cases Rotator (per
+            # component a flag bit + top byte) and Vector (SerializeCompressed).
+            # The struct name isn't kept here, so go by the value: ints = rotator.
+            if all(isinstance(c, int) for c in value):
+                return lambda w: w.rotator(value)
+            return lambda w: w.vector(value)
         raise ValueError(f"{self.name}: {k} not supported")
 
 

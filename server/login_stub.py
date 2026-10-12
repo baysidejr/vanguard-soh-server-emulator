@@ -760,6 +760,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if ability:
                 was_alive = player.health > 0
                 lines, npc = combat.use_ability(player, ability)
+                for m in player.pending_displays:
+                    send_message(sock, addr, state, m)
+                player.pending_displays.clear()
                 colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR,
                            "white": SYSTEM_TEXT_WHITE}
                 for text, kind in lines:

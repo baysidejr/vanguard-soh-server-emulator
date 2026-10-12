@@ -326,6 +326,7 @@ class Player:
         self.target = None                # entity id from client event 0x5d
         self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
         self.last_combat = 0.0
+        self.pending_displays = []        # 0x3d1 messages queued by combat
 
 
 PC_CHANNEL = 1
@@ -335,11 +336,12 @@ FIRST_NPC_CHANNEL = 3
 # Test pawn for --test-npc: (class, name, race, offset from the player's spawn
 # point).
 TEST_NPCS = [
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (-60.0, 50.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (-60.0, -50.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x0E, (-120.0, 0.0, 0.0)),
-    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x02, (-180.0, 40.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide North", 0x04, (260.0, 160.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGOPCPawn", "Guide South", 0x02, (260.0, -160.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide East", 0x0E, (320.0, 60.0, 0.0)),
+    ("SGOUnrealAbstractionLayer.SGONPCPawn", "Guide West", 0x02, (120.0, -40.0, 0.0)),
 ]
+NPC_FACING = (0, 32768, 0)   # Rotation (pitch, yaw, roll); yaw 32768 = half a turn
 
 
 def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
@@ -356,6 +358,7 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
         "m_iModelNum": -1,          # the race's default model (FUN_00bcb8e0)
         "m_Customization": [0x32] * 64,   # appearance sliders (pawn +0xaa8)
         "m_PlayerDisplayName": name,
+        "Rotation": NPC_FACING,
         "EntityIDLowInt": entity_id & 0xFFFFFFFF,
         "EntityIDHighInt": entity_id >> 32,
     })
