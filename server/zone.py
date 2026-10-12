@@ -295,8 +295,12 @@ def ability_messages(player):
                                                        refresh=refresh)))
     out.append(zone_event(0x21D))
     # Main hotbar: the abilities in the first slots (0x54e replaces all bars).
-    keys = [vgmsg.hotkey(slot, ability_id)
-            for slot, (_, ability_id, *_rest) in enumerate(player.abilities[:12])]
+    # A saved layout (player.hotbar, from the client's 0x54b/0x54c) wins.
+    if player.hotbar is not None:
+        keys = [bytes.fromhex(v) for v in player.hotbar.values()]
+    else:
+        keys = [vgmsg.hotkey(slot, ability_id)
+                for slot, (_, ability_id, *_rest) in enumerate(player.abilities[:12])]
     out.append(zone_event(0x54E, vgmsg.hotkey_list(keys)))
     return out
 
@@ -357,6 +361,7 @@ class Player:
         self.pending_displays = []        # 0x3d1 messages queued by combat
         self.pending_rewards = []         # experience from kills
         self.auto_attack = False
+        self.hotbar = None                # {"bank:slot": hotkey record hex} once changed
         self.level_number = 10            # adventuring level (self.level is the map name)
         self.xp = 500                     # toward the next level (XP_PER_LEVEL)
         self.next_swing = 0.0

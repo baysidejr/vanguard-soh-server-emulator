@@ -244,6 +244,8 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Appearance**: the 64 slider bytes from character creation (the same ones the character-select record carries at `+0x1b7`) are replicated as the pawn's `m_Customization[64]`.
 
+**Loot** (verified live): U sends the `ServerUse` RPC. For a dead target the server sends `0x1ed` (clear), `0x1e8` {u64 corpse, bool 1} (open), one `0x1f2` MsgSingleItemInfo per item (field 71 = unique handle), then `0x1ef` (fill the rows). Take one = client `0xbc` {i32 handle}, Take All = `0xbd` {-1}, close = `0xbe`. The server answers with `0x197` (item into the bag), `0x1f6` {i32 handle, bool} (row removed, "You loot X"), and `0x1ed` when the corpse is empty. Details: [LOOT.md](LOOT.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

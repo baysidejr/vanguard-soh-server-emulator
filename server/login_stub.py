@@ -606,6 +606,15 @@ def save_character_progress(name, level, xp):
             return
 
 
+def save_character_field(name, field, value):
+    chars = load_characters()
+    for c in chars:
+        if c["first"] == name:
+            c[field] = value
+            save_characters(chars)
+            return
+
+
 def save_characters(chars):
     with open(CHARACTERS_FILE, "w", encoding="utf-8") as f:
         json.dump(chars, f, indent=2)
@@ -795,6 +804,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_position=lambda loc, n=name: save_character_position(n, loc))
             player.level_number = char.get("adventure_level", player.level_number)
             player.appearance = character_appearance(char)
+            player.hotbar = char.get("hotbar")
             player.xp = char.get("adventure_xp", player.xp)
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
                                 or player.abilities)
@@ -859,6 +869,22 @@ def handle_message(sock, server, addr, state, payload, args):
                 lines, npc = combat.use_ability(player, ability)
                 for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
+                combat.LOOT_REQUEST, combat.LOOT_TAKE, combat.LOOT_TAKE_ALL, combat.LOOT_CLOSE):
+            # Loot window: request (u64 corpse), take one (i32 handle), take all (-1), close.
+            event = struct.unpack_from("<I", payload, 2)[0]
+            player = state.get("player")
+            npc = player.npcs.get(player.target) if player and player.target else None
+            print(f"  >>> ZONE loot event {event:#x}: {payload[10:].hex(' ')}")
+            if npc and not npc.alive:
+                if event == combat.LOOT_REQUEST:
+                    msgs = combat.loot_messages(npc)
+                elif event in (combat.LOOT_TAKE, combat.LOOT_TAKE_ALL):
+                    msgs = combat.take_loot(player, npc, struct.unpack_from("<i", payload, 10)[0])
+                else:
+                    msgs = []
+                for m in msgs:
+                    send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3D8:
             # Auto-attack toggle (` key, /autoattacktoggle): no payload.
             player = state.get("player")
@@ -870,8 +896,22 @@ def handle_message(sock, server, addr, state, payload, args):
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x54B, 0x54C):
             # Hotbar slot changed (0x54b MsgHotkeyAdd) or cleared (0x54c bank+slot).
+            # Saved per character and sent back at the next login (zone.ability_messages).
             event = struct.unpack_from("<I", payload, 2)[0]
             print(f"  >>> ZONE hotbar {'set' if event == 0x54B else 'clear'}: {payload[10:].hex(' ')}")
+            player = state.get("player")
+            (bank,), pos = read_wstrings(payload[10:], 0, 1)
+            slot = struct.unpack_from("<i", payload, 10 + pos)[0]
+            if player is not None:
+                if player.hotbar is None:
+                    player.hotbar = {f"m_wb:{s}": vgmsg.hotkey(s, a[1]).hex()
+                                     for s, a in enumerate(player.abilities[:12])}
+                key = f"{bank}:{slot}"
+                if event == 0x54B:
+                    player.hotbar[key] = payload[10:].hex()
+                else:
+                    player.hotbar.pop(key, None)
+                save_character_field(player.name, "hotbar", player.hotbar)
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:

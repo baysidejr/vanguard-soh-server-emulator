@@ -31,6 +31,7 @@ class Npc:
         self.died_at = None
         self.location = location
         self.home = location
+        self.loot = None              # items left on the corpse (None = not rolled yet)
         self.aggro = False            # chasing the player
         self.moving = False
         self.next_attack = 0.0
@@ -263,27 +264,55 @@ def tick(player, now):
     for npc in player.npcs.values():
         if npc.died_at and now - npc.died_at >= RESPAWN_SECONDS:
             npc.health, npc.died_at = npc.max_health, None
-            npc.aggro, npc.moving, npc.location = False, False, npc.home
+            npc.aggro, npc.moving, npc.location, npc.loot = False, False, npc.home, None
             out.append(("respawn", npc))
     return out
 
 
-LOOT_OPEN_EVENT = 0x1E8      # MsgEntityIDAndBool (FUN_00520be0): "LootFrom"
-LOOT_ITEM_EVENT = 0x1F2      # MsgSingleItemInfo (FUN_005230c0)
-LOOT_CLEAR_EVENT = 0x1F8     # no payload: FUN_0051fd60 clears the list (FUN_0050ef30)
+LOOT_OPEN_EVENT = 0x1E8      # S->C MsgEntityIDAndBool (FUN_00520be0): begin looting, open "_loot"
+LOOT_ITEM_EVENT = 0x1F2      # S->C MsgSingleItemInfo: add one item to the loot list (no UI yet)
+LOOT_READY_EVENT = 0x1EF     # S->C no payload (FUN_00521370): list complete, fill the window rows
+LOOT_TAKEN_EVENT = 0x1F6     # S->C MsgIntAndBool {i32 handle, bool notify}: "You loot X", row removed
+LOOT_END_EVENT = 0x1ED       # S->C no payload (FUN_00521270): loot session over
+LOOT_REQUEST = 0xBB          # C->S u64 corpse eid (U key, FUN_005203d0)
+LOOT_TAKE = 0xBC             # C->S i32 item handle (field 71)
+LOOT_TAKE_ALL = 0xBD         # C->S i32 -1 ("Take All")
+LOOT_CLOSE = 0xBE            # C->S no payload
 
-# Placeholder loot: (item id, name, icon, quantity).
+# Placeholder loot: (item id = handle, name, icon, quantity).
 LOOT_TABLE = [(5001, "Tattered Cloth", 442, 2), (5002, "Rough Stone", 443, 1),
               (5003, "Copper Ring", 472, 1)]
 
 
+def _event(event_id, data=b""):
+    return struct.pack("<HII", 2, event_id, len(data)) + data
+
+
 def loot_messages(npc):
+    """Open the loot window on a corpse: 0x1ed (clear), 0x1e8, one 0x1f2 per item,
+    then 0x1ef, which builds the rows (docs/LOOT.md)."""
     import vgmsg
-    """Items first (0x1f2 adds each to the loot list, FUN_0045dd40), then 0x1e8
-    opens the window from that list."""
-    out = [struct.pack("<HII", 2, LOOT_CLEAR_EVENT, 0)]
-    for slot, (item_id, name, icon, qty) in enumerate(LOOT_TABLE):
-        data = vgmsg.inventory_item(item_id, name, slot, icon=icon, quantity=qty)
-        out.append(struct.pack("<HII", 2, LOOT_ITEM_EVENT, len(data)) + data)
-    out.append(struct.pack("<HIIQB", 2, LOOT_OPEN_EVENT, 9, npc.entity_id, 1))
+    if npc.loot is None:
+        npc.loot = list(LOOT_TABLE)
+    out = [_event(LOOT_END_EVENT), _event(LOOT_OPEN_EVENT, struct.pack("<QB", npc.entity_id, 1))]
+    for slot, (item_id, name, icon, qty) in enumerate(npc.loot):
+        out.append(_event(LOOT_ITEM_EVENT, vgmsg.inventory_item(item_id, name, slot, icon=icon,
+                                                               quantity=qty)))
+    out.append(_event(LOOT_READY_EVENT))
+    return out
+
+
+def take_loot(player, npc, handle):
+    """Move loot items (handle -1 = all) into the player's bag. Returns messages."""
+    import vgmsg
+    out = []
+    for item in [i for i in (npc.loot or []) if handle in (-1, i[0])]:
+        item_id, name, icon, qty = item
+        npc.loot.remove(item)
+        slot = len(player.items)          # bag slots follow player.items order
+        player.items.append((item_id, name, icon, qty))
+        out.append(_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon=icon, quantity=qty)))
+        out.append(_event(LOOT_TAKEN_EVENT, struct.pack("<iB", item_id, 1)))
+    if not npc.loot:
+        out.append(_event(LOOT_END_EVENT))
     return out
