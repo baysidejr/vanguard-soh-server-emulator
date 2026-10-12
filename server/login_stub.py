@@ -296,6 +296,7 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
             # Everyone in the chunk sees it fall.
             print(f"  <- {npc.name} died")
             npc.death_shown = True
+            npc.stance = False
             w = state.get("world")
             if w is not None:
                 w.broadcast(lambda s: [m for m in (
@@ -315,7 +316,29 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     player.pending_rewards.clear()
     if player.auto_attack != was_attacking:
         out += combat.auto_attack_state(player.auto_attack)
+    set_combat_stance(state, args, player, player.auto_attack, out)
+    if npc and npc.alive and npc.aggro and not npc.stance:
+        npc.stance = True
+        broadcast_npc(state, args, npc, {"m_CombatState": 1})
     return out
+
+
+def set_combat_stance(state, args, player, on, out):
+    """m_CombatState = 1 draws weapons (verified live); everyone in the chunk sees it."""
+    if getattr(player, "stance", False) == on:
+        return
+    player.stance = on
+    values = {"m_CombatState": int(on)}
+    out.append(zone.player_pawn_update(state, args, values))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
+
+
+def broadcast_npc(state, args, npc, values):
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.npc_update(s, args, npc, values))
 
 
 def player_death(state, args, player):
@@ -349,7 +372,7 @@ def world_tick(zone_sock, clients, args):
         for npc in combat.respawns(w.npcs, now):
             print(f"  <- respawn {npc.name}")
             npc.death_shown = False
-            values = {"Health": npc.max_health, "m_bIsDead": 0, "Location": npc.home,
+            values = {"Health": npc.max_health, "m_bIsDead": 0, "Location": npc.home, "m_CombatState": 0,
                       "Velocity": (0.0, 0.0, 0.0),
                       "PawnPosition": (npc.home, (0, npc.yaw, 0), (0.0, 0.0, 0.0))}
 
@@ -690,6 +713,15 @@ def dev_command(text, player=None):
         loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
         print(f"  <- dev: teleport to {loc}")
         return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
+    if words[0] == "prop" and len(words) >= 3 and player:
+        # !prop <name> <value> [me]: set a replicated pawn property on the target
+        # NPC (or yourself with "me"), for probing what the client does with it.
+        value = words[2]
+        value = float(value) if "." in value else int(value, 0)
+        values = {words[1]: value}
+        if "me" in words[3:] or player.target not in player.npcs:
+            return [("self_prop", None, values)]
+        return [("npc_update", player.npcs[player.target], values)]
     if words[0] == "hurt" and len(words) >= 2 and player:
         # !hurt N: lower your own health (the next hit from an NPC can kill you).
         player.health = max(player.health - int(words[1], 0), 1)
@@ -880,6 +912,8 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "self_prop":
+                        m = zone.player_pawn_update(state, args, m[2])
                     elif isinstance(m, tuple) and m[0] == "pawn_update":
                         loc = m[2]["Location"]
                         send_message(sock, addr, state, zone.player_teleport(loc))

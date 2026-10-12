@@ -116,6 +116,10 @@ def populate_world(w, args):
         npc.race = template["race"]
         npc.gear = [tuple(g) for g in template.get("gear", [])]
         npc.yaw = int(spawn.get("yaw", 0))
+        npc.level = template.get("level", 1)
+        npc.props = {"m_GameplayLevel": npc.level}
+        if template.get("title"):
+            npc.props["m_PlayerDisplayTitle"] = template["title"]
         npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
         npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
         npc.loot_table = template.get("loot")
@@ -132,7 +136,7 @@ def open_npc(state, args, npc):
     channel = world.channel_for(state, npc.entity_id, allocate=True)
     b = npc_bunch(ue, pm, channel, npc.cls_path, npc.name, npc.race, npc.location,
                   npc.entity_id, gear=npc.gear, facing=(0, npc.yaw, 0),
-                  dead=not npc.alive)
+                  dead=not npc.alive, extra_props=npc.props)
     print(f"  <- UNREAL actor open ch={channel} {npc.name!r} for {player.name}")
     return unreal_message(ue.build([b]))
 
@@ -472,7 +476,7 @@ PC_CHANNEL = 1
 PAWN_CHANNEL = 2
 
 def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id, gear=(),
-              facing=(0, 0, 0), dead=False):
+              facing=(0, 0, 0), dead=False, extra_props=None):
     """Open an actor channel for a non-player pawn (same layout as the player's
     pawn, without bNetOwner)."""
     cls = cls_path.split(".", 1)[1]
@@ -492,6 +496,7 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id, gear=(
         "m_AttachmentGroups": [tuple(g) for g in gear],
         "EntityIDLowInt": entity_id & 0xFFFFFFFF,
         "EntityIDHighInt": entity_id >> 32,
+        **(extra_props or {}),
     })
     return ue.actor_open_bunch(channel, pm.object_index(cls_path), pm.max_object_index,
                                location=location, extra=(0xFF, -1, 0x3F800000), properties=props)

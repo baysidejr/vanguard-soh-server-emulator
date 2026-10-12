@@ -40,6 +40,9 @@ class Npc:
         self.race = 0
         self.gear = []
         self.yaw = 0
+        self.level = 1
+        self.stance = False           # weapons drawn (m_CombatState)
+        self.props = {}               # extra replicated pawn properties from the template
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
         self.loot_table = None        # content/loot.json table id

@@ -260,6 +260,8 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 Pitfall: a Vector property must be written as SerializeCompressed even when its values are whole numbers. The encoder once picked rotator or vector by number type, and an integer `Location` came out as a rotator.
 
+**Combat stance and NPC labels** (verified live): pawn `m_CombatState = 1` draws weapons; sheathed weapons sit at the hip, and shields on the back. `m_GameplayLevel` is the level, and `m_PlayerDisplayTitle` puts a second line under the name ("Guard"). The full list of replicated SGONPCPawn properties is printed by `netcache.py` (124 fields, e.g. `m_bIsAggro`, `m_FactionId`, `m_Rank`, `GroundSpeed`, `m_Gender`).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**
