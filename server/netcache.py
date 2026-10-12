@@ -31,12 +31,46 @@ def _field_header(raw):
     return sup, nxt, pos
 
 
+CPF_PARM = 0x80
+CPF_RETURN = 0x400
+
+
+def function_params(p, func_index):
+    """Parameters of a function export in declaration order (UField Next chain):
+    [(name, property class, flags, extra)] where extra is the struct name for
+    StructProperty and the raw type-specific bytes otherwise."""
+    kids = {i + 1: e for i, e in enumerate(p.exports) if e["outer"] == func_index + 1 and e["size"] > 0}
+    info = {}
+    for idx, e in kids.items():
+        raw = p.raw[e["offset"]:e["offset"] + e["size"]]
+        _, nxt, pos = _field_header(raw)
+        kind = p.class_name(e["class"])
+        if not kind.endswith("Property"):
+            continue
+        dim, flags = struct.unpack_from("<II", raw, pos)
+        _, pos2 = _compact(raw, pos + 8)            # category
+        if flags & CPF_NET:
+            pos2 += 2
+        extra = raw[pos2:]
+        if kind == "StructProperty":
+            sidx, _ = _compact(extra, 0)
+            extra = p.exports[sidx - 1]["name"] if sidx > 0 else p.imports[-sidx - 1][3]
+        info[idx] = (e["name"], kind, flags, extra, nxt)
+    pointed = {v[4] for v in info.values()}
+    order, cur = [], next((i for i in info if i not in pointed), None)
+    while cur in info:
+        order.append(cur)
+        cur = info[cur][4]
+    return [info[i][:4] for i in order if info[i][2] & CPF_PARM and not info[i][2] & CPF_RETURN]
+
+
 class NetField:
-    def __init__(self, name, kind, array_dim=1, prop_class=None, extra=b""):
+    def __init__(self, name, kind, array_dim=1, prop_class=None, extra=b"", params=None):
         self.name = name
         self.kind = kind              # 'BoolProperty', ..., or 'Function'
         self.array_dim = array_dim
         self.extra = extra
+        self.params = params or []    # functions: [(name, kind, flags, extra)] in order
         self.index = None
 
     def __repr__(self):
@@ -73,7 +107,8 @@ class NetCache:
                 sup, _, _ = _field_header(raw)
                 flags = struct.unpack_from("<I", raw, len(raw) - 6)[0]
                 if flags & FUNC_NET and not flags & 0xFF000000 and sup == 0:
-                    fields.append(NetField(e["name"], "Function"))
+                    fields.append(NetField(e["name"], "Function",
+                                           params=function_params(p, p.exports.index(e))))
         return fields
 
     def class_cache(self, name):
@@ -97,6 +132,12 @@ class NetCache:
         result = {"own": own, "all": base_fields + own, "base": base, "max": base + len(own)}
         self._cache[name] = result
         return result
+
+    def by_index(self, class_name, index):
+        for f in self.class_cache(class_name)["all"]:
+            if f.index == index:
+                return f
+        return None
 
     def field(self, class_name, field_name):
         for f in self.class_cache(class_name)["all"]:

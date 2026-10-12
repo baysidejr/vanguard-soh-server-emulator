@@ -7,6 +7,7 @@ docs/PROTOCOL.md, ue2net.py, packagemap.py and netcache.py.
 
 import struct
 
+import rpc
 import ue2net
 from netcache import NetCache
 from packagemap import PackageMap
@@ -33,6 +34,8 @@ def handle_unreal(send, state, payload, args):
             for text in ue2net.read_fstrings(b.data):
                 print(f"  >>> UNREAL control <- {text!r}")
                 replies.extend(unreal_control_reply(text, args))
+        elif b.channel == PC_CHANNEL and not b.open:
+            log_client_rpc(state, b, args)
         else:
             print(f"  >>> UNREAL bunch {b!r} data={b.data[:32].hex(' ')}")
     out = []
@@ -57,6 +60,25 @@ def handle_unreal(send, state, payload, args):
 
 def zone_event(event_id, data=b""):
     return struct.pack("<HII", 2, event_id, len(data)) + data
+
+
+def log_client_rpc(state, b, args):
+    """Decode an RPC from the client's PlayerController and track its position."""
+    pm = package_map(args, args.current_level)
+    try:
+        name, params = rpc.decode_rpc(pm.net_cache, args.spawn_class.split(".", 1)[1],
+                                      b.data, b.nbits, pm.max_object_index)
+    except ValueError as e:
+        print(f"  >>> UNREAL RPC undecodable ({e}): {b.data.hex(' ')}")
+        return
+    loc = params.get("ClientLoc")
+    if loc is not None:
+        moved = state.get("position") != loc
+        state["position"] = loc
+        if moved:
+            print(f"  >>> UNREAL {name}: position {loc}")
+        return
+    print(f"  >>> UNREAL RPC {name} {params}")
 
 
 def package_map(args, level):
