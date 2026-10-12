@@ -399,20 +399,23 @@ ITEM_TYPE_IDS = {"misc": 3, "shield": 0, "weapon": 1, "armor": 4, "ranged": 9, "
 
 
 def damage_encoding(lo, hi):
-    """(base, variance) for item fields 77/78: the client shows
-    int(base - base*v/255) .. int(base + base*v/255) in 32-bit floats, so pick
-    the pair whose results sit furthest from an integer boundary."""
+    """(base, variance) for item fields 77/78. The client shows
+    int(base - base*v/255) .. int(base + base*v/255); because the two ends are
+    symmetric around an integer base, a range whose ends sum to an even number
+    can't be hit with a safe margin, so prefer exact-with-margin, then closest."""
     best = None
-    for base in range(max(lo, 1), hi + 1):
+    for base in range(max(lo, 1), hi + 2):
         for v in range(256):
             d = base * v / 255
             a, b = base - d, base + d
-            if int(a) != lo or int(b) != hi:
-                continue
-            margin = min(a - lo, lo + 1 - a, b - hi, hi + 1 - b)
-            if best is None or margin > best[0]:
-                best = (margin, base, v)
-    return (best[1], best[2]) if best else ((lo + hi) // 2, 0)
+            err = abs(int(a) - lo) + abs(int(b) - hi)
+            margin = min(a - int(a), b - int(b))
+            if margin < 0.01:        # on an integer boundary: float32 may land below
+                err += 1
+            key = (err, -margin)
+            if best is None or key < best[0]:
+                best = (key, base, v)
+    return best[1], best[2]
 
 
 def item_equip_fields(name):
