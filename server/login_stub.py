@@ -825,15 +825,16 @@ def handle_message(sock, server, addr, state, payload, args):
                         m = zone.player_teleport(m[2]["Location"])
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in combat.RELEASE_EVENTS:
-            # "Release to Bind" (0x542) on the death popup. No teleport yet: the
-            # player gets up where they fell, at full health.
+            # "Release to Bind" (0x542) on the death popup: back to the bind point
+            # (for now the place the player entered the world) at full health.
             player = state.get("player")
             print(f"  >>> ZONE release ({payload[2:6].hex(' ')})")
             if player and player.health <= 0:
                 player.health = player.stats["hit_points"]
                 for m in (combat.death_popup(0, False),
                           zone.player_pawn_update(state, args, {"Health": 100, "m_bIsDead": 0}),
-                          zone.health_update(player)):
+                          zone.health_update(player),
+                          zone.player_teleport(player.spawned_at)):
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == combat.TARGET_EVENT:
             # Target selected (click, Tab): u64 entity id; 0 = target cleared.
