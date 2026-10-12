@@ -136,20 +136,35 @@ ITEM_TYPES = ("o" "i" "wwww" "iii" "ii" "ii" "iiiii" "iiii" "wwww" "ww" "wwwww" 
 # Field indexes (see scratchpad inventory report; FUN_00514ff0 / FUN_00512430).
 ITEM_FIELDS = {
     "id": 1, "name": 2, "description": 3, "quantity": 6, "equip_slot": 7,
-    "icon": 13, "capacity": 14, "container": 15, "slot": 16, "provides_container": 71,
+    "icon": 13, "capacity": 14, "container": 15, "slot": 16,
+    # 71 (item +0x650): the item's handle; equip/move messages look items up by
+    # it (FUN_004fa970) and a bag's slots are InventoryContainerID_<handle>.
+    "handle": 71,
     "location": 92, "quality": 99,
 }
 
 
+# Equipment slot ids (FUN_0050cc10, the slot-tag table the paper doll uses).
+EQUIP_SLOTS = {
+    "HEAD": 0, "EYES": 1, "FACE": 2, "NECK": 3, "LEFTEAR": 4, "RIGHTEAR": 5, "CHEST": 6,
+    "CLOAK": 7, "LEFTSHOULDER": 8, "RIGHTSHOULDER": 9, "LEFTARM": 10, "RIGHTARM": 11,
+    "CONTAINER1": 12, "LEFTWRIST": 15, "RIGHTWRIST": 16, "LEFTFINGER": 19,
+    "RIGHTFINGER": 20, "WAIST": 21, "FEET": 26, "CONTAINER2": 27, "PRIMARYHAND": 28,
+    "SECONDARYHAND": 29, "LEGS": 32, "HANDS": 33, "WRISTS": 34, "SHOULDERS": 35,
+    "TWOHANDS": 36, "CONTAINER3": 38, "MOUNT": 39, "RANGED": 42, "AMMO": 43,
+}
+
+
 def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
-                   container=-1, quality=1):
+                   container=-1, quality=1, equip_slot=-1):
     """An item in a bag: equip slot -1, container -1 = the main grid
     (gamevar InventoryContainerID_-1, 50 slots), slot 0..49. Icon is a
     number formatted %05d in the client icon map (443 = the client's fallback)."""
     f = ITEM_FIELDS
     return item_info({f["id"]: item_id, f["name"]: name, f["description"]: description,
-                      f["quantity"]: quantity, f["equip_slot"]: -1, f["icon"]: icon,
+                      f["quantity"]: quantity, f["equip_slot"]: equip_slot, f["icon"]: icon,
                       f["container"]: container, f["slot"]: slot, 81: 1.0,
+                      f["handle"]: item_id,
                       f["quality"]: quality})
 
 

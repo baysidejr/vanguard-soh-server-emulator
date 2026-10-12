@@ -183,6 +183,10 @@ DEFAULT_ITEMS = [
     (1002, "Travel Rations", 442, 5),
     (1003, "Waterskin", 472, 1),
 ]
+# Equipped items: (item id, name, icon, equip slot from vgmsg.EQUIP_SLOTS).
+DEFAULT_EQUIPMENT = [
+    (2001, "Militia Longsword", 422, vgmsg.EQUIP_SLOTS["PRIMARYHAND"]),
+]
 DEFAULT_COINS = 12345   # copper: 1 gold 23 silver 45 copper
 
 
@@ -193,6 +197,11 @@ def inventory_messages(player):
     out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
     for slot, (item_id, name, icon, qty) in enumerate(player.items):
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty)))
+    # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
+    # u8 lookup kind, u8 equip slot) moves them to the paper doll.
+    for n, (item_id, name, icon, equip_slot) in enumerate(player.equipment):
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, icon)))
+        out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))
     out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
     return out
 
@@ -216,6 +225,7 @@ class Player:
         self.stats = dict(DEFAULT_STATS)
         self.skills = list(DEFAULT_SKILLS)
         self.items = list(DEFAULT_ITEMS)
+        self.equipment = list(DEFAULT_EQUIPMENT)
         self.coins = DEFAULT_COINS
 
 
