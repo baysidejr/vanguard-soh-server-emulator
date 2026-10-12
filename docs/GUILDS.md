@@ -4,6 +4,8 @@
 - `!guildcreate` opens the client's own "Enter Guild Name" dialog (`0x4e7`). Accepting sends `0x4d3`, and the server prints "You have founded the guild Wastes Wardens."
 - `/guildinvite Justins` opens the Guild Invite popup on the other client, and chat says "Ranger has invited you to join Wastes Wardens at the rank of Recruit."
 - Accept prints "You have joined the guild.", and the leader sees "Justins has joined the guild."
+- **Guild name over the head (verified live):** the player pawn's replicated `m_GuildId` (SGOPCPawn net field 122) is set at spawn and on create/join/leave. Every client also gets a `0x40` name tag for each guild, so Ranger shows "(Wastes Wardens)" under the name. After `/guildquit` the tag goes away and members see "Ranger has left the guild."
+- Fields 123 `m_bIsAfk` and 124 `m_LfgStatus` are next to it, but replicating `m_bIsAfk` = 1 made the pawn vanish on every client, so AFK/LFG show only in /who.
 - `/gu Hello guild!` shows as "[Guild][Justins]: Hello guild!" for the leader and "To [Guild]: Hello guild!" for the speaker.
 
 The code is in `server/guild.py` and `login_stub.handle_guild_event` / `guild_login`. Guilds are stored in `server/guilds.json`, a local runtime file that is git-ignored.
@@ -31,7 +33,6 @@ The client's guild dispatcher is `FUN_004f1610`. Requests are zone events.
 **Guild chat** goes over the world connection: type 6 command `"guildsay <text>"`. Members get `0x0f {text, speaker, 0x0b}`, and the speaker gets the echo `0x11 {text, 0x0b}`.
 
 Not done yet:
-- the guild name over heads (the replicated `m_GuildId` pawn property)
 - the MOTD (`0x4e2`/`0x4e1`), rank renaming (`0x4d2`) and notes
 - the social-channel member-list request (`0x4ec`)
 - brotherhoods (`0x4bd`–`0x4c5`, `0x6e7`–`0x6ef`)

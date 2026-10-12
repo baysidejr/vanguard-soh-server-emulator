@@ -489,6 +489,17 @@ EQUIP_EVENT = 0x8E
 UNEQUIP_EVENT = 0x98
 
 
+def pawn_props_changed(state, values):
+    """Replicated pawn properties of this player changed: own client and everyone in the chunk."""
+    player = state["player"]
+    if "ue" not in state:
+        return
+    state["send"](zone.player_pawn_update(state, ARGS, values))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, ARGS, player, values), exclude=state)
+
+
 def gear_changed(state, args, player):
     """After equipment changed: the model for everyone in the chunk, and save."""
     values = {"m_AttachmentGroups": zone.gear_attachments(player)}
@@ -791,10 +802,19 @@ def guild_broadcast(name, make, exclude=None):
             s["send"](make(g))
 
 
+def set_guild(state, gid):
+    """The player's guild id (overhead tag) changed."""
+    state["player"].guild_id = gid
+    pawn_props_changed(state, {"m_GuildId": gid})
+
+
 def guild_login(state):
     """Guild membership, window info and member list at zone login."""
     player, send = state["player"], state["send"]
+    for g in load_guilds().values():               # names for the overhead tags
+        send(guild.name_tag(g["id"], g["name"]))
     g = guild_of(player.name)
+    player.guild_id = g["id"] if g else 0
     if g is None:
         send(guild.membership(0, 0))
         return
@@ -836,7 +856,11 @@ def handle_guild_event(state, event, data):
             guilds[str(gid)] = {"id": gid, "name": name, "members": {player.name: guild.LEADER}}
             save_guilds(guilds)
             say(f"You have founded the guild {name}.")
+            for s in ONLINE.values():
+                if s.get("send"):
+                    s["send"](guild.name_tag(gid, name))
             send_guild_window(state, guilds[str(gid)])
+            set_guild(state, gid)
     elif mine is None:
         if event == guild.ACCEPT and state.get("guild_invite"):
             gid = state.pop("guild_invite")
@@ -847,6 +871,7 @@ def handle_guild_event(state, event, data):
             save_guilds(guilds)
             send(zone.zone_event(0x0E, struct.pack("<h", 0xD8)))        # JoinedGuild
             send_guild_window(state, g)
+            set_guild(state, g["id"])
             guild_broadcast(player.name, lambda g: guild.member_update(guild_member(g, player.name),
                                                                        guild.JOINED), exclude=state)
         elif event == guild.DECLINE:
@@ -890,6 +915,8 @@ def handle_guild_event(state, event, data):
             if s is not None and s.get("send"):
                 s["send"](guild.membership(0, 0))
                 s["send"](zone.zone_event(0x0E, struct.pack("<h", 0xD9)))   # RemovedFromGuild
+                if s.get("player"):
+                    set_guild(s, 0)
         if not mine["members"] or event == guild.DELETE:
             guilds.pop(str(mine["id"]), None)
         elif event == guild.QUIT and rank == guild.LEADER:

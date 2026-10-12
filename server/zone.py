@@ -805,6 +805,9 @@ def player_pawn_values(player, location, yaw=0):
         "m_iRaceId": player.race,
         "Health": 100,
         "m_PlayerDisplayName": player.name,
+        # Guild tag over the head (name from zone event 0x40). m_bIsAfk = 1 made the
+        # pawn disappear on every client (live test), so AFK/LFG stay in /who only.
+        "m_GuildId": getattr(player, "guild_id", 0),
     }
     gear = gear_attachments(player)
     if gear:
