@@ -9,6 +9,7 @@ import struct
 import time
 
 import rpc
+import vgmsg
 import ue2net
 from netcache import NetCache
 from packagemap import PackageMap
@@ -61,6 +62,13 @@ def handle_unreal(send, state, payload, args):
             # "world loaded" flags (subsystem manager +0x2b1, +0xd8).
             send(zone_event(event_id))
             print(f"  <- ZONE event {event_id:#x} (no payload)")
+        # Character sheet (MsgScore). Field meanings are inferred; see vgmsg.py.
+        loc = player.spawned_at or (0.0, 0.0, 0.0)
+        send(zone_event(0x3DE, vgmsg.score(
+            x=loc[0], y=loc[1], z=loc[2], race=player.race,
+            adv_level=10, adv_exp=500, adv_exp_next=1000,
+            craft_level=1, harvest_level=1, dip_level=1, move_speed=1.0)))
+        print("  <- ZONE event 0x3de (MsgScore)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
         if args.test_npc:
