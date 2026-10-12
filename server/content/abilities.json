@@ -1,5 +1,5 @@
 {
-  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number. Real numbers were server data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number; cast: cast time in seconds (moving interrupts). Real numbers were server data (docs/CONTENT_EDITOR.md).",
   "Adamant Foeman I": {
     "kind": "buff",
     "stat": "constitution",
@@ -22,6 +22,15 @@
       7
     ],
     "ticks": 4,
-    "interval": 3.0
+    "interval": 3.0,
+    "cast": 2.0
+  },
+  "Healing Touch I": {
+    "kind": "heal",
+    "amount": [
+      30,
+      45
+    ],
+    "cast": 2.5
   }
 }

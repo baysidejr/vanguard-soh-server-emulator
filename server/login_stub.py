@@ -325,6 +325,17 @@ def use_ability(state, args, player, ability):
         send(build_system_text(f"{name} is not ready yet ({cooldowns[handle] - now:.0f}s).", SYSTEM_TEXT_ERROR))
         return
     spec = effects.classify(name, args.content.abilities)
+    if state.get("casting"):
+        send(zone.zone_event(0x242, struct.pack("<B", 7)))
+        send(build_system_text("You are already casting.", SYSTEM_TEXT_ERROR))
+        return
+    if spec.get("cast", 0) > 0 and not state.pop("cast_done", False):
+        # Cast time: the client draws the bar (0x25c) and finishes it by itself;
+        # the server resolves the ability when the time is up (effects_tick).
+        state["casting"] = {"ability": ability, "ends": now + spec["cast"], "pos": state.get("position")}
+        send(effects.cast_bar(name, spec["cast"]))
+        send(build_system_text(f"You begin to cast {name}.", SYSTEM_TEXT_COMBAT))
+        return
     was_alive, attacking = player.health > 0, player.auto_attack
     if spec["kind"] in ("heal", "buff"):
         if player.health <= 0:
@@ -395,8 +406,19 @@ def apply_dot(state, player, npc, name, spec, now):
 
 
 def effects_tick(state, args, now):
-    """Buff timers and expiry, damage-over-time ticks."""
+    """Casts, buff timers and expiry, damage-over-time ticks."""
     player, send = state["player"], state["send"]
+    cast = state.get("casting")
+    if cast:
+        if state.get("position") != cast["pos"]:
+            state.pop("casting")
+            send(effects.interrupted())
+            send(build_system_text(f"Your {cast['ability'][2]} is interrupted.", SYSTEM_TEXT_ERROR))
+        elif now >= cast["ends"]:
+            state.pop("casting")
+            state["cast_done"] = True
+            use_ability(state, args, player, cast["ability"])
+            state.pop("cast_done", None)
     for e in list(getattr(player, "effects", [])):
         if e["kind"] == "buff":
             if now >= e["ends"]:

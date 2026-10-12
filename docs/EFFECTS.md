@@ -29,11 +29,10 @@ Real ability data (costs, damage, durations) was server-side. The emulator guess
 | `0x2d4`* | MsgStatUpdate with current = base + bonus | stat buff shown in the character window |
 | `0x259` | `i32 ability handle, f32 left, f32 total` | hotbar cooldown sweep |
 | `0x242` | `u8 code` | ability failure sound (7 = too soon, 3 = too far, 0x22 = no energy, 0x24 = no endurance) |
-| `0x25c` / `0x260` | `wstr name, f32 seconds` / none | cast bar / interrupted (not used yet) |
+| `0x25c`* / `0x260`* | `wstr name, f32 seconds` / none | cast bar / interrupted. An ability with `cast` seconds in abilities.json shows the bar ("You begin to cast Deadly Shot I.") and goes off when the time is up. Moving during the cast interrupts it ("Your Deadly Shot I is interrupted."). Verified live |
 | `0x27b` | `eid64 source, eid64 target, i32 instance, bool8 heal, u8 kind, i32 amount, i32 bonus, u8 outcome, u8 type, u8, wstr ability, bool8, bool8` | client-built combat sentence. **Sent live, but nothing printed.** The layout or a pending-instance rule is off, so tick and heal lines use system text for now |
 
 Not done yet:
-- cast times
 - NPC buffs and debuffs on players
 - maintained effects (`0x23e`)
 - confirming whether the `0x259` sweep shows on the hotbar (the abilities tested weren't on the bar)
