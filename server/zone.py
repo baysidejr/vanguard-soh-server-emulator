@@ -148,7 +148,7 @@ def populate_world(w, args):
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
         npc.station = bool(template.get("station"))
-        npc.parley = bool(template.get("parley"))
+        npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
         npc.quests = [k for k, q in args.content.quests.items()
                       if spawn["mob"] in (q.get("giver"), quest.turn_in(q))

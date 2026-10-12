@@ -33,6 +33,7 @@ class Content:
         self.merchants = _load(os.path.join(directory, "merchants.json"))
         self.quests = _load(os.path.join(directory, "quests.json"))
         self.recipes = _load(os.path.join(directory, "recipes.json"))
+        self.diplomacy = _load(os.path.join(directory, "diplomacy.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -115,6 +116,19 @@ def validate(directory=CONTENT_DIR):
         for r in q.get("requires", []):
             if r not in c.quests:
                 problems.append(f"quest {qid}: requires unknown quest {r}")
+    dip = c.diplomacy
+    for cid in dip.get("deck", []):
+        if str(cid) not in dip.get("cards", {}):
+            problems.append(f"diplomacy deck: unknown card {cid}")
+    for pid, p in dip.get("parleys", {}).items():
+        for cid in p.get("npc_cards", []):
+            if str(cid) not in dip.get("cards", {}):
+                problems.append(f"parley {pid}: unknown card {cid}")
+        if not p.get("npc_cards"):
+            problems.append(f"parley {pid}: needs npc_cards")
+    for mid, m in c.mobs.items():
+        if isinstance(m, dict) and isinstance(m.get("parley"), str) and m["parley"] not in dip.get("parleys", {}):
+            problems.append(f"mob {mid}: unknown parley {m['parley']}")
     for rid, r in c.recipes.items():
         for name in list(r.get("inputs", {})) + [r.get("output")]:
             if name not in c.items:

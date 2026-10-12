@@ -1,0 +1,24 @@
+{
+  "_comment": "Diplomacy (docs/DIPLOMACY.md). cards: id -> name, expression (reason/inspire/flatter/demand), push (bar points toward whoever plays it), cost and gain (expression points). The parley window shows no Demand pool (its column stays empty), so cards should use reason/inspire/flatter. deck: the player's strategy cards (one slot each). parleys: per-NPC setups referenced by mobs.json \"parley\": type (entertain/convince/interview/gossip/incite), npc_cards, npc_pools (starting expression points), lines (the NPC's replies, one per round), win_at / lose_at (bar 0..21, starts at 11), reward (xp, coin). Placeholder data (docs/CONTENT_EDITOR.md).",
+  "cards": {
+    "40025": {"name": "Reasoned Argument", "expression": "reason", "push": 2, "gain": {"reason": 1}},
+    "40026": {"name": "Inspiring Words", "expression": "inspire", "push": 2, "gain": {"inspire": 1}},
+    "40027": {"name": "Flattery", "expression": "flatter", "push": 1, "gain": {"flatter": 1, "reason": 1}},
+    "40028": {"name": "Compelling Case", "expression": "reason", "push": 4, "cost": {"reason": 2}},
+    "40100": {"name": "Skeptical Look", "expression": "reason", "push": 1, "gain": {"reason": 1}},
+    "40101": {"name": "Haggle", "expression": "reason", "push": 3, "cost": {"reason": 2}},
+    "40102": {"name": "Hearty Laugh", "expression": "inspire", "push": 1, "gain": {"inspire": 1}}
+  },
+  "deck": [40025, 40026, 40027, 40028],
+  "parleys": {
+    "orin_business": {
+      "type": "entertain",
+      "npc_cards": [40100, 40101, 40102],
+      "npc_pools": {"reason": 1},
+      "lines": ["Hmm, go on.", "I've heard better offers.", "You drive a hard bargain!", "Fine, fine. Keep talking."],
+      "win_at": 17,
+      "lose_at": 5,
+      "reward": {"xp": 150, "coin": 100}
+    }
+  }
+}

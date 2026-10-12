@@ -7,22 +7,27 @@ NPC dialogue option type 10 -> client 0x125 {i32 id}
 client 0xd9 {i32 card} select -> 0x332 {i32 card}
 client 0xda play -> 0x32c {u8 status, u8 x8}, 0x337 {i32 dp, i32 opp}, 0x333,
    0x218 NPC card, 0x325 {wstr NPC line}, 0x256 new round, 0x334 your turn
-win 0x324, XP 0x3d5 kind 2, close 0x338; client 0x12a cancel, 0x12b close,
-0x12c pass."""
+win 0x324, loss 0x31f {bool8}, XP 0x3d5 kind 2, close 0x338; client 0x12a
+cancel, 0x12b close, 0x12c pass; errors 0x330 {i32 code, i32 arg}.
+
+Cards and parleys are data (content/diplomacy.json). A card pushes the bar
+toward its player by "push" (the NPC's cards push it back), costs expression
+points ("cost") and gains some ("gain"). Expressions: reason, inspire,
+flatter, demand."""
+import random
 import struct
 
 START, SELECT, PLAY, PASS, CANCEL, CLOSE = 0x125, 0xD9, 0xDA, 0x12C, 0x12A, 0x12B
 CLIENT_EVENTS = (START, SELECT, PLAY, PASS, CANCEL, CLOSE)
 OPTION_TYPE = 10
 PARLEY_OPTION_ID = 9001
-MIDDLE, WIN_AT = 11, 17
-REASON, DEMAND, INSPIRE, FLATTER = 0x12, 0x11, 0x13, 0x14
-
-# (id, name, expression, bar push)
-CARDS = [(40025, "Reasoned Argument", REASON, 3),
-         (40026, "Inspiring Words", INSPIRE, 2),
-         (40027, "Flattery", FLATTER, 2)]
-NPC_LINES = ["Hmm, go on.", "I suppose that's fair.", "You drive a hard bargain!"]
+MIDDLE, BAR_MAX = 11, 21
+EXPRESSION_IDS = {"demand": 0x11, "reason": 0x12, "inspire": 0x13, "flatter": 0x14}
+# 0x330 error codes for "not enough <expression>".
+NOT_ENOUGH = {"inspire": 7, "reason": 8, "flatter": 9, "demand": 10}
+ERR_NOT_PREPARED, ERR_NO_CARD, ERR_NOT_YOUR_TURN, ERR_OVER = 4, 6, 0xC, 0xF
+POOL_ORDER = ("inspire", "reason", "flatter", "demand")     # 0x31d / 0x32c pairs (mine, theirs)
+PARLEY_TYPES = {"entertain": 0, "convince": 1, "interview": 2, "gossip": 3, "incite": 4}
 
 
 def _event(event_id, data=b""):
@@ -33,45 +38,130 @@ def _w(text):
     return (text + "\0").encode("utf-16-le")
 
 
-def card(cid, name, expression, push, icon=443):
-    """MsgAbilityParlayCard."""
-    return (struct.pack("<i", cid) + _w(name) + struct.pack("<iiii", 0, icon, push, push)
-            + struct.pack("<BBBB", 0, 0, 0, 0) + struct.pack("<8i", *[0] * 8)
+def card(cid, c, icon=443):
+    """MsgAbilityParlayCard from a diplomacy.json card."""
+    cost, gain = c.get("cost", {}), c.get("gain", {})
+    push = c.get("push", 0)
+    results = [gain.get("reason", 0), 0, gain.get("inspire", 0), 0,
+               gain.get("flatter", 0), 0, gain.get("demand", 0), 0]
+    return (struct.pack("<i", cid) + _w(c["name"]) + struct.pack("<iiii", 0, c.get("icon", icon), push, push)
+            + struct.pack("<BBBB", cost.get("reason", 0), cost.get("inspire", 0),
+                          cost.get("flatter", 0), cost.get("demand", 0))
+            + struct.pack("<8i", *results)
             + struct.pack("<BBB", 0, 0, 0) + _w("")
-            + struct.pack("<iii", 0, expression, 0) + struct.pack("<B", 1)
+            + struct.pack("<iii", 0, EXPRESSION_IDS[c.get("expression", "reason")], 0) + struct.pack("<B", 1)
             + struct.pack("<3i", -1, -1, -1))
 
 
-def deck_messages(resend=False):
+def deck_messages(cards, deck, resend=False):
     """Deck and strategy slots, sent when a parley starts: a client UI rebuild
     after login empties the card lists, so cards sent at login don't show.
     On a later parley the old slot entries are removed first (0x239), or the
     same card in the same slot is ignored."""
-    out = [_event(0x239, struct.pack("<iB", c[0], 1)) for c in CARDS] if resend else []
-    out += [_event(0x331, struct.pack("<i", len(CARDS))), _event(0x21C),
-            _event(0x21F, struct.pack("<i", len(CARDS)) + b"".join(card(*c) for c in CARDS))]
-    out += [_event(0x237, struct.pack("<ii", c[0], n)) for n, c in enumerate(CARDS)]
+    out = [_event(0x239, struct.pack("<iB", cid, 1)) for cid in deck] if resend else []
+    out += [_event(0x331, struct.pack("<i", len(deck))), _event(0x21C),
+            _event(0x21F, struct.pack("<i", len(deck)) + b"".join(card(cid, cards[str(cid)]) for cid in deck))]
+    out += [_event(0x237, struct.pack("<ii", cid, n)) for n, cid in enumerate(deck)]
     return out
 
 
-def open_parley(npc_eid, status=MIDDLE):
-    return _event(0x31D, struct.pack("<QBBB", npc_eid, status, 0, 0) + bytes([3] * 8)
-                  + struct.pack("<B", 0) + _w(""))
+class Parley:
+    """One parley's state: the bar, both sides' expression pools and dialog points."""
+
+    def __init__(self, config, cards, deck):
+        self.config, self.cards, self.deck = config, cards, deck
+        self.status = MIDDLE
+        self.mine = dict.fromkeys(POOL_ORDER, 0)
+        self.theirs = dict.fromkeys(POOL_ORDER, 0)
+        for k, v in config.get("npc_pools", {}).items():
+            self.theirs[k] = v
+        self.dp = self.opp_dp = 0
+        self.round = 0
+        self.card = None
+
+    def pools(self):
+        """The 8 pool bytes in wire order: mine, theirs per expression."""
+        return bytes(max(0, min(255, p[k])) for k in POOL_ORDER for p in (self.mine, self.theirs))
+
+    def check(self, cid):
+        """0x330 error code if the player can't play this card, else None."""
+        c = self.cards.get(str(cid))
+        if c is None or cid not in self.deck:
+            return ERR_NOT_PREPARED
+        for k, n in c.get("cost", {}).items():
+            if self.mine[k] < n:
+                return NOT_ENOUGH[k]
+        return None
+
+    def _apply(self, c, pools, sign):
+        for k, n in c.get("cost", {}).items():
+            pools[k] -= n
+        for k, n in c.get("gain", {}).items():
+            pools[k] += n
+        self.status = max(0, min(BAR_MAX, self.status + sign * c.get("push", 0)))
+
+    def play(self, cid):
+        self._apply(self.cards[str(cid)], self.mine, +1)
+        self.dp += 1
+
+    def npc_turn(self, rng=random):
+        """The NPC plays an affordable card (usually its strongest). Returns its id."""
+        options = [cid for cid in self.config["npc_cards"]
+                   if all(self.theirs[k] >= n for k, n in self.cards[str(cid)].get("cost", {}).items())]
+        options.sort(key=lambda cid: -self.cards[str(cid)].get("push", 0))
+        cid = options[0] if rng.random() < 0.6 else rng.choice(options)
+        self._apply(self.cards[str(cid)], self.theirs, -1)
+        self.opp_dp += 1
+        self.round += 1
+        return cid
+
+    def line(self):
+        lines = self.config.get("lines", ["Hmm."])
+        return lines[min(self.round - 1, len(lines) - 1)]
+
+    def outcome(self):
+        """'won', 'lost' or None."""
+        if self.status >= self.config.get("win_at", 17):
+            return "won"
+        if self.status <= self.config.get("lose_at", 4):
+            return "lost"
+        return None
+
+
+def open_parley(npc_eid, p):
+    return _event(0x31D, struct.pack("<QBBB", npc_eid, p.status, p.dp, p.opp_dp) + p.pools()
+                  + struct.pack("<B", PARLEY_TYPES.get(p.config.get("type", "entertain"), 0)) + _w(""))
 
 
 def selected(cid):
     return _event(0x332, struct.pack("<i", cid))
 
 
-def round_messages(status, dp, line, npc_card):
-    st = bytes([status]) + bytes([3] * 8)
-    return [_event(0x32C, st), _event(0x337, struct.pack("<ii", dp, 0)), _event(0x333),
-            _event(0x218, card(*npc_card)), _event(0x325, _w(line)), _event(0x32C, st),
-            _event(0x256), _event(0x334)]
+def update(p):
+    return _event(0x32C, bytes([p.status]) + p.pools())
+
+
+def points(p):
+    return _event(0x337, struct.pack("<ii", p.dp, p.opp_dp))
+
+
+def round_messages(p, npc_cid):
+    """After the player's card (already applied and shown with update/points)
+    the NPC answers with npc_cid, then it is the player's turn again."""
+    return [_event(0x333), _event(0x218, card(npc_cid, p.cards[str(npc_cid)])),
+            _event(0x325, _w(p.line())), update(p), points(p), _event(0x256), _event(0x334)]
+
+
+def error(code, arg=0):
+    return _event(0x330, struct.pack("<ii", code, arg))
 
 
 def won():
     return _event(0x324)
+
+
+def lost():
+    return _event(0x31F, struct.pack("<B", 0))
 
 
 def ended():

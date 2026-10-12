@@ -30,7 +30,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Items | stats, item type, icon, mesh number for the model, slot, flags | a handful of starter items in `zone.py` |
 | Abilities (gameplay) | costs, ranges, damage, cooldowns, level per class | names from `.aby` tags, placeholder numbers (`class_abilities.py`) |
 | Recipes and resource nodes | recipes (inputs, stages, actions, output), node types, yields, respawn | `server/content/recipes.json` (one recipe), `harvest` (kind, item, quantity, tool, skill, difficulty) and `station` blocks in mobs.json; tools in items.json (`harvest_tool`) |
-| Diplomacy | statement cards per class or level, NPC parley decks and strategy, parley rewards (faction, items, dialogue unlocks), presence requirements | three fixed cards in `server/diplomacy.py`; `"parley": true` in mobs.json |
+| Diplomacy | statement cards per class or level, NPC parley decks and strategy, parley rewards (faction, items, dialogue unlocks), presence requirements | `server/content/diplomacy.json`: 7 placeholder cards, one player deck, one parley (Orin); `parley` key in mobs.json |
 | Encounters | boss phases, triggers, adds, scripted events | none |
 | Quests | givers, text, steps, objectives, rewards | `server/content/quests.json`: two placeholder quests (kill, collect and talk steps, prerequisites, item rewards); quest dialogue trees (0x2af responses) not yet used |
 | NPC dialog and merchants | conversation trees, vendor inventories and prices, trainers | `server/content/merchants.json` (one placeholder vendor); dialog is only "Show me your wares." |

@@ -1129,43 +1129,81 @@ def harvest_tick(state, now):
 
 
 def handle_parley_event(state, event, data):
-    """A parley (diplomacy.py): each played card pushes the bar; at WIN_AT the
-    player wins and gets diplomacy XP."""
+    """A parley (diplomacy.py, content/diplomacy.json): the player plays a card,
+    the NPC answers with one of its own; the bar decides the winner."""
     player, send = state["player"], state["send"]
     p = state.get("parley")
+    dip = ARGS.content.diplomacy
     print(f"  >>> ZONE parley event {event:#x}: {data.hex(' ')}")
     if event == diplomacy.START:
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.parley:
             return
-        state["parley"] = {"npc": npc, "status": diplomacy.MIDDLE, "card": None, "dp": 0, "round": 0}
-        for m in diplomacy.deck_messages(resend=state.get("deck_sent", False)):
+        parleys = dip["parleys"]
+        config = parleys.get(npc.parley) if isinstance(npc.parley, str) else next(iter(parleys.values()))
+        p = diplomacy.Parley(config, dip["cards"], dip["deck"])
+        p.npc = npc
+        state["parley"] = p
+        for m in diplomacy.deck_messages(dip["cards"], dip["deck"], resend=state.get("deck_sent", False)):
             send(m)
         state["deck_sent"] = True
-        send(diplomacy.open_parley(npc.entity_id))
+        send(diplomacy.open_parley(npc.entity_id, p))
     elif p is None:
-        return
+        if event in (diplomacy.SELECT, diplomacy.PLAY, diplomacy.PASS):
+            send(diplomacy.error(diplomacy.ERR_OVER))
+        elif event == diplomacy.CANCEL:
+            for m in diplomacy.ended():
+                send(m)
+        elif event == diplomacy.CLOSE:
+            send(diplomacy.close())
     elif event == diplomacy.SELECT:
-        p["card"] = struct.unpack_from("<i", data, 0)[0]
-        send(diplomacy.selected(p["card"]))
+        cid = struct.unpack_from("<i", data, 0)[0]
+        code = p.check(cid)
+        if code:
+            send(diplomacy.error(code))
+            return
+        p.card = cid
+        send(diplomacy.selected(cid))
     elif event in (diplomacy.PLAY, diplomacy.PASS):
-        push = next((c[3] for c in diplomacy.CARDS if c[0] == p["card"]), 0) if event == diplomacy.PLAY else -1
-        p["status"] = max(0, min(21, p["status"] + push))
-        p["dp"] += 1 if push > 0 else 0
-        line = diplomacy.NPC_LINES[min(p["round"], len(diplomacy.NPC_LINES) - 1)]
-        p["round"] += 1
-        npc_card = (40100, "Skeptical Look", diplomacy.REASON, 1)
-        for m in diplomacy.round_messages(p["status"], p["dp"], line, npc_card):
-            send(m)
-        if p["status"] >= diplomacy.WIN_AT:
-            state.pop("parley")
-            send(diplomacy.won())
-            send(combat.experience_reward(150, p["npc"].entity_id, kind=2))
-            print(f"  {player.name} won a parley with {p['npc'].name}")
+        if event == diplomacy.PLAY:
+            if p.card is None:
+                send(diplomacy.error(diplomacy.ERR_NO_CARD))
+                return
+            code = p.check(p.card)
+            if code:
+                send(diplomacy.error(code))
+                return
+            p.play(p.card)
+            p.card = None
+            send(diplomacy.update(p))
+            send(diplomacy.points(p))
+        if p.outcome() is None:
+            for m in diplomacy.round_messages(p, p.npc_turn()):
+                send(m)
+        result = p.outcome()
+        if result:
+            finish_parley(state, p, result)
     elif event in (diplomacy.CANCEL, diplomacy.CLOSE):
         state.pop("parley", None)
         for m in diplomacy.ended() if event == diplomacy.CANCEL else [diplomacy.close()]:
             send(m)
+
+
+def finish_parley(state, p, result):
+    player, send = state["player"], state["send"]
+    state.pop("parley", None)
+    if result == "lost":
+        send(diplomacy.lost())
+        print(f"  {player.name} lost a parley with {p.npc.name}")
+        return
+    send(diplomacy.won())
+    reward = p.config.get("reward", {})
+    if reward.get("coin"):
+        player.coins += reward["coin"]
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+    send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
+    print(f"  {player.name} won a parley with {p.npc.name}")
 
 
 def recipe_by_id(rid):

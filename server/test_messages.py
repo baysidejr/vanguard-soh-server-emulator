@@ -174,6 +174,27 @@ class QuestStepTests(unittest.TestCase):
         self.assertEqual(quest.status_line(self.Q, {"step": 2, "count": 0}), "Talk")
 
 
+class ParleyTests(unittest.TestCase):
+    def test_costs_pools_and_outcome(self):
+        import content
+        import diplomacy
+        dip = content.Content().diplomacy
+        p = diplomacy.Parley(dip["parleys"]["orin_business"], dip["cards"], dip["deck"])
+        self.assertEqual(p.check(40028), diplomacy.NOT_ENOUGH["reason"])
+        self.assertEqual(p.check(99999), diplomacy.ERR_NOT_PREPARED)
+        p.play(40025)
+        p.play(40025)
+        self.assertIsNone(p.check(40028))
+        self.assertEqual(p.status, 15)
+        p.play(40028)
+        self.assertEqual((p.status, p.mine["reason"], p.outcome()), (19, 0, "won"))
+        self.assertEqual(len(p.pools()), 8)
+        rng = random.Random(1)
+        for _ in range(20):
+            p.npc_turn(rng)
+        self.assertEqual(p.outcome(), "lost")
+
+
 class TradeTests(unittest.TestCase):
     def test_full_bag_cancels_whole_trade(self):
         from unittest import mock

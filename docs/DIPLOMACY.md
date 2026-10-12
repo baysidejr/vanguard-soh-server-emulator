@@ -71,16 +71,35 @@ Errors use `0x330 {i32 code, i32 arg}`. Examples: 4 card not prepared, 5 refresh
 
 ## What the emulator does now
 
-- There are three fixed cards: Reasoned Argument (+3), Inspiring Words (+2) and Flattery (+2).
-- The NPC always plays "Skeptical Look", and the bar is moved only by the player's card push.
-- The player wins at 17 and gets 150 diplomacy XP.
-- Not done yet:
-  - card costs and expression pools
-  - NPC strategy
-  - losing
-  - rewards (faction, items, unlocked dialogue)
-  - per-character decks and drag-to-slot (`0xd7`/`0xd8`)
-  - the `0x321` option format with presence requirements
-  - Civic Diplomacy (`0x33d`, `0x340`, `0x341`)
+Verified live (2026-10-12): Compelling Case is refused while the Reason pool is too low. Reasoned Argument fills it, both sides play cards, and the bar reaches 17. The window shows "You Win!", and chat prints 1 silver and 150 diplomacy XP.
+
+Cards, the player's deck and per-NPC parleys are data in `server/content/diplomacy.json`. The rules are in `diplomacy.Parley`, which has unit tests.
+
+**Cards**
+- A card has a `push`, a `cost` and a `gain`.
+- `push` is bar points toward whoever plays it.
+- `cost` and `gain` are expression points.
+- The card face shows costs and gains in the client's colours: red Demand, green Reason, blue Inspire, yellow Flatter.
+
+**A round**
+1. When the player selects a card, the server checks that its cost is affordable. If not, it sends `0x330` code 7–10.
+2. When the player plays it, the server applies the card and sends `0x32c` and `0x337`.
+3. The NPC plays an affordable card from its `npc_cards`, usually its strongest, which pushes the bar back. This uses `round_messages`.
+
+**Outcome**
+- The player wins at `win_at`: `0x324`, then the coin and XP `reward`.
+- The player loses at `lose_at`: `0x31f`.
+- Selecting or playing after the parley ended gets `0x330` code 0xf ("The parley is already over.").
+
+**Pools**
+- The 8 pool bytes in `0x31d` and `0x32c` are pairs (mine, theirs): Inspire, Reason, Flatter, Demand.
+- The window draws the Reason, Inspire and Flatter columns, but the Demand (red) column stays empty in an Entertain parley. So the placeholder cards don't use Demand.
+
+**Not done yet**
+- rewards beyond coin and XP (faction, items, unlocked dialogue)
+- per-character decks and drag-to-slot (`0xd7`/`0xd8`)
+- card refresh timers (`0x266`)
+- the `0x321` option format with presence requirements
+- Civic Diplomacy (`0x33d`, `0x340`, `0x341`)
 
 Unknown fields: the trailing wstr in `0x31d`; card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.
