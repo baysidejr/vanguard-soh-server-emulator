@@ -385,6 +385,25 @@ def player_death(state, args, player):
             combat.death_popup(300)]
 
 
+CAMP_SECONDS = 20
+
+
+def camp_tick(state, now):
+    camp = state.get("camp")
+    if not camp:
+        return
+    if state.get("position") != camp["pos"]:
+        state.pop("camp")
+        state["send"](zone.zone_event(0x40D))
+    elif now >= camp["until"]:
+        state.pop("camp")
+        state["send"](zone.zone_event(0x40C))
+        print(f"  {state['player'].name} finished camping")
+    elif now >= camp["next_note"]:
+        camp["next_note"] = now + 5
+        state["send"](zone.zone_event(0x40E, struct.pack("<i", round(camp["until"] - now))))
+
+
 def world_tick(zone_sock, clients, args):
     """Once a second: per player auto-attack swings and regeneration; per world
     NPC respawns (shown to everyone in the chunk)."""
@@ -393,6 +412,8 @@ def world_tick(zone_sock, clients, args):
         player = state.get("player")
         if server != "ZONE" or player is None or "ue" not in state:
             continue
+        if "send" in state:
+            camp_tick(state, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":
                 _, lines, npc = action
@@ -1264,6 +1285,21 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.CLIENT_EVENTS:
             if state.get("player"):
                 handle_group_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x73 and state.get("player"):
+            # /sit, /stand: u8 1/0. Pawn m_bResting = 1 sits (verified live).
+            player = state["player"]
+            player.resting = bool(payload[10]) if len(payload) > 10 else False
+            values = {"m_bResting": int(player.resting)}
+            send_message(sock, addr, state, zone.player_pawn_update(state, args, values))
+            if state.get("world"):
+                state["world"].broadcast(lambda s: zone.remote_player_update(s, args, player, values),
+                                         exclude=state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x40B and state.get("player"):
+            # /camp: 0x40b starts ("It will take 20 seconds..."), 0x40e {i32 seconds}
+            # counts down, 0x40c finishes, 0x40d abandons (moving cancels it).
+            state["camp"] = {"until": time.time() + CAMP_SECONDS, "pos": state.get("position"),
+                             "next_note": time.time() + 5}
+            send_message(sock, addr, state, zone.zone_event(0x40B))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CHUNK_CHANGE_EVENT:
             chunk_handoff(state, payload, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x313, 0x314):

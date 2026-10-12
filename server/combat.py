@@ -337,7 +337,8 @@ def tick(player, now):
         player.endurance = min(player.endurance + ENDURANCE_REGEN, player.stats["endurance"])
         out.append(("endurance",))
     if 0 < player.health < player.stats["hit_points"] and now - player.last_combat >= REGEN_DELAY:
-        player.health = min(player.health + REGEN_PER_SECOND, player.stats["hit_points"])
+        regen = REGEN_PER_SECOND * (3 if getattr(player, "resting", False) else 1)
+        player.health = min(player.health + regen, player.stats["hit_points"])
         out.append(("health",))
     return out
 
