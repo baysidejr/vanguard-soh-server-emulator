@@ -126,6 +126,17 @@ def spawn_bunches(ue, args):
                           lambda w, v=cid & 0xFFFFFFFF: w.bits(v, 32)))
             props.append((nc.field(pawn_cls, "EntityIDHighInt").index, cache["max"],
                           lambda w, v=cid >> 32: w.bits(v, 32)))
+        def put_int(v):
+            return lambda w: w.bits(v & 0xFFFFFFFF, 32)
+
+        def put_str(s):
+            raw = s.encode("latin-1", "replace") + bytes(1)
+            return lambda w: w.bytes_(ue2net.compact_index(len(raw)) + raw)
+
+        for fname, write in (("m_iRaceId", put_int(getattr(args, "current_char_race", 0x0E))),
+                             ("Health", put_int(100)),
+                             ("m_PlayerDisplayName", put_str(getattr(args, "current_char_name", "")))):
+            props.append((nc.field(pawn_cls, fname).index, cache["max"], write))
         # Pawn subclasses carry three extra fields (FUN_00962350); these are the
         # client's own defaults (0xff, -1, 1.0f).
         b = ue.actor_open_bunch(PAWN_CHANNEL, pm.object_index(args.pawn_class), pm.max_object_index,

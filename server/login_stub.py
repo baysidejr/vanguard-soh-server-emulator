@@ -546,6 +546,7 @@ def handle_message(sock, server, addr, state, payload, args):
             char = next((c for c in load_characters() if c["first"] == name), {"first": name})
             args.current_char_id = character_id(char)
             args.current_char_name = name
+            args.current_char_race = character_race_class(char)[0] if char.get("raw") else 0x0E
             args.current_level = args.zone_level or chunk_name(*character_chunk(char))
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x})")
