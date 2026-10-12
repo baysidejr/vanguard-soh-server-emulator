@@ -117,7 +117,10 @@ def log_client_rpc(state, b, args, player):
             print(f"  >>> UNREAL {name}: position {loc}")
             save = player.save_position
             now = time.time()
-            if save and now - state.get("position_saved", 0) > 2.0:
+            # Ignore positions at the world origin: the client reports one when the
+            # pawn's location was never set (e.g. wrong net role).
+            plausible = abs(loc[0]) > 2 or abs(loc[1]) > 2
+            if save and plausible and now - state.get("position_saved", 0) > 2.0:
                 save(loc)
                 state["position_saved"] = now
         return
@@ -344,6 +347,10 @@ def spawn_bunches(ue, args, player):
     if pawn_cls:
         values = {
             "bNetOwner": True,
+            # The client runs this pawn as a SimulatedProxy; APawn::TickSimulated
+            # (FUN_00a03070) then sets PHYS_Flying every tick unless
+            # bSimulateGravity is set, which made the character hover.
+            "bSimulateGravity": True,
             "m_iRaceId": player.race,
             "Health": 100,
             "m_PlayerDisplayName": player.name,
