@@ -32,7 +32,21 @@ The client's guild dispatcher is `FUN_004f1610`. Requests are zone events.
 
 **Guild chat** goes over the world connection: type 6 command `"guildsay <text>"`. Members get `0x0f {text, speaker, 0x0b}`, and the speaker gets the echo `0x11 {text, 0x0b}`.
 
+**World social (type 5) guild requests (verified live 2026-10-12):**
+
+| Direction | Id | Payload | Meaning |
+|---|---|---|---|
+| C→S | `0x4e2` | raw wstr | `/guildmotdset text` (officers and up). The server broadcasts `0x4e1` to the guild |
+| S→C | `0x4e1` | `wstr motd, wstr set by, i32 time` | "Guild Motd: %s". Also sent at zone login |
+| C→S | `0x4e3` | none | the MOTD view request. `/guildmotd` with no text was not seen on the wire; the client shows its cached copy |
+| C→S | `0x4d2` | `i32 name byte length, i32 rank, wstr name` | `/guildrenamerank 1 Pup` (leader only). The leading length int was seen live |
+| S→C | `0x4de` | `i32 rank, wstr name` | "Guild rank %s has been renamed to %s." The client renames before formatting, so both names print as the new one; the server sends its own text plus a fresh `0x4ea` instead |
+| C→S | `0x4df` | `wstr name` | `/guildstatus name` |
+| S→C | `0x4df` | `wstr name, wstr guild name, i32 rank` | "%s is a %s in %s." The rank name comes from the viewer's own rank table; rank 0 prints "That player is not in a Guild." (`FUN_004eb5e0`) |
+| C→S | `0x4ec` | none | member-list request; the server replies with `0x4eb`/`0x4ec`/`0x4ed` |
+
+Custom rank names and the MOTD are stored per guild in `guilds.json` (`ranks`, `motd`, `motd_by`, `motd_time`).
+
 Not done yet:
-- the MOTD (`0x4e2`/`0x4e1`), rank renaming (`0x4d2`) and notes
-- the social-channel member-list request (`0x4ec`)
-- brotherhoods (`0x4bd`–`0x4c5`, `0x6e7`–`0x6ef`)
+- notes and points (`/guildsetnote` and friends, probably `0x4e4`–`0x4e6`, `0x4cf`, `0x4d0`)
+- recruiting and guild properties (`0x4ca`–`0x4ce`, `0x4d1`)

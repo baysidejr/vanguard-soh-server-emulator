@@ -8,6 +8,11 @@ Server: 0x4e7 opens the guild-name dialog; 0x4dd {i32 guild id, i32 my rank} (0 
   0x4ee member update (rank 0 = removed; notify 1 joined, 2 removed, 3 quit);
   0x4e9 invite popup {eid64, wstr inviter, wstr guild, wstr rank, i32};
   0x40 {u64 0, i32 id, wstr name} guild name for overhead tags.
+World social (type 5) from the client: 0x4e2 MOTD set {raw wstr}, 0x4e3 MOTD view,
+  0x4d2 rename rank {i32 name bytes, i32 rank, wstr name}, 0x4df /guildstatus {wstr name}, 0x4ec member list.
+Server: 0x4e1 MOTD {wstr motd, wstr by, i32 time}; 0x4de rank renamed {i32 rank, wstr name};
+  0x4df status {wstr name, wstr guild, i32 rank} ("%s is a %s in %s."; the client takes the
+  rank name from its own guild's table; rank 0 -> "That player is not in a Guild.").
 Guild chat: world type 6 command "guildsay <text>" -> 0x0f {text, speaker, 0x0b}, echo 0x11.
 Ranks 1..10 (10 = leader)."""
 import struct
@@ -20,6 +25,8 @@ CHAT_GUILD = 0x0B
 RANK_NAMES = ["Recruit", "Member", "Member", "Member", "Member", "Veteran", "Veteran",
               "Senior", "Officer", "Leader"]
 JOINED, REMOVED, QUIT_NOTE = 1, 2, 3
+RENAME_RANK, STATUS, MOTD_SET, MOTD_VIEW, MEMBER_LIST = 0x4D2, 0x4DF, 0x4E2, 0x4E3, 0x4EC
+WORLD_EVENTS = (RENAME_RANK, STATUS, MOTD_SET, MOTD_VIEW, MEMBER_LIST)
 
 
 def _event(event_id, data=b""):
@@ -38,9 +45,9 @@ def membership(guild_id, rank):
     return _event(0x4DD, struct.pack("<ii", guild_id, rank))
 
 
-def info(name):
+def info(name, ranks=None):
     data = _w(name) + struct.pack("<iBB", 0, 0, 0) + _w("") + struct.pack("<ii", 0, 0)
-    for n, rank in enumerate(RANK_NAMES, start=1):
+    for n, rank in enumerate(ranks or RANK_NAMES, start=1):
         power = int(n >= OFFICER)
         data += _w(rank) + struct.pack("<BBB", power, power, power)
     return _event(0x4EA, data + bytes(20))
@@ -63,9 +70,21 @@ def member_update(m, notify=0):
     return _event(0x4EE, member_record(m, notify))
 
 
-def invite(inviter_eid, inviter, guild_name, rank=MEMBER):
+def invite(inviter_eid, inviter, guild_name, rank=MEMBER, ranks=None):
     return _event(0x4E9, struct.pack("<Q", inviter_eid) + _w(inviter) + _w(guild_name)
-                  + _w(RANK_NAMES[rank - 1]) + struct.pack("<i", rank))
+                  + _w((ranks or RANK_NAMES)[rank - 1]) + struct.pack("<i", rank))
+
+
+def motd(text, by, when):
+    return _event(0x4E1, _w(text) + _w(by) + struct.pack("<i", int(when)))
+
+
+def rank_renamed(rank, name):
+    return _event(0x4DE, struct.pack("<i", rank) + _w(name))
+
+
+def status(name, guild_name, rank):
+    return _event(0x4DF, _w(name) + _w(guild_name) + struct.pack("<i", rank))
 
 
 def name_tag(guild_id, name):

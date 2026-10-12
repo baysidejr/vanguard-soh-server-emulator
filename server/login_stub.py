@@ -885,6 +885,8 @@ def guild_login(state):
         send(guild.membership(0, 0))
         return
     send_guild_window(state, g)
+    if g.get("motd"):
+        send(guild.motd(g["motd"], g.get("motd_by", ""), g.get("motd_time", 0)))
     if not state.get("guild_announced"):
         state["guild_announced"] = True
         guild_broadcast(player.name, lambda g: guild.member_update(guild_member(g, player.name)), exclude=state)
@@ -893,7 +895,7 @@ def guild_login(state):
 def send_guild_window(state, g):
     player, send = state["player"], state["send"]
     send(guild.membership(g["id"], guild_member(g, player.name)["rank"]))
-    send(guild.info(g["name"]))
+    send(guild.info(g["name"], g.get("ranks")))
     send(guild.name_tag(g["id"], g["name"]))
     for m in guild.member_list([guild_member(g, n) for n in g["members"]]):
         send(m)
@@ -955,7 +957,7 @@ def handle_guild_event(state, event, data):
             say(f"{target['player'].name} is already in a guild.", True)
         else:
             target["guild_invite"] = mine["id"]
-            target["send"](guild.invite(player.char_id, player.name, mine["name"]))
+            target["send"](guild.invite(player.char_id, player.name, mine["name"], ranks=mine.get("ranks")))
             say(f"You invite {target['player'].name} to join {mine['name']}.")
     elif event in (guild.QUIT, guild.KICK, guild.DELETE):
         if event == guild.DELETE:
@@ -1002,7 +1004,60 @@ def handle_guild_event(state, event, data):
         s = ONLINE.get(who.lower())
         if s is not None and s.get("send"):
             s["send"](guild.membership(mine["id"], mine["members"][who]))
-        say(f"{who} is now a {guild.RANK_NAMES[mine['members'][who] - 1]}.")
+        say(f"{who} is now a {(mine.get('ranks') or guild.RANK_NAMES)[mine['members'][who] - 1]}.")
+
+
+def handle_guild_world(state, event, data, reply):
+    """World social guild events: MOTD set/view, rank rename, /guildstatus, member list."""
+    player = state["player"]
+    guilds = load_guilds()
+    mine = guild_of(player.name, guilds)
+    if event == guild.STATUS:
+        name = guild.read_name(data).strip()
+        g = guild_of(name, guilds) if name else None
+        if g is None:
+            state["send"](guild.status(name, "", 0))          # "That player is not in a Guild."
+            return
+        who = next(m for m in g["members"] if m.lower() == name.lower())
+        state["send"](guild.status(who, g["name"], g["members"][who]))
+        return
+    if mine is None:
+        reply(zone.zone_event(0x0E, struct.pack("<h", 0x1A)))          # NoGuild
+        return
+    rank = mine["members"][next(m for m in mine["members"] if m.lower() == player.name.lower())]
+    if event == guild.MEMBER_LIST:
+        for m in guild.member_list([guild_member(mine, n) for n in mine["members"]]):
+            reply(m)
+    elif event == guild.MOTD_VIEW:
+        if mine.get("motd"):
+            reply(guild.motd(mine["motd"], mine.get("motd_by", ""), mine.get("motd_time", 0)))
+        else:
+            reply(build_system_text("Your guild has no message of the day.", SYSTEM_TEXT_WHITE))
+    elif event == guild.MOTD_SET:
+        if rank < guild.OFFICER:
+            reply(build_system_text("You don't have permission to set the guild MOTD.", SYSTEM_TEXT_ERROR))
+            return
+        mine["motd"] = guild.read_name(data).strip()
+        mine["motd_by"], mine["motd_time"] = player.name, int(time.time())
+        save_guilds(guilds)
+        guild_broadcast(player.name, lambda g: guild.motd(g["motd"], g["motd_by"], g["motd_time"]))
+    elif event == guild.RENAME_RANK and len(data) >= 8:
+        # i32 name byte length, i32 rank, wstr name (seen live: 06 00 00 00 01 00 00 00 "Pup").
+        number = struct.unpack_from("<i", data, 4)[0]
+        new = guild.read_name(data[8:]).strip()
+        if rank != guild.LEADER or not 1 <= number <= 10 or not new:
+            reply(build_system_text("You can't rename that rank.", SYSTEM_TEXT_ERROR))
+            return
+        ranks = list(mine.get("ranks") or guild.RANK_NAMES)
+        ranks[number - 1] = new[:32]
+        # 0x4de prints "Guild rank %s has been renamed to %s." with the new name twice
+        # (the client renames before formatting), so say it ourselves.
+        old = (mine.get("ranks") or guild.RANK_NAMES)[number - 1]
+        guild_broadcast(player.name, lambda g: build_system_text(
+            f"Guild rank {old} has been renamed to {new[:32]}.", SYSTEM_TEXT_WHITE))
+        mine["ranks"] = ranks
+        save_guilds(guilds)
+        guild_broadcast(player.name, lambda g: guild.info(g["name"], ranks))
 
 
 BROTHERHOODS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brotherhoods.json")
@@ -1133,6 +1188,9 @@ def handle_social_world(zone_state, event, data, reply):
     player = zone_state["player"]
     if event == brotherhood.LEAVE:
         handle_brotherhood(zone_state, event, data)
+        return
+    if event in guild.WORLD_EVENTS:
+        handle_guild_world(zone_state, event, data, reply)
         return
     if event == social.WHO:
         f = social.parse_who(data)
