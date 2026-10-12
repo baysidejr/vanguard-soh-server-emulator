@@ -186,3 +186,7 @@ Rules for a visible, usable ability:
 | `FUN_0042ca80` | Use checks and send of 0xd0 |
 | `FUN_0042c5b0` | Readiness check |
 | `FUN_005f3e80` | Form check |
+
+## Starting abilities per class
+
+`server/class_abilities.py` gives each adventuring class four starting abilities taken from the client's own `Assets/Abilities/<PREFIX>_ABILITIES.aby` (WAR, PAL, DRK, RNG, ROG, BRD, MNK, DSC, CLR, SHM, DRU, SOR, NEC, PSI, BMG). Each export is named `<PREFIX>_ABILITIES_<id>` and ends with a tag such as `BLADE_WINTER_I`, which becomes the ability's name. The id is also MsgAbilityInfo field 20 and the visual id sent in `0x3d1`, so using the ability plays its real animation. Costs, levels, damage and icons were server-side data and are placeholders. Run `python class_abilities.py` to list the picks.

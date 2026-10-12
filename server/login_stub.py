@@ -15,6 +15,7 @@ import time
 import races_classes
 import ue2net
 import vgmsg
+import class_abilities
 import combat
 import zone
 
@@ -706,6 +707,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 level=args.zone_level or chunk_name(*character_chunk(char)),
                 position=saved if saved and same_chunk else None,
                 save_position=lambda loc, n=name: save_character_position(n, loc))
+            player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
+                                or player.abilities)
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "

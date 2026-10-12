@@ -110,8 +110,9 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}, but you have no target.", "combat")], None
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
-    lo, hi = ABILITY_DAMAGE.get(ability[1], (6, 10))
-    visual = ABILITY_VISUALS.get(ability[1])
+    lo, hi = ABILITY_DAMAGE.get(ability[1], (8, 16))
+    # Class abilities use their Assets/Abilities id directly (class_abilities.py).
+    visual = ABILITY_VISUALS.get(ability[1], ability[1] if ability[1] >= 500000 else None)
     if hi == 0:
         if visual:
             player.pending_displays.append(display_ability(player.char_id, NO_ENTITY, visual))
