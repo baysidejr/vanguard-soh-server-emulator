@@ -1,6 +1,6 @@
 # Harvesting in VGClient.exe: resource nodes, start/stop, progress UI, rewards
 
-> **Verified live (2026-10-12):** a Copper Ore Vein (SGONPCPawn race 172, EntityTypes 0x800); /con gives the harvesting lines; U (or the client's 0x109) opens the Harvesting window "Mining - Copper Ore Vein" with a progress bar; four strikes later "You harvest 3 Copper Ore." and the ore is in the bag. Implemented in `server/harvest.py` and `login_stub.handle_harvest_event/harvest_tick`; nodes are mob templates with a `harvest` block. Tools and harvesting skills are not checked yet.
+> **Verified live (2026-10-12):** a Copper Ore Vein (SGONPCPawn race 172, EntityTypes 0x800); /con gives the harvesting lines; U (or the client's 0x109) opens the Harvesting window "Mining - Copper Ore Vein" with a progress bar; four strikes later "You harvest 3 Copper Ore." and the ore is in the bag. Implemented in `server/harvest.py` and `login_stub.handle_harvest_event/harvest_tick`; nodes are mob templates with a `harvest` block. Tools and harvesting skills are not checked yet. Use the static-prop races (e.g. 536 OreMedium) for visible nodes: race 172 (RockOre) showed only a name plate.
 
 
 Static analysis only (Ghidra via REA, plus the client's .u/.aby packages read with `server/upackage.py`).
