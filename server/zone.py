@@ -101,6 +101,12 @@ def handle_unreal(send, state, payload, args):
                 send(unreal_message(ue.build([b])))
 
 
+def health_update(player):
+    """MsgStatUpdate (0x2d4) of the Health stat: current value and maximum."""
+    return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["hit_points"], player.health,
+                                               maximum=player.stats["hit_points"]))
+
+
 def npc_update(state, args, npc, values):
     """A zone message updating replicated properties of an NPC's pawn."""
     ue, player = state["ue"], state["player"]
@@ -310,6 +316,7 @@ class Player:
         self.coins = DEFAULT_COINS
         self.npcs = {}                    # entity id -> combat.Npc seen by this player
         self.target = None                # entity id from client event 0x5d
+        self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
 
 
 PC_CHANNEL = 1

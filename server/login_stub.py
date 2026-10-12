@@ -512,15 +512,24 @@ PENDING_PLAYERS = {}
 LOGIN_CONN = {}
 
 
-def dev_command(text):
+def dev_command(text, player=None):
     """Developer chat commands (only with --dev-commands), for probing the client:
       !stat id=value[,field=value...] ...   send MsgSingleStatInfo records (0x2d5).
         Field names: kind, category, subtype, base, f<N> (raw wire field N).
       !upd id=value[,field=value...] ...    send MsgStatUpdate (0x2d4) per stat.
-      !event id [hexbytes]                  send a raw zone event."""
+      !event id [hexbytes]                  send a raw zone event.
+      !anim id [arg] [me]                   play animation id (zone event 0x2e) on
+                                            the target, or on yourself with "me"."""
     words = text[1:].split()
     if not words:
         return []
+    if words[0] == "anim" and len(words) >= 2 and player:
+        me = "me" in words[2:]
+        nums = [int(w, 0) for w in words[1:] if w != "me"]
+        eid = player.char_id if me or not player.target else player.target
+        print(f"  <- dev: animation {nums[0]} on {eid:#x}")
+        return [zone.zone_event(combat.ANIM_EVENT, struct.pack("<Qii", eid, nums[0],
+                                                               nums[1] if len(nums) > 1 else 0))]
     if words[0] == "stat":
         recs = []
         for spec in words[1:]:
@@ -682,7 +691,7 @@ def handle_message(sock, server, addr, state, payload, args):
             speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             if text.startswith("!") and args.dev_commands:
-                for m in dev_command(text):
+                for m in dev_command(text, state.get("player")):
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == combat.TARGET_EVENT:
             # Target selected (click, Tab): u64 entity id; 0 = target cleared.
@@ -705,6 +714,7 @@ def handle_message(sock, server, addr, state, payload, args):
                            "white": SYSTEM_TEXT_WHITE}
                 for text, kind in lines:
                     send_message(sock, addr, state, build_system_text(text, colours[kind]))
+                send_message(sock, addr, state, zone.health_update(player))
                 if npc:
                     send_message(sock, addr, state, combat.target_health(npc))
                     if not npc.alive:

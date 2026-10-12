@@ -78,4 +78,22 @@ def use_ability(player, ability, rng=random):
     lines = [(f"Your {name} hits {npc.name} for {dmg} damage.", "combat")]
     if not npc.alive:
         lines.append((f"You have slain {npc.name}!", "white"))
+    else:
+        lines += npc_attacks(player, npc, rng)
     return lines, npc
+
+
+NPC_DAMAGE = (3, 9)
+
+
+def npc_attacks(player, npc, rng=random):
+    """The NPC strikes back once. Lowers player.health (the HUD bar follows a
+    0x2d4 update of the Health stat; see zone.health_update)."""
+    if player.health <= 0:
+        return []
+    dmg = rng.randint(*NPC_DAMAGE)
+    player.health = max(player.health - dmg, 0)
+    lines = [(f"{npc.name} hits YOU for {dmg} damage.", "error")]
+    if player.health == 0:
+        lines.append(("You have been slain!", "error"))
+    return lines
