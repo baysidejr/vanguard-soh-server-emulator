@@ -211,7 +211,9 @@ def main():
     parser.add_argument("--spawn-rotation", action="store_true",
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
-    args.current_level = args.zone_level or chunk_name(*DEFAULT_CHUNK)
+    # Used when a zone connection arrives without going through Play first.
+    args.default_player = lambda: zone.Player(name="Someone",
+                                              level=args.zone_level or chunk_name(*DEFAULT_CHUNK))
     args.package_maps = {}
     args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
 
@@ -496,6 +498,8 @@ def save_characters(chars):
 # The most recent world-server / login-server connections, so each side can push
 # messages to the other (character records, refreshed account lists).
 WORLD_CONN = {}
+# Characters chosen with Play, by session key, until their zone connection logs in.
+PENDING_PLAYERS = {}
 LOGIN_CONN = {}
 
 
@@ -558,24 +562,27 @@ def handle_message(sock, server, addr, state, payload, args):
             name = data[:128].decode("utf-16-le", "replace").split("\0")[0]
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
             char = next((c for c in load_characters() if c["first"] == name), {"first": name})
-            args.current_char_id = character_id(char)
-            args.current_char_name = name
-            # Resume where the character last stood (same chunk only, for now).
+            # The zone connection with the same session key claims this player.
             saved = char.get("position")
             same_chunk = tuple(char.get("position_chunk", ())) == character_chunk(char)
-            args.current_char_position = saved if saved and same_chunk else None
-            args.save_position = lambda loc, n=name: save_character_position(n, loc)
-            args.current_char_race = character_race_class(char)[0] if char.get("raw") else 0x0E
-            args.current_level = args.zone_level or chunk_name(*character_chunk(char))
+            player = zone.Player(
+                name=name,
+                char_id=character_id(char),
+                race=character_race_class(char)[0] if char.get("raw") else 0x0E,
+                level=args.zone_level or chunk_name(*character_chunk(char)),
+                position=saved if saved and same_chunk else None,
+                save_position=lambda loc, n=name: save_character_position(n, loc))
+            PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x})")
-            msg = build_zone_connect_event(args.world_address, args.zone_port, args.current_level)
+            msg = build_zone_connect_event(args.world_address, args.zone_port, player.level)
             n = send_message(sock, addr, state, msg)
             print(f"  <- sent WORLD event 8 (connect to zone {args.world_address}:{args.zone_port}) ({n} packets)")
             return
     if server == "ZONE":
         if login:
             print(f"  >>> ZONE login request: account={login[0]!r} session={login[1]!r}")
+            state["player"] = PENDING_PLAYERS.pop(login[1], None)
             send_message(sock, addr, state, build_login_reply(True))
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -584,7 +591,7 @@ def handle_message(sock, server, addr, state, payload, args):
             # zone event 0x0f via build_chat_line (verified live: field order is
             # text, speaker; channel 0 renders as "[???]" - Say's id is unknown).
             text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
-            speaker = getattr(args, "current_char_name", "Someone")
+            speaker = state["player"].name if state.get("player") else "Someone"
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
         elif msg_type == 2:
             print_client_log(payload)
@@ -606,6 +613,7 @@ def handle_message(sock, server, addr, state, payload, args):
             # (field1 = account, field2 = session key from event 0x27). ClientWorldApi's
             # dispatcher (FUN_00d9aa60) reads type 4 with the same reader (FUN_00d9a900).
             print(f"  >>> WORLD login request: account={login[0]!r} session={login[1]!r}")
+            state["session"] = login[1]
             reply = build_reliable(state["out_seq"], build_login_reply(True))
             state["out_seq"] += 1
             sock.sendto(reply, addr)
