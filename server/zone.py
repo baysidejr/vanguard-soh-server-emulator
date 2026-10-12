@@ -396,28 +396,28 @@ DEFAULT_ITEMS = [
 # [(name, icon, slot tag)]. Icons are iconsTK.xml numbers.
 CLASS_STARTER_WEAPONS = {
     0x1C: [("Militia Longsword", 423, "PRIMARYHAND"),
-           ("Round Shield", 443, "SECONDARYHAND")],                      # Warrior
+           ("Round Shield", 512, "SECONDARYHAND")],                      # Warrior
     0x04: [("Crusader's Mace", 425, "PRIMARYHAND"),
-           ("Round Shield", 443, "SECONDARYHAND")],                      # Paladin
+           ("Round Shield", 512, "SECONDARYHAND")],                      # Paladin
     0x14: [("Blackened Blade", 422, "PRIMARYHAND")],                    # Dread Knight
     0x13: [("Hunter's Shortsword", 422, "PRIMARYHAND"),
            ("Yew Longbow", 427, "RANGED")],                              # Ranger
     0x15: [("Rusted Dagger", 429, "PRIMARYHAND")],                      # Rogue
     0x02: [("Minstrel's Scimitar", 479, "PRIMARYHAND")],                # Bard
-    0x0F: [("Training Staff", 469, "PRIMARYHAND")],                     # Monk
-    0x1B: [("Training Staff", 469, "PRIMARYHAND")],                     # Disciple
+    0x0F: [("Training Staff", 483, "PRIMARYHAND")],                     # Monk
+    0x1B: [("Training Staff", 483, "PRIMARYHAND")],                     # Disciple
     0x05: [("Acolyte's Mace", 425, "PRIMARYHAND")],                     # Cleric
     0x16: [("Spirit Hammer", 468, "PRIMARYHAND")],                      # Shaman
-    0x07: [("Oak Staff", 469, "PRIMARYHAND")],                          # Druid
-    0x19: [("Apprentice Staff", 469, "PRIMARYHAND")],                   # Sorcerer
-    0x2D: [("Bone Staff", 469, "PRIMARYHAND")],                         # Necromancer
-    0x0E: [("Focus Staff", 469, "PRIMARYHAND")],                        # Psionicist
+    0x07: [("Oak Staff", 483, "PRIMARYHAND")],                          # Druid
+    0x19: [("Apprentice Staff", 483, "PRIMARYHAND")],                   # Sorcerer
+    0x2D: [("Bone Staff", 483, "PRIMARYHAND")],                         # Necromancer
+    0x0E: [("Focus Staff", 483, "PRIMARYHAND")],                        # Psionicist
     0x2C: [("Ritual Dagger", 429, "PRIMARYHAND")],                      # Blood Mage
 }
 
 
-STARTER_OUTFIT = [("Traveler's Robe", 442, "CHEST"), ("Traveler's Leggings", 442, "LEGS"),
-                  ("Traveler's Boots", 442, "FEET")]
+STARTER_OUTFIT = [("Traveler's Robe", 436, "CHEST"), ("Traveler's Leggings", 434, "LEGS"),
+                  ("Traveler's Boots", 461, "FEET")]
 
 
 def starter_equipment(klass):
@@ -452,6 +452,11 @@ def damage_encoding(lo, hi):
             if best is None or key < best[0]:
                 best = (key, base, v)
     return best[1], best[2]
+
+
+def item_icon(name, fallback):
+    """The icon from content/items.json wins over one saved with the item."""
+    return ITEM_CONTENT.item(name).get("icon", fallback)
 
 
 def item_equip_fields(name):
@@ -529,12 +534,12 @@ def inventory_messages(player):
     then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
     out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
     for item_id, name, icon, qty, slot in player.items:
-        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty,
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, item_icon(name, icon), qty,
                                                           **item_equip_fields(name))))
     # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
     # u8 lookup kind, u8 equip slot) moves them to the paper doll.
     for n, (item_id, name, icon, equip_slot) in enumerate(player.equipment):
-        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, icon,
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, item_icon(name, icon),
                                                           **item_equip_fields(name))))
         out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))
     out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
