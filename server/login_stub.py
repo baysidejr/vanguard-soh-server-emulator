@@ -239,16 +239,34 @@ def main():
     # Per-(server, client) state: next outgoing reliable seq, reliable seqs already handled.
     clients = {}
 
-    next_tick = time.time() + 1
+    next_tick = next_move = time.time() + 1
     while True:
         ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
-                                    max(next_tick - time.time(), 0))
+                                    max(min(next_tick, next_move) - time.time(), 0))
         for sock in ready:
             data, addr = sock.recvfrom(65535)
             serve(sock, names[sock], data, addr, clients, args)
+        if time.time() >= next_move:
+            next_move = time.time() + MOVE_TICK
+            movement_tick(zone_sock, clients, args)
         if time.time() >= next_tick:
             next_tick = time.time() + 1
             world_tick(zone_sock, clients, args)
+
+
+MOVE_TICK = 0.25
+
+
+def movement_tick(zone_sock, clients, args):
+    """Four times a second: NPCs that chase their attacker."""
+    for (server, addr), state in list(clients.items()):
+        player = state.get("player")
+        if server != "ZONE" or player is None or "ue" not in state:
+            continue
+        for npc in player.npcs.values():
+            values = combat.chase_step(npc, state.get("position"), MOVE_TICK)
+            if values:
+                send_message(zone_sock, addr, state, zone.npc_update(state, args, npc, values))
 
 
 def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
@@ -603,6 +621,13 @@ def dev_command(text, player=None):
     words = text[1:].split()
     if not words:
         return []
+    if words[0] == "move" and len(words) >= 3 and player and player.target in player.npcs:
+        # !move dx dy: shift the target NPC (replicated Location).
+        npc = player.npcs[player.target]
+        npc.location = (npc.location[0] + float(words[1]), npc.location[1] + float(words[2]),
+                        npc.location[2])
+        print(f"  <- dev: move {npc.name} to {npc.location}")
+        return [("npc_update", npc, {"Location": npc.location})]
     if words[0] == "hurt" and len(words) >= 2 and player:
         # !hurt N: lower your own health (the next hit from an NPC can kill you).
         player.health = max(player.health - int(words[1], 0), 1)
@@ -781,6 +806,8 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             if text.startswith("!") and args.dev_commands:
                 for m in dev_command(text, state.get("player")):
+                    if isinstance(m, tuple) and m[0] == "npc_update":
+                        m = zone.npc_update(state, args, m[1], m[2])
                     send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in combat.RELEASE_EVENTS:
             # "Release to Bind" (0x542) on the death popup. No teleport yet: the

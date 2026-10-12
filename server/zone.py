@@ -56,6 +56,7 @@ def handle_unreal(send, state, payload, args):
     for b in out:
         send(unreal_message(ue.build([b])))
     if "<SPAWN>" in replies:
+        state.setdefault("position", player.spawned_at)   # until the first ServerMove
         motd = "Welcome to the Vanguard emulator."
         send(zone_event(0x70, (motd + "\0").encode("utf-16-le")))   # message of the day
         for event_id in args.zone_in_events:
@@ -86,7 +87,8 @@ def handle_unreal(send, state, payload, args):
                 loc = tuple(a + b for a, b in zip(player.spawned_at, off))
                 eid = getattr(args, "npc_entity_id", None) or (0x2000000 + n)
                 b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, eid)
-                player.npcs[eid] = combat.Npc(eid, name, FIRST_NPC_CHANNEL + n, cls_path)
+                player.npcs[eid] = combat.Npc(eid, name, FIRST_NPC_CHANNEL + n, cls_path,
+                                             location=loc)
                 print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
                 send(unreal_message(ue.build([b])))
 

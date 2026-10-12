@@ -10,6 +10,7 @@ health bar ("OffTargetLifePoints" = byte * 100 / 255). The client ignores it
 unless the id is its current offensive target.
 
 Damage numbers are placeholders: there are no real combat formulas yet."""
+import math
 import random
 import struct
 import time
@@ -20,7 +21,7 @@ TARGETS_EVENT = 0x3E0        # server -> client: offensive, defensive, third tar
 
 
 class Npc:
-    def __init__(self, entity_id, name, channel, cls_path, max_health=100):
+    def __init__(self, entity_id, name, channel, cls_path, max_health=100, location=(0.0, 0.0, 0.0)):
         self.entity_id = entity_id
         self.name = name
         self.channel = channel        # UE2 actor channel of its pawn
@@ -28,6 +29,10 @@ class Npc:
         self.max_health = max_health
         self.health = max_health
         self.died_at = None
+        self.location = location
+        self.home = location
+        self.aggro = False            # chasing the player
+        self.moving = False
 
     @property
     def alive(self):
@@ -182,6 +187,7 @@ def npc_attacks(player, npc, rng=random):
     0x2d4 update of the Health stat; see zone.health_update)."""
     if player.health <= 0:
         return []
+    npc.aggro = True
     dmg = rng.randint(*NPC_DAMAGE)
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, NPC_AUTO_ATTACK))
     player.health = max(player.health - dmg, 0)
@@ -189,6 +195,31 @@ def npc_attacks(player, npc, rng=random):
     if player.health == 0:
         lines.append(("You have been slain!", "error"))
     return lines
+
+
+NPC_SPEED = 220.0            # units per second while chasing
+MELEE_RANGE = 90.0
+
+
+def chase_step(npc, target, dt):
+    """Move an aggressive NPC toward target (x, y, z). Returns the replicated
+    properties to send, or None when nothing changed."""
+    if not npc.alive or not npc.aggro or target is None:
+        return None
+    dx, dy = target[0] - npc.location[0], target[1] - npc.location[1]
+    dist = math.hypot(dx, dy)
+    yaw = int(math.degrees(math.atan2(dy, dx)) * 65536 / 360) & 0xFFFF
+    if dist <= MELEE_RANGE:
+        if not npc.moving:
+            return None
+        npc.moving = False
+        return {"Velocity": (0.0, 0.0, 0.0), "Rotation": (0, yaw, 0)}
+    step = min(NPC_SPEED * dt, dist - MELEE_RANGE)
+    npc.location = (npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step,
+                    npc.location[2])
+    npc.moving = True
+    return {"Location": npc.location, "Rotation": (0, yaw, 0),
+            "Velocity": (dx / dist * NPC_SPEED, dy / dist * NPC_SPEED, 0.0)}
 
 
 RESPAWN_SECONDS = 30
@@ -215,5 +246,6 @@ def tick(player, now):
     for npc in player.npcs.values():
         if npc.died_at and now - npc.died_at >= RESPAWN_SECONDS:
             npc.health, npc.died_at = npc.max_health, None
+            npc.aggro, npc.moving, npc.location = False, False, npc.home
             out.append(("respawn", npc))
     return out
