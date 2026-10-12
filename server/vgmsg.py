@@ -211,3 +211,19 @@ def ability_info(handle, ability_id, name, icon, description="", level=1, book=0
     for n in range(60, 68):
         v[n] = -1                 # allowed combat forms: any
     return pack(ABILITY_TYPES, v)
+
+
+# MsgHotkeyAdd (registrar FUN_00682aa0): one hotbar slot. Zone 0x54e = i32 count
+# + records (replaces the bars), 0x54f = add one, 0x550 = {wstr bank, i32 slot}
+# removes one. The client sends 0x54b (same layout) / 0x54c when the player
+# changes a slot. Bank "m_wb" is the main bar (12 slots per page).
+HOTKEY_TYPES = "wiiiwwi"
+
+
+def hotkey(slot, ability_id=-1, item_instance=-1, bank="m_wb"):
+    """An ability slot (ability_id = MsgAbilityInfo ability id) or an item slot."""
+    return pack(HOTKEY_TYPES, [bank, slot, ability_id, item_instance, "", "", 0])
+
+
+def hotkey_list(records):
+    return struct.pack("<i", len(records)) + b"".join(records)

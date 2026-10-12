@@ -234,6 +234,10 @@ def ability_messages(player):
         out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
                                                        refresh=refresh)))
     out.append(zone_event(0x21D))
+    # Main hotbar: the abilities in the first slots (0x54e replaces all bars).
+    keys = [vgmsg.hotkey(slot, ability_id)
+            for slot, (_, ability_id, *_rest) in enumerate(player.abilities[:12])]
+    out.append(zone_event(0x54E, vgmsg.hotkey_list(keys)))
     return out
 
 

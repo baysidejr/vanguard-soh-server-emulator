@@ -687,6 +687,10 @@ def handle_message(sock, server, addr, state, payload, args):
             if handle in names:
                 send_message(sock, addr, state, build_system_text(
                     f"You use {names[handle]}, but you have no target.", SYSTEM_TEXT_COMBAT))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x54B, 0x54C):
+            # Hotbar slot changed (0x54b MsgHotkeyAdd) or cleared (0x54c bank+slot).
+            event = struct.unpack_from("<I", payload, 2)[0]
+            print(f"  >>> ZONE hotbar {'set' if event == 0x54B else 'clear'}: {payload[10:].hex(' ')}")
         elif msg_type == 2:
             print_client_log(payload)
         elif msg_type == 1:
