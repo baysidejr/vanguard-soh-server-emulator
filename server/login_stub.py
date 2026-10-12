@@ -14,6 +14,7 @@ import time
 
 import ue2net
 from packagemap import PackageMap
+from netcache import NetCache
 
 # Connect request built in UdpConnection::GiveTime (FUN_00c02830):
 #   00 01 | u32be protocol(3) | u32be connectCode | u32be maxRawPacketSize | cstring
@@ -201,6 +202,7 @@ def main():
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
     args.package_map = PackageMap(args.client_dir, args.zone_level)
+    args.net_cache = NetCache([(n, p) for n, p, _ in args.package_map.packages])
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     login_sock.bind((args.host, args.port))
@@ -474,6 +476,9 @@ def handle_unreal(sock, addr, state, payload, args):
     for t in replies:
         if t == "<SPAWN>":
             out.append(spawn_bunch(ue, args))
+            # An empty follow-up bunch makes the client re-run its "is this my
+            # PlayerController" check (end of UActorChannel::ReceivedBunch).
+            out.append(ue.actor_bunch(1))
             continue
         out.append(ue.control_bunch(t))
         print(f"  <- UNREAL control -> {t!r}")
@@ -488,7 +493,17 @@ def spawn_bunch(ue, args):
     pm = args.package_map
     index = pm.object_index(args.spawn_class)
     rotation = (0, 0, 0) if args.spawn_rotation else None
-    b = ue.actor_open_bunch(1, index, pm.max_object_index, rotation=rotation)
+    cls = args.spawn_class.split(".", 1)[1]
+    cache = args.net_cache.class_cache(cls)
+    props = []
+    try:
+        # Vanguard replicates bNetOwner; the client adopts an owned PlayerController
+        # as its local player (UNetConnection::HandleClientPlayer).
+        owner = args.net_cache.field(cls, "bNetOwner")
+        props.append((owner.index, cache["max"], lambda w: w.bit(1)))
+    except KeyError:
+        pass
+    b = ue.actor_open_bunch(1, index, pm.max_object_index, rotation=rotation, properties=props)
     print(f"  <- UNREAL actor open ch=1 {args.spawn_class} (index {index}/{pm.max_object_index}) "
           f"{b.nbits} bits: {b.data.hex(' ')}")
     return b

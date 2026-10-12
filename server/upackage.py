@@ -35,6 +35,7 @@ class Package:
         with open(path, "rb") as f:
             data = f.read()
         self.path = path
+        self.raw = data
         self.size = len(data)
         (tag, self.version, self.licensee, self.flags, name_count, name_off, export_count,
          export_off, import_count, import_off) = struct.unpack_from("<IHHIIIIIII", data, 0)

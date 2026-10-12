@@ -287,13 +287,14 @@ class UnrealSession:
         return Bunch(0, data, reliable=True, control=True, ch_type=CHTYPE_CONTROL, seq=seq)
 
     def actor_open_bunch(self, channel, class_index, max_object_index, location=(0, 0, 0),
-                         rotation=None, extra=None):
+                         rotation=None, extra=None, properties=()):
         """Open an actor channel and spawn an actor of the given class on the client
         (UActorChannel::ReceivedBunch, FUN_00964ab0). Payload: object reference
         (bit 0 = not an actor channel, then SerializeInt(class, MaxObjectIndex)),
         compressed location, rotation if the class has bNetInitialRotation, and
         for Pawn subclasses Vanguard's extra byte + 2 u32s. Properties follow;
-        none are sent here."""
+        properties is a list of (rep_index, max_index, write) where write(w)
+        serializes the value (see netcache.py for indices)."""
         w = BitWriter()
         w.bit(0)
         w.serialize_int(class_index, max_object_index)
@@ -305,11 +306,20 @@ class UnrealSession:
             w.bits(byte, 8)
             w.bits(a & 0xFFFFFFFF, 32)
             w.bits(b & 0xFFFFFFFF, 32)
+        for rep_index, max_index, write in properties:
+            w.serialize_int(rep_index, max_index)
+            write(w)
         data, nbits = w.packed()
         seq = self.out_reliable.get(channel, 0) + 1
         self.out_reliable[channel] = seq
         return Bunch(channel, data, reliable=True, control=True, open_=True,
                      ch_type=CHTYPE_ACTOR, seq=seq, nbits=nbits)
+
+    def actor_bunch(self, channel, data=b"", nbits=0):
+        """A reliable bunch on an already-open actor channel (properties/RPCs)."""
+        seq = self.out_reliable.get(channel, 0) + 1
+        self.out_reliable[channel] = seq
+        return Bunch(channel, data, reliable=True, ch_type=CHTYPE_ACTOR, seq=seq, nbits=nbits)
 
     def build(self, bunches=()):
         """One outgoing packet carrying pending acks and the given bunches."""
