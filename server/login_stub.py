@@ -308,16 +308,16 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
                     zone.npc_update(s, args, npc, {"Health": 0, "m_bIsDead": 1}),
                     combat.play_animation(npc, combat.ANIM_DEATH)) if m is not None])
     for amount in player.pending_rewards:
-        out.append(combat.experience_reward(amount, npc.entity_id if npc else player.char_id))
-        player.xp += amount
-        while player.xp >= zone.XP_PER_LEVEL:
-            player.xp -= zone.XP_PER_LEVEL
-            player.level_number += 1
-            out.append(build_system_text(f"You have reached level {player.level_number}!",
-                                         SYSTEM_TEXT_WHITE))
-        out.append(zone.score_message(player))
-    if player.pending_rewards:
-        save_character_progress(player.name, player.level_number, player.xp)
+        members = [s for s in group_states(player) if s.get("world") is state.get("world")]             or [state]
+        share = max(1, amount * (100 + 10 * (len(members) - 1)) // 100 // len(members))
+        source = npc.entity_id if npc else player.char_id
+        for m_state in members:
+            msgs = award_xp(m_state["player"], share, source, grouped=len(members) > 1)
+            if m_state is state:
+                out += msgs
+            else:
+                for m in msgs:
+                    m_state["send"](m)
     player.pending_rewards.clear()
     if player.auto_attack != was_attacking:
         out += combat.auto_attack_state(player.auto_attack)
@@ -341,6 +341,20 @@ def gear_changed(state, args, player):
         w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
     save_character_field(player.name, "items", [list(i) for i in player.items])
     save_character_field(player.name, "equipment", [list(e) for e in player.equipment])
+
+
+def award_xp(player, amount, source, grouped=False):
+    """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved."""
+    out = [combat.experience_reward(amount, source, group=1 if grouped else 0)]
+    player.xp += amount
+    while player.xp >= zone.XP_PER_LEVEL:
+        player.xp -= zone.XP_PER_LEVEL
+        player.level_number += 1
+        out.append(build_system_text(f"You have reached level {player.level_number}!",
+                                     SYSTEM_TEXT_WHITE))
+    out.append(zone.score_message(player))
+    save_character_progress(player.name, player.level_number, player.xp)
+    return out
 
 
 def set_combat_stance(state, args, player, on, out):
@@ -838,6 +852,15 @@ def dev_command(text, player=None):
         loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
         print(f"  <- dev: teleport to {loc}")
         return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
+    if words[0] == "target" and len(words) >= 2 and player:
+        # !target <part of a name>: target the nearest-listed NPC whose name matches.
+        want = " ".join(words[1:]).lower()
+        npc = next((n for n in player.npcs.values() if want in n.name.lower()), None)
+        if npc is None:
+            return []
+        player.target = npc.entity_id
+        print(f"  <- dev: target {npc.name}")
+        return [combat.targets(npc)]
     if words[0] == "prop" and len(words) >= 3 and player:
         # !prop <name> <value> [me]: set a replicated pawn property on the target
         # NPC (or yourself with "me"), for probing what the client does with it.
