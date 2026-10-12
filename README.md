@@ -23,7 +23,7 @@ The unmodified client, talking only to this emulator:
 - [x] Inventory: items in the bag and coins ([docs/INVENTORY.md](docs/INVENTORY.md))
 - [x] Equipment on the paper doll; ability book with usable abilities ([docs/ABILITIES.md](docs/ABILITIES.md))
 - [x] Standing on the ground; hotbar, compass, menu bar and bag bar shown at login
-- [x] Other characters and NPCs drawn, with name plates and minimap entries (`--test-npc`)
+- [x] Other characters and NPCs drawn, with name plates and minimap entries
 - [x] Targeting, target window, abilities that hit, NPCs that strike back, death animation, respawn, health regeneration
 - [x] Per-class starting abilities with their real animations and effects; auto-attack
 - [x] NPCs chase and attack; player death, death window and release; experience and level ups (saved)
@@ -36,9 +36,10 @@ The unmodified client, talking only to this emulator:
 - [x] Chat: say, shout, tell, OOC, group, emotes and social animations
 - [x] Walking (or teleporting) across chunk edges into the neighbouring zone
 - [x] Quests from NPCs (offer page, tracker, kill counts, turn-in rewards) and player-to-player trading
-- [ ] Multi-step quests and quest items; NPCs in other chunks; crafting, harvesting, diplomacy
+- [x] Sitting and camping; endurance costs; NPCs in more than one zone
+- [ ] Creature models (wolves, spiders...); multi-step quests and quest items; crafting, harvesting, diplomacy; returning to character select after /camp
 
-See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
+See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
 ## Requirements
 
