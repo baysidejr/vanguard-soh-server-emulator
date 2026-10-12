@@ -30,6 +30,7 @@ class Player:
         self.auto_attack = False
         self.last_combat = 0.0
         self.items = []
+        self.equipment = []
 
 
 class CombatMessages(unittest.TestCase):

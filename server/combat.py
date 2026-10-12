@@ -391,10 +391,13 @@ def take_loot(player, npc, handle):
     for item in [i for i in (npc.loot or []) if handle in (-1, i[0])]:
         item_id, name, icon, qty = item
         npc.loot.remove(item)
-        slot = len(player.items)          # bag slots follow player.items order
+        import zone
+        slot = zone.free_bag_slot(player)
+        if slot is None:
+            break
         # Each item in the bag needs its own id (it is also the client's handle).
-        new_id = max([i[0] for i in player.items] + [10000]) + 1
-        player.items.append((new_id, name, icon, qty))
+        new_id = zone.new_item_id(player)
+        player.items.append((new_id, name, icon, qty, slot))
         out.append(_event(0x197, vgmsg.inventory_item(new_id, name, slot, icon=icon, quantity=qty,
                                                             **zone_item_fields(name))))
         out.append(_event(LOOT_TAKEN_EVENT, struct.pack("<iB", item_id, 1)))

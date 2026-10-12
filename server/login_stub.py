@@ -897,7 +897,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.appearance = character_appearance(char)
             player.hotbar = char.get("hotbar")
             if "items" in char:
-                player.items = [tuple(i) for i in char["items"]]
+                player.items = zone.normalize_items(char["items"])
             if "coins" in char:
                 player.coins = char["coins"]
             if "equipment" in char:

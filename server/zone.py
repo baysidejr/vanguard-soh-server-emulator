@@ -506,7 +506,7 @@ def inventory_messages(player):
     (FUN_00513170; field 0 = InventorySpaceAvailable), then one 0x197 per item,
     then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
     out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
-    for slot, (item_id, name, icon, qty) in enumerate(player.items):
+    for item_id, name, icon, qty, slot in player.items:
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty,
                                                           **item_equip_fields(name))))
     # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
@@ -537,7 +537,7 @@ class Player:
         # Character sheet values (no real character progression yet).
         self.stats = dict(DEFAULT_STATS)
         self.skills = list(DEFAULT_SKILLS)
-        self.items = list(DEFAULT_ITEMS)
+        self.items = normalize_items(DEFAULT_ITEMS)
         self.equipment = starter_equipment(klass)
         self.abilities = list(DEFAULT_ABILITIES)
         self.coins = DEFAULT_COINS
@@ -608,6 +608,24 @@ def gear_attachments(player, slots=60):
     return gear + [(-1, -1, -1)] * (min(slots, len(gear) + 8) - len(gear))
 
 
+BAG_SLOTS = 50
+
+
+def free_bag_slot(player):
+    """Lowest empty main-bag slot, or None. Bag items are (id, name, icon, qty, slot)."""
+    used = {i[4] for i in player.items}
+    return next((s for s in range(BAG_SLOTS) if s not in used), None)
+
+
+def new_item_id(player):
+    return max([i[0] for i in player.items] + [e[0] for e in player.equipment] + [10000]) + 1
+
+
+def normalize_items(items):
+    """Saved/legacy bag lists: give 4-element items their list index as slot."""
+    return [tuple(i) if len(i) == 5 else tuple(i) + (n,) for n, i in enumerate(items)]
+
+
 def unequip_message(handle, bag_slot, container=-1):
     """0x1a9 (FUN_00511100): i32 item handle, i32 bag slot, i32 container (-1 =
     main bag): the client takes the item off the paper doll into that slot."""
@@ -620,11 +638,12 @@ def unequip_item(player, handle):
     item = next((e for e in player.equipment if e[0] == handle), None)
     if item is None:
         return "That item is not equipped."
-    if len(player.items) >= 50 - len(player.equipment):
+    slot = free_bag_slot(player)
+    if slot is None:
         return "Your bags are full."
     player.equipment.remove(item)
-    player.items.append((item[0], item[1], item[2], 1))
-    return [unequip_message(item[0], len(player.items) - 1)]
+    player.items.append((item[0], item[1], item[2], 1, slot))
+    return [unequip_message(item[0], slot)]
 
 
 def equip_item(player, handle):
@@ -645,14 +664,16 @@ def equip_item(player, handle):
     elif slot in hands:
         blocked.add(vgmsg.EQUIP_SLOTS["TWOHANDS"])
     msgs = []
-    bag_slot = player.items.index(item)
     player.items.remove(item)
+    bag_slot = item[4]
     for old in [e for e in player.equipment if e[3] in blocked]:
-        # The old piece takes the bag slot the new one leaves.
+        # The old piece takes the bag slot the new one leaves (then any free slot).
         player.equipment.remove(old)
-        player.items.insert(bag_slot, (old[0], old[1], old[2], 1))
+        if bag_slot is None:
+            bag_slot = free_bag_slot(player)
+        player.items.append((old[0], old[1], old[2], 1, bag_slot))
         msgs.append(unequip_message(old[0], bag_slot))
-        bag_slot = len(player.items)
+        bag_slot = None
     player.equipment.append((item[0], item[1], item[2], slot))
     # 0x1a7 (FUN_0050feb0): i32 item handle, u8 0, u8 slot moves it to the paper doll.
     msgs.append(zone_event(0x1A7, struct.pack("<iBB", item[0], 0, slot)))

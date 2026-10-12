@@ -82,12 +82,14 @@ def buy(content, npc, player, handle, qty, item_message):
     qty = max(1, qty)
     if player.coins < price * qty:
         return [error(ERR_CANT_AFFORD)]
-    if len(player.items) + len(player.equipment) >= 50:
+    import zone
+    slot = zone.free_bag_slot(player)
+    if slot is None:
         return [error(ERR_NO_SPACE)]
     player.coins -= price * qty
-    new_id = max([i[0] for i in player.items] + [e[0] for e in player.equipment] + [10000]) + 1
-    player.items.append((new_id, name, icon, qty))
-    return [item_message(new_id, name, icon, qty, len(player.items) - 1), coins(player.coins)]
+    new_id = zone.new_item_id(player)
+    player.items.append((new_id, name, icon, qty, slot))
+    return [item_message(new_id, name, icon, qty, slot), coins(player.coins)]
 
 
 def sell(content, npc, player, handle):
