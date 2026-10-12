@@ -1069,6 +1069,11 @@ def handle_message(sock, server, addr, state, payload, args):
             pass  # the refreshed account list (0x66) goes out on the login connection
         elif msg_type == 2:
             print_client_log(payload)
+        elif msg_type == 6 and len(payload) >= 10:
+            # Slash command text (/shout -> "shout ...", /ooc -> "regionsay ...",
+            # /tell X -> 'tell "X" ...', /g -> "gsay ..."): u16 6, u32 0x14, u32 len, wstr.
+            text = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0]
+            print(f"  >>> WORLD command {struct.unpack_from('<I', payload, 2)[0]:#x}: {text!r}")
         else:
             print(f"  >>> WORLD message type {msg_type} ({len(payload)} bytes) - paste this to Claude")
         return
