@@ -113,6 +113,10 @@ class NetField:
         if k == "StrProperty":
             raw = str(value).encode("latin-1", "replace") + bytes(1)
             return lambda w: w.bytes_(compact_index(len(raw)) + raw)
+        if k == "StructProperty" and self.name == "m_AttachmentGroups":
+            # SGOAttachmentGroupInfoPair {int PackageIndex, AttachmentIndex,
+            # VGInventorySlot}: a plain struct, members in order, 32 bits each.
+            return lambda w: [w.bits(int(v) & 0xFFFFFFFF, 32) for v in value]
         if k == "StructProperty" and isinstance(value, tuple) and len(value) == 3:
             # UStructProperty::NetSerializeItem special-cases Rotator (per
             # component a flag bit + top byte) and Vector (SerializeCompressed).

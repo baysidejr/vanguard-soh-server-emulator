@@ -397,6 +397,7 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
         "m_Customization": [0x32] * 64,   # appearance sliders (pawn +0xaa8)
         "m_PlayerDisplayName": name,
         "Rotation": NPC_FACING,
+        "m_AttachmentGroups": NPC_GEAR,
         "EntityIDLowInt": entity_id & 0xFFFFFFFF,
         "EntityIDHighInt": entity_id >> 32,
     })
@@ -405,6 +406,29 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
 
 
 SPAWN_Z_LIFT = 90.0   # observed: spawn z 4900 -> pawn at 4990 (= CollisionHeight)
+
+
+# Gear on the character model: pawn m_AttachmentGroups[60] of (mesh type,
+# mesh number, inventory slot). Mesh types (FUN_00bb0200): 9 CHEST, 12 FEET,
+# 14 HAND, 15 HEAD, 16 LEG, 18 SHOULDER, 23 BOW, 26 DAGGER, 29 MACE, 31 STAFF,
+# 33 SWORD, 34 SHIELD. The mesh is <TYPE>_ITEMS.[M_|F_]<TYPE>_<n> in
+# Assets/Characters/Meshes. Slots are vgmsg.EQUIP_SLOTS (28 right hand, 29 left).
+STARTER_GEAR = [(9, 111000, 6), (16, 111000, 32), (12, 111000, 26)]   # chest, legs, boots
+CLASS_WEAPON_GEAR = {
+    0x1C: [(33, 1000, 28), (34, 1000, 29)],   # Warrior: sword and shield
+    0x04: [(29, 1, 28), (34, 1000, 29)],      # Paladin: mace and shield
+    0x13: [(33, 1, 28), (23, 1, 42)],         # Ranger: sword and bow
+    0x15: [(26, 1000, 28)],                   # Rogue: dagger
+}
+
+
+NPC_GEAR = [(9, 111001, 6), (16, 111001, 32), (12, 111001, 26), (33, 1000, 28), (34, 1000, 29)]
+
+
+def gear_attachments(player):
+    """m_AttachmentGroups elements (index -> (pkg, mesh, slot))."""
+    gear = STARTER_GEAR + CLASS_WEAPON_GEAR.get(player.klass, [(31, 1000, 28)])
+    return [g for g in gear]
 
 
 def spawn_location(args, pm, player):
@@ -445,6 +469,9 @@ def spawn_bunches(ue, args, player):
             "Health": 100,
             "m_PlayerDisplayName": player.name,
         }
+        gear = gear_attachments(player)
+        if gear:
+            values["m_AttachmentGroups"] = gear
         if getattr(player, "appearance", None):
             # The 64 appearance sliders from character creation (pawn +0xaa8);
             # PostNetReceive applies them through FUN_00bcaab0.
