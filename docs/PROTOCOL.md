@@ -210,6 +210,10 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Chunk travel.** Zone events `0x1` / `0x9` (raw: eid64-like pair = chunk x, y; bool; wstr) call `VGPlanet::MoveViewActorToChunk(x, y)` (`FUN_0099eda0`) — not yet used.
 
+**Character sheet.** Zone event `0x3de` MsgScore (111 fields, registrar `FUN_005db5d0`, handler `FUN_005e8260`) drives the level shown on the HUD portrait, the XP bar and the character window title ("Level 10 - Thestran Warrior"). Inferred fields (wire index): 0–2 position, 3–4 chunk, 5 race, 6 gender, 7 class, 8 adventure level, 9 adventure XP, 10 class, 12 crafting level, 14 harvesting level, 16 diplomacy level, 21 XP for next level, 29 movement speed. See `server/vgmsg.py`. The character window's name is SetNameID's string at `+0x1b0`.
+
+**Stats.** MsgStatUpdate `0x2d4` only updates stats that already exist (lookup by stat id + category byte); they are presumably created by MsgSingleStatInfo `0x2d3`.
+
 **Open:**
 - Non-owned pawns (SGONPCPawn, or a second SGOPCPawn) spawn on the client, receive their properties, and **their meshes load** (with `DevLoad` unsuppressed the client loads e.g. `UEM_elf_M_char` skeleton + hair/chest/leg/feet meshes for race 4), but they are not drawn — not even 90 units beside the player. Tried: bNetOwner, entity ids, `m_iModelNum = -1`, `m_Customization[64]`, `bHidden = 0`, `DrawScale = 1`, spawning after `0x485`. Model building: pawn PostNetReceive (`FUN_00bcc5a0`) → `FUN_00bcb8e0(race, model)` when `m_iRaceId`/`m_iModelNum` change. Reproduce with `python login_stub.py --test-npc`.
 - Character stats: MsgScore `0x3de` feeds the character sheet and XP bar (UI variables `AdvExpPctSelf`, `nAdvLevelSelf`, ... set in `FUN_005e8260`); field-to-variable mapping still to do.
