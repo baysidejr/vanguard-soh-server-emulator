@@ -89,8 +89,12 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
-        for m in hud_messages():
-            send(m)
+        # "SGOUI toggle" flips the windows, so only on the first zone-in of a session
+        # (a chunk handoff keeps the client's UI).
+        if not player.hud_shown:
+            player.hud_shown = True
+            for m in hud_messages():
+                send(m)
         print("  <- ZONE events 0x598 (show hotbar, compass, menu bar)")
         # Join the shared world for this chunk: NPCs from content/spawns/<chunk>.json
         # and the other players. Sent after the world-loaded event: the client only
@@ -550,6 +554,8 @@ class Player:
         self.pending_displays = []        # 0x3d1 messages queued by combat
         self.pending_rewards = []         # experience from kills
         self.auto_attack = False
+        self.chunk = None                 # (x, y) of the current chunk
+        self.hud_shown = False            # HUD windows toggled on this session
         self.group = None                 # group.Group
         self.pending_invite = None        # inviter's zone connection state
         self.hotbar = None                # {"bank:slot": hotkey record hex} once changed

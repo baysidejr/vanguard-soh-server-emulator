@@ -564,11 +564,51 @@ def group_tick():
                     state["send"](m)
 
 
+CHUNK_CHANGE_EVENT = 0x9
+CHUNK_SIZE = 204800.0
+
+
+def chunk_handoff(state, payload, args):
+    """Client zone event 0x9 {i32 chunk x, i32 chunk y, u8 cmd, ...} after the
+    player crossed a chunk edge (sender FUN_00b71570). The client expects a full
+    zone re-connect to the new chunk (world event 8 -> HELLO..WELCOME
+    LEVEL=<new chunk>); its ChangeChunkMap keeps the streamed level and puts the
+    new pawn at the travel location. Coordinates are per chunk: x grows with
+    chunk x, y shrinks with chunk y (docs/PROTOCOL.md, Chunk travel)."""
+    player = state.get("player")
+    cx, cy = struct.unpack_from("<ii", payload, 10)
+    old = getattr(player, "chunk", None) or DEFAULT_CHUNK
+    loc = state.get("position") or player.spawned_at
+    if player is None or loc is None or (cx, cy) == tuple(old):
+        return
+    dx, dy = cx - old[0], cy - old[1]
+    # The last ClientLoc is usually still on the old side of the edge, so keep the
+    # new position just inside the new chunk (the client logs its own TRAVLoc).
+    edge = CHUNK_SIZE / 2 - 1000    # the heightmap ends one cell (400) before the edge
+    x = max(-edge, min(edge, loc[0] - dx * CHUNK_SIZE))
+    y = max(-edge, min(edge, loc[1] + dy * CHUNK_SIZE))
+    level = chunk_name(cx, cy)
+    z = args.content.ground_z(level, x, y, args.client_dir)
+    print(f"  >>> ZONE chunk change {tuple(old)} -> ({cx}, {cy}): {level} at ({x:.0f}, {y:.0f}, {z:.0f})")
+    player.chunk, player.level = (cx, cy), level
+    player.position = (x, y, z + zone.SPAWN_Z_LIFT)
+    player.spawned_at, player.live_position = None, None
+    save_character_field(player.name, "chunk", [cx, cy])
+    save_character_field(player.name, "position", list(player.position))
+    save_character_field(player.name, "position_chunk", [cx, cy])
+    # The coming zone disconnect is a handoff, not a logout: keep the group and
+    # let the new zone login claim the same Player.
+    state["handoff"] = True
+    leave_world(state, args)
+    PENDING_PLAYERS[state.get("session", "")] = player
+    world_send(state, build_zone_connect_event(args.world_address, args.zone_port, level))
+
+
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
     w, player = state.get("world"), state.get("player")
-    if player is not None:
+    if player is not None and not state.get("handoff"):
         leave_group(state)
         if ONLINE.get(player.name.lower()) is state:
             ONLINE.pop(player.name.lower(), None)
@@ -1065,6 +1105,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 level=args.zone_level or chunk_name(*character_chunk(char)),
                 position=saved if saved and same_chunk else None,
                 save_position=lambda loc, n=name: save_character_position(n, loc))
+            player.chunk = character_chunk(char)
             player.level_number = char.get("adventure_level", player.level_number)
             player.appearance = character_appearance(char)
             player.hotbar = char.get("hotbar")
@@ -1223,6 +1264,8 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.CLIENT_EVENTS:
             if state.get("player"):
                 handle_group_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CHUNK_CHANGE_EVENT:
+            chunk_handoff(state, payload, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x313, 0x314):
             # 0x314 /emote {wstr}; 0x313 social {eid64 target, wstr name, wstr}. The
             # client prints nothing itself: send the emote line (zone 0x0f type 5) and,

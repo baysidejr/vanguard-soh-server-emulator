@@ -34,7 +34,8 @@ The unmodified client, talking only to this emulator:
 - [x] World content (mobs, loot, spawns) loaded from JSON files: see [docs/CONTENT_EDITOR.md](docs/CONTENT_EDITOR.md)
 - [x] Groups (invite, accept, group window with live bars, group chat), merchants (buy/sell), equip/unequip, real item tooltips, NPC wandering
 - [x] Chat: say, shout, tell, OOC, group, emotes and social animations
-- [ ] Zoning between chunks; quests; trading between players
+- [x] Walking (or teleporting) across chunk edges into the neighbouring zone
+- [ ] Quests; trading between players; NPCs in other chunks
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 

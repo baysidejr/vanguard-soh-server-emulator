@@ -208,12 +208,16 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Position persistence.** The server saves the last `ClientLoc` per character and spawns there next time (same chunk).
 
-**Chunk travel** (observed live, not working yet). When the pawn crosses a chunk edge, the client does the following:
-- It runs `VGPlanet::MoveViewActorToChunk(-20,12)` itself and loads the new neighbours. Its log shows the travel location in the new chunk's frame: x + 204,800.
-- It sends client zone event `0x9` {i32 chunk x, i32 chunk y, …}.
-- The pawn stays in the old frame and then rises 90 units per `ServerMove`.
+**Chunk travel** (verified live 2026-10-12: Sundering Wastelands → Wildgrowth Forest).
+1. When the pawn crosses a chunk edge, the client runs `VGPlanet::MoveViewActorToChunk` itself and sends client zone event `0x9`: 140 bytes {i32 chunk x, i32 chunk y, u8 cmd, pad, wchar[65] name (unused)}. The sender is `FUN_00b71570`.
+2. The client expects a full re-connect. The server sends world event 8 {u32 port, wchar[64] host, wchar[64] level} on the world connection.
+3. The client reconnects to the zone and runs HELLO → … → WELCOME `LEVEL=<new chunk>`, with the new chunk's package first in USES.
+4. `ChangeChunkMap` (`FUN_0098ca30`) keeps the streamed level and destroys the old pawn. The server then spawns a new PlayerController and pawn there.
+5. Coordinates are per chunk: x grows with chunk x and y shrinks with chunk y. The new position is x − Δcx·204,800 and y + Δcy·204,800, kept 1,000 units inside the edge, with z from that chunk's heightmap.
+6. Don't resend the `SGOUI toggle` HUD commands on the new connection, or the bars hide.
+7. Replying with server `0x9`, or teleporting the old pawn into the new frame, leaves the client half-switched: the pawn rises 90 units per update. World event `0x15` cancels a move ("That chunk is not yet ready to be entered.").
 
-Replying with server `0x9` or teleporting into the new frame did not settle it. Positions outside ±102,400 are no longer saved.
+Implemented in `login_stub.chunk_handoff`.
 
 **Character sheet.** Zone event `0x3de` MsgScore (111 fields, registrar `FUN_005db5d0`, handler `FUN_005e8260`) drives the level shown on the HUD portrait, the XP bar and the character window title ("Level 10 - Thestran Warrior"). Inferred fields (wire index): 0–2 position, 3–4 chunk, 5 race, 6 gender, 7 class, 8 adventure level, 9 adventure XP, 10 class, 12 crafting level, 14 harvesting level, 16 diplomacy level, 21 XP for next level, 29 movement speed. See `server/vgmsg.py`. The character window's name is SetNameID's string at `+0x1b0`.
 
