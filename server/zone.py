@@ -149,6 +149,8 @@ def npc_bunch(ue, pm, channel, cls_path, name, race, location, entity_id):
     props = pm.net_cache.props(cls, {
         "bHidden": False,
         "DrawScale": 1.0,
+        "Physics": 0,               # PHYS_None: stay where spawned
+        "m_bGMHide": False,
         "m_iRaceId": race,
         "Health": 100,
         "m_iModelNum": -1,          # the race's default model (FUN_00bcb8e0)
