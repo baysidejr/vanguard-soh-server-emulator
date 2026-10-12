@@ -13,7 +13,7 @@ client 0x14b end -> 0x488. Errors 0x486 {u8}: 3 no room in the bank, 4 no room i
 import struct
 
 BEGIN, END, TO_BANK, TO_BANK_ANY, FROM_BANK, FROM_BANK_ANY, MOVE = 0x14A, 0x14B, 0x14E, 0x14D, 0x150, 0x14F, 0x14C
-DEPOSIT_COIN, WITHDRAW_COIN = 0x93, 0x94          # direction inferred, not yet confirmed live
+DEPOSIT_COIN, WITHDRAW_COIN = 0x93, 0x94          # confirmed in the client (docs/BANK.md)
 CLIENT_EVENTS = (BEGIN, END, TO_BANK, TO_BANK_ANY, FROM_BANK, FROM_BANK_ANY, MOVE, DEPOSIT_COIN, WITHDRAW_COIN)
 OPTION = 0x2B3
 CAPACITY = 40
