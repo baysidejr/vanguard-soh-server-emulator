@@ -280,6 +280,13 @@ def movement_tick(zone_sock, clients, args):
             for m in combat_results(state, args, player, lines, None, True, player.auto_attack):
                 send_message(zone_sock, addr, state, m)
     for w in world.all_worlds():
+        players = w.players()
+        for npc in w.npcs.values():
+            victim = combat.proximity_aggro(npc, players)
+            if victim is not None:
+                vs = w.members.get(victim.char_id)
+                if vs is not None:
+                    vs["send"](build_system_text(f"{npc.name} notices you!", SYSTEM_TEXT_ERROR))
         for npc in w.npcs.values():
             target = npc.aggro_on.live_position if npc.aggro_on else None
             values = combat.chase_step(npc, target, MOVE_TICK)

@@ -138,6 +138,7 @@ def populate_world(w, args):
         npc.wander = float(spawn.get("wander", 0))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.next_wander = time.time() + n
+        npc.aggro_radius = float(template.get("aggro_radius", 0))
         npc.level = template.get("level", 1)
         # Creature races (64+) bite and claw; people swing weapons.
         npc.attack_visual = template.get("attack_visual", combat.CREATURE_AUTO_ATTACK

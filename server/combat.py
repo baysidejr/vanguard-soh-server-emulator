@@ -50,6 +50,7 @@ class Npc:
         self.template_id = None
         self.merchant = None          # merchants.json list id (vendors can't be attacked)
         self.attack_visual = NPC_AUTO_ATTACK
+        self.aggro_radius = 0.0       # attacks players that come this close (0 = only if hit)
         self.props = {}               # extra replicated pawn properties from the template
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
@@ -424,3 +425,22 @@ def consider(player, npc):
     data = struct.pack("<iiii", 0, con, 1, npc.level)
     data += (npc.name + "\0").encode("utf-16-le") + "\0".encode("utf-16-le")
     return struct.pack("<HII", 2, CONSIDER_RESULT, len(data)) + data
+
+
+def proximity_aggro(npc, players):
+    """An aggressive NPC picks the nearest living player inside its aggro radius.
+    Returns that player when it starts a fight, else None."""
+    if npc.aggro or not npc.alive or npc.aggro_radius <= 0 or npc.merchant:
+        return None
+    best = None
+    for p in players:
+        pos = p.live_position or p.spawned_at
+        if pos is None or p.health <= 0:
+            continue
+        d = math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1])
+        if d <= npc.aggro_radius and (best is None or d < best[0]):
+            best = (d, p)
+    if best:
+        npc.aggro, npc.aggro_on = True, best[1]
+        return best[1]
+    return None
