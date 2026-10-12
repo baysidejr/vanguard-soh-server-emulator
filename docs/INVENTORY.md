@@ -138,3 +138,14 @@ The second item goes in f16 = 1, and so on up to 49. For a bag item, set f14 = s
 - **0x1a7** (`FUN_0050feb0`): `i32 handle, u8 list (0 = main inventory list; 1 = the other list), u8 equip slot`. Moves the item out of its bag slot onto the paper doll and marks it equipped (`+0x570 = 1`, `+0x58 = slot`).
 - Equipment slot ids come from the slot-tag table `FUN_0050cc10`, e.g. HEAD 0, NECK 3, CHEST 6, CLOAK 7, WAIST 21, FEET 26, PRIMARYHAND 28 (0x1c), SECONDARYHAND 29, LEGS 32, HANDS 33, WRISTS 34, SHOULDERS 35, TWOHANDS 36 (0x24), RANGED 42, AMMO 43. The full table is `vgmsg.EQUIP_SLOTS`.
 - The equipped weapon is not yet drawn in the character's hand (that needs the pawn's attachment groups).
+
+## Equipping (verified live 2026-10-12)
+
+- **Equip:** right-clicking an item in a bag sends client event `0x8e` {i32 handle, u8} (`FUN_005042b0`), but only if the item allows it.
+  - Field 8 (item `+0x5c`) must hold the item's default equip slot.
+  - Fields 18–21 (`+0x78..+0x84`, a bit mask over slot numbers) must include that slot. Otherwise the client prints "Designer error: default equipslot for item is restricted for that item."
+- **Server reply to an equip:** `0x1a7` {i32 handle, u8 0, u8 slot} moves the item onto the paper doll.
+- **Unequip:** right-clicking an equipped item sends `0x98` {i32 handle, u8 0}. The server answers `0x1a9` {i32 handle, i32 bag slot, i32 container} (`FUN_00511100`), which puts it back into a bag slot. The same message returns a replaced piece to the bag when an item is swapped.
+- **Model:** the pawn's `m_AttachmentGroups` is resent so everyone sees the new gear (see [GEAR.md](GEAR.md)).
+- **Item templates** (equip slot, 3D model): `server/content/items.json`.
+- **Open:** every item icon shows a red background and its tooltip reads "Durability: 0%". The cause is another item field, still being mapped.

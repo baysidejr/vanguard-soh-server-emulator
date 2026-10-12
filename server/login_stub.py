@@ -324,6 +324,7 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
 
 
 EQUIP_EVENT = 0x8E
+UNEQUIP_EVENT = 0x98
 
 
 def gear_changed(state, args, player):
@@ -987,14 +988,16 @@ def handle_message(sock, server, addr, state, payload, args):
                     msgs = []
                 for m in msgs:
                     send_message(sock, addr, state, m)
-        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == EQUIP_EVENT:
-            # Equip to the item's default slot (right-click in a bag, FUN_005042b0):
-            # i32 item handle, u8.
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (EQUIP_EVENT, UNEQUIP_EVENT):
+            # Right-click: in a bag = equip to the item's default slot (0x8e,
+            # FUN_005042b0); on the paper doll = unequip (0x98). i32 handle, u8.
             player = state.get("player")
+            event = struct.unpack_from("<I", payload, 2)[0]
             handle = struct.unpack_from("<i", payload, 10)[0]
-            print(f"  >>> ZONE equip item {handle}: {payload[10:].hex(' ')}")
+            print(f"  >>> ZONE {'equip' if event == EQUIP_EVENT else 'unequip'} item {handle}: "
+                  f"{payload[10:].hex(' ')}")
             if player:
-                result = zone.equip_item(player, handle)
+                result = (zone.equip_item if event == EQUIP_EVENT else zone.unequip_item)(player, handle)
                 if isinstance(result, str):
                     send_message(sock, addr, state, build_system_text(result, SYSTEM_TEXT_ERROR))
                 else:

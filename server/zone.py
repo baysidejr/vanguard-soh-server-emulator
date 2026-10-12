@@ -547,6 +547,25 @@ def gear_attachments(player, slots=60):
     return gear + [(-1, -1, -1)] * (min(slots, len(gear) + 8) - len(gear))
 
 
+def unequip_message(handle, bag_slot, container=-1):
+    """0x1a9 (FUN_00511100): i32 item handle, i32 bag slot, i32 container (-1 =
+    main bag): the client takes the item off the paper doll into that slot."""
+    return zone_event(0x1A9, struct.pack("<iii", handle, bag_slot, container))
+
+
+def unequip_item(player, handle):
+    """Paper doll -> first free bag slot (client event 0x98). Returns a chat
+    error (str) or the zone messages."""
+    item = next((e for e in player.equipment if e[0] == handle), None)
+    if item is None:
+        return "That item is not equipped."
+    if len(player.items) >= 50 - len(player.equipment):
+        return "Your bags are full."
+    player.equipment.remove(item)
+    player.items.append((item[0], item[1], item[2], 1))
+    return [unequip_message(item[0], len(player.items) - 1)]
+
+
 def equip_item(player, handle):
     """Move a bag item onto the paper doll (client event 0x8e). Whatever was in
     that slot (or blocks it, e.g. a two-hander) goes back to the bag. Returns a
@@ -571,9 +590,8 @@ def equip_item(player, handle):
         # The old piece takes the bag slot the new one leaves.
         player.equipment.remove(old)
         player.items.insert(bag_slot, (old[0], old[1], old[2], 1))
-        msgs.append(zone_event(0x197, vgmsg.inventory_item(old[0], old[1], bag_slot, old[2], 1,
-                                                           **item_equip_fields(old[1]))))
-        bag_slot = 49 - len(player.equipment) - len(msgs)
+        msgs.append(unequip_message(old[0], bag_slot))
+        bag_slot = len(player.items)
     player.equipment.append((item[0], item[1], item[2], slot))
     # 0x1a7 (FUN_0050feb0): i32 item handle, u8 0, u8 slot moves it to the paper doll.
     msgs.append(zone_event(0x1A7, struct.pack("<iBB", item[0], 0, slot)))
