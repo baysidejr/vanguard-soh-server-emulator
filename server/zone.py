@@ -170,12 +170,13 @@ DEFAULT_SKILLS = [
 ]
 SKILL_CAP = 50
 
-# Starter inventory: (item id, name, icon, quantity). Icons are numbers in the
-# client's icon map; 443 is its fallback icon.
+# Starter inventory: (item id, name, icon, quantity). Icons are the numbered
+# entries of VGUIAssets/Global/Icons/iconsTK.xml (400..99008); 443 is the
+# client's "missing icon" fallback.
 DEFAULT_ITEMS = [
-    (1001, "Rusty Sword", 443, 1),
-    (1002, "Travel Rations", 443, 5),
-    (1003, "Waterskin", 443, 1),
+    (1001, "Rusty Sword", 422, 1),
+    (1002, "Travel Rations", 442, 5),
+    (1003, "Waterskin", 472, 1),
 ]
 DEFAULT_COINS = 12345   # copper: 1 gold 23 silver 45 copper
 
