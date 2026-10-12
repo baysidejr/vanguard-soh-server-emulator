@@ -15,6 +15,8 @@ import random
 import struct
 import time
 
+import effects
+
 TARGET_EVENT = 0x5D          # client -> server: u64 entity id
 TARGET_HEALTH_EVENT = 0x3E1  # server -> client: u64 entity id, u8 health
 TARGETS_EVENT = 0x3E0        # server -> client: offensive, defensive, third target
@@ -176,6 +178,7 @@ def use_ability(player, ability, rng=random):
     return strike(player, npc, f"Your {name}", visual, lo, hi, rng)
 
 
+HITS = 3                     # 0x27b damage type: 0 slash, 1 crush, 2 pierce, other "hits"
 AUTO_ATTACK_VISUAL = 0       # MELEE_ABILITIES_0 GENERIC_AUTO_ATTACK
 AUTO_ATTACK_DAMAGE = (4, 9)
 AUTO_ATTACK_SECONDS = 2.0
@@ -189,8 +192,12 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
     dmg = rng.randint(lo, hi)
     npc.health = max(npc.health - dmg, 0)
     player.last_combat = time.time()
-    verb = "hit" if what == "You" else "hits"
-    lines = [(f"{what} {verb} {npc.name} for {dmg} damage.", "combat")]
+    # The client writes the line (0x27b, Combat tab): "You hit Rat for 6 damage." for
+    # auto-attack (kind 0, generic verb), "Your Brutal Strike hits Rat ..." for abilities.
+    ability = "" if what == "You" else what[len("Your "):]
+    player.pending_displays.append(effects.combat_text(player.char_id, npc.entity_id, ability, dmg,
+                                                       kind=0 if not ability else 1, dmg_type=HITS))
+    lines = []
     if not npc.alive:
         npc.died_at = time.time()
         player.auto_attack = False
@@ -262,7 +269,9 @@ def npc_attacks(player, npc, rng=random):
     dmg = rng.randint(*npc.damage)
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, npc.attack_visual))
     player.health = max(player.health - dmg, 0)
-    lines = [(f"{npc.name} hits YOU for {dmg} damage.", "error")]
+    player.pending_displays.append(effects.combat_text(npc.entity_id, player.char_id, "", dmg, kind=0,
+                                                       dmg_type=HITS))
+    lines = []
     if player.health == 0:
         lines.append(("You have been slain!", "error"))
     return lines
