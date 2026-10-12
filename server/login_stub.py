@@ -1087,7 +1087,7 @@ def bh_member(b, name):
     p = s["player"] if s and s.get("player") else None
     return {"id": social_uid(name), "name": name, "level": p.level_number if p else 1,
             "klass": p.klass if p else 0, "online": p is not None,
-            "leader": name.lower() == b["leader"].lower()}
+            "leader": name.lower() == b["leader"].lower(), "note": b.get("notes", {}).get(name, "")}
 
 
 def bh_send_all(b, make, exclude=None):
@@ -1105,6 +1105,9 @@ def brotherhood_window(state, b):
     send(brotherhood.name(b.get("name", f"{b['leader']}'s Brotherhood")))
     for m in b["members"]:
         send(brotherhood.member_add(bh_member(b, m)))
+    if b.get("motd"):
+        send(brotherhood.motd(b["motd"], social_uid(b.get("motd_by", b["leader"]))))
+        send(build_system_text(f"Brotherhood MOTD: {b['motd']}", SYSTEM_TEXT_WHITE))
 
 
 def brotherhood_login(state):
@@ -1165,22 +1168,66 @@ def handle_brotherhood(state, event, data):
         if s is not None and s.get("send"):
             s["send"](build_system_text(f"{player.name} declined your brotherhood invitation.", SYSTEM_TEXT_WHITE))
     elif event == brotherhood.LEAVE and mine:
-        uid = social_uid(player.name)
-        bh_send_all(mine, lambda m: brotherhood.member_left(uid))
-        bh_send_all(mine, lambda m: build_system_text(f"{player.name} has left the brotherhood.",
-                                                      SYSTEM_TEXT_WHITE))
-        mine["members"] = [m for m in mine["members"] if m.lower() != player.name.lower()]
-        send(brotherhood.status(brotherhood.NOT_ACTIVE))
-        if mine["leader"].lower() == player.name.lower() and mine["members"]:
-            mine["leader"] = mine["members"][0]
-            bh_send_all(mine, lambda m: brotherhood.new_leader(social_uid(mine["leader"])))
-        if len(mine["members"]) < 2:
-            for m in mine["members"]:
-                s = ONLINE.get(m.lower())
-                if s is not None and s.get("send"):
-                    s["send"](brotherhood.status(brotherhood.NOT_ACTIVE))
-            bhs.remove(mine)
+        bh_remove(bhs, mine, player.name, kicked=False)
+    elif event in (brotherhood.REMOVE, brotherhood.PROMOTE) and mine and len(data) >= 4:
+        uid = struct.unpack_from("<i", data)[0]
+        who = next((m for m in mine["members"] if social_uid(m) == uid), None)
+        if mine["leader"].lower() != player.name.lower():
+            send(build_system_text("Only the brotherhood leader can do that.", SYSTEM_TEXT_ERROR))
+        elif who is None or who.lower() == player.name.lower():
+            pass
+        elif event == brotherhood.REMOVE:
+            bh_remove(bhs, mine, who, kicked=True)
+        else:
+            mine["leader"] = who
+            save_brotherhoods(bhs)
+            bh_send_all(mine, lambda m: brotherhood.new_leader(uid))
+            for n in (who, player.name):
+                bh_send_all(mine, lambda m, n=n: brotherhood.member_add(bh_member(mine, n)))
+            bh_send_all(mine, lambda m: brotherhood.status(
+                brotherhood.LEADER if m.lower() == who.lower() else brotherhood.MEMBER))
+    elif event in (brotherhood.MOTD, brotherhood.RENAME) and mine:
+        text = brotherhood.read_text(data).strip()[:64]
+        if mine["leader"].lower() != player.name.lower():
+            send(build_system_text("Only the brotherhood leader can do that.", SYSTEM_TEXT_ERROR))
+        elif event == brotherhood.MOTD:
+            mine["motd"], mine["motd_by"] = text, player.name
+            save_brotherhoods(bhs)
+            bh_send_all(mine, lambda m: brotherhood.motd(text, social_uid(player.name)))
+            bh_send_all(mine, lambda m: build_system_text(f"Brotherhood MOTD: {text}", SYSTEM_TEXT_WHITE))
+        elif text:
+            mine["name"] = text
+            save_brotherhoods(bhs)
+            bh_send_all(mine, lambda m: brotherhood.name(text))
+            bh_send_all(mine, lambda m: build_system_text(f"Your brotherhood is now called {text}.",
+                                                          SYSTEM_TEXT_WHITE))
+    elif event == brotherhood.NOTE and mine:
+        text = brotherhood.read_text(data).strip()[:64]
+        mine.setdefault("notes", {})[player.name] = text
         save_brotherhoods(bhs)
+        bh_send_all(mine, lambda m: brotherhood.note(text, social_uid(player.name)))
+
+
+def bh_remove(bhs, mine, name, kicked):
+    """name leaves (or is kicked from) mine. The client prints "%s has left the
+    brotherhood." / "%s has been kicked from the brotherhood." from 0x6e7."""
+    uid = social_uid(name)
+    bh_send_all(mine, lambda m: brotherhood.member_left(uid, kicked))
+    mine["members"] = [m for m in mine["members"] if m.lower() != name.lower()]
+    mine.get("notes", {}).pop(name, None)
+    s = ONLINE.get(name.lower())
+    if s is not None and s.get("send"):
+        s["send"](brotherhood.status(brotherhood.NOT_ACTIVE))
+    if mine["leader"].lower() == name.lower() and mine["members"]:
+        mine["leader"] = mine["members"][0]
+        bh_send_all(mine, lambda m: brotherhood.new_leader(social_uid(mine["leader"])))
+    if len(mine["members"]) < 2:
+        for m in mine["members"]:
+            s = ONLINE.get(m.lower())
+            if s is not None and s.get("send"):
+                s["send"](brotherhood.status(brotherhood.NOT_ACTIVE))
+        bhs.remove(mine)
+    save_brotherhoods(bhs)
 
 
 def handle_social_world(zone_state, event, data, reply):
