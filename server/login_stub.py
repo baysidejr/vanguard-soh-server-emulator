@@ -23,6 +23,7 @@ import group
 import trade
 import quest
 import harvest
+import craft
 import content
 import merchant
 import world
@@ -235,6 +236,7 @@ def main():
     args.content = content.Content()
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
+    args.craft_event = lambda state, event, data: handle_craft_event(state, event, data)
     global ARGS
     ARGS = args
     args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
@@ -959,6 +961,96 @@ def harvest_tick(state, now):
     send(depleted)
 
 
+def recipe_by_id(rid):
+    return next((r for r in ARGS.content.recipes.values() if r["id"] == rid), None)
+
+
+def has_inputs(player, r):
+    have = {}
+    for i in player.items:
+        have[i[1]] = have.get(i[1], 0) + i[3]
+    return all(have.get(name, 0) >= n for name, n in r["inputs"].items())
+
+
+def handle_craft_event(state, event, data):
+    """Crafting at a station (craft.py)."""
+    player, send = state["player"], state["send"]
+    session = state.get("craft")
+    print(f"  >>> ZONE craft event {event:#x}: {data.hex(' ')}")
+    if event == craft.USE_STATION:
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not npc.station:
+            send(craft.station_error(0))
+            return
+        state["craft"] = {"recipe": None, "step": 0, "ap": 0}
+        send(craft.open_window())
+    elif session is None:
+        return
+    elif event in (craft.CANCEL, craft.CANCEL2):
+        state.pop("craft", None)
+        send(craft.end())
+    elif event == craft.SELECT:
+        r = recipe_by_id(struct.unpack_from("<i", data, 0)[0])
+        if r is None:
+            send(craft.recipe_result(0, 0))
+        elif not has_inputs(player, r):
+            send(craft.recipe_result(craft.RECIPE_MISSING, r["id"]))
+        else:
+            session["recipe"] = r
+            send(craft.recipe_result(craft.RECIPE_OK, r["id"]))
+    elif event == craft.CONFIRM and session["recipe"]:
+        send(craft.workbench())
+    elif event == craft.BEGIN and session["recipe"]:
+        for m in craft.started():
+            send(m)
+    elif event == craft.ACTION and session["recipe"]:
+        r = session["recipe"]
+        n = session["step"]
+        session["ap"] += 10
+        send(combat.display_ability(player.char_id, combat.NO_ENTITY, 30203))
+        for m in craft.action_done(r, n, session["ap"]):
+            send(m)
+        session["step"] += 1
+        if session["step"] < len(r["steps"]):
+            send(craft.ready())
+            return
+        finish_craft(state, r)
+
+
+def finish_craft(state, r):
+    """All steps done: use the inputs, give the output and crafting XP."""
+    player, send = state["player"], state["send"]
+    state.pop("craft", None)
+    if not has_inputs(player, r):
+        send(build_system_text("You no longer have the materials.", SYSTEM_TEXT_ERROR))
+        send(craft.end())
+        return
+    for name, need in r["inputs"].items():
+        for item in [i for i in player.items if i[1] == name]:
+            if need <= 0:
+                break
+            take = min(need, item[3])
+            need -= take
+            if take == item[3]:
+                player.items.remove(item)
+                send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+            else:
+                player.items[player.items.index(item)] = item[:3] + (item[3] - take, item[4])
+                send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - take)))
+    name = r["output"]
+    slot = zone.free_bag_slot(player)
+    if slot is not None:
+        item_id, icon = zone.new_item_id(player), zone.item_icon(name, 443)
+        player.items.append((item_id, name, icon, 1, slot))
+        send(zone.zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, 1,
+                                                         **zone.item_equip_fields(name))))
+        send(build_system_text(f"You create {name}.", SYSTEM_TEXT_WHITE))
+    send(combat.experience_reward(r.get("xp", 50), player.char_id, kind=1))
+    send(craft.end())
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    print(f"  {player.name} crafted {name}")
+
+
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
@@ -1653,6 +1745,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL) and player is not None:
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in craft.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_craft_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in harvest.CLIENT_EVENTS:
             if state.get("player"):
                 handle_harvest_event(state, struct.unpack_from("<I", payload, 2)[0])

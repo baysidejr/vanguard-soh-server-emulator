@@ -14,6 +14,7 @@ import combat
 import content
 import merchant
 import harvest
+import craft
 import world
 import ue2net
 from netcache import NetCache
@@ -50,6 +51,8 @@ def handle_unreal(send, state, payload, args):
                 npc = player.npcs.get(player.target) if player.target else None
                 if npc and npc.harvest:
                     args.harvest_begin(state)
+                elif npc and npc.station:
+                    args.craft_event(state, craft.USE_STATION, b"")
                 elif npc and npc.alive and (npc.merchant or npc.quests):
                     for m in args.npc_dialog(state, npc):
                         send(m)
@@ -92,6 +95,11 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
+        # Recipe book and crafting actions (silent adds).
+        for r in args.content.recipes.values():
+            send(craft.learn_recipe(r))
+            for n in range(len(r["steps"])):
+                send(craft.learn_action(r, n))
         # Quest journal: active quests (0x2cb entries) so the tracker and log are filled.
         import quest
         for key, progress in player.quests.active.items():
@@ -137,6 +145,7 @@ def populate_world(w, args):
         npc.yaw = int(spawn.get("yaw", 0))
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
+        npc.station = bool(template.get("station"))
         npc.template_id = spawn["mob"]
         npc.quests = [k for k, q in args.content.quests.items() if q.get("giver") == spawn["mob"]]
         npc.wander = float(spawn.get("wander", 0))
@@ -150,6 +159,8 @@ def populate_world(w, args):
         npc.props = {"m_GameplayLevel": npc.level}
         if npc.harvest:
             npc.props["EntityTypes"] = harvest.HARVESTABLE
+        if npc.station:
+            npc.props["EntityTypes"] = craft.STATION
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
         if "gender" in template:

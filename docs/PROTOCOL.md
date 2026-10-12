@@ -291,6 +291,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Harvesting** (verified live): a resource node is an NPC pawn with `EntityTypes` bit 0x800. Client `0x109` begins (`0x10a` stops); the server sends `0x2dc` {u64 node, f32, u8 qty, u8 skill} (Harvesting window), `0x2dd`, strikes (`0x3d1` visual 20084 mining) with `0x2df` {f32 qty, f32 progress, f32 max}, then `0x2e1`/`0x2e2`/`0x2e3` reward list, `0x197` item, `0x2de` ended. Details: [HARVESTING.md](HARVESTING.md).
 
+**Crafting** (verified live): station = NPC pawn with `EntityTypes` bit 0x4; client `0xfa` → `0x2ea` window; recipes `0x2ef` (silent add) at login; select `0xfe` → `0x2eb` {0xff ok}; `0xfb` → `0x303`; `0xfc` → `0x2f6`/`0x2f8`/`0x2f7`/`0x2f5`; action `0xf6` {action, -1} → `0x2ed`, `0x2f6`, `0x2f7`, `0x2f8`, `0x2fa`; done → inputs removed, output `0x197`, `0x3d5` kind 1, `0x2fd`. Details: [CRAFTING.md](CRAFTING.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

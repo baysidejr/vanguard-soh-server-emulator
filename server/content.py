@@ -32,6 +32,7 @@ class Content:
         self.items = _load(os.path.join(directory, "items.json"))
         self.merchants = _load(os.path.join(directory, "merchants.json"))
         self.quests = _load(os.path.join(directory, "quests.json"))
+        self.recipes = _load(os.path.join(directory, "recipes.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -100,6 +101,10 @@ def validate(directory=CONTENT_DIR):
         for mob in q.get("kill", {}):
             if mob not in c.mobs:
                 problems.append(f"quest {qid}: unknown kill target {mob}")
+    for rid, r in c.recipes.items():
+        for name in list(r.get("inputs", {})) + [r.get("output")]:
+            if name not in c.items:
+                problems.append(f"recipe {rid}: item {name!r} not in items.json")
     spawn_dir = os.path.join(directory, "spawns")
     for name in sorted(os.listdir(spawn_dir)):
         data = _load(os.path.join(spawn_dir, name))

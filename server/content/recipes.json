@@ -1,0 +1,9 @@
+{
+  "_comment": "Refining recipes. id: recipe id; inputs: {item name: count}; output: item name; steps: [{name, action}] with action = actions.json id; xp: crafting experience. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "copper_ingot": {
+    "id": 5001, "name": "Copper Ingot", "description": "Smelt copper ore into an ingot.",
+    "icon": 475, "inputs": {"Copper Ore": 2}, "output": "Copper Ingot", "xp": 120,
+    "stage": "Smelting",
+    "steps": [{"name": "Smelt Ore", "description": "Melt the ore and pour the ingot.", "action": 30001}]
+  }
+}
