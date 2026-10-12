@@ -49,6 +49,7 @@ class Npc:
         self.quests = []              # quest keys this NPC gives (content/quests.json)
         self.template_id = None
         self.merchant = None          # merchants.json list id (vendors can't be attacked)
+        self.attack_visual = NPC_AUTO_ATTACK
         self.props = {}               # extra replicated pawn properties from the template
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
@@ -97,6 +98,7 @@ def death_popup(seconds, show=True):
 DISPLAY_EVENT = 0x3D1        # MsgDisplayAbility (FUN_00439510): play an ability's visuals
 PHASE_MISS, PHASE_HIT, PHASE_CRIT, PHASE_BLOCK, PHASE_DODGE, PHASE_PARRY = 0, 2, 3, 4, 5, 6
 NPC_AUTO_ATTACK = 9          # MELEE_ABILITIES_9 GENERIC_NPC_AUTO_ATTACK
+CREATURE_AUTO_ATTACK = 27    # MELEE_ABILITIES_27 GENERIC_NPC_CREATURE_AUTO_ATTACK
 NO_ENTITY = 0xFFFFFFFFFFFFFFFF
 _display_ids = iter(range(1, 1 << 31))
 
@@ -237,7 +239,7 @@ def npc_attacks(player, npc, rng=random):
         return []
     npc.aggro, npc.aggro_on = True, player
     dmg = rng.randint(*npc.damage)
-    player.pending_displays.append(display_ability(npc.entity_id, player.char_id, NPC_AUTO_ATTACK))
+    player.pending_displays.append(display_ability(npc.entity_id, player.char_id, npc.attack_visual))
     player.health = max(player.health - dmg, 0)
     lines = [(f"{npc.name} hits YOU for {dmg} damage.", "error")]
     if player.health == 0:

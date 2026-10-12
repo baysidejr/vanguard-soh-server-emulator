@@ -139,6 +139,9 @@ def populate_world(w, args):
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.next_wander = time.time() + n
         npc.level = template.get("level", 1)
+        # Creature races (64+) bite and claw; people swing weapons.
+        npc.attack_visual = template.get("attack_visual", combat.CREATURE_AUTO_ATTACK
+                                         if template["race"] >= 64 else combat.NPC_AUTO_ATTACK)
         npc.props = {"m_GameplayLevel": npc.level}
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
