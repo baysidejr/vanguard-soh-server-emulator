@@ -73,6 +73,9 @@ def handle_unreal(send, state, payload, args):
         for m in stat_messages(player):
             send(m)
         print("  <- ZONE events 0x2d5/0x2d4 (stats)")
+        for m in inventory_messages(player):
+            send(m)
+        print("  <- ZONE events 0x195/0x197/0x1bb (inventory)")
         # Other pawns go out after the world-loaded event: the client only builds
         # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
         if args.test_npc:
@@ -167,6 +170,26 @@ DEFAULT_SKILLS = [
 ]
 SKILL_CAP = 50
 
+# Starter inventory: (item id, name, icon, quantity). Icons are numbers in the
+# client's icon map; 443 is its fallback icon.
+DEFAULT_ITEMS = [
+    (1001, "Rusty Sword", 443, 1),
+    (1002, "Travel Rations", 443, 5),
+    (1003, "Waterskin", 443, 1),
+]
+DEFAULT_COINS = 12345   # copper: 1 gold 23 silver 45 copper
+
+
+def inventory_messages(player):
+    """0x195 resets the inventory UI and creates the 50-slot main grid
+    (FUN_00513170; field 0 = InventorySpaceAvailable), then one 0x197 per item,
+    then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
+    out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
+    for slot, (item_id, name, icon, qty) in enumerate(player.items):
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, icon, qty)))
+    out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
+    return out
+
 
 class Player:
     """One character in the zone: who it is and where it should appear. Built by
@@ -186,6 +209,8 @@ class Player:
         # Character sheet values (no real character progression yet).
         self.stats = dict(DEFAULT_STATS)
         self.skills = list(DEFAULT_SKILLS)
+        self.items = list(DEFAULT_ITEMS)
+        self.coins = DEFAULT_COINS
 
 
 PC_CHANNEL = 1

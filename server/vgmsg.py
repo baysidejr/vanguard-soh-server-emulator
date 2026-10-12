@@ -118,6 +118,26 @@ ITEM_TYPES = ("o" "i" "wwww" "iii" "ii" "ii" "iiiii" "iiii" "wwww" "ww" "wwwww" 
               + "ooo" + "www" + "i")
 
 
+# Field indexes (see scratchpad inventory report; FUN_00514ff0 / FUN_00512430).
+ITEM_FIELDS = {
+    "id": 1, "name": 2, "description": 3, "quantity": 6, "equip_slot": 7,
+    "icon": 13, "capacity": 14, "container": 15, "slot": 16, "provides_container": 71,
+    "location": 92, "quality": 99,
+}
+
+
+def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
+                   container=-1, quality=1):
+    """An item in a bag: equip slot -1, container -1 = the main grid
+    (gamevar InventoryContainerID_-1, 50 slots), slot 0..49. Icon is a
+    number formatted %05d in the client icon map (443 = the client's fallback)."""
+    f = ITEM_FIELDS
+    return item_info({f["id"]: item_id, f["name"]: name, f["description"]: description,
+                      f["quantity"]: quantity, f["equip_slot"]: -1, f["icon"]: icon,
+                      f["container"]: container, f["slot"]: slot, 81: 1.0,
+                      f["quality"]: quality})
+
+
 def item_info(raw=None, probe=False):
     """Pack an item record. raw: {field index: value}. probe fills every field
     with something recognisable (strings 'S<index>', ints the index)."""
