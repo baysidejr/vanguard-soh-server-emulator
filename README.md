@@ -13,7 +13,8 @@ The unmodified client, talking only to this emulator:
 - [x] Lists, creates, customizes and deletes characters, with 3D previews
 - [x] Connects to the world server, then to a zone server after **Play**
 - [x] Completes the Unreal Engine 2 handshake (HELLO → CHALLENGE → LOGIN → WELCOME → JOIN) and loads a level
-- [ ] Spawns the player in the world (next milestone: UE2 actor replication)
+- [x] Enters the 3D world: loads the character's chunk (with neighbours) and takes control of a replicated PlayerController at a PlayerStart
+- [ ] Shows the character's pawn, the in-game UI, movement and NPCs
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
 
@@ -31,7 +32,7 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far.
    cd server
    python login_stub.py
    ```
-   It listens on UDP 10101 (login), 10100 (world) and 10102 (zone).
+   It listens on UDP 10101 (login), 10100 (world) and 10102 (zone). It reads package GUIDs from the client's `UnrealScript/` and `Assets/Maps/` folders (nothing is copied or shipped).
 4. In another terminal, start the client directly (this skips the old VGOEmulator launcher):
    ```
    cd bin

@@ -134,7 +134,7 @@ World event dispatcher: `FUN_0062aaf0`. Record reader: `FUN_005f0770`. Play: `FU
 
 ## Zone server (UDP 10102 in the stub)
 
-The client logs into the zone, then asks Unreal to travel to `<host>:<port>/Entry.vgr` and waits. This is where the stub stops. The zone API has no default port, so the port in world event 8 is required.
+The client logs into the zone, then asks Unreal to travel to `<host>:<port>/<level>.vgr`. The zone API has no default port, so the port in world event 8 is required.
 
 | Dir | Type / event | Purpose | Handler |
 | --- | --- | --- | --- |
@@ -159,20 +159,46 @@ Zone message type 1 = `u16 1, u32 length, packet`: one UE2 `UNetConnection` pack
 | terminator | one 1 bit, then zero padding; bits are LSB-first |
 | control text | FString: compact-index length incl. NUL, 8-bit chars, NUL |
 
-**Login handshake (verified live 2026-10-11):**
+**Login handshake and world entry (verified live 2026-10-11):**
 
 ```
 client → HELLO REVISION=0 MINVER=3151 VER=3186
 server → CHALLENGE VER=3186 CHALLENGE=12345 STATS=0
 client → LOGIN
-server → WELCOME LEVEL=Entry LONE=0
+server → USES GUID=... PKG=chunk_n19_12 ... FNAME=chunk_n19_12.vgr   (level package first)
+server → USES ... Core / Engine / SGOUnrealAbstractionLayer
+server → WELCOME LEVEL=chunk_n19_12 LONE=0
 client → JOIN                      (log: "INITIAL LEVEL LOAD COMPLETE", "Sending join.")
 client → zone event 0x71 BECOME_PC (20 bytes: ff×8, then zeros)
+server → actor channel 1 open: Engine.PlayerController at a PlayerStart, bNetOwner=1
+         (client: loading screen closes, the world is rendered)
 ```
 
-The client loads the named level (loading screen, full bar) and then waits to be spawned. No `USES` package-map lines were needed for WELCOME to be accepted.
+The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable channel.
 
-**Open:** answering `BECOME_PC`: spawn and replicate the player controller and pawn over UE2 actor channels.
+**Package map.** `UNetPendingLevel::NotifyReceivedText` (`FUN_009677e0`) builds the client's package map only from `USES GUID=<4×u32 hex> PKG=<name> FLAGS=<flags> SIZE=<bytes> GEN=<generations> FNAME=<file>` lines received before WELCOME. WELCOME checks that each package exists locally with that GUID. The level is loaded from entry 0, so the level package must come first (with Core first the client quit with "Version mismatch … Level Core.MyLevel"). `server/upackage.py` reads GUIDs, generations and export tables from the player's own files (version 129, licensee 35; `UObject` is 0x30 bytes in this build).
+
+**Object references** (`UPackageMapLevel::SerializeObject`, `FUN_00953ad0`): 1 bit (1 = actor, by channel index SerializeInt(1024)); otherwise SerializeInt(index, MaxObjectIndex), where index = sum of earlier packages' export counts + the export index.
+
+**Actor channel open bunch** (`UActorChannel::ReceivedBunch`, `FUN_00964ab0`), with bControl and bOpen set and ChType 2:
+
+| Field | Encoding |
+| --- | --- |
+| class | object reference (above) |
+| location | `FVector::SerializeCompressed` (`FUN_00962170`): SerializeInt(bits, 20), then 3 × SerializeInt(v + bias, 2^(bits+2)) |
+| rotation | only if the class default has bNetInitialRotation (`+0x4c` bit 20): per component 1 flag bit + byte |
+| Pawn extra | Pawn subclasses only (`FUN_00962350`): byte, u32, u32 |
+| properties | repeated: SerializeInt(RepIndex, MaxIndex), element byte if ArrayDim > 1, value (`NetSerializeItem`; bool = 1 bit) |
+
+**Replication indices** (`GetClassNetCache`, `FUN_00b18180`): a class's NetFields (CPF_Net properties and replicated functions that don't override a superclass function) in export-table order, numbered after the superclass's. Actor has 53 (DrawType = 11, bNetOwner = 14), Controller 6, PlayerController 35 (MaxIndex 94). See `server/netcache.py`.
+
+**Becoming the local player.** In this build `Actor.bNetOwner` (actor `+0x54` bit 0) is a *replicated* property. When a bunch leaves it set on a PlayerController while the connection is pending, the client calls `UNetConnection::HandleClientPlayer` (`FUN_0095df60`), which attaches the viewport and opens the connection.
+
+**Levels.** World chunks are `Assets/Maps/chunk_<x>_<y>.vgr` (negative as `n<abs>`, for example `chunk_n19_12`); the client streams in neighbouring chunks itself. The character record's `+0x1a4/+0x1a8` hold the chunk coordinates. A spawn point comes from a `PlayerStart` actor's tagged `Location` property.
+
+**Debugging tip:** comment out `Suppress=DevNetTraffic` in `bin/paths.ini` to get "Spawn …" and "<property> for …" lines in `bin/Logs/VGClient.log`.
+
+**Open:** the character's pawn (SGOPCPawn) and appearance, the in-game UI, movement, and NPCs.
 
 ## Reference
 
