@@ -12,6 +12,7 @@ import socket
 import struct
 import time
 
+import races_classes
 import ue2net
 import vgmsg
 import zone
@@ -654,7 +655,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_position=lambda loc, n=name: save_character_position(n, loc))
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
-            print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x})")
+            print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "
+                  f"{races_classes.race_name(player.race)} {races_classes.class_name(player.klass)})")
             msg = build_zone_connect_event(args.world_address, args.zone_port, player.level)
             n = send_message(sock, addr, state, msg)
             print(f"  <- sent WORLD event 8 (connect to zone {args.world_address}:{args.zone_port}) ({n} packets)")
