@@ -21,7 +21,8 @@ class Player:
     def __init__(self):
         self.char_id = 0x1336F1A
         self.health = 210
-        self.stats = {"hit_points": 210}
+        self.endurance = 100
+        self.stats = {"hit_points": 210, "endurance": 100}
         self.npcs = {}
         self.target = None
         self.pending_displays = []

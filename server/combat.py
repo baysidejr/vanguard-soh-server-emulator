@@ -133,6 +133,11 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}, but you have no target.", "combat")], None
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
+    cost = ABILITY_COST if ability[5] > 0 else 0      # instant openers are free
+    if player.endurance < cost:
+        return [("You do not have enough endurance.", "error")], None
+    player.endurance -= cost
+    player.endurance_changed = True
     lo, hi = ABILITY_DAMAGE.get(ability[1], (8, 16))
     # Class abilities use their Assets/Abilities id directly (class_abilities.py).
     visual = ABILITY_VISUALS.get(ability[1], ability[1] if ability[1] >= 500000 else None)
@@ -295,6 +300,8 @@ def chase_step(npc, target, dt, rng=random, now=None):
 RESPAWN_SECONDS = 60
 REGEN_DELAY = 6          # seconds out of combat before health comes back
 REGEN_PER_SECOND = 10
+ABILITY_COST = 15            # endurance per ability use (placeholder)
+ENDURANCE_REGEN = 4          # per second, in and out of combat
 
 
 def respawns(npcs, now):
@@ -322,6 +329,9 @@ def tick(player, now):
         else:
             out.append(("swing", *strike(player, npc, "You", AUTO_ATTACK_VISUAL,
                                          *AUTO_ATTACK_DAMAGE)))
+    if player.health > 0 and player.endurance < player.stats["endurance"]:
+        player.endurance = min(player.endurance + ENDURANCE_REGEN, player.stats["endurance"])
+        out.append(("endurance",))
     if 0 < player.health < player.stats["hit_points"] and now - player.last_combat >= REGEN_DELAY:
         player.health = min(player.health + REGEN_PER_SECOND, player.stats["hit_points"])
         out.append(("health",))

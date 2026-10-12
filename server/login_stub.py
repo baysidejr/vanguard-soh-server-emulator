@@ -287,6 +287,9 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR, "white": SYSTEM_TEXT_WHITE}
     out += [build_system_text(text, colours[kind]) for text, kind in lines]
     out.append(zone.health_update(player))
+    if getattr(player, "endurance_changed", False):
+        player.endurance_changed = False
+        out.append(zone.endurance_update(player))
     if was_alive and player.health == 0:
         player.auto_attack = False
         out += player_death(state, args, player)
@@ -380,6 +383,8 @@ def world_tick(zone_sock, clients, args):
                     send_message(zone_sock, addr, state, m)
             elif action[0] == "health":
                 send_message(zone_sock, addr, state, zone.health_update(player))
+            elif action[0] == "endurance":
+                send_message(zone_sock, addr, state, zone.endurance_update(player))
     for w in world.all_worlds():
         for s in list(w.members.values()):
             if now - s.get("last_seen", now) > 30:      # client gone without a disconnect

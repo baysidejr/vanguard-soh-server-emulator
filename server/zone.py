@@ -188,6 +188,11 @@ def score_message(player, probe=False):
         hp_regen_s=2.0, endurance_regen_s=5.0, energy_regen_s=3.0))
 
 
+def endurance_update(player):
+    return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["endurance"], player.endurance,
+                                               maximum=player.stats["endurance"]))
+
+
 def health_update(player):
     """MsgStatUpdate (0x2d4) of the Health stat: current value and maximum."""
     return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["hit_points"], player.health,
@@ -535,6 +540,7 @@ class Player:
         self.target = None                # entity id from client event 0x5d
         self.live_position = None         # last ClientLoc from ServerMove
         self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
+        self.endurance = self.stats["endurance"]
         self.last_combat = 0.0
         self.pending_displays = []        # 0x3d1 messages queued by combat
         self.pending_rewards = []         # experience from kills
