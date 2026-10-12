@@ -30,6 +30,7 @@ import trainer
 import bank
 import social
 import effects
+import guild
 import diplomacy
 import content
 import merchant
@@ -683,6 +684,16 @@ def world_chat(zone_state, command, reply):
             if m_state is not zone_state:
                 world_send(m_state, chat.line(text, player.name, chat.GROUP))
         reply(chat.echo(text, chat.GROUP))
+    elif verb == "guildsay":
+        g = guild_of(player.name)
+        if g is None:
+            reply(chat.error(0x1A))                      # "You are not in a guild."
+            return
+        for m in g["members"]:
+            s = ONLINE.get(m.lower())
+            if s is not None and s is not zone_state and not ignores(s.get("player"), player.name):
+                world_send(s, chat.line(text, player.name, guild.CHAT_GUILD))
+        reply(chat.echo(text, guild.CHAT_GUILD))
     elif verb == "regionsay":
         for s in ONLINE.values():
             if s is not zone_state:
@@ -697,7 +708,8 @@ def social_entry(name):
         p = s["player"]
         return {"name": p.name, "level": p.level_number, "klass": p.klass, "chunk": tuple(p.chunk),
                 "online": True, "afk": getattr(p, "afk", False), "anon": getattr(p, "anon", False),
-                "lfg": getattr(p, "lfg", False), "diplomacy_level": 1, "uid": social_uid(p.name)}
+                "lfg": getattr(p, "lfg", False), "diplomacy_level": 1, "uid": social_uid(p.name),
+                "guild": (guild_of(p.name) or {}).get("name", "")}
     return {"name": name, "online": False, "uid": social_uid(name)}
 
 
@@ -731,6 +743,173 @@ def notify_friends(state, online):
         friends = [n.lower() for n in getattr(other, "friends", [])]
         if player.name.lower() in friends:
             world_send(s, social.friend_status(entry, entry["uid"]))
+
+
+GUILDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "guilds.json")
+
+
+def load_guilds():
+    try:
+        with open(GUILDS_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def save_guilds(guilds):
+    with open(GUILDS_FILE, "w", encoding="utf-8") as f:
+        json.dump(guilds, f, indent=2)
+
+
+def guild_of(name, guilds=None):
+    """The guild record {id, name, members: {name: rank}} a character is in, or None."""
+    for g in (guilds if guilds is not None else load_guilds()).values():
+        if name.lower() in [m.lower() for m in g["members"]]:
+            return g
+    return None
+
+
+def guild_member(g, name, online=None):
+    rank = next(r for m, r in g["members"].items() if m.lower() == name.lower())
+    s = ONLINE.get(name.lower())
+    p = s["player"] if s and s.get("player") else None
+    char = next((c for c in load_characters() if c["first"].lower() == name.lower()), {})
+    return {"id": character_id(char) if char else social_uid(name), "name": char.get("first", name),
+            "rank": rank, "online": p is not None if online is None else online,
+            "klass": p.klass if p else 0, "level": p.level_number if p else 1,
+            "chunk": tuple(p.chunk) if p else (0, 0)}
+
+
+def guild_broadcast(name, make, exclude=None):
+    """Send make(guild) to every online member of name's guild."""
+    g = guild_of(name)
+    if g is None:
+        return
+    for m in g["members"]:
+        s = ONLINE.get(m.lower())
+        if s is not None and s is not exclude and s.get("send"):
+            s["send"](make(g))
+
+
+def guild_login(state):
+    """Guild membership, window info and member list at zone login."""
+    player, send = state["player"], state["send"]
+    g = guild_of(player.name)
+    if g is None:
+        send(guild.membership(0, 0))
+        return
+    send_guild_window(state, g)
+    if not state.get("guild_announced"):
+        state["guild_announced"] = True
+        guild_broadcast(player.name, lambda g: guild.member_update(guild_member(g, player.name)), exclude=state)
+
+
+def send_guild_window(state, g):
+    player, send = state["player"], state["send"]
+    send(guild.membership(g["id"], guild_member(g, player.name)["rank"]))
+    send(guild.info(g["name"]))
+    send(guild.name_tag(g["id"], g["name"]))
+    for m in guild.member_list([guild_member(g, n) for n in g["members"]]):
+        send(m)
+
+
+def handle_guild_event(state, event, data):
+    """Guild create / invite / accept / quit / kick / promote / demote / delete."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE guild {event:#x}: {data[:48].hex(' ')}")
+    guilds = load_guilds()
+    mine = guild_of(player.name, guilds)
+    rank = mine["members"][next(m for m in mine["members"] if m.lower() == player.name.lower())] if mine else 0
+
+    def say(text, error=False):
+        send(build_system_text(text, SYSTEM_TEXT_ERROR if error else SYSTEM_TEXT_WHITE))
+    if event == guild.CREATE:
+        name = guild.read_create_name(data).strip()
+        if mine:
+            send(zone.zone_event(0x0E, struct.pack("<h", 0xDC)))        # AlreadyInGuild
+        elif not 3 <= len(name) <= 32:
+            send(zone.zone_event(0x0E, struct.pack("<h", 0xDE)))
+        elif any(g["name"].lower() == name.lower() for g in guilds.values()):
+            say(f"A guild named {name} already exists.", True)
+        else:
+            gid = max([g["id"] for g in guilds.values()] + [0]) + 1
+            guilds[str(gid)] = {"id": gid, "name": name, "members": {player.name: guild.LEADER}}
+            save_guilds(guilds)
+            say(f"You have founded the guild {name}.")
+            send_guild_window(state, guilds[str(gid)])
+    elif mine is None:
+        if event == guild.ACCEPT and state.get("guild_invite"):
+            gid = state.pop("guild_invite")
+            g = guilds.get(str(gid))
+            if g is None:
+                return
+            g["members"][player.name] = guild.MEMBER
+            save_guilds(guilds)
+            send(zone.zone_event(0x0E, struct.pack("<h", 0xD8)))        # JoinedGuild
+            send_guild_window(state, g)
+            guild_broadcast(player.name, lambda g: guild.member_update(guild_member(g, player.name),
+                                                                       guild.JOINED), exclude=state)
+        elif event == guild.DECLINE:
+            state.pop("guild_invite", None)
+        else:
+            send(zone.zone_event(0x0E, struct.pack("<h", 0x1A)))        # NoGuild
+    elif event == guild.INVITE:
+        name = guild.read_name(data).strip()
+        target = ONLINE.get(name.lower())
+        if rank < guild.OFFICER:
+            say("You don't have permission to invite.", True)
+        elif target is None or not target.get("player"):
+            say(f"{name} is not online.", True)
+        elif guild_of(target["player"].name, guilds):
+            say(f"{target['player'].name} is already in a guild.", True)
+        else:
+            target["guild_invite"] = mine["id"]
+            target["send"](guild.invite(player.char_id, player.name, mine["name"]))
+            say(f"You invite {target['player'].name} to join {mine['name']}.")
+    elif event in (guild.QUIT, guild.KICK, guild.DELETE):
+        if event == guild.DELETE:
+            if rank != guild.LEADER:
+                send(zone.zone_event(0x0E, struct.pack("<h", 0xE6)))
+                return
+            leaving = list(mine["members"])
+        elif event == guild.QUIT:
+            leaving = [player.name]
+        else:
+            name = guild.read_name(data).strip()
+            leaving = [m for m in mine["members"] if m.lower() == name.lower()]
+            if not leaving or rank < guild.OFFICER or mine["members"][leaving[0]] >= rank:
+                say("You can't remove that member.", True)
+                return
+        notify = guild.QUIT_NOTE if event == guild.QUIT else guild.REMOVED
+        for name in leaving:
+            m = guild_member(mine, name)
+            m["rank"] = 0
+            guild_broadcast(name, lambda g, m=m: guild.member_update(m, notify))
+            s = ONLINE.get(name.lower())
+            del mine["members"][name]
+            if s is not None and s.get("send"):
+                s["send"](guild.membership(0, 0))
+                s["send"](zone.zone_event(0x0E, struct.pack("<h", 0xD9)))   # RemovedFromGuild
+        if not mine["members"] or event == guild.DELETE:
+            guilds.pop(str(mine["id"]), None)
+        elif event == guild.QUIT and rank == guild.LEADER:
+            heir = max(mine["members"], key=lambda n: mine["members"][n])
+            mine["members"][heir] = guild.LEADER
+        save_guilds(guilds)
+    elif event in (guild.PROMOTE, guild.DEMOTE):
+        name = guild.read_name(data).strip()
+        who = next((m for m in mine["members"] if m.lower() == name.lower()), None)
+        if who is None or rank < guild.OFFICER or (mine["members"][who] >= rank and who != player.name):
+            say("You can't change that member's rank.", True)
+            return
+        new = mine["members"][who] + (1 if event == guild.PROMOTE else -1)
+        mine["members"][who] = max(1, min(rank - 1 if who != player.name else rank, new))
+        save_guilds(guilds)
+        guild_broadcast(who, lambda g: guild.member_update(guild_member(g, who)))
+        s = ONLINE.get(who.lower())
+        if s is not None and s.get("send"):
+            s["send"](guild.membership(mine["id"], mine["members"][who]))
+        say(f"{who} is now a {guild.RANK_NAMES[mine['members'][who] - 1]}.")
 
 
 def handle_social_world(zone_state, event, data, reply):
@@ -1873,6 +2052,8 @@ def leave_world(state, args):
             ONLINE.pop(player.name.lower(), None)
             ANNOUNCED.discard(player.name.lower())
             notify_friends(state, online=False)
+            guild_broadcast(player.name, lambda g: guild.member_update(guild_member(g, player.name, online=False)),
+                            exclude=state)
     # Only if this connection is still the one in the world (a re-login or a
     # handoff back to this chunk may have replaced it under the same id).
     if w is None or player is None or w.members.get(player.char_id) is not state:
@@ -2222,6 +2403,9 @@ def dev_command(text, player=None):
         qty = int(words[-1]) if words[-1].isdigit() and len(words) > 2 else 1
         name = " ".join(words[1:-1] if qty > 1 or words[-1] == "1" else words[1:])
         return [("give", name, qty)]
+    if words[0] == "guildcreate" and player:
+        # !guildcreate: open the client's guild-name dialog (0x4e7; there is no slash command).
+        return [guild.name_dialog()]
     if words[0] == "use" and len(words) >= 2 and player:
         # !use <ability name>: use a known ability as if from the hotbar (testing).
         want = " ".join(words[1:]).lower()
@@ -2473,6 +2657,7 @@ def handle_message(sock, server, addr, state, payload, args):
             send_message(sock, addr, state, build_login_reply(True))
             if state["player"]:
                 social_login(state)
+                guild_login(state)
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -2630,6 +2815,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 merchant.REQ_REPAIR_OPEN, merchant.REQ_REPAIR, merchant.REQ_REPAIR_ALL):
             if state.get("player"):
                 handle_repair_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in guild.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_guild_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in social.ZONE_EVENTS:
             if state.get("player"):
                 handle_social_zone(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
