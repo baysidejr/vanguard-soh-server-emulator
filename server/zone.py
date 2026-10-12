@@ -13,6 +13,7 @@ import vgmsg
 import combat
 import content
 import merchant
+import harvest
 import world
 import ue2net
 from netcache import NetCache
@@ -47,7 +48,9 @@ def handle_unreal(send, state, payload, args):
             if state.pop("use_requested", False):
                 # "Use" (U key): a merchant opens its dialog; a dead target its loot.
                 npc = player.npcs.get(player.target) if player.target else None
-                if npc and npc.alive and (npc.merchant or npc.quests):
+                if npc and npc.harvest:
+                    args.harvest_begin(state)
+                elif npc and npc.alive and (npc.merchant or npc.quests):
                     for m in args.npc_dialog(state, npc):
                         send(m)
                 elif npc and not npc.alive:
@@ -133,6 +136,7 @@ def populate_world(w, args):
         npc.gear = [tuple(g) for g in template.get("gear", [])]
         npc.yaw = int(spawn.get("yaw", 0))
         npc.merchant = template.get("merchant")
+        npc.harvest = template.get("harvest")
         npc.template_id = spawn["mob"]
         npc.quests = [k for k, q in args.content.quests.items() if q.get("giver") == spawn["mob"]]
         npc.wander = float(spawn.get("wander", 0))
@@ -144,6 +148,8 @@ def populate_world(w, args):
         npc.attack_visual = template.get("attack_visual", combat.CREATURE_AUTO_ATTACK
                                          if template["race"] >= 64 else combat.NPC_AUTO_ATTACK)
         npc.props = {"m_GameplayLevel": npc.level}
+        if npc.harvest:
+            npc.props["EntityTypes"] = harvest.HARVESTABLE
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
         if "gender" in template:

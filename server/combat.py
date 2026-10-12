@@ -48,7 +48,9 @@ class Npc:
         self.ground_z = None          # f(x, y) -> standing z (terrain)
         self.quests = []              # quest keys this NPC gives (content/quests.json)
         self.template_id = None
-        self.merchant = None          # merchants.json list id (vendors can't be attacked)
+        self.merchant = None
+        self.harvest = None           # resource node settings (mobs.json "harvest")
+        self.depleted_until = 0.0          # merchants.json list id (vendors can't be attacked)
         self.attack_visual = NPC_AUTO_ATTACK
         self.aggro_radius = 0.0       # attacks players that come this close (0 = only if hit)
         self.props = {}               # extra replicated pawn properties from the template
@@ -139,7 +141,7 @@ def use_ability(player, ability, rng=random):
         return [(f"You use {name}, but you have no target.", "combat")], None
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
-    if npc.merchant:
+    if npc.merchant or npc.harvest:
         return [(f"You can't attack {npc.name}.", "error")], None
     cost = ABILITY_COST if ability[5] > 0 else 0      # instant openers are free
     if player.endurance < cost:
@@ -197,7 +199,7 @@ def experience_reward(amount, source, rest_bonus=0, kind=0, group=0):
 def toggle_auto_attack(player):
     """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state."""
     npc = player.npcs.get(player.target) if player.target else None
-    if not player.auto_attack and (npc is None or not npc.alive or npc.merchant
+    if not player.auto_attack and (npc is None or not npc.alive or npc.merchant or npc.harvest
                                    or player.health <= 0):
         return [("You have no valid target to attack.", "error")]
     player.auto_attack = not player.auto_attack
@@ -430,7 +432,7 @@ def consider(player, npc):
 def proximity_aggro(npc, players):
     """An aggressive NPC picks the nearest living player inside its aggro radius.
     Returns that player when it starts a fight, else None."""
-    if npc.aggro or not npc.alive or npc.aggro_radius <= 0 or npc.merchant:
+    if npc.aggro or not npc.alive or npc.aggro_radius <= 0 or npc.merchant or npc.harvest:
         return None
     best = None
     for p in players:

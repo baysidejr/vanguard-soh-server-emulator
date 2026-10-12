@@ -7,6 +7,7 @@ in comments). Run:  python login_stub.py [--port 10101]
 import argparse
 import json
 import os
+import random
 import select
 import socket
 import struct
@@ -21,6 +22,7 @@ import combat
 import group
 import trade
 import quest
+import harvest
 import content
 import merchant
 import world
@@ -232,6 +234,7 @@ def main():
     args.package_maps = {}
     args.content = content.Content()
     args.npc_dialog = npc_dialog
+    args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     global ARGS
     ARGS = args
     args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
@@ -434,6 +437,7 @@ def world_tick(zone_sock, clients, args):
             continue
         if "send" in state:
             camp_tick(state, now)
+            harvest_tick(state, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":
                 _, lines, npc = action
@@ -893,6 +897,66 @@ def quest_kill(state, npc):
         player.quests.active[key] = count + 1
         state["send"](quest.progress_update(q, npc.entity_id, count + 1, count + 1 >= total))
         save_character_field(player.name, "quests", player.quests.to_json())
+
+
+def handle_harvest_event(state, event):
+    """0x109 begin harvesting the target node, 0x10a stop (harvest.py)."""
+    player, send = state["player"], state["send"]
+    if event == harvest.STOP:
+        if state.pop("harvest", None):
+            send(harvest.ended())
+        return
+    npc = player.npcs.get(player.target) if player.target else None
+    print(f"  >>> ZONE harvest {npc.name if npc else None}")
+    if npc is None or not npc.harvest:
+        send(harvest.error(0x7C))
+    elif state.get("harvest"):
+        send(harvest.error(harvest.ERR_ALREADY))
+    elif time.time() < npc.depleted_until:
+        send(harvest.error(harvest.ERR_HARVESTED))
+    else:
+        state["harvest"] = {"npc": npc, "step": 0, "next": time.time() + harvest.STRIKE_SECONDS}
+        send(harvest.open_window(npc, npc.harvest["kind"]))
+        send(harvest.begun())
+
+
+def harvest_tick(state, now):
+    h = state.get("harvest")
+    if not h or now < h["next"]:
+        return
+    player, send, npc = state["player"], state["send"], h["npc"]
+    kind = npc.harvest["kind"]
+    h["step"] += 1
+    h["next"] = now + harvest.STRIKE_SECONDS
+    strike = combat.display_ability(player.char_id, npc.entity_id, harvest.STRIKE_VISUALS.get(kind, 20084))
+    send(strike)
+    if state.get("world"):
+        state["world"].broadcast(lambda s: strike, exclude=state)
+    remaining = 18.0 * (1 - h["step"] / harvest.STRIKES)
+    send(harvest.progress(1.0, max(remaining, 0.0)))
+    if h["step"] < harvest.STRIKES:
+        return
+    state.pop("harvest")
+    lo, hi = npc.harvest.get("quantity", [1, 1])
+    qty = random.randint(lo, hi)
+    name = npc.harvest["item"]
+    icon = zone.item_icon(name, 443)
+    slot = zone.free_bag_slot(player)
+    if slot is not None:
+        item_id = zone.new_item_id(player)
+        record = vgmsg.inventory_item(item_id, name, slot, icon, qty, **zone.item_equip_fields(name))
+        for m in harvest.rewards(item_id, qty, record):
+            send(m)
+        player.items.append((item_id, name, icon, qty, slot))
+        send(zone.zone_event(0x197, record))
+        send(build_system_text(f"You harvest {qty} {name}.", SYSTEM_TEXT_WHITE))
+        save_character_field(player.name, "items", [list(i) for i in player.items])
+    else:
+        send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
+    send(harvest.ended())
+    npc.depleted_until = now + npc.respawn
+    depleted = combat.display_ability(npc.entity_id, combat.NO_ENTITY, harvest.NODE_DEPLETED_VISUAL)
+    send(depleted)
 
 
 def leave_world(state, args):
@@ -1589,6 +1653,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if event in (merchant.REQ_BUY, merchant.REQ_SELL) and player is not None:
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in harvest.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_harvest_event(state, struct.unpack_from("<I", payload, 2)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in quest.CLIENT_EVENTS:
             if state.get("player"):
                 handle_quest_event(state, struct.unpack_from("<I", payload, 2)[0], payload)
@@ -1617,7 +1684,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player = state.get("player")
             npc = player.npcs.get(player.target) if player and player.target else None
             if npc:
-                send_message(sock, addr, state, combat.consider(player, npc))
+                send_message(sock, addr, state, harvest.consider(npc) if npc.harvest
+                             else combat.consider(player, npc))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CHUNK_CHANGE_EVENT:
             chunk_handoff(state, payload, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x313, 0x314):

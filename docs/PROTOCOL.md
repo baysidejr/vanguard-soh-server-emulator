@@ -289,6 +289,8 @@ Pitfall: a Vector property must be written as SerializeCompressed even when its 
 
 **Consider** (verified live): `/con` sends client `0x3d9` (no payload, current target). The server answers `0x3da` MsgConsiderResult {i32 kind 0 = combat (3 = harvesting), i32 con 0..7 (0 "could win blindfolded", 4 "fair fight", 7 "deathwish"), i32 difficulty 0..5, i32 level, wstr name, wstr tool}; the client prints the coloured line (`FUN_005e7670`).
 
+**Harvesting** (verified live): a resource node is an NPC pawn with `EntityTypes` bit 0x800. Client `0x109` begins (`0x10a` stops); the server sends `0x2dc` {u64 node, f32, u8 qty, u8 skill} (Harvesting window), `0x2dd`, strikes (`0x3d1` visual 20084 mining) with `0x2df` {f32 qty, f32 progress, f32 max}, then `0x2e1`/`0x2e2`/`0x2e3` reward list, `0x197` item, `0x2de` ended. Details: [HARVESTING.md](HARVESTING.md).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**
