@@ -186,10 +186,33 @@ DEFAULT_ITEMS = [
     (1002, "Travel Rations", 442, 5),
     (1003, "Waterskin", 472, 1),
 ]
-# Equipped items: (item id, name, icon, equip slot from vgmsg.EQUIP_SLOTS).
-DEFAULT_EQUIPMENT = [
-    (2001, "Militia Longsword", 422, vgmsg.EQUIP_SLOTS["PRIMARYHAND"]),
-]
+# Starter weapons per adventuring class (races_classes.ADVENTURING_CLASSES):
+# [(name, icon, slot tag)]. Icons are iconsTK.xml numbers.
+CLASS_STARTER_WEAPONS = {
+    0x1C: [("Militia Longsword", 423, "PRIMARYHAND")],                  # Warrior
+    0x04: [("Crusader's Mace", 425, "PRIMARYHAND")],                    # Paladin
+    0x14: [("Blackened Blade", 422, "PRIMARYHAND")],                    # Dread Knight
+    0x13: [("Hunter's Shortsword", 422, "PRIMARYHAND"),
+           ("Yew Longbow", 427, "RANGED")],                              # Ranger
+    0x15: [("Rusted Dagger", 429, "PRIMARYHAND")],                      # Rogue
+    0x02: [("Minstrel's Scimitar", 479, "PRIMARYHAND")],                # Bard
+    0x0F: [("Training Staff", 469, "PRIMARYHAND")],                     # Monk
+    0x1B: [("Training Staff", 469, "PRIMARYHAND")],                     # Disciple
+    0x05: [("Acolyte's Mace", 425, "PRIMARYHAND")],                     # Cleric
+    0x16: [("Spirit Hammer", 468, "PRIMARYHAND")],                      # Shaman
+    0x07: [("Oak Staff", 469, "PRIMARYHAND")],                          # Druid
+    0x19: [("Apprentice Staff", 469, "PRIMARYHAND")],                   # Sorcerer
+    0x2D: [("Bone Staff", 469, "PRIMARYHAND")],                         # Necromancer
+    0x0E: [("Focus Staff", 469, "PRIMARYHAND")],                        # Psionicist
+    0x2C: [("Ritual Dagger", 429, "PRIMARYHAND")],                      # Blood Mage
+}
+
+
+def starter_equipment(klass):
+    """(item id, name, icon, equip slot) for the class's starter weapons."""
+    kit = CLASS_STARTER_WEAPONS.get(klass, CLASS_STARTER_WEAPONS[0x1C])
+    return [(2001 + n, name, icon, vgmsg.EQUIP_SLOTS[slot])
+            for n, (name, icon, slot) in enumerate(kit)]
 # Abilities: (handle, ability id, name, icon, description, refresh seconds).
 DEFAULT_ABILITIES = [
     (1, 1001, "Strike", 553, "A basic melee attack.", 0.0),
@@ -246,7 +269,7 @@ class Player:
         self.stats = dict(DEFAULT_STATS)
         self.skills = list(DEFAULT_SKILLS)
         self.items = list(DEFAULT_ITEMS)
-        self.equipment = list(DEFAULT_EQUIPMENT)
+        self.equipment = starter_equipment(klass)
         self.abilities = list(DEFAULT_ABILITIES)
         self.coins = DEFAULT_COINS
 
