@@ -1,6 +1,16 @@
 # Crafting (refining) message flow in VGClient.exe
 
-> **Verified live (2026-10-12):** U on the Camp Forge (EntityTypes 0x4) → Crafting Setup with "Copper Ingot" under Normal Recipes → select (0xfe) → Begin (0xfb, 0xfc) → crafting window (Grade, Action Pts 100/100, Stage 1: Smelting) → step → Smelt action (0xf6) → "You create Copper Ingot.", "You gain 120 crafting experience!", "Your crafting session ends."; 2 Copper Ore used, ingot in the bag. Implemented in `server/craft.py` and `login_stub.handle_craft_event`; recipes in `server/content/recipes.json`. The station is a robed NPC for now: race 572 (computed from the BlacksmithForge prop table offset) falls back to the client's placeholder figure, and the skeletal smelter races don't draw. A real forge model is open.
+> **Verified live (2026-10-12):** U on the Camp Forge (EntityTypes 0x4) → Crafting Setup with "Copper Ingot" under Normal Recipes → select (0xfe) → Begin (0xfb, 0xfc) → crafting window (Grade, Action Pts 100/100, Stage 1: Smelting) → step → Smelt action (0xf6) → "You create Copper Ingot.", "You gain 120 crafting experience!", "Your crafting session ends."; 2 Copper Ore used, ingot in the bag. Implemented in `server/craft.py` and `login_stub.handle_craft_event`; recipes in `server/content/recipes.json`. The station is a robed NPC for now: race 572 (computed from the BlacksmithForge prop table offset) falls back to the client's placeholder figure, and the skeletal smelter races don't draw. **Forge model (verified live):** race 572 "BlacksmithForge" can never draw. The client's race table points it at the object `Ra8001_P1_CraftBlacksmith_furnace001` inside the package `Ra1_P1_craftBlacksmith_mesh`, which doesn't contain it, so the client falls back to a placeholder. No other race is a forge. The Camp Forge now uses race 600 **GenericBrazier**, an iron fire bowl.
+
+Other static-mesh races that load (checked against the packages):
+- crafting stations: 655 BlackCauldron, 578/1084 GemTable, 551 SawMill, 568 TailorSpinningWheel, 571 AlchemyFlask, 808 FabricRack, 750 Fireplace
+- chests: 590, 607, 1072
+- tents: 603, 604, 619, 654
+- campfire: 1087
+- banners: 631, 644
+- barrels: 588, 740
+
+Ore race 536 has a broken package name, so the vein now uses 537.
 
 > **Stages, quality and complications (verified live 2026-10-12):** Copper Ingot now has two stages, each with two steps.
 > - **Stages.** "Stage 1: Preparation" has Sort Ore and Heat Crucible; "Stage 2: Smelting" has Smelt Ore and Pour Ingot. Each action costs action points (120 in total).

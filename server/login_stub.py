@@ -31,6 +31,7 @@ import bank
 import social
 import effects
 import guild
+import brotherhood
 import diplomacy
 import content
 import merchant
@@ -939,9 +940,135 @@ def handle_guild_event(state, event, data):
         say(f"{who} is now a {guild.RANK_NAMES[mine['members'][who] - 1]}.")
 
 
+BROTHERHOODS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brotherhoods.json")
+
+
+def load_brotherhoods():
+    try:
+        with open(BROTHERHOODS_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return []
+
+
+def save_brotherhoods(bhs):
+    with open(BROTHERHOODS_FILE, "w", encoding="utf-8") as f:
+        json.dump([b for b in bhs if len(b["members"]) > 1], f, indent=2)
+
+
+def brotherhood_of(name, bhs=None):
+    """The brotherhood {leader, members: [names]} name belongs to, or None."""
+    return next((b for b in (bhs if bhs is not None else load_brotherhoods())
+                 if name.lower() in [m.lower() for m in b["members"]]), None)
+
+
+def bh_member(b, name):
+    s = ONLINE.get(name.lower())
+    p = s["player"] if s and s.get("player") else None
+    return {"id": social_uid(name), "name": name, "level": p.level_number if p else 1,
+            "klass": p.klass if p else 0, "online": p is not None,
+            "leader": name.lower() == b["leader"].lower()}
+
+
+def bh_send_all(b, make, exclude=None):
+    for m in b["members"]:
+        s = ONLINE.get(m.lower())
+        if s is not None and s is not exclude and s.get("send"):
+            s["send"](make(m))
+
+
+def brotherhood_window(state, b):
+    """Status, name and the full member list for one player."""
+    player, send = state["player"], state["send"]
+    leader = b["leader"].lower() == player.name.lower()
+    send(brotherhood.status(brotherhood.LEADER if leader else brotherhood.MEMBER))
+    send(brotherhood.name(b.get("name", f"{b['leader']}'s Brotherhood")))
+    for m in b["members"]:
+        send(brotherhood.member_add(bh_member(b, m)))
+
+
+def brotherhood_login(state):
+    b = brotherhood_of(state["player"].name)
+    if b is None:
+        state["send"](brotherhood.status(brotherhood.NOT_ACTIVE))
+    else:
+        brotherhood_window(state, b)
+
+
+def handle_brotherhood(state, event, data):
+    """Invite / accept / decline (zone) and leave (world social 0x4c0)."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> brotherhood {event:#x}: {data[:40].hex(' ')}")
+    bhs = load_brotherhoods()
+    mine = brotherhood_of(player.name, bhs)
+    if event == brotherhood.INVITE:
+        name = social.read_name(data).strip()
+        target = ONLINE.get(name.lower())
+        if not name:
+            return
+        if target is state:
+            send(zone.zone_event(0x0E, struct.pack("<h", brotherhood.ERR_SELF)))
+        elif mine and mine["leader"].lower() != player.name.lower():
+            send(zone.zone_event(0x0E, struct.pack("<h", brotherhood.ERR_NOT_LEADER)))
+        elif mine and len(mine["members"]) >= brotherhood.MAX_MEMBERS:
+            send(zone.zone_event(0x0E, struct.pack("<h", brotherhood.ERR_FULL)))
+        elif target is None or not target.get("player"):
+            send(build_system_text(f"{name} is not online.", SYSTEM_TEXT_ERROR))
+        elif brotherhood_of(target["player"].name, bhs):
+            send(build_system_text(f"{target['player'].name} is already in a brotherhood.", SYSTEM_TEXT_ERROR))
+        else:
+            target["bh_invite"] = player.name
+            target["send"](brotherhood.invite(player.name))
+            send(build_system_text(f"You invite {target['player'].name} to join your brotherhood.",
+                                   SYSTEM_TEXT_WHITE))
+    elif event == brotherhood.ACCEPT and state.get("bh_invite") and mine is None:
+        inviter = state.pop("bh_invite")
+        b = brotherhood_of(inviter, bhs)
+        if b is None:
+            b = {"leader": inviter, "members": [inviter], "name": f"{inviter}'s Brotherhood"}
+            bhs.append(b)
+            s = ONLINE.get(inviter.lower())
+            if s is not None and s.get("send"):
+                brotherhood_window(s, b)
+        if len(b["members"]) >= brotherhood.MAX_MEMBERS:
+            send(zone.zone_event(0x0E, struct.pack("<h", brotherhood.ERR_FULL)))
+            return
+        b["members"].append(player.name)
+        save_brotherhoods(bhs)
+        brotherhood_window(state, b)
+        bh_send_all(b, lambda m: brotherhood.member_add(bh_member(b, player.name)), exclude=state)
+        bh_send_all(b, lambda m: build_system_text(f"{player.name} has joined the brotherhood.",
+                                                   SYSTEM_TEXT_WHITE))
+    elif event == brotherhood.DECLINE:
+        inviter = state.pop("bh_invite", None)
+        s = ONLINE.get((inviter or "").lower())
+        if s is not None and s.get("send"):
+            s["send"](build_system_text(f"{player.name} declined your brotherhood invitation.", SYSTEM_TEXT_WHITE))
+    elif event == brotherhood.LEAVE and mine:
+        uid = social_uid(player.name)
+        bh_send_all(mine, lambda m: brotherhood.member_left(uid))
+        bh_send_all(mine, lambda m: build_system_text(f"{player.name} has left the brotherhood.",
+                                                      SYSTEM_TEXT_WHITE))
+        mine["members"] = [m for m in mine["members"] if m.lower() != player.name.lower()]
+        send(brotherhood.status(brotherhood.NOT_ACTIVE))
+        if mine["leader"].lower() == player.name.lower() and mine["members"]:
+            mine["leader"] = mine["members"][0]
+            bh_send_all(mine, lambda m: brotherhood.new_leader(social_uid(mine["leader"])))
+        if len(mine["members"]) < 2:
+            for m in mine["members"]:
+                s = ONLINE.get(m.lower())
+                if s is not None and s.get("send"):
+                    s["send"](brotherhood.status(brotherhood.NOT_ACTIVE))
+            bhs.remove(mine)
+        save_brotherhoods(bhs)
+
+
 def handle_social_world(zone_state, event, data, reply):
     """World type 5: /who, /friend, /ignore."""
     player = zone_state["player"]
+    if event == brotherhood.LEAVE:
+        handle_brotherhood(zone_state, event, data)
+        return
     if event == social.WHO:
         f = social.parse_who(data)
         found = [e for e in (social_entry(s["player"].name) for s in ONLINE.values() if s.get("player"))
@@ -2685,6 +2812,7 @@ def handle_message(sock, server, addr, state, payload, args):
             if state["player"]:
                 social_login(state)
                 guild_login(state)
+                brotherhood_login(state)
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -2842,6 +2970,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 merchant.REQ_REPAIR_OPEN, merchant.REQ_REPAIR, merchant.REQ_REPAIR_ALL):
             if state.get("player"):
                 handle_repair_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in brotherhood.ZONE_EVENTS:
+            if state.get("player"):
+                handle_brotherhood(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in guild.CLIENT_EVENTS:
             if state.get("player"):
                 handle_guild_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
@@ -2982,6 +3113,11 @@ def handle_message(sock, server, addr, state, payload, args):
             state["out_seq"] += 1
             sock.sendto(reply, addr)
             print(f"  <- sent WORLD event 1 (logged in): {reply.hex(' ')}")
+        elif msg_type == 2 and event_id == brotherhood.LEAVE:
+            # /brotherhoodleave (after its confirm popup) arrives as a world type-2 event.
+            zone_state = ZONE_BY_SESSION.get(state.get("session"))
+            if zone_state and zone_state.get("player"):
+                handle_brotherhood(zone_state, event_id, payload[10:])
         elif msg_type == 2 and event_id != 0x6F and LOGIN_CONN and try_delete_character(
                 LOGIN_CONN["sock"], LOGIN_CONN["addr"], LOGIN_CONN["state"], payload):
             pass  # the refreshed account list (0x66) goes out on the login connection
