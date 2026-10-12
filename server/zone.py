@@ -59,6 +59,16 @@ def handle_unreal(send, state, payload, args):
             # "world loaded" flags (subsystem manager +0x2b1, +0xd8).
             send(zone_event(event_id))
             print(f"  <- ZONE event {event_id:#x} (no payload)")
+        # Other pawns go out after the world-loaded event: the client only builds
+        # a pawn's mesh (FUN_00bcb8e0) once that flag is set.
+        if args.test_npc:
+            pm = package_map(args, args.current_level)
+            for n, (cls_path, name, race, off) in enumerate(TEST_NPCS):
+                loc = tuple(a + b for a, b in zip(args.spawned_at, off))
+                eid = getattr(args, "npc_entity_id", None) or (0x2000000 + n)
+                b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, eid)
+                print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
+                send(unreal_message(ue.build([b])))
 
 
 def zone_event(event_id, data=b""):
@@ -187,11 +197,7 @@ def spawn_bunches(ue, args):
                             location=location, rotation=rotation, properties=props)
     print(f"  <- UNREAL actor open ch={PC_CHANNEL} {args.spawn_class} {b.nbits} bits: {b.data.hex(' ')}")
     out.append(b)
-    for n, (cls_path, name, race, off) in enumerate(TEST_NPCS if args.test_npc else []):
-        loc = tuple(a + b for a, b in zip(location, off))
-        b = npc_bunch(ue, pm, FIRST_NPC_CHANNEL + n, cls_path, name, race, loc, getattr(args, "npc_entity_id", None) or (0x2000000 + n))
-        print(f"  <- UNREAL actor open ch={FIRST_NPC_CHANNEL + n} {cls_path} {name!r} at {loc}")
-        out.append(b)
+    args.spawned_at = location
     if pawn_cls:
         # RPC PlayerController.ClientRestart() (no parameters in this build): the
         # client takes the pawn and enters its walking state.
