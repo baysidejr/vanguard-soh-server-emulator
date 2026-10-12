@@ -208,7 +208,12 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Position persistence.** The server saves the last `ClientLoc` per character and spawns there next time (same chunk).
 
-**Chunk travel.** Zone events `0x1` / `0x9` (raw: eid64-like pair = chunk x, y; bool; wstr) call `VGPlanet::MoveViewActorToChunk(x, y)` (`FUN_0099eda0`) — not yet used.
+**Chunk travel** (observed live, not working yet). When the pawn crosses a chunk edge, the client does the following:
+- It runs `VGPlanet::MoveViewActorToChunk(-20,12)` itself and loads the new neighbours. Its log shows the travel location in the new chunk's frame: x + 204,800.
+- It sends client zone event `0x9` {i32 chunk x, i32 chunk y, …}.
+- The pawn stays in the old frame and then rises 90 units per `ServerMove`.
+
+Replying with server `0x9` or teleporting into the new frame did not settle it. Positions outside ±102,400 are no longer saved.
 
 **Character sheet.** Zone event `0x3de` MsgScore (111 fields, registrar `FUN_005db5d0`, handler `FUN_005e8260`) drives the level shown on the HUD portrait, the XP bar and the character window title ("Level 10 - Thestran Warrior"). Inferred fields (wire index): 0–2 position, 3–4 chunk, 5 race, 6 gender, 7 class, 8 adventure level, 9 adventure XP, 10 class, 12 crafting level, 14 harvesting level, 16 diplomacy level, 21 XP for next level, 29 movement speed. See `server/vgmsg.py`. The character window's name is SetNameID's string at `+0x1b0`.
 
@@ -218,7 +223,12 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Inventory** (verified live): `0x195` resets the inventory UI and creates the 50-slot main grid, then one `0x197` MsgSingleItemInfo per item (field 7 equip slot = −1, field 15 container = −1, field 16 slot, field 6 quantity, field 13 icon number from `VGUIAssets/Global/Icons/iconsTK.xml`), then `0x1bb` coins in copper (no chat line; `0x1aa` prints one). Details: [INVENTORY.md](INVENTORY.md).
 
-**Chat channels:** zone event `0x0f` channel 3 = Say ("X says, ..."), 5 = Emote; other values print "[???]".
+**Chat channels:** zone event `0x0f` channel 3 = Say ("X says, ..."), 5 = Emote; other values 0–41 print "[???]".
+
+The other chat commands go elsewhere:
+- `/shout`, `/ooc`, `/tell` and `/g` go to the **world** server as message type 6 {u16 6, u32 0x14, u32 byte length, wstr}. The string is the command text: `shout hello`, `regionsay ...` (OOC), `tell "Name" ...`, `gsay ...`.
+- `/emote` is zone event `0x314` {wstr}.
+- Socials such as `/wave` are zone event `0x313` {u64 target (−1), wstr "WAVE"}.
 
 **Standing on the ground** (verified live). The client runs the player's pawn as a simulated proxy, and `APawn::TickSimulated` (`FUN_00a03070`) forces `PHYS_Flying` unless the pawn has `bSimulateGravity` set, so the character hovered. Replicating `bSimulateGravity = True` on the pawn makes it fall and land (Physics 1, Base set). Replicating `Role`/`RemoteRole` does not help: the client zeroes Role 3, and Role 4 broke the location. The stub spawns 90 units below the saved z (`SPAWN_Z_LIFT`) and ignores near-origin positions when saving.
 
