@@ -131,3 +131,10 @@ It prints "You receive/lose %s." and plays UISounds.CoinsIn/Out from the delta. 
    - No trailing data.
 
 The second item goes in f16 = 1, and so on up to 49. For a bag item, set f14 = slots and f71 = a unique ID N. The items inside it then use f15 = N and f16 = 0..slots-1.
+
+## Equipping (verified live 2026-10-11)
+
+- Wire field 71 (item `+0x650`) is the item's **handle**: the equip/move handlers look items up by it (`FUN_004fa970` / `FUN_004faa70`), and a bag's own slots are `InventoryContainerID_<handle>`. The server sets it to the item id.
+- **0x1a7** (`FUN_0050feb0`): `i32 handle, u8 list (0 = main inventory list; 1 = the other list), u8 equip slot`. Moves the item out of its bag slot onto the paper doll and marks it equipped (`+0x570 = 1`, `+0x58 = slot`).
+- Equipment slot ids come from the slot-tag table `FUN_0050cc10`, e.g. HEAD 0, NECK 3, CHEST 6, CLOAK 7, WAIST 21, FEET 26, PRIMARYHAND 28 (0x1c), SECONDARYHAND 29, LEGS 32, HANDS 33, WRISTS 34, SHOULDERS 35, TWOHANDS 36 (0x24), RANGED 42, AMMO 43. The full table is `vgmsg.EQUIP_SLOTS`.
+- The equipped weapon is not yet drawn in the character's hand (that needs the pawn's attachment groups).
