@@ -394,16 +394,56 @@ def starter_equipment(klass):
 ITEM_CONTENT = content.Content()
 
 
+ITEM_TYPE_IDS = {"misc": 3, "shield": 0, "weapon": 1, "armor": 4, "ranged": 9, "jewelry": 10,
+                 "container": 11, "ammo": 20}
+
+
+def damage_encoding(lo, hi):
+    """(base, variance) for item fields 77/78: the client shows
+    int(base - base*v/255) .. int(base + base*v/255) in 32-bit floats, so pick
+    the pair whose results sit furthest from an integer boundary."""
+    best = None
+    for base in range(max(lo, 1), hi + 1):
+        for v in range(256):
+            d = base * v / 255
+            a, b = base - d, base + d
+            if int(a) != lo or int(b) != hi:
+                continue
+            margin = min(a - lo, lo + 1 - a, b - hi, hi + 1 - b)
+            if best is None or margin > best[0]:
+                best = (margin, base, v)
+    return (best[1], best[2]) if best else ((lo + hi) // 2, 0)
+
+
 def item_equip_fields(name):
-    """inventory_item keyword arguments that make an item equippable."""
+    """inventory_item keyword arguments from content/items.json: equip slots and
+    the tooltip/usability fields (see docs/INVENTORY.md, item field table)."""
     tpl = ITEM_CONTENT.item(name)
-    if "slot" not in tpl:
-        return {}
-    slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
-    allowed = [slot]
-    if slot in (vgmsg.EQUIP_SLOTS["LEFTFINGER"], vgmsg.EQUIP_SLOTS["RIGHTFINGER"]):
-        allowed = [vgmsg.EQUIP_SLOTS["LEFTFINGER"], vgmsg.EQUIP_SLOTS["RIGHTFINGER"]]
-    return {"default_slot": slot, "allowed_slots": allowed}
+    extra = {94: 1, 100: 255, 106: 100, 99: tpl.get("rarity", 1), 76: tpl.get("level", 1)}
+    # Field 74 = item type; 0 would be "Shield", 3 is a plain item.
+    extra[74] = ITEM_TYPE_IDS[tpl.get("type", "misc")]
+    if tpl.get("type", "misc") == "misc":
+        extra[106] = -1          # no durability line
+        extra[76] = 0            # no "Required Level" line
+    if "damage" in tpl:
+        # Shown as base*(1 -/+ variance/255): pick base and variance for [min, max].
+        base, var = damage_encoding(*tpl["damage"])
+        extra.update({77: base, 78: var, 79: base, 82: float(tpl.get("delay", 2.0))})
+    if "skill" in tpl:
+        extra[84] = tpl["skill"]
+    if "armor" in tpl:
+        extra[85] = tpl["armor"]
+    out = {"raw": extra}
+    if "slot" in tpl:
+        slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
+        allowed = [slot]
+        pair = {vgmsg.EQUIP_SLOTS["LEFTFINGER"], vgmsg.EQUIP_SLOTS["RIGHTFINGER"]}
+        if slot in pair:
+            allowed = sorted(pair)
+        out.update(default_slot=slot, allowed_slots=allowed)
+    return out
+
+
 # Abilities: (handle, ability id, name, icon, description, refresh seconds).
 DEFAULT_ABILITIES = [
     (1, 1001, "Strike", 553, "A basic melee attack.", 0.0),

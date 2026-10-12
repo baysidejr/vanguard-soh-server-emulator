@@ -343,6 +343,11 @@ LOOT_TABLE = [(5001, "Tattered Cloth", 442, 2), (5002, "Rough Stone", 443, 1),
               (5003, "Copper Ring", 472, 1)]
 
 
+def zone_item_fields(name):
+    import zone
+    return zone.item_equip_fields(name)
+
+
 def _event(event_id, data=b""):
     return struct.pack("<HII", 2, event_id, len(data)) + data
 
@@ -360,7 +365,7 @@ def loot_messages(npc):
     out = [_event(LOOT_END_EVENT), _event(LOOT_OPEN_EVENT, struct.pack("<QB", npc.entity_id, 1))]
     for slot, (item_id, name, icon, qty) in enumerate(npc.loot):
         out.append(_event(LOOT_ITEM_EVENT, vgmsg.inventory_item(item_id, name, slot, icon=icon,
-                                                               quantity=qty)))
+                                                               quantity=qty, **zone_item_fields(name))))
     out.append(_event(LOOT_READY_EVENT))
     return out
 
@@ -376,7 +381,8 @@ def take_loot(player, npc, handle):
         # Each item in the bag needs its own id (it is also the client's handle).
         new_id = max([i[0] for i in player.items] + [10000]) + 1
         player.items.append((new_id, name, icon, qty))
-        out.append(_event(0x197, vgmsg.inventory_item(new_id, name, slot, icon=icon, quantity=qty)))
+        out.append(_event(0x197, vgmsg.inventory_item(new_id, name, slot, icon=icon, quantity=qty,
+                                                            **zone_item_fields(name))))
         out.append(_event(LOOT_TAKEN_EVENT, struct.pack("<iB", item_id, 1)))
     if not npc.loot:
         out.append(_event(LOOT_END_EVENT))

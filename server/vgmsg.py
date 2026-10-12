@@ -156,7 +156,8 @@ EQUIP_SLOTS = {
 
 
 def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
-                   container=-1, quality=1, equip_slot=-1, default_slot=-1, allowed_slots=()):
+                   container=-1, quality=1, equip_slot=-1, default_slot=-1, allowed_slots=(),
+                   raw=None):
     """An item in a bag: equip slot -1, container -1 = the main grid
     (gamevar InventoryContainerID_-1, 50 slots), slot 0..49. Icon is a
     number formatted %05d in the client icon map (443 = the client's fallback)."""
@@ -169,7 +170,9 @@ def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
                       # Field 8 (item +0x5c): the slot right-click equips to (-1 = none).
                       # Fields 18-21 (+0x78..+0x84): bit mask of allowed equip slots
                       # (FUN_004fd590 tests bit `slot`); right-click needs the default set.
-                      8: default_slot, **slot_mask(allowed_slots)})
+                      8: default_slot, **slot_mask(allowed_slots),
+                      # 94 usable (0 = red icon), 100 = 255 (not a graft), 106 durability %.
+                      94: 1, 100: 255, 106: 100, **(raw or {})})
 
 
 def slot_mask(slots):
