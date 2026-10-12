@@ -276,6 +276,8 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
             out.append(build_system_text(f"You have reached level {player.level_number}!",
                                          SYSTEM_TEXT_WHITE))
         out.append(zone.score_message(player))
+    if player.pending_rewards:
+        save_character_progress(player.name, player.level_number, player.xp)
     player.pending_rewards.clear()
     if player.auto_attack != was_attacking:
         out += combat.auto_attack_state(player.auto_attack)
@@ -568,6 +570,15 @@ def save_character_position(name, loc):
             return
 
 
+def save_character_progress(name, level, xp):
+    chars = load_characters()
+    for c in chars:
+        if c["first"] == name:
+            c["adventure_level"], c["adventure_xp"] = level, xp
+            save_characters(chars)
+            return
+
+
 def save_characters(chars):
     with open(CHARACTERS_FILE, "w", encoding="utf-8") as f:
         json.dump(chars, f, indent=2)
@@ -742,6 +753,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 level=args.zone_level or chunk_name(*character_chunk(char)),
                 position=saved if saved and same_chunk else None,
                 save_position=lambda loc, n=name: save_character_position(n, loc))
+            player.level_number = char.get("adventure_level", player.level_number)
+            player.xp = char.get("adventure_xp", player.xp)
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass)
                                 or player.abilities)
             PENDING_PLAYERS[state.get("session", "")] = player
