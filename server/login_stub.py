@@ -251,6 +251,27 @@ def main():
             world_tick(zone_sock, clients, args)
 
 
+def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
+    """Zone messages after a combat step: ability visuals, chat lines, health
+    bars, deaths and the auto-attack state."""
+    out = list(player.pending_displays)
+    player.pending_displays.clear()
+    colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR, "white": SYSTEM_TEXT_WHITE}
+    out += [build_system_text(text, colours[kind]) for text, kind in lines]
+    out.append(zone.health_update(player))
+    if was_alive and player.health == 0:
+        player.auto_attack = False
+        out += player_death(state, args, player)
+    if npc:
+        out.append(combat.target_health(npc))
+        if not npc.alive:
+            out += [zone.npc_update(state, args, npc, {"Health": 0, "m_bIsDead": 1}),
+                    combat.play_animation(npc, combat.ANIM_DEATH)]
+    if player.auto_attack != was_attacking:
+        out += combat.auto_attack_state(player.auto_attack)
+    return out
+
+
 def player_death(state, args, player):
     """The player's pawn falls (m_bIsDead + death animation) and the release
     popup opens."""
@@ -268,7 +289,11 @@ def world_tick(zone_sock, clients, args):
         if server != "ZONE" or player is None or "ue" not in state:
             continue
         for action in combat.tick(player, now):
-            if action[0] == "health":
+            if action[0] == "swing":
+                _, lines, npc = action
+                for m in combat_results(state, args, player, lines, npc, True, True):
+                    send_message(zone_sock, addr, state, m)
+            elif action[0] == "health":
                 send_message(zone_sock, addr, state, zone.health_update(player))
             elif action[0] == "respawn":
                 npc = action[1]
@@ -761,24 +786,19 @@ def handle_message(sock, server, addr, state, payload, args):
             ability = next((a for a in getattr(player, "abilities", []) if a[0] == handle), None)
             print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
             if ability:
-                was_alive = player.health > 0
+                was_alive, attacking = player.health > 0, player.auto_attack
                 lines, npc = combat.use_ability(player, ability)
-                for m in player.pending_displays:
+                for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
                     send_message(sock, addr, state, m)
-                player.pending_displays.clear()
-                colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR,
-                           "white": SYSTEM_TEXT_WHITE}
-                for text, kind in lines:
-                    send_message(sock, addr, state, build_system_text(text, colours[kind]))
-                send_message(sock, addr, state, zone.health_update(player))
-                if was_alive and player.health == 0:
-                    for m in player_death(state, args, player):
-                        send_message(sock, addr, state, m)
-                if npc:
-                    send_message(sock, addr, state, combat.target_health(npc))
-                    if not npc.alive:
-                        send_message(sock, addr, state, zone.npc_update(state, args, npc, {"Health": 0, "m_bIsDead": 1}))
-                        send_message(sock, addr, state, combat.play_animation(npc, combat.ANIM_DEATH))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3D8:
+            # Auto-attack toggle (` key, /autoattacktoggle): no payload.
+            player = state.get("player")
+            if player:
+                lines = combat.toggle_auto_attack(player)
+                print(f"  >>> ZONE auto-attack {'on' if player.auto_attack else 'off'}")
+                for m in combat_results(state, args, player, lines, None, player.health > 0,
+                                        not player.auto_attack):
+                    send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x54B, 0x54C):
             # Hotbar slot changed (0x54b MsgHotkeyAdd) or cleared (0x54c bank+slot).
             event = struct.unpack_from("<I", payload, 2)[0]

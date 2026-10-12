@@ -327,6 +327,8 @@ class Player:
         self.health = self.stats["hit_points"]   # current HP; the stat holds the maximum
         self.last_combat = 0.0
         self.pending_displays = []        # 0x3d1 messages queued by combat
+        self.auto_attack = False
+        self.next_swing = 0.0
 
 
 PC_CHANNEL = 1

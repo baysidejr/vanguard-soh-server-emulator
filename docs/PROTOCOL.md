@@ -234,6 +234,8 @@ The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable c
 
 **Ability visuals** (verified live): zone event `0x3d1` MsgDisplayAbility {u64 caster, u64 target (−1 = none), i32 visual id, i32 display id, i32 instance id, i32 stop id, u8 type, u8, bool8, u8 kind, i32, i32, u8 phase (0 miss, 2 hit, 3 crit, 4 block, 5 dodge, 6 parry), u8, u8, bool8, u8, f32, i32} plays an Ability object from `Assets/Abilities` (for example 570001 = `WAR_ABILITIES_570001` BRUTAL_STRIKE_I, 9 = generic NPC auto attack). Details: [ABILITY_VISUALS.md](ABILITY_VISUALS.md).
 
+**Auto-attack** (verified live): the ` key (`/autoattacktoggle`) sends client event `0x3d8` (no payload). The server answers with `0x3df` MsgSingleBool (Begin/StopAutoattacking, `FUN_005e26a0`) and `0x3c2` MsgSingleByte bInCombat (`FUN_005e1660`; the portrait shows crossed swords), then swings every 2 s with `0x3d1` visual 0 (GENERIC_AUTO_ATTACK).
+
 **Player death** (verified live): the server sets `Health = 0` and `m_bIsDead = 1` on the player's pawn, sends `0x2e` (animation 1) and zone event `0x540` MsgIntAndBool {i32 seconds, bool show} (`FUN_005e70b0`). That opens the "You have died!" window with a release countdown and greys out the hotbar. "Release to Bind" sends client event `0x542` (no payload); `0x540` with show = 0 closes the window.
 
 **Open:**

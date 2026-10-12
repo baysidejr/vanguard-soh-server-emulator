@@ -117,19 +117,47 @@ def use_ability(player, ability, rng=random):
         if visual:
             player.pending_displays.append(display_ability(player.char_id, NO_ENTITY, visual))
         return [(f"You use {name}.", "combat")], None
-    if visual:
+    return strike(player, npc, f"Your {name}", visual, lo, hi, rng)
+
+
+AUTO_ATTACK_VISUAL = 0       # MELEE_ABILITIES_0 GENERIC_AUTO_ATTACK
+AUTO_ATTACK_DAMAGE = (4, 9)
+AUTO_ATTACK_SECONDS = 2.0
+
+
+def strike(player, npc, what, visual, lo, hi, rng=random):
+    """One hit on npc ("<what> hits <npc> for N damage."); the NPC answers if it
+    survives."""
+    if visual is not None:
         player.pending_displays.append(display_ability(player.char_id, npc.entity_id, visual))
     dmg = rng.randint(lo, hi)
     npc.health = max(npc.health - dmg, 0)
     player.last_combat = time.time()
+    verb = "hit" if what == "You" else "hits"
+    lines = [(f"{what} {verb} {npc.name} for {dmg} damage.", "combat")]
     if not npc.alive:
         npc.died_at = time.time()
-    lines = [(f"Your {name} hits {npc.name} for {dmg} damage.", "combat")]
-    if not npc.alive:
+        player.auto_attack = False
         lines.append((f"You have slain {npc.name}!", "white"))
     else:
         lines += npc_attacks(player, npc, rng)
     return lines, npc
+
+
+def toggle_auto_attack(player):
+    """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state."""
+    npc = player.npcs.get(player.target) if player.target else None
+    if not player.auto_attack and (npc is None or not npc.alive or player.health <= 0):
+        return [("You have no valid target to attack.", "error")]
+    player.auto_attack = not player.auto_attack
+    player.next_swing = time.time()
+    return []
+
+
+def auto_attack_state(on):
+    """0x3df MsgSingleBool (FUN_005e26a0): Begin/StopAutoattacking; plus 0x3c2
+    MsgSingleByte bInCombat (FUN_005e1660)."""
+    return [struct.pack("<HIIB", 2, 0x3DF, 1, int(on)), struct.pack("<HIIB", 2, 0x3C2, 1, int(on))]
 
 
 NPC_DAMAGE = (3, 9)
@@ -158,6 +186,15 @@ def tick(player, now):
     """Once a second: returns ('health',) when the player's health changed and
     ('respawn', npc) for NPCs that come back."""
     out = []
+    if player.auto_attack and now >= player.next_swing:
+        player.next_swing = now + AUTO_ATTACK_SECONDS
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not npc.alive or player.health <= 0:
+            player.auto_attack = False
+            out.append(("swing", [], None))
+        else:
+            out.append(("swing", *strike(player, npc, "You", AUTO_ATTACK_VISUAL,
+                                         *AUTO_ATTACK_DAMAGE)))
     if 0 < player.health < player.stats["hit_points"] and now - player.last_combat >= REGEN_DELAY:
         player.health = min(player.health + REGEN_PER_SECOND, player.stats["hit_points"])
         out.append(("health",))
