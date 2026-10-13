@@ -1682,6 +1682,7 @@ def fishing_tick(state, now):
         elif s.get("pull") is None and now >= s["next"]:
             s["pull"] = random.randrange(4)
             s["pull_until"] = now + fishing.PULL_SECONDS
+            print(f"  <- fishing pull {s['pull']}")
             send(fishing.event(player.char_id, fishing.PULL, s["pull"]))
 
 
@@ -4616,6 +4617,9 @@ def dev_command(text, player=None):
         cur = getattr(player, "live_position", None) or player.spawned_at or (0.0, 0.0, 0.0)
         loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
         print(f"  <- dev: teleport to {loc}")
+        if len(words) >= 5:
+            # !tp x y z yaw: also turn (0 = +x, 16384 = +y, 32768 = -x, 49152 = -y) via 0x3e5.
+            return [zone.player_teleport(loc, (0, int(words[4]) & 0xFFFF, 0))]
         return [("pawn_update", None, {"Location": loc, "Velocity": (0.0, 0.0, 0.0)})]
     if words[0] == "ctext" and player:
         # !ctext [kind] [heal] [self]: try the client-built combat text (0x27b).

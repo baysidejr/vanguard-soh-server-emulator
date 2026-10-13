@@ -64,7 +64,7 @@ The unmodified client, talking only to this emulator:
 - [x] Titles (prefix/suffix, /titleset, quest rewards, shown over the head), the game clock (/time), /played
 - [x] Duels: /duel challenge popup, countdown, auto-attack fight to 1 HP; caravans (invite, member list, remove, log in at the caravan after 3 hours offline)
 - [x] Pets: summon a wolf from an item; it follows and attacks on /pet attack
-- [ ] Fishing: casting works; the bite and minigame need a chunk with water to test
+- [x] Fishing: cast into water, the pull minigame, catch fish, bait use and Fishing skill-ups
 - [x] Riftways: /rift and the client's Riftway map travel between riftway stones (one destination placed)
 - [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instant construction), place and pick up furniture, storage chests
 - [ ] Crafting toolbelts and utilities; the hotbar cooldown sweep
