@@ -56,6 +56,21 @@ class MarketTests(unittest.TestCase):
 
 
 class HousingTests(unittest.TestCase):
+    def test_chest_permissions(self):
+        st = {"owner": "Ranger"}
+        chest = {"items": [], "perms": {"0": {"all_players": True}, "1": {"friends": ["Justins"]}}}
+        self.assertTrue(housing.chest_allowed(st, chest, "ranger", housing.CHEST_WITHDRAW_SLOT))
+        self.assertTrue(housing.chest_allowed(st, chest, "Anyone", housing.CHEST_VIEW))
+        self.assertTrue(housing.chest_allowed(st, chest, "justins", housing.CHEST_DEPOSIT_SLOT))
+        self.assertFalse(housing.chest_allowed(st, chest, "Anyone", housing.CHEST_DEPOSIT_SLOT))
+        self.assertFalse(housing.chest_allowed(st, chest, "Justins", housing.CHEST_WITHDRAW_SLOT))
+        msgs = housing.chest_permissions(77, chest)
+        self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in msgs], [0x468, 0x469, 0x469, 0x46F])
+        self.assertEqual(struct.unpack_from("<iii", msgs[1], 10), (77, 0, housing.CHEST_PERM_ID_BASE))
+        # Captured 0x467 (All Players ticked, Accept): chest -1, slot 0, junk flags.
+        data = bytes.fromhex("ffffffff000000000000000000000000b010d84f01000000")
+        self.assertEqual(housing.parse_chest_permission(data), (-1, 0, {"rank": 0, "all_players": True, "all_guild": False}))
+
     def test_upkeep_charges_each_week(self):
         st = {"bought": 0, "upkeep_balance": 120}
         self.assertEqual(housing.charge_upkeep({"upkeep": 50}, st, 3 * housing.UPKEEP_PERIOD + 5), 3)

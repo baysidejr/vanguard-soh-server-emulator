@@ -38,9 +38,17 @@ OPEN_DOOR, MOVE_FIXTURE, PLACE_FIXTURE, PICKUP_FIXTURE, ALLOW_MODIFY, PAY_UPKEEP
     0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40)
 VIEW, NO_ACCESS = 0x1000, 0x80000000
 MAX_PERMISSIONS, MAX_FRIENDS = 10, 20
+# Chest permissions (Manage Chest): 0x466 {chest id} opens it -> 0x468 reset, 0x469 per slot,
+# 0x46b {chest id, wstr display name, wstr item name}. Each slot (0 View, 1 Deposit, 2 Withdrawal;
+# VGUIBuildingInformationWnd.xml "Edit ... Permission") is its own permission: all players, all
+# guild members (guild rank), a name list. "Edit Chest Permission" > Accept sends 0x467 {i32 chest
+# id (-1 in practice: use the chest being managed), i32 slot, i32 permission id (0 = new),
+# i32 guild rank, u32 (junk), bool8 all players, bool8 all guild, wstr ""}.
+CHEST_MANAGE, CHEST_PERMISSION = 0x466, 0x467
+CHEST_VIEW, CHEST_DEPOSIT_SLOT, CHEST_WITHDRAW_SLOT = 0, 1, 2
 CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT,
                  CHEST_WITHDRAW, UPKEEP_DEPOSIT, VIEW_CONSTRUCTION, ADD_MATERIAL, COMPLETE_CONSTRUCTION,
-                 ABANDON_CONSTRUCTION) + PERMISSION_EVENTS
+                 ABANDON_CONSTRUCTION, CHEST_MANAGE, CHEST_PERMISSION) + PERMISSION_EVENTS
 HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
@@ -208,6 +216,65 @@ def friend_message(perm_id, row, name):
     return _event(0x46F, struct.pack("<ii", perm_id, row + 1) + _w(name))
 
 
+CHEST_SLOT_NAMES = ("View", "Deposit", "Withdrawal")
+# A chest slot's permission id: kept apart from building permission ids (1..10) because Add
+# Player sends the same 0x46f {wstr name, i32 permission id, i32 0} for both; the name list is
+# filled with 0x46f {permission id, friend id (row + 1), wstr name} (0x46a does not redraw it); 0x46e {permission id,
+# friend id} removes one.
+CHEST_PERM_ID_BASE = 1001
+
+
+def chest_slot_of(perm_id):
+    slot = perm_id - CHEST_PERM_ID_BASE
+    return slot if 0 <= slot < len(CHEST_SLOT_NAMES) else None
+
+
+def chest_friend(perm_id, row, name):
+    return _event(0x46F, struct.pack("<ii", perm_id, row + 1) + _w(name))
+
+
+def parse_chest_permission(data):
+    """0x467 -> (chest id, slot, {rank, all_players, all_guild})."""
+    cid, slot, _pid, rank = struct.unpack_from("<iiii", data, 0)
+    return cid, slot, {"rank": rank, "all_players": bool(data[20]), "all_guild": bool(data[21])}
+
+
+def chest_permissions(cid, chest, st=None):
+    """0x468 reset, then 0x469 {chest id, slot, permission id, guild rank, u32 flags, bool8 all
+    players, bool8 all guild, wstr name} and its 0x46a names for each slot that has a permission."""
+    out = [_event(0x468)]
+    for slot, p in sorted((chest.get("perms") or {}).items()):
+        if not isinstance(p, dict):
+            continue
+        perm_id = CHEST_PERM_ID_BASE + int(slot)
+        out.append(_event(0x469, struct.pack("<iiiiIBB", cid, int(slot), perm_id, p.get("rank", 0), 0,
+                                             p.get("all_players", False), p.get("all_guild", False))
+                          + _w(CHEST_SLOT_NAMES[int(slot)])))
+        out += [chest_friend(perm_id, row, name) for row, name in enumerate(p.get("friends", []))]
+    return out
+
+
+def chest_info(cid, display_name, item_name):
+    return _event(0x46B, struct.pack("<i", cid) + _w(display_name) + _w(item_name))
+
+
+def _covers(p, name, owner_guild, mine):
+    return bool(p.get("all_players")
+                or name.lower() in [f.lower() for f in p.get("friends", [])]
+                or (p.get("all_guild") and owner_guild is not None and mine is owner_guild))
+
+
+def chest_allowed(st, chest, name, slot, guild_of=lambda n: None):
+    """May `name` view (0), deposit into (1) or withdraw from (2) this chest? The plot owner
+    always may; others need that slot's permission to cover them."""
+    if st is None:
+        return False
+    if st.get("owner", "").lower() == name.lower():
+        return True
+    p = (chest.get("perms") or {}).get(str(slot))
+    return isinstance(p, dict) and _covers(p, name, guild_of(st.get("owner", "")), guild_of(name))
+
+
 def allowed(st, name, flag, guild_of=lambda n: None):
     """May the character `name` do `flag` (a permission mask) on this plot? The owner may do
     anything; others need a permission entry that covers them (all players, the owner's guild
@@ -219,9 +286,7 @@ def allowed(st, name, flag, guild_of=lambda n: None):
     owner_guild = guild_of(st.get("owner", ""))
     mine = guild_of(name)
     for p in st.get("permissions", []):
-        covers = (p.get("all_players")
-                  or name.lower() in [f.lower() for f in p.get("friends", [])]
-                  or (p.get("all_guild") and owner_guild is not None and mine is owner_guild))
+        covers = _covers(p, name, owner_guild, mine)
         if covers and p.get("flags", 0) & NO_ACCESS:
             return False
         if covers and p.get("flags", 0) & flag:

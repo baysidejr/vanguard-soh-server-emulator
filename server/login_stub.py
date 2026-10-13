@@ -1324,7 +1324,10 @@ def handle_chest(state, event, vals):
     db, pid, st, f = fixture_by_object(cid)
     if f is None or "items" not in f:
         return
-    if st["owner"].lower() != player.name.lower():
+    slot = {housing.CHEST_DEPOSIT: housing.CHEST_DEPOSIT_SLOT,
+            housing.CHEST_WITHDRAW: housing.CHEST_WITHDRAW_SLOT}.get(event, housing.CHEST_VIEW)
+    if not (housing.chest_allowed(st, f, player.name, housing.CHEST_VIEW, guild_of)
+            and housing.chest_allowed(st, f, player.name, slot, guild_of)):
         notice(0x1ad)                                    # NoPermissionToUseChest
         return
     cap = ARGS.content.item(f["item"]).get("chest", 20)
@@ -1450,6 +1453,42 @@ def send_plot_window(state, pid):
     send(housing.show())
 
 
+def chest_friend_event(state, event, data):
+    """Add / Remove Player in Edit Chest Permission (permission ids from CHEST_PERM_ID_BASE).
+    True when the event was about a chest."""
+    player, send = state["player"], state["send"]
+    try:
+        if event == housing.PERM_ADD_FRIEND:
+            end = 0
+            while data[end:end + 2] != b"\0\0":
+                end += 2
+            name = data[:end].decode("utf-16-le", "replace").strip()
+            perm_id = struct.unpack_from("<i", data, end + 2)[0]
+        else:
+            perm_id, fid = struct.unpack_from("<ii", data)
+    except struct.error:
+        return False
+    slot = housing.chest_slot_of(perm_id)
+    if slot is None:
+        return False
+    db, pid, st, f = fixture_by_object(state.get("managed_chest", -1))
+    if f is None or st["owner"].lower() != player.name.lower():
+        return True
+    p = f.setdefault("perms", {}).setdefault(str(slot), {"rank": 0, "all_players": False, "all_guild": False})
+    friends = p.setdefault("friends", [])
+    if event == housing.PERM_ADD_FRIEND:
+        if name and name.lower() not in [x.lower() for x in friends] and len(friends) < housing.MAX_FRIENDS:
+            friends.append(name)
+            send(build_system_text(f"{name} added to the chest's {housing.CHEST_SLOT_NAMES[slot]} permission.",
+                                   SYSTEM_TEXT_WHITE))
+    elif 0 < fid <= len(friends):
+        friends.pop(fid - 1)
+    save_housing(db)
+    for m in housing.chest_permissions(state["managed_chest"], f):
+        send(m)
+    return True
+
+
 def handle_plot_permission(state, event, data):
     """The owner's building permissions (housing.PERMISSION_EVENTS) on their plot."""
     player, send = state["player"], state["send"]
@@ -1529,6 +1568,27 @@ def handle_housing_event(state, event, data):
     if event in (housing.CHEST_OPEN, housing.CHEST_CLOSE, housing.CHEST_DEPOSIT, housing.CHEST_WITHDRAW):
         handle_chest(state, event, vals)
         return
+    if event in (housing.CHEST_MANAGE, housing.CHEST_PERMISSION) and vals:
+        # 0x467 carries chest id -1: it is the chest whose Manage Chest window is open.
+        cid = vals[0] if event == housing.CHEST_MANAGE or vals[0] != -1 else state.get("managed_chest", -1)
+        db, pid, st, f = fixture_by_object(cid)
+        if f is None or "items" not in f or st["owner"].lower() != player.name.lower():
+            notice(0x1ad)                                # NoPermissionToUseChest
+            return
+        state["managed_chest"] = cid
+        if event == housing.CHEST_PERMISSION and len(data) >= 22:
+            _, slot, perm = housing.parse_chest_permission(data)
+            if 0 <= slot < len(housing.CHEST_SLOT_NAMES):
+                old = (f.get("perms") or {}).get(str(slot))
+                perm["friends"] = old.get("friends", []) if isinstance(old, dict) else []
+                f.setdefault("perms", {})[str(slot)] = perm
+                save_housing(db)
+                send(build_system_text(f"{housing.CHEST_SLOT_NAMES[slot]} permission saved.", SYSTEM_TEXT_WHITE))
+        for m in housing.chest_permissions(cid, f, st):
+            send(m)
+        if event == housing.CHEST_MANAGE:
+            send(housing.chest_info(cid, f.get("name", f["item"]), f["item"]))
+        return
     if event in (housing.PICK_UP, housing.NUDGE) and vals:
         db, pid, st, f = fixture_by_object(vals[0])
         need = housing.PICKUP_FIXTURE if event == housing.PICK_UP else housing.MOVE_FIXTURE
@@ -1551,6 +1611,8 @@ def handle_housing_event(state, event, data):
             f["yaw"] = (f.get("yaw", 0) + dyaw) & 0xFFFF
             save_housing(db)
             broadcast_object(state, fixture_object(pid, f))
+        return
+    if event in (housing.PERM_ADD_FRIEND, housing.PERM_REMOVE_FRIEND) and chest_friend_event(state, event, data):
         return
     if event in housing.PERMISSION_EVENTS:
         handle_plot_permission(state, event, data)
@@ -6083,6 +6145,12 @@ def dev_command(text, player=None):
             return [("housing", housing.CHEST_WITHDRAW, struct.pack("<iiiii", cid, int(words[-1]), -1, -1, 0))]
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
+        if "manage" in words:
+            return [("housing", housing.CHEST_MANAGE, struct.pack("<i", cid))]
+        if "perm" in words and len(words) >= 5:
+            # !chest <n> perm <slot 0 view / 1 deposit / 2 withdraw> <1 all players / 0 nobody>
+            return [("housing", housing.CHEST_PERMISSION, struct.pack("<iiiiIBB", cid, int(words[3]), 0,
+                                                                      0, 0, int(words[4]), 0) + bytes(2))]
         return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
     if words[0] == "fishbite" and player:
         # !fishbite: as if the bobber landed in water (testing where there is no water).
