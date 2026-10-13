@@ -8,9 +8,9 @@
 >
 > **Chests (verified live):** a "Storage Chest" item (`"fixture"` + `"chest": 20`) placed in the house becomes a PlayerPlacedObject of type 4. Opening it (0x151 {chest object id}; tested with the `!chest <n>` dev command, which uses the same handler as the object's Open menu) shows the client's "Chest" window ("You begin to use the Chest."): 0x199 {id, capacity}, 0x19f, 0x1a1 per item, 0x1a0. Dragging the Rusty Sword from the bags onto the chest sends 0x155 {chest, item handle, count, slot}; the server removes it from the bags (0x1a5) and adds it to the chest (0x19e). Dragging it back sends 0x157 {chest, item, count, container, slot}: "You receive Rusty Sword.", "Rusty Sword was removed from your chest." (0x19c). Chest contents are saved with the plot. A chest with items can't be picked up (0x0e 0x177 RemoveChestItems).
 >
-> **Upkeep deposits (verified live):** 0x47e {plot id, copper} from the Admin tab (tested with `!upkeep 25`): "You lose 25 copper.", "Deposit successful." (0x0e 0x17c) and 0x483 {balance}; the balance is saved with the plot and shown in 0x454. Upkeep is not deducted yet.
+> **Upkeep deposits (verified live):** 0x47e {plot id, copper} from the Admin tab (tested with `!upkeep 25`): "You lose 25 copper.", "Deposit successful." (0x0e 0x17c) and 0x483 {balance}; the balance is saved with the plot and shown in 0x454. Upkeep is charged weekly from that balance when the plot window is opened (verified live: with the last payment 8 days ago the Admin tab shows "Upkeep Balance: (- 25)" in red, "Your last deduction was Mon Oct 12 ...", "The next deduction will be Mon Oct 19 ...", "Missed Payments: 1"). Nothing happens to a plot with missed payments yet.
 >
-> **Not done yet:** construction materials and progress (0x453), upkeep deductions, permissions.
+> **Not done yet:** construction materials and progress (0x453), permissions, repossession for missed upkeep.
 
 Server: `zone.open_placed_object`. Dev command: `!house [prefab] [type]` (800 units +x of the player). 37 root prefabs (whole buildings) are listed in `bin/compoundobjectMD.tab` (`...PHcity01_Home001root001...`, `HomeShop`, `Inn`, `Temple`, `GuardTower`, `CraftingBarn`; Ra6001 Thestra, Ra6021 Qalia, Ra6060 Kojan).
 

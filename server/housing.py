@@ -28,6 +28,23 @@ HOUSE_RADIUS = 900                     # "inside the house": this close to the p
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
 SIGN_PREFAB = "Ra1_P1_C1_Markers_ForSaleSign"
+UPKEEP_PERIOD = 7 * 86400              # upkeep is taken from the plot's upkeep bank once a week
+
+
+def charge_upkeep(plot, st, now):
+    """Take every upkeep payment that is due; a short balance goes negative and counts as
+    a missed payment (shown in red / "missed payments"). Returns the number charged."""
+    n = 0
+    last = st.get("upkeep_paid", st.get("bought", now))
+    while now - last >= UPKEEP_PERIOD:
+        last += UPKEEP_PERIOD
+        bal = st.get("upkeep_balance", 0) - plot.get("upkeep", 0)
+        if bal < 0:
+            st["missed"] = st.get("missed", 0) + 1
+        st["upkeep_balance"] = bal
+        n += 1
+    st["upkeep_paid"] = last
+    return n
 
 
 def _event(event_id, data=b""):
@@ -45,9 +62,10 @@ def plot_info(pid, plot, state, mine):
     x, y, z = plot["loc"]
     data = struct.pack("<ii", pid, pid) + _w(plot.get("name", "")) + _w(owner) + _w("")
     data += struct.pack("<iBB", plot["cost"], int(mine), int(not owner))
-    data += struct.pack("<iiiiI", (state or {}).get("upkeep_balance", 0), plot.get("upkeep", 0), 0, 0,
-                        int((state or {}).get("bought", 0)))
-    data += struct.pack("<fffi", x, y, z, 0)
+    last = int((state or {}).get("upkeep_paid", (state or {}).get("bought", 0)))
+    data += struct.pack("<iiiiI", (state or {}).get("upkeep_balance", 0), plot.get("upkeep", 0), last,
+                        last + UPKEEP_PERIOD if state else 0, int((state or {}).get("bought", 0)))
+    data += struct.pack("<fffi", x, y, z, (state or {}).get("missed", 0))
     data += struct.pack("<BBBBBBBB", int(mine), 0, int(mine), int(mine), int(mine), int(mine),
                         int(mine and not built), 0)
     data += struct.pack("<iBB", 0, 0, 0)

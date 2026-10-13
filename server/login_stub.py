@@ -1045,7 +1045,10 @@ def refresh_plot(state, pid):
 def send_plot_window(state, pid):
     player, send = state["player"], state["send"]
     plot = ARGS.content.plots[pid]
-    st = load_housing().get(pid)
+    db = load_housing()
+    st = db.get(pid)
+    if st and housing.charge_upkeep(plot, st, time.time()):
+        save_housing(db)
     mine = bool(st) and st.get("owner", "").lower() == player.name.lower()
     send(housing.plot_info(int(pid), plot, st, mine))
     if st and st.get("building"):
