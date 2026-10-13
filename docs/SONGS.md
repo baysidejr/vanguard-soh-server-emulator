@@ -40,8 +40,9 @@ Songs reference parts by **ability id** (#20); -1 marks an empty slot. Every son
 
 The server enforces the limits (the client has none): a name, a melody, name up to 32 characters, description up to 128, at most 20 songs.
 
+**Energy (verified live):** a playing song costs its energy per second, once a second (`energy_tick`, 0x2d4 energy stat). The blue bar falls, and the song stops with "You do not have enough energy to keep singing." when it runs out. Without a song, energy regenerates 3 a second.
+
 ## Not done
-- Energy drain while a song plays.
 - Group-wide song effects. The song's buff currently goes to the singer only.
 - Interruption by fear or flying.
 - Real song data (CONTENT_EDITOR.md).

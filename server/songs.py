@@ -111,6 +111,18 @@ def problem(song, known_ids, songs=()):
     return None
 
 
+ENERGY_REGEN = 3                       # energy a second while not singing
+
+
+def energy_step(energy, maximum, cost):
+    """One second: (new energy, still singing). cost None = not singing (regenerate)."""
+    if cost is None:
+        return min(maximum, energy + ENERGY_REGEN), False
+    if energy < cost:
+        return energy, False
+    return energy - cost, True
+
+
 def effect(song, parts_by_id):
     """The buff a playing song gives: the melody's stat, raised by every part's bonus; and its
     energy cost per second (rests lower it)."""

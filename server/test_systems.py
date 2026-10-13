@@ -350,6 +350,11 @@ class SongTests(unittest.TestCase):
         fx = songs.effect(song, {aid: spec for _, aid, _, spec in parts})
         self.assertEqual((fx["stat"], fx["bonus"], fx["energy"]), ("strength", 9, 2))   # 2 + 1 - rest 1
 
+    def test_energy_drain_and_regen(self):
+        self.assertEqual(songs.energy_step(10, 100, 3), (7, True))
+        self.assertEqual(songs.energy_step(2, 100, 3), (2, False))         # out of energy: the song stops
+        self.assertEqual(songs.energy_step(99, 100, None), (100, False))   # not singing: regenerate
+
 
 if __name__ == "__main__":
     unittest.main()

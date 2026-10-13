@@ -2381,7 +2381,7 @@ def play_song(state, song):
     spec = songs.effect(song, by_id)
     apply_buff(state, player, song["name"], dict(spec, duration=effects.STANCE_SECONDS), time.time())
     e = next(x for x in player.effects if x["id"] == effect_id(player, song["name"]))
-    e.update(stance=True, song=True)                    # Effects Maintained; stops with the song
+    e.update(stance=True, song=True, energy_cost=spec["energy"])   # Effects Maintained; stops with the song
     send(effects.effect_remove(e["id"]))                # no "3650d" timed icon
     send(effects.maintained_add(e["id"], song["name"], e.get("desc", ""), spec["icon"]))
     player.playing_song = song["name"]
@@ -2592,6 +2592,25 @@ def breath_step(breath, underwater):
     return min(zone.BREATH_MAX, breath + BREATH_REFILL), False
 
 
+def energy_tick(state, now):
+    """Once a second: a playing song costs its energy per second (songs.effect); without
+    enough energy it stops. Otherwise energy regenerates."""
+    player = state["player"]
+    if now < state.get("energy_next", 0):
+        return
+    state["energy_next"] = now + 1.0
+    maximum = player.stats.get("energy", 100)
+    old = getattr(player, "energy", maximum)
+    song = next((e for e in getattr(player, "effects", []) if e.get("song") and e["ends"] > now), None)
+    energy, singing = songs.energy_step(old, maximum, song.get("energy_cost", 0) if song else None)
+    player.energy = energy
+    if song and not singing:
+        state["send"](build_system_text("You do not have enough energy to keep singing.", SYSTEM_TEXT_ERROR))
+        stop_song(state, quiet=True)
+    if energy != old:
+        state["send"](zone.energy_update(player))
+
+
 def breath_tick(state):
     """Once a second: breath runs out with the head inside a WaterVolume, then the
     player drowns (DROWN_DAMAGE of max health a second) until they surface."""
@@ -2790,6 +2809,7 @@ def world_tick(zone_sock, clients, args):
             harvest_tick(state, now)
             effects_tick(state, args, now)
             breath_tick(state)
+            energy_tick(state, now)
             for m in encounter.sync(state.setdefault("encounter", {}), player, player.npcs):
                 state["send"](m)
             reactions_tick(state, now)

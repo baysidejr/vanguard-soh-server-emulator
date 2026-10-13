@@ -372,6 +372,11 @@ def endurance_update(player):
                                                maximum=player.stats["endurance"]))
 
 
+def energy_update(player):
+    return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["energy"], int(player.energy),
+                                               maximum=player.stats["energy"]))
+
+
 def health_update(player):
     """MsgStatUpdate (0x2d4) of the Health stat: current value and maximum."""
     return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["hit_points"], player.health,
