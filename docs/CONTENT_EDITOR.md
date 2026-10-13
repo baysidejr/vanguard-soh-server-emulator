@@ -52,6 +52,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Finishing stations and recipes | which stations are refining or finishing (and for which crafts), finishing recipes per craft with their categories, finishing skill ids | one Finishing Table and one finishing recipe (Copper Buckle, skill id still Smelting) |
 | Item rarity | rarity of every item (Mundane ... Legendary+), which decides what goes to group loot rolls | items.json `rarity` (none set; default Common) |
 | Combat chains and reactions | which abilities chain into which (per class and rank), reaction windows, counters (which enemy casts they answer) and rescues | `server/content/chains.json`: one placeholder chain for Ranger and one for Warrior |
+| NPC spells and counters | which NPCs cast which spells (cast time, damage, icon, counterable or interruptible), which player abilities counter or interrupt them | mobs.json `spells` on the Canyon Widow (Venom Spit), `server/content/counters.json` (Riposte I, Parry I) |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)

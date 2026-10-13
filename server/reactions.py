@@ -63,8 +63,14 @@ def flags(chains, ability_id):
     return 0
 
 
-def locked(chains, ability_id):
-    return flags(chains, ability_id) == FLAG_STEP
+def locked(chains, ability_id, counters=()):
+    return flags(chains, ability_id) == FLAG_STEP or ability_id in counters
+
+
+def class_counters(counters, class_name, abilities):
+    """Ability ids of the class's counter abilities the player has."""
+    by_name = {a[2]: a[1] for a in abilities}
+    return [by_name[n] for n in counters.get(class_name, []) if n in by_name]
 
 
 def define(chain):
@@ -108,3 +114,37 @@ def close_all():
 
 def result(code):
     return _event(0x39A, struct.pack("<B", code))
+
+
+# Enemy spell casts (docs/ABILITIES.md "Enemy casts and counters"): the client has no
+# enemy cast bar; it prints "<name> begins to cast a spell." (0x248) and shows the spell as
+# an in-flight ability icon by the target frame (0x3a5, one at a time).
+CAST_SUCCESS, CAST_COUNTERED, CAST_INTERRUPTED = 0, 3, 13
+ONLY_AS_REACTION = 0x01          # 0x242 code: the ability can only be used as a reaction
+_flights = itertools.count(1)
+
+
+def begins_to_cast(caster_eid):
+    return _event(0x248, struct.pack("<Q", caster_eid))
+
+
+def in_flight(name, icon, seconds):
+    """(in-flight id, 0x3a5 {i32 id, i32 icon, wstr name, f32 seconds})."""
+    fid = next(_flights)
+    return fid, _event(0x3A5, struct.pack("<ii", fid, icon) + (name + "\0").encode("utf-16-le")
+                       + struct.pack("<f", seconds))
+
+
+def in_flight_result(fid, code, value=0):
+    """0x3a7 {i32 id, i32 result, i32 value, i32 flag, bool8}: removes the icon."""
+    return _event(0x3A7, struct.pack("<iiiiB", fid, code, value, 0, 0))
+
+
+def clear_in_flight():
+    return _event(0x3A8)
+
+
+def incoming_result(code, value=0):
+    """0x3b2 {i32, i32 result, i32 value, i32 flag, bool8}: result text in the incoming
+    attacks queue (2 "Countered", 13 "Interrupt")."""
+    return _event(0x3B2, struct.pack("<iiiiB", 0, code, value, 0, 0))

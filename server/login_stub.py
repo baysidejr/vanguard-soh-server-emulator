@@ -323,6 +323,7 @@ def movement_tick(zone_sock, clients, args):
             if player.health > 0:
                 npc_special(state, npc, now)
         pet_tick(state, args, now, MOVE_TICK)
+        npc_cast_tick(state, args, now)
         fishing_tick(state, now)
         assembly_tick(state, now)
     for w in world.all_worlds():
@@ -429,6 +430,8 @@ def activate_reaction(state, args, rid):
     ability = next((a for a in player.abilities if a[1] == r["ability"]), None)
     send(reactions.result(reactions.OK))
     send(reactions.close_reaction(rid))
+    if r.get("counter_of") is not None:
+        counter_cast(state, r["counter_of"])
     if ability is not None:
         use_ability(state, args, player, ability)
 
@@ -452,6 +455,10 @@ def npc_special(state, npc, now):
     """After a melee swing an NPC may use one of its special abilities on the
     player: a DoT/debuff ("Venom Bite") shown in the harmful effects window."""
     player, send = state["player"], state["send"]
+    for sp in npc.spells:
+        if npc.casting is None and random.random() < sp.get("chance", 0.25):
+            npc_cast(state, npc, sp, now)
+            return
     for a in npc.abilities:
         if random.random() >= a.get("chance", 0.2):
             continue
@@ -471,6 +478,63 @@ def npc_special(state, npc, now):
                                     harmful=True))
             send(build_system_text(f"{npc.name} uses {name} on you!", SYSTEM_TEXT_ERROR))
         return
+
+
+def npc_cast(state, npc, spell, now):
+    """An NPC starts casting a spell at the player: "<npc> begins to cast a spell." (0x248),
+    the spell icon by the target frame (0x3a5), and a counter window (0x391 type 2) for the
+    player's counter ability, open for the cast time. The NPC doesn't swing meanwhile."""
+    player, send = state["player"], state["send"]
+    secs = float(spell.get("cast", 3.0))
+    fid, icon_msg = reactions.in_flight(spell["name"], spell.get("icon", 553), secs)
+    npc.casting = {"spell": spell, "ends": now + secs, "victim": player, "fid": fid, "rid": None}
+    send(reactions.begins_to_cast(npc.entity_id))
+    send(icon_msg)
+    counters = getattr(player, "counters", [])
+    if counters:
+        rid, msg = reactions.open_reaction(npc.entity_id, counters[0], secs, reactions.COUNTER)
+        state.setdefault("reactions", {})[rid] = {"ability": counters[0], "ends": now + secs, "counter_of": npc}
+        npc.casting["rid"] = rid
+        send(msg)
+    print(f"  <- {npc.name} casts {spell['name']} at {player.name} ({secs:g}s)")
+
+
+def npc_cast_tick(state, args, now):
+    """Spells cast at this player that finish now hit (or fizzle if the caster died)."""
+    player, send = state["player"], state["send"]
+    for npc in list(player.npcs.values()):
+        c = npc.casting
+        if c is None or c["victim"] is not player or now < c["ends"]:
+            continue
+        npc.casting = None
+        if c["rid"] is not None and state.get("reactions", {}).pop(c["rid"], None) is not None:
+            send(reactions.close_reaction(c["rid"]))
+        if not npc.alive or player.health <= 0:
+            send(reactions.clear_in_flight())
+            continue
+        lo, hi = c["spell"].get("damage", [8, 16])
+        dmg = random.randint(lo, hi)
+        was_alive = player.health > 0
+        player.health = max(0, player.health - dmg)
+        player.last_combat = now
+        send(reactions.in_flight_result(c["fid"], reactions.CAST_SUCCESS, dmg))
+        send(effects.combat_text(npc.entity_id, player.char_id, c["spell"]["name"], dmg))
+        lines = [("You have been slain!", "error")] if player.health == 0 else []
+        for m in combat_results(state, args, player, lines, None, was_alive, player.auto_attack):
+            send(m)
+
+
+def counter_cast(state, npc):
+    """The player countered npc's spell: it is cancelled ("Countered")."""
+    c, send = npc.casting, state["send"]
+    if c is None:
+        return
+    npc.casting = None
+    npc.next_attack = time.time() + 1.0
+    send(reactions.in_flight_result(c["fid"], reactions.CAST_COUNTERED))
+    send(reactions.incoming_result(2))
+    send(build_system_text(f"You counter {npc.name}'s {c['spell']['name']}!", SYSTEM_TEXT_COMBAT))
+    print(f"  {state['player'].name} countered {npc.name}'s {c['spell']['name']}")
 
 
 def effect_id(player, name):
@@ -5735,13 +5799,15 @@ def handle_message(sock, server, addr, state, payload, args):
             player.xp = char.get("adventure_xp", player.xp)
             player.learned = list(char.get("learned_abilities", []))
             cname = races_classes.class_name(player.klass)
-            chain_names = reactions.chain_names(args.content.chains, cname)
+            chain_names = (reactions.chain_names(args.content.chains, cname)
+                           + list(args.content.counters.get(cname, [])))
             chain_ids = [aid for aid, tag in class_abilities.class_ability_list(args.client_dir, player.klass)
                          if class_abilities.display_name(tag) in chain_names]
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
                                                                    learned=player.learned + chain_ids)
                                 or player.abilities)
             player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
+            player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "
@@ -5997,9 +6063,10 @@ def handle_message(sock, server, addr, state, payload, args):
             player = state.get("player")
             ability = next((a for a in getattr(player, "abilities", []) if a[0] == handle), None)
             print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
-            if ability and reactions.locked(getattr(player, "chains", []), ability[1]):
-                # A chain step or finisher: only through its reaction window (0x145).
-                send_message(sock, addr, state, zone.zone_event(0x242, struct.pack("<B", reactions.REQUIRES_CHAIN)))
+            if ability and reactions.locked(getattr(player, "chains", []), ability[1], getattr(player, "counters", ())):
+                # A chain step, finisher or counter: only through its reaction window (0x145).
+                code = reactions.ONLY_AS_REACTION if ability[1] in player.counters else reactions.REQUIRES_CHAIN
+                send_message(sock, addr, state, zone.zone_event(0x242, struct.pack("<B", code)))
             elif ability:
                 use_ability(state, args, player, ability)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == reactions.ACTIVATE and state.get("player"):

@@ -110,7 +110,7 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - Group with another player using `/invite Name` and `/groupacceptinvite`.
 - Chat with `/shout`, `/tell Name …`, `/ooc`, `/g`, `/emote …`, `/wave`. Use `/sit` to rest and `/camp` to camp.
 - Walk or teleport past a chunk edge to enter the neighbouring zone.
-- [x] Combat chains: an opener unlocks the next step and the finisher for a few seconds (the client's reaction button); coin on corpses
+- [x] Combat chains: an opener unlocks the next step and the finisher for a few seconds (the client's reaction button); NPC spell casts that players can counter; coin on corpses
 - At the camp in the Sundering Wastelands: Veyla trains abilities, Brenna sells recipes and assembly recipes, Garret Holm hands out work orders, Hollis Grent is the banker, Tamsin Vale the broker; the Mailbox, Camp Forge, Assembly Bench, Altar of Binding and a Riftseeker brazier stand nearby.
 - Buy a Thestran Riding Horse, a Wolf Whistle (pet), a Fishing Pole with bait, or furniture from Orin, then right-click them in your bags.
 - Inspect the For Sale sign south of camp (`!plot` with dev commands) to buy a plot and build a cottage.

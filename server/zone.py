@@ -188,6 +188,7 @@ def populate_world(w, args):
         npc.harvest = template.get("harvest")
         npc.station = template.get("station") or False   # true (refining) or "finishing"
         npc.coin = template.get("coin")
+        npc.spells = template.get("spells", [])
         npc.prop = bool(template.get("prop"))
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))
@@ -652,7 +653,8 @@ def ability_messages(player):
     for handle, ability_id, name, icon, desc, refresh in player.abilities:
         out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
                                                        refresh=refresh,
-                                                       flags=reactions.flags(chains, ability_id))))
+                                                       flags=reactions.flags(chains, ability_id),
+                                                       counter=ability_id in getattr(player, "counters", ()))))
     out.append(zone_event(0x21D))
     out.append(reactions.forget_all())
     out += [reactions.define(c) for c in chains]

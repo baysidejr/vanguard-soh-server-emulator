@@ -83,6 +83,8 @@ class Npc:
         self.respawn = 60             # seconds after death
         self.loot_table = None        # content/loot.json table id
         self.coin = None              # mobs.json "coin" [min, max] copper (None: by level)
+        self.spells = []              # mobs.json "spells": [{name, cast, damage, chance, icon}]
+        self.casting = None           # the spell being cast (login_stub.npc_cast)
         self.coin_left = None         # copper still on the corpse (None = not rolled yet)
         self.roll_loot = None         # content.Content.roll_loot
 
@@ -262,7 +264,7 @@ def npc_turns(player, now, rng=random):
     out = []
     pos = getattr(player, "live_position", None)
     for npc in player.npcs.values():
-        if not (npc.alive and npc.aggro and npc.aggro_on is player) or now < npc.next_attack:
+        if not (npc.alive and npc.aggro and npc.aggro_on is player) or now < npc.next_attack or npc.casting:
             continue
         if player.health <= 0:
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
@@ -399,7 +401,7 @@ def respawns(npcs, now):
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
             npc.location, npc.loot, npc.wander_goal = npc.home, None, None
-            npc.killer = npc.loot_owner = npc.coin_left = None
+            npc.killer = npc.loot_owner = npc.coin_left = npc.casting = None
             npc.open_to_group, npc.pending, npc.rolled = False, set(), False
             back.append(npc)
     return back

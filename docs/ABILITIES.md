@@ -201,3 +201,11 @@ Implemented in `server/reactions.py` and `login_stub` (`chain_next`, `activate_r
 - **Activation:** pressing the unlocked hotbar ability (or the Reactions window button) makes the client send **0x145** `{i32 reaction id}` instead of the normal 0xd0 use. The server answers 0x39a `{u8 0}` ("You successfully activated a combat reaction."; 1 = timed out), closes it with 0x392 `{i32 id}`, uses the ability and opens the next step. 0x396 closes all (sent on death).
 - Verified with Justins (Warrior): Brutal Strike → (3) Savage Cut → (`!react`) Decimate. `!react` activates the newest open reaction.
 - Not done: counters (type 2, during an enemy's cast) and rescues (type 3), which need NPC casts and group threat; 0x393 chain reset and 0x394/0x398 partial clears.
+
+## Enemy casts and counters (counters verified live 2026-10-13)
+
+The client has no cast bar for an enemy's spell (`castbars_report` research): an enemy cast is shown as an "in-flight ability" icon by the target frame (0x3a5) and a chat line (0x248). NPCs with mobs.json `spells` (`[{name, cast, damage, chance, icon}]`; the Canyon Widow has Venom Spit, a 5 s cast) may start a cast after a melee swing (`login_stub.npc_cast`) and don't swing while casting:
+
+- 0x248 `{eid64 caster}` ("<name> begins to cast a spell."), 0x3a5 `{i32 in-flight id, i32 icon, wstr name, f32 seconds}` (one icon at a time), and, if the player has a counter ability (`content/counters.json`: Warrior Riposte I, Ranger Parry I), a counter reaction 0x391 type 2 on the caster for the cast time. Counter abilities have ability record wire #44 = 1: locked except during a counter window; a direct use gets 0x242 `{0x01}` (only as a reaction).
+- Activating the counter (0x145) cancels the cast: 0x3a7 `{i32 id, i32 3 (Countered), i32 0, i32 0, bool8 0}` removes the icon, 0x3b2 `{0, 2, 0, 0, 0}` shows "Countered" in the incoming attacks queue, and "You counter Canyon Widow's Venom Spit!" (verified live with Justins and `!react`). A cast that finishes hits for its damage (combat text) and closes the counter window; 0x3a8 clears the icons.
+- Not seen yet in game: the 0x248 chat line and the 0x3a5 icon did not show in our tests (the Target Display window is the target frame; toggling it with `!ui` hides the frame). Interrupts (result 13) and the anti-group rows (0x3b5/0x3bc/0x3bd) are not used.
