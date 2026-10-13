@@ -322,6 +322,7 @@ def movement_tick(zone_sock, clients, args):
                 send_message(zone_sock, addr, state, m)
             if player.health > 0:
                 npc_special(state, npc, now)
+            offer_rescues(state, npc, now)
         pet_tick(state, args, now, MOVE_TICK)
         npc_cast_tick(state, args, now)
         fishing_tick(state, now)
@@ -432,6 +433,8 @@ def activate_reaction(state, args, rid):
     send(reactions.close_reaction(rid))
     if r.get("counter_of") is not None:
         counter_cast(state, r["counter_of"])
+    if r.get("rescue_of") is not None:
+        rescue(state, r["rescue_of"])
     if ability is not None:
         use_ability(state, args, player, ability)
 
@@ -522,6 +525,41 @@ def npc_cast_tick(state, args, now):
         lines = [("You have been slain!", "error")] if player.health == 0 else []
         for m in combat_results(state, args, player, lines, None, was_alive, player.auto_attack):
             send(m)
+
+
+def offer_rescues(victim_state, npc, now):
+    """npc just hit a grouped player: groupmates with a rescue ability get a rescue
+    reaction (0x391 type 3) on it. The client never times rescues out, so reactions_tick
+    closes them."""
+    victim = victim_state["player"]
+    if getattr(victim, "group", None) is None or not npc.alive:
+        return
+    for s in group_states(victim):
+        p = s["player"]
+        if s is victim_state or p.health <= 0 or not getattr(p, "rescues", None):
+            continue
+        open_ = s.setdefault("reactions", {})
+        if any(r.get("rescue_of") is npc for r in open_.values()):
+            continue
+        rid, msg = reactions.open_reaction(npc.entity_id, p.rescues[0], reactions.RESCUE_WINDOW, reactions.RESCUE)
+        open_[rid] = {"ability": p.rescues[0], "ends": now + reactions.RESCUE_WINDOW, "rescue_of": npc}
+        s["send"](msg)
+        print(f"  <- rescue {rid} for {p.name}: {npc.name} is hitting {victim.name}")
+
+
+def rescue(state, npc):
+    """The rescuer pulls npc off its victim."""
+    player = state["player"]
+    if not npc.alive or npc.aggro_on is player:
+        return
+    victim = npc.aggro_on
+    npc.aggro, npc.aggro_on = True, player
+    state["send"](build_system_text(f"You rescue {victim.name if victim else 'your ally'} from {npc.name}!",
+                                    SYSTEM_TEXT_COMBAT))
+    vs = online_state(victim) if victim is not None else None
+    if vs is not None:
+        vs["send"](build_system_text(f"{player.name} rescues you from {npc.name}!", SYSTEM_TEXT_COMBAT))
+    print(f"  {player.name} rescued {victim.name if victim else '?'} from {npc.name}")
 
 
 def counter_cast(state, npc):
@@ -5973,7 +6011,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.learned = list(char.get("learned_abilities", []))
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
-                           + list(args.content.counters.get(cname, [])))
+                           + list(args.content.counters.get(cname, []))
+                           + list(args.content.rescues.get(cname, [])))
             chain_ids = [aid for aid, tag in class_abilities.class_ability_list(args.client_dir, player.klass)
                          if class_abilities.display_name(tag) in chain_names]
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
@@ -5981,6 +6020,7 @@ def handle_message(sock, server, addr, state, payload, args):
                                 or player.abilities)
             player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
             player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
+            player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "

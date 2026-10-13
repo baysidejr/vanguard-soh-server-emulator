@@ -67,6 +67,9 @@ def locked(chains, ability_id, counters=()):
     return flags(chains, ability_id) == FLAG_STEP or ability_id in counters
 
 
+RESCUE_WINDOW = 6.0
+
+
 def class_counters(counters, class_name, abilities):
     """Ability ids of the class's counter abilities the player has."""
     by_name = {a[2]: a[1] for a in abilities}

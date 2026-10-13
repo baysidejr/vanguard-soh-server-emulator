@@ -654,7 +654,8 @@ def ability_messages(player):
         out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
                                                        refresh=refresh,
                                                        flags=reactions.flags(chains, ability_id),
-                                                       counter=ability_id in getattr(player, "counters", ()))))
+                                                       counter=ability_id in getattr(player, "counters", ()),
+                                                       rescue=ability_id in getattr(player, "rescues", ()))))
     out.append(zone_event(0x21D))
     out.append(reactions.forget_all())
     out += [reactions.define(c) for c in chains]

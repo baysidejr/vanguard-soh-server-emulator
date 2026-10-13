@@ -216,7 +216,7 @@ ABILITY_BOOK_ADVENTURING, ABILITY_BOOK_DIPLOMACY, ABILITY_BOOK_GENERAL = 0, 2, 1
 
 def ability_info(handle, ability_id, name, icon, description="", level=1, book=0,
                  type_text="Melee", cast=0.0, recovery=0.0, refresh=5.0, max_range=5,
-                 flags=0, line=None, counter=False):
+                 flags=0, line=None, counter=False, rescue=False):
     """flags (wire #8): 0x03 chain opener, 0x02 chain step / finisher (locked until a
     reaction opens it); line (#18): the ability line, ranks of one ability share it
     (default: the ability id)."""
@@ -224,6 +224,7 @@ def ability_info(handle, ability_id, name, icon, description="", level=1, book=0
     v[7] = flags
     v[17] = ability_id if line is None else line
     v[43] = int(counter)          # wire #44: counter ability (locked until a counter window)
+    v[41] = int(rescue)           # wire #42: rescue ability (listed with the rescues, not locked)
     for n, t in enumerate(ABILITY_TYPES):
         if t == "w":
             v[n] = ""
