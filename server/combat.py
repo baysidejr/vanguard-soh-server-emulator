@@ -293,11 +293,43 @@ def add_hate(npc, player, amount):
     only changes target when someone passes SWITCH_FACTOR x its current target's hate."""
     entry = npc.hate.setdefault(player.char_id, [player, 0.0])
     entry[1] += amount
+    if not npc.aggro:
+        npc.pulled = True            # just pulled: may call nearby allies (social_assist)
     npc.aggro = True
     cur = npc.aggro_on
     cur_hate = npc.hate.get(cur.char_id, [cur, 0.0])[1] if cur is not None and cur.health > 0 else -1.0
     if cur is None or cur.health <= 0 or (cur is not player and entry[1] > cur_hate * SWITCH_FACTOR):
         npc.aggro_on = player
+
+
+ASSIST_RADIUS = 700.0        # allies this close come to help a pulled NPC
+
+
+def social_assist(npc, npcs):
+    """A just-pulled NPC calls for help: alive, idle NPCs of the same faction (or the same
+    kind when it has none) within ASSIST_RADIUS join the fight against its target.
+    Returns the helpers (empty if nobody came)."""
+    if not getattr(npc, "pulled", False):
+        return []
+    npc.pulled = False
+    target = npc.aggro_on
+    if target is None or npc.prop or npc.merchant:
+        return []
+    faction = getattr(npc, "faction", None)
+    helpers = []
+    for other in npcs:
+        if other is npc or not other.alive or other.aggro or other.prop or other.talks() \
+                or getattr(other, "tombstone_of", None) or other.harvest or other.station:
+            continue
+        same = (faction is not None and getattr(other, "faction", None) == faction) or \
+            (faction is None and other.template_id == npc.template_id)
+        if same and math.hypot(other.location[0] - npc.location[0],
+                               other.location[1] - npc.location[1]) <= ASSIST_RADIUS:
+            helpers.append(other)
+    for other in helpers:
+        add_hate(other, target, 1)
+        other.pulled = False
+    return helpers
 
 
 def taunt(npc, player):

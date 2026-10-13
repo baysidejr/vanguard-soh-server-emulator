@@ -335,6 +335,13 @@ def movement_tick(zone_sock, clients, args):
                 vs = w.members.get(victim.char_id)
                 if vs is not None:
                     vs["send"](build_system_text(f"{npc.name} notices you!", SYSTEM_TEXT_ERROR))
+        for npc in list(w.npcs.values()):
+            helpers = combat.social_assist(npc, w.npcs.values())
+            if helpers:
+                victim = w.members.get(npc.aggro_on.char_id) if npc.aggro_on else None
+                if victim is not None:
+                    victim["send"](zone.zone_event(0x556, struct.pack("<Q", npc.entity_id)))  # "X calls for help!"
+                print(f"  {npc.name} calls for help: {', '.join(h.name for h in helpers)}")
         for npc in w.npcs.values():
             if npc.aggro_on is not None and npc.aggro_on.health <= 0:
                 # Its target died: the next player on its hate list, if any.

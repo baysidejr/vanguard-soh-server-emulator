@@ -411,3 +411,7 @@ NPCs steer around rocks, trees, walls and tents. `server/obstacles.py` reads the
 ## Hate (threat) (verified live 2026-10-13)
 
 Each NPC keeps a hate list (`npc.hate`, `combat.add_hate`): damage it takes (hits, abilities, damage over time) adds that much hate for the attacker, and proximity aggro adds 1. It fights the living player it hates most, but only switches when another attacker passes 110% of its current target's hate (`SWITCH_FACTOR`), so a tank keeps it. A rescue (or taunt, `combat.taunt`) puts the player at 120% of the top hate + 10. When its target dies or leaves the chunk it turns to the next player on its list (`combat.next_target`); the list is cleared when it gives up or respawns. Verified with two clients: after Justins' rescue the Canyon Widow attacks Justins instead of Ranger. Healing doesn't generate hate yet.
+
+## Calls for help (verified live 2026-10-13)
+
+When an NPC is pulled (its hate list goes from empty to non-empty), idle NPCs of the same faction (or the same kind if it has no faction) within 700 units join the fight against the same player (`combat.social_assist`); service NPCs (merchants, trainers, bankers...), props, stations and harvest nodes never join. The pulled player gets 0x556 `{eid64}` ("<name> calls for help!"). Verified: attacking the Robed Wanderer at the camp brings the Robed Dwarf.

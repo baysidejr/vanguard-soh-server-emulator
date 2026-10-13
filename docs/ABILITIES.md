@@ -220,4 +220,4 @@ A heal (abilities.json `kind: heal`) lands on the targeted player if they are al
 
 ## Resists (2026-10-13)
 
-A harmful NPC effect (Venom Bite) is resisted 15% of the time (`effects.RESIST_CHANCE_PLAYER`) and a player's damage over time 10% (`RESIST_CHANCE_NPC`). The server sends MsgPCResistedAbilityEffect `{eid64 other, wstr ability, wstr effect}`: **0x278** when you resisted ("YouResistedAbilityEffect"), **0x279** when your target did ("EnemyResistedAbilityEffect"), and the effect isn't applied. The message is sent (server log "Justins resisted Canyon Widow's Venom Bite") but its chat line hasn't been seen yet.
+A harmful NPC effect (Venom Bite) is resisted 15% of the time (`effects.RESIST_CHANCE_PLAYER`) and a player's damage over time 10% (`RESIST_CHANCE_NPC`). The server sends MsgPCResistedAbilityEffect `{eid64 other, wstr ability, wstr effect}`: **0x278** when you resisted ("YouResistedAbilityEffect"), **0x279** when your target did ("EnemyResistedAbilityEffect"), and the effect isn't applied. Verified live in the Combat chat tab: "You resist the Rending Bite effect from Ashen Wolf's Rending Bite!" (the client fills a localized string; channel 0x1f).
