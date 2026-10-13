@@ -75,3 +75,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 **Quest feedback:** with `--quest-feedback`, the server opens the client's Quest Feedback window (`SGOUI toggle "Quest Feedback"`) after each completed quest. The window asks for challenge, reward, lore, confusion, friends needed, a fun grade and comments. Accept sends 0x4ab {i32 quest id (-1 here), wstr comments, 6 x i32}, and the server saves the answers with the quest key in `server/quest_feedback.json` (not committed). The client's own opener, 0x4ad {wstr, i32}, shows nothing (verified live).
 
 **Combat forms and Psionicist mindsets:** which forms each class has, and what each one does, were server data. `server/content/forms.json` holds placeholders; see docs/FORMS.md.
+
+**Bags:** the real bags (names, slot counts, icons, where they drop or are sold) were server data. `server/content/items.json` has one placeholder, "Small Pouch" (8 slots, sold at camp_supplies); see docs/INVENTORY.md "Bags".
+
+**Fishing leaderboards:** the real servers ranked catches across the whole server; ours ranks the characters in characters.json (docs/FISHING.md).
