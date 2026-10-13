@@ -2955,12 +2955,26 @@ def handle_mentor_event(state, event, data):
 
 def open_loot(state, npc):
     """Open a corpse's loot window (U or 0xbb), if the player has loot rights."""
+    assign_loot_turn(npc)                 # Round Robin: whose corpse it is, before the check
     if not group_loot_allowed(state, npc):
         return []
     msgs = combat.loot_messages(npc)
     group_loot_opened(state, npc)
     loot_coin(state, npc)
     return msgs
+
+
+def assign_loot_turn(npc):
+    """Round Robin: the first look at a group kill picks the member whose turn it is (the
+    others get 0x6cd "It is <name>'s turn to loot.")."""
+    killer = getattr(npc, "killer", None)
+    g = getattr(killer, "group", None)
+    if g is None or grouploot.settings(g)["mode"] != grouploot.ROUND_ROBIN or getattr(npc, "loot_owner", None):
+        return
+    npc.loot_owner = grouploot.next_turn(g)
+    for m in group_states(killer):
+        if m["player"] is not npc.loot_owner:
+            m["send"](grouploot.other_turn(npc.loot_owner.char_id))
 
 
 def loot_coin(state, npc):
@@ -3000,25 +3014,19 @@ def group_loot_allowed(state, npc):
     # U sends both the pawn's ServerUse and 0xbb: tell the player once.
     if code is not None and time.time() - state.get("loot_refused_at", 0) > 1.0:
         state["loot_refused_at"] = time.time()
-        state["send"](zone.zone_event(0x0E, struct.pack("<h", code)))
-        state["send"](build_system_text("You don't have permission to loot that corpse.", SYSTEM_TEXT_ERROR))
+        state["send"](zone.zone_event(0x0E, struct.pack("<h", code)))   # the client prints the reason
     return code is None
 
 
 def group_loot_opened(state, npc):
-    """First look at a group kill: Round Robin picks whose turn it is; Need Before Greed
-    starts the roll on the items at or above the rarity threshold."""
+    """First look at a group kill: Need Before Greed starts the roll on the items at or
+    above the rarity threshold."""
     killer = getattr(npc, "killer", None)
     g = getattr(killer, "group", None)
     if g is None:
         return
     s = grouploot.settings(g)
-    if s["mode"] == grouploot.ROUND_ROBIN and getattr(npc, "loot_owner", None) is None:
-        npc.loot_owner = grouploot.next_turn(g)
-        for m in group_states(killer):
-            if m["player"] is not npc.loot_owner:
-                m["send"](grouploot.other_turn(npc.loot_owner.char_id))
-    elif s["mode"] == grouploot.NEED_BEFORE_GREED and not getattr(npc, "rolled", False):
+    if s["mode"] == grouploot.NEED_BEFORE_GREED and not getattr(npc, "rolled", False):
         start_roll(g, npc)
 
 
