@@ -808,6 +808,44 @@ def answer_rez(state, args, accept):
                            SYSTEM_TEXT_WHITE))
 
 
+RIFT_PRICES = {"green": 50, "blue": 500, "yellow": 2000, "red": 5000, "purple": 0}
+RIFT_RANGE = 800
+
+
+def handle_rift(state, args, data):
+    """0x597 {wstr NAME} from the map's Riftway tab or /rift NAME: travel from a riftway
+    stone to an open destination for the color's price (the client checks nothing)."""
+    player, send = state["player"], state["send"]
+    name = data.decode("utf-16-le", "replace").split("\0")[0].strip().upper()
+    say = lambda t: send(build_system_text(t, SYSTEM_TEXT_ERROR))
+    dest = ARGS.content.riftways.get(name)
+    if dest is None:
+        say("There is no riftway by that name.")
+        return
+    stone = next((n for n in player.npcs.values() if getattr(n, "riftway", None) is not None
+                  and player_distance(player, n) <= RIFT_RANGE), None)
+    if stone is None:
+        say("You must stand at a riftway to travel.")
+        return
+    if not dest.get("chunk"):
+        say(f"The riftway to {dest['name']} is not open on this server yet.")
+        return
+    if dest["chunk"] != player.level:
+        say(f"The riftway to {dest['name']} is in another region (not supported yet).")
+        return
+    price = RIFT_PRICES.get(dest.get("color"), 0)
+    if player.coins < price:
+        say("You can't afford to travel there.")
+        return
+    if price:
+        player.coins -= price
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+    z = ARGS.content.ground_z(player.level, dest["x"], dest["y"], ARGS.client_dir)
+    send(zone.player_teleport((float(dest["x"]), float(dest["y"]), float(z) + 100.0)))
+    send(build_system_text(f"The riftway carries you to {dest['name']}.", SYSTEM_TEXT_WHITE))
+
+
 def use_tombstone(state):
     """U (the pawn's ServerUse RPC) on your tombstone: the target, or your own one if you
     stand at it. True when handled."""
@@ -4040,6 +4078,8 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE interact {eid:#x} ({npc.name if npc else '-'})")
             if npc is not None and getattr(npc, "altar", False):
                 handle_altar_use(state, npc)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x597 and state.get("player"):
+            handle_rift(state, args, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x57C and state.get("player"):
             # /dismount (no payload).
             if getattr(state["player"], "mount", None):

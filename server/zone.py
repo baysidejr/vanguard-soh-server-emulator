@@ -197,6 +197,7 @@ def populate_world(w, args):
         npc.broker = template.get("broker")
         npc.altar = bool(template.get("altar"))
         npc.dialog = args.content.dialogs.get(spawn["mob"])
+        npc.riftway = template.get("riftway")
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
