@@ -27,9 +27,20 @@ UPKEEP_DEPOSIT = 0x47E                 # {i32 plot id, i32 copper} -> 0x483 {i32
 # 0x478 {construction id} completes, 0x476 {construction id} abandons. The construction id is
 # the plot id. Server: 0x453 the construction window, 0x477 closes it.
 VIEW_CONSTRUCTION, ADD_MATERIAL, COMPLETE_CONSTRUCTION, ABANDON_CONSTRUCTION = 0x473, 0x475, 0x478, 0x476
+# Building permissions (owner only): 0x470 create / 0x472 edit {i32 plot, i32 perm id, wstr name,
+# i32 guild rank, u32 flags, bool8 all players, bool8 all guild}, 0x471 {plot, perm id} delete,
+# 0x46f {wstr player, i32 perm id, i32 0} add a friend, 0x46e {perm id, friend row} remove one.
+# Server: 0x456 one permission, 0x46f {perm id, friend id (row + 1, not 0), wstr name} one friend
+# (0x457 does not fill the Edit Permission name list); 0x46e names the friend by that id.
+PERM_CREATE, PERM_EDIT, PERM_DELETE, PERM_ADD_FRIEND, PERM_REMOVE_FRIEND = 0x470, 0x472, 0x471, 0x46F, 0x46E
+PERMISSION_EVENTS = (PERM_CREATE, PERM_EDIT, PERM_DELETE, PERM_ADD_FRIEND, PERM_REMOVE_FRIEND)
+OPEN_DOOR, MOVE_FIXTURE, PLACE_FIXTURE, PICKUP_FIXTURE, ALLOW_MODIFY, PAY_UPKEEP, MANAGE_CONSTRUCTION = (
+    0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40)
+VIEW, NO_ACCESS = 0x1000, 0x80000000
+MAX_PERMISSIONS, MAX_FRIENDS = 10, 20
 CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT,
                  CHEST_WITHDRAW, UPKEEP_DEPOSIT, VIEW_CONSTRUCTION, ADD_MATERIAL, COMPLETE_CONSTRUCTION,
-                 ABANDON_CONSTRUCTION)
+                 ABANDON_CONSTRUCTION) + PERMISSION_EVENTS
 HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
@@ -155,6 +166,50 @@ def construction_info(site_id, name, rows):
 
 def close_construction():
     return _event(0x477)
+
+
+def parse_permission(data):
+    """0x470 / 0x472 -> {plot, id, name, rank, flags, all_players, all_guild}."""
+    plot, pid = struct.unpack_from("<ii", data, 0)
+    end = 8
+    while data[end:end + 2] != b"\0\0":
+        end += 2
+    name = data[8:end].decode("utf-16-le", "replace")
+    rank, flags = struct.unpack_from("<iI", data, end + 2)
+    allp, allg = data[end + 10], data[end + 11]
+    return {"plot": plot, "id": pid, "name": name, "rank": rank, "flags": flags,
+            "all_players": bool(allp), "all_guild": bool(allg)}
+
+
+def permission_message(p):
+    return _event(0x456, struct.pack("<ii", 0, p["id"]) + _w(p.get("name", ""))
+                  + struct.pack("<iIBB", p.get("rank", 0), p.get("flags", 0), p.get("all_players", False),
+                                p.get("all_guild", False)))
+
+
+def friend_message(perm_id, row, name):
+    return _event(0x46F, struct.pack("<ii", perm_id, row + 1) + _w(name))
+
+
+def allowed(st, name, flag, guild_of=lambda n: None):
+    """May the character `name` do `flag` (a permission mask) on this plot? The owner may do
+    anything; others need a permission entry that covers them (all players, the owner's guild
+    (rank at least the entry's), or its friend list) with the flag and without NoAccess."""
+    if st is None:
+        return False
+    if st.get("owner", "").lower() == name.lower():
+        return True
+    owner_guild = guild_of(st.get("owner", ""))
+    mine = guild_of(name)
+    for p in st.get("permissions", []):
+        covers = (p.get("all_players")
+                  or name.lower() in [f.lower() for f in p.get("friends", [])]
+                  or (p.get("all_guild") and owner_guild is not None and mine is owner_guild))
+        if covers and p.get("flags", 0) & NO_ACCESS:
+            return False
+        if covers and p.get("flags", 0) & flag:
+            return True
+    return False
 
 
 def has_construction(flag):

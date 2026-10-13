@@ -69,6 +69,22 @@ class HousingTests(unittest.TestCase):
         eid, data = payload(housing.construction_info(101, "Home", rows))
         self.assertEqual((eid, struct.unpack_from("<iiI", data)[:2]), (0x453, (101, 0)))
 
+    def test_permissions(self):
+        st = {"owner": "Ranger", "permissions": [
+            {"id": 1, "flags": housing.PLACE_FIXTURE | housing.PICKUP_FIXTURE, "friends": ["Justins"]},
+            {"id": 2, "flags": housing.NO_ACCESS, "friends": ["Griefer"]}]}
+        self.assertTrue(housing.allowed(st, "ranger", housing.PAY_UPKEEP))           # owner
+        self.assertTrue(housing.allowed(st, "Justins", housing.PLACE_FIXTURE))
+        self.assertFalse(housing.allowed(st, "Justins", housing.PAY_UPKEEP))
+        self.assertFalse(housing.allowed(st, "Griefer", housing.PLACE_FIXTURE))
+        self.assertFalse(housing.allowed(st, "Stranger", housing.VIEW))
+
+    def test_parse_permission(self):
+        data = struct.pack("<ii", 101, 0) + _w("Friends") + struct.pack("<iIBB", 0, 0x0C, 0, 1)
+        p = housing.parse_permission(data)
+        self.assertEqual((p["plot"], p["name"], p["flags"], p["all_guild"]), (101, "Friends", 0x0C, True))
+        self.assertEqual(payload(housing.permission_message(p))[0], 0x456)
+
     def test_plot_info_starts_with_ids(self):
         plot = {"name": "P", "loc": [0, 0, 0], "cost": 1000, "buildings": []}
         eid, data = payload(housing.plot_info(101, plot, None, False))

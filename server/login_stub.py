@@ -1037,12 +1037,14 @@ def placed_objects(level):
 
 
 def my_house_here(player):
-    """(plot id, plot) of the built plot the player owns and stands in, or (None, None)."""
+    """(plot id, plot) of the built plot the player stands in and may place furniture in
+    (owner, or a PlaceFixture permission), or (None, None)."""
     db = load_housing()
     pos = player.live_position or player.spawned_at
     for pid, p in ARGS.content.plots.items():
         st = db.get(pid)
-        if (st and st.get("building") and st["owner"].lower() == player.name.lower() and p["chunk"] == player.level
+        if (st and st.get("building") and housing.allowed(st, player.name, housing.PLACE_FIXTURE, guild_of)
+                and p["chunk"] == player.level
                 and math.hypot(pos[0] - p["loc"][0], pos[1] - p["loc"][1]) <= housing.HOUSE_RADIUS):
             return pid, p
     return None, None
@@ -1181,7 +1183,65 @@ def send_plot_window(state, pid):
     send(housing.plot_info(int(pid), plot, st, mine))
     if st and st.get("building"):
         send(housing.building_info(int(pid), plot, st, mine))
+    if mine:
+        for p in st.get("permissions", []):
+            send(housing.permission_message(p))
+            for row, name in enumerate(p.get("friends", [])):
+                send(housing.friend_message(p["id"], row, name))
     send(housing.show())
+
+
+def handle_plot_permission(state, event, data):
+    """The owner's building permissions (housing.PERMISSION_EVENTS) on their plot."""
+    player, send = state["player"], state["send"]
+    db = load_housing()
+    pid = next((k for k, v in db.items() if v.get("owner", "").lower() == player.name.lower()), None)
+    if pid is None:
+        send(zone.zone_event(0x0E, struct.pack("<h", 0x175)))          # CantFindPlot
+        return
+    st = db[pid]
+    perms = st.setdefault("permissions", [])
+    try:
+        if event in (housing.PERM_CREATE, housing.PERM_EDIT):
+            p = housing.parse_permission(data)
+            old = next((q for q in perms if q["id"] == p["id"]), None) if event == housing.PERM_EDIT else None
+            if old is not None:
+                old.update({k: v for k, v in p.items() if k != "plot"})
+                p = old
+            else:
+                if len(perms) >= housing.MAX_PERMISSIONS:
+                    send(build_system_text("This building has too many permissions.", SYSTEM_TEXT_ERROR))
+                    return
+                p.pop("plot")
+                p["id"] = max([q["id"] for q in perms] + [0]) + 1
+                p["friends"] = []
+                perms.append(p)
+            send(build_system_text(f"Permission \"{p['name']}\" saved.", SYSTEM_TEXT_WHITE))
+        elif event == housing.PERM_DELETE:
+            perm_id = struct.unpack_from("<ii", data)[1]
+            st["permissions"] = [q for q in perms if q["id"] != perm_id]
+        elif event == housing.PERM_ADD_FRIEND:
+            end = 0
+            while data[end:end + 2] != b"\0\0":
+                end += 2
+            name = data[:end].decode("utf-16-le", "replace").strip()
+            perm_id = struct.unpack_from("<i", data, end + 2)[0]
+            p = next((q for q in perms if q["id"] == perm_id), None)
+            if p is None or not name or len(p["friends"]) >= housing.MAX_FRIENDS:
+                return
+            if name.lower() not in [f.lower() for f in p["friends"]]:
+                p["friends"].append(name)
+            send(build_system_text(f"{name} added to \"{p['name']}\".", SYSTEM_TEXT_WHITE))
+        elif event == housing.PERM_REMOVE_FRIEND:
+            perm_id, fid = struct.unpack_from("<ii", data)      # friend id = row + 1 (housing.friend_message)
+            p = next((q for q in perms if q["id"] == perm_id), None)
+            if p is not None and 0 < fid <= len(p["friends"]):
+                p["friends"].pop(fid - 1)
+    except (struct.error, IndexError):
+        print(f"  bad permission event {event:#x}: {data.hex(' ')}")
+        return
+    save_housing(db)
+    send_plot_window(state, pid)
 
 
 def construction_window(pid, plot, st):
@@ -1212,7 +1272,8 @@ def handle_housing_event(state, event, data):
         return
     if event in (housing.PICK_UP, housing.NUDGE) and vals:
         db, pid, st, f = fixture_by_object(vals[0])
-        if f is None or st["owner"].lower() != player.name.lower():
+        need = housing.PICKUP_FIXTURE if event == housing.PICK_UP else housing.MOVE_FIXTURE
+        if f is None or not housing.allowed(st, player.name, need, guild_of):
             notice(0x17a)                                # NoPermissionToPickupFixture
             return
         obj = fixture_object(pid, f)
@@ -1231,6 +1292,9 @@ def handle_housing_event(state, event, data):
             f["yaw"] = (f.get("yaw", 0) + dyaw) & 0xFFFF
             save_housing(db)
             broadcast_object(state, fixture_object(pid, f))
+        return
+    if event in housing.PERMISSION_EVENTS:
+        handle_plot_permission(state, event, data)
         return
     pid = str(vals[1] if event == housing.INSPECT and len(vals) > 1 else vals[0]) if vals else ""
     plot = ARGS.content.plots.get(pid)
@@ -1275,7 +1339,8 @@ def handle_housing_event(state, event, data):
         finish_building(state, db, pid, st, b["type"])
     elif event == housing.VIEW_CONSTRUCTION and st and st.get("construction"):
         send(construction_window(pid, plot, st))
-    elif event == housing.ADD_MATERIAL and mine and st.get("construction") and len(vals) >= 2:
+    elif (event == housing.ADD_MATERIAL and len(vals) >= 2 and st and st.get("construction")
+          and housing.allowed(st, player.name, housing.MANAGE_CONSTRUCTION, guild_of)):
         c = st["construction"]
         b = next(o for o in plot["buildings"] if o["type"] == c["type"])
         item = next((i for i in player.items if i[0] == vals[1]), None)
@@ -1307,7 +1372,7 @@ def handle_housing_event(state, event, data):
         send(housing.has_construction(False))
         send(build_system_text("You abandon the construction.", SYSTEM_TEXT_WHITE))
         send_plot_window(state, pid)
-    elif event == housing.UPKEEP_DEPOSIT and mine and len(vals) >= 2:
+    elif event == housing.UPKEEP_DEPOSIT and housing.allowed(st, player.name, housing.PAY_UPKEEP, guild_of) and len(vals) >= 2:
         amount = vals[1]
         if amount <= 0 or player.coins < amount:
             send(build_system_text("You don't have that much coin.", SYSTEM_TEXT_ERROR))
@@ -5516,9 +5581,15 @@ def dev_command(text, player=None):
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
     if words[0] == "cev" and player and len(words) > 1:
-        # !cev <event id> [i32 values...]: handle a client zone event as if the client sent
-        # it, e.g. !cev 0x479 101 2 (testing UI the scripts can't click).
-        return [("cev", int(words[1], 0), b"".join(struct.pack("<i", int(w, 0)) for w in words[2:]))]
+        # !cev <event id> [values...]: handle a client zone event as if the client sent it;
+        # values are i32, s:text (wstr, _ = space) or b:N (byte), e.g. !cev 0x479 101 2.
+        def token(w):
+            if w.startswith("s:"):
+                return (w[2:].replace("_", " ") + "\0").encode("utf-16-le")
+            if w.startswith("b:"):
+                return bytes([int(w[2:], 0)])
+            return struct.pack("<I", int(w, 0) & 0xFFFFFFFF)
+        return [("cev", int(words[1], 0), b"".join(token(w) for w in words[2:]))]
     if words[0] == "react" and player:
         # !react: activate the newest open reaction, as clicking it (0x145) (testing).
         return [("react",)]
