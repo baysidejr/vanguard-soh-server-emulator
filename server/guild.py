@@ -30,7 +30,15 @@ RENAME_RANK, STATUS, MOTD_SET, MEMBER_LIST = 0x4D2, 0x4DF, 0x4E2, 0x4EC
 # note; 0x4e5 {wstr name, f32} points; 0x4e6 {wstr name, wstr} officer note; 0x4d1 {i32 member id
 # low 32 bits} toggle recruiter. No reply message: the server resends 0x4ee for that member.
 MY_NOTE, GUILD_NOTE, POINTS, OFFICER_NOTE, RECRUITER = 0x4E3, 0x4E4, 0x4E5, 0x4E6, 0x4D1
-WORLD_EVENTS = (RENAME_RANK, STATUS, MOTD_SET, MEMBER_LIST, MY_NOTE, GUILD_NOTE, POINTS, OFFICER_NOTE, RECRUITER)
+# Recruiting (world type 5): 0x4ca recruiting guilds list request, 0x4cb toggle "recruiting",
+# 0x4cc {wstr} recruitment notes, 0x4cd {20 x u8} property tags, 0x4ce/0x4cf/0x4d0 {10 x u8}
+# per-rank invite / remove / MOTD-and-notes rights. Reply: resend 0x4ea; the list is
+# 0x4c6 clear, 0x4c8 per guild {i32 id, wstr name, wstr notes, 20 x u8}, 0x4c9 per recruiter
+# {i32 guild id, i32 id, wstr name, bool8 online}, 0x4c7 show.
+LFM_LIST, TOGGLE_RECRUITING, RECRUIT_NOTES, TAGS, RANK_INVITE, RANK_REMOVE, RANK_MOTD = (
+    0x4CA, 0x4CB, 0x4CC, 0x4CD, 0x4CE, 0x4CF, 0x4D0)
+WORLD_EVENTS = (RENAME_RANK, STATUS, MOTD_SET, MEMBER_LIST, MY_NOTE, GUILD_NOTE, POINTS, OFFICER_NOTE, RECRUITER,
+                LFM_LIST, TOGGLE_RECRUITING, RECRUIT_NOTES, TAGS, RANK_INVITE, RANK_REMOVE, RANK_MOTD)
 
 
 def _event(event_id, data=b""):
@@ -49,12 +57,30 @@ def membership(guild_id, rank):
     return _event(0x4DD, struct.pack("<ii", guild_id, rank))
 
 
-def info(name, ranks=None):
-    data = _w(name) + struct.pack("<iBB", 0, 0, 0) + _w("") + struct.pack("<ii", 0, 0)
-    for n, rank in enumerate(ranks or RANK_NAMES, start=1):
-        power = int(n >= OFFICER)
-        data += _w(rank) + struct.pack("<BBB", power, power, power)
-    return _event(0x4EA, data + bytes(20))
+def default_rights():
+    return [int(n >= OFFICER) for n in range(1, 11)]
+
+
+def info(name, ranks=None, g=None):
+    """0x4ea {wstr name, i32, bool8, bool8 recruiting, wstr recruitment notes, i32, i32,
+    10 x {wstr rank, bool8 invite, bool8 remove, bool8 motd/notes}, 20 x u8 tags}."""
+    g = g or {}
+    data = (_w(name) + struct.pack("<iBB", 0, 0, int(g.get("recruiting", False))) + _w(g.get("recruit_notes", ""))
+            + struct.pack("<ii", 0, 0))
+    rights = [g.get(k) or default_rights() for k in ("rank_invite", "rank_remove", "rank_motd")]
+    for n, rank in enumerate(ranks or RANK_NAMES):
+        data += _w(rank) + struct.pack("<BBB", rights[0][n], rights[1][n], rights[2][n])
+    return _event(0x4EA, data + bytes((g.get("tags") or [0] * 20)[:20]))
+
+
+def lfm_list(guilds, recruiters):
+    """guilds: [(id, name, notes, tags)]; recruiters: [(guild id, id, name, online)]."""
+    out = [_event(0x4C6)]
+    out += [_event(0x4C8, struct.pack("<i", gid) + _w(n) + _w(notes) + bytes((tags or [0] * 20)[:20]))
+            for gid, n, notes, tags in guilds]
+    out += [_event(0x4C9, struct.pack("<ii", gid, rid) + _w(n) + struct.pack("<B", int(on)))
+            for gid, rid, n, on in recruiters]
+    return out + [_event(0x4C7)]
 
 
 def member_record(m, notify=0):

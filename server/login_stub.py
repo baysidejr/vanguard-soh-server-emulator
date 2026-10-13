@@ -1988,7 +1988,7 @@ def guild_login(state):
 def send_guild_window(state, g):
     player, send = state["player"], state["send"]
     send(guild.membership(g["id"], guild_member(g, player.name)["rank"]))
-    send(guild.info(g["name"], g.get("ranks")))
+    send(guild.info(g["name"], g.get("ranks"), g))
     send(guild.name_tag(g["id"], g["name"]))
     for m in guild.member_list([guild_member(g, n) for n in g["members"]]):
         send(m)
@@ -2114,6 +2114,16 @@ def handle_guild_world(state, event, data, reply):
         who = next(m for m in g["members"] if m.lower() == name.lower())
         state["send"](guild.status(who, g["name"], g["members"][who]))
         return
+    if event == guild.LFM_LIST:
+        listed = [g for g in guilds.values() if g.get("recruiting")]
+        recs = []
+        for g in listed:
+            for n, info in g.get("member_info", {}).items():
+                if info.get("recruiter"):
+                    recs.append((g["id"], guild_member(g, n)["id"] & 0x7FFFFFFF, n, ONLINE.get(n.lower()) is not None))
+        for m in guild.lfm_list([(g["id"], g["name"], g.get("recruit_notes", ""), g.get("tags")) for g in listed], recs):
+            reply(m)
+        return
     if mine is None:
         reply(zone.zone_event(0x0E, struct.pack("<h", 0x1A)))          # NoGuild
         return
@@ -2121,6 +2131,24 @@ def handle_guild_world(state, event, data, reply):
     if event == guild.MEMBER_LIST:
         for m in guild.member_list([guild_member(mine, n) for n in mine["members"]]):
             reply(m)
+    elif event in (guild.TOGGLE_RECRUITING, guild.RECRUIT_NOTES, guild.TAGS, guild.RANK_INVITE,
+                   guild.RANK_REMOVE, guild.RANK_MOTD):
+        if rank < 9:
+            reply(build_system_text("Only the guild's leaders can change that.", SYSTEM_TEXT_ERROR))
+            return
+        if event == guild.TOGGLE_RECRUITING:
+            mine["recruiting"] = not mine.get("recruiting", False)
+        elif event == guild.RECRUIT_NOTES:
+            mine["recruit_notes"] = guild.read_name(data).strip()[:256]
+        elif event == guild.TAGS:
+            mine["tags"] = list(data[:20])
+        else:
+            key = {guild.RANK_INVITE: "rank_invite", guild.RANK_REMOVE: "rank_remove",
+                   guild.RANK_MOTD: "rank_motd"}[event]
+            mine[key] = [int(b != 0) for b in data[:10]] + [1] * max(0, 10 - len(data))
+            mine[key][8] = mine[key][9] = 1                  # ranks 9 and 10 always can
+        save_guilds(guilds)
+        guild_broadcast(player.name, lambda g: guild.info(g["name"], g.get("ranks"), g))
     elif event in (guild.MY_NOTE, guild.GUILD_NOTE, guild.POINTS, guild.OFFICER_NOTE, guild.RECRUITER):
         who = player.name
         if event == guild.MY_NOTE:
@@ -2171,7 +2199,7 @@ def handle_guild_world(state, event, data, reply):
             f"Guild rank {old} has been renamed to {new[:32]}.", SYSTEM_TEXT_WHITE))
         mine["ranks"] = ranks
         save_guilds(guilds)
-        guild_broadcast(player.name, lambda g: guild.info(g["name"], ranks))
+        guild_broadcast(player.name, lambda g: guild.info(g["name"], ranks, g))
 
 
 BROTHERHOODS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brotherhoods.json")
