@@ -67,3 +67,5 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
    - The content gets a data license (for example CC-BY-SA), separate from the code's AGPL.
 4. **Importers.** Scripts that turn old fan wiki and guide data (and VGOEmu data, if they share it) into draft JSON for builders to verify in game.
 5. **Player feedback in game.** `/bug` opens the client's Bug Report window. Submit sends 0x4aa {wstr description, i32 category, i32 severity, i32 reproducibility}, and the server stores it in `server/bug_reports.json` (not committed) with the player, chunk, position and target (`server/bugs.py`). The editor can show these reports on the chunk map next to the spawns. The client also has a Quest Report window (0x4ad opens it; ratings for challenge, rewards, lore, confusion and fun). It is not wired up yet.
+
+**Bard songs:** the song parts (melodies, verses, embellishments, bridges, lyrics, choruses, codas, rests), with each part's effect and energy cost, were server data. `server/content/songs.json` holds placeholders; see docs/SONGS.md.

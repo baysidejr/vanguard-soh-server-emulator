@@ -45,6 +45,7 @@ class Content:
         self.chains = _load(os.path.join(directory, "chains.json"))
         self.counters = _load(os.path.join(directory, "counters.json"))
         self.rescues = _load(os.path.join(directory, "rescues.json"))
+        self.songs = _load(os.path.join(directory, "songs.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -90,6 +91,15 @@ def validate(directory=CONTENT_DIR):
     """Problems found in the content files (empty list = all good)."""
     problems = []
     c = Content(directory)
+    import songs as song_rules
+    for cls, parts in c.songs.items():
+        if cls.startswith("_"):
+            continue
+        for name, p in parts.items():
+            if p.get("part") not in song_rules.PARTS:
+                problems.append(f"songs {cls}/{name}: unknown part {p.get('part')!r}")
+        if not any(p.get("part") == "melody" for p in parts.values()):
+            problems.append(f"songs {cls}: no melody (a song needs one)")
     for mid, m in c.mobs.items():
         for key in ("name", "pawn_class", "race", "health"):
             if key not in m:

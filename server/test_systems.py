@@ -13,6 +13,7 @@ import mail
 import market
 import pets
 import reactions
+import songs
 import titles
 import travel
 
@@ -324,6 +325,30 @@ class BugReportTests(unittest.TestCase):
         self.assertEqual(bugs.parse(data), {"description": "Wolf", "category": "Gameplay: Combat",
                                             "severity": "Standard", "reproducibility": "Every time"})
         self.assertEqual(bugs.parse(bytes(2) + struct.pack("<iii", 99, -1, 7))["category"], "Unknown Category")
+
+
+class SongTests(unittest.TestCase):
+    PARTS = {"Valor": {"part": "melody", "stat": "strength", "bonus": 6, "energy": 2},
+             "Charge": {"part": "verse", "bonus": 3, "energy": 1},
+             "Rest": {"part": "rest", "energy": 1}}
+
+    def test_compose_round_trip_and_rules(self):
+        parts = songs.part_abilities(self.PARTS)
+        ids = {aid for _, aid, _, _ in parts}
+        melody, verse, rest = (aid for _, aid, _, _ in parts)
+        song = {"name": "War Song", "description": "Loud", "melody": melody,
+                "parts": {p: [-1] * 6 for p in songs.SLOT_PARTS}}
+        song["parts"]["verse"][0] = verse
+        song["parts"]["chorus"][1] = rest
+        msg = songs.compose(1, song)
+        self.assertEqual(payload(msg)[0], 0x573)
+        # The client's 0x578 has the same layout as the server's 0x573.
+        self.assertEqual(songs.parse_compose(msg[10:]), song)
+        self.assertIsNone(songs.problem(song, ids))
+        self.assertEqual(songs.problem(dict(song, melody=-1), ids), "Your song needs a melody.")
+        self.assertEqual(songs.problem(dict(song, name=""), ids), "Your song needs a name.")
+        fx = songs.effect(song, {aid: spec for _, aid, _, spec in parts})
+        self.assertEqual((fx["stat"], fx["bonus"], fx["energy"]), ("strength", 9, 2))   # 2 + 1 - rest 1
 
 
 if __name__ == "__main__":

@@ -681,6 +681,9 @@ def ability_messages(player):
                                                        flags=reactions.flags(chains, ability_id),
                                                        counter=ability_id in getattr(player, "counters", ()),
                                                        rescue=ability_id in getattr(player, "rescues", ()))))
+    import songs
+    for handle, aid, name, spec in getattr(player, "song_parts", []):
+        out.append(songs.part_info(handle, aid, name, spec))
     out.append(zone_event(0x21D))
     out.append(reactions.forget_all())
     out += [reactions.define(c) for c in chains]

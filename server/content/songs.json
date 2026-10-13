@@ -1,0 +1,14 @@
+{
+  "_comment": "Bard song parts per class (class name as in races_classes): part is melody, verse, embellishment, bridge, lyric, chorus, coda or rest; energy is the cost per second while the song plays (a rest lowers it); stat/bonus is what the part adds to the song's buff (the melody picks the stat). The real song parts were server data (docs/CONTENT_EDITOR.md); these are placeholders.",
+  "Bard": {
+    "Melody of Valor": {"part": "melody", "stat": "strength", "bonus": 6, "energy": 2, "icon": 607},
+    "Melody of Grace": {"part": "melody", "stat": "dexterity", "bonus": 6, "energy": 2, "icon": 692},
+    "Verse of the Charge": {"part": "verse", "bonus": 3, "energy": 1, "icon": 553},
+    "Embellishment of Speed": {"part": "embellishment", "bonus": 2, "energy": 1, "icon": 560},
+    "Bridge of Resolve": {"part": "bridge", "bonus": 2, "energy": 1, "icon": 560},
+    "Lyric of Heroes": {"part": "lyric", "bonus": 2, "energy": 1, "icon": 607},
+    "Chorus of the Host": {"part": "chorus", "bonus": 3, "energy": 2, "icon": 692},
+    "Coda of Endings": {"part": "coda", "bonus": 1, "energy": 1, "icon": 553},
+    "Rest": {"part": "rest", "energy": 1, "icon": 560}
+  }
+}

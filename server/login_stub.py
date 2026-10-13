@@ -45,6 +45,7 @@ import fishing
 import assembly
 import bank
 import social
+import songs
 import effects
 import guild
 import brotherhood
@@ -2348,6 +2349,97 @@ def asm_tree(player, node=None):
 def level_chunk(level):
     """chunk_n19_12 -> (-19, 12)."""
     return tuple(-int(p[1:]) if p.startswith("n") else int(p) for p in level.split("_")[1:3])
+
+
+def songs_login(state):
+    """Bard songs (songs.py): slot counts, saved songs, nothing playing."""
+    player, send = state["player"], state["send"]
+    if not getattr(player, "song_parts", None):
+        return
+    send(songs.slots())
+    for n, song in enumerate(getattr(player, "songs", [])):
+        send(songs.compose(n + 1, song))
+    send(songs.now_playing(""))
+
+
+def stop_song(state, quiet=False):
+    player = state["player"]
+    for e in getattr(player, "effects", []):
+        if e.get("song"):
+            e["ends"] = 0                                   # effects_tick takes it off
+    if getattr(player, "playing_song", None):
+        player.playing_song = None
+        state["send"](songs.now_playing(""))
+        if not quiet:
+            state["send"](build_system_text("You stop singing.", SYSTEM_TEXT_WHITE))
+
+
+def play_song(state, song):
+    player, send = state["player"], state["send"]
+    by_id = {aid: spec for _, aid, _, spec in player.song_parts}
+    stop_song(state, quiet=True)
+    spec = songs.effect(song, by_id)
+    apply_buff(state, player, song["name"], dict(spec, duration=effects.STANCE_SECONDS), time.time())
+    e = next(x for x in player.effects if x["id"] == effect_id(player, song["name"]))
+    e.update(stance=True, song=True)                    # Effects Maintained; stops with the song
+    send(effects.maintained_add(e["id"], song["name"], e.get("desc", ""), spec["icon"]))
+    player.playing_song = song["name"]
+    send(songs.now_playing(song["name"]))
+    send(build_system_text(f"You begin to sing {song['name']}.", SYSTEM_TEXT_WHITE))
+
+
+def handle_song_event(state, event, data):
+    """The Song window and /playsong, /stopsong (songs.py)."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE song event {event:#x}: {data[:40].hex(' ')}")
+    if not getattr(player, "song_parts", None):
+        return
+    known = {aid for _, aid, _, _ in player.song_parts}
+    saved = player.__dict__.setdefault("songs", [])
+    error = lambda text: send(build_system_text(text, SYSTEM_TEXT_ERROR))
+    try:
+        if event in (songs.SAVE, songs.PLAY_COMPOSED):
+            song = songs.parse_compose(data)
+            why = songs.problem(song, known, saved if event == songs.SAVE else ())
+            if why:
+                return error(why)
+            if event == songs.PLAY_COMPOSED:
+                return play_song(state, song)
+            old = next((n for n, s in enumerate(saved) if s["name"].lower() == song["name"].lower()), None)
+            if old is None:
+                saved.append(song)
+                old = len(saved) - 1
+            else:
+                saved[old] = song
+            send(songs.compose(old + 1, song))
+            send(build_system_text(f"Song saved: {song['name']}.", SYSTEM_TEXT_WHITE))
+        elif event == songs.PLAY:
+            sid = struct.unpack_from("<i", data)[0]
+            if not 0 < sid <= len(saved):
+                return error("You can't find that song.")
+            play_song(state, saved[sid - 1])
+        elif event == songs.STOP:
+            stop_song(state)
+            return
+        elif event == songs.DELETE:
+            sid = struct.unpack_from("<i", data)[0]
+            if 0 < sid <= len(saved):
+                if saved[sid - 1]["name"] == getattr(player, "playing_song", None):
+                    stop_song(state)
+                saved.pop(sid - 1)
+                # Ids are list positions: resend the list so the client's ids match again.
+                send(songs.clear_all())
+                send(songs.slots())
+                for n, s in enumerate(saved):
+                    send(songs.compose(n + 1, s))
+        elif event == songs.SWAP:
+            a, b = struct.unpack_from("<ii", data)
+            if 0 < a <= len(saved) and 0 < b <= len(saved):
+                saved[a - 1], saved[b - 1] = saved[b - 1], saved[a - 1]
+    except (struct.error, IndexError):
+        print(f"  bad song event {event:#x}: {data.hex(' ')}")
+        return
+    save_character_field(player.name, "songs", saved)
 
 
 def journal_login(state):
@@ -6275,6 +6367,12 @@ def dev_command(text, player=None):
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
+    if words[0] == "songs" and player:
+        # !songs: learn the Bard's song parts whatever your class, and open the Song window (testing).
+        player.song_parts = songs.part_abilities(ARGS.content.songs.get("Bard", {}))
+        return ([m for m in zone.ability_messages(player)] + [songs.slots()]
+                + [songs.compose(n + 1, s) for n, s in enumerate(getattr(player, "songs", []))]
+                + [songs.now_playing(""), zone.zone_event(0x598, ('SGOUI toggle "Song"' + chr(0)).encode("utf-16-le"))])
     if words[0] == "lfm" and player:
         # !lfm: list yourself on the Find window's LFG page without being a group leader (testing).
         player.lfm = not getattr(player, "lfm", False)
@@ -6558,6 +6656,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.dialog_rewards = list(char.get("dialog_rewards", []))
             player.played = int(char.get("played", 0))
             player.titles = list(char.get("titles", []))
+            player.songs = list(char.get("songs", []))
             player.assembly_known = list(char.get("assembly_known", []))
             player.title_prefix = char.get("title_prefix", -1)
             player.title_suffix = char.get("title_suffix", -1)
@@ -6585,6 +6684,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
             player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
             player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)
+            player.song_parts = songs.part_abilities(args.content.songs.get(cname, {}))
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "
@@ -6613,6 +6713,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 caravan_login(state)
                 assembly_login(state)
                 journal_login(state)
+                songs_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -6773,6 +6874,8 @@ def handle_message(sock, server, addr, state, payload, args):
             pet_use_ability(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0], stance=False)   # right-click a buff
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in songs.CLIENT_EVENTS and state.get("player"):
+            handle_song_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.SUBMIT and state.get("player"):
             submit_bug_report(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
