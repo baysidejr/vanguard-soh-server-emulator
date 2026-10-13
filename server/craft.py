@@ -169,6 +169,24 @@ def screen_text(text):
     return _event(0x2FA, _w(text) + _w("") + struct.pack("<i", -1))
 
 
+MISSING_ITEM = 1                     # 0x2ec code 1 "Missing item: %s"
+# Toolbelts: 0xa4 {i32 slot 67..69} (/craftingchangeactivetoolbelt 1-3) or 0xf8 {i32 belt handle}
+# (click in the Toolbelts window) choose the active belt; reply 0xa5 {i32 slot} (checkmarks).
+ACTIVE_TOOLBELT, PICK_TOOLBELT = 0xA4, 0xF8
+TOOLBELT_SLOTS = (67, 68, 69)
+
+
+def active_toolbelt(slot):
+    return _event(0xA5, struct.pack("<i", slot))
+
+
+def table_items(entries):
+    """0x300 {i32 n, n x (i32 item handle, i32 step id, bool8 selected)}: the Table Setup lists
+    (steps and the items under them; step -1 "Other Items", -2 "Catalysts"). Before 0x2eb."""
+    return _event(0x300, struct.pack("<i", len(entries))
+                  + b"".join(struct.pack("<iiB", h, sid, int(sel)) for h, sid, sel in entries))
+
+
 def rejected(code, name=""):
     return _event(0x2EC, _w(name) + struct.pack("<B", code))
 

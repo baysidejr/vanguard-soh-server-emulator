@@ -153,6 +153,9 @@ EQUIP_SLOTS = {
     "SECONDARYHAND": 29, "LEGS": 32, "HANDS": 33, "WRISTS": 34, "SHOULDERS": 35,
     "TWOHANDS": 36, "CONTAINER3": 38, "MOUNT": 39, "RANGED": 42, "AMMO": 43,
     "HARVESTTOOL": 0x35,
+    # Crafting gear (FUN_0050cc10 tag table): 66 tool, 67-69 the three toolbelts.
+    "TACKLEBOX": 54, "CRA_HEAD": 55, "CRA_APRON": 56, "CRA_CHEST": 57, "CRA_LEGS": 58, "CRA_HANDS": 59,
+    "CRA_FEET": 60, "CRA_TOOL": 66, "CRA_WAIST1": 67, "CRA_WAIST2": 68, "CRA_WAIST3": 69,
 }
 
 

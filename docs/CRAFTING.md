@@ -189,3 +189,93 @@ Open points:
 - The unused step i32.
 - Whether retail sent 0x30d between stages (0x2f7 alone is enough for the client).
 - Whether 0x2f5 must follow 0x2ed before 0x2fd (not needed for the client).
+
+## Utilities and toolbelts (verified live 2026-10-13)
+
+- **Utilities:** a recipe step can need a consumable (`"utility": {"item", "qty"}`; Copper Ingot's "Pour Ingot" step needs Mould Oil, sold at the camp merchant for 5 copper). The client never checks tools or utilities; the server does on the action (0xf6): without the oil it answers 0x2ec {"Mould Oil", 1} ("Missing item: Mould Oil"), with it "You use Mould Oil." and one is taken from the bags. Tools and utilities in the bags are listed under their steps on the Table Setup screen with 0x300 {n, (item handle, step id, selected)} sent before the 0x2eb recipe OK (the catalyst under step -2).
+- **Toolbelts:** crafting equip slots are now known (66 tool, 67-69 the three toolbelts; vgmsg.EQUIP_SLOTS). `/craftingchangeactivetoolbelt 2` sends 0xa4 {68}; the server saves the active belt and answers 0xa5 {68} (the Toolbelts window checkmarks) and 0x30e (closes it). 0xf8 {belt handle} (clicking a belt in the Toolbelts window) does the same; it is not "use tool". Tools are still found anywhere in the bags; belt contents are not enforced yet.
+
+The rest is the client analysis (static, by a research agent).
+
+
+[O] = read in code or XML; [I] = inferred. Frame: zone event `u16 2, u32 id, u32 len, payload`.
+
+### 0. Short answers
+- **The client never decides whether a tool is available.** Recipe steps (0x2ee/0x2ef) and actions (0x2e8) have no tool or utility field. `FUN_005b3980` (0xf6) checks only state 3. The active toolbelt index at inventory+0x6b4 is read only by the 0xa5 handler that sets the checkmarks [O]. No client code walks the toolbelt contents [I: no other reader found]. The server checks tools and utilities when it gets 0xf6. To reject, send `0x2ec {wstr name, u8 code}`: 3 "Missing tool: X", 4 "Missing tool of type: X", 1 "Missing item: X", 2/8 "Missing item of type: X". `server/craft.py` already does this.
+- **Making a tool show as "available"** needs nothing: an action is clickable whenever its family matches the step. To display tools or utilities under a step, list them in **0x300** (below).
+- **Utilities** are placed into the *crafting inventory* (the client's "combat inventory") during Table Setup. The server consumes them when an action that needs one is used. There is no separate "use utility" event: the action itself is the plain `0xf6`. The reply is the normal action reply plus `0x1b3 {handle, newCount}` (stack shrinks) or `0x1b2 {handle}` (gone).
+- **Toolbelt** = a *container* item (field 74 item type 11/12/18, field 14 capacity > 0, field 71 its container id) equipped in slot **CRA_WAIST1/2/3 = 67/68/69 (0x43/0x44/0x45)**. Tools are items of **type 2 "Crafting Tool"** stored inside the belt. Field 97 (+0x580) is the tool tier; with tier > 0 the tooltip says "Crafting Tool".
+
+### 1. Equip slots (FUN_0050cc10 tag table, values 0x50db9f..0x50dfc8) [O]
+HAR_TACKLEBOX 54, CRA_HEAD 55, CRA_APRON 56, CRA_CHEST 57, CRA_LEGS 58, CRA_HANDS 59, CRA_FEET 60, CRA_LEFTFINGER 61, CRA_RIGHTFINGER 62, CRA_LEFTEAR 63, CRA_RIGHTEAR 64, CRA_CONTAINER 65, **CRA_TOOL 66**, **CRA_WAIST1 67, CRA_WAIST2 68, CRA_WAIST3 69**.
+(HEAD=0 and EYES=1 confirm the mapping.) Add these to `vgmsg.EQUIP_SLOTS`.
+- The paper doll (VGUICharacter.xml ~4490) and the "Toolbelts" window (VGUICraftingToolbelts.xml) both show slots CRA_WAIST1..3. A green check appears on the one whose gamevar `bToolbelt<N>Active` is set.
+- Localised text in bin\VGClient.int: "Toolbelt 1/2/3", "Change Toolbelts", and the 0x0e codes **0x11c** DontChangeToolbelt, **0x11d** CantChangeToolbelts ("Unable to change toolbelts at this time."), **0x11e** CantEquipNonToolbelt, **0x141** NeedToolbeltToCraft ("You must be wearing a toolbelt to craft.").
+- Tooltip (FUN_006b2920): a container whose default slot (field 8) is a waist slot reads "<slot name> (N Slots)". Type 2 with tier > 0 reads "Crafting Tool" [O].
+
+### 2. Active toolbelt
+- C **0xa4** `{i32 slot}` (`FUN_004fa090`; it sends only for 0x43..0x45) [O]. It is sent from:
+  - `/craftingchangeactivetoolbelt 1|2|3` (`FUN_00607a30`). Any other number prints "Invalid toolbelt number...".
+  - Using (`equipment_use`, UI case 0x79 → `FUN_0068de60`) an equipped container whose equip slot is 0x43..0x45.
+- C **0xf8** `{i32 itemHandle(+0x650)}` (`FUN_005b3330`) is sent by UI event 0x169 `crafting_change_toolbelt_by_icon` (`FUN_0068b840`): left-clicking a belt in the Toolbelts window [O]. **This corrects CRAFTING.md**, which calls 0xf8 "use tool" / `mo_refining_use_tool`. `mo_refining_use_tool` (0x15f) belongs to the old RefiningStatus window and has no case in the UI dispatcher `FUN_006a8060`, so it is dead.
+- S **0xa5** `{i32 slot}` (`FUN_004f9f30`): stores inventory+0x6b4 and sets bToolbelt1/2/3Active = (slot == 0x43/0x44/0x45) [O]. At init bToolbelt1Active = 1 (`FUN_005113b0`). Send 0xa5 at login and as the reply to 0xa4/0xf8.
+- `/craftingchangetoolbelt` (`FUN_005fc360`) only toggles the gamevar `CraftingChangingToolbelt`, which shows the Toolbelts window under the crafting window. There is also a "Toolbelt" button in VGUICrafting.xml. Nothing is sent. S **0x30e** (no payload, `FUN_005b0280`) clears it (closes the window) [O]. Send 0x30e after the switch.
+
+### 3. Table Setup screen (state 1; "Crafting Table Setup" in VGUICraftingInventory.xml, visible on gamevar CraftingIsSetupOrCrafting)
+Layout: on the left, a "Steps" list (gamevar `CraftingRecipeStepsRequiringItems`). Below it, "Select a step above and choose an item below:" with the item list (`CraftingRecipeUsableItemList`, each entry shows icon, name, a charges/qty number and a green check when selected). Then an auto-fill checkbox, a "slots" label (CombatInvSlotsTaken / InventoryNumCombatSlots), and the buttons Begin / Back / Cancel.
+
+**S 0x300 MsgCraftingUsableItemsToClient** `{i32 n, n × {i32 itemHandle, i32 stepId, bool8 selected}}` (`FUN_005baae0` → `FUN_005b9e80`) [O]:
+- Each call replaces the list at refining+0x1c8.
+- Each record gets the item's name and icon from the bag (`FUN_004fa970`) or from the crafting inventory (`FUN_004faa70`). "Unknown Item" means neither has it. Count = charges (field 33) if nonzero, else quantity if > 1.
+- Step list (`FUN_005b9fd0`) = the distinct stepIds in 0x300, in order. A real stepId uses the recipe step's name (`FUN_005bba10`, matching step+0x40 = the step's family id). **-1** = "Other Items / Items that might be useful"; **-2** = "Catalysts / Items that combine well with the primary ingredient".
+- The list is rebuilt by the **0x2eb OK handler** (`FUN_005ba6c0` → `FUN_005b9fd0(recipe,1)`, auto-selecting the first step) and by the tick (`FUN_005ba5d0`) when the selected step changes. **So send 0x300 before 0x2eb {0xff}** [O].
+
+Client events during setup:
+| UI event | handler | sends |
+|---|---|---|
+| 0x168 `crafting_select_step_needing_item` | `FUN_0068b810`→`FUN_005b3cf0` | sets R+0x1d4 = stepId, lists items with that stepId, **C 0x103** (no payload). In state 3 it only lists the *selected* items (`FUN_005b2f50`) and sends nothing |
+| 0x0e `_scroll_window_select_crafting_item` | `FUN_00686f20`→`FUN_005b2ea0(handle)` | not selected → **C 0x100 {i32 handle}** (`FUN_005b2840`, "add to crafting inventory"); selected → **C 0x101 {i32 handle}** (`FUN_005b29e0`). Both are allowed in state 1 only; otherwise the client prints "You may only manipulate your crafting inventory during the crafting setup process." |
+| drag from bag to the crafting inventory (`FUN_0068a300`) | `FUN_005b2910` | C 0xff {handle, slot} |
+| 0x10e `crafting_auto_fill_inventory_toggle` | `FUN_0068a2c0`→`FUN_005b0400` | **C 0x106** (no payload) [O] |
+| 0x10f `refining_setup_back` | `FUN_0068a2e0`→`FUN_005b05e0` | **C 0x107** (no payload) [O] |
+| 0x103 `refining_setup_finish` (Begin) | `FUN_0068a130` | C 0xfc |
+| 0x105 `refining_cancel` | `FUN_0068a170` | C 0xfd |
+
+(These correct CRAFTING.md: 0x106 = auto-fill toggle and 0x107 = Back, not submit/finish.)
+
+Server replies:
+- **0x100 accepted** → S **0x1b0 {i32 handle, i32 craftSlot}** (`FUN_0050ebf0`). It moves the bag item into the crafting inventory and toggles the item's `selected` flag (`FUN_005b49b0`): green check [O]. Then S **0x305 {i32 slots, i32 slotsTaken}** (`FUN_005b33b0`; InventoryNumCombatSlots / CombatInvSlotsTaken) [O].
+- **0x101** → S **0x1b1 {i32 handle, i32 container(-1), i32 slot}** (`FUN_00512e30`). It moves the item back to the bag and toggles the flag off (`FUN_005b49b0`) [O]. Then 0x305.
+- **0x106** → S **0x30f {bool8}** checkbox (`FUN_005b3640`) [O]. If on, the server may auto-place everything (one 0x1b0 per item) [I].
+- **0x107** → S **0x310** (back to recipe select, state 4) after returning the placed items with 0x1b1 [I].
+- **0x103** needs no reply [I].
+- Optional per-step highlight: S **0x30b {i32 stepId}** sets and **0x30c {i32 stepId}** clears a flag on that step's entry in the crafting window (current stage only; `FUN_005bcdd0`/`FUN_005bcfa0`). Probably "this step still needs an item/tool" [I].
+
+### 4. During crafting (state 3)
+- The same list, filtered to the **selected (placed)** items of the clicked step, stays visible (`FUN_005b2f50`). Clicking an item does nothing useful (0x100/0x101 are refused locally).
+- Utilities are used through actions: C `0xf6 {actionId, -1}`. The server checks that the step's utility is in the crafting inventory and consumes one:
+  - S **0x1b3 {i32 handle, i32 newCount}** (`FUN_00506740`, "stack changed") updates the bag and the usable-item count (`FUN_005b3220(h,count,1,0)`).
+  - At zero, S **0x1b2 {i32 handle}** (`FUN_00506540`, "deleted") clears the item's `selected` flag [O].
+  - If the utility is missing: `0x2ec {"<utility name>", 1|2}`.
+- Tools are not consumed. Check that the **active** toolbelt (the 0xa5 slot) contains the tool item: otherwise `0x2ec {"<tool>", 3}`, or `{"<tool type>", 4}`. Optionally lower durability (field 106) with a normal item update [I].
+- At the end, unused crafting-inventory items go back with 0x1b1, or are deleted with 0x1b2 if consumed.
+
+### 5. Recommended server flow
+1. **Login:** inventory with the toolbelt equipped (0x197: equip slot 67, field 74 = 11, field 14 = capacity, field 71 = belt handle, field 8 = 67, allowed-slot mask 67..69). Tools sit inside the belt (field 15 = belt handle, field 16 = slot, type 2, field 97 = tier ≥ 1). Then **S 0xa5 {67}**.
+2. **C 0xa4 {slot} / C 0xf8 {beltHandle}:** if the slot holds a belt, set it active, then S 0xa5 {slot} and S 0x30e. During an action (state 2) reply 0x0e 0x11d. If the belt isn't one, reply 0x0e 0x11c.
+3. **C 0xfa (station):** with no belt equipped in 67..69, send 0x0e **0x141** NeedToolbeltToCraft and stop (optional, retail behaviour [I]). Otherwise send 0x2ea as now.
+4. **C 0xfe (recipe):** build the 0x300 list from the bags. For each step that needs a utility, list the matching bag stacks `{handle, stepId(step family), 0}`. Put the catalyst item under -2 and other useful items under -1. Tools can be listed too (handles inside the belt) so the player sees them [I]. **Send 0x300, then 0x2eb {0xff,…}**, then 0x305 {slots, 0}.
+5. **C 0xfb** → 0x303 (state 1, Table Setup visible).
+6. **Setup:** on 0x100 {h}, move the stack into the crafting inventory: S 0x1b0 {h, slot}, 0x305. On 0x101 {h}: S 0x1b1 {h, -1, bagSlot}, 0x305. On 0x106: toggle and send 0x30f, auto-placing if on. On 0x107: return items, then 0x310. Ignore 0x103.
+7. **C 0xfc (Begin)** → as now (0x2f6/0x2f8/0x2f7/0x2f5). Optionally send 0x30b {stepId} for steps whose tool or utility is missing.
+8. **C 0xf6 per action:** look up the step's `tool` (in the active belt) and `utility` (in the crafting inventory).
+   - Missing → 0x2ec {name, 3|4|1|2} (the client re-enables the lists only on code 0, so also send 0x2f5 [I], or keep the current behaviour that already works live).
+   - OK → current reply set, plus 0x1b3/0x1b2 for the consumed utility. Utilities can add quality or remove complications, the same way the catalyst does.
+9. **End (success/cancel 0xfd/0x102):** 0x1b1 the leftover crafting-inventory items back to the bags, then 0x2fd.
+
+Recipe data suggestion: per step `"tool": "Crucible Tongs"` (already supported) and `"utility": {"item": "Smelting Flux", "qty": 1}`. Items need `"type": "crafting_tool"` (2), `"toolbelt"` (container 11 with `"slots"`), `"utility"` (type 7, crafting component, or 22).
+
+### 6. Open points
+- What retail listed in 0x300 for tools, and the exact meaning of 0x30b/0x30c.
+- Whether retail required the station's step utility to be placed in setup, or also accepted it from the bags.
+- The toolbelt's own item type (11, 12 or 18) — any container type works for the client.

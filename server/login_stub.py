@@ -4376,6 +4376,7 @@ def handle_craft_event(state, event, data):
             send(craft.recipe_result(craft.RECIPE_MISSING, r["id"]))
         else:
             session.update(recipe=r, begun=False)
+            send(craft.table_items(craft_table(player, r)))
             send(craft.recipe_result(craft.RECIPE_OK, r["id"]))
     elif event == craft.CONFIRM and session["recipe"]:
         send(craft.workbench())
@@ -4419,6 +4420,18 @@ def add_catalyst(state, handle):
     return True
 
 
+def craft_table(player, r):
+    """Table Setup entries: utilities (and tools) from the bags under the steps that use them,
+    the catalyst under -2."""
+    out = []
+    for n, _si, st in craft.all_steps(r):
+        for need in (st.get("utility", {}).get("item"), st.get("tool")):
+            out += [(i[0], craft.step_id(r, n), True) for i in player.items if need and i[1] == need]
+    cat = r.get("catalyst", {}).get("item")
+    out += [(i[0], -2, True) for i in player.items if cat and i[1] == cat]
+    return out
+
+
 def craft_action(state, session, action):
     """One crafting action: a step of the current stage, or a complication's counter."""
     player, send = state["player"], state["send"]
@@ -4451,9 +4464,16 @@ def craft_action(state, session, action):
     if tool and not any(i[1] == tool for i in player.items):
         send(craft.rejected(craft.MISSING_TOOL, tool))       # "Missing tool: <tool>"
         return
+    util = st.get("utility")
+    if util and have_items(player)(util["item"]) < util.get("qty", 1):
+        send(craft.rejected(craft.MISSING_ITEM, util["item"]))   # "Missing item: <utility>"
+        return
     if session["ap"] + st.get("ap", 20) > max_ap:
         send(craft.rejected(6))
         return
+    if util:
+        take_items(state, util["item"], util.get("qty", 1))
+        send(build_system_text(f"You use {util['item']}.", SYSTEM_TEXT_WHITE))
     session["ap"] += st.get("ap", 20)
     session["done"].add(n)
     gain, grade = random.choice([(150, "Excellent!"), (100, "Great!"), (100, "Great!"), (50, "Good")])
@@ -5381,6 +5401,17 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (craft.ACTIVE_TOOLBELT, craft.PICK_TOOLBELT)                 and state.get("player") and not state.get("craft"):
+            # Active toolbelt: a slot (0xa4) or a belt's handle (0xf8, mapped to the slot it is worn in).
+            p = state["player"]
+            ev, v = struct.unpack_from("<I", payload, 2)[0], struct.unpack_from("<i", payload, 10)[0]
+            if ev == craft.PICK_TOOLBELT:
+                v = next((e[3] for e in p.equipment if e[0] == v), 67)
+            if v in craft.TOOLBELT_SLOTS:
+                p.active_toolbelt = v
+                save_character_field(p.name, "active_toolbelt", v)
+                send_message(sock, addr, state, craft.active_toolbelt(v))
+                send_message(sock, addr, state, zone.zone_event(0x30E))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.MENTOR_EVENTS and state.get("player"):
             handle_mentor_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in assembly.CLIENT_EVENTS and state.get("player"):
