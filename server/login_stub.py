@@ -4621,7 +4621,7 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(0x2BB, struct.pack("<Q", npc.entity_id)))   # open the Dialogue window
         out.append(quest.npc_text(npc.entity_id, node["text"]))
         out.append(quest.responses(npc.entity_id, list(dl["nodes"]).index(dl["start"]),
-                                   [r["text"] for r in node.get("responses", [])]))
+                                   [r["text"] for r in visible_responses(player, node)]))
     else:
         out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
     if npc.parley:
@@ -4653,6 +4653,14 @@ def task_master_option(npc):
         if getattr(npc, "task_master", False) else None
 
 
+def visible_responses(player, node):
+    """A dialogue node's responses this player may see: "requires_flag" hides one until the
+    player has earned that flag (e.g. a parley reward "flag"). The client answers by position
+    in this list."""
+    flags = set(getattr(player, "flags", []))
+    return [r for r in node.get("responses", []) if r.get("requires_flag") in (None, *flags)]
+
+
 def handle_dialog_response(state, data):
     """0x15b {i32 dialog index (= node position), u8 response}: follow a conversation."""
     player, send = state["player"], state["send"]
@@ -4664,7 +4672,7 @@ def handle_dialog_response(state, data):
     names = list(dl["nodes"])
     if not 0 <= idx < len(names):
         return
-    rs = dl["nodes"][names[idx]].get("responses", [])
+    rs = visible_responses(player, dl["nodes"][names[idx]])
     if ri >= len(rs):
         return
     r = rs[ri]
@@ -4689,7 +4697,7 @@ def handle_dialog_response(state, data):
         node = dl["nodes"][r["goto"]]
         send(quest.npc_text(npc.entity_id, ""))
         send(quest.npc_text(npc.entity_id, node["text"]))
-        send(quest.responses(npc.entity_id, names.index(r["goto"]), [x["text"] for x in node.get("responses", [])]))
+        send(quest.responses(npc.entity_id, names.index(r["goto"]), [x["text"] for x in visible_responses(player, node)]))
     elif not action or action == "end":
         send(zone.zone_event(quest.END_CONVERSATION))
 
@@ -6149,6 +6157,12 @@ def finish_parley(state, p, result):
     send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
     sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     faction_reward(state, reward)
+    if reward.get("flag") and reward["flag"] not in getattr(player, "flags", []):
+        # Unlocks dialogue: responses with "requires_flag" equal to this flag now show.
+        player.flags = getattr(player, "flags", []) + [reward["flag"]]
+        save_character_field(player.name, "flags", player.flags)
+        if reward.get("flag_text"):
+            send(build_system_text(reward["flag_text"], SYSTEM_TEXT_WHITE))
     if reward.get("civic"):
         # Civic diplomacy: "civic": {"stat": name, "delta": n} moves a server-wide civic value
         # (civic.json, not committed) and tells the player.
@@ -7170,6 +7184,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.songs = list(char.get("songs", []))
             player.fish_records = dict(char.get("fish_records", {}))
             player.discovered = list(char.get("discovered", []))
+            player.flags = list(char.get("flags", []))
             player.assembly_known = list(char.get("assembly_known", []))
             player.title_prefix = char.get("title_prefix", -1)
             player.title_suffix = char.get("title_suffix", -1)

@@ -111,7 +111,7 @@ A parley reward `"civic": {"stat": name, "delta": n, "start": 50}` moves a serve
 A card with diplomacy.json `"refresh": N` can't be played again for N rounds. After it is played the server counts down at the end of each round and sends **0x266** `{i32 card, f32 rounds left, f32 total}` (FUN_0054e1a0; stored at card +0x70); the card on the strategy bar shows "2 Rounds Remaining". Selecting it meanwhile gets 0x330 code 5 ("That statement is not ready yet."). **0x267** (no payload) clears every timer; the server sends it when the parley ends. Compelling Case has refresh 2 (placeholder).
 
 **Not done yet**
-- unlocked dialogue as a reward. Faction (`reward.faction`) and items (`reward.item`: a name or [name, qty], given on every win; verified live: "You receive 2 Travel Rations.") are done; dev `!parleywin` wins the open parley
+- (done, verified live 2026-10-13) unlocked dialogue: a parley reward `"flag": name` (+ optional `"flag_text"`) is saved per character (`flags`); dialogs.json responses with `"requires_flag"` only show once the player has it. Beating Orin adds "Orin says I can be trusted." to the Thestran Guard's conversation. Faction (`reward.faction`) and items (`reward.item`: a name or [name, qty], given on every win; verified live: "You receive 2 Travel Rations.") are done; dev `!parleywin` wins the open parley
 - opening the repertoire window by script (slotting a card from it uses the same `0xd7`)
 - the `0x321` option format with presence requirements
 - the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI)

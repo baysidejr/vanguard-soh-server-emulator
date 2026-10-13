@@ -516,5 +516,15 @@ class FishComboTests(unittest.TestCase):
         self.assertTrue(fishing.record("Sand Carp", {"id": 1}).endswith(bytes([0xFF] * 4)))
 
 
+class DialogFlagTests(unittest.TestCase):
+    def test_visible_responses(self):
+        import login_stub
+        node = {"responses": [{"text": "a"}, {"text": "b", "requires_flag": "x"}, {"text": "c"}]}
+        p = types.SimpleNamespace(flags=[])
+        self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "c"])
+        p.flags = ["x"]
+        self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "b", "c"])
+
+
 if __name__ == "__main__":
     unittest.main()

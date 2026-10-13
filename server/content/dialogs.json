@@ -1,5 +1,5 @@
 {
-  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item>}] (at most 5)}}}. A response with neither goto nor action ends the conversation. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item>}] (at most 5)}}}. A response with neither goto nor action ends the conversation. \"requires_flag\": a flag the player must have earned (a parley reward \"flag\") before the response shows. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
   "wastes_thestran_guard": {
     "start": "hello",
     "nodes": {
@@ -13,6 +13,11 @@
           {
             "text": "Any dangers I should know about?",
             "goto": "dangers"
+          },
+          {
+            "text": "Orin says I can be trusted.",
+            "goto": "trusted",
+            "requires_flag": "orin_trusted"
           },
           {
             "text": "Farewell."
@@ -44,6 +49,19 @@
           },
           {
             "text": "Farewell."
+          }
+        ]
+      },
+      "trusted": {
+        "text": "Does he now? Then hear this: the widows nest in the canyon past the dead trees. Clear them and the camp will owe you.",
+        "responses": [
+          {
+            "text": "Consider it done. (+ camp standing)",
+            "action": "faction:1001:50"
+          },
+          {
+            "text": "Back to my questions.",
+            "goto": "hello"
           }
         ]
       }
