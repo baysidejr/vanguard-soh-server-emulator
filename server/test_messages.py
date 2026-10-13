@@ -282,5 +282,17 @@ class TradeTests(unittest.TestCase):
         self.assertEqual(market.deposit(40), 1)
 
 
+class BagTests(unittest.TestCase):
+    def test_move_swap_and_stack(self):
+        items = [(1, "Rough Stone", 443, 2, 0), (2, "Copper Ingot", 475, 1, 1), (3, "Rough Stone", 443, 3, 5)]
+        self.assertEqual(len(zone.move_item(items, 2, 9)), 1)                  # to an empty slot
+        self.assertEqual(items[1][4], 9)
+        zone.move_item(items, 1, 9)                                             # swap
+        self.assertEqual((items[0][4], items[1][4]), (9, 0))
+        zone.move_item(items, 1, 5)                                             # stack
+        self.assertEqual([(i[0], i[3]) for i in items], [(2, 1), (3, 5)])
+        self.assertIsNone(zone.move_item(items, 42, 1))
+
+
 if __name__ == "__main__":
     unittest.main()

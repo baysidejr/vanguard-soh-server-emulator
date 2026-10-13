@@ -712,6 +712,46 @@ def obstacles_blocked(obs, x, y, z):
     return obstacles.blocked(obs, x, y, z)
 
 
+# Moving items in the bags (docs/INVENTORY.md "Moving and destroying"): client 0x92
+# {i32 handle, i32 container (-1 = the main bags), i32 slot} when an item is dragged to a
+# slot; the server answers 0x1ac {i32 handle, i32 container, i32 slot, i32 0}, which moves
+# it. 0x89 {i32 handle} destroys an item (after the client's "Delete: <item>" popup).
+MOVE_ITEM, DESTROY_ITEM = 0x92, 0x89
+MAX_STACK = 99
+
+
+def item_moved(handle, slot, container=-1):
+    return zone_event(0x1AC, struct.pack("<iiii", handle, container, slot, 0))
+
+
+def move_item(items, handle, slot, max_stack=MAX_STACK):
+    """Move a bag item to a slot: into an empty slot, swap with the item there, or merge
+    into a stack of the same item. Updates items ([(id, name, icon, qty, slot)]) and returns
+    the messages, or None if the item isn't there."""
+    item = next((i for i in items if i[0] == handle), None)
+    if item is None or item[4] == slot:
+        return None
+    other = next((i for i in items if i[4] == slot and i[0] != handle), None)
+    out = []
+    if other is not None and other[1] == item[1] and other[3] < max_stack:
+        moved = min(item[3], max_stack - other[3])
+        items[items.index(other)] = other[:3] + (other[3] + moved, other[4])
+        out.append(zone_event(0x1AE, struct.pack("<ii", other[0], other[3] + moved)))
+        if moved == item[3]:
+            items.remove(item)
+            out.append(zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+        else:
+            items[items.index(item)] = item[:3] + (item[3] - moved, item[4])
+            out.append(zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - moved)))
+        return out
+    if other is not None:
+        items[items.index(other)] = other[:4] + (item[4],)
+        out.append(item_moved(other[0], item[4]))
+    items[items.index(item)] = item[:4] + (slot,)
+    out.append(item_moved(handle, slot))
+    return out
+
+
 def book_recipes(args, player):
     """The recipes in the player's book: no work-order recipes except the active work
     order's, no trainer recipes the player hasn't bought."""

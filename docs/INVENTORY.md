@@ -149,3 +149,9 @@ The second item goes in f16 = 1, and so on up to 49. For a bag item, set f14 = s
 - **Model:** the pawn's `m_AttachmentGroups` is resent so everyone sees the new gear (see [GEAR.md](GEAR.md)).
 - **Item templates** (equip slot, 3D model): `server/content/items.json`.
 - The red icons and "Durability: 0%" are fixed: see [ITEM_FIELDS.md](ITEM_FIELDS.md), which also corrects fields 74 (item type), 76 (level), 77 (damage base), 82 (delay) and 100 (255 = a normal item) in the table above.
+
+## Moving and destroying items (verified live 2026-10-13)
+
+- **Move:** dragging an item to another bag slot sends client **0x92** `{i32 handle, i32 container (-1 = the main bags), i32 slot}`; the client waits for the server. The server answers **0x1ac** `{i32 handle, i32 container, i32 slot, i32 0}` and the icon moves (`zone.move_item`). Onto an occupied slot the two items swap (two 0x1ac); onto a stack of the same item it merges up to 99 (0x1ae new count, 0x1a5 removes the emptied item). Moves into bags inside the bags (container = a bag's handle) are refused for now.
+- **Destroy:** dragging an item out of the window opens the client's "Delete: <item>" popup; Delete sends **0x89** `{i32 handle}`. The server removes it (0x1a5) and prints "You destroy Hunter's Shortsword.".
+- Not done: splitting stacks, moving into and between bags, the combat inventory (0x1ad).
