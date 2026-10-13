@@ -47,9 +47,7 @@ The client's guild dispatcher is `FUN_004f1610`. Requests are zone events.
 
 Custom rank names and the MOTD are stored per guild in `guilds.json` (`ranks`, `motd`, `motd_by`, `motd_time`).
 
-Not done yet:
-- recruiting (0x4ca-0x4ce: recruiting flag, notes, property tags, rank flags; recruiting list 0x4c6-0x4c9)
-- recruiting and guild properties (`0x4ca`–`0x4ce`, `0x4d1`)
+Recruiting, recruiter flags and notes are covered in the sections below.
 
 ## Notes, points and recruiter flag (verified live 2026-10-13)
 
