@@ -24,6 +24,7 @@ import chat
 import combat
 import group
 import grouploot
+import reactions
 import trade
 import quest
 import harvest
@@ -400,6 +401,51 @@ def use_ability(state, args, player, ability):
     if refresh > 0:
         cooldowns[handle] = now + refresh
         send(effects.cooldown(ability[1], refresh))       # keyed by ability id, not the handle
+    chain_next(state, player, ability)
+
+
+def chain_next(state, player, ability):
+    """The ability went off: if it is part of a chain, open the reaction window for the
+    next one (0x391) on the current target."""
+    step = reactions.next_step(getattr(player, "chains", []), ability[1])
+    if step is None:
+        return
+    nxt, kind, window = step
+    rid, msg = reactions.open_reaction(player.target or 0, nxt, window, kind)
+    state.setdefault("reactions", {})[rid] = {"ability": nxt, "ends": time.time() + window}
+    state["send"](msg)
+    print(f"  <- reaction {rid}: {nxt} for {window:g}s ({'finisher' if kind == reactions.FINISHER else 'chain'})")
+
+
+def activate_reaction(state, args, rid):
+    """0x145 {reaction id}: use the ability the window was opened for."""
+    player, send = state["player"], state["send"]
+    r = state.get("reactions", {}).pop(rid, None)
+    print(f"  >>> ZONE activate reaction {rid}")
+    if r is None or time.time() > r["ends"]:
+        send(reactions.result(reactions.TIMED_OUT))
+        send(reactions.close_reaction(rid))
+        return
+    ability = next((a for a in player.abilities if a[1] == r["ability"]), None)
+    send(reactions.result(reactions.OK))
+    send(reactions.close_reaction(rid))
+    if ability is not None:
+        use_ability(state, args, player, ability)
+
+
+def reactions_tick(state, now):
+    """Close reaction windows that ran out (the client closes its own too); all of them
+    when the player dies."""
+    open_ = state.get("reactions")
+    if not open_:
+        return
+    if state["player"].health <= 0:
+        open_.clear()
+        state["send"](reactions.close_all())
+        return
+    for rid in [k for k, r in open_.items() if now > r["ends"]]:
+        open_.pop(rid)
+        state["send"](reactions.close_reaction(rid))
 
 
 def npc_special(state, npc, now):
@@ -2066,6 +2112,7 @@ def world_tick(zone_sock, clients, args):
             harvest_tick(state, now)
             effects_tick(state, args, now)
             breath_tick(state)
+            reactions_tick(state, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":
                 _, lines, npc = action
@@ -5334,6 +5381,9 @@ def dev_command(text, player=None):
     if words[0] == "ui" and len(words) > 1:
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
+    if words[0] == "react" and player:
+        # !react: activate the newest open reaction, as clicking it (0x145) (testing).
+        return [("react",)]
     if words[0] == "kill" and player:
         # !kill: one hit that kills the target (testing loot and kill rewards).
         return [("kill",)]
@@ -5669,9 +5719,14 @@ def handle_message(sock, server, addr, state, payload, args):
                 player.equipment = [tuple(e) for e in char["equipment"]]
             player.xp = char.get("adventure_xp", player.xp)
             player.learned = list(char.get("learned_abilities", []))
+            cname = races_classes.class_name(player.klass)
+            chain_names = reactions.chain_names(args.content.chains, cname)
+            chain_ids = [aid for aid, tag in class_abilities.class_ability_list(args.client_dir, player.klass)
+                         if class_abilities.display_name(tag) in chain_names]
             player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
-                                                                   learned=player.learned)
+                                                                   learned=player.learned + chain_ids)
                                 or player.abilities)
+            player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "
@@ -5725,6 +5780,10 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "gotostate":
                         send_message(sock, addr, state, zone.client_goto_state(state, args, m[1]))
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "react":
+                        if state.get("reactions"):
+                            activate_reaction(state, args, max(state["reactions"]))
                         continue
                     elif isinstance(m, tuple) and m[0] == "kill":
                         kp = state["player"]
@@ -5923,8 +5982,13 @@ def handle_message(sock, server, addr, state, payload, args):
             player = state.get("player")
             ability = next((a for a in getattr(player, "abilities", []) if a[0] == handle), None)
             print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
-            if ability:
+            if ability and reactions.locked(getattr(player, "chains", []), ability[1]):
+                # A chain step or finisher: only through its reaction window (0x145).
+                send_message(sock, addr, state, zone.zone_event(0x242, struct.pack("<B", reactions.REQUIRES_CHAIN)))
+            elif ability:
                 use_ability(state, args, player, ability)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == reactions.ACTIVATE and state.get("player"):
+            activate_reaction(state, args, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 combat.LOOT_REQUEST, combat.LOOT_TAKE, combat.LOOT_TAKE_ALL, combat.LOOT_CLOSE):
             # Loot window: request (u64 corpse), take one (i32 handle), take all (-1), close.

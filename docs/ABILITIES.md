@@ -190,3 +190,14 @@ Rules for a visible, usable ability:
 ## Starting abilities per class
 
 `server/class_abilities.py` gives each adventuring class four starting abilities taken from the client's own `Assets/Abilities/<PREFIX>_ABILITIES.aby` (WAR, PAL, DRK, RNG, ROG, BRD, MNK, DSC, CLR, SHM, DRU, SOR, NEC, PSI, BMG). Each export is named `<PREFIX>_ABILITIES_<id>` and ends with a tag such as `BLADE_WINTER_I`, which becomes the ability's name. The id is also MsgAbilityInfo field 20 and the visual id sent in `0x3d1`, so using the ability plays its real animation. Costs, levels, damage and icons were server-side data and are placeholders. Run `python class_abilities.py` to list the picks.
+
+## Reactions: chains and finishers (verified live 2026-10-13)
+
+Implemented in `server/reactions.py` and `login_stub` (`chain_next`, `activate_reaction`, `reactions_tick`); chains are content (`server/content/chains.json`, per class: opener → up to 4 steps → finisher, by ability name).
+
+- **Ability records** (0x215): wire field #8 (flags, `vgmsg.ability_info(flags=)`): 0x03 = chain opener, 0x02 = chain step / finisher. The client puts chain-type abilities in the Reactions window lists and **locks** steps and finishers: using one directly prints "This ability is not available until the proper reaction is triggered." (server: 0x242 `{0x2a}`). Field #18 is the ability **line** id (ranks of one ability share it; the client picks the best learned rank of the line for a reaction), now sent as the ability id. #42/#43 rescue, #44 counter, #45 sympathetic (not used yet).
+- **Chain definitions** at login, after the ability book: 0x26a (forget all), then one 0x268 per chain: 14 × i32 `{0, 0, 5 × (step ability id, step line id), finisher id, finisher line id}` (step 0 = opener, -1 unused).
+- **Opening a reaction:** when an ability of a chain goes off, the server sends **0x391** `{eid64 target, i32 reaction id, i32 ability id, f32 seconds, i32 type, bool8 0, i32 0, i32 0}` (33 bytes; type 0 chain step, 8 finisher, 2 counter, 3 rescue). A chain button with a link icon pops up above the hotbar, the ability unlocks with a countdown sweep, and the client closes it itself when the time runs out.
+- **Activation:** pressing the unlocked hotbar ability (or the Reactions window button) makes the client send **0x145** `{i32 reaction id}` instead of the normal 0xd0 use. The server answers 0x39a `{u8 0}` ("You successfully activated a combat reaction."; 1 = timed out), closes it with 0x392 `{i32 id}`, uses the ability and opens the next step. 0x396 closes all (sent on death).
+- Verified with Justins (Warrior): Brutal Strike → (3) Savage Cut → (`!react`) Decimate. `!react` activates the newest open reaction.
+- Not done: counters (type 2, during an enemy's cast) and rescues (type 3), which need NPC casts and group threat; 0x393 chain reset and 0x394/0x398 partial clears.

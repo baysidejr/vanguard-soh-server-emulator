@@ -10,6 +10,7 @@ import housing
 import mail
 import market
 import pets
+import reactions
 import titles
 
 
@@ -168,6 +169,34 @@ class SteerTests(unittest.TestCase):
     def test_boxed_in_stops(self):
         n = self.npc(lambda x, y, z: (x, y) != (0.0, 0.0))
         self.assertEqual(combat.steer(n, 1.0, 0.0, 20.0), (None, None))
+
+
+class ReactionTests(unittest.TestCase):
+    CHAINS = {"Warrior": [{"opener": "A", "steps": ["B"], "finisher": "C", "window": 5}]}
+    ABILITIES = [(1, 101, "A"), (2, 102, "B"), (3, 103, "C"), (4, 104, "D")]
+
+    def chains(self):
+        return reactions.class_chains(self.CHAINS, "Warrior", self.ABILITIES)
+
+    def test_chain_flow(self):
+        ch = self.chains()
+        self.assertEqual(ch, [{"ids": [101, 102, 103], "window": 5}])
+        self.assertEqual(reactions.next_step(ch, 101), (102, reactions.CHAIN_STEP, 5))
+        self.assertEqual(reactions.next_step(ch, 102), (103, reactions.FINISHER, 5))
+        self.assertIsNone(reactions.next_step(ch, 103))
+        self.assertEqual([reactions.flags(ch, a) for a in (101, 102, 103, 104)], [3, 2, 2, 0])
+
+    def test_define_layout(self):
+        eid, data = payload(reactions.define(self.chains()[0]))
+        self.assertEqual(eid, 0x268)
+        self.assertEqual(struct.unpack("<14i", data),
+                         (0, 0, 101, 101, 102, 102, -1, -1, -1, -1, -1, -1, 103, 103))
+
+    def test_open_is_33_bytes(self):
+        rid, msg = reactions.open_reaction(7, 102, 5.0)
+        eid, data = payload(msg)
+        self.assertEqual((eid, len(data)), (0x391, 33))
+        self.assertEqual(struct.unpack_from("<Qii", data), (7, rid, 102))
 
 
 if __name__ == "__main__":

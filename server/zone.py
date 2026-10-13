@@ -646,11 +646,16 @@ DEFAULT_COINS = 12345   # copper: 1 gold 23 silver 45 copper
 def ability_messages(player):
     """0x21b clears the ability book, one 0x215 per ability, 0x21d marks it loaded
     (FUN_0042bd80 / FUN_00432570). The client creates the book lists itself."""
+    import reactions
+    chains = getattr(player, "chains", [])
     out = [zone_event(0x21B)]
     for handle, ability_id, name, icon, desc, refresh in player.abilities:
         out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
-                                                       refresh=refresh)))
+                                                       refresh=refresh,
+                                                       flags=reactions.flags(chains, ability_id))))
     out.append(zone_event(0x21D))
+    out.append(reactions.forget_all())
+    out += [reactions.define(c) for c in chains]
     out.append(hotbar_message(player))
     return out
 

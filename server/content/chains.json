@@ -1,0 +1,9 @@
+{
+  "_comment": "Combat chains per class (class name as in races_classes): opener -> steps (up to 4) -> finisher, by ability display name (class_abilities.display_name). Landing one ability opens a reaction window (window seconds, default 6) for the next; steps and the finisher can only be used through it. The chain abilities are added to the class's ability book. Placeholder chains: which abilities really chained, and their windows, were server data (docs/CONTENT_EDITOR.md).",
+  "Ranger": [
+    {"opener": "Blade Winter I", "steps": [], "finisher": "Blade Summer I", "window": 6}
+  ],
+  "Warrior": [
+    {"opener": "Brutal Strike I", "steps": ["Savage Cut I"], "finisher": "Decimate I", "window": 6}
+  ]
+}

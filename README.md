@@ -110,6 +110,7 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - Group with another player using `/invite Name` and `/groupacceptinvite`.
 - Chat with `/shout`, `/tell Name …`, `/ooc`, `/g`, `/emote …`, `/wave`. Use `/sit` to rest and `/camp` to camp.
 - Walk or teleport past a chunk edge to enter the neighbouring zone.
+- [x] Combat chains: an opener unlocks the next step and the finisher for a few seconds (the client's reaction button); coin on corpses
 - At the camp in the Sundering Wastelands: Veyla trains abilities, Brenna sells recipes and assembly recipes, Garret Holm hands out work orders, Hollis Grent is the banker, Tamsin Vale the broker; the Mailbox, Camp Forge, Assembly Bench, Altar of Binding and a Riftseeker brazier stand nearby.
 - Buy a Thestran Riding Horse, a Wolf Whistle (pet), a Fishing Pole with bait, or furniture from Orin, then right-click them in your bags.
 - Inspect the For Sale sign south of camp (`!plot` with dev commands) to buy a plot and build a cottage.
@@ -136,6 +137,7 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!tombstone` / `!rezme` | Leave your tombstone here / get a resurrection offer |
 | `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
 | `!kill` | Kill the target with one hit |
+| `!react` | Activate the newest open combat reaction (chain step) |
 | `!lootmode <0-4> [rarity 0-6]`, `!roll need/greed/pass` | Group loot mode (as the leader's popup) and roll answers |
 | `!deftarget <player>` | Set another player as defensive target (then `/duel`) |
 | `!fishbite` | Pretend the fishing bobber landed in water |
