@@ -2,7 +2,9 @@
 
 > **Partly verified live (2026-10-13):** Brenna Ashford (`assembly_trainer` in mobs.json) shows the client's option "Do you have any assembly recipes?" (0x2b8). Clicking it (0x16e) opens "Assembly Recipe Training" with Copper Ring (1 silver, 0x49c + count-prefixed 0x49d). Train (0x170 {recipe}) prints "You lose 1 silver." and "Assembly recipe added: Copper Ring" (0x34d MsgAddAssemblyRecipe), then Done (0x16f) "Training ended." (0x49f 5). Right-clicking the Assembly Bench (EntityTypes 0x800000|0x10) opens Abilities > Crafting > Assembly without any message to the server.
 >
-> **Not working yet:** the Assembly page's category dropdown and recipe tree stay empty ("None"); the client never asks for the tree (0x121), and an unprompted 0x350 is not shown. The assemble step (0x11f, timer 0x34b, success 0x349) is coded but untested. All items now carry a template id in field 1 (`zone.template_id`, stable per item name), which the client uses to match ingredients; handles (field 71) stay unique.
+> **Assembly window (verified live):** the dropdowns and recipe list are a category tree sent at login: 0x2ac {"Assembly", 900000, type 10} creates the root and 0x2ab {name, id, parent} adds each category; recipes need a 4-level category (Jewelry > Rings > Copper > All). Picking "Jewelry" in the top dropdown makes the client select the lower levels and send 0x121 {tertiary id}; the server answers 0x350 with the learned recipes parented to that id, and "Copper Ring" appears. Selecting it sends 0x124; 0x354 lists the bag items whose field 1 (template id) matches, and the window shows "Copper Wire 1 / 1", "Copper Ingot 2 / 1" and enables Assemble. Assemble sends 0x11f {5 x (recipe, item handle, qty)} (only filled slots are sent); the server checks the bench (800 units), shows the timer (0x34b), and after 3 s takes the ingredients and gives the item: "You receive Copper Ring.", "You have successfully assembled a new item!" (0x349).
+>
+> Every item now carries a template id in field 1 (`zone.template_id`, stable per item name); handles (field 71) stay unique. Equip and inventory moves still work.
 
 Server: `server/assembly.py`, `login_stub.handle_assembly_event/assembly_tick`. Content: `server/content/assembly.json` (Copper Ring = Copper Wire + Copper Ingot).
 
@@ -134,3 +136,57 @@ f3 and f6 are probably skill level and category or station type [I].
 - The meaning of 0x120 and of recipe fields f3 / f6.
 - The root tree node id, and the purpose of the -3 parent special case in `FUN_0045e820`.
 - Whether the item template cache is keyed by field 1. Test this live.
+## Tree and dropdown (follow-up)
+
+### Why the page stayed empty [O]
+- **The four dropdowns are filled from a client-side category tree.** That tree is built by **zone messages 0x2ac and 0x2ab** (dispatcher `FUN_0045fda0`), not by 0x350.
+  - Bound gamevars in VGUIAbilities.xml `cft_assembly_recipes`:
+    - `_assembly_types` → `AssemblyTypes` / `SelectedAssemblyTypeIndex`. This one keeps the default "None" entry.
+    - `_assembly_primary_categories` → `AssemblyPrimaryCategories`.
+    - `_assembly_secondary_categories` → `AssemblySecondaryCategories`.
+    - `_assembly_tertiary_categories` → `AssemblyTertiaryCategories`.
+  - A selection in any dropdown is UI 0xc3 `assembly_category_select` (intData 0..3) → `FUN_0045dbf0` → `FUN_0045d2c0` / `FUN_0045c7f0` / `FUN_00457bf0` / `FUN_004569c0`.
+- **0x2ac** `{wstr name, i32 id, i32 treeType}` (`FUN_0045f540`) creates the **root**, and only when treeType == **10**. It sets B+0x3c = B+0x40 = root.
+  - The zone dispatcher first offers the message to `FUN_0061c830` (another category system, which accepts types 0 and 4). That handler returns 0 for type 10, so the message falls through to the assembly handler.
+- **0x2ab** `{wstr name, i32 id, i32 parentId}` (`FUN_0045fc40`) adds a category.
+  - The parent is looked up in the assembly category map. The node is **discarded unless its ancestor chain reaches the root**, so the parent must already have been sent, and the root must come first.
+  - Children of the root are appended to the **`AssemblyTypes` dropdown** (`FUN_0045fad0`). Deeper nodes go into the Primary, Secondary or Tertiary list when their parent is the selected node at that level (`FUN_0045ea80`).
+  - `FUN_0061be80` sees 0x2ab first and swallows it (returns 1) if the id already exists in *its* map. Keep assembly category ids unique across both systems.
+- **0x2a1** (no payload) resets both category systems: `FUN_0045f400`, then `FUN_0061c5d0`.
+- **The tree root is UI node id -3, "Assembly Recipes" (parent -1).**
+  - It is created only by `FUN_00455800(filterNode)`. That function clears `FilteredAssemblyRecipeTree`, adds the -3 root, and adds folder nodes for the filter's sub-categories, each with a "Retrieving recipes..." placeholder child (`FUN_00454710`).
+  - With a non-zero filter node, **it also sends 0x121 {filterNode id}** (`FUN_00452000`, which sets B+0x40).
+- **`FUN_00455800` with a real node runs only when the tertiary selection B+0x50 changes** (`FUN_00456420`). Exceptions: the unreferenced `FUN_0045b030`, and refreshes from `FUN_0045ea80` with the current B+0x50.
+- **Selecting a Type auto-selects downward.**
+  - `FUN_0045c5b0` → `FUN_004579b0` → `FUN_00456780` → `FUN_00456420` picks the **first child at each level**.
+  - So 0x121 is sent only if the chosen Type has a **4-level chain: Type → Primary → Secondary → Tertiary**. With fewer levels, B+0x50 stays 0 and nothing is requested.
+- **How 0x350 places nodes** (`FUN_0045e820`): an entry whose parentId == the current tertiary id (B+0x50 +0x1c) goes under the -3 root. Any other parentId is used as the UI parent id directly.
+  - Your entries used parents 0 and 900001. No UI node has either id, so nothing was drawn.
+  - 0x350 is not filtered by B+0x40; it is accepted at any time.
+- **What sends 0x121 the first time:**
+  - (a) the cascade above, when a Type is picked;
+  - (b) any 0x34c or 0x34d after 0x2ac. These re-request B+0x40, which 0x2ac set to the root, so the client sends 0x121 {rootId};
+  - (c) expanding a folder node (UI 0xc8 → `FUN_00456570`). This works only for ids in the category map.
+
+### Exact sequence for Copper Ring
+1. At login, send 0x34c Copper Ring (recipe id 6001) as now. The 0x353 templates for the ingredients and the reward are recommended.
+2. Send the categories, after the recipes or at any time:
+   - (optional) `0x2a1`
+   - `0x2ac {"Assembly", 900000, 10}`
+   - `0x2ab {"Jewelry", 900001, 900000}` → appears in the top dropdown (Types)
+   - `0x2ab {"Rings", 900002, 900001}` → Primary
+   - `0x2ab {"Copper", 900003, 900002}` → Secondary
+   - `0x2ab {"All", 900004, 900003}` → Tertiary (this is the filter node)
+3. The player picks **Jewelry** in the top dropdown.
+   - The client auto-selects Rings / Copper / All.
+   - It builds the "Assembly Recipes" (-3) root and sends **`0x121 {900004}`**.
+4. Reply **`0x350 {n=1: ("Copper Ring", 6001, 900004)}`**. The leaf appears under "Assembly Recipes".
+5. The player clicks the leaf.
+   - UI 0xc5 → `FUN_0045db20`: B+8 = 6001. The recipe is cached from 0x34c, so `FUN_0045ca40` runs.
+   - The client sends `0x123 {6001}` if templates are missing (answer with 0x353 + 0x352), else `0x124 {6001}`.
+   - Answer 0x124 with `0x354`.
+6. Answer any other 0x121 (for example `{900000}`, which a later 0x34c/0x34d triggers) with the children of that id, or `0x350 {n=0}`.
+   - Leaves must use the requested node id as parentId.
+   - Leaves under the filter node must use the filter id (900004). The client maps that to the -3 root.
+
+[I] An untested shortcut: once any second-level category exists, `FUN_00455800(0)` has already drawn an empty -3 root. A 0x350 sent with parentId = -3 might then attach directly without the 4-level chain. The 4-level sequence above is the one the code supports by design.

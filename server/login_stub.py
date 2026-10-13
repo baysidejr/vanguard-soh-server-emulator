@@ -1708,12 +1708,18 @@ def asm_candidates(player, r):
     return [(it[0], r["id"]) for it in player.items if it[1] in names]
 
 
-def asm_tree(player):
-    """0x350: one folder per category (parent 0), the learned recipes under them (node id = recipe id)."""
-    cats = sorted({r.get("category", "Assembly") for r in asm_recipes(player).values()})
-    nodes = [(c, assembly.ROOT_NODE + 1 + n, 0) for n, c in enumerate(cats)]
-    nodes += [(r["name"], r["id"], assembly.ROOT_NODE + 1 + cats.index(r.get("category", "Assembly")))
-              for r in asm_recipes(player).values()]
+def asm_categories(player):
+    paths = sorted({tuple(r.get("category", ["Assembly", "General", "General", "All"]))
+                    for r in ARGS.content.assembly.values()})
+    return assembly.categories(paths)
+
+
+def asm_tree(player, node=None):
+    """0x350 for the tertiary category `node` (the client's 0x121): the learned recipes in it,
+    parented to that node id (the client hangs them under its "Assembly Recipes" root)."""
+    _msgs, ids = asm_categories(player)
+    nodes = [(r["name"], r["id"], node) for r in asm_recipes(player).values()
+             if node is not None and ids.get(tuple(r.get("category", []))) == node]
     return assembly.tree(nodes)
 
 
@@ -1723,8 +1729,8 @@ def assembly_login(state):
         for name in [r["reward"]] + [i["item"] for i in r["ingredients"]]:
             send(asm_template(name))
         send(assembly.learn(r, zone.template_id))
-    if asm_recipes(state["player"]):
-        send(asm_tree(state["player"]))
+    for m in asm_categories(state["player"])[0]:
+        send(m)
 
 
 def handle_assembly_event(state, event, data):
@@ -1767,9 +1773,8 @@ def handle_assembly_event(state, event, data):
                 send(asm_template(name))
             send(assembly.learn(r, zone.template_id, announce=True))
             send(assembly.trainer_result(r["id"], 0))
-            send(asm_tree(player))
-    elif event == assembly.TREE:
-        send(asm_tree(player))
+    elif event == assembly.TREE and vals:
+        send(asm_tree(player, vals[0]))
     elif event in (assembly.DETAILS, assembly.TEMPLATES, assembly.CANDIDATES) and vals:
         key, r = asm_by_id(vals[0])
         if r is None:

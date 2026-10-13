@@ -65,7 +65,7 @@ The unmodified client, talking only to this emulator:
 - [x] Duels: /duel challenge popup, countdown, auto-attack fight to 1 HP; caravans (invite, member list, remove, log in at the caravan after 3 hours offline)
 - [x] Pets: summon a wolf from an item; it follows and attacks on /pet attack
 - [x] Fishing: cast into water, the pull minigame, catch fish, bait use and Fishing skill-ups
-- [ ] Assembly crafting: trainer and recipe book work; the assembly window's recipe list does not show yet
+- [x] Assembly crafting: assembly trainer, recipe categories, combine components into an item at an assembly bench
 - [x] Riftways: /rift and the client's Riftway map travel between riftway stones (one destination placed)
 - [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instant construction), place and pick up furniture, storage chests
 - [ ] Crafting toolbelts and utilities; the hotbar cooldown sweep

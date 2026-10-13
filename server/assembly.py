@@ -61,6 +61,24 @@ def template(record):
     return _event(0x353, record)
 
 
+CATEGORY_ROOT = 900000            # category ids (must not collide with other category trees)
+TREE_TYPE = 10                    # 0x2ac tree type for assembly
+
+
+def categories(paths):
+    """0x2ac root + one 0x2ab {wstr name, i32 id, i32 parent} per category, from 4-level paths.
+    Returns (messages, {path tuple: id})."""
+    out = [_event(0x2AC, _w("Assembly") + struct.pack("<ii", CATEGORY_ROOT, TREE_TYPE))]
+    ids = {(): CATEGORY_ROOT}
+    for path in paths:
+        for depth in range(1, len(path) + 1):
+            key = tuple(path[:depth])
+            if key not in ids:
+                ids[key] = CATEGORY_ROOT + len(ids)
+                out.append(_event(0x2AB, _w(key[-1]) + struct.pack("<ii", ids[key], ids[key[:-1]])))
+    return out, ids
+
+
 def tree(nodes):
     """nodes: [(name, node id, parent id)]."""
     return _event(0x350, struct.pack("<i", len(nodes))

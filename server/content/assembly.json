@@ -1,11 +1,16 @@
 {
-  "_comment": "Assembly recipes (docs/ASSEMBLY.md). key: {id, name, description, reward (item), ingredients [{item, qty}] (up to 5), seconds, category (tree folder), trainer_cost (bought from a recipe trainer that lists it in assembly_trainer)}. Placeholder data.",
+  "_comment": "Assembly recipes (docs/ASSEMBLY.md). key: {id, name, description, reward (item), ingredients [{item, qty}] (up to 5), seconds, category (4 levels: [type, primary, secondary, tertiary] for the assembly window's dropdowns), trainer_cost (bought from a recipe trainer that lists it in assembly_trainer)}. Placeholder data.",
   "copper_ring": {
     "id": 6001,
     "name": "Copper Ring",
     "description": "A plain ring of copper wire.",
     "reward": "Copper Ring",
-    "category": "Jewelry",
+    "category": [
+      "Jewelry",
+      "Rings",
+      "Copper",
+      "All"
+    ],
     "ingredients": [
       {
         "item": "Copper Wire",
