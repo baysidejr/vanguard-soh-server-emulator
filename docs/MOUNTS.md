@@ -4,7 +4,7 @@
 >
 > **Mounted speed (verified live):** after the attachment update the server sends `GroundSpeed` in its own bunch: 1.6 x the client's 337.889 (read from pawn +0x7f0). Holding W for 3 s: 1012 units on foot, 1588 mounted. Dismounting sends the base speed again.
 >
-> **Not done:** flying mounts (`m_MountType = 3`): `!mount 7000 fly` and `!mount 1000 fly` were tried live; holding jump showed no flight in screenshots, and the flying mesh ids are unknown. Also barding (slot 45) and the mount item's icon (1225 is a placeholder).
+> **Not done:** flying mounts (`m_MountType = 3`). The flying meshes in MOUNT_ITEMS.uem are the pegasus ones: MOUNT_9006 and MOUNT_100200-100206 (their EMFXMesh data starts with `pegasus_M_char_*` names; the package also names griffon, drake, wyvern and manticore meshes, the last three marked "NPC Flying Mount Only"). `!mount 100200 fly` (now also sending AirSpeed) put Ranger higher but drew no pegasus, and holding jump only lifted him from z 541 to 550; `!mount 7000/1000 fly` also showed no flight. Next step: check which slot and pawn class MountUp needs for these meshes (slot 40 MOUNTFLYING and the IsA check in FUN_00bcbd20). Also barding (slot 45) and the mount item's icon (1225 is a placeholder).
 
 Server: `login_stub.set_mount`, `zone.gear_attachments` (MOUNT_PACKAGE 500, MOUNT_SLOT 39). Content: items.json `"mount": {"id": 1000, "type": 1}`; the camp merchant sells the horse for 500 copper.
 

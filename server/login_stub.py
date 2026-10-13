@@ -905,7 +905,10 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
         w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
     # Riding speed: GroundSpeed in a later bunch (MountUp resets it to the race default).
     speed = BASE_GROUND_SPEED * (MOUNT_SPEED if mount_id else 1.0)
-    state["send"](zone.player_pawn_update(state, args, {"GroundSpeed": speed}))
+    values = {"GroundSpeed": speed}
+    if kind == zone.MOUNT_FLYING and mount_id:
+        values["AirSpeed"] = speed                 # flying mounts move with AirSpeed in PHYS_Flying
+    state["send"](zone.player_pawn_update(state, args, values))
 
 
 BASE_GROUND_SPEED = 337.889       # the client's own value for player races (pawn +0x7f0, read live)
