@@ -5939,6 +5939,22 @@ def handle_recipe_trainer_event(state, event, data):
         send(trainer.recipe_end())
 
 
+CIVIC_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "civic.json")
+
+
+def load_json_file(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return default
+
+
+def save_json_file(path, data):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+
 def finish_parley(state, p, result):
     player, send = state["player"], state["send"]
     state.pop("parley", None)
@@ -5969,6 +5985,14 @@ def finish_parley(state, p, result):
     send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
     sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     faction_reward(state, reward)
+    if reward.get("civic"):
+        # Civic diplomacy: "civic": {"stat": name, "delta": n} moves a server-wide civic value
+        # (civic.json, not committed) and tells the player.
+        civ = reward["civic"]
+        stats = load_json_file(CIVIC_FILE, {})
+        stats[civ["stat"]] = stats.get(civ["stat"], civ.get("start", 50)) + civ["delta"]
+        save_json_file(CIVIC_FILE, stats)
+        send(diplomacy.civic_update(civ["stat"], stats[civ["stat"]], civ["delta"]))
     if reward.get("item"):
         # diplomacy.json "reward": {"item": name or [name, qty]}: every win (the bag must have room).
         name, qty = (reward["item"], 1) if isinstance(reward["item"], str) else reward["item"]

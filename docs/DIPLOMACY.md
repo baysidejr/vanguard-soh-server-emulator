@@ -102,6 +102,10 @@ Each character keeps its own deck (`diplomacy_deck`) and strategy-bar layout (`d
 - Moving a card on the bar sends **`0xd7 {i32 card, i32 slot}`** (seen live: `59 9c 00 00 03 00 00 00`, Reasoned Argument to slot 4). Taking it off sends `0xd8 {i32 card, bool8}`. The server answers `0x239` then `0x237`: the client ignores `0x237` for a card that is already in a slot. The layout survived a restart.
 - A parley's `reward.card` is added to the deck on the first win: beating Orin printed "You learn a new diplomacy strategy: Rousing Toast." (card 40029). Cards beyond the bar size wait in the repertoire.
 
+## Civic diplomacy (verified live 2026-10-13)
+
+A parley reward `"civic": {"stat": name, "delta": n, "start": 50}` moves a server-wide civic value, saved in `server/civic.json` (not committed). The server sends **0x33d** MsgCivicDiplomacyUpdateStat `{wstr stat, i32 now, i32 delta}` (FUN_005518f0) and the client prints "You have increased Thestran Wastes Camp Prosperity by 5. It is now 55." (VGClient.int CivicDiplomacyVarInc; a negative delta uses CivicDiplomacyVarDec). What civic values did in the real game was server data (CONTENT_EDITOR.md).
+
 ## Card refresh (verified live 2026-10-13)
 
 A card with diplomacy.json `"refresh": N` can't be played again for N rounds. After it is played the server counts down at the end of each round and sends **0x266** `{i32 card, f32 rounds left, f32 total}` (FUN_0054e1a0; stored at card +0x70); the card on the strategy bar shows "2 Rounds Remaining". Selecting it meanwhile gets 0x330 code 5 ("That statement is not ready yet."). **0x267** (no payload) clears every timer; the server sends it when the parley ends. Compelling Case has refresh 2 (placeholder).
@@ -110,6 +114,6 @@ A card with diplomacy.json `"refresh": N` can't be played again for N rounds. Af
 - unlocked dialogue as a reward. Faction (`reward.faction`) and items (`reward.item`: a name or [name, qty], given on every win; verified live: "You receive 2 Travel Rations.") are done; dev `!parleywin` wins the open parley
 - opening the repertoire window by script (slotting a card from it uses the same `0xd7`)
 - the `0x321` option format with presence requirements
-- Civic Diplomacy (`0x33d`, `0x340`, `0x341`)
+- the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI)
 
 Unknown fields: the trailing wstr in `0x31d`; card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.

@@ -39,6 +39,12 @@ def _w(text):
     return (text + "\0").encode("utf-16-le")
 
 
+def civic_update(stat, now, delta):
+    """0x33d MsgCivicDiplomacyUpdateStat {wstr stat, i32 now, i32 delta} (FUN_005518f0): "You have
+    increased %1 by %2. It is now %3." (decreased when delta < 0; VGClient.int CivicDiplomacyVarInc/Dec)."""
+    return _event(0x33D, _w(stat) + struct.pack("<ii", now, delta))
+
+
 def refresh_timer(cid, left, total):
     """0x266 MsgIntAndTwoFloats {i32 card, f32 rounds left, f32 total} (FUN_0054e1a0): the card's
     refresh count on the strategy bar (card +0x70; 0 = ready)."""
