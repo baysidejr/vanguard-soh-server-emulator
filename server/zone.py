@@ -15,6 +15,7 @@ import content
 import merchant
 import harvest
 import craft
+import workorder
 import diplomacy
 import quest
 import world
@@ -98,7 +99,10 @@ def handle_unreal(send, state, payload, args):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
         # Recipe book and crafting actions (silent adds).
-        for r in args.content.recipes.values():
+        wo = args.content.workorders.get(getattr(player, "work_order", None) or "", {})
+        for key, r in args.content.recipes.items():
+            if r.get("work_order") and key != wo.get("recipe"):
+                continue
             send(craft.learn_recipe(r))
             for n in range(len(craft.all_steps(r))):
                 send(craft.learn_action(r, n))
@@ -153,6 +157,7 @@ def populate_world(w, args):
         npc.prop = bool(template.get("prop"))
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))
+        npc.task_master = bool(template.get("task_master"))
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
@@ -176,6 +181,8 @@ def populate_world(w, args):
             npc.props["EntityTypes"] = harvest.HARVESTABLE
         if npc.station:
             npc.props["EntityTypes"] = craft.STATION
+        if npc.task_master:
+            npc.props["EntityTypes"] = workorder.TASK_MASTER
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
         if "gender" in template:

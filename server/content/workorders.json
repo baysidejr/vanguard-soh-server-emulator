@@ -1,0 +1,26 @@
+{
+  "_comment": "Crafting work orders (docs/WORK_ORDERS.md). key: {id, name, description, icon, task_master (mob template id of the issuer), recipe (recipes.json key, a work-order recipe), supplies {item: n} (given on accept, taken back on abandon), deliver {item: n} (handed in), difficulty (skill level it is 'moderate' for), skill (stat id, 0x28 = 40 Smelting), reward {coin, xp, faction {id: n}}}. Orders can be repeated. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "camp_ingots": {
+    "id": 7001,
+    "name": "Copper Ingots for the Camp",
+    "description": "The camp needs copper ingots to mend its tools. Smelt the ore I give you and bring back two ingots.",
+    "icon": 475,
+    "task_master": "camp_taskmaster",
+    "recipe": "wo_copper_ingot",
+    "supplies": {
+      "Requisition Copper Ore": 4
+    },
+    "deliver": {
+      "Requisitioned Copper Ingot": 2
+    },
+    "difficulty": 1,
+    "skill": 40,
+    "reward": {
+      "coin": 120,
+      "xp": 200,
+      "faction": {
+        "1001": 150
+      }
+    }
+  }
+}

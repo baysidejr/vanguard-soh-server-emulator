@@ -6,6 +6,7 @@ in comments). Run:  python login_stub.py [--port 10101]
 """
 import argparse
 import json
+import math
 import os
 import random
 import select
@@ -28,6 +29,7 @@ import harvest
 import craft
 import trainer
 import faction
+import workorder
 import bank
 import social
 import effects
@@ -1634,6 +1636,8 @@ def npc_dialog(state, npc):
     if npc.parley:
         opts.append(("Let's talk business. (Parley)", diplomacy.PARLEY_OPTION_ID,
                      diplomacy.OPTION_TYPE))
+    if task_master_option(npc):
+        opts.append(task_master_option(npc))
     if opts:
         out.append(quest.options(npc.entity_id, opts))
     if npc.merchant:
@@ -1645,6 +1649,11 @@ def npc_dialog(state, npc):
     if npc.banker:
         out.append(zone.zone_event(bank.OPTION))
     return out
+
+
+def task_master_option(npc):
+    return ("I'm looking for work. (Work orders)", workorder.OPTION_ID, workorder.OPTION_TYPE) \
+        if getattr(npc, "task_master", False) else None
 
 
 def quest_by_id(qid):
@@ -1953,7 +1962,7 @@ def adjust_faction(state, fid, delta, quiet=False):
 def faction_kos(player, npc):
     """True when npc's faction holds the player Kill on Sight (it attacks on sight)."""
     fid = getattr(npc, "faction", None)
-    if fid is None or npc.station or npc.trainer or npc.banker or npc.repairs:
+    if fid is None or npc.service():
         return False
     return faction_value(player, fid) < faction.TIERS[0][0]
 
@@ -2002,6 +2011,135 @@ def handle_faction_event(state, event, data):
     for fid, f in rows:
         v = faction_value(player, fid)
         say(f"  {f['name']}: {faction.tier(v)} ({v})")
+
+
+def wo_by_id(wid):
+    return next(((k, w) for k, w in ARGS.content.workorders.items() if w["id"] == wid), (None, None))
+
+
+def wo_record(player, w):
+    tm = ARGS.content.mobs.get(w["task_master"], {})
+    return workorder.record(w, tm.get("name", ""), workorder.con(player_skill(player, w.get("skill", 40)),
+                                                                 w.get("difficulty", 1)))
+
+
+def wo_available(player, npc):
+    return [wo_record(player, w) for k, w in ARGS.content.workorders.items()
+            if w["task_master"] == npc.template_id and k != getattr(player, "work_order", None)]
+
+
+def workorder_login(state):
+    player = state["player"]
+    w = ARGS.content.workorders.get(getattr(player, "work_order", None) or "")
+    if w:
+        state["send"](workorder.active(wo_record(player, w)))
+        state["send"](workorder.needed(w))      # 0x4a7 drops the needed-items text
+
+
+def set_work_order(state, key):
+    player = state["player"]
+    player.work_order = key
+    save_character_field(player.name, "work_order", key)
+
+
+def handle_workorder_event(state, event, data):
+    """Task master work orders (workorder.py, content/workorders.json)."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE work order event {event:#x}: {data.hex(' ')}")
+    npc = player.npcs.get(player.target) if player.target else None
+    wid = struct.unpack_from("<i", data)[0] if len(data) >= 4 else -1
+    key, w = wo_by_id(wid)
+    mine = getattr(player, "work_order", None)
+    if event == workorder.REQUEST:
+        if npc is None:
+            send(workorder.ended(4))
+        elif not getattr(npc, "task_master", False):
+            send(workorder.ended(workorder.NOT_TASK_MASTER))
+        elif player_distance(player, npc) > 1500:
+            send(workorder.ended(workorder.TOO_FAR))
+        else:
+            state["requisition"] = npc.template_id
+            offers = wo_available(player, npc)
+            send(workorder.open_window())
+            send(workorder.available(offers))
+            if not offers:
+                send(workorder.ended(workorder.NO_WORK))
+    elif event == workorder.END:
+        state.pop("requisition", None)
+        send(workorder.ended(workorder.ENDED))
+    elif event == workorder.SELECT:
+        if not state.get("requisition"):
+            send(workorder.select_result(wid, workorder.NOT_REQUISITIONING))
+        elif w is None or w["task_master"] != state["requisition"]:
+            send(workorder.select_result(wid, workorder.NOT_AVAILABLE))
+        elif mine:
+            send(workorder.select_result(wid, workorder.ALREADY_WORKING))
+        elif zone.BAG_SLOTS - len(player.items) < len(w.get("supplies", {})):
+            send(build_system_text("You need more room in your bags for the work order supplies.",
+                                   SYSTEM_TEXT_ERROR))
+            send(workorder.select_result(wid, workorder.FAILED))
+        else:
+            set_work_order(state, key)
+            send(workorder.select_result(wid, workorder.OK))
+            send(workorder.active(wo_record(player, w)))
+            send(workorder.needed(w))
+            r = ARGS.content.recipes[w["recipe"]]
+            send(craft.learn_recipe(r))
+            for n in range(len(craft.all_steps(r))):
+                send(craft.learn_action(r, n))
+            for c in r.get("complications", []):
+                send(craft.learn_counter(c))
+            for name, n in w.get("supplies", {}).items():
+                give_item(state, name, n)
+            send(workorder.available(wo_available(player, npc) if npc else []))
+            send(build_system_text(f"You take the work order: {w['name']}. Bring back {workorder.needed_text(w)}.",
+                                   SYSTEM_TEXT_WHITE))
+    elif event == workorder.COMPLETE:
+        if w is None or key != mine:
+            send(workorder.complete_result(wid, workorder.NOT_WORKING))
+        elif npc is None or npc.template_id != w["task_master"]:
+            send(workorder.complete_result(wid, workorder.WRONG_TASK_MASTER))
+        elif any(have_items(player)(name) < n for name, n in w["deliver"].items()):
+            send(workorder.complete_result(wid, workorder.NEED_ITEMS))
+        else:
+            for name, n in w["deliver"].items():
+                take_items(state, name, n)
+            wo_cleanup(state, w)
+            send(workorder.complete_result(wid, workorder.OK))
+            reward = w.get("reward", {})
+            if reward.get("coin"):
+                player.coins += reward["coin"]
+                send(merchant.coins(player.coins))
+                save_character_field(player.name, "coins", player.coins)
+            if reward.get("xp"):
+                send(combat.experience_reward(reward["xp"], player.char_id, kind=1))
+            faction_reward(state, reward)
+            send(build_system_text(f"Work order complete: {w['name']}.", SYSTEM_TEXT_WHITE))
+            if state.get("requisition") and npc is not None:
+                send(workorder.available(wo_available(player, npc)))
+    elif event == workorder.ABANDON:
+        if w is None or key != mine:
+            send(workorder.abandon_result(wid, workorder.NOT_WORKING))
+        else:
+            for name, n in w.get("supplies", {}).items():
+                take_items(state, name, min(n, have_items(player)(name)))
+            wo_cleanup(state, w)
+            send(workorder.abandon_result(wid, workorder.OK))
+    elif event == workorder.NEEDED and w is not None:
+        send(workorder.needed(w))
+
+
+def wo_cleanup(state, w):
+    """The order is over: forget its recipe and clear it from the character."""
+    set_work_order(state, None)
+    state["send"](craft.forget_recipe(ARGS.content.recipes[w["recipe"]]))
+
+
+def player_distance(player, npc):
+    pos = player.live_position or player.spawned_at
+    if pos is None:
+        return 0
+    return math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1])
 
 
 def diplomacy_deck(player):
@@ -3128,6 +3266,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.friends = list(char.get("friends", []))
             player.parleys_won = list(char.get("parleys_won", []))
             player.factions = dict(char.get("factions", {}))
+            player.work_order = char.get("work_order")
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
             player.ignores = list(char.get("ignores", []))
@@ -3161,6 +3300,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 guild_login(state)
                 brotherhood_login(state)
                 faction_login(state)
+                workorder_login(state)
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -3333,6 +3473,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in social.ZONE_EVENTS:
             if state.get("player"):
                 handle_social_zone(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in workorder.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_workorder_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in faction.CLIENT_EVENTS:
             if state.get("player"):
                 handle_faction_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

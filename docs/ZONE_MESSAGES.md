@@ -612,7 +612,7 @@ Classes `(none)` = handler ignores payload (signal); `(raw)` = handler reads the
 | 0x49f | FUN_00462d90 | MsgSingleByte | FUN_00461a80 | u8 | strings: "Your target is not a trainer."; "Out of range for training."; "Your target has nothing to teach you right now." |
 | 0x4a0 | FUN_00462d90 | MsgAssemblyTrainerRecipe | FUN_00462ad0 | wstr, i32, i32, f32, wstr | strings: "AssemblyTrainerCurrRecipeName" |
 | 0x4a1 | FUN_004bd850 | (none) | FUN_004bcff0 |  | no payload / signal strings: "You requisition work."; "nWorkOrderWindowState"; "SelectingWorkOrder" |
-| 0x4a2 | FUN_004bd850 | MsgTaskMasterWorkOrder | FUN_004bd450 | wstr, wstr, i32, i32, i32, i32, wstr, bool8, i32, i32, wstr, wstr, i32 |  |
+| 0x4a2 | FUN_004bd850 | MsgTaskMasterWorkOrder | FUN_004bd450 | i32 count, count x [wstr, wstr, i32, i32, i32, i32, wstr, bool8, i32, i32, wstr, wstr, i32] | replaces the available work order list (docs/WORK_ORDERS.md) |
 | 0x4a3 | FUN_004bd850 | MsgIntAndByte | FUN_004bcab0 | i32, u8 | strings: "You failed to solicit that work order."; "Work order selected."; "You are not requisitioning work." |
 | 0x4a4 | FUN_004bd850 | MsgSingleByte | FUN_004ba3d0 | u8 | strings: "Requisition ended."; "Your target is not a task master."; "You are too far away to request work." |
 | 0x4a5 | FUN_004bd850 | MsgIntAndByte | FUN_004bd0e0 | i32, u8 | strings: "You failed to complete that work order."; "Work order accepted."; "You are not requisitioning work." |

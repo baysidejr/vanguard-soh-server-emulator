@@ -36,6 +36,7 @@ class Content:
         self.diplomacy = _load(os.path.join(directory, "diplomacy.json"))
         self.abilities = _load(os.path.join(directory, "abilities.json"))
         self.factions = _load(os.path.join(directory, "factions.json"))
+        self.workorders = _load(os.path.join(directory, "workorders.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -143,6 +144,14 @@ def validate(directory=CONTENT_DIR):
         for name in list(r.get("inputs", {})) + [r.get("output")]:
             if name not in c.items:
                 problems.append(f"recipe {rid}: item {name!r} not in items.json")
+    for wid, w in c.workorders.items():
+        if w.get("recipe") not in c.recipes:
+            problems.append(f"work order {wid}: unknown recipe {w.get('recipe')}")
+        if w.get("task_master") not in c.mobs:
+            problems.append(f"work order {wid}: unknown task master {w.get('task_master')}")
+        for name in list(w.get("supplies", {})) + list(w.get("deliver", {})):
+            if name not in c.items:
+                problems.append(f"work order {wid}: item {name!r} not in items.json")
     spawn_dir = os.path.join(directory, "spawns")
     for name in sorted(os.listdir(spawn_dir)):
         for s in _load(os.path.join(spawn_dir, name)).get("spawns", []):
