@@ -75,6 +75,7 @@ The unmodified client, talking only to this emulator:
 - [x] Crafting utilities (consumables used by recipe steps) and the active toolbelt
 - [x] Refining and finishing stations (the station picks the recipe page); fall damage; faster riding
 - [x] Group loot: Free For All, Round Robin, Master Looter, Random For Magical and Need Before Greed with the Need/Greed/Pass roll popup; swimming breath and drowning
+- [x] Combat chains: an opener unlocks the next step and the finisher for a few seconds (the client's reaction button); NPC spell casts that players can counter; coin on corpses
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [MOVEMENT](docs/MOVEMENT.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
@@ -110,11 +111,14 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - Group with another player using `/invite Name` and `/groupacceptinvite`.
 - Chat with `/shout`, `/tell Name …`, `/ooc`, `/g`, `/emote …`, `/wave`. Use `/sit` to rest and `/camp` to camp.
 - Walk or teleport past a chunk edge to enter the neighbouring zone.
-- [x] Combat chains: an opener unlocks the next step and the finisher for a few seconds (the client's reaction button); NPC spell casts that players can counter; coin on corpses
 - At the camp in the Sundering Wastelands: Veyla trains abilities, Brenna sells recipes and assembly recipes, Garret Holm hands out work orders, Hollis Grent is the banker, Tamsin Vale the broker; the Mailbox, Camp Forge, Assembly Bench, Altar of Binding and a Riftseeker brazier stand nearby.
 - Buy a Thestran Riding Horse, a Wolf Whistle (pet), a Fishing Pole with bait, or furniture from Orin, then right-click them in your bags.
 - Inspect the For Sale sign south of camp (`!plot` with dev commands) to buy a plot and build a cottage.
 - Fish on the beach far to the south (`!tp -43000 -49500 200 49152`).
+- Group up and set the loot mode from the group window (or `!lootmode 4 6` with dev commands); kill something and roll Need/Greed/Pass on its items.
+- As a Warrior, hit **1** (Brutal Strike), then **3** (Savage Cut) while the chain button glows, then the finisher; when the Canyon Widow casts Venom Spit, answer with the counter (Riposte).
+- Swim out from the fishing beach and dive: the Breath bar drains, then you drown.
+- With a plot, build the Thestran Home from materials (2 Rough Stone, 2 Tattered Cloth) in the Construction window, and give friends permissions on the Permissions tab.
 
 ### Developer commands
 Start the server with `python login_stub.py --dev-commands`, then type these in the game's chat box:
