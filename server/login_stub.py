@@ -4437,6 +4437,9 @@ def handle_craft_event(state, event, data):
             send(craft.station_error(0))
             return
         state["craft"] = {"recipe": None, "begun": False}
+        kind = "finishing" if npc.station == "finishing" else "refining"
+        send(craft.station_recipes([r["id"] for r in zone.book_recipes(ARGS, player)
+                                    if (r.get("kind") or "refining") == kind]))
         send(craft.open_window())
     elif session is None:
         return
@@ -4445,7 +4448,7 @@ def handle_craft_event(state, event, data):
         send(craft.end())
     elif event == craft.SELECT:
         r = recipe_by_id(struct.unpack_from("<i", data, 0)[0])
-        if r is None:
+        if r is None or r not in zone.book_recipes(ARGS, player):
             send(craft.recipe_result(0, 0))
         elif not has_inputs(player, r):
             send(craft.recipe_result(craft.RECIPE_MISSING, r["id"]))

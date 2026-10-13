@@ -100,6 +100,13 @@ def learn_counter(c, icon=443):
                   + struct.pack("<iii", icon, k["family"], k.get("ap", 15)))
 
 
+def station_recipes(ids):
+    """0x304 {i32 n, n x i32 recipe id} (FUN_005bac40): the recipes this station offers.
+    The Crafting Setup window shows the refining or the finishing page by the kind of the
+    first one (nRecipeSelectRefineOrFinish, FUN_005aa0c0) and lists these recipes."""
+    return _event(0x304, struct.pack(f"<i{len(ids)}i", len(ids), *ids))
+
+
 def open_window():
     return _event(0x2EA, struct.pack("<iiB", 8, 1, 0))
 

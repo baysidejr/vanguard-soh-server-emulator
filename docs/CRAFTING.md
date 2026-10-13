@@ -279,3 +279,11 @@ Recipe data suggestion: per step `"tool": "Crucible Tongs"` (already supported) 
 - What retail listed in 0x300 for tools, and the exact meaning of 0x30b/0x30c.
 - Whether retail required the station's step utility to be placed in setup, or also accepted it from the bags.
 - The toolbelt's own item type (11, 12 or 18) — any container type works for the client.
+
+## Refining and finishing stations (verified live 2026-10-13)
+
+When a station is used (client 0xfa) the server sends **0x304 `{i32 n, n × i32 recipe id}`** (handler FUN_005bac40) before opening the window. The Crafting Setup window lists exactly these recipes and shows the refining page or the finishing page by the `kind` of the **first** one (`nRecipeSelectRefineOrFinish`, FUN_005aa0c0). The finishing page groups recipes under Work Order Recipes, Primary Components, Secondary Components, Miscellaneous Recipes and Special Recipes (category 1, 2-3, 4-5, 6). The journal's crafting page shows both trees (FUN_005a8f50).
+
+In `mobs.json`, `station: true` is a refining station and `station: "finishing"` a finishing station; the server sends the book recipes of that kind (`zone.book_recipes`) and refuses a recipe that isn't in the player's book. Test: the Finishing Table at the Ranger camp (`!tp -30750 -5300 g 0`, `!give Copper Ingot`) makes a Copper Buckle (Miscellaneous Recipes).
+
+Unknown: the recipe `skill` stat id for finishing skills (the buckle still says "Recipe Skill: Smelting"; the client's skill lists are `PCCraft<Craft>FinishingSkillList`).

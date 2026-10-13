@@ -105,12 +105,7 @@ def handle_unreal(send, state, payload, args):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
         # Recipe book and crafting actions (silent adds).
-        wo = args.content.workorders.get(getattr(player, "work_order", None) or "", {})
-        for key, r in args.content.recipes.items():
-            if r.get("work_order") and key != wo.get("recipe"):
-                continue
-            if "trainer_cost" in r and key not in getattr(player, "known_recipes", []):
-                continue
+        for r in book_recipes(args, player):
             send(craft.learn_recipe(r))
             for n in range(len(craft.all_steps(r))):
                 send(craft.learn_action(r, n))
@@ -191,7 +186,7 @@ def populate_world(w, args):
         npc.yaw = int(spawn.get("yaw", 0))
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
-        npc.station = bool(template.get("station"))
+        npc.station = template.get("station") or False   # true (refining) or "finishing"
         npc.prop = bool(template.get("prop"))
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))
@@ -670,6 +665,20 @@ HUD_WINDOWS = ["Hotkeys", "Compass", "Window Controller", "Containers", "Lag Met
 def hud_messages():
     return [zone_event(0x598, (f'SGOUI toggle "{name}"' + chr(0)).encode("utf-16-le"))
             for name in HUD_WINDOWS]
+
+
+def book_recipes(args, player):
+    """The recipes in the player's book: no work-order recipes except the active work
+    order's, no trainer recipes the player hasn't bought."""
+    wo = args.content.workorders.get(getattr(player, "work_order", None) or "", {})
+    out = []
+    for key, r in args.content.recipes.items():
+        if r.get("work_order") and key != wo.get("recipe"):
+            continue
+        if "trainer_cost" in r and key not in getattr(player, "known_recipes", []):
+            continue
+        out.append(r)
+    return out
 
 
 def inventory_messages(player):

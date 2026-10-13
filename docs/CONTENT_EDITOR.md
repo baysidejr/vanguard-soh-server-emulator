@@ -49,6 +49,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Pets | which abilities summon which pet (race, model, level), pet abilities, pet types per class | none yet |
 | Fishing | fish species (name, fresh/salt water, zones, weight range, bait, 4-direction combo), fish and bait items, bite timing, minigame tuning, fishing spots with water | two placeholder fish, one pole, one bait; water comes from each chunk's WaterVolume actors in the .vgr level package (z below 0 on the beach south of the camp) |
 | Crafting utilities and toolbelts | which steps need which utilities and tools, utility and tool items, toolbelt items and sizes | one utility (Mould Oil) on one step |
+| Finishing stations and recipes | which stations are refining or finishing (and for which crafts), finishing recipes per craft with their categories, finishing skill ids | one Finishing Table and one finishing recipe (Copper Buckle, skill id still Smelting) |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)
