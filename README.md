@@ -142,6 +142,7 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
 | `!kill` | Kill the target with one hit |
 | `!react` | Activate the newest open combat reaction (chain step) |
+| `!spherexp <1 crafting / 2 diplomacy> <amount>` | Gain crafting or diplomacy XP (level-ups) |
 | `!cev <event id> [i32 ...]` | Handle a client zone event as if the client sent it (e.g. `!cev 0x479 101 2`) |
 | `!lootmode <0-4> [rarity 0-6]`, `!roll need/greed/pass` | Group loot mode (as the leader's popup) and roll answers |
 | `!deftarget <player>` | Set another player as defensive target (then `/duel`) |

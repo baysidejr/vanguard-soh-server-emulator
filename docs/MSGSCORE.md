@@ -189,3 +189,7 @@ These variables are set but no XML file links to them: strBindLocationSelf, strR
 | `FUN_00559250` (args w63, w64, w65, w69, w70, w71, w73, w72, w75, w76) | 0x5ea5c4 |
 | `FUN_005582d0(&msg)` | 0x5ea63f |
 | Class check 0x0f / 0x1b | 0x5ea64f |
+
+## Crafting and diplomacy levels (verified live 2026-10-13)
+
+Crafting XP (recipes, work orders) and diplomacy XP (parleys) now accumulate per sphere (`zone.gain_sphere_xp`, saved as the character's `spheres`): 1000 XP a level, up to 50. A level-up sends **0x713** `{i32 level, i32 sphere}` (sphere 0 adventuring, 1 crafting, 2 diplomacy; FUN_005e68f0), which prints "Your Crafting level is now 2." (0x723, same layout, prints "You lost a level, your %s level is now %d."). MsgScore then carries craft_level / craft_exp / craft_exp_frac and dip_level / dip_exp / dip_exp_frac. `!spherexp <1|2> <amount>` grants sphere XP for testing.

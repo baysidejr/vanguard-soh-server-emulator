@@ -322,6 +322,28 @@ def close_actor(state, entity_id):
 XP_PER_LEVEL = 1000
 
 
+CRAFTING, DIPLOMACY = 1, 2              # spheres (0 is adventuring), as in 0x3d5 kind and 0x713
+SPHERE_XP_PER_LEVEL = 1000
+
+
+def sphere(player, which):
+    """[level, xp] of the crafting (1) or diplomacy (2) sphere."""
+    sp = player.__dict__.setdefault("spheres", {})
+    return sp.setdefault(str(which), [1, 0])
+
+
+def gain_sphere_xp(player, which, amount):
+    """Add crafting or diplomacy XP; returns the levels reached (0x713 each)."""
+    lv = sphere(player, which)
+    lv[1] += amount
+    out = []
+    while lv[1] >= SPHERE_XP_PER_LEVEL and lv[0] < 50:
+        lv[1] -= SPHERE_XP_PER_LEVEL
+        lv[0] += 1
+        out.append(zone_event(0x713, struct.pack("<ii", lv[0], which)))   # "Your Crafting level is now 2."
+    return out
+
+
 def score_message(player, probe=False):
     """MsgScore (0x3de): the character sheet, level and XP bar."""
     loc = player.spawned_at or (0.0, 0.0, 0.0)
@@ -334,7 +356,10 @@ def score_message(player, probe=False):
         adv_exp_amount=player.xp, adv_exp_amount_next=XP_PER_LEVEL,
         adv_exp_frac=player.xp / XP_PER_LEVEL,
         adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / XP_PER_LEVEL),
-        armor_class=25, craft_level=1, harvest_level=1, dip_level=1,
+        armor_class=25, craft_level=sphere(player, CRAFTING)[0], harvest_level=1,
+        dip_level=sphere(player, DIPLOMACY)[0],
+        craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,
+        dip_exp=sphere(player, DIPLOMACY)[1], dip_exp_frac=sphere(player, DIPLOMACY)[1] / SPHERE_XP_PER_LEVEL,
         movement_mode=2, move_speed=1.0, craft_trade=0xFF,
         attack=-40.0, attack_max=-40.0, ranged=-25.0, spell_attack=-10.0,
         defense_input=6.0, melee_mitigation=0.05, spell_mitigation=0.02,

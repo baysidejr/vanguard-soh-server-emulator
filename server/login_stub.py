@@ -4076,6 +4076,15 @@ def handle_bag_event(state, event, data):
     save_character_field(player.name, "items", [list(i) for i in player.items])
 
 
+def sphere_xp(state, which, amount):
+    """Crafting / diplomacy XP: level-ups (0x713), the character sheet, and saving."""
+    player = state["player"]
+    for m in zone.gain_sphere_xp(player, which, amount):
+        state["send"](m)
+    state["send"](zone.score_message(player))
+    save_character_field(player.name, "spheres", player.spheres)
+
+
 def take_items(state, name, need):
     """Remove `need` of an item from the bags (whole stacks first come first)."""
     player, send = state["player"], state["send"]
@@ -4714,6 +4723,7 @@ def handle_workorder_event(state, event, data):
                 save_character_field(player.name, "coins", player.coins)
             if reward.get("xp"):
                 send(combat.experience_reward(reward["xp"], player.char_id, kind=1))
+                sphere_xp(state, zone.CRAFTING, reward["xp"])
             faction_reward(state, reward)
             send(build_system_text(f"Work order complete: {w['name']}.", SYSTEM_TEXT_WHITE))
             if state.get("requisition") and npc is not None:
@@ -5142,6 +5152,7 @@ def finish_parley(state, p, result):
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
     send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
+    sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     faction_reward(state, reward)
     print(f"  {player.name} won a parley with {p.npc.name}")
 
@@ -5331,6 +5342,7 @@ def finish_craft(state, r):
         send(build_system_text(f"You create {name}.", SYSTEM_TEXT_WHITE))
         quest_items_changed(state)
     send(combat.experience_reward(r.get("xp", 50), player.char_id, kind=1))
+    sphere_xp(state, zone.CRAFTING, r.get("xp", 50))
     send(craft.end())
     print(f"  {player.name} crafted {name}")
 
@@ -5763,6 +5775,9 @@ def dev_command(text, player=None):
                 return bytes([int(w[2:], 0)])
             return struct.pack("<I", int(w, 0) & 0xFFFFFFFF)
         return [("cev", int(words[1], 0), b"".join(token(w) for w in words[2:]))]
+    if words[0] == "spherexp" and player and len(words) > 2:
+        # !spherexp <1 crafting | 2 diplomacy> <amount>: gain sphere XP (testing level-ups).
+        return [("spherexp", int(words[1]), int(words[2]))]
     if words[0] == "react" and player:
         # !react: activate the newest open reaction, as clicking it (0x145) (testing).
         return [("react",)]
@@ -6108,6 +6123,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 player.equipment = [tuple(e) for e in char["equipment"]]
             player.xp = char.get("adventure_xp", player.xp)
             player.learned = list(char.get("learned_abilities", []))
+            player.spheres = {k: list(v) for k, v in char.get("spheres", {}).items()}
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
                            + list(args.content.counters.get(cname, []))
@@ -6178,6 +6194,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         # A client zone event, handled as if the client had sent it.
                         handle_message(sock, server, addr, state,
                                        struct.pack("<HII", 2, m[1], len(m[2])) + m[2], args)
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "spherexp":
+                        sphere_xp(state, m[1], m[2])
                         continue
                     elif isinstance(m, tuple) and m[0] == "react":
                         if state.get("reactions"):

@@ -294,5 +294,16 @@ class BagTests(unittest.TestCase):
         self.assertIsNone(zone.move_item(items, 42, 1))
 
 
+class SphereTests(unittest.TestCase):
+    def test_crafting_levels(self):
+        class P:
+            pass
+        p = P()
+        msgs = zone.gain_sphere_xp(p, zone.CRAFTING, 2100)
+        self.assertEqual(zone.sphere(p, zone.CRAFTING), [3, 100])
+        self.assertEqual(len(msgs), 2)
+        self.assertEqual(msgs[-1][10:], struct.pack("<ii", 3, 1))
+
+
 if __name__ == "__main__":
     unittest.main()
