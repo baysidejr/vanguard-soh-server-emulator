@@ -2032,6 +2032,9 @@ def summon_minions(state, args, spec):
         npc.template_id = "minion"
         npc.pet_owner, npc.pet_mode, npc.pet_target = player, "follow", None
         npc.minion_slot, npc.expires = slot, now + spec.get("seconds", 60)
+        # Minions have no ability bar: their specials ("abilities": [{name, damage, chance}])
+        # fire by themselves on a swing.
+        npc.auto_abilities = list(spec.get("abilities", []))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
         npc.blocked = lambda x, y, z, lvl=w.level: npc_blocked(lvl, x, y, z)
         npc.props = {"m_GameplayLevel": npc.level, "m_iModelNum": spec.get("model", 0),
@@ -2199,7 +2202,14 @@ def companion_tick(state, args, npc, now, dt, health_msg, on_death, stop=pets.FO
             if (math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1])
                     <= combat.MELEE_RANGE + 40 and now >= npc.next_attack):
                 npc.next_attack = now + pets.ATTACK_SECONDS
-                lines, _ = combat.strike(player, t, f"Your {npc.name}", None, *npc.damage)
+                special = next((a for a in getattr(npc, "auto_abilities", [])
+                                if random.random() < a.get("chance", 0.25)), None)
+                if special is not None:
+                    print(f"  {npc.name} uses {special['name']} on {t.name}")
+                    lines, _ = combat.strike(player, t, f"Your {npc.name}'s {special['name']}", None,
+                                             *special.get("damage", npc.damage))
+                else:
+                    lines, _ = combat.strike(player, t, f"Your {npc.name}", None, *npc.damage)
                 for m in combat_results(state, args, player, lines, t, True, player.auto_attack):
                     state["send"](m)
                 if t.alive:

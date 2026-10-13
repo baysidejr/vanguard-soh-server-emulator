@@ -10,7 +10,7 @@
 
 > **Pets from class abilities (verified live 2026-10-13):** abilities.json `"kind": "pet"` with a `"pet"` spec (same fields as a pet item) summons the companion when the ability resolves. The client's ability packages have Necromancer "Awakenabomination I" (640009) and Shaman "Summonattendantofhayatet/rakurr/tuurgin I"; casting Awakenabomination I (3 s) printed "Abomination answers your call." and showed the pet bar. The pet specs are placeholders (CONTENT_EDITOR.md). Dev: `!learn <name>` now also finds other classes' abilities.
 >
-> **Not done:** minion abilities.
+> **Minion abilities (verified live 2026-10-13):** minions have no ability bar, so their specials fire by themselves: the minion spec's `"abilities": [{name, damage, chance}]` gives each swing that chance to use the special instead ("Your Bone Servant's Bone Claw hits ..."). The Bone Charm's servants used Bone Claw (7-12, 30%) four times against the Canyon Widow. Values are placeholders.
 
 Server: `server/pets.py`, `login_stub.summon_pet/dismiss_pet/handle_pet_event/pet_tick`.
 
