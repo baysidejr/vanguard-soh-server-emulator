@@ -74,11 +74,17 @@ def who_info(p, uid):
     return _social(0x500, data)
 
 
-def who_messages(players):
+def who_messages(players, mode=0):
+    """mode 0 = /who list, 1 = the Find window's LFG page, 2 = its LFM page."""
     out = [_social(0x501)]
     out += [who_info(p, n + 1) for n, p in enumerate(players)]
-    out.append(_social(0x502, struct.pack("<iiiB", len(players), 0, 0, 0)))
+    out.append(_social(0x502, struct.pack("<iiiB", len(players), mode, 0, 0)))
     return out
+
+
+# The Find window (world social): 0x503 LFG / 0x504 LFM {u8 search, u8 flag, 32 x (i32 class,
+# i32 dungeon, i32 quest)}; search = 1 is the Search button, 0 the /lfg or /lfm toggle.
+FIND_LFG, FIND_LFM = 0x503, 0x504
 
 
 def friend_info(p, uid):

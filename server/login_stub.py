@@ -2522,6 +2522,24 @@ def handle_social_world(zone_state, event, data, reply):
     if event in guild.WORLD_EVENTS:
         handle_guild_world(zone_state, event, data, reply)
         return
+    if event in (social.FIND_LFG, social.FIND_LFM) and len(data) >= 2 and data[0] == 1:
+        # Find window Search: groups looking for members (LFG page, mode 1) or players
+        # looking for a group (LFM page, mode 2).
+        lfg_page = event == social.FIND_LFG
+        found = []
+        for s in ONLINE.values():
+            p = s.get("player")
+            if p is None or p is player:
+                continue
+            g = getattr(p, "group", None)
+            if (lfg_page and (getattr(p, "lfm", False) or (g and g.leader is p))) or                     (not lfg_page and getattr(p, "lfg", False) and g is None):
+                found.append(social_entry(p.name))
+        for m in social.who_messages(found, 1 if lfg_page else 2):
+            reply(m)
+        return
+    if event == social.FIND_LFM and len(data) >= 2:
+        player.lfm = bool(data[1])
+        return
     if event == social.WHO:
         f = social.parse_who(data)
         found = [e for e in (social_entry(s["player"].name) for s in ONLINE.values() if s.get("player"))

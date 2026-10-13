@@ -67,3 +67,7 @@ Not done yet:
 ## /played (verified live 2026-10-13)
 
 The client sends zone 0x10f (no payload); the reply is zone 0x10f {i32 seconds} (handler FUN_005e7520, formatted by FUN_00552260 into days/hours/minutes/seconds): "You have played for: 16 seconds". The server saves `played` per character when the zone connection ends (not on chunk handoffs).
+
+## Find window (verified live with two clients, 2026-10-13)
+
+The Social window's Find tab sends world type-5 **0x503** (LFG page) or **0x504** (LFM page) {u8 search, u8 flag, 32 x (i32 class, i32 dungeon, i32 quest)}; search = 1 comes from the Search button (or opening the page), 0 from the /lfg or /lfm toggle. The reply is the /who sequence with a page mode: 0x501, one 0x500 per player, 0x502 {count, mode 1 = LFG page / 2 = LFM page, 0, 0}. The LFG page lists group leaders and players flagged LFM; the LFM page lists ungrouped players flagged LFG. Verified: after Justins types /lfg, Ranger's "Find members for my group (LFM)" page lists "Justins 20 Warrior Sundering Wastelands" (1 result). Dungeon, quest and class preferences are ignored for now; "Request to join" (0x58b/0x58c) is not implemented.
