@@ -258,6 +258,7 @@ class TradeTests(unittest.TestCase):
 
     def test_market_expiry_mails_item_back(self):
         import tempfile
+        from unittest import mock
         import time as _time
         with tempfile.TemporaryDirectory() as d,                 mock.patch.object(login_stub, "MARKET_FILE", os.path.join(d, "m.json")),                 mock.patch.object(login_stub, "MAIL_FILE", os.path.join(d, "mail.json")):
             fresh = {"id": 2, "seller": "A", "name": "Rock", "price": 5, "posted": int(_time.time())}
