@@ -21,8 +21,9 @@ PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx,
 # withdraw, 0x153 move inside. Server: 0x199 {chest id, capacity} opens "House Chest",
 # 0x19f clear, 0x1a1 item (silent), 0x19e item (drawn), 0x1a0 refresh, 0x19c {item} removed, 0x19a close.
 CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT, CHEST_WITHDRAW = 0x151, 0x152, 0x155, 0x157
+UPKEEP_DEPOSIT = 0x47E                 # {i32 plot id, i32 copper} -> 0x483 {i32 balance}, 0x0e 0x17c
 CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT,
-                 CHEST_WITHDRAW)
+                 CHEST_WITHDRAW, UPKEEP_DEPOSIT)
 HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
@@ -44,7 +45,7 @@ def plot_info(pid, plot, state, mine):
     x, y, z = plot["loc"]
     data = struct.pack("<ii", pid, pid) + _w(plot.get("name", "")) + _w(owner) + _w("")
     data += struct.pack("<iBB", plot["cost"], int(mine), int(not owner))
-    data += struct.pack("<iiiiI", plot.get("upkeep_balance", 0), plot.get("upkeep", 0), 0, 0,
+    data += struct.pack("<iiiiI", (state or {}).get("upkeep_balance", 0), plot.get("upkeep", 0), 0, 0,
                         int((state or {}).get("bought", 0)))
     data += struct.pack("<fffi", x, y, z, 0)
     data += struct.pack("<BBBBBBBB", int(mine), 0, int(mine), int(mine), int(mine), int(mine),
@@ -90,6 +91,10 @@ def chest_removed(handle):
 
 def chest_close():
     return _event(0x19A)
+
+
+def upkeep_balance(copper):
+    return _event(0x483, struct.pack("<i", copper))
 
 
 def show():

@@ -1110,6 +1110,18 @@ def handle_housing_event(state, event, data):
         send(housing.has_construction(False))
         refresh_plot(state, pid)
         send_plot_window(state, pid)
+    elif event == housing.UPKEEP_DEPOSIT and mine and len(vals) >= 2:
+        amount = vals[1]
+        if amount <= 0 or player.coins < amount:
+            send(build_system_text("You don't have that much coin.", SYSTEM_TEXT_ERROR))
+            return
+        player.coins -= amount
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+        st["upkeep_balance"] = st.get("upkeep_balance", 0) + amount
+        save_housing(db)
+        send(housing.upkeep_balance(st["upkeep_balance"]))
+        notice(0x17c)                                    # DepositSuccess
     elif event == housing.TEAR_DOWN and mine and st.get("building"):
         st.pop("building", None)
         st.pop("built", None)
@@ -4015,6 +4027,9 @@ def dev_command(text, player=None):
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
         return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
+    if words[0] == "upkeep" and player and len(words) > 1:
+        # !upkeep <copper>: deposit into plot 101's upkeep bank, as the Admin tab does (testing).
+        return [("housing", housing.UPKEEP_DEPOSIT, struct.pack("<ii", 101, int(words[1])))]
     if words[0] == "pickup" and player and len(words) > 1:
         # !pickup <fixture n>: as the fixture's Pick Up menu (0x462) (testing).
         return [("housing", housing.PICK_UP, struct.pack("<i", housing.FIXTURE_ID_BASE + int(words[1])))]
