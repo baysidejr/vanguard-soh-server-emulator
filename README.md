@@ -84,7 +84,7 @@ The unmodified client, talking only to this emulator:
 - [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker); locations discovered by walking near them; fishing combos (learned patterns shown on the Achievements page); minion special attacks; dialogue unlocked by winning a parley; combat reaction windows close when their enemy dies
 
 ### Not done yet
-- [ ] Doors and other moving world objects (needs Mover replication; see HOUSING.md)
+- [ ] Doors: none exist in the shipped maps or our cottage (checked; see HOUSING.md). The protocol to open one is worked out for when a building with a door is used
 - [ ] Flying mounts (`!mount <id> fly` does not lift off yet), mount barding
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
 - [ ] Song interruption by fear or flying (NPCs don't cast fear yet)
