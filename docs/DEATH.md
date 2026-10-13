@@ -6,7 +6,9 @@
 >
 > **Resurrection (verified live, offered by a dev command):** `!rezme` sends 0x26e {"Veyla Brightsteel", "Rebirth I", 60}; the client opens its "Resurrection" dialog ("Veyla Brightsteel is trying to resurrect you with Rebirth I."). Accept sends 0xe0 {1}: the server closes the death popup (0x540 {0, 1}: the close must use the same popup kind that opened it), stands the player up at half health where they died, removes the tombstone and gives back half the debt ("You have been resurrected by Veyla Brightsteel and win back 75 experience."). Decline (0xe0 {0}) tells the caster 0x0e 0x9b; an answer after 60 seconds gets 0x9d ResurrectionTimerExpired. No class rez ability uses it yet.
 >
-> **Not verified:** the tombstone icon on the map (0x382 travel journal entry), /targetmynearestcorpse (0x3d7 did not reach the server when typed; maybe it is sent only with a corpse in range), altars, corpse summoning, resurrection.
+> **Map marker (verified live):** after an 0x2ae category message, a 0x382 travel journal entry with type 1 and category -2 draws a tombstone icon on the minimap at the tombstone; 0x383 {id} removes it when the tombstone is recovered.
+>
+> **Not verified:** /targetmynearestcorpse (0x3d7 did not reach the server when typed; maybe it is sent only with a corpse in range), altars, corpse summoning, resurrection.
 
 Server: `login_stub.player_death`, `place_tombstone`, `use_tombstone`, `recover_tombstone`; `zone.tombstone_spawn`. Dev command: `!tombstone` (leave one at your feet).
 
