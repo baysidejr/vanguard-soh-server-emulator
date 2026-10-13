@@ -33,6 +33,7 @@ import workorder
 import mail
 import market
 import housing
+import titles
 import bank
 import social
 import effects
@@ -1140,6 +1141,72 @@ def handle_housing_event(state, event, data):
         save_character_field(player.name, "coins", player.coins)
         notice(housing.SOLD)
         refresh_plot(state, pid)
+
+
+def owned_titles(player):
+    t = ARGS.content.titles
+    ids = [int(k) for k, v in t.items() if v.get("start")] + list(getattr(player, "titles", []))
+    return [(i, t[str(i)]["name"], bool(t[str(i)].get("suffix"))) for i in dict.fromkeys(ids) if str(i) in t]
+
+
+def title_props(player):
+    t = ARGS.content.titles
+    pre = t.get(str(getattr(player, "title_prefix", -1)), {}).get("name", "")
+    post = t.get(str(getattr(player, "title_suffix", -1)), {}).get("name", "")
+    if not getattr(player, "show_title", True):
+        pre = post = ""
+    return {"m_PlayerDisplayTitlePre": pre, "m_PlayerDisplayTitlePost": post}
+
+
+def show_titles(state):
+    player = state["player"]
+    values = title_props(player)
+    state["send"](zone.player_pawn_update(state, ARGS, values))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, ARGS, player, values), exclude=state)
+
+
+def title_login(state):
+    player = state["player"]
+    state["send"](titles.title_list(owned_titles(player), getattr(player, "title_prefix", -1),
+                                    getattr(player, "title_suffix", -1), getattr(player, "show_title", True)))
+    if getattr(player, "title_prefix", -1) != -1 or getattr(player, "title_suffix", -1) != -1:
+        show_titles(state)
+
+
+def grant_title(state, tid):
+    player = state["player"]
+    t = ARGS.content.titles.get(str(tid))
+    if t is None or any(i == tid for i, _n, _s in owned_titles(player)):
+        return
+    player.titles = list(getattr(player, "titles", [])) + [tid]
+    save_character_field(player.name, "titles", player.titles)
+    state["send"](titles.new_title(tid, t["name"], bool(t.get("suffix"))))
+
+
+def handle_title_event(state, event, data):
+    """/titleset (0x185), remove (0x186), /togglemytitle (0x187). Idempotent: 0x185/0x186
+    also come back as echoes of the server's 0x363/0x362."""
+    player = state["player"]
+    if event == titles.SET and len(data) >= 4:
+        tid = struct.unpack_from("<i", data)[0]
+        own = {i: s for i, _n, s in owned_titles(player)}
+        if tid not in own:
+            return
+        field = "title_suffix" if own[tid] else "title_prefix"
+        if getattr(player, field, -1) == tid:
+            return
+        setattr(player, field, tid)
+        save_character_field(player.name, field, tid)
+    elif event == titles.REMOVE and data:
+        field = "title_suffix" if data[0] else "title_prefix"
+        setattr(player, field, -1)
+        save_character_field(player.name, field, -1)
+    elif event == titles.TOGGLE:
+        player.show_title = not getattr(player, "show_title", True)
+        save_character_field(player.name, "show_title", player.show_title)
+    show_titles(state)
 
 
 def use_tombstone(state):
@@ -2342,6 +2409,8 @@ def finish_quest(state, key, q):
         for m in award_xp(player, reward["xp"], player.char_id):
             send(m)
     faction_reward(state, reward)
+    if reward.get("title") is not None:
+        grant_title(state, reward["title"])
     save_character_field(player.name, "quests", player.quests.to_json())
     print(f"  {player.name} completed quest {q['name']}")
 
@@ -4027,6 +4096,9 @@ def dev_command(text, player=None):
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
         return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
+    if words[0] == "title" and player and len(words) > 1:
+        # !title <id>: grant a title (testing).
+        return [("title", int(words[1]))]
     if words[0] == "upkeep" and player and len(words) > 1:
         # !upkeep <copper>: deposit into plot 101's upkeep bank, as the Admin tab does (testing).
         return [("housing", housing.UPKEEP_DEPOSIT, struct.pack("<ii", 101, int(words[1])))]
@@ -4302,6 +4374,10 @@ def handle_message(sock, server, addr, state, payload, args):
             player.bind = char.get("bind")
             player.dialog_rewards = list(char.get("dialog_rewards", []))
             player.played = int(char.get("played", 0))
+            player.titles = list(char.get("titles", []))
+            player.title_prefix = char.get("title_prefix", -1)
+            player.title_suffix = char.get("title_suffix", -1)
+            player.show_title = char.get("show_title", True)
             player.session_start = time.time()
             player.known_recipes = list(char.get("known_recipes", []))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
@@ -4339,6 +4415,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 faction_login(state)
                 workorder_login(state)
                 mail_login(state)
+                title_login(state)
+                world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -4361,6 +4439,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         if state.get("world"):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "title":
+                        grant_title(state, m[1])
                         continue
                     elif isinstance(m, tuple) and m[0] == "housing":
                         handle_housing_event(state, m[1], m[2])
@@ -4440,6 +4521,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in titles.CLIENT_EVENTS and state.get("player"):
+            handle_title_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x10F and state.get("player"):
             # /played: the reply is the same id with the seconds played ("You have played for: ...").
             send_message(sock, addr, state, zone.zone_event(0x10F, struct.pack("<i", played_seconds(state["player"]))))

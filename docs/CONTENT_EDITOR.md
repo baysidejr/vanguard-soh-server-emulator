@@ -45,6 +45,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Mounts | which items summon which mount ids (about 1000 meshes in MOUNT_ITEMS), mount speeds, flying/aquatic types, where mounts are sold and level requirements | one placeholder horse item (mount 1000) at the camp merchant |
 | Riftways | world positions and chunks of the 39 riftway destinations, which ones a player has discovered, travel prices (the client hardcodes 50/500/2000/5000 copper by color) | `server/content/riftways.json`: all 39 names and colors from the client map; only Sundering Wastelands has a (placeholder) landing spot; two Riftseeker brazier stones in chunk_n19_12 |
 | Housing | plot positions and prices, building types per plot, prefab names, fixtures and chests, upkeep, construction materials | `server/content/plots.json`: one placeholder plot with two building types (instant construction) |
+| Titles | every title name and id, prefix or suffix, how each is earned (quests, levels, achievements, crafting, diplomacy) | `server/content/titles.json`: 3 placeholder titles |
+| Pets | which abilities summon which pet (race, model, level), pet abilities, pet types per class | none yet |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)
