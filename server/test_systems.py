@@ -238,5 +238,27 @@ class ReactionTests(unittest.TestCase):
         self.assertEqual(struct.unpack_from("<Qii", data), (7, rid, 102))
 
 
+class HateTests(unittest.TestCase):
+    class P:
+        def __init__(self, cid):
+            self.char_id, self.health, self.name = cid, 100, str(cid)
+
+    def test_switch_needs_ten_percent_more(self):
+        npc, a, b = combat.Npc(1, "Rat", 1, "x"), self.P(1), self.P(2)
+        combat.add_hate(npc, a, 100)
+        combat.add_hate(npc, b, 105)
+        self.assertIs(npc.aggro_on, a)
+        combat.add_hate(npc, b, 10)
+        self.assertIs(npc.aggro_on, b)
+
+    def test_taunt_and_next_target(self):
+        npc, a, b = combat.Npc(1, "Rat", 1, "x"), self.P(1), self.P(2)
+        combat.add_hate(npc, a, 100)
+        combat.taunt(npc, b)
+        self.assertIs(npc.aggro_on, b)
+        b.health = 0
+        self.assertIs(combat.next_target(npc), a)
+
+
 if __name__ == "__main__":
     unittest.main()

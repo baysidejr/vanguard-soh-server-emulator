@@ -336,6 +336,12 @@ def movement_tick(zone_sock, clients, args):
                 if vs is not None:
                     vs["send"](build_system_text(f"{npc.name} notices you!", SYSTEM_TEXT_ERROR))
         for npc in w.npcs.values():
+            if npc.aggro_on is not None and npc.aggro_on.health <= 0:
+                # Its target died: the next player on its hate list, if any.
+                npc.hate.pop(npc.aggro_on.char_id, None)
+                nxt = combat.next_target(npc)
+                if nxt is not None:
+                    npc.aggro_on = nxt
             target = npc.aggro_on.live_position if npc.aggro_on else None
             values = combat.chase_step(npc, target, MOVE_TICK)
             if values:
@@ -553,7 +559,7 @@ def rescue(state, npc):
     if not npc.alive or npc.aggro_on is player:
         return
     victim = npc.aggro_on
-    npc.aggro, npc.aggro_on = True, player
+    combat.taunt(npc, player)
     state["send"](build_system_text(f"You rescue {victim.name if victim else 'your ally'} from {npc.name}!",
                                     SYSTEM_TEXT_COMBAT))
     vs = online_state(victim) if victim is not None else None
@@ -671,7 +677,7 @@ def effects_tick(state, args, now):
                 lines.append((f"You have slain {npc.name}!", "white"))
                 player.pending_rewards.append(combat.KILL_XP)
             else:
-                npc.aggro, npc.aggro_on = True, player
+                combat.add_hate(npc, player, dmg)
             for m in combat_results(state, args, player, lines, npc, player.health > 0, player.auto_attack):
                 send(m)
             if e["ticks"] == 0 or not npc.alive:
@@ -5295,8 +5301,11 @@ def leave_world(state, args):
         return
     w.members.pop(player.char_id, None)
     for npc in w.npcs.values():
+        npc.hate.pop(player.char_id, None)
         if npc.aggro_on is player:
-            npc.aggro, npc.aggro_on, npc.moving = False, None, False
+            npc.aggro_on = combat.next_target(npc)
+            if npc.aggro_on is None:
+                npc.aggro, npc.moving = False, False
     w.broadcast(lambda s: zone.close_actor(s, player.char_id))
     print(f"  {player.name} left {w.level}")
 

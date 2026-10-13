@@ -47,7 +47,8 @@ class Npc:
         self.home = location
         self.loot = None              # items left on the corpse (None = not rolled yet)
         self.aggro = False            # chasing aggro_on
-        self.aggro_on = None          # the zone.Player it fights
+        self.aggro_on = None          # the zone.Player it fights (the top of its hate list)
+        self.hate = {}                # char_id -> [player, hate]: damage done to it
         self.moving = False
         self.next_attack = 0.0
         self.death_shown = False      # death already broadcast
@@ -218,7 +219,7 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         lines.append((f"You have slain {npc.name}!", "white"))
         player.pending_rewards.append(KILL_XP)
     else:
-        npc.aggro, npc.aggro_on = True, player   # fights back from the tick (npc_turns)
+        add_hate(npc, player, dmg)                # fights back from the tick (npc_turns)
     return lines, npc
 
 
@@ -268,6 +269,7 @@ def npc_turns(player, now, rng=random):
             continue
         if player.health <= 0:
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
+            npc.hate = {}
             continue
         if pos and math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1]) > MELEE_RANGE + 40:
             continue
@@ -275,6 +277,36 @@ def npc_turns(player, now, rng=random):
         player.last_combat = now
         out.append((npc_attacks(player, npc, rng), npc))
     return out
+
+
+SWITCH_FACTOR = 1.1          # another attacker must out-hate the current target by 10%
+
+
+def add_hate(npc, player, amount):
+    """Damage (or a taunt) adds hate; the NPC fights the living player it hates most, and
+    only changes target when someone passes SWITCH_FACTOR x its current target's hate."""
+    entry = npc.hate.setdefault(player.char_id, [player, 0.0])
+    entry[1] += amount
+    npc.aggro = True
+    cur = npc.aggro_on
+    cur_hate = npc.hate.get(cur.char_id, [cur, 0.0])[1] if cur is not None and cur.health > 0 else -1.0
+    if cur is None or cur.health <= 0 or (cur is not player and entry[1] > cur_hate * SWITCH_FACTOR):
+        npc.aggro_on = player
+
+
+def taunt(npc, player):
+    """Rescue/taunt: the player goes to the top of the NPC's hate list and becomes its target."""
+    top = max((h for _p, h in npc.hate.values()), default=0.0)
+    npc.hate[player.char_id] = [player, top * 1.2 + 10]
+    npc.aggro, npc.aggro_on = True, player
+
+
+def next_target(npc):
+    """After its target died or left: the living player it hates most, or None."""
+    alive = [(h, p) for p, h in npc.hate.values() if p.health > 0 and p is not npc.aggro_on]
+    if not alive:
+        return None
+    return max(alive, key=lambda x: x[0])[1]
 
 
 def npc_attacks(player, npc, rng=random):
@@ -400,6 +432,7 @@ def respawns(npcs, now):
         if npc.died_at and now - npc.died_at >= npc.respawn:
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
+            npc.hate = {}
             npc.location, npc.loot, npc.wander_goal = npc.home, None, None
             npc.killer = npc.loot_owner = npc.coin_left = npc.casting = None
             npc.open_to_group, npc.pending, npc.rolled = False, set(), False
@@ -545,6 +578,6 @@ def proximity_aggro(npc, players, kos=None):
         if d <= radius and (best is None or d < best[0]):
             best = (d, p)
     if best:
-        npc.aggro, npc.aggro_on = True, best[1]
+        add_hate(npc, best[1], 1)
         return best[1]
     return None
