@@ -50,7 +50,7 @@ The unmodified client, talking only to this emulator:
 - [x] Item durability (worn on death) and repairs at a merchant
 - [x] /who, friends and ignore lists, /afk /anon /lfg, /random, /inspect
 - [x] Ability effects: buffs with timers and stat bonuses, damage over time with target debuff icons, heals, cooldowns
-- [x] Guilds: create, invite, join, ranks, kick/quit/delete, guild chat, message of the day, rank names, /guildstatus
+- [x] Guilds: create, invite, join, ranks, kick/quit/delete, guild chat, message of the day, rank names, /guildstatus, notes and points, recruiting browser
 - [x] Brotherhoods: invite popup, join, leave, kick, promote, MOTD, notes, rename
 - [x] Combat text written by the client (Combat tab) for hits, heals and damage over time; cast bars; NPC special attacks
 - [x] Per-character diplomacy decks, card slotting and reward cards; crafting catalysts

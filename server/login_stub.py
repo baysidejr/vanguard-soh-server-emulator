@@ -2256,8 +2256,9 @@ def handle_guild_world(state, event, data, reply):
             for n, info in g.get("member_info", {}).items():
                 if info.get("recruiter"):
                     recs.append((g["id"], guild_member(g, n)["id"] & 0x7FFFFFFF, n, ONLINE.get(n.lower()) is not None))
+        # The guild dispatcher (FUN_004f1610) is a zone message handler: reply on the zone connection.
         for m in guild.lfm_list([(g["id"], g["name"], g.get("recruit_notes", ""), g.get("tags")) for g in listed], recs):
-            reply(m)
+            state["send"](m)
         return
     if mine is None:
         reply(zone.zone_event(0x0E, struct.pack("<h", 0x1A)))          # NoGuild
