@@ -286,4 +286,4 @@ When a station is used (client 0xfa) the server sends **0x304 `{i32 n, n × i32 
 
 In `mobs.json`, `station: true` is a refining station and `station: "finishing"` a finishing station; the server sends the book recipes of that kind (`zone.book_recipes`) and refuses a recipe that isn't in the player's book. Test: the Finishing Table at the Ranger camp (`!tp -30750 -5300 g 0`, `!give Copper Ingot`) makes a Copper Buckle (Miscellaneous Recipes).
 
-Unknown: the recipe `skill` stat id for finishing skills (the buckle still says "Recipe Skill: Smelting"; the client's skill lists are `PCCraft<Craft>FinishingSkillList`).
+The recipe window's "Recipe Skill" is the recipe's `skill` stat id (`stat_names.py`): the buckle uses 0x46 Smithing. Which skill each real finishing recipe used is server data (the client's per-craft lists are `PCCraft<Craft>FinishingSkillList`).
