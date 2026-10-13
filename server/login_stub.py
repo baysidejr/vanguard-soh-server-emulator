@@ -387,9 +387,17 @@ def use_ability(state, args, player, ability):
             send(combat.display_ability(player.char_id, player.char_id, visual))
         if spec["kind"] == "heal":
             amount = random.randint(*spec["amount"])
-            player.health = min(player.health + amount, player.stats["hit_points"])
-            send(effects.combat_text(player.char_id, player.char_id, name, amount, heal=True))
-            send(zone.health_update(player))
+            ts = heal_target(state)
+            who = ts["player"]
+            who.health = min(who.health + amount, who.stats["hit_points"])
+            send(effects.combat_text(player.char_id, who.char_id, name, amount, heal=True))
+            if ts is not state:
+                ts["send"](effects.combat_text(player.char_id, who.char_id, name, amount, heal=True))
+                send(build_system_text(f"You heal {who.name} for {amount}.", SYSTEM_TEXT_WHITE))
+                ts["send"](build_system_text(f"{player.name} heals you for {amount}.", SYSTEM_TEXT_WHITE))
+            ts["send"](zone.health_update(who))
+            heal_hate(state, who, amount)
+            print(f"  {player.name} heals {who.name} for {amount} ({who.health}/{who.stats['hit_points']})")
         else:
             apply_buff(state, player, name, spec, now)
     elif getattr(player, "duel_opponent", None) is not None and player.target == player.duel_opponent.char_id:
@@ -410,6 +418,29 @@ def use_ability(state, args, player, ability):
         cooldowns[handle] = now + refresh
         send(effects.cooldown(ability[1], refresh))       # keyed by ability id, not the handle
     chain_next(state, player, ability)
+
+
+HEAL_HATE = 0.5              # hate per point healed, on every NPC fighting the healed player
+
+
+def heal_target(state):
+    """A heal lands on the targeted player (alive, in the same chunk), else on the caster."""
+    player = state["player"]
+    w = state.get("world")
+    ts = w.members.get(player.target) if w is not None and player.target else None
+    if ts is None or ts.get("player") is None or ts["player"].health <= 0:
+        return state
+    return ts
+
+
+def heal_hate(state, healed, amount):
+    """Healing someone angers the NPCs that are fighting them."""
+    w = state.get("world")
+    if w is None:
+        return
+    for npc in w.npcs.values():
+        if npc.alive and healed.char_id in npc.hate:
+            combat.add_hate(npc, state["player"], amount * HEAL_HATE)
 
 
 def chain_next(state, player, ability):
@@ -5795,7 +5826,14 @@ def dev_command(text, player=None):
         want = " ".join(words[1:]).lower()
         npc = next((n for n in player.npcs.values() if want in n.name.lower()), None)
         if npc is None:
-            return []
+            # Another player (online, by name): as clicking them (defensive target).
+            s = ONLINE.get(want)
+            if s is None or s.get("player") is None:
+                return []
+            other = s["player"]
+            player.target = other.char_id
+            print(f"  <- dev: target player {other.name}")
+            return [combat.targets(None, other)]
         player.target = npc.entity_id
         print(f"  <- dev: target {npc.name}")
         return [combat.targets(npc)]

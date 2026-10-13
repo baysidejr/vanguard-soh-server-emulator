@@ -105,7 +105,13 @@ def targets(offensive=None, defensive=None):
     """0x3e0: the targets the server accepts (None = no target)."""
     data = b""
     for npc in (offensive, defensive, None):
-        data += struct.pack("<QB", npc.entity_id, npc.health_byte()) if npc else struct.pack("<QB", 0, 0)
+        if npc is None:
+            data += struct.pack("<QB", 0, 0)
+        elif hasattr(npc, "health_byte"):
+            data += struct.pack("<QB", npc.entity_id, npc.health_byte())
+        else:                                   # a player (defensive target)
+            hp = npc.stats["hit_points"] or 1
+            data += struct.pack("<QB", npc.char_id, max(0, min(255, npc.health * 255 // hp)))
     return struct.pack("<HII", 2, TARGETS_EVENT, len(data)) + data
 
 

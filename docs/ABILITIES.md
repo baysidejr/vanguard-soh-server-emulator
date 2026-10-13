@@ -213,3 +213,7 @@ The client has no cast bar for an enemy's spell (`castbars_report` research): an
 ## Rescues (verified live 2026-10-13, two clients)
 
 Rescue abilities per class are in `server/content/rescues.json` (Warrior: Taunt I) and are flagged in the ability record (wire #42 = 1; listed with the rescues, not locked). When an NPC hits a grouped player, every groupmate with a rescue ability gets a rescue reaction: 0x391 type 3 on the NPC for 6 s (`login_stub.offer_rescues`). The client never times rescues out, so the server closes them (0x392) when the window ends. Activating it (0x145) turns the NPC on the rescuer: "You rescue Ranger from Canyon Widow!" / "Justins rescues you from Canyon Widow!", then the ability itself is used.
+
+## Heals on others (verified live 2026-10-13)
+
+A heal (abilities.json `kind: heal`) lands on the targeted player if they are alive and in the same chunk (`login_stub.heal_target`), else on the caster: their HUD gets the health update, both get the combat text plus "You heal Justins for 30." / "Ranger heals you for 30.". Healing adds half the amount as hate on every NPC that hates the healed player (`heal_hate`). `!target <player name>` targets an online player (defensive target, 0x3e0). Regrowth I (Ranger) is now a heal in abilities.json.
