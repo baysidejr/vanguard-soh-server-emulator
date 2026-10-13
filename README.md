@@ -80,6 +80,21 @@ The unmodified client, talking only to this emulator:
 - [x] Pet ability bar; quest reward choice (pick one item at turn-in); request to join a group from the Find window; chest View/Deposit/Withdrawal permissions
 - [x] Travel journal (Locations tab: the chunk's merchants, trainers, services, stations, riftways and your house); in-game bug reports (/bug); Bard songs (compose, save, play, stop, energy cost); minions (the Minions window, timed skeleton servants from a Bone Charm); Psionicist mindsets (combat forms bar); fishing achievements and best-catch leaderboards (Achievements tab); quest feedback window (--quest-feedback)
 - [x] Splitting stacks (Ctrl+click), bags on the main bar (Small Pouch), master looter /giveplayerlootitem, duel challenge timeouts, brotherhood XP bonus, parley item rewards, diplomacy card refresh timers, civic diplomacy, class summons (Necromancer abomination, Shaman attendants, Psionicist simulacrum), Fear
+- [x] Maintained stances (Effects Maintained window, right-click to cancel); merchant buyback tab; encounter (group-of-mobs) display; /unstuck; resist chances; NPCs calling nearby friends for help
+- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker)
+
+### Not done yet
+- [ ] Doors and other moving world objects (needs Mover replication; see HOUSING.md)
+- [ ] Flying mounts (`!mount <id> fly` does not lift off yet), mount barding
+- [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
+- [ ] Minion abilities; song interruption by fear or flying
+- [ ] Combat-form ability restrictions and the form recovery bar
+- [ ] Discovering travel-journal locations by visiting them; server-sent travel routes
+- [ ] Combat chain resets (0x393) and partial clears
+- [ ] Brotherhood stats window (`/brotherhoodstats`)
+- [ ] Unlocking dialogue as a parley reward; the civic stats display
+- [ ] Fishing combo directions
+- [ ] Real game data: every item, mob, quest, ability number and reward here is a placeholder until the content editor (docs/CONTENT_EDITOR.md)
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [MOVEMENT](docs/MOVEMENT.md), [TRAVEL](docs/TRAVEL.md), [SONGS](docs/SONGS.md), [FORMS](docs/FORMS.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
@@ -128,6 +143,13 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - In the Social window's Find tab, select a player looking for members and press Request to Join.
 - Open your quest journal, click a quest and press Share to offer it to your group; its Locations tab lists the camp's services.
 - Type `/bug` to file a bug report (saved in `server/bug_reports.json`).
+- Ctrl+click a stack in your bags to split it.
+- Buy a Small Pouch from Orin and right-click it: it goes on the bag bar; click it there to open it and drag items in.
+- On the Achievements tab, pick a fish and switch the dropdown to "All Time Biggest Catches".
+- As master looter, target a corpse and type `/giveplayerlootitem <member> <item>`.
+- Win a parley against Orin: diplomacy XP, coin, faction, 2 Travel Rations and +5 camp prosperity. Compelling Case needs 2 rounds to refresh.
+- Group with a brotherhood member and kill something for bonus experience.
+- With dev commands, `!learn Awakenabomination` then `!use Awakenabomination` summons a pet; `!learn Fear` then `!use Fear` on an enemy makes it flee.
 - As a Bard (or anyone, with `!songs`), compose a song in the Song window from a melody and verses, save it and play it.
 
 ### Developer commands
