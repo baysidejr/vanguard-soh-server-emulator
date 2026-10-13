@@ -45,4 +45,3 @@ The server enforces the limits (the client has none): a name, a melody, name up 
 - Group-wide song effects. The song's buff currently goes to the singer only.
 - Interruption by fear or flying.
 - Real song data (CONTENT_EDITOR.md).
-- The buff icon shows the stance timer ("3650d").

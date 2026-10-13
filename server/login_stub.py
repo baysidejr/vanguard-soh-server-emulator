@@ -2382,6 +2382,7 @@ def play_song(state, song):
     apply_buff(state, player, song["name"], dict(spec, duration=effects.STANCE_SECONDS), time.time())
     e = next(x for x in player.effects if x["id"] == effect_id(player, song["name"]))
     e.update(stance=True, song=True)                    # Effects Maintained; stops with the song
+    send(effects.effect_remove(e["id"]))                # no "3650d" timed icon
     send(effects.maintained_add(e["id"], song["name"], e.get("desc", ""), spec["icon"]))
     player.playing_song = song["name"]
     send(songs.now_playing(song["name"]))
