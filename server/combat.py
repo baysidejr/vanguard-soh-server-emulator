@@ -119,6 +119,8 @@ DEATH_POPUP_EVENT = 0x540    # MsgIntAndBool (FUN_005e70b0): "DeathReleasePopup"
 
 
 def death_popup(seconds, show=True):
+    """0x540 {i32 seconds, bool8 kind}: kind 1 = Release to Bind / Release to Altar popup, 0 = a single
+    Release button; seconds <= 0 closes the popup of that kind."""
     return struct.pack("<HIIiB", 2, DEATH_POPUP_EVENT, 5, seconds, int(show))
 
 

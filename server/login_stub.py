@@ -754,6 +754,49 @@ def summon_tombstone(state, cid):
     send(build_system_text("Your tombstone has been summoned to the altar.", SYSTEM_TEXT_WHITE))
 
 
+REZ_SECONDS = 60
+NO_ONE_REZZING, REZ_DECLINED, REZ_EXPIRED = 0x9A, 0x9B, 0x9D
+
+
+def offer_rez(state, caster, ability, refund=0.5, caster_state=None):
+    """0x26e: "<caster> is trying to resurrect you with <ability>." + Accept/Decline (0xe0)."""
+    player = state["player"]
+    state["rez"] = {"caster": caster, "until": time.time() + REZ_SECONDS, "refund": refund,
+                    "caster_state": caster_state,
+                    "spot": getattr(player, "died_at", None) or player.live_position}
+    state["send"](zone.zone_event(0x26E, (caster + "\0").encode("utf-16-le") + (ability + "\0").encode("utf-16-le")
+                                  + struct.pack("<i", REZ_SECONDS)))
+
+
+def answer_rez(state, args, accept):
+    """0xe0 {u8}: accept (stand up where you died with half health, win back debt) or decline."""
+    player, send = state["player"], state["send"]
+    rez = state.pop("rez", None)
+    if rez is None or time.time() > rez["until"]:
+        send(zone.zone_event(0x0E, struct.pack("<h", REZ_EXPIRED if rez else NO_ONE_REZZING)))
+        return
+    cs = rez.get("caster_state")
+    if not accept:
+        if cs is not None:
+            cs["send"](zone.zone_event(0x0E, struct.pack("<h", REZ_DECLINED)))
+        return
+    if getattr(player, "tombstone", None):
+        remove_tombstone(state, player, quiet=True)
+    debt = getattr(player, "xp_debt", 0)
+    back = int(debt * rez["refund"])
+    player.xp_debt = debt - back
+    save_character_field(player.name, "xp_debt", player.xp_debt)
+    player.health = max(1, player.stats["hit_points"] // 2)
+    for m in (combat.death_popup(0, True),
+              zone.player_pawn_update(state, args, {"Health": 50, "m_bIsDead": 0}),
+              zone.health_update(player), zone.score_message(player)):
+        send(m)
+    if rez.get("spot"):
+        send(zone.player_teleport(tuple(rez["spot"])))
+    send(build_system_text(f"You have been resurrected by {rez['caster']} and win back {back} experience.",
+                           SYSTEM_TEXT_WHITE))
+
+
 def use_tombstone(state):
     """U (the pawn's ServerUse RPC) on your tombstone: the target, or your own one if you
     stand at it. True when handled."""
@@ -3549,6 +3592,9 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "rezme" and player:
+        # !rezme: Veyla offers to resurrect you (testing the dialog).
+        return [("rezme",)]
     if words[0] == "tombstone" and player:
         # !tombstone: leave your tombstone at your feet (testing).
         return [("tombstone",)]
@@ -3863,6 +3909,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "rezme":
+                        offer_rez(state, "Veyla Brightsteel", "Rebirth I")
+                        continue
                     elif isinstance(m, tuple) and m[0] == "tombstone":
                         p = state["player"]
                         p.died_at = state.get("position") or p.live_position or p.spawned_at
@@ -3911,7 +3960,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 place_tombstone(state, args, player)
                 bind = getattr(player, "bind", None)
                 spot = bind["loc"] if bind and bind["level"] == player.level else player.spawned_at
-                for m in (combat.death_popup(0, False),
+                for m in (combat.death_popup(0, True),
                           zone.player_pawn_update(state, args, {"Health": 100, "m_bIsDead": 0}),
                           zone.health_update(player),
                           zone.player_teleport(tuple(spot))):
@@ -3923,6 +3972,9 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE interact {eid:#x} ({npc.name if npc else '-'})")
             if npc is not None and getattr(npc, "altar", False):
                 handle_altar_use(state, npc)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0xE0 and state.get("player"):
+            # /rezaccept (u8 1) or /rezdecline (u8 0), also the Resurrection dialog buttons.
+            answer_rez(state, args, payload[10:11] == b"\x01")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x188 and state.get("player"):
             summon_tombstone(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x10D and state.get("player"):
