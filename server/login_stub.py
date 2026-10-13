@@ -4123,6 +4123,37 @@ def handle_grouploot_event(state, event, data):
         answer_roll(state, bool(data[0]) if data else False)
     elif event == grouploot.PASS:
         answer_roll(state, None)
+    elif event == grouploot.GIVE_LOOT and len(data) >= 8:
+        corpse, name, what = grouploot.parse_give_loot(data)
+        npc = player.npcs.get(corpse) or (player.npcs.get(player.target) if player.target else None)
+        if s["mode"] != grouploot.MASTER_LOOTER or s["ml"] != player.char_id:
+            notice(grouploot.NO_PERMISSION)
+            return
+        if npc is None or npc.alive:
+            notice(grouploot.NO_PERMISSION)
+            return
+        if npc.loot is None:
+            combat.loot_messages(npc)
+        item = grouploot.match_loot(npc.loot or [], what)
+        to = next((m for m in members if m["player"].name.lower() == name.lower()), None)
+        if to is None:
+            notice(0xCF)                                 # MustSelectGroupMember
+            return
+        if item is None or item[0] in getattr(npc, "pending", set()):
+            send(build_system_text("That item is not on the corpse.", SYSTEM_TEXT_ERROR))
+            return
+        p = to["player"]
+        for m in combat.take_loot(p, npc, item[0]):
+            to["send"](m)
+        if to is not state:
+            send(zone.zone_event(combat.LOOT_TAKEN_EVENT, struct.pack("<iB", item[0], 1)))
+        save_character_field(p.name, "items", [list(i) for i in p.items])
+        quest_items_changed(to)
+        if to is not state:
+            to["send"](build_system_text(f"{player.name} gives you {item[1]}." if item[3] == 1 else
+                                         f"{player.name} gives you {item[3]} {item[1]}.", SYSTEM_TEXT_WHITE))
+        for m in members:
+            m["send"](grouploot.looted(p, item[1], item[3]))
     elif event == grouploot.CANCEL_ROLLS and getattr(g, "lottery", None):
         g.lottery["npc"].pending = set()
         g.lottery = None

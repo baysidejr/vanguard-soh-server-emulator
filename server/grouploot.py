@@ -48,7 +48,27 @@ def rarity_wire(name):
 
 SET_MODE, PROMOTE_ML, ALLOW_GROUP, START_RANDOM, NEED_GREED, PASS, CANCEL_ROLLS = (
     0xB6, 0xB5, 0xB7, 0xB8, 0xB9, 0xBA, 0x1E6)
-CLIENT_EVENTS = (SET_MODE, PROMOTE_ML, ALLOW_GROUP, START_RANDOM, NEED_GREED, PASS, CANCEL_ROLLS)
+# /giveplayerlootitem <player> <item> (FUN_00605440 -> FUN_00522490; the client first asks to
+# confirm a soulbound item): 0x3dc MsgEntityIDAndTwoStrings {eid64 corpse (the target),
+# wstr player, wstr item}. The master looter hands an item on the corpse to a group member.
+GIVE_LOOT = 0x3DC
+CLIENT_EVENTS = (SET_MODE, PROMOTE_ML, ALLOW_GROUP, START_RANDOM, NEED_GREED, PASS, CANCEL_ROLLS, GIVE_LOOT)
+
+
+def parse_give_loot(data):
+    """(corpse eid, player name, item text) from a 0x3dc payload."""
+    corpse = struct.unpack_from("<Q", data, 0)[0]
+    words = data[8:].decode("utf-16-le", "replace").split("\0")
+    return corpse, words[0].strip(), (words[1] if len(words) > 1 else "").strip()
+
+
+def match_loot(loot, text):
+    """The corpse item a /giveplayerlootitem argument names: its handle, or (part of) its name."""
+    text = text.strip().lower()
+    if text.lstrip("-").isdigit():
+        return next((i for i in loot if i[0] == int(text)), None)
+    return next((i for i in loot if i[1].lower() == text), None) or \
+        next((i for i in loot if text and (text in i[1].lower() or i[1].lower() in text)), None)
 ROLL_SECONDS = 30
 
 # 0x0e result codes.

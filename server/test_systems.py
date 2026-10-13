@@ -472,5 +472,16 @@ class ParleyRefreshTests(unittest.TestCase):
         self.assertIsNone(p.check(2))
 
 
+class GiveLootTests(unittest.TestCase):
+    def test_parse_and_match(self):
+        data = struct.pack("<Q", 77) + "Justins\0".encode("utf-16-le") + "Tattered Cloth\0".encode("utf-16-le")
+        self.assertEqual(grouploot.parse_give_loot(data), (77, "Justins", "Tattered Cloth"))
+        loot = [(5, "Tattered Cloth", 1, 1), (6, "Widow Silk", 1, 2)]
+        self.assertEqual(grouploot.match_loot(loot, "6")[1], "Widow Silk")
+        self.assertEqual(grouploot.match_loot(loot, "widow silk")[0], 6)
+        self.assertEqual(grouploot.match_loot(loot, "<item>Tattered Cloth</item>")[0], 5)
+        self.assertIsNone(grouploot.match_loot(loot, "Sword"))
+
+
 if __name__ == "__main__":
     unittest.main()
