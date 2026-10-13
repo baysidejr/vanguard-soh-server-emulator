@@ -392,7 +392,7 @@ def use_ability(state, args, player, ability):
             return                       # the ability didn't go off: no cooldown
     if refresh > 0:
         cooldowns[handle] = now + refresh
-        send(effects.cooldown(handle, refresh))
+        send(effects.cooldown(ability[1], refresh))       # keyed by ability id, not the handle
 
 
 def npc_special(state, npc, now):

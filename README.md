@@ -68,7 +68,8 @@ The unmodified client, talking only to this emulator:
 - [x] Assembly crafting: assembly trainer, recipe categories, combine components into an item at an assembly bench
 - [x] Riftways: /rift and the client's Riftway map travel between riftway stones (one destination placed)
 - [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instant construction), place and pick up furniture, storage chests
-- [ ] Crafting toolbelts and utilities; the hotbar cooldown sweep
+- [x] Hotbar cooldown sweep
+- [ ] Crafting toolbelts and utilities; raids and mentoring
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 

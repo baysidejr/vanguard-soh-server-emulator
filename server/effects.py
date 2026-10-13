@@ -9,7 +9,7 @@ Player effects window (dispatcher FUN_00467f80):
 Target window effects (FUN_004b4210): 0x3c5 {i32 id, wstr name, wstr desc, i32 icon, bool8 show,
   bool8 debuff, eid64 caster} add, 0x3c6 {eid64, i32 id} remove, 0x3c9 clear (the list is
   the current target's: resend on retarget).
-Hotbar: 0x259 {i32 ability handle, f32 left, f32 total} cooldown sweep, 0x25b {f32} global.
+Hotbar: 0x259 {i32 ability id, f32 left, f32 total} cooldown sweep, 0x25b {f32} global.
 Casting: 0x25c {wstr name, f32 seconds} cast bar (ends by itself), 0x260 interrupted.
 Combat text: 0x27b {eid64 source, eid64 target, i32 instance, bool8 heal, u8 kind, i32 amount,
   i32 bonus, u8 outcome (2 hit, 3 crit), u8 damage type, u8, wstr ability, bool8, bool8}
@@ -80,8 +80,9 @@ def target_effects_clear():
     return _event(0x3C9)
 
 
-def cooldown(handle, seconds):
-    return _event(0x259, struct.pack("<iff", handle, float(seconds), float(seconds)))
+def cooldown(ability_id, seconds):
+    """0x259 {i32 ability id (MsgAbilityInfo field 20, not the handle), f32 left, f32 total}."""
+    return _event(0x259, struct.pack("<iff", ability_id, float(seconds), float(seconds)))
 
 
 def cast_bar(name, seconds):
