@@ -399,7 +399,12 @@ def use_ability(state, args, player, ability):
             heal_hate(state, who, amount)
             print(f"  {player.name} heals {who.name} for {amount} ({who.health}/{who.stats['hit_points']})")
         else:
-            apply_buff(state, player, name, spec, now)
+            # A friendly target, or yourself (stances like "... Style" and "self" buffs: always you).
+            ts = state if spec.get("self") or "Style" in name else heal_target(state)
+            apply_buff(ts, ts["player"], name, spec, now)
+            if ts is not state:
+                send(build_system_text(f"You cast {name} on {ts['player'].name}.", SYSTEM_TEXT_WHITE))
+                ts["send"](build_system_text(f"{player.name} casts {name} on you.", SYSTEM_TEXT_WHITE))
     elif getattr(player, "duel_opponent", None) is not None and player.target == player.duel_opponent.char_id:
         # A damaging ability on the duel opponent.
         visual = ability[1] if ability[1] >= 500000 else None
