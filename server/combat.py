@@ -112,7 +112,9 @@ def play_animation(who, anim, arg=0):
     return struct.pack("<HIIQii", 2, ANIM_EVENT, 16, eid, anim, arg)
 
 
-RELEASE_EVENTS = (0x542,)    # client -> server, no payload: "Release to Bind"
+# client -> server, no payload: 0x541 Release (popup bool 0), 0x542 release to bind,
+# 0x543 release to altar (popup bool 1, FUN_005e70b0)
+RELEASE_EVENTS = (0x541, 0x542, 0x543)
 DEATH_POPUP_EVENT = 0x540    # MsgIntAndBool (FUN_005e70b0): "DeathReleasePopup"
 
 

@@ -250,6 +250,7 @@ def main():
     args.content = content.Content()
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
+    args.use_tombstone = use_tombstone
     args.craft_event = lambda state, event, data: handle_craft_event(state, event, data)
     global ARGS
     ARGS = args
@@ -585,8 +586,17 @@ def gear_changed(state, args, player):
 
 
 def award_xp(player, amount, source, grouped=False):
-    """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved."""
+    """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
+    While the player has experience debt, half of what they earn pays it off."""
     out = [combat.experience_reward(amount, source, group=1 if grouped else 0)]
+    debt = getattr(player, "xp_debt", 0)
+    if debt > 0:
+        paid = min(debt, amount // 2)
+        amount -= paid
+        player.xp_debt = debt - paid
+        save_character_field(player.name, "xp_debt", player.xp_debt)
+        if player.xp_debt == 0:
+            out.append(build_system_text("You have paid off your experience debt.", SYSTEM_TEXT_WHITE))
     player.xp += amount
     while player.xp >= zone.XP_PER_LEVEL:
         player.xp -= zone.XP_PER_LEVEL
@@ -616,10 +626,17 @@ def broadcast_npc(state, args, npc, values):
         w.broadcast(lambda s: zone.npc_update(s, args, npc, values))
 
 
+DEBT_PER_DEATH = 100          # experience debt per death (of zone.XP_PER_LEVEL a level)
+DEBT_CAP = 500
+
+
 def player_death(state, args, player):
     """The player's pawn falls (m_bIsDead + death animation) and the release
-    popup opens."""
+    popup opens. Death adds experience debt; the tombstone appears on release."""
     print(f"  <- {player.name} died")
+    player.xp_debt = min(DEBT_CAP, getattr(player, "xp_debt", 0) + DEBT_PER_DEATH)
+    save_character_field(player.name, "xp_debt", player.xp_debt)
+    player.died_at = state.get("position") or player.live_position or player.spawned_at
     out = [zone.player_pawn_update(state, args, {"Health": 0, "m_bIsDead": 1}),
            combat.play_animation(player.char_id, combat.ANIM_DEATH),
            combat.death_popup(300)]
@@ -631,7 +648,93 @@ def player_death(state, args, player):
                 dur[str(item_id)] = max(0, dur.get(str(item_id), 100) - DEATH_WEAR)
         save_character_field(player.name, "durability", dur)
         out.append(build_system_text("Your equipment has been damaged.", SYSTEM_TEXT_ERROR))
+    out.append(zone.score_message(player))
+    out.append(build_system_text("You have gained experience debt. Recover your tombstone to win some of "
+                                 "it back.", SYSTEM_TEXT_ERROR))
     return out
+
+
+CORPSE_CATEGORY = -2          # the client's built-in "Corpses" journal category
+
+
+def tombstone_marker(player, show=True):
+    """Travel journal entry type 1 = tombstone icon on the map (0x382), or remove it (0x383)."""
+    eid = zone.tombstone_eid(player)
+    if not show:
+        return [zone.zone_event(0x383, struct.pack("<i", eid))]
+    x, y, z = player.tombstone["loc"]
+    cx, cy = (int(p[1:]) * -1 if p.startswith("n") else int(p) for p in player.level.split("_")[1:3])
+    out = []
+    if not getattr(player, "journal_ready", False):
+        # The first 0x2ae creates the built-in categories (All Locations, Corpses, Player Housing).
+        out.append(zone.zone_event(0x2AE, ("Locations\0").encode("utf-16-le") + struct.pack("<ii", 1, 0)))
+        player.journal_ready = True
+    out.append(zone.zone_event(0x382, struct.pack("<iifff", eid, 0, x, y, z)
+                               + (f"{player.name}'s tombstone\0").encode("utf-16-le")
+                               + struct.pack("<iiiB", cx, cy, 0, 1) + ("\0").encode("utf-16-le")
+                               + struct.pack("<iBi", CORPSE_CATEGORY, 0, 0)))
+    return out
+
+
+def place_tombstone(state, args, player):
+    """Release: leave the tombstone where the player died, for everyone in the chunk."""
+    w = state.get("world")
+    loc = getattr(player, "died_at", None)
+    if w is None or loc is None:
+        return
+    old = getattr(player, "tombstone", None)
+    if old:
+        remove_tombstone(state, player, quiet=True)
+    player.tombstone = {"level": player.level, "loc": [float(loc[0]), float(loc[1]), float(loc[2])]}
+    save_character_field(player.name, "tombstone", player.tombstone)
+    npc = zone.tombstone_spawn(w, args, player)
+    if npc is not None:
+        w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
+    for m in tombstone_marker(player):
+        state["send"](m)
+
+
+def remove_tombstone(state, player, quiet=False):
+    w = state.get("world")
+    eid = zone.tombstone_eid(player)
+    if w is not None and eid in w.npcs:
+        del w.npcs[eid]
+        w.broadcast(lambda s: zone.close_actor(s, eid))
+    for m in tombstone_marker(player, show=False):
+        state["send"](m)
+    player.tombstone = None
+    save_character_field(player.name, "tombstone", None)
+
+
+def use_tombstone(state):
+    """U (the pawn's ServerUse RPC) on your tombstone: the target, or your own one if you
+    stand at it. True when handled."""
+    p = state["player"]
+    npc = p.npcs.get(p.target) if p.target else None
+    if npc is None or not getattr(npc, "tombstone_of", None):
+        npc = p.npcs.get(zone.tombstone_eid(p))
+        if npc is None or player_distance(p, npc) > 600:
+            return False
+    if player_distance(p, npc) > 600:
+        state["send"](build_system_text("You are too far away.", SYSTEM_TEXT_ERROR))
+    else:
+        recover_tombstone(state, p, npc)
+    return True
+
+
+def recover_tombstone(state, player, npc):
+    """Looting your own tombstone: it crumbles and half the experience debt comes back."""
+    if getattr(npc, "tombstone_of", "").lower() != player.name.lower():
+        state["send"](build_system_text("That is not your tombstone.", SYSTEM_TEXT_ERROR))
+        return
+    remove_tombstone(state, player)
+    debt = getattr(player, "xp_debt", 0)
+    back = debt // 2
+    player.xp_debt = debt - back
+    save_character_field(player.name, "xp_debt", player.xp_debt)
+    state["send"](zone.score_message(player))
+    state["send"](build_system_text(f"You recover your tombstone and win back {back} experience.",
+                                    SYSTEM_TEXT_WHITE))
 
 
 DEATH_WEAR = 10
@@ -3398,6 +3501,9 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "tombstone" and player:
+        # !tombstone: leave your tombstone at your feet (testing).
+        return [("tombstone",)]
     if words[0] == "mailme" and player:
         # !mailme: a letter to yourself from Orin with 50 copper and a Copper Ore (testing).
         db = load_mail()
@@ -3647,6 +3753,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.parleys_won = list(char.get("parleys_won", []))
             player.factions = dict(char.get("factions", {}))
             player.work_order = char.get("work_order")
+            player.xp_debt = int(char.get("xp_debt", 0))
+            player.tombstone = char.get("tombstone")
             player.known_recipes = list(char.get("known_recipes", []))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
@@ -3706,6 +3814,11 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "tombstone":
+                        p = state["player"]
+                        p.died_at = state.get("position") or p.live_position or p.spawned_at
+                        place_tombstone(state, args, p)
+                        continue
                     elif isinstance(m, tuple) and m[0] == "faction":
                         adjust_faction(state, m[1], m[2])
                         continue
@@ -3746,11 +3859,26 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE release ({payload[2:6].hex(' ')})")
             if player and player.health <= 0:
                 player.health = player.stats["hit_points"]
+                place_tombstone(state, args, player)
                 for m in (combat.death_popup(0, False),
                           zone.player_pawn_update(state, args, {"Health": 100, "m_bIsDead": 0}),
                           zone.health_update(player),
                           zone.player_teleport(player.spawned_at)):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x3D6, 0x3D7):
+            # /targetnearestpccorpse (0x3d6), /targetmynearestcorpse (0x3d7): no payload.
+            player = state.get("player")
+            if player:
+                mine = struct.unpack_from("<I", payload, 2)[0] == 0x3D7
+                stones = [n for n in player.npcs.values() if getattr(n, "tombstone_of", None)
+                          and (not mine or n.tombstone_of.lower() == player.name.lower())]
+                if stones:
+                    pos = player.live_position or player.spawned_at
+                    npc = min(stones, key=lambda n: (n.location[0] - pos[0]) ** 2 + (n.location[1] - pos[1]) ** 2)
+                    player.target = npc.entity_id
+                    send_message(sock, addr, state, combat.targets(npc))
+                else:
+                    send_message(sock, addr, state, zone.zone_event(0x0E, struct.pack("<h", 300)))   # NoCorpses
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == combat.TARGET_EVENT:
             # Target selected (click, Tab): u64 entity id; 0 = target cleared.
             player = state.get("player")
@@ -3782,7 +3910,10 @@ def handle_message(sock, server, addr, state, payload, args):
             player = state.get("player")
             npc = player.npcs.get(player.target) if player and player.target else None
             print(f"  >>> ZONE loot event {event:#x}: {payload[10:].hex(' ')}")
-            if npc and not npc.alive:
+            if npc and getattr(npc, "tombstone_of", None):
+                if event == combat.LOOT_REQUEST:
+                    recover_tombstone(state, player, npc)
+            elif npc and not npc.alive:
                 if event == combat.LOOT_REQUEST:
                     msgs = combat.loot_messages(npc)
                 elif event in (combat.LOOT_TAKE, combat.LOOT_TAKE_ALL):

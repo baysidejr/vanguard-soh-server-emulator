@@ -41,6 +41,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | NPC services | which NPCs are bankers, trainers, repairers, crafting stations; bank sizes; repair prices; what each trainer teaches | `banker`, `trainer`, `repair`, `station` flags in mobs.json; 40 bank slots; repair 2 copper per point per item level; trainers teach the next 6 class abilities at 1 silver steps; recipe trainers sell the recipes listed in `recipe_trainer` at their `trainer_cost` (which recipes each real trainer taught is unknown) |
 | Item durability | wear per death or per hit, which item types wear | 10 points per death on equipped non-misc items |
 | Crafting tools and complications | tool per recipe step, complication tables per recipe or stage, counter actions | one tool (Crucible Tongs) and one complication (Slag Buildup) in recipes.json |
+| Death penalty | debt per death and per level, debt recovery from tombstones and resurrection, corpse decay time, altar locations and meshes, summon cooldowns | 100 debt per death (cap 500), half back on recovery, no decay, no altars |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)

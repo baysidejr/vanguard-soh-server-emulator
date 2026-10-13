@@ -54,7 +54,9 @@ def handle_unreal(send, state, payload, args):
             if state.pop("use_requested", False):
                 # "Use" (U key): a merchant opens its dialog; a dead target its loot.
                 npc = player.npcs.get(player.target) if player.target else None
-                if npc and npc.harvest:
+                if args.use_tombstone(state):
+                    pass
+                elif npc and npc.harvest:
                     args.harvest_begin(state)
                 elif npc and npc.station:
                     args.craft_event(state, craft.USE_STATION, b"")
@@ -136,12 +138,39 @@ def handle_unreal(send, state, payload, args):
         state["world"] = w
         player.npcs = w.npcs
         w.members[player.char_id] = state
+        if getattr(player, "tombstone", None) and player.tombstone.get("level") == player.level:
+            tombstone_spawn(w, args, player)
         for npc in w.npcs.values():
             send(open_npc(state, args, npc))
         for other in w.others(state):
             send(open_remote_player(state, args, other["player"]))
             other["send"](open_remote_player(other, args, player))
             print(f"  <- {player.name} and {other['player'].name} now see each other")
+
+
+TOMBSTONE_RACE = 587          # the "Tombstone" static mesh; always gets the loot cursor (0x4187bb)
+TOMBSTONE_TYPES = 0x2 | 0x20  # corpse + player: the name reads "<name>'s corpse" when m_bIsDead
+
+
+def tombstone_eid(player):
+    return 0x3000000 + (player.char_id & 0xFFFFF)
+
+
+def tombstone_spawn(w, args, player):
+    """The player's tombstone (player.tombstone = {level, loc}) as a world actor; returns
+    the new Npc, or None if it is already there."""
+    eid = tombstone_eid(player)
+    if eid in w.npcs:
+        return None
+    npc = combat.Npc(eid, player.name, None, f"{content.PAWN_PACKAGE}.SGONPCPawn",
+                     location=tuple(player.tombstone["loc"]))
+    npc.race = TOMBSTONE_RACE
+    npc.prop = True
+    npc.tombstone_of = player.name
+    npc.template_id = "tombstone"
+    npc.props = {"EntityTypes": TOMBSTONE_TYPES, "m_bIsDead": 1, "DrawScale": 0.35}
+    w.npcs[eid] = npc
+    return npc
 
 
 def populate_world(w, args):
@@ -261,6 +290,7 @@ def score_message(player, probe=False):
         adv_class=player.klass, adv_level=player.level_number,
         adv_exp_amount=player.xp, adv_exp_amount_next=XP_PER_LEVEL,
         adv_exp_frac=player.xp / XP_PER_LEVEL,
+        adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / XP_PER_LEVEL),
         armor_class=25, craft_level=1, harvest_level=1, dip_level=1,
         movement_mode=2, move_speed=1.0, craft_trade=0xFF,
         attack=-40.0, attack_max=-40.0, ranged=-25.0, spell_attack=-10.0,
