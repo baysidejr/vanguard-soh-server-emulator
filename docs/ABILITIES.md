@@ -200,7 +200,7 @@ Implemented in `server/reactions.py` and `login_stub` (`chain_next`, `activate_r
 - **Opening a reaction:** when an ability of a chain goes off, the server sends **0x391** `{eid64 target, i32 reaction id, i32 ability id, f32 seconds, i32 type, bool8 0, i32 0, i32 0}` (33 bytes; type 0 chain step, 8 finisher, 2 counter, 3 rescue). A chain button with a link icon pops up above the hotbar, the ability unlocks with a countdown sweep, and the client closes it itself when the time runs out.
 - **Activation:** pressing the unlocked hotbar ability (or the Reactions window button) makes the client send **0x145** `{i32 reaction id}` instead of the normal 0xd0 use. The server answers 0x39a `{u8 0}` ("You successfully activated a combat reaction."; 1 = timed out), closes it with 0x392 `{i32 id}`, uses the ability and opens the next step. 0x396 closes all (sent on death).
 - Verified with Justins (Warrior): Brutal Strike → (3) Savage Cut → (`!react`) Decimate. `!react` activates the newest open reaction.
-- Not done: counters (type 2, during an enemy's cast) and rescues (type 3), which need NPC casts and group threat; 0x393 chain reset and 0x394/0x398 partial clears.
+- Not done: 0x393 chain reset and 0x394/0x398 partial clears. Counters and rescues are in the sections below.
 
 ## Enemy casts and counters (counters verified live 2026-10-13)
 
