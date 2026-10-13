@@ -615,6 +615,13 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     w = state.get("world")
     if w is not None:
         w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
+    # Riding speed: GroundSpeed in a later bunch (MountUp resets it to the race default).
+    speed = BASE_GROUND_SPEED * (MOUNT_SPEED if mount_id else 1.0)
+    state["send"](zone.player_pawn_update(state, args, {"GroundSpeed": speed}))
+
+
+BASE_GROUND_SPEED = 337.889       # the client's own value for player races (pawn +0x7f0, read live)
+MOUNT_SPEED = 1.6                 # mounts run 60% faster
 
 
 def award_xp(player, amount, source, grouped=False):

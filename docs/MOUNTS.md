@@ -2,7 +2,9 @@
 
 > **Verified live (2026-10-13):** right-clicking a "Thestran Riding Horse" item in the bags (the client sends 0x98 {handle, u8}) prints "You summon your Thestran Riding Horse." and Ranger rides a grey horse: the server adds `(500, 1000, 39)` to the pawn's `m_AttachmentGroups` and sets `m_MountType = 1`. `/dismount` (0x57c, no payload) or right-clicking the item again removes the entry, sets `m_MountType = 0`, and sends 0x0e code 0xac ("Dismounting."). Other players see the mount through the same pawn properties (verified live with two clients: Justins sees Ranger riding). Dev command: `!mount [id] [fly]`, `!mount 0` dismounts.
 >
-> **Not done:** mounted speed (`GroundSpeed` must be sent in a later bunch than the attachment, because MountUp resets it to the race default; the race default is unknown, and movement could not be scripted to measure it), flying mounts (`m_MountType = 3`), barding (slot 45), the mount item's icon (1225 is a placeholder).
+> **Mounted speed (verified live):** after the attachment update the server sends `GroundSpeed` in its own bunch: 1.6 x the client's 337.889 (read from pawn +0x7f0). Holding W for 3 s: 1012 units on foot, 1588 mounted. Dismounting sends the base speed again.
+>
+> **Not done:** flying mounts (`m_MountType = 3`), barding (slot 45), the mount item's icon (1225 is a placeholder).
 
 Server: `login_stub.set_mount`, `zone.gear_attachments` (MOUNT_PACKAGE 500, MOUNT_SLOT 39). Content: items.json `"mount": {"id": 1000, "type": 1}`; the camp merchant sells the horse for 500 copper.
 

@@ -1,4 +1,4 @@
-# Player movement (in progress)
+# Player movement
 
 > **Fixed (2026-10-13, verified live with two clients):** WASD moves the player. Holding W moved Ranger from x -30900 to -29891 in about 3 s, walking (Physics 1) up and down slopes, with the client sending ServerMove RPCs; a second client (Justins) sees him walk up. The fix has three parts, below under "The fix".
 
