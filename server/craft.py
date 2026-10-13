@@ -63,7 +63,7 @@ def recipe_record(r):
     data = (_w(r["name"]) + _w(r.get("description", ""))
             + struct.pack("<iiii", r.get("icon", 443), r["id"], len(steps), r.get("max_ap", MAX_AP))
             + struct.pack("<ii", -1, -1)
-            + struct.pack("<iii", 0, r.get("category", 1), 0)
+            + struct.pack("<iii", 1 if r.get("kind") == "finishing" else 0, r.get("category", 1), 0)
             + struct.pack("<BBi", 0, 0, r.get("skill", 0x28))   # 0x28 Smelting (stat id)
             + b"".join(_w(n) for n in names[:4]))
     for n, si, st in steps:

@@ -1,5 +1,5 @@
 {
-  "_comment": "Refining recipes. id: recipe id; inputs: {item name: count}; output: item name; stages: up to 4 {name, steps: [{name, description, action (action id), ap, tool (item that must be in the bags)}]} done in order (or one stage: stage + steps); max_ap: action points (default 100); xp: crafting experience; catalyst: {item, quality (added once, when the player adds it)}; complications: [{name, description, stage (index), chance, penalty (quality lost per action while active), counter: {action, family (unused by steps), name, description, ap, strength (health removed per use, of 100)}}]. Placeholder data (docs/CONTENT_EDITOR.md). category: recipe book group (1 General, 2 Unique, 3 Work Order); work_order: true keeps the recipe out of the book until the player takes a work order that uses it. trainer_cost: the recipe must be bought from a recipe trainer (mobs.json recipe_trainer) for this many copper before it is in the book. A step may need a utility {item, qty}: a consumable used up when the step's action is taken (listed under the step on the Table Setup screen, 0x300).",
+  "_comment": "Refining recipes. id: recipe id; inputs: {item name: count}; output: item name; stages: up to 4 {name, steps: [{name, description, action (action id), ap, tool (item that must be in the bags)}]} done in order (or one stage: stage + steps); max_ap: action points (default 100); xp: crafting experience; catalyst: {item, quality (added once, when the player adds it)}; complications: [{name, description, stage (index), chance, penalty (quality lost per action while active), counter: {action, family (unused by steps), name, description, ap, strength (health removed per use, of 100)}}]. Placeholder data (docs/CONTENT_EDITOR.md). category: recipe book group (1 General, 2 Unique, 3 Work Order); work_order: true keeps the recipe out of the book until the player takes a work order that uses it. trainer_cost: the recipe must be bought from a recipe trainer (mobs.json recipe_trainer) for this many copper before it is in the book. A step may need a utility {item, qty}: a consumable used up when the step's action is taken (listed under the step on the Table Setup screen, 0x300). kind: \"finishing\" puts the recipe on the Finishing tab (category 1 Primary, 2-3 Secondary, 4-5 Misc, 6 Unique).",
   "copper_ingot": {
     "id": 5001,
     "name": "Copper Ingot",
@@ -192,5 +192,56 @@
     ],
     "complications": [],
     "trainer_cost": 50
+  },
+  "copper_buckle": {
+    "id": 5003,
+    "name": "Copper Buckle",
+    "description": "Shape a copper ingot into a belt buckle.",
+    "icon": 475,
+    "inputs": {
+      "Copper Ingot": 1
+    },
+    "output": "Copper Buckle",
+    "xp": 140,
+    "max_ap": 120,
+    "stages": [
+      {
+        "name": "Shaping",
+        "steps": [
+          {
+            "name": "Cast Blank",
+            "description": "Pour a buckle blank.",
+            "action": 30301,
+            "ap": 20
+          },
+          {
+            "name": "File Edges",
+            "description": "File the rough edges.",
+            "action": 30302,
+            "ap": 20
+          }
+        ]
+      },
+      {
+        "name": "Finishing",
+        "steps": [
+          {
+            "name": "Polish",
+            "description": "Polish the buckle.",
+            "action": 30303,
+            "ap": 20
+          },
+          {
+            "name": "Fit Pin",
+            "description": "Fit the buckle pin.",
+            "action": 30304,
+            "ap": 20
+          }
+        ]
+      }
+    ],
+    "complications": [],
+    "kind": "finishing",
+    "category": 4
   }
 }
