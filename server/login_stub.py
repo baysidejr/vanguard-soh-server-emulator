@@ -23,6 +23,7 @@ import class_abilities
 import chat
 import combat
 import group
+import grouploot
 import trade
 import quest
 import harvest
@@ -259,6 +260,7 @@ def main():
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     args.use_tombstone = use_tombstone
     args.on_move = on_move
+    args.open_loot = open_loot
     # The owner's pawn is ROLE_AutonomousProxy on the client (wire Role 3, RemoteRole 4) and is
     # handed over with GivePawn, so the player moves it with the keyboard (docs/MOVEMENT.md).
     # PAWN_ROLE=off restores the old simulated pawn (for comparison).
@@ -517,7 +519,7 @@ def effects_tick(state, args, now):
             send(effects.combat_text(player.char_id, npc.entity_id, e["name"], dmg))
             lines = []
             if not npc.alive:
-                npc.died_at = now
+                npc.died_at, npc.killer = now, player
                 lines.append((f"You have slain {npc.name}!", "white"))
                 player.pending_rewards.append(combat.KILL_XP)
             else:
@@ -2834,6 +2836,7 @@ def handle_group_event(state, event, payload):
         g.members.append(player)
         player.group = g
         send(group.leader_is(g.leader))
+        send(grouploot.mode_message(g))
     elif event in (group.RAID_CREATE, group.RAID_ALERT, group.READY_CHECK, group.READY_ANSWER,
                    group.RAID_MOVE, group.RAID_ROLE):
         handle_raid_event(state, event, payload[10:])
@@ -2900,6 +2903,189 @@ def handle_mentor_event(state, event, data):
         set_mentor_level(state, None)
         say(state, f"You stop mentoring. Your level is {player.level_number} again.")
         state.pop("mentoring", None)
+
+
+def open_loot(state, npc):
+    """Open a corpse's loot window (U or 0xbb), if the player has loot rights."""
+    if not group_loot_allowed(state, npc):
+        return []
+    msgs = combat.loot_messages(npc)
+    group_loot_opened(state, npc)
+    return msgs
+
+
+def group_loot_allowed(state, npc):
+    """Loot rights on a corpse (grouploot.may_loot); sends the refusal."""
+    code = grouploot.may_loot(state["player"], npc)
+    if code is not None:
+        state["send"](zone.zone_event(0x0E, struct.pack("<h", code)))
+        state["send"](build_system_text("You don't have permission to loot that corpse.", SYSTEM_TEXT_ERROR))
+    return code is None
+
+
+def group_loot_opened(state, npc):
+    """First look at a group kill: Round Robin picks whose turn it is; Need Before Greed
+    starts the roll on the items at or above the rarity threshold."""
+    killer = getattr(npc, "killer", None)
+    g = getattr(killer, "group", None)
+    if g is None:
+        return
+    s = grouploot.settings(g)
+    if s["mode"] == grouploot.ROUND_ROBIN and getattr(npc, "loot_owner", None) is None:
+        npc.loot_owner = grouploot.next_turn(g)
+        for m in group_states(killer):
+            if m["player"] is not npc.loot_owner:
+                m["send"](grouploot.other_turn(npc.loot_owner.char_id))
+    elif s["mode"] == grouploot.NEED_BEFORE_GREED and not getattr(npc, "rolled", False):
+        start_roll(g, npc)
+
+
+def roll_items(g, npc):
+    """The corpse's items that go to a roll (rarity at or above the group threshold)."""
+    rarity = grouploot.settings(g)["rarity"]
+    pending = getattr(npc, "pending", set())
+    return [i for i in (npc.loot or []) if i[0] not in pending
+            and grouploot.qualifies(ARGS.content.item(i[1]).get("rarity", grouploot.COMMON), rarity)]
+
+
+def start_roll(g, npc):
+    npc.rolled = True
+    if getattr(g, "lottery", None):
+        return                                    # one roll at a time per group
+    items = roll_items(g, npc)
+    if not items:
+        return
+    npc.pending = set(getattr(npc, "pending", set())) | {i[0] for i in items}
+    g.lottery = {"npc": npc, "queue": items, "first": True}
+    present_roll(g)
+
+
+def present_roll(g):
+    import vgmsg
+    lot = g.lottery
+    item_id, name, icon, qty = lot["queue"][0]
+    nxt = lot["queue"][1][1] if len(lot["queue"]) > 1 else ""
+    data = vgmsg.inventory_item(item_id, name, 0, icon=icon, quantity=qty, **zone.item_equip_fields(name))
+    lot["answers"] = {}
+    lot["voters"] = [s["player"].name for s in group_states(g.leader)]
+    lot["deadline"] = time.time() + grouploot.ROLL_SECONDS
+    for s in group_states(g.leader):
+        s["send"](grouploot.roll_popup(data, nxt, lot["first"]))
+    lot["first"] = False
+
+
+def answer_roll(state, need):
+    """0xb9 need/greed or 0xba pass (need None) for the group's current roll."""
+    player = state["player"]
+    g = getattr(player, "group", None)
+    lot = getattr(g, "lottery", None)
+    if lot is None or player.name not in lot["voters"] or player.name in lot["answers"]:
+        return
+    if need is None:
+        lot["answers"][player.name] = None
+        state["send"](grouploot.your_roll(0, False))
+    else:
+        roll = random.randint(1, 100)
+        lot["answers"][player.name] = (need, roll)
+        state["send"](grouploot.your_roll(roll, need))
+    if all(v in lot["answers"] for v in lot["voters"]):
+        finish_roll(g)
+
+
+def finish_roll(g):
+    """Resolve the current item (unanswered = pass), give it to the winner, go on."""
+    lot = g.lottery
+    npc = lot["npc"]
+    item = lot["queue"].pop(0)
+    npc.pending.discard(item[0])
+    result = grouploot.resolve(lot["answers"])
+    members = group_states(g.leader)
+    for s in members:
+        s["send"](grouploot.roll_result(*(result or ("", False, 0))))
+    winner = ONLINE.get(result[0].lower()) if result else None
+    if winner is not None and item in (npc.loot or []):
+        p = winner["player"]
+        for m in combat.take_loot(p, npc, item[0]):
+            winner["send"](m)
+        save_character_field(p.name, "items", [list(i) for i in p.items])
+        for s in members:
+            s["send"](grouploot.looted(p, item[1], item[3]))
+        print(f"  group loot: {p.name} won {item[1]} ({'need' if result[1] else 'greed'} {result[2]})")
+    if lot["queue"]:
+        present_roll(g)
+    else:
+        g.lottery = None
+        g.lottery_close = time.time() + 6
+        for s in members:
+            s["send"](grouploot.rolls_over())
+
+
+def handle_grouploot_event(state, event, data):
+    """Group loot settings and rolls (grouploot.py)."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE group loot event {event:#x}: {data.hex(' ')}")
+    g = getattr(player, "group", None)
+    notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
+    if g is None:
+        notice(0xC5)                                     # NotInGroup
+        return
+    s = grouploot.settings(g)
+    members = group_states(player)
+
+    def announce_ml():
+        for m in members:
+            m["send"](grouploot.you_master_looter() if m["player"].char_id == s["ml"]
+                      else grouploot.other_master_looter(s["ml"]))
+
+    if event in (grouploot.SET_MODE, grouploot.PROMOTE_ML, grouploot.CANCEL_ROLLS) and g.leader is not player:
+        notice(grouploot.MUST_BE_LEADER)
+    elif event == grouploot.SET_MODE:
+        ml, mode, rarity, split, cash = grouploot.parse_set_mode(data)
+        if not 0 <= mode <= grouploot.NEED_BEFORE_GREED:
+            notice(grouploot.INVALID_MODE)
+            return
+        if all(m.char_id != ml for m in g.members):
+            ml = g.leader.char_id
+        s.update(mode=mode, ml=ml, rarity=rarity if rarity in grouploot.RARITIES else grouploot.DEFAULT_RARITY,
+                 split=split, cash=cash)
+        for m in members:
+            m["send"](grouploot.mode_message(g))
+        if mode == grouploot.MASTER_LOOTER:
+            announce_ml()
+    elif event == grouploot.PROMOTE_ML:
+        name = data.decode("utf-16-le", "replace").split("\0")[0].strip().lower()
+        who = next((m for m in g.members if m.name.lower() == name), None)
+        if who is None:
+            notice(0xCF)                                 # MustSelectGroupMember
+            return
+        s["ml"] = who.char_id
+        announce_ml()
+        for m in members:
+            m["send"](grouploot.mode_message(g))
+    elif event in (grouploot.ALLOW_GROUP, grouploot.START_RANDOM):
+        npc = player.npcs.get(struct.unpack_from("<Q", data, 0)[0]) if len(data) >= 8 else None
+        if npc is None or npc.alive or grouploot.may_loot(player, npc) is not None:
+            notice(grouploot.NO_PERMISSION)
+        elif event == grouploot.ALLOW_GROUP:
+            npc.open_to_group = True
+            for m in members:
+                m["send"](build_system_text(f"{player.name} lets the group loot {npc.name}.", SYSTEM_TEXT_WHITE))
+        elif s["mode"] == grouploot.RANDOM_FOR_MAGICAL:
+            if npc.loot is None:
+                combat.loot_messages(npc)                # roll the corpse's items
+            start_roll(g, npc)
+        else:
+            notice(grouploot.INVALID_MODE)
+    elif event == grouploot.NEED_GREED:
+        answer_roll(state, bool(data[0]) if data else False)
+    elif event == grouploot.PASS:
+        answer_roll(state, None)
+    elif event == grouploot.CANCEL_ROLLS and getattr(g, "lottery", None):
+        g.lottery["npc"].pending = set()
+        g.lottery = None
+        for m in members:
+            m["send"](grouploot.rolls_over())
+            m["send"](grouploot.hide_popup())
 
 
 def handle_raid_event(state, event, data):
@@ -2973,7 +3159,18 @@ def leave_group(state):
 
 
 def group_tick():
-    """Once a second: members' positions and vitals to the rest of the group."""
+    """Once a second: members' positions and vitals to the rest of the group;
+    group loot rolls that ran out of time."""
+    now = time.time()
+    for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
+              if getattr(s.get("player"), "group", None)}.values():
+        lot = getattr(g, "lottery", None)
+        if lot and now >= lot["deadline"]:
+            finish_roll(g)
+        if getattr(g, "lottery_close", 0) and now >= g.lottery_close:
+            g.lottery_close = 0
+            for s in group_states(g.leader):
+                s["send"](grouploot.hide_popup())
     for state in list(ONLINE.values()):
         player = state.get("player")
         if not getattr(player, "group", None) or "send" not in state:
@@ -5102,6 +5299,18 @@ def dev_command(text, player=None):
     if words[0] == "ui" and len(words) > 1:
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
+    if words[0] == "kill" and player:
+        # !kill: one hit that kills the target (testing loot and kill rewards).
+        return [("kill",)]
+    if words[0] == "lootmode" and player and len(words) > 1:
+        # !lootmode <0-4> [rarity 0-6]: as the leader's loot options popup (0xb6) (testing).
+        r = grouploot.RARITIES[int(words[2])] if len(words) > 2 else grouploot.DEFAULT_RARITY
+        return [("lootev", grouploot.SET_MODE, struct.pack("<Qi", player.char_id, int(words[1]))
+                 + (r + "\0").encode("utf-16-le") + b"\0\0")]
+    if words[0] == "roll" and player and len(words) > 1:
+        # !roll need|greed|pass: answer the group loot roll popup (testing).
+        return [("lootev", grouploot.PASS, b"") if words[1] == "pass"
+                else ("lootev", grouploot.NEED_GREED, bytes([words[1] == "need"]))]
     if words[0] == "mentorme" and player and len(words) > 1:
         # !mentorme <member>: as the group window's "Request Mentor" menu (0x5c8) (testing).
         return [("mentorev", group.MENTOR_REQUEST, (words[1] + "\0").encode("utf-16-le"))]
@@ -5482,6 +5691,17 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "gotostate":
                         send_message(sock, addr, state, zone.client_goto_state(state, args, m[1]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "kill":
+                        kp = state["player"]
+                        npc = kp.npcs.get(kp.target) if kp.target else None
+                        if npc is not None and npc.alive:
+                            lines, npc = combat.strike(kp, npc, "You", None, npc.health, npc.health)
+                            for cm in combat_results(state, ARGS, kp, lines, npc, True, False):
+                                send_message(sock, addr, state, cm)
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "lootev":
+                        handle_grouploot_event(state, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "mentorev":
                         handle_mentor_event(state, m[1], m[2])
                         continue
@@ -5586,6 +5806,8 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3E5:
             # The client echoes a server teleport (zone.player_teleport) once it has moved.
             state.setdefault("move_check", {})["teleport_at"] = time.time()
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in grouploot.CLIENT_EVENTS and state.get("player"):
+            handle_grouploot_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.MENTOR_EVENTS and state.get("player"):
             handle_mentor_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in assembly.CLIENT_EVENTS and state.get("player"):
@@ -5678,12 +5900,23 @@ def handle_message(sock, server, addr, state, payload, args):
             if npc and getattr(npc, "tombstone_of", None):
                 if event == combat.LOOT_REQUEST:
                     recover_tombstone(state, player, npc)
+            elif npc and not npc.alive and event != combat.LOOT_CLOSE and not group_loot_allowed(state, npc):
+                msgs = []
             elif npc and not npc.alive:
                 if event == combat.LOOT_REQUEST:
-                    msgs = combat.loot_messages(npc)
+                    msgs = open_loot(state, npc)
                 elif event in (combat.LOOT_TAKE, combat.LOOT_TAKE_ALL):
-                    msgs = combat.take_loot(player, npc, struct.unpack_from("<i", payload, 10)[0])
+                    handle = struct.unpack_from("<i", payload, 10)[0]
+                    if handle in getattr(npc, "pending", set()):
+                        send_message(sock, addr, state, zone.zone_event(0x0E, struct.pack("<h", grouploot.PENDING_RANDOM)))
+                    before = list(npc.loot or [])
+                    msgs = combat.take_loot(player, npc, handle)
                     save_character_field(player.name, "items", [list(i) for i in player.items])
+                    taken = [i for i in before if i not in (npc.loot or [])]
+                    if getattr(player, "group", None):
+                        for s in group_states(player):
+                            for _id, name, _icon, qty in taken:
+                                s["send"](grouploot.looted(player, name, qty))
                 else:
                     msgs = []
                 for m in msgs:

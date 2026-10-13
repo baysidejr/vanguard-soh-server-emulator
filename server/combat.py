@@ -208,6 +208,7 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
     lines = []
     if not npc.alive:
         npc.died_at = time.time()
+        npc.killer = player
         player.auto_attack = False
         lines.append((f"You have slain {npc.name}!", "white"))
         player.pending_rewards.append(KILL_XP)
@@ -366,6 +367,8 @@ def respawns(npcs, now):
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
             npc.location, npc.loot, npc.wander_goal = npc.home, None, None
+            npc.killer = npc.loot_owner = None
+            npc.open_to_group, npc.pending, npc.rolled = False, set(), False
             back.append(npc)
     return back
 
@@ -442,7 +445,8 @@ def take_loot(player, npc, handle):
     """Move loot items (handle -1 = all) into the player's bag. Returns messages."""
     import vgmsg
     out = []
-    for item in [i for i in (npc.loot or []) if handle in (-1, i[0])]:
+    pending = getattr(npc, "pending", set())      # items in a group loot roll
+    for item in [i for i in (npc.loot or []) if handle in (-1, i[0]) and i[0] not in pending]:
         item_id, name, icon, qty = item
         import zone
         slot = zone.free_bag_slot(player)

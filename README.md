@@ -74,6 +74,7 @@ The unmodified client, talking only to this emulator:
 - [x] The Find window: search for groups or players looking for a group
 - [x] Crafting utilities (consumables used by recipe steps) and the active toolbelt
 - [x] Refining and finishing stations (the station picks the recipe page); fall damage; faster riding
+- [x] Group loot: Free For All, Round Robin, Master Looter, Random For Magical and Need Before Greed with the Need/Greed/Pass roll popup; swimming breath and drowning
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [MOVEMENT](docs/MOVEMENT.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
@@ -134,6 +135,8 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!mailme` | Receive a test letter with coin and an item |
 | `!tombstone` / `!rezme` | Leave your tombstone here / get a resurrection offer |
 | `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
+| `!kill` | Kill the target with one hit |
+| `!lootmode <0-4> [rarity 0-6]`, `!roll need/greed/pass` | Group loot mode (as the leader's popup) and roll answers |
 | `!deftarget <player>` | Set another player as defensive target (then `/duel`) |
 | `!fishbite` | Pretend the fishing bobber landed in water |
 | `!ui <window>` | Toggle a client window (e.g. `!ui Social`) |

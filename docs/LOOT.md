@@ -47,3 +47,20 @@ Sending 0x1ef before 0x1f2, or sending 0x1ef with 0 items, ends the session righ
 - On 0xbc h: add the item to the bag (0x197 inventory item with container -1 and a free slot; the handle can be the same id). Then send 0x1f6 {i32 h, bool 1}. If no items are left, send 0x1ed (or wait for the client's 0xbe).
 - On 0xbd -1: for each item, add it to the bag and send 0x1f6 {h,1}. Then send 0x1f8 (clears the loot-all flag and refreshes the lists). Then send 0x1ed to close.
 - On 0xbe: end the session server side. Sending 0x1ed is harmless.
+
+## Group loot (verified live 2026-10-13, two clients)
+
+Implemented in `server/grouploot.py` (message builders and rules, unit-tested in `test_systems.py`) and `login_stub` (`open_loot`, `group_loot_*`, `start_roll` / `present_roll` / `answer_roll` / `finish_roll`, `handle_grouploot_event`). The killer of an NPC is recorded (`npc.killer`); a solo kill can only be looted by its killer, a group kill by the killer's group according to the loot mode.
+
+| Mode | Value | Who may loot |
+|---|---|---|
+| Free For All | 0 | any member |
+| Round Robin | 1 | the member whose turn it is (picked when the corpse is first opened; the others get 0x6cd), or anyone after 0xb7 "allow group to loot" |
+| Master Looter | 2 | the master looter, or anyone after 0xb7 |
+| Random For Magical | 3 | any member; 0xb8 "start randoming" rolls the items at or above the rarity threshold |
+| Need Before Greed | 4 | any member; opening the corpse starts the roll automatically (the client's options popup can't pick this mode) |
+
+- **Settings:** client 0xb6 `{eid64 master looter, i32 mode, wstr rarity, bool8 split coin, bool8 cash loot}` from the leader → 0x6c8 (same layout) to every member, also sent to new members. The client prints "The group loot mode has been changed to: …". The rarity travels as the popup's colored string (`grouploot.RARITIES`, best first); items.json `rarity` is an index into that list (default 5 Common). 0xb5 `{wstr name}` promotes a master looter → 0x6a5 to them, 0x6cc `{eid64}` to the others.
+- **Roll:** 0x6ab (first item) / 0x6ad (next) `{wstr next item, i32 0, i32 0, i32 seconds, bool8 need allowed}` + the item's 0x1f2 bytes opens the client's Loot Roll popup (Need / Greed / Pass). Answers: 0xb9 `{bool8 need}`, 0xba pass. Each answer gets 0x6af `{i32 roll, bool8 need}`; when everyone answered (or after 30 s; silence = pass) 0x6ae `{wstr winner, bool8 need, i32 roll}` goes to the group ("Winner: Ranger 59 (NEED)"; roll 0 = "Everyone PASSED. Open loot!"), the item goes to the winner's bags and 0x696 `{eid64, wstr item, i32 qty}` prints "Ranger has looted Tattered Cloth." After the last item 0x6b0 ("No more items to be randomed!", the popup counts down) and 0x6ac hides it. Items in a roll can't be taken from the window (0x0e code 0xef). The leader's /groupcancelrollsession (0x1e6) stops a roll.
+- **Not done:** coin split (0x6ce), /giveplayerlootitem (0x3dc), the rarity of real items (server data).
+- Test: `loottest.sh` in the scratchpad, or by hand: group two characters, leader types `!lootmode 4 6` (Need Before Greed, threshold Mundane), `!target Canyon Widow`, `!kill`, U on the corpse; answer in the popups (or `!roll need|greed|pass`).

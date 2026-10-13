@@ -4,6 +4,7 @@ import unittest
 
 import assembly
 import fishing
+import grouploot
 import housing
 import mail
 import market
@@ -89,6 +90,59 @@ class MiscTests(unittest.TestCase):
         class P:
             health, max_health = 150, 300
         self.assertEqual(payload(pets.health(P()))[1], bytes([127]))
+
+
+class GroupLootTests(unittest.TestCase):
+    class P:
+        def __init__(self, name, cid):
+            self.name, self.char_id, self.group = name, cid, None
+
+    class G:
+        def __init__(self, members):
+            self.leader, self.members = members[0], members
+
+    class N:
+        def __init__(self, killer):
+            self.killer = killer
+
+    def group(self, mode):
+        a, b, c = self.P("A", 1), self.P("B", 2), self.P("C", 3)
+        g = self.G([a, b])
+        a.group = b.group = g
+        grouploot.settings(g)["mode"] = mode
+        return a, b, c, g
+
+    def test_mode_message_round_trips(self):
+        a, b, c, g = self.group(grouploot.MASTER_LOOTER)
+        eid, data = payload(grouploot.mode_message(g))
+        self.assertEqual(eid, 0x6C8)
+        self.assertEqual(grouploot.parse_set_mode(data), (1, 2, grouploot.DEFAULT_RARITY, False, False))
+
+    def test_outsiders_and_master_looter(self):
+        a, b, c, g = self.group(grouploot.MASTER_LOOTER)
+        npc = self.N(b)
+        self.assertEqual(grouploot.may_loot(c, npc), grouploot.NO_PERMISSION)
+        self.assertIsNone(grouploot.may_loot(a, npc))                    # A is master looter
+        self.assertEqual(grouploot.may_loot(b, npc), grouploot.NO_PERMISSION)
+        npc.open_to_group = True
+        self.assertIsNone(grouploot.may_loot(b, npc))
+
+    def test_round_robin_turns(self):
+        a, b, c, g = self.group(grouploot.ROUND_ROBIN)
+        self.assertEqual([grouploot.next_turn(g).name for _ in range(3)], ["A", "B", "A"])
+
+    def test_solo_kill_belongs_to_killer(self):
+        c, d = self.P("C", 3), self.P("D", 4)
+        self.assertIsNone(grouploot.may_loot(c, self.N(c)))
+        self.assertEqual(grouploot.may_loot(d, self.N(c)), grouploot.NO_PERMISSION)
+
+    def test_need_beats_greed(self):
+        self.assertEqual(grouploot.resolve({"A": (False, 99), "B": (True, 3), "C": None}), ("B", True, 3))
+        self.assertIsNone(grouploot.resolve({"A": None}))
+
+    def test_rarity_threshold(self):
+        self.assertTrue(grouploot.qualifies(3, grouploot.DEFAULT_RARITY))      # Rare >= Uncommon
+        self.assertFalse(grouploot.qualifies(grouploot.COMMON, grouploot.DEFAULT_RARITY))
 
 
 if __name__ == "__main__":

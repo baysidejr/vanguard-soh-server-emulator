@@ -66,7 +66,7 @@ def handle_unreal(send, state, payload, args):
                     for m in args.npc_dialog(state, npc):
                         send(m)
                 elif npc and not npc.alive:
-                    for m in combat.loot_messages(npc):
+                    for m in args.open_loot(state, npc):
                         send(m)
                     print(f"  <- ZONE loot window for {npc.name}")
         else:
