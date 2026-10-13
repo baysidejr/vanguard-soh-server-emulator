@@ -95,9 +95,16 @@ Cards, the player's deck and per-NPC parleys are data in `server/content/diploma
 - The 8 pool bytes in `0x31d` and `0x32c` are pairs (mine, theirs): Inspire, Reason, Flatter, Demand.
 - The window draws the Reason, Inspire and Flatter columns, but the Demand (red) column stays empty in an Entertain parley. So the placeholder cards don't use Demand.
 
+## Per-character decks (verified live 2026-10-12)
+
+Each character keeps its own deck (`diplomacy_deck`) and strategy-bar layout (`diplomacy_slots`, one card id or null per slot) in `characters.json`. New characters start from `deck` in `diplomacy.json`; `slots` sets the bar size (4). Only slotted cards can be played.
+
+- Moving a card on the bar sends **`0xd7 {i32 card, i32 slot}`** (seen live: `59 9c 00 00 03 00 00 00`, Reasoned Argument to slot 4). Taking it off sends `0xd8 {i32 card, bool8}`. The server answers `0x239` then `0x237`: the client ignores `0x237` for a card that is already in a slot. The layout survived a restart.
+- A parley's `reward.card` is added to the deck on the first win: beating Orin printed "You learn a new diplomacy strategy: Rousing Toast." (card 40029). Cards beyond the bar size wait in the repertoire.
+
 **Not done yet**
 - rewards beyond coin and XP (faction, items, unlocked dialogue)
-- per-character decks and drag-to-slot (`0xd7`/`0xd8`)
+- opening the repertoire window by script (slotting a card from it uses the same `0xd7`)
 - card refresh timers (`0x266`)
 - the `0x321` option format with presence requirements
 - Civic Diplomacy (`0x33d`, `0x340`, `0x341`)

@@ -18,7 +18,8 @@ import random
 import struct
 
 START, SELECT, PLAY, PASS, CANCEL, CLOSE = 0x125, 0xD9, 0xDA, 0x12C, 0x12A, 0x12B
-CLIENT_EVENTS = (START, SELECT, PLAY, PASS, CANCEL, CLOSE)
+SLOT, UNSLOT = 0xD7, 0xD8          # {i32 card, i32 slot} drag to the strategy bar / {i32 card, bool8} take out
+CLIENT_EVENTS = (START, SELECT, PLAY, PASS, CANCEL, CLOSE, SLOT, UNSLOT)
 OPTION_TYPE = 10
 PARLEY_OPTION_ID = 9001
 MIDDLE, BAR_MAX = 11, 21
@@ -53,16 +54,30 @@ def card(cid, c, icon=443):
             + struct.pack("<3i", -1, -1, -1))
 
 
-def deck_messages(cards, deck, resend=False):
-    """Deck and strategy slots, sent when a parley starts: a client UI rebuild
-    after login empties the card lists, so cards sent at login don't show.
-    On a later parley the old slot entries are removed first (0x239), or the
-    same card in the same slot is ignored."""
+def deck_messages(cards, deck, slots, resend=False):
+    """Deck (all the character's cards) and strategy slots (slots[n] = card id or
+    None), sent when a parley starts: a client UI rebuild after login empties the
+    card lists, so cards sent at login don't show. On a later parley the old slot
+    entries are removed first (0x239), or the same card in the same slot is ignored."""
     out = [_event(0x239, struct.pack("<iB", cid, 1)) for cid in deck] if resend else []
-    out += [_event(0x331, struct.pack("<i", len(deck))), _event(0x21C),
+    out += [_event(0x331, struct.pack("<i", len(slots))), _event(0x21C),
             _event(0x21F, struct.pack("<i", len(deck)) + b"".join(card(cid, cards[str(cid)]) for cid in deck))]
-    out += [_event(0x237, struct.pack("<ii", cid, n)) for n, cid in enumerate(deck)]
+    out += [_event(0x237, struct.pack("<ii", cid, n)) for n, cid in enumerate(slots) if cid is not None]
     return out
+
+
+def slotted(cid, slot):
+    """0x237: card cid is now in strategy slot `slot` (reply to 0xd7)."""
+    return _event(0x237, struct.pack("<ii", cid, slot))
+
+
+def unslotted(cid):
+    """0x239: card cid left its slot (reply to 0xd8)."""
+    return _event(0x239, struct.pack("<iB", cid, 1))
+
+
+def default_slots(deck, count):
+    return [deck[n] if n < len(deck) else None for n in range(count)]
 
 
 class Parley:

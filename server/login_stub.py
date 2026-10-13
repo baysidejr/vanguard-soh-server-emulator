@@ -1914,6 +1914,17 @@ def harvest_tick(state, now):
     send(depleted)
 
 
+def diplomacy_deck(player):
+    """The character's cards and strategy slots (content defaults until changed)."""
+    dip = ARGS.content.diplomacy
+    deck = getattr(player, "diplomacy_deck", None) or list(dip["deck"])
+    count = dip.get("slots", 4)
+    slots = getattr(player, "diplomacy_slots", None) or diplomacy.default_slots(deck, count)
+    slots = (list(slots) + [None] * count)[:count]
+    player.diplomacy_deck, player.diplomacy_slots = deck, slots
+    return deck, slots
+
+
 def handle_parley_event(state, event, data):
     """A parley (diplomacy.py, content/diplomacy.json): the player plays a card,
     the NPC answers with one of its own; the bar decides the winner."""
@@ -1927,13 +1938,39 @@ def handle_parley_event(state, event, data):
             return
         parleys = dip["parleys"]
         config = parleys.get(npc.parley) if isinstance(npc.parley, str) else next(iter(parleys.values()))
-        p = diplomacy.Parley(config, dip["cards"], dip["deck"])
+        deck, slots = diplomacy_deck(player)
+        p = diplomacy.Parley(config, dip["cards"], [c for c in slots if c is not None])
         p.npc = npc
         state["parley"] = p
-        for m in diplomacy.deck_messages(dip["cards"], dip["deck"], resend=state.get("deck_sent", False)):
+        for m in diplomacy.deck_messages(dip["cards"], deck, slots, resend=state.get("deck_sent", False)):
             send(m)
         state["deck_sent"] = True
         send(diplomacy.open_parley(npc.entity_id, p))
+    elif event in (diplomacy.SLOT, diplomacy.UNSLOT) and len(data) >= 4:
+        # Dragging a card to / off the strategy bar (saved per character).
+        deck, slots = diplomacy_deck(player)
+        cid = struct.unpack_from("<i", data)[0]
+        if cid not in deck:
+            return
+        was_slotted = cid in slots
+        for n, c in enumerate(slots):
+            if c == cid:
+                slots[n] = None
+        if event == diplomacy.SLOT and len(data) >= 8:
+            if was_slotted:
+                send(diplomacy.unslotted(cid))   # a card already in a slot ignores 0x237
+            slot = struct.unpack_from("<i", data, 4)[0]
+            if 0 <= slot < len(slots):
+                if slots[slot] is not None:
+                    send(diplomacy.unslotted(slots[slot]))
+                slots[slot] = cid
+                send(diplomacy.slotted(cid, slot))
+        else:
+            send(diplomacy.unslotted(cid))
+        player.diplomacy_slots = slots
+        save_character_field(player.name, "diplomacy_slots", slots)
+        if p is not None:
+            p.deck = [c for c in slots if c is not None]
     elif p is None:
         if event in (diplomacy.SELECT, diplomacy.PLAY, diplomacy.PASS):
             send(diplomacy.error(diplomacy.ERR_OVER))
@@ -2211,6 +2248,13 @@ def finish_parley(state, p, result):
     else:
         player.parleys_won = won + [p.npc.template_id]
         save_character_field(player.name, "parleys_won", player.parleys_won)
+        cid = reward.get("card")
+        deck, _slots = diplomacy_deck(player)
+        if cid is not None and cid not in deck and str(cid) in ARGS.content.diplomacy["cards"]:
+            deck.append(cid)
+            save_character_field(player.name, "diplomacy_deck", deck)
+            send(build_system_text(f"You learn a new diplomacy strategy: "
+                                   f"{ARGS.content.diplomacy['cards'][str(cid)]['name']}.", SYSTEM_TEXT_WHITE))
     if reward.get("coin"):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
@@ -2960,6 +3004,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.durability = dict(char.get("durability", {}))
             player.friends = list(char.get("friends", []))
             player.parleys_won = list(char.get("parleys_won", []))
+            player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
+            player.diplomacy_slots = char.get("diplomacy_slots")
             player.ignores = list(char.get("ignores", []))
             player.bank_coins = char.get("bank_coins", 0)
             if "equipment" in char:
