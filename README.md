@@ -28,7 +28,8 @@ The unmodified client, talking only to this emulator:
 - [x] Per-class starting abilities with their real animations and effects; auto-attack
 - [x] NPCs chase and attack; player death, death window and release; experience and level ups (saved)
 - [x] Looting corpses into the bag (saved); appearance sliders on the player's character
-- [x] Standing and walking on the real terrain anywhere in the chunk; spawn on flat ground
+- [x] Standing on the real terrain anywhere in the chunk; spawn on flat ground; teleporting
+- [ ] **Walking with WASD does not work yet** (the client does not take control of its own character; see [MOVEMENT](docs/MOVEMENT.md))
 - [x] Gear on the character model (armor, bow); NPCs dressed too
 - [x] Several players in the same world: they see each other move, chat, and share the same NPCs
 - [x] World content (mobs, loot, spawns) loaded from JSON files: see [docs/CONTENT_EDITOR.md](docs/CONTENT_EDITOR.md)
@@ -73,7 +74,7 @@ The unmodified client, talking only to this emulator:
 - [x] The Find window: search for groups or players looking for a group
 - [x] Crafting utilities (consumables used by recipe steps) and the active toolbelt
 
-See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
+See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [MOVEMENT](docs/MOVEMENT.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
 ## Requirements
 
