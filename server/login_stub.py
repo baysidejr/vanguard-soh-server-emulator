@@ -4738,7 +4738,7 @@ def give_item(state, name, qty=1, quiet=False):
 
 
 def handle_bag_event(state, event, data):
-    """Bag management: move / swap / stack (0x92) and destroy (0x89)."""
+    """Bag management: move / swap / stack (0x92), unstack (0x97) and destroy (0x89)."""
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE bag event {event:#x}: {data.hex(' ')}")
     if event == zone.MOVE_ITEM and len(data) >= 12:
@@ -4748,6 +4748,13 @@ def handle_bag_event(state, event, data):
             return
         msgs = zone.move_item(player.items, handle, slot)
         for m in msgs or []:
+            send(m)
+    elif event == zone.UNSTACK and len(data) >= 8:
+        result = zone.split_stack(player, *struct.unpack_from("<ii", data))
+        if isinstance(result, str):
+            send(build_system_text(result, SYSTEM_TEXT_ERROR))
+            return
+        for m in result:
             send(m)
     elif event == zone.DESTROY_ITEM and len(data) >= 4:
         handle = struct.unpack_from("<i", data)[0]
@@ -7154,7 +7161,7 @@ def handle_message(sock, server, addr, state, payload, args):
             unstuck(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CORPSE_EVENTS and state.get("player"):
             handle_corpse_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
-        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (zone.MOVE_ITEM, zone.DESTROY_ITEM) and state.get("player"):
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (zone.MOVE_ITEM, zone.DESTROY_ITEM, zone.UNSTACK) and state.get("player"):
             handle_bag_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3E5:
             # The client echoes a server teleport (zone.player_teleport) once it has moved.

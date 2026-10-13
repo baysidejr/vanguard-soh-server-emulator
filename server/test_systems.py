@@ -17,6 +17,8 @@ import reactions
 import songs
 import titles
 import travel
+import types
+import zone
 
 
 def _w(text):
@@ -400,6 +402,17 @@ class FormTests(unittest.TestCase):
         self.assertEqual(struct.unpack("<iBiBB", tail), (1, 0, 692, 0, 1))
         self.assertIn("Increases Intelligence by 12.".encode("utf-16-le"), msgs[1])
         self.assertEqual(struct.unpack_from("<ii", forms.current(-1), 10), (-1, 0))
+
+
+class UnstackTests(unittest.TestCase):
+    def test_split(self):
+        p = types.SimpleNamespace(items=[(5, "Wastes Grub", 443, 10, 0)], equipment=[])
+        msgs = zone.split_stack(p, 5, 3)
+        self.assertEqual(len(msgs), 2)
+        self.assertEqual(p.items[0][3], 7)
+        self.assertEqual((p.items[1][3], p.items[1][4]), (3, 1))
+        self.assertIsInstance(zone.split_stack(p, 5, 7), str)
+        self.assertIsInstance(zone.split_stack(p, 99, 1), str)
 
 
 if __name__ == "__main__":

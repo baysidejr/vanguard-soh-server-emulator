@@ -765,6 +765,9 @@ def obstacles_blocked(obs, x, y, z):
 # slot; the server answers 0x1ac {i32 handle, i32 container, i32 slot, i32 0}, which moves
 # it. 0x89 {i32 handle} destroys an item (after the client's "Delete: <item>" popup).
 MOVE_ITEM, DESTROY_ITEM = 0x92, 0x89
+# Unstack (the "inventory_unstack_ok" popup, FUN_0068e8e0 -> FUN_004fc8f0): 0x97 MsgTwoInts
+# {i32 handle, i32 count}; the client checks count > 0 itself.
+UNSTACK = 0x97
 MAX_STACK = 99
 
 
@@ -940,6 +943,25 @@ def gear_attachments(player, slots=60):
 
 
 BAG_SLOTS = 50
+
+
+def split_stack(player, handle, count):
+    """Take count off a stack into a new item in the first free bag slot. Returns the
+    messages, or an error string."""
+    item = next((i for i in player.items if i[0] == handle), None)
+    if item is None:
+        return "That item is not in your inventory."
+    if not 0 < count < item[3]:
+        return f"You can only unstack between 1 and {item[3] - 1} of those."
+    slot = free_bag_slot(player)
+    if slot is None:
+        return "Your bags are full."
+    new_id = new_item_id(player)
+    player.items[player.items.index(item)] = item[:3] + (item[3] - count, item[4])
+    player.items.append((new_id, item[1], item[2], count, slot))
+    return [zone_event(0x1AE, struct.pack("<ii", handle, item[3] - count)),
+            zone_event(0x197, vgmsg.inventory_item(new_id, item[1], slot, item[2], count,
+                                                   **item_equip_fields(item[1])))]
 
 
 def free_bag_slot(player):
