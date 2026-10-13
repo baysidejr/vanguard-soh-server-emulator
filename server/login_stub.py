@@ -31,6 +31,7 @@ import trainer
 import faction
 import workorder
 import mail
+import market
 import bank
 import social
 import effects
@@ -1649,6 +1650,8 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(trainer.OPTION))
     if npc.recipe_trainer:
         out.append(zone.zone_event(trainer.RECIPE_OPTION))
+    if npc.broker:
+        out.append(zone.zone_event(market.OPTION))
     if npc.banker:
         out.append(zone.zone_event(bank.OPTION))
     return out
@@ -2180,6 +2183,152 @@ def handle_mail_event(state, event, data):
         m["coin"] = 0
         save_mail(db)
         send(mail.coin_taken(mid))
+
+
+MARKET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "market.json")
+
+
+def load_market():
+    """{"next_id": n, "listings": [{id, seller, name, icon, qty, price, posted}]}"""
+    try:
+        with open(MARKET_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {"next_id": market.FIRST_ID, "listings": []}
+
+
+def save_market(db):
+    with open(MARKET_FILE, "w", encoding="utf-8") as f:
+        json.dump(db, f, indent=2)
+
+
+def market_notice(code):
+    return zone.zone_event(0x0E, struct.pack("<h", code))
+
+
+def handle_market_event(state, event, data):
+    """Broker (market.py): list items for sale, search, buy (the seller is paid by mail)."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE market event {event:#x}: {data[:24].hex(' ')}")
+    db = load_market()
+    mine = [x for x in db["listings"] if x["seller"].lower() == player.name.lower()]
+    if event == market.OPEN:
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not getattr(npc, "broker", None) or player_distance(player, npc) > 1500:
+            return
+        if state.get("trade"):
+            send(market_notice(0x51))
+            return
+        state["market"] = True
+        send(market.info(npc.broker))
+        for m in market.my_listings(mine):
+            send(m)
+        return
+    if event == market.CLOSE:
+        state.pop("market", None)
+        return
+    if not state.get("market"):
+        return
+    if event == market.SEARCH:
+        try:
+            name, seller, _lo, _hi = market.parse_search(data)
+        except (struct.error, IndexError):
+            name = seller = ""
+        found = [x for x in db["listings"] if name.lower() in x["name"].lower()
+                 and seller.lower() in x["seller"].lower()]
+        for m in market.results(found):
+            send(m)
+        return
+    if event == market.PLACE and len(data) >= 12:
+        handle, price = struct.unpack_from("<iq", data)
+        it = next((i for i in player.items if i[0] == handle), None)
+        if it is None:
+            send(market_notice(market.CANT_FIND))
+        elif price <= 0 or price > market.MAX_PRICE:
+            send(market_notice(market.MUST_ENTER_PRICE))
+        elif len(mine) >= market.MAX_LISTINGS:
+            send(build_system_text("You have too many items on the market.", SYSTEM_TEXT_ERROR))
+        elif player.coins < market.deposit(price):
+            send(build_system_text("You can't afford the deposit.", SYSTEM_TEXT_ERROR))
+        else:
+            player.coins -= market.deposit(price)
+            send(merchant.coins(player.coins))
+            save_character_field(player.name, "coins", player.coins)
+            player.items.remove(it)
+            send(zone.zone_event(0x1A5, struct.pack("<iB", it[0], 0)))
+            save_character_field(player.name, "items", [list(i) for i in player.items])
+            listing = {"id": db["next_id"], "seller": player.name, "name": it[1], "icon": it[2], "qty": it[3],
+                       "price": price, "posted": int(time.time())}
+            db["next_id"] += 1
+            db["listings"].append(listing)
+            save_market(db)
+            send(market.listed(listing))
+            send(market.clear_price())
+            print(f"  {player.name} listed {it[1]} for {price}")
+        return
+    lid = struct.unpack_from("<i", data, 8 if event in (market.BUY, market.CANCEL) else 0)[0] \
+        if len(data) >= (12 if event in (market.BUY, market.CANCEL) else 4) else 0
+    listing = next((x for x in db["listings"] if x["id"] == lid), None)
+    if listing is None:
+        send(market_notice(market.CANT_FIND))
+        return
+    if event == market.EXAMINE:
+        send(market.examined(vgmsg.inventory_item(lid, listing["name"], 0, listing.get("icon", 443),
+                                                  listing.get("qty", 1), **zone.item_equip_fields(listing["name"]))))
+    elif event == market.RELIST and len(data) >= 12:
+        price = struct.unpack_from("<q", data, 4)[0]
+        if listing["seller"].lower() != player.name.lower() or not 0 < price <= market.MAX_PRICE:
+            send(market_notice(market.MUST_ENTER_PRICE))
+            return
+        listing["price"] = price
+        save_market(db)
+        send(market.relisted(listing))
+        send(market.clear_price())
+    elif event == market.CANCEL:
+        if listing["seller"].lower() != player.name.lower():
+            return
+        db["listings"].remove(listing)
+        save_market(db)
+        send(market.removed(lid))
+        # "The item will be sent to your mailbox." (the client's end-sale confirmation)
+        mdb = load_mail()
+        deliver_mail(mdb, player.name, mail.new(0, "The Market", f"Unsold: {listing['name']}"[:mail.MAX_SUBJECT],
+                                                "Your sale was ended.",
+                                                item_={"name": listing["name"], "icon": listing.get("icon", 443),
+                                                       "qty": listing.get("qty", 1)}, from_player=False))
+        save_mail(mdb)
+    elif event == market.BUY:
+        cost = listing["price"] + market.commission(listing["price"])
+        if listing["seller"].lower() == player.name.lower():
+            send(build_system_text("That is your own item; cancel the sale instead.", SYSTEM_TEXT_ERROR))
+            return
+        if player.coins < cost:
+            send(build_system_text("You can't afford that.", SYSTEM_TEXT_ERROR))
+            return
+        player.coins -= cost
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+        db["listings"].remove(listing)
+        save_market(db)
+        send(market.removed(lid))
+        # "The item will be sent to your mailbox." (the client's buy confirmation). The
+        # client has no text for notice 0x1bd MarketPurchaseSuccess, so print our own.
+        send(build_system_text(f"You bought {listing['name']}. It has been sent to your mailbox.",
+                               SYSTEM_TEXT_WHITE))
+        s = ONLINE.get(listing["seller"].lower())
+        if s is not None and s.get("send") and s.get("market"):
+            s["send"](market.removed(lid))
+        mdb = load_mail()
+        deliver_mail(mdb, player.name, mail.new(0, "The Market", f"Bought: {listing['name']}"[:mail.MAX_SUBJECT],
+                                                f"You bought {listing['name']} from {listing['seller']}.",
+                                                item_={"name": listing["name"], "icon": listing.get("icon", 443),
+                                                       "qty": listing.get("qty", 1)}, from_player=False))
+        deliver_mail(mdb, listing["seller"], mail.new(0, "The Market", f"Sold: {listing['name']}"[:mail.MAX_SUBJECT],
+                                                      f"{player.name} bought your {listing['name']} for "
+                                                      f"{listing['price']} copper.", coin=listing["price"],
+                                                      from_player=False))
+        save_mail(mdb)
+        print(f"  {player.name} bought {listing['name']} from {listing['seller']} for {cost}")
 
 
 def wo_by_id(wid):
@@ -3706,6 +3855,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in social.ZONE_EVENTS:
             if state.get("player"):
                 handle_social_zone(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in market.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_market_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in mail.CLIENT_EVENTS:
             if state.get("player"):
                 handle_mail_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
