@@ -1853,6 +1853,44 @@ def in_water(level, loc):
                for _n, lo, hi in _water_cache[level])
 
 
+HEAD_HEIGHT = 60.0            # pawn location (collision centre) to the eyes
+BREATH_REFILL = 10            # breath regained per second above water
+DROWN_DAMAGE = 0.1            # share of max health lost per second without breath
+
+
+def breath_step(breath, underwater):
+    """(new breath, drowning) after one second."""
+    if underwater:
+        return max(0, breath - 1), breath <= 0
+    return min(zone.BREATH_MAX, breath + BREATH_REFILL), False
+
+
+def breath_tick(state):
+    """Once a second: breath runs out with the head inside a WaterVolume, then the
+    player drowns (DROWN_DAMAGE of max health a second) until they surface."""
+    player, loc = state["player"], state.get("position")
+    if loc is None or player.health <= 0:
+        return
+    head = (loc[0], loc[1], loc[2] + HEAD_HEIGHT)
+    old = state.get("breath", zone.BREATH_MAX)
+    breath, drowning = breath_step(old, in_water(player.level, head))
+    state["breath"] = breath
+    send = state["send"]
+    if breath != old:
+        send(zone.breath_update(breath))
+        if breath == 0:
+            send(build_system_text("You are out of breath!", SYSTEM_TEXT_ERROR))
+    if drowning:
+        dmg = max(1, int(player.stats["hit_points"] * DROWN_DAMAGE))
+        player.health = max(0, player.health - dmg)
+        send(build_system_text(f"You are drowning! You take {dmg} damage.", SYSTEM_TEXT_ERROR))
+        send(zone.health_update(player))
+        if player.health == 0:
+            print(f"  {player.name} drowned")
+            for m in player_death(state, ARGS, player):
+                send(m)
+
+
 def fall_drop(fs, loc):
     """One movement report through the fall tracker fs (a dict). Returns the height fallen
     when a fall ends on this report, else None. Falls only count once the player has stood
@@ -2024,6 +2062,7 @@ def world_tick(zone_sock, clients, args):
                 continue
             harvest_tick(state, now)
             effects_tick(state, args, now)
+            breath_tick(state)
         for action in combat.tick(player, now):
             if action[0] == "swing":
                 _, lines, npc = action

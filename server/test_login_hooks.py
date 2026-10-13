@@ -74,5 +74,17 @@ class MovementCheckTests(unittest.TestCase):
         self.assertEqual(self.run_moves([(10, 0), (10.5, 100), (11.0, 9000)], teleport_at=9.0), [])
 
 
+class BreathTests(unittest.TestCase):
+    def test_runs_out_then_drowns(self):
+        b, drowning = zone.BREATH_MAX, False
+        for _ in range(zone.BREATH_MAX):
+            b, drowning = login_stub.breath_step(b, True)
+        self.assertEqual((b, drowning), (0, False))
+        self.assertEqual(login_stub.breath_step(b, True), (0, True))
+
+    def test_refills_above_water(self):
+        self.assertEqual(login_stub.breath_step(55, False), (zone.BREATH_MAX, False))
+
+
 if __name__ == "__main__":
     unittest.main()

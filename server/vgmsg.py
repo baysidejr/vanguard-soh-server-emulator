@@ -98,6 +98,9 @@ STAT_IDS = {
     "res_fire": 0x37, "res_physical": 0x72, "res_mental": 0x89, "res_arcane": 0xA3,
     "res_cold": 0xBA, "res_spiritual": 0xBD, "res_shadow": 0x100, "res_holy": 0x101,
     "res_planar": 0x102,
+    # Breath: the HUD's Breath bar (StatusBreathSelf) shows while current < max
+    # (FUN_005763b0 sets bIsDrowning = current != max).
+    "breath": 0x50,
 }
 ATTRIBUTES = ("strength", "constitution", "dexterity", "vitality", "intelligence", "wisdom")
 

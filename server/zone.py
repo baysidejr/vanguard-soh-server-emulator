@@ -472,6 +472,13 @@ DEFAULT_STATS = {
 }
 
 
+BREATH_MAX = 60               # seconds of breath under water
+
+
+def breath_update(breath):
+    return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["breath"], breath, maximum=BREATH_MAX))
+
+
 def stat_messages(player):
     """Zone events that fill the character window and HUD bars.
 
@@ -485,6 +492,7 @@ def stat_messages(player):
         recs.append(vgmsg.stat_info(vgmsg.STAT_IDS[name], value, kind=kind, maximum=value))
     for sid, value, subtype in player.skills:
         recs.append(vgmsg.stat_info(sid, value, kind=2, subtype=subtype, maximum=SKILL_CAP))
+    recs.append(vgmsg.stat_info(vgmsg.STAT_IDS["breath"], BREATH_MAX, kind=5, maximum=BREATH_MAX))
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
         out.append(zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[name], player.stats[name])))
