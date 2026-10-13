@@ -326,6 +326,12 @@ class BugReportTests(unittest.TestCase):
                                             "severity": "Standard", "reproducibility": "Every time"})
         self.assertEqual(bugs.parse(bytes(2) + struct.pack("<iii", 99, -1, 7))["category"], "Unknown Category")
 
+    def test_parse_captured_quest_feedback(self):
+        data = bytes.fromhex("ffffffff46007500 6e0020007100 75006500 73007400 0000".replace(" ", "")) + struct.pack("<6i", 1, 1, 1, 1, 1, 0)
+        r = bugs.parse_quest_feedback(data)
+        self.assertEqual((r["quest_id"], r["comments"], r["challenge"], r["friends_needed"], r["fun"]),
+                         (-1, "Fun quest", "Just right", "One", "A - Excellent"))
+
 
 class SongTests(unittest.TestCase):
     PARTS = {"Valor": {"part": "melody", "stat": "strength", "bonus": 6, "energy": 2},

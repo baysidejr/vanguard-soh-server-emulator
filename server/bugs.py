@@ -23,6 +23,31 @@ SEVERITIES = ["Severe (e.g. Exploitable)", "Standard", "Minor (e.g. Cosmetic)"]
 REPRODUCIBILITY = ["Every time", "Some of the time", "Only seen once"]
 
 
+# The client's Quest Feedback window (VGUIBugReport.xml "Quest Feedback"): Accept sends 0x4ab
+# {i32 quest id (-1 when the window was opened by the server's toggle), wstr comments, i32
+# challenge, i32 reward, i32 lore, i32 confusion, i32 friends needed, i32 fun grade}.
+# 0x4ad {wstr, i32} is meant to open it but shows nothing, so the server toggles the window.
+QUEST_FEEDBACK = 0x4AB
+CHALLENGE = ["Too easy", "Just right", "Too hard"]
+AMOUNT = ["Too little", "Just right", "Too much"]
+CONFUSION = ["Too confusing", "Just right", "Too much detail"]
+FRIENDS = ["None", "One", "Two", "Three", "Four", "Five", "Six+"]
+FUN = ["A - Excellent", "B - Average", "C - Below average", "F - Unacceptable"]
+
+
+def parse_quest_feedback(data):
+    qid = struct.unpack_from("<i", data, 0)[0]
+    end = 4
+    while data[end:end + 2] != b"\0\0":
+        end += 2
+    text = data[4:end].decode("utf-16-le", "replace")
+    ch, rw, lo, co, fr, fu = struct.unpack_from("<6i", data, end + 2)
+    return {"quest_id": qid, "comments": text, "challenge": _name(CHALLENGE, ch, "-"),
+            "reward": _name(AMOUNT, rw, "-"), "lore": _name(AMOUNT, lo, "-"),
+            "confusion": _name(CONFUSION, co, "-"), "friends_needed": _name(FRIENDS, fr, "-"),
+            "fun": _name(FUN, fu, "-")}
+
+
 def _name(table, i, unknown):
     return table[i] if 0 <= i < len(table) else unknown
 

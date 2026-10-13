@@ -249,6 +249,8 @@ def main():
                         help="entity id for the --test-npc pawn (experiments)")
     parser.add_argument("--test-stats", action="store_true",
                         help="fill MsgScore fields 35+ with their own index (to map UI slots)")
+    parser.add_argument("--quest-feedback", action="store_true",
+                        help="open the client's Quest Feedback window after each completed quest")
     parser.add_argument("--dev-commands", action="store_true",
                         help="enable !stat / !event chat commands (see dev_command)")
     parser.add_argument("--test-npc", action="store_true",
@@ -4577,7 +4579,11 @@ def finish_quest(state, key, q, chosen=None):
     if reward.get("title") is not None:
         grant_title(state, reward["title"])
     save_character_field(player.name, "quests", player.quests.to_json())
+    send(zone.zone_event(quest.END_CONVERSATION))     # the turn-in page otherwise stays open
     print(f"  {player.name} completed quest {q['name']}")
+    if getattr(ARGS, "quest_feedback", False):
+        state["feedback_quest"] = key
+        send(zone.zone_event(0x598, ('SGOUI toggle "Quest Feedback"' + chr(0)).encode("utf-16-le")))
 
 
 def quest_kill(state, npc):
@@ -4919,6 +4925,23 @@ def handle_faction_event(state, event, data):
 
 MAIL_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mail.json")
 BUG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bug_reports.json")
+QUEST_FEEDBACK_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "quest_feedback.json")
+
+
+def submit_quest_feedback(state, data):
+    """Quest Feedback window Accept (bugs.QUEST_FEEDBACK), kept per quest for the content editor."""
+    try:
+        report = bugs.parse_quest_feedback(data)
+    except struct.error:
+        return
+    key = state.pop("feedback_quest", None)
+    if report["quest_id"] == -1 and key:
+        report["quest_id"] = ARGS.content.quests[key]["id"]
+    report.update(quest=key or next((k for k, q in ARGS.content.quests.items() if q["id"] == report["quest_id"]), None),
+                  player=state["player"].name)
+    n = bugs.save(QUEST_FEEDBACK_FILE, report)
+    print(f"  quest feedback #{n}: {report}")
+    state["send"](build_system_text("Thank you for your quest feedback.", SYSTEM_TEXT_WHITE))
 
 
 def submit_bug_report(state, data):
@@ -7017,6 +7040,8 @@ def handle_message(sock, server, addr, state, payload, args):
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0], stance=False)   # right-click a buff
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in songs.CLIENT_EVENTS and state.get("player"):
             handle_song_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.QUEST_FEEDBACK and state.get("player"):
+            submit_quest_feedback(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.SUBMIT and state.get("player"):
             submit_bug_report(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
