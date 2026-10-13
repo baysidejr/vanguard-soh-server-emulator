@@ -41,6 +41,7 @@ class Content:
         self.riftways = _load(os.path.join(directory, "riftways.json"))
         self.plots = _load(os.path.join(directory, "plots.json"))
         self.titles = _load(os.path.join(directory, "titles.json"))
+        self.assembly = _load(os.path.join(directory, "assembly.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):

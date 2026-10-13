@@ -38,6 +38,7 @@ import duel
 import pets
 import caravan
 import fishing
+import assembly
 import bank
 import social
 import effects
@@ -315,6 +316,7 @@ def movement_tick(zone_sock, clients, args):
                 npc_special(state, npc, now)
         pet_tick(state, args, now, MOVE_TICK)
         fishing_tick(state, now)
+        assembly_tick(state, now)
     for w in world.all_worlds():
         players = w.players()
         for npc in w.npcs.values():
@@ -1686,6 +1688,138 @@ def fishing_tick(state, now):
             send(fishing.event(player.char_id, fishing.PULL, s["pull"]))
 
 
+def asm_recipes(player):
+    known = getattr(player, "assembly_known", [])
+    return {k: r for k, r in ARGS.content.assembly.items() if k in known}
+
+
+def asm_by_id(rid):
+    return next(((k, r) for k, r in ARGS.content.assembly.items() if r["id"] == rid), (None, None))
+
+
+def asm_template(name):
+    rec = vgmsg.inventory_item(zone.template_id(name), name, 0, zone.item_icon(name, 443), 1,
+                               **zone.item_equip_fields(name))
+    return assembly.template(rec)
+
+
+def asm_candidates(player, r):
+    names = {i["item"] for i in r["ingredients"]}
+    return [(it[0], r["id"]) for it in player.items if it[1] in names]
+
+
+def asm_tree(player):
+    """0x350: one folder per category (parent 0), the learned recipes under them (node id = recipe id)."""
+    cats = sorted({r.get("category", "Assembly") for r in asm_recipes(player).values()})
+    nodes = [(c, assembly.ROOT_NODE + 1 + n, 0) for n, c in enumerate(cats)]
+    nodes += [(r["name"], r["id"], assembly.ROOT_NODE + 1 + cats.index(r.get("category", "Assembly")))
+              for r in asm_recipes(player).values()]
+    return assembly.tree(nodes)
+
+
+def assembly_login(state):
+    send = state["send"]
+    for k, r in asm_recipes(state["player"]).items():
+        for name in [r["reward"]] + [i["item"] for i in r["ingredients"]]:
+            send(asm_template(name))
+        send(assembly.learn(r, zone.template_id))
+    if asm_recipes(state["player"]):
+        send(asm_tree(state["player"]))
+
+
+def handle_assembly_event(state, event, data):
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE assembly event {event:#x}: {data[:24].hex(' ')}")
+    vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 else ()
+    npc = player.npcs.get(player.target) if player.target else None
+    if event == assembly.TRAIN_BEGIN:
+        if npc is None or not getattr(npc, "assembly_trainer", None):
+            send(assembly.trainer_end(0))
+            return
+        offers = [(r["name"], r["id"], ARGS.content.item(r["reward"]).get("icon", 443), r["trainer_cost"],
+                   r.get("description", ""))
+                  for k, r in ARGS.content.assembly.items()
+                  if k in npc.assembly_trainer and k not in getattr(player, "assembly_known", [])]
+        if not offers:
+            send(assembly.trainer_end(2))
+            return
+        state["asm_training"] = True
+        for m in assembly.trainer_begin(offers):
+            send(m)
+    elif event == assembly.TRAIN_DONE:
+        state.pop("asm_training", None)
+        send(assembly.trainer_end())
+    elif event == assembly.TRAIN_BUY and vals:
+        key, r = asm_by_id(vals[0])
+        if not state.get("asm_training"):
+            send(assembly.trainer_result(vals[0], 1))
+        elif r is None or key in getattr(player, "assembly_known", []):
+            send(assembly.trainer_result(vals[0], 2))
+        elif player.coins < r["trainer_cost"]:
+            send(assembly.trainer_result(vals[0], 3))
+        else:
+            player.coins -= r["trainer_cost"]
+            send(merchant.coins(player.coins))
+            save_character_field(player.name, "coins", player.coins)
+            player.assembly_known = list(getattr(player, "assembly_known", [])) + [key]
+            save_character_field(player.name, "assembly_known", player.assembly_known)
+            for name in [r["reward"]] + [i["item"] for i in r["ingredients"]]:
+                send(asm_template(name))
+            send(assembly.learn(r, zone.template_id, announce=True))
+            send(assembly.trainer_result(r["id"], 0))
+            send(asm_tree(player))
+    elif event == assembly.TREE:
+        send(asm_tree(player))
+    elif event in (assembly.DETAILS, assembly.TEMPLATES, assembly.CANDIDATES) and vals:
+        key, r = asm_by_id(vals[0])
+        if r is None:
+            return
+        if event == assembly.DETAILS:
+            send(assembly.details(r, zone.template_id))
+            send(assembly.recheck(r["id"]))
+        elif event == assembly.TEMPLATES:
+            for name in [r["reward"]] + [i["item"] for i in r["ingredients"]]:
+                send(asm_template(name))
+            send(assembly.recheck(r["id"]))
+        else:
+            send(assembly.candidates(asm_candidates(player, r)))
+    elif event == assembly.ASSEMBLE and vals:
+        key, r = asm_by_id(vals[0])
+        if r is None or key not in getattr(player, "assembly_known", []):
+            send(assembly.failure(assembly.NO_KNOWLEDGE))
+            return
+        if state.get("assembling"):
+            send(assembly.failure(assembly.BUSY))
+            return
+        bench = next((n for n in player.npcs.values()
+                      if n.props.get("EntityTypes", 0) & assembly.STATION), None)
+        if bench is None or player_distance(player, bench) > 800:
+            send(assembly.failure(assembly.WRONG_STATION if bench is None else assembly.TOO_FAR))
+            return
+        if any(have_items(player)(i["item"]) < i.get("qty", 1) for i in r["ingredients"]):
+            send(assembly.failure(assembly.NOTHING))
+            return
+        state["assembling"] = {"recipe": key, "done": time.time() + r.get("seconds", 3)}
+        send(assembly.timer(f"Assembling {r['name']}", r.get("seconds", 3)))
+
+
+def assembly_tick(state, now):
+    a = state.get("assembling")
+    if a is None or now < a["done"]:
+        return
+    state.pop("assembling")
+    player, send = state["player"], state["send"]
+    r = ARGS.content.assembly[a["recipe"]]
+    if any(have_items(player)(i["item"]) < i.get("qty", 1) for i in r["ingredients"]):
+        send(assembly.failure(assembly.FAILED))
+        return
+    for i in r["ingredients"]:
+        take_items(state, i["item"], i.get("qty", 1))
+    give_item(state, r["reward"])
+    send(assembly.success())
+    send(assembly.candidates(asm_candidates(player, r)))
+
+
 def use_tombstone(state):
     """U (the pawn's ServerUse RPC) on your tombstone: the target, or your own one if you
     stand at it. True when handled."""
@@ -2794,6 +2928,8 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(trainer.OPTION))
     if npc.recipe_trainer:
         out.append(zone.zone_event(trainer.RECIPE_OPTION))
+    if getattr(npc, "assembly_trainer", None):
+        out.append(zone.zone_event(assembly.OPTION))
     if npc.broker:
         out.append(zone.zone_event(market.OPTION))
     if npc.banker:
@@ -4949,6 +5085,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.dialog_rewards = list(char.get("dialog_rewards", []))
             player.played = int(char.get("played", 0))
             player.titles = list(char.get("titles", []))
+            player.assembly_known = list(char.get("assembly_known", []))
             player.title_prefix = char.get("title_prefix", -1)
             player.title_suffix = char.get("title_suffix", -1)
             player.show_title = char.get("show_title", True)
@@ -4991,6 +5128,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 mail_login(state)
                 title_login(state)
                 caravan_login(state)
+                assembly_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -5102,6 +5240,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in assembly.CLIENT_EVENTS and state.get("player"):
+            handle_assembly_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in fishing.CLIENT_EVENTS and state.get("player"):
             handle_fishing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in caravan.CLIENT_EVENTS and state.get("player"):

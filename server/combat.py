@@ -27,7 +27,8 @@ class Npc:
         """Opens a dialogue when used or hailed."""
         return bool(self.merchant or self.quests or self.trainer or self.banker or self.parley or self.repairs
                     or getattr(self, "task_master", False) or getattr(self, "recipe_trainer", None)
-                    or getattr(self, "broker", None) or getattr(self, "dialog", None))
+                    or getattr(self, "broker", None) or getattr(self, "dialog", None)
+                    or getattr(self, "assembly_trainer", None))
 
     def service(self):
         """A vendor, trainer, node, station...: can't be attacked."""

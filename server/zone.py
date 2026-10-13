@@ -18,6 +18,8 @@ import craft
 import workorder
 import mail
 import trainer
+import assembly
+import zlib
 import diplomacy
 import quest
 import world
@@ -200,6 +202,7 @@ def populate_world(w, args):
         npc.altar = bool(template.get("altar"))
         npc.dialog = args.content.dialogs.get(spawn["mob"])
         npc.riftway = template.get("riftway")
+        npc.assembly_trainer = list(template.get("assembly_trainer", []))
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
@@ -229,6 +232,10 @@ def populate_world(w, args):
             npc.props["EntityTypes"] = mail.MAILBOX
         if npc.recipe_trainer:
             npc.props["EntityTypes"] = trainer.RECIPE_TRAINER
+        if template.get("assembly_station"):
+            npc.props["EntityTypes"] = assembly.STATION | 0x10
+        if npc.assembly_trainer:
+            npc.props["EntityTypes"] = npc.props.get("EntityTypes", 0) | assembly.TRAINER
         if npc.altar:
             npc.props["EntityTypes"] = ALTAR
         if "model" in template:
@@ -584,11 +591,17 @@ def item_icon(name, fallback):
     return ITEM_CONTENT.item(name).get("icon", fallback)
 
 
+def template_id(name):
+    """A stable per-item-name template id (item field 1); handles (field 71) stay unique."""
+    return 0x2000000 + (zlib.crc32(name.encode()) & 0xFFFFF)
+
+
 def item_equip_fields(name, durability=100):
     """inventory_item keyword arguments from content/items.json: equip slots and
     the tooltip/usability fields (see docs/INVENTORY.md, item field table)."""
     tpl = ITEM_CONTENT.item(name)
-    extra = {94: 1, 100: 255, 106: durability, 99: tpl.get("rarity", 1), 76: tpl.get("level", 1)}
+    extra = {94: 1, 100: 255, 106: durability, 99: tpl.get("rarity", 1), 76: tpl.get("level", 1),
+             1: template_id(name)}           # field 1: the template id (assembly matches ingredients on it)
     # Field 74 = item type; 0 would be "Shield", 3 is a plain item.
     extra[74] = ITEM_TYPE_IDS[tpl.get("type", "misc")]
     if tpl.get("type", "misc") == "misc":
