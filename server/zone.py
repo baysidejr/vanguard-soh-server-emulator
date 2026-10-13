@@ -561,15 +561,19 @@ def ability_messages(player):
         out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
                                                        refresh=refresh)))
     out.append(zone_event(0x21D))
-    # Main hotbar: the abilities in the first slots (0x54e replaces all bars).
-    # A saved layout (player.hotbar, from the client's 0x54b/0x54c) wins.
+    out.append(hotbar_message(player))
+    return out
+
+
+def hotbar_message(player):
+    """Main hotbar: the abilities in the first slots (0x54e replaces all bars).
+    A saved layout (player.hotbar, from the client's 0x54b/0x54c) wins."""
     if player.hotbar is not None:
         keys = [bytes.fromhex(v) for v in player.hotbar.values()]
     else:
         keys = [vgmsg.hotkey(slot, ability_id)
                 for slot, (_, ability_id, *_rest) in enumerate(player.abilities[:12])]
-    out.append(zone_event(0x54E, vgmsg.hotkey_list(keys)))
-    return out
+    return zone_event(0x54E, vgmsg.hotkey_list(keys))
 
 
 # In-game system windows the client leaves hidden after character select; they
