@@ -108,7 +108,10 @@ class NetField:
             return lambda w: w.bits(_s.unpack("<I", _s.pack("<f", float(value)))[0], 32)
         if k == "ByteProperty":
             if self.enum_size:
-                return lambda w: w.serialize_int(int(value), self.enum_size)
+                # UByteProperty::NetSerializeItem: an enum byte is SerializeBits(ceil(log2(count)))
+                # (verified live: SerializeInt garbled Role = 3 into 0).
+                nb = max(1, (self.enum_size - 1).bit_length())
+                return lambda w: w.bits(int(value), nb)
             return lambda w: w.bits(int(value) & 0xFF, 8)
         if k == "StrProperty":
             raw = str(value).encode("latin-1", "replace") + bytes(1)

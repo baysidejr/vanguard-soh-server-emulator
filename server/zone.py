@@ -951,6 +951,41 @@ def player_pawn_values(player, location, yaw=0):
     return values
 
 
+def client_goto_state(state, args, new_state, label=None):
+    """RPC PlayerController.ClientGotoState(name NewState, name NewLabel) on the PC channel."""
+    ue, player = state["ue"], state["player"]
+    pm = package_map(args, player.level)
+    nc = pm.net_cache
+    pc_cls = args.spawn_class.split(".", 1)[1]
+    cache = nc.class_cache(pc_cls)
+    w = ue2net.BitWriter()
+    w.serialize_int(nc.field(pc_cls, "ClientGotoState").index, cache["max"])
+    for name in (new_state, label):
+        if name:
+            w.bit(1)
+            index, count = nc.name_index(name)
+            w.serialize_int(index, count + 1)
+        else:
+            w.bit(0)
+    data, nbits = w.packed()
+    return unreal_message(ue.build([ue.actor_bunch(PC_CHANNEL, data, nbits)]))
+
+
+def pawn_controller_bunch(ue, args, player):
+    """Pawn.Controller = the PlayerController (replicated to the owner in UE2); without it
+    the client's own pawn has no controller and does not move."""
+    pm = package_map(args, player.level)
+    nc = pm.net_cache
+    cls = args.pawn_class.split(".", 1)[1]
+    cache = nc.class_cache(cls)
+    w = ue2net.BitWriter()
+    w.serialize_int(nc.field(cls, "Controller").index, cache["max"])
+    w.bit(1)                                           # actor, by channel
+    w.serialize_int(PC_CHANNEL, ue2net.MAX_CHANNELS)
+    data, nbits = w.packed()
+    return ue.actor_bunch(PAWN_CHANNEL, data, nbits)
+
+
 def spawn_bunches(ue, args, player):
     """Spawn the player's pawn and PlayerController on actor channels.
 
@@ -967,6 +1002,9 @@ def spawn_bunches(ue, args, player):
     pawn_cls = args.pawn_class.split(".", 1)[1] if args.pawn_class else None
     if pawn_cls:
         values = player_pawn_values(player, location)
+        if getattr(args, "pawn_role", None):
+            # TEST: the owner's pawn as ROLE_AutonomousProxy (3) on the client, Authority (4) remote.
+            values["Role"], values["RemoteRole"] = args.pawn_role
         props = nc.props(pawn_cls, values)
         # Pawn subclasses carry three extra fields (FUN_00962350); these are the
         # client's own defaults (0xff, -1, 1.0f).

@@ -258,6 +258,7 @@ def main():
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     args.use_tombstone = use_tombstone
+    args.pawn_role = tuple(int(v) for v in os.environ["PAWN_ROLE"].split(",")) if os.environ.get("PAWN_ROLE") else None
     args.placed_objects = placed_objects
     args.craft_event = lambda state, event, data: handle_craft_event(state, event, data)
     global ARGS
@@ -5094,6 +5095,9 @@ def dev_command(text, player=None):
         print(f"  <- dev: system text channel {words[1]}")
         return [zone.zone_event(0x192, (text + chr(0)).encode("utf-16-le")
                                 + struct.pack("<i", int(words[1], 0)))]
+    if words[0] == "gotostate" and len(words) >= 2 and player:
+        # !gotostate <state>: RPC ClientGotoState on the player controller (testing).
+        return [("gotostate", words[1])]
     if words[0] == "exec" and len(words) >= 2:
         # !exec <console command>: zone event 0x598 (wstr) runs it on the client
         command = " ".join(words[1:])
@@ -5310,6 +5314,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         if state.get("world"):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "gotostate":
+                        send_message(sock, addr, state, zone.client_goto_state(state, args, m[1]))
                         continue
                     elif isinstance(m, tuple) and m[0] == "mentorev":
                         handle_mentor_event(state, m[1], m[2])
