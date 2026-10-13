@@ -1415,6 +1415,21 @@ def pet_tick(state, args, now, dt):
                 lines, _ = combat.strike(player, t, f"Your {npc.name}", None, *npc.damage)
                 for m in combat_results(state, args, player, lines, t, True, player.auto_attack):
                     state["send"](m)
+                if t.alive:
+                    # The enemy turns on the pet while the pet holds its attention.
+                    t.aggro, t.aggro_on = False, None
+                    t.fighting_pet_until = now + 2 * pets.ATTACK_SECONDS
+                    t.next_attack = now + combat.NPC_ATTACK_SECONDS
+                    dmg = random.randint(*t.damage)
+                    npc.health = max(0, npc.health - dmg)
+                    # 0x27b is only written when the player is the source or target.
+                    state["send"](build_system_text(f"{t.name} hits {npc.name} for {dmg} damage.",
+                                                    SYSTEM_TEXT_COMBAT))
+                    state["send"](pets.health(npc))
+                    if npc.health <= 0:
+                        state["send"](build_system_text(f"{npc.name} has been slain!", SYSTEM_TEXT_ERROR))
+                        dismiss_pet(state, dust=False)
+                        return
     if npc.pet_mode == "follow":
         pos = player.live_position or player.spawned_at
         if pos is not None:

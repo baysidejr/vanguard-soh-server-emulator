@@ -2,7 +2,9 @@
 
 > **Verified live (2026-10-13):** right-clicking a "Wolf Whistle" (items.json `"pet": {name, race, model, level, health, damage}`; sold at the camp merchant) spawns Ashfang, a wolf (race 119) next to Ranger: "Ashfang answers your call.". The server sends 0x419 {pet eid, name, type 8, 0} and 0x41d {health}, and the client shows its Pet Commands bar. Ashfang follows Ranger (server-side movement, 450 units/s, 150 units behind). With an Ashen Wolf targeted, `/pet attack` (0x79) gets "Ashfang says "Yes, Master."" (0x41b 0) and the pet runs in and bites: "Your Ashfang hits Ashen Wolf for 10 damage." in the Combat tab. Right-clicking the whistle again, or `/pet dismiss` (0x7f), sends 0x41b 5 and 0x41a and removes the pet; logging out removes it too.
 >
-> **Not done:** enemies attacking the pet (they still attack the owner), the pet's health bar updates (0x41d) during fights, pet abilities (0x429), minions (type 6), pets granted by class abilities.
+> **Pet combat (verified live):** the enemy the pet bites turns on the pet ("Ashen Wolf hits Ashfang for 4 damage.", written by the server because the client only writes 0x27b combat text that involves the player) and ignores the owner while it fights the pet. The pet health bar (paw icon under the player bars) follows 0x41d. At 0 health "Ashfang has been slain!" and the pet is removed.
+>
+> **Not done:** pet abilities (0x429), minions (type 6), pets granted by class abilities.
 
 Server: `server/pets.py`, `login_stub.summon_pet/dismiss_pet/handle_pet_event/pet_tick`.
 

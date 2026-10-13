@@ -483,6 +483,8 @@ def proximity_aggro(npc, players, kos=None):
     Returns that player when it starts a fight, else None."""
     if npc.aggro or not npc.alive or npc.merchant or npc.harvest or getattr(npc, "prop", False):
         return None
+    if getattr(npc, "fighting_pet_until", 0) > time.time():
+        return None                                  # busy with a player's pet
     best = None
     for p in players:
         pos = p.live_position or p.spawned_at
