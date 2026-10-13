@@ -110,12 +110,25 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 
 | Command | Effect |
 | --- | --- |
-| `!tp x y z` | Teleport (`~` keeps the current coordinate) |
+| `!tp x y z [yaw]` | Teleport (`~` keeps the current coordinate; yaw 0 = +x, 49152 = -y) |
 | `!target <name>` | Target an NPC by name |
 | `!hurt N` | Lose N health |
 | `!anim id [me]` | Play an animation on the target or yourself |
 | `!prop <property> <value> [me]` | Set a replicated pawn property |
 | `!move dx dy` | Move the targeted NPC |
+| `!give <item> [qty]` | Put an item from `content/items.json` in your bags |
+| `!learn <ability>` / `!use <ability>` | Learn / use a class ability |
+| `!faction <id> <amount>` | Change a faction standing |
+| `!title <id>` | Grant a title |
+| `!mount [id] [fly]` | Ride a mount (`!mount 0` dismounts) |
+| `!questkill` | Count a kill of the target's kind toward quests |
+| `!mailme` | Receive a test letter with coin and an item |
+| `!tombstone` / `!rezme` | Leave your tombstone here / get a resurrection offer |
+| `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
+| `!deftarget <player>` | Set another player as defensive target (then `/duel`) |
+| `!fishbite` | Pretend the fishing bobber landed in water |
+| `!ui <window>` | Toggle a client window (e.g. `!ui Social`) |
+| `!guildcreate`, `!bankput`/`!bankget`, `!wear [n]`, `!ctext` | Guild, bank, durability and combat-text tests |
 | `!item`, `!stat`, `!upd`, `!event`, `!chat`, `!sys`, `!exec` | Send raw messages (see `dev_command` in `login_stub.py`) |
 
 World content (mobs, loot, items, vendors and spawns) lives in `server/content/`. Run `python content.py` to check it for mistakes.
