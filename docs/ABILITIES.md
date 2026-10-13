@@ -200,7 +200,9 @@ Implemented in `server/reactions.py` and `login_stub` (`chain_next`, `activate_r
 - **Opening a reaction:** when an ability of a chain goes off, the server sends **0x391** `{eid64 target, i32 reaction id, i32 ability id, f32 seconds, i32 type, bool8 0, i32 0, i32 0}` (33 bytes; type 0 chain step, 8 finisher, 2 counter, 3 rescue). A chain button with a link icon pops up above the hotbar, the ability unlocks with a countdown sweep, and the client closes it itself when the time runs out.
 - **Activation:** pressing the unlocked hotbar ability (or the Reactions window button) makes the client send **0x145** `{i32 reaction id}` instead of the normal 0xd0 use. The server answers 0x39a `{u8 0}` ("You successfully activated a combat reaction."; 1 = timed out), closes it with 0x392 `{i32 id}`, uses the ability and opens the next step. 0x396 closes all (sent on death).
 - Verified with Justins (Warrior): Brutal Strike → (3) Savage Cut → (`!react`) Decimate. `!react` activates the newest open reaction.
-- Not done: 0x393 chain reset and 0x394/0x398 partial clears. Counters and rescues are in the sections below.
+- Reaction lists in the client's combat manager [O]: chain/finisher windows at +0xda4 (0x394 and 0x395 clear them), counters at +0xdb4 (0x398), rescues at +0xdc4 (0x397); 0x396 / 0x399 clear every list. 0x392 {i32 id} closes one window. 0x39a {u8} prints the result: 0 activated, 1 timed out, 2 queue full, 3 resting, 4 invalid target, 5 target dead, 6 changing forms, 7 can't meet the cost (FUN_005f4190).
+- The server closes a window when it expires or its enemy dies, and answers activating one on a dead enemy with 0x39a code 5 (code change, not yet checked live).
+- Not done: 0x393 {i32} (FUN_005f40f0 -> FUN_0042f2b0, an ability chain reset). Counters and rescues are in the sections below.
 
 ## Enemy casts and counters (counters verified live 2026-10-13)
 

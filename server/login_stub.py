@@ -507,7 +507,8 @@ def chain_next(state, player, ability):
         return
     nxt, kind, window = step
     rid, msg = reactions.open_reaction(player.target or 0, nxt, window, kind)
-    state.setdefault("reactions", {})[rid] = {"ability": nxt, "ends": time.time() + window}
+    state.setdefault("reactions", {})[rid] = {"ability": nxt, "ends": time.time() + window,
+                                              "target": player.npcs.get(player.target) if player.target else None}
     state["send"](msg)
     print(f"  <- reaction {rid}: {nxt} for {window:g}s ({'finisher' if kind == reactions.FINISHER else 'chain'})")
 
@@ -519,6 +520,11 @@ def activate_reaction(state, args, rid):
     print(f"  >>> ZONE activate reaction {rid}")
     if r is None or time.time() > r["ends"]:
         send(reactions.result(reactions.TIMED_OUT))
+        send(reactions.close_reaction(rid))
+        return
+    target = r.get("target") or r.get("counter_of") or r.get("rescue_of")
+    if target is not None and not target.alive:
+        send(reactions.result(reactions.TARGET_DEAD))     # "...the target of your reaction is dead."
         send(reactions.close_reaction(rid))
         return
     ability = next((a for a in player.abilities if a[1] == r["ability"]), None)
@@ -542,7 +548,9 @@ def reactions_tick(state, now):
         open_.clear()
         state["send"](reactions.close_all())
         return
-    for rid in [k for k, r in open_.items() if now > r["ends"]]:
+    # Expired windows, and windows on an enemy that has died.
+    for rid in [k for k, r in open_.items() if now > r["ends"] or
+                not getattr(r.get("target") or r.get("counter_of") or r.get("rescue_of"), "alive", True)]:
         open_.pop(rid)
         state["send"](reactions.close_reaction(rid))
 
