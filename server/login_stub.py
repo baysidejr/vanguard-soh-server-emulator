@@ -880,9 +880,80 @@ def plot_object(pid, plot, st):
             "hover": f"{plot['name']} ({owner})" if owner else f"{plot['name']} - for sale"}
 
 
+def fixture_object(pid, f):
+    return {"id": housing.FIXTURE_ID_BASE + f["id"], "prefab": f["prefab"], "type": zone.HOUSE_FIXTURE,
+            "building": housing.FIXTURE_ID_BASE + f["id"], "loc": f["loc"], "rot": (0, f.get("yaw", 0), 0),
+            "hover": f["item"]}
+
+
 def placed_objects(level):
     db = load_housing()
-    return [plot_object(pid, p, db.get(pid)) for pid, p in ARGS.content.plots.items() if p["chunk"] == level]
+    out = []
+    for pid, p in ARGS.content.plots.items():
+        if p["chunk"] == level:
+            out.append(plot_object(pid, p, db.get(pid)))
+            out += [fixture_object(pid, f) for f in (db.get(pid) or {}).get("fixtures", [])]
+    return out
+
+
+def my_house_here(player):
+    """(plot id, plot) of the built plot the player owns and stands in, or (None, None)."""
+    db = load_housing()
+    pos = player.live_position or player.spawned_at
+    for pid, p in ARGS.content.plots.items():
+        st = db.get(pid)
+        if (st and st.get("building") and st["owner"].lower() == player.name.lower() and p["chunk"] == player.level
+                and math.hypot(pos[0] - p["loc"][0], pos[1] - p["loc"][1]) <= housing.HOUSE_RADIUS):
+            return pid, p
+    return None, None
+
+
+def broadcast_object(state, obj, close=False):
+    w = state.get("world")
+    if w is None:
+        return
+    for s in list(w.members.values()):
+        m = zone.close_actor(s, obj["id"])
+        if m:
+            s["send"](m)
+        if not close:
+            s["send"](zone.open_placed_object(s, ARGS, obj))
+
+
+def place_fixture(state, item):
+    """Right-click a furniture item (items.json "fixture": prefab) inside your house: it is
+    placed where you stand, facing your way."""
+    player, send = state["player"], state["send"]
+    pid, plot = my_house_here(player)
+    if pid is None:
+        send(build_system_text("You can only place items when in your house.", SYSTEM_TEXT_ERROR))
+        return
+    db = load_housing()
+    st = db[pid]
+    b = next((o for o in plot["buildings"] if o["type"] == st["building"]), {})
+    fixtures = st.setdefault("fixtures", [])
+    if len(fixtures) >= b.get("fixtures", 20):
+        send(zone.zone_event(0x0E, struct.pack("<h", 0x168)))          # BldgCantHoldMoreFixtures
+        return
+    pos = player.live_position or player.spawned_at
+    z = pos[2] - 90.0                    # the pawn stands its collision height above the floor
+    f = {"id": st.get("next_fixture", 1), "item": item[1], "prefab": ARGS.content.item(item[1])["fixture"],
+         "loc": [pos[0], pos[1], z], "yaw": int(getattr(player, "yaw", 0) or 0)}
+    st["next_fixture"] = f["id"] + 1
+    fixtures.append(f)
+    save_housing(db)
+    take_items(state, item[1], 1)
+    broadcast_object(state, fixture_object(pid, f))
+    send(build_system_text(f"You place the {item[1]}.", SYSTEM_TEXT_WHITE))
+
+
+def fixture_by_object(oid):
+    db = load_housing()
+    for pid, st in db.items():
+        for f in st.get("fixtures", []):
+            if housing.FIXTURE_ID_BASE + f["id"] == oid:
+                return db, pid, st, f
+    return db, None, None, None
 
 
 def refresh_plot(state, pid):
@@ -918,6 +989,26 @@ def handle_housing_event(state, event, data):
     print(f"  >>> ZONE housing event {event:#x}: {data.hex(' ')}")
     notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
     vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 else ()
+    if event in (housing.PICK_UP, housing.NUDGE) and vals:
+        db, pid, st, f = fixture_by_object(vals[0])
+        if f is None or st["owner"].lower() != player.name.lower():
+            notice(0x17a)                                # NoPermissionToPickupFixture
+            return
+        obj = fixture_object(pid, f)
+        if event == housing.PICK_UP:
+            st["fixtures"].remove(f)
+            save_housing(db)
+            broadcast_object(state, obj, close=True)
+            give_item(state, f["item"])
+            notice(0x178)                                # RemovedFixtureFromBldg
+        elif len(data) >= 32:
+            dx, dy, dz = struct.unpack_from("<fff", data, 8)
+            dyaw = struct.unpack_from("<i", data, 20)[0]
+            f["loc"] = [f["loc"][0] + dx, f["loc"][1] + dy, f["loc"][2] + dz]
+            f["yaw"] = (f.get("yaw", 0) + dyaw) & 0xFFFF
+            save_housing(db)
+            broadcast_object(state, fixture_object(pid, f))
+        return
     pid = str(vals[1] if event == housing.INSPECT and len(vals) > 1 else vals[0]) if vals else ""
     plot = ARGS.content.plots.get(pid)
     if plot is None:
@@ -3822,6 +3913,9 @@ def dev_command(text, player=None):
     if words[0] == "plot" and player:
         # !plot [id]: inspect a plot as if its sign were right-clicked (testing).
         return [("housing", housing.INSPECT, struct.pack("<ii", 1, int(words[1]) if len(words) > 1 else 101))]
+    if words[0] == "pickup" and player and len(words) > 1:
+        # !pickup <fixture n>: as the fixture's Pick Up menu (0x462) (testing).
+        return [("housing", housing.PICK_UP, struct.pack("<i", housing.FIXTURE_ID_BASE + int(words[1])))]
     if words[0] == "house" and player:
         # !house [prefab] [type]: spawn a housing object 800 units north of you (testing).
         prefab = words[1] if len(words) > 1 else "Ra6001_P1_C1_Grid_PHcity01_Home001root001_lvl10_ver1"
@@ -4323,6 +4417,8 @@ def handle_message(sock, server, addr, state, payload, args):
             mount = args.content.item(item[1]).get("mount") if item else None
             if player and add_catalyst(state, handle):
                 pass
+            elif item and args.content.item(item[1]).get("fixture"):
+                place_fixture(state, item)
             elif mount:
                 # A mount item (items.json "mount": {id, type}): right-click summons or dismisses it.
                 if getattr(player, "mount", None):

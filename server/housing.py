@@ -15,7 +15,10 @@ import struct
 import time
 
 INSPECT, BUY, BUILD, TEAR_DOWN, SELL = 0x460, 0x481, 0x479, 0x480, 0x47F
-CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL)
+PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx, dy, dz, i32 dyaw, dpitch, droll}
+CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE)
+HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
+FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
 SIGN_PREFAB = "Ra1_P1_C1_Markers_ForSaleSign"
 
