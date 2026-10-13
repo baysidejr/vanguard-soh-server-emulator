@@ -585,6 +585,17 @@ def gear_changed(state, args, player):
     save_character_field(player.name, "equipment", [list(e) for e in player.equipment])
 
 
+def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
+    """Mount (mount_id) or dismount (None): an m_AttachmentGroups entry plus m_MountType,
+    for everyone in the chunk."""
+    player.mount = mount_id
+    values = {"m_AttachmentGroups": zone.gear_attachments(player), "m_MountType": kind if mount_id else 0}
+    state["send"](zone.player_pawn_update(state, args, values))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -3641,6 +3652,10 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "mount" and player:
+        # !mount [id] [fly]: ride mount id (default 1000); !mount 0 dismounts (testing).
+        mid = int(words[1]) if len(words) > 1 else 1000
+        return [("mount", mid or None, zone.MOUNT_FLYING if "fly" in words else zone.MOUNT_GROUND)]
     if words[0] == "rezme" and player:
         # !rezme: Veyla offers to resurrect you (testing the dialog).
         return [("rezme",)]
@@ -3959,6 +3974,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "mount":
+                        set_mount(state, args, state["player"], m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "rezme":
                         offer_rez(state, "Veyla Brightsteel", "Rebirth I")
                         continue
@@ -4022,6 +4040,11 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE interact {eid:#x} ({npc.name if npc else '-'})")
             if npc is not None and getattr(npc, "altar", False):
                 handle_altar_use(state, npc)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x57C and state.get("player"):
+            # /dismount (no payload).
+            if getattr(state["player"], "mount", None):
+                set_mount(state, args, state["player"], None)
+                send_message(sock, addr, state, zone.zone_event(0x0E, struct.pack("<h", 0xAC)))   # Dismounting
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == quest.DIALOG_RESPONSE and state.get("player"):
             handle_dialog_response(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0xE0 and state.get("player"):
@@ -4107,8 +4130,18 @@ def handle_message(sock, server, addr, state, payload, args):
             handle = struct.unpack_from("<i", payload, 10)[0]
             print(f"  >>> ZONE {'equip' if event == EQUIP_EVENT else 'unequip'} item {handle}: "
                   f"{payload[10:].hex(' ')}")
+            item = next((i for i in player.items if i[0] == handle), None) if player else None
+            mount = args.content.item(item[1]).get("mount") if item else None
             if player and add_catalyst(state, handle):
                 pass
+            elif mount:
+                # A mount item (items.json "mount": {id, type}): right-click summons or dismisses it.
+                if getattr(player, "mount", None):
+                    set_mount(state, args, player, None)
+                    send_message(sock, addr, state, zone.zone_event(0x0E, struct.pack("<h", 0xAC)))
+                else:
+                    set_mount(state, args, player, mount["id"], mount.get("type", zone.MOUNT_GROUND))
+                    send_message(sock, addr, state, build_system_text(f"You summon your {item[1]}.", SYSTEM_TEXT_WHITE))
             elif player:
                 result = (zone.equip_item if event == EQUIP_EVENT else zone.unequip_item)(player, handle)
                 if isinstance(result, str):

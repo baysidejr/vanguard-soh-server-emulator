@@ -728,6 +728,10 @@ SPAWN_Z_LIFT = 90.0   # observed: spawn z 4900 -> pawn at 4990 (= CollisionHeigh
 # 33 SWORD, 34 SHIELD. Slots are vgmsg.EQUIP_SLOTS (28 right hand, 29 left).
 
 
+MOUNT_PACKAGE, MOUNT_SLOT = 500, 39
+MOUNT_GROUND, MOUNT_FLYING = 1, 3         # m_MountType (0 none, 2 aquatic)
+
+
 def gear_attachments(player, slots=60):
     """m_AttachmentGroups: one (mesh type, mesh number, slot) per equipped item
     with a model (content/items.json), padded with empty (-1, -1, -1) entries so
@@ -737,6 +741,9 @@ def gear_attachments(player, slots=60):
         mesh = ITEM_CONTENT.item(name).get("mesh")
         if mesh:
             gear.append((mesh[0], mesh[1], slot))
+    if getattr(player, "mount", None):
+        # (package 500 MOUNT_ITEMS, mount id, slot 39 MOUNT): the client mounts the rider (FUN_00bc9a70).
+        gear.append((MOUNT_PACKAGE, player.mount, MOUNT_SLOT))
     return gear + [(-1, -1, -1)] * (min(slots, len(gear) + 8) - len(gear))
 
 
