@@ -57,3 +57,7 @@ The client moves its own character, so the server checks the reports (`login_stu
 ## Swimming, breath and drowning (verified live 2026-10-13)
 
 Swimming is client-side: inside a WaterVolume the client switches its own pawn to `Physics = 3` (PHYS_Swimming). Breath is stat **0x50** (`vgmsg.STAT_IDS["breath"]`), created at login with value = max = 60 (`zone.BREATH_MAX`, kind 5). The client shows the HUD's **Breath** bar (`StatusBreathSelf`) while a 0x2d4 update has current < max (FUN_005763b0 sets `bIsDrowning = current != max`) and hides it when full. The server (`login_stub.breath_tick`, once a second) loses 1 breath while the head (location + 60) is inside a WaterVolume and regains 10 above it; at 0 the player takes 10% of max health a second ("You are drowning!") and dies through the normal death path. Test: `!tp -43000 -52900 g 49152` (the seabed off the fishing beach).
+
+## Unstuck (verified live 2026-10-13)
+
+`/petition` (client event 0xeb) opens the client's Help window. Its **Unstuck** button sends **0x44c** (no payload): the server teleports the player to their bind spot (altar) if it is in the same chunk, else to where they entered the chunk ("You have been moved to safety."), at most once every 5 minutes (`login_stub.unstuck`). The Help window's **Petition** button does not reach the server: it opens the client's built-in web browser on a URL from the launcher configuration (vgoemulator.net in this install), so don't use it while testing.

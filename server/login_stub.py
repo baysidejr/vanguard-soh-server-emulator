@@ -945,6 +945,33 @@ DRAG_RANGE = 1500.0
 TOMBSTONE_DECAY = 48 * 3600           # seconds a tombstone lasts (reported by /decaytime)
 
 
+UNSTUCK = 0x44C                       # the Help window's "Unstuck" button (no payload)
+UNSTUCK_COOLDOWN = 300
+
+
+def unstuck(state):
+    """Move a stuck player to their bind spot (an altar) in this chunk, else to where they
+    entered the chunk; once every UNSTUCK_COOLDOWN seconds."""
+    player, send = state["player"], state["send"]
+    now = time.time()
+    if now - state.get("unstuck_at", 0) < UNSTUCK_COOLDOWN:
+        left = int(UNSTUCK_COOLDOWN - (now - state["unstuck_at"]))
+        send(build_system_text(f"You can use Unstuck again in {left // 60}m {left % 60}s.", SYSTEM_TEXT_ERROR))
+        return
+    if player.health <= 0:
+        send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+        return
+    state["unstuck_at"] = now
+    bind = getattr(player, "bind", None)
+    if bind and bind.get("level") == player.level:
+        loc = tuple(bind["loc"])
+    else:
+        loc = player.spawned_at
+    send(zone.player_teleport((float(loc[0]), float(loc[1]), float(loc[2]) + 50.0)))
+    send(build_system_text("You have been moved to safety.", SYSTEM_TEXT_WHITE))
+    print(f"  {player.name} used Unstuck -> {loc}")
+
+
 def handle_corpse_event(state, event, data):
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE corpse event {event:#x}: {data.hex(' ')}")
@@ -6430,6 +6457,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(p.name, "active_toolbelt", v)
                 send_message(sock, addr, state, craft.active_toolbelt(v))
                 send_message(sock, addr, state, zone.zone_event(0x30E))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
+            unstuck(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CORPSE_EVENTS and state.get("player"):
             handle_corpse_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (zone.MOVE_ITEM, zone.DESTROY_ITEM) and state.get("player"):
