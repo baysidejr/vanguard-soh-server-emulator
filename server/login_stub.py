@@ -3690,6 +3690,11 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "house" and player:
+        # !house [prefab] [type]: spawn a housing object 800 units north of you (testing).
+        prefab = words[1] if len(words) > 1 else "Ra6001_P1_C1_Grid_PHcity01_Home001root001_lvl10_ver1"
+        kind = int(words[2]) if len(words) > 2 else zone.HOUSE_BUILDING
+        return [("house", prefab, kind)]
     if words[0] == "mount" and player:
         # !mount [id] [fly]: ride mount id (default 1000); !mount 0 dismounts (testing).
         mid = int(words[1]) if len(words) > 1 else 1000
@@ -4011,6 +4016,13 @@ def handle_message(sock, server, addr, state, payload, args):
                         if state.get("world"):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "house":
+                        p = state["player"]
+                        pos = p.live_position or p.spawned_at
+                        obj = {"id": 0x4000000 + int(time.time()) % 100000, "prefab": m[1], "type": m[2],
+                               "loc": (pos[0] + 800.0, pos[1], pos[2]), "hover": "Test house"}
+                        send_message(sock, addr, state, zone.open_placed_object(state, args, obj))
                         continue
                     elif isinstance(m, tuple) and m[0] == "mount":
                         set_mount(state, args, state["player"], m[1], m[2])

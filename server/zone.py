@@ -260,6 +260,33 @@ def open_npc(state, args, npc):
     return unreal_message(ue.build([b]))
 
 
+PLACED_OBJECT_CLASS = "Engine.PlayerPlacedObject"
+HOUSE_PLOT, HOUSE_BUILDING, HOUSE_FIXTURE, HOUSE_CHEST, HOUSE_SIGN = 1, 2, 3, 4, 7
+
+
+def open_placed_object(state, args, obj):
+    """Open an actor channel for a housing object (Engine.PlayerPlacedObject, docs/HOUSING.md):
+    obj = {id, prefab, loc, type, building, parent, hover}. The client builds the prefab
+    named by m_PrefabNameTag."""
+    ue, player = state["ue"], state["player"]
+    pm = package_map(args, player.level)
+    channel = world.channel_for(state, obj["id"], allocate=True)
+    cls = PLACED_OBJECT_CLASS.split(".", 1)[1]
+    props = pm.net_cache.props(cls, {
+        "m_PrefabNameTag": obj["prefab"],
+        "m_ParentUniqueID": obj.get("parent", 0),
+        "m_ObjectUniqueId": obj["id"] & 0x7FFFFFFF,
+        "m_MouseOverDisplay": obj.get("hover", ""),
+        "m_BuildingType": obj.get("type", HOUSE_BUILDING),
+        "m_BuildingUniqueId": obj.get("building", obj["id"] & 0x7FFFFFFF),
+    })
+    b = ue.actor_open_bunch(channel, pm.object_index(PLACED_OBJECT_CLASS), pm.max_object_index,
+                            location=tuple(obj["loc"]), rotation=tuple(obj.get("rot", (0, 0, 0))),
+                            properties=props)
+    print(f"  <- UNREAL actor open ch={channel} PlayerPlacedObject {obj['prefab']!r}")
+    return unreal_message(ue.build([b]))
+
+
 def open_remote_player(state, args, other):
     """Open this connection's actor channel for another player's pawn: the same
     properties as the owner's pawn, without bNetOwner."""
