@@ -63,3 +63,7 @@ Not done yet:
 - the Find window (`0x502` mode 1/2)
 - guilds
 - server-side ignore filtering (the client already hides ignored speakers)
+
+## /played (verified live 2026-10-13)
+
+The client sends zone 0x10f (no payload); the reply is zone 0x10f {i32 seconds} (handler FUN_005e7520, formatted by FUN_00552260 into days/hours/minutes/seconds): "You have played for: 16 seconds". The server saves `played` per character when the zone connection ends (not on chunk handoffs).

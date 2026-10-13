@@ -3605,9 +3605,18 @@ def finish_craft(state, r):
     print(f"  {player.name} crafted {name}")
 
 
+def played_seconds(player):
+    return int(getattr(player, "played", 0) + time.time() - getattr(player, "session_start", time.time()))
+
+
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
+    if state.get("player") is not None and not state.get("handoff"):
+        p = state["player"]
+        p.played = played_seconds(p)
+        p.session_start = time.time()
+        save_character_field(p.name, "played", p.played)
     w, player = state.get("world"), state.get("player")
     # Trades and trade invites don't survive a zone reconnect (chunk handoff either).
     if state.get("trade"):
@@ -4258,6 +4267,8 @@ def handle_message(sock, server, addr, state, payload, args):
             player.tombstone = char.get("tombstone")
             player.bind = char.get("bind")
             player.dialog_rewards = list(char.get("dialog_rewards", []))
+            player.played = int(char.get("played", 0))
+            player.session_start = time.time()
             player.known_recipes = list(char.get("known_recipes", []))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
@@ -4395,6 +4406,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x10F and state.get("player"):
+            # /played: the reply is the same id with the seconds played ("You have played for: ...").
+            send_message(sock, addr, state, zone.zone_event(0x10F, struct.pack("<i", played_seconds(state["player"]))))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x597 and state.get("player"):
             handle_rift(state, args, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x57C and state.get("player"):
