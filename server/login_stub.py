@@ -5966,6 +5966,11 @@ def finish_parley(state, p, result):
     send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
     sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     faction_reward(state, reward)
+    if reward.get("item"):
+        # diplomacy.json "reward": {"item": name or [name, qty]}: every win (the bag must have room).
+        name, qty = (reward["item"], 1) if isinstance(reward["item"], str) else reward["item"]
+        if give_item(state, name, qty):
+            quest_items_changed(state)
     print(f"  {player.name} won a parley with {p.npc.name}")
 
 
@@ -6640,6 +6645,9 @@ def dev_command(text, player=None):
         # !mount [id] [fly]: ride mount id (default 1000); !mount 0 dismounts (testing).
         mid = int(words[1]) if len(words) > 1 else 1000
         return [("mount", mid or None, zone.MOUNT_FLYING if "fly" in words else zone.MOUNT_GROUND)]
+    if words[0] == "parleywin" and player:
+        # !parleywin: win the open parley at once (testing its rewards).
+        return [("parleywin",)]
     if words[0] == "rezme" and player:
         # !rezme: Veyla offers to resurrect you (testing the dialog).
         return [("rezme",)]
@@ -7108,6 +7116,10 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "mount":
                         set_mount(state, args, state["player"], m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "parleywin":
+                        if state.get("parley"):
+                            finish_parley(state, state["parley"], "won")
                         continue
                     elif isinstance(m, tuple) and m[0] == "rezme":
                         offer_rez(state, "Veyla Brightsteel", "Rebirth I")

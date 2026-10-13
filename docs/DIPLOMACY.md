@@ -103,7 +103,7 @@ Each character keeps its own deck (`diplomacy_deck`) and strategy-bar layout (`d
 - A parley's `reward.card` is added to the deck on the first win: beating Orin printed "You learn a new diplomacy strategy: Rousing Toast." (card 40029). Cards beyond the bar size wait in the repertoire.
 
 **Not done yet**
-- rewards beyond coin and XP (faction, items, unlocked dialogue)
+- unlocked dialogue as a reward. Faction (`reward.faction`) and items (`reward.item`: a name or [name, qty], given on every win; verified live: "You receive 2 Travel Rations.") are done; dev `!parleywin` wins the open parley
 - opening the repertoire window by script (slotting a card from it uses the same `0xd7`)
 - card refresh timers (`0x266`)
 - the `0x321` option format with presence requirements
