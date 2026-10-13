@@ -55,5 +55,24 @@ class FallTests(unittest.TestCase):
         self.assertEqual(self.run_fall([100, 100, 3000, 2800, 2000, 1500, 1500]), [])
 
 
+class MovementCheckTests(unittest.TestCase):
+    def run_moves(self, moves, teleport_at=None):
+        ms = {} if teleport_at is None else {"teleport_at": teleport_at}
+        return [w for t, x in moves for w in [login_stub.movement_warning(ms, (x, 0.0, 0.0), t)] if w]
+
+    def test_walking_is_fine(self):
+        self.assertEqual(self.run_moves([(t * 0.5, t * 0.5 * 340) for t in range(12)]), [])
+
+    def test_too_fast(self):
+        out = self.run_moves([(t * 0.5, t * 0.5 * 1500) for t in range(12)])
+        self.assertTrue(out and "units/s" in out[0])
+
+    def test_jump_without_teleport(self):
+        self.assertIn("jumped", self.run_moves([(0, 0), (0.5, 100), (1.0, 9000)])[0])
+
+    def test_server_teleport_is_excused(self):
+        self.assertEqual(self.run_moves([(10, 0), (10.5, 100), (11.0, 9000)], teleport_at=9.0), [])
+
+
 if __name__ == "__main__":
     unittest.main()

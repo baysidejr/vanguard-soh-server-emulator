@@ -258,7 +258,7 @@ def main():
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     args.use_tombstone = use_tombstone
-    args.on_move = check_fall
+    args.on_move = on_move
     # The owner's pawn is ROLE_AutonomousProxy on the client (wire Role 3, RemoteRole 4) and is
     # handed over with GivePawn, so the player moves it with the keyboard (docs/MOVEMENT.md).
     # PAWN_ROLE=off restores the old simulated pawn (for comparison).
@@ -1876,6 +1876,50 @@ def fall_drop(fs, loc):
     fs["armed"] = True                       # on the ground (or going up)
     top = fs.pop("top", None)
     return None if top is None else top - loc[2]
+
+
+TELEPORT_GRACE = 5.0          # seconds after the client echoes a server teleport (0x3e5)
+SPEED_WINDOW = 2.0            # seconds of movement measured at a time
+JUMP_LIMIT = 2000.0           # one report moving further than this is a jump
+
+
+def speed_limit():
+    """Fastest legitimate horizontal speed (riding), with room for lag."""
+    return BASE_GROUND_SPEED * MOUNT_SPEED * 1.3
+
+
+def movement_warning(ms, loc, now):
+    """Movement sanity check (log only) for one report through the tracker ms (a dict).
+    Returns a warning string, or None. Server teleports are excused for TELEPORT_GRACE
+    seconds after the client's 0x3e5 echo (ms["teleport_at"])."""
+    prev, start = ms.get("last"), ms.get("start")
+    ms["last"] = loc
+    if prev is None or start is None or now - ms.get("teleport_at", -1e9) < TELEPORT_GRACE:
+        ms.update(start=loc, t0=now)
+        return None
+    if math.hypot(loc[0] - prev[0], loc[1] - prev[1]) > JUMP_LIMIT:
+        ms.update(start=loc, t0=now)
+        return f"jumped {math.hypot(loc[0] - prev[0], loc[1] - prev[1]):.0f} units without a teleport"
+    dt = now - ms["t0"]
+    if dt < SPEED_WINDOW:
+        return None
+    speed = math.hypot(loc[0] - start[0], loc[1] - start[1]) / dt
+    ms.update(start=loc, t0=now)
+    if speed > speed_limit():
+        return f"moved at {speed:.0f} units/s (limit {speed_limit():.0f})"
+    return None
+
+
+def on_move(state, loc):
+    """Every movement report: fall damage, then the movement sanity check."""
+    check_fall(state, loc)
+    player = state.get("player")
+    if player is None:
+        return
+    warning = movement_warning(state.setdefault("move_check", {}), loc, time.time())
+    if warning:
+        player.move_warnings = getattr(player, "move_warnings", 0) + 1
+        print(f"  MOVEMENT WARNING {player.name}: {warning} at ({loc[0]:.0f}, {loc[1]:.0f}, {loc[2]:.0f})")
 
 
 def check_fall(state, loc):
@@ -5500,6 +5544,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(p.name, "active_toolbelt", v)
                 send_message(sock, addr, state, craft.active_toolbelt(v))
                 send_message(sock, addr, state, zone.zone_event(0x30E))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3E5:
+            # The client echoes a server teleport (zone.player_teleport) once it has moved.
+            state.setdefault("move_check", {})["teleport_at"] = time.time()
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.MENTOR_EVENTS and state.get("player"):
             handle_mentor_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in assembly.CLIENT_EVENTS and state.get("player"):
