@@ -1,6 +1,6 @@
 # Player movement (in progress)
 
-> **Status (2026-10-13):** WASD does not move the player's own character yet. Investigation below.
+> **Fixed (2026-10-13, verified live with two clients):** WASD moves the player. Holding W moved Ranger from x -30900 to -29891 in about 3 s, walking (Physics 1) up and down slopes, with the client sending ServerMove RPCs; a second client (Justins) sees him walk up. The fix has three parts, below under "The fix".
 
 ## How the client should move its own character (Unreal Engine 2)
 
@@ -23,3 +23,18 @@ The client moves its own pawn locally (client-side prediction) and reports posit
 
 - `scratchpad/vgmem.py`, `pawnstate.py`: read the running client's memory (actor role, physics, location, state frame).
 - `!gotostate <state>`: dev command that sends the RPC `ClientGotoState(NewState)` (`zone.client_goto_state`).
+
+## The fix
+
+1. Enum byte properties are sent as fixed-width bits (`netcache.py`), so `Role`/`RemoteRole` arrive intact.
+2. The owner's pawn is opened with wire `Role = 3`, `RemoteRole = 4`: on the client it becomes `ROLE_AutonomousProxy`.
+3. The PlayerController is opened **without** its `Pawn` property, and the server sends the RPC **`GivePawn(Pawn)`** (PlayerController function 77) instead of `ClientRestart()`. `GivePawn` sets `Pawn`, sets `NewPawn.Controller = self` and calls `ClientRestart()` (Engine.u). It returns early if `Pawn` already equals `NewPawn`, so replicating `Pawn` first left `Pawn.Controller` empty and the character frozen.
+
+`PAWN_ROLE=off` in the environment restores the old simulated pawn for comparison.
+
+## Notes for later (from the client analysis)
+
+- The server should acknowledge moves with `ClientAckGoodMove(TimeStamp)` and correct positions with `VeryShortClientAdjustPosition(TimeStamp, X, Y, Z, Base)`; unacknowledged moves pile up in the client's SavedMoves (it flushes at 100, harmless).
+- The client also sends `DualServerMove` and Vanguard's `OnVehicleServerMove`; all carry the position.
+- Never replicate `m_bIsDead = 1` on a living player: pawn physics zeroes acceleration while it is set.
+- Enum parameters in client RPCs need the same fixed-width decoding (`rpc.py` reads bytes as 8 bits).

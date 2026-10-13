@@ -1003,7 +1003,7 @@ def spawn_bunches(ue, args, player):
     if pawn_cls:
         values = player_pawn_values(player, location)
         if getattr(args, "pawn_role", None):
-            # TEST: the owner's pawn as ROLE_AutonomousProxy (3) on the client, Authority (4) remote.
+            # The owner's pawn: ROLE_AutonomousProxy (3) on the client, Authority (4) remote.
             values["Role"], values["RemoteRole"] = args.pawn_role
         props = nc.props(pawn_cls, values)
         # Pawn subclasses carry three extra fields (FUN_00962350); these are the
@@ -1017,7 +1017,7 @@ def spawn_bunches(ue, args, player):
     pc_cls = args.spawn_class.split(".", 1)[1]
     cache = nc.class_cache(pc_cls)
     props = nc.props(pc_cls, {"bNetOwner": True})
-    if pawn_cls:
+    if pawn_cls and not getattr(args, "pawn_role", None):     # GivePawn sets Pawn itself
         def pawn_ref(w):
             w.bit(1)                                   # actor, by channel
             w.serialize_int(PAWN_CHANNEL, ue2net.MAX_CHANNELS)
@@ -1031,10 +1031,18 @@ def spawn_bunches(ue, args, player):
         # RPC PlayerController.ClientRestart() (no parameters in this build): the
         # client takes the pawn and enters its walking state.
         w = ue2net.BitWriter()
-        w.serialize_int(nc.field(pc_cls, "ClientRestart").index, cache["max"])
+        if getattr(args, "pawn_role", None):
+            # GivePawn(Pawn NewPawn): sets NewPawn.Controller = self and calls ClientRestart()
+            # (Engine.u PlayerController); ClientRestart alone leaves Pawn.Controller empty.
+            w.serialize_int(nc.field(pc_cls, "GivePawn").index, cache["max"])
+            w.bit(1)                                   # parameter present
+            w.bit(1)                                   # actor, by channel
+            w.serialize_int(PAWN_CHANNEL, ue2net.MAX_CHANNELS)
+        else:
+            w.serialize_int(nc.field(pc_cls, "ClientRestart").index, cache["max"])
         data, nbits = w.packed()
         out.append(ue.actor_bunch(PC_CHANNEL, data, nbits))
-        print(f"  <- UNREAL RPC ClientRestart on ch={PC_CHANNEL}")
+        print(f"  <- UNREAL RPC {'GivePawn' if getattr(args, 'pawn_role', None) else 'ClientRestart'} on ch={PC_CHANNEL}")
     return out
 
 

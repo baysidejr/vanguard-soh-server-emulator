@@ -258,7 +258,10 @@ def main():
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     args.use_tombstone = use_tombstone
-    args.pawn_role = tuple(int(v) for v in os.environ["PAWN_ROLE"].split(",")) if os.environ.get("PAWN_ROLE") else None
+    # The owner's pawn is ROLE_AutonomousProxy on the client (wire Role 3, RemoteRole 4) and is
+    # handed over with GivePawn, so the player moves it with the keyboard (docs/MOVEMENT.md).
+    # PAWN_ROLE=off restores the old simulated pawn (for comparison).
+    args.pawn_role = None if os.environ.get("PAWN_ROLE") == "off" else (3, 4)
     args.placed_objects = placed_objects
     args.craft_event = lambda state, event, data: handle_craft_event(state, event, data)
     global ARGS

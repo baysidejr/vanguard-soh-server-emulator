@@ -29,7 +29,7 @@ The unmodified client, talking only to this emulator:
 - [x] NPCs chase and attack; player death, death window and release; experience and level ups (saved)
 - [x] Looting corpses into the bag (saved); appearance sliders on the player's character
 - [x] Standing on the real terrain anywhere in the chunk; spawn on flat ground; teleporting
-- [ ] **Walking with WASD does not work yet** (the client does not take control of its own character; see [MOVEMENT](docs/MOVEMENT.md))
+- [x] Walking, running and turning with WASD (the client controls its own character; see [MOVEMENT](docs/MOVEMENT.md))
 - [x] Gear on the character model (armor, bow); NPCs dressed too
 - [x] Several players in the same world: they see each other move, chat, and share the same NPCs
 - [x] World content (mobs, loot, spawns) loaded from JSON files: see [docs/CONTENT_EDITOR.md](docs/CONTENT_EDITOR.md)
