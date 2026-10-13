@@ -61,6 +61,14 @@ class HousingTests(unittest.TestCase):
         self.assertEqual(st["upkeep_balance"], -30)
         self.assertEqual(st["missed"], 1)
 
+    def test_construction_progress(self):
+        rows = housing.construction_rows({"Rough Stone": 2, "Tattered Cloth": 2}, {"Rough Stone": 2}, len)
+        self.assertEqual(rows, [(11, "Rough Stone", 2, 2), (14, "Tattered Cloth", 0, 2)])
+        self.assertEqual(housing.construction_percent(rows), 50)
+        self.assertFalse(housing.construction_done(rows))
+        eid, data = payload(housing.construction_info(101, "Home", rows))
+        self.assertEqual((eid, struct.unpack_from("<iiI", data)[:2]), (0x453, (101, 0)))
+
     def test_plot_info_starts_with_ids(self):
         plot = {"name": "P", "loc": [0, 0, 0], "cost": 1000, "buildings": []}
         eid, data = payload(housing.plot_info(101, plot, None, False))
