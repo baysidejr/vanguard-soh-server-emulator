@@ -68,7 +68,7 @@ The unmodified client, talking only to this emulator:
 - [x] Fishing: cast into water, the pull minigame, catch fish, bait use and Fishing skill-ups
 - [x] Assembly crafting: assembly trainer, recipe categories, combine components into an item at an assembly bench
 - [x] Riftways: /rift and the client's Riftway map travel between riftway stones (one destination placed)
-- [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instant construction), place and pick up furniture, storage chests
+- [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instantly, or a home from construction materials), place and pick up furniture, storage chests
 - [x] Hotbar cooldown sweep
 - [x] Raids: /raidcreate, up to 24 players in four raid groups, ready checks; mentoring (a higher member drops to your level)
 - [x] The Find window: search for groups or players looking for a group
@@ -138,6 +138,7 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
 | `!kill` | Kill the target with one hit |
 | `!react` | Activate the newest open combat reaction (chain step) |
+| `!cev <event id> [i32 ...]` | Handle a client zone event as if the client sent it (e.g. `!cev 0x479 101 2`) |
 | `!lootmode <0-4> [rarity 0-6]`, `!roll need/greed/pass` | Group loot mode (as the leader's popup) and roll answers |
 | `!deftarget <player>` | Set another player as defensive target (then `/duel`) |
 | `!fishbite` | Pretend the fishing bobber landed in water |

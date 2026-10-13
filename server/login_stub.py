@@ -1184,8 +1184,25 @@ def send_plot_window(state, pid):
     send(housing.show())
 
 
+def construction_window(pid, plot, st):
+    c = st["construction"]
+    b = next(o for o in plot["buildings"] if o["type"] == c["type"])
+    return housing.construction_info(int(pid), b["name"], housing.construction_rows(b["materials"], c["added"],
+                                                                                   zone.template_id))
+
+
+def finish_building(state, db, pid, st, building_type):
+    st.update(building=building_type, built=int(time.time()))
+    save_housing(db)
+    send = state["send"]
+    send(zone.zone_event(0x0E, struct.pack("<h", housing.BUILT)))
+    send(housing.has_construction(False))
+    refresh_plot(state, pid)
+    send_plot_window(state, pid)
+
+
 def handle_housing_event(state, event, data):
-    """Plots (housing.py): inspect, buy, build (instantly), tear down, sell."""
+    """Plots (housing.py): inspect, buy, build (instantly, or by adding materials), tear down, sell."""
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE housing event {event:#x}: {data.hex(' ')}")
     notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
@@ -1243,14 +1260,52 @@ def handle_housing_event(state, event, data):
             send_plot_window(state, pid)
     elif event == housing.BUILD and len(vals) >= 2:
         b = next((o for o in plot.get("buildings", []) if o["type"] == vals[1]), None)
-        if not mine or b is None or st.get("building"):
+        if not mine or b is None or st.get("building") or st.get("construction"):
             notice(0x1a1 if not mine else 0x19e)         # NoPermissionToStartConst / BldgExistsForPlot
             return
-        st.update(building=b["type"], built=int(time.time()))
+        if b.get("materials"):
+            # Staged construction: the building goes up once its materials are added.
+            st["construction"] = {"type": b["type"], "added": {}}
+            save_housing(db)
+            send(housing.has_construction(True))
+            send(construction_window(pid, plot, st))
+            send(build_system_text(f"Construction of a {b['name']} has begun. Add the materials to finish it.",
+                                   SYSTEM_TEXT_WHITE))
+            return
+        finish_building(state, db, pid, st, b["type"])
+    elif event == housing.VIEW_CONSTRUCTION and st and st.get("construction"):
+        send(construction_window(pid, plot, st))
+    elif event == housing.ADD_MATERIAL and mine and st.get("construction") and len(vals) >= 2:
+        c = st["construction"]
+        b = next(o for o in plot["buildings"] if o["type"] == c["type"])
+        item = next((i for i in player.items if i[0] == vals[1]), None)
+        need = b["materials"].get(item[1], 0) - c["added"].get(item[1], 0) if item else 0
+        if item is None or need <= 0:
+            send(build_system_text("That material isn't needed for this building.", SYSTEM_TEXT_ERROR))
+            return
+        n = min(need, item[3])
+        take_items(state, item[1], n)
+        c["added"][item[1]] = c["added"].get(item[1], 0) + n
         save_housing(db)
-        notice(housing.BUILT)
+        send(build_system_text(f"You add {n} {item[1]} to the construction.", SYSTEM_TEXT_WHITE))
+        send(construction_window(pid, plot, st))
+    elif event == housing.COMPLETE_CONSTRUCTION and mine and st.get("construction"):
+        c = st["construction"]
+        b = next(o for o in plot["buildings"] if o["type"] == c["type"])
+        if not housing.construction_done(housing.construction_rows(b["materials"], c["added"])):
+            send(build_system_text("The construction still needs materials.", SYSTEM_TEXT_ERROR))
+            return
+        st.pop("construction")
+        send(housing.close_construction())
+        finish_building(state, db, pid, st, c["type"])
+    elif event == housing.ABANDON_CONSTRUCTION and mine and st.get("construction"):
+        c = st.pop("construction")
+        save_housing(db)
+        for name, n in c["added"].items():
+            give_item(state, name, n)                    # the materials come back
+        send(housing.close_construction())
         send(housing.has_construction(False))
-        refresh_plot(state, pid)
+        send(build_system_text("You abandon the construction.", SYSTEM_TEXT_WHITE))
         send_plot_window(state, pid)
     elif event == housing.UPKEEP_DEPOSIT and mine and len(vals) >= 2:
         amount = vals[1]
@@ -5460,6 +5515,10 @@ def dev_command(text, player=None):
     if words[0] == "ui" and len(words) > 1:
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
+    if words[0] == "cev" and player and len(words) > 1:
+        # !cev <event id> [i32 values...]: handle a client zone event as if the client sent
+        # it, e.g. !cev 0x479 101 2 (testing UI the scripts can't click).
+        return [("cev", int(words[1], 0), b"".join(struct.pack("<i", int(w, 0)) for w in words[2:]))]
     if words[0] == "react" and player:
         # !react: activate the newest open reaction, as clicking it (0x145) (testing).
         return [("react",)]
@@ -5861,6 +5920,11 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "gotostate":
                         send_message(sock, addr, state, zone.client_goto_state(state, args, m[1]))
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "cev":
+                        # A client zone event, handled as if the client had sent it.
+                        handle_message(sock, server, addr, state,
+                                       struct.pack("<HII", 2, m[1], len(m[2])) + m[2], args)
                         continue
                     elif isinstance(m, tuple) and m[0] == "react":
                         if state.get("reactions"):

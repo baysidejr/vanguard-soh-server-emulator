@@ -22,8 +22,14 @@ PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx,
 # 0x19f clear, 0x1a1 item (silent), 0x19e item (drawn), 0x1a0 refresh, 0x19c {item} removed, 0x19a close.
 CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT, CHEST_WITHDRAW = 0x151, 0x152, 0x155, 0x157
 UPKEEP_DEPOSIT = 0x47E                 # {i32 plot id, i32 copper} -> 0x483 {i32 balance}, 0x0e 0x17c
+# Construction (a building with "materials"): 0x479 starts it, 0x473 {plot} views it,
+# 0x475 {construction id, bag item handle, row data, row index} adds a material,
+# 0x478 {construction id} completes, 0x476 {construction id} abandons. The construction id is
+# the plot id. Server: 0x453 the construction window, 0x477 closes it.
+VIEW_CONSTRUCTION, ADD_MATERIAL, COMPLETE_CONSTRUCTION, ABANDON_CONSTRUCTION = 0x473, 0x475, 0x478, 0x476
 CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT,
-                 CHEST_WITHDRAW, UPKEEP_DEPOSIT)
+                 CHEST_WITHDRAW, UPKEEP_DEPOSIT, VIEW_CONSTRUCTION, ADD_MATERIAL, COMPLETE_CONSTRUCTION,
+                 ABANDON_CONSTRUCTION)
 HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
@@ -117,6 +123,38 @@ def upkeep_balance(copper):
 
 def show():
     return _event(0x458)
+
+
+def construction_rows(materials, added, resource_id=None):
+    """[(resource id, name, added, needed)] for a building's materials {name: qty}. The
+    resource id is the item's template id (item field 1; resource_id(name)), which the
+    client's material picker matches against the bags."""
+    rid = resource_id or (lambda name: 0)
+    return [(rid(name), name, added.get(name, 0), qty) for name, qty in materials.items()]
+
+
+def construction_percent(rows):
+    need = sum(r[3] for r in rows)
+    return 100 if need <= 0 else int(100 * sum(min(r[2], r[3]) for r in rows) / need)
+
+
+def construction_done(rows):
+    return all(r[2] >= r[3] for r in rows)
+
+
+def construction_info(site_id, name, rows):
+    """0x453 MsgConstructionInfoFull (FUN_00482ad0): {i32 site, i32 0, wstr project,
+    i32 percent, 20 x (i32 resource id, wstr name, f32 needed, f32 added)}; opens the
+    Building Construction window."""
+    data = struct.pack("<ii", site_id, 0) + _w(name) + struct.pack("<i", construction_percent(rows))
+    for n in range(20):
+        rid, rname, a, b = rows[n] if n < len(rows) else (0, "", 0, 0)
+        data += struct.pack("<i", rid) + _w(rname) + struct.pack("<ff", float(b), float(a))
+    return _event(0x453, data)
+
+
+def close_construction():
+    return _event(0x477)
 
 
 def has_construction(flag):
