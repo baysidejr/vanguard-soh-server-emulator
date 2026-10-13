@@ -1369,6 +1369,7 @@ def summon_pet(state, args, spec):
     npc.pet_mode = "follow"
     npc.pet_target = None
     npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
+    npc.blocked = lambda x, y, z, lvl=w.level: npc_blocked(lvl, x, y, z)
     npc.props = {"m_GameplayLevel": npc.level, "m_iModelNum": spec.get("model", 1),
                  "m_OwnerEntityIDLowInt": player.char_id & 0xFFFFFFFF,
                  "m_OwnerEntityIDHighInt": player.char_id >> 32, "m_bIsAggro": 0}
@@ -2912,6 +2913,10 @@ def open_loot(state, npc):
     msgs = combat.loot_messages(npc)
     group_loot_opened(state, npc)
     return msgs
+
+
+def npc_blocked(level, x, y, z):
+    return zone.npc_blocked(level, x, y, z)
 
 
 def group_loot_allowed(state, npc):

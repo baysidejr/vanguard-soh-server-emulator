@@ -63,6 +63,7 @@ class Npc:
         self.wander_goal = None       # (x, y) it is walking to
         self.next_wander = 0.0
         self.ground_z = None          # f(x, y) -> standing z (terrain)
+        self.blocked = None           # f(x, y, z) -> True inside a rock, tree, wall ... (obstacles.py)
         self.quests = []              # quest keys this NPC gives (content/quests.json)
         self.template_id = None
         self.merchant = None
@@ -293,6 +294,28 @@ NPC_SPEED = 220.0            # units per second while chasing
 MELEE_RANGE = 90.0
 
 
+STEER_ANGLES = (0, 30, -30, 60, -60, 90, -90, 120, -120)
+LOOKAHEAD = 60.0             # extra distance checked ahead of a step
+
+
+def steer(npc, ux, uy, step):
+    """The direction to step in: (ux, uy) itself, or the nearest turn of it whose next
+    step is clear of obstacles (npc.blocked); (None, None) when every way is blocked. An
+    NPC already inside an obstacle's box (boxes are rough) may walk out of it."""
+    if npc.blocked is None:
+        return ux, uy
+    x, y, z = npc.location
+    if npc.blocked(x, y, z):
+        return ux, uy
+    for a in STEER_ANGLES:
+        r = math.radians(a)
+        vx, vy = ux * math.cos(r) - uy * math.sin(r), ux * math.sin(r) + uy * math.cos(r)
+        d = step + LOOKAHEAD
+        if not npc.blocked(x + vx * d, y + vy * d, z):
+            return vx, vy
+    return None, None
+
+
 def move_toward(npc, target, dt, speed, stop_at):
     """Step npc toward target (x, y); returns the replicated properties, or None
     when it was already standing within stop_at."""
@@ -307,12 +330,19 @@ def move_toward(npc, target, dt, speed, stop_at):
         return {"Velocity": (0.0, 0.0, 0.0), "Rotation": (0, yaw, 0),
                 "PawnPosition": (npc.location, (0, yaw, 0), (0.0, 0.0, 0.0))}
     step = min(speed * dt, dist - stop_at)
+    ux, uy = steer(npc, dx / dist, dy / dist, step)
+    if ux is None:                        # boxed in: stand still
+        if not npc.moving:
+            return None
+        npc.moving = False
+        return {"Velocity": (0.0, 0.0, 0.0), "PawnPosition": (npc.location, (0, npc.yaw, 0), (0.0, 0.0, 0.0))}
+    yaw = int(math.degrees(math.atan2(uy, ux)) * 65536 / 360) & 0xFFFF
     z = npc.location[2]
     if npc.ground_z:
-        z = npc.ground_z(npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step)
-    npc.location = (npc.location[0] + dx / dist * step, npc.location[1] + dy / dist * step, z)
+        z = npc.ground_z(npc.location[0] + ux * step, npc.location[1] + uy * step)
+    npc.location = (npc.location[0] + ux * step, npc.location[1] + uy * step, z)
     npc.moving, npc.yaw = True, yaw
-    vel = (dx / dist * speed, dy / dist * speed, 0.0)
+    vel = (ux * speed, uy * speed, 0.0)
     # PawnPosition also resets the client's ground-stick cache (see zone.py).
     return {"Location": npc.location, "Rotation": (0, yaw, 0), "Velocity": vel,
             "PawnPosition": (npc.location, (0, yaw, 0), vel)}

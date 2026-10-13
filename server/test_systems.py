@@ -3,6 +3,7 @@ import struct
 import unittest
 
 import assembly
+import combat
 import fishing
 import grouploot
 import housing
@@ -143,6 +144,26 @@ class GroupLootTests(unittest.TestCase):
     def test_rarity_threshold(self):
         self.assertTrue(grouploot.qualifies(3, grouploot.DEFAULT_RARITY))      # Rare >= Uncommon
         self.assertFalse(grouploot.qualifies(grouploot.COMMON, grouploot.DEFAULT_RARITY))
+
+
+class SteerTests(unittest.TestCase):
+    def npc(self, blocked):
+        n = combat.Npc(1, "Rat", 1, "x")
+        n.location, n.blocked = (0.0, 0.0, 0.0), blocked
+        return n
+
+    def test_goes_around_a_rock(self):
+        # A rock straight ahead on +x: the NPC turns away from it.
+        n = self.npc(lambda x, y, z: 50 < x < 200 and abs(y) < 60)
+        ux, uy = combat.steer(n, 1.0, 0.0, 20.0)
+        self.assertNotAlmostEqual(uy, 0.0)
+
+    def test_clear_way_is_straight(self):
+        self.assertEqual(combat.steer(self.npc(lambda x, y, z: False), 1.0, 0.0, 20.0), (1.0, 0.0))
+
+    def test_boxed_in_stops(self):
+        n = self.npc(lambda x, y, z: (x, y) != (0.0, 0.0))
+        self.assertEqual(combat.steer(n, 1.0, 0.0, 20.0), (None, None))
 
 
 if __name__ == "__main__":

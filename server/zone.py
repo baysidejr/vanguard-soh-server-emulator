@@ -208,6 +208,7 @@ def populate_world(w, args):
         npc.path = [tuple(p[:2]) for p in spawn.get("path", [])]
         npc.path_pause = float(spawn.get("pause", 2.0))
         npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
+        npc.blocked = lambda x, y, z, lvl=w.level: npc_blocked(lvl, x, y, z)
         npc.next_wander = time.time() + n
         npc.aggro_radius = float(template.get("aggro_radius", 0))
         npc.level = template.get("level", 1)
@@ -673,6 +674,28 @@ HUD_WINDOWS = ["Hotkeys", "Compass", "Window Controller", "Containers", "Lag Met
 def hud_messages():
     return [zone_event(0x598, (f'SGOUI toggle "{name}"' + chr(0)).encode("utf-16-le"))
             for name in HUD_WINDOWS]
+
+
+_obstacles = {}
+
+
+def npc_blocked(level, x, y, z):
+    """True when (x, y, z) is inside one of the chunk's obstacles (obstacles.py; loaded
+    once per chunk; no obstacles if the client files can't be read)."""
+    if level not in _obstacles:
+        try:
+            import obstacles
+            _obstacles[level] = obstacles.obstacles(level)
+        except Exception as e:                       # missing or unreadable files
+            print(f"  obstacles for {level} unavailable: {e}")
+            _obstacles[level] = None
+    obs = _obstacles[level]
+    return obs is not None and obstacles_blocked(obs, x, y, z)
+
+
+def obstacles_blocked(obs, x, y, z):
+    import obstacles
+    return obstacles.blocked(obs, x, y, z)
 
 
 def book_recipes(args, player):

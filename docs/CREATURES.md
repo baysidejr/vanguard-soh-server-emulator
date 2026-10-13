@@ -403,3 +403,7 @@ Columns: id (dec/hex) | race name | male mesh | female mesh | package + availabl
 | 382 | 0x17E | TargetDummy | targetDummy | targetDummy | UEM_targetDummy_M_char [0] / (no F; falls back to targetdummy_m_char [0]) | 1.0 | 110.0/30.0 |  |  |
 
 Notes: mesh/package names are case-insensitive. Races marked MISSING have no UEM package in Assets and will fail to render: HalfOrc 11, KojanBarbarian 19, HorseDraft 161, TurtleDragonSea 254, FishBass 320, FishGar 321, NPC/OPT HalfOrc/KojanBarbarian. Ids 129 and 135-141 are unassigned and render as mouseman.
+
+## Obstacles (2026-10-13)
+
+NPCs steer around rocks, trees, walls and tents. `server/obstacles.py` reads the chunk's collidable static meshes from the client files: StaticMeshActors in `Assets/Maps/<chunk>.vgr` and the prefabs that CompoundObjects place (`Assets/Archives/binaryprefabs.sgo`), each sized by its StaticMesh bounding box in `Assets/Meshes/*.usx`. The result is a list of circles `(x, y, radius, z_bottom, z_top)` (about 2,650 for chunk_n19_12, built in about 0.4 s on first use). `combat.steer` tries the straight step and then turns of ±30° to ±120°; an NPC whose every way is blocked stands still. Verified by simulation on chunk_n19_12: an NPC walking at MartokRock006 goes around it. There are no obstacles within about 3,000 units of the Ranger camp, so nothing changes there. Terrain DecoLayers (scattered rocks drawn on the terrain) are not obstacles yet. See the module docstring for the file format details and limitations.
