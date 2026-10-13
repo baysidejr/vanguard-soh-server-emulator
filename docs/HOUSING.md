@@ -16,7 +16,9 @@
 
 > **Repossession (unit-tested):** once a minute the server charges due upkeep on every plot (`housing_tick`); after `REPOSSESS_AFTER` (4) missed weekly payments the plot is taken back: the owner gets a "Repossessed" letter from the Housing Office plus one letter per furniture item and chest item, and the For Sale sign returns for players in the chunk.
 
-> **Not done yet:** chest permissions (0x466/0x467/0x469), opening doors.
+> **Chest permissions (verified live with two clients 2026-10-13):** Manage Chest (0x466 {chest id}; dev `!chest <n> manage`) shows the client's "Manage Chest" window with Edit View / Deposit / Withdrawal Permission (slots 0/1/2). Each slot is its own permission (All Players, All Guild Members + rank, a name list), not a plot permission. Accept sends 0x467 {chest id, slot, permission id, rank, u32 junk, bool8 all players, bool8 all guild, wstr ""}; the chest id is -1 until the slot exists, so the server uses the chest being managed. The server answers 0x468 + 0x469 {chest, slot, permission id 1001+slot, rank, 0, all players, all guild, wstr name} + one 0x46f {permission id, row + 1, wstr name} per name (0x46a does not redraw the list). Add Player only works once the slot exists and sends 0x46f {wstr name, i32 1001+slot, 0}. Before: Justins got "You do not have permission to use this chest." (0x0e 0x1ad); after Ranger added Justins to View: "You begin to use the Chest." Deposit and withdraw also need the View slot.
+
+> **Not done yet:** opening doors.
 
 Server: `zone.open_placed_object`. Dev command: `!house [prefab] [type]` (800 units +x of the player). 37 root prefabs (whole buildings) are listed in `bin/compoundobjectMD.tab` (`...PHcity01_Home001root001...`, `HomeShop`, `Inn`, `Temple`, `GuardTower`, `CraftingBarn`; Ra6001 Thestra, Ra6021 Qalia, Ra6060 Kojan).
 
