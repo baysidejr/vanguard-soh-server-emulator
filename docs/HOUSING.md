@@ -18,7 +18,13 @@
 
 > **Chest permissions (verified live with two clients 2026-10-13):** Manage Chest (0x466 {chest id}; dev `!chest <n> manage`) shows the client's "Manage Chest" window with Edit View / Deposit / Withdrawal Permission (slots 0/1/2). Each slot is its own permission (All Players, All Guild Members + rank, a name list), not a plot permission. Accept sends 0x467 {chest id, slot, permission id, rank, u32 junk, bool8 all players, bool8 all guild, wstr ""}; the chest id is -1 until the slot exists, so the server uses the chest being managed. The server answers 0x468 + 0x469 {chest, slot, permission id 1001+slot, rank, 0, all players, all guild, wstr name} + one 0x46f {permission id, row + 1, wstr name} per name (0x46a does not redraw the list). Add Player only works once the slot exists and sends 0x46f {wstr name, i32 1001+slot, 0}. Before: Justins got "You do not have permission to use this chest." (0x0e 0x1ad); after Ranger added Justins to View: "You begin to use the Chest." Deposit and withdraw also need the View slot.
 
-> **Not done yet:** opening doors.
+> **Doors (static analysis only, not done):**
+> - A left click on a Mover sends zone message **0x24 {u32 m_MoverID}** (mover+0x6ec). It is a raw struct sent through the same path as zone message 0x9, and only within 1500 units [O].
+> - Code: FUN_00b81660 -> AMover::Activate FUN_007efbc0 -> FUN_00bcf7a0/FUN_00b714f0. `PlayerController.TryActivateMover` uses the same path.
+> - Online, the client does not move the door itself. No server->client event touches Movers, so the server has to open it by replicating the Mover actor (SimInterpolate, KeyPos/KeyRot, bClosed, TargetKeyframe, …; replication list at 0x805470) [I].
+> - 0x0e code 0x1ac is FailedOpenDoor ("BuildingInstance not found"). There is no locked or no-permission door text, so the server enforces the OpenDoor permission (0x1) by not opening the door.
+> - Only three chunks have map Movers (chunk_n16_6, chunk_n18_6, chunk_n23_26). Building doors are spawned by the client from the prefab (ACompoundObject AttachMovers / ShouldSpawnMoversAndTriggers). The camp cottage prefab has an open doorway and no door.
+> - Full notes are in the research report (door_report.md).
 
 Server: `zone.open_placed_object`. Dev command: `!house [prefab] [type]` (800 units +x of the player). 37 root prefabs (whole buildings) are listed in `bin/compoundobjectMD.tab` (`...PHcity01_Home001root001...`, `HomeShop`, `Inn`, `Temple`, `GuardTower`, `CraftingBarn`; Ra6001 Thestra, Ra6021 Qalia, Ra6060 Kojan).
 
