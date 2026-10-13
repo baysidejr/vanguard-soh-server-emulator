@@ -149,6 +149,8 @@ class GroupLootTests(unittest.TestCase):
     def test_rarity_threshold(self):
         self.assertTrue(grouploot.qualifies(3, grouploot.DEFAULT_RARITY))      # Rare >= Uncommon
         self.assertFalse(grouploot.qualifies(grouploot.COMMON, grouploot.DEFAULT_RARITY))
+        self.assertEqual(grouploot.rarity_index(None), 6)                       # mundane
+        self.assertEqual([grouploot.rarity_wire(n) for n in ("mundane", "uncommon", "legendary")], [8, 6, 1])
 
 
 class SteerTests(unittest.TestCase):

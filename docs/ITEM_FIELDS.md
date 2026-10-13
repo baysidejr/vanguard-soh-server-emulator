@@ -69,7 +69,7 @@ Normal items need **field 100 = 255**. With 255 the client prints the slot line 
 | 95 | i32 | +0x578 | required skill id (name) | 0 | O |
 | 96 | i32 | +0x57c | required skill value. > 0 prints "Required Skill: N <skill95>" | 0 | O |
 | 97 | i32 | +0x580 | tool tier (types 2/16) | 0 | O |
-| 99 | u8 | +0x61c | rarity / name colour (0..11). Also scales Block/Parry chance (0 x1.6, 1 x1.4, 2 x1.2, 6 x0.8, 7 x0.6, 8 x0.5, 9 x1.8, 10 x1.3, others x1.0) | 1 | O |
+| 99 | u8 | +0x61c | rarity / name colour (0..11; colour table FUN_006d0ee0, RGB): **8 white Mundane, 7 green Common, 6 (5) blue Uncommon, 4 yellow Rare, 2 (3) orange Heroic, 10 purple Fabled, 1 red Legendary**, 0 gold 0xf3ce4b, 9 bronze 0xc89449, 11 grey. The broker's rarity filter offers 8, 7, 6, 4, 2, 10, 1 (Mundane → Legendary). items.json `rarity` names map to it (`grouploot.RARITY_WIRE`; default mundane). Also scales Block/Parry chance (0 x1.6, 1 x1.4, 2 x1.2, 6 x0.8, 7 x0.6, 8 x0.5, 9 x1.8, 10 x1.3, others x1.0) | 8 | O |
 | 100 | u8 | +0x58b | **graft slot. 0xFF = not a graft** | **255** | O |
 | 102 | u8 | +0x589 | flags (FUN_006ab640): 1 No Trade, 2 Unique, 4 No Rent, 8 Soulbound, 0x10 No Drop On Equip, 0x20 Quest, 0x40 No Sell, 0x80 Bind On Equip. Bit 3 also drives a slot overlay (FUN_00c53870) | 0 | O |
 | 103 | u8 | +0x58a | flag byte 2. Bit 8 clear shows "(unbindable)" after Soulbound [I] | 0 | I |

@@ -3027,7 +3027,7 @@ def roll_items(g, npc):
     rarity = grouploot.settings(g)["rarity"]
     pending = getattr(npc, "pending", set())
     return [i for i in (npc.loot or []) if i[0] not in pending
-            and grouploot.qualifies(ARGS.content.item(i[1]).get("rarity", grouploot.COMMON), rarity)]
+            and grouploot.qualifies(grouploot.rarity_index(ARGS.content.item(i[1]).get("rarity")), rarity)]
 
 
 def start_roll(g, npc):

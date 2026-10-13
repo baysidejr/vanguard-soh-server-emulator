@@ -607,7 +607,7 @@ def item_equip_fields(name, durability=100):
     """inventory_item keyword arguments from content/items.json: equip slots and
     the tooltip/usability fields (see docs/INVENTORY.md, item field table)."""
     tpl = ITEM_CONTENT.item(name)
-    extra = {94: 1, 100: 255, 106: durability, 99: tpl.get("rarity", 1), 76: tpl.get("level", 1),
+    extra = {94: 1, 100: 255, 106: durability, 99: grouploot_rarity_wire(tpl.get("rarity")), 76: tpl.get("level", 1),
              1: template_id(name)}           # field 1: the template id (assembly matches ingredients on it)
     # Field 74 = item type; 0 would be "Shield", 3 is a plain item.
     extra[74] = ITEM_TYPE_IDS[tpl.get("type", "misc")]
@@ -680,6 +680,11 @@ HUD_WINDOWS = ["Hotkeys", "Compass", "Window Controller", "Containers", "Lag Met
 def hud_messages():
     return [zone_event(0x598, (f'SGOUI toggle "{name}"' + chr(0)).encode("utf-16-le"))
             for name in HUD_WINDOWS]
+
+
+def grouploot_rarity_wire(name):
+    import grouploot
+    return grouploot.rarity_wire(name)
 
 
 _obstacles = {}

@@ -27,7 +27,24 @@ RARITIES = ("<color=red>Legendary+</color>", "<color=purple>Fabled</color>",
             "<color=blue>Uncommon</color>", "<color=ltgreen>Common</color>",
             "<color=white>Mundane</color>")
 DEFAULT_RARITY = RARITIES[4]
-COMMON = 5                    # items.json "rarity" default (index into RARITIES)
+# items.json "rarity" names, best first (same order as RARITIES), and the item record's
+# rarity byte (wire field 99, item +0x61c) that colours the name (client colour table
+# FUN_006d0ee0: 1 red, 10 purple, 2 orange, 4 yellow, 6 blue, 7 green, 8 white).
+RARITY_NAMES = ("legendary", "fabled", "heroic", "rare", "uncommon", "common", "mundane")
+RARITY_WIRE = {"legendary": 1, "fabled": 10, "heroic": 2, "rare": 4, "uncommon": 6, "common": 7,
+               "mundane": 8}
+DEFAULT_ITEM_RARITY = "mundane"
+COMMON = RARITY_NAMES.index("common")
+
+
+def rarity_index(name):
+    """Index into RARITIES of an items.json rarity name (unknown/missing: mundane)."""
+    name = name or DEFAULT_ITEM_RARITY
+    return RARITY_NAMES.index(name) if name in RARITY_NAMES else len(RARITY_NAMES) - 1
+
+
+def rarity_wire(name):
+    return RARITY_WIRE.get(name or DEFAULT_ITEM_RARITY, RARITY_WIRE[DEFAULT_ITEM_RARITY])
 
 SET_MODE, PROMOTE_ML, ALLOW_GROUP, START_RANDOM, NEED_GREED, PASS, CANCEL_ROLLS = (
     0xB6, 0xB5, 0xB7, 0xB8, 0xB9, 0xBA, 0x1E6)
