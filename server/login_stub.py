@@ -1943,10 +1943,11 @@ def guild_member(g, name, online=None):
     s = ONLINE.get(name.lower())
     p = s["player"] if s and s.get("player") else None
     char = next((c for c in load_characters() if c["first"].lower() == name.lower()), {})
+    extra = g.get("member_info", {}).get(char.get("first", name), {})
     return {"id": character_id(char) if char else social_uid(name), "name": char.get("first", name),
             "rank": rank, "online": p is not None if online is None else online,
             "klass": p.klass if p else 0, "level": p.level_number if p else 1,
-            "chunk": tuple(p.chunk) if p else (0, 0)}
+            "chunk": tuple(p.chunk) if p else (0, 0), "last_online": char.get("last_logout", 0), **extra}
 
 
 def guild_broadcast(name, make, exclude=None):
@@ -2120,11 +2121,32 @@ def handle_guild_world(state, event, data, reply):
     if event == guild.MEMBER_LIST:
         for m in guild.member_list([guild_member(mine, n) for n in mine["members"]]):
             reply(m)
-    elif event == guild.MOTD_VIEW:
-        if mine.get("motd"):
-            reply(guild.motd(mine["motd"], mine.get("motd_by", ""), mine.get("motd_time", 0)))
+    elif event in (guild.MY_NOTE, guild.GUILD_NOTE, guild.POINTS, guild.OFFICER_NOTE, guild.RECRUITER):
+        who = player.name
+        if event == guild.MY_NOTE:
+            field, value = "note", guild.read_name(data).strip()[:64]
+        elif event == guild.RECRUITER:
+            uid = struct.unpack_from("<i", data)[0] if len(data) >= 4 else 0
+            who = next((n for n in mine["members"] if guild_member(mine, n)["id"] & 0xFFFFFFFF == uid & 0xFFFFFFFF), None)
+            if who is None or rank < guild.OFFICER:
+                return
+            field = "recruiter"
+            value = not mine.get("member_info", {}).get(who, {}).get("recruiter", False)
         else:
-            reply(build_system_text("Your guild has no message of the day.", SYSTEM_TEXT_WHITE))
+            (target,), used = guild.read_strings(data, 1)
+            who = next((n for n in mine["members"] if n.lower() == target.strip().lower()), None)
+            if who is None or rank < guild.OFFICER:
+                reply(build_system_text("You can't change that member's notes.", SYSTEM_TEXT_ERROR))
+                return
+            if event == guild.POINTS:
+                field, value = "points", struct.unpack_from("<f", data, used)[0] if len(data) >= used + 4 else 0.0
+            else:
+                field = "guild_note" if event == guild.GUILD_NOTE else "officer_note"
+                value = guild.read_name(data[used:]).strip()[:64]
+        mine.setdefault("member_info", {}).setdefault(who, {})[field] = value
+        save_guilds(guilds)
+        rec = guild_member(mine, who)
+        guild_broadcast(player.name, lambda g: guild.member_update(rec))
     elif event == guild.MOTD_SET:
         if rank < guild.OFFICER:
             reply(build_system_text("You don't have permission to set the guild MOTD.", SYSTEM_TEXT_ERROR))

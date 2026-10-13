@@ -25,8 +25,12 @@ CHAT_GUILD = 0x0B
 RANK_NAMES = ["Recruit", "Member", "Member", "Member", "Member", "Veteran", "Veteran",
               "Senior", "Officer", "Leader"]
 JOINED, REMOVED, QUIT_NOTE = 1, 2, 3
-RENAME_RANK, STATUS, MOTD_SET, MOTD_VIEW, MEMBER_LIST = 0x4D2, 0x4DF, 0x4E2, 0x4E3, 0x4EC
-WORLD_EVENTS = (RENAME_RANK, STATUS, MOTD_SET, MOTD_VIEW, MEMBER_LIST)
+RENAME_RANK, STATUS, MOTD_SET, MEMBER_LIST = 0x4D2, 0x4DF, 0x4E2, 0x4EC
+# Notes and points (world type 5): 0x4e3 {wstr} my personal note; 0x4e4 {wstr name, wstr} guild
+# note; 0x4e5 {wstr name, f32} points; 0x4e6 {wstr name, wstr} officer note; 0x4d1 {i32 member id
+# low 32 bits} toggle recruiter. No reply message: the server resends 0x4ee for that member.
+MY_NOTE, GUILD_NOTE, POINTS, OFFICER_NOTE, RECRUITER = 0x4E3, 0x4E4, 0x4E5, 0x4E6, 0x4D1
+WORLD_EVENTS = (RENAME_RANK, STATUS, MOTD_SET, MEMBER_LIST, MY_NOTE, GUILD_NOTE, POINTS, OFFICER_NOTE, RECRUITER)
 
 
 def _event(event_id, data=b""):
@@ -58,8 +62,9 @@ def member_record(m, notify=0):
     cx, cy = m.get("chunk", (0, 0))
     return (struct.pack("<Q", m["id"]) + _w(m["name"])
             + struct.pack("<iiiiiBBI", m["rank"], cx, cy, m.get("klass", 0), m.get("level", 1),
-                          int(m.get("online", False)), 0, 0)
-            + _w("") + _w("") + struct.pack("<f", 0.0) + _w("") + struct.pack("<i", notify))
+                          int(m.get("online", False)), int(m.get("recruiter", False)), int(m.get("last_online", 0)))
+            + _w(m.get("note", "")) + _w(m.get("guild_note", "")) + struct.pack("<f", float(m.get("points", 0)))
+            + _w(m.get("officer_note", "")) + struct.pack("<i", notify))
 
 
 def member_list(members):
@@ -98,3 +103,15 @@ def read_create_name(data):
 
 def read_name(data):
     return data.decode("utf-16-le", "replace").split("\0")[0]
+
+
+def read_strings(data, count):
+    """count UTF-16 strings from the start of data; returns (strings, bytes used)."""
+    out, pos = [], 0
+    for _ in range(count):
+        end = pos
+        while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
+            end += 2
+        out.append(data[pos:end].decode("utf-16-le", "replace"))
+        pos = end + 2
+    return out, pos

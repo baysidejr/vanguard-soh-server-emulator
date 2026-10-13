@@ -48,5 +48,9 @@ The client's guild dispatcher is `FUN_004f1610`. Requests are zone events.
 Custom rank names and the MOTD are stored per guild in `guilds.json` (`ranks`, `motd`, `motd_by`, `motd_time`).
 
 Not done yet:
-- notes and points (`/guildsetnote` and friends, probably `0x4e4`–`0x4e6`, `0x4cf`, `0x4d0`)
+- recruiting (0x4ca-0x4ce: recruiting flag, notes, property tags, rank flags; recruiting list 0x4c6-0x4c9)
 - recruiting and guild properties (`0x4ca`–`0x4ce`, `0x4d1`)
+
+## Notes, points and recruiter flag (verified live 2026-10-13)
+
+`/guildsetnote Out fishing` (world type-5 **0x4e3** {wstr}, the sender's personal note; 0x4e3 is not a MOTD request, `/guildmotd` sends nothing), `/guildsetpoints Ranger 42` (**0x4e5** {wstr name, f32}), `/guildsetofficernote Ranger Trusted scout` (**0x4e6** {wstr name, wstr}); **0x4e4** {wstr name, wstr} sets the guild note and **0x4d1** {i32 member id low bits} toggles the recruiter flag. The server stores them per member (`member_info` in guilds.json; officers and up for the others' notes) and resends that member's record (0x4ee) to the guild. The Member Info tab then shows Personal "Out fishing", Points 42.0, Officer "Trusted scout". The record's last-online field is the character's `last_logout`.
