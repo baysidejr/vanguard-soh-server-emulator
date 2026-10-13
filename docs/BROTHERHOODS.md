@@ -30,8 +30,10 @@ The client's dispatcher is `FUN_00470a20`. Requests are zone events.
 | S→C | `0x6e8` | `i32 id` | new leader |
 | S→C | `0x0e` | `i16` | 0x68 full, 0x69 not leader, 0x6e can't brotherhood with yourself |
 
+**/brotherhoodstats** is client-only [O] (FUN_0046fcc0): it prints "Brotherhood Information", "Name: …", "MOTD: …", "MOTD Set By: …" (the member whose id matches 0x6eb's setter id), "Members (n):" and one line per member, "%s (%s) - %i %s - Exp Contribution: %.2f %s - Note: %s" (name, online state, level, class, contribution scaled to K/M), to chat channel 0x2a. It sends nothing; the server only keeps the member records (0x6ea) and MOTD current.
+
 **XP bonus (verified live 2026-10-13, two clients):** a group kill gives each player `brotherhood.BONUS_PER_MEMBER` (5) percent extra experience per other member of their brotherhood in the group (up to 5 others), and prints "You gain 4 bonus experience from your brotherhood.". The bonus adds up as that member's **exp contribution** (the 0x6ea field), saved in brotherhoods.json under `exp`, and every member's list is updated. The rate is a placeholder (CONTENT_EDITOR.md).
 
 Not done yet:
-- `/brotherhoodstats` sent nothing in the test (it may need the brotherhood window open)
+
 - `0x6ee {i32 id, i32}` and the member record's fourth int

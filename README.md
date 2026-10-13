@@ -91,7 +91,6 @@ The unmodified client, talking only to this emulator:
 - [ ] Combat-form ability restrictions and the form recovery bar
 - [ ] Server-sent travel routes (0x384)
 - [ ] Combat chain reset message (0x393)
-- [ ] Brotherhood stats window (`/brotherhoodstats`)
 - [ ] Unlocking dialogue as a parley reward; the civic stats display
 - [ ] Real game data: every item, mob, quest, ability number and reward here is a placeholder until the content editor (docs/CONTENT_EDITOR.md)
 
