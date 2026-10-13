@@ -1,0 +1,24 @@
+{
+  "_comment": "Factions (docs/FACTIONS.md). id: {name, start (a new character's standing, -20000..20000), kill (standing change for killing one of its members, default -50), allies: ids that change the same way as this one when its members die (and enemies the other way)}. A mob joins a faction with \"faction\": id in mobs.json. Quests and parleys can reward {\"faction\": {id: amount}}. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "1001": {
+    "name": "Thestran Wastes Camp",
+    "start": 0,
+    "kill": -100,
+    "enemies": [
+      1002
+    ]
+  },
+  "1002": {
+    "name": "Robed Wanderers",
+    "start": -3000,
+    "kill": -50,
+    "enemies": [
+      1001
+    ]
+  },
+  "1003": {
+    "name": "Wastes Wildlife",
+    "start": -1000,
+    "kill": -10
+  }
+}

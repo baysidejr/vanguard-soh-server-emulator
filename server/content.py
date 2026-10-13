@@ -35,6 +35,7 @@ class Content:
         self.recipes = _load(os.path.join(directory, "recipes.json"))
         self.diplomacy = _load(os.path.join(directory, "diplomacy.json"))
         self.abilities = _load(os.path.join(directory, "abilities.json"))
+        self.factions = _load(os.path.join(directory, "factions.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -86,6 +87,8 @@ def validate(directory=CONTENT_DIR):
                 problems.append(f"mob {mid}: missing {key}")
         if m.get("merchant") and m["merchant"] not in c.merchants:
             problems.append(f"mob {mid}: unknown merchant list {m['merchant']}")
+        if "faction" in m and str(m["faction"]) not in c.factions:
+            problems.append(f"mob {mid}: unknown faction {m['faction']}")
         if m.get("loot") and m["loot"] not in c.loot:
             problems.append(f"mob {mid}: unknown loot table {m['loot']}")
         for g in m.get("gear", []):

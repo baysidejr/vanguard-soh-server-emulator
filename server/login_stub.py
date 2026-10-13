@@ -27,6 +27,7 @@ import quest
 import harvest
 import craft
 import trainer
+import faction
 import bank
 import social
 import effects
@@ -522,6 +523,7 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
             for m_state in (group_states(player) or [state]):
                 if m_state.get("world") is state.get("world"):
                     quest_kill(m_state, npc)
+                    faction_kill(m_state, npc)
             # Everyone in the chunk sees it fall.
             print(f"  <- {npc.name} died")
             npc.death_shown = True
@@ -1736,6 +1738,7 @@ def finish_quest(state, key, q):
     if reward.get("xp"):
         for m in award_xp(player, reward["xp"], player.char_id):
             send(m)
+    faction_reward(state, reward)
     save_character_field(player.name, "quests", player.quests.to_json())
     print(f"  {player.name} completed quest {q['name']}")
 
@@ -1912,6 +1915,76 @@ def harvest_tick(state, now):
     npc.depleted_until = now + npc.respawn
     depleted = combat.display_ability(npc.entity_id, combat.NO_ENTITY, harvest.NODE_DEPLETED_VISUAL)
     send(depleted)
+
+
+def faction_value(player, fid):
+    f = ARGS.content.factions.get(str(fid), {})
+    return getattr(player, "factions", {}).get(str(fid), f.get("start", 0))
+
+
+def faction_login(state):
+    """Fill the Factions window: every faction the character has met or that has a
+    standing other than neutral."""
+    player = state["player"]
+    for fid, f in sorted(ARGS.content.factions.items(), key=lambda kv: kv[1]["name"]):
+        state["send"](faction.info(int(fid), f["name"], faction_value(player, fid)))
+
+
+def adjust_faction(state, fid, delta, quiet=False):
+    player = state["player"]
+    f = ARGS.content.factions.get(str(fid))
+    if f is None or not delta:
+        return
+    old = faction_value(player, fid)
+    new = faction.clamp(old + delta)
+    if new == old:
+        return
+    player.factions = dict(getattr(player, "factions", {}), **{str(fid): new})
+    save_character_field(player.name, "factions", player.factions)
+    state["send"](faction.change(int(fid), new))
+    if not quiet:
+        word = "improved" if new > old else "worsened"
+        state["send"](build_system_text(f"Your standing with {f['name']} has {word}.", SYSTEM_TEXT_WHITE))
+    if faction.tier(new) != faction.tier(old):
+        state["send"](build_system_text(f"{f['name']} now regards you as {faction.tier(new)}.",
+                                        SYSTEM_TEXT_WHITE))
+
+
+def faction_reward(state, reward):
+    for fid, amount in (reward or {}).get("faction", {}).items():
+        adjust_faction(state, fid, amount)
+
+
+def faction_kill(state, npc):
+    """Killing a faction member: that faction (and its allies) think less of you,
+    its enemies more."""
+    fid = getattr(npc, "faction", None)
+    f = ARGS.content.factions.get(str(fid)) if fid is not None else None
+    if f is None:
+        return
+    hit = f.get("kill", -50)
+    adjust_faction(state, fid, hit)
+    for other in f.get("allies", []):
+        adjust_faction(state, other, hit)
+    for other in f.get("enemies", []):
+        adjust_faction(state, other, -hit // 2)
+
+
+def handle_faction_event(state, event, data):
+    """/showfactions [page], /showfactionbyname <name>: list standings in the chat window."""
+    player = state["player"]
+    say = lambda t: state["send"](build_system_text(t, SYSTEM_TEXT_WHITE))
+    rows = sorted(ARGS.content.factions.items(), key=lambda kv: kv[1]["name"])
+    if event == faction.SHOW_BY_NAME:
+        name = faction.read_name(data).strip().lower()
+        rows = [r for r in rows if name in r[1]["name"].lower()]
+        if not rows:
+            say("No faction by that name.")
+            return
+    say("Your faction standings:")
+    for fid, f in rows:
+        v = faction_value(player, fid)
+        say(f"  {f['name']}: {faction.tier(v)} ({v})")
 
 
 def diplomacy_deck(player):
@@ -2260,6 +2333,7 @@ def finish_parley(state, p, result):
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
     send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
+    faction_reward(state, reward)
     print(f"  {player.name} won a parley with {p.npc.name}")
 
 
@@ -2798,6 +2872,9 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "faction" and len(words) >= 3 and player:
+        # !faction <id> <amount>: change a faction standing (testing).
+        return [("faction", int(words[1]), int(words[2]))]
     if words[0] == "questkill" and player:
         # !questkill: count a kill of the target's kind toward active quests (testing).
         npc = player.npcs.get(player.target)
@@ -3033,6 +3110,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.durability = dict(char.get("durability", {}))
             player.friends = list(char.get("friends", []))
             player.parleys_won = list(char.get("parleys_won", []))
+            player.factions = dict(char.get("factions", {}))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
             player.ignores = list(char.get("ignores", []))
@@ -3065,6 +3143,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 social_login(state)
                 guild_login(state)
                 brotherhood_login(state)
+                faction_login(state)
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -3088,8 +3167,12 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "faction":
+                        adjust_faction(state, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "quest_kill":
                         quest_kill(state, m[1])
+                        faction_kill(state, m[1])
                         continue
                     elif isinstance(m, tuple) and m[0] == "use":
                         use_ability(state, args, state["player"], m[1])
@@ -3233,6 +3316,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in social.ZONE_EVENTS:
             if state.get("player"):
                 handle_social_zone(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in faction.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_faction_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in bank.CLIENT_EVENTS:
             if state.get("player"):
                 handle_bank_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

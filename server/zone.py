@@ -182,6 +182,9 @@ def populate_world(w, args):
             npc.props["m_Gender"] = template["gender"]
         if template.get("title"):
             npc.props["m_PlayerDisplayTitle"] = template["title"]
+        npc.faction = template.get("faction")
+        if npc.faction is not None and template["pawn_class"] == "SGONPCPawn":   # SGOPCPawn has no m_FactionId
+            npc.props["m_FactionId"] = int(npc.faction)
         npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
         npc.abilities = list(template.get("abilities", []))
         npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)

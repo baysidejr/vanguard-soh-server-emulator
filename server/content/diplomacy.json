@@ -1,5 +1,5 @@
 {
-  "_comment": "Diplomacy (docs/DIPLOMACY.md). cards: id -> name, expression (reason/inspire/flatter/demand), push (bar points toward whoever plays it), cost and gain (expression points). The parley window shows no Demand pool (its column stays empty), so cards should use reason/inspire/flatter. deck: a new character's cards; slots: strategy bar size (cards beyond it wait in the repertoire until dragged to a slot; the layout is saved per character). parleys: per-NPC setups referenced by mobs.json \"parley\": type (entertain/convince/interview/gossip/incite), npc_cards, npc_pools (starting expression points), lines (the NPC's replies, one per round), win_at / lose_at (bar 0..21, starts at 11), reward (xp, coin, card: a card id added to the deck on the first win). Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Diplomacy (docs/DIPLOMACY.md). cards: id -> name, expression (reason/inspire/flatter/demand), push (bar points toward whoever plays it), cost and gain (expression points). The parley window shows no Demand pool (its column stays empty), so cards should use reason/inspire/flatter. deck: a new character's cards; slots: strategy bar size (cards beyond it wait in the repertoire until dragged to a slot; the layout is saved per character). parleys: per-NPC setups referenced by mobs.json \"parley\": type (entertain/convince/interview/gossip/incite), npc_cards, npc_pools (starting expression points), lines (the NPC's replies, one per round), win_at / lose_at (bar 0..21, starts at 11), reward (xp, coin, card: a card id added to the deck on the first win, faction {id: amount}). Placeholder data (docs/CONTENT_EDITOR.md).",
   "cards": {
     "40025": {
       "name": "Reasoned Argument",
@@ -98,7 +98,10 @@
       "reward": {
         "xp": 150,
         "coin": 100,
-        "card": 40029
+        "card": 40029,
+        "faction": {
+          "1001": 250
+        }
       }
     }
   },
