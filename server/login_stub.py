@@ -37,6 +37,7 @@ import mail
 import market
 import housing
 import titles
+import travel
 import duel
 import pets
 import caravan
@@ -2341,6 +2342,30 @@ def asm_tree(player, node=None):
     nodes = [(r["name"], r["id"], node) for r in asm_recipes(player).values()
              if node is not None and ids.get(tuple(r.get("category", []))) == node]
     return assembly.tree(nodes)
+
+
+def level_chunk(level):
+    """chunk_n19_12 -> (-19, 12)."""
+    return tuple(-int(p[1:]) if p.startswith("n") else int(p) for p in level.split("_")[1:3])
+
+
+def journal_login(state):
+    """Travel journal (travel.py): the chunk's merchants, trainers, services, stations and
+    riftways, and the player's house, on the Adventure Journal's Locations tab and the map."""
+    player = state["player"]
+    try:
+        spawns = ARGS.content.spawns(player.level, ARGS.client_dir)
+        chunk = level_chunk(player.level)
+    except (ValueError, IndexError):
+        return
+    house = None
+    for pid, st in load_housing().items():
+        plot = ARGS.content.plots.get(pid)
+        if st.get("owner", "").lower() == player.name.lower() and st.get("building") and plot:
+            house = (plot["name"], plot["loc"], level_chunk(plot["chunk"]))
+    for m in travel.login_messages(spawns, chunk, house):
+        state["send"](m)
+    player.journal_ready = True                          # the built-in categories exist now
 
 
 def assembly_login(state):
@@ -6570,6 +6595,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 title_login(state)
                 caravan_login(state)
                 assembly_login(state)
+                journal_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:

@@ -13,6 +13,7 @@ import market
 import pets
 import reactions
 import titles
+import travel
 
 
 def _w(text):
@@ -301,6 +302,19 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(ids, [0x3B6, 0x3B7])                          # "Dead!", row removed
         a.health = 50
         self.assertEqual([payload(m)[0] for m in encounter.sync(enc, p, npcs)], [0x3B9])
+
+
+class TravelJournalTests(unittest.TestCase):
+    def test_login_messages(self):
+        spawns = [({"mob": "m", "x": 1, "y": 2, "z": 3}, {"name": "Orin", "title": "Merchant", "merchant": "camp"}),
+                  ({"mob": "w", "x": 0, "y": 0}, {"name": "Wolf"}),
+                  ({"mob": "f", "x": 5, "y": 6, "z": 7}, {"name": "Forge", "station": True})]
+        msgs = travel.login_messages(spawns, (-19, 12), house=("Home", [9, 9, 9], (-19, 12)))
+        ids = [payload(m)[0] for m in msgs]
+        self.assertEqual(ids, [0x2AE, 0x2AE, 0x382, 0x382, 0x382])
+        self.assertIn("Orin".encode("utf-16-le"), msgs[2])
+        self.assertEqual(struct.unpack_from("<i", msgs[-1], len(msgs[-1]) - 9)[0], travel.HOUSING)
+        self.assertEqual(payload(travel.login_messages([], (0, 0))[0])[0], 0x2AE)   # built-ins still made
 
 
 if __name__ == "__main__":
