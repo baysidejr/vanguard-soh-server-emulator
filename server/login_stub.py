@@ -2384,14 +2384,18 @@ def fish_fresh(name):
     return bool(ARGS.content.item(name).get("fish", {}).get("fresh_water"))
 
 
-def record_catch(state, name, bait):
-    """Weigh a caught fish and update the Fishing achievements row."""
+def record_catch(state, name, bait, combo=None):
+    """Weigh a caught fish and update the Fishing achievements row (combo: the pattern the
+    player completed, now shown on the page)."""
     player, send = state["player"], state["send"]
     lo, hi = ARGS.content.item(name).get("fish", {}).get("weight", [0.5, 3.0])
     weight = round(random.uniform(lo, hi), 1)
     records = player.__dict__.setdefault("fish_records", {})
     rec, best = fishing.add_catch(records, name, weight, CHUNK_NAMES.get(player.level, player.level), bait,
                                   time.strftime("%Y-%m-%d"))
+    if combo and not rec.get("combo"):
+        rec["combo"] = list(combo)
+        send(build_system_text(f"You have learned the {name}'s combo.", SYSTEM_TEXT_WHITE))
     send(build_system_text(f"Your {name} weighs {weight:g} pounds."
                            + (" A personal best!" if best and rec["caught"] > 1 else ""), SYSTEM_TEXT_WHITE))
     send(fishing.achievement_update(name, rec, fish_fresh(name)))
@@ -2451,12 +2455,32 @@ def handle_fishing_event(state, event, data):
     elif event == fishing.STATE and data[:4] == b"\0\0\0\0":
         state.pop("fishing", None)
     elif event == fishing.KEY and s["phase"] == "fight" and s.get("pull") is not None and len(data) >= 4:
-        good = struct.unpack_from("<i", data)[0] == s["pull"]
+        key = struct.unpack_from("<i", data)[0]
+        good = key == s["pull"]
         s["pull"] = None
-        send(fishing.event(player.char_id, fishing.GOOD if good else fishing.OOPS, struct.unpack_from("<i", data)[0]))
+        send(fishing.event(player.char_id, fishing.GOOD if good else fishing.OOPS, key))
         s["good" if good else "miss"] += 1
+        fishing_combo(state, good, key)
         s["next"] = now + 1.0
         fishing_finish(state)
+
+
+def fishing_combo(state, good, key):
+    """A good answer moves the fish's combo on (0x59c ev 0 "Combo part n/4"); a miss breaks it
+    (ev 1); four in a row complete it (ev 2): one extra good pull, and the player learns it."""
+    player, send, s = state["player"], state["send"], state["fishing"]
+    if not good:
+        if s.get("streak"):
+            send(fishing.event(player.char_id, fishing.COMBO_FAILED))
+        s["streak"] = 0
+        return
+    s["streak"] = s.get("streak", 0) + 1
+    send(fishing.event(player.char_id, fishing.COMBO_PART, key))
+    if s["streak"] >= fishing.COMBO_LENGTH:
+        s["streak"] = 0
+        s["good"] += fishing.COMBO_BONUS
+        s["combo_done"] = True
+        send(fishing.event(player.char_id, fishing.COMBO_DONE))
 
 
 def fishing_finish(state):
@@ -2465,10 +2489,10 @@ def fishing_finish(state):
     if s["good"] >= fishing.NEEDED:
         state.pop("fishing")
         send(fishing.event(player.char_id, fishing.CAUGHT))
-        name = random.choices([f for f, _w in FISH], [w for _f, w in FISH])[0]
+        name = s["fish"]
         give_item(state, name)
         bait = equipped_kind(player, "bait")
-        record_catch(state, name, bait[1] if bait else None)
+        record_catch(state, name, bait[1] if bait else None, s["combo"] if s.get("combo_done") else None)
         if bait is not None:
             player.equipment.remove(bait)
             send(zone.zone_event(0x1A5, struct.pack("<iB", bait[0], 0)))
@@ -2490,17 +2514,22 @@ def fishing_tick(state, now):
         send(fishing.state(fishing.STOP))
         send(build_system_text("Your line needs to land in water.", SYSTEM_TEXT_ERROR))
     elif s["phase"] == "wait" and now >= s["bite"]:
-        s.update(phase="fight", good=0, miss=0, pull=None, next=now + 1.0)
+        # The fish is chosen at the bite: its combo decides the order of its pulls.
+        fish = random.choices([f for f, _w in FISH], [w for _f, w in FISH])[0]
+        s.update(phase="fight", good=0, miss=0, pull=None, next=now + 1.0, fish=fish, step=0, streak=0,
+                 combo=fishing.combo_for(fish, ARGS.content.item(fish).get("fish")))
         send(fishing.state(fishing.FISH_ON))
     elif s["phase"] == "fight":
         if s.get("pull") is not None and now > s["pull_until"]:
             s["pull"] = None
             s["miss"] += 1
             send(fishing.event(player.char_id, fishing.OOPS))
+            fishing_combo(state, False, 0)
             s["next"] = now + 1.0
             fishing_finish(state)
         elif s.get("pull") is None and now >= s["next"]:
-            s["pull"] = random.randrange(4)
+            s["pull"] = s["combo"][s["step"] % fishing.COMBO_LENGTH]
+            s["step"] += 1
             s["pull_until"] = now + fishing.PULL_SECONDS
             print(f"  <- fishing pull {s['pull']}")
             send(fishing.event(player.char_id, fishing.PULL, s["pull"]))

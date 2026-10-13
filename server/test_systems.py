@@ -505,5 +505,16 @@ class FearTests(unittest.TestCase):
         self.assertEqual(combat.npc_turns(p, 10.0), [])         # no swing while feared
 
 
+class FishComboTests(unittest.TestCase):
+    def test_combo(self):
+        c = fishing.combo_for("Sand Carp")
+        self.assertEqual(len(c), 4)
+        self.assertTrue(all(0 <= d <= 3 for d in c))
+        self.assertEqual(fishing.combo_for("X", {"combo": [3, 2, 1, 0]}), [3, 2, 1, 0])
+        rec = {"id": 1, "combo": [0, 1, 2, 3]}
+        self.assertTrue(fishing.record("Sand Carp", rec).endswith(bytes([0, 1, 2, 3])))
+        self.assertTrue(fishing.record("Sand Carp", {"id": 1}).endswith(bytes([0xFF] * 4)))
+
+
 if __name__ == "__main__":
     unittest.main()

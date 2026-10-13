@@ -11,13 +11,21 @@ Server -> client: 0x59d cast; 0x59a {i32 state} (0 stop, 4 "Fish on!", 5 reel);
   5 "Fish caught!", 6 "The fish got away!", 11 "You scared the fish!"."""
 import random
 import struct
+import zlib
 
 CAST, BOBBER, KEY, STATE = 0x59D, 0x599, 0x59B, 0x59A
 CLIENT_EVENTS = (CAST, BOBBER, KEY, STATE)
 FISH_ON, STOP = 4, 0
 PULL, GOOD, OOPS, CAUGHT, GOT_AWAY, SCARED = 9, 3, 4, 5, 6, 11
+# Combos (0x59c events 0 "Combo part n/4" with the direction's FX, 1 "Combo failed", 2 "Combo
+# complete!"): every fish pulls in its own 4-direction pattern (items.json fish "combo", else one
+# derived from its name). Four good answers in a row complete it: the fish counts as one extra
+# good pull and the pattern shows on the Achievements page ("Combo: Up, Left, ...").
+COMBO_PART, COMBO_FAILED, COMBO_DONE = 0, 1, 2
+COMBO_LENGTH = 4
 SKILL = 0x5B                       # Fishing skill stat id
-NEEDED, MISSES = 4, 2              # good answers to land the fish, misses before it escapes
+NEEDED, MISSES = 6, 2              # good answers to land the fish, misses before it escapes
+COMBO_BONUS = 2                    # a completed combo counts as this many extra good answers
 PULL_SECONDS = 2.5                 # time to answer each pull
 LAND_TIMEOUT = 15.0                # the bobber must reach water within this
 
@@ -53,7 +61,8 @@ NO_DIRECTION = 0xFF
 def record(name, rec, fresh=False, row_id=None):
     return (_w(name) + _w(rec.get("where", "")) + struct.pack("<ii", 0, rec["id"] if row_id is None else row_id)
             + struct.pack("<iffB", rec.get("caught", 0), rec.get("total", 0.0), rec.get("best", 0.0), int(fresh))
-            + _w(rec.get("only_bait", "")) + _w(favorite_bait(rec)) + bytes([NO_DIRECTION] * 4))
+            + _w(rec.get("only_bait", "")) + _w(favorite_bait(rec))
+            + bytes(rec["combo"] if len(rec.get("combo") or []) == 4 else [NO_DIRECTION] * 4))
 
 
 def favorite_bait(rec):
@@ -124,6 +133,15 @@ def best_messages(board):
     out += [best_row(n, n, name, where, weight) for n, (weight, name, where) in enumerate(board, 1)]
     out.append(best_row(-3))
     return out
+
+
+def combo_for(name, spec=None):
+    """The fish's 4-direction pull pattern (0 up, 1 right, 2 down, 3 left)."""
+    combo = (spec or {}).get("combo")
+    if combo and len(combo) == COMBO_LENGTH:
+        return list(combo)
+    h = zlib.crc32(name.encode())
+    return [(h >> (2 * i)) & 3 for i in range(COMBO_LENGTH)]
 
 
 def bite_delay(rng=random):
