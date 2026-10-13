@@ -239,3 +239,7 @@ FUN_00584eb0 (page router), FUN_00582990 (0x502).
 ## Mentoring (verified live with two clients, 2026-10-13)
 
 Ranger (level 12) asks his group member Justins (level 20) to mentor him: 0x5c8 {wstr "Justins"} (the group window's "Request Mentor" menu; the `!mentorme Justins` dev command does the same). Justins gets 0x5ca {"Ranger"}, the client's "Mentor Request" popup ("Ranger has requested that you mentor them. Would you like to accept?"). Accept sends 0x5c9 {1}; the server lowers Justins' effective level to 12 (MsgScore level, pawn m_GameplayLevel for everyone, group 0x68f {eid, level}) and his level badge changes from 20 to 12: "You are now mentoring Ranger. Your level is 12.". Stop Mentoring (0x5cb) restores the real level. Mentoring changes only the shown level for now (no stat or experience scaling).
+
+## Invitation timeout (verified live 2026-10-13)
+
+An unanswered group invitation expires after 60 s (`INVITE_TIMEOUT`): the invited player gets 0x6b7 `{i32 0}`, which closes their invite popup and prints "You can no longer join that group." (GroupInviteTimedOut), and the inviter gets "Your group invitation to Justins has expired.". A member's death sends 0x691 `{eid64}` to the others ("<name> died!!", see DEATH.md).

@@ -3259,6 +3259,7 @@ def handle_group_event(state, event, payload):
             send(group.error(3))
         else:
             target["player"].pending_invite = state
+            target["player"].pending_invite_at = time.time()
             target["send"](group.invite_popup(player, g.members if g else [player]))
         print(f"  >>> ZONE group invite {name!r} from {player.name}")
     elif event in (group.ACCEPT, group.DECLINE):
@@ -3657,10 +3658,22 @@ def leave_group(state):
         m_state["send"](group.leader_is(g.leader))
 
 
+INVITE_TIMEOUT = 60                  # seconds a group invitation stays open
+
+
 def group_tick():
     """Once a second: members' positions and vitals to the rest of the group;
-    group loot rolls that ran out of time."""
+    group loot rolls that ran out of time; group invitations that expired (0x6b7)."""
     now = time.time()
+    for s in list(ONLINE.values()):
+        p = s.get("player")
+        inviter = getattr(p, "pending_invite", None) if p is not None else None
+        if inviter is not None and now - getattr(p, "pending_invite_at", now) > INVITE_TIMEOUT:
+            p.pending_invite = None
+            s["send"](zone.zone_event(0x6B7, struct.pack("<i", 0)))      # "GroupInviteTimedOut"
+            if inviter.get("player") is not None and ONLINE.get(inviter["player"].name.lower()) is inviter:
+                inviter["send"](build_system_text(f"Your group invitation to {p.name} has expired.",
+                                                  SYSTEM_TEXT_WHITE))
     for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
               if getattr(s.get("player"), "group", None)}.values():
         lot = getattr(g, "lottery", None)
