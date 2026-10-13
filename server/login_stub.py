@@ -30,6 +30,7 @@ import craft
 import trainer
 import faction
 import workorder
+import mail
 import bank
 import social
 import effects
@@ -2013,6 +2014,172 @@ def handle_faction_event(state, event, data):
         say(f"  {f['name']}: {faction.tier(v)} ({v})")
 
 
+MAIL_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mail.json")
+MAILBOX_RANGE = 800
+
+
+def load_mail():
+    """{"next_id": n, "boxes": {lower-case name: [mail dicts]}}"""
+    try:
+        with open(MAIL_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {"next_id": 1, "boxes": {}}
+
+
+def save_mail(db):
+    with open(MAIL_FILE, "w", encoding="utf-8") as f:
+        json.dump(db, f, indent=2)
+
+
+def deliver_mail(db, to, m):
+    """Put mail m in to's box and tell them if they are online."""
+    m["id"] = db["next_id"]
+    db["next_id"] += 1
+    db["boxes"].setdefault(to.lower(), []).append(m)
+    s = ONLINE.get(to.lower())
+    if s is not None and s.get("send"):
+        s["send"](mail.new_mail())
+        s["send"](build_system_text(f"You have new mail from {m['from']}.", SYSTEM_TEXT_WHITE))
+
+
+def mail_login(state):
+    box = load_mail()["boxes"].get(state["player"].name.lower(), [])
+    unread = sum(1 for m in box if not m.get("read"))
+    if unread:
+        state["send"](mail.new_mail())            # "You have unread mail messages."
+
+
+def mail_list(state, box):
+    send = state["send"]
+    send(mail.clear())
+    for m in box:
+        send(mail.message(m))
+        it = m.get("item")
+        if it:
+            send(mail.item(vgmsg.inventory_item(m["id"], it["name"], 0, it.get("icon", 443), it.get("qty", 1),
+                                                **zone.item_equip_fields(it["name"]))))
+    send(mail.redraw())
+
+
+def handle_mail_event(state, event, data):
+    """Mailboxes (mail.py): inbox, read, send with coin / an item / cash on delivery."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE mail event {event:#x}: {data[:16].hex(' ')}")
+    db = load_mail()
+    box = db["boxes"].setdefault(player.name.lower(), [])
+    if event == mail.OPEN:
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not getattr(npc, "mailbox", False):
+            send(zone.zone_event(0x0E, struct.pack("<h", mail.PLEASE_TARGET_MAILBOX)))
+            return
+        if player_distance(player, npc) > MAILBOX_RANGE:
+            send(zone.zone_event(0x0E, struct.pack("<h", mail.MOVE_CLOSER)))
+            return
+        if not state.get("mail_session"):
+            send(mail.info())
+        state["mail_session"] = True
+        mail_list(state, box)
+        return
+    if event == mail.CLOSE:
+        state.pop("mail_session", None)
+        return
+    if not state.get("mail_session"):
+        if event == mail.SEND:
+            send(mail.result(mail.BAD_SESSION))
+        return
+    if event == mail.SEND:
+        try:
+            to, subject, body, cod, copper, handle = mail.parse_send(data)
+        except (struct.error, IndexError):
+            send(mail.result(mail.DB_ERROR))
+            return
+        chars = load_characters()
+        target = next((c["first"] for c in chars if c["first"].lower() == to.lower()), None)
+        if target is None:
+            send(mail.result(mail.NO_RECIPIENT))
+            return
+        if target.lower() == player.name.lower():
+            send(mail.result(mail.SELF))
+            return
+        if len(subject) > mail.MAX_SUBJECT:
+            send(mail.result(mail.SUBJECT_LONG))
+            return
+        if len(body) > mail.MAX_BODY:
+            send(mail.result(mail.BODY_LONG))
+            return
+        it = next((i for i in player.items if i[0] == handle), None) if handle != -1 else None
+        if handle != -1 and it is None:
+            send(mail.result(mail.CANT_MAIL_ITEM))
+            return
+        if cod and it is None:
+            send(build_system_text("Cash on delivery needs an attached item.", SYSTEM_TEXT_ERROR))
+            send(mail.result(mail.DB_ERROR))
+            return
+        cost = mail.POSTAGE * 4 // 5 + (mail.SHIPPING if it else 0) + (0 if cod else max(0, copper))
+        if player.coins < cost:
+            send(build_system_text("You can't afford the postage for that.", SYSTEM_TEXT_ERROR))
+            send(mail.result(mail.DB_ERROR))
+            return
+        player.coins -= cost
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+        attached = None
+        if it is not None:
+            attached = {"name": it[1], "icon": it[2], "qty": it[3]}
+            player.items.remove(it)
+            send(zone.zone_event(0x1A5, struct.pack("<iB", it[0], 0)))
+            save_character_field(player.name, "items", [list(i) for i in player.items])
+        deliver_mail(db, target, mail.new(0, player.name, subject, body, coin=0 if cod else max(0, copper),
+                                          cod=max(0, copper) if cod else 0, item_=attached))
+        save_mail(db)
+        send(mail.result(mail.SENT))
+        print(f"  {player.name} mailed {target}: {subject!r}")
+        return
+    mid = struct.unpack_from("<i", data)[0] if len(data) >= 4 else 0
+    m = next((x for x in box if x["id"] == mid), None)
+    if m is None:
+        return
+    if event == mail.READ:
+        if not m.get("read"):
+            m["read"] = int(time.time())
+            save_mail(db)
+    elif event in (mail.DELETE, mail.RETURN):
+        box.remove(m)
+        if event == mail.RETURN and m.get("from_player", True) and not m.get("returned"):
+            back = mail.new(0, player.name, f"Returned: {m.get('subject', '')}"[:mail.MAX_SUBJECT], m.get("body", ""),
+                            coin=m.get("coin", 0), item_=m.get("item"), returned=True)
+            deliver_mail(db, m["from"], back)
+        save_mail(db)
+        send(mail.removed(mid))
+    elif event in (mail.TAKE_ITEM, mail.TAKE_ITEM_COD) and m.get("item"):
+        cod = m.get("cod", 0)
+        if cod and player.coins < cod:
+            send(build_system_text("You can't afford the cash on delivery price.", SYSTEM_TEXT_ERROR))
+            return
+        it = m["item"]
+        if not give_item(state, it["name"], it.get("qty", 1)):
+            return
+        if cod:
+            player.coins -= cod
+            send(merchant.coins(player.coins))
+            save_character_field(player.name, "coins", player.coins)
+            deliver_mail(db, m["from"], mail.new(0, player.name, f"Payment: {m.get('subject', '')}"[:mail.MAX_SUBJECT],
+                                                 f"{player.name} paid for {it['name']}.", coin=cod,
+                                                 from_player=False))
+            m["cod"] = 0
+        m["item"] = None
+        save_mail(db)
+        send(mail.item_taken(mid))
+    elif event == mail.TAKE_COIN and m.get("coin"):
+        player.coins += m["coin"]
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+        m["coin"] = 0
+        save_mail(db)
+        send(mail.coin_taken(mid))
+
+
 def wo_by_id(wid):
     return next(((k, w) for k, w in ARGS.content.workorders.items() if w["id"] == wid), (None, None))
 
@@ -3027,6 +3194,15 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "mailme" and player:
+        # !mailme: a letter to yourself from Orin with 50 copper and a Copper Ore (testing).
+        db = load_mail()
+        deliver_mail(db, player.name, mail.new(0, "Orin the Trader", "A small gift",
+                                               "Thanks for the help around camp.", coin=50,
+                                               item_={"name": "Copper Ore", "icon": zone.item_icon("Copper Ore", 443),
+                                                      "qty": 1}, from_player=False))
+        save_mail(db)
+        return []
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
@@ -3301,6 +3477,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 brotherhood_login(state)
                 faction_login(state)
                 workorder_login(state)
+                mail_login(state)
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
             # Say (client event 0x74): wstr text. The client echoes "You say, ..."
@@ -3473,6 +3650,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in social.ZONE_EVENTS:
             if state.get("player"):
                 handle_social_zone(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in mail.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_mail_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in workorder.CLIENT_EVENTS:
             if state.get("player"):
                 handle_workorder_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

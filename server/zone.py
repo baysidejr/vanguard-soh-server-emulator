@@ -16,6 +16,7 @@ import merchant
 import harvest
 import craft
 import workorder
+import mail
 import diplomacy
 import quest
 import world
@@ -158,6 +159,7 @@ def populate_world(w, args):
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))
         npc.task_master = bool(template.get("task_master"))
+        npc.mailbox = bool(template.get("mailbox"))
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
@@ -183,6 +185,8 @@ def populate_world(w, args):
             npc.props["EntityTypes"] = craft.STATION
         if npc.task_master:
             npc.props["EntityTypes"] = workorder.TASK_MASTER
+        if npc.mailbox:
+            npc.props["EntityTypes"] = mail.MAILBOX
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
         if "gender" in template:
