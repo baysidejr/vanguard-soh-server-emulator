@@ -1853,27 +1853,41 @@ def in_water(level, loc):
                for _n, lo, hi in _water_cache[level])
 
 
-def check_fall(state, loc):
-    """Fall damage from the reported heights: a drop that happens over several moves
-    (a teleport is one big step and is ignored) and ends on land."""
-    player = state.get("player")
-    prev = state.get("fall_last")
-    state["fall_last"] = loc
-    if player is None or prev is None or player.health <= 0:
-        state.pop("fall_top", None)
-        return
+def fall_drop(fs, loc):
+    """One movement report through the fall tracker fs (a dict). Returns the height fallen
+    when a fall ends on this report, else None. Falls only count once the player has stood
+    still on the ground since logging in or being teleported (fs["armed"]): the drop from a
+    server-placed spawn point to the terrain is not a fall."""
+    prev = fs.get("last")
+    fs["last"] = loc
+    if prev is None:
+        fs.pop("top", None)
+        fs["armed"] = False
+        return None
     dz = loc[2] - prev[2]
-    if dz < -1200 or math.hypot(loc[0] - prev[0], loc[1] - prev[1]) > 2000:
-        state.pop("fall_top", None)          # teleported
-        return
+    if abs(dz) > 1200 or math.hypot(loc[0] - prev[0], loc[1] - prev[1]) > 2000:
+        fs.pop("top", None)                  # teleported
+        fs["armed"] = False
+        return None
     if dz < -4:
-        state["fall_top"] = max(state.get("fall_top", prev[2]), prev[2])
+        if fs.get("armed"):
+            fs["top"] = max(fs.get("top", prev[2]), prev[2])
+        return None
+    fs["armed"] = True                       # on the ground (or going up)
+    top = fs.pop("top", None)
+    return None if top is None else top - loc[2]
+
+
+def check_fall(state, loc):
+    """Fall damage from the reported heights (fall_drop) for drops over SAFE_FALL that
+    don't end in water."""
+    player = state.get("player")
+    fs = state.setdefault("fall", {})
+    if player is None or player.health <= 0:
+        fs.clear()
         return
-    top = state.pop("fall_top", None)
-    if top is None:
-        return
-    drop = top - loc[2]
-    if drop <= SAFE_FALL or in_water(player.level, loc):
+    drop = fall_drop(fs, loc)
+    if drop is None or drop <= SAFE_FALL or in_water(player.level, loc):
         return
     dmg = int((drop - SAFE_FALL) * FALL_DAMAGE)
     player.health = max(0, player.health - dmg)

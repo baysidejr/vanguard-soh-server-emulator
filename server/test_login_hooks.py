@@ -38,5 +38,22 @@ class LoginHookTests(unittest.TestCase):
         self.assertTrue(sent)
 
 
+class FallTests(unittest.TestCase):
+    def run_fall(self, zs, x=0.0):
+        fs, out = {}, []
+        for z in zs:
+            out.append(login_stub.fall_drop(fs, (x, 0.0, z)))
+        return [d for d in out if d is not None]
+
+    def test_spawn_drop_is_not_a_fall(self):
+        self.assertEqual(self.run_fall([2000, 1800, 1400, 900, 400, 400]), [])
+
+    def test_fall_after_standing_counts(self):
+        self.assertEqual(self.run_fall([1000, 1000, 900, 600, 300, 300]), [700])
+
+    def test_teleport_disarms(self):
+        self.assertEqual(self.run_fall([100, 100, 3000, 2800, 2000, 1500, 1500]), [])
+
+
 if __name__ == "__main__":
     unittest.main()
