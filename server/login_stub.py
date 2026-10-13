@@ -2950,7 +2950,9 @@ def npc_blocked(level, x, y, z):
 def group_loot_allowed(state, npc):
     """Loot rights on a corpse (grouploot.may_loot); sends the refusal."""
     code = grouploot.may_loot(state["player"], npc)
-    if code is not None:
+    # U sends both the pawn's ServerUse and 0xbb: tell the player once.
+    if code is not None and time.time() - state.get("loot_refused_at", 0) > 1.0:
+        state["loot_refused_at"] = time.time()
         state["send"](zone.zone_event(0x0E, struct.pack("<h", code)))
         state["send"](build_system_text("You don't have permission to loot that corpse.", SYSTEM_TEXT_ERROR))
     return code is None
