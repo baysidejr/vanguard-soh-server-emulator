@@ -2778,6 +2778,24 @@ def save_market(db):
         json.dump(db, f, indent=2)
 
 
+def expire_market(db):
+    """Listings past their expiry go back to the seller by mail. True if any did."""
+    now = time.time()
+    old = [x for x in db["listings"] if market.time_left(x) <= now]
+    if not old:
+        return False
+    mdb = load_mail()
+    for x in old:
+        db["listings"].remove(x)
+        deliver_mail(mdb, x["seller"], mail.new(0, "The Market", f"Expired: {x['name']}"[:mail.MAX_SUBJECT],
+                                                "Your item did not sell and has been returned.",
+                                                item_={"name": x["name"], "icon": x.get("icon", 443),
+                                                       "qty": x.get("qty", 1)}, from_player=False))
+    save_mail(mdb)
+    save_market(db)
+    return True
+
+
 def market_notice(code):
     return zone.zone_event(0x0E, struct.pack("<h", code))
 
@@ -2787,6 +2805,7 @@ def handle_market_event(state, event, data):
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE market event {event:#x}: {data[:24].hex(' ')}")
     db = load_market()
+    expire_market(db)
     mine = [x for x in db["listings"] if x["seller"].lower() == player.name.lower()]
     if event == market.OPEN:
         npc = player.npcs.get(player.target) if player.target else None

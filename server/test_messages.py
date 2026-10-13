@@ -2,6 +2,7 @@
 live client. Run: python -m unittest test_messages (from server/)."""
 import random
 import struct
+import os
 import unittest
 
 import combat
@@ -253,6 +254,30 @@ class TradeTests(unittest.TestCase):
             login_stub.complete_trade(t, None)
         self.assertEqual(len(b["player"].items), zone.BAG_SLOTS)
         self.assertEqual(len({i[4] for i in b["player"].items}), zone.BAG_SLOTS)
+
+
+    def test_market_expiry_mails_item_back(self):
+        import tempfile
+        import time as _time
+        with tempfile.TemporaryDirectory() as d,                 mock.patch.object(login_stub, "MARKET_FILE", os.path.join(d, "m.json")),                 mock.patch.object(login_stub, "MAIL_FILE", os.path.join(d, "mail.json")):
+            fresh = {"id": 2, "seller": "A", "name": "Rock", "price": 5, "posted": int(_time.time())}
+            old = dict(fresh, id=1, posted=int(_time.time()) - 8 * 86400)
+            db = {"next_id": 3, "listings": [old, fresh]}
+            self.assertTrue(login_stub.expire_market(db))
+            self.assertEqual([x["id"] for x in db["listings"]], [2])
+            box = login_stub.load_mail()["boxes"]["a"]
+            self.assertEqual(box[0]["item"]["name"], "Rock")
+
+    def test_faction_tiers(self):
+        import faction
+        self.assertEqual(faction.tier(-8001), "Kill on Sight")
+        self.assertEqual(faction.tier(0), "Neutral")
+        self.assertEqual(faction.tier(8000), "Ally")
+
+    def test_market_fees_match_client_floats(self):
+        import market
+        self.assertEqual(market.commission(40), 1)
+        self.assertEqual(market.deposit(40), 1)
 
 
 if __name__ == "__main__":
