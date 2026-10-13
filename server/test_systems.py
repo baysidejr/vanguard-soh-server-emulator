@@ -362,5 +362,20 @@ class SongTests(unittest.TestCase):
         self.assertEqual(songs.energy_step(99, 100, None), (100, False))   # not singing: regenerate
 
 
+class FishingAchievementTests(unittest.TestCase):
+    def test_records_and_messages(self):
+        recs = {}
+        fishing.add_catch(recs, "Sand Carp", 2.0, "Beach", "Grub")
+        rec, best = fishing.add_catch(recs, "Sand Carp", 3.5, "Cove", "Grub")
+        self.assertTrue(best)
+        self.assertEqual((rec["caught"], rec["total"], rec["best"], rec["where"]), (2, 5.5, 3.5, "Cove"))
+        self.assertFalse(fishing.add_catch(recs, "Sand Carp", 1.0, "X", None)[1])
+        msgs = fishing.achievement_list(recs)
+        self.assertEqual([payload(m)[0] for m in msgs], [0x5A1, 0x5A1, 0x5A1])
+        self.assertIn("Grub".encode("utf-16-le"), msgs[1])
+        # row id after the two strings and the type: -2 clears, -3 redraws
+        self.assertEqual(struct.unpack_from("<ii", msgs[0], 10 + 4)[1], -2)
+
+
 if __name__ == "__main__":
     unittest.main()

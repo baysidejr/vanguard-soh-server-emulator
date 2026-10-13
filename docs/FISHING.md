@@ -82,3 +82,14 @@ Also in state 3, holding **MoveBackward** (`FUN_004ce900`) pulls the bobber towa
 
 ## Server-only data gaps (for docs/CONTENT_EDITOR.md; that file was not edited)
 Fish species table (name, fresh/salt, zones, weight range, preferred/required bait, 4-direction combo), fish and bait item templates, bite-timer and minigame tuning, skill-up curve, best-catch leaderboards.
+
+## Fishing achievements (verified live 2026-10-13)
+
+The Quests window's **Achievements** tab has one page, "Fishing" (VGUIFishingAchievements.xml). The client has no other achievement system.
+
+- Each caught fish gets a weight from items.json `"fish": {"weight": [min, max], "fresh_water": bool}`: "Your Sand Carp weighs 1.8 pounds." Per character the server keeps `fish_records` {count, total weight, heaviest and where, baits used}.
+- At login: **0x5a1** with fish id -2 (clear), one 0x5a1 per fish, then fish id -3 (redraw). After a catch: **0x5a2** (same layout) updates that row.
+- Layout: `wstr fish, wstr biggest-catch location, i32 type 0, i32 fish id, i32 total caught, f32 total weight, f32 heaviest, bool8 fresh water, wstr only bait, wstr favourite bait, u8 combo[4]` (combo directions 0 up, 1 right, 2 down, 3 left, 0xFF unknown).
+- The page shows "Sand Carp can be found in salt water. You have noticed that they really seem to like Wastes Grub.", "Combo: Unknown.", "You've caught 2 Sand Carp!", the total weight and the biggest catch.
+- Dev: `!fishcatch <fish>` counts a catch without the minigame.
+- Not done: the "Best catches" leaderboard (C->S 0x5a4 {type, fish id, bool8 today} on the world channel, answer 0x5a3 rows) and combo directions.

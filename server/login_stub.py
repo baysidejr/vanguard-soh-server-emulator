@@ -2314,6 +2314,34 @@ def caravan_login(state):
 FISH = [("Sand Carp", 0.7), ("Mud Eel", 0.3)]
 
 
+# Display names of chunks (the client has its own, FUN_00b70e80; the server only needs a few).
+CHUNK_NAMES = {"chunk_n19_12": "Sundering Wastelands", "chunk_n19_13": "Sundering Wastelands"}
+
+
+def fish_fresh(name):
+    return bool(ARGS.content.item(name).get("fish", {}).get("fresh_water"))
+
+
+def record_catch(state, name, bait):
+    """Weigh a caught fish and update the Fishing achievements row."""
+    player, send = state["player"], state["send"]
+    lo, hi = ARGS.content.item(name).get("fish", {}).get("weight", [0.5, 3.0])
+    weight = round(random.uniform(lo, hi), 1)
+    records = player.__dict__.setdefault("fish_records", {})
+    rec, best = fishing.add_catch(records, name, weight, CHUNK_NAMES.get(player.level, player.level), bait)
+    send(build_system_text(f"Your {name} weighs {weight:g} pounds."
+                           + (" A personal best!" if best and rec["caught"] > 1 else ""), SYSTEM_TEXT_WHITE))
+    send(fishing.achievement_update(name, rec, fish_fresh(name)))
+    save_character_field(player.name, "fish_records", records)
+
+
+def fishing_login(state):
+    """The Achievements tab's Fishing page: one row per fish the player has caught."""
+    records = getattr(state["player"], "fish_records", {})
+    for m in fishing.achievement_list(records, fish_fresh):
+        state["send"](m)
+
+
 def equipped_kind(player, kind):
     """The equipped fishing pole or bait (items.json "fishing": "pole" / "bait")."""
     for e in player.equipment:
@@ -2361,6 +2389,7 @@ def fishing_finish(state):
         name = random.choices([f for f, _w in FISH], [w for _f, w in FISH])[0]
         give_item(state, name)
         bait = equipped_kind(player, "bait")
+        record_catch(state, name, bait[1] if bait else None)
         if bait is not None:
             player.equipment.remove(bait)
             send(zone.zone_event(0x1A5, struct.pack("<iB", bait[0], 0)))
@@ -6517,6 +6546,9 @@ def dev_command(text, player=None):
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
+    if words[0] == "fishcatch" and player and len(words) > 1:
+        # !fishcatch <fish>: count a catch as if landed with the rod (testing the Fishing achievements).
+        return [("fishcatch", " ".join(words[1:]))]
     if words[0] == "npclist" and player:
         # !npclist [radius]: the GM NPC list (0x786) of the NPCs near you, nearest first. The
         # EncounterDBId is the spawn's index in content/spawns/<chunk>.json, the tag its mob key.
@@ -6819,6 +6851,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.played = int(char.get("played", 0))
             player.titles = list(char.get("titles", []))
             player.songs = list(char.get("songs", []))
+            player.fish_records = dict(char.get("fish_records", {}))
             player.assembly_known = list(char.get("assembly_known", []))
             player.title_prefix = char.get("title_prefix", -1)
             player.title_suffix = char.get("title_suffix", -1)
@@ -6876,6 +6909,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 assembly_login(state)
                 journal_login(state)
                 songs_login(state)
+                fishing_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -6910,6 +6944,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "spherexp":
                         sphere_xp(state, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "fishcatch":
+                        record_catch(state, m[1], "Wastes Grub")
                         continue
                     elif isinstance(m, tuple) and m[0] == "pet":
                         summon_pet(state, args, m[1])
