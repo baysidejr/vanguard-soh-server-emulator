@@ -1826,6 +1826,11 @@ def handle_duel_event(state, event, data):
             return
         pending = state.pop("duel_challenge", None)
         if pending is not None:                          # /duelcancel
+            target = ONLINE.get(pending["to"].lower())
+            if target is not None:
+                target.pop("duel_from", None)
+                target["send"](build_system_text(f"{player.name} has cancelled the duel challenge.",
+                                                 SYSTEM_TEXT_WHITE))
             send(build_system_text("You cancel your duel challenge.", SYSTEM_TEXT_WHITE))
             return
         w = state.get("world")
@@ -1864,6 +1869,15 @@ DUELS = []
 
 
 def duel_tick(now):
+    # Unanswered challenges time out (0x403 to the challenger: the client prints the timeout).
+    for s in list(ONLINE.values()):
+        c = s.get("duel_challenge")
+        if c is not None and now > c["until"]:
+            s.pop("duel_challenge", None)
+            s["send"](duel.timed_out())
+            target = ONLINE.get(c["to"].lower())
+            if target is not None and target.get("duel_from", {}).get("from", "").lower() == s["player"].name.lower():
+                target.pop("duel_from", None)
     for d in list(DUELS):
         if now >= d["starts"]:
             DUELS.remove(d)

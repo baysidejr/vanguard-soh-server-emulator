@@ -8,7 +8,7 @@
 >
 > **Abilities (verified live):** damaging abilities hit the duel opponent: "Your Blade Winter I hits Justins for 15 damage." (0x27b kind 1).
 >
-> **Not done:** /duelcancel vs. challenge (the same 0x3fd; the server treats a second 0x3fd as cancel, and 0x3fd during a duel as forfeit), the challenge timeout message (0x403 is only sent if the answer comes late), 
+> **Challenge timeout and cancel (verified live 2026-10-13):** an unanswered challenge expires after 30 s: the challenger gets 0x403 ("Duel challenge timed out") and the target's offer is cleared. A second /duel or /duelcancel (the same 0x3fd) before an answer cancels the challenge and tells the target "<name> has cancelled the duel challenge."; 0x3fd during a duel forfeits.
 
 Server: `server/duel.py`, `login_stub.handle_duel_event/duel_tick/duel_strike/end_duel`; `combat.tick` returns ("pvp", opponent) for duel swings.
 
