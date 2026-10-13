@@ -42,7 +42,8 @@ The server enforces the limits (the client has none): a name, a melody, name up 
 
 **Energy (verified live):** a playing song costs its energy per second, once a second (`energy_tick`, 0x2d4 energy stat). The blue bar falls, and the song stops with "You do not have enough energy to keep singing." when it runs out. Without a song, energy regenerates 3 a second.
 
+**Group (verified live with two clients):** every 6 seconds a playing song gives groupmates within 2500 units its buff for 12 seconds ("Ranger's War Song fills you with strength." the first time). The buff fades about 12 seconds after the song stops (`song_pulse`).
+
 ## Not done
-- Group-wide song effects. The song's buff currently goes to the singer only.
 - Interruption by fear or flying.
 - Real song data (CONTENT_EDITOR.md).

@@ -2692,8 +2692,29 @@ def energy_tick(state, now):
     if song and not singing:
         state["send"](build_system_text("You do not have enough energy to keep singing.", SYSTEM_TEXT_ERROR))
         stop_song(state, quiet=True)
+    elif song and now >= state.get("song_pulse", 0):
+        state["song_pulse"] = now + songs.PULSE_SECONDS
+        song_pulse(state, song, now)
     if energy != old:
         state["send"](zone.energy_update(player))
+
+
+def song_pulse(state, song, now):
+    """A playing song's buff on the groupmates in range (a short buff, refreshed each pulse)."""
+    player = state["player"]
+    pos = player.live_position or player.spawned_at
+    spec = {"stat": song["stat"], "bonus": song["bonus"], "icon": song["icon"], "duration": songs.GROUP_BUFF_SECONDS}
+    for s in group_states(player):
+        other = s.get("player")
+        if s is state or other is None or s.get("world") is not state.get("world"):
+            continue
+        opos = other.live_position or other.spawned_at
+        if pos is None or opos is None or math.hypot(opos[0] - pos[0], opos[1] - pos[1]) > songs.SONG_RANGE:
+            continue
+        first = not any(e["name"] == song["name"] for e in getattr(other, "effects", []))
+        apply_buff(s, other, song["name"], spec, now)
+        if first:
+            s["send"](build_system_text(f"{player.name}'s {song['name']} fills you with strength.", SYSTEM_TEXT_WHITE))
 
 
 def breath_tick(state):

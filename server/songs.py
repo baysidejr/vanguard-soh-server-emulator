@@ -112,6 +112,9 @@ def problem(song, known_ids, songs=()):
 
 
 ENERGY_REGEN = 3                       # energy a second while not singing
+PULSE_SECONDS = 6                      # a playing song refreshes its groupmates' buff this often
+GROUP_BUFF_SECONDS = 12                # ... which lasts this long, so it fades soon after the song
+SONG_RANGE = 2500
 
 
 def energy_step(energy, maximum, cost):
