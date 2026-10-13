@@ -873,6 +873,9 @@ def player_death(state, args, player):
     """The player's pawn falls (m_bIsDead + death animation) and the release
     popup opens. Death adds experience debt; the tombstone appears on release."""
     print(f"  <- {player.name} died")
+    for s in group_states(player):
+        if s is not state:
+            s["send"](zone.zone_event(0x691, struct.pack("<Q", player.char_id)))   # "<name> died!!"
     player.xp_debt = min(DEBT_CAP, getattr(player, "xp_debt", 0) + DEBT_PER_DEATH)
     save_character_field(player.name, "xp_debt", player.xp_debt)
     player.died_at = state.get("position") or player.live_position or player.spawned_at
@@ -924,13 +927,78 @@ def place_tombstone(state, args, player):
     old = getattr(player, "tombstone", None)
     if old:
         remove_tombstone(state, player, quiet=True)
-    player.tombstone = {"level": player.level, "loc": [float(loc[0]), float(loc[1]), float(loc[2])]}
+    player.tombstone = {"level": player.level, "loc": [float(loc[0]), float(loc[1]), float(loc[2])],
+                        "placed": int(time.time())}
     save_character_field(player.name, "tombstone", player.tombstone)
     npc = zone.tombstone_spawn(w, args, player)
     if npc is not None:
         w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
     for m in tombstone_marker(player):
         state["send"](m)
+
+
+# Consent and corpse drag (docs/DEATH.md "Consent and corpse drag"): /consent <name> 0x17b
+# {wstr}, /revoke <name> 0x17c {wstr}, /corpsedrag and /tombstonedrag 0x17a, /decaytime 0x3dd.
+CONSENT, REVOKE, CORPSE_DRAG, DECAY_TIME = 0x17B, 0x17C, 0x17A, 0x3DD
+CORPSE_EVENTS = (CONSENT, REVOKE, CORPSE_DRAG, DECAY_TIME)
+DRAG_RANGE = 1500.0
+TOMBSTONE_DECAY = 48 * 3600           # seconds a tombstone lasts (reported by /decaytime)
+
+
+def handle_corpse_event(state, event, data):
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE corpse event {event:#x}: {data.hex(' ')}")
+    if event in (CONSENT, REVOKE):
+        name = data.decode("utf-16-le", "replace").split("\0")[0].strip()
+        other = ONLINE.get(name.lower())
+        if other is None or other.get("player") is None or other is state:
+            send(build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
+            return
+        consents = player.__dict__.setdefault("consents", set())
+        oname = other["player"].name
+        if event == CONSENT:
+            consents.add(oname.lower())
+            send(zone.zone_event(0x55C, (oname + "\0").encode("utf-16-le")))           # ConsentEchoGave
+            other["send"](zone.zone_event(0x55A, (player.name + "\0").encode("utf-16-le")))  # ConsentAdded
+        elif oname.lower() in consents:
+            consents.discard(oname.lower())
+            send(zone.zone_event(0x55D, (oname + "\0").encode("utf-16-le")))           # ConsentEchoRevoked
+            other["send"](zone.zone_event(0x55B, (player.name + "\0").encode("utf-16-le")))  # ConsentLost
+    elif event == CORPSE_DRAG:
+        w = state.get("world")
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not getattr(npc, "tombstone_of", None):
+            npc = w.npcs.get(zone.tombstone_eid(player)) if w is not None else None
+        result = 0
+        if npc is None or not getattr(npc, "tombstone_of", None):
+            result = 3                                             # CorpseDragFailNoTarget
+        else:
+            owner = npc.tombstone_of
+            os_ = ONLINE.get(owner.lower())
+            allowed = owner.lower() == player.name.lower() or (
+                os_ is not None and player.name.lower() in getattr(os_["player"], "consents", set()))
+            pos = state.get("position") or player.live_position
+            if not allowed:
+                result = 2                                         # CorpseDragFailConsent
+            elif pos is None or math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1]) > DRAG_RANGE:
+                result = 6                                         # TooFarAway
+        if result:
+            send(zone.zone_event(0x5FA, struct.pack("<B", result)))
+            return
+        npc.location = npc.home = (pos[0], pos[1], pos[2] - 90.0)
+        values = {"Location": npc.location, "PawnPosition": (npc.location, (0, npc.yaw, 0), (0.0, 0.0, 0.0))}
+        w.broadcast(lambda s: zone.npc_update(s, ARGS, npc, values))
+        owner_player = os_["player"] if os_ is not None else None
+        if owner_player is not None and getattr(owner_player, "tombstone", None):
+            owner_player.tombstone["loc"] = [float(v) for v in npc.location]
+            save_character_field(owner_player.name, "tombstone", owner_player.tombstone)
+            for m in tombstone_marker(owner_player):
+                os_["send"](m)
+        send(build_system_text(f"You drag {owner}'s tombstone.", SYSTEM_TEXT_WHITE))
+    elif event == DECAY_TIME:
+        stone = getattr(player, "tombstone", None)
+        left = max(0, TOMBSTONE_DECAY - (int(time.time()) - stone.get("placed", int(time.time())))) if stone else 0
+        send(zone.zone_event(0x688, struct.pack("<i", left)))       # "CorpseDecayTimeSeconds"
 
 
 def remove_tombstone(state, player, quiet=False):
@@ -6321,6 +6389,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(p.name, "active_toolbelt", v)
                 send_message(sock, addr, state, craft.active_toolbelt(v))
                 send_message(sock, addr, state, zone.zone_event(0x30E))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CORPSE_EVENTS and state.get("player"):
+            handle_corpse_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (zone.MOVE_ITEM, zone.DESTROY_ITEM) and state.get("player"):
             handle_bag_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x3E5:

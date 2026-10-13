@@ -135,3 +135,10 @@ There is no client code that parses an altar-specific window. An altar is a pawn
 - Altar placements: race model (altar meshes such as PantheonAltar01 / KaerellunAltar* / DarkElfAltar exist in the race strings; the ids are not looked up yet), plus the bind-allowed flag.
 - Which items go on the tombstone (none, inventory, or coin).
 - The meaning of 0x26e's i32 and of 0x2bc's second i32.
+
+## Consent and corpse drag (verified live 2026-10-13, two clients)
+
+- `/consent <name>` sends **0x17b** `{wstr name}`; the server answers 0x55c `{wstr name}` to the giver ("You have given Justins consent to drag your corpses.") and 0x55a `{wstr giver}` to the other player ("You have been given consent to drag Ranger's corpses."). `/revoke <name>` sends **0x17c**; answers 0x55d / 0x55b (ConsentEchoRevoked / ConsentLost). Consent lasts for the session.
+- `/corpsedrag` and `/tombstonedrag` send **0x17a** (no payload). The server moves the targeted tombstone (or your own) to your feet for everyone in the chunk if it is yours or its owner consented to you and it is within 1500 units ("You drag Ranger's tombstone."; the owner's map marker moves too). Failures are 0x5fa `{u8}`: 2 no consent, 3 no target ("You must first target a corpse that you wish to drag."), 4 zone, 5 invalid target, 6 too far (1 is a developer-only success line).
+- `/decaytime` sends **0x3dd**; the answer is 0x688 `{i32 seconds}` ("The corpse will decay in 172789 seconds."). Tombstones last 48 hours (reported only; they don't decay yet).
+- A group member's death sends 0x691 `{eid64}` to the rest of the group ("<name> died!!").
