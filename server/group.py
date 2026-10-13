@@ -20,8 +20,14 @@ import itertools
 import struct
 
 INVITE, ACCEPT, DECLINE, LEAVE, DISBAND, BOOT, PROMOTE = 0xB0, 0xB1, 0xB2, 0xAE, 0xAF, 0xB3, 0xB4
-CLIENT_EVENTS = (INVITE, ACCEPT, DECLINE, LEAVE, DISBAND, BOOT, PROMOTE)
+# Raids (docs/GROUPS.md "Raids"): 0xac /raidcreate, 0xa7 /raidalert {wstr}, 0xa8 /readycheck {wstr},
+# 0xa9 ready answer {i32 initiator row, i32 status}, 0xaa move {i32 row, i32 raid group 0..3},
+# 0xab role {i32 row, i32 1 main assist / 2 assistant / 3 main tank}.
+RAID_CREATE, RAID_ALERT, READY_CHECK, READY_ANSWER, RAID_MOVE, RAID_ROLE = 0xAC, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB
+CLIENT_EVENTS = (INVITE, ACCEPT, DECLINE, LEAVE, DISBAND, BOOT, PROMOTE,
+                 RAID_CREATE, RAID_ALERT, READY_CHECK, READY_ANSWER, RAID_MOVE, RAID_ROLE)
 MAX_MEMBERS = 6
+MAX_RAID = 24
 CHAT_GROUP = 8
 
 _group_ids = itertools.count(0x7000001)
@@ -44,6 +50,18 @@ class Group:
         self.id = next(_group_ids)
         self.leader = leader
         self.members = [leader]
+        self.raid = False
+        self.sub = {}                 # char_id -> raid group 0..3
+        self.roles = {}               # char_id -> set of role numbers
+
+    def limit(self):
+        return MAX_RAID if self.raid else MAX_MEMBERS
+
+    def free_subgroup(self):
+        for g in range(4):
+            if sum(1 for m in self.members if self.sub.get(m.char_id, 0) == g) < MAX_MEMBERS:
+                return g
+        return 3
 
 
 def invite_popup(inviter, members):
@@ -69,10 +87,46 @@ def formed(group):
     return _event(0x6B2, struct.pack("<Q", group.id))
 
 
-def member_added(member):
+def row_id(member):
+    return member.char_id & 0x7FFFFFFF
+
+
+def raid_formed():
+    return _event(0x6C2)
+
+
+def prejoin(group, sub):
+    return _event(0x6D7, struct.pack("<QQiB", group.id, group.leader.char_id, sub, 1))
+
+
+def raid_moved(member, sub):
+    return _event(0x6C1, struct.pack("<iii", row_id(member), 0, sub))
+
+
+def raid_role(member, role):
+    return _event(0x6A6, struct.pack("<iii", 0, row_id(member), role))
+
+
+def ready_requested():
+    return _event(0x6C4)
+
+
+def ready_popup(initiator):
+    return _event(0x6C5, struct.pack("<i", row_id(initiator)))
+
+
+def ready_status(member, status):
+    return _event(0x6C6, struct.pack("<ii", row_id(member), status))
+
+
+def alert(text, sound=7):
+    return _event(0x551, _w(text) + struct.pack("<B", sound))
+
+
+def member_added(member, sub=0):
     pos = member.live_position or member.spawned_at or (0.0, 0.0, 0.0)
     eid = member.char_id
-    data = (_w(member.name) + struct.pack("<QQii", eid, eid, eid & 0x7FFFFFFF, 0)
+    data = (_w(member.name) + struct.pack("<QQii", eid, eid, eid & 0x7FFFFFFF, sub)
             + struct.pack("<Bii", _byte(member.health, member.stats["hit_points"]), -1, member.klass)
             + struct.pack("<i", member.level_number)
             + struct.pack("<BBB", _byte(member.endurance, member.stats["endurance"]), 255, 255)

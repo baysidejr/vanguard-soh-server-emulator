@@ -2620,7 +2620,7 @@ def handle_group_event(state, event, payload):
             send(group.error(1))
         elif getattr(target["player"], "group", None):
             send(group.error(2))
-        elif g and len(g.members) >= group.MAX_MEMBERS:
+        elif g and len(g.members) >= g.limit():
             send(group.error(3))
         else:
             target["player"].pending_invite = state
@@ -2642,18 +2642,25 @@ def handle_group_event(state, event, payload):
         if getattr(player, "group", None):
             send(group.error(2))
             return
-        if g and len(g.members) >= group.MAX_MEMBERS:
+        if g and len(g.members) >= g.limit():
             send(group.error(3))
             return
         if g is None:
             g = leader.group = group.Group(leader)
             inviter["send"](group.formed(g))
+        sub = g.free_subgroup() if g.raid else 0
+        g.sub[player.char_id] = sub
+        if g.raid:
+            send(group.prejoin(g, sub))
         for m_state in group_states(leader):
-            m_state["send"](group.member_added(player))
-            send(group.member_added(m_state["player"]))
+            m_state["send"](group.member_added(player, sub))
+            send(group.member_added(m_state["player"], g.sub.get(m_state["player"].char_id, 0)))
         g.members.append(player)
         player.group = g
         send(group.leader_is(g.leader))
+    elif event in (group.RAID_CREATE, group.RAID_ALERT, group.READY_CHECK, group.READY_ANSWER,
+                   group.RAID_MOVE, group.RAID_ROLE):
+        handle_raid_event(state, event, payload[10:])
     elif event == group.LEAVE:
         leave_group(state)
     elif event == group.DISBAND:
@@ -2662,6 +2669,55 @@ def handle_group_event(state, event, payload):
             for m_state in group_states(player):
                 m_state["send"](group.disbanded())
                 m_state["player"].group = None
+
+
+def handle_raid_event(state, event, data):
+    """Raids: a group of up to 24 in four raid groups (group.py RAID_*)."""
+    player, send = state["player"], state["send"]
+    g = getattr(player, "group", None)
+    print(f"  >>> ZONE raid event {event:#x}: {data.hex(' ')}")
+    if g is None:
+        send(build_system_text("You are not in a group.", SYSTEM_TEXT_ERROR))
+        return
+    members = group_states(player)
+    officer = g.leader is player or 2 in g.roles.get(player.char_id, set())
+    vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 and event != group.RAID_ALERT else ()
+    by_row = {group.row_id(s["player"]): s["player"] for s in members}
+    if event == group.RAID_CREATE:
+        if g.leader is not player or g.raid:
+            return
+        g.raid = True
+        for s in members:
+            s["send"](group.raid_formed())
+    elif event == group.RAID_ALERT and officer:
+        text = data.decode("utf-16-le", "replace").split("\0")[0].strip()
+        for s in members:
+            s["send"](group.alert(f"{player.name}: {text}"))
+    elif event == group.READY_CHECK and officer:
+        g.ready_initiator = player
+        send(group.ready_requested())
+        for s in members:
+            if s is not state:
+                s["send"](group.ready_popup(player))
+    elif event == group.READY_ANSWER and len(vals) >= 2:
+        init = getattr(g, "ready_initiator", None)
+        s = online_state(init) if init else None
+        if s is not None:
+            s["send"](group.ready_status(player, vals[1]))
+    elif event == group.RAID_MOVE and len(vals) >= 2 and officer and g.raid:
+        who = by_row.get(vals[0])
+        if who is not None and 0 <= vals[1] <= 3:
+            g.sub[who.char_id] = vals[1]
+            for s in members:
+                s["send"](group.raid_moved(who, vals[1]))
+    elif event == group.RAID_ROLE and len(vals) >= 2:
+        who, role = by_row.get(vals[0]), vals[1]
+        if who is None or role not in (1, 2, 3) or (role == 2 and g.leader is not player) or not officer:
+            return
+        roles = g.roles.setdefault(who.char_id, set())
+        roles.symmetric_difference_update({role})
+        for s in members:
+            s["send"](group.raid_role(who, role))
 
 
 def leave_group(state):
