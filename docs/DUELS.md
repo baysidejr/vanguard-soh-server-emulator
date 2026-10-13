@@ -6,7 +6,9 @@
 >
 > **Caravan travel (verified live):** with Justins in Ranger's caravan and offline for over 3 hours, pressing Play (mode 0) makes the server answer world 0x55 {wchar[64] name, i32 chunk x, i32 chunk y, i32 seconds left} instead of the zone connect, and the client shows its "Caravan options" dialog ("Go to caravan's last location in Sundering Wastelands", "Go to character's last location ... and leave the caravan", "Cancel"). The first sends Play with mode byte 3 (+136): Justins logs in at the caravan location (-31100, -5300) instead of his own (-28000, -3900). Mode 2 removes him from the caravan and logs in normally. Mode 3 before the 3 hours are up logs in normally.
 >
-> **Not done:** abilities against the duel opponent (only auto-attack), /duelcancel vs. challenge (the same 0x3fd; the server treats a second 0x3fd as cancel, and 0x3fd during a duel as forfeit), the challenge timeout message (0x403 is only sent if the answer comes late), 
+> **Abilities (verified live):** damaging abilities hit the duel opponent: "Your Blade Winter I hits Justins for 15 damage." (0x27b kind 1).
+>
+> **Not done:** /duelcancel vs. challenge (the same 0x3fd; the server treats a second 0x3fd as cancel, and 0x3fd during a duel as forfeit), the challenge timeout message (0x403 is only sent if the answer comes late), 
 
 Server: `server/duel.py`, `login_stub.handle_duel_event/duel_tick/duel_strike/end_duel`; `combat.tick` returns ("pvp", opponent) for duel swings.
 

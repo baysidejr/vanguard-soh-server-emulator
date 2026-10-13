@@ -372,6 +372,12 @@ def use_ability(state, args, player, ability):
             send(zone.health_update(player))
         else:
             apply_buff(state, player, name, spec, now)
+    elif getattr(player, "duel_opponent", None) is not None and player.target == player.duel_opponent.char_id:
+        # A damaging ability on the duel opponent.
+        visual = ability[1] if ability[1] >= 500000 else None
+        if visual:
+            send(combat.display_ability(player.char_id, player.target, visual))
+        duel_strike(state, player, player.duel_opponent, name, combat.ABILITY_DAMAGE.get(ability[1], (8, 16)))
     else:
         lines, npc = combat.use_ability(player, ability)
         for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
@@ -1289,17 +1295,18 @@ def duel_tick(now):
                 s["send"](combat.targets(duel.Target(opp)))
 
 
-def duel_strike(state, player, opp):
-    """An auto-attack swing at the duel opponent; at 1 HP the duel is over."""
+def duel_strike(state, player, opp, ability="", damage=DUEL_DAMAGE):
+    """A swing (or an ability) at the duel opponent; at 1 HP the duel is over."""
     os_ = online_state(opp)
     if os_ is None:
         end_duel(state, None)
         return
-    dmg = random.randint(*DUEL_DAMAGE)
+    dmg = random.randint(*damage)
     opp.health = max(1, opp.health - dmg)
     player.last_combat = opp.last_combat = time.time()
     for s in (state, os_):
-        s["send"](effects.combat_text(player.char_id, opp.char_id, "", dmg, kind=0, dmg_type=combat.HITS))
+        s["send"](effects.combat_text(player.char_id, opp.char_id, ability, dmg, kind=1 if ability else 0,
+                                      dmg_type=combat.HITS))
     os_["send"](zone.health_update(opp))
     state["send"](combat.targets(duel.Target(opp)))
     if opp.health <= 1:
@@ -1467,8 +1474,9 @@ def caravan_location(c):
     s = ONLINE.get(c["leader"].lower())
     if s is not None and s.get("player") is not None:
         p = s["player"]
-        pos = p.live_position or p.spawned_at
-        c["loc"] = {"level": p.level, "x": pos[0], "y": pos[1], "z": pos[2]}
+        pos = p.live_position or p.spawned_at or p.position
+        if pos is not None:
+            c["loc"] = {"level": p.level, "x": pos[0], "y": pos[1], "z": pos[2]}
     return c.get("loc")
 
 
