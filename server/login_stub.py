@@ -386,6 +386,18 @@ def use_ability(state, args, player, ability):
         send(build_system_text(f"You begin to cast {name}.", SYSTEM_TEXT_COMBAT))
         return
     was_alive, attacking = player.health > 0, player.auto_attack
+    if spec["kind"] == "pet":
+        # A summoning ability (abilities.json "kind": "pet", "pet": {name, race, model, level,
+        # health, damage, abilities}): the same companion as a pet item; casting it again
+        # replaces the pet.
+        if player.health <= 0:
+            send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+            return
+        summon_pet(state, args, spec["pet"])
+        if refresh > 0:
+            cooldowns[handle] = now + refresh
+            send(effects.cooldown(ability[1], refresh))
+        return
     if spec["kind"] in ("heal", "buff"):
         if player.health <= 0:
             send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
@@ -6791,13 +6803,15 @@ def dev_command(text, player=None):
         ability = next((a for a in player.abilities if a[2].lower().startswith(want)), None)
         return [("use", ability)] if ability else []
     if words[0] == "learn" and len(words) >= 2 and player:
-        # !learn <ability name>: learn a class ability without a trainer (testing).
+        # !learn <ability name>: learn a class ability without a trainer (testing); your own
+        # class first, then any class's.
         want = " ".join(words[1:]).lower()
-        for n, (aid, tag) in enumerate(class_abilities.class_ability_list(ARGS.client_dir, player.klass)):
-            if class_abilities.display_name(tag).lower().startswith(want):
-                if any(a[1] == aid for a in player.abilities):
-                    return []
-                return [("learn", n, aid, tag)]
+        for klass in [player.klass] + [k for k in class_abilities.CLASS_PREFIX if k != player.klass]:
+            for n, (aid, tag) in enumerate(class_abilities.class_ability_list(ARGS.client_dir, klass)):
+                if class_abilities.display_name(tag).lower().startswith(want):
+                    if any(a[1] == aid for a in player.abilities):
+                        return []
+                    return [("learn", n, aid, tag)]
         return []
     if words[0] == "wear" and player:
         # !wear [points]: damage equipped gear (testing repairs).

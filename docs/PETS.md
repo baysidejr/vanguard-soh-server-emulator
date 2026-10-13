@@ -8,7 +8,9 @@
 
 > **Minions (verified live 2026-10-13):** right-clicking a minion item (items.json `"minions": {name, race, model, level, health, damage, count, seconds}`; the test item is the "Bone Charm": two Bone Servants, skeleton race 101, for 60 s) spawns that many NPCs and sends 0x419 type 6 per minion with the timer, plus 0x41e {eid64, u8 hp}. The client opens the "Minions" window with one entry per minion (name, health bar) and the command row. Minions follow and fight like the pet (`companion_tick`, shared with the pet), at most 4 at once. They return to dust when their time runs out (0x41f {eid64}). The window's buttons are the /minions commands (0x85 attack, 0x81 back off, 0x82 follow, 0x83 resume, 0x84 dismiss; no payload, all minions): Dismiss gave "Your minions return to dust." and closed the window.
 
-> **Not done:** pets and minions granted by class abilities (necromancer), minion abilities.
+> **Pets from class abilities (verified live 2026-10-13):** abilities.json `"kind": "pet"` with a `"pet"` spec (same fields as a pet item) summons the companion when the ability resolves. The client's ability packages have Necromancer "Awakenabomination I" (640009) and Shaman "Summonattendantofhayatet/rakurr/tuurgin I"; casting Awakenabomination I (3 s) printed "Abomination answers your call." and showed the pet bar. The pet specs are placeholders (CONTENT_EDITOR.md). Dev: `!learn <name>` now also finds other classes' abilities.
+>
+> **Not done:** minion abilities.
 
 Server: `server/pets.py`, `login_stub.summon_pet/dismiss_pet/handle_pet_event/pet_tick`.
 

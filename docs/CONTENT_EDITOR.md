@@ -80,6 +80,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Civic diplomacy:** the real civic stats per area, their ranges and their effects were server data; ours is one placeholder value ("Thestran Wastes Camp Prosperity", +5 per win against Orin).
 
+**Summoned pets:** what each class summon (Awaken Abomination, Summon Attendant of Hayatet/Rakurr/Tuurgin, Ritual Animatus) creates, its race, model, level, health and abilities were server data; abilities.json has placeholders.
+
 **Bags:** the real bags (names, slot counts, icons, where they drop or are sold) were server data. `server/content/items.json` has one placeholder, "Small Pouch" (8 slots, sold at camp_supplies); see docs/INVENTORY.md "Bags".
 
 **Fishing leaderboards:** the real servers ranked catches across the whole server; ours ranks the characters in characters.json (docs/FISHING.md).
