@@ -6473,6 +6473,18 @@ def dev_command(text, player=None):
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
+    if words[0] == "npclist" and player:
+        # !npclist [radius]: the GM NPC list (0x786) of the NPCs near you, nearest first. The
+        # EncounterDBId is the spawn's index in content/spawns/<chunk>.json, the tag its mob key.
+        radius = float(words[1]) if len(words) > 1 else 3000.0
+        pos = player.live_position or player.spawned_at or (0.0, 0.0, 0.0)
+        near = sorted(((math.hypot(n.location[0] - pos[0], n.location[1] - pos[1]), n) for n in player.npcs.values()
+                       if math.hypot(n.location[0] - pos[0], n.location[1] - pos[1]) <= radius),
+                      key=lambda t: t[0])
+        rows = [(n.name, str(n.template_id or ""), getattr(n, "level", 1),
+                 n.entity_id - zone.SPAWN_EID_BASE if 0 <= n.entity_id - zone.SPAWN_EID_BASE < 0x100000 else -1,
+                 n.location) for _, n in near[:40]]
+        return [zone.npc_list(rows)]
     if words[0] == "songs" and player:
         # !songs: learn the Bard's song parts whatever your class, and open the Song window (testing).
         player.song_parts = songs.part_abilities(ARGS.content.songs.get("Bard", {}))

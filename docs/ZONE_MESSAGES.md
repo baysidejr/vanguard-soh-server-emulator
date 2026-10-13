@@ -70,7 +70,7 @@ Classes `(none)` = handler ignores payload (signal); `(raw)` = handler reads the
 | 0x62f | MsgSingleByte | u8 | inline | Unknown. |
 | 0x630 | MsgThreeInts | i32, i32, i32 | inline | Local player + FUN_0061d470(1.0f,0). Unknown. |
 | 0x677 | (none) |  | inline | Client replies with message 0x4fc (empty MsgSendSingleSGOString). Inferred: ping/ack request. |
-| 0x786 | MsgListNPCResponse[] | i32 count, i32 verbose, then count x {wstr, wstr, i32, i32, f32, f32, f32} | FUN_00621500 | GM NPC list: "%s (Lvl %d) %s EncounterDBId: %d Loc: ...". Observed. |
+| 0x786 | MsgListNPCResponse[] | i32 count, i32 verbose, then count x {wstr name, wstr tag, i32 encounterDbId, i32 level, f32 x, f32 y, f32 z} | FUN_00621500 | GM NPC list: "%s (Lvl %d) %s EncounterDBId: %d Loc: ..." in chat, only when verbose != 0. Verified live with `!npclist` (tag = mob key, id = spawn index). |
 | 0x787 | MsgTwoInts | i32 total, i32 listed | inline | "*** %d total NPCs in the chunk." Observed. |
 | 0x788 | MsgNpcDbInfo | wstr, wstr, i32, f32, f32, f32, i32, i32, i32 | inline | GM NPC DB info. Inferred. |
 | 0x7de | MsgSGOVector | f32, f32, f32 | FUN_00b71200 | Vector -> FUN_00b71200(x,y,z) (same fn WorldServer 0x54 uses). Inferred: set camera/target location. |

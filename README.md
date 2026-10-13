@@ -153,6 +153,7 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!questreset <quest key>` | Forget a quest so it can be taken again |
 | `!lfm` | Show yourself as looking for members on the Find window |
 | `!songs` | Learn the Bard's song parts and open the Song window |
+| `!npclist [radius]` | List nearby NPCs with their spawn index and mob key (for content work) |
 | `!kill` | Kill the target with one hit |
 | `!react` | Activate the newest open combat reaction (chain step) |
 | `!spherexp <1 crafting / 2 diplomacy> <amount>` | Gain crafting or diplomacy XP (level-ups) |

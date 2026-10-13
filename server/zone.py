@@ -173,10 +173,25 @@ def tombstone_spawn(w, args, player):
     return npc
 
 
+SPAWN_EID_BASE = 0x2000000
+
+
+def npc_list(rows, verbose=True):
+    """0x786 MsgListNPCResponse[] {i32 count, i32 verbose, count x {wstr name, wstr tag, i32 encounter id,
+    i32 level, f32 x, y, z}}: the client prints "<name> (Lvl N) <tag> EncounterDBId: <id>
+    Loc: x, y, z." per row (FUN_00621500). rows: [(name, tag, level, id, (x, y, z))]."""
+    import struct
+    data = struct.pack("<ii", len(rows), int(verbose))
+    for name, tag, level, eid, loc in rows:
+        data += ((name + "\0").encode("utf-16-le") + (tag + "\0").encode("utf-16-le")
+                 + struct.pack("<iifff", int(eid), int(level), *(float(c) for c in loc)))
+    return zone_event(0x786, data)
+
+
 def populate_world(w, args):
     """Create the shared NPCs of a chunk from content/spawns/<chunk>.json."""
     for n, (spawn, template) in enumerate(args.content.spawns(w.level, args.client_dir)):
-        eid = 0x2000000 + n
+        eid = SPAWN_EID_BASE + n
         loc = (float(spawn["x"]), float(spawn["y"]), float(spawn["z"]))
         npc = combat.Npc(eid, template["name"], None,
                          f"{content.PAWN_PACKAGE}.{template['pawn_class']}",
