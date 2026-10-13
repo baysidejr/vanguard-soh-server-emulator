@@ -50,9 +50,11 @@ The unmodified client, talking only to this emulator:
 - [x] Item durability (worn on death) and repairs at a merchant
 - [x] /who, friends and ignore lists, /afk /anon /lfg, /random, /inspect
 - [x] Ability effects: buffs with timers and stat bonuses, damage over time with target debuff icons, heals, cooldowns
-- [x] Guilds: create, invite, join, ranks, kick/quit/delete, guild chat
-- [x] Brotherhoods: invite popup, join, leave
-- [ ] Crafting toolbelts, utilities and catalysts; per-character diplomacy decks
+- [x] Guilds: create, invite, join, ranks, kick/quit/delete, guild chat, message of the day, rank names, /guildstatus
+- [x] Brotherhoods: invite popup, join, leave, kick, promote, MOTD, notes, rename
+- [x] Combat text written by the client (Combat tab) for hits, heals and damage over time; cast bars; NPC special attacks
+- [x] Per-character diplomacy decks, card slotting and reward cards; crafting catalysts
+- [ ] Crafting toolbelts and utilities; the hotbar cooldown sweep
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
