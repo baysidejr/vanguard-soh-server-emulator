@@ -37,6 +37,7 @@ import titles
 import duel
 import pets
 import caravan
+import fishing
 import bank
 import social
 import effects
@@ -313,6 +314,7 @@ def movement_tick(zone_sock, clients, args):
             if player.health > 0:
                 npc_special(state, npc, now)
         pet_tick(state, args, now, MOVE_TICK)
+        fishing_tick(state, now)
     for w in world.all_worlds():
         players = w.players()
         for npc in w.npcs.values():
@@ -1595,6 +1597,92 @@ def caravan_login(state):
     if c is not None:
         caravan_window(state, c)
         caravan_all(c, lambda s: caravan_window(s, c) if s is not state else None)
+
+
+FISH = [("Sand Carp", 0.7), ("Mud Eel", 0.3)]
+
+
+def equipped_kind(player, kind):
+    """The equipped fishing pole or bait (items.json "fishing": "pole" / "bait")."""
+    for e in player.equipment:
+        if ARGS.content.item(e[1]).get("fishing") == kind:
+            return e
+    return None
+
+
+def handle_fishing_event(state, event, data):
+    player, send = state["player"], state["send"]
+    s = state.get("fishing")
+    now = time.time()
+    print(f"  >>> ZONE fishing event {event:#x}: {data.hex(' ')} phase={s and s['phase']}")
+    if event == fishing.CAST:
+        if s is not None:
+            return
+        if equipped_kind(player, "pole") is None or equipped_kind(player, "bait") is None:
+            send(build_system_text("You need a fishing pole in your primary hand and bait in your secondary hand.",
+                                   SYSTEM_TEXT_ERROR))
+            return
+        state["fishing"] = {"phase": "cast", "since": now}
+        send(fishing.cast())
+        send(build_system_text("You cast your line.", SYSTEM_TEXT_WHITE))
+    elif s is None:
+        return
+    elif event == fishing.BOBBER and s["phase"] == "cast":
+        s.update(phase="wait", bite=now + fishing.bite_delay())
+    elif event == fishing.STATE and data[:4] == b"\0\0\0\0":
+        state.pop("fishing", None)
+    elif event == fishing.KEY and s["phase"] == "fight" and s.get("pull") is not None and len(data) >= 4:
+        good = struct.unpack_from("<i", data)[0] == s["pull"]
+        s["pull"] = None
+        send(fishing.event(player.char_id, fishing.GOOD if good else fishing.OOPS, struct.unpack_from("<i", data)[0]))
+        s["good" if good else "miss"] += 1
+        s["next"] = now + 1.0
+        fishing_finish(state)
+
+
+def fishing_finish(state):
+    """Land the fish or lose it once the fight is decided."""
+    player, send, s = state["player"], state["send"], state["fishing"]
+    if s["good"] >= fishing.NEEDED:
+        state.pop("fishing")
+        send(fishing.event(player.char_id, fishing.CAUGHT))
+        name = random.choices([f for f, _w in FISH], [w for _f, w in FISH])[0]
+        give_item(state, name)
+        bait = equipped_kind(player, "bait")
+        if bait is not None:
+            player.equipment.remove(bait)
+            send(zone.zone_event(0x1A5, struct.pack("<iB", bait[0], 0)))
+            gear_changed(state, ARGS, player)
+            send(build_system_text("Your bait is used up.", SYSTEM_TEXT_WHITE))
+        skill_up(state, fishing.SKILL, "Fishing", 300)
+    elif s["miss"] >= fishing.MISSES:
+        state.pop("fishing")
+        send(fishing.event(player.char_id, fishing.GOT_AWAY))
+
+
+def fishing_tick(state, now):
+    s = state.get("fishing")
+    if s is None:
+        return
+    player, send = state["player"], state["send"]
+    if s["phase"] == "cast" and now - s["since"] > fishing.LAND_TIMEOUT:
+        state.pop("fishing")
+        send(fishing.state(fishing.STOP))
+        send(build_system_text("Your line needs to land in water.", SYSTEM_TEXT_ERROR))
+    elif s["phase"] == "wait" and now >= s["bite"]:
+        s.update(phase="fight", good=0, miss=0, pull=None, next=now + 1.0)
+        send(fishing.state(fishing.FISH_ON))
+    elif s["phase"] == "fight":
+        if s.get("pull") is not None and now > s["pull_until"]:
+            s["pull"] = None
+            s["miss"] += 1
+            send(fishing.event(player.char_id, fishing.OOPS))
+            s["next"] = now + 1.0
+            fishing_finish(state)
+        elif s.get("pull") is None and now >= s["next"]:
+            s["pull"] = random.randrange(4)
+            s["pull_until"] = now + fishing.PULL_SECONDS
+            send(fishing.event(player.char_id, fishing.PULL, s["pull"]))
 
 
 def use_tombstone(state):
@@ -4498,6 +4586,9 @@ def dev_command(text, player=None):
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
         return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
+    if words[0] == "fishbite" and player:
+        # !fishbite: as if the bobber landed in water (testing where there is no water).
+        return [("fishev", fishing.BOBBER, struct.pack("<fff", 0, 0, 0))]
     if words[0] == "ui" and len(words) > 1:
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
@@ -4870,6 +4961,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "fishev":
+                        handle_fishing_event(state, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "duelev":
                         handle_duel_event(state, m[1], m[2])
                         continue
@@ -4954,6 +5048,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in fishing.CLIENT_EVENTS and state.get("player"):
+            handle_fishing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in caravan.CLIENT_EVENTS and state.get("player"):
             handle_caravan_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in pets.CLIENT_EVENTS and state.get("player"):

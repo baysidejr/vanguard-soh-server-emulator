@@ -47,6 +47,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Housing | plot positions and prices, building types per plot, prefab names, fixtures and chests, upkeep, construction materials | `server/content/plots.json`: one placeholder plot with two building types (instant construction) |
 | Titles | every title name and id, prefix or suffix, how each is earned (quests, levels, achievements, crafting, diplomacy) | `server/content/titles.json`: 3 placeholder titles |
 | Pets | which abilities summon which pet (race, model, level), pet abilities, pet types per class | none yet |
+| Fishing | fish species (name, fresh/salt water, zones, weight range, bait, 4-direction combo), fish and bait items, bite timing, minigame tuning, fishing spots with water | two placeholder fish, one pole, one bait |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)
