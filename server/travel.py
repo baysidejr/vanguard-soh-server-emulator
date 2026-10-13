@@ -9,6 +9,7 @@ client handlers FUN_005d86d0 / FUN_005d83a0).
         prints "The locations section of your Adventure Journal has changed."; other types are a
         plain point of interest on the map.
   0x383 {i32 id}: remove a location. 0x2aa (same layout as 0x382) updates an existing one."""
+import math
 import struct
 
 POI, TOMBSTONE, NEW_POI = 2, 1, 0
@@ -59,23 +60,36 @@ def category_of(template):
     return None
 
 
-def chunk_locations(spawns, chunk):
-    """Journal entries for a chunk's spawns: [(category id, entry message)] for the NPCs and
-    objects that offer a service; ids are stable per spawn index."""
+DISCOVER_RANGE = 1500.0           # walking this close to a service location adds it to the journal
+
+
+def chunk_sites(spawns):
+    """[(entry id, category id, (x, y, z), name, description)] for the chunk's NPCs and objects
+    that offer a service; ids are stable per spawn index."""
     out = []
     for n, (s, t) in enumerate(spawns):
         cid = category_of(t)
-        if cid is None:
-            continue
-        desc = t.get("title") or ""
-        out.append((cid, entry(ENTRY_ID_BASE + n, (s["x"], s["y"], s.get("z") or 0.0), t.get("name", s["mob"]),
-                               chunk, cid, desc)))
+        if cid is not None:
+            out.append((ENTRY_ID_BASE + n, cid, (s["x"], s["y"], s.get("z") or 0.0),
+                        t.get("name", s["mob"]), t.get("title") or ""))
     return out
 
 
-def login_messages(spawns, chunk, house=None):
-    """Categories, then the chunk's locations, then the player's house (category -4)."""
-    found = chunk_locations(spawns, chunk)
+def chunk_locations(spawns, chunk, known=None):
+    """Journal entries for a chunk's spawns: [(category id, entry message)]; known (a set of
+    entry ids) keeps only the discovered ones."""
+    return [(cid, entry(eid, loc, name, chunk, cid, desc)) for eid, cid, loc, name, desc in chunk_sites(spawns)
+            if known is None or eid in known]
+
+
+def discover(sites, known, pos, rng=DISCOVER_RANGE):
+    """The sites within rng of pos (x, y) that are not in known yet."""
+    return [s for s in sites if s[0] not in known and math.hypot(s[2][0] - pos[0], s[2][1] - pos[1]) <= rng]
+
+
+def login_messages(spawns, chunk, house=None, known=None):
+    """Categories, then the chunk's (discovered) locations, then the player's house (category -4)."""
+    found = chunk_locations(spawns, chunk, known)
     used = {cid for cid, _ in found} or {CATEGORIES[0][0]}   # one 0x2ae creates the built-ins
     out = [category(name, cid) for cid, name, _ in CATEGORIES if cid in used]
     out += [m for _, m in found]

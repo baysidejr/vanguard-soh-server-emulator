@@ -2692,9 +2692,33 @@ def journal_login(state):
         plot = ARGS.content.plots.get(pid)
         if st.get("owner", "").lower() == player.name.lower() and st.get("building") and plot:
             house = (plot["name"], plot["loc"], level_chunk(plot["chunk"]))
-    for m in travel.login_messages(spawns, chunk, house):
+    known = {int(k.split(":")[1]) for k in getattr(player, "discovered", []) if k.startswith(player.level + ":")}
+    msgs = travel.login_messages(spawns, chunk, house, known)
+    for m in msgs:
         state["send"](m)
+    state["journal_cats"] = {struct.unpack_from("<i", m, 10 + len(m[10:]) - 8)[0]
+                             for m in msgs if struct.unpack_from("<I", m, 2)[0] == 0x2AE}
+    state["journal_sites"] = (player.level, travel.chunk_sites(spawns), known)
     player.journal_ready = True                          # the built-in categories exist now
+
+
+def journal_tick(state):
+    """Once a second: service locations the player walks near are added to the journal."""
+    player = state["player"]
+    js = state.get("journal_sites")
+    pos = player.live_position
+    if js is None or pos is None or js[0] != player.level:
+        return
+    level, sites, known = js
+    for eid, cid, loc, name, desc in travel.discover(sites, known, pos):
+        known.add(eid)
+        if cid not in state.setdefault("journal_cats", set()):
+            state["journal_cats"].add(cid)
+            state["send"](travel.category(next(n for c, n, _ in travel.CATEGORIES if c == cid), cid))
+        state["send"](travel.entry(eid, loc, name, level_chunk(level), cid, desc))
+        state["send"](build_system_text(f"Location discovered: {name}.", SYSTEM_TEXT_WHITE))
+        player.discovered = getattr(player, "discovered", []) + [f"{level}:{eid}"]
+        save_character_field(player.name, "discovered", player.discovered)
 
 
 def assembly_login(state):
@@ -3066,6 +3090,7 @@ def world_tick(zone_sock, clients, args):
             effects_tick(state, args, now)
             breath_tick(state)
             energy_tick(state, now)
+            journal_tick(state)
             for m in encounter.sync(state.setdefault("encounter", {}), player, player.npcs):
                 state["send"](m)
             reactions_tick(state, now)
@@ -7092,6 +7117,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.titles = list(char.get("titles", []))
             player.songs = list(char.get("songs", []))
             player.fish_records = dict(char.get("fish_records", {}))
+            player.discovered = list(char.get("discovered", []))
             player.assembly_known = list(char.get("assembly_known", []))
             player.title_prefix = char.get("title_prefix", -1)
             player.title_suffix = char.get("title_suffix", -1)

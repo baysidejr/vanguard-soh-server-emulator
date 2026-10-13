@@ -20,4 +20,8 @@ Optional server route, read in the client but not sent [O]:
 - **0x385** `{u8}`: 0 "Route to location found.", 2 "You are in the wrong chunk to track that entry.", 3 clears the route (FUN_005d5680).
 - **0x381** `{i32 count, count x entry}`: several journal entries in one message (FUN_005d8c60).
 
-Not done: discovering locations by visiting them (all of a chunk's service locations are known at login) and server routes.
+## Discovery (verified live 2026-10-13)
+
+A location joins the journal when the player first comes within 1500 units of it (`travel.DISCOVER_RANGE`, checked once a second by `login_stub.journal_tick`): the server sends its category (0x2ae) if that category is new this session, then the 0x382 entry, and prints "Location discovered: Orin the Trader.". Discoveries are saved per character (`discovered`, "<chunk level>:<entry id>") and sent at login. Logging in at the camp discovered all twelve services, and the Locations tab listed them under Merchants, Trainers, Services, Crafting Stations and Riftways.
+
+Not done: server routes (0x384/0x385).

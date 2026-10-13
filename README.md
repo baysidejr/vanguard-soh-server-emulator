@@ -81,7 +81,7 @@ The unmodified client, talking only to this emulator:
 - [x] Travel journal (Locations tab: the chunk's merchants, trainers, services, stations, riftways and your house); in-game bug reports (/bug); Bard songs (compose, save, play, stop, energy cost); minions (the Minions window, timed skeleton servants from a Bone Charm); Psionicist mindsets (combat forms bar); fishing achievements and best-catch leaderboards (Achievements tab); quest feedback window (--quest-feedback)
 - [x] Splitting stacks (Ctrl+click), bags on the main bar (Small Pouch), master looter /giveplayerlootitem, duel challenge timeouts, brotherhood XP bonus, parley item rewards, diplomacy card refresh timers, civic diplomacy, class summons (Necromancer abomination, Shaman attendants, Psionicist simulacrum), Fear
 - [x] Maintained stances (Effects Maintained window, right-click to cancel); merchant buyback tab; encounter (group-of-mobs) display; /unstuck; resist chances; NPCs calling nearby friends for help
-- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker)
+- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker); locations discovered by walking near them; combat reaction windows close when their enemy dies
 
 ### Not done yet
 - [ ] Doors and other moving world objects (needs Mover replication; see HOUSING.md)
@@ -89,8 +89,8 @@ The unmodified client, talking only to this emulator:
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
 - [ ] Minion abilities; song interruption by fear or flying
 - [ ] Combat-form ability restrictions and the form recovery bar
-- [ ] Discovering travel-journal locations by visiting them; server-sent travel routes
-- [ ] Combat chain resets (0x393) and partial clears
+- [ ] Server-sent travel routes (0x384)
+- [ ] Combat chain reset message (0x393)
 - [ ] Brotherhood stats window (`/brotherhoodstats`)
 - [ ] Unlocking dialogue as a parley reward; the civic stats display
 - [ ] Fishing combo directions

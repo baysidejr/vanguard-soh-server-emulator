@@ -320,6 +320,16 @@ class TravelJournalTests(unittest.TestCase):
         self.assertIn("Orin".encode("utf-16-le"), msgs[2])
         self.assertEqual(struct.unpack_from("<i", msgs[-1], len(msgs[-1]) - 9)[0], travel.HOUSING)
         self.assertEqual(payload(travel.login_messages([], (0, 0))[0])[0], 0x2AE)   # built-ins still made
+        known = {travel.ENTRY_ID_BASE + 2}
+        ids = [payload(m)[0] for m in travel.login_messages(spawns, (-19, 12), known=known)]
+        self.assertEqual(ids, [0x2AE, 0x382])                       # only the forge is known
+
+    def test_discover(self):
+        spawns = [({"mob": "m", "x": 1000, "y": 0}, {"name": "Orin", "merchant": "camp"}),
+                  ({"mob": "f", "x": 5000, "y": 0}, {"name": "Forge", "station": True})]
+        sites = travel.chunk_sites(spawns)
+        self.assertEqual([s[3] for s in travel.discover(sites, set(), (0, 0))], ["Orin"])
+        self.assertEqual(travel.discover(sites, {sites[0][0]}, (0, 0)), [])
 
 
 class BugReportTests(unittest.TestCase):
