@@ -97,6 +97,22 @@ RESIST_CHANCE_PLAYER = 0.15    # a player shrugs off an NPC's harmful effect
 RESIST_CHANCE_NPC = 0.10       # an NPC shrugs off a player's damage over time
 
 
+STANCE_SECONDS = 10 * 365 * 86400   # a stance lasts until replaced or cancelled
+CANCEL_MAINTAINED = 0x24E            # client {i32 id}: right-click in Effects Maintained, /cancelmaintained
+
+
+def maintained_add(eid, name, desc, icon):
+    """0x23e {i32 id, wstr name, wstr desc, u8 0, i32 icon, bool8 0, f32 0}: an entry in the
+    Effects Maintained window (resending the id replaces it)."""
+    data = (struct.pack("<i", eid) + (name + "\0").encode("utf-16-le") + (desc + "\0").encode("utf-16-le")
+            + struct.pack("<BiBf", 0, icon, 0, 0.0))
+    return struct.pack("<HII", 2, 0x23E, len(data)) + data
+
+
+def maintained_remove(eid):
+    return struct.pack("<HIIi", 2, 0x23F, 4, eid)
+
+
 def resisted(other_eid, ability, effect="", you=True):
     """0x278 (you resisted, "YouResistedAbilityEffect") / 0x279 (your target resisted,
     "EnemyResistedAbilityEffect"): MsgPCResistedAbilityEffect {eid64 other, wstr ability,

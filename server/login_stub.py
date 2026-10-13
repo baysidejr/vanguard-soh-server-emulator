@@ -408,8 +408,11 @@ def use_ability(state, args, player, ability):
             print(f"  {player.name} heals {who.name} for {amount} ({who.health}/{who.stats['hit_points']})")
         else:
             # A friendly target, or yourself (stances like "... Style" and "self" buffs: always you).
-            ts = state if spec.get("self") or "Style" in name else heal_target(state)
-            apply_buff(ts, ts["player"], name, spec, now)
+            ts = state if spec.get("self") or spec.get("stance") or "Style" in name else heal_target(state)
+            if spec.get("stance"):
+                apply_stance(state, player, name, spec, now)
+            else:
+                apply_buff(ts, ts["player"], name, spec, now)
             if ts is not state:
                 send(build_system_text(f"You cast {name} on {ts['player'].name}.", SYSTEM_TEXT_WHITE))
                 ts["send"](build_system_text(f"{player.name} casts {name} on you.", SYSTEM_TEXT_WHITE))
@@ -633,6 +636,27 @@ def effect_id(player, name):
     return 7000 + sum(name.encode("utf-8")) % 1000
 
 
+def apply_stance(state, player, name, spec, now):
+    """A stance (abilities.json "stance"): the buff without a timer, one at a time, listed in
+    Effects Maintained (0x23e) until replaced or cancelled (0x24e)."""
+    send = state["send"]
+    for e in getattr(player, "effects", []):
+        if e.get("stance") and e["name"] != name:
+            e["ends"] = 0                                   # effects_tick takes it off
+    apply_buff(state, player, name, dict(spec, duration=effects.STANCE_SECONDS), now)
+    e = next(x for x in player.effects if x["id"] == effect_id(player, name))
+    e["stance"] = True
+    send(effects.effect_remove(e["id"]))          # no timed buff icon ("3650d"): the maintained entry shows it
+    send(effects.maintained_add(e["id"], name, e.get("desc", ""), spec.get("icon", 607)))
+    send(build_system_text(f"You assume {name}.", SYSTEM_TEXT_WHITE))
+
+
+def cancel_maintained(state, eid):
+    for e in getattr(state["player"], "effects", []):
+        if e["id"] == eid and e.get("stance"):
+            e["ends"] = 0
+
+
 def apply_buff(state, player, name, spec, now):
     send = state["send"]
     stat, bonus, duration = spec["stat"], spec["bonus"], spec["duration"]
@@ -690,6 +714,8 @@ def effects_tick(state, args, now):
                 sid = vgmsg.STAT_IDS[e["stat"]]
                 send(zone.zone_event(0x2D4, vgmsg.stat_update(sid, player.stats[e["stat"]])))
                 send(build_system_text(f"{e['name']} wears off.", SYSTEM_TEXT_WHITE))
+                if e.get("stance"):
+                    send(effects.maintained_remove(e["id"]))
             elif now >= e["next_note"]:
                 e["next_note"] = now + 5
                 send(effects.effect_timer(e["id"], e["ends"] - now, e["duration"]))
@@ -6480,6 +6506,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(p.name, "active_toolbelt", v)
                 send_message(sock, addr, state, craft.active_toolbelt(v))
                 send_message(sock, addr, state, zone.zone_event(0x30E))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:
+            cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
             unstuck(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CORPSE_EVENTS and state.get("player"):

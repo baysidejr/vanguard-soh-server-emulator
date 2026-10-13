@@ -1,5 +1,5 @@
 {
-  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number; cast: cast time in seconds (moving interrupts). Real numbers were server data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number; cast: cast time in seconds (moving interrupts). Real numbers were server data (docs/CONTENT_EDITOR.md). stance: true makes a buff a maintained stance (no timer, one stance at a time, shown in the Effects Maintained window; right-click there cancels it).",
   "Adamant Foeman I": {
     "kind": "buff",
     "stat": "constitution",
@@ -40,5 +40,26 @@
       40
     ],
     "cast": 2.0
+  },
+  "Offensive Style I": {
+    "kind": "buff",
+    "stance": true,
+    "stat": "strength",
+    "bonus": 12,
+    "icon": 607
+  },
+  "Precision Style I": {
+    "kind": "buff",
+    "stance": true,
+    "stat": "dexterity",
+    "bonus": 12,
+    "icon": 692
+  },
+  "Evasive Style I": {
+    "kind": "buff",
+    "stance": true,
+    "stat": "constitution",
+    "bonus": 10,
+    "icon": 560
   }
 }
