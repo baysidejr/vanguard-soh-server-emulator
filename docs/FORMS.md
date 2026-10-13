@@ -25,4 +25,15 @@ Tags: [O] read in decompiled code (combat UI manager DAT_014639a0, dispatcher FU
 
 Abilities list the forms they can be used in: MsgAbilityInfo fields #61-68, where -1 means any form [O]. The server sends -1, so every ability works in every form.
 
-Not done: the psionic pool (0x26b, /psionicpoints), the recovery bar (0x140), and per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.
+## Psionic pool
+
+Read in the client [O], not implemented: the shipped UI files (VGUIAssets) contain no window bound to these game variables, so nothing on screen would show them.
+
+| Dir | Id | Payload | Meaning |
+|---|---|---|---|
+| S->C | 0x26d | MsgTwoInts {i32 current, i32 max} | Sets the game vars PsionicPointPoolCurr, PsionicPointPoolMax and PsionicPointPoolStatus (FUN_00589f50, FUN_00589a10). |
+| S->C | 0x26b | {i32 id, i32 ?, i32 ?, wstr name, i32 ?, i32 ?} | MsgClientPsionicPoolConcentrationAdd: adds a row to the PsionicConcentrationList (FUN_0058b760, FUN_0058a4e0). |
+| S->C | 0x26c | MsgSingleInt {i32 id} | Removes that row and prints "You stop concentrating on <name>" (FUN_0058b160). |
+| C->S | 0x250 | MsgSingleInt {i32} | /psioniccancelconcentration and the UI command psionic_pool_cancel_concentration (0x120) (FUN_00589ed0). |
+
+Not done: the recovery bar (0x140) and per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.

@@ -2329,7 +2329,8 @@ def record_catch(state, name, bait):
     lo, hi = ARGS.content.item(name).get("fish", {}).get("weight", [0.5, 3.0])
     weight = round(random.uniform(lo, hi), 1)
     records = player.__dict__.setdefault("fish_records", {})
-    rec, best = fishing.add_catch(records, name, weight, CHUNK_NAMES.get(player.level, player.level), bait)
+    rec, best = fishing.add_catch(records, name, weight, CHUNK_NAMES.get(player.level, player.level), bait,
+                                  time.strftime("%Y-%m-%d"))
     send(build_system_text(f"Your {name} weighs {weight:g} pounds."
                            + (" A personal best!" if best and rec["caught"] > 1 else ""), SYSTEM_TEXT_WHITE))
     send(fishing.achievement_update(name, rec, fish_fresh(name)))
@@ -2340,6 +2341,22 @@ def fishing_login(state):
     """The Achievements tab's Fishing page: one row per fish the player has caught."""
     records = getattr(state["player"], "fish_records", {})
     for m in fishing.achievement_list(records, fish_fresh):
+        state["send"](m)
+
+
+def fishing_best(state, data):
+    """0x5a4: the Best catches board for the fish picked on the Fishing page."""
+    if len(data) < 9:
+        return
+    _, fish_id, today = struct.unpack_from("<iiB", data)
+    player = state["player"]
+    fish = next((n for n, r in getattr(player, "fish_records", {}).items() if r["id"] == fish_id), None)
+    if fish is None:
+        return
+    chars = {c["first"]: c.get("fish_records", {}) for c in load_characters()}
+    chars[player.name] = getattr(player, "fish_records", {})
+    board = fishing.leaderboard(chars.items(), fish, time.strftime("%Y-%m-%d") if today else None)
+    for m in fishing.best_messages(board):
         state["send"](m)
 
 
@@ -3627,6 +3644,9 @@ def handle_social_world(zone_state, event, data, reply):
         return
     if event == social.FIND_LFM and len(data) >= 2:
         player.lfm = bool(data[1])
+        return
+    if event == fishing.BEST_REQUEST:
+        fishing_best(zone_state, data)
         return
     if event in (group.REQUEST_JOIN, group.REQUEST_DECLINE):
         name = data.decode("utf-16-le", "replace").split(chr(0))[0].strip()

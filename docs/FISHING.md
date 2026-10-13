@@ -65,7 +65,7 @@ Also in state 3, holding **MoveBackward** (`FUN_004ce900`) pulls the bobber towa
 ### Fishing achievements ("Fishing" tab in the Quests window, `VGUIFishingAchievements.xml`; dispatcher `FUN_00449300`, manager `DAT_014639dc`)
 - **0x5a1** (add) / **0x5a2** (update by fishId), message `FUN_004476f0`, schema `FUN_004459e0` [O]:
   `wstr fishName, wstr biggestCatchLocation, i32 type(must be 0), i32 fishId (-2 = clear list, -3 = refresh UI), i32 totalCaught, f32 totalWeight, f32 highestWeight, bool8 freshWater (0 = salt), wstr onlyBait, wstr favoriteBait ("unknown" or empty = any), u8 combo[4]` (0 Up, 1 Right, 2 Down, 3 Left; first byte 0xFF = "Unknown."). Display: `FUN_006703f0`/`006707c0`/`00670c60`. Text: "You've caught %d %s!", total weight, "The biggest %s ... weighed %0.2f ... in %s", "%s can be found in fresh/salt water", bait hints, "Combo: Up, Left, ..." [O]
-- **0x5a3** best-catches rows (message `FUN_00448180`, schema `FUN_00445aa0`): `i32 ?, i32 rowId (-2 clear / -3 refresh), i32 (must be 0), wstr, wstr, i32, f32`. The UI columns are Rank, Name, highestweight, Location, so it is probably wstr name, wstr location, i32 rank, f32 weight [I]. This is the reply to 0x5a4.
+- **0x5a3** best-catches rows (message `FUN_00448180`, schema `FUN_00445aa0`): `i32 rank, i32 rowId (-2 clear / -3 refresh), i32 (must be 0), wstr name (rows with an empty name are skipped), wstr location, i32 rank, f32 weight` (FUN_00449230, FUN_004472d0; verified live). This is the reply to 0x5a4.
 
 ## Animations / FX / sounds
 - Pawn animations (anim name table at 0xbd2eda): `fishingCast, fishingIdle, fishingIdleBreak, fishingReel, fishingForward/Backward/Left/Right, fishingCatch, jogFishing`. Emote `FISHING_CAST` (social 400060) [O].
@@ -92,4 +92,5 @@ The Quests window's **Achievements** tab has one page, "Fishing" (VGUIFishingAch
 - Layout: `wstr fish, wstr biggest-catch location, i32 type 0, i32 fish id, i32 total caught, f32 total weight, f32 heaviest, bool8 fresh water, wstr only bait, wstr favourite bait, u8 combo[4]` (combo directions 0 up, 1 right, 2 down, 3 left, 0xFF unknown).
 - The page shows "Sand Carp can be found in salt water. You have noticed that they really seem to like Wastes Grub.", "Combo: Unknown.", "You've caught 2 Sand Carp!", the total weight and the biggest catch.
 - Dev: `!fishcatch <fish>` counts a catch without the minigame.
-- Not done: the "Best catches" leaderboard (C->S 0x5a4 {type, fish id, bool8 today} on the world channel, answer 0x5a3 rows) and combo directions.
+- **Best catches** (verified live 2026-10-13): the page's dropdown has "All Time Biggest Catches" and "Biggest Catches For Today". Picking a fish there sends world type 5 **0x5a4** {i32 type 0, i32 fish id (the player's 0x5a1 row id), bool8 today}. The server ranks each character's heaviest catch of that fish (today: catches made on the server's current date, kept as `fish_records[fish].today`) and answers on the zone connection with 0x5a3: -2, up to 10 rows, -3. The list showed "1 Justins 2.40 Tursh Village / 2 Ranger 1.80 Sundering Wastelands / 3 Justin 1.10 Khal".
+- Not done: combo directions.

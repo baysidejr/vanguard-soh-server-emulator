@@ -74,17 +74,56 @@ def achievement_update(name, rec, fresh=False):
     return _event(0x5A2, record(name, rec, fresh))
 
 
-def add_catch(records, name, weight, where, bait):
-    """Count a catch; returns (record, new personal best)."""
+def add_catch(records, name, weight, where, bait, today=None):
+    """Count a catch; returns (record, new personal best). today ("YYYY-MM-DD") keeps the
+    day's biggest catch for the "Biggest Catches For Today" board."""
     rec = records.setdefault(name, {"id": len(records) + 1, "caught": 0, "total": 0.0, "best": 0.0, "baits": {}})
     rec["caught"] += 1
     rec["total"] = round(rec["total"] + weight, 2)
     best = weight > rec["best"]
     if best:
         rec["best"], rec["where"] = weight, where
+    if today and (rec.get("today", [None])[0] != today or weight > rec["today"][1]):
+        rec["today"] = [today, weight, where]
     if bait:
         rec["baits"][bait] = rec["baits"].get(bait, 0) + 1
     return rec, best
+
+
+# Best catches (Achievements tab, Fishing page): picking a fish or changing the dropdown sends
+# world type 5 0x5a4 {i32 type, i32 fish id (the 0x5a1 row id), bool8 today}; the client fills
+# BestAchievementsList from 0x5a3 MsgBestAchievementInfo {i32 rank, i32 row id (-2 clear,
+# -3 redraw), i32 0 (other values are ignored), wstr name (empty rows are not shown),
+# wstr location, i32 rank, f32 weight} (FUN_00449230, schema FUN_00445aa0).
+BEST_REQUEST, BEST_ROW = 0x5A4, 0x5A3
+BOARD_SIZE = 10
+
+
+def best_row(row_id, rank=0, name="", where="", weight=0.0):
+    return _event(BEST_ROW, struct.pack("<iii", rank, row_id, 0) + _w(name) + _w(where)
+                  + struct.pack("<if", rank, float(weight)))
+
+
+def leaderboard(characters, fish, today=None):
+    """[(weight, name, where)] biggest first: each character's best catch of a fish
+    (characters: [(name, fish_records)]); today only counts catches made on that day."""
+    board = []
+    for name, records in characters:
+        rec = records.get(fish)
+        if not rec:
+            continue
+        if today is None and rec.get("best"):
+            board.append((rec["best"], name, rec.get("where", "")))
+        elif today is not None and rec.get("today", [None])[0] == today:
+            board.append((rec["today"][1], name, rec["today"][2]))
+    return sorted(board, key=lambda b: -b[0])[:BOARD_SIZE]
+
+
+def best_messages(board):
+    out = [best_row(-2)]
+    out += [best_row(n, n, name, where, weight) for n, (weight, name, where) in enumerate(board, 1)]
+    out.append(best_row(-3))
+    return out
 
 
 def bite_delay(rng=random):

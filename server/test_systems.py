@@ -377,6 +377,19 @@ class FishingAchievementTests(unittest.TestCase):
         # row id after the two strings and the type: -2 clears, -3 redraws
         self.assertEqual(struct.unpack_from("<ii", msgs[0], 10 + 4)[1], -2)
 
+    def test_best_catches(self):
+        a, b = {}, {}
+        fishing.add_catch(a, "Sand Carp", 2.0, "Beach", None, "2026-10-12")
+        fishing.add_catch(b, "Sand Carp", 3.0, "Cove", None, "2026-10-13")
+        fishing.add_catch(b, "Sand Carp", 1.0, "Pier", None, "2026-10-13")
+        chars = [("Ann", a), ("Bob", b), ("Cy", {})]
+        self.assertEqual(fishing.leaderboard(chars, "Sand Carp"), [(3.0, "Bob", "Cove"), (2.0, "Ann", "Beach")])
+        self.assertEqual(fishing.leaderboard(chars, "Sand Carp", "2026-10-13"), [(3.0, "Bob", "Cove")])
+        msgs = fishing.best_messages(fishing.leaderboard(chars, "Sand Carp"))
+        self.assertEqual(len(msgs), 4)
+        self.assertEqual(struct.unpack_from("<iii", msgs[1], 10), (1, 1, 0))
+        self.assertTrue(msgs[1].endswith(struct.pack("<if", 1, 3.0)))
+
 
 class FormTests(unittest.TestCase):
     def test_form_list(self):
