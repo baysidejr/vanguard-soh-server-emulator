@@ -21,7 +21,8 @@ client 0xfd / 0x102 cancel                -> 0x2fd."""
 import struct
 
 USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2 = 0xFA, 0xFE, 0xFB, 0xFC, 0xF6, 0xFD, 0x102
-CLIENT_EVENTS = (USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2)
+CATALYST = 0xF7                      # {i32 item handle}: the player adds the offered catalyst
+CLIENT_EVENTS = (USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2, CATALYST)
 STATION = 0x4                        # EntityTypes bit
 MAX_AP = 100
 RECIPE_OK, RECIPE_MISSING = 0xFF, 2
@@ -104,6 +105,20 @@ def recipe_result(result, recipe_id):
 
 def workbench():
     return _event(0x303)
+
+
+def catalyst_offer(handle):
+    """0x2fb: shows "Add secondary ingredient" and an "Add <item>" catalyst entry;
+    clicking it sends 0xf7 {handle}."""
+    return _event(0x2FB, struct.pack("<i", handle))
+
+
+def catalyst_clear():
+    return _event(0x2FC)
+
+
+def quality(value):
+    return _event(0x2F8, struct.pack("<i", value))
 
 
 def started(quality=500):

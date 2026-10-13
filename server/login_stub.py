@@ -2303,14 +2303,43 @@ def handle_craft_event(state, event, data):
     elif event == craft.CONFIRM and session["recipe"]:
         send(craft.workbench())
     elif event == craft.BEGIN and session["recipe"]:
-        session.update(begun=True, stage=0, done=set(), ap=0, quality=500, comp=None, had_comp=False)
+        session.update(begun=True, stage=0, done=set(), ap=0, quality=500, comp=None, had_comp=False,
+                       catalyst_used=False)
         for m in craft.started(session["quality"]):
             send(m)
+        cat = session["recipe"].get("catalyst")
+        item = next((i for i in player.items if cat and i[1] == cat["item"]), None)
+        if item is not None:
+            send(craft.catalyst_offer(item[0]))
+    elif event == craft.CATALYST and session.get("begun") and len(data) >= 4:
+        if not add_catalyst(state, struct.unpack_from("<i", data, 0)[0]):
+            send(craft.rejected(7))
     elif event == craft.ACTION:
         if not session.get("begun"):
             send(craft.rejected(craft.NOT_NOW))
             return
         craft_action(state, session, struct.unpack_from("<i", data, 0)[0])
+
+
+def add_catalyst(state, handle):
+    """The recipe's catalyst (0xf7 from the catalyst window, or right-clicking the
+    item in the bags while crafting): used once, raises quality."""
+    player, send = state["player"], state["send"]
+    session = state.get("craft")
+    if not session or not session.get("begun"):
+        return False
+    cat = session["recipe"].get("catalyst")
+    item = next((i for i in player.items if i[0] == handle), None)
+    if not cat or item is None or item[1] != cat["item"] or session.get("catalyst_used"):
+        return False
+    session["catalyst_used"] = True
+    take_items(state, cat["item"], 1)
+    session["quality"] = min(1000, session["quality"] + cat.get("quality", 100))
+    send(craft.catalyst_clear())
+    send(craft.quality(session["quality"]))
+    send(craft.screen_text(f"Quality: Grade {craft.grade_letter(session['quality'])}"))
+    send(build_system_text(f"You add {cat['item']} to the mixture.", SYSTEM_TEXT_WHITE))
+    return True
 
 
 def craft_action(state, session, action):
@@ -3151,7 +3180,9 @@ def handle_message(sock, server, addr, state, payload, args):
             handle = struct.unpack_from("<i", payload, 10)[0]
             print(f"  >>> ZONE {'equip' if event == EQUIP_EVENT else 'unequip'} item {handle}: "
                   f"{payload[10:].hex(' ')}")
-            if player:
+            if player and add_catalyst(state, handle):
+                pass
+            elif player:
                 result = (zone.equip_item if event == EQUIP_EVENT else zone.unequip_item)(player, handle)
                 if isinstance(result, str):
                     send_message(sock, addr, state, build_system_text(result, SYSTEM_TEXT_ERROR))
