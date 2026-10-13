@@ -461,18 +461,25 @@ def consider(player, npc):
     return struct.pack("<HII", 2, CONSIDER_RESULT, len(data)) + data
 
 
-def proximity_aggro(npc, players):
-    """An aggressive NPC picks the nearest living player inside its aggro radius.
+KOS_AGGRO_RADIUS = 1000.0       # NPCs attack players their faction holds Kill on Sight
+
+
+def proximity_aggro(npc, players, kos=None):
+    """An aggressive NPC picks the nearest living player inside its aggro radius
+    (or KOS_AGGRO_RADIUS for players kos(p) says its faction hates).
     Returns that player when it starts a fight, else None."""
-    if npc.aggro or not npc.alive or npc.aggro_radius <= 0 or npc.merchant or npc.harvest:
+    if npc.aggro or not npc.alive or npc.merchant or npc.harvest or getattr(npc, "prop", False):
         return None
     best = None
     for p in players:
         pos = p.live_position or p.spawned_at
         if pos is None or p.health <= 0:
             continue
+        radius = max(npc.aggro_radius, KOS_AGGRO_RADIUS if kos and kos(p) else 0)
+        if radius <= 0:
+            continue
         d = math.hypot(pos[0] - npc.location[0], pos[1] - npc.location[1])
-        if d <= npc.aggro_radius and (best is None or d < best[0]):
+        if d <= radius and (best is None or d < best[0]):
             best = (d, p)
     if best:
         npc.aggro, npc.aggro_on = True, best[1]

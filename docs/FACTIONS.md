@@ -51,6 +51,8 @@ The cursor check for attacking (`EntityTypes 0x10000000`, see HARVESTING.md) als
 - Quest and parley rewards can include `"faction": {"<id>": amount}`.
 - Each change sends 0x358 and "Your standing with X has improved/worsened."; a tier change adds "X now regards you as <tier>."
 - Standings are saved per character (`factions` in characters.json).
+- An NPC whose faction holds the player Kill on Sight attacks when the player comes within 1000 units ("Dust Bear notices you!"), even if it is normally passive. Merchants, trainers, bankers and stations never do. [verified live]
+- `/con` adds "Dwarf Scout (Thestran Wastes Camp) regards you as Neutral." [verified live]
 - Dev command: `!faction <id> <amount>`.
 
 The real faction list (ids, names, starting values per race) lived in the server database and is listed as a gap in CONTENT_EDITOR.md.

@@ -304,7 +304,7 @@ def movement_tick(zone_sock, clients, args):
     for w in world.all_worlds():
         players = w.players()
         for npc in w.npcs.values():
-            victim = combat.proximity_aggro(npc, players)
+            victim = combat.proximity_aggro(npc, players, lambda p, npc=npc: faction_kos(p, npc))
             if victim is not None:
                 vs = w.members.get(victim.char_id)
                 if vs is not None:
@@ -1950,6 +1950,23 @@ def adjust_faction(state, fid, delta, quiet=False):
                                         SYSTEM_TEXT_WHITE))
 
 
+def faction_kos(player, npc):
+    """True when npc's faction holds the player Kill on Sight (it attacks on sight)."""
+    fid = getattr(npc, "faction", None)
+    if fid is None or npc.station or npc.trainer or npc.banker or npc.repairs:
+        return False
+    return faction_value(player, fid) < faction.TIERS[0][0]
+
+
+def faction_consider(player, npc):
+    fid = getattr(npc, "faction", None)
+    f = ARGS.content.factions.get(str(fid)) if fid is not None else None
+    if f is None or npc.harvest:
+        return None
+    return build_system_text(f"{npc.name} ({f['name']}) regards you as {faction.tier(faction_value(player, fid))}.",
+                             SYSTEM_TEXT_WHITE)
+
+
 def faction_reward(state, reward):
     for fid, amount in (reward or {}).get("faction", {}).items():
         adjust_faction(state, fid, amount)
@@ -3364,6 +3381,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if npc:
                 send_message(sock, addr, state, harvest.consider(npc, player_skill(player, harvest.SKILLS[npc.harvest["kind"]])) if npc.harvest
                              else combat.consider(player, npc))
+                line = faction_consider(player, npc)
+                if line:
+                    send_message(sock, addr, state, line)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CHUNK_CHANGE_EVENT:
             chunk_handoff(state, payload, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x313, 0x314):
