@@ -48,6 +48,7 @@ import social
 import effects
 import guild
 import brotherhood
+import bugs
 import diplomacy
 import content
 import merchant
@@ -4698,6 +4699,22 @@ def handle_faction_event(state, event, data):
 
 
 MAIL_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mail.json")
+BUG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bug_reports.json")
+
+
+def submit_bug_report(state, data):
+    """/bug window Submit (bugs.py): keep the report with who and where it was filed."""
+    player = state["player"]
+    try:
+        report = bugs.parse(data)
+    except struct.error:
+        return
+    pos = player.live_position or player.spawned_at or (0.0, 0.0, 0.0)
+    report.update(player=player.name, level=player.level, loc=[round(float(c)) for c in pos],
+                  target=(player.npcs[player.target].name if player.target in player.npcs else None))
+    n = bugs.save(BUG_FILE, report)
+    print(f"  bug report #{n} from {player.name}: {report['category']}: {report['description']!r}")
+    state["send"](build_system_text(f"Saved as bug report #{n}.", SYSTEM_TEXT_WHITE))
 MAILBOX_RANGE = 800
 
 
@@ -6756,6 +6773,8 @@ def handle_message(sock, server, addr, state, payload, args):
             pet_use_ability(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0], stance=False)   # right-click a buff
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.SUBMIT and state.get("player"):
+            submit_bug_report(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
             unstuck(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CORPSE_EVENTS and state.get("player"):

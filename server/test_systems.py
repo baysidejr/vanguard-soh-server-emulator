@@ -3,6 +3,7 @@ import struct
 import unittest
 
 import assembly
+import bugs
 import combat
 import encounter
 import fishing
@@ -315,6 +316,14 @@ class TravelJournalTests(unittest.TestCase):
         self.assertIn("Orin".encode("utf-16-le"), msgs[2])
         self.assertEqual(struct.unpack_from("<i", msgs[-1], len(msgs[-1]) - 9)[0], travel.HOUSING)
         self.assertEqual(payload(travel.login_messages([], (0, 0))[0])[0], 0x2AE)   # built-ins still made
+
+
+class BugReportTests(unittest.TestCase):
+    def test_parse_captured_submit(self):
+        data = "Wolf".encode("utf-16-le") + bytes(2) + struct.pack("<iii", 11, 1, 0)
+        self.assertEqual(bugs.parse(data), {"description": "Wolf", "category": "Gameplay: Combat",
+                                            "severity": "Standard", "reproducibility": "Every time"})
+        self.assertEqual(bugs.parse(bytes(2) + struct.pack("<iii", 99, -1, 7))["category"], "Unknown Category")
 
 
 if __name__ == "__main__":
