@@ -1156,6 +1156,48 @@ def fixture_by_object(oid):
     return db, None, None, None
 
 
+_housing_checked = [0.0]
+
+
+def housing_tick(now):
+    """Once a minute: charge due upkeep on every plot; a plot with REPOSSESS_AFTER missed
+    payments is taken back: the owner gets a letter and their furniture and chest contents
+    by mail, and the For Sale sign comes back."""
+    if now - _housing_checked[0] < 60:
+        return
+    _housing_checked[0] = now
+    db = load_housing()
+    changed, gone = False, []
+    for pid, st in list(db.items()):
+        plot = ARGS.content.plots.get(pid)
+        if plot is None:
+            continue
+        changed |= bool(housing.charge_upkeep(plot, st, now))
+        if housing.repossess_due(st):
+            gone.append((pid, plot, db.pop(pid)))
+            changed = True
+    if changed:
+        save_housing(db)
+    if not gone:
+        return
+    mdb = load_mail()
+    for pid, plot, st in gone:
+        owner = st.get("owner", "")
+        print(f"  plot {pid} repossessed from {owner} (missed upkeep)")
+        deliver_mail(mdb, owner, mail.new(0, "Housing Office", f"Repossessed: {plot['name']}"[:mail.MAX_SUBJECT],
+                                          f"Your plot {plot['name']} was repossessed after "
+                                          f"{housing.REPOSSESS_AFTER} missed upkeep payments.", from_player=False))
+        for name in housing.returned_items(st):
+            deliver_mail(mdb, owner, mail.new(0, "Housing Office", f"Returned: {name}"[:mail.MAX_SUBJECT],
+                                              "From your repossessed house.",
+                                              item_={"name": name, "icon": ARGS.content.item(name).get("icon", 443),
+                                                     "qty": 1}, from_player=False))
+        s = next((x for x in ONLINE.values() if x.get("player") and x["player"].level == plot["chunk"]), None)
+        if s is not None:
+            refresh_plot(s, pid)
+    save_mail(mdb)
+
+
 def refresh_plot(state, pid):
     """Re-create a plot's world object for everyone in its chunk (sign <-> house)."""
     w = state.get("world")
@@ -2309,6 +2351,7 @@ def world_tick(zone_sock, clients, args):
             elif action[0] == "endurance":
                 send_message(zone_sock, addr, state, zone.endurance_update(player))
     group_tick()
+    housing_tick(now)
     duel_tick(now)
     for s in list(ONLINE.values()):
         if s.get("handoff") and now - s.get("last_seen", now) > 60:

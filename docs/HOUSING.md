@@ -14,7 +14,9 @@
 
 > **Permissions (window verified live 2026-10-13):** the owner's permission entries are saved per plot (`housing.json` "permissions": {id, name, rank, flags, all_players, all_guild, friends}). Create/edit 0x470/0x472 `{i32 plot, i32 perm id, wstr name, i32 guild rank, u32 flags, bool8 all players, bool8 all guild}`, delete 0x471 `{plot, perm id}`, add a friend 0x46f `{wstr player, i32 perm id, i32 0}`, remove 0x46e `{perm id, friend id}`. With the plot window the server sends 0x456 per entry (the Permissions tab lists "Friends"; Edit Permission ticks the flag boxes) and 0x46f `{perm id, friend id, wstr name}` per friend (the friend id must not be 0: row + 1; 0x457 does not fill the Edit Permission name list). `housing.allowed` (unit-tested) checks the flags for moving/picking up furniture (0x2/0x8), placing it (0x4), paying upkeep (0x20) and adding construction materials (0x40); NoAccess (0x80000000) wins. Entries cover all players, the owner's guild or their friend list.
 
-> **Not done yet:** chest permissions (0x466/0x467/0x469), repossession for missed upkeep, opening doors.
+> **Repossession (unit-tested):** once a minute the server charges due upkeep on every plot (`housing_tick`); after `REPOSSESS_AFTER` (4) missed weekly payments the plot is taken back: the owner gets a "Repossessed" letter from the Housing Office plus one letter per furniture item and chest item, and the For Sale sign returns for players in the chunk.
+
+> **Not done yet:** chest permissions (0x466/0x467/0x469), opening doors.
 
 Server: `zone.open_placed_object`. Dev command: `!house [prefab] [type]` (800 units +x of the player). 37 root prefabs (whole buildings) are listed in `bin/compoundobjectMD.tab` (`...PHcity01_Home001root001...`, `HomeShop`, `Inn`, `Temple`, `GuardTower`, `CraftingBarn`; Ra6001 Thestra, Ra6021 Qalia, Ra6060 Kojan).
 

@@ -64,6 +64,23 @@ def charge_upkeep(plot, st, now):
     return n
 
 
+REPOSSESS_AFTER = 4                    # missed weekly upkeep payments before the plot is taken back
+
+
+def repossess_due(st):
+    return st.get("missed", 0) >= REPOSSESS_AFTER
+
+
+def returned_items(st):
+    """Item names that go back to a repossessed plot's owner: its furniture and the
+    contents of its chests."""
+    out = []
+    for f in st.get("fixtures", []):
+        out.append(f["item"])
+        out += [i["name"] if isinstance(i, dict) else i[1] for i in f.get("items", [])]
+    return out
+
+
 def _event(event_id, data=b""):
     return struct.pack("<HII", 2, event_id, len(data)) + data
 

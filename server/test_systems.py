@@ -85,6 +85,13 @@ class HousingTests(unittest.TestCase):
         self.assertEqual((p["plot"], p["name"], p["flags"], p["all_guild"]), (101, "Friends", 0x0C, True))
         self.assertEqual(payload(housing.permission_message(p))[0], 0x456)
 
+    def test_repossession(self):
+        st = {"bought": 0, "upkeep_balance": 0}
+        housing.charge_upkeep({"upkeep": 50}, st, 4 * housing.UPKEEP_PERIOD + 1)
+        self.assertTrue(housing.repossess_due(st))
+        st = {"fixtures": [{"item": "Storage Chest", "items": [{"name": "Rough Stone"}]}]}
+        self.assertEqual(housing.returned_items(st), ["Storage Chest", "Rough Stone"])
+
     def test_plot_info_starts_with_ids(self):
         plot = {"name": "P", "loc": [0, 0, 0], "cost": 1000, "buildings": []}
         eid, data = payload(housing.plot_info(101, plot, None, False))
