@@ -144,6 +144,10 @@ def validate(directory=CONTENT_DIR):
         for name in list(r.get("inputs", {})) + [r.get("output")]:
             if name not in c.items:
                 problems.append(f"recipe {rid}: item {name!r} not in items.json")
+    for mid, m in c.mobs.items():
+        for key in m.get("recipe_trainer", []):
+            if key not in c.recipes or "trainer_cost" not in c.recipes[key]:
+                problems.append(f"mob {mid}: recipe_trainer {key} is not a recipe with a trainer_cost")
     for wid, w in c.workorders.items():
         if w.get("recipe") not in c.recipes:
             problems.append(f"work order {wid}: unknown recipe {w.get('recipe')}")

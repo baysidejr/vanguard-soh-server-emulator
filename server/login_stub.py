@@ -1647,6 +1647,8 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(merchant.DIALOG_REPAIR))
     if npc.trainer:
         out.append(zone.zone_event(trainer.OPTION))
+    if npc.recipe_trainer:
+        out.append(zone.zone_event(trainer.RECIPE_OPTION))
     if npc.banker:
         out.append(zone.zone_event(bank.OPTION))
     return out
@@ -2628,6 +2630,59 @@ def handle_trainer_event(state, event, data):
         send(trainer.end())
 
 
+def recipe_offers(player, npc):
+    known = getattr(player, "known_recipes", [])
+    return [(k, ARGS.content.recipes[k]) for k in npc.recipe_trainer
+            if k in ARGS.content.recipes and k not in known]
+
+
+def handle_recipe_trainer_event(state, event, data):
+    """Recipe trainer (trainer.py RECIPE_*): sells recipes with a trainer_cost."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE recipe trainer event {event:#x}: {data.hex(' ')}")
+    npc = player.npcs.get(player.target) if player.target else None
+    if event == trainer.RECIPE_START:
+        if npc is None or not npc.recipe_trainer:
+            send(trainer.recipe_end(0))
+            return
+        offers = recipe_offers(player, npc)
+        if not offers:
+            send(trainer.recipe_end(2))          # "Your target has nothing to teach you right now."
+            return
+        if state.get("recipe_training"):
+            send(trainer.recipe_end())
+        state["recipe_training"] = npc.template_id
+        for m in trainer.recipe_begin([(r["id"], r["name"], r.get("description", ""), r.get("icon", 443),
+                                        r["trainer_cost"]) for _, r in offers]):
+            send(m)
+    elif event == trainer.RECIPE_TRAIN:
+        rid = struct.unpack_from("<i", data, 0)[0]
+        offer = next(((k, r) for k, r in recipe_offers(player, npc) if r["id"] == rid), None) if npc else None
+        if not state.get("recipe_training"):
+            send(trainer.recipe_result(rid, trainer.NOT_TRAINING))
+        elif offer is None:
+            send(trainer.recipe_result(rid, trainer.NOT_AVAILABLE))
+        elif player.coins < offer[1]["trainer_cost"]:
+            send(trainer.recipe_result(rid, trainer.CANT_AFFORD))
+        else:
+            key, r = offer
+            player.coins -= r["trainer_cost"]
+            send(merchant.coins(player.coins))
+            save_character_field(player.name, "coins", player.coins)
+            player.known_recipes = list(getattr(player, "known_recipes", [])) + [key]
+            save_character_field(player.name, "known_recipes", player.known_recipes)
+            send(craft.learn_recipe(r))
+            for n in range(len(craft.all_steps(r))):
+                send(craft.learn_action(r, n))
+            for c in r.get("complications", []):
+                send(craft.learn_counter(c))
+            send(trainer.recipe_result(rid, trainer.OK))
+            send(build_system_text(f"You have learned the recipe {r['name']}.", SYSTEM_TEXT_WHITE))
+    elif event == trainer.RECIPE_STOP:
+        state.pop("recipe_training", None)
+        send(trainer.recipe_end())
+
+
 def finish_parley(state, p, result):
     player, send = state["player"], state["send"]
     state.pop("parley", None)
@@ -3443,6 +3498,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.parleys_won = list(char.get("parleys_won", []))
             player.factions = dict(char.get("factions", {}))
             player.work_order = char.get("work_order")
+            player.known_recipes = list(char.get("known_recipes", []))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
             player.ignores = list(char.get("ignores", []))
@@ -3662,6 +3718,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in bank.CLIENT_EVENTS:
             if state.get("player"):
                 handle_bank_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trainer.RECIPE_EVENTS:
+            if state.get("player"):
+                handle_recipe_trainer_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trainer.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trainer_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])

@@ -19,3 +19,24 @@ The client's trainer dispatcher is `FUN_005d0d40`. All messages are zone events.
 The trainer messages never touch the ability book. The server adds the ability with `0x215`, charges with `0x1aa`, and prints its own line.
 
 Abilities come from the class's `<PREFIX>_ABILITIES.aby` (rank I tags, `class_abilities.py`). Real levels and costs were server data; the emulator uses the package order and placeholder prices (see CONTENT_EDITOR.md).
+
+# Recipe trainers
+
+**Verified live (2026-10-13):** Brenna Ashford (Smelting Trainer, `"recipe_trainer": ["copper_wire"]` in mobs.json) shows the client's own option "I'd like to learn recipes from you.". The Recipe Training window lists Copper Wire (icon, description, 50 copper). Train prints "You lose 50 copper." and "You have learned the recipe Copper Wire.", and the recipe appears under Normal Recipes at the forge. Learned recipes are saved per character (`known_recipes`); recipes with a `trainer_cost` are not in the book until learned.
+
+Client dispatcher `FUN_005af590`. The flow mirrors ability trainers:
+
+| Direction | Id | Payload | Meaning |
+|---|---|---|---|
+| S→C | `0x2b2` | none | adds the dialogue option (type 1, text "I'd like to learn recipes from you." from the client, `FUN_004c7a00`) |
+| C→S | `0x16b` | none | option clicked: begin (`FUN_005ac900`) |
+| S→C | `0x497` | none | training started ("You begin to train.", gamevar `RecipeTraining`) |
+| S→C | `0x498` | `{wstr name, wstr description, i32 recipe id, i32 icon, f32 cost copper}` | **one** recipe, appended (no count prefix; `FUN_005af140`) |
+| C→S | `0x16d` | `i32 recipe id` | Train |
+| S→C | `0x499` | `i32 recipe id, u8 result` | codes as `0x495` |
+| C→S | `0x16c` | none | Done (`FUN_005ac930`) |
+| S→C | `0x49a` | `u8 reason` | ended (codes as `0x496`; 2 = "Your target has nothing to teach you right now.") |
+
+Recipe trainers have `EntityTypes 0x80`. The other built-in dialogue options added by `0x2b1`–`0x2ba` (`FUN_004c7a00`, option type in brackets): 0x2b1 "Do you have anything to teach me?" [0], 0x2b2 recipes [1], 0x2b3 "I need to do some banking" [3], 0x2b4 "I'm looking for work." [4].
+
+Assembly trainers (`0x49c`–`0x4a0`, `MsgAssemblyTrainerRecipe {wstr, i32, i32, f32, wstr}`) follow the same pattern and are not implemented.

@@ -39,3 +39,29 @@ def result(aid, code):
 
 def end(reason=ENDED):
     return _event(0x496, struct.pack("<B", reason))
+
+
+# Recipe trainers (client dispatcher FUN_005af590). Same flow as ability trainers:
+# dialogue option 0x2b2 (type 1, "I'd like to learn recipes from you.") -> client 0x16b
+#   -> 0x497 start (gamevar RecipeTraining), then one 0x498 per recipe (appended, no count):
+#      {wstr name, wstr description, i32 recipe id, i32 icon, f32 cost copper} (FUN_005af140)
+# client 0x16d {i32 recipe id} train -> 0x499 {i32 id, u8 result} (codes as 0x495)
+# client 0x16c stop -> 0x49a {u8 reason} (as 0x496: 5 = "Training ended.")
+RECIPE_START, RECIPE_STOP, RECIPE_TRAIN = 0x16B, 0x16C, 0x16D
+RECIPE_EVENTS = (RECIPE_START, RECIPE_STOP, RECIPE_TRAIN)
+RECIPE_OPTION = 0x2B2
+RECIPE_TRAINER = 0x80                # EntityTypes bit
+
+
+def recipe_begin(offers):
+    """offers: [(recipe id, name, description, icon, cost copper)]."""
+    return [_event(0x497)] + [_event(0x498, _w(name) + _w(desc) + struct.pack("<iif", rid, icon, float(cost)))
+                              for rid, name, desc, icon, cost in offers]
+
+
+def recipe_result(rid, code):
+    return _event(0x499, struct.pack("<iB", rid, code))
+
+
+def recipe_end(reason=ENDED):
+    return _event(0x49A, struct.pack("<B", reason))

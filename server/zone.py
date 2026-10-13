@@ -17,6 +17,7 @@ import harvest
 import craft
 import workorder
 import mail
+import trainer
 import diplomacy
 import quest
 import world
@@ -104,6 +105,8 @@ def handle_unreal(send, state, payload, args):
         for key, r in args.content.recipes.items():
             if r.get("work_order") and key != wo.get("recipe"):
                 continue
+            if "trainer_cost" in r and key not in getattr(player, "known_recipes", []):
+                continue
             send(craft.learn_recipe(r))
             for n in range(len(craft.all_steps(r))):
                 send(craft.learn_action(r, n))
@@ -160,6 +163,7 @@ def populate_world(w, args):
         npc.banker = bool(template.get("banker"))
         npc.task_master = bool(template.get("task_master"))
         npc.mailbox = bool(template.get("mailbox"))
+        npc.recipe_trainer = list(template.get("recipe_trainer", []))
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
@@ -187,6 +191,8 @@ def populate_world(w, args):
             npc.props["EntityTypes"] = workorder.TASK_MASTER
         if npc.mailbox:
             npc.props["EntityTypes"] = mail.MAILBOX
+        if npc.recipe_trainer:
+            npc.props["EntityTypes"] = trainer.RECIPE_TRAINER
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
         if "gender" in template:

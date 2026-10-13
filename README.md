@@ -44,7 +44,7 @@ The unmodified client, talking only to this emulator:
 - [x] Harvesting tools (equip slot 0x35) and skills with skill-ups
 - [x] /camp returns to character select
 - [x] Diplomacy card costs, expression pools, NPC opponent, win and loss (data-driven)
-- [x] Ability trainer: buy the next class abilities
+- [x] Ability trainer: buy the next class abilities; recipe trainers sell crafting recipes
 - [x] Multi-stage crafting with quality grades and complications
 - [x] Bank: items and coins, saved per character
 - [x] Item durability (worn on death) and repairs at a merchant
