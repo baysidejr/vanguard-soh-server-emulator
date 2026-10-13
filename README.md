@@ -77,6 +77,7 @@ The unmodified client, talking only to this emulator:
 - [x] Group loot: Free For All, Round Robin, Master Looter, Random For Magical and Need Before Greed with the Need/Greed/Pass roll popup; swimming breath and drowning
 - [x] Combat chains: an opener unlocks the next step and the finisher for a few seconds (the client's reaction button); NPC spell casts that players can counter; coin on corpses
 - [x] Rescues and NPC hate lists; heals and buffs on other players; bag management (move, stack, destroy); quest abandon and share; crafting and diplomacy levels; consent and corpse drag
+- [x] Pet ability bar; quest reward choice (pick one item at turn-in); request to join a group from the Find window; chest View/Deposit/Withdrawal permissions
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [MARKET](docs/MARKET.md), [DEATH](docs/DEATH.md), [MOUNTS](docs/MOUNTS.md), [RIFTWAYS](docs/RIFTWAYS.md), [HOUSING](docs/HOUSING.md), [TITLES](docs/TITLES.md), [DUELS and CARAVANS](docs/DUELS.md), [PETS](docs/PETS.md), [FISHING](docs/FISHING.md), [ASSEMBLY](docs/ASSEMBLY.md), [MOVEMENT](docs/MOVEMENT.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).
 
@@ -120,6 +121,10 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - As a Warrior, hit **1** (Brutal Strike), then **3** (Savage Cut) while the chain button glows, then the finisher; when the Canyon Widow casts Venom Spit, answer with the counter (Riposte).
 - Swim out from the fishing beach and dive: the Breath bar drains, then you drown.
 - With a plot, build the Thestran Home from materials (2 Rough Stone, 2 Tattered Cloth) in the Construction window, and give friends permissions on the Permissions tab.
+- Summon Ashfang with the Wolf Whistle, target an enemy and click Savage Bite on the pet bar: the wolf runs in and bites.
+- Finish "Wanderer Trouble" for Orin and pick one of three rewards on the turn-in page.
+- In the Social window's Find tab, select a player looking for members and press Request to Join.
+- Open your quest journal, click a quest and press Share to offer it to your group.
 
 ### Developer commands
 Start the server with `python login_stub.py --dev-commands`, then type these in the game's chat box:
@@ -140,7 +145,10 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!questkill` | Count a kill of the target's kind toward quests |
 | `!mailme` | Receive a test letter with coin and an item |
 | `!tombstone` / `!rezme` | Leave your tombstone here / get a resurrection offer |
-| `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
+| `!plot [id]`, `!house [prefab] [type]`, `!chest <n> [put/take/close/manage]`, `!pickup <n>`, `!upkeep <copper>` | Housing tests |
+| `!pet <item>` | Summon an item's pet without the item |
+| `!questreset <quest key>` | Forget a quest so it can be taken again |
+| `!lfm` | Show yourself as looking for members on the Find window |
 | `!kill` | Kill the target with one hit |
 | `!react` | Activate the newest open combat reaction (chain step) |
 | `!spherexp <1 crafting / 2 diplomacy> <amount>` | Gain crafting or diplomacy XP (level-ups) |
