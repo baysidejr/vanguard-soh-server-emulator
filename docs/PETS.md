@@ -4,7 +4,9 @@
 >
 > **Pet combat (verified live):** the enemy the pet bites turns on the pet ("Ashen Wolf hits Ashfang for 4 damage.", written by the server because the client only writes 0x27b combat text that involves the player) and ignores the owner while it fights the pet. The pet health bar (paw icon under the player bars) follows 0x41d. At 0 health "Ashfang has been slain!" and the pet is removed.
 >
-> **Not done:** pet abilities (0x429), minions (type 6), pets granted by class abilities.
+> **Pet abilities (2026-10-13):** a pet item's `pet.abilities` ([{name, icon, damage, refresh}]; the Wolf Whistle's Ashfang has Savage Bite) are sent on summon as 0x429 (MsgAbilityInfo, ability ids from 990000), which adds them to the pet's ability list; a pet bar with the ability icon appears beside the paw button. Using one sends **0x88** `{i32 ability id}`: the pet attacks its target (or yours) with it, the cooldown starts (0x42c `{i32 id, f32 remaining, f32 total, f32 0}`): "Your Ashfang's Savage Bite hits Robed Wanderer for 24 damage." (verified with `!cev 0x88 990000`; clicking the pet bar slot did not send 0x88 in our test). `!pet <item>` summons an item's pet without the item.
+
+> **Not done:** minions (type 6), pets granted by class abilities.
 
 Server: `server/pets.py`, `login_stub.summon_pet/dismiss_pet/handle_pet_event/pet_tick`.
 

@@ -29,6 +29,25 @@ def _w(text):
     return (text + "\0").encode("utf-16-le")
 
 
+USE_ABILITY = 0x88                     # client {i32 ability id}: the pet bar
+ABILITY_ID_BASE = 990000
+
+
+def ability(n, a):
+    """0x429 MsgAbilityInfo (as the ability book's 0x215) for pet ability n: adds it to the
+    pet window's PetAbilityList. Returns (ability id, message)."""
+    import vgmsg
+    aid = ABILITY_ID_BASE + n
+    return aid, _event(0x429, vgmsg.ability_info(n + 1, aid, a["name"], a.get("icon", 553),
+                                                 a.get("description", f"{a['name']}."),
+                                                 refresh=0.0))
+
+
+def ability_timer(aid, seconds):
+    """0x42c {i32 ability id, f32 remaining, f32 total, f32 0}: the pet ability's cooldown."""
+    return _event(0x42C, struct.pack("<ifff", aid, float(seconds), float(seconds), 0.0))
+
+
 def new(pet_eid, name, kind=CONTROLLABLE):
     return _event(0x419, struct.pack("<Q", pet_eid) + _w(name) + struct.pack("<Bf", kind, 0.0))
 

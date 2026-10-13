@@ -1867,7 +1867,40 @@ def summon_pet(state, args, spec):
     w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
     send(pets.new(eid, npc.name))
     send(pets.health(npc))
+    npc.pet_abilities = {}
+    for n, a in enumerate(spec.get("abilities", [])):
+        aid, msg = pets.ability(n, a)
+        npc.pet_abilities[aid] = dict(a, ready=0.0)
+        send(msg)
     send(build_system_text(f"{npc.name} answers your call.", SYSTEM_TEXT_WHITE))
+
+
+def pet_use_ability(state, aid):
+    """0x88: the pet uses one of its abilities on its target (or the owner's)."""
+    player, send = state["player"], state["send"]
+    npc = getattr(player, "pet", None)
+    a = getattr(npc, "pet_abilities", {}).get(aid) if npc else None
+    if a is None:
+        return
+    now = time.time()
+    if now < a["ready"]:
+        send(build_system_text(f"{a['name']} is not ready yet.", SYSTEM_TEXT_ERROR))
+        return
+    t = npc.pet_target if npc.pet_target is not None and npc.pet_target.alive else \
+        player.npcs.get(player.target) if player.target else None
+    if t is None or not t.alive or t.prop or t.talks():
+        send(build_system_text(f"{npc.name} has no target for {a['name']}.", SYSTEM_TEXT_ERROR))
+        return
+    if math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1]) > combat.MELEE_RANGE + 200:
+        send(build_system_text(f"{npc.name} is too far away from {t.name}.", SYSTEM_TEXT_ERROR))
+        return
+    a["ready"] = now + float(a.get("refresh", 10))
+    send(pets.ability_timer(aid, a.get("refresh", 10)))
+    npc.pet_mode, npc.pet_target = "attack", t
+    send(build_system_text(f"{npc.name} uses {a['name']}!", SYSTEM_TEXT_COMBAT))
+    lines, _ = combat.strike(player, t, f"Your {npc.name}'s {a['name']}", None, *a.get("damage", (10, 20)))
+    for m in combat_results(state, ARGS, player, lines, t, True, player.auto_attack):
+        send(m)
 
 
 def dismiss_pet(state, dust=True):
@@ -5971,6 +6004,10 @@ def dev_command(text, player=None):
     if words[0] == "spherexp" and player and len(words) > 2:
         # !spherexp <1 crafting | 2 diplomacy> <amount>: gain sphere XP (testing level-ups).
         return [("spherexp", int(words[1]), int(words[2]))]
+    if words[0] == "pet" and player and len(words) > 1:
+        # !pet <item name>: summon the pet of a pet item without the item (testing).
+        spec = ARGS.content.item(" ".join(words[1:])).get("pet")
+        return [("pet", spec)] if spec else []
     if words[0] == "react" and player:
         # !react: activate the newest open reaction, as clicking it (0x145) (testing).
         return [("react",)]
@@ -6391,6 +6428,9 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "spherexp":
                         sphere_xp(state, m[1], m[2])
                         continue
+                    elif isinstance(m, tuple) and m[0] == "pet":
+                        summon_pet(state, args, m[1])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "react":
                         if state.get("reactions"):
                             activate_reaction(state, args, max(state["reactions"]))
@@ -6509,6 +6549,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 send_message(sock, addr, state, zone.zone_event(0x30E))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == pets.USE_ABILITY and state.get("player") and len(payload) >= 14:
+            pet_use_ability(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0], stance=False)   # right-click a buff
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
