@@ -4,7 +4,7 @@
 >
 > **Pet combat (verified live):** the enemy the pet bites turns on the pet ("Ashen Wolf hits Ashfang for 4 damage.", written by the server because the client only writes 0x27b combat text that involves the player) and ignores the owner while it fights the pet. The pet health bar (paw icon under the player bars) follows 0x41d. At 0 health "Ashfang has been slain!" and the pet is removed.
 >
-> **Pet abilities (2026-10-13):** a pet item's `pet.abilities` ([{name, icon, damage, refresh}]; the Wolf Whistle's Ashfang has Savage Bite) are sent on summon as 0x429 (MsgAbilityInfo, ability ids from 990000), which adds them to the pet's ability list; a pet bar with the ability icon appears beside the paw button. Using one sends **0x88** `{i32 ability id}`: the pet attacks its target (or yours) with it, the cooldown starts (0x42c `{i32 id, f32 remaining, f32 total, f32 0}`): "Your Ashfang's Savage Bite hits Robed Wanderer for 24 damage." (verified with `!cev 0x88 990000`; clicking the pet bar slot did not send 0x88 in our test). `!pet <item>` summons an item's pet without the item.
+> **Pet abilities (2026-10-13):** a pet item's `pet.abilities` ([{name, icon, damage, refresh}]; the Wolf Whistle's Ashfang has Savage Bite) are sent on summon as 0x429 (MsgAbilityInfo, ability ids from 990000), which adds them to the pet's ability list; a pet bar with the ability icon appears beside the paw button. Using one sends **0x88** `{i32 ability id}`: the pet attacks its target (or yours) with it, the cooldown starts (0x42c `{i32 id, f32 remaining, f32 total, f32 0}`): "Your Ashfang's Savage Bite hits Robed Wanderer for 24 damage." (verified by clicking the pet bar slot; the pet runs in first when its target is up to 3000 units away). `!pet <item>` summons an item's pet without the item.
 
 > **Not done:** minions (type 6), pets granted by class abilities.
 
@@ -70,7 +70,7 @@ Anything else prints "Invalid pet command.". There is no 0x78 sender.
 `/petname <name>` (`FUN_0057b4c0`) requires hasPet and sends **0x80** `wstr name` (MsgSendSingleSGOString) [O].
 
 Pet ability bar [O]:
-- **0x88** `i32 abilityId`: activate a pet ability (`FUN_00579710`). It is suppressed client-side while that ability's cooldown is > 0.
+- **0x88** `i32 handle`: activate a pet ability (`FUN_00579710` sends the list entry's +0x70 handle, not the +0x10c ability id; the server sends handle = id so either works). It is suppressed client-side while that ability's cooldown is > 0.
 - **0x86** / **0x87** `i32 abilityId` (the +0x10c id): toggle the pet default/auto attack on or off (`_pet_default_attack`, `FUN_0057bd??`, around 0x57bdb0). The client flips +0x17a locally.
 
 ## Replicated pawn properties (SGONPCPawn, own NetFields 118-123)

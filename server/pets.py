@@ -29,16 +29,17 @@ def _w(text):
     return (text + "\0").encode("utf-16-le")
 
 
-USE_ABILITY = 0x88                     # client {i32 ability id}: the pet bar
+USE_ABILITY = 0x88                     # client {i32 handle}: the pet bar (FUN_00579710 sends +0x70)
 ABILITY_ID_BASE = 990000
 
 
 def ability(n, a):
     """0x429 MsgAbilityInfo (as the ability book's 0x215) for pet ability n: adds it to the
-    pet window's PetAbilityList. Returns (ability id, message)."""
+    pet window's PetAbilityList. The handle is the ability id too, since a click on the pet
+    bar sends the handle in 0x88. Returns (ability id, message)."""
     import vgmsg
     aid = ABILITY_ID_BASE + n
-    return aid, _event(0x429, vgmsg.ability_info(n + 1, aid, a["name"], a.get("icon", 553),
+    return aid, _event(0x429, vgmsg.ability_info(aid, aid, a["name"], a.get("icon", 553),
                                                  a.get("description", f"{a['name']}."),
                                                  refresh=0.0))
 

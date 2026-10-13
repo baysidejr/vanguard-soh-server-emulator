@@ -1891,12 +1891,28 @@ def pet_use_ability(state, aid):
     if t is None or not t.alive or t.prop or t.talks():
         send(build_system_text(f"{npc.name} has no target for {a['name']}.", SYSTEM_TEXT_ERROR))
         return
-    if math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1]) > combat.MELEE_RANGE + 200:
+    d = math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1])
+    if d > PET_ABILITY_CHASE:
         send(build_system_text(f"{npc.name} is too far away from {t.name}.", SYSTEM_TEXT_ERROR))
         return
+    npc.pet_mode, npc.pet_target = "attack", t
+    if d > combat.MELEE_RANGE + 200:
+        # Run in and use it on arrival (pet_tick).
+        npc.queued_ability = aid
+        send(build_system_text(f"{npc.name} moves in to use {a['name']}.", SYSTEM_TEXT_WHITE))
+        return
+    pet_fire_ability(state, npc, aid, t, now)
+
+
+PET_ABILITY_CHASE = 3000.0
+
+
+def pet_fire_ability(state, npc, aid, t, now):
+    player, send = state["player"], state["send"]
+    a = npc.pet_abilities[aid]
+    npc.queued_ability = None
     a["ready"] = now + float(a.get("refresh", 10))
     send(pets.ability_timer(aid, a.get("refresh", 10)))
-    npc.pet_mode, npc.pet_target = "attack", t
     send(build_system_text(f"{npc.name} uses {a['name']}!", SYSTEM_TEXT_COMBAT))
     lines, _ = combat.strike(player, t, f"Your {npc.name}'s {a['name']}", None, *a.get("damage", (10, 20)))
     for m in combat_results(state, ARGS, player, lines, t, True, player.auto_attack):
@@ -1961,6 +1977,11 @@ def pet_tick(state, args, now, dt):
             npc.pet_mode, npc.pet_target = "follow", None
         else:
             goal, stop = t.location, combat.MELEE_RANGE
+            if (getattr(npc, "queued_ability", None) is not None and math.hypot(
+                    t.location[0] - npc.location[0], t.location[1] - npc.location[1]) <= combat.MELEE_RANGE + 200):
+                pet_fire_ability(state, npc, npc.queued_ability, t, now)
+                if not t.alive:
+                    return
             if (math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1])
                     <= combat.MELEE_RANGE + 40 and now >= npc.next_attack):
                 npc.next_attack = now + pets.ATTACK_SECONDS
