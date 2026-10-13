@@ -4156,8 +4156,11 @@ def handle_quest_event(state, event, payload):
             return
         state.get("shared_quests", set()).discard(key)
         log.active[key] = quest.new_progress()
-        send(quest.accepted(q))
+        # The journal entry (0x2cb, which also caches the quest) before the accept result:
+        # 0x2c1 for an uncached quest is logged as unhandled and leaves the offer page open.
         send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True, have=have))
+        send(quest.accepted(q))
+        send(zone.zone_event(quest.END_CONVERSATION))    # the offer page otherwise stays open
         save_character_field(player.name, "quests", log.to_json())
         quest_advance(state, key, q, npc_eid, quiet=True)
     elif event == quest.SELECT_REWARD and key in log.active and len(payload) >= 18:
