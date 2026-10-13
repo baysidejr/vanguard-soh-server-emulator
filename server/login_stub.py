@@ -706,6 +706,54 @@ def remove_tombstone(state, player, quiet=False):
     save_character_field(player.name, "tombstone", None)
 
 
+ALTAR_RANGE = 800
+CORPSE_MOVED, NO_CORPSES = 0x48, 300
+
+
+def bind_here(state, altar):
+    """Set the bind (respawn) point at the player's position next to an altar."""
+    player = state["player"]
+    pos = player.live_position or player.spawned_at
+    player.bind = {"level": player.level, "loc": [float(pos[0]), float(pos[1]), float(pos[2])]}
+    save_character_field(player.name, "bind", player.bind)
+    state["send"](zone.zone_event(0x40A, struct.pack("<B", 0)))        # "You have set your bind location."
+    state["send"](zone.score_message(player))
+
+
+def near_altar(player):
+    return next((n for n in player.npcs.values() if getattr(n, "altar", False)
+                 and player_distance(player, n) <= ALTAR_RANGE), None)
+
+
+def handle_altar_use(state, npc):
+    """0x2b0 on an altar: bind there, and offer the player's tombstone for summoning (0x2bc)."""
+    player, send = state["player"], state["send"]
+    if player_distance(player, npc) > ALTAR_RANGE:
+        send(build_system_text("You are too far away from the altar.", SYSTEM_TEXT_ERROR))
+        return
+    bind_here(state, npc)
+    stone = getattr(player, "tombstone", None)
+    if not stone:
+        send(zone.zone_event(0x0E, struct.pack("<h", NO_CORPSES)))
+        return
+    where = stone["level"] if stone["level"] != player.level else "the Sundering Wastes"
+    send(zone.zone_event(0x2BC, struct.pack("<i", 1) + (f"{where}\0").encode("utf-16-le")
+                         + struct.pack("<ii", zone.tombstone_eid(player), 0)))
+
+
+def summon_tombstone(state, cid):
+    """0x188 {corpse id} from the corpse list: the tombstone moves next to the altar."""
+    player, send = state["player"], state["send"]
+    altar = near_altar(player)
+    if altar is None or cid != zone.tombstone_eid(player) or not getattr(player, "tombstone", None):
+        send(zone.zone_event(0x0E, struct.pack("<h", NO_CORPSES)))
+        return
+    player.died_at = (altar.location[0] + 150.0, altar.location[1], altar.location[2])
+    place_tombstone(state, ARGS, player)
+    send(zone.zone_event(0x0E, struct.pack("<h", CORPSE_MOVED)))
+    send(build_system_text("Your tombstone has been summoned to the altar.", SYSTEM_TEXT_WHITE))
+
+
 def use_tombstone(state):
     """U (the pawn's ServerUse RPC) on your tombstone: the target, or your own one if you
     stand at it. True when handled."""
@@ -3755,6 +3803,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.work_order = char.get("work_order")
             player.xp_debt = int(char.get("xp_debt", 0))
             player.tombstone = char.get("tombstone")
+            player.bind = char.get("bind")
             player.known_recipes = list(char.get("known_recipes", []))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
@@ -3860,11 +3909,32 @@ def handle_message(sock, server, addr, state, payload, args):
             if player and player.health <= 0:
                 player.health = player.stats["hit_points"]
                 place_tombstone(state, args, player)
+                bind = getattr(player, "bind", None)
+                spot = bind["loc"] if bind and bind["level"] == player.level else player.spawned_at
                 for m in (combat.death_popup(0, False),
                           zone.player_pawn_update(state, args, {"Health": 100, "m_bIsDead": 0}),
                           zone.health_update(player),
-                          zone.player_teleport(player.spawned_at)):
+                          zone.player_teleport(tuple(spot))):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x2B0 and state.get("player"):
+            # Interact with an "other" entity (altars): {eid64 target, bool8}.
+            eid = struct.unpack_from("<Q", payload, 10)[0]
+            npc = state["player"].npcs.get(eid)
+            print(f"  >>> ZONE interact {eid:#x} ({npc.name if npc else '-'})")
+            if npc is not None and getattr(npc, "altar", False):
+                handle_altar_use(state, npc)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x188 and state.get("player"):
+            summon_tombstone(state, struct.unpack_from("<i", payload, 10)[0])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x10D and state.get("player"):
+            # /bind: only next to an altar (0x40a 3 "You may not bind here.", 4 while dead).
+            p = state["player"]
+            altar = near_altar(p)
+            if p.health <= 0:
+                send_message(sock, addr, state, zone.zone_event(0x40A, struct.pack("<B", 4)))
+            elif altar is None:
+                send_message(sock, addr, state, zone.zone_event(0x40A, struct.pack("<B", 3)))
+            else:
+                bind_here(state, altar)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x3D6, 0x3D7):
             # /targetnearestpccorpse (0x3d6), /targetmynearestcorpse (0x3d7): no payload.
             player = state.get("player")

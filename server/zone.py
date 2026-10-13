@@ -148,6 +148,7 @@ def handle_unreal(send, state, payload, args):
             print(f"  <- {player.name} and {other['player'].name} now see each other")
 
 
+ALTAR = 0x1000000 | 0x10      # altar (cursor, "AltarHover") + NPC name plate
 TOMBSTONE_RACE = 587          # the "Tombstone" static mesh; always gets the loot cursor (0x4187bb)
 TOMBSTONE_TYPES = 0x2 | 0x20  # corpse + player: the name reads "<name>'s corpse" when m_bIsDead
 
@@ -194,6 +195,7 @@ def populate_world(w, args):
         npc.mailbox = bool(template.get("mailbox"))
         npc.recipe_trainer = list(template.get("recipe_trainer", []))
         npc.broker = template.get("broker")
+        npc.altar = bool(template.get("altar"))
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]
@@ -223,6 +225,8 @@ def populate_world(w, args):
             npc.props["EntityTypes"] = mail.MAILBOX
         if npc.recipe_trainer:
             npc.props["EntityTypes"] = trainer.RECIPE_TRAINER
+        if npc.altar:
+            npc.props["EntityTypes"] = ALTAR
         if "model" in template:
             npc.props["m_iModelNum"] = template["model"]
         if "gender" in template:
@@ -285,6 +289,9 @@ XP_PER_LEVEL = 1000
 def score_message(player, probe=False):
     """MsgScore (0x3de): the character sheet, level and XP bar."""
     loc = player.spawned_at or (0.0, 0.0, 0.0)
+    bind = getattr(player, "bind", None)
+    if bind:
+        loc = bind["loc"]
     return zone_event(0x3DE, vgmsg.score(probe=probe,
         bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
         adv_class=player.klass, adv_level=player.level_number,
