@@ -2726,6 +2726,7 @@ def social_entry(name):
         return {"name": p.name, "level": p.level_number, "klass": p.klass, "chunk": tuple(p.chunk),
                 "online": True, "afk": getattr(p, "afk", False), "anon": getattr(p, "anon", False),
                 "lfg": getattr(p, "lfg", False), "diplomacy_level": 1, "uid": social_uid(p.name),
+                "lfm": bool(getattr(p, "lfm", False) or (getattr(p, "group", None) and p.group.leader is p)),
                 "guild": (guild_of(p.name) or {}).get("name", "")}
     return {"name": name, "online": False, "uid": social_uid(name)}
 
@@ -3247,6 +3248,26 @@ def handle_social_world(zone_state, event, data, reply):
         return
     if event == social.FIND_LFM and len(data) >= 2:
         player.lfm = bool(data[1])
+        return
+    if event in (group.REQUEST_JOIN, group.REQUEST_DECLINE):
+        name = data.decode("utf-16-le", "replace").split(chr(0))[0].strip()
+        other = ONLINE.get(name.lower())
+        if event == group.REQUEST_DECLINE:
+            # The leader turned the request down (or the client auto-declined it).
+            if other is not None:
+                other["send"](group.join_declined(player.name))
+            return
+        g = getattr(other["player"], "group", None) if other else None
+        if other is None or other is zone_state:
+            zone_state["send"](build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
+        elif getattr(player, "group", None) is not None:
+            zone_state["send"](build_system_text("You are already in a group.", SYSTEM_TEXT_ERROR))
+        elif g is not None and (g.leader is not other["player"] or len(g.members) >= group.MAX_MEMBERS):
+            zone_state["send"](build_system_text(f"{name} cannot take you into a group right now.", SYSTEM_TEXT_ERROR))
+        else:
+            other["send"](group.join_request(other["player"].name, player))
+            zone_state["send"](build_system_text(f"You ask {other['player'].name} to join their group.",
+                                                 SYSTEM_TEXT_WHITE))
         return
     if event == social.WHO:
         f = social.parse_who(data)
@@ -6141,6 +6162,10 @@ def dev_command(text, player=None):
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
+    if words[0] == "lfm" and player:
+        # !lfm: list yourself on the Find window's LFG page without being a group leader (testing).
+        player.lfm = not getattr(player, "lfm", False)
+        return []
     if words[0] == "questreset" and len(words) == 2 and player:
         # !questreset <key>: forget a quest so it can be taken again (testing).
         player.quests.done.discard(words[1])

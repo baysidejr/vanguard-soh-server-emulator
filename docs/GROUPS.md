@@ -219,6 +219,8 @@ u8  bFlag          0x503: my LFG flag (social mgr DAT_01463a30 +3); 0x504: my LF
    - Match preferences against each other (class/dungeon/quest overlap) if wanted.
 
 ### Request to join / invite from the Find list
+
+> **Implemented (2026-10-13):** the server forwards world 0x58b to the leader as zone 0x58b {leader, requester, level, class}. It refuses when the requester is already grouped, the target is not a leader, or the group is full. The leader's 0x58c decline goes back to the requester as 0x58c {leader}. Verified with two clients: Ranger's Request to Join reached Justins, whose client auto-declined (no client-side LFM flag), and Ranger saw "Justins has declined your request to join the group." The leader's Invite/Decline dialog has not been seen yet; it needs a real group leader with /lfm on.
 | Dir | Conn | Id | Layout | Meaning |
 |---|---|---|---|---|
 | C->S | world type 5 | **0x58b** | wstr leaderName | "Request to join" from the find list (FUN_0057fc1d -> FUN_004dbd90). Only sent when the player is not grouped ("AlreadyInGroup") [O] |

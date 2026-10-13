@@ -42,7 +42,7 @@ The world server's type-5 packets use the same frame as types 2 and 6: `u16 5, u
 3. `i32 0, i32 0`
 4. `i32 craft level, i32 craft class` (0xff = none)
 5. `i32 diplomacy level, i32 chunk x, i32 chunk y, i32 0`
-6. `u8 lfg, bool8, bool8 afk, bool8 anonymous`
+6. `u8 lfg, bool8 lfm (Find list: shows "Request to Join"), bool8 afk, bool8 anonymous`
 7. 23 × `wstr ""`, then 96 × `i32 0`
 
 **MsgFriendInfo:** `i32 id, wstr name, i32 level, bool8 online, i32 class, i32 craft level, i32 craft class, i32 chunk x, i32 chunk y, u32, bool8 anonymous`. Offline friends use -1 for level, class and chunk.
@@ -70,4 +70,4 @@ The client sends zone 0x10f (no payload); the reply is zone 0x10f {i32 seconds} 
 
 ## Find window (verified live with two clients, 2026-10-13)
 
-The Social window's Find tab sends world type-5 **0x503** (LFG page) or **0x504** (LFM page) {u8 search, u8 flag, 32 x (i32 class, i32 dungeon, i32 quest)}; search = 1 comes from the Search button (or opening the page), 0 from the /lfg or /lfm toggle. The reply is the /who sequence with a page mode: 0x501, one 0x500 per player, 0x502 {count, mode 1 = LFG page / 2 = LFM page, 0, 0}. The LFG page lists group leaders and players flagged LFM; the LFM page lists ungrouped players flagged LFG. Verified: after Justins types /lfg, Ranger's "Find members for my group (LFM)" page lists "Justins 20 Warrior Sundering Wastelands" (1 result). Dungeon, quest and class preferences are ignored for now; "Request to join" (0x58b/0x58c) is not implemented.
+The Social window's Find tab sends world type-5 **0x503** (LFG page) or **0x504** (LFM page) {u8 search, u8 flag, 32 x (i32 class, i32 dungeon, i32 quest)}; search = 1 comes from the Search button (or opening the page), 0 from the /lfg or /lfm toggle. The reply is the /who sequence with a page mode: 0x501, one 0x500 per player, 0x502 {count, mode 1 = LFG page / 2 = LFM page, 0, 0}. The LFG page lists group leaders and players flagged LFM; the LFM page lists ungrouped players flagged LFG. Verified: after Justins types /lfg, Ranger's "Find members for my group (LFM)" page lists "Justins 20 Warrior Sundering Wastelands" (1 result). Dungeon, quest and class preferences are ignored for now. **Request to Join (verified live 2026-10-13):** the second byte after `u8 lfg` in MsgWhoInfo becomes find-list entry +0x62; when it is set (we set it for players flagged LFM and for group leaders) the entry shows a leader star and selecting it swaps "Invite to Group" for "Request to Join" (FUN_0057fba0 -> gamevar bShowInviteToGroupBtn). That button sends world 0x58b {wstr leader}; see GROUPS.md. `!lfm` flags you as LFM without being a leader (testing).

@@ -79,6 +79,22 @@ def error(code):
     return _event(0x6B5, struct.pack("<B", code))
 
 
+# Request to join (docs/GROUPS.md): world type 5 0x58b {wstr leader} from the Find list;
+# the leader gets zone 0x58b {wstr leader, wstr requester, i32 level, i32 class} (an
+# Invite/Decline dialog; Invite sends a normal 0xb0). Decline: world 0x58c {wstr requester};
+# the requester gets 0x58c {wstr leader} ("... declined your request").
+REQUEST_JOIN, REQUEST_DECLINE = 0x58B, 0x58C
+
+
+def join_request(leader_name, requester):
+    return _event(REQUEST_JOIN, _w(leader_name) + _w(requester.name)
+                  + struct.pack("<ii", requester.level_number, requester.klass))
+
+
+def join_declined(leader_name):
+    return _event(REQUEST_DECLINE, _w(leader_name))
+
+
 def declined(name):
     return _event(0x6B9, _w(name) + struct.pack("<ii", 0, 0))
 

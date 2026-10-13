@@ -69,7 +69,10 @@ def who_info(p, uid):
             + struct.pack("<ii", p.get("craft_level", 0), p.get("craft_class", NO_CRAFT_CLASS))
             + struct.pack("<i", p.get("diplomacy_level", 1))
             + struct.pack("<iii", p["chunk"][0], p["chunk"][1], 0)
-            + struct.pack("<BBBB", int(p.get("lfg", False)), 0, int(p.get("afk", False)), int(p.get("anon", False)))
+            # The second byte (find-list entry +0x62): set = looking for members, so the Find
+            # window offers "Request to Join" instead of "Invite to Group" (FUN_0057fba0).
+            + struct.pack("<BBBB", int(p.get("lfg", False)), int(p.get("lfm", False)), int(p.get("afk", False)),
+                          int(p.get("anon", False)))
             + _w("") * 23 + struct.pack("<96i", *[0] * 96))
     return _social(0x500, data)
 
