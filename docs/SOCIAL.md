@@ -58,11 +58,7 @@ The world server's type-5 packets use the same frame as types 2 and 6: `u16 5, u
 | C→S | `0x48c` | `wstr name` | `/inspect [name]` |
 | S→C | `0x48d`, `0x490 {wstr name, wstr class, i32 level}`, `0x48f` (an item record per equipped item), `0x48e` | | the Inspect window, in this order (`0x48f`/`0x490` are dropped without `0x48d` first) |
 
-Not done yet:
-- `/lfm` (world `0x504`, payload not decoded)
-- the Find window (`0x502` mode 1/2)
-- guilds
-- server-side ignore filtering (the client already hides ignored speakers)
+Not done yet: server-side ignore filtering (the client already hides ignored speakers). The Find window, LFG/LFM and Request to Join are in GROUPS.md; guilds in GUILDS.md.
 
 ## /played (verified live 2026-10-13)
 
