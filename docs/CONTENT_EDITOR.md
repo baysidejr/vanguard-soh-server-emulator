@@ -73,3 +73,5 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 **Finding spawns in game:** `!npclist [radius]` (dev commands) prints the NPCs near you with the client's GM NPC list (0x786): "Hollis Grent (Lvl 20) camp_banker EncounterDBId: 13 Loc: -31400.0, -5600.0, 450.0." The EncounterDBId is the entry's index in `content/spawns/<chunk>.json` and the tag is its mob key, so a builder can go from what they see in game to the line to edit.
 
 **Quest feedback:** with `--quest-feedback`, the server opens the client's Quest Feedback window (`SGOUI toggle "Quest Feedback"`) after each completed quest. The window asks for challenge, reward, lore, confusion, friends needed, a fun grade and comments. Accept sends 0x4ab {i32 quest id (-1 here), wstr comments, 6 x i32}, and the server saves the answers with the quest key in `server/quest_feedback.json` (not committed). The client's own opener, 0x4ad {wstr, i32}, shows nothing (verified live).
+
+**Combat forms and Psionicist mindsets:** which forms each class has, and what each one does, were server data. `server/content/forms.json` holds placeholders; see docs/FORMS.md.

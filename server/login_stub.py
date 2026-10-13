@@ -42,6 +42,7 @@ import duel
 import pets
 import caravan
 import fishing
+import forms
 import assembly
 import bank
 import social
@@ -2465,6 +2466,46 @@ def asm_tree(player, node=None):
 def level_chunk(level):
     """chunk_n19_12 -> (-19, 12)."""
     return tuple(-int(p[1:]) if p.startswith("n") else int(p) for p in level.split("_")[1:3])
+
+
+def forms_login(state):
+    """Combat forms / Psionicist mindsets (forms.py): the Forms bar, no form active."""
+    player = state["player"]
+    if getattr(player, "forms", None):
+        for m in forms.form_list(player.forms):
+            state["send"](m)
+        state["send"](forms.current(-1))
+
+
+def handle_form_event(state, event, data):
+    """0x13e choose a form: it becomes the one stance of that kind (Effects Maintained)."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE form event {event:#x}: {data.hex(' ')}")
+    if event != forms.CHOOSE:
+        send(forms.priority_result(0))
+        return
+    if len(data) < 4:
+        return
+    fid = struct.unpack_from("<i", data)[0]
+    form = next(((f, n, s) for f, n, s in getattr(player, "forms", []) if f == fid), None)
+    now = time.time()
+    if form is None:
+        send(forms.result(3))                           # not a valid form
+        return
+    if now < getattr(player, "form_ready", 0):
+        send(forms.result(2))                           # not ready yet
+        send(forms.current(getattr(player, "form", -1)))
+        return
+    _, name, spec = form
+    for e in getattr(player, "effects", []):
+        if e.get("form") and e["name"] != name:
+            e["ends"] = 0
+    apply_stance(state, player, name, dict(spec, kind="buff", stance=True), now)
+    e = next(x for x in player.effects if x["id"] == effect_id(player, name))
+    e["form"] = True
+    player.form, player.form_ready = fid, now + forms.CHANGE_SECONDS
+    send(forms.result(0))
+    send(forms.current(fid))
 
 
 def songs_login(state):
@@ -6546,6 +6587,10 @@ def dev_command(text, player=None):
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
+    if words[0] == "forms" and player:
+        # !forms [class]: the combat forms of a class (default Psionicist) whatever your class (testing).
+        player.forms = forms.class_forms(ARGS.content.forms.get(" ".join(words[1:]) or "Psionicist", {}))
+        return forms.form_list(player.forms) + [forms.current(-1)]
     if words[0] == "fishcatch" and player and len(words) > 1:
         # !fishcatch <fish>: count a catch as if landed with the rod (testing the Fishing achievements).
         return [("fishcatch", " ".join(words[1:]))]
@@ -6880,6 +6925,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
             player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)
             player.song_parts = songs.part_abilities(args.content.songs.get(cname, {}))
+            player.forms = forms.class_forms(args.content.forms.get(cname, {}))
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "
@@ -6910,6 +6956,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 journal_login(state)
                 songs_login(state)
                 fishing_login(state)
+                forms_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -7075,6 +7122,8 @@ def handle_message(sock, server, addr, state, payload, args):
             pet_use_ability(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0], stance=False)   # right-click a buff
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in forms.CLIENT_EVENTS and state.get("player"):
+            handle_form_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in songs.CLIENT_EVENTS and state.get("player"):
             handle_song_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.QUEST_FEEDBACK and state.get("player"):

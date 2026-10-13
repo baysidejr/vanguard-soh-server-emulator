@@ -46,6 +46,7 @@ class Content:
         self.counters = _load(os.path.join(directory, "counters.json"))
         self.rescues = _load(os.path.join(directory, "rescues.json"))
         self.songs = _load(os.path.join(directory, "songs.json"))
+        self.forms = _load(os.path.join(directory, "forms.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):

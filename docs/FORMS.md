@@ -1,0 +1,28 @@
+# Combat forms and Psionicist mindsets
+
+> **Verified live (2026-10-13), with `!forms` on Ranger:**
+> - The server sends the forms on the zone connection. The world connection logs them as unhandled.
+> - `!ui Forms` shows the Forms bar with the three mindsets from `content/forms.json`. The bar did not show by itself.
+> - Clicking one sends 0x13e {2, 0}. The server answers 0x13f {0} and 0x38d {2, 0}, applies it as a maintained stance and prints "You assume Mindset of Focus."
+> - A new form replaces the old one. A change is allowed once every 5 seconds.
+> - `/combatformset <name>` answered "You don't have knowledge of that." in the test, so use the bar.
+> - Implemented in `server/forms.py` and `login_stub.handle_form_event`.
+
+Tags: [O] read in decompiled code (combat UI manager DAT_014639a0, dispatcher FUN_005fb9e0). [I] inferred. For class 0xe (Psionicist) the client only renames the labels to "Mindsets" (FUN_006b4020); every other part is the generic combat-form system.
+
+| Dir | Id | Payload | Meaning |
+|---|---|---|---|
+| S->C | 0x38a | none | Clear all forms; the current form becomes -1 [O]. |
+| S->C | 0x38e | wstr name, wstr desc, i32 id, u8 type (0), i32 icon [I], u8 0, bool8 show | Add a form (up to 45) [O]. |
+| S->C | 0x38b | i32 count, i32 ?, then count x the 0x38e body | Replace the whole list [O]. |
+| S->C | 0x38f | i32 id, i32 ? | Remove a form [O]. |
+| S->C | 0x38d | i32 form id, i32 flag | Set the current form. -1 prints "You are no longer in a combat form!" [O] |
+| S->C | 0x13f | i32 result | Answer to 0x13e. 0 is silent. 1-3: already changing / not ready / not a valid choice. 4-6: other refusals [O]. |
+| S->C | 0x140 | i32 0, f32 0..1 | Change cooldown, shown on the recovery bar [O]. |
+| S->C | 0x142 | i32 | Answer to a priority change ("Priority set.") [O]. |
+| C->S | 0x13e | i32 form id, i32 0 | Choose a form: clicking it on the bar, `/combatformset`, or auto-change [O]. |
+| C->S | 0x141 / 0x143 | {i32 id, i32 priority} / none | `/psionicsetmindsetpriority`, `/psionicclearmindsetpriorities` [O]. |
+
+Abilities list the forms they can be used in: MsgAbilityInfo fields #61-68, where -1 means any form [O]. The server sends -1, so every ability works in every form.
+
+Not done: the psionic pool (0x26b, /psionicpoints), the recovery bar (0x140), and per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.

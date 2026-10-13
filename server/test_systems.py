@@ -7,6 +7,7 @@ import bugs
 import combat
 import encounter
 import fishing
+import forms
 import grouploot
 import housing
 import mail
@@ -375,6 +376,17 @@ class FishingAchievementTests(unittest.TestCase):
         self.assertIn("Grub".encode("utf-16-le"), msgs[1])
         # row id after the two strings and the type: -2 clears, -3 redraws
         self.assertEqual(struct.unpack_from("<ii", msgs[0], 10 + 4)[1], -2)
+
+
+class FormTests(unittest.TestCase):
+    def test_form_list(self):
+        fs = forms.class_forms({"Clarity": {"stat": "intelligence", "bonus": 12, "icon": 692}})
+        msgs = forms.form_list(fs)
+        self.assertEqual([payload(m)[0] for m in msgs], [0x38A, 0x38E])
+        tail = msgs[1][-11:]
+        self.assertEqual(struct.unpack("<iBiBB", tail), (1, 0, 692, 0, 1))
+        self.assertIn("Increases Intelligence by 12.".encode("utf-16-le"), msgs[1])
+        self.assertEqual(struct.unpack_from("<ii", forms.current(-1), 10), (-1, 0))
 
 
 if __name__ == "__main__":

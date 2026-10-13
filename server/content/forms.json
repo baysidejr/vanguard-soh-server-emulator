@@ -1,0 +1,8 @@
+{
+  "_comment": "Combat forms per class (class name as in races_classes); for a Psionicist the client calls them Mindsets. Each form is a maintained stance: stat and bonus, icon. The real forms and their effects were server data (docs/CONTENT_EDITOR.md); these are placeholders.",
+  "Psionicist": {
+    "Mindset of Clarity": {"stat": "intelligence", "bonus": 12, "icon": 692},
+    "Mindset of Focus": {"stat": "wisdom", "bonus": 12, "icon": 560},
+    "Mindset of Resolve": {"stat": "constitution", "bonus": 10, "icon": 607}
+  }
+}
