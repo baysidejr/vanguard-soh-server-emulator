@@ -24,6 +24,7 @@ import chat
 import combat
 import group
 import grouploot
+import encounter
 import reactions
 import trade
 import quest
@@ -2527,6 +2528,8 @@ def world_tick(zone_sock, clients, args):
             harvest_tick(state, now)
             effects_tick(state, args, now)
             breath_tick(state)
+            for m in encounter.sync(state.setdefault("encounter", {}), player, player.npcs):
+                state["send"](m)
             reactions_tick(state, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":

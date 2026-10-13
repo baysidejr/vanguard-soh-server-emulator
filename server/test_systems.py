@@ -4,6 +4,7 @@ import unittest
 
 import assembly
 import combat
+import encounter
 import fishing
 import grouploot
 import housing
@@ -258,6 +259,33 @@ class HateTests(unittest.TestCase):
         self.assertIs(npc.aggro_on, b)
         b.health = 0
         self.assertIs(combat.next_target(npc), a)
+
+
+class EncounterTests(unittest.TestCase):
+    class P:
+        char_id, health, name, level_number, target = 7, 100, "P", 10, None
+
+    def npc(self, eid):
+        n = combat.Npc(eid, "Rat", 1, "x")
+        n.level = 10
+        return n
+
+    def test_main_rows_and_removal(self):
+        p, a, b = self.P(), self.npc(1), self.npc(2)
+        npcs = {1: a, 2: b}
+        enc = {}
+        self.assertEqual(encounter.sync(enc, p, npcs), [])            # not fighting
+        combat.add_hate(a, p, 5)
+        combat.add_hate(b, p, 5)
+        p.target = 1
+        ids = [payload(m)[0] for m in encounter.sync(enc, p, npcs)]
+        self.assertEqual(ids, [0x3A1, 0x491, 0x3B5])                   # main, its aggro, one row
+        self.assertEqual(encounter.sync(enc, p, npcs), [])            # nothing changed
+        b.health = 0
+        ids = [payload(m)[0] for m in encounter.sync(enc, p, npcs)]
+        self.assertEqual(ids, [0x3B6, 0x3B7])                          # "Dead!", row removed
+        a.health = 50
+        self.assertEqual([payload(m)[0] for m in encounter.sync(enc, p, npcs)], [0x3B9])
 
 
 if __name__ == "__main__":
