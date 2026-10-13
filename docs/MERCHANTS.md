@@ -163,3 +163,7 @@ A merchant with `"repair": true` in mobs.json (Orin) also offers "I need to repa
 Durability is item field 106 and is saved per character (`durability`). Each death takes 10 points from every equipped item that isn't a misc item and prints "Your equipment has been damaged.". The new value shows after a repair or the next login. The dev command `!wear [points]` damages equipped gear for testing. The price is a placeholder: 2 copper per missing point per item level.
 
 A smaller in-place update exists: `0x1dc` MsgInvItemBaseDataUpdate overwrites many item fields at once. It is not used yet.
+
+## Buyback (verified live 2026-10-13)
+
+Every sale adds the item to the merchant window's **Buyback** tab (the player's last 10 sales, kept for the session; `login_stub.add_buyback`): 0x197 with item field 92 = 10 (location type buyback) and a handle of its own, then 0x289 `{i32 handle, f32 price}` (what the merchant paid). Right-clicking (or dragging) a buyback entry sends **0xe9** `{i32 handle}`; the server checks coin and bag space, answers 0x1d9 `{i32 handle}` (removed from the tab), 0x197 into the bags and 0x1aa ("You lose 10 copper.").

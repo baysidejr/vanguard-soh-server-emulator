@@ -19,6 +19,12 @@ DIALOG_OPEN, DIALOG_WARES = 0x2BB, 0x2B5
 WINDOW_CLEAR, WINDOW_OPEN, WINDOW_ITEM, WINDOW_PUBLISH, WINDOW_CLOSE = 0x28B, 0x283, 0x285, 0x28C, 0x284
 REQ_OPEN, REQ_BUY, REQ_SELL, REQ_CLOSE, REQ_CLOSE2 = 0xE5, 0xE7, 0xE8, 0xE6, 0xF4
 REQ_REPAIR_OPEN, REQ_REPAIR, REQ_REPAIR_ALL = 0xF1, 0xF2, 0xF3
+# Buyback (docs/MERCHANTS.md): a sold item goes to the Buyback tab as 0x197 with field 92 = 10,
+# then 0x289 {i32 handle, f32 price}; client 0xe9 {i32 handle} buys it back -> 0x1d9 {handle}
+# removes it from the tab, then 0x197 into the bag and 0x1aa coins.
+REQ_BUYBACK = 0xE9
+BUYBACK_SIZE = 10
+LOCATION_BUYBACK = 10                  # item field 92
 DIALOG_REPAIR = 0x2BA
 ERR_REPAIR_ALL = 0xFF
 COINS_CHANGED = 0x1AA          # i64 total copper, with a "You receive/lose" chat line
@@ -108,6 +114,14 @@ def sell(content, npc, player, handle):
     player.items.remove(item)
     player.coins += value
     return [_event(ITEM_REMOVED, struct.pack("<iB", handle, 0)), coins(player.coins)]
+
+
+def buyback_price(handle, price):
+    return _event(0x289, struct.pack("<if", handle, float(price)))
+
+
+def buyback_removed(handle):
+    return _event(0x1D9, struct.pack("<i", handle))
 
 
 def repair_window(entries):

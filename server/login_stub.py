@@ -4160,6 +4160,47 @@ def sphere_xp(state, which, amount):
     save_character_field(player.name, "spheres", player.spheres)
 
 
+def add_buyback(state, item, price):
+    """A sold item shows on the merchant's Buyback tab (the last BUYBACK_SIZE sales)."""
+    player = state["player"]
+    bb = state.setdefault("buyback", [])
+    handle = zone.new_item_id(player) + 500000            # never clashes with bag handles
+    while any(b[0] == handle for b in bb):
+        handle += 1
+    bb.append((handle, item[1], item[2], item[3], max(1, price)))
+    out = []
+    while len(bb) > merchant.BUYBACK_SIZE:
+        out.append(merchant.buyback_removed(bb.pop(0)[0]))
+    fields = zone.item_equip_fields(item[1])
+    fields["raw"] = {**fields.get("raw", {}), 92: merchant.LOCATION_BUYBACK}
+    out.append(zone.zone_event(0x197, vgmsg.inventory_item(handle, item[1], len(bb) - 1, item[2], item[3],
+                                                           **fields)))
+    out.append(merchant.buyback_price(handle, max(1, price)))
+    return out
+
+
+def buy_back(state, handle):
+    """0xe9: buy a sold item back for what it sold for."""
+    player = state["player"]
+    bb = state.get("buyback", [])
+    entry = next((b for b in bb if b[0] == handle), None)
+    if entry is None:
+        return [merchant.error(merchant.ERR_CANT_SELL)]
+    _h, name, icon, qty, price = entry
+    if player.coins < price:
+        return [merchant.error(merchant.ERR_CANT_AFFORD)]
+    slot = zone.free_bag_slot(player)
+    if slot is None:
+        return [merchant.error(merchant.ERR_NO_SPACE)]
+    bb.remove(entry)
+    player.coins -= price
+    new_id = zone.new_item_id(player)
+    player.items.append((new_id, name, icon, qty, slot))
+    return [merchant.buyback_removed(handle),
+            zone.zone_event(0x197, vgmsg.inventory_item(new_id, name, slot, icon, qty, **zone.item_equip_fields(name))),
+            merchant.coins(player.coins)]
+
+
 def take_items(state, name, need):
     """Remove `need` of an item from the bags (whole stacks first come first)."""
     player, send = state["player"], state["send"]
@@ -6556,7 +6597,7 @@ def handle_message(sock, server, addr, state, payload, args):
                     gear_changed(state, args, player)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 merchant.REQ_OPEN, merchant.REQ_BUY, merchant.REQ_SELL, merchant.REQ_CLOSE,
-                merchant.REQ_CLOSE2):
+                merchant.REQ_CLOSE2, merchant.REQ_BUYBACK):
             event = struct.unpack_from("<I", payload, 2)[0]
             player = state.get("player")
             npc = player.npcs.get(player.target) if player and player.target else None
@@ -6576,10 +6617,16 @@ def handle_message(sock, server, addr, state, payload, args):
                                                                     **zone.item_equip_fields(name))))
             elif event == merchant.REQ_SELL:
                 handle = struct.unpack_from("<i", payload, 10)[0]
+                sold = next((i for i in player.items if i[0] == handle), None)
+                coins_before = player.coins
                 msgs = merchant.sell(args.content, npc, player, handle)
+                if sold is not None and sold not in player.items:
+                    msgs += add_buyback(state, sold, player.coins - coins_before)
+            elif event == merchant.REQ_BUYBACK:
+                msgs = buy_back(state, struct.unpack_from("<i", payload, 10)[0])
             for m in msgs:
                 send_message(sock, addr, state, m)
-            if event in (merchant.REQ_BUY, merchant.REQ_SELL) and player is not None:
+            if event in (merchant.REQ_BUY, merchant.REQ_SELL, merchant.REQ_BUYBACK) and player is not None:
                 save_character_field(player.name, "items", [list(i) for i in player.items])
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
