@@ -273,6 +273,8 @@ def npc_turns(player, now, rng=random):
     for npc in player.npcs.values():
         if not (npc.alive and npc.aggro and npc.aggro_on is player) or now < npc.next_attack or npc.casting:
             continue
+        if now < getattr(npc, "feared_until", 0):
+            continue                       # running away in terror
         if player.health <= 0:
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
             npc.hate = {}
@@ -365,6 +367,7 @@ def npc_attacks(player, npc, rng=random):
 
 
 NPC_SPEED = 220.0            # units per second while chasing
+FLEE_SPEED, FLEE_STEP = 0.8, 300.0   # a feared NPC runs at 80% speed away from its attacker
 MELEE_RANGE = 90.0
 
 
@@ -434,6 +437,12 @@ def chase_step(npc, target, dt, rng=random, now=None):
     if not npc.alive:
         return None
     now = time.time() if now is None else now
+    if now < getattr(npc, "feared_until", 0) and target is not None:
+        # Feared: run straight away from its attacker (no leash check while it flees).
+        dx, dy = npc.location[0] - target[0], npc.location[1] - target[1]
+        d = math.hypot(dx, dy) or 1.0
+        away = (npc.location[0] + dx / d * FLEE_STEP, npc.location[1] + dy / d * FLEE_STEP)
+        return move_toward(npc, away, dt, NPC_SPEED * FLEE_SPEED, 1.0)
     if npc.aggro and target is not None:
         if math.hypot(npc.location[0] - npc.home[0], npc.location[1] - npc.home[1]) > LEASH:
             npc.aggro, npc.aggro_on, npc.wander_goal = False, None, npc.home

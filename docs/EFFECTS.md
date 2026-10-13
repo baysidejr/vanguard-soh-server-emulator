@@ -41,3 +41,7 @@ Real ability data (costs, damage, durations) was server-side. The emulator guess
 ## Stances and maintained abilities (verified live 2026-10-13)
 
 Abilities with abilities.json `"stance": true` (the Ranger's Offensive / Precision / Evasive Style) are maintained stances: no timer, one at a time (assuming another takes the old one off: "You assume Evasive Style I." / "Offensive Style I wears off."), always on the caster. The server keeps the stat bonus as a buff internally but shows the stance only in the **Effects Maintained** window (`VGUIMaintainedAbilities.xml`, a frameless icon row): **0x23e** `{i32 id, wstr name, wstr desc, u8 0, i32 icon, bool8 0, f32 0}` adds it (resending the id replaces it), **0x23f** `{i32 id}` removes it, 0x24f clears all. Right-clicking the icon (or `/cancelmaintained <name>`) sends **0x24e** `{i32 id}` and the server ends the stance. The timed buff icon (0x23a) is removed for stances so it doesn't show "3650d". Right-clicking an ordinary buff icon sends **0x249** `{i32 id}` and the server ends it ("Adamant Foeman I wears off.", verified live). Not done: 0x254 ability-failure reasons.
+
+## Fear (verified live 2026-10-13)
+
+abilities.json `"kind": "fear", "duration": s` (Necromancer "Fear I": 1.5 s cast, 8 s): the targeted NPC runs straight away from the caster at 80% speed and doesn't swing until it wears off; it keeps its hate and comes back afterwards. Chat: "Canyon Widow flees in terror!". Server: `combat.chase_step` / `combat.npc_turns` check `npc.feared_until`.

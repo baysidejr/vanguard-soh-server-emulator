@@ -483,5 +483,17 @@ class GiveLootTests(unittest.TestCase):
         self.assertIsNone(grouploot.match_loot(loot, "Sword"))
 
 
+class FearTests(unittest.TestCase):
+    def test_feared_npc_flees_and_holds(self):
+        npc = combat.Npc(1, "Wolf", None, "x", max_health=100, location=(0.0, 0.0, 0.0))
+        npc.aggro = True
+        npc.feared_until = 100.0
+        combat.chase_step(npc, (50.0, 0.0, 0.0), 0.5, now=10.0)
+        self.assertLess(npc.location[0], 0.0)                  # ran away from x = 50
+        p = types.SimpleNamespace(health=100, live_position=(1.0, 0.0, 0.0), npcs={1: npc})
+        npc.aggro_on, npc.next_attack, npc.casting = p, 0, None
+        self.assertEqual(combat.npc_turns(p, 10.0), [])         # no swing while feared
+
+
 if __name__ == "__main__":
     unittest.main()

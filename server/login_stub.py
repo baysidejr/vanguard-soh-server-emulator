@@ -398,6 +398,28 @@ def use_ability(state, args, player, ability):
             cooldowns[handle] = now + refresh
             send(effects.cooldown(ability[1], refresh))
         return
+    if spec["kind"] == "fear":
+        # abilities.json "kind": "fear", "duration": s: the targeted enemy runs away and doesn't
+        # attack until it wears off (it still hates the caster and comes back).
+        npc = player.npcs.get(player.target) if player.target else None
+        if npc is None or not npc.alive or getattr(npc, "pet_owner", None) is not None:
+            send(build_system_text("You need a hostile target.", SYSTEM_TEXT_ERROR))
+            return
+        if player.health <= 0:
+            send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+            return
+        visual = ability[1] if ability[1] >= 500000 else None
+        if visual:
+            send(combat.display_ability(player.char_id, npc.entity_id, visual))
+        npc.feared_until = now + spec.get("duration", 8.0)
+        npc.aggro, npc.aggro_on, npc.casting = True, player, None
+        combat.add_hate(npc, player, 10)
+        player.last_combat = now
+        send(build_system_text(f"{npc.name} flees in terror!", SYSTEM_TEXT_COMBAT))
+        if refresh > 0:
+            cooldowns[handle] = now + refresh
+            send(effects.cooldown(ability[1], refresh))
+        return
     if spec["kind"] in ("heal", "buff"):
         if player.health <= 0:
             send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
