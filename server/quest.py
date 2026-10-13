@@ -31,6 +31,15 @@ def npc_text(npc_eid, text):
     return _event(0x3EA, struct.pack("<Q", npc_eid) + _w(text))
 
 
+DIALOG_RESPONSE = 0x15B             # client {i32 dialog index, u8 response index}
+
+
+def responses(npc_eid, dialog_idx, texts):
+    """0x2af MsgQuestDialogToClient: replaces the conversation replies (type-6 options)."""
+    texts = (list(texts) + [""] * 5)[:5]
+    return _event(0x2AF, struct.pack("<Qi", npc_eid, dialog_idx) + b"".join(_w(t) for t in texts))
+
+
 def options(npc_eid, opts):
     """opts: [(text, id, type)]."""
     data = struct.pack("<Qi", npc_eid, len(opts))

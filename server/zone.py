@@ -196,6 +196,7 @@ def populate_world(w, args):
         npc.recipe_trainer = list(template.get("recipe_trainer", []))
         npc.broker = template.get("broker")
         npc.altar = bool(template.get("altar"))
+        npc.dialog = args.content.dialogs.get(spawn["mob"])
         npc.repairs = bool(template.get("repair"))
         npc.parley = template.get("parley")        # diplomacy.json parley key
         npc.template_id = spawn["mob"]

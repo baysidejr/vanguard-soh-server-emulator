@@ -37,6 +37,7 @@ class Content:
         self.abilities = _load(os.path.join(directory, "abilities.json"))
         self.factions = _load(os.path.join(directory, "factions.json"))
         self.workorders = _load(os.path.join(directory, "workorders.json"))
+        self.dialogs = _load(os.path.join(directory, "dialogs.json"))
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -148,6 +149,17 @@ def validate(directory=CONTENT_DIR):
         for key in m.get("recipe_trainer", []):
             if key not in c.recipes or "trainer_cost" not in c.recipes[key]:
                 problems.append(f"mob {mid}: recipe_trainer {key} is not a recipe with a trainer_cost")
+    for mid, dl in c.dialogs.items():
+        if mid not in c.mobs:
+            problems.append(f"dialog {mid}: unknown mob")
+        if dl.get("start") not in dl.get("nodes", {}):
+            problems.append(f"dialog {mid}: start node {dl.get('start')} missing")
+        for nid, node in dl.get("nodes", {}).items():
+            if len(node.get("responses", [])) > 5:
+                problems.append(f"dialog {mid} node {nid}: more than 5 responses")
+            for r in node.get("responses", []):
+                if "goto" in r and r["goto"] not in dl["nodes"]:
+                    problems.append(f"dialog {mid} node {nid}: goto {r['goto']} missing")
     for wid, w in c.workorders.items():
         if w.get("recipe") not in c.recipes:
             problems.append(f"work order {wid}: unknown recipe {w.get('recipe')}")

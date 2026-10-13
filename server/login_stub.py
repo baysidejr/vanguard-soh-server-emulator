@@ -1828,7 +1828,15 @@ def npc_dialog(state, npc):
     if not state.get("parley"):
         out.append(zone.zone_event(quest.END_CONVERSATION))
     out.append(quest.npc_text(npc.entity_id, ""))
-    out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
+    dl = getattr(npc, "dialog", None)
+    if dl and not greeting:
+        node = dl["nodes"][dl["start"]]
+        out.append(zone.zone_event(0x2BB, struct.pack("<Q", npc.entity_id)))   # open the Dialogue window
+        out.append(quest.npc_text(npc.entity_id, node["text"]))
+        out.append(quest.responses(npc.entity_id, list(dl["nodes"]).index(dl["start"]),
+                                   [r["text"] for r in node.get("responses", [])]))
+    else:
+        out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
     if npc.parley:
         opts.append(("Let's talk business. (Parley)", diplomacy.PARLEY_OPTION_ID,
                      diplomacy.OPTION_TYPE))
@@ -1854,6 +1862,47 @@ def npc_dialog(state, npc):
 def task_master_option(npc):
     return ("I'm looking for work. (Work orders)", workorder.OPTION_ID, workorder.OPTION_TYPE) \
         if getattr(npc, "task_master", False) else None
+
+
+def handle_dialog_response(state, data):
+    """0x15b {i32 dialog index (= node position), u8 response}: follow a conversation."""
+    player, send = state["player"], state["send"]
+    npc = player.npcs.get(player.target) if player.target else None
+    dl = getattr(npc, "dialog", None) if npc else None
+    if not dl or len(data) < 5:
+        return
+    idx, ri = struct.unpack_from("<iB", data)
+    names = list(dl["nodes"])
+    if not 0 <= idx < len(names):
+        return
+    rs = dl["nodes"][names[idx]].get("responses", [])
+    if ri >= len(rs):
+        return
+    r = rs[ri]
+    send(build_system_text(f"You say, \"{r['text']}\"", SYSTEM_TEXT_WHITE))
+    action = r.get("action", "")
+    if action.startswith(("faction:", "give:")):
+        key = f"{npc.template_id}:{names[idx]}:{ri}"           # rewards are paid once per character
+        done = list(getattr(player, "dialog_rewards", []))
+        if key in done:
+            action = "end"
+        else:
+            player.dialog_rewards = done + [key]
+            save_character_field(player.name, "dialog_rewards", player.dialog_rewards)
+    if action.startswith("faction:"):
+        _, fid, amount = action.split(":")
+        adjust_faction(state, fid, int(amount))
+    elif action.startswith("give:"):
+        give_item(state, action.split(":", 1)[1])
+    elif action == "wares" and npc.merchant:
+        send(zone.zone_event(merchant.DIALOG_WARES))
+    if "goto" in r:
+        node = dl["nodes"][r["goto"]]
+        send(quest.npc_text(npc.entity_id, ""))
+        send(quest.npc_text(npc.entity_id, node["text"]))
+        send(quest.responses(npc.entity_id, names.index(r["goto"]), [x["text"] for x in node.get("responses", [])]))
+    elif not action or action == "end":
+        send(zone.zone_event(quest.END_CONVERSATION))
 
 
 def quest_by_id(qid):
@@ -3850,6 +3899,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.xp_debt = int(char.get("xp_debt", 0))
             player.tombstone = char.get("tombstone")
             player.bind = char.get("bind")
+            player.dialog_rewards = list(char.get("dialog_rewards", []))
             player.known_recipes = list(char.get("known_recipes", []))
             player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
             player.diplomacy_slots = char.get("diplomacy_slots")
@@ -3972,6 +4022,8 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE interact {eid:#x} ({npc.name if npc else '-'})")
             if npc is not None and getattr(npc, "altar", False):
                 handle_altar_use(state, npc)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == quest.DIALOG_RESPONSE and state.get("player"):
+            handle_dialog_response(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0xE0 and state.get("player"):
             # /rezaccept (u8 1) or /rezdecline (u8 0), also the Resurrection dialog buttons.
             answer_rez(state, args, payload[10:11] == b"\x01")

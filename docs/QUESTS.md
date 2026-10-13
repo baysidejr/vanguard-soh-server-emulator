@@ -226,3 +226,12 @@ Not used for this: **0x2a2/0x2a3** MsgQuestJournalAdd. That is the Adventure Jou
 - The meaning of 0x2b0, fields 15/19/20/21, and the records' fields b and d.
 - That the client accepts 0x2c0 without a prior 0x2bb: 0x2c0 opens the dialogue page itself through FUN_004c40a0(1).
 - Test live.
+
+## Conversations (verified live 2026-10-13)
+
+NPCs with an entry in `server/content/dialogs.json` talk in conversation trees. Hailing the Thestran Guard opens the Dialogue window with "Keep your wits about you, traveler..." and three replies; clicking "Any dangers I should know about?" shows the next node, and "I'll keep an eye out. (+ camp standing)" raises the camp faction ("Your standing with Thestran Wastes Camp has improved.").
+
+- The window needs **0x2bb {eid64 npc}** first; 0x3ea text plus 0x2af replies alone do not open it (the client still answers 0x127).
+- Each node is sent as an empty 0x3ea (clear), the node text (0x3ea) and **0x2af {npc, node index, 5 x wstr}**, which replaces the previous replies.
+- A click sends **0x15b {i32 node index, u8 reply}**. The server echoes "You say, "...".", runs the reply's action (`faction:<id>:<n>`, `give:<item>`, `wares`, `end`; rewards are paid once per character, saved as `dialog_rewards`) and either sends the `goto` node or ends the conversation (0x55f).
+- The client only opens the dialogue when the player is near the NPC (hailing from about 2900 units away does nothing).

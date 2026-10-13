@@ -1,0 +1,52 @@
+{
+  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item>}] (at most 5)}}}. A response with neither goto nor action ends the conversation. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "wastes_thestran_guard": {
+    "start": "hello",
+    "nodes": {
+      "hello": {
+        "text": "Keep your wits about you, traveler. The Wastes are not kind to the careless.",
+        "responses": [
+          {
+            "text": "What is this place?",
+            "goto": "place"
+          },
+          {
+            "text": "Any dangers I should know about?",
+            "goto": "dangers"
+          },
+          {
+            "text": "Farewell."
+          }
+        ]
+      },
+      "place": {
+        "text": "The Sundering Wastes. Thestra keeps this camp so caravans have somewhere to rest. Orin trades, Garret hands out work, and Veyla trains anyone with a blade.",
+        "responses": [
+          {
+            "text": "Any dangers I should know about?",
+            "goto": "dangers"
+          },
+          {
+            "text": "Thanks."
+          }
+        ]
+      },
+      "dangers": {
+        "text": "Canyon widows in the rocks to the west, and robed wanderers who pester the merchants. Thin the wanderers out and the camp will remember it.",
+        "responses": [
+          {
+            "text": "I'll keep an eye out. (+ camp standing)",
+            "action": "faction:1001:25"
+          },
+          {
+            "text": "Back to my questions.",
+            "goto": "hello"
+          },
+          {
+            "text": "Farewell."
+          }
+        ]
+      }
+    }
+  }
+}
