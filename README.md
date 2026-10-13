@@ -56,7 +56,7 @@ The unmodified client, talking only to this emulator:
 - [x] Per-character diplomacy decks, card slotting and reward cards; crafting catalysts
 - [x] Factions: standings saved per character, kill/quest/parley changes, /showfactions, NPC name plates colored by standing
 - [x] Crafting work orders: task master window, accept, craft the work-order recipe, turn in for coin, crafting XP and faction
-- [x] Mail: mailboxes, inbox, reading, sending letters with coin, taking coin and items, delete (items and cash on delivery coded, untested)
+- [x] Mail: mailboxes, inbox, reading, sending letters with coin or an item, cash on delivery, return, delete
 - [ ] Crafting toolbelts and utilities; the hotbar cooldown sweep
 
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic docs: [INVENTORY](docs/INVENTORY.md), [ITEM_FIELDS](docs/ITEM_FIELDS.md), [GEAR](docs/GEAR.md), [ABILITIES](docs/ABILITIES.md), [ABILITY_VISUALS](docs/ABILITY_VISUALS.md), [LOOT](docs/LOOT.md), [MERCHANTS](docs/MERCHANTS.md), [GROUPS](docs/GROUPS.md), [CHAT](docs/CHAT.md), [TRADE](docs/TRADE.md), [QUESTS](docs/QUESTS.md), [CHUNK_TRAVEL](docs/CHUNK_TRAVEL.md), [CREATURES](docs/CREATURES.md), [HARVESTING](docs/HARVESTING.md), [CRAFTING](docs/CRAFTING.md), [DIPLOMACY](docs/DIPLOMACY.md), [TRAINERS](docs/TRAINERS.md), [BANK](docs/BANK.md), [SOCIAL](docs/SOCIAL.md), [EFFECTS](docs/EFFECTS.md), [GUILDS](docs/GUILDS.md), [BROTHERHOODS](docs/BROTHERHOODS.md), [FACTIONS](docs/FACTIONS.md), [WORK_ORDERS](docs/WORK_ORDERS.md), [MAIL](docs/MAIL.md), [CONTENT_EDITOR](docs/CONTENT_EDITOR.md).

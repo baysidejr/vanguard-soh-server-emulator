@@ -2,14 +2,14 @@
 
 > **Verified live (2026-10-13):** a Mailbox (race 527, EntityTypes 0x20000) stands at the camp. Targeting it and typing /mail (or clicking it) opens the Mail window. The inbox lists "Orin the Trader / A small gift / 29 days"; the Read Mail window shows the body, the attached coin and item; clicking them prints "You receive 50 copper." and "You receive Copper Ore.". After reading, the lifetime drops to the read-mail value (7 days). Compose to Justins with 5 copper shows the client's "Confirm Send Money" popup, then sends ("You lose 15 copper." before the postage fix). Delete removes the letter. Mail survives a server restart (`server/mail.json`).
 >
-> **Not tested live:** attaching an item (drag from the bags to the compose slot), cash on delivery and Return.
+> Also verified: dragging an item from the bags into the compose slot (the client fills the subject with the item name and shows shipping 24); a cash-on-delivery letter shows the client's "Confirm Shipping Fee" popup with the price, and accepting takes the item ("You receive 2 Copper Ore.", "You lose 12 copper.") and mails the payment to the sender; Return sends a letter back with its coin.
 
 Server: `server/mail.py`, `login_stub.handle_mail_event`. Storage: `server/mail.json` (not committed). Dev command: `!mailme` (a letter from Orin with 50 copper and a Copper Ore).
 
 ## Server behaviour
 
 - 0x520 needs a targeted mailbox within 800 units (otherwise 0x0e code 0xf8 PleaseTargetMailbox or 0xf9 MoveCloserToMailbox). The first open sends 0x51e; every open sends 0x518, the mails (0x515, plus 0x516 for an item) and 0x519.
-- Sending checks the recipient (an existing character), self-mail, subject (49) and body (1000) lengths and the attached item. It charges postage (shown 20% off by this client, so 8 copper is charged), 30 copper shipping for an item, and the coin sent. An item leaves the bags at once. Online recipients get 0x513 and "You have new mail from X.".
+- Sending checks the recipient (an existing character), self-mail, subject (49) and body (1000) lengths and the attached item. It charges postage and item shipping as the client shows them (20% off the 0x51e values: 8 and 24 copper), and the coin sent. An item leaves the bags at once. Online recipients get 0x513 and "You have new mail from X.".
 - Cash on delivery: the copper amount is the price. Taking the item charges it and mails the payment to the sender ("Payment: ...").
 - Return sends the mail (coin and item included) back to a player sender with "Returned:" in the subject. Returned and system mail can't be returned.
 - At login, unread mail sends 0x513 (the client prints "You have unread mail messages.").

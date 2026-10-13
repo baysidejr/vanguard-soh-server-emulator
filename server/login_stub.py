@@ -2116,7 +2116,7 @@ def handle_mail_event(state, event, data):
             send(build_system_text("Cash on delivery needs an attached item.", SYSTEM_TEXT_ERROR))
             send(mail.result(mail.DB_ERROR))
             return
-        cost = mail.POSTAGE * 4 // 5 + (mail.SHIPPING if it else 0) + (0 if cod else max(0, copper))
+        cost = mail.POSTAGE * 4 // 5 + (mail.SHIPPING * 4 // 5 if it else 0) + (0 if cod else max(0, copper))
         if player.coins < cost:
             send(build_system_text("You can't afford the postage for that.", SYSTEM_TEXT_ERROR))
             send(mail.result(mail.DB_ERROR))
