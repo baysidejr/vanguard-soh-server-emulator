@@ -162,13 +162,30 @@ EQUIP_SLOTS = {
 }
 
 
+# Items inside a bag keep one int "slot": BAG_SLOT_BASE + bag handle * 100 + slot in the bag
+# (the main grid uses 0..49), so the server's 5-element item tuples need no container field.
+BAG_SLOT_BASE = 1000000
+
+
+def bag_slot(container, n):
+    return n if container == -1 else BAG_SLOT_BASE + container * 100 + n
+
+
+def split_slot(slot):
+    """(container, slot in it): container -1 = the main grid."""
+    return (-1, slot) if slot is None or slot < BAG_SLOT_BASE else divmod(slot - BAG_SLOT_BASE, 100)
+
+
 def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
                    container=-1, quality=1, equip_slot=-1, default_slot=-1, allowed_slots=(),
                    raw=None):
     """An item in a bag: equip slot -1, container -1 = the main grid
     (gamevar InventoryContainerID_-1, 50 slots), slot 0..49. Icon is a
-    number formatted %05d in the client icon map (443 = the client's fallback)."""
+    number formatted %05d in the client icon map (443 = the client's fallback). A slot of
+    BAG_SLOT_BASE or more is a slot inside a bag (bag_slot)."""
     f = ITEM_FIELDS
+    if container == -1:
+        container, slot = split_slot(slot)
     return item_info({f["id"]: item_id, f["name"]: name, f["description"]: description,
                       f["quantity"]: quantity, f["equip_slot"]: equip_slot, f["icon"]: icon,
                       f["container"]: container, f["slot"]: slot, 81: 1.0,

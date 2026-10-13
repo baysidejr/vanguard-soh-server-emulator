@@ -668,7 +668,11 @@ def item_equip_fields(name, durability=100):
         extra[84] = tpl["skill"]
     if "armor" in tpl:
         extra[85] = tpl["armor"]
+    if tpl.get("bag"):
+        extra[14] = tpl["bag"]           # capacity: the client makes InventoryContainerID_<handle>
     out = {"raw": extra}
+    if tpl.get("bag"):
+        return dict(out, default_slot=BAG_EQUIP_SLOTS[0], allowed_slots=BAG_EQUIP_SLOTS)
     if "slot" in tpl:
         slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
         allowed = [slot]
@@ -772,7 +776,46 @@ MAX_STACK = 99
 
 
 def item_moved(handle, slot, container=-1):
+    if container == -1:
+        container, slot = vgmsg.split_slot(slot)
     return zone_event(0x1AC, struct.pack("<iiii", handle, container, slot, 0))
+
+
+# Bags (docs/INVENTORY.md "Bags"): an item whose items.json template has "bag": N is sent with
+# field 14 = N; the client then makes the gamevar list InventoryContainerID_<handle>. A bag is
+# equipped into one of the main bar's three bag slots (CONTAINER1-3); clicking it there, or the
+# bags button, opens its window (FUN_00500750 opens every equipped bag). Items inside use
+# field 15 = the bag's handle and field 16 = the slot; the server keeps that as one slot number
+# (vgmsg.bag_slot). Only equipped bags hold items.
+BAG_EQUIP_SLOTS = [vgmsg.EQUIP_SLOTS[s] for s in ("CONTAINER1", "CONTAINER2", "CONTAINER3")]
+
+
+def bag_capacity(name):
+    return ITEM_CONTENT.item(name).get("bag", 0)
+
+
+def bag_items(items, handle):
+    return [i for i in items if vgmsg.split_slot(i[4])[0] == handle]
+
+
+def move_target(items, equipment, handle, container, slot):
+    """Check a drag to (container, slot); returns the stored slot or an error string."""
+    item = next((i for i in items if i[0] == handle), None)
+    if item is None:
+        return "That item is not in your inventory."
+    if container == -1:
+        return slot if 0 <= slot < BAG_SLOTS else "You can't put that there."
+    bag = next((e for e in equipment if e[0] == container), None)
+    if bag is None or not bag_capacity(bag[1]):
+        return "You can't put that there."
+    if not 0 <= slot < bag_capacity(bag[1]):
+        return "You can't put that there."
+    target = vgmsg.bag_slot(container, slot)
+    other = next((i for i in items if i[4] == target and i[0] != handle), None)
+    if bag_capacity(item[1]) or (other is not None and bag_capacity(other[1])
+                                 and vgmsg.split_slot(item[4])[0] != -1):
+        return "You can't put a bag inside a bag."
+    return target
 
 
 def move_item(items, handle, slot, max_stack=MAX_STACK):
@@ -821,9 +864,10 @@ def inventory_messages(player):
     """0x195 resets the inventory UI and creates the 50-slot main grid
     (FUN_00513170; field 0 = InventorySpaceAvailable), then one 0x197 per item,
     then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
-    out = [zone_event(0x195, struct.pack("<iiii", 50 - len(player.items), 0, 0, 0))]
+    main = [i for i in player.items if vgmsg.split_slot(i[4])[0] == -1]
+    out = [zone_event(0x195, struct.pack("<iiii", 50 - len(main), 0, 0, 0))]
     dur = getattr(player, "durability", {})
-    for item_id, name, icon, qty, slot in player.items:
+    for item_id, name, icon, qty, slot in main:
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, item_icon(name, icon), qty,
                                                           **item_equip_fields(name, dur.get(str(item_id), 100)))))
     # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
@@ -832,6 +876,10 @@ def inventory_messages(player):
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, item_icon(name, icon),
                                                           **item_equip_fields(name, dur.get(str(item_id), 100)))))
         out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))
+    # Items inside the equipped bags, now that their containers exist.
+    for item_id, name, icon, qty, slot in [i for i in player.items if i not in main]:
+        out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, item_icon(name, icon), qty,
+                                                          **item_equip_fields(name, dur.get(str(item_id), 100)))))
     out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
     return out
 
@@ -994,6 +1042,8 @@ def unequip_item(player, handle):
     item = next((e for e in player.equipment if e[0] == handle), None)
     if item is None:
         return "That item is not equipped."
+    if bag_items(player.items, handle):
+        return "You need to empty that bag first."
     slot = free_bag_slot(player)
     if slot is None:
         return "Your bags are full."
@@ -1010,9 +1060,16 @@ def equip_item(player, handle):
     if item is None:
         return "That item is not in your bags."
     tpl = ITEM_CONTENT.item(item[1])
-    if "slot" not in tpl:
+    if "slot" not in tpl and not tpl.get("bag"):
         return "That item does not equip."
-    slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
+    if tpl.get("bag"):
+        # The first empty bag slot on the main bar (else swap the first bag).
+        used = {e[3] for e in player.equipment}
+        slot = next((s for s in BAG_EQUIP_SLOTS if s not in used), BAG_EQUIP_SLOTS[0])
+        if vgmsg.split_slot(item[4])[0] != -1:
+            return "You can't equip a bag that is inside a bag."
+    else:
+        slot = vgmsg.EQUIP_SLOTS[tpl["slot"]]
     hands = {vgmsg.EQUIP_SLOTS[s] for s in ("PRIMARYHAND", "SECONDARYHAND", "TWOHANDS")}
     blocked = {slot}
     if slot == vgmsg.EQUIP_SLOTS["TWOHANDS"]:
@@ -1021,10 +1078,13 @@ def equip_item(player, handle):
         blocked.add(vgmsg.EQUIP_SLOTS["TWOHANDS"])
     msgs = []
     displaced = [e for e in player.equipment if e[3] in blocked]
+    if any(bag_items(player.items, e[0]) for e in displaced):
+        return "You need to empty that bag first."
     split = item[3] > 1
     # Equipping from a stack keeps the rest in the bag, so every displaced piece
     # needs a free slot; otherwise the first one takes the equipped item's slot.
-    if len(player.items) - (0 if split else 1) + len(displaced) > BAG_SLOTS:
+    main = [i for i in player.items if vgmsg.split_slot(i[4])[0] == -1]
+    if len(main) - (0 if split else 1) + len(displaced) > BAG_SLOTS:
         return "Your bags are full."
     if split:
         # 0x1ae {handle, count} shrinks the stack; the equipped one is a new item.

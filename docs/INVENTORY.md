@@ -155,4 +155,13 @@ The second item goes in f16 = 1, and so on up to 49. For a bag item, set f14 = s
 - **Move:** dragging an item to another bag slot sends client **0x92** `{i32 handle, i32 container (-1 = the main bags), i32 slot}`; the client waits for the server. The server answers **0x1ac** `{i32 handle, i32 container, i32 slot, i32 0}` and the icon moves (`zone.move_item`). Onto an occupied slot the two items swap (two 0x1ac); onto a stack of the same item it merges up to 99 (0x1ae new count, 0x1a5 removes the emptied item). Moves into bags inside the bags (container = a bag's handle) are refused for now.
 - **Destroy:** dragging an item out of the window opens the client's "Delete: <item>" popup; Delete sends **0x89** `{i32 handle}`. The server removes it (0x1a5) and prints "You destroy Hunter's Shortsword.".
 - **Split (verified live 2026-10-13):** Ctrl+click a stack opens the client's "Split" popup (VGUIInventoryPopups.xml; shift+click shows the item's info instead). OK (`inventory_unstack_ok`, FUN_0068e8e0 -> FUN_004fc8f0) sends **0x97** MsgTwoInts `{i32 handle, i32 count}`; the client itself refuses counts below 1. The server answers 0x1ae (the old stack's new count) and 0x197 (a new item with `count` in the first free slot) (`zone.split_stack`). Travel Rations x5, split 2 -> x3 and x2.
-- Not done: moving into and between bags, the combat inventory (0x1ad).
+- Not done: the combat inventory (0x1ad).
+
+## Bags (verified live 2026-10-13)
+
+- A bag is an item whose items.json template has `"bag": <slots>`. The server sends it with **field 14 = capacity**; the client then makes the gamevar list `InventoryContainerID_<handle>` (field 71).
+- Bags are **equipped into the main bar's three bag slots**, equip slots CONTAINER1-3 = 12, 27, 38 (VGUIMainBar.xml; the fourth slot there is MOUNTSADDLEBAGS). Right-clicking a bag in the inventory equips it into the first empty bag slot (0x8e -> 0x1a7). Clicking the bag on the bar opens its window (`_inventory_container_template`, titled with the item name); the bags button opens every equipped bag (FUN_00500750 checks equip slots 0x0c, 0x1b, 0x26 and 0x2e).
+- Dragging an item into a bag window sends the usual **0x92** `{handle, container = the bag's handle, slot}`; the server answers 0x1ac with the same container and slot. Items inside a bag are sent with field 15 = the bag's handle and field 16 = the slot. The server stores that as one slot number, `vgmsg.bag_slot` (1000000 + handle*100 + slot).
+- At login the main grid is sent first, then the equipment (bags included), then the items inside the bags, so each bag exists before its contents.
+- A bag that holds items can't be unequipped, destroyed, sold, traded, mailed or banked ("You need to empty that bag first."), and bags can't go inside bags.
+- Test: `!give Small Pouch` (8 slots). Verified: the pouch went onto the bar, its window opened, Copper Ore x2 moved into slot 0 and was still there after logging in again.

@@ -415,5 +415,37 @@ class UnstackTests(unittest.TestCase):
         self.assertIsInstance(zone.split_stack(p, 99, 1), str)
 
 
+class BagTests(unittest.TestCase):
+    def test_bag_slots(self):
+        import vgmsg
+        s = vgmsg.bag_slot(10005, 3)
+        self.assertEqual(vgmsg.split_slot(s), (10005, 3))
+        self.assertEqual(vgmsg.split_slot(7), (-1, 7))
+        rec = vgmsg.inventory_item(42, "X", s)
+        self.assertEqual(rec, vgmsg.inventory_item(42, "X", 3, container=10005))
+
+    def test_move_into_bag(self):
+        items = [(2, "Wastes Grub", 443, 5, 1), (3, "Small Pouch", 442, 1, 2)]
+        equipment = [(1, "Small Pouch", 442, 12)]
+        target = zone.move_target(items, equipment, 2, 1, 0)
+        self.assertEqual(target, 1000000 + 100 + 0)
+        zone.move_item(items, 2, target)
+        self.assertEqual([i[0] for i in zone.bag_items(items, 1)], [2])
+        self.assertIsInstance(zone.move_target(items, equipment, 3, 1, 1), str)     # bag in a bag
+        self.assertIsInstance(zone.move_target(items, equipment, 2, 1, 99), str)    # past capacity
+        self.assertIsInstance(zone.move_target(items, equipment, 2, 3, 0), str)     # not equipped
+        self.assertEqual(zone.move_target(items, equipment, 2, -1, 4), 4)
+
+    def test_equip_bag(self):
+        p = types.SimpleNamespace(items=[(1, "Small Pouch", 442, 1, 0), (2, "Small Pouch", 442, 1, 1)],
+                                  equipment=[])
+        self.assertIsInstance(zone.equip_item(p, 1), list)
+        self.assertIsInstance(zone.equip_item(p, 2), list)
+        self.assertEqual(sorted(e[3] for e in p.equipment), [12, 27])
+        p.items.append((3, "Wastes Grub", 443, 1, 1000000 + 100))
+        self.assertIsInstance(zone.unequip_item(p, 1), str)                  # not empty
+        self.assertIsInstance(zone.unequip_item(p, 2), list)
+
+
 if __name__ == "__main__":
     unittest.main()

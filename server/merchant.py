@@ -106,8 +106,9 @@ def buy(content, npc, player, handle, qty, item_message):
 
 
 def sell(content, npc, player, handle):
+    import zone
     item = next((i for i in player.items if i[0] == handle), None)
-    if item is None:
+    if item is None or zone.bag_items(player.items, handle):
         return [error(ERR_CANT_SELL)]
     prices = {s[1]: s[3] for s in stock(content, npc)}
     value = max(1, prices.get(item[1], 20) // SELL_FRACTION) * item[3]

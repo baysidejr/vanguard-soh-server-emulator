@@ -4296,7 +4296,9 @@ def handle_trade_event(state, event, payload, args):
         if event == trade.ADD:
             handle, _seq, qty = struct.unpack_from("<iii", payload, 10)
             item = next((i for i in player.items if i[0] == handle), None)
-            if item and handle not in side.items and len(side.items) < trade.MAX_ITEMS:
+            if item and zone.bag_items(player.items, handle):
+                send(build_system_text(BAG_NOT_EMPTY, SYSTEM_TEXT_ERROR))
+            elif item and handle not in side.items and len(side.items) < trade.MAX_ITEMS:
                 side.items.append(handle)
                 t.seq += 1
                 send(trade.my_item(t.seq, len(side.items) - 1, handle))
@@ -4737,16 +4739,20 @@ def give_item(state, name, qty=1, quiet=False):
     return True
 
 
+BAG_NOT_EMPTY = "You need to empty that bag first."
+
+
 def handle_bag_event(state, event, data):
     """Bag management: move / swap / stack (0x92), unstack (0x97) and destroy (0x89)."""
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE bag event {event:#x}: {data.hex(' ')}")
     if event == zone.MOVE_ITEM and len(data) >= 12:
         handle, container, slot = struct.unpack_from("<iii", data)
-        if container != -1 or not 0 <= slot < zone.BAG_SLOTS:
-            send(build_system_text("You can only move items within your main bags for now.", SYSTEM_TEXT_ERROR))
+        target = zone.move_target(player.items, player.equipment, handle, container, slot)
+        if isinstance(target, str):
+            send(build_system_text(target, SYSTEM_TEXT_ERROR))
             return
-        msgs = zone.move_item(player.items, handle, slot)
+        msgs = zone.move_item(player.items, handle, target)
         for m in msgs or []:
             send(m)
     elif event == zone.UNSTACK and len(data) >= 8:
@@ -4760,6 +4766,9 @@ def handle_bag_event(state, event, data):
         handle = struct.unpack_from("<i", data)[0]
         item = next((i for i in player.items if i[0] == handle), None)
         if item is None:
+            return
+        if zone.bag_items(player.items, handle):
+            send(build_system_text(BAG_NOT_EMPTY, SYSTEM_TEXT_ERROR))
             return
         player.items.remove(item)
         send(zone.zone_event(0x1A5, struct.pack("<iB", handle, 0)))
@@ -5148,7 +5157,7 @@ def handle_mail_event(state, event, data):
             send(mail.result(mail.BODY_LONG))
             return
         it = next((i for i in player.items if i[0] == handle), None) if handle != -1 else None
-        if handle != -1 and it is None:
+        if handle != -1 and (it is None or zone.bag_items(player.items, handle)):
             send(mail.result(mail.CANT_MAIL_ITEM))
             return
         if cod and it is None:
@@ -5713,6 +5722,9 @@ def handle_bank_event(state, event, data):
         slot = struct.unpack_from("<i", data, 8)[0] if event == bank.TO_BANK else -1
         it = next((i for i in player.items if i[0] == handle), None)
         if it is None:
+            return
+        if zone.bag_items(player.items, handle):
+            send(build_system_text(BAG_NOT_EMPTY, SYSTEM_TEXT_ERROR))
             return
         if not 0 <= slot < bank.CAPACITY or any(b[4] == slot for b in player.bank):
             slot = bank.free_slot(player.bank)
