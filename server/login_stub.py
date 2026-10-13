@@ -651,9 +651,10 @@ def apply_stance(state, player, name, spec, now):
     send(build_system_text(f"You assume {name}.", SYSTEM_TEXT_WHITE))
 
 
-def cancel_maintained(state, eid):
+def cancel_maintained(state, eid, stance=True):
+    """0x24e (a stance, Effects Maintained) or 0x249 (an ordinary buff, right-click): end it."""
     for e in getattr(state["player"], "effects", []):
-        if e["id"] == eid and e.get("stance"):
+        if e["id"] == eid and e["kind"] == "buff" and bool(e.get("stance")) == stance:
             e["ends"] = 0
 
 
@@ -6508,6 +6509,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 send_message(sock, addr, state, zone.zone_event(0x30E))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
+            cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0], stance=False)   # right-click a buff
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNSTUCK and state.get("player"):
             unstuck(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CORPSE_EVENTS and state.get("player"):
