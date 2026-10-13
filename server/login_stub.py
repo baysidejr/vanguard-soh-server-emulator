@@ -36,6 +36,7 @@ import housing
 import titles
 import duel
 import pets
+import caravan
 import bank
 import social
 import effects
@@ -1438,6 +1439,151 @@ def pet_tick(state, args, now, dt):
         values = combat.move_toward(npc, goal, dt, pets.SPEED, stop)
         if values:
             w.broadcast(lambda s, values=values: zone.npc_update(s, args, npc, values))
+
+
+CARAVANS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "caravans.json")
+
+
+def load_caravans():
+    try:
+        with open(CARAVANS_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return []
+
+
+def save_caravans(cs):
+    with open(CARAVANS_FILE, "w", encoding="utf-8") as f:
+        json.dump(cs, f, indent=2)
+
+
+def caravan_of(name, cs=None):
+    return next((c for c in (cs if cs is not None else load_caravans())
+                 if name.lower() in [m.lower() for m in c["members"]]), None)
+
+
+def caravan_location(c):
+    """The leader's position (live if online, else saved)."""
+    s = ONLINE.get(c["leader"].lower())
+    if s is not None and s.get("player") is not None:
+        p = s["player"]
+        pos = p.live_position or p.spawned_at
+        c["loc"] = {"level": p.level, "x": pos[0], "y": pos[1], "z": pos[2]}
+    return c.get("loc")
+
+
+def caravan_rows(c):
+    chars = {ch["first"].lower(): ch for ch in load_characters()}
+    now = time.time()
+    rows = []
+    for name in c["members"]:
+        ch = chars.get(name.lower(), {})
+        klass = character_race_class(ch)[1] if ch else 0
+        online = ONLINE.get(name.lower()) is not None
+        if name.lower() == c["leader"].lower():
+            st, left = caravan.IS_LEADER, 0
+        elif online:
+            st, left = caravan.MUST_LOGOUT, caravan.TRAVEL_SECONDS
+        else:
+            left = max(0, caravan.TRAVEL_SECONDS - (now - ch.get("last_logout", now)))
+            st = caravan.TRAVELING if left > 0 else caravan.CAN_LOGIN
+        rows.append(caravan.member(name, social_uid(name), klass, left, st))
+    return rows
+
+
+def caravan_window(state, c):
+    """Full caravan state for one member: role, every member row, the location."""
+    send, me = state["send"], state["player"].name
+    send(caravan.role(caravan.LEADER if c["leader"].lower() == me.lower() else caravan.MEMBER))
+    for m in caravan_rows(c):
+        send(m)
+    loc = caravan_location(c)
+    if loc:
+        cx, cy = (int(p[1:]) * -1 if p.startswith("n") else int(p) for p in loc["level"].split("_")[1:3])
+        send(caravan.location(cx, cy, loc["x"], loc["y"], loc["z"]))
+
+
+def caravan_all(c, fn):
+    for name in c["members"]:
+        s = ONLINE.get(name.lower())
+        if s is not None and s.get("player") is not None:
+            fn(s)
+
+
+def caravan_drop(cs, c, name):
+    """name leaves c (or is removed); a caravan of one is disbanded."""
+    mid = social_uid(name)
+    c["members"] = [m for m in c["members"] if m.lower() != name.lower()]
+    s = ONLINE.get(name.lower())
+    if s is not None and s.get("send"):
+        s["send"](caravan.role(caravan.NONE))
+        s["send"](zone.zone_event(0x0E, struct.pack("<h", caravan.LEFT)))
+    if c["leader"].lower() == name.lower() and c["members"]:
+        c["leader"] = c["members"][0]
+    if len(c["members"]) < 2:
+        caravan_all(c, lambda s: s["send"](caravan.role(caravan.NONE)))
+        cs.remove(c)
+    else:
+        caravan_all(c, lambda s: (s["send"](caravan.removed(mid)), caravan_window(s, c)))
+    save_caravans(cs)
+
+
+def handle_caravan_event(state, event, data):
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE caravan event {event:#x}: {data.hex(' ')}")
+    notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
+    cs = load_caravans()
+    mine = caravan_of(player.name, cs)
+    if event == caravan.INVITE:
+        name = caravan.read_name(data)
+        target = ONLINE.get(name.lower())
+        if target is state:
+            notice(caravan.SELF)
+        elif target is None or target.get("player") is None:
+            send(build_system_text(f"{name} is not online.", SYSTEM_TEXT_ERROR))
+        elif target["player"].health <= 0:
+            notice(caravan.DEAD)
+        elif caravan_of(target["player"].name, cs):
+            send(build_system_text(f"{target['player'].name} is already in a caravan.", SYSTEM_TEXT_ERROR))
+        else:
+            target["caravan_invite"] = player.name
+            target["send"](caravan.invite(player.name))
+            send(build_system_text(f"You invite {target['player'].name} to join your caravan.", SYSTEM_TEXT_WHITE))
+    elif event == caravan.ACCEPT:
+        inviter = state.pop("caravan_invite", None)
+        if inviter is None or inviter.lower() != caravan.read_name(data).lower() or mine:
+            return
+        c = caravan_of(inviter, cs)
+        if c is None:
+            c = {"leader": inviter, "members": [inviter]}
+            cs.append(c)
+        c["members"].append(player.name)
+        save_caravans(cs)
+        notice(caravan.JOINED)
+        caravan_all(c, lambda s: caravan_window(s, c))
+    elif event == caravan.DECLINE:
+        inviter = state.pop("caravan_invite", None)
+        s = ONLINE.get((inviter or "").lower())
+        if s is not None and s.get("send"):
+            s["send"](build_system_text(f"{player.name} declined your caravan invite.", SYSTEM_TEXT_WHITE))
+    elif event == caravan.LEAVE:
+        if mine is None:
+            notice(caravan.NOT_IN)
+            return
+        caravan_drop(cs, mine, player.name)
+    elif event == caravan.REMOVE and len(data) >= 4 and mine:
+        if mine["leader"].lower() != player.name.lower():
+            return
+        who = next((m for m in mine["members"] if social_uid(m) == struct.unpack_from("<i", data)[0]), None)
+        if who and who.lower() != player.name.lower():
+            caravan_drop(cs, mine, who)
+
+
+def caravan_login(state):
+    c = caravan_of(state["player"].name)
+    if c is not None:
+        caravan_window(state, c)
+        caravan_all(c, lambda s: caravan_window(s, c) if s is not state else None)
 
 
 def use_tombstone(state):
@@ -3953,6 +4099,15 @@ def leave_world(state, args):
         p.played = played_seconds(p)
         p.session_start = time.time()
         save_character_field(p.name, "played", p.played)
+        save_character_field(p.name, "last_logout", int(time.time()))
+        c = caravan_of(p.name)
+        if c is not None:
+            caravan_location(c)
+            cs = load_caravans()
+            for x in cs:
+                if x["leader"] == c["leader"]:
+                    x["loc"] = c.get("loc")
+            save_caravans(cs)
     w, player = state.get("world"), state.get("player")
     # Trades and trade invites don't survive a zone reconnect (chunk handoff either).
     if state.get("trade"):
@@ -4332,6 +4487,9 @@ def dev_command(text, player=None):
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
         return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
+    if words[0] == "ui" and len(words) > 1:
+        # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
+        return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
     if words[0] == "deftarget" and player and len(words) > 1:
         # !deftarget <player>: as clicking a friendly player (0x5c), e.g. before /duel (testing).
         s = ONLINE.get(words[1].lower())
@@ -4656,6 +4814,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 workorder_login(state)
                 mail_login(state)
                 title_login(state)
+                caravan_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
@@ -4764,6 +4923,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in caravan.CLIENT_EVENTS and state.get("player"):
+            handle_caravan_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in pets.CLIENT_EVENTS and state.get("player"):
             handle_pet_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in duel.CLIENT_EVENTS and state.get("player"):
