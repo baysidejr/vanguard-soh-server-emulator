@@ -235,3 +235,8 @@ NPCs with an entry in `server/content/dialogs.json` talk in conversation trees. 
 - Each node is sent as an empty 0x3ea (clear), the node text (0x3ea) and **0x2af {npc, node index, 5 x wstr}**, which replaces the previous replies.
 - A click sends **0x15b {i32 node index, u8 reply}**. The server echoes "You say, "...".", runs the reply's action (`faction:<id>:<n>`, `give:<item>`, `wares`, `end`; rewards are paid once per character, saved as `dialog_rewards`) and either sends the `goto` node or ends the conversation (0x55f).
 - The client only opens the dialogue when the player is near the NPC (hailing from about 2900 units away does nothing).
+
+## Abandoning and sharing (2026-10-13)
+
+- **Abandon (verified live):** the journal's Abandon (after its confirmation) sends **0x15f** `{i32 quest id}`; the server drops the quest and answers **0x2c3** `{i32 quest id, u8 0, u8 0}`, which prints "Quest abandoned." and removes it from the journal and tracker.
+- **Share (not yet tried with two clients):** Share sends **0x166** `{i32 quest id}`; groupmates who don't have the quest (and have done its prerequisites) get the offer page (0x2c0) and "Ranger shares the quest Wanderer Trouble with you."; their Accept (0x15d) is allowed away from the quest giver for a shared quest.

@@ -3900,10 +3900,31 @@ def handle_quest_event(state, event, payload):
                 send(quest.page(q, npc_eid, quest.IN_PROGRESS, prog, have=have))
         elif key not in log.done and tpl == q.get("giver"):
             send(quest.page(q, npc_eid, quest.OFFER))
+    elif event == quest.ABANDON and key in log.active:
+        del log.active[key]
+        send(quest.abandoned(q))
+        save_character_field(player.name, "quests", log.to_json())
+        quest_items_changed(state)
+    elif event == quest.SHARE and key in log.active:
+        shared = 0
+        for s in group_states(player):
+            p = s["player"]
+            if s is state or key in p.quests.active or key in p.quests.done \
+                    or not all(r in p.quests.done for r in q.get("requires", [])):
+                continue
+            s.setdefault("shared_quests", set()).add(key)
+            s["send"](quest.page(q, 0, quest.OFFER))
+            s["send"](build_system_text(f"{player.name} shares the quest {q['name']} with you.", SYSTEM_TEXT_WHITE))
+            shared += 1
+        send(build_system_text(f"You share {q['name']} with {shared} group member{'s' if shared != 1 else ''}."
+                               if shared else "Nobody in your group can take that quest.", SYSTEM_TEXT_WHITE))
     elif event == quest.ACCEPT and key not in log.active and key not in log.done:
-        # Only from the giver, and only once the quests it requires are done.
-        if tpl != q.get("giver") or not all(r in log.done for r in q.get("requires", [])):
+        # Only from the giver (or a quest a groupmate shared), and only once the quests it
+        # requires are done.
+        offered = tpl == q.get("giver") or key in state.get("shared_quests", set())
+        if not offered or not all(r in log.done for r in q.get("requires", [])):
             return
+        state.get("shared_quests", set()).discard(key)
         log.active[key] = quest.new_progress()
         send(quest.accepted(q))
         send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True, have=have))

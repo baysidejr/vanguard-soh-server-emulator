@@ -15,7 +15,13 @@ import time
 OFFER, IN_PROGRESS, READY, DONE = 0, 1, 3, 4
 OPTION_TYPE = 7
 CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO = 0x15C, 0x15D, 0x160, 0x161, 0x164
-CLIENT_EVENTS = (CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO)
+ABANDON, SHARE = 0x15F, 0x166          # {i32 quest id}: journal Abandon (after its confirm), Share
+CLIENT_EVENTS = (CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO, ABANDON, SHARE)
+
+
+def abandoned(q):
+    """0x2c3 {i32 quest id, u8 result, u8}: "Quest abandoned.", the quest leaves the journal."""
+    return struct.pack("<HII", 2, 0x2C3, 6) + struct.pack("<iBB", q["id"], 0, 0)
 END_CONVERSATION = 0x55F   # no payload: closes the Dialogue window, frees its options
 
 
