@@ -4917,7 +4917,11 @@ def dev_command(text, player=None):
     if words[0] == "tp" and len(words) >= 4 and player:
         # !tp x y z: move your own pawn (replicated Location); "~" keeps a coordinate.
         cur = getattr(player, "live_position", None) or player.spawned_at or (0.0, 0.0, 0.0)
-        loc = tuple(cur[i] if w == "~" else float(w) for i, w in enumerate(words[1:4]))
+        loc = tuple(cur[i] if w == "~" else 0.0 if w == "g" else float(w) for i, w in enumerate(words[1:4]))
+        if words[3] == "g":
+            # "g": stand on the terrain at x, y (z = ground + 100).
+            gz = ARGS.content.ground_z(player.level, loc[0], loc[1], ARGS.client_dir)
+            loc = (loc[0], loc[1], (gz if gz is not None else cur[2]) + 100.0)
         print(f"  <- dev: teleport to {loc}")
         if len(words) >= 5:
             # !tp x y z yaw: also turn (0 = +x, 16384 = +y, 32768 = -x, 49152 = -y) via 0x3e5.

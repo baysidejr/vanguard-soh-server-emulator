@@ -38,3 +38,10 @@ The client moves its own pawn locally (client-side prediction) and reports posit
 - The client also sends `DualServerMove` and Vanguard's `OnVehicleServerMove`; all carry the position.
 - Never replicate `m_bIsDead = 1` on a living player: pawn physics zeroes acceleration while it is set.
 - Enum parameters in client RPCs need the same fixed-width decoding (`rpc.py` reads bytes as 8 bits).
+
+## Checked after the fix (2026-10-13)
+
+- Teleports (`!tp`, 0x3e5), death, release and respawn: the character still walks afterwards.
+- Mounts: riding is 1.6x faster (see MOUNTS.md).
+- Walking across a chunk border hands the player to the next zone (verified walking along the seabed from chunk_n20_12 into chunk_n21_12, Port Aughos).
+- `!tp x y g [yaw]` puts the player on the terrain at x, y (the `~` form keeps the old height, which can drop the player under the map near chunk edges).
