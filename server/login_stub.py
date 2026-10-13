@@ -35,6 +35,7 @@ import market
 import housing
 import titles
 import duel
+import pets
 import bank
 import social
 import effects
@@ -310,6 +311,7 @@ def movement_tick(zone_sock, clients, args):
                 send_message(zone_sock, addr, state, m)
             if player.health > 0:
                 npc_special(state, npc, now)
+        pet_tick(state, args, now, MOVE_TICK)
     for w in world.all_worlds():
         players = w.players()
         for npc in w.npcs.values():
@@ -1314,6 +1316,113 @@ def end_duel(winner, loser):
         s["send"](duel.result(won))
         for m in combat.auto_attack_state(False):
             s["send"](m)
+
+
+def summon_pet(state, args, spec):
+    """A pet item (items.json "pet": {name, race, model, level, health, damage}): an NPC that
+    follows its owner and fights its target; one pet at a time."""
+    player, send = state["player"], state["send"]
+    w = state.get("world")
+    if w is None:
+        return
+    if getattr(player, "pet", None) is not None:
+        dismiss_pet(state)
+    pos = player.live_position or player.spawned_at
+    eid = pets.EID_BASE + (player.char_id & 0xFFFFF)
+    npc = combat.Npc(eid, spec["name"], None, f"{content.PAWN_PACKAGE}.SGONPCPawn",
+                     max_health=spec.get("health", 300),
+                     location=(pos[0] + 100.0, pos[1], pos[2]))
+    npc.race = spec["race"]
+    npc.level = spec.get("level", 1)
+    npc.damage = tuple(spec.get("damage", (5, 10)))
+    npc.template_id = "pet"
+    npc.pet_owner = player
+    npc.pet_mode = "follow"
+    npc.pet_target = None
+    npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
+    npc.props = {"m_GameplayLevel": npc.level, "m_iModelNum": spec.get("model", 1),
+                 "m_OwnerEntityIDLowInt": player.char_id & 0xFFFFFFFF,
+                 "m_OwnerEntityIDHighInt": player.char_id >> 32, "m_bIsAggro": 0}
+    w.npcs[eid] = npc
+    player.pet = npc
+    w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
+    send(pets.new(eid, npc.name))
+    send(pets.health(npc))
+    send(build_system_text(f"{npc.name} answers your call.", SYSTEM_TEXT_WHITE))
+
+
+def dismiss_pet(state, dust=True):
+    player = state["player"]
+    npc = getattr(player, "pet", None)
+    if npc is None:
+        return
+    player.pet = None
+    w = state.get("world")
+    if w is not None and npc.entity_id in w.npcs:
+        del w.npcs[npc.entity_id]
+        w.broadcast(lambda s: zone.close_actor(s, npc.entity_id))
+    if dust:
+        state["send"](pets.reply(pets.DUST))
+    state["send"](pets.gone())
+
+
+def handle_pet_event(state, event, data):
+    player, send = state["player"], state["send"]
+    npc = getattr(player, "pet", None)
+    print(f"  >>> ZONE pet event {event:#x}: {data.hex(' ')}")
+    if npc is None:
+        send(pets.reply(pets.NO_PET))
+        return
+    if event == pets.DISMISS:
+        dismiss_pet(state)
+        return
+    if event == pets.RENAME:
+        name = data.decode("utf-16-le", "replace").split("\0")[0].strip()[:24]
+        if name:
+            npc.name = name
+            send(pets.renamed(name))
+        return
+    if event in (pets.ATTACK, pets.ASSIST, pets.ASSIST_ALWAYS):
+        target = player.npcs.get(player.target) if player.target else None
+        if target is None or not target.alive or target.service():
+            send(pets.reply(pets.CANT))
+            return
+        npc.pet_mode, npc.pet_target = "attack", target
+    elif event == pets.STAY:
+        npc.pet_mode, npc.pet_target = "stay", None
+    elif event in (pets.FOLLOW, pets.BACKOFF, pets.GUARD, pets.DEFEND):
+        npc.pet_mode, npc.pet_target = "follow", None
+    send(pets.reply(pets.YES))
+
+
+def pet_tick(state, args, now, dt):
+    """Move the pet (follow the owner, or close in on its target) and let it bite."""
+    player = state.get("player")
+    npc = getattr(player, "pet", None) if player else None
+    w = state.get("world")
+    if npc is None or w is None:
+        return
+    goal, stop = None, pets.FOLLOW_DISTANCE
+    if npc.pet_mode == "attack":
+        t = npc.pet_target
+        if t is None or not t.alive:
+            npc.pet_mode, npc.pet_target = "follow", None
+        else:
+            goal, stop = t.location, combat.MELEE_RANGE
+            if (math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1])
+                    <= combat.MELEE_RANGE + 40 and now >= npc.next_attack):
+                npc.next_attack = now + pets.ATTACK_SECONDS
+                lines, _ = combat.strike(player, t, f"Your {npc.name}", None, *npc.damage)
+                for m in combat_results(state, args, player, lines, t, True, player.auto_attack):
+                    state["send"](m)
+    if npc.pet_mode == "follow":
+        pos = player.live_position or player.spawned_at
+        if pos is not None:
+            goal = pos
+    if goal is not None:
+        values = combat.move_toward(npc, goal, dt, pets.SPEED, stop)
+        if values:
+            w.broadcast(lambda s, values=values: zone.npc_update(s, args, npc, values))
 
 
 def use_tombstone(state):
@@ -3822,6 +3931,8 @@ def played_seconds(player):
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
+    if state.get("player") is not None and getattr(state["player"], "pet", None) is not None:
+        dismiss_pet(state, dust=False)
     if state.get("player") is not None and not state.get("handoff"):
         p = state["player"]
         p.played = played_seconds(p)
@@ -4638,6 +4749,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in pets.CLIENT_EVENTS and state.get("player"):
+            handle_pet_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in duel.CLIENT_EVENTS and state.get("player"):
             handle_duel_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in titles.CLIENT_EVENTS and state.get("player"):
@@ -4746,6 +4859,11 @@ def handle_message(sock, server, addr, state, payload, args):
                 pass
             elif item and args.content.item(item[1]).get("fixture"):
                 place_fixture(state, item)
+            elif item and args.content.item(item[1]).get("pet"):
+                if getattr(player, "pet", None) is not None:
+                    dismiss_pet(state)
+                else:
+                    summon_pet(state, args, args.content.item(item[1])["pet"])
             elif mount:
                 # A mount item (items.json "mount": {id, type}): right-click summons or dismisses it.
                 if getattr(player, "mount", None):

@@ -31,7 +31,8 @@ class Npc:
 
     def service(self):
         """A vendor, trainer, node, station...: can't be attacked."""
-        return bool(self.talks() or self.harvest or self.station or self.prop)
+        return bool(self.talks() or self.harvest or self.station or self.prop
+                    or getattr(self, "pet_owner", None) is not None)
 
     def __init__(self, entity_id, name, channel, cls_path, max_health=100, location=(0.0, 0.0, 0.0)):
         self.entity_id = entity_id
