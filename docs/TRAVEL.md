@@ -11,4 +11,13 @@ Tags: [O] = read in decompiled code. [I] = inferred.
 | S->C | 0x383 | `i32 id` | Removes a location [O]. |
 | S->C | 0x2aa | same as 0x382 | Updates the position, name and description of an existing entry, looked up by id (FUN_005d60d0) [O]. |
 
-Not done: `/traveldirections` and route finding (0x385 "Route to location found."), the 0x381/0x384 lists, and discovering locations by visiting them. All service locations of the chunk are known at login.
+## Tracking a location (verified live 2026-10-13)
+
+Tracking is done by the client alone. `/traveldirections <entry id>` (FUN_00609100 -> FUN_005d7190 -> FUN_005d5c90) looks the entry up, prints "Orin the Trader Chunk = .. Location = -31250.0, -5450.0, 450.0", sets the gamevars TravelJournalIsTracking / TJTrackEntryChange, and puts a red marker on the compass. Every frame FUN_005d2410 works out the distance and heading from the entry's chunk and x, y, z (chunks are 204800 units). An unknown id prints "Invalid journal entry.". `/traveldirectionsoff` stops it. Entry ids are `travel.ENTRY_ID_BASE` + the spawn's index in the chunk (Orin = 120586244 in chunk_n19_12).
+
+Optional server route, read in the client but not sent [O]:
+- **0x384** `{i32 count, count x {f32 x, f32 y, f32 z}}`: waypoints stored at mgr+0x5c; sets mgr+0x48 (route active) (FUN_005d7b50).
+- **0x385** `{u8}`: 0 "Route to location found.", 2 "You are in the wrong chunk to track that entry.", 3 clears the route (FUN_005d5680).
+- **0x381** `{i32 count, count x entry}`: several journal entries in one message (FUN_005d8c60).
+
+Not done: discovering locations by visiting them (all of a chunk's service locations are known at login) and server routes.

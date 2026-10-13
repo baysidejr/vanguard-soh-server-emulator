@@ -4,7 +4,7 @@
 >
 > **Mounted speed (verified live):** after the attachment update the server sends `GroundSpeed` in its own bunch: 1.6 x the client's 337.889 (read from pawn +0x7f0). Holding W for 3 s: 1012 units on foot, 1588 mounted. Dismounting sends the base speed again.
 >
-> **Not done:** flying mounts (`m_MountType = 3`), barding (slot 45), the mount item's icon (1225 is a placeholder).
+> **Not done:** flying mounts (`m_MountType = 3`): `!mount 7000 fly` and `!mount 1000 fly` were tried live; holding jump showed no flight in screenshots, and the flying mesh ids are unknown. Also barding (slot 45) and the mount item's icon (1225 is a placeholder).
 
 Server: `login_stub.set_mount`, `zone.gear_attachments` (MOUNT_PACKAGE 500, MOUNT_SLOT 39). Content: items.json `"mount": {"id": 1000, "type": 1}`; the camp merchant sells the horse for 500 copper.
 
