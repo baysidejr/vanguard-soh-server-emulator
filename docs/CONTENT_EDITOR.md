@@ -76,6 +76,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Combat forms and Psionicist mindsets:** which forms each class has, and what each one does, were server data. `server/content/forms.json` holds placeholders; see docs/FORMS.md.
 
+**Brotherhood XP bonus:** the real bonus rate was server data; ours is 5% per grouped brotherhood member (`brotherhood.BONUS_PER_MEMBER`).
+
 **Bags:** the real bags (names, slot counts, icons, where they drop or are sold) were server data. `server/content/items.json` has one placeholder, "Small Pouch" (8 slots, sold at camp_supplies); see docs/INVENTORY.md "Bags".
 
 **Fishing leaderboards:** the real servers ranked catches across the whole server; ours ranks the characters in characters.json (docs/FISHING.md).

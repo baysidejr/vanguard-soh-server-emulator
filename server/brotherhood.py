@@ -22,6 +22,10 @@ ZONE_EVENTS = (INVITE, ACCEPT, DECLINE, 0x4C0, REMOVE, PROMOTE, MOTD, NOTE, RENA
 LEAVE = 0x4C0                      # zone (after the client's confirm popup)
 NOT_ACTIVE, MEMBER, LEADER = 0, 1, 2
 MAX_MEMBERS = 6
+# Experience bonus for grouping with brotherhood members (placeholder rate, docs/CONTENT_EDITOR.md):
+# BONUS_PER_MEMBER percent per other member in the group, credited as that player's
+# "exp contribution" in the member list.
+BONUS_PER_MEMBER = 5
 ERR_FULL, ERR_NOT_LEADER, ERR_SELF = 0x68, 0x69, 0x6E
 
 
@@ -51,6 +55,11 @@ def member_add(m):
                                                    int(m.get("online", False)), m.get("exp", 0),
                                                    int(m.get("leader", False)))
                   + _w(m.get("note", "")))
+
+
+def xp_bonus(amount, members_grouped):
+    """Bonus experience for a kill shared with members_grouped other brotherhood members."""
+    return amount * BONUS_PER_MEMBER * min(members_grouped, MAX_MEMBERS - 1) // 100
 
 
 def motd(text, setter_id):

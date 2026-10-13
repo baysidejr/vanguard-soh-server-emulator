@@ -447,5 +447,15 @@ class BagTests(unittest.TestCase):
         self.assertIsInstance(zone.unequip_item(p, 2), list)
 
 
+class BrotherhoodBonusTests(unittest.TestCase):
+    def test_bonus(self):
+        import brotherhood
+        self.assertEqual(brotherhood.xp_bonus(200, 0), 0)
+        self.assertEqual(brotherhood.xp_bonus(200, 1), 10)
+        self.assertEqual(brotherhood.xp_bonus(200, 9), 50)        # capped at 5 others
+        rec = brotherhood.member_add({"id": 7, "name": "A", "exp": 1234})
+        self.assertIn(struct.pack("<i", 1234), rec)
+
+
 if __name__ == "__main__":
     unittest.main()

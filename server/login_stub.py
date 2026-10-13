@@ -804,8 +804,13 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
         members = [s for s in group_states(player) if s.get("world") is state.get("world")]             or [state]
         share = max(1, amount * (100 + 10 * (len(members) - 1)) // 100 // len(members))
         source = npc.entity_id if npc else player.char_id
+        bonuses = brotherhood_bonuses(members, share)
         for m_state in members:
-            msgs = award_xp(m_state["player"], share, source, grouped=len(members) > 1)
+            msgs = award_xp(m_state["player"], share + bonuses.get(id(m_state), 0), source,
+                            grouped=len(members) > 1)
+            if bonuses.get(id(m_state)):
+                msgs.append(build_system_text(f"You gain {bonuses[id(m_state)]} bonus experience "
+                                              "from your brotherhood.", SYSTEM_TEXT_WHITE))
             if m_state is state:
                 out += msgs
             else:
@@ -3470,12 +3475,39 @@ def brotherhood_of(name, bhs=None):
                  if name.lower() in [m.lower() for m in b["members"]]), None)
 
 
+def brotherhood_bonuses(members, share):
+    """{id(state): bonus XP} for group members grouped with others of their brotherhood; the
+    bonus is added to their exp contribution and the member lists are updated."""
+    if len(members) < 2:
+        return {}
+    bhs = load_brotherhoods()
+    out, changed = {}, []
+    for s in members:
+        name = s["player"].name
+        b = brotherhood_of(name, bhs)
+        if b is None:
+            continue
+        mates = sum(1 for o in members if o is not s and o["player"].name.lower() in
+                    [m.lower() for m in b["members"]])
+        bonus = brotherhood.xp_bonus(share, mates)
+        if bonus > 0:
+            out[id(s)] = bonus
+            b.setdefault("exp", {})[name] = b.get("exp", {}).get(name, 0) + bonus
+            changed.append((b, name))
+    if changed:
+        save_brotherhoods(bhs)
+        for b, name in changed:
+            bh_send_all(b, lambda _m, b=b, name=name: brotherhood.member_add(bh_member(b, name)))
+    return out
+
+
 def bh_member(b, name):
     s = ONLINE.get(name.lower())
     p = s["player"] if s and s.get("player") else None
     return {"id": social_uid(name), "name": name, "level": p.level_number if p else 1,
             "klass": p.klass if p else 0, "online": p is not None,
-            "leader": name.lower() == b["leader"].lower(), "note": b.get("notes", {}).get(name, "")}
+            "leader": name.lower() == b["leader"].lower(), "note": b.get("notes", {}).get(name, ""),
+            "exp": b.get("exp", {}).get(name, 0)}
 
 
 def bh_send_all(b, make, exclude=None):

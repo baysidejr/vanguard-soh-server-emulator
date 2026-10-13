@@ -30,7 +30,8 @@ The client's dispatcher is `FUN_00470a20`. Requests are zone events.
 | S→C | `0x6e8` | `i32 id` | new leader |
 | S→C | `0x0e` | `i16` | 0x68 full, 0x69 not leader, 0x6e can't brotherhood with yourself |
 
+**XP bonus (verified live 2026-10-13, two clients):** a group kill gives each player `brotherhood.BONUS_PER_MEMBER` (5) percent extra experience per other member of their brotherhood in the group (up to 5 others), and prints "You gain 4 bonus experience from your brotherhood.". The bonus adds up as that member's **exp contribution** (the 0x6ea field), saved in brotherhoods.json under `exp`, and every member's list is updated. The rate is a placeholder (CONTENT_EDITOR.md).
+
 Not done yet:
-- the brotherhood XP bonus
 - `/brotherhoodstats` sent nothing in the test (it may need the brotherhood window open)
 - `0x6ee {i32 id, i32}` and the member record's fourth int
