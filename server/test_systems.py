@@ -457,5 +457,20 @@ class BrotherhoodBonusTests(unittest.TestCase):
         self.assertIn(struct.pack("<i", 1234), rec)
 
 
+class ParleyRefreshTests(unittest.TestCase):
+    def test_refresh(self):
+        import diplomacy
+        cards = {"1": {"name": "A", "push": 1, "refresh": 2}, "2": {"name": "B", "push": 1}}
+        p = diplomacy.Parley({"npc_cards": []}, cards, [1, 2])
+        p.play(1)
+        self.assertEqual(p.check(1), diplomacy.ERR_REFRESHING)
+        self.assertEqual(len(p.tick_refresh()), 1)       # end of the round it was played: 2 left
+        self.assertEqual(p.check(1), diplomacy.ERR_REFRESHING)
+        p.tick_refresh()
+        p.tick_refresh()
+        self.assertIsNone(p.check(1))
+        self.assertIsNone(p.check(2))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -5651,6 +5651,8 @@ def handle_parley_event(state, event, data):
         if p.outcome() is None:
             for m in diplomacy.round_messages(p, p.npc_turn()):
                 send(m)
+            for m in p.tick_refresh():
+                send(m)
         result = p.outcome()
         if result:
             finish_parley(state, p, result)
@@ -5940,6 +5942,7 @@ def handle_recipe_trainer_event(state, event, data):
 def finish_parley(state, p, result):
     player, send = state["player"], state["send"]
     state.pop("parley", None)
+    send(diplomacy.refresh_clear())
     if result == "lost":
         send(diplomacy.lost())
         print(f"  {player.name} lost a parley with {p.npc.name}")

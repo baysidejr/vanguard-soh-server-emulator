@@ -26,7 +26,7 @@ MIDDLE, BAR_MAX = 11, 21
 EXPRESSION_IDS = {"demand": 0x11, "reason": 0x12, "inspire": 0x13, "flatter": 0x14}
 # 0x330 error codes for "not enough <expression>".
 NOT_ENOUGH = {"inspire": 7, "reason": 8, "flatter": 9, "demand": 10}
-ERR_NOT_PREPARED, ERR_NO_CARD, ERR_NOT_YOUR_TURN, ERR_OVER = 4, 6, 0xC, 0xF
+ERR_NOT_PREPARED, ERR_REFRESHING, ERR_NO_CARD, ERR_NOT_YOUR_TURN, ERR_OVER = 4, 5, 6, 0xC, 0xF
 POOL_ORDER = ("inspire", "reason", "flatter", "demand")     # 0x31d / 0x32c pairs (mine, theirs)
 PARLEY_TYPES = {"entertain": 0, "convince": 1, "interview": 2, "gossip": 3, "incite": 4}
 
@@ -37,6 +37,17 @@ def _event(event_id, data=b""):
 
 def _w(text):
     return (text + "\0").encode("utf-16-le")
+
+
+def refresh_timer(cid, left, total):
+    """0x266 MsgIntAndTwoFloats {i32 card, f32 rounds left, f32 total} (FUN_0054e1a0): the card's
+    refresh count on the strategy bar (card +0x70; 0 = ready)."""
+    return _event(0x266, struct.pack("<iff", cid, float(left), float(total)))
+
+
+def refresh_clear():
+    """0x267: every card refreshed (FUN_0054d060)."""
+    return _event(0x267)
 
 
 def card(cid, c, icon=443):
@@ -93,6 +104,7 @@ class Parley:
         self.dp = self.opp_dp = 0
         self.round = 0
         self.card = None
+        self.refresh = {}               # card id -> rounds left before it can be played again
 
     def pools(self):
         """The 8 pool bytes in wire order: mine, theirs per expression."""
@@ -103,6 +115,8 @@ class Parley:
         c = self.cards.get(str(cid))
         if c is None or cid not in self.deck:
             return ERR_NOT_PREPARED
+        if self.refresh.get(cid, 0) > 0:
+            return ERR_REFRESHING
         for k, n in c.get("cost", {}).items():
             if self.mine[k] < n:
                 return NOT_ENOUGH[k]
@@ -118,6 +132,18 @@ class Parley:
     def play(self, cid):
         self._apply(self.cards[str(cid)], self.mine, +1)
         self.dp += 1
+        if self.cards[str(cid)].get("refresh"):
+            self.refresh[cid] = self.cards[str(cid)]["refresh"] + 1   # this round's tick takes one
+
+    def tick_refresh(self):
+        """A new round: every refreshing card counts down. Returns the 0x266 messages."""
+        out = []
+        for cid in list(self.refresh):
+            self.refresh[cid] -= 1
+            out.append(refresh_timer(cid, self.refresh[cid], self.cards[str(cid)]["refresh"]))
+            if self.refresh[cid] <= 0:
+                del self.refresh[cid]
+        return out
 
     def npc_turn(self, rng=random):
         """The NPC plays an affordable card (usually its strongest). Returns its id."""
