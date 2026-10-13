@@ -2912,7 +2912,35 @@ def open_loot(state, npc):
         return []
     msgs = combat.loot_messages(npc)
     group_loot_opened(state, npc)
+    loot_coin(state, npc)
     return msgs
+
+
+def loot_coin(state, npc):
+    """The corpse's coin goes to whoever opens it first: split between the group members
+    online when the leader turned Coin Split on (0x6ce lines), else all to the looter."""
+    if npc.prop or getattr(npc, "tombstone_of", None) or npc.merchant:
+        return
+    total = combat.corpse_coin(npc)
+    if total <= 0:
+        return
+    npc.coin_left = 0
+    player = state["player"]
+    g = getattr(player, "group", None)
+    members = [state]
+    if g is not None and grouploot.settings(g)["split"]:
+        members += [s for s in group_states(player) if s is not state]
+    for s, share in zip(members, grouploot.split_coin(total, len(members))):
+        p = s["player"]
+        p.coins += share
+        s["send"](merchant.coins(p.coins))                  # "You receive ..."
+        save_character_field(p.name, "coins", p.coins)
+        if len(members) > 1:
+            # "<name> receives N due to cash loot sharing." for the others (0x1aa above
+            # already told p; the client's own-share line errors out).
+            for m in members:
+                if m is not s:
+                    m["send"](grouploot.coin_share(p, grouploot.coin_text(share)))
 
 
 def npc_blocked(level, x, y, z):
@@ -5308,10 +5336,10 @@ def dev_command(text, player=None):
         # !kill: one hit that kills the target (testing loot and kill rewards).
         return [("kill",)]
     if words[0] == "lootmode" and player and len(words) > 1:
-        # !lootmode <0-4> [rarity 0-6]: as the leader's loot options popup (0xb6) (testing).
+        # !lootmode <0-4> [rarity 0-6] [split]: as the leader's loot options popup (0xb6) (testing).
         r = grouploot.RARITIES[int(words[2])] if len(words) > 2 else grouploot.DEFAULT_RARITY
         return [("lootev", grouploot.SET_MODE, struct.pack("<Qi", player.char_id, int(words[1]))
-                 + (r + "\0").encode("utf-16-le") + b"\0\0")]
+                 + (r + "\0").encode("utf-16-le") + bytes([len(words) > 3 and words[3] == "split", 0]))]
     if words[0] == "roll" and player and len(words) > 1:
         # !roll need|greed|pass: answer the group loot roll popup (testing).
         return [("lootev", grouploot.PASS, b"") if words[1] == "pass"
@@ -5701,7 +5729,7 @@ def handle_message(sock, server, addr, state, payload, args):
                         npc = kp.npcs.get(kp.target) if kp.target else None
                         if npc is not None and npc.alive:
                             lines, npc = combat.strike(kp, npc, "You", None, npc.health, npc.health)
-                            for cm in combat_results(state, ARGS, kp, lines, npc, True, False):
+                            for cm in combat_results(state, ARGS, kp, lines, npc, kp.health > 0, False):
                                 send_message(sock, addr, state, cm)
                         continue
                     elif isinstance(m, tuple) and m[0] == "lootev":

@@ -82,6 +82,8 @@ class Npc:
         self.damage = NPC_DAMAGE
         self.respawn = 60             # seconds after death
         self.loot_table = None        # content/loot.json table id
+        self.coin = None              # mobs.json "coin" [min, max] copper (None: by level)
+        self.coin_left = None         # copper still on the corpse (None = not rolled yet)
         self.roll_loot = None         # content.Content.roll_loot
 
     @property
@@ -397,7 +399,7 @@ def respawns(npcs, now):
             npc.health, npc.died_at = npc.max_health, None
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
             npc.location, npc.loot, npc.wander_goal = npc.home, None, None
-            npc.killer = npc.loot_owner = None
+            npc.killer = npc.loot_owner = npc.coin_left = None
             npc.open_to_group, npc.pending, npc.rolled = False, set(), False
             back.append(npc)
     return back
@@ -469,6 +471,15 @@ def loot_messages(npc):
                                                                quantity=qty, **zone_item_fields(name))))
     out.append(_event(LOOT_READY_EVENT))
     return out
+
+
+def corpse_coin(npc, rng=random):
+    """Copper on a corpse: mobs.json "coin" [min, max], else 2-6 copper per level. Rolled
+    once per death."""
+    if npc.coin_left is None:
+        lo, hi = npc.coin if npc.coin else (2 * npc.level, 6 * npc.level)
+        npc.coin_left = rng.randint(int(lo), int(hi))
+    return npc.coin_left
 
 
 def take_loot(player, npc, handle):

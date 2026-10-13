@@ -187,6 +187,7 @@ def populate_world(w, args):
         npc.merchant = template.get("merchant")
         npc.harvest = template.get("harvest")
         npc.station = template.get("station") or False   # true (refining) or "finishing"
+        npc.coin = template.get("coin")
         npc.prop = bool(template.get("prop"))
         npc.trainer = bool(template.get("trainer"))
         npc.banker = bool(template.get("banker"))

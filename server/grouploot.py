@@ -112,6 +112,28 @@ def hide_popup():
     return _event(0x6AC)
 
 
+def coin_share(member, text):
+    """0x6ce {eid64 member, wstr amount}: "CashLootShare(Yours)" coin split line."""
+    return _event(0x6CE, struct.pack("<Q", member.char_id) + _w(text))
+
+
+def coin_text(copper):
+    """12345 -> "1 gold, 23 silver, 45 copper" (100 copper a silver, 100 silver a gold,
+    100 gold a platinum)."""
+    parts = []
+    for name, size in (("platinum", 1000000), ("gold", 10000), ("silver", 100), ("copper", 1)):
+        n, copper = divmod(copper, size)
+        if n:
+            parts.append(f"{n} {name}")
+    return ", ".join(parts) or "0 copper"
+
+
+def split_coin(total, n):
+    """Shares of total for n members: equal parts, the remainder to the first (the looter)."""
+    share, rest = divmod(total, max(1, n))
+    return [share + rest] + [share] * (n - 1)
+
+
 def threshold(rarity):
     """Index of a rarity string (unknown -> Uncommon)."""
     return RARITIES.index(rarity) if rarity in RARITIES else 4

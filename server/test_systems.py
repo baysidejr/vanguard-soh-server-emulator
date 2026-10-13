@@ -141,6 +141,10 @@ class GroupLootTests(unittest.TestCase):
         self.assertEqual(grouploot.resolve({"A": (False, 99), "B": (True, 3), "C": None}), ("B", True, 3))
         self.assertIsNone(grouploot.resolve({"A": None}))
 
+    def test_coin_text_and_split(self):
+        self.assertEqual(grouploot.coin_text(12345), "1 gold, 23 silver, 45 copper")
+        self.assertEqual(grouploot.split_coin(10, 3), [4, 3, 3])
+
     def test_rarity_threshold(self):
         self.assertTrue(grouploot.qualifies(3, grouploot.DEFAULT_RARITY))      # Rare >= Uncommon
         self.assertFalse(grouploot.qualifies(grouploot.COMMON, grouploot.DEFAULT_RARITY))
