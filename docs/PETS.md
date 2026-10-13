@@ -6,7 +6,9 @@
 >
 > **Pet abilities (2026-10-13):** a pet item's `pet.abilities` ([{name, icon, damage, refresh}]; the Wolf Whistle's Ashfang has Savage Bite) are sent on summon as 0x429 (MsgAbilityInfo, ability ids from 990000), which adds them to the pet's ability list; a pet bar with the ability icon appears beside the paw button. Using one sends **0x88** `{i32 ability id}`: the pet attacks its target (or yours) with it, the cooldown starts (0x42c `{i32 id, f32 remaining, f32 total, f32 0}`): "Your Ashfang's Savage Bite hits Robed Wanderer for 24 damage." (verified by clicking the pet bar slot; the pet runs in first when its target is up to 3000 units away). `!pet <item>` summons an item's pet without the item.
 
-> **Not done:** minions (type 6), pets granted by class abilities.
+> **Minions (verified live 2026-10-13):** right-clicking a minion item (items.json `"minions": {name, race, model, level, health, damage, count, seconds}`; the test item is the "Bone Charm": two Bone Servants, skeleton race 101, for 60 s) spawns that many NPCs and sends 0x419 type 6 per minion with the timer, plus 0x41e {eid64, u8 hp}. The client opens the "Minions" window with one entry per minion (name, health bar) and the command row. Minions follow and fight like the pet (`companion_tick`, shared with the pet), at most 4 at once. They return to dust when their time runs out (0x41f {eid64}). The window's buttons are the /minions commands (0x85 attack, 0x81 back off, 0x82 follow, 0x83 resume, 0x84 dismiss; no payload, all minions): Dismiss gave "Your minions return to dust." and closed the window.
+
+> **Not done:** pets and minions granted by class abilities (necromancer), minion abilities.
 
 Server: `server/pets.py`, `login_stub.summon_pet/dismiss_pet/handle_pet_event/pet_tick`.
 

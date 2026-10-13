@@ -388,5 +388,22 @@
   },
   "Copper Buckle": {
     "icon": 1225
+  },
+  "Bone Charm": {
+    "icon": 1225,
+    "description": "Raises two bone servants for a minute.",
+    "minions": {
+      "name": "Bone Servant",
+      "race": 101,
+      "model": 0,
+      "level": 8,
+      "health": 150,
+      "damage": [
+        3,
+        6
+      ],
+      "count": 2,
+      "seconds": 60
+    }
   }
 }

@@ -53,6 +53,28 @@ def new(pet_eid, name, kind=CONTROLLABLE):
     return _event(0x419, struct.pack("<Q", pet_eid) + _w(name) + struct.pack("<Bf", kind, 0.0))
 
 
+# Minions (0x419 type 6): an entry in the Minions window (PetAutoList: name, HP, timer), not
+# "the pet". 0x41e {eid64, u8 hp 0..255} health, 0x41f {eid64} gone. /minions attack 0x85,
+# backoff 0x81, follow 0x82, resumebehavior 0x83, dismiss 0x84 (no payload; all minions).
+MINION = 6
+MINION_ATTACK, MINION_BACKOFF, MINION_FOLLOW, MINION_RESUME, MINION_DISMISS = 0x85, 0x81, 0x82, 0x83, 0x84
+MINION_EVENTS = (MINION_ATTACK, MINION_BACKOFF, MINION_FOLLOW, MINION_RESUME, MINION_DISMISS)
+MINION_EID_BASE = 0x3900000
+
+
+def minion_new(eid, name, seconds):
+    return _event(0x419, struct.pack("<Q", eid) + _w(name) + struct.pack("<Bf", MINION, float(seconds)))
+
+
+def minion_health(npc):
+    return _event(0x41E, struct.pack("<QB", npc.entity_id,
+                                     max(0, min(255, npc.health * 255 // max(1, npc.max_health)))))
+
+
+def minion_gone(eid):
+    return _event(0x41F, struct.pack("<Q", eid))
+
+
 def gone():
     return _event(0x41A)
 

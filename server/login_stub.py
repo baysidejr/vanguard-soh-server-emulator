@@ -1940,6 +1940,81 @@ def summon_pet(state, args, spec):
     send(build_system_text(f"{npc.name} answers your call.", SYSTEM_TEXT_WHITE))
 
 
+MINION_LIMIT = 4
+
+
+def summon_minions(state, args, spec):
+    """A minion item (items.json "minions": {name, race, model, level, health, damage, count,
+    seconds}): timed helpers listed in the Minions window that follow and fight like a pet."""
+    player, send = state["player"], state["send"]
+    w = state.get("world")
+    if w is None:
+        return
+    minions = player.__dict__.setdefault("minions", [])
+    pos = player.live_position or player.spawned_at
+    now = time.time()
+    for _ in range(spec.get("count", 1)):
+        if len(minions) >= MINION_LIMIT:
+            send(build_system_text("You can't control any more minions.", SYSTEM_TEXT_ERROR))
+            break
+        slot = next(i for i in range(MINION_LIMIT) if all(m.minion_slot != i for m in minions))
+        eid = pets.MINION_EID_BASE + ((player.char_id & 0xFFFF) << 3) + slot
+        npc = combat.Npc(eid, spec["name"], None, f"{content.PAWN_PACKAGE}.SGONPCPawn",
+                         max_health=spec.get("health", 150),
+                         location=(pos[0] + 80.0 * (slot + 1), pos[1] + 60.0, pos[2]))
+        npc.race = spec["race"]
+        npc.level = spec.get("level", 1)
+        npc.damage = tuple(spec.get("damage", (3, 6)))
+        npc.template_id = "minion"
+        npc.pet_owner, npc.pet_mode, npc.pet_target = player, "follow", None
+        npc.minion_slot, npc.expires = slot, now + spec.get("seconds", 60)
+        npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
+        npc.blocked = lambda x, y, z, lvl=w.level: npc_blocked(lvl, x, y, z)
+        npc.props = {"m_GameplayLevel": npc.level, "m_iModelNum": spec.get("model", 0),
+                     "m_OwnerEntityIDLowInt": player.char_id & 0xFFFFFFFF,
+                     "m_OwnerEntityIDHighInt": player.char_id >> 32, "m_bIsAggro": 0}
+        w.npcs[eid] = npc
+        minions.append(npc)
+        w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
+        send(pets.minion_new(eid, npc.name, spec.get("seconds", 60)))
+        send(pets.minion_health(npc))
+    send(build_system_text(f"{spec['name']} rises to serve you.", SYSTEM_TEXT_WHITE))
+
+
+def dismiss_minion(state, npc, text=None):
+    player = state["player"]
+    if npc in getattr(player, "minions", []):
+        player.minions.remove(npc)
+    w = state.get("world")
+    if w is not None and npc.entity_id in w.npcs:
+        del w.npcs[npc.entity_id]
+        w.broadcast(lambda s: zone.close_actor(s, npc.entity_id))
+    state["send"](pets.minion_gone(npc.entity_id))
+    if text:
+        state["send"](build_system_text(text, SYSTEM_TEXT_WHITE))
+
+
+def handle_minion_event(state, event):
+    """/minions attack | backoff | follow | resumebehavior | dismiss: every minion."""
+    player, send = state["player"], state["send"]
+    minions = list(getattr(player, "minions", []))
+    if not minions:
+        return send(build_system_text("You have no minions.", SYSTEM_TEXT_ERROR))
+    if event == pets.MINION_DISMISS:
+        for m in minions:
+            dismiss_minion(state, m)
+        return send(build_system_text("Your minions return to dust.", SYSTEM_TEXT_WHITE))
+    target = player.npcs.get(player.target) if player.target else None
+    if event == pets.MINION_ATTACK and (target is None or not target.alive or target.service()):
+        return send(build_system_text("Your minions have no target.", SYSTEM_TEXT_ERROR))
+    for m in minions:
+        if event == pets.MINION_ATTACK:
+            m.pet_mode, m.pet_target = "attack", target
+        else:
+            m.pet_mode, m.pet_target = "follow", None
+    send(build_system_text("Your minions obey.", SYSTEM_TEXT_WHITE))
+
+
 def pet_use_ability(state, aid):
     """0x88: the pet uses one of its abilities on its target (or the owner's)."""
     player, send = state["player"], state["send"]
@@ -2029,13 +2104,23 @@ def handle_pet_event(state, event, data):
 
 
 def pet_tick(state, args, now, dt):
-    """Move the pet (follow the owner, or close in on its target) and let it bite."""
+    """Move the pet and the minions (follow the owner, or close in on a target) and let them hit."""
     player = state.get("player")
-    npc = getattr(player, "pet", None) if player else None
-    w = state.get("world")
-    if npc is None or w is None:
+    if player is None or state.get("world") is None:
         return
-    goal, stop = None, pets.FOLLOW_DISTANCE
+    if getattr(player, "pet", None) is not None:
+        companion_tick(state, args, player.pet, now, dt, pets.health, lambda: dismiss_pet(state, dust=False))
+    for n, m in enumerate(list(getattr(player, "minions", []))):
+        if now >= m.expires:
+            dismiss_minion(state, m, f"{m.name} returns to dust.")
+            continue
+        companion_tick(state, args, m, now, dt, pets.minion_health, lambda m=m: dismiss_minion(state, m),
+                       stop=pets.FOLLOW_DISTANCE + 80 * n)
+
+
+def companion_tick(state, args, npc, now, dt, health_msg, on_death, stop=pets.FOLLOW_DISTANCE):
+    player, w = state["player"], state["world"]
+    goal = None
     if npc.pet_mode == "attack":
         t = npc.pet_target
         if t is None or not t.alive:
@@ -2063,10 +2148,10 @@ def pet_tick(state, args, now, dt):
                     # 0x27b is only written when the player is the source or target.
                     state["send"](build_system_text(f"{t.name} hits {npc.name} for {dmg} damage.",
                                                     SYSTEM_TEXT_COMBAT))
-                    state["send"](pets.health(npc))
+                    state["send"](health_msg(npc))
                     if npc.health <= 0:
                         state["send"](build_system_text(f"{npc.name} has been slain!", SYSTEM_TEXT_ERROR))
-                        dismiss_pet(state, dust=False)
+                        on_death()
                         return
     if npc.pet_mode == "follow":
         pos = player.live_position or player.spawned_at
@@ -6891,6 +6976,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 send_message(sock, addr, state, zone.zone_event(0x30E))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in pets.MINION_EVENTS and state.get("player"):
+            handle_minion_event(state, struct.unpack_from("<I", payload, 2)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == pets.USE_ABILITY and state.get("player") and len(payload) >= 14:
             pet_use_ability(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
@@ -7050,6 +7137,8 @@ def handle_message(sock, server, addr, state, payload, args):
                     dismiss_pet(state)
                 else:
                     summon_pet(state, args, args.content.item(item[1])["pet"])
+            elif item and args.content.item(item[1]).get("minions"):
+                summon_minions(state, args, args.content.item(item[1])["minions"])
             elif mount:
                 # A mount item (items.json "mount": {id, type}): right-click summons or dismisses it.
                 if getattr(player, "mount", None):
