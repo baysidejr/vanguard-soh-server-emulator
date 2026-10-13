@@ -413,6 +413,8 @@ def log_client_rpc(state, b, args, player):
         moved = state.get("position") != loc
         state["position"] = loc
         player.live_position = loc
+        if getattr(args, "on_move", None):
+            args.on_move(state, loc)                   # every report: landing = no change
         if moved:
             broadcast_movement(state, args, player, loc, params.get("View"))
         if moved:

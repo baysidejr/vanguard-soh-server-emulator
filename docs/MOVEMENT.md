@@ -45,3 +45,7 @@ The client moves its own pawn locally (client-side prediction) and reports posit
 - Mounts: riding is 1.6x faster (see MOUNTS.md).
 - Walking across a chunk border hands the player to the next zone (verified walking along the seabed from chunk_n20_12 into chunk_n21_12, Port Aughos).
 - `!tp x y g [yaw]` puts the player on the terrain at x, y (the `~` form keeps the old height, which can drop the player under the map near chunk edges).
+
+## Fall damage (2026-10-13, verified live)
+
+The server watches the height in every movement report (`zone.log_client_rpc` calls `args.on_move` for each report, including ones where the position did not change, so the landing is seen). `login_stub.check_fall` remembers the highest point of a fall; on landing, a drop of more than `SAFE_FALL` (500 units) costs `(drop - 500) * FALL_DAMAGE` (0.3) health. One-step jumps (z down more than 1200 or more than 2000 sideways in one report) are treated as teleports and ignored, and landing inside a WaterVolume (`water.water_boxes`) is safe. Reaching 0 health kills the player through the normal death path. Test: `!tp -28000 -3900 2000 0` drops Ranger 1425 units for 277 damage.

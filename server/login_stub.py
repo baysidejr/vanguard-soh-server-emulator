@@ -258,6 +258,7 @@ def main():
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     args.use_tombstone = use_tombstone
+    args.on_move = check_fall
     # The owner's pawn is ROLE_AutonomousProxy on the client (wire Role 3, RemoteRole 4) and is
     # handed over with GivePawn, so the player moves it with the keyboard (docs/MOVEMENT.md).
     # PAWN_ROLE=off restores the old simulated pawn (for comparison).
@@ -1834,6 +1835,55 @@ def assembly_tick(state, now):
     give_item(state, r["reward"])
     send(assembly.success())
     send(assembly.candidates(asm_candidates(player, r)))
+
+
+SAFE_FALL = 500.0             # units a player can drop without harm
+FALL_DAMAGE = 0.3             # health per unit beyond that
+_water_cache = {}
+
+
+def in_water(level, loc):
+    if level not in _water_cache:
+        try:
+            import water
+            _water_cache[level] = water.water_boxes(level, os.path.join(ARGS.client_dir, "Assets", "Maps"))
+        except Exception:
+            _water_cache[level] = []
+    return any(lo[0] <= loc[0] <= hi[0] and lo[1] <= loc[1] <= hi[1] and lo[2] <= loc[2] <= hi[2]
+               for _n, lo, hi in _water_cache[level])
+
+
+def check_fall(state, loc):
+    """Fall damage from the reported heights: a drop that happens over several moves
+    (a teleport is one big step and is ignored) and ends on land."""
+    player = state.get("player")
+    prev = state.get("fall_last")
+    state["fall_last"] = loc
+    if player is None or prev is None or player.health <= 0:
+        state.pop("fall_top", None)
+        return
+    dz = loc[2] - prev[2]
+    if dz < -1200 or math.hypot(loc[0] - prev[0], loc[1] - prev[1]) > 2000:
+        state.pop("fall_top", None)          # teleported
+        return
+    if dz < -4:
+        state["fall_top"] = max(state.get("fall_top", prev[2]), prev[2])
+        return
+    top = state.pop("fall_top", None)
+    if top is None:
+        return
+    drop = top - loc[2]
+    if drop <= SAFE_FALL or in_water(player.level, loc):
+        return
+    dmg = int((drop - SAFE_FALL) * FALL_DAMAGE)
+    player.health = max(0, player.health - dmg)
+    send = state["send"]
+    send(build_system_text(f"You fall and take {dmg} damage.", SYSTEM_TEXT_ERROR))
+    send(zone.health_update(player))
+    print(f"  {player.name} fell {drop:.0f} units: {dmg} damage")
+    if player.health == 0:
+        for m in player_death(state, ARGS, player):
+            send(m)
 
 
 def use_tombstone(state):
