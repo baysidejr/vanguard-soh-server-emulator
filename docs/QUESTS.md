@@ -14,6 +14,8 @@
 >
 > Accepting only works at the giver, and completing only at the turn-in NPC. "Supplies for the Forge" was played through: kill 2 wolves → gather 2 Copper Ore → talk to the Thestran Guard → turn in to Orin (coin, Round Shield, XP). The dev command `!give <item> [qty]` helps testing.
 >
+> **Reward choice (verified live 2026-10-13):** `reward.choice` in quests.json lists items to pick one from. At turn-in the server sends a 0x2c7 item record per reward item, then the state-4 page (0x2c0) with the reward slots filled ("Select Reward(s)"). Fixed `reward.items` get a group each; the choice items share group 100. Clicking an icon sends 0x163 {quest, item}; the server answers 0x2cf (highlight) and 0x2c8 (Complete button). Complete sends 0x161 {quest, item}. **The cache key is item field 1**, which the server normally fills with the item template id, so the 0x2c7 records must carry the reward slot id there; otherwise the client sends 0x162 and shows nothing. On 0x162 the server resends the records and the page once. `!questreset <key>` forgets a quest for testing.
+
 > **Dialogue reset:** each dialogue opens with `0x55f` (end conversation: closes the window and frees every option) and an empty `0x3ea` (clears the text), so text and options no longer pile up.
 
 > **Verified live (2026-10-12):** Orin's dialogue (0x3ea greeting + 0x2bf option, type 7) → click (0x15c) → quest page 0x2c0 with objectives and coin reward → Accept (0x15d) → 0x2c1 + 0x2cb: quest tracker "[10] Wanderer Trouble – Defeat Robed Wanderers (1/3)" updates on kills (0x2cc); turning in via the "(complete)" option sends 0x2c5, coin and 0x3d5 XP. Active quests are resent at login (0x2cb). Implemented in `server/quest.py`, `login_stub.npc_dialog/handle_quest_event`; quests are data in `server/content/quests.json`.
@@ -196,7 +198,7 @@ Not used for this: **0x2a2/0x2a3** MsgQuestJournalAdd. That is the Adventure Jou
 - Client flow [O]: the player is in state 3 and presses "Continue" → **0x160 {questId, u8}**. In state 4 the player presses "Complete" → **0x161 {questId, rewardItem}**.
 - XP: no quest message carries an XP field. Grant it with the existing **0x3d5** MsgExperienceRewardResult (`combat.experience_reward(amount, npc_eid)`) [O for 0x3d5].
 - Coin: field 11 is only for display. Pay with the existing coin messages (0x1aa as in MERCHANTS.md) [I].
-- Item choice: fill reward slots (field 30) with item ids and send 0x2c7 item info first (otherwise the client sends 0x162). The choice comes back in 0x163 / 0x161.
+- Item choice: fill reward slots (field 30) with item ids and send 0x2c7 item info first, with item field 1 = that id (otherwise the client sends 0x162). The choice comes back in 0x163 / 0x161 (implemented, see the note at the top).
 
 ## 4. Minimal recipe: "Kill 3 Robed Wanderers" (QID = 1001, NPC = giver eid)
 1. **Hail or U on the NPC**:

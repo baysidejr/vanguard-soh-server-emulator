@@ -4101,7 +4101,10 @@ def handle_quest_event(state, event, payload):
         if key in log.active:
             prog = log.active[key]
             if quest.ready(q, prog, have) and tpl == quest.turn_in(q):
-                finish_quest(state, key, q)
+                if q.get("reward", {}).get("choice"):
+                    show_quest_rewards(state, key, q, npc_eid, prog, have)
+                else:
+                    finish_quest(state, key, q)
             else:
                 send(quest.page(q, npc_eid, quest.IN_PROGRESS, prog, have=have))
         elif key not in log.done and tpl == q.get("giver"):
@@ -4136,11 +4139,41 @@ def handle_quest_event(state, event, payload):
         send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True, have=have))
         save_character_field(player.name, "quests", log.to_json())
         quest_advance(state, key, q, npc_eid, quiet=True)
+    elif event == quest.SELECT_REWARD and key in log.active and len(payload) >= 18:
+        item_id = struct.unpack_from("<i", payload, 14)[0]
+        names = {i: name for i, name, _, _, choice in quest.reward_slots(q) if choice}
+        if item_id in names:
+            state["quest_reward_choice"] = (key, names[item_id])
+            send(quest.reward_selected(q, item_id))
+            send(quest.show_complete_button(q))
+    elif event == quest.REWARD_INFO:
+        # The page named reward items the client had not cached: send them, then the page again.
+        if key in log.active and quest.ready(q, log.active[key], have) and tpl == quest.turn_in(q):
+            if state.get("reward_info_asked") != key:
+                state["reward_info_asked"] = key
+                show_quest_rewards(state, key, q, npc_eid, log.active[key], have)
+        else:
+            for m in quest_reward_items(q):
+                send(m)
+    elif event == quest.COMPLETE and key in log.active and q.get("reward", {}).get("choice"):
+        item_id = struct.unpack_from("<i", payload, 14)[0] if len(payload) >= 18 else -1
+        names = {i: name for i, name, _, _, choice in quest.reward_slots(q) if choice}
+        chosen = names.get(item_id)
+        if chosen is None and state.get("quest_reward_choice", (None,))[0] == key:
+            chosen = state["quest_reward_choice"][1]
+        if chosen is None:
+            send(build_system_text("Choose one of the rewards first.", SYSTEM_TEXT_ERROR))
+        elif quest.ready(q, log.active[key], have) and tpl == quest.turn_in(q):
+            state.pop("quest_reward_choice", None)
+            finish_quest(state, key, q, chosen)
     elif event == quest.REQUEST_INFO and key in log.active:
         send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], journal=True, have=have))
     elif event in (quest.CONTINUE, quest.COMPLETE) and key in log.active:
         if quest.ready(q, log.active[key], have) and tpl == quest.turn_in(q):
-            finish_quest(state, key, q)
+            if q.get("reward", {}).get("choice"):
+                show_quest_rewards(state, key, q, npc_eid, log.active[key], have)
+            else:
+                finish_quest(state, key, q)
 
 
 def quest_advance(state, key, q, source_eid, quiet=False):
@@ -4159,7 +4192,28 @@ def quest_advance(state, key, q, source_eid, quiet=False):
     save_character_field(player.name, "quests", player.quests.to_json())
 
 
-def finish_quest(state, key, q):
+def quest_reward_items(q):
+    """0x2c7 item records for a quest's reward slots, so the client can show them."""
+    out = []
+    for item_id, name, qty, _, _ in quest.reward_slots(q):
+        fields = zone.item_equip_fields(name)
+        fields["raw"][1] = item_id       # the cache key the reward slot names (else the template id)
+        out.append(zone.zone_event(0x2C7, vgmsg.inventory_item(
+            item_id, name, -1, zone.item_icon(name, 443), qty,
+            description=ARGS.content.item(name).get("description", ""), **fields)))
+    return out
+
+
+def show_quest_rewards(state, key, q, npc_eid, prog, have):
+    """The state-4 page: the rewards, with the choice items to pick from."""
+    send = state["send"]
+    state.pop("quest_reward_choice", None)
+    for m in quest_reward_items(q):
+        send(m)
+    send(quest.page(q, npc_eid, quest.DONE, prog, have=have, rewards=True))
+
+
+def finish_quest(state, key, q, chosen=None):
     player, send = state["player"], state["send"]
     # Items gathered for "collect" steps are handed over.
     have = have_items(player)
@@ -4168,7 +4222,7 @@ def finish_quest(state, key, q):
             if have(name) < n:
                 send(build_system_text(f"You need {n} {name}.", SYSTEM_TEXT_ERROR))
                 return
-    reward_items = q.get("reward", {}).get("items", [])
+    reward_items = q.get("reward", {}).get("items", []) + ([chosen] if chosen else [])
     if zone.BAG_SLOTS - len(player.items) < len(reward_items):
         send(build_system_text("You need more room in your bags for the reward.", SYSTEM_TEXT_ERROR))
         return
@@ -4183,7 +4237,7 @@ def finish_quest(state, key, q):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
-    for name in reward.get("items", []):
+    for name in reward_items:
         give_item(state, name)
     if reward.get("xp"):
         for m in award_xp(player, reward["xp"], player.char_id):
@@ -6087,6 +6141,12 @@ def dev_command(text, player=None):
     if words[0] == "faction" and len(words) >= 3 and player:
         # !faction <id> <amount>: change a faction standing (testing).
         return [("faction", int(words[1]), int(words[2]))]
+    if words[0] == "questreset" and len(words) == 2 and player:
+        # !questreset <key>: forget a quest so it can be taken again (testing).
+        player.quests.done.discard(words[1])
+        player.quests.active.pop(words[1], None)
+        save_character_field(player.name, "quests", player.quests.to_json())
+        return []
     if words[0] == "questkill" and player:
         # !questkill: count a kill of the target's kind toward active quests (testing).
         npc = player.npcs.get(player.target)

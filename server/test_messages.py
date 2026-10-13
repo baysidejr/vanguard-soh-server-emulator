@@ -165,6 +165,17 @@ class QuestStepTests(unittest.TestCase):
         self.assertFalse(quest.ready(q, log.active["a"], lambda n: 0))
         self.assertTrue(quest.ready(q, {"step": 0, "count": 3}, lambda n: 0))
 
+    def test_reward_slots(self):
+        import quest
+        q = {"id": 5, "name": "T", "reward": {"items": ["Shield"], "choice": ["Ring", "Sword"]}}
+        slots = quest.reward_slots(q)
+        self.assertEqual([(n, g, c) for _, n, _, g, c in slots],
+                         [("Shield", 1, False), ("Ring", quest.CHOICE_GROUP, True), ("Sword", quest.CHOICE_GROUP, True)])
+        blk = quest.page(q, 0, quest.DONE, rewards=True)[-390:]
+        self.assertEqual(struct.unpack_from("<iiiB", blk, 13), (slots[1][0], 1, quest.CHOICE_GROUP, 0))
+        self.assertEqual(struct.unpack_from("<i", blk, 13 * 3)[0], -1)
+        self.assertEqual(quest.page(q, 0, quest.OFFER)[-390:], quest.page({**q, "reward": {}}, 0, quest.OFFER)[-390:])
+
     def test_collect_step_counts_bag_items(self):
         import quest
         prog = {"step": 1, "count": 0}

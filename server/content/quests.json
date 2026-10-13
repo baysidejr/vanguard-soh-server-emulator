@@ -1,5 +1,5 @@
 {
-  "_comment": "Quests. giver: mob template id of the NPC that offers it; turn_in: who takes it back (default giver). requires: quest keys finished first. steps: in order, each one of kill {mob: n}, collect {item: n} (handed over at turn-in) or talk <mob> (with optional say text), plus objective (tracker text). A top-level kill is one kill step. reward: xp, coin (copper), items, faction {id: amount}, title (titles.json id). Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Quests. giver: mob template id of the NPC that offers it; turn_in: who takes it back (default giver). requires: quest keys finished first. steps: in order, each one of kill {mob: n}, collect {item: n} (handed over at turn-in) or talk <mob> (with optional say text), plus objective (tracker text). A top-level kill is one kill step. reward: xp, coin (copper), items, choice (pick one at turn-in), faction {id: amount}, title (titles.json id). Placeholder data (docs/CONTENT_EDITOR.md).",
   "wanderer_trouble": {
     "id": 5001,
     "name": "Wanderer Trouble",
@@ -19,7 +19,12 @@
       "faction": {
         "1001": 500
       },
-      "title": 3
+      "title": 3,
+      "choice": [
+        "Copper Ring",
+        "Hunter's Shortsword",
+        "Traveler's Boots"
+      ]
     }
   },
   "forge_supplies": {

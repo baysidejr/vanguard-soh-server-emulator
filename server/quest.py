@@ -8,6 +8,12 @@
   client 0x160 / 0x161 continue / complete
   0x2cc progress {eid64, i32 id, wstr chat, bool8, wstr status, bool8, bool8 completed}
   0x2c5 {i32 id, u8 0, u8 abandoned} quest completed / removed
+Reward choice (quests.json reward.choice): the turn-in shows the state-4 page whose reward
+slots {i32 item id, i32 qty, i32 group, bool8} list the items (cached first with 0x2c7, an
+item record, or the client asks 0x162 and shows nothing). Fixed items get a group each; the
+choice items share one group. Clicking an item sends 0x163 {i32 quest id, i32 item id};
+the server answers 0x2cf {quest id, item id} ("Selecting %s") and 0x2c8 {quest id, bool8 1}
+(shows the Complete button). Complete sends 0x161 {i32 quest id, i32 item id}.
 XP is granted separately (0x3d5)."""
 import struct
 import time
@@ -16,7 +22,30 @@ OFFER, IN_PROGRESS, READY, DONE = 0, 1, 3, 4
 OPTION_TYPE = 7
 CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO = 0x15C, 0x15D, 0x160, 0x161, 0x164
 ABANDON, SHARE = 0x15F, 0x166          # {i32 quest id}: journal Abandon (after its confirm), Share
-CLIENT_EVENTS = (CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO, ABANDON, SHARE)
+SELECT_REWARD, REWARD_INFO = 0x163, 0x162   # {i32 quest id, i32 item id} / {i32 quest id}
+CLIENT_EVENTS = (CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO, ABANDON, SHARE,
+                 SELECT_REWARD, REWARD_INFO)
+REWARD_ID_BASE = 970000
+CHOICE_GROUP = 100
+
+
+def reward_slots(q):
+    """[(item id, name, qty, group, is choice)] for a quest's reward items."""
+    r = q.get("reward", {})
+    out = []
+    for n, name in enumerate(r.get("items", [])):
+        out.append((REWARD_ID_BASE + q["id"] * 20 + n, name, 1, n + 1, False))
+    for n, name in enumerate(r.get("choice", [])):
+        out.append((REWARD_ID_BASE + q["id"] * 20 + 10 + n, name, 1, CHOICE_GROUP, True))
+    return out
+
+
+def reward_selected(q, item_id):
+    return _event(0x2CF, struct.pack("<ii", q["id"], item_id))
+
+
+def show_complete_button(q, show=True):
+    return _event(0x2C8, struct.pack("<iB", q["id"], int(show)))
 
 
 def abandoned(q):
@@ -98,8 +127,11 @@ def status_line(q, prog, have=lambda name: 0):
     return f"{step.get('objective', '')} ({min(step_count(step, prog, have), need)}/{need})"
 
 
-def page(q, npc_eid, state, prog=None, journal=False, have=lambda name: 0):
-    """0x2c0 (dialogue page) or 0x2cb (journal entry)."""
+def page(q, npc_eid, state, prog=None, journal=False, have=lambda name: 0, rewards=False):
+    """0x2c0 (dialogue page) or 0x2cb (journal entry). rewards: fill the reward slots (send
+    their 0x2c7 item records first)."""
+    slots = [(i, qty, g) for i, _, qty, g, _ in reward_slots(q)] if rewards else []
+    slots += [(-1, 0, 0)] * (30 - len(slots))
     data = (struct.pack("<Qi", npc_eid, q["id"]) + _w(q["name"])
             + struct.pack("<iB", q.get("level", 1), 0)
             + _w(q.get("description", "")) + _w(q.get("summary", ""))
@@ -110,7 +142,7 @@ def page(q, npc_eid, state, prog=None, journal=False, have=lambda name: 0):
             + struct.pack("<iiB", 0, 0, 0)
             + struct.pack("<iiiii", 0, 0, 0, 0, 0)
             + struct.pack("<iii", 0, -1, -1)
-            + b"".join(struct.pack("<iiiB", -1, 0, 0, 0) for _ in range(30)))
+            + b"".join(struct.pack("<iiiB", i, qty, g, 0) for i, qty, g in slots))
     return _event(0x2CB if journal else 0x2C0, data)
 
 
