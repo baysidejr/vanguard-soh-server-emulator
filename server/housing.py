@@ -16,7 +16,13 @@ import time
 
 INSPECT, BUY, BUILD, TEAR_DOWN, SELL = 0x460, 0x481, 0x479, 0x480, 0x47F
 PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx, dy, dz, i32 dyaw, dpitch, droll}
-CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE)
+# House chests (client chest dispatcher FUN_004733d0): 0x151 {chest id} open, 0x152 close,
+# 0x155 {chest, bag item handle, count, slot} deposit, 0x157 {chest, chest item, count, container, slot}
+# withdraw, 0x153 move inside. Server: 0x199 {chest id, capacity} opens "House Chest",
+# 0x19f clear, 0x1a1 item (silent), 0x19e item (drawn), 0x1a0 refresh, 0x19c {item} removed, 0x19a close.
+CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT, CHEST_WITHDRAW = 0x151, 0x152, 0x155, 0x157
+CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT,
+                 CHEST_WITHDRAW)
 HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D
@@ -60,6 +66,30 @@ def building_info(pid, plot, state, mine):
                   + struct.pack("<BBBB", int(mine), int(mine), 0, 0)
                   + struct.pack("<Ifffii", int(state.get("built", time.time())), x, y, z,
                                 b.get("fixtures", 0), b.get("chests", 0)))
+
+
+def chest_open(cid, capacity):
+    return _event(0x199, struct.pack("<ii", cid, capacity))
+
+
+def chest_clear():
+    return _event(0x19F)
+
+
+def chest_item(record, draw=False):
+    return _event(0x19E if draw else 0x1A1, record)
+
+
+def chest_refresh():
+    return _event(0x1A0)
+
+
+def chest_removed(handle):
+    return _event(0x19C, struct.pack("<i", handle))
+
+
+def chest_close():
+    return _event(0x19A)
 
 
 def show():

@@ -881,7 +881,8 @@ def plot_object(pid, plot, st):
 
 
 def fixture_object(pid, f):
-    return {"id": housing.FIXTURE_ID_BASE + f["id"], "prefab": f["prefab"], "type": zone.HOUSE_FIXTURE,
+    return {"id": housing.FIXTURE_ID_BASE + f["id"], "prefab": f["prefab"],
+            "type": zone.HOUSE_CHEST if "items" in f else zone.HOUSE_FIXTURE,
             "building": housing.FIXTURE_ID_BASE + f["id"], "loc": f["loc"], "rot": (0, f.get("yaw", 0), 0),
             "hover": f["item"]}
 
@@ -939,12 +940,70 @@ def place_fixture(state, item):
     z = pos[2] - 90.0                    # the pawn stands its collision height above the floor
     f = {"id": st.get("next_fixture", 1), "item": item[1], "prefab": ARGS.content.item(item[1])["fixture"],
          "loc": [pos[0], pos[1], z], "yaw": int(getattr(player, "yaw", 0) or 0)}
+    if ARGS.content.item(item[1]).get("chest"):
+        f["items"] = []
     st["next_fixture"] = f["id"] + 1
     fixtures.append(f)
     save_housing(db)
     take_items(state, item[1], 1)
     broadcast_object(state, fixture_object(pid, f))
     send(build_system_text(f"You place the {item[1]}.", SYSTEM_TEXT_WHITE))
+
+
+def chest_record(it):
+    """A stored chest item [id, name, icon, qty, slot] as a client item record."""
+    return vgmsg.inventory_item(it[0], it[1], it[4], it[2], it[3], **zone.item_equip_fields(it[1]))
+
+
+def handle_chest(state, event, vals):
+    player, send = state["player"], state["send"]
+    notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
+    if event == housing.CHEST_CLOSE:
+        state.pop("chest", None)
+        send(housing.chest_close())
+        return
+    cid = vals[0] if vals else 0
+    db, pid, st, f = fixture_by_object(cid)
+    if f is None or "items" not in f:
+        return
+    if st["owner"].lower() != player.name.lower():
+        notice(0x1ad)                                    # NoPermissionToUseChest
+        return
+    cap = ARGS.content.item(f["item"]).get("chest", 20)
+    if event == housing.CHEST_OPEN:
+        state["chest"] = cid
+        send(housing.chest_open(cid, cap))
+        send(housing.chest_clear())
+        for it in f["items"]:
+            send(housing.chest_item(chest_record(it)))
+        send(housing.chest_refresh())
+    elif state.get("chest") != cid:
+        return
+    elif event == housing.CHEST_DEPOSIT and len(vals) >= 2:
+        item = next((i for i in player.items if i[0] == vals[1]), None)
+        used = {it[4] for it in f["items"]}
+        slot = next((s for s in range(cap) if s not in used), None)
+        if item is None:
+            return
+        if slot is None:
+            send(build_system_text("The chest is full.", SYSTEM_TEXT_ERROR))
+            return
+        player.items.remove(item)
+        send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+        save_character_field(player.name, "items", [list(i) for i in player.items])
+        it = [item[0], item[1], item[2], item[3], slot]
+        f["items"].append(it)
+        save_housing(db)
+        send(housing.chest_item(chest_record(it), draw=True))
+        send(housing.chest_refresh())
+    elif event == housing.CHEST_WITHDRAW and len(vals) >= 2:
+        it = next((x for x in f["items"] if x[0] == vals[1]), None)
+        if it is None or not give_item(state, it[1], it[3]):
+            return
+        f["items"].remove(it)
+        save_housing(db)
+        send(housing.chest_removed(it[0]))
+        send(housing.chest_refresh())
 
 
 def fixture_by_object(oid):
@@ -989,13 +1048,18 @@ def handle_housing_event(state, event, data):
     print(f"  >>> ZONE housing event {event:#x}: {data.hex(' ')}")
     notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
     vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 else ()
+    if event in (housing.CHEST_OPEN, housing.CHEST_CLOSE, housing.CHEST_DEPOSIT, housing.CHEST_WITHDRAW):
+        handle_chest(state, event, vals)
+        return
     if event in (housing.PICK_UP, housing.NUDGE) and vals:
         db, pid, st, f = fixture_by_object(vals[0])
         if f is None or st["owner"].lower() != player.name.lower():
             notice(0x17a)                                # NoPermissionToPickupFixture
             return
         obj = fixture_object(pid, f)
-        if event == housing.PICK_UP:
+        if event == housing.PICK_UP and f.get("items"):
+            notice(0x177)                                # RemoveChestItems
+        elif event == housing.PICK_UP:
             st["fixtures"].remove(f)
             save_housing(db)
             broadcast_object(state, obj, close=True)
@@ -3913,6 +3977,16 @@ def dev_command(text, player=None):
     if words[0] == "plot" and player:
         # !plot [id]: inspect a plot as if its sign were right-clicked (testing).
         return [("housing", housing.INSPECT, struct.pack("<ii", 1, int(words[1]) if len(words) > 1 else 101))]
+    if words[0] == "chest" and player and len(words) > 1:
+        # !chest <fixture n> [put <bag handle> | take <item handle> | close]: the chest's menu and drags (testing).
+        cid = housing.FIXTURE_ID_BASE + int(words[1])
+        if "put" in words:
+            return [("housing", housing.CHEST_DEPOSIT, struct.pack("<iiii", cid, int(words[-1]), -1, 0))]
+        if "take" in words:
+            return [("housing", housing.CHEST_WITHDRAW, struct.pack("<iiiii", cid, int(words[-1]), -1, -1, 0))]
+        if "close" in words:
+            return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
+        return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
     if words[0] == "pickup" and player and len(words) > 1:
         # !pickup <fixture n>: as the fixture's Pick Up menu (0x462) (testing).
         return [("housing", housing.PICK_UP, struct.pack("<i", housing.FIXTURE_ID_BASE + int(words[1])))]
