@@ -34,6 +34,7 @@ import mail
 import market
 import housing
 import titles
+import duel
 import bank
 import social
 import effects
@@ -1161,6 +1162,9 @@ def title_props(player):
 def show_titles(state):
     player = state["player"]
     values = title_props(player)
+    player.title_values = values               # also in the pawn's spawn properties
+    if "ue" not in state:
+        return
     state["send"](zone.player_pawn_update(state, ARGS, values))
     w = state.get("world")
     if w is not None:
@@ -1207,6 +1211,109 @@ def handle_title_event(state, event, data):
         player.show_title = not getattr(player, "show_title", True)
         save_character_field(player.name, "show_title", player.show_title)
     show_titles(state)
+
+
+DUEL_DAMAGE = (6, 12)
+
+
+def online_state(player):
+    return ONLINE.get(player.name.lower())
+
+
+def handle_duel_event(state, event, data):
+    """Duels (duel.py): challenge the defensive target, countdown, fight to 1 HP."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE duel event {event:#x}: {data.hex(' ')}")
+    notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
+    if event == duel.DEFENSIVE_TARGET:
+        state["def_target"] = struct.unpack_from("<Q", data)[0] if len(data) >= 8 else 0
+        return
+    if event == duel.CHALLENGE:
+        if getattr(player, "duel_opponent", None) is not None:
+            end_duel(online_state(player.duel_opponent), state)        # forfeit
+            return
+        pending = state.pop("duel_challenge", None)
+        if pending is not None:                          # /duelcancel
+            send(build_system_text("You cancel your duel challenge.", SYSTEM_TEXT_WHITE))
+            return
+        w = state.get("world")
+        tid = state.get("def_target") or player.target
+        other = w.members.get(tid) if w is not None and tid else None
+        if other is None or other is state:
+            notice(0xB5 if other is None else 0xB6)       # need a defensive target / can't duel yourself
+            return
+        o = other["player"]
+        if getattr(o, "duel_opponent", None) is not None or other.get("duel_from"):
+            send(duel.busy())
+            return
+        state["duel_challenge"] = {"to": o.name, "until": time.time() + duel.CHALLENGE_SECONDS}
+        other["duel_from"] = {"from": player.name, "until": time.time() + duel.CHALLENGE_SECONDS}
+        send(duel.challenge(o.name, False))
+        other["send"](duel.challenge(player.name, True))
+    elif event == duel.ANSWER and len(data) >= 4:
+        offer = state.pop("duel_from", None)
+        if offer is None:
+            notice(0xB7)                                  # no pending duel
+            return
+        cs = ONLINE.get(offer["from"].lower())
+        if cs is None or cs.get("duel_challenge", {}).get("to", "").lower() != player.name.lower():
+            return
+        cs.pop("duel_challenge", None)
+        if struct.unpack_from("<i", data)[0] != 0 or time.time() > offer["until"]:
+            cs["send"](duel.declined() if time.time() <= offer["until"] else duel.timed_out())
+            return
+        a, b = cs["player"], player
+        for s, opp in ((cs, b), (state, a)):
+            s["send"](duel.countdown(opp.name))
+        DUELS.append({"a": cs, "b": state, "starts": time.time() + duel.COUNTDOWN})
+
+
+DUELS = []
+
+
+def duel_tick(now):
+    for d in list(DUELS):
+        if now >= d["starts"]:
+            DUELS.remove(d)
+            a, b = d["a"], d["b"]
+            if a.get("player") is None or b.get("player") is None:
+                continue
+            pa, pb = a["player"], b["player"]
+            pa.duel_opponent, pb.duel_opponent = pb, pa
+            for s, me, opp in ((a, pa, pb), (b, pb, pa)):
+                me.target = opp.char_id
+                s["send"](duel.start(opp.char_id))
+                s["send"](combat.targets(duel.Target(opp)))
+
+
+def duel_strike(state, player, opp):
+    """An auto-attack swing at the duel opponent; at 1 HP the duel is over."""
+    os_ = online_state(opp)
+    if os_ is None:
+        end_duel(state, None)
+        return
+    dmg = random.randint(*DUEL_DAMAGE)
+    opp.health = max(1, opp.health - dmg)
+    player.last_combat = opp.last_combat = time.time()
+    for s in (state, os_):
+        s["send"](effects.combat_text(player.char_id, opp.char_id, "", dmg, kind=0, dmg_type=combat.HITS))
+    os_["send"](zone.health_update(opp))
+    state["send"](combat.targets(duel.Target(opp)))
+    if opp.health <= 1:
+        end_duel(state, os_)
+
+
+def end_duel(winner, loser):
+    """winner/loser: zone states (either may be None if they left)."""
+    for s, won in ((winner, True), (loser, False)):
+        if s is None or s.get("player") is None:
+            continue
+        p = s["player"]
+        p.duel_opponent = None
+        p.auto_attack = False
+        s["send"](duel.result(won))
+        for m in combat.auto_attack_state(False):
+            s["send"](m)
 
 
 def use_tombstone(state):
@@ -1294,11 +1401,14 @@ def world_tick(zone_sock, clients, args):
                 _, lines, npc = action
                 for m in combat_results(state, args, player, lines, npc, True, True):
                     send_message(zone_sock, addr, state, m)
+            elif action[0] == "pvp":
+                duel_strike(state, player, action[1])
             elif action[0] == "health":
                 send_message(zone_sock, addr, state, zone.health_update(player))
             elif action[0] == "endurance":
                 send_message(zone_sock, addr, state, zone.endurance_update(player))
     group_tick()
+    duel_tick(now)
     for s in list(ONLINE.values()):
         if s.get("handoff") and now - s.get("last_seen", now) > 60:
             # Handed off to another chunk but the new zone login never came: log out.
@@ -4096,6 +4206,10 @@ def dev_command(text, player=None):
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
         return [("housing", housing.CHEST_OPEN, struct.pack("<i", cid))]
+    if words[0] == "deftarget" and player and len(words) > 1:
+        # !deftarget <player>: as clicking a friendly player (0x5c), e.g. before /duel (testing).
+        s = ONLINE.get(words[1].lower())
+        return [("duelev", duel.DEFENSIVE_TARGET, struct.pack("<Q", s["player"].char_id))] if s else []
     if words[0] == "title" and player and len(words) > 1:
         # !title <id>: grant a title (testing).
         return [("title", int(words[1]))]
@@ -4440,6 +4554,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "duelev":
+                        handle_duel_event(state, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "title":
                         grant_title(state, m[1])
                         continue
@@ -4521,6 +4638,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in duel.CLIENT_EVENTS and state.get("player"):
+            handle_duel_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in titles.CLIENT_EVENTS and state.get("player"):
             handle_title_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x10F and state.get("player"):
@@ -4572,6 +4691,9 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE target {eid:#x} ({npc.name if npc else '-'})")
             if player:
                 player.target = eid or None
+            opp = getattr(player, "duel_opponent", None) if player else None
+            if opp is not None and eid == opp.char_id:
+                npc = duel.Target(opp)
             send_message(sock, addr, state, combat.targets(npc))
             if player:
                 # The target window's effect list belongs to the current target.

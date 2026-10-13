@@ -230,8 +230,11 @@ def experience_reward(amount, source, rest_bonus=0, kind=0, group=0):
 def toggle_auto_attack(player):
     """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state."""
     npc = player.npcs.get(player.target) if player.target else None
-    if not player.auto_attack and (npc is None or not npc.alive or npc.merchant or npc.harvest
-                                   or player.health <= 0):
+    opp = getattr(player, "duel_opponent", None)
+    if opp is not None and player.target == opp.char_id and player.health > 0:
+        npc = opp                                 # dueling: the opponent is a valid target
+    if not player.auto_attack and (npc is None or not npc.alive or getattr(npc, "merchant", None)
+                                   or getattr(npc, "harvest", None) or player.health <= 0):
         return [("You have no valid target to attack.", "error")]
     player.auto_attack = not player.auto_attack
     player.next_swing = time.time()
@@ -372,7 +375,10 @@ def tick(player, now):
     if player.auto_attack and now >= player.next_swing:
         player.next_swing = now + AUTO_ATTACK_SECONDS
         npc = player.npcs.get(player.target) if player.target else None
-        if npc is None or not npc.alive or player.health <= 0:
+        opp = getattr(player, "duel_opponent", None)
+        if opp is not None and player.target == opp.char_id and player.health > 0:
+            out.append(("pvp", opp))
+        elif npc is None or not npc.alive or player.health <= 0:
             player.auto_attack = False
             out.append(("swing", [], None))
         else:

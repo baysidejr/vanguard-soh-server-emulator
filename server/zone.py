@@ -680,6 +680,10 @@ class Player:
     the world server on Play and claimed by the zone connection with the same
     session key (see login_stub.py)."""
 
+    @property
+    def alive(self):
+        return self.health > 0
+
     def __init__(self, name="", char_id=None, race=0x0E, klass=0x1C, level="", position=None,
                  save_position=None):
         self.name = name
@@ -911,6 +915,7 @@ def player_pawn_values(player, location, yaw=0):
         "m_iRaceId": player.race,
         "Health": 100,
         "m_PlayerDisplayName": player.name,
+        **getattr(player, "title_values", {}),
         # Guild tag over the head (name from zone event 0x40). m_bIsAfk = 1 made the
         # pawn disappear on every client (live test), so AFK/LFG stay in /who only.
         "m_GuildId": getattr(player, "guild_id", 0),
