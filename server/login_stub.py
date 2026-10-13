@@ -4145,11 +4145,18 @@ def handle_market_event(state, event, data):
         return
     if event == market.SEARCH:
         try:
-            name, seller, _lo, _hi = market.parse_search(data)
+            name, seller, lo, hi = market.parse_search(data)
+            rarity = market.parse_rarity(data)
         except (struct.error, IndexError):
-            name = seller = ""
-        found = [x for x in db["listings"] if name.lower() in x["name"].lower()
-                 and seller.lower() in x["seller"].lower()]
+            name, seller, lo, hi, rarity = "", "", 0, 0, None
+
+        def matches(x):
+            tpl = ARGS.content.item(x["name"])
+            level = tpl.get("level", 1)
+            return (name.lower() in x["name"].lower() and seller.lower() in x["seller"].lower()
+                    and (lo <= 0 or level >= lo) and (hi <= 0 or level <= hi)
+                    and (rarity is None or grouploot.rarity_wire(tpl.get("rarity")) == rarity))
+        found = [x for x in db["listings"] if matches(x)]
         for m in market.results(found):
             send(m)
         return

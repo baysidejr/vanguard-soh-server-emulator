@@ -11,7 +11,7 @@ Server: `server/market.py`, `login_stub.handle_market_event`. Storage: `server/m
 - Fees: 5% commission (the buyer pays it on top of the price), 1% deposit (paid by the seller when listing, not refunded), no favor reduction. The client computes both in single-precision floats and truncates (40 x 5% shows as 1), so the server does the same (`market.PERCENT`).
 - Bought and cancelled items, and sale proceeds, are delivered by mail (the client's confirmations say so).
 - Listings last 7 days (field 10 = unix expiry time). Expiry is not enforced yet.
-- Search filters by item name and seller name; level, class, slot, type, rarity and sphere are ignored.
+- Search filters by item name, seller name, level range (items.json `level`, default 1) and rarity (field 12, compared with the item's rarity byte, `market.parse_rarity`); class, slot, type and sphere are ignored. The level and rarity filters are unit-tested but not yet tried in game.
 - The "Favor %" line in the sell panel is the reduction field (field 4 of 0x52e).
 
 ## Corrections to the protocol notes below

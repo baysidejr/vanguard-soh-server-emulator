@@ -122,3 +122,19 @@ def parse_search(data):
     pos += 8
     lo, hi = struct.unpack_from("<hh", data, pos)
     return out[0].strip(), out[1].strip(), lo, hi
+
+
+def parse_rarity(data):
+    """The search's rarity filter: the item rarity byte (8 Mundane ... 1 Legendary), or
+    None for any (0xFF) or when the field is missing. It follows the two names, two i32,
+    min/max level and three i16 (0, class, slot) and the item type."""
+    pos = 12
+    for _ in range(2):
+        while data[pos:pos + 2] != b"\0\0":
+            pos += 2
+        pos += 2
+    pos += 8 + 2 * 6
+    if len(data) < pos + 2:
+        return None
+    r = struct.unpack_from("<H", data, pos)[0]
+    return None if r in (0xFF, 0xFFFF) else r

@@ -43,6 +43,12 @@ class MarketTests(unittest.TestCase):
         data = bytes(12) + _w("Copper") + _w("") + struct.pack("<iihh", 0, 0, 5, 20)
         self.assertEqual(market.parse_search(data), ("Copper", "", 5, 20))
 
+    def test_parse_rarity(self):
+        tail = struct.pack("<iihhhhhhh", 0, 0, 5, 20, 0, 1, -1, 0xFF, 7) + struct.pack("<Bh", 0, -1)
+        self.assertEqual(market.parse_rarity(bytes(12) + _w("Copper") + _w("") + tail), 7)
+        tail = struct.pack("<iihhhhhhh", 0, 0, 0, 0, 0, 1, -1, 0xFF, 0xFF) + struct.pack("<Bh", 0, -1)
+        self.assertIsNone(market.parse_rarity(bytes(12) + _w("") + _w("") + tail))
+
     def test_record_has_expiry(self):
         rec = market.record({"id": 9, "name": "X", "seller": "Y", "price": 40, "posted": 1000})
         self.assertIn(struct.pack("<I", 1000 + market.DURATION), rec)
