@@ -508,6 +508,10 @@ def npc_special(state, npc, now):
         if random.random() >= a.get("chance", 0.2):
             continue
         name, eid = a["name"], effect_id(player, a["name"]) + 500
+        if random.random() < effects.RESIST_CHANCE_PLAYER:
+            send(effects.resisted(npc.entity_id, name, name, you=True))
+            print(f"  {player.name} resisted {npc.name}'s {name}")
+            return
         if a.get("kind", "dot") == "dot":
             ticks, interval = a.get("ticks", 4), a.get("interval", 3.0)
             player.__dict__.setdefault("effects", [])
@@ -641,6 +645,9 @@ def apply_buff(state, player, name, spec, now):
 
 
 def apply_dot(state, player, npc, name, spec, now):
+    if random.random() < effects.RESIST_CHANCE_NPC:
+        state["send"](effects.resisted(npc.entity_id, name, name, you=False))
+        return
     eid = effect_id(player, name)
     player.__dict__.setdefault("effects", [])
     player.effects[:] = [e for e in player.effects if not (e["id"] == eid and e.get("npc") is npc)]

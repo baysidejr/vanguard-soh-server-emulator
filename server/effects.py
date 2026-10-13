@@ -93,6 +93,18 @@ def interrupted():
     return _event(0x260)
 
 
+RESIST_CHANCE_PLAYER = 0.15    # a player shrugs off an NPC's harmful effect
+RESIST_CHANCE_NPC = 0.10       # an NPC shrugs off a player's damage over time
+
+
+def resisted(other_eid, ability, effect="", you=True):
+    """0x278 (you resisted, "YouResistedAbilityEffect") / 0x279 (your target resisted,
+    "EnemyResistedAbilityEffect"): MsgPCResistedAbilityEffect {eid64 other, wstr ability,
+    wstr effect}."""
+    data = struct.pack("<Q", other_eid) + (ability + "\0").encode("utf-16-le") + (effect + "\0").encode("utf-16-le")
+    return struct.pack("<HII", 2, 0x278 if you else 0x279, len(data)) + data
+
+
 def combat_text(source, target, ability, amount, heal=False, crit=False, kind=1, dmg_type=0):
     """0x27b: the client writes the sentence ("Your X hits/heals ...")."""
     return _event(0x27B, struct.pack("<QQiBBiiBBB", source, target, next(_instances), int(heal), kind,

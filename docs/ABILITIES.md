@@ -208,7 +208,7 @@ The client has no cast bar for an enemy's spell (`castbars_report` research): an
 
 - 0x248 `{eid64 caster}` ("<name> begins to cast a spell."), 0x3a5 `{i32 in-flight id, i32 icon, wstr name, f32 seconds}` (one icon at a time), and, if the player has a counter ability (`content/counters.json`: Warrior Riposte I, Ranger Parry I), a counter reaction 0x391 type 2 on the caster for the cast time. Counter abilities have ability record wire #44 = 1: locked except during a counter window; a direct use gets 0x242 `{0x01}` (only as a reaction).
 - Activating the counter (0x145) cancels the cast: 0x3a7 `{i32 id, i32 3 (Countered), i32 0, i32 0, bool8 0}` removes the icon, 0x3b2 `{0, 2, 0, 0, 0}` shows "Countered" in the incoming attacks queue, and "You counter Canyon Widow's Venom Spit!" (verified live with Justins and `!react`). A cast that finishes hits for its damage (combat text) and closes the counter window; 0x3a8 clears the icons.
-- Not seen yet in game: the 0x248 chat line and the 0x3a5 icon did not show in our tests (the Target Display window is the target frame; toggling it with `!ui` hides the frame). Interrupts (result 13) and the anti-group rows (0x3b5/0x3bc/0x3bd) are not used.
+- The 0x248 line shows in the **Combat** chat tab ("Canyon Widow begins to cast a spell.", verified live). Not seen yet: the 0x3a5 icon did not show in our tests (the Target Display window is the target frame; toggling it with `!ui` hides the frame). Interrupts (result 13) and the anti-group rows (0x3b5/0x3bc/0x3bd) are not used.
 
 ## Rescues (verified live 2026-10-13, two clients)
 
@@ -217,3 +217,7 @@ Rescue abilities per class are in `server/content/rescues.json` (Warrior: Taunt 
 ## Heals on others (verified live 2026-10-13)
 
 A heal (abilities.json `kind: heal`) lands on the targeted player if they are alive and in the same chunk (`login_stub.heal_target`), else on the caster: their HUD gets the health update, both get the combat text plus "You heal Justins for 30." / "Ranger heals you for 30.". Healing adds half the amount as hate on every NPC that hates the healed player (`heal_hate`). `!target <player name>` targets an online player (defensive target, 0x3e0). Regrowth I (Ranger) is now a heal in abilities.json. Buffs work the same way (the target gets the effect icon, stat bonus and expiry; "You cast X on Justins."), except stances (names with "Style") and abilities.json entries with `"self": true`, which always land on the caster (buff targeting not yet tried in game).
+
+## Resists (2026-10-13)
+
+A harmful NPC effect (Venom Bite) is resisted 15% of the time (`effects.RESIST_CHANCE_PLAYER`) and a player's damage over time 10% (`RESIST_CHANCE_NPC`). The server sends MsgPCResistedAbilityEffect `{eid64 other, wstr ability, wstr effect}`: **0x278** when you resisted ("YouResistedAbilityEffect"), **0x279** when your target did ("EnemyResistedAbilityEffect"), and the effect isn't applied. The message is sent (server log "Justins resisted Canyon Widow's Venom Bite") but its chat line hasn't been seen yet.
