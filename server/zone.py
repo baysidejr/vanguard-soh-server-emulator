@@ -142,6 +142,8 @@ def handle_unreal(send, state, payload, args):
             tombstone_spawn(w, args, player)
         for npc in w.npcs.values():
             send(open_npc(state, args, npc))
+        for obj in args.placed_objects(player.level):
+            send(open_placed_object(state, args, obj))
         for other in w.others(state):
             send(open_remote_player(state, args, other["player"]))
             other["send"](open_remote_player(other, args, player))

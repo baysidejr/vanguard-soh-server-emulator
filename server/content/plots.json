@@ -1,0 +1,31 @@
+{
+  "_comment": "Housing plots (docs/HOUSING.md). plot id: {name, chunk, loc [x, y, z], yaw, cost (copper), upkeep, buildings: [{type, name, prefab (compoundobjectMD.tab root prefab), fixtures, chests}]}. A plot for sale shows a For Sale sign; a built plot shows the house. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "101": {
+    "name": "Wastes Homestead",
+    "chunk": "chunk_n19_12",
+    "loc": [
+      -29500,
+      -6600,
+      450
+    ],
+    "yaw": 0,
+    "cost": 1000,
+    "upkeep": 50,
+    "buildings": [
+      {
+        "type": 1,
+        "name": "Thestran Cottage",
+        "prefab": "Ra6001_P1_C1_Grid_PHcity01_Home001root001_lvl10_ver1",
+        "fixtures": 20,
+        "chests": 2
+      },
+      {
+        "type": 2,
+        "name": "Thestran Home",
+        "prefab": "Ra6001_P1_C1_Grid_PHcity01_Home004root001_lvl10_ver1",
+        "fixtures": 30,
+        "chests": 3
+      }
+    ]
+  }
+}

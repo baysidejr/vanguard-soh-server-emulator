@@ -2,7 +2,9 @@
 
 > **Verified live (2026-10-13):** the server can place a house. `!house` opens an actor channel for `Engine.PlayerPlacedObject` with `m_PrefabNameTag = "Ra6001_P1_C1_Grid_PHcity01_Home001root001_lvl10_ver1"`, and the client builds a full Thestran house (stone base, timber frame, chimney, roof) at that spot. The open bunch needs an initial **rotation** after the location (bNetInitialRotation); without it the client misreads the properties ("NetSerializeItem failed for Owner"). Props 53-58 (m_PrefabNameTag, m_ParentUniqueID, m_ObjectUniqueId, m_MouseOverDisplay, m_BuildingType, m_BuildingUniqueId) all arrive.
 >
-> **Not done yet:** plots, buying, construction, permissions, fixtures, chests (protocol below).
+> **Plots (verified live):** plot 101 "Wastes Homestead" (`server/content/plots.json`) shows a For Sale sign (`Ra1_P1_C1_Markers_ForSaleSign`, m_BuildingType 1). Inspect (0x460 {type, id}; dev `!plot`) opens the client's "Player Housing Information" window: "Plot Purchase Price: 10 silver", "This plot is for sale.". Admin tab > Purchase Plot > the client's "Confirm Plot Purchase" > Accept sends 0x481 {plot id}: "You lose 10 silver.", "Successfully purchased targeted plot." (0x0e 0x170). The Construction tab lists the plot's buildings from the 0x454 options (Thestran Cottage, Thestran Home, with type, max fixtures and max chests); Construct Building sends 0x479 {plot id, type} and the server builds it at once: "Construction completed successfully." (0x0e 0x192), the sign is replaced by the cottage for everyone in the chunk. Ownership and buildings are saved in `server/housing.json` (not committed). Tear down (0x480) and sell (0x47f, half the price back) are coded but untested.
+>
+> **Not done yet:** construction materials and progress (0x453), upkeep, permissions, fixtures, chests, entering the house interior.
 
 Server: `zone.open_placed_object`. Dev command: `!house [prefab] [type]` (800 units +x of the player). 37 root prefabs (whole buildings) are listed in `bin/compoundobjectMD.tab` (`...PHcity01_Home001root001...`, `HomeShop`, `Inn`, `Temple`, `GuardTower`, `CraftingBarn`; Ra6001 Thestra, Ra6021 Qalia, Ra6060 Kojan).
 

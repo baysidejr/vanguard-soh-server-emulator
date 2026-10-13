@@ -32,6 +32,7 @@ import faction
 import workorder
 import mail
 import market
+import housing
 import bank
 import social
 import effects
@@ -251,6 +252,7 @@ def main():
     args.npc_dialog = npc_dialog
     args.harvest_begin = lambda state: handle_harvest_event(state, harvest.BEGIN)
     args.use_tombstone = use_tombstone
+    args.placed_objects = placed_objects
     args.craft_event = lambda state, event, data: handle_craft_event(state, event, data)
     global ARGS
     ARGS = args
@@ -844,6 +846,133 @@ def handle_rift(state, args, data):
     z = ARGS.content.ground_z(player.level, dest["x"], dest["y"], ARGS.client_dir)
     send(zone.player_teleport((float(dest["x"]), float(dest["y"]), float(z) + 100.0)))
     send(build_system_text(f"The riftway carries you to {dest['name']}.", SYSTEM_TEXT_WHITE))
+
+
+HOUSING_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "housing.json")
+PLOT_OBJECT_BASE = 0x5000000
+
+
+def load_housing():
+    """{plot id: {owner, bought, building (type), built}}"""
+    try:
+        with open(HOUSING_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def save_housing(db):
+    with open(HOUSING_FILE, "w", encoding="utf-8") as f:
+        json.dump(db, f, indent=2)
+
+
+def plot_object(pid, plot, st):
+    """The world object for a plot: its house when built, else a For Sale / owner sign."""
+    b = next((o for o in plot.get("buildings", []) if st and o["type"] == st.get("building")), None)
+    yaw = int(plot.get("yaw", 0))
+    if b:
+        return {"id": PLOT_OBJECT_BASE + int(pid), "prefab": b["prefab"], "type": zone.HOUSE_BUILDING,
+                "building": int(pid), "loc": plot["loc"], "rot": (0, yaw, 0),
+                "hover": f"{st['owner']}'s {b['name']}"}
+    owner = (st or {}).get("owner")
+    return {"id": PLOT_OBJECT_BASE + int(pid), "prefab": housing.SIGN_PREFAB, "type": zone.HOUSE_PLOT,
+            "building": int(pid), "loc": plot["loc"], "rot": (0, yaw, 0),
+            "hover": f"{plot['name']} ({owner})" if owner else f"{plot['name']} - for sale"}
+
+
+def placed_objects(level):
+    db = load_housing()
+    return [plot_object(pid, p, db.get(pid)) for pid, p in ARGS.content.plots.items() if p["chunk"] == level]
+
+
+def refresh_plot(state, pid):
+    """Re-create a plot's world object for everyone in its chunk (sign <-> house)."""
+    w = state.get("world")
+    plot = ARGS.content.plots[pid]
+    if w is None or plot["chunk"] != state["player"].level:
+        return
+    obj = plot_object(pid, plot, load_housing().get(pid))
+
+    def build(s, obj=obj):
+        out = [m for m in (zone.close_actor(s, obj["id"]),) if m]
+        return out + [zone.open_placed_object(s, ARGS, obj)]
+    for s in list(w.members.values()):
+        for m in build(s):
+            s["send"](m)
+
+
+def send_plot_window(state, pid):
+    player, send = state["player"], state["send"]
+    plot = ARGS.content.plots[pid]
+    st = load_housing().get(pid)
+    mine = bool(st) and st.get("owner", "").lower() == player.name.lower()
+    send(housing.plot_info(int(pid), plot, st, mine))
+    if st and st.get("building"):
+        send(housing.building_info(int(pid), plot, st, mine))
+    send(housing.show())
+
+
+def handle_housing_event(state, event, data):
+    """Plots (housing.py): inspect, buy, build (instantly), tear down, sell."""
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE housing event {event:#x}: {data.hex(' ')}")
+    notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
+    vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 else ()
+    pid = str(vals[1] if event == housing.INSPECT and len(vals) > 1 else vals[0]) if vals else ""
+    plot = ARGS.content.plots.get(pid)
+    if plot is None:
+        notice(0x175)                                    # CantFindPlot
+        return
+    db = load_housing()
+    st = db.get(pid)
+    mine = bool(st) and st.get("owner", "").lower() == player.name.lower()
+    if event == housing.INSPECT:
+        send_plot_window(state, pid)
+    elif event == housing.BUY:
+        if st:
+            notice(0x16b)                                # PlotNotForPurchase
+        elif any(v.get("owner", "").lower() == player.name.lower() for v in db.values()):
+            notice(housing.ONE_PLOT)
+        elif player.coins < plot["cost"]:
+            send(build_system_text("You can't afford that plot.", SYSTEM_TEXT_ERROR))
+        else:
+            player.coins -= plot["cost"]
+            send(merchant.coins(player.coins))
+            save_character_field(player.name, "coins", player.coins)
+            db[pid] = {"owner": player.name, "bought": int(time.time())}
+            save_housing(db)
+            notice(housing.PURCHASED)
+            refresh_plot(state, pid)
+            send_plot_window(state, pid)
+    elif event == housing.BUILD and len(vals) >= 2:
+        b = next((o for o in plot.get("buildings", []) if o["type"] == vals[1]), None)
+        if not mine or b is None or st.get("building"):
+            notice(0x1a1 if not mine else 0x19e)         # NoPermissionToStartConst / BldgExistsForPlot
+            return
+        st.update(building=b["type"], built=int(time.time()))
+        save_housing(db)
+        notice(housing.BUILT)
+        send(housing.has_construction(False))
+        refresh_plot(state, pid)
+        send_plot_window(state, pid)
+    elif event == housing.TEAR_DOWN and mine and st.get("building"):
+        st.pop("building", None)
+        st.pop("built", None)
+        save_housing(db)
+        notice(housing.REMOVED)
+        refresh_plot(state, pid)
+        send_plot_window(state, pid)
+    elif event == housing.SELL and mine:
+        if st.get("building"):
+            notice(housing.SELL_BUILDINGS_FIRST)
+            return
+        del db[pid]
+        save_housing(db)
+        player.coins += plot["cost"] // 2
+        send(merchant.coins(player.coins))
+        save_character_field(player.name, "coins", player.coins)
+        notice(housing.SOLD)
+        refresh_plot(state, pid)
 
 
 def use_tombstone(state):
@@ -3690,6 +3819,9 @@ def dev_command(text, player=None):
         heal = len(words) > 2 and words[2] == "1"
         target = player.char_id if len(words) > 3 or not player.target else player.target
         return [effects.combat_text(player.char_id, target, "Test Strike", 12, heal=heal, kind=kind)]
+    if words[0] == "plot" and player:
+        # !plot [id]: inspect a plot as if its sign were right-clicked (testing).
+        return [("housing", housing.INSPECT, struct.pack("<ii", 1, int(words[1]) if len(words) > 1 else 101))]
     if words[0] == "house" and player:
         # !house [prefab] [type]: spawn a housing object 800 units north of you (testing).
         prefab = words[1] if len(words) > 1 else "Ra6001_P1_C1_Grid_PHcity01_Home001root001_lvl10_ver1"
@@ -4017,6 +4149,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "housing":
+                        handle_housing_event(state, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "house":
                         p = state["player"]
                         pos = p.live_position or p.spawned_at
@@ -4090,6 +4225,8 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE interact {eid:#x} ({npc.name if npc else '-'})")
             if npc is not None and getattr(npc, "altar", False):
                 handle_altar_use(state, npc)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
+            handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x597 and state.get("player"):
             handle_rift(state, args, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x57C and state.get("player"):

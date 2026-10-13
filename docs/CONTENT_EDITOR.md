@@ -44,7 +44,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Death penalty | debt per death and per level, debt recovery from tombstones and resurrection, corpse decay time, altar locations and meshes, summon cooldowns | 100 debt per death (cap 500), half back on recovery, no decay, no altars |
 | Mounts | which items summon which mount ids (about 1000 meshes in MOUNT_ITEMS), mount speeds, flying/aquatic types, where mounts are sold and level requirements | one placeholder horse item (mount 1000) at the camp merchant |
 | Riftways | world positions and chunks of the 39 riftway destinations, which ones a player has discovered, travel prices (the client hardcodes 50/500/2000/5000 copper by color) | `server/content/riftways.json`: all 39 names and colors from the client map; only Sundering Wastelands has a (placeholder) landing spot; two Riftseeker brazier stones in chunk_n19_12 |
-| Housing | plot positions and prices, building types per plot, prefab names, fixtures and chests, upkeep | not implemented |
+| Housing | plot positions and prices, building types per plot, prefab names, fixtures and chests, upkeep, construction materials | `server/content/plots.json`: one placeholder plot with two building types (instant construction) |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
 
 ## Planned editor (end of project)
