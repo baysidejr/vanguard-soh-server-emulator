@@ -62,7 +62,7 @@ The unmodified client, talking only to this emulator:
 - [x] NPC conversation trees (data-driven replies with faction and item rewards)
 - [x] Mounts: summon a horse from an item, ride, /dismount
 - [x] Titles (prefix/suffix, /titleset, quest rewards, shown over the head), the game clock (/time), /played
-- [x] Duels: /duel challenge popup, countdown, auto-attack fight to 1 HP; caravans (invite, member list, remove)
+- [x] Duels: /duel challenge popup, countdown, auto-attack fight to 1 HP; caravans (invite, member list, remove, log in at the caravan after 3 hours offline)
 - [x] Pets: summon a wolf from an item; it follows and attacks on /pet attack
 - [x] Riftways: /rift and the client's Riftway map travel between riftway stones (one destination placed)
 - [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instant construction), place and pick up furniture, storage chests

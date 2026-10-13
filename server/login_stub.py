@@ -4739,6 +4739,26 @@ def handle_message(sock, server, addr, state, payload, args):
             name = data[:128].decode("utf-16-le", "replace").split("\0")[0]
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
             char = next((c for c in load_characters() if c["first"] == name), {"first": name})
+            # Caravans: Play mode byte (+136) 0 normal, 3 go to the caravan, 2 own location and
+            # leave the caravan. A caravan member's normal Play first gets the choice (world 0x55).
+            mode = data[136] if len(data) > 136 else 0
+            cs = load_caravans()
+            cv = caravan_of(name, cs)
+            cv_loc = cv.get("loc") if cv and cv["leader"].lower() != name.lower() else None
+            if cv_loc and mode == 0:
+                left = max(0, int(caravan.TRAVEL_SECONDS - (time.time() - char.get("last_logout", time.time()))))
+                cx, cy = (int(p[1:]) * -1 if p.startswith("n") else int(p) for p in cv_loc["level"].split("_")[1:3])
+                send_message(sock, addr, state, event_message(
+                    0x55, name.encode("utf-16-le").ljust(128, b"\0")[:128] + struct.pack("<iii", cx, cy, left)))
+                print(f"  <- sent WORLD event 0x55 (caravan choice for {name!r}, {left}s left)")
+                return
+            if cv and mode == 2:
+                caravan_drop(cs, cv, name)
+            elif cv_loc and mode == 3 and time.time() - char.get("last_logout", 0) >= caravan.TRAVEL_SECONDS:
+                char = dict(char, position=[cv_loc["x"], cv_loc["y"], cv_loc["z"]])
+                cx, cy = (int(p[1:]) * -1 if p.startswith("n") else int(p) for p in cv_loc["level"].split("_")[1:3])
+                char["position_chunk"] = char["chunk"] = [cx, cy]
+                print(f"  {name} travels with the caravan to {cv_loc['level']}")
             # The zone connection with the same session key claims this player.
             saved = char.get("position")
             same_chunk = tuple(char.get("position_chunk", ())) == character_chunk(char)
