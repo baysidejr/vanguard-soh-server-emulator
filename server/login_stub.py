@@ -2613,6 +2613,7 @@ def handle_form_event(state, event, data):
     player.form, player.form_ready = fid, now + forms.CHANGE_SECONDS
     send(forms.result(0))
     send(forms.current(fid))
+    send(forms.cooldown(1.0))                      # the main bar's "can't change form" bar, full
 
 
 def songs_login(state):
@@ -2729,6 +2730,17 @@ def journal_login(state):
                              for m in msgs if struct.unpack_from("<I", m, 2)[0] == 0x2AE}
     state["journal_sites"] = (player.level, travel.chunk_sites(spawns), known)
     player.journal_ready = True                          # the built-in categories exist now
+
+
+def form_bar_tick(state, now):
+    """Once a second: the main bar's form-change bar (0x140, AdvCannotChangeFormStatus) runs
+    down to empty while the change cooldown lasts."""
+    player = state["player"]
+    ready = getattr(player, "form_ready", 0)
+    if ready and (ready > now or state.get("form_bar_left")):
+        left = max(0.0, (ready - now) / forms.CHANGE_SECONDS)
+        state["form_bar_left"] = left
+        state["send"](forms.cooldown(left))
 
 
 def journal_tick(state):
@@ -3120,6 +3132,7 @@ def world_tick(zone_sock, clients, args):
             breath_tick(state)
             energy_tick(state, now)
             journal_tick(state)
+            form_bar_tick(state, now)
             for m in encounter.sync(state.setdefault("encounter", {}), player, player.npcs):
                 state["send"](m)
             reactions_tick(state, now)

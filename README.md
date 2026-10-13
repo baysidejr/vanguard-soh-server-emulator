@@ -88,7 +88,7 @@ The unmodified client, talking only to this emulator:
 - [ ] Flying mounts (`!mount <id> fly` does not lift off yet), mount barding
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
 - [ ] Minion abilities; song interruption by fear or flying
-- [ ] Combat-form ability restrictions and the form recovery bar
+- [ ] Combat-form ability restrictions (the form recovery bar is sent but not confirmed on screen)
 - [ ] Server-sent travel routes (0x384)
 - [ ] Combat chain reset message (0x393)
 - [ ] Unlocking dialogue as a parley reward; the civic stats display

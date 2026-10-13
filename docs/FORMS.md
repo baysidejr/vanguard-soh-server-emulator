@@ -36,4 +36,6 @@ Read in the client [O], not implemented: the shipped UI files (VGUIAssets) conta
 | S->C | 0x26c | MsgSingleInt {i32 id} | Removes that row and prints "You stop concentrating on <name>" (FUN_0058b160). |
 | C->S | 0x250 | MsgSingleInt {i32} | /psioniccancelconcentration and the UI command psionic_pool_cancel_concentration (0x120) (FUN_00589ed0). |
 
-Not done: the recovery bar (0x140) and per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.
+**Recovery bar:** 0x140 `{i32 0, f32 fraction}` (FUN_005f4630) sets the gamevar AdvCannotChangeFormStatus to fraction x 100; VGUIMainBar.xml draws it as a DOWN_TO_UP StatusBar (graphic VgrdFormRefresh) over each form icon. The server sends 1.0 on a change and counts it down once a second to 0 over the 5 s cooldown (`login_stub.form_bar_tick`). Not confirmed on screen: the blue rings seen on the inactive forms stayed after the countdown, so they are something else.
+
+Not done: per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.
