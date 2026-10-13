@@ -235,3 +235,7 @@ Mentor: 0x5c9 FUN_005fdcc0/FUN_005fdd50, 0x5c8 FUN_0063d510, 0x5cb FUN_00639a70,
 Menu switch FUN_006a8060 (jump table 0x6aa19c, index = id-1).
 LFG/LFM: FUN_00583ed0 / FUN_005846c0 (builders), FUN_00584620 / FUN_00584e10 (Search), FUN_005867f0 (LFM toggle),
 FUN_00584eb0 (page router), FUN_00582990 (0x502).
+
+## Mentoring (verified live with two clients, 2026-10-13)
+
+Ranger (level 12) asks his group member Justins (level 20) to mentor him: 0x5c8 {wstr "Justins"} (the group window's "Request Mentor" menu; the `!mentorme Justins` dev command does the same). Justins gets 0x5ca {"Ranger"}, the client's "Mentor Request" popup ("Ranger has requested that you mentor them. Would you like to accept?"). Accept sends 0x5c9 {1}; the server lowers Justins' effective level to 12 (MsgScore level, pawn m_GameplayLevel for everyone, group 0x68f {eid, level}) and his level badge changes from 20 to 12: "You are now mentoring Ranger. Your level is 12.". Stop Mentoring (0x5cb) restores the real level. Mentoring changes only the shown level for now (no stat or experience scaling).

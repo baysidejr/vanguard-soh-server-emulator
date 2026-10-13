@@ -2671,6 +2671,61 @@ def handle_group_event(state, event, payload):
                 m_state["player"].group = None
 
 
+def set_mentor_level(state, level):
+    """Mentoring: the effective level (None = the real one) for the sheet, the pawn and the group."""
+    player = state["player"]
+    player.mentor_level = level
+    shown = level or player.level_number
+    state["send"](zone.score_message(player))
+    show_pawn_values(state, {"m_GameplayLevel": shown})
+    for s in group_states(player):
+        s["send"](group.member_level(player, shown))
+
+
+def show_pawn_values(state, values):
+    player = state["player"]
+    if "ue" in state:
+        state["send"](zone.player_pawn_update(state, ARGS, values))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, ARGS, player, values), exclude=state)
+
+
+def handle_mentor_event(state, event, data):
+    player, send = state["player"], state["send"]
+    print(f"  >>> ZONE mentor event {event:#x}: {data.hex(' ')}")
+    say = lambda s, t: s["send"](build_system_text(t, SYSTEM_TEXT_WHITE))
+    if event == group.MENTOR_REQUEST:
+        name = data.decode("utf-16-le", "replace").split("\0")[0].strip()
+        t = ONLINE.get(name.lower())
+        g = getattr(player, "group", None)
+        if t is None or g is None or t["player"] not in g.members:
+            send(build_system_text("You can only ask a member of your group to mentor you.", SYSTEM_TEXT_ERROR))
+            return
+        if t["player"].level_number <= player.level_number:
+            send(build_system_text(f"{t['player'].name} is not higher level than you.", SYSTEM_TEXT_ERROR))
+            return
+        t["mentor_request"] = player.name
+        t["send"](group.mentor_popup(player.name))
+        say(state, f"You ask {t['player'].name} to mentor you.")
+    elif event == group.MENTOR_ANSWER:
+        who = state.pop("mentor_request", None)
+        r = ONLINE.get((who or "").lower())
+        if r is None:
+            return
+        if not data or data[0] == 0:
+            say(r, f"{player.name} declined to mentor you.")
+            return
+        set_mentor_level(state, r["player"].level_number)
+        state["mentoring"] = who
+        say(state, f"You are now mentoring {who}. Your level is {r['player'].level_number}.")
+        say(r, f"{player.name} is now mentoring you.")
+    elif event == group.MENTOR_STOP and getattr(player, "mentor_level", None):
+        set_mentor_level(state, None)
+        say(state, f"You stop mentoring. Your level is {player.level_number} again.")
+        state.pop("mentoring", None)
+
+
 def handle_raid_event(state, event, data):
     """Raids: a group of up to 24 in four raid groups (group.py RAID_*)."""
     player, send = state["player"], state["send"]
@@ -4844,6 +4899,9 @@ def dev_command(text, player=None):
     if words[0] == "ui" and len(words) > 1:
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]
+    if words[0] == "mentorme" and player and len(words) > 1:
+        # !mentorme <member>: as the group window's "Request Mentor" menu (0x5c8) (testing).
+        return [("mentorev", group.MENTOR_REQUEST, (words[1] + "\0").encode("utf-16-le"))]
     if words[0] == "deftarget" and player and len(words) > 1:
         # !deftarget <player>: as clicking a friendly player (0x5c), e.g. before /duel (testing).
         s = ONLINE.get(words[1].lower())
@@ -5215,6 +5273,9 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "mentorev":
+                        handle_mentor_event(state, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "fishev":
                         handle_fishing_event(state, m[1], m[2])
                         continue
@@ -5302,6 +5363,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 handle_altar_use(state, npc)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in housing.CLIENT_EVENTS and state.get("player"):
             handle_housing_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.MENTOR_EVENTS and state.get("player"):
+            handle_mentor_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in assembly.CLIENT_EVENTS and state.get("player"):
             handle_assembly_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in fishing.CLIENT_EVENTS and state.get("player"):

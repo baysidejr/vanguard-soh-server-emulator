@@ -119,6 +119,20 @@ def ready_status(member, status):
     return _event(0x6C6, struct.pack("<ii", row_id(member), status))
 
 
+# Mentoring (zone): 0x5c8 {wstr target} request; 0x5ca {wstr requester} popup to the target;
+# 0x5c9 {bool8} accept/decline; 0x5cb stop. The mentor's level goes down to the requester's.
+MENTOR_REQUEST, MENTOR_ANSWER, MENTOR_STOP = 0x5C8, 0x5C9, 0x5CB
+MENTOR_EVENTS = (MENTOR_REQUEST, MENTOR_ANSWER, MENTOR_STOP)
+
+
+def mentor_popup(requester):
+    return _event(0x5CA, _w(requester))
+
+
+def member_level(member, level):
+    return _event(0x68F, struct.pack("<Qi", member.char_id, level))
+
+
 def alert(text, sound=7):
     return _event(0x551, _w(text) + struct.pack("<B", sound))
 

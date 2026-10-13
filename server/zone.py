@@ -332,7 +332,7 @@ def score_message(player, probe=False):
         loc = bind["loc"]
     return zone_event(0x3DE, vgmsg.score(probe=probe,
         bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
-        adv_class=player.klass, adv_level=player.level_number,
+        adv_class=player.klass, adv_level=getattr(player, "mentor_level", None) or player.level_number,
         adv_exp_amount=player.xp, adv_exp_amount_next=XP_PER_LEVEL,
         adv_exp_frac=player.xp / XP_PER_LEVEL,
         adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / XP_PER_LEVEL),
