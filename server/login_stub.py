@@ -5006,9 +5006,9 @@ def handle_group_event(state, event, payload):
     elif event in (group.ACCEPT, group.DECLINE):
         inviter = getattr(player, "pending_invite", None)
         player.pending_invite = None
-        print(f"  >>> ZONE group {'accept' if event == group.ACCEPT else 'decline'} by {player.name}")
         if inviter is None or inviter.get("player") is None:
             return
+        print(f"  >>> ZONE group {'accept' if event == group.ACCEPT else 'decline'} by {player.name}")
         if ONLINE.get(inviter["player"].name.lower()) is not inviter:
             return      # the inviter logged out meanwhile
         if event == group.DECLINE:
@@ -8282,6 +8282,17 @@ def dev_command(text, player=None):
                 return bytes([int(w[2:], 0)])
             return struct.pack("<I", int(w, 0) & 0xFFFFFFFF)
         return [("cev", int(words[1], 0), b"".join(token(w) for w in words[2:]))]
+    if words[0] == "groupinfo" and player:
+        # !groupinfo: your group or raid: size, leader and how many are in each raid group.
+        g = getattr(player, "group", None)
+        if g is None:
+            return [build_system_text("You are not in a group.", SYSTEM_TEXT_WHITE)]
+        subs = {}
+        for m in g.members:
+            subs[g.sub.get(m.char_id, 0)] = subs.get(g.sub.get(m.char_id, 0), 0) + 1
+        return [build_system_text(f"{'Raid' if g.raid else 'Group'} of {len(g.members)} led by {g.leader.name}; "
+                                  f"raid groups: " + ", ".join(f"{k + 1}: {v}" for k, v in sorted(subs.items())),
+                                  SYSTEM_TEXT_WHITE)]
     if words[0] == "netstats" and player:
         # !netstats: reliable packets sent to this connection, resent, and waiting for an ack.
         return [("netstats",)]

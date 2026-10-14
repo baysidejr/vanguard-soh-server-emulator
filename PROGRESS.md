@@ -34,10 +34,11 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 - Psionic points, civic stats display: no window in the shipped UI (`/citystatus` lists civic stats in chat).
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
-- Raids with more than 2 clients, caravan login after a real 3 hours offline.
+- Caravan login after a real 3 hours offline. (A raid of 24 was checked with 23 bots.)
 
 ## Done
 
+- 2026-10-14: Raid of 24 tested with the real client leading 23 load-test bots (loadtest --auto-accept): four raid groups of 6, ready check. New dev command !groupinfo.
 - 2026-10-14: Bank, mail and broker sessions end (and their windows close) when the player walks more than 1500 units from the banker, mailbox or broker; the bank also checks range when it opens. Verified live.
 - 2026-10-14: Server capacity, second round: fixed a resend storm (RTT-based timeout, rationed resends), NPC movement batched like players, spatial grid for movement, crowd thinning, SQL lookups by account/name. One zone now holds ~200 moving players spread over a chunk (steady p95 11 ms at 150) or ~100 in one spot; numbers in docs/TESTING.md. Verified: smoke test PASS; a chasing Canyon Widow still follows the player in the real client.
 - 2026-10-14: Authorization audit (agent, read-only) and fixes: item duplication by a stale Play on a second client (Play now closes the playing connection and drops unclaimed Plays; zone login rebuilds from the saved record after a kick); work-order supplies are quest items (no trade, mail, broker, sale or bank), so abandon/re-take no longer prints ore; master looter can only hand out its own group's corpses; trades cancel if an offered item was split, destroyed or swapped; merchant buys capped at a stack and sell prices never above the cheapest asking price; caravan, group, guild and brotherhood invites re-checked on accept; assembly trainers only sell their own recipes; loot and merchant trades within 1500 units. Movement updates now thinner for distant players (every 3rd within 12000, every 10th beyond).

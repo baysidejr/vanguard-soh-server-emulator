@@ -337,7 +337,7 @@ class Bot(threading.Thread):
         cx, cy = CAMP[0] + random.uniform(-spread, spread), CAMP[1] + random.uniform(-spread, spread)
         r, t0 = random.uniform(100, 300), time.time()
         end = t0 + a.seconds
-        next_move = next_ping = t0
+        next_move = next_ping = next_accept = t0
         pings = {}
         while time.time() < end:
             now = time.time()
@@ -348,6 +348,10 @@ class Bot(threading.Thread):
                                              {"TimeStamp": now - t0, "ClientLoc": loc, "View": 0})
                 unreal([ue2net.Bunch(PC_CHANNEL, data, reliable=False, nbits=nbits)])
                 next_move = now + 1.0 / a.move_rate
+            if a.auto_accept and now >= next_accept:
+                # Accept any group / raid invite (0xb1); without a pending invite the server ignores it.
+                z.send(event(0xB1))
+                next_accept = now + 0.5
             if now >= next_ping:
                 stamp = time.time_ns()     # the server logs how late pings arrive
                 pings[stamp] = now
@@ -373,6 +377,7 @@ def main(argv=None):
     ap.add_argument("--spread", type=float, default=400.0, help="bots walk within this many units of "
                     "the camp (400: a crowd; 40000: spread over the chunk)")
     ap.add_argument("--stagger", type=float, default=0.2, help="seconds between bot logins")
+    ap.add_argument("--auto-accept", action="store_true", help="bots accept group and raid invites")
     ap.add_argument("--drop", type=float, default=0.0, help="ignore this share of the server's "
                     "reliable packets (simulated loss: the server has to resend them)")
     ap.add_argument("--procs", type=int, default=1, help="bot processes (one Python process tops out "
@@ -429,7 +434,7 @@ def run_processes(a):
         n = per + (1 if k < extra else 0)
         cmd = [sys.executable, os.path.abspath(__file__), "--child", "--bots", str(n), "--first", str(first),
                "--seconds", str(a.seconds), "--move-rate", str(a.move_rate), "--drop", str(a.drop),
-               "--spread", str(a.spread),
+               "--spread", str(a.spread)] + (["--auto-accept"] if a.auto_accept else []) + [
                "--stagger", str(a.stagger * a.procs), "--host", a.host,
                "--login-port", str(a.login_port), "--world-port", str(a.world_port)]
         procs.append(subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True))
