@@ -113,6 +113,7 @@ class SoeConnection:
         self.frag = None          # [total, bytes]
         self.inbox = []
         self.expect = 0           # next reliable sequence number to deliver
+        self.acked = None         # the server's last AckAll
         self.pending = {}         # seq -> packet that arrived early
         self.code = random.getrandbits(32)
         self.sock.sendto(struct.pack(">HIII", 1, 3, self.code, 512) + b"API_PROTOCOL_1.0\0", self.addr)
@@ -133,6 +134,9 @@ class SoeConnection:
         if len(data) < 2 or data[0] != 0:
             return
         kind = data[1]
+        if kind == 0x15 and len(data) >= 4:
+            self.acked = struct.unpack_from(">H", data, 2)[0]
+            return
         if kind not in (0x09, 0x0D):
             return
         if DROP and random.random() < DROP:

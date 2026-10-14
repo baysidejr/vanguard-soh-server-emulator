@@ -8600,15 +8600,13 @@ def handle_message(sock, server, addr, state, payload, args):
             # FUN_0048cfe0), but the dispatcher that handles 0x388 is not known yet,
             # so only the new appearance is saved.
             (name, name2), pos = read_wstrings(data, 0, 2)
-            chars = load_characters()
-            for c in chars:
-                if c["first"] == name and len(data) >= pos + 64:
-                    c["appearance"] = data[-64:].hex()
-                    save_characters(chars)
-                    print(f"  >>> WORLD event 0x13b (Customize): saved new appearance for {name!r}")
-                    break
+            mine = any(c["first"] == name for c in account_characters(state.get("account")))
+            if mine and len(data) >= pos + 64:
+                save_character_field(name, "appearance", data[-64:].hex())
+                print(f"  >>> WORLD event 0x13b (Customize): saved new appearance for {name!r}")
             else:
-                print(f"  >>> WORLD event 0x13b (Customize) for unknown character {name!r}")
+                print(f"  >>> WORLD event 0x13b (Customize) refused: {name!r} is not a character of "
+                      f"{state.get('account')!r}")
             return
         if event_id == 0x19:
             # Play button: event 0x19 carrying wchar[64] character name + 12 bytes
@@ -9448,11 +9446,12 @@ def handle_message(sock, server, addr, state, payload, args):
         chars = load_characters()
         if state.get("account") is None:
             return
-        if any(c["first"].lower() == first.lower() for c in chars):
-            result = 1  # "That first name is already taken."
+        if (not valid_first_name(first) or (last and not last.isalpha())
+                or any(c["first"].lower() == first.lower() for c in chars)):
+            result = 1  # "That first name is already taken." (also for names the rules refuse)
         else:
             result = 0
-            chars.append({"first": first, "last": last, "world": world, "raw": data[pos:].hex(),
+            chars.append({"first": first, "last": last, "world": WORLD_NAME, "raw": data[pos:].hex(),
                           "account": state["account"]})
             save_characters(chars)
         world = WORLD_BY_SESSION.get(state.get("login_key"))

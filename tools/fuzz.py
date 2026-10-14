@@ -85,6 +85,77 @@ def enter(bot, context):
         time.sleep(0.2)
 
 
+def acked(conn, timeout=3.0):
+    """Send a message no handler knows and wait for the server to acknowledge it."""
+    conn.send(struct.pack("<H", 0x7777))
+    want = (conn.out_seq - 1) & 0xFFFF
+    end = time.time() + timeout
+    while time.time() < end:
+        conn.poll()
+        if conn.acked == want:
+            return True
+        time.sleep(0.01)
+    return False
+
+
+def world_login(a, token):
+    """A logged-in world connection (as the client has before Play)."""
+    c = loadtest.SoeConnection(a.host, a.login_port)
+    c.send(loadtest.login_request("SOE_LOGIN", token))
+    m = c.messages(lambda m: loadtest.is_event(m, 0x27))
+    c.close()
+    account, session = loadtest.wtext(m[10:138]), loadtest.wtext(m[138:266])
+    w = loadtest.SoeConnection(a.host, a.world_port)
+    w.send(loadtest.login_request(account, session))
+    w.messages(lambda m: loadtest.is_event(m, 1))
+    return w
+
+
+def login_conn(a, token):
+    c = loadtest.SoeConnection(a.host, a.login_port)
+    c.send(loadtest.login_request("SOE_LOGIN", token))
+    c.messages(lambda m: loadtest.is_event(m, 0x27))
+    return c
+
+
+def world_fuzz(a, lt, token, rng):
+    """Every login-connection event id (character create / delete live there), then every world
+    event id (message type 2), plus social (5) and command (6) messages."""
+    c = login_conn(lt, token)
+    for ev in range(1, a.max_event + 1):
+        for data in payloads(rng, a.per_event):
+            c.send(loadtest.event(ev, data))
+        if not acked(c):
+            try:
+                c = login_conn(lt, token)
+            except Exception as e:
+                print(f"Login server: STOPPED ANSWERING after {ev:#x}: {type(e).__name__}: {e}")
+                return (ev, str(e))
+    c.close()
+    print(f"Login server: event ids 1-{a.max_event:#x} sent")
+    w = world_login(lt, token)
+    hung = None
+    for ev in range(1, a.max_event + 1):
+        if ev == 0x19:
+            continue                       # Play: hands the bot to the zone
+        for data in payloads(rng, a.per_event):
+            w.send(loadtest.event(ev, data))
+        for data in payloads(rng, 2):
+            w.send(struct.pack("<HII", 5, ev, len(data)) + data)
+        if ev < 0x40:
+            for data in payloads(rng, 4):
+                w.send(struct.pack("<HII", 6, 0x14, len(data)) + data)
+        if acked(w):
+            continue
+        try:
+            w = world_login(lt, token)
+        except Exception as e:
+            hung = (ev, f"{type(e).__name__}: {e}")
+            break
+    print(f"World server: event ids 1-{a.max_event:#x} sent" + (f"; STOPPED ANSWERING after {hung[0]:#x}: {hung[1]}" if hung else ""))
+    return hung
+
+
 def payloads(rng, n):
     for _ in range(n):
         size = rng.choice(SIZES)
@@ -109,6 +180,7 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--contexts", action="store_true", help="repeat the sweep after each setup in "
                     "CONTEXTS (target a station, merchant, banker, mob...); the server needs --dev-commands")
+    ap.add_argument("--world", action="store_true", help="sweep the world server's messages first")
     ap.add_argument("--raw", type=int, default=50, help="rounds of random UE2 packets / message types / datagrams")
     ap.add_argument("--log", help="the server's log, to list handler errors afterwards")
     ap.add_argument("--data-dir", help="the server's --data-dir (to find the bot's token)")
@@ -125,6 +197,9 @@ def main(argv=None):
     token = loadtest.bot_token()
     rng = random.Random(a.seed)
     skip = {int(x, 0) for x in a.skip.split(",") if x}
+    rng_world = random.Random(a.seed + 1)
+    if a.world and world_fuzz(a, lt, token, rng_world):
+        return 1
     bot = login(lt, token, pm.net_cache)
     closed, hung = [], None
     start = time.time()

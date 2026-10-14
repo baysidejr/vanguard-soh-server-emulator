@@ -41,6 +41,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Security: Customize (world 0x13b) could change any character's appearance without an account check; now only your own. Character create validates names. Fuzzer sweeps the login and world servers too (--world): clean.
 - 2026-10-14: Fuzzer (tools/fuzz.py) and the bugs it found: a random chunk change could leave a character unable to log in; non-ASCII player text was dropped when the log went to a file; a zone connection could enter the world without logging in (security) and a second login request nulled the player; a truncated Group length crashed. All fixed; data can live in a separate --data-dir. Last fuzz run clean.
 - 2026-10-14: One character, one connection: logging in a character that is already playing closes the older connection (it returns to character select), so two clients can never run and save the same character. Verified live with two clients picking Ranger.
 - 2026-10-14: Launcher over HTTPS: login_stub.py --launcher-cert / --launcher-key, tools/play.py --https / --cafile. Verified with a self-signed certificate: HTTPS login works, plain HTTP and an untrusted certificate are refused.
