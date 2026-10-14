@@ -992,6 +992,36 @@ BASE_GROUND_SPEED = 337.889       # the client's own value for player races (paw
 MOUNT_SPEED = 1.6                 # mounts run 60% faster
 
 
+# Clearing experience debt with an item (docs/DEATH.md): using an item whose template id is
+# DEBT_CLEAR_TEMPLATE opens the client's own "Are you sure you wish to clear all your
+# experience debt?" dialog; OK sends 0x5da {i32 item handle}. The reply 0x5db {i32 code}
+# (zone dispatcher FUN_00622350, table index 17): 0x16 done (closes the dialog), 0x17 "You are
+# not allowed to clear your exp debt.", 0x18 "You have no experience debt.", 0x19 "You may not
+# clear your experience debt while you have corpses."
+CLEAR_DEBT, CLEAR_DEBT_REPLY, DEBT_CLEAR_TEMPLATE = 0x5DA, 0x5DB, 1454022
+DEBT_DONE, DEBT_NOT_ALLOWED, DEBT_NONE, DEBT_CORPSES = 0x16, 0x17, 0x18, 0x19
+
+
+def clear_debt(state, handle):
+    player, send = state["player"], state["send"]
+    item = next((i for i in player.items if i[0] == handle), None)
+    if item is None or zone.template_id(item[1]) != DEBT_CLEAR_TEMPLATE:
+        code = DEBT_NOT_ALLOWED
+    elif getattr(player, "xp_debt", 0) <= 0:
+        code = DEBT_NONE
+    elif getattr(player, "tombstone", None):
+        code = DEBT_CORPSES
+    else:
+        code = DEBT_DONE
+        player.xp_debt = 0
+        save_character_field(player.name, "xp_debt", 0)
+        take_items(state, item[1], 1)
+    print(f"  >>> ZONE clear experience debt (item {handle}): reply {code:#x}")
+    send(zone.zone_event(CLEAR_DEBT_REPLY, struct.pack("<i", code)))
+    if code == DEBT_DONE:          # the client shows "Experience Debt Cleared" itself
+        send(zone.score_message(player))
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -7508,6 +7538,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(p.name, "active_toolbelt", v)
                 send_message(sock, addr, state, craft.active_toolbelt(v))
                 send_message(sock, addr, state, zone.zone_event(0x30E))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_DEBT and state.get("player") and len(payload) >= 14:
+            clear_debt(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in pets.MINION_EVENTS and state.get("player"):

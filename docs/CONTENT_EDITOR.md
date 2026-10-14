@@ -41,7 +41,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | NPC services | which NPCs are bankers, trainers, repairers, crafting stations; bank sizes; repair prices; what each trainer teaches | `banker`, `trainer`, `repair`, `station` flags in mobs.json; 40 bank slots; repair 2 copper per point per item level; trainers teach the next 6 class abilities at 1 silver steps; recipe trainers sell the recipes listed in `recipe_trainer` at their `trainer_cost` (which recipes each real trainer taught is unknown) |
 | Item durability | wear per death or per hit, which item types wear | 10 points per death on equipped non-misc items |
 | Crafting tools and complications | tool per recipe step, complication tables per recipe or stage, counter actions | one tool (Crucible Tongs) and one complication (Slag Buildup) in recipes.json |
-| Death penalty | debt per death and per level, debt recovery from tombstones and resurrection, corpse decay time, altar locations and meshes, summon cooldowns | 100 debt per death (cap 500), half back on recovery, no decay, no altars |
+| Death penalty | debt per death and per level, debt recovery from tombstones and resurrection, corpse decay time, altar locations and meshes, summon cooldowns; the item that clears all debt (client template 1454022: its name, price and where it was sold) | 100 debt per death (cap 500), half back on recovery, no decay, no altars |
 | Mounts | which items summon which mount ids (about 1000 meshes in MOUNT_ITEMS), mount speeds, flying/aquatic types, where mounts are sold and level requirements | one placeholder horse item (mount 1000) at the camp merchant |
 | Riftways | world positions and chunks of the 39 riftway destinations, which ones a player has discovered, travel prices (the client hardcodes 50/500/2000/5000 copper by color) | `server/content/riftways.json`: all 39 names and colors from the client map; only Sundering Wastelands has a (placeholder) landing spot; two Riftseeker brazier stones in chunk_n19_12 |
 | Housing | plot positions and prices, building types per plot, prefab names, fixtures and chests, upkeep, construction materials | `server/content/plots.json`: one placeholder plot with two building types (instant construction) |
@@ -53,7 +53,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Item rarity | rarity of every item (Mundane ... Legendary+), which decides what goes to group loot rolls | items.json `rarity` names (only Copper Ring is set, uncommon; default mundane) |
 | Combat chains and reactions | which abilities chain into which (per class and rank), reaction windows, counters (which enemy casts they answer) and rescues | `server/content/chains.json`: one placeholder chain for Ranger and one for Warrior; `rescues.json` (Warrior Taunt I) |
 | NPC spells and counters | which NPCs cast which spells (cast time, damage, icon, counterable or interruptible), which player abilities counter or interrupt them | mobs.json `spells` on the Canyon Widow (Venom Spit), `server/content/counters.json` (Riposte I, Parry I) |
-| Experience | XP per kill or quest, level curve | 150 XP per kill, 1000 per level (`combat.KILL_XP`, `zone.XP_PER_LEVEL`) |
+| Experience | XP per kill or quest, level curve | 150 XP per kill, ±15% per level of difference, none from mobs 6+ levels below (`combat.KILL_XP`); level N needs 1000 × 1.12^(N−1) (`zone.xp_for_level`), cap 50 |
 
 ## Planned editor (end of project)
 

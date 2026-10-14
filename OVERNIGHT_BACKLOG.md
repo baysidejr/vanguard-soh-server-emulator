@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Clear experience debt with an item (template 1454022): 0x5da request, 0x5db reply codes reverse-engineered and verified live (refused with a tombstone out, cleared after).
 - 2026-10-13: Unit test builds the zone-in messages for all 19 races x 15 classes at levels 1 and 50.
 - 2026-10-13: Slash-command sweep (~40 commands): no unhandled messages either way. Client-only notices with no reply needed: 0x6c (after UI load), 0x71 BECOME_PC, 0x10e (empty, seen once; sender not found by the push scan).
 - 2026-10-13: Persistence audit (saved vs loaded fields): the active crafting toolbelt was saved but never restored; now sent at zone-in.

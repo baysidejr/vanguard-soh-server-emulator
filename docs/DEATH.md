@@ -8,7 +8,9 @@
 >
 > **Map marker (verified live):** after an 0x2ae category message, a 0x382 travel journal entry with type 1 and category -2 draws a tombstone icon on the minimap at the tombstone; 0x383 {id} removes it when the tombstone is recovered.
 >
-> **Not verified:** /targetmynearestcorpse (0x3d7 did not reach the server when typed; maybe it is sent only with a corpse in range), altars, corpse summoning, resurrection.
+> **Clearing debt with an item (verified live 2026-10-13):** right-clicking an item whose template id is 1454022 (items.json `"template_id"`; placeholder name "Experience Debt Clearance", `!give` only) opens the client's "Clear Experience Debt" dialog. Submit sends **0x5da {i32 item handle}**; the server answers **0x5db {i32 code}** (zone dispatcher FUN_00622350, jump-table index 17): **0x16** done, and the client shows its own "Experience Debt Cleared" window and "Your experience debt has been successfully cleared."; **0x17** "You are not allowed to clear your exp debt."; **0x18** "You have no experience debt. Press Cancel."; **0x19** "You may not clear your experience debt while you have corpses." (seen live with a tombstone out). On 0x16 the server zeroes the debt, uses up the item and resends MsgScore.
+>
+> **Not verified:** /targetmynearestcorpse (0x3d7 did not reach the server when typed; maybe it is sent only with a corpse in range).
 
 Server: `login_stub.player_death`, `place_tombstone`, `use_tombstone`, `recover_tombstone`; `zone.tombstone_spawn`. Dev command: `!tombstone` (leave one at your feet).
 

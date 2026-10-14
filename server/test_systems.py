@@ -693,5 +693,32 @@ class EveryRaceClassTests(unittest.TestCase):
                     self.assertEqual(p.health, p.stats["hit_points"])
 
 
+class ClearDebtTests(unittest.TestCase):
+    def test_clear_debt(self):
+        import login_stub
+        sent = []
+        p = zone.Player("Nobody", 1, 0x0E, 28, "chunk_n20_12")
+        p.items, p.xp_debt, p.tombstone, p.level_number = [(7, "Experience Debt Clearance", 0, 1, 0)], 500, None, 5
+        state = {"player": p, "send": sent.append}
+        saved = login_stub.save_character_field
+        login_stub.save_character_field = lambda *a: None
+        try:
+            p.tombstone = {"level": "x"}
+            login_stub.clear_debt(state, 7)
+            self.assertEqual(sent[-1][-4:], bytes([0x19, 0, 0, 0]))          # corpses first
+            p.tombstone = None
+            login_stub.clear_debt(state, 99)
+            self.assertEqual(sent[-1][-4:], bytes([0x17, 0, 0, 0]))          # not that item
+            login_stub.clear_debt(state, 7)
+            self.assertEqual(p.xp_debt, 0)
+            self.assertEqual(p.items, [])
+            self.assertTrue(any(m[-4:] == bytes([0x16, 0, 0, 0]) for m in sent))
+            p.items = [(8, "Experience Debt Clearance", 0, 1, 0)]
+            login_stub.clear_debt(state, 8)
+            self.assertEqual(sent[-1][-4:], bytes([0x18, 0, 0, 0]))          # no debt left
+        finally:
+            login_stub.save_character_field = saved
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -789,7 +789,12 @@ def item_icon(name, fallback):
 
 
 def template_id(name):
-    """A stable per-item-name template id (item field 1); handles (field 71) stay unique."""
+    """A stable per-item-name template id (item field 1); handles (field 71) stay unique.
+    items.json "template_id" sets a real client template id (the client switches on some,
+    e.g. 1454022 opens the clear-experience-debt dialog)."""
+    fixed = ITEM_CONTENT.item(name).get("template_id")
+    if fixed:
+        return fixed
     return 0x2000000 + (zlib.crc32(name.encode()) & 0xFFFFF)
 
 
