@@ -19,6 +19,21 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_item_tool_and_material_tags_are_kept_as_metadata(self):
+        for label in ('tool','material'):
+            html=page('Fixture Item <span class="tag-'+label+'">'+label+'</span> <span class="tag-crafted">crafted</span>','')
+            records,_=collector.parse_page(ORIGIN+'/items/fixture',html)
+            self.assertEqual(records[0]['name'],'Fixture Item')
+            self.assertEqual(records[0]['archive_name_labels'],[label,'crafted'])
+
+    def test_crafted_display_tag_is_not_part_of_item_name(self):
+        html = page('Fixture Sword <span class="tag-crafted">crafted</span>', '<dl class="kv"><div><dt>Origin</dt><dd>Player-crafted</dd></div></dl>')
+        records, _ = collector.parse_page(ORIGIN+'/items/fixture-sword',html)
+        self.assertEqual(records[0]['name'],'Fixture Sword')
+        self.assertEqual(records[0]['archive_display_name'],'Fixture Sword crafted')
+        self.assertEqual(records[0]['archive_name_labels'],['crafted'])
+        self.assertEqual(records[0]['archive_fields']['origin'],['Player-crafted'])
+
     def test_explicit_weapon_category_retains_subtype(self):
         for raw, expected in [('Weapon — Hammer', 'weapon'), ('Weapon — Bladed Staff Weapon', 'weapon'),
                               ('Unknown — Weapon', None), ('Weaponized Clothing', None), ('Weapon — ', None)]:

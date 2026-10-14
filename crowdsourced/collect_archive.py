@@ -24,7 +24,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 29
+PARSER_VERSION = 31
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -287,6 +287,15 @@ def parse_page(url, html):
                       slot=slots.get((get("slot") or "").lower()), rarity=None, level_required=None,
                       armor=number(get("armor class") or ""), stats={}, class_restrictions=None,
                       race_restrictions=None, bind=None, value_copper=None, item_level=number(get("item level") or ""))
+        item_heading = BeautifulSoup(str(main.find('h1')), 'html.parser').find('h1')
+        name_labels = [plain(label) for label in item_heading.select('.tag-crafted, .tag-tool, .tag-material')]
+        if name_labels:
+            for label in item_heading.select('.tag-crafted, .tag-tool, .tag-material'):
+                label.decompose()
+            record['archive_display_name'] = name
+            record['archive_name_labels'] = name_labels
+            record['name'] = plain(item_heading)
+            notes.append('Item display tags retained separately from the item name.')
         category, separator, subtype = (get('type') or '').partition(' — ')
         if separator and category.lower() == 'weapon' and subtype.strip():
             record['item_type'] = 'weapon'
