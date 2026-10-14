@@ -29,6 +29,7 @@ COMMANDS = ["/who", "/played", "/time", "/loc", "/random 100", "/afk", "/afk", "
             "/walk", "/run", "/hidehood", "/hidehood", "/hidecloak", "/hidecloak", "/cleartargets", "/cancelability",
             "/lockouttimerlist", "/lockoutdecline", "/citystatus", "/inspect Nobody", "/readycheck",
             "/itemlinkrequest <item=1:1::0:0:0:0:0:x>Copper Ore</link>",
+            "/reloadui",
             # dev commands that leave no lasting change on the character
             "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide", "!plot 101"]
 
