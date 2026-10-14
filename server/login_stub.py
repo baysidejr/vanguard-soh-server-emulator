@@ -372,8 +372,12 @@ def main():
     for sig in ("SIGTERM", "SIGBREAK"):          # a service stop, or Ctrl+Break on Windows
         if hasattr(signal, sig):
             signal.signal(getattr(signal, sig), lambda *_: stop.append(1))
+    start_console()
     try:
         while not stop:
+            for line in console_lines():
+                if console_command(line, clients, args) == "stop":
+                    stop.append(1)
             t_idle = time.time()
             ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
                                         max(min(next_tick, next_move, next_flush) - time.time(), 0))
@@ -406,6 +410,63 @@ def main():
     except KeyboardInterrupt:
         pass
     shutdown(clients, args)
+
+
+import queue as _queue
+CONSOLE = _queue.Queue()
+
+
+def start_console():
+    """Read operator commands typed into the server's window (a background thread; the main
+    loop runs them). Without a console (output to a file, started as a service) it ends at once."""
+    import threading
+
+    def read():
+        try:
+            for line in sys.stdin:
+                CONSOLE.put(line.strip())
+        except (OSError, ValueError):
+            pass
+    if sys.stdin is not None and sys.stdin.isatty():
+        threading.Thread(target=read, daemon=True).start()
+        print("Console: who, announce <text>, kick <name>, backup, stop (or help)")
+
+
+def console_lines():
+    while True:
+        try:
+            yield CONSOLE.get_nowait()
+        except _queue.Empty:
+            return
+
+
+def console_command(line, clients, args):
+    """One operator command. Returns "stop" for stop / quit."""
+    word, _, rest = line.partition(" ")
+    word = word.lower()
+    if word in ("stop", "quit", "shutdown"):
+        return "stop"
+    if word == "who":
+        names = sorted(s["player"].name for s in ONLINE.values() if s.get("player") is not None)
+        print(f"{len(names)} online: {', '.join(names) or '-'}")
+    elif word in ("announce", "say") and rest:
+        for s in list(ONLINE.values()):
+            if s.get("send"):
+                s["send"](build_system_text(f"Server: {rest}", SYSTEM_TEXT_COMBAT))
+        print(f"announced to {len(ONLINE)} players")
+    elif word == "kick" and rest:
+        s = ONLINE.get(rest.strip().lower())
+        if s is None:
+            print(f"{rest} is not online")
+        else:
+            s["send"](build_system_text("You have been disconnected by the server.", SYSTEM_TEXT_ERROR))
+            close_session(s, args)
+            print(f"kicked {rest}")
+    elif word == "backup":
+        print(f"database backup: {storage.backup(os.path.dirname(CHARACTERS_FILE))}")
+    elif word:
+        print("commands: who, announce <text>, kick <name>, backup, stop")
+    return None
 
 
 def shutdown(clients, args):

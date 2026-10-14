@@ -933,6 +933,27 @@ class TinyPacketSizeTests(unittest.TestCase):
         self.assertGreater(len(packets), 0)
 
 
+class ConsoleTests(unittest.TestCase):
+    def test_operator_commands(self):
+        import io
+        from contextlib import redirect_stdout
+        from unittest import mock
+        import login_stub
+        sent = []
+        p = zone.Player("Ann", 1, 0x0E, 28, "chunk_n20_12")
+        s = {"player": p, "send": sent.append}
+        out = io.StringIO()
+        with mock.patch.dict(login_stub.ONLINE, {"ann": s}, clear=True), \
+                mock.patch.object(login_stub, "close_session") as close, redirect_stdout(out):
+            self.assertIsNone(login_stub.console_command("who", {}, None))
+            login_stub.console_command("announce Restart in 5 minutes", {}, None)
+            login_stub.console_command("kick ann", {}, None)
+            self.assertEqual(login_stub.console_command("stop", {}, None), "stop")
+        self.assertIn("1 online: Ann", out.getvalue())
+        self.assertIn("Server: Restart in 5 minutes".encode("utf-16-le"), sent[0])
+        close.assert_called_once_with(s, None)
+
+
 class SecondLoginTests(unittest.TestCase):
     def test_second_login_closes_the_first(self):
         from unittest import mock
