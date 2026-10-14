@@ -307,6 +307,28 @@ class JournalRemoveTests(unittest.TestCase):
         self.assertEqual(login_stub.journal_removed(player), {travel.HOUSE_ENTRY_ID})
 
 
+class CallPcTests(unittest.TestCase):
+    def test_offer_accept_decline(self):
+        import struct
+        caller_sent, target_sent, placed = [], [], []
+        caller = {"player": zone.Player(name="Caller", char_id=11, level="c1"), "send": caller_sent.append,
+                  "position": (10.0, 20.0, 30.0)}
+        target = {"player": zone.Player(name="Target", char_id=12, level="c1"), "send": target_sent.append}
+        online = {"caller": caller, "target": target}
+        with mock.patch.object(login_stub, "ONLINE", online), \
+                mock.patch.object(login_stub, "place_player", lambda s, a, loc, chunk: placed.append((s, loc))):
+            login_stub.call_offer(caller, target)
+            self.assertEqual(target_sent[-1], zone.zone_event(0x270, "Caller\0".encode("utf-16-le")))
+            login_stub.call_answer(target, None, b"\0")             # decline
+            self.assertEqual(placed, [])
+            login_stub.call_answer(target, None, b"\1")             # nothing pending any more
+            self.assertEqual(placed, [])
+            login_stub.call_offer(caller, target)
+            login_stub.call_answer(target, None, b"\1")
+        self.assertEqual(placed, [(target, (110.0, 20.0, 80.0))])
+        self.assertEqual(struct.unpack_from("<h", target_sent[-1], 10)[0], login_stub.YOU_HAVE_BEEN_SUMMONED)
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json

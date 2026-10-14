@@ -25,6 +25,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Player summoning: 0x270 Call Confirmation offer, /callpcaccept /callpcdecline (0x271 {u8}) answered, the player moves to the caller with notice 45 "You have been summoned!". Verified live with two clients via `!call`. Which abilities summon is a content gap (CONTENT_EDITOR). 0x851 / 0x852 / 0x85b are /aaclear, /aaadd, /aatrain (alternate advancement, content).
 - 2026-10-14: Travel journal: Forget a location (0x138 {id}) answered with 0x383 and saved (`journal_removed`), so it stays out at login and isn't rediscovered. Verified live through `!cev` (entry removed, still gone after relog); the client's own X button looked disabled and never fired. 0x137 identified as a tracking-changed notice (nothing to do).
 - 2026-10-14: Building Inventory tab: the plot window now sends the fixture list (0x45a / 0x45c / 0x45b; first bool = chest, from the client's chest counter), and "Move Fixture to me" (0x465) moves the fixture to the player. Both verified live ("Chests: ( 1 of 3 )"; the chest reopened at Ranger's feet).
 - 2026-10-14: Guild headquarters (0x47b / 0x47c, the leader confirms, the rules from the client's own tooltips) verified live: set, confirm popup, notice 28, button changes to Relinquish, cleared with notice 27. Guild usable toggle (0x47a -> 0x47a {bool} + notice 383/382) and the Buildings tab preview (0x474 -> 0x474 materials) unit-tested.

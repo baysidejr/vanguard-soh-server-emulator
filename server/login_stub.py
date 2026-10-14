@@ -1339,6 +1339,32 @@ def rope_event(state, args, event):
     state["send"](client_notice(GRABBED_ROPE))
 
 
+# Summoning a player ("call"): S->C 0x270 {wstr caller} (FUN_005eb7d0) opens Call Confirmation,
+# "<caller> is attempting to summon you." with Accept / Decline, which run /callpcaccept and
+# /callpcdecline: 0x271 {u8 1 / 0} (FUN_005e2a10 / FUN_005e2aa0). Accepting moves the player
+# next to the caller with notice 45 "You have been summoned!". Which abilities summon players is
+# server content (docs/CONTENT_EDITOR.md); the dev command !call <name> sends the offer.
+CALL_OFFER, CALL_ANSWER = 0x270, 0x271
+YOU_HAVE_BEEN_SUMMONED = 45
+
+
+def call_offer(caller, target):
+    target["call_from"] = caller["player"].char_id
+    target["send"](zone.zone_event(CALL_OFFER, (caller["player"].name + "\0").encode("utf-16-le")))
+
+
+def call_answer(state, args, data):
+    caller = state_by_char_id(state.pop("call_from", None))
+    if not data or not data[0] or caller is None or caller.get("player") is None or caller is state:
+        return
+    dest = caller.get("position") or caller["player"].live_position or caller["player"].spawned_at
+    if dest is None:
+        return
+    place_player(state, args, (dest[0] + 100.0, dest[1], dest[2] + 50.0),
+                 getattr(caller["player"], "chunk", None) or DEFAULT_CHUNK)
+    state["send"](client_notice(YOU_HAVE_BEEN_SUMMONED))
+
+
 def gm_command(state, args, event, data):
     player, send = state["player"], state["send"]
     if not (getattr(args, "dev_commands", False) or getattr(player, "access_level", 0) > 0):
@@ -7778,6 +7804,9 @@ def dev_command(text, player=None):
     if words[0] == "rezme" and player:
         # !rezme: Veyla offers to resurrect you (testing the dialog).
         return [("rezme",)]
+    if words[0] == "call" and len(words) >= 2 and player:
+        # !call <name>: offer to summon a player (0x270 Call Confirmation; testing).
+        return [("callpc", " ".join(words[1:]))]
     if words[0] in ("goto", "summon") and len(words) >= 2 and player:
         # !goto <name> / !summon <name>: the server side of /gotoplayer and /summonplayer.
         return [("gm", GM_GOTO if words[0] == "goto" else GM_SUMMON, (words[1] + "\0").encode("utf-16-le"))]
@@ -8306,6 +8335,13 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "gm":
                         gm_command(state, args, m[1], m[2])
                         continue
+                    elif isinstance(m, tuple) and m[0] == "callpc":
+                        other = ONLINE.get(m[1].lower())
+                        if other is None or other.get("player") is None or other is state:
+                            send_message(sock, addr, state, build_system_text(f"{m[1]} is not online.", SYSTEM_TEXT_ERROR))
+                        else:
+                            call_offer(state, other)
+                        continue
                     elif isinstance(m, tuple) and m[0] == "die":
                         p = state["player"]
                         p.health = 0
@@ -8434,6 +8470,8 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MARK_REQUEST and state.get("player"):
             print(f"  >>> ZONE mark {payload[10:].hex(' ')}")
             mark_target(state, payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CALL_ANSWER and state.get("player"):
+            call_answer(state, args, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (ROPE_THROW, ROPE_ACCEPT) and state.get("player"):
             rope_event(state, args, struct.unpack_from("<I", payload, 2)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CITY_STATUS and state.get("player"):

@@ -38,7 +38,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x214` |  | `0x5de6e5` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
 | `0x250` |  | `0x589f16` |  |
-| `0x271` |  | `0x5e2a53` `0x5e2ae3` | Resurrection |
 | `0x27a` |  | `0x433a1e` |  |
 | `0x280` |  | `0x432e9d` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x35e` |  | `0x4cc6b0` |  |
@@ -79,10 +78,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x81f` |  | `0x4ba7ac` | No available work orders. / ----- Available work orders ----- **Unreachable:** nothing calls or points to the sending function. |
 | `0x82c` |  | `0x624a51` | Failed to save nicknames, make sure Nicknames.txt is not read-only. |
 | `0x82f` |  | `0x476404` | Avatar Inspect {objType, objId} (FUN_004763b0, same layout as 0x460). The housing click menu has the option (table 0x13e5f38, key 14) but no m_BuildingType offers it (docs/HOUSING.md). |
-| `0x851` |  | `0x5de4a5` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
-| `0x852` |  | `0x5e2965` | Resurrection / Resurrection |
+| `0x851` | `/aaclear` | `0x5de4a5` | no payload; alternate advancement (server content, see 0x85c) |
+| `0x852` | `/aaadd` | `0x5e2965` | alternate advancement (server content) |
 | `0x85a` |  | `0x44a9fe` | AlternateAdvancementClassList / AlternateAdvancementSpecialList |
-| `0x85b` |  | `0x5ebdee` | /lockoutaccept / Lockout Timer Confirmation |
+| `0x85b` | `/aatrain` | `0x5ebdee` | alternate advancement (server content) |
 | `0x85c` | `/aalist` | `0x5de495` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
 
 ## Appearance and movement (verified live 2026-10-14)
@@ -91,7 +90,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 - `/setwearpreference <sphere>` 0x110 `{i32}`: 0 Adventuring, 1 Crafting, 2 Diplomacy, 3 Harvesting (FUN_00608d40, any other word prints "Invalid sphere"). `/setwieldpreference <n>` 0x111 `{i32}`: the typed number clamped to 0-3 (FUN_00608f10; words give 0). Saved and replicated as `m_WearPreference` / `m_WieldPreference`. What the client draws differently for each value is not checked.
 - `/walk`, `/run` 0x72 `{u8 1 walk, 2 run}` (FUN_005fccf0): the client changes its own pawn only when the send fails (FUN_00b73620 -> FUN_00bb5ae0 sets GroundSpeed from the race table: walk 185, run 555). With a server it waits, and replicated `bIsWalking` alone did not slow it (live: same distance in 2 s). The server sends GroundSpeed 185 for walking and the normal 337.889 for running (pawn speed read live: 337.9 -> 185 -> 337.9; distance walked in 2 s 673 -> 374), `bIsWalking` for other clients, and MsgScore field 28 (character sheet "walking"/"running").
 - `/cancelability` (also `/stopcasting`, `/cancelattack`, FUN_005fc8a0): FUN_005f3d00 first cancels what is running on the client and sends 0x25f while casting, else 0xe2 while a bar runs (+0xe0c/+0xe14), else 0xe1 after clearing a queued ability (FUN_00428700); then it sends 0x144. None has a payload. The server drops its pending cast for any of them (it queues no abilities). Checked through the dispatcher with a cast in progress; not seen live (no hostile target with a cast-time ability on the hotbar in the test).
-- `/callpcdecline` 0x271 `{u8 0}` and `/lockoutdecline` 0x273 `{u8 0}` answer prompts the server never sends yet.
+- `/lockoutdecline` 0x273 `{u8 0}` answers a prompt the server never sends yet. (`/callpcaccept` / `/callpcdecline` 0x271 now answer the server's summon offer 0x270; docs/TRAVEL.md.)
 - `/toggleeppearancegear` 0x115 (no payload): the server flips a saved per-character flag and answers 0x116 `{bool8 shown}` (FUN_004f9ea0: inventory manager +0x6c0, then gamevars bAppGearVisible / bAppGearInvisible via FUN_004f7d60); resent at login when on. The request and the save were seen live; what the switch changes on screen was not identified (the server has no appearance-gear slots).
 - `/cleartargets` 0x5e (no payload): the server forgets the offensive and defensive targets and answers 0x3e0 with none.
 
