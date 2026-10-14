@@ -659,5 +659,18 @@ class XpCurveTests(unittest.TestCase):
         self.assertEqual(zone.xp_for_level(2), 1120)
 
 
+class LoginPoolTests(unittest.TestCase):
+    def test_full_pools_at_login(self):
+        p = types.SimpleNamespace(klass=25, level_number=10, equipment=[], stats=dict(zone.DEFAULT_STATS),
+                                  skills=[], health=210, endurance=100)
+        zone.stat_messages(p)
+        self.assertGreater(p.stats["energy"], 100)
+        self.assertEqual((p.health, p.endurance, p.energy),
+                         (p.stats["hit_points"], p.stats["endurance"], p.stats["energy"]))
+        p.health = 5
+        zone.stat_messages(p)                 # a later resend (chunk handoff) does not heal
+        self.assertEqual(p.health, 5)
+
+
 if __name__ == "__main__":
     unittest.main()

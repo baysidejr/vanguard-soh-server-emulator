@@ -669,6 +669,13 @@ def stat_messages(player):
     on the update path (FUN_00576c90 -> FUN_00573070); HP/End/Energy are set on
     creation (FUN_005763b0)."""
     apply_gear_stats(player)
+    if not getattr(player, "pools_filled", False):
+        # Logging in starts with full pools; the maximums are only known now (attributes,
+        # gear and level), after the Player was built with the defaults.
+        player.pools_filled = True
+        player.health = player.stats["hit_points"]
+        player.endurance = player.stats["endurance"]
+        player.energy = player.stats["energy"]
     recs = []
     for name, value in player.stats.items():
         kind = 1 if name in vgmsg.ATTRIBUTES else 0

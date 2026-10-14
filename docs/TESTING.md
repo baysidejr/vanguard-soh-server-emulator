@@ -13,7 +13,7 @@ Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a p
 |---|---|---|
 | Griffon flight | 👤 | Buy a Griffon Whistle (5000c) from Orin, summon it, jump, then press jump again while falling. Expect to take off. Scripted double presses never triggered it. |
 | Combat-form recovery bar | 👤 | As a Psionicist, switch mindsets on the forms bar. Expect a short recovery sweep before you can switch again. The server sends it (0x140) but it was never seen on screen. |
-| Caster energy | 🧪 | Make a Sorcerer or Cleric and use an ability with a cooldown. Expect the blue energy bar to drop by 15, not the endurance bar. Only Ranger (endurance) was tried in game. |
+| Caster energy | ✅ | Seen 2026-10-13: a Sorcerer casting See Invisibility I drains the blue energy bar; endurance stays full. |
 | Raid of 24 | 👤 | Only tried with 2 clients. Needs several people to check four raid groups, ready checks and loot. |
 | Caravan login | 👤 | Join a caravan, stay offline 3+ hours, log in. Expect to appear at the caravan. Never waited out the real 3 hours. |
 | Feel of the numbers | 👤 | XP per kill, damage, health, regen, prices. All placeholders (docs/CONTENT_EDITOR.md); someone who played the game should say what feels wrong. |
