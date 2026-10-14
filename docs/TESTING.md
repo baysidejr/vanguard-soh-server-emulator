@@ -2,7 +2,7 @@
 
 How each feature has been tested, and what still needs a person at the keyboard.
 
-- **Unit tests:** `cd server && python -m unittest discover -p "test_*.py"` (110 tests, all must pass before a commit), plus `python content.py` (checks every content JSON file links up: "content OK").
+- **Unit tests:** `cd server && python -m unittest discover -p "test_*.py"` (about 150 tests, all must pass before a commit), plus `python content.py` (checks every content JSON file links up: "content OK").
 - **In game:** every feature in the README checklist was tried in the real client while it was built, by scripted key presses and clicks, often with two clients at once.
 - **Smoke test:** `python tools/smoke_test.py` (Windows) starts the server and client, enters the world with the character selected on the select screen, types about 40 chat commands and fails on any server traceback, dropped message or client "unhandled message" line. Run it after changes; it takes about two minutes.
 
@@ -27,6 +27,9 @@ Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a p
 | Civic stats display | ⛔ Civic diplomacy works server-side; no window shows the stats. `/citystatus` lists them in chat instead. |
 | Doors | ⛔ No door exists in the shipped maps or the cottage. |
 | Real game data | ⛔ Waiting for the first batch in `crowdsourced/`. |
+| Client-side furniture placement | ⛔ Dragging furniture onto the cottage floor gives the client's delete prompt: its "inside a house" check finds no house-interior zone (docs/HOUSING.md). Right-click placement works. |
+| Building NPC Spawn / Goto / Remove | ⛔ The shipped VGUIBuildingNPCs.xml has those buttons' names commented out, so they never fire. The lists show. |
+| Journal "Forget" (X) button | 👤 Clicks on it showed no tooltip and no confirmation in scripted tests. The server side works (`!cev 0x138 <entry id>`). |
 
 ## Regression run (by hand)
 
@@ -38,10 +41,12 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] HUD, minimap, chat, message of the day; character window (C) shows attributes, health, armor class
 - [ ] Loot something, click the item link in the "You loot" line: the item tooltip pops up
 - [ ] `/report <name>` prints "Player report submitted", a second one within a minute "You must wait longer"; the report is in server/player_reports.json
+- [ ] `/reloadui`: the UI comes back with the hotbars filled
 - [ ] `/walk` slows the character, `/run` restores it; `/hidehood` / `/hidehelm` / `/hidecloak` toggle (✦ the other client sees it) and stay after relogging
 - [ ] Walk, run, jump, fall damage; cross a chunk edge; `/unstuck`; `/camp` back to character select
 - [ ] ✦ Group with the second player, `/targetgroupmember 2`, `/rope`: they get "Help on the way!"; Accept hauls them to you ("You grab the rope and are hauled to safety.")
 - [ ] ✦ Two players see each other move, emote and chat (say, shout, tell, ooc, group)
+- [ ] ✦ `!call <other>`: they get "Call Confirmation"; Accept moves them to you ("You have been summoned!")
 
 **Combat**
 - [ ] Target a mob, auto-attack, see hits, misses, dodges, crits in the Combat tab
@@ -70,7 +75,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `/decksave 1`, `/deckclear`, `/deckload 1` re-slot the strategy bar
 
 **Crafting and gathering**
-- [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades
+- [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades; Table Setup's Auto Setup Table box ticks, Back returns to the recipe list
 - [ ] A work order from Garret Holm; an assembly at the Assembly Bench
 - [ ] Fish on the beach (`!tp -43000 -49500 200 49152`), a combo, the Achievements tab
 
@@ -81,7 +86,8 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 
 **Travel and the world**
 - [ ] Ride the horse, dire wolf and camel; `/dismount`
-- [ ] Riftway map travel; travel journal Locations tab and `/traveldirections`
+- [ ] Riftway map travel; travel journal Locations tab and `/traveldirections`; `!cev 0x138 <entry id>` forgets a location (still gone after relogging)
 - [ ] Buy a plot, build a cottage, place furniture, use a storage chest
+- [ ] Plot window: Admin > Make Guild Headquarters (as the guild leader: confirm popup, "Your guild has a new guild headquarters."), then Relinquish; Buildings > Building Inventory lists the fixtures ("Chests: (1 of 3)"), Move Fixture to me, Manage NPCs lists the banker
 - [ ] Summon Ashfang and use Savage Bite; a Necromancer abomination; Bone Charm minions
 - [ ] Swim, dive, the breath bar, drowning
