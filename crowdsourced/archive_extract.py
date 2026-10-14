@@ -156,6 +156,20 @@ def enrich_item(record, main):
             flags.append(content)
     if flags:
         record['flags_recorded'] = list(dict.fromkeys(flags))
+    effects = []
+    for node in section_nodes(main, 'Effects'):
+        paragraphs = [node] if node.name == 'p' else node.find_all('p')
+        for paragraph in paragraphs:
+            name = paragraph.find('strong')
+            if not text(name):
+                continue
+            description = paragraph.select_one('span.muted')
+            effects.append(dict(name=text(name),
+                activation_labels=list(dict.fromkeys(text(pill) for pill in paragraph.select('.pill'))),
+                observations=effect_facts(text(description)) or None))
+    if effects:
+        record['archive_item_effects'] = effects
+        notes.append('Explicit item-effect names and activation labels recorded. Numeric observations retain unresolved conditions; unknown or malformed effect mechanics are not inferred.')
     return notes
 
 

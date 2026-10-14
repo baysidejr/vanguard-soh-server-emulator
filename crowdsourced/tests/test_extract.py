@@ -47,6 +47,17 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(records[0]['turn_in'],'Fixture NPC')
         self.assertIsNone(records[0]['steps'])
 
+    def test_item_effect_names_and_activation_are_preserved_without_guessing(self):
+        html = page('Fixture Item', '<h2>Effects</h2><p><a href="/items?effect=1"><strong>Fixture Effect</strong></a><span class="pill">activated</span><span class="muted">Deals 20 to 30 damage.</span></p><p><strong>Broken Effect</strong><span class="pill">worn</span><span class="muted">dealing #30#326-346# damage</span></p>')
+        records, _ = collector.parse_page(collector.ORIGIN+'/items/fixture',html)
+        effects = records[0]['archive_item_effects']
+        self.assertEqual(effects[0]['name'],'Fixture Effect')
+        self.assertEqual(effects[0]['activation_labels'],['activated'])
+        self.assertEqual(effects[0]['observations'][0]['values'],[20,30])
+        self.assertTrue(effects[0]['observations'][0]['conditions_unparsed'])
+        self.assertEqual(effects[1]['activation_labels'],['worn'])
+        self.assertIsNone(effects[1]['observations'])
+
     def test_reward_xp_money_and_explicit_choice_are_extracted(self):
         html = page('Fixture Quest', '''<h2>Quest Rewards</h2><p>1 Silver, 40 Copper<br>5474 XP<br>Choose one of:</p>
             <table><tr><td>1 x</td><td></td><td>Jewelry</td><td>Neck</td><td>[Clvl 13]</td><td>[Ilvl 23]</td><td>Fixture Pendant</td></tr></table>''','Level 14')
