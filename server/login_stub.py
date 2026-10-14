@@ -1321,7 +1321,7 @@ def gm_command(state, args, event, data):
     elif event in (GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL) and len(data) >= 8:
         target = state_by_char_id(struct.unpack_from("<Q", data)[0])
         if target is None:
-            send(build_system_text("Your defensive target must be a player.", SYSTEM_TEXT_ERROR))
+            send(client_notice(DEF_TARGET_NOT_PC))
             return
         if event == GM_SETUP_ALL and len(data) >= 12:
             gm_set_level(target, struct.unpack_from("<i", data, 8)[0])
@@ -2151,7 +2151,7 @@ def handle_housing_event(state, event, data):
         elif any(v.get("owner", "").lower() == player.name.lower() for v in db.values()):
             notice(housing.ONE_PLOT)
         elif player.coins < plot["cost"]:
-            send(build_system_text("You can't afford that plot.", SYSTEM_TEXT_ERROR))
+            send(client_notice(CANT_PURCHASE_PLOT))
         else:
             player.coins -= plot["cost"]
             send(merchant.coins(player.coins))
@@ -4400,7 +4400,7 @@ def handle_social_zone(state, event, data):
             target = next((s for s in ONLINE.values() if s.get("player") and s["player"].char_id == player.target),
                           None)
         if target is None or target.get("world") is not state.get("world"):
-            send(build_system_text("You must target a player to inspect.", SYSTEM_TEXT_ERROR))
+            send(client_notice(PLEASE_TARGET_PC))
             return
         t = target["player"]
         dur = getattr(t, "durability", {})
@@ -5076,7 +5076,7 @@ def complete_trade(t, args):
         incoming = sum(1 for _, _, tk in moves if tk is s_state)
         outgoing = sum(1 for gv, _, _ in moves if gv is s_state)
         if len(p.items) - outgoing + incoming > zone.BAG_SLOTS:
-            s_state["send"](build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
+            s_state["send"](client_notice(TRADE_NO_SPACE))
             end_trade(t, trade.cancelled())
             return
     for giver, item, taker in moves:
@@ -5370,7 +5370,7 @@ def finish_quest(state, key, q, chosen=None):
                 return
     reward_items = q.get("reward", {}).get("items", []) + ([chosen] if chosen else [])
     if zone.BAG_SLOTS - len(player.items) < len(reward_items):
-        send(build_system_text("You need more room in your bags for the reward.", SYSTEM_TEXT_ERROR))
+        send(client_notice(NO_ROOM_FOR_REWARD))
         return
     for step in quest.steps(q):
         for name, n in step.get("collect", {}).items():
@@ -5447,7 +5447,7 @@ def give_item(state, name, qty=1, quiet=False):
     player, send = state["player"], state["send"]
     slot = zone.free_bag_slot(player)
     if slot is None:
-        send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
+        send(client_notice(NO_SPACE))
         return False
     item_id, icon = zone.new_item_id(player), zone.item_icon(name, 443)
     player.items.append((item_id, name, icon, qty, slot))
@@ -5656,7 +5656,7 @@ def harvest_tick(state, now):
         if random.random() < (0.75 if skill < npc.harvest.get("difficulty", 10) + 5 else 0.25):
             skill_up(state, harvest.SKILLS[kind], kind.capitalize(), ceiling)
     else:
-        send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
+        send(client_notice(NO_SPACE))
     send(harvest.ended())
     npc.depleted_until = now + npc.respawn
     depleted = combat.display_ability(npc.entity_id, combat.NO_ENTITY, harvest.NODE_DEPLETED_VISUAL)
@@ -6920,7 +6920,7 @@ def finish_craft(state, r):
         send(craft.end())
         return
     if zone.free_bag_slot(player) is None:
-        send(build_system_text("Your bags are full.", SYSTEM_TEXT_ERROR))
+        send(client_notice(NO_SPACE))
         send(craft.end())
         return
     for name, need in r["inputs"].items():
@@ -7664,6 +7664,7 @@ SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
 
 # The client's own messages (zone event 0x0e {i16 code}, docs/NOTICES.md).
 TOO_FAR_AWAY, NOT_WHILE_DEAD, NOT_IN_GROUP, ALREADY_IN_GROUP, CANT_AFFORD, CHEST_FULL = 111, 112, 197, 201, 251, 349
+PLEASE_TARGET_PC, TRADE_NO_SPACE, DEF_TARGET_NOT_PC, NO_SPACE, NO_ROOM_FOR_REWARD, CANT_PURCHASE_PLOT = 49, 88, 169, 256, 320, 366
 
 
 def client_notice(code):
