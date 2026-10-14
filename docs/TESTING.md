@@ -27,6 +27,18 @@ Still open: the cost grows with the square of the players in one place (150 in o
 
 **Packet loss.** `--drop 0.1` makes every bot ignore 10% of the server's reliable packets (no acknowledgement, as if lost; bots deliver in order and send Ack1 after a gap, like UdpLibrary). With the server's resends (docs/PROTOCOL.md) 10 of 10 bots logged in (login median 2.9 s instead of 0.1 s) and the ping median stayed at 12 ms (p95 372 ms); at 2% loss p95 is 181 ms.
 
+## Fuzzing (2026-10-14)
+
+`python tools/fuzz.py` logs a load-test bot into the zone and sends every client event id from 1 to 0x900 with random payloads of awkward sizes (empty, 1-3 bytes, small ints, 600 bytes), then rounds of random UE2 packets, unknown message types and raw datagrams that skip the reliable layer. After each id a ping checks the server still answers; a silent server gets a fresh login to tell a closed connection from a hang. Run it against a server with its own `--data-dir` (see the script's help), since random events change saved data.
+
+Bugs it found, all fixed:
+- A random chunk change (event 0x9) saved the character in chunk (0, 0), which has no map; that character could never log in again. Chunk changes to missing maps are ignored, jumps of more than one chunk need GM access, and a character saved in a missing chunk starts at the default spawn.
+- Printing player text that the Windows code page can't show (any CJK character, for example) raised UnicodeEncodeError inside the handler when the log went to a file, so the message was dropped. The server's output is UTF-8 now.
+- A zone connection could enter the world without logging in, as "Someone", and a second login request on a logged-in connection replaced its player with nothing (which then crashed the NPC aggro check every tick). Unknown sessions are refused, a second login is ignored, UE2 packets before the login are ignored (`--anonymous-zone` keeps the old debugging behaviour), and a reconnect from the same address leaves the world first.
+- A truncated Group length raised struct.error.
+
+Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, no hang.
+
 ## Needs a person
 
 | Feature | Status | How to test |

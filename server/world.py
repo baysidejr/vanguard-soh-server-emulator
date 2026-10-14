@@ -29,7 +29,7 @@ class World:
         self.members = {}        # player entity id -> zone connection state
 
     def players(self):
-        return [s["player"] for s in self.members.values()]
+        return [s["player"] for s in self.members.values() if s.get("player") is not None]
 
     def others(self, state):
         return [s for s in self.members.values() if s is not state]

@@ -14,6 +14,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Last test results
 
+- 2026-10-14 (fuzzing): unit tests OK (166), content OK, smoke test PASS, fuzz 0x900 events x 20 + 200 raw rounds: no errors, no hang; load test 20 bots OK.
 - 2026-10-14 (resends): unit tests OK (165), content OK, smoke test PASS, load test 10 bots at 10% loss: 10/10 joined, ping median 12 ms.
 - 2026-10-14 (load test): unit tests OK (164), content OK, smoke test PASS, load test 100 bots: median ping 11 ms, p95 450 ms; two real clients see each other walk.
 - 2026-10-14 (SQLite storage): server unit tests OK (161), content OK, smoke test PASS (40 commands) against the database.
@@ -40,6 +41,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Fuzzer (tools/fuzz.py) and the bugs it found: a random chunk change could leave a character unable to log in; non-ASCII player text was dropped when the log went to a file; a zone connection could enter the world without logging in (security) and a second login request nulled the player; a truncated Group length crashed. All fixed; data can live in a separate --data-dir. Last fuzz run clean.
 - 2026-10-14: One character, one connection: logging in a character that is already playing closes the older connection (it returns to character select), so two clients can never run and save the same character. Verified live with two clients picking Ranger.
 - 2026-10-14: Launcher over HTTPS: login_stub.py --launcher-cert / --launcher-key, tools/play.py --https / --cafile. Verified with a self-signed certificate: HTTPS login works, plain HTTP and an untrusted certificate are refused.
 - 2026-10-14: Bug fixed: client messages longer than one packet (fragments) were ignored, so a long chat line (287 characters) was lost. Client packets are now delivered in order with a reorder buffer, fragments joined, Ack1 sent after a gap. Verified live: the old server drops the line, the new one receives all of it.

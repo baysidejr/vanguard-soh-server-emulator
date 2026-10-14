@@ -38,7 +38,7 @@ import ue2net        # noqa: E402
 
 ACCOUNT = "loadtest"
 BOT_PREFIX = "Lbot"
-CHARACTERS_FILE = os.path.join(ROOT, "server", "characters.json")
+CHARACTERS_FILE = MAIN_CHARACTERS_FILE = os.path.join(ROOT, "server", "characters.json")
 PC_CHANNEL = 1
 DROP = 0.0                  # share of incoming reliable packets ignored (--drop)
 CAMP = (-31000.0, -5500.0, 460.0)
@@ -54,7 +54,8 @@ def bot_name(i):
 
 def setup(n, template_name):
     chars = storage.read_characters(CHARACTERS_FILE)
-    template = next((c for c in chars if c["first"] == template_name), None)
+    template = next((c for c in chars + storage.read_characters(MAIN_CHARACTERS_FILE)
+                     if c["first"] == template_name), None)
     if template is None:
         sys.exit(f"No character named {template_name} to copy.")
     if ACCOUNT not in accounts.load()["accounts"]:
@@ -284,8 +285,8 @@ class Bot(threading.Thread):
             raise RuntimeError("no WELCOME")
         control("JOIN")
         self.joined_at = time.time() - start
-        self.walk(z, unreal)
-        z.close()
+        if not self.walk(z, unreal):            # True: the caller keeps the connection
+            z.close()
 
     def walk(self, z, unreal):
         a = self.args
@@ -332,10 +333,16 @@ def main(argv=None):
                     "around 50 bots)")
     ap.add_argument("--first", type=int, default=0, help=argparse.SUPPRESS)
     ap.add_argument("--child", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--data-dir", help="the server's --data-dir, if it uses one (for --setup / --cleanup)")
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--login-port", type=int, default=10101)
     ap.add_argument("--world-port", type=int, default=10100)
     a = ap.parse_args(argv)
+    if a.data_dir:
+        global CHARACTERS_FILE
+        os.makedirs(a.data_dir, exist_ok=True)
+        CHARACTERS_FILE = os.path.join(os.path.abspath(a.data_dir), "characters.json")
+        accounts.ACCOUNTS_FILE = os.path.join(os.path.abspath(a.data_dir), "accounts.json")
     if a.cleanup:
         cleanup()
         return 0

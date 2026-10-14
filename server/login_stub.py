@@ -109,6 +109,8 @@ def read_group_length(data, pos):
     # Group/varint length (FUN_00bf5e80); assumed SOE style: 1 byte, or 0xff + u16be.
     if data[pos] != 0xFF:
         return data[pos], pos + 1
+    if pos + 3 > len(data):
+        return 0, len(data)             # truncated length: nothing more in this packet
     return struct.unpack_from(">H", data, pos + 1)[0], pos + 3
 
 
@@ -250,6 +252,11 @@ def main():
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--launcher-port", type=int, default=10180,
                         help="HTTP port of the launcher login endpoint (tools/play.py); 0 turns it off")
+    parser.add_argument("--anonymous-zone", action="store_true",
+                        help="debugging: let a zone connection enter the world without logging in "
+                             "(as 'Someone'); never on a public server")
+    parser.add_argument("--data-dir", default=None,
+                        help="folder for the saved data (vanguard.db, reports); default: the server folder")
     parser.add_argument("--launcher-cert", default=None,
                         help="PEM certificate: serve the launcher over HTTPS (passwords encrypted)")
     parser.add_argument("--launcher-key", default=None,
@@ -287,7 +294,17 @@ def main():
     parser.add_argument("--spawn-rotation", action="store_true",
                         help="include an initial rotation in the actor open bunch")
     args = parser.parse_args()
-    # Used when a zone connection arrives without going through Play first.
+    # Player text (chat, names, mail) can hold any character. Printing it to a log file with the
+    # Windows default code page raised UnicodeEncodeError inside the handler, so the message was
+    # never acted on (found by tools/fuzz.py).
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="backslashreplace")
+        except (AttributeError, ValueError):
+            pass
+    if args.data_dir:
+        use_data_dir(args.data_dir)
+    # Used when a zone connection arrives without going through Play first (--anonymous-zone).
     args.default_player = lambda: zone.Player(name="Someone",
                                               level=args.zone_level or chunk_name(*DEFAULT_CHUNK))
     args.package_maps = {}
@@ -379,6 +396,21 @@ def main():
 
 MAX_READS_PER_WAKE = 64
 FLUSH_HZ = 20
+
+
+DATA_FILES = ("HOUSING_FILE", "CARAVANS_FILE", "GUILDS_FILE", "BROTHERHOODS_FILE", "MAIL_FILE", "BUG_FILE",
+              "QUEST_FEEDBACK_FILE", "PLAYER_REPORT_FILE", "MARKET_FILE", "CIVIC_FILE", "CHARACTERS_FILE")
+
+
+def use_data_dir(folder):
+    """Keep the saved data (database, reports) in folder instead of the server folder, e.g. a
+    separate disk, or a scratch copy for testing."""
+    folder = os.path.abspath(folder)
+    os.makedirs(folder, exist_ok=True)
+    for name in DATA_FILES:
+        globals()[name] = os.path.join(folder, os.path.basename(globals()[name]))
+    accounts.ACCOUNTS_FILE = os.path.join(folder, os.path.basename(accounts.ACCOUNTS_FILE))
+    print(f"Saved data in {folder}")
 
 
 def guarded(fn, *a):
@@ -5424,6 +5456,7 @@ def group_tick():
 
 CHUNK_CHANGE_EVENT = 0x9
 CHUNK_SIZE = 204800.0
+GM_CHUNK_LEVEL = 20             # the client's /chunk needs access level 20
 
 
 def chunk_handoff(state, payload, args):
@@ -5442,6 +5475,13 @@ def chunk_handoff(state, payload, args):
     if loc is None or (cx, cy) == tuple(old):
         return
     dx, dy = cx - old[0], cy - old[1]
+    if not chunk_exists(cx, cy):
+        print(f"  >>> ZONE chunk change to ({cx}, {cy}) ignored: no such chunk")
+        return
+    if (abs(dx) > 1 or abs(dy) > 1) and not (getattr(args, "dev_commands", False)
+                                            or getattr(player, "access_level", 0) >= GM_CHUNK_LEVEL):
+        print(f"  >>> ZONE chunk jump to ({cx}, {cy}) ignored: {player.name} is not a GM")
+        return
     # The last ClientLoc is usually still on the old side of the edge, so keep the
     # new position just inside the new chunk (the client logs its own TRAVLoc).
     edge = CHUNK_SIZE / 2 - 1000    # the heightmap ends one cell (400) before the edge
@@ -5458,6 +5498,9 @@ def travel_to_chunk(state, args, cx, cy, x, y, z=None):
     player = state["player"]
     old = getattr(player, "chunk", None) or DEFAULT_CHUNK
     level = chunk_name(cx, cy)
+    if not chunk_exists(cx, cy):
+        state["send"](build_system_text(f"There is no chunk {cx}, {cy}.", SYSTEM_TEXT_ERROR))
+        return
     if z is None:
         z = args.content.ground_z(level, x, y, args.client_dir)
         z = z if z is not None else 0.0
@@ -7588,6 +7631,9 @@ def serve(sock, server, data, addr, clients, args):
             protocol, code, max_raw = struct.unpack_from(">III", data, 2)
             name = data[14:].split(b"\0", 1)[0].decode("latin-1")
             print(f"  connect: protocol={protocol} code=0x{code:08x} maxRaw={max_raw} name={name!r}")
+            old = clients.get(key)
+            if old is not None and server == "ZONE" and old.get("player") is not None:
+                leave_world(old, args)          # a new connection from the same address replaces it
             clients[key] = {"out_seq": 0, "max_raw": max(MIN_RAW_PACKET, min(max_raw, MAX_RAW_PACKET)),
                             # UdpLibrary Terminate (reason 6, application) for this connection.
                             "terminate": lambda sock=sock, addr=addr, code=code: sock.sendto(
@@ -7870,7 +7916,25 @@ def chunk_name(x, y):
 
 
 def character_chunk(char):
-    return tuple(char.get("chunk", DEFAULT_CHUNK))
+    """The saved chunk, or the default start if that chunk has no map (a bad save must not
+    leave a character that can never log in again)."""
+    chunk = tuple(char.get("chunk", DEFAULT_CHUNK))
+    return chunk if chunk_exists(*chunk) else DEFAULT_CHUNK
+
+
+_MAPS = None
+
+
+def chunk_exists(cx, cy):
+    """Whether the client has a map for chunk (cx, cy) (Assets/Maps/chunk_<x>_<y>.vgr)."""
+    global _MAPS
+    if _MAPS is None:
+        client_dir = getattr(ARGS, "client_dir", None) or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+        try:
+            _MAPS = {f.lower() for f in os.listdir(os.path.join(client_dir, "Assets", "Maps"))}
+        except OSError:
+            return True                 # no map folder to check against (unit tests)
+    return (chunk_name(cx, cy) + ".vgr").lower() in _MAPS
 
 
 def character_id(char):
@@ -8588,7 +8652,16 @@ def handle_message(sock, server, addr, state, payload, args):
     if server == "ZONE":
         if login:
             print(f"  >>> ZONE login request: account={login[0]!r} session={login[1]!r}")
-            state["player"] = PENDING_PLAYERS.pop(login[1], None)
+            if state.get("player") is not None:
+                print("  >>> ZONE login ignored: this connection is already logged in")
+                return
+            pending = PENDING_PLAYERS.pop(login[1], None)
+            if pending is None and not getattr(args, "anonymous_zone", False):
+                # Only a session the world server just sent here (Play) may enter the zone.
+                send_message(sock, addr, state, build_login_reply(False))
+                print("  <- ZONE login refused: no character is waiting for that session")
+                return
+            state["player"] = pending
             state["session"] = login[1]
             ZONE_BY_SESSION[login[1]] = state
             if state["player"]:

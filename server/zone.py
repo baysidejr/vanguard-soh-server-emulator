@@ -38,9 +38,12 @@ def handle_unreal(send, state, payload, args):
     """Zone type 1: a UE2 UNetConnection packet (see ue2net.py)."""
     (length,) = struct.unpack_from("<I", payload, 2)
     packet = payload[6:6 + length]
+    if state.get("player") is None:
+        if not getattr(args, "anonymous_zone", False):
+            return                      # not logged in to the zone (PacketLoginRequest) yet
+        state["player"] = args.default_player()
     ue = state.setdefault("ue", ue2net.UnrealSession())
-    player = state.get("player") or args.default_player()
-    state["player"] = player
+    player = state["player"]
     try:
         packet_id, acks, bunches = ue.receive(packet)
     except ValueError as e:
