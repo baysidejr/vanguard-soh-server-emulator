@@ -1451,6 +1451,9 @@ def unstuck(state):
         loc = tuple(bind["loc"])
     else:
         loc = player.spawned_at
+    if loc is None:              # not in the world yet
+        state.pop("unstuck_at", None)
+        return
     send(zone.player_teleport((float(loc[0]), float(loc[1]), float(loc[2]) + 50.0)))
     send(build_system_text("You have been moved to safety.", SYSTEM_TEXT_WHITE))
     print(f"  {player.name} used Unstuck -> {loc}")
