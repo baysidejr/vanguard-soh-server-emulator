@@ -1,19 +1,19 @@
 {
   "summary": {
-    "batches": 121,
-    "research_rows": 30026,
-    "normalized_name_groups": 8747,
+    "batches": 123,
+    "research_rows": 30256,
+    "normalized_name_groups": 8977,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 285,
+      "creature": 461,
       "item": 158,
-      "loot": 25,
-      "npc": 1340,
+      "loot": 50,
+      "npc": 1364,
       "quest": 5233,
       "zone": 1334,
       "ability": 21598,
       "diplomacy": 6,
-      "merchant": 39,
+      "merchant": 44,
       "recipe": 8
     },
     "errors": 0,
@@ -938,6 +938,26 @@
         "loot": 4,
         "merchant": 1,
         "npc": 4
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-100614-105092-archive-bulk",
+      "records": 116,
+      "counts": {
+        "creature": 93,
+        "loot": 14,
+        "merchant": 2,
+        "npc": 7
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-101434-245104-archive-bulk",
+      "records": 114,
+      "counts": {
+        "creature": 83,
+        "loot": 11,
+        "merchant": 3,
+        "npc": 17
       }
     }
   ],
@@ -502943,6 +502963,3528 @@
       "zones": [
         "Martok"
       ]
+    },
+    {
+      "id": 30026,
+      "type": "creature",
+      "name": "Advisor Ogguxtox",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-ogguxtox"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 30027,
+      "type": "creature",
+      "name": "Advisor Peashale",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-peashale"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30028,
+      "type": "creature",
+      "name": "Advisor Rikkle",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-rikkle"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30029,
+      "type": "creature",
+      "name": "Advisor Selenax",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-selenax"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30030,
+      "type": "creature",
+      "name": "Advisor Selikzer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-selikzer"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30031,
+      "type": "creature",
+      "name": "Advisor Shahab",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-shahab"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30032,
+      "type": "creature",
+      "name": "Advisor Shazor",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-shazor"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 30033,
+      "type": "creature",
+      "name": "Advisor Sprig",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-sprig"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30034,
+      "type": "creature",
+      "name": "Advisor Telqo",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-telqo"
+      ],
+      "zones": [
+        "Abammisi Lake"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30035,
+      "type": "creature",
+      "name": "Advisor Waediqu",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-waediqu"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30036,
+      "type": "creature",
+      "name": "Aedorwen Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aedorwen-gladesworn"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30037,
+      "type": "creature",
+      "name": "Aegache Cobra",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-cobra"
+      ],
+      "zones": [
+        "Seawatch Cove"
+      ],
+      "level": 39
+    },
+    {
+      "id": 30038,
+      "type": "creature",
+      "name": "Aegache Creeper",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-creeper"
+      ],
+      "zones": [
+        "Seawatch Cove"
+      ],
+      "level": 39
+    },
+    {
+      "id": 30039,
+      "type": "creature",
+      "name": "Aegache Enlarged Cobra",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-enlarged-cobra"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ]
+    },
+    {
+      "id": 30040,
+      "type": "creature",
+      "name": "Aegache Sand Fiend",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-sand-fiend"
+      ],
+      "zones": [
+        "Seawatch Cove"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30041,
+      "type": "creature",
+      "name": "Aegache Scorpion",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-scorpion"
+      ],
+      "zones": [
+        "Seawatch Cove"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30042,
+      "type": "creature",
+      "name": "Aegache Tortoise",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-tortoise"
+      ],
+      "zones": [
+        "Mind's Crown"
+      ],
+      "level": 41
+    },
+    {
+      "id": 30043,
+      "type": "creature",
+      "name": "Aelbyel Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelbyel-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30044,
+      "type": "creature",
+      "name": "Aelehsk Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelehsk-gladesworn"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ]
+    },
+    {
+      "id": 30045,
+      "type": "creature",
+      "name": "Aelehsul Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelehsul-gladesworn"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30046,
+      "type": "creature",
+      "name": "Aelgran Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelgran-gladesworn"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30047,
+      "type": "creature",
+      "name": "Aelgya Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelgya-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 30048,
+      "type": "creature",
+      "name": "Aelharn Briarborn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelharn-briarborn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 30049,
+      "type": "creature",
+      "name": "Aeliglda Leafsgreen",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeliglda-leafsgreen"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 25
+    },
+    {
+      "id": 30050,
+      "type": "creature",
+      "name": "Aelon Lohr Defender",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelon-lohr-defender"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 5
+    },
+    {
+      "id": 30051,
+      "type": "creature",
+      "name": "Aelon Lohr Spellslayer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelon-lohr-spellslayer"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 5
+    },
+    {
+      "id": 30052,
+      "type": "creature",
+      "name": "Aeluyola Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeluyola-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 30053,
+      "type": "creature",
+      "name": "Aenethil",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aenethil"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 51
+    },
+    {
+      "id": 30054,
+      "type": "creature",
+      "name": "Aeokor Assassin",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-assassin"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 7
+    },
+    {
+      "id": 30055,
+      "type": "creature",
+      "name": "Aeokor Battle Rager",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-battle-rager"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30056,
+      "type": "creature",
+      "name": "Aeokor Battleseer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-battleseer"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30057,
+      "type": "creature",
+      "name": "Aeokor Betrayer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-betrayer"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ]
+    },
+    {
+      "id": 30058,
+      "type": "creature",
+      "name": "Aeokor Bladewright",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-bladewright"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30059,
+      "type": "creature",
+      "name": "Aeokor Bowdancer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-bowdancer"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30060,
+      "type": "creature",
+      "name": "Aeokor Dreadweaver",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-dreadweaver"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30061,
+      "type": "creature",
+      "name": "Aeokor Frightsworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-frightsworn"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30062,
+      "type": "creature",
+      "name": "Aeokor Frostweaver",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-frostweaver"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30063,
+      "type": "creature",
+      "name": "Aeokor Glitterstorm",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-glitterstorm"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30064,
+      "type": "creature",
+      "name": "Aeokor Ice Wielder",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-ice-wielder"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30065,
+      "type": "creature",
+      "name": "Aeokor Infiltrator",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-infiltrator"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 6
+    },
+    {
+      "id": 30066,
+      "type": "creature",
+      "name": "Aeokor Lucent",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-lucent"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30067,
+      "type": "creature",
+      "name": "Aeokor Mercenary",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-mercenary"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 6
+    },
+    {
+      "id": 30068,
+      "type": "creature",
+      "name": "Aeokor Purifier",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-purifier"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 14
+    },
+    {
+      "id": 30069,
+      "type": "creature",
+      "name": "Aeokor Resplendent",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-resplendent"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30070,
+      "type": "creature",
+      "name": "Aeokor Sadist",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-sadist"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 14
+    },
+    {
+      "id": 30071,
+      "type": "creature",
+      "name": "Aeokor Sawbone",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-sawbone"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 8
+    },
+    {
+      "id": 30072,
+      "type": "creature",
+      "name": "Aeokor Scout",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-scout"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ]
+    },
+    {
+      "id": 30073,
+      "type": "creature",
+      "name": "Aeokor Sheerborn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-sheerborn"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30074,
+      "type": "creature",
+      "name": "Aeokor Siege Defender",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-siege-defender"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30075,
+      "type": "creature",
+      "name": "Aeokor Siege Worker",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-siege-worker"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 30076,
+      "type": "creature",
+      "name": "Aeokor Spellflare",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-spellflare"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30077,
+      "type": "creature",
+      "name": "Aeokor Storekeeper",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-storekeeper"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30078,
+      "type": "creature",
+      "name": "Aeokor Strategist",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-strategist"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30079,
+      "type": "creature",
+      "name": "Aeokor Supply Chest",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-supply-chest"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30080,
+      "type": "creature",
+      "name": "Aeokor Supply Officer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-supply-officer"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30081,
+      "type": "creature",
+      "name": "Aeokor Unicorn Exploiter",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-unicorn-exploiter"
+      ],
+      "zones": [
+        "Lomshir"
+      ]
+    },
+    {
+      "id": 30082,
+      "type": "creature",
+      "name": "Aeokor Unicorn Herdsman",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-unicorn-herdsman"
+      ],
+      "zones": [
+        "Lomshir"
+      ]
+    },
+    {
+      "id": 30083,
+      "type": "creature",
+      "name": "Aeokor Unicorn Tamer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-unicorn-tamer"
+      ],
+      "zones": [
+        "Lomshir"
+      ]
+    },
+    {
+      "id": 30084,
+      "type": "creature",
+      "name": "Aeokor Vectionary",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-vectionary"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 7
+    },
+    {
+      "id": 30085,
+      "type": "creature",
+      "name": "Aeokor Vector",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-vector"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30086,
+      "type": "creature",
+      "name": "Aeokor War Mender",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-war-mender"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30087,
+      "type": "creature",
+      "name": "Aeokor Warmonger",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-warmonger"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 8
+    },
+    {
+      "id": 30088,
+      "type": "creature",
+      "name": "Aeokor Warsworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-warsworn"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30089,
+      "type": "creature",
+      "name": "Aeralyn Gladesworn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeralyn-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30090,
+      "type": "creature",
+      "name": "Aerlund Hulmabrund",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aerlund-hulmabrund"
+      ],
+      "zones": [
+        "Shaletooth Tower"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30091,
+      "type": "creature",
+      "name": "Aeryl Averlorn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeryl-averlorn"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 25
+    },
+    {
+      "id": 30092,
+      "type": "creature",
+      "name": "Affected Aukmeb Scuttler",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/affected-aukmeb-scuttler"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30093,
+      "type": "creature",
+      "name": "Afflicted Watch",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/afflicted-watch"
+      ],
+      "zones": [
+        "Nusibe Necropolis"
+      ]
+    },
+    {
+      "id": 30094,
+      "type": "creature",
+      "name": "Afsaneh Alam",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/afsaneh-alam"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ]
+    },
+    {
+      "id": 30095,
+      "type": "creature",
+      "name": "Agar Great Stag",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agar-great-stag"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30096,
+      "type": "creature",
+      "name": "Agar Stag",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agar-stag"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 8
+    },
+    {
+      "id": 30097,
+      "type": "creature",
+      "name": "Age-old Behemoth",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/age-old-behemoth"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ]
+    },
+    {
+      "id": 30098,
+      "type": "creature",
+      "name": "Aged Barbback",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-barbback"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ]
+    },
+    {
+      "id": 30099,
+      "type": "creature",
+      "name": "Aged Birch Treebark",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-birch-treebark"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ]
+    },
+    {
+      "id": 30100,
+      "type": "creature",
+      "name": "Aged Cave Bear",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-cave-bear"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 12
+    },
+    {
+      "id": 30101,
+      "type": "creature",
+      "name": "Aged Ettercap",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-ettercap"
+      ],
+      "zones": [
+        "Ancient Port Lighthouse"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30102,
+      "type": "creature",
+      "name": "Aged Maple Treebark",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-maple-treebark"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ]
+    },
+    {
+      "id": 30103,
+      "type": "creature",
+      "name": "Aged Maplelynn Treant",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 78,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-maplelynn-treant"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 11
+    },
+    {
+      "id": 30104,
+      "type": "creature",
+      "name": "Aged Oak Tree",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 79,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-oak-tree"
+      ],
+      "zones": [
+        "Sands Of Sorrow"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30105,
+      "type": "creature",
+      "name": "Aged Oak Treebark",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 80,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-oak-treebark"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ]
+    },
+    {
+      "id": 30106,
+      "type": "creature",
+      "name": "Aged Pine Tree",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 81,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-pine-tree"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30107,
+      "type": "creature",
+      "name": "Aged Root",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 82,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-root"
+      ],
+      "zones": [
+        "Stiirhad"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30108,
+      "type": "creature",
+      "name": "Aged Tree Bark",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 83,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-tree-bark"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ]
+    },
+    {
+      "id": 30109,
+      "type": "creature",
+      "name": "Agela Veaton",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 84,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agela-veaton"
+      ],
+      "zones": [
+        "The Village Of Three Rivers"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30110,
+      "type": "creature",
+      "name": "Ageless Eidolon",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 85,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ageless-eidolon"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 32
+    },
+    {
+      "id": 30111,
+      "type": "creature",
+      "name": "Ageless Watcher",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 86,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ageless-watcher"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 32
+    },
+    {
+      "id": 30112,
+      "type": "creature",
+      "name": "Agen Nargolok",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 87,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agen-nargolok"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30113,
+      "type": "creature",
+      "name": "Agent Adel",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 88,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-adel"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30114,
+      "type": "creature",
+      "name": "Agent Draria",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 89,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-draria"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30115,
+      "type": "creature",
+      "name": "Agent Epcorp",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 90,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-epcorp"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30116,
+      "type": "creature",
+      "name": "Agent Ezima",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 91,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-ezima"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 12
+    },
+    {
+      "id": 30117,
+      "type": "creature",
+      "name": "Agent Glod",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 92,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-glod"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30118,
+      "type": "creature",
+      "name": "Agent Gyrodehn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\creature.jsonl",
+      "line": 93,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-gyrodehn"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30119,
+      "type": "loot",
+      "name": "Advisor Selikzer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/advisor-selikzer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30120,
+      "type": "loot",
+      "name": "Aegache Enlarged Cobra",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-enlarged-cobra"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30121,
+      "type": "loot",
+      "name": "Aegache Tortoise",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aegache-tortoise"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30122,
+      "type": "loot",
+      "name": "Aeokor Assassin",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-assassin"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30123,
+      "type": "loot",
+      "name": "Aeokor Purifier",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-purifier"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30124,
+      "type": "loot",
+      "name": "Aeokor Sawbone",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-sawbone"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30125,
+      "type": "loot",
+      "name": "Aeokor Supply Chest",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-supply-chest"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30126,
+      "type": "loot",
+      "name": "Aeokor Warmonger",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aeokor-warmonger"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30127,
+      "type": "loot",
+      "name": "Afflicted Watch",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/afflicted-watch"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30128,
+      "type": "loot",
+      "name": "Agar Great Stag",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agar-great-stag"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30129,
+      "type": "loot",
+      "name": "Agar Stag",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agar-stag"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30130,
+      "type": "loot",
+      "name": "Aged Oak Tree",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-oak-tree"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30131,
+      "type": "loot",
+      "name": "Aged Pine Tree",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-pine-tree"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30132,
+      "type": "loot",
+      "name": "Aged Root",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aged-root"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30133,
+      "type": "merchant",
+      "name": "Adyn Larem",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/adyn-larem"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 30134,
+      "type": "merchant",
+      "name": "Aedina Wintersturn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aedina-wintersturn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 30135,
+      "type": "npc",
+      "name": "Adyinn Targonor III",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/adyinn-targonor-iii"
+      ],
+      "zones": [
+        "Coastal Graveyard"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30136,
+      "type": "npc",
+      "name": "Adyn Larem",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/adyn-larem"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30137,
+      "type": "npc",
+      "name": "Aedina Wintersturn",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aedina-wintersturn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 30138,
+      "type": "npc",
+      "name": "Aelanon",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aelanon"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30139,
+      "type": "npc",
+      "name": "Aerlund Goldhammer",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aerlund-goldhammer"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30140,
+      "type": "npc",
+      "name": "Agent Genaro",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-genaro"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30141,
+      "type": "npc",
+      "name": "Agent Goreano",
+      "file": "raw\\2026-10-14-100614-105092-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-goreano"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30142,
+      "type": "creature",
+      "name": "AKANDE THE BUTCHER",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akande-the-butcher"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 53
+    },
+    {
+      "id": 30143,
+      "type": "creature",
+      "name": "AL'HEFFEL",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/al-heffel"
+      ],
+      "zones": [
+        "Sands Of Sorrow"
+      ],
+      "level": 57
+    },
+    {
+      "id": 30144,
+      "type": "creature",
+      "name": "AL'JAAREL",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/al-jaarel"
+      ],
+      "zones": [
+        "Sands Of Sorrow"
+      ],
+      "level": 57
+    },
+    {
+      "id": 30145,
+      "type": "creature",
+      "name": "ALAGAN THE DRAGON SLAYER",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alagan-the-dragon-slayer"
+      ],
+      "zones": [
+        "Dragons Maw"
+      ],
+      "level": 59
+    },
+    {
+      "id": 30146,
+      "type": "creature",
+      "name": "Agent Iverls",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-iverls"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30147,
+      "type": "creature",
+      "name": "Agent Kelcin",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-kelcin"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30148,
+      "type": "creature",
+      "name": "Agent Mulp",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-mulp"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30149,
+      "type": "creature",
+      "name": "Agent Nanaba",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-nanaba"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30150,
+      "type": "creature",
+      "name": "Agent Narglok's Assistant",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-narglok-s-assistant"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30151,
+      "type": "creature",
+      "name": "Agent Nomel",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-nomel"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 15
+    },
+    {
+      "id": 30152,
+      "type": "creature",
+      "name": "Agent Nyxo",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-nyxo"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30153,
+      "type": "creature",
+      "name": "Agent Odapep",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-odapep"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 14
+    },
+    {
+      "id": 30154,
+      "type": "creature",
+      "name": "Agent Of Kaon",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-of-kaon"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 7
+    },
+    {
+      "id": 30155,
+      "type": "creature",
+      "name": "Agent Pepla",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-pepla"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ]
+    },
+    {
+      "id": 30156,
+      "type": "creature",
+      "name": "Agent Pugyms",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-pugyms"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30157,
+      "type": "creature",
+      "name": "Agent Rango",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-rango"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ]
+    },
+    {
+      "id": 30158,
+      "type": "creature",
+      "name": "Agent Rebry",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-rebry"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30159,
+      "type": "creature",
+      "name": "Agent Slevir",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-slevir"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30160,
+      "type": "creature",
+      "name": "Agent Spalery",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-spalery"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 15
+    },
+    {
+      "id": 30161,
+      "type": "creature",
+      "name": "Agent Tanger",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-tanger"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30162,
+      "type": "creature",
+      "name": "Agent Tegran",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-tegran"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30163,
+      "type": "creature",
+      "name": "Agent Tsirik",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-tsirik"
+      ],
+      "zones": [
+        "Grimsea Watch"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30164,
+      "type": "creature",
+      "name": "Agent Vilers",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-vilers"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30165,
+      "type": "creature",
+      "name": "Aggara Dar'Fel",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aggara-dar-fel"
+      ],
+      "zones": [
+        "Old Targonor"
+      ]
+    },
+    {
+      "id": 30166,
+      "type": "creature",
+      "name": "Aggarax Kar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aggarax-kar"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30167,
+      "type": "creature",
+      "name": "Aggresive Herder",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aggresive-herder"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 13
+    },
+    {
+      "id": 30168,
+      "type": "creature",
+      "name": "Agitated Dracosnap",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agitated-dracosnap"
+      ],
+      "zones": [],
+      "level": 24
+    },
+    {
+      "id": 30169,
+      "type": "creature",
+      "name": "Agitated Pincher",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agitated-pincher"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ],
+      "level": 17
+    },
+    {
+      "id": 30170,
+      "type": "creature",
+      "name": "Agnarish",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agnarish"
+      ],
+      "zones": [
+        "Islands Of Madness"
+      ],
+      "level": 41
+    },
+    {
+      "id": 30171,
+      "type": "creature",
+      "name": "Agnarish the Stormbringer",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agnarish-the-stormbringer"
+      ],
+      "zones": [
+        "Isle of Madness"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30172,
+      "type": "creature",
+      "name": "Agragar The Crazed",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agragar-the-crazed"
+      ],
+      "zones": [
+        "Ruins Of Trengal Keep"
+      ],
+      "level": 27
+    },
+    {
+      "id": 30173,
+      "type": "creature",
+      "name": "Agrovale Litefingers",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agrovale-litefingers"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 14
+    },
+    {
+      "id": 30174,
+      "type": "creature",
+      "name": "Agzar Daypo",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agzar-daypo"
+      ],
+      "zones": [
+        "Seawatch Coast"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30175,
+      "type": "creature",
+      "name": "Ahdorelic'Lar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahdorelic-lar"
+      ],
+      "zones": [
+        "Old Targonor"
+      ]
+    },
+    {
+      "id": 30176,
+      "type": "creature",
+      "name": "Ahgram Soldier Hostage",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahgram-soldier-hostage"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30177,
+      "type": "creature",
+      "name": "Ahklaten",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahklaten"
+      ],
+      "zones": [
+        "Temple Of Tehatamani"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30178,
+      "type": "creature",
+      "name": "Ahnd'ka Royal Guard",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahnd-ka-royal-guard"
+      ],
+      "zones": [
+        "Sunset Pointe"
+      ]
+    },
+    {
+      "id": 30179,
+      "type": "creature",
+      "name": "Ahnd'ka Summoning Pillar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahnd-ka-summoning-pillar"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30180,
+      "type": "creature",
+      "name": "Ahou Atakan",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahou-atakan"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30181,
+      "type": "creature",
+      "name": "Ahzali",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahzali"
+      ],
+      "zones": [
+        "Rahz Inkur"
+      ],
+      "level": 52
+    },
+    {
+      "id": 30182,
+      "type": "creature",
+      "name": "Ahzek the Templar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahzek-the-templar"
+      ],
+      "zones": [
+        "Rahz Inkur"
+      ],
+      "level": 52
+    },
+    {
+      "id": 30183,
+      "type": "creature",
+      "name": "Ahzem",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahzem"
+      ],
+      "zones": [
+        "Qur'xa Temple"
+      ],
+      "level": 35
+    },
+    {
+      "id": 30184,
+      "type": "creature",
+      "name": "Aiamdor Gladesworn",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aiamdor-gladesworn"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30185,
+      "type": "creature",
+      "name": "Aiaran Gladesworn",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aiaran-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 30186,
+      "type": "creature",
+      "name": "Aide Ahkanu",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aide-ahkanu"
+      ],
+      "zones": [
+        "Temple Of Tehatamani"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30187,
+      "type": "creature",
+      "name": "Aide Ahkmat",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aide-ahkmat"
+      ],
+      "zones": [
+        "Abammisi Lake"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30188,
+      "type": "creature",
+      "name": "Aide Khnat",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aide-khnat"
+      ],
+      "zones": [
+        "Temple Of Tehatamani"
+      ]
+    },
+    {
+      "id": 30189,
+      "type": "creature",
+      "name": "Aide Nemeb",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aide-nemeb"
+      ],
+      "zones": [
+        "Abammisi Lake"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30190,
+      "type": "creature",
+      "name": "Aieil Gladesworn",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aieil-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30191,
+      "type": "creature",
+      "name": "Aigra",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aigra"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 17
+    },
+    {
+      "id": 30192,
+      "type": "creature",
+      "name": "Aiko Mahdavi-Kia",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aiko-mahdavi-kia"
+      ],
+      "zones": [
+        "Ahgram"
+      ]
+    },
+    {
+      "id": 30193,
+      "type": "creature",
+      "name": "Ainsley",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ainsley"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30194,
+      "type": "creature",
+      "name": "Airblast Gremlin",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/airblast-gremlin"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ]
+    },
+    {
+      "id": 30195,
+      "type": "creature",
+      "name": "Ajadeh Deleho",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ajadeh-deleho"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30196,
+      "type": "creature",
+      "name": "Ajrid Dranamouhk",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ajrid-dranamouhk"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 15
+    },
+    {
+      "id": 30197,
+      "type": "creature",
+      "name": "Ak'ar, Servitor Of Alumar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ak-ar-servitor-of-alumar"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30198,
+      "type": "creature",
+      "name": "Akaniji Jin",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akaniji-jin"
+      ],
+      "zones": [
+        "Magi Hold"
+      ],
+      "level": 35
+    },
+    {
+      "id": 30199,
+      "type": "creature",
+      "name": "Akanya Greenwood",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akanya-greenwood"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30200,
+      "type": "creature",
+      "name": "Akar Nopenfel",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akar-nopenfel"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 48
+    },
+    {
+      "id": 30201,
+      "type": "creature",
+      "name": "Akaran Dwarfsbane",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akaran-dwarfsbane"
+      ],
+      "zones": [
+        "Dargun's Tomb"
+      ],
+      "level": 53
+    },
+    {
+      "id": 30202,
+      "type": "creature",
+      "name": "Akers Bandfield",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akers-bandfield"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30203,
+      "type": "creature",
+      "name": "Akheta",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akheta"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30204,
+      "type": "creature",
+      "name": "Akhu Qazai",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akhu-qazai"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ]
+    },
+    {
+      "id": 30205,
+      "type": "creature",
+      "name": "Aki Cho",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aki-cho"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30206,
+      "type": "creature",
+      "name": "Aki-li",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aki-li"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30207,
+      "type": "creature",
+      "name": "Akkaruas",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akkaruas"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ],
+      "level": 44
+    },
+    {
+      "id": 30208,
+      "type": "creature",
+      "name": "Akko'rat Afflictionist",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akko-rat-afflictionist"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 45
+    },
+    {
+      "id": 30209,
+      "type": "creature",
+      "name": "Akoa",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akoa"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30210,
+      "type": "creature",
+      "name": "Akoresh",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akoresh"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30211,
+      "type": "creature",
+      "name": "Akrisna",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akrisna"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30212,
+      "type": "creature",
+      "name": "Akujah",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akujah"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 11
+    },
+    {
+      "id": 30213,
+      "type": "creature",
+      "name": "Akym the Assassin",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akym-the-assassin"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 53
+    },
+    {
+      "id": 30214,
+      "type": "creature",
+      "name": "Al'darez Bonedancer",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/al-darez-bonedancer"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 42
+    },
+    {
+      "id": 30215,
+      "type": "creature",
+      "name": "Al'darez Death Knight",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/al-darez-death-knight"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 42
+    },
+    {
+      "id": 30216,
+      "type": "creature",
+      "name": "Al'darez Soldier",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/al-darez-soldier"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 41
+    },
+    {
+      "id": 30217,
+      "type": "creature",
+      "name": "Al'darez Templar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/al-darez-templar"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 42
+    },
+    {
+      "id": 30218,
+      "type": "creature",
+      "name": "Alabi Haukapa",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alabi-haukapa"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 30219,
+      "type": "creature",
+      "name": "Alad's Supply Crate",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 78,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alad-s-supply-crate"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30220,
+      "type": "creature",
+      "name": "Alagosiril Halnu",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 79,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alagosiril-halnu"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30221,
+      "type": "creature",
+      "name": "Alandrel The Transcended",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 80,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alandrel-the-transcended"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 8
+    },
+    {
+      "id": 30222,
+      "type": "creature",
+      "name": "Alanil",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 81,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alanil"
+      ],
+      "zones": [
+        "Dead Glade"
+      ],
+      "level": 47
+    },
+    {
+      "id": 30223,
+      "type": "creature",
+      "name": "Alanso The Fearless",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 82,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alanso-the-fearless"
+      ],
+      "zones": [
+        "Thelaseen"
+      ]
+    },
+    {
+      "id": 30224,
+      "type": "creature",
+      "name": "Alaqua",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\creature.jsonl",
+      "line": 83,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alaqua"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30225,
+      "type": "loot",
+      "name": "AKANDE THE BUTCHER",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akande-the-butcher"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30226,
+      "type": "loot",
+      "name": "ALAGAN THE DRAGON SLAYER",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alagan-the-dragon-slayer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30227,
+      "type": "loot",
+      "name": "Agnarish",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agnarish"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30228,
+      "type": "loot",
+      "name": "Ahzali",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahzali"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30229,
+      "type": "loot",
+      "name": "Ahzek the Templar",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahzek-the-templar"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30230,
+      "type": "loot",
+      "name": "Aigra",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aigra"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30231,
+      "type": "loot",
+      "name": "Akaran Dwarfsbane",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akaran-dwarfsbane"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30232,
+      "type": "loot",
+      "name": "Akkaruas",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akkaruas"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30233,
+      "type": "loot",
+      "name": "Akko'rat Afflictionist",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akko-rat-afflictionist"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30234,
+      "type": "loot",
+      "name": "Akrisna",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akrisna"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30235,
+      "type": "loot",
+      "name": "Akym the Assassin",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akym-the-assassin"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30236,
+      "type": "merchant",
+      "name": "Agloush",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agloush"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ]
+    },
+    {
+      "id": 30237,
+      "type": "merchant",
+      "name": "Ah Fong",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ah-fong"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 30238,
+      "type": "merchant",
+      "name": "Akanidad Kematnas",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\merchant.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akanidad-kematnas"
+      ],
+      "zones": [
+        "Ahgram"
+      ]
+    },
+    {
+      "id": 30239,
+      "type": "npc",
+      "name": "Agent Narglok",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agent-narglok"
+      ],
+      "zones": [
+        "Grimsea Watch"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30240,
+      "type": "npc",
+      "name": "Agloush",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agloush"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 8
+    },
+    {
+      "id": 30241,
+      "type": "npc",
+      "name": "Agsar Ironaxe",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/agsar-ironaxe"
+      ],
+      "zones": [
+        "Dargun's Tomb"
+      ],
+      "level": 35
+    },
+    {
+      "id": 30242,
+      "type": "npc",
+      "name": "Ah Fong",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ah-fong"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30243,
+      "type": "npc",
+      "name": "Ahkkrabi Hemorah",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahkkrabi-hemorah"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30244,
+      "type": "npc",
+      "name": "Ahkrabi Hemorah",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ahkrabi-hemorah"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 35
+    },
+    {
+      "id": 30245,
+      "type": "npc",
+      "name": "Ainsley Heath",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ainsley-heath"
+      ],
+      "zones": [
+        "Wardship Of The Sleeping Moon"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30246,
+      "type": "npc",
+      "name": "Akaniaber Ishraqi",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akaniaber-ishraqi"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30247,
+      "type": "npc",
+      "name": "Akanidad Kematnas",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akanidad-kematnas"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30248,
+      "type": "npc",
+      "name": "Akkar Nesh",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akkar-nesh"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ],
+      "level": 30
+    },
+    {
+      "id": 30249,
+      "type": "npc",
+      "name": "Akorash",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/akorash"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 25
+    },
+    {
+      "id": 30250,
+      "type": "npc",
+      "name": "Alad Jakarre",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alad-jakarre"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 30
+    },
+    {
+      "id": 30251,
+      "type": "npc",
+      "name": "Alakrus",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alakrus"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30252,
+      "type": "npc",
+      "name": "Alakrus Dei",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alakrus-dei"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ]
+    },
+    {
+      "id": 30253,
+      "type": "npc",
+      "name": "Alaldra Nedri",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alaldra-nedri"
+      ],
+      "zones": [
+        "Zarabadi Landing"
+      ]
+    },
+    {
+      "id": 30254,
+      "type": "npc",
+      "name": "Alandria",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alandria"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 28
+    },
+    {
+      "id": 30255,
+      "type": "npc",
+      "name": "Alaqua Danawanes",
+      "file": "raw\\2026-10-14-101434-245104-archive-bulk\\npc.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/alaqua-danawanes"
+      ],
+      "zones": []
     }
   ],
   "by_name": {
@@ -550465,6 +554007,696 @@
     ],
     "npc:advisor ma´ax": [
       30025
+    ],
+    "creature:advisor ogguxtox": [
+      30026
+    ],
+    "creature:advisor peashale": [
+      30027
+    ],
+    "creature:advisor rikkle": [
+      30028
+    ],
+    "creature:advisor selenax": [
+      30029
+    ],
+    "creature:advisor selikzer": [
+      30030
+    ],
+    "creature:advisor shahab": [
+      30031
+    ],
+    "creature:advisor shazor": [
+      30032
+    ],
+    "creature:advisor sprig": [
+      30033
+    ],
+    "creature:advisor telqo": [
+      30034
+    ],
+    "creature:advisor waediqu": [
+      30035
+    ],
+    "creature:aedorwen gladesworn": [
+      30036
+    ],
+    "creature:aegache cobra": [
+      30037
+    ],
+    "creature:aegache creeper": [
+      30038
+    ],
+    "creature:aegache enlarged cobra": [
+      30039
+    ],
+    "creature:aegache sand fiend": [
+      30040
+    ],
+    "creature:aegache scorpion": [
+      30041
+    ],
+    "creature:aegache tortoise": [
+      30042
+    ],
+    "creature:aelbyel gladesworn": [
+      30043
+    ],
+    "creature:aelehsk gladesworn": [
+      30044
+    ],
+    "creature:aelehsul gladesworn": [
+      30045
+    ],
+    "creature:aelgran gladesworn": [
+      30046
+    ],
+    "creature:aelgya gladesworn": [
+      30047
+    ],
+    "creature:aelharn briarborn": [
+      30048
+    ],
+    "creature:aeliglda leafsgreen": [
+      30049
+    ],
+    "creature:aelon lohr defender": [
+      30050
+    ],
+    "creature:aelon lohr spellslayer": [
+      30051
+    ],
+    "creature:aeluyola gladesworn": [
+      30052
+    ],
+    "creature:aenethil": [
+      30053
+    ],
+    "creature:aeokor assassin": [
+      30054
+    ],
+    "creature:aeokor battle rager": [
+      30055
+    ],
+    "creature:aeokor battleseer": [
+      30056
+    ],
+    "creature:aeokor betrayer": [
+      30057
+    ],
+    "creature:aeokor bladewright": [
+      30058
+    ],
+    "creature:aeokor bowdancer": [
+      30059
+    ],
+    "creature:aeokor dreadweaver": [
+      30060
+    ],
+    "creature:aeokor frightsworn": [
+      30061
+    ],
+    "creature:aeokor frostweaver": [
+      30062
+    ],
+    "creature:aeokor glitterstorm": [
+      30063
+    ],
+    "creature:aeokor ice wielder": [
+      30064
+    ],
+    "creature:aeokor infiltrator": [
+      30065
+    ],
+    "creature:aeokor lucent": [
+      30066
+    ],
+    "creature:aeokor mercenary": [
+      30067
+    ],
+    "creature:aeokor purifier": [
+      30068
+    ],
+    "creature:aeokor resplendent": [
+      30069
+    ],
+    "creature:aeokor sadist": [
+      30070
+    ],
+    "creature:aeokor sawbone": [
+      30071
+    ],
+    "creature:aeokor scout": [
+      30072
+    ],
+    "creature:aeokor sheerborn": [
+      30073
+    ],
+    "creature:aeokor siege defender": [
+      30074
+    ],
+    "creature:aeokor siege worker": [
+      30075
+    ],
+    "creature:aeokor spellflare": [
+      30076
+    ],
+    "creature:aeokor storekeeper": [
+      30077
+    ],
+    "creature:aeokor strategist": [
+      30078
+    ],
+    "creature:aeokor supply chest": [
+      30079
+    ],
+    "creature:aeokor supply officer": [
+      30080
+    ],
+    "creature:aeokor unicorn exploiter": [
+      30081
+    ],
+    "creature:aeokor unicorn herdsman": [
+      30082
+    ],
+    "creature:aeokor unicorn tamer": [
+      30083
+    ],
+    "creature:aeokor vectionary": [
+      30084
+    ],
+    "creature:aeokor vector": [
+      30085
+    ],
+    "creature:aeokor war mender": [
+      30086
+    ],
+    "creature:aeokor warmonger": [
+      30087
+    ],
+    "creature:aeokor warsworn": [
+      30088
+    ],
+    "creature:aeralyn gladesworn": [
+      30089
+    ],
+    "creature:aerlund hulmabrund": [
+      30090
+    ],
+    "creature:aeryl averlorn": [
+      30091
+    ],
+    "creature:affected aukmeb scuttler": [
+      30092
+    ],
+    "creature:afflicted watch": [
+      30093
+    ],
+    "creature:afsaneh alam": [
+      30094
+    ],
+    "creature:agar great stag": [
+      30095
+    ],
+    "creature:agar stag": [
+      30096
+    ],
+    "creature:age-old behemoth": [
+      30097
+    ],
+    "creature:aged barbback": [
+      30098
+    ],
+    "creature:aged birch treebark": [
+      30099
+    ],
+    "creature:aged cave bear": [
+      30100
+    ],
+    "creature:aged ettercap": [
+      30101
+    ],
+    "creature:aged maple treebark": [
+      30102
+    ],
+    "creature:aged maplelynn treant": [
+      30103
+    ],
+    "creature:aged oak tree": [
+      30104
+    ],
+    "creature:aged oak treebark": [
+      30105
+    ],
+    "creature:aged pine tree": [
+      30106
+    ],
+    "creature:aged root": [
+      30107
+    ],
+    "creature:aged tree bark": [
+      30108
+    ],
+    "creature:agela veaton": [
+      30109
+    ],
+    "creature:ageless eidolon": [
+      30110
+    ],
+    "creature:ageless watcher": [
+      30111
+    ],
+    "creature:agen nargolok": [
+      30112
+    ],
+    "creature:agent adel": [
+      30113
+    ],
+    "creature:agent draria": [
+      30114
+    ],
+    "creature:agent epcorp": [
+      30115
+    ],
+    "creature:agent ezima": [
+      30116
+    ],
+    "creature:agent glod": [
+      30117
+    ],
+    "creature:agent gyrodehn": [
+      30118
+    ],
+    "loot:advisor selikzer": [
+      30119
+    ],
+    "loot:aegache enlarged cobra": [
+      30120
+    ],
+    "loot:aegache tortoise": [
+      30121
+    ],
+    "loot:aeokor assassin": [
+      30122
+    ],
+    "loot:aeokor purifier": [
+      30123
+    ],
+    "loot:aeokor sawbone": [
+      30124
+    ],
+    "loot:aeokor supply chest": [
+      30125
+    ],
+    "loot:aeokor warmonger": [
+      30126
+    ],
+    "loot:afflicted watch": [
+      30127
+    ],
+    "loot:agar great stag": [
+      30128
+    ],
+    "loot:agar stag": [
+      30129
+    ],
+    "loot:aged oak tree": [
+      30130
+    ],
+    "loot:aged pine tree": [
+      30131
+    ],
+    "loot:aged root": [
+      30132
+    ],
+    "merchant:adyn larem": [
+      30133
+    ],
+    "merchant:aedina wintersturn": [
+      30134
+    ],
+    "npc:adyinn targonor iii": [
+      30135
+    ],
+    "npc:adyn larem": [
+      30136
+    ],
+    "npc:aedina wintersturn": [
+      30137
+    ],
+    "npc:aelanon": [
+      30138
+    ],
+    "npc:aerlund goldhammer": [
+      30139
+    ],
+    "npc:agent genaro": [
+      30140
+    ],
+    "npc:agent goreano": [
+      30141
+    ],
+    "creature:akande the butcher": [
+      30142
+    ],
+    "creature:al'heffel": [
+      30143
+    ],
+    "creature:al'jaarel": [
+      30144
+    ],
+    "creature:alagan the dragon slayer": [
+      30145
+    ],
+    "creature:agent iverls": [
+      30146
+    ],
+    "creature:agent kelcin": [
+      30147
+    ],
+    "creature:agent mulp": [
+      30148
+    ],
+    "creature:agent nanaba": [
+      30149
+    ],
+    "creature:agent narglok's assistant": [
+      30150
+    ],
+    "creature:agent nomel": [
+      30151
+    ],
+    "creature:agent nyxo": [
+      30152
+    ],
+    "creature:agent odapep": [
+      30153
+    ],
+    "creature:agent of kaon": [
+      30154
+    ],
+    "creature:agent pepla": [
+      30155
+    ],
+    "creature:agent pugyms": [
+      30156
+    ],
+    "creature:agent rango": [
+      30157
+    ],
+    "creature:agent rebry": [
+      30158
+    ],
+    "creature:agent slevir": [
+      30159
+    ],
+    "creature:agent spalery": [
+      30160
+    ],
+    "creature:agent tanger": [
+      30161
+    ],
+    "creature:agent tegran": [
+      30162
+    ],
+    "creature:agent tsirik": [
+      30163
+    ],
+    "creature:agent vilers": [
+      30164
+    ],
+    "creature:aggara dar'fel": [
+      30165
+    ],
+    "creature:aggarax kar": [
+      30166
+    ],
+    "creature:aggresive herder": [
+      30167
+    ],
+    "creature:agitated dracosnap": [
+      30168
+    ],
+    "creature:agitated pincher": [
+      30169
+    ],
+    "creature:agnarish": [
+      30170
+    ],
+    "creature:agnarish the stormbringer": [
+      30171
+    ],
+    "creature:agragar the crazed": [
+      30172
+    ],
+    "creature:agrovale litefingers": [
+      30173
+    ],
+    "creature:agzar daypo": [
+      30174
+    ],
+    "creature:ahdorelic'lar": [
+      30175
+    ],
+    "creature:ahgram soldier hostage": [
+      30176
+    ],
+    "creature:ahklaten": [
+      30177
+    ],
+    "creature:ahnd'ka royal guard": [
+      30178
+    ],
+    "creature:ahnd'ka summoning pillar": [
+      30179
+    ],
+    "creature:ahou atakan": [
+      30180
+    ],
+    "creature:ahzali": [
+      30181
+    ],
+    "creature:ahzek the templar": [
+      30182
+    ],
+    "creature:ahzem": [
+      30183
+    ],
+    "creature:aiamdor gladesworn": [
+      30184
+    ],
+    "creature:aiaran gladesworn": [
+      30185
+    ],
+    "creature:aide ahkanu": [
+      30186
+    ],
+    "creature:aide ahkmat": [
+      30187
+    ],
+    "creature:aide khnat": [
+      30188
+    ],
+    "creature:aide nemeb": [
+      30189
+    ],
+    "creature:aieil gladesworn": [
+      30190
+    ],
+    "creature:aigra": [
+      30191
+    ],
+    "creature:aiko mahdavi-kia": [
+      30192
+    ],
+    "creature:ainsley": [
+      30193
+    ],
+    "creature:airblast gremlin": [
+      30194
+    ],
+    "creature:ajadeh deleho": [
+      30195
+    ],
+    "creature:ajrid dranamouhk": [
+      30196
+    ],
+    "creature:ak'ar, servitor of alumar": [
+      30197
+    ],
+    "creature:akaniji jin": [
+      30198
+    ],
+    "creature:akanya greenwood": [
+      30199
+    ],
+    "creature:akar nopenfel": [
+      30200
+    ],
+    "creature:akaran dwarfsbane": [
+      30201
+    ],
+    "creature:akers bandfield": [
+      30202
+    ],
+    "creature:akheta": [
+      30203
+    ],
+    "creature:akhu qazai": [
+      30204
+    ],
+    "creature:aki cho": [
+      30205
+    ],
+    "creature:aki-li": [
+      30206
+    ],
+    "creature:akkaruas": [
+      30207
+    ],
+    "creature:akko'rat afflictionist": [
+      30208
+    ],
+    "creature:akoa": [
+      30209
+    ],
+    "creature:akoresh": [
+      30210
+    ],
+    "creature:akrisna": [
+      30211
+    ],
+    "creature:akujah": [
+      30212
+    ],
+    "creature:akym the assassin": [
+      30213
+    ],
+    "creature:al'darez bonedancer": [
+      30214
+    ],
+    "creature:al'darez death knight": [
+      30215
+    ],
+    "creature:al'darez soldier": [
+      30216
+    ],
+    "creature:al'darez templar": [
+      30217
+    ],
+    "creature:alabi haukapa": [
+      30218
+    ],
+    "creature:alad's supply crate": [
+      30219
+    ],
+    "creature:alagosiril halnu": [
+      30220
+    ],
+    "creature:alandrel the transcended": [
+      30221
+    ],
+    "creature:alanil": [
+      30222
+    ],
+    "creature:alanso the fearless": [
+      30223
+    ],
+    "creature:alaqua": [
+      30224
+    ],
+    "loot:akande the butcher": [
+      30225
+    ],
+    "loot:alagan the dragon slayer": [
+      30226
+    ],
+    "loot:agnarish": [
+      30227
+    ],
+    "loot:ahzali": [
+      30228
+    ],
+    "loot:ahzek the templar": [
+      30229
+    ],
+    "loot:aigra": [
+      30230
+    ],
+    "loot:akaran dwarfsbane": [
+      30231
+    ],
+    "loot:akkaruas": [
+      30232
+    ],
+    "loot:akko'rat afflictionist": [
+      30233
+    ],
+    "loot:akrisna": [
+      30234
+    ],
+    "loot:akym the assassin": [
+      30235
+    ],
+    "merchant:agloush": [
+      30236
+    ],
+    "merchant:ah fong": [
+      30237
+    ],
+    "merchant:akanidad kematnas": [
+      30238
+    ],
+    "npc:agent narglok": [
+      30239
+    ],
+    "npc:agloush": [
+      30240
+    ],
+    "npc:agsar ironaxe": [
+      30241
+    ],
+    "npc:ah fong": [
+      30242
+    ],
+    "npc:ahkkrabi hemorah": [
+      30243
+    ],
+    "npc:ahkrabi hemorah": [
+      30244
+    ],
+    "npc:ainsley heath": [
+      30245
+    ],
+    "npc:akaniaber ishraqi": [
+      30246
+    ],
+    "npc:akanidad kematnas": [
+      30247
+    ],
+    "npc:akkar nesh": [
+      30248
+    ],
+    "npc:akorash": [
+      30249
+    ],
+    "npc:alad jakarre": [
+      30250
+    ],
+    "npc:alakrus": [
+      30251
+    ],
+    "npc:alakrus dei": [
+      30252
+    ],
+    "npc:alaldra nedri": [
+      30253
+    ],
+    "npc:alandria": [
+      30254
+    ],
+    "npc:alaqua danawanes": [
+      30255
     ]
   },
   "by_kind": {
@@ -550753,7 +554985,183 @@
       30013,
       30014,
       30015,
-      30016
+      30016,
+      30026,
+      30027,
+      30028,
+      30029,
+      30030,
+      30031,
+      30032,
+      30033,
+      30034,
+      30035,
+      30036,
+      30037,
+      30038,
+      30039,
+      30040,
+      30041,
+      30042,
+      30043,
+      30044,
+      30045,
+      30046,
+      30047,
+      30048,
+      30049,
+      30050,
+      30051,
+      30052,
+      30053,
+      30054,
+      30055,
+      30056,
+      30057,
+      30058,
+      30059,
+      30060,
+      30061,
+      30062,
+      30063,
+      30064,
+      30065,
+      30066,
+      30067,
+      30068,
+      30069,
+      30070,
+      30071,
+      30072,
+      30073,
+      30074,
+      30075,
+      30076,
+      30077,
+      30078,
+      30079,
+      30080,
+      30081,
+      30082,
+      30083,
+      30084,
+      30085,
+      30086,
+      30087,
+      30088,
+      30089,
+      30090,
+      30091,
+      30092,
+      30093,
+      30094,
+      30095,
+      30096,
+      30097,
+      30098,
+      30099,
+      30100,
+      30101,
+      30102,
+      30103,
+      30104,
+      30105,
+      30106,
+      30107,
+      30108,
+      30109,
+      30110,
+      30111,
+      30112,
+      30113,
+      30114,
+      30115,
+      30116,
+      30117,
+      30118,
+      30142,
+      30143,
+      30144,
+      30145,
+      30146,
+      30147,
+      30148,
+      30149,
+      30150,
+      30151,
+      30152,
+      30153,
+      30154,
+      30155,
+      30156,
+      30157,
+      30158,
+      30159,
+      30160,
+      30161,
+      30162,
+      30163,
+      30164,
+      30165,
+      30166,
+      30167,
+      30168,
+      30169,
+      30170,
+      30171,
+      30172,
+      30173,
+      30174,
+      30175,
+      30176,
+      30177,
+      30178,
+      30179,
+      30180,
+      30181,
+      30182,
+      30183,
+      30184,
+      30185,
+      30186,
+      30187,
+      30188,
+      30189,
+      30190,
+      30191,
+      30192,
+      30193,
+      30194,
+      30195,
+      30196,
+      30197,
+      30198,
+      30199,
+      30200,
+      30201,
+      30202,
+      30203,
+      30204,
+      30205,
+      30206,
+      30207,
+      30208,
+      30209,
+      30210,
+      30211,
+      30212,
+      30213,
+      30214,
+      30215,
+      30216,
+      30217,
+      30218,
+      30219,
+      30220,
+      30221,
+      30222,
+      30223,
+      30224
     ],
     "item": [
       13,
@@ -550940,7 +555348,32 @@
       30017,
       30018,
       30019,
-      30020
+      30020,
+      30119,
+      30120,
+      30121,
+      30122,
+      30123,
+      30124,
+      30125,
+      30126,
+      30127,
+      30128,
+      30129,
+      30130,
+      30131,
+      30132,
+      30225,
+      30226,
+      30227,
+      30228,
+      30229,
+      30230,
+      30231,
+      30232,
+      30233,
+      30234,
+      30235
     ],
     "npc": [
       24,
@@ -552282,7 +556715,31 @@
       30022,
       30023,
       30024,
-      30025
+      30025,
+      30135,
+      30136,
+      30137,
+      30138,
+      30139,
+      30140,
+      30141,
+      30239,
+      30240,
+      30241,
+      30242,
+      30243,
+      30244,
+      30245,
+      30246,
+      30247,
+      30248,
+      30249,
+      30250,
+      30251,
+      30252,
+      30253,
+      30254,
+      30255
     ],
     "quest": [
       45,
@@ -580501,7 +584958,12 @@
       21042,
       23249,
       29734,
-      30021
+      30021,
+      30133,
+      30134,
+      30236,
+      30237,
+      30238
     ],
     "recipe": [
       419,
@@ -581253,7 +585715,8 @@
       29633,
       29646,
       29751,
-      29798
+      29798,
+      30249
     ],
     "Ca'ial Brael": [
       5,
@@ -581372,7 +585835,19 @@
       29995,
       29999,
       30007,
-      30010
+      30010,
+      30028,
+      30033,
+      30043,
+      30047,
+      30048,
+      30052,
+      30089,
+      30134,
+      30137,
+      30138,
+      30185,
+      30190
     ],
     "Fathesi Coast": [
       37,
@@ -581541,7 +586016,12 @@
       30015,
       30016,
       30024,
-      30025
+      30025,
+      30026,
+      30029,
+      30032,
+      30095,
+      30096
     ],
     "Lomshir": [
       51,
@@ -581697,7 +586177,12 @@
       29846,
       29906,
       29920,
-      29989
+      29989,
+      30081,
+      30082,
+      30083,
+      30179,
+      30196
     ],
     "Gaxton Village · Martok": [
       67,
@@ -581938,7 +586423,13 @@
       29625,
       29651,
       29882,
-      29902
+      29902,
+      30110,
+      30111,
+      30219,
+      30244,
+      30250,
+      30252
     ],
     "Cragwind Ridge": [
       101,
@@ -582012,7 +586503,9 @@
       29756,
       29810,
       29905,
-      29985
+      29985,
+      30097,
+      30248
     ],
     "Hathor Zhi": [
       102,
@@ -582150,7 +586643,31 @@
       29652,
       29659,
       29692,
-      29697
+      29697,
+      30054,
+      30055,
+      30056,
+      30058,
+      30059,
+      30060,
+      30061,
+      30062,
+      30063,
+      30064,
+      30066,
+      30067,
+      30069,
+      30071,
+      30073,
+      30074,
+      30075,
+      30076,
+      30078,
+      30079,
+      30080,
+      30086,
+      30087,
+      30088
     ],
     "Jalen's Crossing": [
       103,
@@ -582180,7 +586697,12 @@
       29065,
       29328,
       29621,
-      29759
+      29759,
+      30046,
+      30049,
+      30184,
+      30194,
+      30221
     ],
     "Kaon's Rush": [
       104,
@@ -582272,7 +586794,8 @@
       29647,
       29648,
       29660,
-      29717
+      29717,
+      30191
     ],
     "Ksaravi Gulch": [
       105,
@@ -582394,7 +586917,9 @@
       29715,
       29757,
       29915,
-      29917
+      29917,
+      30108,
+      30176
     ],
     "Misthaven Crossing": [
       106,
@@ -582571,7 +587096,18 @@
       29691,
       29700,
       29746,
-      29804
+      29804,
+      30092,
+      30098,
+      30118,
+      30149,
+      30151,
+      30155,
+      30157,
+      30158,
+      30167,
+      30236,
+      30240
     ],
     "Renton Keep": [
       109,
@@ -582751,7 +587287,8 @@
       29467,
       29805,
       29806,
-      29807
+      29807,
+      30174
     ],
     "Silverlake": [
       111,
@@ -582897,7 +587434,8 @@
       29721,
       29819,
       29894,
-      29914
+      29914,
+      30180
     ],
     "Tauthien Delta": [
       114,
@@ -582929,7 +587467,8 @@
       29453,
       29589,
       29666,
-      29726
+      29726,
+      30169
     ],
     "The Temple Of Dailuk": [
       115,
@@ -583006,7 +587545,12 @@
       29491,
       29501,
       29612,
-      29773
+      29773,
+      30057,
+      30068,
+      30070,
+      30072,
+      30077
     ],
     "Three Rivers Village": [
       116,
@@ -583112,7 +587656,8 @@
       29346,
       29378,
       29502,
-      29684
+      29684,
+      30199
     ],
     "Wardship Of The Sleeping Moon": [
       117,
@@ -583182,7 +587727,8 @@
       27575,
       28918,
       29015,
-      29417
+      29417,
+      30245
     ],
     "Zossyr Hakrel": [
       119,
@@ -583241,7 +587787,10 @@
       13847,
       17806,
       21349,
-      29991
+      29991,
+      30034,
+      30187,
+      30189
     ],
     "Abella Cove": [
       140,
@@ -583504,7 +588053,13 @@
       29997,
       30001,
       30006,
-      30013
+      30013,
+      30027,
+      30031,
+      30035,
+      30192,
+      30238,
+      30247
     ],
     "Alyssa's Chance": [
       147,
@@ -583522,7 +588077,8 @@
       10428,
       13856,
       17815,
-      21358
+      21358,
+      30101
     ],
     "Ancient Port Warehouse": [
       149,
@@ -583554,7 +588110,9 @@
       27877,
       28662,
       28931,
-      29922
+      29922,
+      30106,
+      30213
     ],
     "Anires Point": [
       150,
@@ -583822,7 +588380,8 @@
       29762,
       29772,
       29872,
-      29879
+      29879,
+      30139
     ],
     "Brennan's Stead": [
       166,
@@ -584104,7 +588663,8 @@
       28938,
       28939,
       29096,
-      29347
+      29347,
+      30135
     ],
     "Coerti Infenium Sanctuary": [
       195,
@@ -584338,7 +588898,9 @@
       28437,
       28457,
       28837,
-      29354
+      29354,
+      30201,
+      30241
     ],
     "Dark Eye Hold": [
       213,
@@ -584403,7 +588965,8 @@
       17881,
       21424,
       25552,
-      27175
+      27175,
+      30222
     ],
     "Deeprealm Tunnels": [
       220,
@@ -584498,7 +589061,11 @@
       29792,
       29793,
       29794,
-      29795
+      29795,
+      30039,
+      30094,
+      30204,
+      30207
     ],
     "Dragons Maw": [
       227,
@@ -584507,7 +589074,8 @@
       10502,
       13930,
       17889,
-      21432
+      21432,
+      30145
     ],
     "Dreadfang Hovel": [
       228,
@@ -584895,7 +589463,9 @@
       28587,
       28660,
       28729,
-      29025
+      29025,
+      30163,
+      30239
     ],
     "Grotto of the Eyeless": [
       262,
@@ -585080,7 +589650,8 @@
       29427,
       29486,
       29730,
-      29731
+      29731,
+      30030
     ],
     "Imanjal Sacellum": [
       546,
@@ -585144,7 +589715,8 @@
       13992,
       17951,
       21494,
-      29904
+      29904,
+      30170
     ],
     "Isle Of Elionia": [
       553,
@@ -585295,7 +589867,8 @@
       29503,
       29533,
       29636,
-      29637
+      29637,
+      30211
     ],
     "Isle of Garuzamut": [
       556,
@@ -585311,7 +589884,8 @@
       10569,
       13997,
       17956,
-      21499
+      21499,
+      30171
     ],
     "Isle of Mann": [
       558,
@@ -585500,7 +590074,8 @@
       29195,
       29196,
       29197,
-      29987
+      29987,
+      30198
     ],
     "Tanvu": [
       14021,
@@ -585679,7 +590254,11 @@
       29627,
       29711,
       29901,
-      29903
+      29903,
+      30205,
+      30206,
+      30237,
+      30242
     ],
     "Tursh Village": [
       14023,
@@ -585926,7 +590505,9 @@
       29918,
       29919,
       29964,
-      29967
+      29967,
+      30091,
+      30103
     ],
     "Veskal's Exchange": [
       14036,
@@ -586070,7 +590651,8 @@
       29838,
       29839,
       29845,
-      29847
+      29847,
+      30254
     ],
     "Leth Nurae": [
       14054,
@@ -586251,7 +590833,13 @@
       29952,
       29953,
       29954,
-      29955
+      29955,
+      30050,
+      30051,
+      30053,
+      30133,
+      30136,
+      30154
     ],
     "Khal": [
       14211,
@@ -586505,7 +591093,10 @@
       29820,
       29827,
       29856,
-      29962
+      29962,
+      30173,
+      30212,
+      30246
     ],
     "Lomshir Plain": [
       14231,
@@ -586710,7 +591301,8 @@
       22497,
       22917,
       22923,
-      29456
+      29456,
+      30253
     ],
     "New Targonor": [
       21514,
@@ -586895,7 +591487,8 @@
       29704,
       29705,
       29706,
-      29758
+      29758,
+      30202
     ],
     "Jalen's Retreat": [
       22587
@@ -587185,13 +591778,32 @@
       29890,
       29892,
       29896,
-      29984
+      29984,
+      30113,
+      30114,
+      30115,
+      30116,
+      30117,
+      30140,
+      30141,
+      30146,
+      30147,
+      30148,
+      30152,
+      30153,
+      30156,
+      30159,
+      30160,
+      30161,
+      30162,
+      30164
     ],
     "Merchant": [
       22627
     ],
     "Mind's Crown": [
-      22628
+      22628,
+      30042
     ],
     "Misthaven Mines": [
       22630
@@ -587222,7 +591834,8 @@
       29118,
       29148,
       29588,
-      29718
+      29718,
+      30093
     ],
     "Oathbreaker (Red Swallow) Caves": [
       22638
@@ -587251,7 +591864,17 @@
     ],
     "Old Targonor": [
       22643,
-      25527
+      25527,
+      30142,
+      30165,
+      30175,
+      30197,
+      30200,
+      30208,
+      30214,
+      30215,
+      30216,
+      30217
     ],
     "Orcbane Mines": [
       22644
@@ -587284,7 +591907,11 @@
       29881,
       29959,
       29960,
-      29961
+      29961,
+      30065,
+      30084,
+      30085,
+      30166
     ],
     "Pantheon of the Ancients": [
       22649
@@ -587363,7 +591990,8 @@
       29270,
       29662,
       29663,
-      29817
+      29817,
+      30183
     ],
     "Ra'Jin Stronghold": [
       22658
@@ -587404,7 +592032,9 @@
       29683,
       29885,
       29947,
-      29956
+      29956,
+      30181,
+      30182
     ],
     "Rakshasa Citadel": [
       22661
@@ -587574,7 +592204,8 @@
       29090,
       29091,
       29509,
-      29883
+      29883,
+      30172
     ],
     "Ruins Of Vol Tuniel Lower Level": [
       22682
@@ -587597,7 +592228,10 @@
       29153,
       29170,
       29179,
-      29377
+      29377,
+      30099,
+      30102,
+      30105
     ],
     "Sample Dungeon": [
       22686
@@ -587616,7 +592250,10 @@
       28969,
       29157,
       29464,
-      29921
+      29921,
+      30104,
+      30143,
+      30144
     ],
     "Scorpion cave": [
       22688
@@ -587628,7 +592265,11 @@
       22690
     ],
     "Seawatch Cove": [
-      22692
+      22692,
+      30037,
+      30038,
+      30040,
+      30041
     ],
     "Sepulchral Chasm": [
       22693,
@@ -587647,7 +592288,8 @@
     "Shaletooth Tower": [
       22697,
       26305,
-      28593
+      28593,
+      30090
     ],
     "Shaman's Glade": [
       22698,
@@ -587830,7 +592472,8 @@
       22722
     ],
     "Stiirhad": [
-      22723
+      22723,
+      30107
     ],
     "Stonefist Scarp": [
       22724
@@ -587900,7 +592543,8 @@
       28031,
       28041,
       28178,
-      28308
+      28308,
+      30178
     ],
     "Swamps Of Rumug": [
       22732,
@@ -587982,7 +592626,10 @@
       29023,
       29216,
       29394,
-      29657
+      29657,
+      30036,
+      30044,
+      30045
     ],
     "Tehatamani Empire": [
       22738
@@ -588051,7 +592698,10 @@
     "Temple Of Tehatamani": [
       22741,
       29993,
-      30005
+      30005,
+      30177,
+      30186,
+      30188
     ],
     "Temple of Ghalnn": [
       22742
@@ -588213,7 +592863,8 @@
       29483,
       29655,
       29656,
-      29988
+      29988,
+      30209
     ],
     "The Velerium Mines": [
       22765
@@ -588222,14 +592873,16 @@
       22766,
       28943,
       29583,
-      29693
+      29693,
+      30109
     ],
     "Thelaseen": [
       22767,
       28038,
       28059,
       29727,
-      29923
+      29923,
+      30223
     ],
     "Thelaseen: Lair of the Drake Riders": [
       22768
@@ -588347,7 +593000,8 @@
       29570,
       29743,
       29744,
-      29958
+      29958,
+      30100
     ],
     "Vault of the Hidden": [
       22794
