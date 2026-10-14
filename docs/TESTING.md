@@ -62,7 +62,7 @@ Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, n
 | Combat-form recovery bar | ✅ | Seen 2026-10-13 on a Psionicist: choosing a mindset darkens all three form icons for a moment and rings the chosen one in blue. |
 | Caster energy | ✅ | Seen 2026-10-13: a Sorcerer casting See Invisibility I drains the blue energy bar; endurance stays full. |
 | Raid of 24 | ✅ (bots) | 2026-10-14: the real client (Ranger) invited 23 load-test bots (`tools/loadtest.py --auto-accept`) and made a raid: "Raid of 24 led by Ranger; raid groups: 1: 6, 2: 6, 3: 6, 4: 6" (`!groupinfo`), every join shown in chat, the group window filled, `/readycheck` answered "You have requested a raid ready check.". Still for people: what the other members see, and raid loot. |
-| Caravan login | 👤 | Join a caravan, stay offline 3+ hours, log in. Expect to appear at the caravan. Never waited out the real 3 hours. |
+| Caravan login | ✅ | 2026-10-14: a caravan (Ranger leading, Justins a member) written to the database and Justins' last logout set 4 hours back (`storage.py set`). Pressing Play showed the client's own "Caravan options" popup (0 s left); "Go to caravan's last location" sent Play mode 3 and Justins entered the world at the caravan's spot by the camp riftway instead of his own saved place. |
 | Feel of the numbers | 👤 | XP per kill, damage, health, regen, prices. All placeholders (docs/CONTENT_EDITOR.md); someone who played the game should say what feels wrong. |
 
 ## Race and class pass

@@ -34,10 +34,10 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 - Psionic points, civic stats display: no window in the shipped UI (`/citystatus` lists civic stats in chat).
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
-- Caravan login after a real 3 hours offline. (A raid of 24 was checked with 23 bots.)
 
 ## Done
 
+- 2026-10-14: Caravan login verified (last logout set 4 h back in the database): the client's Caravan options popup, then entering the world at the caravan's location.
 - 2026-10-14: Raid of 24 tested with the real client leading 23 load-test bots (loadtest --auto-accept): four raid groups of 6, ready check. New dev command !groupinfo.
 - 2026-10-14: Bank, mail and broker sessions end (and their windows close) when the player walks more than 1500 units from the banker, mailbox or broker; the bank also checks range when it opens. Verified live.
 - 2026-10-14: Server capacity, second round: fixed a resend storm (RTT-based timeout, rationed resends), NPC movement batched like players, spatial grid for movement, crowd thinning, SQL lookups by account/name. One zone now holds ~200 moving players spread over a chunk (steady p95 11 ms at 150) or ~100 in one spot; numbers in docs/TESTING.md. Verified: smoke test PASS; a chasing Canyon Widow still follows the player in the real client.
