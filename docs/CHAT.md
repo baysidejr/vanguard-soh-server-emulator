@@ -116,3 +116,11 @@ FUN_0041af60 line/echo-with-receiver formatter; FUN_0041b5a0 echo formatter; FUN
 FUN_00621d60 zone 0x0f formatter (3/5 only); FUN_005fc6a0 C->S command send; FUN_0060e790 tell builder;
 FUN_004a0930 /N; FUN_004a0c20 list channels; FUN_004a1bc0 add channel; FUN_00612700 /emote (0x314);
 FUN_006127e0 /social -> FUN_004d08d0 (0x313); FUN_007f3640 ability id -> package.
+
+## Item and player links (static analysis, not implemented)
+
+Chat text is markup. The tag table (FUN_00cb2e10) registers `item` (type 0x12), `/item` and `/link` (0x14, closing tags) and `pcname` (0x13), besides `color`, `size`, `align`, `indent`, `nl`, `image`, `highlight`, `tab`, `key`, `gamevar`/`gv` and `visibilitygamevar`/`vgv`.
+
+- The client writes item links itself as `<item=%i:%i::%i:%i:%i:%i:%i:%s>%s</link>` (FUN_00cde960): the item's template id first, then numbers from the item (FUN_00513be0) and its name. It does this for its own "You loot ..." lines (FUN_00522920) and when you link an item into chat (FUN_00692820).
+- Clicking an item link in the chat window runs `/itemlinkrequest <link text>` (FUN_00c7c590), which sends zone event **0x158 {wstr}**. Clicking a `<pcname>` runs `/tell <name> ` (left) or `/showpccontextwindow <name>` (right).
+- Still unknown: the server's answer to 0x158 (presumably the item's record for the examine window). Until then the server ignores 0x158; links still show and can be sent to others, since chat relays the text unchanged.

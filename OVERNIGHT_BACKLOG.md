@@ -27,7 +27,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 - 2026-10-13: Login smoke test runs all 13 zone-login hooks, and a guard test fails if a new hook is added without it. Mail sending re-checked live after the item-restriction changes.
 - 2026-10-13: Form recovery bar confirmed on screen with a Psionicist test character; form lost on death and re-applied on release verified live. `!die` dev command.
-- Parked: item links in chat (/itemlinkrequest 0x158 {wstr link}): needs the chat markup for SGOUITagItemLink and the server's reply format.
+- Parked: item links in chat. Markup and click path found (docs/CHAT.md); the server's reply to 0x158 is still unknown.
 - 2026-10-13: /forcecombatstance (0x571) and /applyformondeath (0x5b2); death now ends the active form.
 - 2026-10-13: /decksave, /deckload, /deckclear (0x33a-0x33c) diplomacy deck presets, verified live. docs/CLIENT_REQUESTS.md now names the slash command behind each unhandled request.
 - 2026-10-13: Crafting items use the client's Crafting Resource / Crafting Component item types instead of misc.
