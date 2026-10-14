@@ -27,6 +27,7 @@ class World:
         self.npcs = {}           # entity id -> combat.Npc (shared by every player)
         self.populated = False   # content spawns created
         self.members = {}        # player entity id -> zone connection state
+        self.grid = {}           # (cell x, cell y) -> {id(state): state}, see grid_move
 
     def players(self):
         return [s["player"] for s in self.members.values() if s.get("player") is not None]
@@ -76,6 +77,44 @@ def flush_bunches(unreal_message):
             bits += size
         if batch:
             state["send"](unreal_message(state["ue"].build(batch)))
+
+
+GRID_CELL = 12000.0         # the far movement tier starts here (zone.MOVE_RATE_TIERS)
+
+
+def cell_of(pos):
+    return int(pos[0] // GRID_CELL), int(pos[1] // GRID_CELL)
+
+
+def grid_move(w, state, pos):
+    """Keep a member's grid cell up to date (only movement looks at the grid)."""
+    if pos is None:
+        return
+    c = cell_of(pos)
+    old = state.get("grid_cell")
+    if old == c and state.get("grid_world") is w:
+        return
+    grid_remove(state)
+    w.grid.setdefault(c, {})[id(state)] = state
+    state["grid_cell"], state["grid_world"] = c, w
+
+
+def grid_remove(state):
+    w, c = state.pop("grid_world", None), state.pop("grid_cell", None)
+    if w is not None and c in w.grid:
+        w.grid[c].pop(id(state), None)
+        if not w.grid[c]:
+            del w.grid[c]
+
+
+def near_members(w, pos):
+    """Members in the 3x3 grid cells around pos (everyone within GRID_CELL, and some more)."""
+    cx, cy = cell_of(pos)
+    for dx in (-1, 0, 1):
+        for dy in (-1, 0, 1):
+            cell = w.grid.get((cx + dx, cy + dy))
+            if cell:
+                yield from list(cell.values())
 
 
 def channel_for(state, entity_id, allocate=False):

@@ -23,7 +23,21 @@ All bots crowd the camp (within about 1400 units), so every move goes to every o
 
 What made the difference (found with cProfile under load): packet bits are packed in one integer instead of a bit list; net-field and object lookups are cached; the encoded property update and the pawn open payload are reused for every recipient; movement goes out as unreliable bunches queued per connection and sent 20 times a second, many to a packet; the loop drains every waiting packet per wake-up; position prints follow `--quiet-packets`; the database connection stays open. Verified with two real clients afterwards: the other player's walking (and walking back into view) shows as before.
 
-Still open: the cost grows with the square of the players in one place (150 in one spot saturate one core).
+**Second round (later on 2026-10-14).** Steady-state figures (pings from 5 s after the last bot joined, so the join burst is left out; `--spread 40000` spreads the bots over the chunk, 400 is a crowd at the camp):
+
+| Bots | Where | Steady ping median / p95 |
+|---|---|---|
+| 100 | crowd | 10.5 ms / 11.4 ms |
+| 150 | crowd | 3.2 s / 4.1 s (saturated) |
+| 150 | spread | 10.6 ms / 11.2 ms |
+| 200 | spread | 10.6 ms / 1.4 s (near the limit) |
+| 250 | spread | 4.9 s / 11.4 s (saturated) |
+
+What changed since the first round: a resend storm was found and fixed (an overloaded server read acknowledgements late, resent packets that had arrived and fell further behind; the resend timeout now follows each connection's measured round trip, at least 1 s, and resends are rationed per connection and per tick); NPC movement uses the same batched path as players (encoded once, unreliable bunches; distant viewers get moving steps less often, stops always); players are kept in a 12000-unit grid so a movement update only visits nearby viewers (everyone on every 10th update); in a dense crowd each viewer gets every kth update; characters are looked up by account and name in SQL (an indexed column) instead of reading every character on each login.
+
+The load test itself had to behave like a real client before the numbers meant anything: one account per bot (one shared account listed hundreds of characters on every login), acknowledgements batched every 100 ms (one per packet flooded the server with acknowledgements), and resends of the bots' own packets. The server logs `!!! load` (how late pings arrive, packets read, idle time) and `!!! network` (send buffer full, client packets after a lost one) when it falls behind.
+
+So one zone process holds about 200 moving players spread over a chunk, or about 100 in one spot. Beyond that it needs a faster encoder (the per-bunch Python work dominates) or more processes (one per chunk).
 
 **Packet loss.** `--drop 0.1` makes every bot ignore 10% of the server's reliable packets (no acknowledgement, as if lost; bots deliver in order and send Ack1 after a gap, like UdpLibrary). With the server's resends (docs/PROTOCOL.md) 10 of 10 bots logged in (login median 2.9 s instead of 0.1 s) and the ping median stayed at 12 ms (p95 372 ms); at 2% loss p95 is 181 ms.
 

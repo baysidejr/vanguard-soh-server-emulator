@@ -40,6 +40,8 @@ ACCOUNT = "loadtest"
 BOT_PREFIX = "Lbot"
 CHARACTERS_FILE = MAIN_CHARACTERS_FILE = os.path.join(ROOT, "server", "characters.json")
 PC_CHANNEL = 1
+ACK_INTERVAL = 0.1          # seconds between a bot's acknowledgements
+GAPS = [0]                  # server packets that arrived after a missing one
 DROP = 0.0                  # share of incoming reliable packets ignored (--drop)
 CAMP = (-31000.0, -5500.0, 460.0)
 
@@ -52,52 +54,54 @@ def bot_name(i):
 
 # --- setup ---------------------------------------------------------------------------------
 
+def bot_account(i):
+    """Each bot has its own account (as real players do: a login lists only that account's
+    characters). Password login is disabled for them (an empty hash never matches); they log in
+    with their launcher token."""
+    return "lbot_" + bot_name(i)[len(BOT_PREFIX):]
+
+
+def bot_token(i=0):
+    return f"LB{i:06d}"
+
+
+def is_bot_account(name):
+    return name.startswith("lbot_") or name == ACCOUNT
+
+
 def setup(n, template_name):
     chars = storage.read_characters(CHARACTERS_FILE)
     template = next((c for c in chars + storage.read_characters(MAIN_CHARACTERS_FILE)
                      if c["first"] == template_name), None)
     if template is None:
         sys.exit(f"No character named {template_name} to copy.")
-    if ACCOUNT not in accounts.load()["accounts"]:
-        err = accounts.create(ACCOUNT, secrets.token_hex(16))
-        if err:
-            sys.exit(err)
-    token = find_token() or str(random.randint(30000000, 99999999))
-    err = accounts.set_token(ACCOUNT, token)
-    if err:
-        sys.exit(err)
-    keep = [c for c in chars if c.get("account") != ACCOUNT]
+    data = accounts.load()
+    now = int(time.time())
+    for i in range(n):
+        acc = bot_account(i)
+        data["accounts"][acc] = {"name": acc, "salt": "", "hash": "", "iterations": 1, "created": now}
+        data["launcher_tokens"][bot_token(i)] = acc
+    accounts.save(data)
+    keep = [c for c in chars if not is_bot_account(c.get("account") or "")]
     for i in range(n):
         c = {k: v for k, v in template.items() if k not in ("id", "guild", "brotherhood", "bound", "house")}
         ang = 2 * 3.14159 * i / max(n, 1)
-        c.update(first=bot_name(i), last="", account=ACCOUNT,
+        c.update(first=bot_name(i), last="", account=bot_account(i),
                  position=[CAMP[0] + 300 * math.cos(ang), CAMP[1] + 300 * math.sin(ang), CAMP[2]])
         keep.append(c)
     storage.write_characters(CHARACTERS_FILE, keep)
-    print(f"Account {ACCOUNT!r} with {n} characters; launcher token {token}")
-    return token
+    print(f"{n} bot accounts (lbot_...) with one character each; launcher tokens {bot_token(0)}...")
 
 
 def cleanup():
     chars = storage.read_characters(CHARACTERS_FILE)
-    keep = [c for c in chars if c.get("account") != ACCOUNT]
+    keep = [c for c in chars if not is_bot_account(c.get("account") or "")]
     storage.write_characters(CHARACTERS_FILE, keep)
     data = accounts.load()
-    data["accounts"].pop(ACCOUNT, None)
-    data["launcher_tokens"] = {t: u for t, u in data["launcher_tokens"].items() if u != ACCOUNT}
+    data["accounts"] = {k: v for k, v in data["accounts"].items() if not is_bot_account(k)}
+    data["launcher_tokens"] = {t: u for t, u in data["launcher_tokens"].items() if not is_bot_account(u)}
     accounts.save(data)
-    print(f"Removed {len(chars) - len(keep)} bot characters and the {ACCOUNT!r} account.")
-
-
-def find_token():
-    return next((t for t, u in accounts.load()["launcher_tokens"].items() if u == ACCOUNT), None)
-
-
-def bot_token():
-    token = find_token()
-    if not token:
-        sys.exit("Run --setup first.")
-    return token
+    print(f"Removed {len(chars) - len(keep)} bot characters and their accounts.")
 
 
 # --- SOE reliable UDP ----------------------------------------------------------------------
@@ -107,6 +111,9 @@ class SoeConnection:
 
     def __init__(self, host, port, timeout=10.0):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # A big receive buffer: dozens of bots share one Python process and read in turns, and
+        # Windows' default (64 KB) overflowed between reads (lost packets, resends, delays).
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 1 << 20)
         self.sock.settimeout(timeout)
         self.addr = (host, port)
         self.out_seq = 0
@@ -115,13 +122,33 @@ class SoeConnection:
         self.expect = 0           # next reliable sequence number to deliver
         self.acked = None         # the server's last AckAll
         self.pending = {}         # seq -> packet that arrived early
+        self.unacked = {}         # our seq -> [packet, last sent] until the server acknowledges it
+        self.need_ack = False     # delivered something since our last AckAll
+        self.last_ack = 0.0
         self.code = random.getrandbits(32)
         self.sock.sendto(struct.pack(">HIII", 1, 3, self.code, 512) + b"API_PROTOCOL_1.0\0", self.addr)
         self._recv_one()          # the confirm
 
     def send(self, payload):
-        self.sock.sendto(struct.pack(">BBH", 0, 0x09, self.out_seq & 0xFFFF) + payload, self.addr)
+        pkt = struct.pack(">BBH", 0, 0x09, self.out_seq & 0xFFFF) + payload
+        self.unacked[self.out_seq] = [pkt, time.time()]
+        self.sock.sendto(pkt, self.addr)
         self.out_seq += 1
+
+    def maintain(self):
+        """What UdpLibrary does between reads: one cumulative AckAll for everything delivered
+        (not one per packet), and resends of our packets the server hasn't acknowledged."""
+        now = time.time()
+        if self.need_ack and now - self.last_ack >= ACK_INTERVAL:
+            # Acknowledgements are batched (at most every ACK_INTERVAL), as a real client does;
+            # one per read made the bots send far more packets than real players.
+            self.sock.sendto(struct.pack(">BBH", 0, 0x15, (self.expect - 1) & 0xFFFF), self.addr)
+            self.need_ack = False
+            self.last_ack = now
+        for seq, entry in list(self.unacked.items())[:16]:
+            if now - entry[1] > 1.0:
+                self.sock.sendto(entry[0], self.addr)
+                entry[1] = now
 
     def close(self):
         try:
@@ -136,6 +163,10 @@ class SoeConnection:
         kind = data[1]
         if kind == 0x15 and len(data) >= 4:
             self.acked = struct.unpack_from(">H", data, 2)[0]
+            last = self.out_seq - 1
+            top = last - ((last - self.acked) & 0xFFFF)
+            for seq in [s for s in self.unacked if s <= top]:
+                del self.unacked[seq]
             return
         if kind not in (0x09, 0x0D):
             return
@@ -148,11 +179,12 @@ class SoeConnection:
         if ahead and ahead < 0x8000:
             # Out of order (a packet before it is missing): Ack1 asks for a fast resend.
             self.sock.sendto(struct.pack(">BBH", 0, 0x11, seq), self.addr)
+            GAPS[0] += 1
         # Deliver in order (UdpLibrary does), then acknowledge everything delivered so far.
         while self.expect in self.pending:
             self._deliver(self.pending.pop(self.expect))
             self.expect = (self.expect + 1) & 0xFFFF
-        self.sock.sendto(struct.pack(">BBH", 0, 0x15, (self.expect - 1) & 0xFFFF), self.addr)
+        self.need_ack = True      # sent by maintain()
 
     def _deliver(self, data):
         if data[1] == 0x09:
@@ -177,7 +209,9 @@ class SoeConnection:
                     return m
             try:
                 self._recv_one()
+                self.maintain()
             except socket.timeout:
+                self.maintain()
                 break
         return None
 
@@ -193,6 +227,7 @@ class SoeConnection:
             pass
         finally:
             self.sock.settimeout(10.0)
+        self.maintain()
         out, self.inbox = self.inbox, []
         return out
 
@@ -314,7 +349,7 @@ class Bot(threading.Thread):
                 unreal([ue2net.Bunch(PC_CHANNEL, data, reliable=False, nbits=nbits)])
                 next_move = now + 1.0 / a.move_rate
             if now >= next_ping:
-                stamp = random.getrandbits(63)
+                stamp = time.time_ns()     # the server logs how late pings arrive
                 pings[stamp] = now
                 z.send(struct.pack("<HQ", 9, stamp))
                 next_ping = now + 1.0
@@ -366,10 +401,11 @@ def main(argv=None):
         return run_processes(a)
     import zone
     pm = zone.package_map(types.SimpleNamespace(client_dir=ROOT, package_maps={}), "chunk_n19_12")
-    token = bot_token()
+    if bot_account(a.first) not in accounts.load()["accounts"]:
+        sys.exit("Run --setup first.")
     bots = []
     for i in range(a.first, a.first + a.bots):
-        b = Bot(i, a, token, pm.net_cache, None)
+        b = Bot(i, a, bot_token(i), pm.net_cache, None)
         b.start()
         bots.append(b)
         time.sleep(a.stagger)
@@ -378,6 +414,7 @@ def main(argv=None):
     results = [{"name": b.name, "joined": b.joined_at, "joined_wall": b.joined_wall, "rtts": b.rtts,
                 "rtt_times": b.rtt_times, "error": b.error} for b in bots]
     if a.child:
+        results.append({"name": "_gaps", "joined": None, "rtts": [], "error": None, "gaps": GAPS[0]})
         print(json.dumps(results))
         return 0
     return report(results)
@@ -406,7 +443,10 @@ def run_processes(a):
 
 
 def report(results, expected=None):
+    gaps = sum(r.get("gaps", 0) for r in results if r["name"] == "_gaps") + GAPS[0]
+    results = [r for r in results if r["name"] != "_gaps"]
     expected = expected or len(results)
+    print(f"server packets that arrived after a lost one (seen by the bots): {gaps}")
     joined = [r for r in results if r["joined"] is not None]
     rtts = sorted(x for r in results for x in r["rtts"])
     print(f"{len(joined)}/{expected} bots joined the zone", end="")

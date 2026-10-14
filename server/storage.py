@@ -47,6 +47,15 @@ def _connect(db):
         c.execute("CREATE TABLE IF NOT EXISTS characters (seq INTEGER PRIMARY KEY, name TEXT NOT NULL UNIQUE,"
                   " data TEXT NOT NULL)")
         c.execute("CREATE TABLE IF NOT EXISTS imported (name TEXT PRIMARY KEY)")
+        # The owning account as a column (indexed), so a login lists its characters without
+        # reading every character; added to databases made before it existed.
+        try:
+            c.execute("ALTER TABLE characters ADD COLUMN account TEXT")
+            c.execute("UPDATE characters SET account = json_extract(data, '$.account')")
+        except sqlite3.OperationalError:
+            pass                        # already there
+        c.execute("CREATE INDEX IF NOT EXISTS characters_account ON characters (account)")
+        c.execute("CREATE INDEX IF NOT EXISTS characters_lname ON characters (lower(name))")
         _READY.add(db)
     c.execute("PRAGMA synchronous=FULL")
     return c
@@ -109,8 +118,8 @@ def _import_file(path, c):
 def _store(c, name, data):
     if name == CHARACTERS:
         c.execute("DELETE FROM characters")
-        c.executemany("INSERT INTO characters (seq, name, data) VALUES (?, ?, ?)",
-                      [(i, ch["first"], json.dumps(ch)) for i, ch in enumerate(data)])
+        c.executemany("INSERT INTO characters (seq, name, data, account) VALUES (?, ?, ?, ?)",
+                      [(i, ch["first"], json.dumps(ch), ch.get("account")) for i, ch in enumerate(data)])
     else:
         c.execute("INSERT INTO documents (name, data) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET data = excluded.data",
                   (name, json.dumps(data)))
@@ -130,11 +139,26 @@ def write_json(path, data, **_dump_args):
         _transaction(c, lambda: _store(c, os.path.basename(path), data))
 
 
-def read_characters(path):
-    """Every character record, in the order they were created."""
+def read_characters(path, account=None):
+    """Every character record (or only account's), in the order they were created."""
     with _db(path) as c:
         _import_file(path, c)
-        return [json.loads(d) for (d,) in c.execute("SELECT data FROM characters ORDER BY seq")]
+        if account is None:
+            rows = c.execute("SELECT data FROM characters ORDER BY seq")
+        else:
+            rows = c.execute("SELECT data FROM characters WHERE account = ? ORDER BY seq", (account,))
+        return [json.loads(d) for (d,) in rows]
+
+
+def read_character(path, name, ignore_case=False):
+    """One character record by first name, or None."""
+    with _db(path) as c:
+        _import_file(path, c)
+        if ignore_case:
+            row = c.execute("SELECT data FROM characters WHERE lower(name) = lower(?)", (name,)).fetchone()
+        else:
+            row = c.execute("SELECT data FROM characters WHERE name = ?", (name,)).fetchone()
+    return json.loads(row[0]) if row else None
 
 
 def write_characters(path, chars):
@@ -155,7 +179,8 @@ def update_character(path, name, fields):
                 return False
             ch = json.loads(row[0])
             fields(ch) if callable(fields) else ch.update(fields)
-            c.execute("UPDATE characters SET data = ? WHERE name = ?", (json.dumps(ch), name))
+            c.execute("UPDATE characters SET data = ?, account = ? WHERE name = ?",
+                      (json.dumps(ch), ch.get("account"), name))
             return True
         return _transaction(c, run)
 

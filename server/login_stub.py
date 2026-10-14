@@ -366,8 +366,10 @@ def main():
     next_tick = next_move = time.time() + 1
     next_flush = time.time()
     while True:
+        t_idle = time.time()
         ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
                                     max(min(next_tick, next_move, next_flush) - time.time(), 0))
+        LOOP_STATS[1] += time.time() - t_idle
         for sock in ready:
             # Read everything already waiting (up to a limit, so ticks still run on time):
             # one select per packet was a large share of the time with many players.
@@ -380,6 +382,7 @@ def main():
                     # Windows reports an ICMP "port unreachable" from a client that
                     # went away as an error on the next recvfrom; just carry on.
                     continue
+                LOOP_STATS[0] += 1
                 guarded(serve, sock, names[sock], data, addr, clients, args)
         if time.time() >= next_flush:
             # Queued movement goes out FLUSH_HZ times a second, many bunches per packet.
@@ -470,7 +473,7 @@ def movement_tick(zone_sock, clients, args):
             target = npc.aggro_on.live_position if npc.aggro_on else None
             values = combat.chase_step(npc, target, MOVE_TICK)
             if values:
-                w.broadcast(lambda s, npc=npc, values=values: zone.npc_update(s, args, npc, values))
+                zone.queue_npc_move(w, args, npc, values)
 
 
 def use_ability(state, args, player, ability):
@@ -4181,6 +4184,15 @@ def world_tick(zone_sock, clients, args):
                 send_message(zone_sock, addr, state, zone.health_update(player))
             elif action[0] == "endurance":
                 send_message(zone_sock, addr, state, zone.endurance_update(player))
+    if PING_AGE[0] > 0.2:
+        print(f"  !!! load: a ping took {PING_AGE[0]:.1f} s to reach the server; {LOOP_STATS[0]} packets read, "
+              f"{LOOP_STATS[1]:.2f} s idle this second")
+    LOOP_STATS[0], LOOP_STATS[1] = 0, 0.0
+    PING_AGE[0] = 0.0
+    if SEND_FAILURES[0] or RECEIVE_GAPS[0]:
+        print(f"  !!! network: {SEND_FAILURES[0]} packets not sent (send buffer full), {RECEIVE_GAPS[0]} client "
+              f"packets arrived after a lost one, this second")
+        SEND_FAILURES[0] = RECEIVE_GAPS[0] = 0
     group_tick()
     housing_tick(now)
     duel_tick(now)
@@ -4344,7 +4356,7 @@ def guild_member(g, name, online=None):
     rank = next(r for m, r in g["members"].items() if m.lower() == name.lower())
     s = ONLINE.get(name.lower())
     p = s["player"] if s and s.get("player") else None
-    char = next((c for c in load_characters() if c["first"].lower() == name.lower()), {})
+    char = load_character(name, ignore_case=True) or {}
     extra = g.get("member_info", {}).get(char.get("first", name), {})
     return {"id": character_id(char) if char else social_uid(name), "name": char.get("first", name),
             "rank": rank, "online": p is not None if online is None else online,
@@ -7656,6 +7668,7 @@ def leave_world(state, args):
     if w is None or player is None or w.members.get(player.char_id) is not state:
         return
     w.members.pop(player.char_id, None)
+    world.grid_remove(state)
     for npc in w.npcs.values():
         npc.hate.pop(player.char_id, None)
         if npc.aggro_on is player:
@@ -7760,6 +7773,7 @@ def receive_reliable(sock, addr, state, kind, seq, payload, quiet=False):
         pending.setdefault(seq, (kind, payload))
         if ahead:
             sock.sendto(struct.pack(">BBH", 0, 0x11, seq), addr)
+            RECEIVE_GAPS[0] += 1
         while expect in pending:
             k, data = pending.pop(expect)
             expect = (expect + 1) & 0xFFFF
@@ -7822,11 +7836,11 @@ def send_message(sock, addr, state, message):
         unacked = state["unacked"] = collections.OrderedDict()
     now = time.time()
     for i, pkt in enumerate(packets):
-        unacked[start + i] = [pkt, now, 0]
+        unacked[start + i] = [pkt, now, 0, now]        # packet, last sent, resends, first sent
         try:
             sock.sendto(pkt, addr)
         except (BlockingIOError, ConnectionResetError):
-            pass                       # the send buffer is full: resend_tick sends it again
+            SEND_FAILURES[0] += 1      # the send buffer is full: resend_tick sends it again
     state["sock"], state["addr"] = sock, addr
     if len(unacked) > MAX_UNACKED:
         # A client that stopped acknowledging: forget the oldest rather than grow forever.
@@ -7837,13 +7851,26 @@ def send_message(sock, addr, state, message):
 
 # Reliable resends (UdpLibrary keeps every reliable packet until it is acknowledged): the
 # client acknowledges with AckAll (00 15 | u16 seq: everything up to seq) or Ack (00 11 | u16
-# seq: that one). Unacknowledged packets go again after RESEND_SECONDS, doubling each time.
-RESEND_SECONDS = 0.6
+# seq: that one). An unacknowledged packet goes again after the connection's resend timeout
+# (from its measured round trip, as TCP: smoothed RTT + 4 x variation, 0.3 to 5 s), doubling
+# each time. Resends are rationed (per connection and per tick for the whole server): a
+# server that falls behind reads acknowledgements late, and resending everything then only
+# made it fall further behind (a resend storm in the 150-player load test).
+RESEND_SECONDS = 1.0             # until the first round trip is measured
+# At least 1 s: a busy server reads acknowledgements late (a burst of logins), and a shorter
+# timeout resent packets that had arrived, which made it busier still.
+MIN_RTO, MAX_RTO = 1.0, 6.0
 FAST_RESEND_SECONDS = 0.1
-MAX_RESEND_BACKOFF = 4           # at most 0.6 * 2**4 = 9.6 s between tries
+MAX_RESEND_BACKOFF = 4
 MAX_RESENDS = 12
-MAX_RESENDS_PER_TICK = 32
+MAX_RESENDS_PER_TICK = 8         # per connection
+MAX_RESENDS_PER_TICK_ALL = 400   # for the whole server
+RESEND_WINDOW = 16               # only the oldest packets of a connection are looked at
 MAX_UNACKED = 4096
+SEND_FAILURES = [0]              # sendto refused (send buffer full); logged by world_tick
+LOOP_STATS = [0, 0.0]            # packets read, seconds idle in select (this second)
+PING_AGE = [0.0]                 # oldest load-test ping read this second (seconds in transit)
+RECEIVE_GAPS = [0]               # client packets that arrived after a missing one (lost on the way)
 
 
 def full_seq(state, seq16):
@@ -7860,11 +7887,14 @@ def handle_acks(state, data):
     for kind, seq16 in ack_packets(data):
         top = full_seq(state, seq16)
         if kind == 0x15:
+            now = time.time()
             while unacked:
                 first = next(iter(unacked))
                 if first > top:
                     break
-                unacked.popitem(last=False)
+                _, entry = unacked.popitem(last=False)
+                if entry[2] == 0:
+                    rtt_sample(state, now - entry[3])
         else:
             # Ack1: this packet arrived ahead of a gap. Fast resend: the earlier unacknowledged
             # packets are very likely lost, so send them now (once per FAST_RESEND_SECONDS).
@@ -7882,6 +7912,17 @@ def handle_acks(state, data):
                     state["resent"] = state.get("resent", 0) + 1
 
 
+def rtt_sample(state, sample):
+    """Update the connection's smoothed round trip and resend timeout (RFC 6298)."""
+    srtt = state.get("srtt")
+    if srtt is None:
+        state["srtt"], state["rttvar"] = sample, sample / 2
+    else:
+        state["rttvar"] = 0.75 * state["rttvar"] + 0.25 * abs(srtt - sample)
+        state["srtt"] = 0.875 * srtt + 0.125 * sample
+    state["rto"] = max(MIN_RTO, min(MAX_RTO, state["srtt"] + 4 * state["rttvar"]))
+
+
 def ack_packets(data):
     """(0x15 or 0x11, u16 seq) for every AckAll1 / Ack1 in a datagram, also inside Multi."""
     if len(data) < 4 or data[0] != 0:
@@ -7897,18 +7938,21 @@ def ack_packets(data):
 
 
 def resend_tick(clients, now):
-    """Send again every reliable packet that is overdue for an acknowledgement."""
+    """Send again the oldest reliable packets that are overdue for an acknowledgement."""
+    import itertools
+    budget = MAX_RESENDS_PER_TICK_ALL
     for state in list(clients.values()):
         unacked = state.get("unacked")
-        if not unacked or "sock" not in state:
+        if not unacked or "sock" not in state or budget <= 0:
             continue
-        sent = 0
-        for seq, entry in list(unacked.items()):
-            pkt, last, tries = entry
-            if now - last < RESEND_SECONDS * (2 ** min(tries, MAX_RESEND_BACKOFF)):
+        rto = state.get("rto", RESEND_SECONDS)
+        sent, drop = 0, []
+        for seq, entry in itertools.islice(unacked.items(), RESEND_WINDOW):
+            pkt, last, tries = entry[0], entry[1], entry[2]
+            if now - last < rto * (2 ** min(tries, MAX_RESEND_BACKOFF)):
                 continue
             if tries >= MAX_RESENDS:
-                unacked.pop(seq, None)
+                drop.append(seq)
                 continue
             try:
                 state["sock"].sendto(pkt, state["addr"])
@@ -7919,6 +7963,9 @@ def resend_tick(clients, now):
             sent += 1
             if sent >= MAX_RESENDS_PER_TICK:
                 break
+        for seq in drop:
+            unacked.pop(seq, None)
+        budget -= sent
 
 
 def event_message(event_id, data):
@@ -8090,7 +8137,7 @@ def build_account_character_list(chars):
 
 def account_characters(account):
     """The characters belonging to an account (characters.json "account")."""
-    return [c for c in load_characters() if account is not None and c.get("account") == account]
+    return storage.read_characters(CHARACTERS_FILE, account) if account is not None else []
 
 
 def send_account_character_list(sock, addr, state):
@@ -8101,6 +8148,11 @@ def send_account_character_list(sock, addr, state):
 
 
 CHARACTERS_FILE =os.path.join(os.path.dirname(os.path.abspath(__file__)), "characters.json")
+
+
+def load_character(name, ignore_case=False):
+    """One saved character by first name (None if there is none)."""
+    return storage.read_character(CHARACTERS_FILE, name, ignore_case)
 
 
 def load_characters():
@@ -8501,7 +8553,7 @@ def dev_command(text, player=None):
 # window. Verified colours: 3 white, 4 red, 5 orange, 6 blue, 7 tan.
 SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
 
-
+
 # The client's own messages (zone event 0x0e {i16 code}, docs/NOTICES.md).
 TOO_FAR_AWAY, NOT_WHILE_DEAD, NOT_IN_GROUP, ALREADY_IN_GROUP, CANT_AFFORD, CHEST_FULL = 111, 112, 197, 201, 251, 349
 PLEASE_TARGET_PC, TRADE_NO_SPACE, DEF_TARGET_NOT_PC, NO_SPACE, NO_ROOM_FOR_REWARD, CANT_PURCHASE_PLOT = 49, 88, 169, 256, 320, 366
@@ -8716,7 +8768,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 if kick_other_session(state, args):
                     # The older connection may have changed the character since Play: start
                     # from the record it just saved, not the copy made at Play.
-                    fresh = next((c for c in load_characters() if c["first"] == state["player"].name), None)
+                    fresh = load_character(state["player"].name)
                     if fresh is not None:
                         state["player"] = player_from_character(fresh, fresh["first"], args)
                 ONLINE[state["player"].name.lower()] = state
@@ -9404,6 +9456,11 @@ def handle_message(sock, server, addr, state, payload, args):
             # (FUN_006edcd0) computes latency as now - timestamp, so echo it back.
             send_message(sock, addr, state, payload)
             state["pings"] = state.get("pings", 0) + 1
+            if len(payload) >= 10:
+                # tools/loadtest.py puts its send time (ns) in the ping: how late did it arrive?
+                age = time.time() - struct.unpack_from("<Q", payload, 2)[0] / 1e9
+                if 0 <= age < 600:
+                    PING_AGE[0] = max(PING_AGE[0], age)
             if state["pings"] == 1:
                 print("  <- echoing ZONE pings (type 9); further pings not logged")
         else:

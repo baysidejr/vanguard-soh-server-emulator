@@ -14,6 +14,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Last test results
 
+- 2026-10-14 (capacity round 2): unit tests OK (166), content OK, smoke test PASS; load test steady state: 100 crowd 10.5 ms / 11.4 ms, 150 spread 10.6 / 11.2 ms, 200 spread 10.6 ms / 1.4 s.
 - 2026-10-14 (fuzzing): unit tests OK (166), content OK, smoke test PASS, fuzz 0x900 events x 20 + 200 raw rounds: no errors, no hang; load test 20 bots OK.
 - 2026-10-14 (resends): unit tests OK (165), content OK, smoke test PASS, load test 10 bots at 10% loss: 10/10 joined, ping median 12 ms.
 - 2026-10-14 (load test): unit tests OK (164), content OK, smoke test PASS, load test 100 bots: median ping 11 ms, p95 450 ms; two real clients see each other walk.
@@ -27,7 +28,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 531 of 720 sent or not needed (73%); open: 125 optional features, 64 undecoded handlers.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
-5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Open: interest management for more than ~150 players in one place. TLS for the launcher: done.
+5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~100 in one spot (docs/TESTING.md). TLS for the launcher: done.
    - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. A refused login shows the client's own popup (login event 2, code 1002 / 50). Saved in the database (server/vanguard.db).
 
 ## Blocked (needs the user or data)
@@ -41,6 +42,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Server capacity, second round: fixed a resend storm (RTT-based timeout, rationed resends), NPC movement batched like players, spatial grid for movement, crowd thinning, SQL lookups by account/name. One zone now holds ~200 moving players spread over a chunk (steady p95 11 ms at 150) or ~100 in one spot; numbers in docs/TESTING.md. Verified: smoke test PASS; a chasing Canyon Widow still follows the player in the real client.
 - 2026-10-14: Authorization audit (agent, read-only) and fixes: item duplication by a stale Play on a second client (Play now closes the playing connection and drops unclaimed Plays; zone login rebuilds from the saved record after a kick); work-order supplies are quest items (no trade, mail, broker, sale or bank), so abandon/re-take no longer prints ore; master looter can only hand out its own group's corpses; trades cancel if an offered item was split, destroyed or swapped; merchant buys capped at a stack and sell prices never above the cheapest asking price; caravan, group, guild and brotherhood invites re-checked on accept; assembly trainers only sell their own recipes; loot and merchant trades within 1500 units. Movement updates now thinner for distant players (every 3rd within 12000, every 10th beyond).
 - 2026-10-14: Security: Customize (world 0x13b) could change any character's appearance without an account check; now only your own. Character create validates names. Fuzzer sweeps the login and world servers too (--world): clean.
 - 2026-10-14: Fuzzer (tools/fuzz.py) and the bugs it found: a random chunk change could leave a character unable to log in; non-ASCII player text was dropped when the log went to a file; a zone connection could enter the world without logging in (security) and a second login request nulled the player; a truncated Group length crashed. All fixed; data can live in a separate --data-dir. Last fuzz run clean.

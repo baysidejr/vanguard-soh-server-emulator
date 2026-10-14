@@ -141,6 +141,7 @@ def handle_unreal(send, state, payload, args):
         state["world"] = w
         player.npcs = w.npcs
         w.members[player.char_id] = state
+        world.grid_move(w, state, player.live_position or player.spawned_at)
         if getattr(player, "tombstone", None) and player.tombstone.get("level") == player.level:
             tombstone_spawn(w, args, player)
         for npc in w.npcs.values():
@@ -535,6 +536,7 @@ MAX_BROADCAST_SPEED = 1200.0    # units/s; running is ~440
 # every 3rd, beyond that every 10th (once a second).
 MOVE_RATE_TIERS = ((4000.0, 1), (12000.0, 3))
 MOVE_RATE_FAR = 10
+CROWD_FULL_RATE = 40            # up to this many players nearby, everyone gets every update
 
 
 def broadcast_movement(state, args, player, loc, view):
@@ -558,21 +560,62 @@ def broadcast_movement(state, args, player, loc, view):
     # few packets as possible (world.flush_bunches, end of every server loop pass).
     data, nbits = pawn_props(package_map(args, player.level), args.pawn_class, values)
     n = state["move_count"] = state.get("move_count", 0) + 1
-    for s in list(w.members.values()):
+    # In a dense crowd every viewer gets every kth update (k grows with the number of players
+    # near this one, counted on the previous update): the cost of a crowd grows with its size
+    # instead of its square. The client extrapolates along the velocity in between.
+    crowd = max(1, -(-state.get("near_count", 0) // CROWD_FULL_RATE))
+    near = 0
+    world.grid_move(w, state, loc)
+    viewers = list(w.members.values()) if n % MOVE_RATE_FAR == 0 else world.near_members(w, loc)
+    for s in viewers:
         if s is state or "ue" not in s:
             continue
         channel = world.channel_for(s, player.char_id)
         if channel is None:
             continue
-        # Interest by distance: players far away get this player's movement less often (the
-        # client extrapolates along the velocity in between), so crowds spread over a chunk
-        # cost much less than everyone at full rate.
+        # Interest by distance: players far away get this player's movement less often, so
+        # crowds spread over a chunk cost much less than everyone at full rate.
         other = s.get("player")
         pos = (getattr(other, "live_position", None) or s.get("position")) if other else None
-        if pos is not None:
-            d2 = (pos[0] - loc[0]) ** 2 + (pos[1] - loc[1]) ** 2
-            every = next((k for limit, k in MOVE_RATE_TIERS if d2 <= limit * limit), MOVE_RATE_FAR)
-            if n % every:
+        if pos is not None and (pos[0] - loc[0]) ** 2 + (pos[1] - loc[1]) ** 2 <= MOVE_RATE_TIERS[0][0] ** 2:
+            near += 1
+        if move_rate_skip(n, pos, loc) or (crowd > 1 and (n + id(s)) % crowd):
+            continue
+        world.queue_bunch(s, s["ue"].unreliable_bunch(channel, data, nbits))
+    state["near_count"] = near
+
+
+def move_rate_skip(n, pos, loc):
+    """True when the nth movement update of something at loc should not go to a viewer at pos
+    (MOVE_RATE_TIERS: far viewers get every 3rd or 10th update)."""
+    if pos is None:
+        return False
+    d2 = (pos[0] - loc[0]) ** 2 + (pos[1] - loc[1]) ** 2
+    every = next((k for limit, k in MOVE_RATE_TIERS if d2 <= limit * limit), MOVE_RATE_FAR)
+    return bool(n % every)
+
+
+def queue_npc_move(w, args, npc, values):
+    """An NPC's movement step for everyone in its world: encoded once, queued as unreliable
+    bunches (world.flush_bunches). Distant viewers get moving steps less often; a stop (no
+    velocity) always goes out, so nobody sees an NPC frozen mid-stride."""
+    pm = package_map(args, w.level)
+    data, nbits = pawn_props(pm, npc.cls_path, values)
+    vel = values.get("Velocity")
+    moving = vel is not None and any(vel)
+    n = npc.__dict__["move_count"] = npc.__dict__.get("move_count", 0) + 1
+    loc = npc.location
+    viewers = list(w.members.values()) if (not moving or n % MOVE_RATE_FAR == 0) else world.near_members(w, loc)
+    for s in viewers:
+        if "ue" not in s:
+            continue
+        channel = world.channel_for(s, npc.entity_id)
+        if channel is None:
+            continue
+        if moving:
+            other = s.get("player")
+            pos = (getattr(other, "live_position", None) or s.get("position")) if other else None
+            if move_rate_skip(n, pos, loc):
                 continue
         world.queue_bunch(s, s["ue"].unreliable_bunch(channel, data, nbits))
 
