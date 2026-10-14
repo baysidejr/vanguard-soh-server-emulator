@@ -7739,6 +7739,7 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "pawn_update":
                         loc = m[2]["Location"]
                         send_message(sock, addr, state, zone.player_teleport(loc))
+                        state.setdefault("move_check", {})["teleport_at"] = time.time()   # before the echo
                         # PawnPosition resets the client's ground-stick cache
                         # (LastValidServerPosition); without it the pawn snaps back.
                         m = zone.player_pawn_update(state, args, {"PawnPosition": (
