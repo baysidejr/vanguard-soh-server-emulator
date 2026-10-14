@@ -229,6 +229,8 @@ class Bot(threading.Thread):
         self.joined_at = None
         self.error = None
         self.rtts = []
+        self.rtt_times = []       # when each ping was sent (wall clock)
+        self.joined_wall = None
 
     def run(self):
         try:
@@ -289,13 +291,15 @@ class Bot(threading.Thread):
             raise RuntimeError("no WELCOME")
         control("JOIN")
         self.joined_at = time.time() - start
+        self.joined_wall = time.time()
         if not self.walk(z, unreal):            # True: the caller keeps the connection
             z.close()
 
     def walk(self, z, unreal):
         a = self.args
         f = self.nc.field("PlayerController", "ShortServerMove")
-        cx, cy = CAMP[0] + random.uniform(-400, 400), CAMP[1] + random.uniform(-400, 400)
+        spread = max(400.0, a.spread)
+        cx, cy = CAMP[0] + random.uniform(-spread, spread), CAMP[1] + random.uniform(-spread, spread)
         r, t0 = random.uniform(100, 300), time.time()
         end = t0 + a.seconds
         next_move = next_ping = t0
@@ -319,6 +323,7 @@ class Bot(threading.Thread):
                     sent = pings.pop(struct.unpack_from("<Q", m, 2)[0], None)
                     if sent is not None:
                         self.rtts.append((time.time() - sent) * 1000)
+                        self.rtt_times.append(sent)
             time.sleep(0.01)
 
 
@@ -330,6 +335,8 @@ def main(argv=None):
     ap.add_argument("--bots", type=int, default=10)
     ap.add_argument("--seconds", type=float, default=30)
     ap.add_argument("--move-rate", type=float, default=4.0, help="moves per second per bot")
+    ap.add_argument("--spread", type=float, default=400.0, help="bots walk within this many units of "
+                    "the camp (400: a crowd; 40000: spread over the chunk)")
     ap.add_argument("--stagger", type=float, default=0.2, help="seconds between bot logins")
     ap.add_argument("--drop", type=float, default=0.0, help="ignore this share of the server's "
                     "reliable packets (simulated loss: the server has to resend them)")
@@ -368,7 +375,8 @@ def main(argv=None):
         time.sleep(a.stagger)
     for b in bots:
         b.join(a.seconds + 60)
-    results = [{"name": b.name, "joined": b.joined_at, "rtts": b.rtts, "error": b.error} for b in bots]
+    results = [{"name": b.name, "joined": b.joined_at, "joined_wall": b.joined_wall, "rtts": b.rtts,
+                "rtt_times": b.rtt_times, "error": b.error} for b in bots]
     if a.child:
         print(json.dumps(results))
         return 0
@@ -384,6 +392,7 @@ def run_processes(a):
         n = per + (1 if k < extra else 0)
         cmd = [sys.executable, os.path.abspath(__file__), "--child", "--bots", str(n), "--first", str(first),
                "--seconds", str(a.seconds), "--move-rate", str(a.move_rate), "--drop", str(a.drop),
+               "--spread", str(a.spread),
                "--stagger", str(a.stagger * a.procs), "--host", a.host,
                "--login-port", str(a.login_port), "--world-port", str(a.world_port)]
         procs.append(subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True))
@@ -410,6 +419,13 @@ def report(results, expected=None):
         p = lambda q: rtts[min(len(rtts) - 1, int(q * len(rtts)))]
         print(f"ping round trip over {len(rtts)} pings: median {p(0.5):.1f} ms, p95 {p(0.95):.1f} ms, "
               f"max {rtts[-1]:.1f} ms")
+    if joined:
+        settled = max(r["joined_wall"] for r in joined) + 5
+        steady = sorted(x for r in results for x, t in zip(r["rtts"], r.get("rtt_times", ())) if t >= settled)
+        if steady:
+            q = lambda f: steady[min(len(steady) - 1, int(f * len(steady)))]
+            print(f"  steady state (from 5 s after the last join, {len(steady)} pings): median {q(0.5):.1f} ms, "
+                  f"p95 {q(0.95):.1f} ms, max {steady[-1]:.1f} ms")
     for r in results:
         if r["error"]:
             print(f"  {r['name']}: {r['error']}")

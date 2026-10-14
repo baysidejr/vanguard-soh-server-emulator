@@ -531,6 +531,10 @@ def log_client_rpc(state, b, args, player):
 CHUNK_HALF = 102400.0          # chunks are 204800 units wide, centred on 0
 MOVE_BROADCAST_SECONDS = 0.1
 MAX_BROADCAST_SPEED = 1200.0    # units/s; running is ~440
+# (distance, every nth update): within 4000 units every update (10 a second), within 12000
+# every 3rd, beyond that every 10th (once a second).
+MOVE_RATE_TIERS = ((4000.0, 1), (12000.0, 3))
+MOVE_RATE_FAR = 10
 
 
 def broadcast_movement(state, args, player, loc, view):
@@ -553,12 +557,24 @@ def broadcast_movement(state, args, player, loc, view):
     # Encoded once; queued as unreliable bunches and sent with the other players' moves in as
     # few packets as possible (world.flush_bunches, end of every server loop pass).
     data, nbits = pawn_props(package_map(args, player.level), args.pawn_class, values)
+    n = state["move_count"] = state.get("move_count", 0) + 1
     for s in list(w.members.values()):
         if s is state or "ue" not in s:
             continue
         channel = world.channel_for(s, player.char_id)
-        if channel is not None:
-            world.queue_bunch(s, s["ue"].unreliable_bunch(channel, data, nbits))
+        if channel is None:
+            continue
+        # Interest by distance: players far away get this player's movement less often (the
+        # client extrapolates along the velocity in between), so crowds spread over a chunk
+        # cost much less than everyone at full rate.
+        other = s.get("player")
+        pos = (getattr(other, "live_position", None) or s.get("position")) if other else None
+        if pos is not None:
+            d2 = (pos[0] - loc[0]) ** 2 + (pos[1] - loc[1]) ** 2
+            every = next((k for limit, k in MOVE_RATE_TIERS if d2 <= limit * limit), MOVE_RATE_FAR)
+            if n % every:
+                continue
+        world.queue_bunch(s, s["ue"].unreliable_bunch(channel, data, nbits))
 
 
 def package_map(args, level):
@@ -859,6 +875,10 @@ def item_restriction(player, item, action):
         return f"{item[1]} can't be given to anyone else."
     if action == "sell" and bits & (ITEM_FLAGS["no_sell"] | ITEM_FLAGS["quest"]):
         return f"The merchant won't buy {item[1]}."
+    if action == "bank" and bits & ITEM_FLAGS["quest"]:
+        # Quest and work-order items stay in the bags (work-order supplies parked in the bank
+        # could be handed out again after abandoning the order).
+        return f"{item[1]} can't be stored in the bank."
     return None
 
 

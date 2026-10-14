@@ -3284,6 +3284,8 @@ def handle_caravan_event(state, event, data):
         target = ONLINE.get(name.lower())
         if target is state:
             notice(caravan.SELF)
+        elif mine is not None and mine["leader"].lower() != player.name.lower():
+            send(build_system_text("Only the caravan leader can invite.", SYSTEM_TEXT_ERROR))
         elif target is None or target.get("player") is None:
             send(build_system_text(f"{name} is not online.", SYSTEM_TEXT_ERROR))
         elif target["player"].health <= 0:
@@ -3299,6 +3301,10 @@ def handle_caravan_event(state, event, data):
         if inviter is None or inviter.lower() != caravan.read_name(data).lower() or mine:
             return
         c = caravan_of(inviter, cs)
+        if c is not None and c["leader"].lower() != inviter.lower():
+            # The inviter joined someone else's caravan since inviting: only leaders invite.
+            send(build_system_text(f"{inviter} can no longer invite you to a caravan.", SYSTEM_TEXT_ERROR))
+            return
         if c is None:
             c = {"leader": inviter, "members": [inviter]}
             cs.append(c)
@@ -3808,7 +3814,7 @@ def handle_assembly_event(state, event, data):
         if not offers:
             send(assembly.trainer_end(2))
             return
-        state["asm_training"] = True
+        state["asm_training"] = set(npc.assembly_trainer)      # only this trainer's recipes
         for m in assembly.trainer_begin(offers):
             send(m)
     elif event == assembly.TRAIN_DONE:
@@ -3818,7 +3824,7 @@ def handle_assembly_event(state, event, data):
         key, r = asm_by_id(vals[0])
         if not state.get("asm_training"):
             send(assembly.trainer_result(vals[0], 1))
-        elif r is None or key in getattr(player, "assembly_known", []):
+        elif r is None or key in getattr(player, "assembly_known", []) or key not in state["asm_training"]:
             send(assembly.trainer_result(vals[0], 2))
         elif player.coins < r["trainer_cost"]:
             send(assembly.trainer_result(vals[0], 3))
@@ -4420,9 +4426,11 @@ def handle_guild_event(state, event, data):
             set_guild(state, gid)
     elif mine is None:
         if event == guild.ACCEPT and state.get("guild_invite"):
-            gid = state.pop("guild_invite")
+            gid, inviter = state.pop("guild_invite")
             g = guilds.get(str(gid))
-            if g is None:
+            if g is None or g["members"].get(inviter, -1) < guild.OFFICER:
+                # Gone, or the inviter was kicked or demoted since inviting.
+                send(build_system_text("That guild invitation is no longer valid.", SYSTEM_TEXT_ERROR))
                 return
             g["members"][player.name] = guild.MEMBER
             save_guilds(guilds)
@@ -4445,7 +4453,7 @@ def handle_guild_event(state, event, data):
         elif guild_of(target["player"].name, guilds):
             say(f"{target['player'].name} is already in a guild.", True)
         else:
-            target["guild_invite"] = mine["id"]
+            target["guild_invite"] = (mine["id"], player.name)
             target["send"](guild.invite(player.char_id, player.name, mine["name"], ranks=mine.get("ranks")))
             say(f"You invite {target['player'].name} to join {mine['name']}.")
     elif event in (guild.QUIT, guild.KICK, guild.DELETE):
@@ -4711,6 +4719,9 @@ def handle_brotherhood(state, event, data):
     elif event == brotherhood.ACCEPT and state.get("bh_invite") and mine is None:
         inviter = state.pop("bh_invite")
         b = brotherhood_of(inviter, bhs)
+        if b is not None and b["leader"].lower() != inviter.lower():
+            send(build_system_text(f"{inviter} can no longer invite you to a brotherhood.", SYSTEM_TEXT_ERROR))
+            return
         if b is None:
             b = {"leader": inviter, "members": [inviter], "name": f"{inviter}'s Brotherhood"}
             bhs.append(b)
@@ -4983,6 +4994,9 @@ def handle_group_event(state, event, payload):
         g = getattr(leader, "group", None)
         if getattr(player, "group", None):
             send(group.error(2))
+            return
+        if g is not None and g.leader is not leader:
+            send(build_system_text(f"{leader.name} no longer leads that group.", SYSTEM_TEXT_ERROR))
             return
         if g and len(g.members) >= g.limit():
             send(group.error(3))
@@ -5313,7 +5327,9 @@ def handle_grouploot_event(state, event, data):
         if s["mode"] != grouploot.MASTER_LOOTER or s["ml"] != player.char_id:
             notice(grouploot.NO_PERMISSION)
             return
-        if npc is None or npc.alive:
+        killer = getattr(npc, "killer", None) if npc is not None else None
+        if npc is None or npc.alive or (killer is not None and getattr(killer, "group", None) is not g):
+            # Only corpses this group killed (or nobody's): not another group's or player's kill.
             notice(grouploot.NO_PERMISSION)
             return
         if npc.loot is None:
@@ -5454,6 +5470,7 @@ def group_tick():
                     state["send"](m)
 
 
+SERVICE_RANGE = 1500           # loot and merchant trades only this close to the corpse / merchant
 CHUNK_CHANGE_EVENT = 0x9
 CHUNK_SIZE = 204800.0
 GM_CHUNK_LEVEL = 20             # the client's /chunk needs access level 20
@@ -5574,6 +5591,7 @@ def handle_trade_event(state, event, payload, args):
                 send(build_system_text(zone.item_restriction(player, item, "trade"), SYSTEM_TEXT_ERROR))
             elif item and handle not in side.items and len(side.items) < trade.MAX_ITEMS:
                 side.items.append(handle)
+                side.offered[handle] = (item[1], item[3])
                 t.seq += 1
                 send(trade.my_item(t.seq, len(side.items) - 1, handle))
                 other["send"](trade.their_item(t_item_record(item, t.seq)))
@@ -5629,8 +5647,15 @@ def complete_trade(t, args):
     for giver, side, taker in ((a, sa, b), (b, sb, a)):
         for handle in side.items:
             item = next((i for i in giver["player"].items if i[0] == handle), None)
-            if item:
-                moves.append((giver, item, taker))
+            if item is None or (item[1], item[3]) != side.offered.get(handle, (item[1], item[3])):
+                # Split, destroyed or swapped since it was offered: the partner accepted
+                # something else, so the trade is off.
+                for s_state in (a, b):
+                    s_state["send"](build_system_text("The offered items changed; the trade is cancelled.",
+                                                      SYSTEM_TEXT_ERROR))
+                end_trade(t, trade.cancelled())
+                return
+            moves.append((giver, item, taker))
     # Check both bags first so a full bag cancels the whole trade, not half of it.
     for s_state in (a, b):
         p = s_state["player"]
@@ -7067,6 +7092,9 @@ def handle_bank_event(state, event, data):
         if zone.bag_items(player.items, handle):
             send(build_system_text(BAG_NOT_EMPTY, SYSTEM_TEXT_ERROR))
             return
+        if zone.item_restriction(player, it, "bank"):
+            send(build_system_text(zone.item_restriction(player, it, "bank"), SYSTEM_TEXT_ERROR))
+            return
         if not 0 <= slot < bank.CAPACITY or any(b[4] == slot for b in player.bank):
             slot = bank.free_slot(player.bank)
         if slot is None:
@@ -7553,8 +7581,15 @@ def kick_other_session(state, args):
     name = state["player"].name.lower()
     old = ONLINE.get(name)
     if old is None or old is state or old.get("closed") or old.get("session") == state.get("session"):
-        return
+        return False
     print(f"  {state['player'].name} logged in again: closing the older connection")
+    close_session(old, args)
+    return True
+
+
+def close_session(old, args):
+    """End a zone connection: out of the world, then UdpLibrary Terminate (the client goes back to
+    character select)."""
     leave_world(old, args)
     old["closed"] = True
     if callable(old.get("terminate")):
@@ -7562,6 +7597,19 @@ def kick_other_session(state, args):
             old["terminate"]()
         except OSError:
             pass
+
+
+def release_character(name, args):
+    """Before a Play builds a character from its saved record: close any connection still playing
+    it and forget any earlier Play nobody claimed, so no stale copy can come back later and save
+    old items or coins over newer ones (an item duplication)."""
+    old = ONLINE.get(name.lower())
+    if old is not None and not old.get("closed"):
+        print(f"  {name} is already playing: closing that connection before Play")
+        close_session(old, args)
+    for key, p in list(PENDING_PLAYERS.items()):
+        if getattr(p, "name", "").lower() == name.lower():
+            PENDING_PLAYERS.pop(key, None)
 
 
 def leave_world(state, args):
@@ -8617,6 +8665,8 @@ def handle_message(sock, server, addr, state, payload, args):
             if char is None:
                 print(f"  <- WORLD Play refused: {name!r} is not a character of {state.get('account')!r}")
                 return
+            release_character(name, args)
+            char = next((c for c in account_characters(state.get("account")) if c["first"] == name), char)
             # Caravans: Play mode byte (+136) 0 normal, 3 go to the caravan, 2 own location and
             # leave the caravan. A caravan member's normal Play first gets the choice (world 0x55).
             mode = data[136] if len(data) > 136 else 0
@@ -8663,7 +8713,12 @@ def handle_message(sock, server, addr, state, payload, args):
             state["session"] = login[1]
             ZONE_BY_SESSION[login[1]] = state
             if state["player"]:
-                kick_other_session(state, args)
+                if kick_other_session(state, args):
+                    # The older connection may have changed the character since Play: start
+                    # from the record it just saved, not the copy made at Play.
+                    fresh = next((c for c in load_characters() if c["first"] == state["player"].name), None)
+                    if fresh is not None:
+                        state["player"] = player_from_character(fresh, fresh["first"], args)
                 ONLINE[state["player"].name.lower()] = state
             send_message(sock, addr, state, build_login_reply(True))
             if state["player"]:
@@ -9083,6 +9138,8 @@ def handle_message(sock, server, addr, state, payload, args):
                     recover_tombstone(state, player, npc)
             elif npc and not npc.alive and event != combat.LOOT_CLOSE and not group_loot_allowed(state, npc):
                 msgs = []
+            elif npc and not npc.alive and event != combat.LOOT_CLOSE and player_distance(player, npc) > SERVICE_RANGE:
+                msgs = [client_notice(TOO_FAR_AWAY)]
             elif npc and not npc.alive:
                 if event == combat.LOOT_REQUEST:
                     msgs = open_loot(state, npc)
@@ -9165,6 +9222,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 msgs = [merchant.close_window(3)]
             elif npc is None or not npc.merchant or not npc.alive:
                 msgs = [merchant.close_window(2)]          # "please target the merchant"
+            elif player_distance(player, npc) > SERVICE_RANGE:
+                msgs = [merchant.close_window(3), client_notice(TOO_FAR_AWAY)]
             elif event == merchant.REQ_OPEN:
                 msgs = merchant.open_window(args.content, npc)
             elif event == merchant.REQ_BUY:

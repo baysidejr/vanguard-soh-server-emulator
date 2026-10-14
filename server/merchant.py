@@ -92,7 +92,8 @@ def buy(content, npc, player, handle, qty, item_message):
     if entry is None:
         return []
     _, name, icon, price = entry
-    qty = max(1, qty)
+    import zone
+    qty = max(1, min(qty, zone.MAX_STACK))
     if player.coins < price * qty:
         return [error(ERR_CANT_AFFORD)]
     import zone
@@ -110,11 +111,25 @@ def sell(content, npc, player, handle):
     item = next((i for i in player.items if i[0] == handle), None)
     if item is None or zone.bag_items(player.items, handle) or zone.item_restriction(player, item, "sell"):
         return [error(ERR_CANT_SELL)]
-    prices = {s[1]: s[3] for s in stock(content, npc)}
-    value = max(1, prices.get(item[1], 20) // SELL_FRACTION) * item[3]
+    value = sell_price(content, item[1]) * item[3]
     player.items.remove(item)
     player.coins += value
     return [_event(ITEM_REMOVED, struct.pack("<iB", handle, 0)), coins(player.coins)]
+
+
+DEFAULT_PRICE = 20             # an item no merchant stocks is worth this much
+
+
+def sell_price(content, name):
+    """What any merchant pays for one: a quarter of the cheapest price any merchant asks for it,
+    and never more than that price (else buying from one merchant and selling to another
+    would make money from nothing)."""
+    prices = [e["price"] for entries in content.merchants.values() if isinstance(entries, list)
+              for e in entries if isinstance(e, dict) and e.get("item") == name]
+    if not prices:
+        return max(1, DEFAULT_PRICE // SELL_FRACTION)
+    cheapest = min(prices)
+    return min(cheapest, max(1, cheapest // SELL_FRACTION)) if cheapest > 0 else 0
 
 
 def buyback_price(handle, price):

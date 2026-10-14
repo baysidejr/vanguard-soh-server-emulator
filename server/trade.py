@@ -43,6 +43,7 @@ class Trade:
 class Side:
     def __init__(self):
         self.items = []        # bag handles offered (in window order)
+        self.offered = {}      # handle -> (name, quantity) when it was offered
         self.coins = 0
         self.accepted = False
 
