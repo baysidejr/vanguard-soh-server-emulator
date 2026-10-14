@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: All guild world-request replies (errors, NoGuild) go out on the zone connection, where the client handles them (verified: "You can't change that member's notes.").
 - 2026-10-13: Canyon Widow and Webweaver spawn female (the only spider mesh package), so the client stops logging a failed mesh load for each one.
 - 2026-10-13: Guild member list request was answered on the world connection, which the client drops ("Received unhandled message id 1259/1260/1261"); now answered on the zone connection.
 - 2026-10-13: docs/TESTING.md testing checklist.

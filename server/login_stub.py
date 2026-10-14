@@ -3597,7 +3597,7 @@ def handle_guild_world(state, event, data, reply):
             state["send"](m)
         return
     if mine is None:
-        reply(zone.zone_event(0x0E, struct.pack("<h", 0x1A)))          # NoGuild
+        state["send"](zone.zone_event(0x0E, struct.pack("<h", 0x1A)))          # NoGuild
         return
     rank = mine["members"][next(m for m in mine["members"] if m.lower() == player.name.lower())]
     if event == guild.MEMBER_LIST:
@@ -3609,7 +3609,7 @@ def handle_guild_world(state, event, data, reply):
     elif event in (guild.TOGGLE_RECRUITING, guild.RECRUIT_NOTES, guild.TAGS, guild.RANK_INVITE,
                    guild.RANK_REMOVE, guild.RANK_MOTD):
         if rank < 9:
-            reply(build_system_text("Only the guild's leaders can change that.", SYSTEM_TEXT_ERROR))
+            state["send"](build_system_text("Only the guild's leaders can change that.", SYSTEM_TEXT_ERROR))
             return
         if event == guild.TOGGLE_RECRUITING:
             mine["recruiting"] = not mine.get("recruiting", False)
@@ -3639,7 +3639,7 @@ def handle_guild_world(state, event, data, reply):
             (target,), used = guild.read_strings(data, 1)
             who = next((n for n in mine["members"] if n.lower() == target.strip().lower()), None)
             if who is None or rank < guild.OFFICER:
-                reply(build_system_text("You can't change that member's notes.", SYSTEM_TEXT_ERROR))
+                state["send"](build_system_text("You can't change that member's notes.", SYSTEM_TEXT_ERROR))
                 return
             if event == guild.POINTS:
                 field, value = "points", struct.unpack_from("<f", data, used)[0] if len(data) >= used + 4 else 0.0
@@ -3652,7 +3652,7 @@ def handle_guild_world(state, event, data, reply):
         guild_broadcast(player.name, lambda g: guild.member_update(rec))
     elif event == guild.MOTD_SET:
         if rank < guild.OFFICER:
-            reply(build_system_text("You don't have permission to set the guild MOTD.", SYSTEM_TEXT_ERROR))
+            state["send"](build_system_text("You don't have permission to set the guild MOTD.", SYSTEM_TEXT_ERROR))
             return
         mine["motd"] = guild.read_name(data).strip()
         mine["motd_by"], mine["motd_time"] = player.name, int(time.time())
@@ -3663,7 +3663,7 @@ def handle_guild_world(state, event, data, reply):
         number = struct.unpack_from("<i", data, 4)[0]
         new = guild.read_name(data[8:]).strip()
         if rank != guild.LEADER or not 1 <= number <= 10 or not new:
-            reply(build_system_text("You can't rename that rank.", SYSTEM_TEXT_ERROR))
+            state["send"](build_system_text("You can't rename that rank.", SYSTEM_TEXT_ERROR))
             return
         ranks = list(mine.get("ranks") or guild.RANK_NAMES)
         ranks[number - 1] = new[:32]
