@@ -290,6 +290,23 @@ class GuildBuildingTests(unittest.TestCase):
             101, "Home", [(77, "Rough Stone", 0, 2)], self.housing.BUILDING_DETAILS)])
 
 
+class JournalRemoveTests(unittest.TestCase):
+    def test_removed_location_stays_gone(self):
+        import travel
+        sent, saved = [], {}
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        player.discovered = ["chunk_n19_12:7", "chunk_n19_12:8"]
+        state = {"player": player, "send": sent.append, "journal_sites": ("chunk_n19_12", [], {7, 8})}
+        with mock.patch.object(login_stub, "save_character_field", lambda n, k, v: saved.__setitem__(k, v)):
+            login_stub.journal_remove(state, 7)
+            login_stub.journal_remove(state, travel.HOUSE_ENTRY_ID)
+        self.assertEqual(sent, [travel.remove(7), travel.remove(travel.HOUSE_ENTRY_ID)])
+        self.assertEqual(saved["journal_removed"], ["chunk_n19_12:7", f"*:{travel.HOUSE_ENTRY_ID}"])
+        self.assertEqual(login_stub.journal_removed(player), {7, travel.HOUSE_ENTRY_ID})
+        player.level = "chunk_n18_12"
+        self.assertEqual(login_stub.journal_removed(player), {travel.HOUSE_ENTRY_ID})
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json
@@ -329,7 +346,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         "friends": ["Ann"], "ignores": ["Bob"], "parleys_won": ["guard"], "factions": {"1004": 250},
         "work_order": {"id": 1}, "xp_debt": 90, "tombstone": {"level": "chunk_n19_12", "loc": [1, 2, 3]},
         "bind": {"level": "chunk_n19_12", "loc": [4, 5, 6]}, "dialog_rewards": ["r1"], "played": 3600,
-        "titles": [2], "songs": [{"name": "s"}], "fish_records": {"Mud Eel": 3.5}, "discovered": ["Mailbox"],
+        "titles": [2], "songs": [{"name": "s"}], "fish_records": {"Mud Eel": 3.5}, "discovered": ["Mailbox"], "journal_removed": ["chunk_n19_12:5"],
         "flags": ["orin_trust"], "assembly_known": ["buckle"], "title_prefix": 1, "title_suffix": 2,
         "show_title": False, "known_recipes": ["copper_ingot"], "diplomacy_deck": [1, 2, 3],
         "diplomacy_slots": [1, None], "spheres": {"crafting": [3, 40]}, "active_toolbelt": 68,
@@ -342,7 +359,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         "learned_abilities": "learned", "hotbar": "hotbar", "friends": "friends", "ignores": "ignores",
         "parleys_won": "parleys_won", "factions": "factions", "work_order": "work_order", "xp_debt": "xp_debt",
         "tombstone": "tombstone", "bind": "bind", "dialog_rewards": "dialog_rewards", "played": "played",
-        "titles": "titles", "songs": "songs", "fish_records": "fish_records", "discovered": "discovered",
+        "titles": "titles", "songs": "songs", "fish_records": "fish_records", "discovered": "discovered", "journal_removed": "journal_removed",
         "flags": "flags", "assembly_known": "assembly_known", "title_prefix": "title_prefix",
         "title_suffix": "title_suffix", "show_title": "show_title", "known_recipes": "known_recipes",
         "diplomacy_deck": "diplomacy_deck", "diplomacy_slots": "diplomacy_slots", "spheres": "spheres",

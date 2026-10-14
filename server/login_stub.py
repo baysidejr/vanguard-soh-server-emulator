@@ -3473,18 +3473,45 @@ def journal_login(state):
     except (ValueError, IndexError):
         return
     house = None
+    removed = journal_removed(player)
     for pid, st in load_housing().items():
         plot = ARGS.content.plots.get(pid)
-        if st.get("owner", "").lower() == player.name.lower() and st.get("building") and plot:
+        if (st.get("owner", "").lower() == player.name.lower() and st.get("building") and plot
+                and travel.HOUSE_ENTRY_ID not in removed):
             house = (plot["name"], plot["loc"], level_chunk(plot["chunk"]))
     known = {int(k.split(":")[1]) for k in getattr(player, "discovered", []) if k.startswith(player.level + ":")}
-    msgs = travel.login_messages(spawns, chunk, house, known)
+    msgs = travel.login_messages(spawns, chunk, house, known - removed)
+    known |= removed                                     # removed sites are not rediscovered
     for m in msgs:
         state["send"](m)
     state["journal_cats"] = {struct.unpack_from("<i", m, 10 + len(m[10:]) - 8)[0]
                              for m in msgs if struct.unpack_from("<I", m, 2)[0] == 0x2AE}
     state["journal_sites"] = (player.level, travel.chunk_sites(spawns), known)
     player.journal_ready = True                          # the built-in categories exist now
+
+
+def journal_removed(player):
+    """Entry ids the player removed from the journal in their current chunk (the house entry's
+    id is the same in every chunk)."""
+    out = set()
+    for k in getattr(player, "journal_removed", []):
+        level, _, eid = k.rpartition(":")
+        if level in (player.level, "*"):
+            out.add(int(eid))
+    return out
+
+
+def journal_remove(state, eid):
+    """0x138 Remove > Yes on the Locations tab: gone now (0x383) and at the next login."""
+    player = state["player"]
+    key = f"{'*' if eid == travel.HOUSE_ENTRY_ID else player.level}:{eid}"
+    if key not in getattr(player, "journal_removed", []):
+        player.journal_removed = getattr(player, "journal_removed", []) + [key]
+        save_character_field(player.name, "journal_removed", player.journal_removed)
+    js = state.get("journal_sites")
+    if js is not None:
+        js[2].add(eid)
+    state["send"](travel.remove(eid))
 
 
 def form_bar_tick(state, now):
@@ -8054,6 +8081,7 @@ def player_from_character(char, name, args):
     player.songs = list(char.get("songs", []))
     player.fish_records = dict(char.get("fish_records", {}))
     player.discovered = list(char.get("discovered", []))
+    player.journal_removed = list(char.get("journal_removed", []))
     player.flags = list(char.get("flags", []))
     player.assembly_known = list(char.get("assembly_known", []))
     player.title_prefix = char.get("title_prefix", -1)
@@ -8396,6 +8424,8 @@ def handle_message(sock, server, addr, state, payload, args):
                                            description=zone.ITEM_CONTENT.item(name).get("description", ""),
                                            **zone.item_equip_fields(name))
                 send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == travel.REMOVE_REQUEST and state.get("player") and len(payload) >= 14:
+            journal_remove(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == APP_GEAR_TOGGLE and state.get("player"):
             app_gear_toggle(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in DECONSTRUCT and state.get("player") and len(payload) >= 14:

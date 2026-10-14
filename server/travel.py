@@ -12,6 +12,9 @@ client handlers FUN_005d86d0 / FUN_005d83a0).
 import math
 import struct
 
+# Locations tab: Remove > Yes (location_remove_confirm_yes, FUN_005d3580 -> FUN_005d3410) sends
+# 0x138 {i32 entry id}. The server answers 0x383 {id} and keeps it out of the journal.
+REMOVE_REQUEST = 0x138
 POI, TOMBSTONE, NEW_POI = 2, 1, 0
 ALL, CORPSES, HOUSING = -3, -2, -4
 ENTRY_ID_BASE = 0x7300000

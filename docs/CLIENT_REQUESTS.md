@@ -26,8 +26,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x127` |  | `0x4c0b55` `0x4c7985` | NPCDialogText |
 | `0x128` |  | `0x54abfe` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x129` |  | `0x54cc16` | **Unreachable:** nothing calls or points to the sending function. |
-| `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking |
-| `0x138` |  | `0x5d3461` |  |
+| `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking. No payload; sent when travel-journal tracking changes. Tracking is client-only (docs/TRAVEL.md), so nothing to answer. |
 | `0x167` |  | `0x4c47e6` |  |
 | `0x17e` |  | `0x5d9145` |  |
 | `0x17f` |  | `0x5d9155` |  |
@@ -79,7 +78,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x7ed` |  | `0x48230b` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x81f` |  | `0x4ba7ac` | No available work orders. / ----- Available work orders ----- **Unreachable:** nothing calls or points to the sending function. |
 | `0x82c` |  | `0x624a51` | Failed to save nicknames, make sure Nicknames.txt is not read-only. |
-| `0x82f` |  | `0x476404` |  |
+| `0x82f` |  | `0x476404` | Avatar Inspect {objType, objId} (FUN_004763b0, same layout as 0x460). The housing click menu has the option (table 0x13e5f38, key 14) but no m_BuildingType offers it (docs/HOUSING.md). |
 | `0x851` |  | `0x5de4a5` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
 | `0x852` |  | `0x5e2965` | Resurrection / Resurrection |
 | `0x85a` |  | `0x44a9fe` | AlternateAdvancementClassList / AlternateAdvancementSpecialList |

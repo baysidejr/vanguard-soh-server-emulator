@@ -22,6 +22,10 @@ Optional server route, read in the client but not sent [O]:
 
 ## Discovery (verified live 2026-10-13)
 
+**Forgetting a location.** Each Locations row has a Forget (X) button (`location_remove`, FUN_005d2880). It opens `_location_remove_confirm`, and Yes (`location_remove_confirm_yes`, UI command 0xf0, FUN_005d3580 -> FUN_005d3410) sends **0x138 {i32 entry id}**. The server answers **0x383 {id}** (remove the entry) and saves the id in the character's `journal_removed` ("<chunk level>:<id>", or "*:<id>" for the house entry). Removed entries are left out at login and are not rediscovered. Verified live 2026-10-14: `!cev 0x138 0x7300018` removed Assembly Bench from the open Locations tab, and it was still gone after logging in again. In that test the X buttons looked greyed out and clicking them opened no confirmation, so the client's own button path was not seen working. Something in the entry may enable it; not found yet.
+
+**0x137** (no payload) is sent when tracking changes (FUN_005d5e20, after it sets TravelJournalIsTracking). Tracking is client-only, so the server ignores it.
+
 A location joins the journal when the player first comes within 1500 units of it (`travel.DISCOVER_RANGE`, checked once a second by `login_stub.journal_tick`): the server sends its category (0x2ae) if that category is new this session, then the 0x382 entry, and prints "Location discovered: Orin the Trader.". Discoveries are saved per character (`discovered`, "<chunk level>:<entry id>") and sent at login. Logging in at the camp discovered all twelve services, and the Locations tab listed them under Merchants, Trainers, Services, Crafting Stations and Riftways.
 
 Server routes (0x384/0x385) are left out: tracking sends nothing to the server, so it never learns that a route is wanted.
