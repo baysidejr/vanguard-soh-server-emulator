@@ -5,6 +5,7 @@ and spawns the player's pawn and PlayerController on actor channels. See
 docs/PROTOCOL.md, ue2net.py, packagemap.py and netcache.py.
 """
 
+import re
 import struct
 import time
 
@@ -819,6 +820,21 @@ def item_restriction(player, item, action):
     if action == "sell" and bits & (ITEM_FLAGS["no_sell"] | ITEM_FLAGS["quest"]):
         return f"The merchant won't buy {item[1]}."
     return None
+
+
+ITEM_LINK = re.compile(r"<item=(-?\d+)[^>]*>(.*?)</link>", re.S)
+
+
+def item_link_name(text):
+    """The item an item link names (`<item=template:...>Name</link>`, written by the client,
+    FUN_00cde960): by its name, else by the template id; None if neither is known."""
+    m = ITEM_LINK.search(text)
+    if not m:
+        return None
+    tid, name = int(m.group(1)), m.group(2)
+    if ITEM_CONTENT.item(name) or template_id(name) == tid:
+        return name
+    return next((n for n in ITEM_CONTENT.items if template_id(n) == tid), None)
 
 
 def item_equip_fields(name, durability=100, bound=False):

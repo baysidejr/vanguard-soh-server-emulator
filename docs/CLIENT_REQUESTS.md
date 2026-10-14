@@ -28,7 +28,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking |
 | `0x138` |  | `0x5d3461` |  |
 | `0x153` |  | `0x471da2` | You don't have that many items stacked there. / That item is not in your Chest. |
-| `0x158` | `/itemlinkrequest` | `0x601594` | Pop: |
 | `0x167` |  | `0x4c47e6` |  |
 | `0x17e` |  | `0x5d9145` |  |
 | `0x17f` |  | `0x5d9155` |  |

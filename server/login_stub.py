@@ -1141,6 +1141,10 @@ MOVE_MODE = 0x72
 # (dispatcher FUN_00588c50, ids 0x4f2-0x502 -> FUN_00583b70) prints "Displaying lockout timers
 # for %s:" and lists the timers the client already holds; this server has no raid lockouts.
 LOCKOUT_LIST, LOCKOUT_LIST_REPLY = 0x4FC, 0x4FD
+# Clicking an item link in chat runs /itemlinkrequest <link text>: 0x158 {wstr}. The answer is
+# s2c 0x158 with the item's full record (FUN_005de090 -> FUN_00516610), which opens the
+# examine popup (FUN_0068e220).
+ITEM_LINK_REQUEST = 0x158
 # /cleartargets: 0x5e, no payload (FUN_005fcd70).
 CLEAR_TARGETS = 0x5E
 # /cancelability (also /stopcasting, /cancelattack, FUN_005fc8a0): first FUN_005f3d00 cancels
@@ -8106,6 +8110,15 @@ def handle_message(sock, server, addr, state, payload, args):
             if not getattr(p, "cc", None) and "ue" in state:
                 send_message(sock, addr, state, zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(p)}))
             send_message(sock, addr, state, zone.score_message(p))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == ITEM_LINK_REQUEST and state.get("player"):
+            (text,), _ = read_wstrings(payload[10:], 0, 1)
+            name = zone.item_link_name(text)
+            print(f"  >>> ZONE item link {text!r} -> {name}")
+            if name:
+                rec = vgmsg.inventory_item(zone.template_id(name), name, 0, zone.item_icon(name, 443), 1,
+                                           description=zone.ITEM_CONTENT.item(name).get("description", ""),
+                                           **zone.item_equip_fields(name))
+                send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CITY_STATUS and state.get("player"):
             city_status(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == LOCKOUT_LIST and state.get("player"):

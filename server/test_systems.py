@@ -551,6 +551,15 @@ class CrowdConvertTests(unittest.TestCase):
         self.assertTrue(any("low confidence" in i for i in b.issues))
 
 
+class ItemLinkTests(unittest.TestCase):
+    def test_link_names_an_item(self):
+        tid = zone.template_id("Copper Ore")
+        self.assertEqual(zone.item_link_name("<item=1:1::0:0:0:0:0:x>Copper Ore</link>"), "Copper Ore")
+        self.assertEqual(zone.item_link_name(f"<item={tid}:1::0:0:0:0:0:x>Old Name</link>"), "Copper Ore")
+        self.assertIsNone(zone.item_link_name("<item=1:1::0:0:0:0:0:x>No Such Thing</link>"))
+        self.assertIsNone(zone.item_link_name("plain text"))
+
+
 class PlayerReportTests(unittest.TestCase):
     def test_parse_live_capture(self):
         import bugs
