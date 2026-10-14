@@ -841,5 +841,20 @@ class TinyPacketSizeTests(unittest.TestCase):
         self.assertGreater(len(packets), 0)
 
 
+class SequenceWrapTests(unittest.TestCase):
+    def test_seq_window_survives_wrap(self):
+        import login_stub
+        state = {"seen": set()}
+        for n in range(70000):
+            seq = n & 0xFFFF
+            self.assertNotIn(seq, state["seen"], n)          # a new packet is never taken for a resend
+            login_stub.remember_seq(state, seq)
+        self.assertLessEqual(len(state["seen"]), login_stub.SEEN_WINDOW)
+        self.assertIn(69999 & 0xFFFF, state["seen"])           # a real resend is still caught
+        self.assertEqual(login_stub.build_reliable(65537, b"x")[2:4], bytes([0, 1]))    # outgoing seq wraps too
+        packets, _ = login_stub.build_reliable_fragments(65535, bytes(1000), 512)
+        self.assertEqual([p[2:4] for p in packets[:2]], [bytes([0xFF, 0xFF]), bytes([0, 0])])
+
+
 if __name__ == "__main__":
     unittest.main()

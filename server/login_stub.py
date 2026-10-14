@@ -178,7 +178,7 @@ def build_login_reply(success):
 
 def build_reliable(seq, payload):
     # Reliable1: 00 09 | u16be sequence | payload
-    return struct.pack(">BBH", 0x00, 0x09, seq) + payload
+    return struct.pack(">BBH", 0x00, 0x09, seq & 0xFFFF) + payload   # u16 on the wire: wraps
 
 
 def build_world_server_event(account, session, world_name, address):
@@ -214,7 +214,7 @@ def build_reliable_fragments(start_seq, payload, max_raw):
     pos = 0
     first = True
     while pos < len(payload):
-        header = struct.pack(">BBH", 0x00, 0x0D, seq)
+        header = struct.pack(">BBH", 0x00, 0x0D, seq & 0xFFFF)
         if first:
             header += struct.pack(">I", len(payload))
         room = max(1, max_raw - len(header))
@@ -223,6 +223,20 @@ def build_reliable_fragments(start_seq, payload, max_raw):
         seq += 1
         first = False
     return packets, seq
+
+
+SEEN_WINDOW = 4096   # recent reliable sequence numbers kept for resend detection
+
+
+def remember_seq(state, seq):
+    """Sequence numbers are u16 and wrap after 65536 packets: keep only a recent window,
+    or after the wrap every new message would look like a resend and be dropped."""
+    import collections
+    order = state.setdefault("seen_order", collections.deque())
+    state["seen"].add(seq)
+    order.append(seq)
+    while len(order) > SEEN_WINDOW:
+        state["seen"].discard(order.popleft())
 
 
 def build_ack_all(channel_type, seq):
@@ -6825,7 +6839,7 @@ def serve(sock, server, data, addr, clients, args):
                 print(f"  <- sent ack-all seq={seq}: {ack.hex(' ')}")
                 if seq in state["seen"]:
                     continue  # client resend; already answered
-                state["seen"].add(seq)
+                remember_seq(state, seq)
                 for message in app_messages(payload):
                     try:
                         handle_message(sock, server, addr, state, message, args)

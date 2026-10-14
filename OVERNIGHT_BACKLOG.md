@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: Long-session fixes: reliable sequence numbers are u16 on the wire. The server's outgoing counter now wraps (struct.pack used to raise after 65,536 messages, cutting the player off), and resend detection keeps a window of 4,096 recent numbers instead of every number ever seen (after the client's counter wrapped, every new message would have been dropped as a resend). Unit-tested; a live test would need 65,536 real messages.
 - 2026-10-14: Connections silent for 180 s are dropped from the server's client table (it used to grow forever, e.g. from connects that never log in). Live clients send keep-alives about every 30 s; verified /who and guild chat still work after 3.5 idle minutes.
 - 2026-10-14: Fixed a second one-packet freeze: a connect packet claiming a maximum packet size below the header size made the fragmenter loop forever (no login needed). The size is now clamped to at least 64 and the fragmenter always advances. Every other parsing loop reviewed: all advance.
 - 2026-10-14: Fixed a server freeze: nine UTF-16 string readers (house permissions, mail, broker, songs, bug reports) looped forever on a string with no terminator, so one malformed packet hung the server for everyone. Found by an in-process fuzz of all 28 event handlers (every event id x 5 payloads, each handler under a timeout): now no hangs and no crashes. Regression test added.
