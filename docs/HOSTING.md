@@ -81,6 +81,14 @@ Each player needs their own Vanguard client (version 1.324.1.139565) with this r
 - Lines starting with `!!!` in the log are worth a look: handler errors (the server keeps
   running), `!!! load` (it is falling behind), `!!! network` (packets lost), failed backups.
 
+## Abuse limits
+
+- A connection may send about 300 messages a second (bursts to 600); more is dropped, and one
+  that stays over the limit for 10 seconds is disconnected (`!!! flood` in the log). Chat (say,
+  shout, tell...) is limited to 5 lines a second ("You are sending messages too quickly.").
+- Login attempts: 5 failed launcher logins per address per 5 minutes.
+- A character logged in twice keeps only the newer connection.
+
 ## How many players
 
 One server process handles one shard. Measured with `tools/loadtest.py` on a desktop PC

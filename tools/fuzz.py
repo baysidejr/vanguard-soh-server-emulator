@@ -212,6 +212,9 @@ def main(argv=None):
                 continue
             for data in payloads(rng, a.per_event):
                 bot.zone.send(loadtest.event(ev, data))
+            # Stay under the server's flood limit (login_stub.MSG_RATE, 300 messages a second),
+            # or the server drops the extra messages, pings included.
+            time.sleep(a.per_event / 250.0)
             if alive(bot.zone):
                 continue
             try:

@@ -7850,6 +7850,8 @@ def serve(sock, server, data, addr, clients, args):
             for kind, seq, payload in reliable_messages(data):
                 for message in receive_reliable(sock, addr, state, kind, seq, payload,
                                                 quiet=getattr(args, "quiet_packets", False)):
+                    if not allow_message(state, message, args):
+                        continue
                     try:
                         handle_message(sock, server, addr, state, message, args)
                     except struct.error as e:
@@ -7859,6 +7861,59 @@ def serve(sock, server, data, addr, clients, args):
                         # A bug in one handler must not take the server down for everyone.
                         print(f"  >>> handler error for {message[:16].hex(' ')}")
                         traceback.print_exc()
+
+
+# Flood limits. A real client sends a few dozen messages a second (moves, pings, clicks); a
+# connection far over that is broken or hostile. Its extra messages are dropped, and one that
+# stays over the limit for FLOOD_KICK_SECONDS is disconnected. Chat (say, shout, tell...) has its
+# own, tighter limit, since every line goes to many players.
+MSG_RATE, MSG_BURST = 300.0, 600.0
+CHAT_RATE, CHAT_BURST = 5.0, 10.0
+FLOOD_KICK_SECONDS = 10.0
+CHAT_EVENTS = (0x74,)            # zone say; world type 6 slash commands (shout, tell, ...) too
+
+
+def take_token(state, key, rate, burst, now):
+    tokens, last = state.get(key, (burst, now))
+    tokens = min(burst, tokens + (now - last) * rate)
+    if tokens < 1.0:
+        state[key] = (tokens, now)
+        return False
+    state[key] = (tokens - 1.0, now)
+    return True
+
+
+def allow_message(state, message, args):
+    """False to drop this client message (flood limits above)."""
+    now = time.time()
+    if not take_token(state, "msg_bucket", MSG_RATE, MSG_BURST, now):
+        # Seconds in a row with drops: a client held at the limit keeps some messages getting
+        # through, so "since the first drop" would reset all the time.
+        second = int(now)
+        if state.get("flood_second") != second:
+            state["flood_run"] = state.get("flood_run", 0) + 1 if state.get("flood_second") == second - 1 else 1
+            state["flood_second"] = second
+        state["flood_drops"] = state.get("flood_drops", 0) + 1
+        if state["flood_run"] > FLOOD_KICK_SECONDS and not state.get("closed"):
+            who = state["player"].name if state.get("player") is not None else "a connection"
+            print(f"  !!! flood: {who} sent too many messages for {FLOOD_KICK_SECONDS:.0f} s; disconnected "
+                  f"({state['flood_drops']} dropped)")
+            if state.get("player") is not None and "ue" in state:
+                close_session(state, args)
+            else:
+                state["closed"] = True
+                if callable(state.get("terminate")):
+                    state["terminate"]()
+        return False
+    is_chat = len(message) >= 6 and (
+        (struct.unpack_from("<H", message, 0)[0] == 2 and struct.unpack_from("<I", message, 2)[0] in CHAT_EVENTS)
+        or struct.unpack_from("<H", message, 0)[0] == 6)
+    if is_chat and not take_token(state, "chat_bucket", CHAT_RATE, CHAT_BURST, now):
+        if now - state.get("chat_warned", 0) > 2 and callable(state.get("send")):
+            state["chat_warned"] = now
+            state["send"](build_system_text("You are sending messages too quickly.", SYSTEM_TEXT_ERROR))
+        return False
+    return True
 
 
 def app_messages(payload):

@@ -933,6 +933,26 @@ class TinyPacketSizeTests(unittest.TestCase):
         self.assertGreater(len(packets), 0)
 
 
+class FloodTests(unittest.TestCase):
+    def test_flood_limits(self):
+        from unittest import mock
+        import login_stub
+        sent = []
+        state = {"send": sent.append}
+        move = struct.pack("<HI", 1, 0)
+        with mock.patch.object(login_stub.time, "time", return_value=1000.0):
+            allowed = sum(login_stub.allow_message(state, move, None) for _ in range(700))
+            self.assertEqual(allowed, int(login_stub.MSG_BURST))           # the burst, then drops
+            state.clear()
+            state["send"] = sent.append
+            say = struct.pack("<HII", 2, 0x74, 4) + "hi".encode("utf-16-le")
+            allowed = sum(login_stub.allow_message(state, say, None) for _ in range(20))
+            self.assertEqual(allowed, int(login_stub.CHAT_BURST))
+            self.assertEqual(len(sent), 1)                                  # one warning
+        with mock.patch.object(login_stub.time, "time", return_value=1001.0):
+            self.assertTrue(login_stub.allow_message(state, say, None))      # refilled after a second
+
+
 class ConsoleTests(unittest.TestCase):
     def test_operator_commands(self):
         import io

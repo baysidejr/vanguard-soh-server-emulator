@@ -37,6 +37,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Flood limits: 300 messages/s per connection (burst 600), kick after 10 s over it; chat 5 lines/s. Verified: a bot sending ~1800 messages/s was disconnected after 10 s while another player was unaffected; smoke test and fuzzer unaffected.
 - 2026-10-14: docs/HOSTING.md (ports, --world-address, HTTPS, data folder, what never to enable publicly, removing the dev test tokens, players' setup, console, backups, capacity). accounts.py untoken; accounts.py and storage.py take --data-dir.
 - 2026-10-14: Operator console in the server window: who, announce, kick, backup, stop (unit-tested).
 - 2026-10-14: Automatic database backups (SQLite online backup) at start and every 6 hours to server/backups, keeping 10; storage.py backup by hand.
