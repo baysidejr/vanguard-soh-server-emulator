@@ -202,7 +202,7 @@ Implemented in `server/reactions.py` and `login_stub` (`chain_next`, `activate_r
 - Verified with Justins (Warrior): Brutal Strike → (3) Savage Cut → (`!react`) Decimate. `!react` activates the newest open reaction.
 - Reaction lists in the client's combat manager [O]: chain/finisher windows at +0xda4 (0x394 and 0x395 clear them), counters at +0xdb4 (0x398), rescues at +0xdc4 (0x397); 0x396 / 0x399 clear every list. 0x392 {i32 id} closes one window. 0x39a {u8} prints the result: 0 activated, 1 timed out, 2 queue full, 3 resting, 4 invalid target, 5 target dead, 6 changing forms, 7 can't meet the cost (FUN_005f4190).
 - The server closes a window when it expires or its enemy dies, and answers activating one on a dead enemy with 0x39a code 5 (code change, not yet checked live).
-- Not done: 0x393 {i32} (FUN_005f40f0 -> FUN_0042f2b0, an ability chain reset). Counters and rescues are in the sections below.
+- 0x393 `{i32 ability id}` (FUN_005f40f0 -> FUN_00427c90 picks the best rank the player's level allows -> FUN_0042f2b0) only rebuilds that ability's rows in the Chain/Finisher book lists; it changes no combat state, so the server has no need to send it [O]. Counters and rescues are in the sections below.
 
 ## Enemy casts and counters (counters verified live 2026-10-13)
 

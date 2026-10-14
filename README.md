@@ -88,8 +88,6 @@ The unmodified client, talking only to this emulator:
 - [ ] Flying: griffon/wyrm/wyvern mounts render, but taking off (second jump in the air) is untested by hand; mount barding
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
 - [ ] Combat-form ability restrictions (the form recovery bar is sent but not confirmed on screen)
-- [ ] Server-sent travel routes (0x384)
-- [ ] Combat chain reset message (0x393)
 - [ ] The civic stats display (no window in the shipped UI)
 - [ ] Real game data: every item, mob, quest, ability number and reward here is a placeholder until the content editor (docs/CONTENT_EDITOR.md)
 
