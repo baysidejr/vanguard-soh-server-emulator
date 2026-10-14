@@ -132,6 +132,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         "diplomacy_slots": [1, None], "spheres": {"crafting": [3, 40]}, "active_toolbelt": 68,
         "bound": [12], "deck_presets": {"1": [1, 2]}, "apply_form_on_death": True, "access_level": 5,
         "gender": 1, "race": 14, "quests": {}, "pawn_prefs": {"m_bHideHood": 1, "m_WearPreference": 2},
+        "app_gear_visible": True,
     }
     LOADED = {   # characters.json field -> Player attribute, compared after normalising
         "adventure_level": "level_number", "adventure_xp": "xp", "coins": "coins", "bank_coins": "bank_coins",
@@ -144,7 +145,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         "diplomacy_deck": "diplomacy_deck", "diplomacy_slots": "diplomacy_slots", "spheres": "spheres",
         "active_toolbelt": "active_toolbelt", "deck_presets": "deck_presets",
         "apply_form_on_death": "apply_form_on_death", "access_level": "access_level", "gender": "gender",
-        "race": "race", "durability": "durability", "pawn_prefs": "pawn_prefs",
+        "race": "race", "durability": "durability", "pawn_prefs": "pawn_prefs", "app_gear_visible": "app_gear_visible",
     }
 
     def test_every_saved_value_comes_back(self):

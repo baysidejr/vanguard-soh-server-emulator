@@ -20,7 +20,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x107` |  | `0x5b05e5` | CraftingRecipeSelectDescription / CraftingRecipeSelectNumUses |
 | `0x108` |  | `0x5aa9f4` | type6 / type7 |
 | `0x112` | `/cyclewieldpreference` (the Z key) | `0x5fc65a` | no payload. The portrait help text says "To wield weapons for the portrait hit the Z key", so it probably draws/sheathes weapons through `m_WieldPreference` (0-3); which value means what is not known |
-| `0x115` | `/toggleeppearancegear` | `0x5fc65a` | no payload; the appearance-gear toggle (no appearance slots in the server yet) |
 | `0x117` |  | `0x5e2cc5` | Call Confirmation / Lockout Timer Confirmation |
 | `0x120` |  | `0x451fc7` |  |
 | `0x126` |  | `0x54ac25` | You can only request debug information during a parley session. |
@@ -100,6 +99,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 - `/walk`, `/run` 0x72 `{u8 1 walk, 2 run}` (FUN_005fccf0): the client changes its own pawn only when the send fails (FUN_00b73620 -> FUN_00bb5ae0 sets GroundSpeed from the race table: walk 185, run 555). With a server it waits, and replicated `bIsWalking` alone did not slow it (live: same distance in 2 s). The server sends GroundSpeed 185 for walking and the normal 337.889 for running (pawn speed read live: 337.9 -> 185 -> 337.9; distance walked in 2 s 673 -> 374), `bIsWalking` for other clients, and MsgScore field 28 (character sheet "walking"/"running").
 - `/cancelability` (also `/stopcasting`, `/cancelattack`, FUN_005fc8a0): FUN_005f3d00 first cancels what is running on the client and sends 0x25f while casting, else 0xe2 while a bar runs (+0xe0c/+0xe14), else 0xe1 after clearing a queued ability (FUN_00428700); then it sends 0x144. None has a payload. The server drops its pending cast for any of them (it queues no abilities). Checked through the dispatcher with a cast in progress; not seen live (no hostile target with a cast-time ability on the hotbar in the test).
 - `/callpcdecline` 0x271 `{u8 0}` and `/lockoutdecline` 0x273 `{u8 0}` answer prompts the server never sends yet.
+- `/toggleeppearancegear` 0x115 (no payload): the server flips a saved per-character flag and answers 0x116 `{bool8 shown}` (FUN_004f9ea0: inventory manager +0x6c0, then gamevars bAppGearVisible / bAppGearInvisible via FUN_004f7d60); resent at login when on. The request and the save were seen live; what the switch changes on screen was not identified (the server has no appearance-gear slots).
 - `/cleartargets` 0x5e (no payload): the server forgets the offensive and defensive targets and answers 0x3e0 with none.
 
 ## Raid lockout list (verified live 2026-10-14)

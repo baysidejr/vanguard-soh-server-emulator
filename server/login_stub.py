@@ -2350,10 +2350,25 @@ def show_titles(state):
         w.broadcast(lambda s: zone.remote_player_update(s, ARGS, player, values), exclude=state)
 
 
+# /toggleeppearancegear (the equipment window's appearance-gear switch): 0x115, no payload. The
+# server flips the setting and answers 0x116 {bool8 shown} (FUN_004f9ea0: inventory manager
+# +0x6c0, then gamevars bAppGearVisible / bAppGearInvisible). Saved; resent at login.
+APP_GEAR_TOGGLE, APP_GEAR_STATE = 0x115, 0x116
+
+
+def app_gear_toggle(state):
+    player = state["player"]
+    player.app_gear_visible = not getattr(player, "app_gear_visible", False)
+    save_character_field(player.name, "app_gear_visible", player.app_gear_visible)
+    state["send"](zone.zone_event(APP_GEAR_STATE, struct.pack("<B", int(player.app_gear_visible))))
+
+
 def title_login(state):
     player = state["player"]
     state["send"](titles.title_list(owned_titles(player), getattr(player, "title_prefix", -1),
                                     getattr(player, "title_suffix", -1), getattr(player, "show_title", True)))
+    if getattr(player, "app_gear_visible", False):
+        state["send"](zone.zone_event(APP_GEAR_STATE, struct.pack("<B", 1)))
     if getattr(player, "title_prefix", -1) != -1 or getattr(player, "title_suffix", -1) != -1:
         show_titles(state)
 
@@ -7903,6 +7918,7 @@ def player_from_character(char, name, args):
     player.bound = set(char.get("bound", []))
     player.deck_presets = char.get("deck_presets")
     player.apply_form_on_death = char.get("apply_form_on_death", False)
+    player.app_gear_visible = bool(char.get("app_gear_visible", False))
     known = {prop for prop, _, _ in PAWN_PREFS.values()}
     player.pawn_prefs = {k: int(v) for k, v in char.get("pawn_prefs", {}).items() if k in known}
     player.access_level = int(char.get("access_level", 0))
@@ -8224,6 +8240,8 @@ def handle_message(sock, server, addr, state, payload, args):
                                            description=zone.ITEM_CONTENT.item(name).get("description", ""),
                                            **zone.item_equip_fields(name))
                 send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == APP_GEAR_TOGGLE and state.get("player"):
+            app_gear_toggle(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in DECONSTRUCT and state.get("player") and len(payload) >= 14:
             handle = struct.unpack_from("<i", payload, 10)[0]
             send_message(sock, addr, state, zone.zone_event(DECONSTRUCT_RESULT, struct.pack("<ii", handle, CANT_DECONSTRUCT)))
