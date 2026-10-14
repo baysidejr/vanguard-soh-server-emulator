@@ -17,7 +17,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x106` |  | `0x5b0405` | type6 / type7 |
 | `0x107` |  | `0x5b05e5` | CraftingRecipeSelectDescription / CraftingRecipeSelectNumUses |
 | `0x108` |  | `0x5aa9f4` | type6 / type7 |
-| `0x112` | `/cyclewieldpreference` | `0x5fc65a` | no payload; what the cycle steps through is not known |
+| `0x112` | `/cyclewieldpreference` (the Z key) | `0x5fc65a` | no payload. The portrait help text says "To wield weapons for the portrait hit the Z key", so it probably draws/sheathes weapons through `m_WieldPreference` (0-3); which value means what is not known |
 | `0x115` | `/toggleeppearancegear` | `0x5fc65a` | no payload; the appearance-gear toggle (no appearance slots in the server yet) |
 | `0x117` |  | `0x5e2cc5` | Call Confirmation / Lockout Timer Confirmation |
 | `0x120` |  | `0x451fc7` |  |
