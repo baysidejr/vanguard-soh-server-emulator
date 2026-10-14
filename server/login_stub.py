@@ -239,20 +239,6 @@ def build_reliable_fragments(start_seq, payload, max_raw):
     return packets, seq
 
 
-SEEN_WINDOW = 4096   # recent reliable sequence numbers kept for resend detection
-
-
-def remember_seq(state, seq):
-    """Sequence numbers are u16 and wrap after 65536 packets: keep only a recent window,
-    or after the wrap every new message would look like a resend and be dropped."""
-    import collections
-    order = state.setdefault("seen_order", collections.deque())
-    state["seen"].add(seq)
-    order.append(seq)
-    while len(order) > SEEN_WINDOW:
-        state["seen"].discard(order.popleft())
-
-
 def build_ack_all(channel_type, seq):
     # AckAll1..4 = 0x15..0x18: 00 15 | u16be seq, acknowledges everything up
     # to and including seq on that reliable channel (FUN_00c05730).
@@ -7579,7 +7565,7 @@ def serve(sock, server, data, addr, clients, args):
             protocol, code, max_raw = struct.unpack_from(">III", data, 2)
             name = data[14:].split(b"\0", 1)[0].decode("latin-1")
             print(f"  connect: protocol={protocol} code=0x{code:08x} maxRaw={max_raw} name={name!r}")
-            clients[key] = {"out_seq": 0, "seen": set(), "max_raw": max(MIN_RAW_PACKET, min(max_raw, MAX_RAW_PACKET)),
+            clients[key] = {"out_seq": 0, "max_raw": max(MIN_RAW_PACKET, min(max_raw, MAX_RAW_PACKET)),
                             # UdpLibrary Terminate (reason 6, application) for this connection.
                             "terminate": lambda sock=sock, addr=addr, code=code: sock.sendto(
                                 b"\x00\x05" + struct.pack(">IH", code, 6), addr)}
@@ -7603,21 +7589,15 @@ def serve(sock, server, data, addr, clients, args):
             if gone and server == "ZONE":
                 leave_world(gone, args)
         else:
-            state = clients.setdefault(key, {"out_seq": 0, "seen": set(), "max_raw": 512})
+            state = clients.setdefault(key, {"out_seq": 0, "max_raw": 512})
             state["last_seen"] = time.time()
             handle_acks(state, data)
             if server == "ZONE" and "send" not in state:
                 state["send"] = lambda m, sock=sock, addr=addr, state=state: (
                     send_message(sock, addr, state, m) if m is not None else None)
             for kind, seq, payload in reliable_messages(data):
-                ack = build_ack_all(kind, seq)
-                sock.sendto(ack, addr)
-                if not getattr(args, "quiet_packets", False):
-                    print(f"  <- sent ack-all seq={seq}: {ack.hex(' ')}")
-                if seq in state["seen"]:
-                    continue  # client resend; already answered
-                remember_seq(state, seq)
-                for message in app_messages(payload):
+                for message in receive_reliable(sock, addr, state, kind, seq, payload,
+                                                quiet=getattr(args, "quiet_packets", False)):
                     try:
                         handle_message(sock, server, addr, state, message, args)
                     except struct.error as e:
@@ -7645,13 +7625,54 @@ def app_messages(payload):
         yield payload
 
 
+MAX_REORDER = 512    # reliable packets held while waiting for a missing earlier one
+
+
+def receive_reliable(sock, addr, state, kind, seq, payload, quiet=False):
+    """The application messages that become deliverable with this reliable packet or fragment.
+    UdpLibrary delivers in order: a packet after a gap waits (and gets an Ack1, so the client
+    resends the missing one at once), resends of delivered packets are only acknowledged again,
+    and fragments (00 0d: u32 total length in the first) are joined into one message."""
+    expect = state.setdefault("in_expect", seq)
+    ahead = (seq - expect) & 0xFFFF
+    out = []
+    if ahead < 0x8000 and ahead <= MAX_REORDER:
+        pending = state.setdefault("in_pending", {})
+        pending.setdefault(seq, (kind, payload))
+        if ahead:
+            sock.sendto(struct.pack(">BBH", 0, 0x11, seq), addr)
+        while expect in pending:
+            k, data = pending.pop(expect)
+            expect = (expect + 1) & 0xFFFF
+            if 0x0D <= k <= 0x10:
+                frag = state.get("in_frag")
+                if frag is None:
+                    if len(data) < 4:
+                        continue
+                    frag = [struct.unpack_from(">I", data, 0)[0], bytearray(data[4:])]
+                else:
+                    frag[1] += data
+                if len(frag[1]) >= frag[0]:
+                    out.extend(app_messages(bytes(frag[1][:frag[0]])))
+                    frag = None
+                state["in_frag"] = frag
+            else:
+                out.extend(app_messages(data))
+        state["in_expect"] = expect
+    ack = build_ack_all(0x09, (expect - 1) & 0xFFFF)
+    sock.sendto(ack, addr)
+    if not quiet:
+        print(f"  <- sent ack-all seq={(expect - 1) & 0xFFFF}: {ack.hex(' ')}")
+    return out
+
+
 def reliable_messages(data):
-    """Yield (type, seq, payload) for every Reliable packet, including ones
+    """Yield (type, seq, payload) for every Reliable packet and Fragment, including ones
     bundled inside Multi (0x03) or Group (0x19) containers."""
     if len(data) < 2 or data[0] != 0:
         return
     kind = data[1]
-    if 0x09 <= kind <= 0x0C and len(data) >= 4:
+    if 0x09 <= kind <= 0x10 and len(data) >= 4:
         yield kind, struct.unpack_from(">H", data, 2)[0], data[4:]
     elif kind == 0x03:
         pos = 2

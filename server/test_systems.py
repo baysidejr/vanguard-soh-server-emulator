@@ -947,7 +947,7 @@ class ResendTests(unittest.TestCase):
         import struct
         import login_stub
         sock = self.Sock()
-        state = {"out_seq": 65530, "seen": set(), "max_raw": 512}
+        state = {"out_seq": 65530, "max_raw": 512}
         for _ in range(10):                                   # seqs 65530..65539 (u16 wraps at 6)
             login_stub.send_message(sock, ("h", 1), state, b"\x02\x00hello")
         self.assertEqual(len(state["unacked"]), 10)
@@ -966,15 +966,31 @@ class ResendTests(unittest.TestCase):
 
 
 class SequenceWrapTests(unittest.TestCase):
-    def test_seq_window_survives_wrap(self):
+    def test_in_order_delivery_survives_wrap(self):
+        import struct
         import login_stub
-        state = {"seen": set()}
-        for n in range(70000):
-            seq = n & 0xFFFF
-            self.assertNotIn(seq, state["seen"], n)          # a new packet is never taken for a resend
-            login_stub.remember_seq(state, seq)
-        self.assertLessEqual(len(state["seen"]), login_stub.SEEN_WINDOW)
-        self.assertIn(69999 & 0xFFFF, state["seen"])           # a real resend is still caught
+
+        class Sock:
+            def __init__(self):
+                self.sent = []
+
+            def sendto(self, pkt, addr):
+                self.sent.append(pkt)
+        sock, state = Sock(), {"in_expect": 65534}
+        recv = lambda seq, payload, kind=0x09: login_stub.receive_reliable(
+            sock, None, state, kind, seq & 0xFFFF, payload, quiet=True)
+        self.assertEqual(recv(65534, b"\x02\x00a"), [b"\x02\x00a"])
+        self.assertEqual(recv(0, b"\x02\x00c"), [])                # 65535 is missing: held
+        self.assertEqual(sock.sent[-2], struct.pack(">BBH", 0, 0x11, 0))    # Ack1 for the early one
+        self.assertEqual(sock.sent[-1], struct.pack(">BBH", 0, 0x15, 65534))
+        self.assertEqual(recv(65535, b"\x02\x00b"), [b"\x02\x00b", b"\x02\x00c"])
+        self.assertEqual(recv(65535, b"\x02\x00b"), [])           # a resend: only acknowledged again
+        self.assertEqual(sock.sent[-1], struct.pack(">BBH", 0, 0x15, 0))
+        message = b"\x02\x00" + bytes(range(256)) * 3              # 770 bytes: three fragments
+        parts = [struct.pack(">I", len(message)) + message[:300], message[300:600], message[600:]]
+        self.assertEqual(recv(3, parts[2], 0x0D), [])
+        self.assertEqual(recv(1, parts[0], 0x0D), [])
+        self.assertEqual(recv(2, parts[1], 0x0D), [message])
         self.assertEqual(login_stub.build_reliable(65537, b"x")[2:4], bytes([0, 1]))    # outgoing seq wraps too
         packets, _ = login_stub.build_reliable_fragments(65535, bytes(1000), 512)
         self.assertEqual([p[2:4] for p in packets[:2]], [bytes([0xFF, 0xFF]), bytes([0, 0])])
