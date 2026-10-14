@@ -27,6 +27,7 @@ class ArchiveClient:
         self.clock = self.cache / "last-request.json"
         self.delay = 5.0
         self.network_requests = 0
+        self.network_request_attempts = 0
         robots = self.get(ORIGIN + "/robots.txt", policy_check=False)
         self.policy = RobotFileParser()
         self.policy.parse(robots.splitlines())
@@ -52,6 +53,7 @@ class ArchiveClient:
         time.sleep(max(0, previous + self.delay - time.time()))
         self.clock.write_text(json.dumps(time.time()), encoding="utf-8")
         request = Request(url, headers={"User-Agent": USER_AGENT})
+        self.network_request_attempts += 1
         # HTTP errors are surfaced; never retry 401/403 or bypass access restrictions.
         with build_opener(NoRedirect()).open(request, timeout=30) as response:
             final = urlsplit(response.url)

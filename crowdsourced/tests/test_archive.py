@@ -183,6 +183,25 @@ class ArchiveParsingTests(unittest.TestCase):
 
 
 class ArchivePublicationTests(unittest.TestCase):
+    def test_batch_network_counts_exclude_prior_requests_and_include_failed_attempt(self):
+        class Client:
+            network_requests = 7
+            network_request_attempts = 9
+            def get(self, url):
+                self.network_request_attempts += 1
+                if url.endswith('/failed'):
+                    raise TimeoutError('fixture timeout')
+                self.network_requests += 1
+                return page('Fixture Item', '<h2>Properties</h2>')
+        state = self.root / 'state'
+        destination = self.root / 'raw' / 'batch'
+        with patch.object(collector, 'STATE', state), patch.object(collector, 'batch_path', return_value=destination):
+            _, fatal, _ = collector.collect(Client(), [ORIGIN + '/items/fixture', ORIGIN + '/items/failed'], 2, 'fixture')
+        manifest = json.loads((destination / 'manifest.json').read_text())
+        self.assertTrue(fatal)
+        self.assertEqual(manifest['network_requests'], 1)
+        self.assertEqual(manifest['network_request_attempts'], 2)
+
     def setUp(self):
         self.scratch = tempfile.TemporaryDirectory(prefix='archive-test-', dir=HERE / 'tests')
         self.addCleanup(self.scratch.cleanup)

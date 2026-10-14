@@ -499,6 +499,8 @@ def unique_json(values):
 
 
 def collect(client, urls, limit, topic, follow_links=False, publish_status=True):
+    requests_at_start = client.network_requests
+    attempts_at_start = getattr(client, 'network_request_attempts', None)
     batch = batch_path(topic)
     done_path = STATE / "done.json"
     done = set(json.loads(done_path.read_text(encoding="utf-8"))) if done_path.exists() else set()
@@ -602,7 +604,11 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
     write_json(batch / "queue.json", list(queue))
     counts = Counter(r["type"] for r in records.values())
     manifest = dict(started_at=started, finished_at=timestamp(), pages=len(fetched), counts=dict(counts),
-                    fetched_urls=fetched, pending=len(queue), stopped_on_error=fatal, network_requests=client.network_requests)
+                    fetched_urls=fetched, pending=len(queue), stopped_on_error=fatal,
+                    network_requests=client.network_requests - requests_at_start)
+    manifest['network_requests_definition'] = 'Successful network responses during this batch; excludes cache hits and requests before batch start.'
+    manifest['network_request_attempts'] = (client.network_request_attempts - attempts_at_start
+        if attempts_at_start is not None else (0 if getattr(client, 'cache_only', False) else None))
     manifest['stop_requested'] = (STATE / 'stop.request').exists()
     write_json(batch / "manifest.json", manifest)
     (batch / "REPORT.md").write_text("# Archive facts collection\n\n"
