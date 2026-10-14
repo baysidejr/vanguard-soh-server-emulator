@@ -152,6 +152,19 @@ def issue_launch_token(username):
     return token
 
 
+def throttled(address, now=None):
+    """True when address had MAX_FAILURES failed logins within FAILURE_WINDOW seconds (the
+    launcher's password check and the game's own login share the count)."""
+    now = time.time() if now is None else now
+    recent = [t for t in FAILURES.get(address, []) if now - t < FAILURE_WINDOW]
+    FAILURES[address] = recent
+    return len(recent) >= MAX_FAILURES
+
+
+def record_failure(address, now=None):
+    FAILURES.setdefault(address, []).append(time.time() if now is None else now)
+
+
 def launcher_login(address, username, password, now=None):
     """The launcher's username / password check: (token, None) or (None, error message).
     Too many failures from one address within FAILURE_WINDOW seconds are refused outright."""

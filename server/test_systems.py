@@ -1175,6 +1175,13 @@ class AccountTests(unittest.TestCase):
         self.assertIsNone(a.set_password("alice", "new secret"))
         self.assertIsNone(a.login("Alice", "correct horse"))
         self.assertEqual(a.login("Alice", "new secret"), "alice")
+        a.FAILURES.clear()
+        for _ in range(a.MAX_FAILURES):
+            self.assertFalse(a.throttled("10.0.0.9"))
+            a.record_failure("10.0.0.9")
+        self.assertTrue(a.throttled("10.0.0.9"))
+        self.assertFalse(a.throttled("10.0.0.9", now=a.time.time() + a.FAILURE_WINDOW + 1))
+        a.FAILURES.clear()
 
     def test_sessions_and_dev_account(self):
         a = self.accounts

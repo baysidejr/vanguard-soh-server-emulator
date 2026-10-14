@@ -9708,7 +9708,12 @@ def handle_message(sock, server, addr, state, payload, args):
         return
     LOGIN_CONN.update(sock=sock, addr=addr, state=state)
     if login:
-        account = accounts.login(login[0], login[1])
+        throttled = accounts.throttled(addr[0])
+        account = None if throttled else accounts.login(login[0], login[1])
+        if account is None:
+            accounts.record_failure(addr[0])      # guessing tokens or passwords: slowed down
+        else:
+            accounts.FAILURES.pop(addr[0], None)
         if account is not None and accounts.is_suspended(account):
             code, account = LOGIN_SUSPENDED, None
         elif account is None:

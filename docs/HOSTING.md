@@ -86,7 +86,8 @@ Each player needs their own Vanguard client (version 1.324.1.139565) with this r
 - A connection may send about 300 messages a second (bursts to 600); more is dropped, and one
   that stays over the limit for 10 seconds is disconnected (`!!! flood` in the log). Chat (say,
   shout, tell...) is limited to 5 lines a second ("You are sending messages too quickly.").
-- Login attempts: 5 failed launcher logins per address per 5 minutes.
+- Login attempts: 5 failed logins per address per 5 minutes, counting both the launcher's
+  password check and the game's own login (so launcher tokens can't be guessed either).
 - A character logged in twice keeps only the newer connection.
 
 ## How many players
