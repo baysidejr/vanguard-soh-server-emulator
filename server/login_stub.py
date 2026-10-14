@@ -1079,6 +1079,10 @@ def change_gender_race(state, event, value, handle):
 # strNameFullSelf), 7 "That first name is not available.", 0xb "You are not allowed to change
 # your name.", anything else "Rename failed. Please retry later."
 RENAME, RENAME_REPLY, RENAME_TEMPLATE = 0x5D3, 0x5D4, 1463295
+# /claim (account rewards): 0x18e asks for the list. The claim dispatcher (FUN_004458f0) takes
+# 0x5ed clear, 0x5ee/0x5ef/0x5f1 entries and results, 0x5f0 end of list; an empty list prints
+# "You don't qualify to claim any account rewards." A private server has no account rewards.
+CLAIM_LIST, CLAIM_CLEAR, CLAIM_END = 0x18E, 0x5ED, 0x5F0
 FORCE_STANCE = 0x571
 RENAME_DONE, RENAME_TAKEN, RENAME_NOT_ALLOWED = 6, 7, 0x0B
 # Saved files that refer to characters by name (mail boxes use the lower-case name).
@@ -7785,6 +7789,9 @@ def handle_message(sock, server, addr, state, payload, args):
             change_gender_race(state, struct.unpack_from("<I", payload, 2)[0], *struct.unpack_from("<ii", payload, 10))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNBIND and state.get("player") and len(payload) >= 18:
             unbind_item(state, *struct.unpack_from("<ii", payload, 10))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLAIM_LIST and state.get("player"):
+            send_message(sock, addr, state, zone.zone_event(CLAIM_CLEAR))
+            send_message(sock, addr, state, zone.zone_event(CLAIM_END))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == APPLY_FORM_ON_DEATH and state.get("player") and len(payload) >= 11:
             state["player"].apply_form_on_death = bool(payload[10])
             save_character_field(state["player"].name, "apply_form_on_death", bool(payload[10]))

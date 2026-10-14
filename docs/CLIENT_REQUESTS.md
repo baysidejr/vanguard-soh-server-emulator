@@ -32,7 +32,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x183` |  | `0x68b207` | _tutorial_do_not_show_sel / _death_penalty_tutorial_do_not_show_sel |
 | `0x189` |  | `0x4bfd97` |  |
 | `0x18a` |  | `0x5de743` `0x5ef0f2` |  |
-| `0x18e` |  | `0x443181` | ClaimItemList / Requesting a list of the rewards that you qualify for. |
 | `0x18f` |  | `0x4439b6` | ClaimName / Some Claim |
 | `0x191` | `/ropeaccept` | `0x5fc9a5` |  |
 | `0x1e7` |  | `0x4d1b9b` | No more items to be randomed! / GroupRandomLootInvitationPopup |
@@ -107,3 +106,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x85a` |  | `0x44a9fe` | AlternateAdvancementClassList / AlternateAdvancementSpecialList |
 | `0x85b` |  | `0x5ebdee` | /lockoutaccept / Lockout Timer Confirmation |
 | `0x85c` |  | `0x5de495` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
+
+## Handled from static analysis only
+
+- `0x18e` (claim window list request): answered with 0x5ed (clear) + 0x5f0 (end); the claim dispatcher FUN_004458f0 then prints "You don't qualify to claim any account rewards.". Not seen live: `/claim` itself talks to a separate SOE account-claim service (FUN_006f03d0, ClaimSystem.log), not the game server.
