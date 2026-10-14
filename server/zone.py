@@ -997,6 +997,26 @@ def bag_items(items, handle):
     return [i for i in items if vgmsg.split_slot(i[4])[0] == handle]
 
 
+# Item operation results: 0x1e4 {i32 code} (FUN_004fa120) prints the client's own line:
+# 0 "Failed to add item.  You already have one of that Unique item!", 1 "Only adding one item as
+# that item is Unique!", 2 / 11 "There is not enough space in your inventory for that item.",
+# 9 "Destination container must be equipped to hold items.", 12 "You already have an item in that
+# slot.", 13-19 grafts, 23-27 vehicle names, 28 "You cannot equip that item.", 29 "You cannot wield
+# that item in that location.", 30-32 stacking, 33 "You cannot put any more of those there.",
+# 34 "You have already reached the stack limit for that stack.", 35 "There aren't that many
+# stacked items there." Item functions return such a code (int) or a text line (str) on failure.
+ITEM_RESULT = 0x1E4
+NO_ROOM_FOR_ITEM, CANT_EQUIP = 2, 28
+
+
+def item_error(result):
+    """The message for an item function's failure: the client's line for a code, else text."""
+    import login_stub
+    if isinstance(result, int):
+        return zone_event(ITEM_RESULT, struct.pack("<i", result))
+    return login_stub.build_system_text(result, login_stub.SYSTEM_TEXT_ERROR)
+
+
 def move_target(items, equipment, handle, container, slot):
     """Check a drag to (container, slot); returns the stored slot or an error string."""
     item = next((i for i in items if i[0] == handle), None)
@@ -1206,7 +1226,7 @@ def split_stack(player, handle, count):
         return f"You can only unstack between 1 and {item[3] - 1} of those."
     slot = free_bag_slot(player)
     if slot is None:
-        return "Your bags are full."
+        return NO_ROOM_FOR_ITEM
     new_id = new_item_id(player)
     player.items[player.items.index(item)] = item[:3] + (item[3] - count, item[4])
     player.items.append((new_id, item[1], item[2], count, slot))
@@ -1249,7 +1269,7 @@ def unequip_item(player, handle):
         return "You need to empty that bag first."
     slot = free_bag_slot(player)
     if slot is None:
-        return "Your bags are full."
+        return NO_ROOM_FOR_ITEM
     player.equipment.remove(item)
     player.items.append((item[0], item[1], item[2], 1, slot))
     return [unequip_message(item[0], slot)]
@@ -1264,7 +1284,7 @@ def equip_item(player, handle):
         return "That item is not in your bags."
     tpl = ITEM_CONTENT.item(item[1])
     if "slot" not in tpl and not tpl.get("bag"):
-        return "That item does not equip."
+        return CANT_EQUIP
     if tpl.get("bag"):
         # The first empty bag slot on the main bar (else swap the first bag).
         used = {e[3] for e in player.equipment}
@@ -1288,7 +1308,7 @@ def equip_item(player, handle):
     # needs a free slot; otherwise the first one takes the equipped item's slot.
     main = [i for i in player.items if vgmsg.split_slot(i[4])[0] == -1]
     if len(main) - (0 if split else 1) + len(displaced) > BAG_SLOTS:
-        return "Your bags are full."
+        return NO_ROOM_FOR_ITEM
     if split:
         # 0x1ae {handle, count} shrinks the stack; the equipped one is a new item.
         player.items[player.items.index(item)] = item[:3] + (item[3] - 1, item[4])

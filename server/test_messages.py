@@ -109,7 +109,7 @@ class ZoneMessages(unittest.TestCase):
         player.items.append((200, two, 443, 1, zone.BAG_SLOTS - 1))
         player.equipment = [(300, "Rusty Sword", 443, vgmsg.EQUIP_SLOTS["PRIMARYHAND"]),
                             (301, "Round Shield", 443, vgmsg.EQUIP_SLOTS["SECONDARYHAND"])]
-        self.assertIsInstance(zone.equip_item(player, 200), str)
+        self.assertEqual(zone.equip_item(player, 200), zone.NO_ROOM_FOR_ITEM)
         self.assertEqual(len(player.items), zone.BAG_SLOTS)
         self.assertEqual(len(player.equipment), 2)
         player.items.pop(0)                       # one free slot: now it fits

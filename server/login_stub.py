@@ -5944,8 +5944,8 @@ def handle_bag_event(state, event, data):
             send(m)
     elif event == zone.UNSTACK and len(data) >= 8:
         result = zone.split_stack(player, *struct.unpack_from("<ii", data))
-        if isinstance(result, str):
-            send(build_system_text(result, SYSTEM_TEXT_ERROR))
+        if isinstance(result, (str, int)):
+            send(zone.item_error(result))
             return
         for m in result:
             send(m)
@@ -8844,8 +8844,8 @@ def handle_message(sock, server, addr, state, payload, args):
                     send_message(sock, addr, state, build_system_text(f"You summon your {item[1]}.", SYSTEM_TEXT_WHITE))
             elif player:
                 result = (zone.equip_item if event == EQUIP_EVENT else zone.unequip_item)(player, handle)
-                if isinstance(result, str):
-                    send_message(sock, addr, state, build_system_text(result, SYSTEM_TEXT_ERROR))
+                if isinstance(result, (str, int)):
+                    send_message(sock, addr, state, zone.item_error(result))
                 else:
                     for m in result:
                         send_message(sock, addr, state, m)
