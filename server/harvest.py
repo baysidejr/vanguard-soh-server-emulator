@@ -12,7 +12,23 @@ harvested, 0x159 can't attack a resource."""
 import struct
 
 BEGIN, STOP = 0x109, 0x10A
-CLIENT_EVENTS = (BEGIN, STOP)
+# 0x10b {i32 n, n x i32 item id} (FUN_004f2ae0): reward ids the client could not resolve; the
+# answer is an 0x2e2 record per item, then 0x2e3.
+ITEM_REQUEST = 0x10B
+CLIENT_EVENTS = (BEGIN, STOP, ITEM_REQUEST)
+
+
+def parse_item_request(data):
+    if len(data) < 4:
+        return []
+    n = struct.unpack_from("<i", data)[0]
+    if not 0 <= n <= (len(data) - 4) // 4:
+        return []
+    return list(struct.unpack_from(f"<{n}i", data, 4))
+
+
+def item_records(records):
+    return [_event(0x2E2, r) for r in records] + [_event(0x2E3)]
 HARVESTABLE = 0x800                 # EntityTypes bit
 SKILLS = {"mining": 0x0F, "quarrying": 0x32, "lumberjacking": 0x4B, "reaping": 0x59,
           "skinning": 0x76, "gathering": 0x79}

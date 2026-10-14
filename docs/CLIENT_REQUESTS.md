@@ -2,7 +2,7 @@
 
 Every event id the client can send (the last `push imm` before a call to its send functions `FUN_004cfb00` / `FUN_004cfb50`) that the server code never mentions. Generated 2026-10-13 by a scan of VGClient.exe; 370 ids are sent in all. "Command" is the slash command whose handler (the client's command table: 24-byte rows `{handler, wstr name, ...}`) sends it; "Context" is the nearest UI strings before the call site, a hint only. Commands starting with `/.` and `/hideme`, `/chunk`, `/gotoplayer`, `/fly`, `/summonplayer`, `/summongroup`, `/debuggameplay`, `/attach` are GM tools.
 
-The scan only sees ids pushed right before `FUN_004cfb00` / `FUN_004cfb50`. Some commands send through `FUN_00409210` instead (`/walk`, `/run`, `/cyclewieldpreference`, ...), so an in-game sweep of the slash commands (`sweep.sh`) finds more; the "Command" column for those was filled in from that sweep. Contexts are the nearest strings and can mislead (0x113 is `/hidehood`, not a lockout prompt).
+The scan only sees ids pushed right before `FUN_004cfb00` / `FUN_004cfb50`. A second scan (2026-10-14, scratchpad scan409.py) took the id pushed before every call to `FUN_00409210` and added the rows for `/location`, `/copycharacter`, `/aggro`, `/invulnerability` and `/attach`; 0x10b, harvest reward records, is now handled. Some commands send through `FUN_00409210` instead (`/walk`, `/run`, `/cyclewieldpreference`, ...), so an in-game sweep of the slash commands (`sweep.sh`) finds more; the "Command" column for those was filled in from that sweep. Contexts are the nearest strings and can mislead (0x113 is `/hidehood`, not a lockout prompt).
 
 Rows marked **Unreachable** were checked on 2026-10-14: the function around every call site has no caller, no jump to it and no pointer to it anywhere in VGClient.exe (or, for 0x18f and 0x1e7, every caller up the chain has none) (MSVC vtables and Unreal native tables would hold one), so the shipped client can't send them. They need no server code.
 
@@ -11,6 +11,11 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | Id | Command | Call sites | Context |
 |---|---|---|---|
 | `0xd` | `/chatconnect` | | no payload; reconnects the chat service (a separate SOE service in the original) |
+| `0x10e` | `/location` | `0x5feded` | no payload; sent after the client prints the "Loc" line itself. A notice; no reply needed |
+| `0x591` | `/copycharacter` | `0x61126c` | developer tool (copy a character); not a player feature |
+| `0x772` | `/aggro` | `0x613b99` | GM tool (access level 8) |
+| `0x776` | `/invulnerability` | `0x613ac9` | GM tool (access level 5) |
+| `0x5aa` / `0x5ab` | `/attach` | `0x4691dc` `0x4692a5` | attachment tool (also UI cases); not a player feature |
 | `0x17d` | `/fallthroughattacktoggle` | | no payload; a server-side combat option whose effect is not known |
 | `0x180` | `/hintsenable` | | no payload; turns hint popups back on (the hints themselves are server content) |
 | `0x181` | `/craftinghintsenable` | | no payload; the same for crafting hints |

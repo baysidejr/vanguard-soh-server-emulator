@@ -117,7 +117,7 @@ After that line, unless con == −1, the client appends "  Harvesting this resou
 |---|---|---|---|
 | **0x109** | none | `FUN_004f1c10` (thunk: `push 0x109; call FUN_004cfb50`), called from interact `FUN_00417da0` when the target has `EntityTypes&0x800` and not `&2`; also from the UI command dispatcher `FUN_006a8060` (at 0x6a95b8) | **Begin harvesting the current target** [O]. Before it, `FUN_004d01d0(pawn,1,1)` selects the pawn as target, so the server gets the usual `0x5d {u64 id}` first [I] |
 | **0x10a** | none | `/endharvesting` command (table entry at 0x13eecc0 → stub 0x5fcdb0: `push 0,0,0x10a; call FUN_00409210`) | Stop harvesting [O] |
-| **0x10b** | `i32 count, count × i32 itemId` (each element is a serialized MsgSingleInt, `FUN_00422cd0`) | `FUN_004f2ae0` ← `FUN_004f4ef0` | Request item records for reward ids the client cannot resolve (`FUN_00517390` lookup failed). The server answers with `0x2e2` per item [O] |
+| **0x10b** | `i32 count, count × i32 itemId` (each element is a serialized MsgSingleInt, `FUN_00422cd0`) | `FUN_004f2ae0` ← `FUN_004f4ef0` | Request item records for reward ids the client cannot resolve (`FUN_00517390` lookup failed). The server answers with `0x2e2` per item [O]. Handled (2026-10-14): the ids are bag items, answered with their records and 0x2e3. Unit-tested; the client never asked in live harvests, because the records are sent with the rewards |
 | 0x3d9 | none | `/con` | Consider → reply with `0x3da` kind 3 [O] |
 | 0xd0 | i32 ability handle | ability use | Only if you give harvesting abilities. Not needed to start harvesting [O] |
 

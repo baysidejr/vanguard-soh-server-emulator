@@ -8870,6 +8870,13 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in craft.CLIENT_EVENTS:
             if state.get("player"):
                 handle_craft_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == harvest.ITEM_REQUEST:
+            if state.get("player"):
+                p = state["player"]
+                found = [i for i in p.items if i[0] in harvest.parse_item_request(payload[10:])]
+                for m in harvest.item_records([vgmsg.inventory_item(i[0], i[1], i[4], i[2], i[3],
+                                                                    **zone.item_equip_fields(i[1])) for i in found]):
+                    send_message(sock, addr, state, m)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in harvest.CLIENT_EVENTS:
             if state.get("player"):
                 handle_harvest_event(state, struct.unpack_from("<I", payload, 2)[0])

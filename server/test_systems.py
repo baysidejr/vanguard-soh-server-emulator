@@ -965,5 +965,16 @@ class HealTargetTests(unittest.TestCase):
         self.assertIs(login_stub.heal_target(state), state)          # not a dead one
 
 
+class HarvestItemRequestTests(unittest.TestCase):
+    def test_parse_and_answer(self):
+        import harvest
+        data = struct.pack("<iii", 2, 7, 9)
+        self.assertEqual(harvest.parse_item_request(data), [7, 9])
+        self.assertEqual(harvest.parse_item_request(struct.pack("<ii", 5, 1)), [])   # count too big
+        self.assertEqual(harvest.parse_item_request(b""), [])
+        msgs = harvest.item_records([b"r1", b"r2"])
+        self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in msgs], [0x2E2, 0x2E2, 0x2E3])
+
+
 if __name__ == "__main__":
     unittest.main()
