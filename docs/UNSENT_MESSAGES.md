@@ -108,7 +108,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x3b1 | MsgFourIntsAndBool | i32, i32, i32, i32, bool8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3b3 | MsgClientCombatGroupInFlightAdd | eid64, i32, wstr, f32 | optional | a group member's ability in flight (MsgClientCombatGroupInFlightAdd) |
 | 0x3bb | MsgEntityIDAndInt | eid64, i32 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
-| 0x3bc | MsgClientAnitGroupAddInFlightAbility | eid64, i32, i32, wstr | optional | an enemy group member's ability in flight |
+| 0x3bc | MsgClientAnitGroupAddInFlightAbility | eid64, i32, i32, wstr | optional | an enemy group member's ability in flight {eid64, i32, i32, wstr name}: the "Identified!" icon (VGUIEncounterDisplay.xml TargetInFlightAbilities) for attackers other than your target; the target's own cast already shows through 0x3a5 (npc_cast). Needs two casters at once to test |
 | 0x3bd | MsgEntityIDFourIntsAndBool | eid64, i32, i32, i32, i32, bool8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3be | MsgClientAntiGroupAddState | eid64, i32, i32, wstr, wstr | optional | an enemy group member's state (MsgClientAntiGroupAddState) |
 | 0x3bf | MsgEntityIDAndInt | eid64, i32 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
