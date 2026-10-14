@@ -672,5 +672,26 @@ class LoginPoolTests(unittest.TestCase):
         self.assertEqual(p.health, 5)
 
 
+class EveryRaceClassTests(unittest.TestCase):
+    def test_login_messages_build(self):
+        """Every playable race and adventuring class, at level 1 and 50, builds its zone-in
+        messages (character sheet, stats, bags, abilities) with sane pools."""
+        import races_classes
+        import class_abilities
+        for race in races_classes.RACES:
+            for klass in races_classes.ADVENTURING_CLASSES:
+                for level in (1, 50):
+                    p = zone.Player("T", 1, race, klass, "chunk_n20_12")
+                    p.level_number, p.xp = level, 0
+                    p.abilities = class_abilities.starting_abilities("..", klass) or p.abilities
+                    msgs = [zone.score_message(p)] + zone.stat_messages(p) + zone.inventory_messages(p) + zone.ability_messages(p)
+                    self.assertTrue(all(isinstance(m, bytes) and m for m in msgs), (race, klass))
+                    for k in ("hit_points", "endurance", "energy"):
+                        self.assertGreater(p.stats[k], 0, (race, klass, level, k))
+                    for k in ("strength", "dexterity", "constitution", "intelligence", "wisdom"):
+                        self.assertGreater(p.stats[k], 0, (race, klass, level, k))
+                    self.assertEqual(p.health, p.stats["hit_points"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -20,10 +20,13 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 - Psionicist form recovery bar on screen (needs a person to watch it).
 - Psionic points, civic stats display: no window in the shipped UI.
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
+- Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 - Raids with more than 2 clients, caravan login after a real 3 hours offline.
 
 ## Done
 
+- 2026-10-13: Unit test builds the zone-in messages for all 19 races x 15 classes at levels 1 and 50.
+- 2026-10-13: Slash-command sweep (~40 commands): no unhandled messages either way. Client-only notices with no reply needed: 0x6c (after UI load), 0x71 BECOME_PC, 0x10e (empty, seen once; sender not found by the push scan).
 - 2026-10-13: Persistence audit (saved vs loaded fields): the active crafting toolbelt was saved but never restored; now sent at zone-in.
 - 2026-10-13: Caster energy verified in game (Sorcerer). Fixed: a fresh login showed health/endurance/energy below their attribute-based maximums; pools now start full.
 - 2026-10-13: All guild world-request replies (errors, NoGuild) go out on the zone connection, where the client handles them (verified: "You can't change that member's notes.").
