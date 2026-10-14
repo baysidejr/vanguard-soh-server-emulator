@@ -206,6 +206,11 @@ def round_messages(p, npc_cid):
             + [_event(0x325, _w(p.line())), update(p), points(p), _event(0x256), _event(0x334)])
 
 
+# 0x330 code 16: the client's "No civic diplomacy here." popup (code switch FUN_005531e0,
+# VGClient.int CivicDiplomacyNoCivicStats).
+NO_CIVIC_STATS = 16
+
+
 def error(code, arg=0):
     return _event(0x330, struct.pack("<ii", code, arg))
 

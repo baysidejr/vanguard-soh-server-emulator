@@ -24,7 +24,7 @@ Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a p
 | Feature | Why |
 |---|---|
 | Psionic points | ⛔ Messages are decoded, but the shipped UI has no window to show them. |
-| Civic stats display | ⛔ Civic diplomacy works server-side; no window shows the stats. |
+| Civic stats display | ⛔ Civic diplomacy works server-side; no window shows the stats. `/citystatus` lists them in chat instead. |
 | Doors | ⛔ No door exists in the shipped maps or the cottage. |
 | Real game data | ⛔ Waiting for the first batch in `crowdsourced/`. |
 

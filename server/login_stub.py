@@ -6697,6 +6697,34 @@ def save_json_file(path, data):
     storage.write_json_atomic(path, data)
 
 
+def civic_stats():
+    """{stat: value}: every civic stat a parley reward can move (diplomacy.json "civic", at its
+    "start" value) with the saved values from civic.json on top."""
+    stats = {}
+    for parley in ARGS.content.diplomacy.get("parleys", {}).values():
+        civ = (parley.get("reward") or {}).get("civic")
+        if civ:
+            stats.setdefault(civ["stat"], civ.get("start", 50))
+    stats.update(load_json_file(CIVIC_FILE, {}))
+    return stats
+
+
+# /citystatus: 0x12d, no payload (FUN_0054cf00 clears the client's civic stats first). The
+# stats would fill the CivicDiplomacyStats gamevar, which no window in the shipped UI shows,
+# so the server lists them as chat lines (its own wording); with none, the client's own
+# "No civic diplomacy here." popup (0x330 code 16).
+CITY_STATUS = 0x12D
+
+
+def city_status(state):
+    stats = civic_stats()
+    if not stats:
+        state["send"](diplomacy.error(diplomacy.NO_CIVIC_STATS))
+        return
+    for stat, value in sorted(stats.items()):
+        state["send"](build_system_text(f"{stat}: {value}", SYSTEM_TEXT_WHITE))
+
+
 def finish_parley(state, p, result):
     player, send = state["player"], state["send"]
     state.pop("parley", None)
@@ -8078,6 +8106,8 @@ def handle_message(sock, server, addr, state, payload, args):
             if not getattr(p, "cc", None) and "ue" in state:
                 send_message(sock, addr, state, zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(p)}))
             send_message(sock, addr, state, zone.score_message(p))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CITY_STATUS and state.get("player"):
+            city_status(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == LOCKOUT_LIST and state.get("player"):
             send_message(sock, addr, state, zone.zone_event(LOCKOUT_LIST_REPLY,
                                                             (state["player"].name + "\0").encode("utf-16-le")))

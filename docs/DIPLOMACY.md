@@ -114,7 +114,7 @@ A card with diplomacy.json `"refresh": N` can't be played again for N rounds. Af
 - (done, verified live 2026-10-13) unlocked dialogue: a parley reward `"flag": name` (+ optional `"flag_text"`) is saved per character (`flags`); dialogs.json responses with `"requires_flag"` only show once the player has it. Beating Orin adds "Orin says I can be trusted." to the Thestran Guard's conversation. Faction (`reward.faction`) and items (`reward.item`: a name or [name, qty], given on every win; verified live: "You receive 2 Travel Rations.") are done; dev `!parleywin` wins the open parley
 - opening the repertoire window by script (slotting a card from it uses the same `0xd7`)
 - the `0x321` option format with presence requirements
-- the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI)
+- the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI). `/citystatus` (0x12d, no payload; FUN_0054cf00 clears the stats first) is therefore answered with chat lines "<stat>: <value>" (the server's own wording; verified live: "Thestran Wastes Camp Prosperity: 60"), or, with no civic stats, 0x330 `{i32 16, i32 0}`: the client's "No civic diplomacy here." popup (code switch FUN_005531e0, CivicDiplomacyNoCivicStats; unit-tested, not seen live).
 
 Unknown fields: the trailing wstr in `0x31d`; card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.
 

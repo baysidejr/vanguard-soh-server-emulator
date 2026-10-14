@@ -51,6 +51,35 @@ class LoginHookListTests(unittest.TestCase):
         self.assertEqual(called - tested, set())
 
 
+class CityStatusTests(unittest.TestCase):
+    def run_status(self, parleys, saved):
+        import json
+        import struct
+        args = mock.Mock()
+        args.content.diplomacy = {"parleys": parleys}
+        sent = []
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "civic.json")
+            if saved is not None:
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(saved, f)
+            with mock.patch.object(login_stub, "ARGS", args), mock.patch.object(login_stub, "CIVIC_FILE", path):
+                login_stub.city_status({"send": sent.append})
+        return sent, struct
+
+    def test_no_stats_is_the_clients_popup(self):
+        sent, struct = self.run_status({"p": {"reward": {"xp": 1}}}, None)
+        self.assertEqual(len(sent), 1)
+        self.assertEqual(struct.unpack_from("<HIIii", sent[0]), (2, 0x330, 8, 16, 0))
+
+    def test_stats_from_content_and_save(self):
+        parleys = {"a": {"reward": {"civic": {"stat": "Camp Prosperity", "delta": 5, "start": 50}}},
+                   "b": {"reward": {"civic": {"stat": "Camp Safety", "delta": 1}}}}
+        with mock.patch.object(login_stub, "build_system_text", lambda text, channel=0: text):
+            sent, _ = self.run_status(parleys, {"Camp Prosperity": 65})
+        self.assertEqual(sent, ["Camp Prosperity: 65", "Camp Safety: 50"])
+
+
 class CharacterRoundTripTests(unittest.TestCase):
     CHAR = {
         "first": "Tester", "last": "Two", "world": "Stub World", "raw": "00000000e305010313",

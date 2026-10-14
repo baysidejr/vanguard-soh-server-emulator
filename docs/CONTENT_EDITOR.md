@@ -81,6 +81,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Civic diplomacy:** the real civic stats per area, their ranges and their effects were server data; ours is one placeholder value ("Thestran Wastes Camp Prosperity", +5 per win against Orin).
 
+**Alternate advancement:** the AA abilities (general, archetype, class and special lists), their costs, ranks and effects were server data, sent as MsgAlternateAdvancementAbilitiesAdd. `/aalist` (0x85c) and the AA window get no answer until that data exists.
+
 **Summoned pets:** what each class summon (Awaken Abomination, Summon Attendant of Hayatet/Rakurr/Tuurgin, Ritual Animatus) creates, its race, model, level, health and abilities were server data; abilities.json has placeholders.
 
 **Wildgrowth Forest outpost (chunk_n20_12):** Elara Thornwood (quests 5003-5004), Bram Oakhollow (forest_supplies), timber wolves, a thornback bear, webweavers, the Wildgrowth Wardens faction (1004) and the Wolf Pelt / Bear Claw / Spider Silk / Forester's Cloak items are all invented placeholders.

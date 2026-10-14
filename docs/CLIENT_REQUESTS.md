@@ -25,7 +25,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x127` |  | `0x4c0b55` `0x4c7985` | NPCDialogText |
 | `0x128` |  | `0x54abfe` |  |
 | `0x129` |  | `0x54cc16` |  |
-| `0x12d` | `/citystatus` | `0x54cf16` | Error: That statement could not be found. |
 | `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking |
 | `0x138` |  | `0x5d3461` |  |
 | `0x153` |  | `0x471da2` | You don't have that many items stacked there. / That item is not in your Chest. |
