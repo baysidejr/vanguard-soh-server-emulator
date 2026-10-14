@@ -523,6 +523,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         self.assertEqual(dict((sid, v) for sid, v, _ in p.skills).get(88), 40)
         self.assertEqual(sorted(p.bound), [12])
 
+    @unittest.skipUnless(os.path.isdir(os.path.join("..", "UnrealScript")), "needs the game client's files")
     def test_pawn_prefs_replicate(self):
         """Saved appearance settings go on the pawn; each is a real SGOPCPawn property."""
         import types

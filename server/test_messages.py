@@ -354,6 +354,7 @@ class LoadPathTests(unittest.TestCase):
         world.flush_bunches(lambda pkt: pkt)
         self.assertEqual(len(sent), 2)                # nothing left queued
 
+    @unittest.skipUnless(os.path.isdir(os.path.join("..", "UnrealScript")), "needs the game client's files")
     def test_object_index_cached(self):
         import types
         pm = zone.package_map(types.SimpleNamespace(client_dir="..", package_maps={}), "chunk_n19_12")
