@@ -4491,6 +4491,21 @@ def handle_social_zone(state, event, data):
             send(m)
 
 
+# Target marks: /mark <STAR, FIST, DIAMOND, SPADE, COG, FIRE, TRIDENT, PLUS or CLEAR>
+# [DEFENSIVE or OFFENSIVE] (FUN_0060c150 -> FUN_004d5400) sends 0x592 MsgTwoEntityIdsAndInt
+# {eid64 (group manager +0x30), eid64 target, i32 mark}. The group gets the same record back as
+# 0x593 (FUN_004e1640: finds the target's pawn and sets its mark, FUN_004d0420).
+MARK_REQUEST, MARK = 0x592, 0x593
+
+
+def mark_target(state, data):
+    if len(data) < 20:
+        return
+    msg = zone.zone_event(MARK, data[:20])
+    for s in group_states(state["player"]) or [state]:
+        s["send"](msg)
+
+
 def group_states(player):
     g = getattr(player, "group", None)
     return [ONLINE[m.name.lower()] for m in g.members if m.name.lower() in ONLINE] if g else []
@@ -8204,6 +8219,9 @@ def handle_message(sock, server, addr, state, payload, args):
                                            description=zone.ITEM_CONTENT.item(name).get("description", ""),
                                            **zone.item_equip_fields(name))
                 send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MARK_REQUEST and state.get("player"):
+            print(f"  >>> ZONE mark {payload[10:].hex(' ')}")
+            mark_target(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (ROPE_THROW, ROPE_ACCEPT) and state.get("player"):
             rope_event(state, args, struct.unpack_from("<I", payload, 2)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CITY_STATUS and state.get("player"):

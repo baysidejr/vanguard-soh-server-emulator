@@ -60,8 +60,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x588` | `/.classflag` | `0x6142a5` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x58e` |  | `0x4fbd5f` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x58f` |  | `0x4fbebf` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
-| `0x592` | `/mark <STAR, FIST, DIAMOND, SPADE, COG, FIRE, TRIDENT, PLUS, CLEAR> [DEFENSIVE or OFFENSIVE]` (also the target menu's MOMark* entries) | `0x4d5476` | group target marks (FUN_0060c150 -> FUN_004d5400): the group's id (manager +0x30/+0x34), the target and the mark. No pawn property holds a mark, and the group message that would show it to the group is not found yet |
-| `0x5a7` |  | `0x5e29db` | Resurrection / Resurrection |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
 | `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
 | `0x5cf` |  | `0x484b3e` | PlacedBuildingNPCListSelection |
@@ -111,6 +109,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 `/lockouttimerlist [name]` sends 0x4fc `{wstr name}` (empty for yourself). The lockout dispatcher `FUN_00588c50` takes s2c ids 0x4f2-0x502 (id - 0x4f2 indexes a 17-entry jump table at 0x588d9c); 0x4fd `{wstr name}` (`FUN_00583b70`) prints "Displaying lockout timers for %s:" and lists the timers the client already holds. The server answers 0x4fd with the player's name; with no raid lockouts on this server the list is empty. The messages that add timers are not decoded yet. `/sharelockouttimer <id>` (0x4fb `{i32 id}`) gets notice 159 "Invalid lockout timer.", and `/lockoutaccept` / `/lockoutdecline` (0x273 `{u8 1/0}`) get notice 158 "No one is offering you a lockout timer." (ids seen live).
 
 The unlock tool (template 1464362, 0x5e5 `{i32 target, i32 tool}`) has an answer, 0x5e6 `{i32 handle}`: "%s has been unlocked and can now be used without a Gold Membership." (FUN_00506d70). "Locked" means Gold-Membership-only, and this server has no membership tiers, so nothing is locked and the request stays unanswered.
+
+## Target marks (2026-10-14)
+
+`/mark <STAR, FIST, DIAMOND, SPADE, COG, FIRE, TRIDENT, PLUS or CLEAR> [DEFENSIVE or OFFENSIVE]` (also the target menu's MOMark* entries; FUN_0060c150 -> FUN_004d5400) is sent only while grouped: 0x592 MsgTwoEntityIdsAndInt `{eid64 -1, eid64 target, i32 mark}` (seen live: `ff..ff, 0x1505300, 0` for STAR on a groupmate). The server sends the same 20 bytes back to every group member as **0x593** (FUN_004e1640, group dispatcher FUN_004e2910): the client finds the target's pawn and attaches the mark to it (FUN_004d0420; -1 removes it). The relay was seen live; the icon itself wasn't checked on screen (first-person camera).
 
 ## Rescue rope (verified live 2026-10-14, two clients)
 
