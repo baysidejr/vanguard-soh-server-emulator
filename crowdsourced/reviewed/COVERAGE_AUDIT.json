@@ -7,7 +7,7 @@
     "source_only": 1565,
     "supported": 104831,
     "published": 8636,
-    "cached_only": 598
+    "published_with_issues": 598
   },
   "routes": {
     "/": {
@@ -110,7 +110,7 @@
       "unsupported": 1,
       "published": 790,
       "supported": 15418,
-      "cached_only": 100
+      "published_with_issues": 100
     },
     "/mounts": {
       "inventory": 4,
@@ -126,7 +126,7 @@
       "supported": 4781,
       "source_only": 5,
       "published": 4278,
-      "cached_only": 498
+      "published_with_issues": 498
     },
     "/races": {
       "inventory": 20,
@@ -321,5 +321,5 @@
     "https://vgsoharchive.com/classes/sorcerer/trainers",
     "https://vgsoharchive.com/classes/warrior/trainers"
   ],
-  "notes": "Published means a delivered, structurally validated extraction batch reviewed the URL, not complete game mechanics. Unsupported includes index/navigation and guide pages as well as unimplemented entity routes. Cache presence alone is not extraction completion."
+  "notes": "Published means a delivered extraction batch with zero validation issues reviewed the URL, not complete game mechanics. Published_with_issues means delivered research exists but its batch has unresolved validation issues; it is not validated coverage. A zero-issue batch takes precedence when both exist. Cached_only means no delivered batch with a validation report reviewed the URL. Unsupported includes index/navigation pages and unimplemented routes. Cache presence alone is not extraction completion."
 }

@@ -19,22 +19,25 @@ def audit(root=collector.HERE):
     urls=list(dict.fromkeys(row['url'] for row in inventory))
     cached={p.name for p in (root/'.cache/archive').glob('*.txt')}
     published=set()
+    published_with_issues=set()
     for manifest in (root/'raw').glob('*/manifest.json'):
         # A delivered batch must have a report and a successful structural validation.
         validation=manifest.parent/'VALIDATION.json'
         if not (manifest.parent/'REPORT.md').is_file() or not validation.is_file():
             continue
         check=json.loads(validation.read_text(encoding='utf-8'))
-        if check.get('issues') != [] or check.get('count') != 0:
-            continue
         data=json.loads(manifest.read_text(encoding='utf-8'))
-        published.update(data.get('fetched_urls',[]))
+        if check.get('issues') == [] and check.get('count') == 0:
+            published.update(data.get('fetched_urls',[]))
+        else:
+            published_with_issues.update(data.get('fetched_urls',[]))
     counts=Counter()
     groups={}
     unsupported=[]
     for url in urls:
         supported=collector.detail_url(url)
-        status='published' if url in published else ('cached_only' if hashlib.sha256(url.encode()).hexdigest()+'.txt' in cached else 'not_downloaded')
+        status=('published' if url in published else 'published_with_issues' if url in published_with_issues
+                else 'cached_only' if hashlib.sha256(url.encode()).hexdigest()+'.txt' in cached else 'not_downloaded')
         group=groups.setdefault(route(url),Counter())
         group['inventory']+=1
         group[status]+=1
@@ -49,7 +52,7 @@ def audit(root=collector.HERE):
     return dict(parser_version=collector.PARSER_VERSION,inventory_urls=len(urls),counts=dict(counts),
         routes={name:dict(values) for name,values in sorted(groups.items())},
         unsupported=unsupported,published_off_sitemap=sorted(published-set(urls)),
-        notes='Published means a delivered, structurally validated extraction batch reviewed the URL, not complete game mechanics. Unsupported includes index/navigation and guide pages as well as unimplemented entity routes. Cache presence alone is not extraction completion.')
+        notes='Published means a delivered extraction batch with zero validation issues reviewed the URL, not complete game mechanics. Published_with_issues means delivered research exists but its batch has unresolved validation issues; it is not validated coverage. A zero-issue batch takes precedence when both exist. Cached_only means no delivered batch with a validation report reviewed the URL. Unsupported includes index/navigation pages and unimplemented routes. Cache presence alone is not extraction completion.')
 
 
 def main():

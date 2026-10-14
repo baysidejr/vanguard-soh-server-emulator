@@ -28,10 +28,12 @@ class CoverageTests(unittest.TestCase):
             (batch/'VALIDATION.json').write_text(json.dumps(dict(issues=['bad'],count=1)),encoding='utf-8')
             data=audit(root)
             self.assertEqual(data['counts']['cached_only'],1)
+            self.assertEqual(data['counts']['published_with_issues'],1)
             self.assertNotIn('published',data['counts'])
             (batch/'VALIDATION.json').write_text(json.dumps(dict(issues=[],count=0)),encoding='utf-8')
             data=audit(root)
             self.assertEqual(data['counts']['published'],1)
+            self.assertNotIn('published_with_issues',data['counts'])
             self.assertEqual(data['counts']['source_only'],1)
             self.assertEqual(data['counts']['supported'],3)
 
