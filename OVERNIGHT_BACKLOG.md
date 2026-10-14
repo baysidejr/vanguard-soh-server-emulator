@@ -8,6 +8,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Prioritized tasks
 
+0. **Unhandled client requests:** docs/CLIENT_REQUESTS.md lists 105 ids the client can send that the server never handles. Classify (GM/debug vs player feature) and implement the player ones that need no invented data.
 1. **Protocol correctness:** run the client through login, combat, bags, guild, mail, crafting; collect every "unhandled message" and client error line; fix each.
 3. **Persistence audit:** for each saved field, check it survives /camp and a server restart (bag contents, bank, discovered locations, fish records, factions, titles, songs, spheres). Add a unit test that round-trips a character through save/load.
 4. **Automated smoke test:** a script that launches the client, enters the world and checks the stub log and client log for errors, so old features get re-checked after changes.
