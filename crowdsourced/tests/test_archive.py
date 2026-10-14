@@ -76,6 +76,17 @@ class ArchiveParsingTests(unittest.TestCase):
         self.assertIn(ORIGIN + '/mobs/fixture', links)
         self.assertEqual(record_errors(r), [])
 
+    def test_quest_repeatability_and_template_chain(self):
+        for value, expected in (('Yes', True), ('No', False), ('Unknown', None)):
+            html = page('Fixture Quest', '<dl class="kv"><div><dt>Repeatable</dt><dd>' + value +
+                '</dd></div><div><dt>Previous</dt><dd>{{{previous}}}</dd></div>' +
+                '<div><dt>Next</dt><dd>Next Quest</dd></div></dl>')
+            records, _ = collector.parse_page(ORIGIN + '/quests/fixture', html)
+            self.assertIs(records[0]['repeatable'], expected)
+            self.assertIsNone(records[0]['chain_previous'])
+            self.assertEqual(records[0]['chain_next'], 'Next Quest')
+            self.assertEqual(records[0]['archive_fields']['previous'], ['{{{previous}}}'])
+
     def test_npc_role_and_quest_relationship_are_explicit(self):
         html = page('Fixture NPC', '''<h2>Details</h2><dl class="kv"><div><dt>Role</dt><dd>General NPC</dd></div>
             <div><dt>Race</dt><dd>N/A</dd></div></dl><h2>Quests given (1)</h2><ul>

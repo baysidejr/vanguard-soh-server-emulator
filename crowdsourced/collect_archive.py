@@ -24,7 +24,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 18
+PARSER_VERSION = 19
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -357,8 +357,13 @@ def parse_page(url, html):
                       rewards=dict(xp=None, coin_copper=None, items=None, choice=None))
         if record["zone"] is None and canonical_zones:
             record["zone"] = canonical_zones[0]
-        record["chain_previous"] = get("previous")
-        record["chain_next"] = get("next")
+        record['repeatable'] = {'yes': True, 'no': False}.get((get('repeatable') or '').strip().lower())
+        for field, label in (('chain_previous', 'previous'), ('chain_next', 'next')):
+            value = get(label)
+            if value and ('{{' in value or '}}' in value):
+                notes.append(f'Unresolved {label} template retained in archive_fields; chain link unknown.')
+                value = None
+            record[field] = value
         record["rewards"]["coin_copper"] = explicit_money(get("coin reward") or "")
         notes.append("Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.")
     elif path.startswith("/abilities/"):
