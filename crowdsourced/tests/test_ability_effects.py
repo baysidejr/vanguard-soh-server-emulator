@@ -10,6 +10,16 @@ from test_archive import page
 
 
 class AbilityEffectTests(unittest.TestCase):
+    def test_item_chance_observations_do_not_invent_healing_or_percentage_basis(self):
+        fact=effect_facts('15% chance on attack to heal wearer +8 Health')[0]
+        self.assertEqual(fact['chance_percent'],15)
+        self.assertIsNone(fact['healing_amount'])
+        self.assertEqual(effect_facts('150% chance on attack to heal wearer'),[])
+        fact=effect_facts('Attacks have a 5% greater chance of scoring a critical hit.')[0]
+        self.assertEqual(fact['values'],[5])
+        self.assertTrue(fact['basis_unresolved'])
+        self.assertTrue(fact['conditions_unparsed'])
+
     def test_explicit_effect_duration_converts_only_labelled_units(self):
         for raw, expected in [('1 hour',3600),('2 minutes',120),('25 sec',25)]:
             fact=effect_facts('This effect will stay on the user for '+raw+'.')[0]

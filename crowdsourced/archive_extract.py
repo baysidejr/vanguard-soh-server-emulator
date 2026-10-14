@@ -60,6 +60,17 @@ def effect_facts(value):
         multiplier = 3600 if unit.startswith('hour') else 60 if unit.startswith('minute') else 1
         facts.append(dict(kind='effect_duration', duration_seconds=amount * multiplier,
             conditions_unparsed=True))
+    proc = rf'\b{num}% chance on attack to heal wearer\b'
+    for match in re.finditer(proc, value, re.I):
+        chance = numeric(match.group(1))
+        if 0 <= chance <= 100:
+            facts.append(dict(kind='trigger_chance_observation', chance_percent=chance,
+                trigger_recorded='attack', action_recorded='heal wearer',
+                healing_amount=None, conditions_unparsed=True))
+    critical = rf'\battacks have a\s+{num}% greater chance of scoring a critical hit\b'
+    for match in re.finditer(critical, value, re.I):
+        facts.append(dict(kind='critical_chance_increase_observation', values=[numeric(match.group(1))],
+            unit='percent', basis_unresolved=True, conditions_unparsed=True))
     return facts
 
 
