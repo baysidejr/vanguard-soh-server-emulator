@@ -23,7 +23,7 @@ Every record MUST have:
 
 | Field | Meaning |
 |---|---|
-| `type` | The record type, singular: `npc`, `creature`, `spawn`, `item`, `loot`, `merchant`, `quest`, `ability`, `recipe`, `diplomacy`, `faction`, `dialogue`, `mount`, `fish`, `zone`. |
+| `type` | The record type, singular: `npc`, `creature`, `spawn`, `item`, `loot`, `merchant`, `quest`, `ability`, `recipe`, `diplomacy`, `faction`, `dialogue`, `mount`, `fish`, `zone`, `formula`. |
 | `name` | The exact in-game name, spelled and capitalized as in the game. The same name links records across files (e.g. a loot record's `source` is a creature's `name`). |
 | `sources` | `[{"url": "...", "title": "...", "date": "page or snapshot date if shown"}]` |
 | `confidence` | `"high"` (several sources agree, or a screenshot shows it), `"medium"` (one clear source), `"low"` (vague or contradictory). |
@@ -67,6 +67,8 @@ Rules for values:
 
 **fish**: `water` (fresh, salt), `zones`, `weight_range`, `bait`, `combo` (sequence of up/right/down/left), `skill_needed`.
 
+**formula**: game-mechanics facts players worked out or devs posted: `topic` (e.g. "race starting attributes", "attribute gain per level", "hit points per level", "armor class mitigation", "dodge/parry/block chance", "critical hit chance and damage", "experience per kill by level difference", "experience needed per level", "endurance/energy pools", "regeneration rates", "ability damage scaling"), `applies_to` (race, class, level range), `values` (a table or numbers exactly as given), `formula` (text exactly as given), `tested_by` (how the source got it: dev post, parse logs, guesswork).
+
 **zone**: `continent` (Thestra, Qalia, Kojan), `chunks` (names or coordinates), `level_range`, `cities_and_outposts`, `riftways`, `bind_spots`.
 
 ## Priorities
@@ -75,6 +77,7 @@ Rules for values:
 2. Starting quests, trainers and class abilities (ranks I-III) for every class.
 3. Merchants, item stats and loot tables for levels 1-20.
 4. Crafting recipes, diplomacy cards and parleys, mounts, fishing.
+5. Game formulas (`formula` records): starting attributes per race and class, per-level gains, combat chances, experience tables. The emulator uses invented numbers for all of these today.
 
 [docs/CONTENT_EDITOR.md](../docs/CONTENT_EDITOR.md) lists every kind of data the emulator is missing, if you want more ideas.
 
