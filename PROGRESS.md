@@ -26,6 +26,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 3. **Race and class pass in game:** log in one character of each of the 19 races and 15 classes, screenshot, use the first abilities, scan logs.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
 5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
+   - **Decision needed (user):** accounts. The client logs in with a launcher session token (field 2 of PacketLoginRequest, `--sessionid`), and every connection sees every character. Options: tie characters to the token, or add a username/password store (the client also supports `/login user pass world`). Either changes how the two test clients log in, so it waits for the user.
 
 ## Blocked (needs the user or data)
 
