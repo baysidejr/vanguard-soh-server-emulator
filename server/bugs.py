@@ -5,6 +5,7 @@ the indexes follow the client's name tables (strings at 0x1072720..0x1072d90). T
 keeps the reports in bug_reports.json (not committed) for the content editor."""
 import json
 import os
+import storage
 import struct
 import time
 
@@ -71,6 +72,5 @@ def save(path, report):
             reports = json.load(f)
     report = dict(report, id=len(reports) + 1, time=int(time.time()))
     reports.append(report)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(reports, f, indent=2, ensure_ascii=False)
+    storage.write_json_atomic(path, reports, ensure_ascii=False)
     return report["id"]

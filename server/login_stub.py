@@ -11,6 +11,7 @@ import os
 import random
 import select
 import socket
+import storage
 import struct
 import sys
 import time
@@ -1567,8 +1568,7 @@ def load_housing():
 
 
 def save_housing(db):
-    with open(HOUSING_FILE, "w", encoding="utf-8") as f:
-        json.dump(db, f, indent=2)
+    storage.write_json_atomic(HOUSING_FILE, db)
 
 
 def plot_object(pid, plot, st):
@@ -2545,8 +2545,7 @@ def load_caravans():
 
 
 def save_caravans(cs):
-    with open(CARAVANS_FILE, "w", encoding="utf-8") as f:
-        json.dump(cs, f, indent=2)
+    storage.write_json_atomic(CARAVANS_FILE, cs)
 
 
 def caravan_of(name, cs=None):
@@ -3643,8 +3642,7 @@ def load_guilds():
 
 
 def save_guilds(guilds):
-    with open(GUILDS_FILE, "w", encoding="utf-8") as f:
-        json.dump(guilds, f, indent=2)
+    storage.write_json_atomic(GUILDS_FILE, guilds)
 
 
 def guild_of(name, guilds=None):
@@ -3935,8 +3933,7 @@ def load_brotherhoods():
 
 
 def save_brotherhoods(bhs):
-    with open(BROTHERHOODS_FILE, "w", encoding="utf-8") as f:
-        json.dump([b for b in bhs if len(b["members"]) > 1], f, indent=2)
+    storage.write_json_atomic(BROTHERHOODS_FILE, [b for b in bhs if len(b["members"]) > 1])
 
 
 def brotherhood_of(name, bhs=None):
@@ -5619,8 +5616,7 @@ def load_mail():
 
 
 def save_mail(db):
-    with open(MAIL_FILE, "w", encoding="utf-8") as f:
-        json.dump(db, f, indent=2)
+    storage.write_json_atomic(MAIL_FILE, db)
 
 
 def deliver_mail(db, to, m):
@@ -5785,8 +5781,7 @@ def load_market():
 
 
 def save_market(db):
-    with open(MARKET_FILE, "w", encoding="utf-8") as f:
-        json.dump(db, f, indent=2)
+    storage.write_json_atomic(MARKET_FILE, db)
 
 
 def expire_market(db):
@@ -6491,8 +6486,7 @@ def load_json_file(path, default):
 
 
 def save_json_file(path, data):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
+    storage.write_json_atomic(path, data)
 
 
 def finish_parley(state, p, result):
@@ -7099,8 +7093,7 @@ def save_character_field(name, field, value):
 
 
 def save_characters(chars):
-    with open(CHARACTERS_FILE, "w", encoding="utf-8") as f:
-        json.dump(chars, f, indent=2)
+    storage.write_json_atomic(CHARACTERS_FILE, chars)
 
 
 # The most recent world-server / login-server connections, so each side can push

@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: All save files (characters, guilds, brotherhoods, mail, market, housing, caravans, civic, bug reports) are written atomically (temp file, fsync, rename), so a crash mid-write can't truncate them. Saves verified live.
 - 2026-10-14: `--quiet-packets` option: no per-packet hex dumps or ack lines (a login session logs about 15x less).
 - 2026-10-14: Unreal layer: incoming reliable bunches were compared with `<=`, so after a channel's 12-bit sequence wrapped (4095 -> 0) every later reliable bunch would be dropped. Now wrap-aware (UE2 BestSignedDifference). Outgoing sequences already wrapped on the wire. Login and walking re-checked live.
 - 2026-10-14: Long-session fixes: reliable sequence numbers are u16 on the wire. The server's outgoing counter now wraps (struct.pack used to raise after 65,536 messages, cutting the player off), and resend detection keeps a window of 4,096 recent numbers instead of every number ever seen (after the client's counter wrapped, every new message would have been dropped as a resend). Unit-tested; a live test would need 65,536 real messages.
