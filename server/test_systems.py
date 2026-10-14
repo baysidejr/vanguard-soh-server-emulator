@@ -580,6 +580,9 @@ class ItemStatTests(unittest.TestCase):
         p.equipment = [(3, "Copper Ring", 444, 19)]                  # +2 Constitution
         zone.apply_gear_stats(p)
         self.assertEqual(p.stats["hit_points"], 210 + 2 * zone.CON_HP)
+        p.level_number = 11
+        zone.apply_gear_stats(p)
+        self.assertEqual(p.stats["hit_points"], 210 + 2 * zone.CON_HP + 10 * zone.HP_PER_LEVEL)
 
 
 class AvoidanceTests(unittest.TestCase):

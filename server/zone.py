@@ -530,6 +530,7 @@ DEFAULT_STATS = {
 
 BREATH_MAX = 60               # seconds of breath under water
 HP_BASE, CON_HP = 210, 5      # maximum health at 40 Constitution, and per point above
+HP_PER_LEVEL = 12             # maximum health gained per adventuring level (placeholder)
 
 
 def gear_bonus(player):
@@ -562,7 +563,9 @@ def apply_gear_stats(player):
             changed.append(k)
     player.gear_bonus = new
     # Constitution sets maximum health (placeholder: CON_HP per point above the default).
-    hp = HP_BASE + (player.stats.get("constitution", 40) - DEFAULT_STATS["constitution"]) * CON_HP
+    level = getattr(player, "mentor_level", None) or getattr(player, "level_number", 1)
+    hp = (HP_BASE + (player.stats.get("constitution", 40) - DEFAULT_STATS["constitution"]) * CON_HP
+          + (level - 1) * HP_PER_LEVEL)
     if "hit_points" in player.stats and hp != player.stats["hit_points"]:
         player.stats["hit_points"] = hp
         if hasattr(player, "health"):

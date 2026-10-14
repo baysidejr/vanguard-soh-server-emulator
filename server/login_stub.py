@@ -1001,12 +1001,17 @@ def award_xp(player, amount, source, grouped=False):
         if player.xp_debt == 0:
             out.append(build_system_text("You have paid off your experience debt.", SYSTEM_TEXT_WHITE))
     player.xp += amount
+    leveled = False
     while player.xp >= zone.XP_PER_LEVEL:
         player.xp -= zone.XP_PER_LEVEL
         player.level_number += 1
         out.append(build_system_text(f"You have reached level {player.level_number}!",
                                      SYSTEM_TEXT_WHITE))
-    out.append(zone.score_message(player))
+        leveled = True
+    out.append(zone.score_message(player))           # recomputes maximum health for the new level
+    if leveled:
+        player.health = player.stats["hit_points"]  # a level up heals you fully
+        out.append(zone.health_update(player))
     save_character_progress(player.name, player.level_number, player.xp)
     return out
 
