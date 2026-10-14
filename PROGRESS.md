@@ -37,6 +37,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: The Z key (/cyclewieldpreference, 0x112) steps m_WieldPreference 0-3; seen live: the third press draws the bow, the fourth sheathes it.
 - 2026-10-14: Crafting stations can only be used within 800 units; farther away the client prints its own "You're too far away to do that." (0x2e9 code 2). Verified live at 1000 units (refused) and next to the forge (opens).
 - 2026-10-14: Crafting: steps whose tool or utility item is missing are dimmed in the crafting window (0x30b at Begin and at each stage start). Verified live against a control run without the message.
 - 2026-10-14: Accounts: usernames and salted PBKDF2 passwords (server/accounts.json), a launcher endpoint (HTTP 10180) and tools/play.py that log in and start the client with a one-time session token, server-issued session keys checked by the world server, and characters owned per account (list, play, create, delete). Verified live: wrong password refused, a new account sees an empty character list, the dev token still works.

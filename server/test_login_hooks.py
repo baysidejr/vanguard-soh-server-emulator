@@ -534,6 +534,9 @@ class CharacterRoundTripTests(unittest.TestCase):
             "m_bHideHood": 1, "m_bHideHelm": 1, "m_bHideCloak": 1, "m_WearPreference": 3,
             "m_WieldPreference": 2, "bogus": 1}), "Tester", args)
         self.assertNotIn("bogus", p.pawn_prefs)
+        self.assertEqual(login_stub.next_wield_preference(p), 3)
+        p.pawn_prefs["m_WieldPreference"] = 3
+        self.assertEqual(login_stub.next_wield_preference(p), 0)
         p.movement_mode = 1
         values = zone.player_pawn_values(p, (0.0, 0.0, 0.0))
         self.assertEqual(values["m_WearPreference"], 3)

@@ -1182,6 +1182,13 @@ FORCE_STANCE = 0x571
 # SGOPCPawn properties below) and saves them.
 PAWN_PREFS = {0x113: ("m_bHideHood", "B", 1), 0x114: ("m_bHideHelm", "B", 1), 0x59E: ("m_bHideCloak", "B", 1),
               0x110: ("m_WearPreference", "i", 3), 0x111: ("m_WieldPreference", "i", 3)}
+# /cyclewieldpreference, the Z key: 0x112, no payload. Steps m_WieldPreference 0 -> 1 -> 2 -> 3 -> 0.
+# Seen live: 0 every weapon sheathed, 3 the bow drawn in hand (1 and 2 are the melee settings).
+CYCLE_WIELD = 0x112
+
+
+def next_wield_preference(player):
+    return (int(getattr(player, "pawn_prefs", {}).get("m_WieldPreference", 0)) + 1) % 4
 # /walk, /run: 0x72 {u8 1 walk, 2 run} (FUN_005fccf0). The client switches its own pawn only
 # when the send fails, so the server answers with the walking GroundSpeed (ground_speed), the
 # replicated Pawn.bIsWalking for everyone else, and MsgScore field 28 (the character sheet's
@@ -8672,6 +8679,8 @@ def handle_message(sock, server, addr, state, payload, args):
             if len(payload) >= 10 + struct.calcsize("<" + fmt):
                 value = max(0, min(top, struct.unpack_from("<" + fmt, payload, 10)[0]))
                 set_pawn_pref(state, prop, value)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CYCLE_WIELD and state.get("player"):
+            set_pawn_pref(state, "m_WieldPreference", next_wield_preference(state["player"]))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MOVE_MODE and state.get("player") and len(payload) >= 11:
             p = state["player"]
             p.movement_mode = 1 if payload[10] == 1 else 2
