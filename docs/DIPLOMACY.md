@@ -59,7 +59,28 @@ The client sends `0xd7 {card, slot}` and `0xd8 {card, bool8}` when the player dr
 | `0x256` | none | new round (refresh countdown) |
 | `0x334` | none | my turn. The client prints "You've gained/lost control of the conversation!" when the bar crosses the middle |
 
-Errors use `0x330 {i32 code, i32 arg}`. Examples: 4 card not prepared, 5 refreshing, 7–10 not enough Inspire/Reason/Flatter/Demand, 0xc not your turn, 0xf parley over, 0x11 need more presence.
+Errors use `0x330 {i32 code, i32 arg}`. Each code shows a red popup and a chat line (switch FUN_005531e0 on code - 1, jump table 0x553950; text from VGClient.int):
+
+| Code | Key | Text |
+|---|---|---|
+| 1 | ParlayPrepareCardNotFound | That statement could not be found. |
+| 2 | ParlayCannotPrepareInParlay | You can't do that while you are in a conversation. |
+| 3 | ParlayInvalidSlot | That isn't a valid place to put a statement. |
+| 4 | ParlayCardNotPrepared | You can only make statements that are part of your strategy. |
+| 5 | ParlayCardFresfreshing | That statement is not ready yet. |
+| 6 | ParlayNoCardToPlay | You don't have a statement selected. |
+| 7-10 | ParlayFail{Inspire,Reason,Flatter,Demand}Cost | You don't have enough inspire / reason / flatter / demand for that. |
+| 11 | ParlayFailItemRequired | You don't have the right items equiped to use that. |
+| 12 | ParlayNotYourTurn | It isn't your turn. |
+| 13 | ParlayFailMissingItemReq | You don't have the right items on for that. |
+| 14 | ParlayFailInvul | You can't start a parley while invulnerable. |
+| 15 | ParlayOver | The parley is already over. |
+| 16 | CivicDiplomacyNoCivicStats | You're unable to find any civic diplomacy in this area. |
+| 17 | ResponseLocked | You don't have enough presence to talk about that. |
+| 18 | DiplomacyLevelNotHighEnough | You need at least a diplomacy level of %1 for that. (arg = the level) |
+| 19 | FailPCTurnInProgress | Your turn is already in progress. |
+
+The server sends 2 when the strategy bar is changed (drag, /deckload, /deckclear) during a parley, and 3 for a slot outside the bar.
 
 ## Ending
 

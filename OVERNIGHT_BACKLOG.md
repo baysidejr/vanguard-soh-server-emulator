@@ -24,6 +24,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: All 19 parley error codes (0x330) listed in docs/DIPLOMACY.md. Changing the strategy bar during a parley is now refused with code 2 and an out-of-range slot with code 3 (both the client's own messages).
 - 2026-10-14: Reachability check of the unhandled client requests: 19 ids are sent only from functions nothing references (no call, jump or pointer in VGClient.exe), marked Unreachable in docs/CLIENT_REQUESTS.md.
 - 2026-10-14: House chest drags inside the chest (0x153 {chest, item, count, slot}, from the drop handler FUN_00687a80): move, swap, split. The chest is redrawn silently (removing a split's new handle is a client "Programmer error"). Verified live with !chest <n> move. Deposits now honour the dropped slot and a split count (0x155), withdrawals a split count (0x157); verified live.
 - 2026-10-14: /sharelockouttimer and /lockoutaccept, /lockoutdecline answered with the client's InvalidLockout / NoLockoutOffer notices. Unlock tool 0x5e5: its answer 0x5e6 is about Gold Membership locks, which this server doesn't have; documented, left unanswered.

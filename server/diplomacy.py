@@ -30,6 +30,9 @@ EXPRESSION_IDS = {"demand": 0x11, "reason": 0x12, "inspire": 0x13, "flatter": 0x
 # 0x330 error codes for "not enough <expression>".
 NOT_ENOUGH = {"inspire": 7, "reason": 8, "flatter": 9, "demand": 10}
 ERR_NOT_PREPARED, ERR_REFRESHING, ERR_NO_CARD, ERR_NOT_YOUR_TURN, ERR_OVER = 4, 5, 6, 0xC, 0xF
+# 2 "You can't do that while you are in a conversation." (changing the strategy bar mid-parley),
+# 3 "That isn't a valid place to put a statement." (docs/DIPLOMACY.md, error codes).
+ERR_IN_PARLEY, ERR_INVALID_SLOT = 2, 3
 POOL_ORDER = ("inspire", "reason", "flatter", "demand")     # 0x31d / 0x32c pairs (mine, theirs)
 PARLEY_TYPES = {"entertain": 0, "convince": 1, "interview": 2, "gossip": 3, "incite": 4}
 

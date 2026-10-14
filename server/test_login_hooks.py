@@ -51,6 +51,42 @@ class LoginHookListTests(unittest.TestCase):
         self.assertEqual(called - tested, set())
 
 
+class ParleyStrategyTests(unittest.TestCase):
+    def run_event(self, event, data, in_parley):
+        import struct
+        import diplomacy
+        sent = []
+        player = mock.Mock(diplomacy_deck=[40001, 40002], diplomacy_slots=[None, None, None, None])
+        state = {"player": player, "send": sent.append}
+        if in_parley:
+            state["parley"] = mock.Mock()
+        args = mock.Mock()
+        args.content.diplomacy = {"cards": {}, "slots": 4}
+        with mock.patch.object(login_stub, "ARGS", args), \
+                mock.patch.object(login_stub, "diplomacy_deck", lambda p: ([40001, 40002], [None] * 4)), \
+                mock.patch.object(login_stub, "save_character_field", lambda *a: None):
+            login_stub.handle_parley_event(state, event, data)
+        codes = [struct.unpack_from("<i", m, 10)[0] for m in sent if struct.unpack_from("<I", m, 2)[0] == 0x330]
+        return codes, sent
+
+    def test_no_strategy_changes_in_a_parley(self):
+        import struct
+        import diplomacy
+        for event, data in ((diplomacy.SLOT, struct.pack("<ii", 40001, 0)), (diplomacy.UNSLOT, struct.pack("<iB", 40001, 0)),
+                            (diplomacy.DECK_LOAD, struct.pack("<i", 1)), (diplomacy.DECK_CLEAR, b"")):
+            codes, _ = self.run_event(event, data, True)
+            self.assertEqual(codes, [diplomacy.ERR_IN_PARLEY], hex(event))
+
+    def test_invalid_slot(self):
+        import struct
+        import diplomacy
+        codes, _ = self.run_event(diplomacy.SLOT, struct.pack("<ii", 40001, 9), False)
+        self.assertEqual(codes, [diplomacy.ERR_INVALID_SLOT])
+        codes, sent = self.run_event(diplomacy.SLOT, struct.pack("<ii", 40001, 1), False)
+        self.assertEqual(codes, [])
+        self.assertTrue(sent)
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json

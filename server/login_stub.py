@@ -6354,6 +6354,8 @@ def handle_parley_event(state, event, data):
             send(m)
         state["deck_sent"] = True
         send(diplomacy.open_parley(npc.entity_id, p))
+    elif event in (diplomacy.DECK_LOAD, diplomacy.DECK_CLEAR, diplomacy.SLOT, diplomacy.UNSLOT) and p is not None:
+        send(diplomacy.error(diplomacy.ERR_IN_PARLEY))   # the strategy is fixed once a parley starts
     elif event in (diplomacy.DECK_SAVE, diplomacy.DECK_LOAD, diplomacy.DECK_CLEAR):
         deck, slots = diplomacy_deck(player)
         presets = dict(getattr(player, "deck_presets", None) or {})
@@ -6390,6 +6392,9 @@ def handle_parley_event(state, event, data):
         for n, c in enumerate(slots):
             if c == cid:
                 slots[n] = None
+        if event == diplomacy.SLOT and len(data) >= 8 and not 0 <= struct.unpack_from("<i", data, 4)[0] < len(slots):
+            send(diplomacy.error(diplomacy.ERR_INVALID_SLOT))
+            return
         if event == diplomacy.SLOT and len(data) >= 8:
             if was_slotted:
                 send(diplomacy.unslotted(cid))   # a card already in a slot ignores 0x237
