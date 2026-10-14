@@ -361,6 +361,8 @@ def gain_sphere_xp(player, which, amount):
 
 def score_message(player, probe=False):
     """MsgScore (0x3de): the character sheet, level and XP bar."""
+    if hasattr(player, "equipment") and hasattr(player, "stats"):
+        apply_gear_stats(player)                 # armor class and attack come from the gear
     loc = player.spawned_at or (0.0, 0.0, 0.0)
     bind = getattr(player, "bind", None)
     if bind:
@@ -371,15 +373,18 @@ def score_message(player, probe=False):
         adv_exp_amount=player.xp, adv_exp_amount_next=XP_PER_LEVEL,
         adv_exp_frac=player.xp / XP_PER_LEVEL,
         adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / XP_PER_LEVEL),
-        armor_class=25, craft_level=sphere(player, CRAFTING)[0], harvest_level=1,
+        armor_class=getattr(player, "armor_class", 0), craft_level=sphere(player, CRAFTING)[0], harvest_level=1,
         dip_level=sphere(player, DIPLOMACY)[0],
         craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,
         dip_exp=sphere(player, DIPLOMACY)[1], dip_exp_frac=sphere(player, DIPLOMACY)[1] / SPHERE_XP_PER_LEVEL,
         movement_mode=2, move_speed=1.0, craft_trade=0xFF,
-        attack=-40.0, attack_max=-40.0, ranged=-25.0, spell_attack=-10.0,
-        defense_input=6.0, melee_mitigation=0.05, spell_mitigation=0.02,
+        attack=-float(combat.auto_attack_damage(player)[0]), attack_max=-float(combat.auto_attack_damage(player)[1]),
+        ranged=-25.0, spell_attack=-10.0,
+        defense_input=6.0, melee_mitigation=1.0 - combat.mitigate(1000, getattr(player, "armor_class", 0)) / 1000.0,
+        spell_mitigation=0.02,
         melee_evasion=0.05, spell_evasion=0.02, block=5.0, dodge=8.0, parry=6.0,
-        hp_regen_s=2.0, endurance_regen_s=5.0, energy_regen_s=3.0))
+        hp_regen_s=combat.REGEN_PER_SECOND + getattr(player, "regen_bonus", 0) / 6.0,
+        endurance_regen_s=5.0, energy_regen_s=3.0))
 
 
 def endurance_update(player):
@@ -521,6 +526,7 @@ DEFAULT_STATS = {
 
 
 BREATH_MAX = 60               # seconds of breath under water
+HP_BASE, CON_HP = 210, 5      # maximum health at 40 Constitution, and per point above
 
 
 def gear_bonus(player):
@@ -552,6 +558,12 @@ def apply_gear_stats(player):
             player.stats[k] = player.stats.get(k, 0) + delta
             changed.append(k)
     player.gear_bonus = new
+    # Constitution sets maximum health (placeholder: CON_HP per point above the default).
+    hp = HP_BASE + (player.stats.get("constitution", 40) - DEFAULT_STATS["constitution"]) * CON_HP
+    if "hit_points" in player.stats and hp != player.stats["hit_points"]:
+        player.stats["hit_points"] = hp
+        if hasattr(player, "health"):
+            player.health = min(player.health, hp)
     return changed
 
 

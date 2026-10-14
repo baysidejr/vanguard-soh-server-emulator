@@ -952,9 +952,12 @@ def pawn_props_changed(state, values):
 
 
 def gear_changed(state, args, player):
-    """After equipment changed: the model for everyone in the chunk, gear stat bonuses, and save."""
+    """After equipment changed: the model for everyone in the chunk, gear stat bonuses (and the
+    character sheet: armor class, attack, maximum health), and save."""
     for name in zone.apply_gear_stats(player):
         state["send"](zone.attribute_update(player, name))
+    state["send"](zone.health_update(player))
+    state["send"](zone.score_message(player))
     values = {"m_AttachmentGroups": zone.gear_attachments(player)}
     state["send"](zone.player_pawn_update(state, args, values))
     w = state.get("world")

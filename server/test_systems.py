@@ -575,6 +575,11 @@ class ItemStatTests(unittest.TestCase):
         p.equipment = [(2, "Rusty Sword", 422, 28)]
         lo, hi = zone.ITEM_CONTENT.item("Rusty Sword")["damage"]
         self.assertEqual(combat.auto_attack_damage(p), (lo + 2, hi + 2))
+        p.stats.update(constitution=40, hit_points=210)
+        p.health = 210
+        p.equipment = [(3, "Copper Ring", 444, 19)]                  # +2 Constitution
+        zone.apply_gear_stats(p)
+        self.assertEqual(p.stats["hit_points"], 210 + 2 * zone.CON_HP)
 
 
 if __name__ == "__main__":
