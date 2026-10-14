@@ -19,7 +19,10 @@ import struct
 
 START, SELECT, PLAY, PASS, CANCEL, CLOSE = 0x125, 0xD9, 0xDA, 0x12C, 0x12A, 0x12B
 SLOT, UNSLOT = 0xD7, 0xD8          # {i32 card, i32 slot} drag to the strategy bar / {i32 card, bool8} take out
-CLIENT_EVENTS = (START, SELECT, PLAY, PASS, CANCEL, CLOSE, SLOT, UNSLOT)
+# Saved strategy decks: /decksave N and /deckload N send {i32 N} (1-10; the client checks the
+# range, FUN_006015d0 / FUN_006016e0), /deckclear sends 0x33c with no payload.
+DECK_SAVE, DECK_LOAD, DECK_CLEAR = 0x33A, 0x33B, 0x33C
+CLIENT_EVENTS = (START, SELECT, PLAY, PASS, CANCEL, CLOSE, SLOT, UNSLOT, DECK_SAVE, DECK_LOAD, DECK_CLEAR)
 OPTION_TYPE = 10
 PARLEY_OPTION_ID = 9001
 MIDDLE, BAR_MAX = 11, 21

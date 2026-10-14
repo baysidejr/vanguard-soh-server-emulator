@@ -6032,6 +6032,32 @@ def handle_parley_event(state, event, data):
             send(m)
         state["deck_sent"] = True
         send(diplomacy.open_parley(npc.entity_id, p))
+    elif event in (diplomacy.DECK_SAVE, diplomacy.DECK_LOAD, diplomacy.DECK_CLEAR):
+        deck, slots = diplomacy_deck(player)
+        presets = dict(getattr(player, "deck_presets", None) or {})
+        n = str(struct.unpack_from("<i", data)[0]) if len(data) >= 4 else ""
+        if event == diplomacy.DECK_SAVE:
+            presets[n] = list(slots)
+            player.deck_presets = presets
+            save_character_field(player.name, "deck_presets", presets)
+            send(build_system_text(f"Strategy deck {n} saved.", SYSTEM_TEXT_WHITE))
+            return
+        if event == diplomacy.DECK_LOAD and n not in presets:
+            send(build_system_text(f"You have no strategy deck {n}.", SYSTEM_TEXT_ERROR))
+            return
+        want = [c if c in deck else None for c in presets[n]] if event == diplomacy.DECK_LOAD else []
+        want = (want + [None] * len(slots))[:len(slots)]
+        for c in slots:
+            if c is not None:
+                send(diplomacy.unslotted(c))
+        for i, c in enumerate(want):
+            if c is not None:
+                send(diplomacy.slotted(c, i))
+        player.diplomacy_slots = want
+        save_character_field(player.name, "diplomacy_slots", want)
+        if p is not None:
+            p.deck = [c for c in want if c is not None]
+        send(build_system_text(f"Strategy deck {n} loaded." if n else "Strategy bar cleared.", SYSTEM_TEXT_WHITE))
     elif event in (diplomacy.SLOT, diplomacy.UNSLOT) and len(data) >= 4:
         # Dragging a card to / off the strategy bar (saved per character).
         deck, slots = diplomacy_deck(player)
@@ -7482,6 +7508,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.spheres = {k: list(v) for k, v in char.get("spheres", {}).items()}
             player.active_toolbelt = char.get("active_toolbelt")
             player.bound = set(char.get("bound", []))
+            player.deck_presets = char.get("deck_presets")
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
                            + list(args.content.counters.get(cname, []))

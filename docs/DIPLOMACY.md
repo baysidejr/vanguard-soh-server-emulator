@@ -117,3 +117,7 @@ A card with diplomacy.json `"refresh": N` can't be played again for N rounds. Af
 - the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI)
 
 Unknown fields: the trailing wstr in `0x31d`; card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.
+
+## Saved strategy decks (verified live 2026-10-13)
+
+`/decksave N` and `/deckload N` send **0x33a / 0x33b {i32 N}** (the client itself refuses anything outside 1-10: "You must specify a deck number for this command (1-10)"); `/deckclear` sends **0x33c** with no payload. The server keeps up to ten saved strategy bars per character (`deck_presets` in characters.json). Load and clear re-slot the bar with the usual 0x237/0x238 messages and save it. No reply message is known, so the server prints "Strategy deck 1 saved.", "Strategy deck 1 loaded.", "Strategy bar cleared." or "You have no strategy deck 7."
