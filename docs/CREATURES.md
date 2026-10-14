@@ -59,7 +59,7 @@ The race table is **hard-coded in VGClient.exe**. No data file is involved (cust
 ## 3. What the server needs to send for a creature
 - `m_iRaceId` = id from the table below. This is all that is required.
 - `m_iModelNum` = -1 (race default, usually 0) or a variant number from the list.
-- Gender: 0 (male) for all creatures except the female-only meshes: Yukionna 109, Gorgon 223, Dryad 171, Siren 271, Vampire 277, Corpse 281, SeaHag 286, Banshee 333. Those **must** have gender = 1 (female), otherwise they render as mouseman.
+- Gender: 0 (male) for all creatures except the female-only meshes: Yukionna 109, Gorgon 223, Dryad 171, Siren 271, Vampire 277, Corpse 281, SeaHag 286, Banshee 333. Those **must** have gender = 1 (female), otherwise they render as mouseman. SpiderGiant 104 and SpiderBlackWidow 155 also have only a female mesh package: a male one still draws (the loader falls back), but the client logs "Failed to load UEM_spiderBlackWidow_M_char", so give them gender 1 too.
   SpiderGiant/BlackWidow (104/155) have only an `_F_` package, but the male path falls back to F automatically.
 - No attachment groups, collision or DrawScale are needed. For races 64..382 the code skips most attachment slots (it only allows slot ids 100/500/501/601, and 0x15..0x2b when +0xf1 is set).
 - Ids 2..22 are player races (PCPackage, customizable). 186..207 are NPC versions of the player races (npcHuman etc., large variant lists). 348..368 are "optimized" player-race meshes.
