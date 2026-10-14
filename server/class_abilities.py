@@ -52,10 +52,34 @@ def package_abilities(client_dir, prefix):
     return _cache[key]
 
 
-def display_name(tag):
-    """BLADE_WINTER_I -> "Blade Winter I"."""
+def raw_display_name(tag):
+    """BLADE_WINTER_I -> "Blade Winter I" (straight from the tag; some tags have no word breaks)."""
     words = [w for w in tag.split("_") if w.upper() not in ("RESOLVE", "CAST")]
     return " ".join(w if w in ("I", "II", "III", "IV", "V") else w.capitalize() for w in words)
+
+
+_NAMES = None
+
+
+def _proper_names():
+    """content/ability_names.json (tools/ability_names.py): tag name -> re-spaced real name."""
+    global _NAMES
+    if _NAMES is None:
+        import json
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "content", "ability_names.json")
+        try:
+            with open(path, encoding="utf-8") as f:
+                _NAMES = {k: v["name"] for k, v in json.load(f).items() if not k.startswith("_")}
+        except (OSError, ValueError):
+            _NAMES = {}
+    return _NAMES
+
+
+def display_name(tag):
+    """The ability's name as shown: the tag name, re-spaced where the archive has the real one
+    (LIGHTNINGSTRIKE_I -> "Lightning Strike I")."""
+    n = raw_display_name(tag)
+    return _proper_names().get(n, n)
 
 
 def class_ability_list(client_dir, klass):
