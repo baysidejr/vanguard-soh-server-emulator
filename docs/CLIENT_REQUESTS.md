@@ -23,7 +23,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x105` |  | `0x5b03eb` | no payload; the recipe type filter (ui `setup_cra_ref_select_type` / `setup_cra_fin_select_type`). A notice; no reply needed |
 | `0x108` |  | `0x5aa9f4` | {i32 recipe id}: journal recipe info (ui 0xf7 / 0xf8, `journal_cra_*_select_recipe`). The client shows the recipe from its own data; not needed (docs/CRAFTING.md) |
 | `0x112` | `/cyclewieldpreference` (the Z key) | `0x5fc65a` | no payload. The portrait help text says "To wield weapons for the portrait hit the Z key", so it probably draws/sheathes weapons through `m_WieldPreference` (0-3); which value means what is not known |
-| `0x120` |  | `0x451fc7` |  |
+| `0x120` |  | `0x451fc7` | {i32 bag item handle, i32 pending value}: an item dropped while the assembly manager (DAT_014639a8) is in cursor mode 1 (UI 0x8a, FUN_00693980). Purpose unclear (docs/ASSEMBLY.md) |
 | `0x126` | `/parleyassess` | `0x54ac25` | a debug request, only during a parley ("You can only request debug information during a parley session."); the answer format is not known |
 | `0x127` |  | `0x4c0b55` `0x4c7985` | no payload; an ack the client sends after building an NPC dialog (and from `farewell_confirm_yes`). No reply needed (docs/MERCHANTS.md, QUESTS.md) |
 | `0x128` |  | `0x54abfe` | **Unreachable:** nothing calls or points to the sending function. |
@@ -42,7 +42,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x27a` |  | `0x433a1e` | {u64 entity id}: the console command `active_ability_self_impact_on <hi> <lo>` (FUN_004107e6 area), run by animation notifies when an ability's impact frame lands. Seen 19 times in one fight (the target and the player). This server applies damage at use, so it is ignored quietly (`CLIENT_NOTICES`) |
 | `0x280` |  | `0x432e9d` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x3a0` |  | `0x4a62c6` | {eid64, bool8 1}: the encounter display's entity no longer exists client-side (combat-group tick FUN_004b3bd0); the client clears the display itself (FUN_004acd90, the 0x3a2 handler). A notice; ignored quietly |
-| `0x45f` |  | `0x47e69f` |  |
+| `0x45f` |  | `0x47e69f` | **Dead path:** FUN_0047e600 sends it only when FUN_00483c90 gets 0, and its only caller passes 1 (docs/HOUSING.md) |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x586` | `/.summongear` | `0x614118` | Error: You must have a defensive target to use this command on. |
