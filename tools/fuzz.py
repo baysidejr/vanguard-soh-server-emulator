@@ -59,6 +59,32 @@ def alive(z, timeout=3.0):
     return False
 
 
+# Passes: chat commands (the server needs --dev-commands) that put the bot in a situation first,
+# so handlers that need a target, a window or a session get past their first check.
+CONTEXTS = [
+    [],
+    ["!tp -30650 -5650 560 32768", "!target Camp Forge", ("event", 0xFA)],
+    ["!target Orin the Trader", "!give Copper Ore 5", "!give Hunter's Shortsword"],
+    ["!target Hollis Grent"],
+    ["!target Garret Holm"],
+    ["!tp -33000 -3900 g 0", "!target Canyon Widow"],
+    ["!target Mailbox", "!give Small Pouch"],
+]
+
+
+def say(z, text):
+    z.send(loadtest.event(0x74, (text + "\0").encode("utf-16-le")))
+
+
+def enter(bot, context):
+    for step in context:
+        if isinstance(step, tuple):
+            bot.zone.send(loadtest.event(step[1]))
+        else:
+            say(bot.zone, step)
+        time.sleep(0.2)
+
+
 def payloads(rng, n):
     for _ in range(n):
         size = rng.choice(SIZES)
@@ -81,6 +107,8 @@ def main(argv=None):
     ap.add_argument("--per-event", type=int, default=12, help="random payloads per event id")
     ap.add_argument("--skip", default="", help="comma-separated event ids not to send")
     ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--contexts", action="store_true", help="repeat the sweep after each setup in "
+                    "CONTEXTS (target a station, merchant, banker, mob...); the server needs --dev-commands")
     ap.add_argument("--raw", type=int, default=50, help="rounds of random UE2 packets / message types / datagrams")
     ap.add_argument("--log", help="the server's log, to list handler errors afterwards")
     ap.add_argument("--data-dir", help="the server's --data-dir (to find the bot's token)")
@@ -100,21 +128,28 @@ def main(argv=None):
     bot = login(lt, token, pm.net_cache)
     closed, hung = [], None
     start = time.time()
-    for ev in range(a.first_event, a.max_event + 1):
-        if ev in skip:
-            continue
-        for data in payloads(rng, a.per_event):
-            bot.zone.send(loadtest.event(ev, data))
-        if alive(bot.zone):
-            continue
-        try:
-            bot = login(lt, token, pm.net_cache)
-        except Exception as e:
-            hung = (ev, f"{type(e).__name__}: {e}")
+    contexts = CONTEXTS if a.contexts else CONTEXTS[:1]
+    ev = a.first_event
+    for ci, context in enumerate(contexts):
+        enter(bot, context)
+        for ev in range(a.first_event, a.max_event + 1):
+            if ev in skip:
+                continue
+            for data in payloads(rng, a.per_event):
+                bot.zone.send(loadtest.event(ev, data))
+            if alive(bot.zone):
+                continue
+            try:
+                bot = login(lt, token, pm.net_cache)
+            except Exception as e:
+                hung = (ev, f"{type(e).__name__}: {e}")
+                break
+            closed.append(ev)
+            enter(bot, context)
+        if hung:
             break
-        closed.append(ev)
-        if ev % 0x40 == 0:
-            print(f"  ... {ev:#x}")
+        if len(contexts) > 1:
+            print(f"  pass {ci + 1}/{len(contexts)} done ({' / '.join(str(x) for x in context) or 'no setup'})")
     print(f"Sent event ids {a.first_event:#x}-{ev:#x}, {a.per_event} payloads each, in {time.time() - start:.0f} s.")
     if not hung and a.raw:
         # Other zone message types (1 = a UE2 packet, 9 = ping, unknown types), then datagrams

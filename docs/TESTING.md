@@ -37,7 +37,7 @@ Bugs it found, all fixed:
 - A zone connection could enter the world without logging in, as "Someone", and a second login request on a logged-in connection replaced its player with nothing (which then crashed the NPC aggro check every tick). Unknown sessions are refused, a second login is ignored, UE2 packets before the login are ignored (`--anonymous-zone` keeps the old debugging behaviour), and a reconnect from the same address leaves the world first.
 - A truncated Group length raised struct.error.
 
-Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, no hang.
+Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, no hang. With `--contexts` (and the server started with `--dev-commands`) the sweep runs 7 times, each after setting up a situation first (crafting at the forge, a merchant, the banker, the task master, a fight with the Canyon Widow, the mailbox): 7 x 0x900 ids x 12 payloads in 190 s, no handler errors, no hang.
 
 ## Needs a person
 
