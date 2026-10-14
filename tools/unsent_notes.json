@@ -450,10 +450,6 @@
       "optional",
       "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
     ],
-    "0x241": [
-      "optional",
-      "ability failure code {u8} with the client's own texts (FUN_0043e610); the server uses 0x242 sounds and its own text today"
-    ],
     "0x1c8": [
       "unknown",
       "u8; handler not decoded"
@@ -827,8 +823,8 @@
       "quest journal init list (MsgQuestInitClient); the server sends quest pages individually"
     ],
     "0x2ce": [
-      "optional",
-      "quest conditions met {eid64 npc, i32 quest, bool8}: the quest-ready marker over an NPC"
+      "variant",
+      "quest conditions met {eid64, i32 quest, bool8}: marks the journal entry ready (record +0x9c) and redraws it; the server sends the quest page in its ready state instead"
     ],
     "0x2d0": [
       "optional",

@@ -65,6 +65,21 @@ def effect_add(eid, name, desc, icon, left, duration, harmful=False):
 EXPIRED_QUERY = 0x24A
 
 
+# The client's own ability failure messages: 0x241 {u8 code} (FUN_0043e610) plays the error sound,
+# prints the chat line and flashes the screen text, e.g. 0x07 "That ability has not refreshed." /
+# "Not ready to do that yet.", 0x0d "You are stunned!", 0x2a "That requires a chain.", 0x03 "Target
+# too far away.", 0x0b "Invalid target.", 0x22 / 0x24 not enough energy / endurance, 0x3c "Target
+# too close.", 0xff "You fail to cast for an unknown reason." (codes listed in docs/EFFECTS.md).
+# 0x242 {u8} is the sound alone. Code 0x01 ("only as a reaction") carries a DEBUG note, so that
+# case keeps 0x242.
+ABILITY_FAILED = 0x241
+NOT_REFRESHED, STUNNED, NEEDS_CHAIN = 0x07, 0x0D, 0x2A
+
+
+def ability_failed(code):
+    return _event(ABILITY_FAILED, struct.pack("<B", code))
+
+
 def effect_remove(eid):
     return _event(0x23B, struct.pack("<i", eid))
 

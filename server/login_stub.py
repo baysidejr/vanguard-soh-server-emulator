@@ -402,13 +402,11 @@ def use_ability(state, args, player, ability):
     now = time.time()
     cooldowns = player.__dict__.setdefault("cooldowns", {})
     if now < cooldowns.get(handle, 0):
-        send(zone.zone_event(0x242, struct.pack("<B", 7)))       # error sound
-        send(build_system_text(f"{name} is not ready yet ({cooldowns[handle] - now:.0f}s).", SYSTEM_TEXT_ERROR))
+        send(effects.ability_failed(effects.NOT_REFRESHED))
         return
     spec = effects.classify(name, args.content.abilities)
     if stunned(player):
-        send(zone.zone_event(0x242, struct.pack("<B", 7)))
-        send(build_system_text("You are stunned!", SYSTEM_TEXT_ERROR))
+        send(effects.ability_failed(effects.STUNNED))
         return
     if state.get("casting"):
         send(zone.zone_event(0x242, struct.pack("<B", 7)))
@@ -8773,8 +8771,10 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE use ability {handle} ({ability[2] if ability else '?'})")
             if ability and reactions.locked(getattr(player, "chains", []), ability[1], getattr(player, "counters", ())):
                 # A chain step, finisher or counter: only through its reaction window (0x145).
-                code = reactions.ONLY_AS_REACTION if ability[1] in player.counters else reactions.REQUIRES_CHAIN
-                send_message(sock, addr, state, zone.zone_event(0x242, struct.pack("<B", code)))
+                if ability[1] in player.counters:
+                    send_message(sock, addr, state, zone.zone_event(0x242, struct.pack("<B", reactions.ONLY_AS_REACTION)))
+                else:
+                    send_message(sock, addr, state, effects.ability_failed(effects.NEEDS_CHAIN))
             elif ability:
                 use_ability(state, args, player, ability)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == reactions.ACTIVATE and state.get("player"):

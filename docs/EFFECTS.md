@@ -32,6 +32,7 @@ Real ability data (costs, damage, durations) was server-side. The emulator guess
 | `0x2d4`* | MsgStatUpdate with current = base + bonus | stat buff shown in the character window |
 | `0x259` | `i32 ability id, f32 left, f32 total` | hotbar cooldown sweep |
 | `0x242` | `u8 code` | ability failure sound (7 = too soon, 3 = too far, 0x22 = no energy, 0x24 = no endurance) |
+| `0x241`* | `u8 code` | ability failure with the client's own chat line and screen text (FUN_0043e610; codes below). Used for "not refreshed" (7), stunned (0x0d, "You cannot do that while stunned.", verified live 2026-10-14) and "requires a chain" (0x2a) |
 | `0x25c`* / `0x260`* | `wstr name, f32 seconds` / none | cast bar / interrupted. An ability with `cast` seconds in abilities.json shows the bar ("You begin to cast Deadly Shot I.") and goes off when the time is up. Moving during the cast interrupts it ("Your Deadly Shot I is interrupted."). Verified live |
 | `0x27b` | `eid64 source, eid64 target, i32 instance, bool8 heal, u8 kind, i32 amount, i32 bonus, u8 outcome, u8 type, u8, wstr ability, bool8, bool8` | client-built combat sentence, shown in the **Combat** tab (verified live: "Your Test Strike heals you for 12 hit points.", "Canyon Widow's Venom Bite hits you for 6 damage."; kind 0 gives the weapon form "You slash yourself for 12 damage."). Used for heals, DoT ticks and every melee hit both ways (auto-attack and NPC swings use kind 0 with damage type 3, giving "You hit Canyon Widow for 8 damage." / "Canyon Widow hits you for 7 damage."; abilities use kind 1 with the ability name). `!ctext [kind] [heal] [self]` sends a test line |
 
@@ -66,3 +67,54 @@ A kill gives 150 XP at the player's own level, +15% per level the NPC is above a
 ## Ability power (verified live 2026-10-13)
 
 Ability damage, damage over time and heals scale with the caster (`combat.power`, placeholder): +8% per level above 1, and +1% per point of the class's main attribute above its default (Strength for fighters, Intelligence for spellcasters' damage, Wisdom for heals). At level 13 Ranger's Deadly Shot I (3-7 a tick) ticked for 7 and 13.
+
+## Ability failure codes (0x241)
+
+From the client's switch (byte table 0x43f980, jump table 0x43f86c). The first text is the chat line (a localization key where it is one word), the second the screen flash.
+
+| Code | Message |
+|---|---|
+| 0x01 | You may only activate that ability as a reaction. (with a DEBUG note) |
+| 0x02 | Your combat queue is full. (with a DEBUG note) |
+| 0x03 | TooFarAway / Target too far away. |
+| 0x04 | That agenda ability does not match your current parley task. |
+| 0x05 | Your target is of the wrong type for that ability. |
+| 0x06 | You can't meet the cost of that ability. |
+| 0x07 | That ability has not refreshed. / Not ready to do that yet. |
+| 0x08 | You can't execute abilities while you are memorizing. |
+| 0x09 | You can't execute abilities while you are resting. / You are resting! |
+| 0x0b | Please select a valid target for that ability. / Invalid target. |
+| 0x0c | NotAttackable / Invalid target. |
+| 0x0d | NotWhileStunned / You are stunned! |
+| 0x0e | NotWhileDazed / You are dazed! |
+| 0x0f | You may not use an ability from that sphere on your current target. |
+| 0x10 | You must already be parleying with an NPC to use that ability. |
+| 0x11 | You are not wielding the proper weapon type to use that ability. |
+| 0x12 | You cannot cast a spell communally without a defensive target. |
+| 0x14 | Your level is not high enough to use this ability. |
+| 0x15 | Your skill level is not high enough to use this ability. |
+| 0x16 | You need to wield a harvesting tool to use this ability. |
+| 0x17 | You cannot use this ability right now. |
+| 0x18 | You are missing a flag that is required to use this ability. |
+| 0x19 | You can't use that right now because you are casting it and it requires time to refresh. |
+| 0x1b / 0x1c | focused bond limits |
+| 0x1e / 0x1f | corpse consumed / you must have a corpse targeted |
+| 0x20 | You do not have enough %s to use this ability. |
+| 0x21 | FailBardSong / Bard song only. |
+| 0x22 / 0x23 / 0x24 | not enough energy / stamina / endurance |
+| 0x25 / 0x26 / 0x32 / 0x33 | not enough inspire / reason / flatter / demand (diplomacy) |
+| 0x28 | You are missing the ammo needed to use this ability. |
+| 0x29 / 0x2b | You can't do that yet. |
+| 0x2a | You may only use that once it is unlocked as part of a chain. / That requires a chain. |
+| 0x2c-0x2f, 0x31 | corpse or target too powerful, too high level, not an NPC, was a pet |
+| 0x30 | You're already looting something. |
+| 0x34-0x37 | must dodge / parry / block / feint first |
+| 0x39 / 0x3a | missing reagent / reagent not equipped |
+| 0x3c | TooClose / Target too close. |
+| 0x3d | FailPassive / Passive only. |
+| 0x3e | CantSeeTarget / Can't see target. |
+| 0x3f / 0x40 / 0x41 | wrong mount type / not while flying / wrong ammunition |
+| 0x42-0x44 | invalid raid target (cannot help raid, raid target full, lockout) |
+| 0x45 | Your level is too high to use this ability. |
+| 0x46 | FailCastClassOrRaceLocked |
+| 0xff | You fail to cast for an unknown reason. |
