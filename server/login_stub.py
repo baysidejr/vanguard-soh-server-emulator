@@ -1141,6 +1141,10 @@ MOVE_MODE = 0x72
 # (dispatcher FUN_00588c50, ids 0x4f2-0x502 -> FUN_00583b70) prints "Displaying lockout timers
 # for %s:" and lists the timers the client already holds; this server has no raid lockouts.
 LOCKOUT_LIST, LOCKOUT_LIST_REPLY = 0x4FC, 0x4FD
+# /sharelockouttimer <id>: 0x4fb {i32 id}; /lockoutaccept, /lockoutdecline: 0x273 {u8 accept}.
+# With no lockouts the answers are the client's notices InvalidLockout and NoLockoutOffer.
+LOCKOUT_SHARE, LOCKOUT_ANSWER = 0x4FB, 0x273
+INVALID_LOCKOUT, NO_LOCKOUT_OFFER = 159, 158
 # Clicking an item link in chat runs /itemlinkrequest <link text>: 0x158 {wstr}. The answer is
 # s2c 0x158 with the item's full record (FUN_005de090 -> FUN_00516610), which opens the
 # examine popup (FUN_0068e220).
@@ -8121,6 +8125,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CITY_STATUS and state.get("player"):
             city_status(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (LOCKOUT_SHARE, LOCKOUT_ANSWER) and state.get("player"):
+            share = struct.unpack_from("<I", payload, 2)[0] == LOCKOUT_SHARE
+            send_message(sock, addr, state, client_notice(INVALID_LOCKOUT if share else NO_LOCKOUT_OFFER))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == LOCKOUT_LIST and state.get("player"):
             send_message(sock, addr, state, zone.zone_event(LOCKOUT_LIST_REPLY,
                                                             (state["player"].name + "\0").encode("utf-16-le")))

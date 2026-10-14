@@ -41,7 +41,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
 | `0x250` |  | `0x589f16` |  |
 | `0x271` |  | `0x5e2a53` `0x5e2ae3` | Resurrection |
-| `0x273` |  | `0x5e2b76` `0x5ebf61` | Call Confirmation / Call Confirmation |
 | `0x27a` |  | `0x433a1e` |  |
 | `0x280` |  | `0x432e9d` |  |
 | `0x35e` |  | `0x4cc6b0` |  |
@@ -53,7 +52,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x474` |  | `0x476d2c` | BuildingGuildHeadquartersRelinquishConfirm |
 | `0x47a` |  | `0x476668` `0x476a48` | PlotPurchaseConfirm / PlotRelinquishConfirm |
 | `0x47c` |  | `0x47d8fd` `0x47da0d` | _building_guild_leader_headquarters_confirm / BuildingGuildLeaderHeadquartersConfirm |
-| `0x4fb` | `/sharelockouttimer` | `0x60e73f` |  |
 | `0x54d` |  | `0x682b45` |  |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
@@ -71,7 +69,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x5d1` |  | `0x484343` | PlacedBuildingNPCList / _building_npc_window |
 | `0x5d2` |  | `0x48434d` | PlacedBuildingNPCList / _building_npc_window |
 | `0x5d9` |  | `0x69ac74` | _lockout_timer_list / RaidLockoutTimerList |
-| `0x5e5` |  | `0x4fc100` | Could not find that item to unlock. / Programmer error: no unlock item for handle |
+| `0x5e5` (see Raid lockout list) |  | `0x4fc100` | Could not find that item to unlock. / Programmer error: no unlock item for handle |
 | `0x764` |  | `0x503e6e` |  |
 | `0x765` |  | `0x4f972e` | Programmer error: no item matching valid handle / Cannot store a container inside another container. |
 | `0x766` |  | `0x429884` | NoSkillsOrSpells / SkillsAndSpellsHeader |
@@ -110,7 +108,9 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 
 ## Raid lockout list (verified live 2026-10-14)
 
-`/lockouttimerlist [name]` sends 0x4fc `{wstr name}` (empty for yourself). The lockout dispatcher `FUN_00588c50` takes s2c ids 0x4f2-0x502 (id - 0x4f2 indexes a 17-entry jump table at 0x588d9c); 0x4fd `{wstr name}` (`FUN_00583b70`) prints "Displaying lockout timers for %s:" and lists the timers the client already holds. The server answers 0x4fd with the player's name; with no raid lockouts on this server the list is empty. The messages that add timers are not decoded yet.
+`/lockouttimerlist [name]` sends 0x4fc `{wstr name}` (empty for yourself). The lockout dispatcher `FUN_00588c50` takes s2c ids 0x4f2-0x502 (id - 0x4f2 indexes a 17-entry jump table at 0x588d9c); 0x4fd `{wstr name}` (`FUN_00583b70`) prints "Displaying lockout timers for %s:" and lists the timers the client already holds. The server answers 0x4fd with the player's name; with no raid lockouts on this server the list is empty. The messages that add timers are not decoded yet. `/sharelockouttimer <id>` (0x4fb `{i32 id}`) gets notice 159 "Invalid lockout timer.", and `/lockoutaccept` / `/lockoutdecline` (0x273 `{u8 1/0}`) get notice 158 "No one is offering you a lockout timer." (ids seen live).
+
+The unlock tool (template 1464362, 0x5e5 `{i32 target, i32 tool}`) has an answer, 0x5e6 `{i32 handle}`: "%s has been unlocked and can now be used without a Gold Membership." (FUN_00506d70). "Locked" means Gold-Membership-only, and this server has no membership tiers, so nothing is locked and the request stays unanswered.
 
 ## Player reports (verified live 2026-10-14)
 

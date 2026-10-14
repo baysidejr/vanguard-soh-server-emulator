@@ -4,7 +4,7 @@ Working list for autonomous sessions, so progress survives context resets. Newes
 
 ## Next action
 
-Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan misses, and look up each reply format in docs/ZONE_MESSAGES.md (that is how the item link and lockout replies were found). Then the remaining unknown replies: guild usable/HQ (0x47a/0x47b), unlock tool (0x5e5).
+Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan misses, and look up each reply format in docs/ZONE_MESSAGES.md (that is how the item link and lockout replies were found). Then the remaining unknown reply: guild usable/HQ (0x47a/0x47b).
 
 ## Prioritized tasks
 
@@ -24,6 +24,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: /sharelockouttimer and /lockoutaccept, /lockoutdecline answered with the client's InvalidLockout / NoLockoutOffer notices. Unlock tool 0x5e5: its answer 0x5e6 is about Gold Membership locks, which this server doesn't have; documented, left unanswered.
 - 2026-10-14: Item links: the answer to 0x158 is s2c 0x158 with the item record (FUN_005de090), found in ZONE_MESSAGES.md; the server resolves the item by name or template id. Tooltip popup verified live.
 - 2026-10-14: /citystatus (0x12d): civic stats as chat lines (no shipped window), or the client's "No civic diplomacy here." popup (0x330 code 16) when there are none. Verified live / unit-tested. /aalist (0x85c) stays open: alternate advancement abilities are server content.
 - 2026-10-14: /lockouttimerlist answered with 0x4fd {wstr name} (lockout dispatcher FUN_00588c50, ids 0x4f2-0x502); "Displaying lockout timers for Ranger:" verified live.
