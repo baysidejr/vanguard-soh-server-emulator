@@ -23,6 +23,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "server"))
 
 import races_classes  # noqa: E402
+import vgmsg  # noqa: E402
 
 SLOTS = {"head": "HEAD", "chest": "CHEST", "legs": "LEGS", "hands": "HANDS", "feet": "FEET",
          "waist": "WAIST", "cloak": "CLOAK", "shoulders": "SHOULDERS", "wrists": "WRISTS",
@@ -184,9 +185,22 @@ def convert(batch, races):
         if isinstance(r.get("damage"), list):
             it["damage"] = r["damage"]
             it["delay"] = r.get("delay_seconds") or 2.0
-        if r.get("stats") or r.get("effects"):
-            it["_unsupported"] = {"stats": r.get("stats"), "effects": r.get("effects")}
-            issue(f"item {r['name']}: stats/effects kept in _unsupported (the server has no item stats yet)")
+        stats, mods, other = {}, {}, {}
+        for k, v in (r.get("stats") or {}).items():
+            low = k.lower()
+            if low in vgmsg.ATTRIBUTES:
+                stats[low] = v
+            elif next((m for m in vgmsg.MOD_TYPES if m.lower() == low), None):
+                mods[next(m for m in vgmsg.MOD_TYPES if m.lower() == low)] = v
+            else:
+                other[k] = v
+        if stats:
+            it["stats"] = stats
+        if mods:
+            it["mods"] = mods
+        if other or r.get("effects"):
+            it["_unsupported"] = {"stats": other or None, "effects": r.get("effects")}
+            issue(f"item {r['name']}: {sorted(other) + (['effects'] if r.get('effects') else [])} kept in _unsupported")
         it["icon"] = 443                              # icons need the client id: set by hand
         it["_source"] = r["sources"][0]["url"]
         out["items.json"][r["name"]] = it

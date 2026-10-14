@@ -176,9 +176,43 @@ def split_slot(slot):
     return (-1, slot) if slot is None or slot < BAG_SLOT_BASE else divmod(slot - BAG_SLOT_BASE, 100)
 
 
+# Item modifiers ("+5 Strength", "+12 Armor Class"): MsgItemMod records appended after the
+# item record, counted by item field 17 (parser FUN_005147c0, schema FUN_004f6270, tooltip
+# FUN_006b5d80 -> FUN_006afce0, names FUN_00d02df0). Wire: i32 stat id, i32 value, i32 max
+# value (= value: a range is printed when they differ), i32 mod type, i32 0, u8 0 (1 = the
+# off-hand set), 4 x i32 0, wstr, wstr. A record with max value 0 is not shown.
+MOD_STAT = 0               # "+N <stat name>" by stat id (attributes); 1 = crafting AP cost, 0x2f = instrument
+MOD_TYPES = {
+    "Tool Accuracy": 2, "Tool Effectiveness": 3, "Healing Focus": 5, "Spell Damage Focus": 6,
+    "Accuracy Rating": 7, "Damage Rating": 8, "Evasion Rating": 9, "Mitigation Rating": 10,
+    "Melee Accuracy Rating": 0x1A, "Melee Damage Rating": 0x1B, "Melee Evasion Rating": 0x1C,
+    "Melee Mitigation Rating": 0x1D, "Ranged Accuracy Rating": 0x1E, "Ranged Damage Rating": 0x1F,
+    "Spell Accuracy Rating": 0x20, "Spell Damage Rating": 0x21, "Spell Evasion Rating": 0x22,
+    "Spell Mitigation Rating": 0x23, "Mount Stability": 0x24, "Endurance Regeneration": 0x25,
+    "Energy Regeneration": 0x26, "Health Regeneration": 0x27, "Melee Haste": 0x28,
+    "Spell Haste": 0x29, "Mount Speed (Ground)": 0x2A, "Armor Class": 0x2C, "Weapon Damage": 0x2D,
+    "Weapon Delay": 0x2E, "Debate Effectiveness": 0x30, "General Critical Hit Rating": 0x34,
+    "Melee Critical Hit Rating": 0x35, "Ranged Critical Hit Rating": 0x36,
+    "Spell Critical Hit Rating": 0x37, "Harvesting Speed": 0x43, "Heal Critical Chance": 0x48,
+    "Heal Effectiveness": 0x4A, "Global Recovery Haste": 0x4F, "Critical Hit Evasion": 0x50,
+    "Critical Hit Mitigation": 0x51, "AOE Mitigation": 0x55, "Critical Damage Bonus": 0x59,
+}
+
+
+def item_mod(mod_type, value, stat=0):
+    return pack("iiiiib" + "iiii" + "ww", (stat, value, value, mod_type, 0, 0, 0, 0, 0, 0, "", ""))
+
+
+def item_mods(stats=None, mods=None):
+    """MsgItemMod records for items.json "stats" {attribute: n} and "mods" {mod name: n}."""
+    out = [item_mod(MOD_STAT, int(v), STAT_IDS[k]) for k, v in (stats or {}).items() if k in STAT_IDS]
+    out += [item_mod(MOD_TYPES[k], int(v)) for k, v in (mods or {}).items() if k in MOD_TYPES]
+    return out
+
+
 def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
                    container=-1, quality=1, equip_slot=-1, default_slot=-1, allowed_slots=(),
-                   raw=None):
+                   raw=None, mods=None):
     """An item in a bag: equip slot -1, container -1 = the main grid
     (gamevar InventoryContainerID_-1, 50 slots), slot 0..49. Icon is a
     number formatted %05d in the client icon map (443 = the client's fallback). A slot of
@@ -196,7 +230,8 @@ def inventory_item(item_id, name, slot, icon=443, quantity=1, description="",
                       # (FUN_004fd590 tests bit `slot`); right-click needs the default set.
                       8: default_slot, **slot_mask(allowed_slots),
                       # 94 usable (0 = red icon), 100 = 255 (not a graft), 106 durability %.
-                      94: 1, 100: 255, 106: 100, **(raw or {})})
+                      94: 1, 100: 255, 106: 100, **(raw or {}),
+                      **({17: len(mods)} if mods else {})}) + b"".join(mods or [])
 
 
 def slot_mask(slots):

@@ -277,14 +277,21 @@
       111000
     ],
     "type": "armor",
-    "armor": 4
+    "armor": 4,
+    "stats": {
+      "dexterity": 3
+    }
   },
   "Copper Ring": {
     "icon": 1225,
     "type": "jewelry",
     "slot": "LEFTFINGER",
     "armor": 1,
-    "rarity": "uncommon"
+    "rarity": "uncommon",
+    "stats": {
+      "strength": 2,
+      "constitution": 2
+    }
   },
   "Travel Rations": {
     "icon": 442
@@ -475,6 +482,14 @@
     "type": "armor",
     "armor": 5,
     "level": 10,
-    "description": "A warden's cloak, given to friends of the forest."
+    "description": "A warden's cloak, given to friends of the forest.",
+    "stats": {
+      "dexterity": 4,
+      "wisdom": 2
+    },
+    "mods": {
+      "Armor Class": 8,
+      "Health Regeneration": 2
+    }
   }
 }

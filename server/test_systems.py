@@ -551,5 +551,21 @@ class CrowdConvertTests(unittest.TestCase):
         self.assertTrue(any("low confidence" in i for i in b.issues))
 
 
+class ItemStatTests(unittest.TestCase):
+    def test_mods_and_gear_bonus(self):
+        import vgmsg
+        rec = vgmsg.inventory_item(5, "Cloak", 0, mods=vgmsg.item_mods({"strength": 3}, {"Armor Class": 8}))
+        plain = vgmsg.inventory_item(5, "Cloak", 0)
+        self.assertEqual(len(rec) - len(plain), 2 * (5 * 4 + 1 + 4 * 4 + 4))   # two 41-byte records
+        p = types.SimpleNamespace(equipment=[(1, "Forester's Cloak", 436, 7)], stats={"dexterity": 30, "wisdom": 20})
+        self.assertEqual(sorted(zone.apply_gear_stats(p)), ["dexterity", "wisdom"])
+        self.assertEqual(p.stats["dexterity"], 34)
+        self.assertEqual(zone.apply_gear_stats(p), [])             # idempotent
+        self.assertEqual(zone.stat_base(p, "dexterity"), 30)
+        p.equipment = []
+        zone.apply_gear_stats(p)
+        self.assertEqual(p.stats["dexterity"], 30)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -523,6 +523,42 @@ DEFAULT_STATS = {
 BREATH_MAX = 60               # seconds of breath under water
 
 
+def gear_bonus(player):
+    """{attribute: total} from the items.json "stats" of everything equipped."""
+    out = {}
+    for e in player.equipment:
+        for k, v in (ITEM_CONTENT.item(e[1]).get("stats") or {}).items():
+            if k in vgmsg.STAT_IDS:
+                out[k] = out.get(k, 0) + int(v)
+    return out
+
+
+def apply_gear_stats(player):
+    """Move player.stats by the change in gear bonuses since the last call (idempotent);
+    returns the attributes that changed."""
+    new, old = gear_bonus(player), player.__dict__.get("gear_bonus", {})
+    changed = []
+    for k in set(new) | set(old):
+        delta = new.get(k, 0) - old.get(k, 0)
+        if delta:
+            player.stats[k] = player.stats.get(k, 0) + delta
+            changed.append(k)
+    player.gear_bonus = new
+    return changed
+
+
+def stat_base(player, name):
+    """The stat without gear and buff bonuses (the character window shows the rest in green)."""
+    buffs = sum(e.get("bonus", 0) for e in getattr(player, "effects", [])
+                if e.get("kind") == "buff" and e.get("stat") == name)
+    return player.stats.get(name, 0) - player.__dict__.get("gear_bonus", {}).get(name, 0) - buffs
+
+
+def attribute_update(player, name):
+    return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[name], player.stats[name],
+                                               base=stat_base(player, name)))
+
+
 def breath_update(breath):
     return zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS["breath"], breath, maximum=BREATH_MAX))
 
@@ -534,6 +570,7 @@ def stat_messages(player):
     MsgStatUpdate (0x2d4): the attribute UI vars (PCAdvStrength...) are only set
     on the update path (FUN_00576c90 -> FUN_00573070); HP/End/Energy are set on
     creation (FUN_005763b0)."""
+    apply_gear_stats(player)
     recs = []
     for name, value in player.stats.items():
         kind = 1 if name in vgmsg.ATTRIBUTES else 0
@@ -543,7 +580,7 @@ def stat_messages(player):
     recs.append(vgmsg.stat_info(vgmsg.STAT_IDS["breath"], BREATH_MAX, kind=5, maximum=BREATH_MAX))
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
-        out.append(zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[name], player.stats[name])))
+        out.append(attribute_update(player, name))
     return out
 
 
@@ -668,9 +705,12 @@ def item_equip_fields(name, durability=100):
         extra[84] = tpl["skill"]
     if "armor" in tpl:
         extra[85] = tpl["armor"]
+    out_mods = vgmsg.item_mods(tpl.get("stats"), tpl.get("mods"))
     if tpl.get("bag"):
         extra[14] = tpl["bag"]           # capacity: the client makes InventoryContainerID_<handle>
     out = {"raw": extra}
+    if out_mods:
+        out["mods"] = out_mods
     if tpl.get("bag"):
         return dict(out, default_slot=BAG_EQUIP_SLOTS[0], allowed_slots=BAG_EQUIP_SLOTS)
     if "slot" in tpl:
