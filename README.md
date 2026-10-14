@@ -118,6 +118,8 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic do
    .\VGClient.exe --sessionid=12345678
    ```
 
+For a long-running server, add `--quiet-packets`: the log then keeps the decoded events but not a hex dump of every packet.
+
 Characters are saved to `server/characters.json`: position, chunk, level, XP, coins, bag, equipment and hotbar. The emulator prints every packet it receives, decoded where the format is known.
 
 Several clients can connect at once. Start a second copy with a different `--sessionid`; players in the same chunk see each other and share the NPCs.

@@ -270,6 +270,8 @@ def main():
                         help="fill MsgScore fields 35+ with their own index (to map UI slots)")
     parser.add_argument("--quest-feedback", action="store_true",
                         help="open the client's Quest Feedback window after each completed quest")
+    parser.add_argument("--quiet-packets", action="store_true",
+                        help="don't print every packet's hex dump and acks (for a long-running server)")
     parser.add_argument("--dev-commands", action="store_true",
                         help="enable !stat / !event chat commands (see dev_command)")
     parser.add_argument("--test-npc", action="store_true",
@@ -6795,10 +6797,11 @@ def leave_world(state, args):
 
 def serve(sock, server, data, addr, clients, args):
     if True:
-        stamp = time.strftime("%H:%M:%S")
-        print(f"\n[{stamp}] {server} {addr[0]}:{addr[1]} -> {len(data)} bytes")
-        print(hexdump(data))
-        describe(data)
+        if not getattr(args, "quiet_packets", False):
+            stamp = time.strftime("%H:%M:%S")
+            print(f"\n[{stamp}] {server} {addr[0]}:{addr[1]} -> {len(data)} bytes")
+            print(hexdump(data))
+            describe(data)
         key = (server, addr)
 
         if len(data) >= 14 and data[0] == 0 and data[1] == 0x01:
@@ -6836,7 +6839,8 @@ def serve(sock, server, data, addr, clients, args):
             for kind, seq, payload in reliable_messages(data):
                 ack = build_ack_all(kind, seq)
                 sock.sendto(ack, addr)
-                print(f"  <- sent ack-all seq={seq}: {ack.hex(' ')}")
+                if not getattr(args, "quiet_packets", False):
+                    print(f"  <- sent ack-all seq={seq}: {ack.hex(' ')}")
                 if seq in state["seen"]:
                     continue  # client resend; already answered
                 remember_seq(state, seq)

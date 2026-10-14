@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: `--quiet-packets` option: no per-packet hex dumps or ack lines (a login session logs about 15x less).
 - 2026-10-14: Unreal layer: incoming reliable bunches were compared with `<=`, so after a channel's 12-bit sequence wrapped (4095 -> 0) every later reliable bunch would be dropped. Now wrap-aware (UE2 BestSignedDifference). Outgoing sequences already wrapped on the wire. Login and walking re-checked live.
 - 2026-10-14: Long-session fixes: reliable sequence numbers are u16 on the wire. The server's outgoing counter now wraps (struct.pack used to raise after 65,536 messages, cutting the player off), and resend detection keeps a window of 4,096 recent numbers instead of every number ever seen (after the client's counter wrapped, every new message would have been dropped as a resend). Unit-tested; a live test would need 65,536 real messages.
 - 2026-10-14: Connections silent for 180 s are dropped from the server's client table (it used to grow forever, e.g. from connects that never log in). Live clients send keep-alives about every 30 s; verified /who and guild chat still work after 3.5 idle minutes.
