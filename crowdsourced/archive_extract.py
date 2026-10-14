@@ -176,6 +176,11 @@ def enrich_quest(record, main):
         for line in node.get_text('\n', strip=True).splitlines():
             coin = denominations(line)
             xp = re.fullmatch(r'([\d,]+)\s*(?:XP|experience)', line, re.I)
+            scoped_xp = re.fullmatch(r'([\d,]+)\s*(?:XP|experience)\s+at\s+(?:Lvl|Level)\s+(\d+)', line, re.I)
+            if scoped_xp:
+                record.setdefault('archive_level_reward_observations', []).append(dict(
+                    kind='xp', value=int(scoped_xp.group(1).replace(',', '')),
+                    player_level=int(scoped_xp.group(2)), raw=line))
             if coin is not None:
                 reward_values.append(dict(kind='coin_copper', value=coin))
             if xp:

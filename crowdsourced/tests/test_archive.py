@@ -87,6 +87,13 @@ class ArchiveParsingTests(unittest.TestCase):
             self.assertEqual(records[0]['chain_next'], 'Next Quest')
             self.assertEqual(records[0]['archive_fields']['previous'], ['{{{previous}}}'])
 
+    def test_level_scoped_xp_is_not_unconditional_reward(self):
+        html = page('Fixture Quest', '<h2>Quest Rewards</h2><p>6,000 XP at Lvl 22</p>')
+        records, _ = collector.parse_page(ORIGIN + '/quests/fixture', html)
+        self.assertIsNone(records[0]['rewards']['xp'])
+        self.assertEqual(records[0]['archive_level_reward_observations'][0]['value'], 6000)
+        self.assertEqual(records[0]['archive_level_reward_observations'][0]['player_level'], 22)
+
     def test_npc_role_and_quest_relationship_are_explicit(self):
         html = page('Fixture NPC', '''<h2>Details</h2><dl class="kv"><div><dt>Role</dt><dd>General NPC</dd></div>
             <div><dt>Race</dt><dd>N/A</dd></div></dl><h2>Quests given (1)</h2><ul>
