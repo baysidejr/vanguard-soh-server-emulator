@@ -1217,12 +1217,14 @@ def place_player(state, args, loc, chunk):
 
 def gm_command(state, args, event, data):
     player, send = state["player"], state["send"]
-    if not getattr(args, "dev_commands", False):
+    if not (getattr(args, "dev_commands", False) or getattr(player, "access_level", 0) > 0):
         send(build_system_text("You are not a GM on this server.", SYSTEM_TEXT_ERROR))
         return
     if event == GM_CHUNK and len(data) >= 8:
         cx, cy = struct.unpack_from("<ii", data)
-        travel_to_chunk(state, args, cx, cy, 0.0, 0.0)
+        # The client's /chunk already sent the ordinary chunk change (0x9) before this.
+        if (cx, cy) != tuple(getattr(player, "chunk", None) or DEFAULT_CHUNK) and not state.get("handoff"):
+            travel_to_chunk(state, args, cx, cy, 0.0, 0.0)
     elif event in (GM_GOTO, GM_SUMMON):
         name = social.read_name(data).strip()
         other = ONLINE.get(name.lower())
@@ -4807,6 +4809,8 @@ def chunk_handoff(state, payload, args):
     edge = CHUNK_SIZE / 2 - 1000    # the heightmap ends one cell (400) before the edge
     x = max(-edge, min(edge, loc[0] - dx * CHUNK_SIZE))
     y = max(-edge, min(edge, loc[1] + dy * CHUNK_SIZE))
+    if abs(dx) > 1 or abs(dy) > 1:
+        x = y = 0.0                 # not a walk across an edge (a GM /chunk jump): the centre
     travel_to_chunk(state, args, cx, cy, x, y)
 
 
@@ -7017,13 +7021,16 @@ def build_set_name_id(char):
     # (FUN_00413590), which fills the session object read by BECOME_PC (+0xc0 = id).
     # Strings: +0x00 first name, +0x80 last name, +0xe0 world, +0x1b0 the name
     # shown in the character window (verified: a chunk name put there showed up
-    # as the character's name); +0x130 unknown.
+    # as the character's name); +0x130 unknown; +0x248 the access (GM) level: the client
+    # offers a command only when its table row's level byte is <= this (FUN_005feba0;
+    # /summonplayer needs 5, /gotoplayer 10, /chunk 20). characters.json "access_level".
     rec = bytearray(0x24C)
     rec[0x000:0x080] = wfield(char["first"], 0x80)
     rec[0x080:0x0e0] = wfield(char.get("last", ""), 0x60)
     rec[0x0e0:0x130] = wfield(char.get("world", WORLD_NAME), 0x50)
     rec[0x1b0:0x230] = wfield(char["first"], 0x80)
     struct.pack_into("<Q", rec, 0x230, character_id(char))
+    struct.pack_into("<i", rec, 0x248, max(0, min(255, int(char.get("access_level", 0)))))
     return event_message(10, bytes(rec))
 
 
@@ -7650,6 +7657,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.bound = set(char.get("bound", []))
             player.deck_presets = char.get("deck_presets")
             player.apply_form_on_death = char.get("apply_form_on_death", False)
+            player.access_level = int(char.get("access_level", 0))
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
                            + list(args.content.counters.get(cname, []))
