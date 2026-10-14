@@ -167,10 +167,11 @@ def launcher_login(address, username, password, now=None):
     return issue_launch_token(account), None
 
 
-def serve_launcher(host, port, allow_register=False):
+def serve_launcher(host, port, allow_register=False, certfile=None, keyfile=None):
     """Start the launcher endpoint (a background thread): POST /login (and POST /register when
     allowed) with a JSON body {"username", "password"} -> {"session": token} or {"error": text}.
-    Plain HTTP: put it behind TLS (or keep it on a private network) before exposing it."""
+    With certfile (and keyfile, unless the key is in the same PEM file) it serves HTTPS, so
+    passwords are encrypted on the way; without, plain HTTP for a private network."""
     import http.server
     import threading
 
@@ -205,6 +206,12 @@ def serve_launcher(host, port, allow_register=False):
             print(f"  launcher {self.client_address[0]}: {fmt % args}")
 
     server = http.server.ThreadingHTTPServer((host, port), Handler)
+    if certfile:
+        import ssl
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.minimum_version = ssl.TLSVersion.TLSv1_2
+        context.load_cert_chain(certfile, keyfile)
+        server.socket = context.wrap_socket(server.socket, server_side=True)
     threading.Thread(target=server.serve_forever, daemon=True).start()
     return server
 

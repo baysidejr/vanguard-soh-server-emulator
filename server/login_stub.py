@@ -250,6 +250,10 @@ def main():
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--launcher-port", type=int, default=10180,
                         help="HTTP port of the launcher login endpoint (tools/play.py); 0 turns it off")
+    parser.add_argument("--launcher-cert", default=None,
+                        help="PEM certificate: serve the launcher over HTTPS (passwords encrypted)")
+    parser.add_argument("--launcher-key", default=None,
+                        help="PEM private key for --launcher-cert (if not in the same file)")
     parser.add_argument("--allow-registration", action="store_true",
                         help="let the launcher create accounts (POST /register)")
     parser.add_argument("--port", type=int, default=10101, help="login server port")
@@ -331,8 +335,9 @@ def main():
         save_characters(chars)
         print(f"Characters without an account were given to '{accounts.DEV_ACCOUNT}'.")
     if args.launcher_port:
-        accounts.serve_launcher(args.host, args.launcher_port, args.allow_registration)
-        print(f"Launcher login on HTTP {args.host}:{args.launcher_port}"
+        accounts.serve_launcher(args.host, args.launcher_port, args.allow_registration,
+                                args.launcher_cert, args.launcher_key)
+        print(f"Launcher login on {'HTTPS' if args.launcher_cert else 'HTTP'} {args.host}:{args.launcher_port}"
               f"{' (registration open)' if args.allow_registration else ''}")
     print(f"Login stub listening on UDP {args.host}:{args.port}")
     print(f"World stub listening on UDP {args.host}:{args.world_port}")

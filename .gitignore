@@ -32,4 +32,8 @@
 /server/vanguard.db*
 /server/*.imported
 /server/export/
+# TLS keys and certificates (never committed)
+*.key
+*.pem
+*.crt
 /server/smoke_log.txt
