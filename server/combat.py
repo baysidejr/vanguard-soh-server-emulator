@@ -331,6 +331,15 @@ def auto_attack_failed(code):
     return _event(AUTO_ATTACK_FAILED, struct.pack("<B", code))
 
 
+def in_combat(player):
+    """Auto-attacking, or an NPC is fighting the player (the client's own notices refuse some
+    actions then, e.g. 94 CantDestroyItemsInCombat)."""
+    if getattr(player, "auto_attack", False):
+        return True
+    return any(npc.alive and getattr(npc, "aggro", False) and npc.aggro_on is player
+               for npc in getattr(player, "npcs", {}).values())
+
+
 def toggle_auto_attack(player):
     """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state. A refusal is
     an ("autofail", code) line (0x244)."""

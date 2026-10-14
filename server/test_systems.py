@@ -1000,5 +1000,18 @@ class OwnershipTests(unittest.TestCase):
         self.assertEqual(struct.unpack("<HIIQQB", m), (2, 0x567, 17, 0x2000008, 0x1336F1A, 0))
 
 
+class InCombatTests(unittest.TestCase):
+    def test_in_combat(self):
+        p = types.SimpleNamespace(auto_attack=False, npcs={})
+        self.assertFalse(combat.in_combat(p))
+        p.auto_attack = True
+        self.assertTrue(combat.in_combat(p))
+        p.auto_attack = False
+        p.npcs = {1: types.SimpleNamespace(alive=True, aggro=True, aggro_on=p)}
+        self.assertTrue(combat.in_combat(p))
+        p.npcs[1].alive = False
+        self.assertFalse(combat.in_combat(p))
+
+
 if __name__ == "__main__":
     unittest.main()

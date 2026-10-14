@@ -5967,6 +5967,9 @@ def handle_bag_event(state, event, data):
         if zone.bag_items(player.items, handle):
             send(build_system_text(BAG_NOT_EMPTY, SYSTEM_TEXT_ERROR))
             return
+        if combat.in_combat(player):
+            send(client_notice(CANT_DESTROY_IN_COMBAT))
+            return
         player.items.remove(item)
         send(zone.zone_event(0x1A5, struct.pack("<iB", handle, 0)))
         send(build_system_text(f"You destroy {item[1]}.", SYSTEM_TEXT_WHITE))
@@ -8198,6 +8201,7 @@ SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
 TOO_FAR_AWAY, NOT_WHILE_DEAD, NOT_IN_GROUP, ALREADY_IN_GROUP, CANT_AFFORD, CHEST_FULL = 111, 112, 197, 201, 251, 349
 PLEASE_TARGET_PC, TRADE_NO_SPACE, DEF_TARGET_NOT_PC, NO_SPACE, NO_ROOM_FOR_REWARD, CANT_PURCHASE_PLOT = 49, 88, 169, 256, 320, 366
 NEED_TARGET, NOT_ATTACKABLE, SITE_MISSING_MATERIALS, DONT_OWN_PLOT = 120, 340, 403, 425
+CANT_DESTROY_IN_COMBAT = 94
 
 
 def client_notice(code):
