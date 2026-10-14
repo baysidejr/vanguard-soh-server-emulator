@@ -26,6 +26,7 @@ CLIENT_LOG = os.path.join(BIN, "Logs", "VGClient.log")
 COMMANDS = ["/who", "/played", "/time", "/loc", "/random 100", "/afk", "/afk", "/lfg", "/lfg",
             "/showfactions", "/sit", "/stand", "/decksave 1", "/deckload 1", "/targetself",
             "/forcecombatstance on", "/forcecombatstance off", "/claim", "Hello from the smoke test",
+            "/walk", "/run", "/hidehood", "/hidehood", "/hidecloak", "/hidecloak", "/cleartargets", "/cancelability",
             # dev commands that leave no lasting change on the character
             "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide"]
 
