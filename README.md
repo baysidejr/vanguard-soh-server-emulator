@@ -118,6 +118,8 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic do
    .\VGClient.exe --sessionid=12345678
    ```
 
+To check that nothing is broken, run `python tools/smoke_test.py`: it starts both, enters the world, types a set of commands and reports PASS or FAIL.
+
 For a long-running server, add `--quiet-packets`: the log then keeps the decoded events but not a hex dump of every packet.
 
 Characters are saved to `server/characters.json`: position, chunk, level, XP, coins, bag, equipment and hotbar. The emulator prints every packet it receives, decoded where the format is known.
