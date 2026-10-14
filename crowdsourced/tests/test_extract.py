@@ -100,6 +100,17 @@ class ExtractionTests(unittest.TestCase):
             self.assertIsNone(records[0]['steps'])
             self.assertIsNone(records[0]['candidate_steps'][0]['kind'])
 
+    def test_kill_prefix_requires_exact_linked_target(self):
+        for verb in ('Slay', 'Kill'):
+            html = page('Fixture Quest', '<h2>Objectives</h2><div>' + verb + ' Fixture Creature (0/2)</div><h2>Related</h2><a href="/mobs/fixture-creature">Fixture Creature</a>')
+            records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
+            self.assertEqual(records[0]['steps'][0]['kind'],'kill')
+            self.assertEqual(records[0]['steps'][0]['target'],'Fixture Creature')
+            html = page('Fixture Quest', '<h2>Objectives</h2><div>' + verb + ' Fixture Creatures (0/2)</div><h2>Related</h2><a href="/mobs/fixture-creature">Fixture Creature</a>')
+            records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
+            self.assertIsNone(records[0]['steps'])
+            self.assertIsNone(records[0]['candidate_steps'][0]['target'])
+
     def test_timing_units_are_converted_only_when_explicit(self):
         html = page('Fixture Ability','''<dl class="kv"><div><dt>Cast time</dt><dd>10.0</dd></div>
             <div><dt>Refresh</dt><dd>2 minutes</dd></div><div><dt>Range</dt><dd>5m</dd></div>

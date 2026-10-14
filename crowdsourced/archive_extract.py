@@ -225,7 +225,12 @@ def enrich_quest(record, main):
         for counter in counters:
             label, count = counter['label'], counter['count']
             kind, target = None, None
-            if label.lower().endswith(' slain'):
+            kill_prefix = re.fullmatch(r'(?:slay|kill)\s+(.+)', label, re.I)
+            if kill_prefix:
+                kind = 'kill'
+                candidate = kill_prefix.group(1).strip()
+                target = candidate if candidate in entity_names else None
+            elif label.lower().endswith(' slain'):
                 kind = 'kill'
                 candidate = label[:-6].strip()
                 target = candidate if candidate in entity_names else None
