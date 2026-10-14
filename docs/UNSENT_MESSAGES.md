@@ -6,14 +6,15 @@ The client handles 720 zone messages; the server code mentions 441 of them (61%)
 
 | Category | Count |
 |---|---|
-| review | 105 |
-| optional | 84 |
-| unknown | 38 |
-| content | 21 |
-| variant | 12 |
+| optional | 125 |
+| unknown | 64 |
+| content | 35 |
+| variant | 33 |
 | no-op | 10 |
-| debug | 6 |
-| blocked | 3 |
+| debug | 7 |
+| blocked | 5 |
+
+Sent, or not needed (variant, no-op, debug, blocked, content): 531 of 720 (73%). Still open: 125 optional features and 64 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 34
 
@@ -231,285 +232,285 @@ The client handles 720 zone messages; the server code mentions 441 of them (61%)
 | 0x6c9 | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
 | 0x6ca | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
 
-## FUN_00556560: 8
+## FUN_00556560 (diplomacy cards): 8
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x217 | MsgAbilityParlayCard | i32, wstr, i32, i32, i32, i32, u8, u8, u8, u8, i32 x8, u8, u8, u8, wstr, i32, i32, i32, bool8, 3 x [i32] | review | via FUN_0041fe00 |
-| 0x21a | MsgSingleInt | i32 | review |  |
-| 0x220 | MsgIntAndBool | i32, bool8 | review |  |
-| 0x238 | MsgTwoInts | i32, i32 | review |  |
-| 0x321 | MsgEntityIDAndInt | eid64, i32 | review | multiple records deserialized (loop/count prefix likely) strings: "Entertain <image=VgrdReason><image=VgrdInspire><image |
-| 0x329 | MsgSendSingleSGOString | wstr | review | "-----Parley Debug Info-----" |
-| 0x340 | MsgThreeInts | i32, i32, i32 | review |  |
-| 0x341 | MsgStringAndTwoInts | wstr, i32, i32 | review | multiple records deserialized (loop/count prefix likely) |
+| 0x217 | MsgAbilityParlayCard | i32, wstr, i32, i32, i32, i32, u8, u8, u8, u8, i32 x8, u8, u8, u8, wstr, i32, i32, i32, bool8, 3 x [i32] | variant | diplomacy card info (MsgAbilityParlayCard); the server sends cards with its own messages (docs/DIPLOMACY.md) |
+| 0x21a | MsgSingleInt | i32 | unknown | diplomacy card dispatcher; not decoded |
+| 0x220 | MsgIntAndBool | i32, bool8 | unknown | diplomacy card dispatcher; not decoded |
+| 0x238 | MsgTwoInts | i32, i32 | unknown | diplomacy card dispatcher; not decoded |
+| 0x321 | MsgEntityIDAndInt | eid64, i32 | optional | parley expressions list {eid64, i32 + records} (Entertain, Reason, Inspire images) |
+| 0x329 | MsgSendSingleSGOString | wstr | debug | parley debug info text |
+| 0x340 | MsgThreeInts | i32, i32, i32 | unknown | diplomacy records; not decoded |
+| 0x341 | MsgStringAndTwoInts | wstr, i32, i32 | unknown | diplomacy records; not decoded |
 
 ## FUN_00577bc0 (stats and skills): 8
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x11d | MsgCombatTuningInfo | f32, f32 | review | Combat tuning (2 floats). |
-| 0x11e | MsgCombatInfo | f32, f32, f32, f32, i32 | review | Combat info (4 floats + int) shown with %.2f -> character sheet combat stats. Inferred. |
-| 0x2d2 | MsgSingleByte | u8 | review |  |
-| 0x2d6 | MsgSkillPoolCaps | i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 | review | Skill pool caps (bPCPoolAdv* flags). Observed strings. |
-| 0x2d8 | MsgFourInts | i32, i32, i32, i32 | review | "You don\'t have that skill."; "You successfully set the directional movement of your skill."; "You may only set the dir |
-| 0x2d9 | MsgFiveInts | i32, i32, i32, i32, i32 | review | "attribute"; "PCPotentialPoolAdv"; "bCanSpendAdvAllocPoints" |
-| 0x2da | MsgTwoInts | i32, i32 | review | "PCPotentialPoolAdv"; "bCanSpendAdvAllocPoints"; "PCPotentialPoolDip" |
-| 0x2db | MsgSingleByte | u8 | review | "adventuring"; "crafting"; "<color=gold> <18> <p> You have gained new %s attribute point" |
+| 0x11d | MsgCombatTuningInfo | f32, f32 | optional | combat tuning {2 floats} |
+| 0x11e | MsgCombatInfo | f32, f32, f32, f32, i32 | optional | character sheet combat numbers {4 floats, i32} shown with %.2f; worth sending once decoded |
+| 0x2d2 | MsgSingleByte | u8 | unknown | u8; stats handler not decoded |
+| 0x2d6 | MsgSkillPoolCaps | i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 | optional | skill pool caps {12 x i32} (bPCPoolAdv*) |
+| 0x2d8 | MsgFourInts | i32, i32, i32, i32 | optional | /skillmovementset answer {4 x i32} ("You successfully set the directional movement of your skill") |
+| 0x2d9 | MsgFiveInts | i32, i32, i32, i32, i32 | content | attribute points to spend (PCPotentialPoolAdv, "You have gained new %s attribute points"); the point rules are server data |
+| 0x2da | MsgTwoInts | i32, i32 | content | attribute points to spend (PCPotentialPoolAdv, "You have gained new %s attribute points"); the point rules are server data |
+| 0x2db | MsgSingleByte | u8 | content | attribute points to spend (PCPotentialPoolAdv, "You have gained new %s attribute points"); the point rules are server data |
 
 ## FUN_005bad40 (crafting): 8
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x301 | - |  | no-op | the dispatcher returns at once |
-| 0x305 | MsgTwoInts | i32, i32 | review |  |
-| 0x306 | (none) |  | review | no payload / signal strings: "You have mastered this recipe." |
-| 0x307 | MsgTwoStringsAndInt | wstr, wstr, i32 | review | "<color=orange> <18> <p> "; " </p>"; "쒃褄⑼襘⑜晔岉䐤蓆퐤" |
-| 0x30b | MsgSingleInt | i32 | review |  |
-| 0x30c | MsgSingleInt | i32 | review |  |
-| 0x311 | (none) |  | review | no payload (handler called with args: L"Primary crafting trade set.",0x4e) |
-| 0x312 | (none) |  | review | no payload (handler called with args: L"Secondary crafting trade set.",0x4e) |
+| 0x305 | MsgTwoInts | i32, i32 | optional | crafting inventory slots used {i32, i32}; this server has no crafting inventory step |
+| 0x306 | (none) |  | content | "You have mastered this recipe." (recipe mastery) |
+| 0x307 | MsgTwoStringsAndInt | wstr, wstr, i32 | optional | crafting banner text {wstr, wstr, i32} |
+| 0x30b | MsgSingleInt | i32 | optional | highlight / clear a crafting step that still needs an item or tool (docs/CRAFTING.md) |
+| 0x30c | MsgSingleInt | i32 | optional | highlight / clear a crafting step that still needs an item or tool (docs/CRAFTING.md) |
+| 0x311 | (none) |  | optional | "Primary / Secondary crafting trade set." (crafting trade choice) |
+| 0x312 | (none) |  | optional | "Primary / Secondary crafting trade set." (crafting trade choice) |
 
 ## FUN_00523100 (loot): 6
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x1ea | MsgEntityIDAndBool | eid64, bool8 | review | "LootIsPending"; "LootFrom"; "Results" |
+| 0x1ea | MsgEntityIDAndBool | eid64, bool8 | variant | loot window open, like 0x1e8 which the server sends |
 | 0x1ee | - |  | no-op | the dispatcher returns at once |
-| 0x1f8 | (none) |  | review | no payload / signal strings: "LootItemList" |
-| 0x63c | (none) |  | review | no payload / signal strings: "LootItemList" |
-| 0x684 | MsgLootUnlockCorpseRightsResult | bool8, wstr, bool8 | review | "CorpseYouCannotUnlock"; "CorpseUnlockedToPC"; "CorpseUnlockedToPCGroup" |
-| 0x685 | MsgTwoStrings | wstr, wstr | review | "CorpseUnlockedToYou" |
+| 0x1f8 | (none) |  | optional | loot list refresh signals (LootItemList) |
+| 0x63c | (none) |  | optional | loot list refresh signals (LootItemList) |
+| 0x684 | MsgLootUnlockCorpseRightsResult | bool8, wstr, bool8 | optional | unlock corpse loot rights result {bool8, wstr, bool8} (CorpseUnlockedToPC / ToPCGroup) |
+| 0x685 | MsgTwoStrings | wstr, wstr | optional | "CorpseUnlockedToYou" {wstr, wstr} |
 
-## FUN_0058e580: 6
-
-| Id | Class | Payload | Category | Notes |
-|---|---|---|---|---|
-| 0x560 | MsgEntityIDAndByte | eid64, u8 | review |  |
-| 0x561 | MsgEntityIDAndByte | eid64, u8 | review |  |
-| 0x562 | (none) |  | review | no payload / signal |
-| 0x563 | MsgSingleEntityId | eid64 | review |  |
-| 0x56a | MsgSingleEntityId | eid64 | review |  |
-| 0x56b | MsgSingleEntityId | eid64 | review |  |
-
-## FUN_005a6770: 6
+## FUN_0058e580 (unknown (0x560 range)): 6
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2a9 | (none) |  | review | no payload / signal |
-| 0x2c6 | MsgSingleInt | i32 | review |  |
-| 0x2c9 | MsgQuestInitClient | i32 questId, wstr, i32, u8, i32, f32, i64, i32, i32, i32 | review | Quest journal init: i32 count then count x MsgQuestInitClient. Observed (FUN_005a6720 loop). |
-| 0x2ce | MsgQuestConditionsMet | eid64, i32, bool8 | review |  |
-| 0x2d0 | MsgTwoInts | i32, i32 | review | "De-selecting %s"; "QuestRewardGroupList"; "RewardGroupItemList" |
-| 0x2d1 | MsgIntAndFloat | i32, f32 | review |  |
+| 0x560 | MsgEntityIDAndByte | eid64, u8 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x561 | MsgEntityIDAndByte | eid64, u8 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x562 | (none) |  | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x563 | MsgSingleEntityId | eid64 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x56a | MsgSingleEntityId | eid64 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x56b | MsgSingleEntityId | eid64 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
 
-## FUN_005ac760: 6
+## FUN_005a6770 (quests): 6
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x11c | MsgSingleInt | i32 | review | "nJournalAssemblyTrade"; "strCraftingTradeSelf"; "RefiningRecipeTree" |
-| 0x2f0 | MsgLearnedCraftingRecipe | wstr, i32, i32, i32 | review | "Refining recipe added: " |
-| 0x2f1 | (none) |  | review | no payload / signal |
-| 0x2f2 | MsgAddCraftingRecipe | wstr, wstr, i32 x9, bool8, bool8, i32, 4 x [wstr]  (followed by N x MsgCraftingRecipeAction, N = field@0x50) | review | via FUN_005bece0; followed by N x MsgCraftingRecipeAction strings: "Refining recipe added: " |
-| 0x2f3 | MsgAddCraftingRecipe | wstr, wstr, i32 x9, bool8, bool8, i32, 4 x [wstr]  (followed by N x MsgCraftingRecipeAction, N = field@0x50) | review | via FUN_005bece0; followed by N x MsgCraftingRecipeAction strings: "Refining recipe added: " |
-| 0x309 | MsgSingleInt | i32 | review | via FUN_005ac400 (repeated records) strings: "Steps missing items:  "; "JournalRefRecipeMissingItems"; "JournalFinRecipe |
+| 0x2a9 | (none) |  | unknown | quest signal; not decoded |
+| 0x2c6 | MsgSingleInt | i32 | unknown | quest i32; not decoded |
+| 0x2c9 | MsgQuestInitClient | i32 questId, wstr, i32, u8, i32, f32, i64, i32, i32, i32 | variant | quest journal init list (MsgQuestInitClient); the server sends quest pages individually |
+| 0x2ce | MsgQuestConditionsMet | eid64, i32, bool8 | optional | quest conditions met {eid64 npc, i32 quest, bool8}: the quest-ready marker over an NPC |
+| 0x2d0 | MsgTwoInts | i32, i32 | optional | reward choice de-selected ("De-selecting %s") |
+| 0x2d1 | MsgIntAndFloat | i32, f32 | unknown | i32, f32; quest handler not decoded |
+
+## FUN_005ac760 (crafting recipes): 6
+
+| Id | Class | Payload | Category | Notes |
+|---|---|---|---|---|
+| 0x11c | MsgSingleInt | i32 | optional | crafting trade for the journal (nJournalAssemblyTrade, strCraftingTradeSelf) |
+| 0x2f0 | MsgLearnedCraftingRecipe | wstr, i32, i32, i32 | variant | learned refining recipe line ("Refining recipe added:"); the server uses 0x2ef |
+| 0x2f1 | (none) |  | unknown | recipe signal; not decoded |
+| 0x2f2 | MsgAddCraftingRecipe | wstr, wstr, i32 x9, bool8, bool8, i32, 4 x [wstr]  (followed by N x MsgCraftingRecipeAction, N = field@0x50) | variant | full recipe definition (MsgAddCraftingRecipe + actions); the server sends recipes with 0x2ee / 0x2ef |
+| 0x2f3 | MsgAddCraftingRecipe | wstr, wstr, i32 x9, bool8, bool8, i32, 4 x [wstr]  (followed by N x MsgCraftingRecipeAction, N = field@0x50) | variant | full recipe definition (MsgAddCraftingRecipe + actions); the server sends recipes with 0x2ee / 0x2ef |
+| 0x309 | MsgSingleInt | i32 | optional | steps missing items list for the journal recipe |
 
 ## FUN_0044ea00 (assembly): 5
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x85d | (none) |  | review | no payload / signal |
-| 0x85e | (none) |  | review | no payload / signal |
-| 0x85f | MsgAlternateAdvancementAbilitiesAdd | i32, i32, wstr, wstr, i32, i32, i32, i32, f32, bool8, wstr, bool8 | review |  |
-| 0x860 | MsgFourInts | i32, i32, i32, i32 | review |  |
-| 0x861 | MsgTwoIntsAndBool | i32, i32, bool8 | review |  |
+| 0x85d | (none) |  | content | alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content |
+| 0x85e | (none) |  | content | alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content |
+| 0x85f | MsgAlternateAdvancementAbilitiesAdd | i32, i32, wstr, wstr, i32, i32, i32, i32, f32, bool8, wstr, bool8 | content | alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content |
+| 0x860 | MsgFourInts | i32, i32, i32, i32 | content | alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content |
+| 0x861 | MsgTwoIntsAndBool | i32, i32, bool8 | content | alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content |
 
-## FUN_0061c830: 5
+## FUN_0061c830 (quest journal): 5
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2a2 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | review | "<color=yellow>The quests section of your Adventure Journal h" |
-| 0x2a3 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | review | "<color=yellow>The quests section of your Adventure Journal h" |
-| 0x2a6 | MsgSingleInt | i32 | review |  |
-| 0x2a7 | MsgThreeInts | i32, i32, i32 | review | "<color=ltbrown> <14> <p> "; " </p>" |
-| 0x2a8 | MsgThreeInts | i32, i32, i32 | review | "<color=ltbrown> <14> <p> "; " </p>" |
+| 0x2a2 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages |
+| 0x2a3 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages |
+| 0x2a6 | MsgSingleInt | i32 | unknown | quest journal i32; not decoded |
+| 0x2a7 | MsgThreeInts | i32, i32, i32 | optional | quest journal text lines {3 x i32} |
+| 0x2a8 | MsgThreeInts | i32, i32, i32 | optional | quest journal text lines {3 x i32} |
 
 ## FUN_004733d0 (house chest): 4
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x19b | MsgTwoInts | i32, i32 | review | "Programmer error, item put message from server invalid." |
-| 0x19d | MsgTwoInts | i32, i32 | review |  |
-| 0x1a2 | MsgFourInts | i32, i32, i32, i32 | review |  |
-| 0x1a3 | MsgFourInts | i32, i32, i32, i32 | review |  |
+| 0x19b | MsgTwoInts | i32, i32 | variant | house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md) |
+| 0x19d | MsgTwoInts | i32, i32 | variant | house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md) |
+| 0x1a2 | MsgFourInts | i32, i32, i32, i32 | variant | house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md) |
+| 0x1a3 | MsgFourInts | i32, i32, i32, i32 | variant | house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md) |
 
-## FUN_004b7550: 4
-
-| Id | Class | Payload | Category | Notes |
-|---|---|---|---|---|
-| 0x2e4 | (none) |  | review | no payload / signal |
-| 0x2e5 | MsgCraftingActionAdd | i32, wstr, wstr, i32, i32, i32 | review | "<color=yellow>New action acquired: %s" |
-| 0x2e6 | MsgSingleInt | i32 | review |  |
-| 0x2e7 | MsgCraftingActionAdd | i32, wstr, wstr, i32, i32, i32 | review | via FUN_004b7380 |
-
-## FUN_004c9170: 4
+## FUN_004b7550 (crafting actions): 4
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2b4 | - |  | review | no payload; FUN_004c7a00(eventId) (range 0x2b1-0x2ba) |
-| 0x2b6 | - |  | review | no payload; FUN_004c7a00(eventId) (range 0x2b1-0x2ba) |
-| 0x2b9 | - |  | review | no payload; FUN_004c7a00(eventId) (range 0x2b1-0x2ba) |
-| 0x581 | MsgSingleInt | i32 | review | "GeneralGreet"; "QuesterGreet"; "QuesterProgress" |
+| 0x2e4 | (none) |  | unknown | crafting action signal; not decoded |
+| 0x2e5 | MsgCraftingActionAdd | i32, wstr, wstr, i32, i32, i32 | optional | "New action acquired: %s" (announced crafting action); the server adds actions silently with 0x2e8 |
+| 0x2e6 | MsgSingleInt | i32 | unknown | crafting action i32; not decoded |
+| 0x2e7 | MsgCraftingActionAdd | i32, wstr, wstr, i32, i32, i32 | variant | crafting action add, like 0x2e8 |
 
-## FUN_00536140: 4
-
-| Id | Class | Payload | Category | Notes |
-|---|---|---|---|---|
-| 0x546 | (none) |  | review | no payload / signal strings: "_map_window" |
-| 0x547 | (none) |  | review | no payload / signal strings: "_map_window" |
-| 0x548 | (none) |  | review | no payload / signal strings: "FindDungeonList" |
-| 0x549 | MsgDungeonListAdd | i32, wstr, wstr, wstr, i32, i32, i32, i32, f32, f32, f32, i32 | review |  |
-
-## FUN_0057ca30: 4
+## FUN_004c9170 (NPC dialog): 4
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x42b | MsgSingleInt | i32 | review | "_ability_examine" |
-| 0x42e | MsgIntAndFloat | i32, f32 | review |  |
-| 0x434 | MsgSingleInt | i32 | review |  |
-| 0x435 | MsgSingleInt | i32 | review |  |
+| 0x2b4 | - |  | optional | NPC dialog events without payload (range 0x2b1-0x2ba) |
+| 0x2b6 | - |  | optional | NPC dialog events without payload (range 0x2b1-0x2ba) |
+| 0x2b9 | - |  | optional | NPC dialog events without payload (range 0x2b1-0x2ba) |
+| 0x581 | MsgSingleInt | i32 | optional | NPC greeting kind {i32} (GeneralGreet, QuesterGreet, QuesterProgress) |
+
+## FUN_00536140 (map and dungeon finder): 4
+
+| Id | Class | Payload | Category | Notes |
+|---|---|---|---|---|
+| 0x546 | (none) |  | optional | map window signals |
+| 0x547 | (none) |  | optional | map window signals |
+| 0x548 | (none) |  | content | dungeon finder list (MsgDungeonListAdd); dungeons are content |
+| 0x549 | MsgDungeonListAdd | i32, wstr, wstr, wstr, i32, i32, i32, i32, f32, f32, f32, i32 | content | dungeon finder list (MsgDungeonListAdd); dungeons are content |
+
+## FUN_0057ca30 (ability examine and pets): 4
+
+| Id | Class | Payload | Category | Notes |
+|---|---|---|---|---|
+| 0x42b | MsgSingleInt | i32 | optional | ability examine window {i32} |
+| 0x42e | MsgIntAndFloat | i32, f32 | unknown | i32, f32; not decoded |
+| 0x434 | MsgSingleInt | i32 | content | pet graft slots allowed (PetNumGraftsAllowed, docs/PETS.md) |
+| 0x435 | MsgSingleInt | i32 | unknown | i32; not decoded |
 
 ## FUN_005d8ef0 (travel journal): 4
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2ad | MsgStringAndTwoInts | wstr, i32, i32 | review | "LocationsCategories" |
-| 0x381 | MsgSingleInt | i32 | review | multiple records deserialized (loop/count prefix likely) |
-| 0x384 | MsgSingleInt | i32 | review | multiple records deserialized (loop/count prefix likely) |
-| 0x385 | MsgSingleByte | u8 | review | "Route to location found."; "You are in the wrong chunk to track that entry." |
+| 0x2ad | MsgStringAndTwoInts | wstr, i32, i32 | variant | travel journal category, like 0x2ae which the server sends |
+| 0x381 | MsgSingleInt | i32 | variant | several travel journal entries in one message; the server sends 0x382 per entry |
+| 0x384 | MsgSingleInt | i32 | optional | server route for a tracked location (docs/TRAVEL.md: tracking is client-only) |
+| 0x385 | MsgSingleByte | u8 | optional | "Route to location found." / "You are in the wrong chunk to track that entry." |
 
-## FUN_00467f80: 3
-
-| Id | Class | Payload | Category | Notes |
-|---|---|---|---|---|
-| 0x23d | MsgIntAndBool | i32, bool8 | review | "AttachedAbilitiesList"; "כּ萏Ɨ"; "AttachedAbilitiesBeneficialList" |
-| 0x24f | (none) |  | review | no payload / signal strings: "AttachedAbilitiesList"; "AttachedAbilitiesBeneficialList"; "AttachedAbilitiesBeneficialSho |
-| 0x254 | MsgStringAndTwoInts | wstr, i32, i32 | review | " because you did not have the required level of success on y"; " because you are not in the required state."; " because |
-
-## FUN_0045fda0: 2
+## FUN_00467f80 (attached abilities (effects)): 3
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x34e | MsgSingleInt | i32 | review | " was removed from your assembly book"; "Programmer error, recipe delete message from server invalid." |
-| 0x34f | MsgTwoInts | i32, i32 | review | "<color=gold> <18> <p> You have discovered an assembly recipe"; "<color=gold> <18> <p> You have discovered a new assembl |
+| 0x23d | MsgIntAndBool | i32, bool8 | optional | attached abilities (effects window) refresh |
+| 0x24f | (none) |  | optional | attached abilities (effects window) refresh |
+| 0x254 | MsgStringAndTwoInts | wstr, i32, i32 | optional | ability failure reason {wstr, i32, i32} ("because you are not in the required state") |
+
+## FUN_0045fda0 (assembly book): 2
+
+| Id | Class | Payload | Category | Notes |
+|---|---|---|---|---|
+| 0x34e | MsgSingleInt | i32 | optional | assembly recipe removed from the book |
+| 0x34f | MsgTwoInts | i32, i32 | optional | "You have discovered an assembly recipe" (discovery announcement) |
 
 ## FUN_00483d60 (housing): 2
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x45d | MsgBuildingFixtureInfo | i32, bool8, bool8, wstr | review |  |
-| 0x45e | MsgSingleInt | i32 | review | "FixtureCountText"; "ChestCountText" |
+| 0x45d | MsgBuildingFixtureInfo | i32, bool8, bool8, wstr | variant | fixture added and shown now; the server resends the whole list (0x45a / 0x45c / 0x45b) |
+| 0x45e | MsgSingleInt | i32 | variant | one fixture removed; the server resends the whole list |
 
 ## FUN_004ca200: 2
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x406 | MsgSingleEntityId | eid64 | review | via FUN_004ca060 |
-| 0x407 | MsgSingleEntityId | eid64 | review |  |
+| 0x406 | MsgSingleEntityId | eid64 | unknown | eid64; dispatcher FUN_004ca200 not decoded |
+| 0x407 | MsgSingleEntityId | eid64 | unknown | eid64; dispatcher FUN_004ca200 not decoded |
 
 ## FUN_004ccc50 (factions): 2
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x35a | - |  | no-op | the dispatcher returns at once |
-| 0x35c | (none) |  | review | no payload / signal strings: "PCPrestigeFactions" |
+| 0x35c | (none) |  | optional | prestige factions refresh signal (PCPrestigeFactions) |
 
 ## FUN_00462d90 (assembly trainer): 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x4a0 | MsgAssemblyTrainerRecipe | wstr, i32, i32, f32, wstr | review | "AssemblyTrainerCurrRecipeName" |
+| 0x4a0 | MsgAssemblyTrainerRecipe | wstr, i32, i32, f32, wstr | variant | assembly trainer current recipe, beside the list messages the server sends |
 
 ## FUN_0046a920: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x5ac | MsgSingleByte | u8 | review | "You have successfully attached a new item!"; "Your attach attempt failed."; "Your attach attempt failed because the pri |
+| 0x5ac | MsgSingleByte | u8 | content | item attach result ("You have successfully attached a new item!"); attachments are content |
 
 ## FUN_00470a20 (brotherhoods): 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x6ee | MsgTwoInts | i32, i32 | review |  |
+| 0x6ee | MsgTwoInts | i32, i32 | unknown | brotherhood two ints; not decoded |
 
 ## FUN_004f1610: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x4e8 | MsgStringAndInt | wstr, i32 | review | "Your guild invite to %s has expired." |
+| 0x4e8 | MsgStringAndInt | wstr, i32 | optional | "Your guild invite to %s has expired."; guild invites never expire here |
 
 ## FUN_004f54d0 (harvesting): 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2e0 | MsgTwoInts | i32, i32 | review | "_character_window"; "_harvesting_primary_skill"; "HarMiningTooltip" |
+| 0x2e0 | MsgTwoInts | i32, i32 | optional | harvesting skill tooltip data for the character window {i32, i32} |
 
 ## FUN_00519920: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x389 | MsgSingleByte | u8 | review | "_login_rename"; "_sub_message"; "<color=red>That name was not accepted. It may be invalid or " |
+| 0x389 | MsgSingleByte | u8 | optional | login rename rejected ("That name was not accepted"); renames go through the service item |
 
 ## FUN_005249b0: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x564 | MsgSingleEntityId | eid64 | review |  |
+| 0x564 | MsgSingleEntityId | eid64 | unknown | eid64; not decoded |
 
 ## FUN_00549e40: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x567 | MsgTwoEntityIdsAndBool | eid64, eid64, bool8 | review |  |
+| 0x567 | MsgTwoEntityIdsAndBool | eid64, eid64, bool8 | unknown | eid64, eid64, bool8; not decoded |
 
 ## FUN_0054a8e0: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x3ca | MsgSingleByte | u8 | review | "<color=yellow> <18> <p> You are already using an object."; "<color=yellow> <18> <p> That object is already in use."; "< |
+| 0x3ca | MsgSingleByte | u8 | optional | object use error {u8} ("You are already using an object.", "That object is already in use.") |
 
 ## FUN_0058b870: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x26b | MsgClientPsionicPoolConcentrationAdd | i32, i32, i32, wstr, i32, i32 | review |  |
+| 0x26b | MsgClientPsionicPoolConcentrationAdd | i32, i32, i32, wstr, i32, i32 | blocked | psionic pool concentration row; no window in the shipped UI (docs/FORMS.md) |
 
 ## FUN_0058cd90: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x408 | MsgPVPRulesetToClient | bool8, bool8, i32, i32, bool8, bool8, bool8 | review |  |
+| 0x408 | MsgPVPRulesetToClient | bool8, bool8, i32, i32, bool8, bool8, bool8 | blocked | PvP ruleset (MsgPVPRulesetToClient); no PvP on this server |
 
 ## FUN_005af590: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x49b | MsgRecipeTrainerRecipe | wstr, wstr, i32, i32, f32 | review | "RecipeTrainerCurrRecipeName" |
+| 0x49b | MsgRecipeTrainerRecipe | wstr, wstr, i32, i32, f32 | variant | recipe trainer current recipe, beside the list messages the server sends |
 
 ## FUN_005cdd90: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x20c | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | review | multiple records deserialized (loop/count prefix likely) strings: "inventory_examine" |
+| 0x20c | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo in another dispatcher (FUN_005cdd90) |
 
 ## FUN_005d0d40: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x494 | MsgTrainerAbility | wstr, wstr, i32, i32, f32 | review | "TrainerCurrAbilityName" |
+| 0x494 | MsgTrainerAbility | wstr, wstr, i32, i32, f32 | variant | trainer current ability, beside the list messages the server sends |
 
 ## FUN_005daf60: 1
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x56f | MsgTutorialDisplayEvent | i32, wstr, wstr, bool8 | review |  |
+| 0x56f | MsgTutorialDisplayEvent | i32, wstr, wstr, bool8 | content | tutorial popup (MsgTutorialDisplayEvent); tutorials are content |

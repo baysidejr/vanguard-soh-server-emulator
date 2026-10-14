@@ -6,10 +6,9 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Keep reviewing docs/UNSENT_MESSAGES.md (105 rows still "review"): run `python tools/unsent_messages.py`,
-look at the next dispatcher group, record categories in tools/unsent_notes.json, and fix real gaps
-on the way (this pass found /groupboot and /grouppromote doing nothing, and /random, bind and unbind
-using invented text).
+Work the "optional" list in docs/UNSENT_MESSAGES.md, most visible first: character sheet combat
+numbers (0x11e), quest-ready markers over NPCs (0x2ce), the client's own ability and auto-attack
+failure messages (0x241, 0x244), Unique items (0x1e4). Decode each handler before sending anything.
 
 ## Last test results
 
@@ -20,7 +19,7 @@ using invented text).
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Sort the 312 server->client messages the server never sends** (docs/ZONE_MESSAGES.md) into needed / variant / debug-GM / content, for a real to-do list and coverage figure.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 531 of 720 sent or not needed (73%); open: 125 optional features, 64 undecoded handlers.
 3. **Race and class pass in game:** log in one character of each of the 19 races and 15 classes, screenshot, use the first abilities, scan logs.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
 5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
@@ -36,6 +35,7 @@ using invented text).
 
 ## Done
 
+- 2026-10-14: Finished categorizing every unsent server message: 441 sent, 90 not needed (variant 33, content 35, no-op 10, debug 7, blocked 5), 125 optional, 64 undecoded. Measured coverage 73%.
 - 2026-10-14: docs/UNSENT_MESSAGES.md + tools/unsent_messages.py (+ tools/unsent_notes.json): the client messages the server never sends, by subsystem and category. Fixed on the way: /groupboot and /grouppromote implemented; /random, bind and unbind use the client's own messages.
 - 2026-10-14: Converted all 121 crowdsourced batches in memory: only 16 items and 13 quests would import cleanly. Quests lack objective targets and rewards, NPCs lack race and health, ability records have no converter yet. Written up in crowdsourced/reviewed/IMPORT_READINESS.md; nothing merged into server/content/.
 - 2026-10-14: Merged the other agent's crowdsourced/archive-collection branch into main (fdbff2f): conflict in convert.py resolved keeping both sides, 'formula' record type restored, my converter test fixtures updated to the stricter schema. All suites pass.

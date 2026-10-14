@@ -90,6 +90,10 @@ def main():
     print("| Category | Count |\n|---|---|")
     for c, n in cats.most_common():
         print(f"| {c} | {n} |")
+    settled = total - len(unsent) + sum(cats[c] for c in ("variant", "no-op", "debug", "blocked", "content"))
+    print(f"\nSent, or not needed (variant, no-op, debug, blocked, content): {settled} of {total} "
+          f"({100 * settled // total}%). Still open: {cats['optional']} optional features and "
+          f"{cats['unknown']} undecoded handlers ({cats['review']} not reviewed).")
     print("\n".join(body))
 
 

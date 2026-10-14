@@ -20,7 +20,18 @@
     "FUN_0044ea00": "assembly",
     "FUN_00462d90": "assembly trainer",
     "FUN_00470a20": "brotherhoods",
-    "FUN_004f54d0": "harvesting"
+    "FUN_004f54d0": "harvesting",
+    "FUN_00556560": "diplomacy cards",
+    "FUN_005a6770": "quests",
+    "FUN_005ac760": "crafting recipes",
+    "FUN_0058e580": "unknown (0x560 range)",
+    "FUN_0061c830": "quest journal",
+    "FUN_004b7550": "crafting actions",
+    "FUN_004c9170": "NPC dialog",
+    "FUN_00536140": "map and dungeon finder",
+    "FUN_0057ca30": "ability examine and pets",
+    "FUN_00467f80": "attached abilities (effects)",
+    "FUN_0045fda0": "assembly book"
   },
   "messages": {
     "0x198": [
@@ -670,6 +681,426 @@
     "0x293": [
       "unknown",
       "no-payload merchant signal"
+    ],
+    "0x217": [
+      "variant",
+      "diplomacy card info (MsgAbilityParlayCard); the server sends cards with its own messages (docs/DIPLOMACY.md)"
+    ],
+    "0x21a": [
+      "unknown",
+      "diplomacy card dispatcher; not decoded"
+    ],
+    "0x220": [
+      "unknown",
+      "diplomacy card dispatcher; not decoded"
+    ],
+    "0x238": [
+      "unknown",
+      "diplomacy card dispatcher; not decoded"
+    ],
+    "0x321": [
+      "optional",
+      "parley expressions list {eid64, i32 + records} (Entertain, Reason, Inspire images)"
+    ],
+    "0x329": [
+      "debug",
+      "parley debug info text"
+    ],
+    "0x340": [
+      "unknown",
+      "diplomacy records; not decoded"
+    ],
+    "0x341": [
+      "unknown",
+      "diplomacy records; not decoded"
+    ],
+    "0x11d": [
+      "optional",
+      "combat tuning {2 floats}"
+    ],
+    "0x11e": [
+      "optional",
+      "character sheet combat numbers {4 floats, i32} shown with %.2f; worth sending once decoded"
+    ],
+    "0x2d2": [
+      "unknown",
+      "u8; stats handler not decoded"
+    ],
+    "0x2d6": [
+      "optional",
+      "skill pool caps {12 x i32} (bPCPoolAdv*)"
+    ],
+    "0x2d8": [
+      "optional",
+      "/skillmovementset answer {4 x i32} (\"You successfully set the directional movement of your skill\")"
+    ],
+    "0x2d9": [
+      "content",
+      "attribute points to spend (PCPotentialPoolAdv, \"You have gained new %s attribute points\"); the point rules are server data"
+    ],
+    "0x2da": [
+      "content",
+      "attribute points to spend (PCPotentialPoolAdv, \"You have gained new %s attribute points\"); the point rules are server data"
+    ],
+    "0x2db": [
+      "content",
+      "attribute points to spend (PCPotentialPoolAdv, \"You have gained new %s attribute points\"); the point rules are server data"
+    ],
+    "0x305": [
+      "optional",
+      "crafting inventory slots used {i32, i32}; this server has no crafting inventory step"
+    ],
+    "0x306": [
+      "content",
+      "\"You have mastered this recipe.\" (recipe mastery)"
+    ],
+    "0x307": [
+      "optional",
+      "crafting banner text {wstr, wstr, i32}"
+    ],
+    "0x30b": [
+      "optional",
+      "highlight / clear a crafting step that still needs an item or tool (docs/CRAFTING.md)"
+    ],
+    "0x30c": [
+      "optional",
+      "highlight / clear a crafting step that still needs an item or tool (docs/CRAFTING.md)"
+    ],
+    "0x311": [
+      "optional",
+      "\"Primary / Secondary crafting trade set.\" (crafting trade choice)"
+    ],
+    "0x312": [
+      "optional",
+      "\"Primary / Secondary crafting trade set.\" (crafting trade choice)"
+    ],
+    "0x1ea": [
+      "variant",
+      "loot window open, like 0x1e8 which the server sends"
+    ],
+    "0x1f8": [
+      "optional",
+      "loot list refresh signals (LootItemList)"
+    ],
+    "0x63c": [
+      "optional",
+      "loot list refresh signals (LootItemList)"
+    ],
+    "0x684": [
+      "optional",
+      "unlock corpse loot rights result {bool8, wstr, bool8} (CorpseUnlockedToPC / ToPCGroup)"
+    ],
+    "0x685": [
+      "optional",
+      "\"CorpseUnlockedToYou\" {wstr, wstr}"
+    ],
+    "0x560": [
+      "unknown",
+      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+    ],
+    "0x561": [
+      "unknown",
+      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+    ],
+    "0x562": [
+      "unknown",
+      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+    ],
+    "0x563": [
+      "unknown",
+      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+    ],
+    "0x56a": [
+      "unknown",
+      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+    ],
+    "0x56b": [
+      "unknown",
+      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+    ],
+    "0x2a9": [
+      "unknown",
+      "quest signal; not decoded"
+    ],
+    "0x2c6": [
+      "unknown",
+      "quest i32; not decoded"
+    ],
+    "0x2c9": [
+      "variant",
+      "quest journal init list (MsgQuestInitClient); the server sends quest pages individually"
+    ],
+    "0x2ce": [
+      "optional",
+      "quest conditions met {eid64 npc, i32 quest, bool8}: the quest-ready marker over an NPC"
+    ],
+    "0x2d0": [
+      "optional",
+      "reward choice de-selected (\"De-selecting %s\")"
+    ],
+    "0x2d1": [
+      "unknown",
+      "i32, f32; quest handler not decoded"
+    ],
+    "0x11c": [
+      "optional",
+      "crafting trade for the journal (nJournalAssemblyTrade, strCraftingTradeSelf)"
+    ],
+    "0x2f0": [
+      "variant",
+      "learned refining recipe line (\"Refining recipe added:\"); the server uses 0x2ef"
+    ],
+    "0x2f1": [
+      "unknown",
+      "recipe signal; not decoded"
+    ],
+    "0x2f2": [
+      "variant",
+      "full recipe definition (MsgAddCraftingRecipe + actions); the server sends recipes with 0x2ee / 0x2ef"
+    ],
+    "0x2f3": [
+      "variant",
+      "full recipe definition (MsgAddCraftingRecipe + actions); the server sends recipes with 0x2ee / 0x2ef"
+    ],
+    "0x309": [
+      "optional",
+      "steps missing items list for the journal recipe"
+    ],
+    "0x85d": [
+      "content",
+      "alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content"
+    ],
+    "0x85e": [
+      "content",
+      "alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content"
+    ],
+    "0x85f": [
+      "content",
+      "alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content"
+    ],
+    "0x860": [
+      "content",
+      "alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content"
+    ],
+    "0x861": [
+      "content",
+      "alternate advancement abilities (MsgAlternateAdvancementAbilitiesAdd...); AA is server content"
+    ],
+    "0x2a2": [
+      "variant",
+      "quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages"
+    ],
+    "0x2a3": [
+      "variant",
+      "quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages"
+    ],
+    "0x2a6": [
+      "unknown",
+      "quest journal i32; not decoded"
+    ],
+    "0x2a7": [
+      "optional",
+      "quest journal text lines {3 x i32}"
+    ],
+    "0x2a8": [
+      "optional",
+      "quest journal text lines {3 x i32}"
+    ],
+    "0x19b": [
+      "variant",
+      "house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md)"
+    ],
+    "0x19d": [
+      "variant",
+      "house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md)"
+    ],
+    "0x1a2": [
+      "variant",
+      "house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md)"
+    ],
+    "0x1a3": [
+      "variant",
+      "house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md)"
+    ],
+    "0x2e4": [
+      "unknown",
+      "crafting action signal; not decoded"
+    ],
+    "0x2e5": [
+      "optional",
+      "\"New action acquired: %s\" (announced crafting action); the server adds actions silently with 0x2e8"
+    ],
+    "0x2e6": [
+      "unknown",
+      "crafting action i32; not decoded"
+    ],
+    "0x2e7": [
+      "variant",
+      "crafting action add, like 0x2e8"
+    ],
+    "0x2b4": [
+      "optional",
+      "NPC dialog events without payload (range 0x2b1-0x2ba)"
+    ],
+    "0x2b6": [
+      "optional",
+      "NPC dialog events without payload (range 0x2b1-0x2ba)"
+    ],
+    "0x2b9": [
+      "optional",
+      "NPC dialog events without payload (range 0x2b1-0x2ba)"
+    ],
+    "0x581": [
+      "optional",
+      "NPC greeting kind {i32} (GeneralGreet, QuesterGreet, QuesterProgress)"
+    ],
+    "0x546": [
+      "optional",
+      "map window signals"
+    ],
+    "0x547": [
+      "optional",
+      "map window signals"
+    ],
+    "0x548": [
+      "content",
+      "dungeon finder list (MsgDungeonListAdd); dungeons are content"
+    ],
+    "0x549": [
+      "content",
+      "dungeon finder list (MsgDungeonListAdd); dungeons are content"
+    ],
+    "0x42b": [
+      "optional",
+      "ability examine window {i32}"
+    ],
+    "0x42e": [
+      "unknown",
+      "i32, f32; not decoded"
+    ],
+    "0x434": [
+      "content",
+      "pet graft slots allowed (PetNumGraftsAllowed, docs/PETS.md)"
+    ],
+    "0x435": [
+      "unknown",
+      "i32; not decoded"
+    ],
+    "0x2ad": [
+      "variant",
+      "travel journal category, like 0x2ae which the server sends"
+    ],
+    "0x381": [
+      "variant",
+      "several travel journal entries in one message; the server sends 0x382 per entry"
+    ],
+    "0x384": [
+      "optional",
+      "server route for a tracked location (docs/TRAVEL.md: tracking is client-only)"
+    ],
+    "0x385": [
+      "optional",
+      "\"Route to location found.\" / \"You are in the wrong chunk to track that entry.\""
+    ],
+    "0x23d": [
+      "optional",
+      "attached abilities (effects window) refresh"
+    ],
+    "0x24f": [
+      "optional",
+      "attached abilities (effects window) refresh"
+    ],
+    "0x254": [
+      "optional",
+      "ability failure reason {wstr, i32, i32} (\"because you are not in the required state\")"
+    ],
+    "0x34e": [
+      "optional",
+      "assembly recipe removed from the book"
+    ],
+    "0x34f": [
+      "optional",
+      "\"You have discovered an assembly recipe\" (discovery announcement)"
+    ],
+    "0x45d": [
+      "variant",
+      "fixture added and shown now; the server resends the whole list (0x45a / 0x45c / 0x45b)"
+    ],
+    "0x45e": [
+      "variant",
+      "one fixture removed; the server resends the whole list"
+    ],
+    "0x406": [
+      "unknown",
+      "eid64; dispatcher FUN_004ca200 not decoded"
+    ],
+    "0x407": [
+      "unknown",
+      "eid64; dispatcher FUN_004ca200 not decoded"
+    ],
+    "0x35c": [
+      "optional",
+      "prestige factions refresh signal (PCPrestigeFactions)"
+    ],
+    "0x4a0": [
+      "variant",
+      "assembly trainer current recipe, beside the list messages the server sends"
+    ],
+    "0x5ac": [
+      "content",
+      "item attach result (\"You have successfully attached a new item!\"); attachments are content"
+    ],
+    "0x6ee": [
+      "unknown",
+      "brotherhood two ints; not decoded"
+    ],
+    "0x4e8": [
+      "optional",
+      "\"Your guild invite to %s has expired.\"; guild invites never expire here"
+    ],
+    "0x2e0": [
+      "optional",
+      "harvesting skill tooltip data for the character window {i32, i32}"
+    ],
+    "0x389": [
+      "optional",
+      "login rename rejected (\"That name was not accepted\"); renames go through the service item"
+    ],
+    "0x564": [
+      "unknown",
+      "eid64; not decoded"
+    ],
+    "0x567": [
+      "unknown",
+      "eid64, eid64, bool8; not decoded"
+    ],
+    "0x3ca": [
+      "optional",
+      "object use error {u8} (\"You are already using an object.\", \"That object is already in use.\")"
+    ],
+    "0x26b": [
+      "blocked",
+      "psionic pool concentration row; no window in the shipped UI (docs/FORMS.md)"
+    ],
+    "0x408": [
+      "blocked",
+      "PvP ruleset (MsgPVPRulesetToClient); no PvP on this server"
+    ],
+    "0x49b": [
+      "variant",
+      "recipe trainer current recipe, beside the list messages the server sends"
+    ],
+    "0x20c": [
+      "variant",
+      "MsgSingleItemInfo in another dispatcher (FUN_005cdd90)"
+    ],
+    "0x494": [
+      "variant",
+      "trainer current ability, beside the list messages the server sends"
+    ],
+    "0x56f": [
+      "content",
+      "tutorial popup (MsgTutorialDisplayEvent); tutorials are content"
     ]
   }
 }
