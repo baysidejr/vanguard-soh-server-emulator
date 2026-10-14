@@ -66,5 +66,69 @@
         "Round Shield"
       ]
     }
+  },
+  "forest_wolves": {
+    "id": 5003,
+    "name": "Wolves at the Edge",
+    "level": 10,
+    "giver": "forest_warden",
+    "greeting": "The timber wolves have grown bold. They circle the outpost every night. Thin the pack, would you?",
+    "description": "Warden Elara Thornwood wants the timber wolves around the Wildgrowth outpost thinned out.",
+    "summary": "Defeat 4 Timber Wolves near the Wildgrowth outpost.",
+    "accept_text": "You agree to hunt the timber wolves.",
+    "kill": {
+      "forest_wolf": 4
+    },
+    "objective": "Defeat Timber Wolves",
+    "reward": {
+      "xp": 500,
+      "coin": 300,
+      "faction": {
+        "1004": 400
+      }
+    }
+  },
+  "forest_pelts": {
+    "id": 5004,
+    "name": "Gifts for the Wardens",
+    "level": 11,
+    "giver": "forest_warden",
+    "requires": [
+      "forest_wolves"
+    ],
+    "greeting": "Bram can make good use of those pelts, and the old thornback by the creek needs to be put down.",
+    "description": "Elara asks you to bring wolf pelts, slay the thornback bear and let Bram the merchant know the trade road is safe.",
+    "summary": "Gather 3 Wolf Pelts, slay a Thornback Bear, tell Bram Oakhollow, then return to Elara.",
+    "accept_text": "You agree to help the wardens.",
+    "steps": [
+      {
+        "objective": "Gather Wolf Pelts",
+        "collect": {
+          "Wolf Pelt": 3
+        }
+      },
+      {
+        "objective": "Slay a Thornback Bear",
+        "kill": {
+          "forest_bear": 1
+        }
+      },
+      {
+        "objective": "Tell Bram Oakhollow the road is safe",
+        "talk": "forest_merchant",
+        "say": "The bear's gone? Then the carts can run again. Thank Elara for me."
+      }
+    ],
+    "turn_in": "forest_warden",
+    "reward": {
+      "xp": 800,
+      "coin": 450,
+      "items": [
+        "Forester's Cloak"
+      ],
+      "faction": {
+        "1004": 600
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Spawns in chunk_n20_12 (Wildgrowth Forest). Placeholder camp on flat ground found in the heightmap.",
+  "_comment": "Spawns in chunk_n20_12 (Wildgrowth Forest): the warden outpost (quests, merchant) on flat ground found in the heightmap, and forest creatures around it. Placeholder content.",
   "spawns": [
     {
       "mob": "wastes_dwarf_scout",
@@ -22,6 +22,107 @@
       "x": -18400.0,
       "y": 29400.0,
       "yaw": 16384,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_warden",
+      "x": -18300.0,
+      "y": 29350.0,
+      "yaw": 16384,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_merchant",
+      "x": -18650.0,
+      "y": 29400.0,
+      "yaw": 0,
+      "respawn": 60
+    },
+    {
+      "mob": "prop_campfire",
+      "x": -18450.0,
+      "y": 29550.0,
+      "yaw": 0,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_wolf",
+      "x": -16200.0,
+      "y": 30100.0,
+      "yaw": 0,
+      "wander": 400,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_wolf",
+      "x": -15900.0,
+      "y": 30600.0,
+      "yaw": 0,
+      "wander": 400,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_wolf",
+      "x": -16400.0,
+      "y": 31000.0,
+      "yaw": 0,
+      "wander": 400,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_wolf",
+      "x": -15700.0,
+      "y": 29800.0,
+      "yaw": 0,
+      "wander": 400,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_wolf",
+      "x": -20700.0,
+      "y": 30400.0,
+      "yaw": 0,
+      "wander": 400,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_wolf",
+      "x": -21000.0,
+      "y": 30900.0,
+      "yaw": 0,
+      "wander": 400,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_bear",
+      "x": -15200.0,
+      "y": 27700.0,
+      "yaw": 0,
+      "wander": 300,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_spider",
+      "x": -21200.0,
+      "y": 28000.0,
+      "yaw": 0,
+      "wander": 300,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_spider",
+      "x": -21600.0,
+      "y": 28400.0,
+      "yaw": 0,
+      "wander": 300,
+      "respawn": 60
+    },
+    {
+      "mob": "forest_spider",
+      "x": -20900.0,
+      "y": 27500.0,
+      "yaw": 0,
+      "wander": 300,
       "respawn": 60
     }
   ]

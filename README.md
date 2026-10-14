@@ -81,7 +81,7 @@ The unmodified client, talking only to this emulator:
 - [x] Travel journal (Locations tab: the chunk's merchants, trainers, services, stations, riftways and your house); in-game bug reports (/bug); Bard songs (compose, save, play, stop, energy cost); minions (the Minions window, timed skeleton servants from a Bone Charm); Psionicist mindsets (combat forms bar); fishing achievements and best-catch leaderboards (Achievements tab); quest feedback window (--quest-feedback)
 - [x] Splitting stacks (Ctrl+click), bags on the main bar (Small Pouch), master looter /giveplayerlootitem, duel challenge timeouts, brotherhood XP bonus, parley item rewards, diplomacy card refresh timers, civic diplomacy, class summons (Necromancer abomination, Shaman attendants, Psionicist simulacrum), Fear
 - [x] Maintained stances (Effects Maintained window, right-click to cancel); merchant buyback tab; encounter (group-of-mobs) display; /unstuck; resist chances; NPCs calling nearby friends for help
-- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker); locations discovered by walking near them; fishing combos (learned patterns shown on the Achievements page); minion special attacks; dialogue unlocked by winning a parley; NPC stuns, roots and fear on players (songs are interrupted); more mounts (dire wolf, camel, griffon) at the camp merchant; combat reaction windows close when their enemy dies
+- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker); locations discovered by walking near them; fishing combos (learned patterns shown on the Achievements page); minion special attacks; dialogue unlocked by winning a parley; NPC stuns, roots and fear on players (songs are interrupted); more mounts (dire wolf, camel, griffon) at the camp merchant; a second outpost in the Wildgrowth Forest with its own merchant, quest chain, creatures and faction; combat reaction windows close when their enemy dies
 
 ### Not done yet
 - [ ] Doors: none exist in the shipped maps or our cottage (checked; see HOUSING.md). The protocol to open one is worked out for when a building with a door is used
@@ -140,6 +140,7 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - In the Social window's Find tab, select a player looking for members and press Request to Join.
 - Open your quest journal, click a quest and press Share to offer it to your group; its Locations tab lists the camp's services.
 - Type `/bug` to file a bug report (saved in `server/bug_reports.json`).
+- Visit the Wildgrowth Forest outpost next door (`!tp -223200 29400 3500` with dev commands, or walk west across the chunk edge): Warden Elara Thornwood offers "Wolves at the Edge" and then "Gifts for the Wardens" (pelts, a thornback bear, a word with Bram the merchant) for a Forester's Cloak; timber wolves can root you and the bear can stun.
 - Ctrl+click a stack in your bags to split it.
 - Buy a Small Pouch from Orin and right-click it: it goes on the bag bar; click it there to open it and drag items in.
 - On the Achievements tab, pick a fish and switch the dropdown to "All Time Biggest Catches".

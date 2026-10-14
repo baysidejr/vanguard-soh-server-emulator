@@ -578,5 +578,148 @@
     ],
     "prop": true,
     "station": "finishing"
+  },
+  "forest_warden": {
+    "name": "Elara Thornwood",
+    "title": "Warden",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 18,
+    "health": 400,
+    "damage": [
+      6,
+      12
+    ],
+    "gear": [
+      [
+        9,
+        111001,
+        6
+      ],
+      [
+        16,
+        111001,
+        32
+      ],
+      [
+        12,
+        111001,
+        26
+      ],
+      [
+        33,
+        1000,
+        28
+      ]
+    ],
+    "faction": 1004
+  },
+  "forest_merchant": {
+    "name": "Bram Oakhollow",
+    "title": "Merchant",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 300,
+    "damage": [
+      0,
+      0
+    ],
+    "gear": [
+      [
+        9,
+        111002,
+        6
+      ],
+      [
+        16,
+        111002,
+        32
+      ],
+      [
+        12,
+        111002,
+        26
+      ]
+    ],
+    "merchant": "forest_supplies",
+    "repair": true,
+    "faction": 1004
+  },
+  "forest_wolf": {
+    "name": "Timber Wolf",
+    "pawn_class": "SGONPCPawn",
+    "race": 119,
+    "model": 2,
+    "level": 9,
+    "health": 95,
+    "damage": [
+      4,
+      9
+    ],
+    "loot": "forest_wolf_drops",
+    "aggro_radius": 650,
+    "abilities": [
+      {
+        "name": "Hamstring Bite",
+        "kind": "root",
+        "chance": 0.12,
+        "duration": 2.0,
+        "icon": 553
+      }
+    ],
+    "faction": 1003
+  },
+  "forest_bear": {
+    "name": "Thornback Bear",
+    "pawn_class": "SGONPCPawn",
+    "race": 69,
+    "model": 1,
+    "level": 12,
+    "health": 200,
+    "damage": [
+      6,
+      13
+    ],
+    "loot": "forest_bear_drops",
+    "aggro_radius": 500,
+    "abilities": [
+      {
+        "name": "Crushing Swipe",
+        "kind": "stun",
+        "chance": 0.1,
+        "duration": 2.0,
+        "icon": 553
+      }
+    ],
+    "faction": 1003
+  },
+  "forest_spider": {
+    "name": "Webweaver",
+    "pawn_class": "SGONPCPawn",
+    "race": 104,
+    "level": 10,
+    "health": 110,
+    "damage": [
+      4,
+      10
+    ],
+    "loot": "forest_spider_drops",
+    "aggro_radius": 550,
+    "abilities": [
+      {
+        "name": "Venom Fang",
+        "kind": "dot",
+        "chance": 0.3,
+        "damage": [
+          2,
+          5
+        ],
+        "ticks": 4,
+        "interval": 3.0,
+        "icon": 553
+      }
+    ],
+    "faction": 1003
   }
 }
