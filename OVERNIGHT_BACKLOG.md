@@ -8,6 +8,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Prioritized tasks
 
+0. **Character rename item** (template 1463295): 0x5d3 request (verify field order live), 0x5d4 reply known. Renaming must also move the name in guilds, brotherhoods, mail, market, housing, caravans and friends lists.
 1. **Protocol correctness:** run the client through login, combat, bags, guild, mail, crafting; collect every "unhandled message" and client error line; fix each.
 3. **Persistence audit:** for each saved field, check it survives /camp and a server restart (bag contents, bank, discovered locations, fish records, factions, titles, songs, spheres). Add a unit test that round-trips a character through save/load.
 4. **Automated smoke test:** a script that launches the client, enters the world and checks the stub log and client log for errors, so old features get re-checked after changes.
@@ -25,6 +26,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Player gender decoded from the create request (raw +6) and sent (pawn m_Gender, MsgScore); before, every character was drawn male. Gender and race change items (templates 1454016/1454015) verified live. docs/INVENTORY.md "Character service items" lists every special template id.
 - 2026-10-13: Clear experience debt with an item (template 1454022): 0x5da request, 0x5db reply codes reverse-engineered and verified live (refused with a tombstone out, cleared after).
 - 2026-10-13: Unit test builds the zone-in messages for all 19 races x 15 classes at levels 1 and 50.
 - 2026-10-13: Slash-command sweep (~40 commands): no unhandled messages either way. Client-only notices with no reply needed: 0x6c (after UI load), 0x71 BECOME_PC, 0x10e (empty, seen once; sender not found by the push scan).

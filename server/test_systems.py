@@ -720,5 +720,34 @@ class ClearDebtTests(unittest.TestCase):
             login_stub.save_character_field = saved
 
 
+class GenderRaceChangeTests(unittest.TestCase):
+    def test_gender_from_create_request(self):
+        import login_stub
+        self.assertEqual(login_stub.character_gender({"raw": "00000000e305000313"}), 0)
+        self.assertEqual(login_stub.character_gender({"raw": "00000000e305010313"}), 1)
+        self.assertEqual(login_stub.character_gender({"raw": "00000000e305000313", "gender": 1}), 1)
+        self.assertEqual(login_stub.character_race_class({"raw": "00000000e305000313", "race": 14}), (14, 0x13))
+
+    def test_change(self):
+        import login_stub
+        sent = []
+        p = zone.Player("Nobody", 1, 3, 0x13, "chunk_n20_12")
+        p.items = [(5, "Gender Change", 0, 1, 0), (6, "Race Change", 0, 1, 0)]
+        state = {"player": p, "send": sent.append}
+        saved, props = login_stub.save_character_field, login_stub.pawn_props_changed
+        login_stub.save_character_field = lambda *a: None
+        login_stub.pawn_props_changed = lambda *a: None
+        try:
+            login_stub.change_gender_race(state, login_stub.CHANGE_GENDER, 1, 6)     # wrong item
+            self.assertEqual(sent[-1][-6:], bytes([0x10, 0, 0, 0, 0, 1]))
+            login_stub.change_gender_race(state, login_stub.CHANGE_GENDER, 1, 5)
+            self.assertEqual((p.gender, sent[-1][-6:]), (1, bytes([0x0C, 0, 0, 0, 0, 1])))
+            login_stub.change_gender_race(state, login_stub.CHANGE_RACE, 14, 6)
+            self.assertEqual((p.race, sent[-1][-6:]), (14, bytes([0x11, 0, 0, 0, 0, 14])))
+            self.assertEqual(p.items, [])
+        finally:
+            login_stub.save_character_field, login_stub.pawn_props_changed = saved, props
+
+
 if __name__ == "__main__":
     unittest.main()

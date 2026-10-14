@@ -1022,6 +1022,45 @@ def clear_debt(state, handle):
         send(zone.score_message(player))
 
 
+# Gender and race change items (docs/DEATH.md "Character service items"). Using an item with
+# template 1454016 / 1454015 opens the client's own dialog; Submit sends 0x5d5 / 0x5d7
+# {i32 new gender or race, i32 item handle}. Replies MsgPaidGenderChangeResult 0x5d6 /
+# MsgPaidRaceChangeResult 0x5d8 {i32, i32 code, u8, u8 new value}: gender 0xc done (the
+# client switches its own gender and prints strGenderSelf), 0x10 "You are not allowed to
+# change your gender."; race 0x11 done (strRaceSelf), 0x15 not allowed; anything else
+# "... failed. Please retry later."
+CHANGE_GENDER, CHANGE_GENDER_REPLY, GENDER_TEMPLATE = 0x5D5, 0x5D6, 1454016
+CHANGE_RACE, CHANGE_RACE_REPLY, RACE_TEMPLATE = 0x5D7, 0x5D8, 1454015
+GENDER_DONE, GENDER_NOT_ALLOWED, RACE_DONE, RACE_NOT_ALLOWED = 0x0C, 0x10, 0x11, 0x15
+
+
+def change_gender_race(state, event, value, handle):
+    player, send = state["player"], state["send"]
+    gender = event == CHANGE_GENDER
+    item = next((i for i in player.items if i[0] == handle), None)
+    want = GENDER_TEMPLATE if gender else RACE_TEMPLATE
+    ok = item is not None and zone.template_id(item[1]) == want and (
+        value in (0, 1) if gender else value in races_classes.RACES and value != player.race)
+    code = (GENDER_DONE if gender else RACE_DONE) if ok else (GENDER_NOT_ALLOWED if gender else RACE_NOT_ALLOWED)
+    print(f"  >>> ZONE {'gender' if gender else 'race'} change to {value} (item {handle}): reply {code:#x}")
+    if ok:
+        take_items(state, item[1], 1)
+        if gender:
+            player.gender = value
+            save_character_field(player.name, "gender", value)
+            pawn_props_changed(state, {"m_Gender": value})
+        else:
+            player.race = value
+            save_character_field(player.name, "race", value)
+            pawn_props_changed(state, {"m_iRaceId": value})
+            zone.apply_gear_stats(player)          # race attribute bonuses
+            for m in zone.stat_messages(player):
+                send(m)
+        send(zone.score_message(player))
+    send(zone.zone_event(CHANGE_GENDER_REPLY if gender else CHANGE_RACE_REPLY,
+                         struct.pack("<iiBB", 0, code, 0, value & 0xFF)))
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -6767,11 +6806,20 @@ def character_appearance(char):
 def character_race_class(char):
     # In the create request (event 0x139) the bytes after the three names start
     # "00 00 00 00 1f 05 00 0e 1c ..." for a Thestran (0x0e) Warrior (0x1c):
-    # race at +7, class at +8. Default to Thestran Warrior when unknown.
+    # race at +7, class at +8. Default to Thestran Warrior when unknown. A race
+    # change item saves "race" over it.
     raw = bytes.fromhex(char.get("raw", ""))
     if len(raw) > 8:
-        return raw[7], raw[8]
-    return 0x0E, 0x1C
+        return char.get("race", raw[7]), raw[8]
+    return char.get("race", 0x0E), 0x1C
+
+
+def character_gender(char):
+    # MsgClientCharacterCreate (schema FUN_004896a0): wstr first, last, world, wstr,
+    # i32, u8 gender, u8 race, u8 class, i32, i32, 64 x u8 sliders. After the names
+    # that puts gender at raw +6 (0 male, 1 female). A gender change saves "gender".
+    raw = bytes.fromhex(char.get("raw", ""))
+    return char.get("gender", raw[6] if len(raw) > 6 else 0)
 
 
 MAX_CHARACTER_SLOTS = 8
@@ -7283,6 +7331,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 position=saved if saved and same_chunk else None,
                 save_position=lambda loc, n=name: save_character_position(n, loc))
             player.chunk = character_chunk(char)
+            player.gender = character_gender(char)
             player.level_number = char.get("adventure_level", player.level_number)
             player.appearance = character_appearance(char)
             player.hotbar = char.get("hotbar")
@@ -7538,6 +7587,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(p.name, "active_toolbelt", v)
                 send_message(sock, addr, state, craft.active_toolbelt(v))
                 send_message(sock, addr, state, zone.zone_event(0x30E))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (CHANGE_GENDER, CHANGE_RACE) and state.get("player") and len(payload) >= 18:
+            change_gender_race(state, struct.unpack_from("<I", payload, 2)[0], *struct.unpack_from("<ii", payload, 10))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_DEBT and state.get("player") and len(payload) >= 14:
             clear_debt(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:

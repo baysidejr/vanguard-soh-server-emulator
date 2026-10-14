@@ -376,7 +376,7 @@ def score_message(player, probe=False):
     if bind:
         loc = bind["loc"]
     return zone_event(0x3DE, vgmsg.score(probe=probe,
-        bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
+        bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race, gender=getattr(player, "gender", 0),
         adv_class=player.klass, adv_level=getattr(player, "mentor_level", None) or player.level_number,
         adv_exp_amount=player.xp, adv_exp_amount_next=xp_for_level(player.level_number),
         adv_exp_frac=player.xp / xp_for_level(player.level_number),
@@ -1305,6 +1305,7 @@ def player_pawn_values(player, location, yaw=0):
         # bSimulateGravity is set, which made the character hover.
         "bSimulateGravity": True,
         "m_iRaceId": player.race,
+        "m_Gender": getattr(player, "gender", 0),   # 0 male, 1 female (create request raw +6)
         "Health": 100,
         "m_PlayerDisplayName": player.name,
         **getattr(player, "title_values", {}),

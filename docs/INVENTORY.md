@@ -165,3 +165,21 @@ The second item goes in f16 = 1, and so on up to 49. For a bag item, set f14 = s
 - At login the main grid is sent first, then the equipment (bags included), then the items inside the bags, so each bag exists before its contents.
 - A bag that holds items can't be unequipped, destroyed, sold, traded, mailed or banked ("You need to empty that bag first."), and bags can't go inside bags.
 - Test: `!give Small Pouch` (8 slots). Verified: the pouch went onto the bar, its window opened, Copper Ore x2 moved into slot 0 and was still there after logging in again.
+
+## Character service items (verified live 2026-10-13)
+
+Right-clicking an item checks its **template id** (item field 1) in `FUN_00500030` before anything is sent. A few template ids open the client's own windows instead. items.json `"template_id"` gives an item one of these ids. The real item names, prices and sources are unknown, so the emulator's items have placeholder names and are `!give` only.
+
+| Template id | Client window | Submit sends | Reply | Server status |
+|---|---|---|---|---|
+| 1454015 | "Race Change" (race dropdown, current race left out) | 0x5d7 `{i32 race, i32 item handle}` | 0x5d8 MsgPaidRaceChangeResult `{i32, i32 code, u8, u8 race}`: 0x11 done (strRaceSelf), 0x15 "You are not allowed to change your race.", else "Race change failed." | done: saves `race`, sends `m_iRaceId`, MsgScore and the race's attributes. Verified: the sheet reads "Thestran Ranger"; the body keeps the old appearance sliders |
+| 1454016 | "Gender Change" ("Press submit to become female.") | 0x5d5 `{i32 new gender, i32 item handle}` | 0x5d6 MsgPaidGenderChangeResult `{i32, i32 code, u8, u8 gender}`: 0x0c done (the client switches gender itself), 0x10 not allowed | done: saves `gender`, sends `m_Gender`. Verified: the character turns female at once and stays female after a relog |
+| 1454021 | none | 0x4fc (no payload) at once | ? | not handled |
+| 1454022 | "Clear Experience Debt" | 0x5da `{i32 item handle}` | 0x5db `{i32 code}` (see DEATH.md) | done |
+| 1463295 | "Character Rename" (first and last name boxes) | 0x5d3 (item handle and the two names; field order unverified) | 0x5d4 `{i32, i32 code, u8, wstr first, wstr last}`: 6 done (strNameSelf / strNameFullSelf), 7 "That first name is not available.", 0xb not allowed | not handled yet |
+| 1464359 / 1464362 | none: they put the cursor into targeting mode 5 / 6 (item handle kept at +0x6cc / +0x6d0) | ? | ? | not handled |
+| 1466724 | "_inventory_consume_kronos" (subscription time) | ? | ? | not handled (no use on a private server) |
+
+All replies are zone events in the main dispatcher `FUN_00622350` (jump-table indices 14-17 for 0x5d4/0x5d6/0x5d8/0x5db).
+
+**Player gender.** The create request (MsgClientCharacterCreate, schema `FUN_004896a0`) is: wstr first, last, world, a fourth wstr, i32, **u8 gender**, u8 race, u8 class, i32, i32, 64 slider bytes. In the bytes the server keeps after the names (`raw`), gender is +6 (0 male, 1 female). The server sends it as the player pawn's `m_Gender` and MsgScore field 6. Before this, every character was drawn male.
