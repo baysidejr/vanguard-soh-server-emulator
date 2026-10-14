@@ -697,7 +697,7 @@ class ResourceTests(unittest.TestCase):
         self.assertIsNone(combat.pay_cost(caster, 5.0))
         self.assertEqual((caster.energy, caster.endurance), (100 - combat.ABILITY_COST, 100))
         caster.energy = 1
-        self.assertEqual(combat.pay_cost(caster, 5.0), "You do not have enough energy.")
+        self.assertEqual(combat.pay_cost(caster, 5.0), combat.NOT_ENOUGH_ENERGY)
         fighter = types.SimpleNamespace(klass=28, stats={}, endurance=100)
         self.assertIsNone(combat.pay_cost(fighter, 5.0))
         self.assertEqual(fighter.endurance, 100 - combat.ABILITY_COST)

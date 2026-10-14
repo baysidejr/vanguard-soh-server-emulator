@@ -460,7 +460,7 @@ def use_ability(state, args, player, ability):
             return
         error = combat.pay_cost(player, refresh)
         if error:
-            send(build_system_text(error, SYSTEM_TEXT_ERROR))
+            send(effects.ability_failed(error))
             return
         player.endurance_changed = player.energy_changed = False
         send(zone.energy_update(player) if player.klass in combat.ENERGY_CLASSES else zone.endurance_update(player))
@@ -926,7 +926,8 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     out = list(player.pending_displays)
     player.pending_displays.clear()
     colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR, "white": SYSTEM_TEXT_WHITE}
-    out += [build_system_text(text, colours[kind]) for text, kind in lines]
+    out += [effects.ability_failed(text) if kind == "fail" else build_system_text(text, colours[kind])
+            for text, kind in lines]
     out.append(zone.health_update(player))
     if getattr(player, "energy_changed", False):
         player.energy_changed = False

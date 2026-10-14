@@ -200,14 +200,14 @@ def use_ability(player, ability, rng=random):
         return [("You can't do that while dead.", "error")], None
     npc = player.npcs.get(player.target) if player.target else None
     if npc is None:
-        return [(f"You use {name}, but you have no target.", "combat")], None
+        return [(NO_VALID_TARGET, "fail")], None             # "Please select a valid target for that ability."
     if not npc.alive:
         return [(f"{npc.name} is already dead.", "error")], None
     if npc.service():
         return [(f"You can't attack {npc.name}.", "error")], None
     error = pay_cost(player, ability[5])
     if error:
-        return [(error, "error")], None
+        return [(error, "fail")], None
     lo, hi = scaled(player, ABILITY_DAMAGE.get(ability[1], (8, 16)))
     # Class abilities use their Assets/Abilities id directly (class_abilities.py).
     visual = ABILITY_VISUALS.get(ability[1], ability[1] if ability[1] >= 500000 else None)
@@ -593,20 +593,24 @@ ABILITY_COST = 15            # endurance (or energy) per ability use (placeholde
 ENERGY_CLASSES = {5, 7, 14, 22, 25, 44, 45}
 
 
+NOT_ENOUGH_ENERGY, NOT_ENOUGH_ENDURANCE, NO_VALID_TARGET = 0x22, 0x24, 0x0B   # 0x241 codes
+
+
 def pay_cost(player, refresh):
     """Spend an ability's cost: energy for casters, endurance for everyone else. Instant
-    openers (no refresh) are free. Returns an error line, or None when paid."""
+    openers (no refresh) are free. Returns the client's failure code (0x241: 0x22 not enough
+    energy, 0x24 not enough endurance), or None when paid."""
     cost = ABILITY_COST if refresh > 0 else 0
     if getattr(player, "klass", None) in ENERGY_CLASSES:
         energy = getattr(player, "energy", player.stats.get("energy", 100))
         if energy < cost:
-            return "You do not have enough energy."
+            return NOT_ENOUGH_ENERGY
         player.energy = energy - cost
         if cost:
             player.energy_changed = True
         return None
     if player.endurance < cost:
-        return "You do not have enough endurance."
+        return NOT_ENOUGH_ENDURANCE
     player.endurance -= cost
     player.endurance_changed = True
     return None
