@@ -531,6 +531,7 @@ DEFAULT_STATS = {
 BREATH_MAX = 60               # seconds of breath under water
 HP_BASE, CON_HP = 210, 5      # maximum health at 40 Constitution, and per point above
 HP_PER_LEVEL = 12             # maximum health gained per adventuring level (placeholder)
+POOL_BASE, POOL_PER_POINT = 100, 2   # endurance / energy at default attributes, per point above
 
 
 def gear_bonus(player):
@@ -563,6 +564,15 @@ def apply_gear_stats(player):
             changed.append(k)
     player.gear_bonus = new
     # Constitution sets maximum health (placeholder: CON_HP per point above the default).
+    # Pools from attributes (placeholders): endurance from Vitality, energy from Intelligence
+    # and Wisdom, POOL_PER_POINT per point above the defaults.
+    for pool, from_stats in (("endurance", ("vitality",)), ("energy", ("intelligence", "wisdom"))):
+        if pool in player.stats:
+            extra = sum(player.stats.get(k, DEFAULT_STATS[k]) - DEFAULT_STATS[k] for k in from_stats)
+            player.stats[pool] = POOL_BASE + POOL_PER_POINT * extra
+            cur = pool if pool == "energy" else "endurance"
+            if hasattr(player, cur):
+                setattr(player, cur, min(getattr(player, cur), player.stats[pool]))
     level = getattr(player, "mentor_level", None) or getattr(player, "level_number", 1)
     hp = (HP_BASE + (player.stats.get("constitution", 40) - DEFAULT_STATS["constitution"]) * CON_HP
           + (level - 1) * HP_PER_LEVEL)

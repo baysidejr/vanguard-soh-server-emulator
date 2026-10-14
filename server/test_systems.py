@@ -608,5 +608,23 @@ class AvoidanceTests(unittest.TestCase):
         self.assertEqual(msg[10 + 8 + 8 + 4 + 1 + 1 + 4 + 4], effects.DODGE)
 
 
+class ResourceTests(unittest.TestCase):
+    def test_costs_and_pools(self):
+        caster = types.SimpleNamespace(klass=25, stats={"energy": 100}, endurance=100)
+        self.assertIsNone(combat.pay_cost(caster, 5.0))
+        self.assertEqual((caster.energy, caster.endurance), (100 - combat.ABILITY_COST, 100))
+        caster.energy = 1
+        self.assertEqual(combat.pay_cost(caster, 5.0), "You do not have enough energy.")
+        fighter = types.SimpleNamespace(klass=28, stats={}, endurance=100)
+        self.assertIsNone(combat.pay_cost(fighter, 5.0))
+        self.assertEqual(fighter.endurance, 100 - combat.ABILITY_COST)
+        self.assertIsNone(combat.pay_cost(fighter, 0))                 # instant openers are free
+        p = types.SimpleNamespace(equipment=[], stats=dict(zone.DEFAULT_STATS, vitality=40, wisdom=25),
+                                  endurance=100, energy=100)
+        zone.apply_gear_stats(p)
+        self.assertEqual(p.stats["endurance"], 100 + 10 * zone.POOL_PER_POINT)
+        self.assertEqual(p.stats["energy"], 100 + 5 * zone.POOL_PER_POINT)
+
+
 if __name__ == "__main__":
     unittest.main()

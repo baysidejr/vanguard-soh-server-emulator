@@ -183,11 +183,9 @@ def use_ability(player, ability, rng=random):
         return [(f"{npc.name} is already dead.", "error")], None
     if npc.service():
         return [(f"You can't attack {npc.name}.", "error")], None
-    cost = ABILITY_COST if ability[5] > 0 else 0      # instant openers are free
-    if player.endurance < cost:
-        return [("You do not have enough endurance.", "error")], None
-    player.endurance -= cost
-    player.endurance_changed = True
+    error = pay_cost(player, ability[5])
+    if error:
+        return [(error, "error")], None
     lo, hi = ABILITY_DAMAGE.get(ability[1], (8, 16))
     # Class abilities use their Assets/Abilities id directly (class_abilities.py).
     visual = ABILITY_VISUALS.get(ability[1], ability[1] if ability[1] >= 500000 else None)
@@ -545,7 +543,29 @@ def chase_step(npc, target, dt, rng=random, now=None):
 RESPAWN_SECONDS = 60
 REGEN_DELAY = 6          # seconds out of combat before health comes back
 REGEN_PER_SECOND = 10
-ABILITY_COST = 15            # endurance per ability use (placeholder)
+ABILITY_COST = 15            # endurance (or energy) per ability use (placeholder)
+# Spellcasting classes pay energy instead of endurance (races_classes ids): Cleric, Druid,
+# Psionicist, Shaman, Sorcerer, Blood Mage, Necromancer.
+ENERGY_CLASSES = {5, 7, 14, 22, 25, 44, 45}
+
+
+def pay_cost(player, refresh):
+    """Spend an ability's cost: energy for casters, endurance for everyone else. Instant
+    openers (no refresh) are free. Returns an error line, or None when paid."""
+    cost = ABILITY_COST if refresh > 0 else 0
+    if getattr(player, "klass", None) in ENERGY_CLASSES:
+        energy = getattr(player, "energy", player.stats.get("energy", 100))
+        if energy < cost:
+            return "You do not have enough energy."
+        player.energy = energy - cost
+        if cost:
+            player.energy_changed = True
+        return None
+    if player.endurance < cost:
+        return "You do not have enough endurance."
+    player.endurance -= cost
+    player.endurance_changed = True
+    return None
 ENDURANCE_REGEN = 4          # per second, in and out of combat
 
 

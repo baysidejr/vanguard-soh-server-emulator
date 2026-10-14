@@ -429,12 +429,12 @@ def use_ability(state, args, player, ability):
         if player.health <= 0:
             send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
             return
-        cost = combat.ABILITY_COST if refresh > 0 else 0
-        if player.endurance < cost:
-            send(build_system_text("You do not have enough endurance.", SYSTEM_TEXT_ERROR))
+        error = combat.pay_cost(player, refresh)
+        if error:
+            send(build_system_text(error, SYSTEM_TEXT_ERROR))
             return
-        player.endurance -= cost
-        send(zone.endurance_update(player))
+        player.endurance_changed = player.energy_changed = False
+        send(zone.energy_update(player) if player.klass in combat.ENERGY_CLASSES else zone.endurance_update(player))
         visual = ability[1] if ability[1] >= 500000 else None
         if visual:
             send(combat.display_ability(player.char_id, player.char_id, visual))
@@ -888,6 +888,9 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR, "white": SYSTEM_TEXT_WHITE}
     out += [build_system_text(text, colours[kind]) for text, kind in lines]
     out.append(zone.health_update(player))
+    if getattr(player, "energy_changed", False):
+        player.energy_changed = False
+        out.append(zone.energy_update(player))
     if getattr(player, "endurance_changed", False):
         player.endurance_changed = False
         out.append(zone.endurance_update(player))
