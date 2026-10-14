@@ -365,36 +365,70 @@ def main():
 
     next_tick = next_move = time.time() + 1
     next_flush = time.time()
-    while True:
-        t_idle = time.time()
-        ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
-                                    max(min(next_tick, next_move, next_flush) - time.time(), 0))
-        LOOP_STATS[1] += time.time() - t_idle
-        for sock in ready:
-            # Read everything already waiting (up to a limit, so ticks still run on time):
-            # one select per packet was a large share of the time with many players.
-            for _ in range(MAX_READS_PER_WAKE):
-                try:
-                    data, addr = sock.recvfrom(65535)
-                except BlockingIOError:
-                    break
-                except ConnectionResetError:
-                    # Windows reports an ICMP "port unreachable" from a client that
-                    # went away as an error on the next recvfrom; just carry on.
-                    continue
-                LOOP_STATS[0] += 1
-                guarded(serve, sock, names[sock], data, addr, clients, args)
-        if time.time() >= next_flush:
-            # Queued movement goes out FLUSH_HZ times a second, many bunches per packet.
-            next_flush = time.time() + 1.0 / FLUSH_HZ
-            guarded(world.flush_bunches, zone.unreal_message)
-        if time.time() >= next_move:
-            next_move = time.time() + MOVE_TICK
-            guarded(movement_tick, zone_sock, clients, args)
-            guarded(resend_tick, clients, time.time())
-        if time.time() >= next_tick:
-            next_tick = time.time() + 1
-            guarded(world_tick, zone_sock, clients, args)
+    import signal
+    stop = []
+    for sig in ("SIGTERM", "SIGBREAK"):          # a service stop, or Ctrl+Break on Windows
+        if hasattr(signal, sig):
+            signal.signal(getattr(signal, sig), lambda *_: stop.append(1))
+    try:
+        while not stop:
+            t_idle = time.time()
+            ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
+                                        max(min(next_tick, next_move, next_flush) - time.time(), 0))
+            LOOP_STATS[1] += time.time() - t_idle
+            for sock in ready:
+                # Read everything already waiting (up to a limit, so ticks still run on time):
+                # one select per packet was a large share of the time with many players.
+                for _ in range(MAX_READS_PER_WAKE):
+                    try:
+                        data, addr = sock.recvfrom(65535)
+                    except BlockingIOError:
+                        break
+                    except ConnectionResetError:
+                        # Windows reports an ICMP "port unreachable" from a client that
+                        # went away as an error on the next recvfrom; just carry on.
+                        continue
+                    LOOP_STATS[0] += 1
+                    guarded(serve, sock, names[sock], data, addr, clients, args)
+            if time.time() >= next_flush:
+                # Queued movement goes out FLUSH_HZ times a second, many bunches per packet.
+                next_flush = time.time() + 1.0 / FLUSH_HZ
+                guarded(world.flush_bunches, zone.unreal_message)
+            if time.time() >= next_move:
+                next_move = time.time() + MOVE_TICK
+                guarded(movement_tick, zone_sock, clients, args)
+                guarded(resend_tick, clients, time.time())
+            if time.time() >= next_tick:
+                next_tick = time.time() + 1
+                guarded(world_tick, zone_sock, clients, args)
+    except KeyboardInterrupt:
+        pass
+    shutdown(clients, args)
+
+
+def shutdown(clients, args):
+    """Ctrl+C or a service stop: tell everyone, save every player (position, play time), take
+    them out of the world and close their connections, so nothing is lost and clients go back
+    to their login screen instead of waiting for a dead server."""
+    players = 0
+    for state in list(clients.values()):
+        player = state.get("player")
+        if player is not None and "send" in state and not state.get("closed"):
+            try:
+                state["send"](build_system_text("The server is shutting down.", SYSTEM_TEXT_ERROR))
+                pos = player.live_position
+                if pos is not None and player.save_position:
+                    player.save_position(pos)
+                leave_world(state, args)
+                players += 1
+            except Exception as e:                  # one bad state must not stop the rest
+                print(f"  !!! shutdown: {getattr(player, 'name', '?')}: {e}")
+        if callable(state.get("terminate")):
+            try:
+                state["terminate"]()
+            except OSError:
+                pass
+    print(f"Server stopped: {players} players saved, {len(clients)} connections closed.")
 
 
 MAX_READS_PER_WAKE = 64
