@@ -7322,7 +7322,10 @@ def handle_craft_event(state, event, data):
             return
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.station:
-            send(craft.station_error(0))
+            send(craft.station_error(craft.STATION_INVALID))
+            return
+        if player_distance(player, npc) > craft.STATION_RANGE:
+            send(craft.station_error(craft.STATION_TOO_FAR))
             return
         state["craft"] = {"recipe": None, "begun": False}
         kind = "finishing" if npc.station == "finishing" else "refining"

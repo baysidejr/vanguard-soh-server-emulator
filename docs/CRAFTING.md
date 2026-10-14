@@ -65,7 +65,7 @@ The UI-event-name to handler mapping is [I], because the handler functions sit n
   - field1 → refining+0x34. Reset to -1 on session end. Meaning (station id/type) is [I].
   - bool → `_crafting_auto_fill_selector` checkbox [O].
   - If state != 0 the client prints "Programmer error ... not idle." and ignores the message. On success it sets state = 4 and prints "Select the recipe you wish to use."
-- **0x2e9** `{u8 code}`: errors. 0 "That is not a valid crafting target.", 1 "DEBUG - Crafting station missing data.", 2 TooFarAway [O].
+- **0x2e9** `{u8 code}`: errors. 0 "That is not a valid crafting target.", 1 "DEBUG - Crafting station missing data.", 2 TooFarAway, which the client prints as "You're too far away to do that." (sent when the station is more than 800 units away; verified live 2026-10-14).
 - **0x2eb MsgCraftingRecipeSelectResult** `{u8 result, i32 recipeId, wstr, wstr}`. Handler `FUN_005ba6c0`, registration `FUN_005af630` [O].
   - result: **0xff = OK**, 0 "Invalid crafting recipe.", 1 "You can't use that recipe at this station.", 2 "You don't have all the materials..." (still fills the missing-items UI). Anything else → "Setting the recipe failed for unknown reasons." [O]
   - recipeId must already be in the recipe book (`FUN_005a7900`), otherwise "Programmer error ... bad recipe ID" [O].

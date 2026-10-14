@@ -239,5 +239,9 @@ def end():
     return _event(0x2FD)
 
 
+STATION_INVALID, STATION_NO_DATA, STATION_TOO_FAR = 0, 1, 2
+STATION_RANGE = 800
+
+
 def station_error(code):
     return _event(0x2E9, struct.pack("<B", code))
