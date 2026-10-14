@@ -798,12 +798,36 @@ def template_id(name):
     return 0x2000000 + (zlib.crc32(name.encode()) & 0xFFFFF)
 
 
-def item_equip_fields(name, durability=100):
+# Item flags (wire field 102, FUN_006ab640 prints them in the tooltip): items.json "flags".
+ITEM_FLAGS = {"no_trade": 0x01, "unique": 0x02, "no_rent": 0x04, "soulbound": 0x08,
+              "no_drop_on_equip": 0x10, "quest": 0x20, "no_sell": 0x40, "bind_on_equip": 0x80}
+
+
+def item_flags(name, bound=False):
+    bits = 0
+    for f in ITEM_CONTENT.item(name).get("flags", ()):
+        bits |= ITEM_FLAGS[f]
+    return bits | (ITEM_FLAGS["soulbound"] if bound else 0)
+
+
+def item_restriction(player, item, action):
+    """Why an item can't be traded / mailed / sold / put on the market / banked
+    (action), or None. Soulbound means bound to this character (player.bound)."""
+    bits = item_flags(item[1], item[0] in getattr(player, "bound", ()))
+    if action in ("trade", "mail", "market") and bits & (ITEM_FLAGS["no_trade"] | ITEM_FLAGS["soulbound"] | ITEM_FLAGS["quest"]):
+        return f"{item[1]} can't be given to anyone else."
+    if action == "sell" and bits & (ITEM_FLAGS["no_sell"] | ITEM_FLAGS["quest"]):
+        return f"The merchant won't buy {item[1]}."
+    return None
+
+
+def item_equip_fields(name, durability=100, bound=False):
     """inventory_item keyword arguments from content/items.json: equip slots and
     the tooltip/usability fields (see docs/INVENTORY.md, item field table)."""
     tpl = ITEM_CONTENT.item(name)
     extra = {94: 1, 100: 255, 106: durability, 99: grouploot_rarity_wire(tpl.get("rarity")), 76: tpl.get("level", 1),
-             1: template_id(name)}           # field 1: the template id (assembly matches ingredients on it)
+             1: template_id(name),           # field 1: the template id (assembly matches ingredients on it)
+             102: item_flags(name, bound)}
     # Field 74 = item type; 0 would be "Shield", 3 is a plain item.
     extra[74] = ITEM_TYPE_IDS[tpl.get("type", "misc")]
     if tpl.get("type", "misc") == "misc":
@@ -1019,19 +1043,23 @@ def inventory_messages(player):
     main = [i for i in player.items if vgmsg.split_slot(i[4])[0] == -1]
     out = [zone_event(0x195, struct.pack("<iiii", 50 - len(main), 0, 0, 0))]
     dur = getattr(player, "durability", {})
+    bound = getattr(player, "bound", set())
     for item_id, name, icon, qty, slot in main:
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, item_icon(name, icon), qty,
-                                                          **item_equip_fields(name, dur.get(str(item_id), 100)))))
+                                                          **item_equip_fields(name, dur.get(str(item_id), 100),
+                                                                              item_id in bound))))
     # Equipped items: create in the bag, then 0x1a7 (FUN_0050feb0: i32 item id,
     # u8 lookup kind, u8 equip slot) moves them to the paper doll.
     for n, (item_id, name, icon, equip_slot) in enumerate(player.equipment):
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, item_icon(name, icon),
-                                                          **item_equip_fields(name, dur.get(str(item_id), 100)))))
+                                                          **item_equip_fields(name, dur.get(str(item_id), 100),
+                                                                              item_id in bound))))
         out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))
     # Items inside the equipped bags, now that their containers exist.
     for item_id, name, icon, qty, slot in [i for i in player.items if i not in main]:
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, slot, item_icon(name, icon), qty,
-                                                          **item_equip_fields(name, dur.get(str(item_id), 100)))))
+                                                          **item_equip_fields(name, dur.get(str(item_id), 100),
+                                                                              item_id in bound))))
     out.append(zone_event(0x1BB, struct.pack("<q", player.coins)))
     return out
 
@@ -1258,6 +1286,9 @@ def equip_item(player, handle):
         msgs.append(unequip_message(old[0], bag_slot))
         bag_slot = None
     player.equipment.append((item[0], item[1], item[2], slot))
+    if "bind_on_equip" in tpl.get("flags", ()) and item[0] not in getattr(player, "bound", set()):
+        player.bound = set(getattr(player, "bound", set())) | {item[0]}
+        player.bound_changed = True
     # 0x1a7 (FUN_0050feb0): i32 item handle, u8 0, u8 slot moves it to the paper doll.
     msgs.append(zone_event(0x1A7, struct.pack("<iBB", item[0], 0, slot)))
     return msgs

@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Item flags (field 102) from items.json, Bind On Equip, trade/mail/broker/sell restrictions, unbinding tool (0x5e3) verified live.
 - 2026-10-13: Character rename item (0x5d3/0x5d4) with name migration across all save files; character-select preview now shows gender (record +0x1a0).
 - 2026-10-13: Player gender decoded from the create request (raw +6) and sent (pawn m_Gender, MsgScore); before, every character was drawn male. Gender and race change items (templates 1454016/1454015) verified live. docs/INVENTORY.md "Character service items" lists every special template id.
 - 2026-10-13: Clear experience debt with an item (template 1454022): 0x5da request, 0x5db reply codes reverse-engineered and verified live (refused with a tombstone out, cleared after).

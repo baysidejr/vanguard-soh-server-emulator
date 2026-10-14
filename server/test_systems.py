@@ -766,5 +766,27 @@ class RenameTests(unittest.TestCase):
             self.assertFalse(login_stub.valid_first_name(bad))
 
 
+class ItemFlagTests(unittest.TestCase):
+    def test_flags_and_restrictions(self):
+        saved = dict(zone.ITEM_CONTENT.items)
+        try:
+            zone.ITEM_CONTENT.items["Test Relic"] = {"flags": ["no_trade", "quest"]}
+            zone.ITEM_CONTENT.items["Test Ring"] = {"slot": "LEFTFINGER", "flags": ["bind_on_equip"]}
+            self.assertEqual(zone.item_flags("Test Relic"), 0x21)
+            self.assertEqual(zone.item_equip_fields("Test Ring", bound=True)["raw"][102], 0x88)
+            p = zone.Player("Nobody", 1, 0x0E, 28, "chunk_n20_12")
+            relic, ring = (1, "Test Relic", 0, 1, 0), (2, "Test Ring", 0, 1, 1)
+            p.items, p.equipment, p.bound = [relic, ring], [], set()
+            for action in ("trade", "mail", "market", "sell"):
+                self.assertIsNotNone(zone.item_restriction(p, relic, action))
+            self.assertIsNone(zone.item_restriction(p, ring, "trade"))
+            self.assertIsInstance(zone.equip_item(p, 2), list)
+            self.assertEqual(p.bound, {2})                                   # bound once worn
+            self.assertIsNotNone(zone.item_restriction(p, ring, "trade"))
+        finally:
+            zone.ITEM_CONTENT.items.clear()
+            zone.ITEM_CONTENT.items.update(saved)
+
+
 if __name__ == "__main__":
     unittest.main()

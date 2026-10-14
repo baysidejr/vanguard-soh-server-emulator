@@ -1136,6 +1136,32 @@ def rename_character(state, data):
                          + (first + "\0").encode("utf-16-le") + (last + "\0").encode("utf-16-le")))
 
 
+# Unbind tool (template 1464359): using it puts the cursor in targeting mode 5; clicking an
+# item sends 0x5e3 {i32 target item handle, i32 tool handle} (FUN_004fbf00). Template 1464362
+# does the same for "unlock" (mode 6, 0x5e5). No reply message is known: the server resends
+# the item and says what happened.
+UNBIND, UNBIND_TEMPLATE = 0x5E3, 1464359
+
+
+def unbind_item(state, target, tool):
+    player, send = state["player"], state["send"]
+    t = next((i for i in player.items if i[0] == tool), None)
+    item = next((i for i in player.items if i[0] == target), None)
+    print(f"  >>> ZONE unbind item {target} with {tool}")
+    if t is None or zone.template_id(t[1]) != UNBIND_TEMPLATE:
+        send(build_system_text("That can't unbind anything.", SYSTEM_TEXT_ERROR))
+    elif item is None or target not in getattr(player, "bound", set()):
+        send(build_system_text("That item is not bound to you.", SYSTEM_TEXT_ERROR))
+    else:
+        player.bound = set(player.bound) - {target}
+        save_character_field(player.name, "bound", sorted(player.bound))
+        take_items(state, t[1], 1)
+        # (The client itself refuses worn items: "Cannot unbind an equipped item.")
+        send(zone.zone_event(0x197, vgmsg.inventory_item(item[0], item[1], item[4], zone.item_icon(item[1], item[2]),
+                                                         item[3], **zone.item_equip_fields(item[1]))))
+        send(build_system_text(f"{item[1]} is no longer bound to you.", SYSTEM_TEXT_WHITE))
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -4729,6 +4755,8 @@ def handle_trade_event(state, event, payload, args):
             item = next((i for i in player.items if i[0] == handle), None)
             if item and zone.bag_items(player.items, handle):
                 send(build_system_text(BAG_NOT_EMPTY, SYSTEM_TEXT_ERROR))
+            elif item and zone.item_restriction(player, item, "trade"):
+                send(build_system_text(zone.item_restriction(player, item, "trade"), SYSTEM_TEXT_ERROR))
             elif item and handle not in side.items and len(side.items) < trade.MAX_ITEMS:
                 side.items.append(handle)
                 t.seq += 1
@@ -5596,7 +5624,8 @@ def handle_mail_event(state, event, data):
             send(mail.result(mail.BODY_LONG))
             return
         it = next((i for i in player.items if i[0] == handle), None) if handle != -1 else None
-        if handle != -1 and (it is None or zone.bag_items(player.items, handle)):
+        if handle != -1 and (it is None or zone.bag_items(player.items, handle)
+                             or zone.item_restriction(player, it, "mail")):
             send(mail.result(mail.CANT_MAIL_ITEM))
             return
         if cod and it is None:
@@ -5752,6 +5781,8 @@ def handle_market_event(state, event, data):
         it = next((i for i in player.items if i[0] == handle), None)
         if it is None:
             send(market_notice(market.CANT_FIND))
+        elif zone.item_restriction(player, it, "market"):
+            send(build_system_text(zone.item_restriction(player, it, "market"), SYSTEM_TEXT_ERROR))
         elif price <= 0 or price > market.MAX_PRICE:
             send(market_notice(market.MUST_ENTER_PRICE))
         elif len(mine) >= market.MAX_LISTINGS:
@@ -7450,6 +7481,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.learned = list(char.get("learned_abilities", []))
             player.spheres = {k: list(v) for k, v in char.get("spheres", {}).items()}
             player.active_toolbelt = char.get("active_toolbelt")
+            player.bound = set(char.get("bound", []))
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
                            + list(args.content.counters.get(cname, []))
@@ -7665,6 +7697,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 send_message(sock, addr, state, zone.zone_event(0x30E))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (CHANGE_GENDER, CHANGE_RACE) and state.get("player") and len(payload) >= 18:
             change_gender_race(state, struct.unpack_from("<I", payload, 2)[0], *struct.unpack_from("<ii", payload, 10))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNBIND and state.get("player") and len(payload) >= 18:
+            unbind_item(state, *struct.unpack_from("<ii", payload, 10))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == RENAME and state.get("player"):
             rename_character(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_DEBT and state.get("player") and len(payload) >= 14:
@@ -7854,6 +7888,13 @@ def handle_message(sock, server, addr, state, payload, args):
                     for m in result:
                         send_message(sock, addr, state, m)
                     gear_changed(state, args, player)
+                    if getattr(player, "bound_changed", False):     # a Bind On Equip item was worn
+                        player.bound_changed = False
+                        save_character_field(player.name, "bound", sorted(player.bound))
+                        worn = next((e for e in player.equipment if e[0] == handle), None)
+                        if worn:
+                            send_message(sock, addr, state, build_system_text(
+                                f"{worn[1]} is now bound to you.", SYSTEM_TEXT_WHITE))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 merchant.REQ_OPEN, merchant.REQ_BUY, merchant.REQ_SELL, merchant.REQ_CLOSE,
                 merchant.REQ_CLOSE2, merchant.REQ_BUYBACK):

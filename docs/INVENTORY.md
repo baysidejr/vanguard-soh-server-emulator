@@ -177,9 +177,17 @@ Right-clicking an item checks its **template id** (item field 1) in `FUN_0050003
 | 1454021 | none | 0x4fc (no payload) at once: the raid lockout timer request (also the client's answer to 0x677) | 0x4fd `{wstr name}` (FUN_00583b70): "Displaying lockout timers for %s:" and the RaidLockoutTimerList; entries, /sharelockouttimer, /lockoutaccept and /lockoutdecline belong to raid instances | not handled: the emulator has no raid instances or lockouts |
 | 1454022 | "Clear Experience Debt" | 0x5da `{i32 item handle}` | 0x5db `{i32 code}` (see DEATH.md) | done |
 | 1463295 | "Character Rename" (first and last name boxes) | 0x5d3 `{wstr first, wstr last, i32 item handle}` (seen live) | 0x5d4 `{i32, i32 code, u8, wstr first, wstr last}`: 6 done (the client renames itself: the HUD shows the new name), 7 "That first name is not available.", 0xb not allowed | done: checks the name (3-20 letters, not taken), keeps the character id, and renames every reference in characters.json, guilds, brotherhoods, mail (lower-case box keys too), market, housing, caravans and civic. Verified: Sorc became "Sorcha Vale"; "Ranger" was refused |
-| 1464359 / 1464362 | none: they put the cursor into targeting mode 5 / 6 (item handle kept at +0x6cc / +0x6d0) | ? | ? | not handled |
+| 1464359 / 1464362 | none: the cursor goes into targeting mode 5 (unbind) / 6 (unlock); clicking an item opens "Unbind: <item>" Confirm/Cancel. A worn item is refused by the client ("Cannot unbind an equipped item.") | 0x5e3 / 0x5e5 `{i32 target item handle, i32 tool handle}` (FUN_004fbf00 / FUN_004fc020; seen live for 0x5e3) | none known | unbind done: the target loses Soulbound (saved), the tool is used up, the item is resent. Verified on a Bind On Equip Copper Ring. Unlock: not handled (what "locked" means is unknown) |
 | 1466724 | "_inventory_consume_kronos" (subscription time) | ? | ? | not handled (no use on a private server) |
 
 All replies are zone events in the main dispatcher `FUN_00622350` (jump-table indices 14-17 for 0x5d4/0x5d6/0x5d8/0x5db).
 
 **Player gender.** The create request (MsgClientCharacterCreate, schema `FUN_004896a0`) is: wstr first, last, world, a fourth wstr, i32, **u8 gender**, u8 race, u8 class, i32, i32, 64 slider bytes. In the bytes the server keeps after the names (`raw`), gender is +6 (0 male, 1 female). The server sends it as the player pawn's `m_Gender`, MsgScore field 6 and the character-select record's u32 at **+0x1a0** (client obj+0x94; found by setting candidate fields to 1 until the select-screen preview turned female). Before this, every character was drawn male.
+
+## Item flags and binding (verified live 2026-10-13)
+
+items.json `"flags"` sets wire field 102 (tooltip lines from FUN_006ab640): `no_trade` 0x01, `unique` 0x02, `no_rent` 0x04, `soulbound` 0x08, `no_drop_on_equip` 0x10, `quest` 0x20, `no_sell` 0x40, `bind_on_equip` 0x80.
+
+- **Bind On Equip:** right-clicking such an item opens the client's own "Bind On Equip Confirmation" ("Equipping this item will prevent you from trading it with other players. Accept this restriction and equip it?"); Accept sends the normal equip. The server then adds the handle to the character's saved `bound` list and says "Copper Ring is now bound to you." Bound items are sent with the Soulbound bit; the tooltip reads "Soulbound (unbindable) Bind On Equip".
+- **Enforced by the server:** No Trade, Soulbound and Quest items can't be traded, mailed or put on the broker; No Sell and Quest items can't be sold to merchants (`zone.item_restriction`).
+- Which real items carried which flags is unknown (docs/CONTENT_EDITOR.md); no shipped item has flags yet.
