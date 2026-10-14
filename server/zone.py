@@ -385,7 +385,7 @@ def score_message(player, probe=False):
         dip_level=sphere(player, DIPLOMACY)[0],
         craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,
         dip_exp=sphere(player, DIPLOMACY)[1], dip_exp_frac=sphere(player, DIPLOMACY)[1] / SPHERE_XP_PER_LEVEL,
-        movement_mode=2, move_speed=1.0, craft_trade=0xFF,
+        movement_mode=getattr(player, "movement_mode", 2), move_speed=1.0, craft_trade=0xFF,
         attack=-float(combat.auto_attack_damage(player)[0]), attack_max=-float(combat.auto_attack_damage(player)[1]),
         ranged=-25.0, spell_attack=-10.0,
         defense_input=6.0, melee_mitigation=1.0 - combat.mitigate(1000, getattr(player, "armor_class", 0)) / 1000.0,
@@ -1348,7 +1348,11 @@ def player_pawn_values(player, location, yaw=0):
         # Guild tag over the head (name from zone event 0x40). m_bIsAfk = 1 made the
         # pawn disappear on every client (live test), so AFK/LFG stay in /who only.
         "m_GuildId": getattr(player, "guild_id", 0),
+        # /hidehood, /hidehelm, /hidecloak, /setwearpreference, /setwieldpreference (saved).
+        **getattr(player, "pawn_prefs", {}),
     }
+    if getattr(player, "movement_mode", 2) == 1:
+        values["bIsWalking"] = True             # /walk
     gear = gear_attachments(player)
     if gear:
         values["m_AttachmentGroups"] = gear

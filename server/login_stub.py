@@ -659,8 +659,7 @@ def crowd_control_tick(state, now):
             fear_step(state, cc, now)
         return
     player.cc = None
-    speed = BASE_GROUND_SPEED * (MOUNT_SPEED if getattr(player, "mount", None) else 1.0)
-    state["send"](zone.player_pawn_update(state, ARGS, {"GroundSpeed": speed}))
+    state["send"](zone.player_pawn_update(state, ARGS, {"GroundSpeed": ground_speed(player)}))
     state["send"](effects.effect_remove(cc["eid"]))
     state["send"](build_system_text("You can move again.", SYSTEM_TEXT_WHITE))
 
@@ -977,6 +976,14 @@ EQUIP_EVENT = 0x8E
 UNEQUIP_EVENT = 0x98
 
 
+def set_pawn_pref(state, prop, value):
+    """An appearance setting (PAWN_PREFS) changed: saved, and shown to everyone in the chunk."""
+    player = state["player"]
+    player.pawn_prefs = dict(getattr(player, "pawn_prefs", {}), **{prop: value})
+    save_character_field(player.name, "pawn_prefs", player.pawn_prefs)
+    pawn_props_changed(state, {prop: value})
+
+
 def pawn_props_changed(state, values):
     """Replicated pawn properties of this player changed: own client and everyone in the chunk."""
     player = state["player"]
@@ -1014,7 +1021,7 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     if w is not None:
         w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
     # Riding speed: GroundSpeed in a later bunch (MountUp resets it to the race default).
-    speed = BASE_GROUND_SPEED * (MOUNT_SPEED if mount_id else 1.0)
+    speed = ground_speed(player)
     values = {"GroundSpeed": speed}
     if kind == zone.MOUNT_FLYING and mount_id:
         values["AirSpeed"] = speed                 # flying mounts move with AirSpeed in PHYS_Flying
@@ -1022,6 +1029,18 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
 
 
 BASE_GROUND_SPEED = 337.889       # the client's own value for player races (pawn +0x7f0, read live)
+# Walking speed: what the client itself sets for /walk when it can't reach a server
+# (FUN_00bb5ae0: mode 1 -> race table +0x50, 185.0 for every playable race, read live).
+WALK_GROUND_SPEED = 185.0
+
+
+def ground_speed(player):
+    """The pawn's GroundSpeed: riding, walking (/walk) or the normal run."""
+    if getattr(player, "mount", None):
+        return BASE_GROUND_SPEED * MOUNT_SPEED
+    if getattr(player, "movement_mode", 2) == 1:
+        return WALK_GROUND_SPEED
+    return BASE_GROUND_SPEED
 MOUNT_SPEED = 1.6                 # mounts run 60% faster
 
 
@@ -1105,6 +1124,21 @@ RENAME, RENAME_REPLY, RENAME_TEMPLATE = 0x5D3, 0x5D4, 1463295
 # "You don't qualify to claim any account rewards." A private server has no account rewards.
 CLAIM_LIST, CLAIM_CLEAR, CLAIM_END = 0x18E, 0x5ED, 0x5F0
 FORCE_STANCE = 0x571
+# Appearance settings the client applies to its own pawn before telling the server:
+# /hidehood 0x113, /hidehelm 0x114, /hidecloak 0x59e {u8 hidden} (FUN_005e2d00 / FUN_005e2e60 /
+# FUN_005e2db0, pawn +0x3a8..+0x3aa), /setwearpreference 0x110 {i32 sphere: 0 Adventuring,
+# 1 Crafting, 2 Diplomacy, 3 Harvesting} (FUN_00608d40), /setwieldpreference 0x111 {i32, the
+# typed number clamped to 0-3} (FUN_00608f10). The server shows them to everyone else (the
+# SGOPCPawn properties below) and saves them.
+PAWN_PREFS = {0x113: ("m_bHideHood", "B", 1), 0x114: ("m_bHideHelm", "B", 1), 0x59E: ("m_bHideCloak", "B", 1),
+              0x110: ("m_WearPreference", "i", 3), 0x111: ("m_WieldPreference", "i", 3)}
+# /walk, /run: 0x72 {u8 1 walk, 2 run} (FUN_005fccf0). The client switches its own pawn only
+# when the send fails, so the server answers with the walking GroundSpeed (ground_speed), the
+# replicated Pawn.bIsWalking for everyone else, and MsgScore field 28 (the character sheet's
+# "walking"/"running").
+MOVE_MODE = 0x72
+# /cleartargets: 0x5e, no payload (FUN_005fcd70).
+CLEAR_TARGETS = 0x5E
 RENAME_DONE, RENAME_TAKEN, RENAME_NOT_ALLOWED = 6, 7, 0x0B
 # Saved files that refer to characters by name (mail boxes use the lower-case name).
 def name_stores():
@@ -7690,6 +7724,8 @@ def player_from_character(char, name, args):
     player.bound = set(char.get("bound", []))
     player.deck_presets = char.get("deck_presets")
     player.apply_form_on_death = char.get("apply_form_on_death", False)
+    known = {prop for prop, _, _ in PAWN_PREFS.values()}
+    player.pawn_prefs = {k: int(v) for k, v in char.get("pawn_prefs", {}).items() if k in known}
     player.access_level = int(char.get("access_level", 0))
     cname = races_classes.class_name(player.klass)
     chain_names = (reactions.chain_names(args.content.chains, cname)
@@ -7987,6 +8023,23 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == APPLY_FORM_ON_DEATH and state.get("player") and len(payload) >= 11:
             state["player"].apply_form_on_death = bool(payload[10])
             save_character_field(state["player"].name, "apply_form_on_death", bool(payload[10]))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in PAWN_PREFS and state.get("player"):
+            prop, fmt, top = PAWN_PREFS[struct.unpack_from("<I", payload, 2)[0]]
+            if len(payload) >= 10 + struct.calcsize("<" + fmt):
+                value = max(0, min(top, struct.unpack_from("<" + fmt, payload, 10)[0]))
+                set_pawn_pref(state, prop, value)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MOVE_MODE and state.get("player") and len(payload) >= 11:
+            p = state["player"]
+            p.movement_mode = 1 if payload[10] == 1 else 2
+            # bIsWalking alone does not slow the owner's pawn (live test); GroundSpeed does.
+            pawn_props_changed(state, {"bIsWalking": p.movement_mode == 1})
+            if not getattr(p, "cc", None):
+                send_message(sock, addr, state, zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(p)}))
+            send_message(sock, addr, state, zone.score_message(p))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_TARGETS and state.get("player"):
+            state["player"].target = None
+            state["def_target"] = 0
+            send_message(sock, addr, state, combat.targets())
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == FORCE_STANCE and state.get("player") and len(payload) >= 11:
             # /forcecombatstance [on|off]: {u8 on} (FUN_00609010). Weapons stay drawn until turned off.
             p = state["player"]

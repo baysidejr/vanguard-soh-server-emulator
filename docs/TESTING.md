@@ -36,6 +36,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Log in, see "Stub World", create a character, delete one, enter the world
 - [ ] A female character shows as female on the select screen and in the world
 - [ ] HUD, minimap, chat, message of the day; character window (C) shows attributes, health, armor class
+- [ ] `/walk` slows the character, `/run` restores it; `/hidehood` / `/hidehelm` / `/hidecloak` toggle (✦ the other client sees it) and stay after relogging
 - [ ] Walk, run, jump, fall damage; cross a chunk edge; `/unstuck`; `/camp` back to character select
 - [ ] ✦ Two players see each other move, emote and chat (say, shout, tell, ooc, group)
 

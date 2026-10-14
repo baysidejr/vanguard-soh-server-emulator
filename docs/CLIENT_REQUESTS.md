@@ -2,6 +2,8 @@
 
 Every event id the client can send (the last `push imm` before a call to its send functions `FUN_004cfb00` / `FUN_004cfb50`) that the server code never mentions. Generated 2026-10-13 by a scan of VGClient.exe; 370 ids are sent in all. "Command" is the slash command whose handler (the client's command table: 24-byte rows `{handler, wstr name, ...}`) sends it; "Context" is the nearest UI strings before the call site, a hint only. Commands starting with `/.` and `/hideme`, `/chunk`, `/gotoplayer`, `/fly`, `/summonplayer`, `/summongroup`, `/debuggameplay`, `/attach` are GM tools.
 
+The scan only sees ids pushed right before `FUN_004cfb00` / `FUN_004cfb50`. Some commands send through `FUN_00409210` instead (`/walk`, `/run`, `/cyclewieldpreference`, ...), so an in-game sweep of the slash commands (`sweep.sh`) finds more; the "Command" column for those was filled in from that sweep. Contexts are the nearest strings and can mislead (0x113 is `/hidehood`, not a lockout prompt).
+
 Many are GM or debug commands (chunk travel, set hour, character flags, "defensive target" commands). The rest are player features with no server side yet. When one is implemented, remove its row.
 
 | Id | Command | Call sites | Context |
@@ -11,17 +13,15 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x106` |  | `0x5b0405` | type6 / type7 |
 | `0x107` |  | `0x5b05e5` | CraftingRecipeSelectDescription / CraftingRecipeSelectNumUses |
 | `0x108` |  | `0x5aa9f4` | type6 / type7 |
-| `0x110` | `/setwearpreference` | `0x608e81` | Harvesting / Diplomacy |
-| `0x111` | `/setwieldpreference` | `0x608fc4` | Diplomacy / Invalid sphere: %s.  Please specify Adventuring, Crafting, Harvesting, or Diplomacy. |
-| `0x113` |  | `0x5e2d7f` | Lockout Timer Confirmation |
-| `0x114` |  | `0x5e2edf` |  |
+| `0x112` | `/cyclewieldpreference` | `0x5fc65a` | no payload; what the cycle steps through is not known |
+| `0x115` | `/toggleeppearancegear` | `0x5fc65a` | no payload; the appearance-gear toggle (no appearance slots in the server yet) |
 | `0x117` |  | `0x5e2cc5` | Call Confirmation / Lockout Timer Confirmation |
 | `0x120` |  | `0x451fc7` |  |
 | `0x126` |  | `0x54ac25` | You can only request debug information during a parley session. |
 | `0x127` |  | `0x4c0b55` `0x4c7985` | NPCDialogText |
 | `0x128` |  | `0x54abfe` |  |
 | `0x129` |  | `0x54cc16` |  |
-| `0x12d` |  | `0x54cf16` | Error: That statement could not be found. |
+| `0x12d` | `/citystatus` | `0x54cf16` | Error: That statement could not be found. |
 | `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking |
 | `0x138` |  | `0x5d3461` |  |
 | `0x153` |  | `0x471da2` | You don't have that many items stacked there. / That item is not in your Chest. |
@@ -62,7 +62,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x58e` |  | `0x4fbd5f` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x58f` |  | `0x4fbebf` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x592` |  | `0x4d5476` | bShowLFGButton |
-| `0x59e` |  | `0x5e2e2f` |  |
 | `0x5a7` |  | `0x5e29db` | Resurrection / Resurrection |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
 | `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
@@ -97,7 +96,14 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x852` |  | `0x5e2965` | Resurrection / Resurrection |
 | `0x85a` |  | `0x44a9fe` | AlternateAdvancementClassList / AlternateAdvancementSpecialList |
 | `0x85b` |  | `0x5ebdee` | /lockoutaccept / Lockout Timer Confirmation |
-| `0x85c` |  | `0x5de495` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
+| `0x85c` | `/aalist` | `0x5de495` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
+
+## Appearance and movement (verified live 2026-10-14)
+
+- `/hidehood` 0x113, `/hidehelm` 0x114, `/hidecloak` 0x59e `{u8 hidden}`: the client hides the piece on its own pawn first (pawn +0x3a8 / +0x3a9 / +0x3aa), then tells the server. The server saves them (characters.json `pawn_prefs`) and replicates `m_bHideHood` / `m_bHideHelm` / `m_bHideCloak` to everyone in the chunk; they are part of the pawn's properties at login (checked in client memory after a relog).
+- `/setwearpreference <sphere>` 0x110 `{i32}`: 0 Adventuring, 1 Crafting, 2 Diplomacy, 3 Harvesting (FUN_00608d40, any other word prints "Invalid sphere"). `/setwieldpreference <n>` 0x111 `{i32}`: the typed number clamped to 0-3 (FUN_00608f10; words give 0). Saved and replicated as `m_WearPreference` / `m_WieldPreference`. What the client draws differently for each value is not checked.
+- `/walk`, `/run` 0x72 `{u8 1 walk, 2 run}` (FUN_005fccf0): the client changes its own pawn only when the send fails (FUN_00b73620 -> FUN_00bb5ae0 sets GroundSpeed from the race table: walk 185, run 555). With a server it waits, and replicated `bIsWalking` alone did not slow it (live: same distance in 2 s). The server sends GroundSpeed 185 for walking and the normal 337.889 for running (pawn speed read live: 337.9 -> 185 -> 337.9; distance walked in 2 s 673 -> 374), `bIsWalking` for other clients, and MsgScore field 28 (character sheet "walking"/"running").
+- `/cleartargets` 0x5e (no payload): the server forgets the offensive and defensive targets and answers 0x3e0 with none.
 
 ## Handled from static analysis only
 
@@ -107,4 +113,4 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 
 The server handles the client's `/chunk` (0x770 {i32 x, i32 y}; the client starts loading the chunk itself, FUN_00613440), `/gotoplayer` and `/summonplayer` (0x79d / 0x7c7 {wstr name}) and `/hideme` (0x76c {u8 1 on, 2 off, 3 toggle}), only when it runs with `--dev-commands`. Each command-table row has an access level in the high byte of its second field (`/chunk` 0x14, `/gotoplayer` 0x0a, `/summonplayer` 0x05, `/hideme` 0x01, `/fly` 0x19; ordinary commands 0), and the client offers a command only when that level is at most the player's (FUN_005feba0). The player's level is the last field of SetNameID (world event 10, record +0x248). Set `"access_level": 255` on a character in characters.json to make it a GM: the client's `/chunk -19 12` then works (verified live; the client sends the ordinary chunk change itself, so the server lands the player at the chunk centre when the jump isn't to a neighbouring chunk). The same actions work through dev chat commands, verified live with two clients: `!chunk x y` (a full chunk hand-off to the chunk centre), `!goto <name>`, `!summon <name>` (teleport beside them, or a chunk hand-off), `!hide` (the pawn's `m_bGMHide`: other players no longer see the body, but the name plate still shows).
 
-GM test tools on the defensive target: `/.learnabilities` 0x582 {u64 target}, `/.maxskills` 0x583 {u64 target}, `/.setupall <level>` 0x589 {u64 target, i32 level} (FUN_005fe180 / FUN_005fe230 / FUN_006143c0). The server learns every class ability, raises every skill to the cap, and sets the level. The client only sends them with a defensive target, and `/targetself` (F1) gave none in our tests (probably something our own pawn lacks), so they are verified through the matching dev commands on yourself: `!setupall 20` (verified live: a Psionicist learned its abilities, skills went to 50 and the portrait shows 20), `!maxskills`, `!learnall`.
+GM test tools on the defensive target: `/.learnabilities` 0x582 {u64 target}, `/.maxskills` 0x583 {u64 target}, `/.setupall <level>` 0x589 {u64 target, i32 level} (FUN_005fe180 / FUN_005fe230 / FUN_006143c0). The server learns every class ability, raises every skill to the cap, and sets the level. The client only sends them with a defensive target (since player pawns carry EntityTypes 0x20, `/targetself` / F1 gives one). They were verified through the matching dev commands on yourself: `!setupall 20` (verified live: a Psionicist learned its abilities, skills went to 50 and the portrait shows 20), `!maxskills`, `!learnall`.

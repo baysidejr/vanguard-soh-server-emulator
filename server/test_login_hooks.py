@@ -66,7 +66,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         "show_title": False, "known_recipes": ["copper_ingot"], "diplomacy_deck": [1, 2, 3],
         "diplomacy_slots": [1, None], "spheres": {"crafting": [3, 40]}, "active_toolbelt": 68,
         "bound": [12], "deck_presets": {"1": [1, 2]}, "apply_form_on_death": True, "access_level": 5,
-        "gender": 1, "race": 14, "quests": {},
+        "gender": 1, "race": 14, "quests": {}, "pawn_prefs": {"m_bHideHood": 1, "m_WearPreference": 2},
     }
     LOADED = {   # characters.json field -> Player attribute, compared after normalising
         "adventure_level": "level_number", "adventure_xp": "xp", "coins": "coins", "bank_coins": "bank_coins",
@@ -79,7 +79,7 @@ class CharacterRoundTripTests(unittest.TestCase):
         "diplomacy_deck": "diplomacy_deck", "diplomacy_slots": "diplomacy_slots", "spheres": "spheres",
         "active_toolbelt": "active_toolbelt", "deck_presets": "deck_presets",
         "apply_form_on_death": "apply_form_on_death", "access_level": "access_level", "gender": "gender",
-        "race": "race", "durability": "durability",
+        "race": "race", "durability": "durability", "pawn_prefs": "pawn_prefs",
     }
 
     def test_every_saved_value_comes_back(self):
@@ -99,6 +99,27 @@ class CharacterRoundTripTests(unittest.TestCase):
         self.assertEqual([list(e) for e in p.equipment], self.CHAR["equipment"])
         self.assertEqual(dict((sid, v) for sid, v, _ in p.skills).get(88), 40)
         self.assertEqual(sorted(p.bound), [12])
+
+    def test_pawn_prefs_replicate(self):
+        """Saved appearance settings go on the pawn; each is a real SGOPCPawn property."""
+        import types
+        args = mock.Mock()
+        args.content = content.Content()
+        args.client_dir = ".."
+        args.zone_level = None
+        p = login_stub.player_from_character(dict(self.CHAR, pawn_prefs={
+            "m_bHideHood": 1, "m_bHideHelm": 1, "m_bHideCloak": 1, "m_WearPreference": 3,
+            "m_WieldPreference": 2, "bogus": 1}), "Tester", args)
+        self.assertNotIn("bogus", p.pawn_prefs)
+        p.movement_mode = 1
+        values = zone.player_pawn_values(p, (0.0, 0.0, 0.0))
+        self.assertEqual(values["m_WearPreference"], 3)
+        self.assertTrue(values["bIsWalking"])
+        pm = zone.package_map(types.SimpleNamespace(client_dir="..", package_maps={}), "chunk_n19_12")
+        names = {f.name for f in pm.net_cache.class_cache("SGOPCPawn")["all"]}
+        for prop, _, _ in login_stub.PAWN_PREFS.values():
+            self.assertIn(prop, names)
+        self.assertIn("bIsWalking", names)
 
     def test_every_saved_field_is_read(self):
         """Each field the server saves (save_character_field / progress) is read back somewhere."""
