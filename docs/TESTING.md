@@ -32,7 +32,8 @@ What made the difference (found with cProfile under load): packet bits are packe
 | Bots | Where | Steady ping median / p95 |
 |---|---|---|
 | 100 | crowd | 10.5 ms / 11.4 ms |
-| 150 | crowd | 3.2 s / 4.1 s (saturated) |
+| 150 | crowd | 3.2 s / 4.1 s (saturated); 10.5 ms / 12.4 ms once crowds thin out above 25 nearby players instead of 40 |
+| 200 | crowd | 7.8 s / 13.4 s (saturated) |
 | 150 | spread | 10.6 ms / 11.2 ms |
 | 200 | spread | 10.6 ms / 1.4 s (near the limit) |
 | 250 | spread | 4.9 s / 11.4 s (saturated) |
@@ -41,7 +42,7 @@ What changed since the first round: a resend storm was found and fixed (an overl
 
 The load test itself had to behave like a real client before the numbers meant anything: one account per bot (one shared account listed hundreds of characters on every login), acknowledgements batched every 100 ms (one per packet flooded the server with acknowledgements), and resends of the bots' own packets. The server logs `!!! load` (how late pings arrive, packets read, idle time) and `!!! network` (send buffer full, client packets after a lost one) when it falls behind.
 
-So one zone process holds about 200 moving players spread over a chunk, or about 100 in one spot. Beyond that it needs a faster encoder (the per-bunch Python work dominates) or more processes (one per chunk).
+So one zone process holds about 200 moving players spread over a chunk, or about 150 in one spot. Beyond that it needs a faster encoder (the per-bunch Python work dominates) or more processes (one per chunk).
 
 **Packet loss.** `--drop 0.1` makes every bot ignore 10% of the server's reliable packets (no acknowledgement, as if lost; bots deliver in order and send Ack1 after a gap, like UdpLibrary). With the server's resends (docs/PROTOCOL.md) 10 of 10 bots logged in (login median 2.9 s instead of 0.1 s) and the ping median stayed at 12 ms (p95 372 ms); at 2% loss p95 is 181 ms.
 

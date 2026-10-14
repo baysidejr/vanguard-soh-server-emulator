@@ -101,7 +101,7 @@ Each player needs their own Vanguard client (version 1.324.1.139565) with this r
 ## How many players
 
 One server process handles one shard. Measured with `tools/loadtest.py` on a desktop PC
-(docs/TESTING.md): about 200 players moving at the same time when spread over a chunk, about 100
+(docs/TESTING.md): about 200 players moving at the same time when spread over a chunk, about 150
 all in one spot, with pings around 10 ms. Logging in hundreds of players within seconds takes
 longer than that (each login opens every nearby player and NPC for the newcomer).
 

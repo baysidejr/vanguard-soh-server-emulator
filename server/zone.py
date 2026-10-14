@@ -536,7 +536,7 @@ MAX_BROADCAST_SPEED = 1200.0    # units/s; running is ~440
 # every 3rd, beyond that every 10th (once a second).
 MOVE_RATE_TIERS = ((4000.0, 1), (12000.0, 3))
 MOVE_RATE_FAR = 10
-CROWD_FULL_RATE = 40            # up to this many players nearby, everyone gets every update
+CROWD_FULL_RATE = 25            # up to this many players nearby, everyone gets every update
 
 
 def broadcast_movement(state, args, player, loc, view):
