@@ -67,6 +67,7 @@ import zone
 PROTOCOL_VERSION = 3
 WORLD_NAME = "Stub World"
 MAX_RAW_PACKET = 1460
+CLIENT_IDLE_SECONDS = 180  # a connection silent this long is gone
 MIN_RAW_PACKET = 64       # a smaller claimed size would leave no room for data (endless fragmenting)
 
 # Cooked packet types handled by FUN_00c01e70 (byte after the leading 00).
@@ -3436,6 +3437,13 @@ def world_tick(zone_sock, clients, args):
     """Once a second: per player auto-attack swings and regeneration; per world
     NPC respawns (shown to everyone in the chunk)."""
     now = time.time()
+    for key, state in list(clients.items()):
+        # Every live connection sends keep-alives; a silent one (or a connect that never
+        # went further) is dropped so the table can't grow without limit.
+        if now - state.setdefault("last_seen", now) > CLIENT_IDLE_SECONDS:
+            clients.pop(key, None)
+            if key[0] == "ZONE" and state.get("player") is not None and not state.get("closed"):
+                leave_world(state, args)
     for (server, addr), state in list(clients.items()):
         player = state.get("player")
         if server != "ZONE" or player is None or "ue" not in state or state.get("handoff"):
