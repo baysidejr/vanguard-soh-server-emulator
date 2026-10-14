@@ -23,7 +23,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
 2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 531 of 720 sent or not needed (73%); open: 125 optional features, 64 undecoded handlers.
-3. **Race and class pass in game:** races done (all 19 draw and join; docs/TESTING.md). Classes next: each of the 15, first four abilities, logs.
+3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Cosmetic: run-together ability names from client tags; the crowdsourced ability names could fix them (needs a decision on using archive names).
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
 5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
    - **Decision needed (user):** accounts. The client logs in with a launcher session token (field 2 of PacketLoginRequest, `--sessionid`), and every connection sees every character. Options: tie characters to the token, or add a username/password store (the client also supports `/login user pass world`). Either changes how the two test clients log in, so it waits for the user.
@@ -39,6 +39,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Class pass: all 15 classes entered the world and used their first four abilities; no server errors.
 - 2026-10-14: Race pass: all 19 races shown on character select and entered the world, no server errors (Orc logs missing half-orc skeletons from the client itself). Encounter ownership (0x567) sent on first damage. 541 of 720 client messages now sent or not needed (75%).
 - 2026-10-14: More invented server texts replaced by the client's own messages: ability failures (0x241: not refreshed, stunned, requires a chain, no valid target, not enough energy / endurance), auto-attack refusals (0x244), item errors (0x1e4: no room, cannot equip). Code tables in docs/EFFECTS.md and zone.py. The character sheet avoidance block (0x11e) is now sent; where the client shows it was not found.
 - 2026-10-14: Finished categorizing every unsent server message: 441 sent, 90 not needed (variant 33, content 35, no-op 10, debug 7, blocked 5), 125 optional, 64 undecoded. Measured coverage 73%.

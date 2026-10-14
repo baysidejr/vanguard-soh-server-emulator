@@ -22,7 +22,7 @@ Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a p
 ## Race and class pass
 
 - **Races (2026-10-14, all 19):** a Warrior of each race was shown on the character select screen and entered the world (`racepass.sh` in the work folder: set the race, start server and client, screenshot the preview, press Play, scan both logs). Every race drew correctly and joined; no server tracebacks. Orc (race 11) adds client warnings that `UEM_halfOrc_F_char` / `UEM_halfOrc_M_char` skeletons are missing: the client asks for the half-orc package, which the shipped client lacks. The Orc still draws.
-- **Classes:** see below once run.
+- **Classes (2026-10-14, all 15):** each class entered the world and used its first four hotbar abilities on the Canyon Widow (`classpass.sh`). No server tracebacks and no new client errors for any class. Many class ability names show run together (for example "Bladedancersfocus I", "Lightningstrike I", "Unionofthought I"): the server builds them from the client's internal tags, which have no word breaks. The crowdsourced ability list has the spaced names for many of them.
 
 ## Blocked
 
