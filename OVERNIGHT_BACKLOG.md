@@ -25,6 +25,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Full in-game sweep of the 288 ordinary slash commands not covered before (scratchpad typeall.ps1, numbered say markers tie log lines to commands). The only new request was /hintsreset 0x182 (hint content); the rest were already handled or listed. Note: sending Esc between commands opens the Main Menu, so the sweep no longer does.
 - 2026-10-14: 0x117 is the Options window's "Auto Defensive Target Me" checkbox ({u8}, sent on change); now saved per character (auto_def_target_me). What the server should do with it (pick the player as the defensive target of beneficial spells?) is not known.
 - 2026-10-14: Tick-driven client requests decoded statically: 0x24a "is this expired effect still on?" (answered: 0x23b if gone, 0x23c timer if running; unit-tested), 0x3a0 encounter entity gone, 0x18a getting up from feign death (first read as standing from /sit; a memory check showed the sit flags are elsewhere, so that change was reverted), 0x167 dialog "summon my corpse" option. Notices are quiet in the log. /sit and /stand now log a line.
 - 2026-10-14: 0x35e identified as the client's faction info request (FUN_004cc5d0, for faction ids it has no row for); answered with 0x35b from factions.json. Unit-tested.
