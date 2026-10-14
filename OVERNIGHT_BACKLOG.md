@@ -16,6 +16,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Blocked (needs the user or data)
 
+- Client-side furniture placement: dragging furniture onto the cottage floor gives the client's delete prompt, because FUN_004771d0 finds no house-interior zone (type byte +0x388 == 3, linked at +0xa8 to the house object) at the drop point. Needs a runtime look at the cottage prefab's zones. Right-click placement still works.
 - Griffon flight take-off: the take-off request (client event 0x5a) never reaches the server even with a scripted running double jump; chain documented in docs/MOUNTS.md. Needs a runtime breakpoint (or a person to try by hand).
 - Psionic points, civic stats display: no window in the shipped UI (`/citystatus` lists civic stats in chat).
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
@@ -24,6 +25,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: The client's own furniture placement answered: 0x461 {item handle} -> 0x459 {wstr prefab, f32 1.0} ghost preview, 0x46d {handle, building, x, y, z, yaw, pitch, roll} (wire order from the field registration FUN_00473be0) places the fixture at the clicked pose if it is inside the house. Unit-tested. Live, the client never sends 0x461 (see Blocked). Found that 0x461 comes from dragging a bag item onto the world, not from a menu (no menu adds option 0x149).
 - 2026-10-14: Callers followed up several levels (scratchpad reach2.py): 0x18f and 0x1e7 are unreachable too (their only caller chains end in functions nothing calls, jumps to or points at), marked in docs/CLIENT_REQUESTS.md. Other candidates from that pass were false positives from bad function-start guesses and were left alone.
 - 2026-10-14: /toggleeppearancegear (0x115) answered with 0x116 {bool} and saved (app_gear_visible). Visible effect not identified.
 - 2026-10-14: Deconstruct requests (0x58e/0x58f) answered with 0x590 code -1, "<item> can not be deconstructed." (found by pairing request ids with the next s2c id). Reply checked live.

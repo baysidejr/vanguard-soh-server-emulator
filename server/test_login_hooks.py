@@ -87,6 +87,66 @@ class ParleyStrategyTests(unittest.TestCase):
         self.assertTrue(sent)
 
 
+class FixturePlacementTests(unittest.TestCase):
+    """The client's own placement: 0x461 -> 0x459 ghost preview -> 0x46d with the clicked pose."""
+    def run_events(self, events, pos=(1000.0, 2000.0, 300.0)):
+        import struct
+        import housing
+        sent, placed = [], []
+        player = zone.Player(name="Owner", char_id=1, level="chunk_n19_12")
+        player.items = [[7, "Oak Table", 1, 1, 1], [8, "Rations", 1, 1, 2]]
+        player.live_position = pos
+        state = {"player": player, "send": sent.append}
+        args = mock.Mock()
+        args.content.plots = {"101": {"chunk": "chunk_n19_12", "loc": [1000.0, 2000.0, 0.0],
+                                      "buildings": [{"type": 5, "fixtures": 20}]}}
+        args.content.item = lambda name: {"fixture": "Table01"} if name == "Oak Table" else {}
+        db = {"101": {"owner": "Owner", "building": 5}}
+        with mock.patch.object(login_stub, "ARGS", args), \
+                mock.patch.object(login_stub, "load_housing", lambda: db), \
+                mock.patch.object(login_stub, "save_housing", lambda d: None), \
+                mock.patch.object(login_stub, "take_items", lambda *a: placed.append(a[1])), \
+                mock.patch.object(login_stub, "broadcast_object", lambda s, o, close=False: None), \
+                mock.patch.object(login_stub, "build_system_text", lambda text, channel=0: text):
+            for event, data in events:
+                login_stub.handle_housing_event(state, event, data)
+        return sent, db["101"].get("fixtures", []), placed, struct, housing
+
+    def spawn(self, handle, x, y, z, yaw):
+        import struct
+        return struct.pack("<iifffiii", handle, 0, x, y, z, yaw, 0, 0)
+
+    def test_preview_then_place_at_clicked_pose(self):
+        import struct
+        import housing
+        sent, fixtures, placed, _, _ = self.run_events([
+            (housing.PLACE_REQUEST, struct.pack("<i", 7)),
+            (housing.SPAWN_FIXTURE, self.spawn(7, 1100.0, 2050.0, 120.0, 0x4000))])
+        self.assertEqual(sent[0], housing.placement_preview("Table01"))
+        self.assertEqual(len(fixtures), 1)
+        self.assertEqual(fixtures[0]["loc"], [1100.0, 2050.0, 120.0])
+        self.assertEqual(fixtures[0]["yaw"], 0x4000)
+        self.assertEqual(placed, ["Oak Table"])
+
+    def test_refusals(self):
+        import struct
+        import housing
+        # not a fixture item: no preview
+        sent, fixtures, _, _, _ = self.run_events([(housing.PLACE_REQUEST, struct.pack("<i", 8))])
+        self.assertEqual((sent, fixtures), ([], []))
+        # outside the house
+        sent, fixtures, _, _, _ = self.run_events([(housing.PLACE_REQUEST, struct.pack("<i", 7))], pos=(9000.0, 0.0, 0.0))
+        self.assertEqual(sent, ["You can only place items when in your house."])
+        # a click with no preview pending, or outside the house
+        _, fixtures, _, _, _ = self.run_events([(housing.SPAWN_FIXTURE, self.spawn(7, 1100.0, 2050.0, 120.0, 0))])
+        self.assertEqual(fixtures, [])
+        sent, fixtures, _, _, _ = self.run_events([
+            (housing.PLACE_REQUEST, struct.pack("<i", 7)),
+            (housing.SPAWN_FIXTURE, self.spawn(7, 5000.0, 2050.0, 120.0, 0))])
+        self.assertEqual(fixtures, [])
+        self.assertEqual(sent[-1], "You can only place items when in your house.")
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json

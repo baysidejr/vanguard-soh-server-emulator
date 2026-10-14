@@ -56,6 +56,25 @@ CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPE
 # fixtures and chests included) goes to that player.
 TRANSFER = 0x5C6
 CLIENT_EVENTS = CLIENT_EVENTS + (TRANSFER, CHEST_MOVE)
+# The client's own furniture placement: the bag menu's Place Fixture (FUN_00480b30, only inside a
+# house) sends 0x461 {i32 item handle}; the server answers 0x459 MsgStringAndFloat {wstr prefab,
+# f32} (FUN_0047d250), which spawns a local ghost of the prefab under the cursor. A left click
+# sends 0x46d MsgSpawnFixture {i32 item handle, i32 building id, f32 x, y, z, i32 yaw, pitch,
+# roll} (FUN_0047da50; fields registered by FUN_00473be0) with the ghost's pose.
+PLACE_REQUEST, SPAWN_FIXTURE, PLACEMENT_PREVIEW = 0x461, 0x46D, 0x459
+CLIENT_EVENTS = CLIENT_EVENTS + (PLACE_REQUEST, SPAWN_FIXTURE)
+
+
+def placement_preview(prefab, scale=1.0):
+    return _event(PLACEMENT_PREVIEW, _w(prefab) + struct.pack("<f", scale))
+
+
+def parse_spawn_fixture(data):
+    """(item handle, building id, (x, y, z), yaw) from a 0x46d payload, or None if short."""
+    if len(data) < 32:
+        return None
+    handle, building, x, y, z, yaw = struct.unpack_from("<iifffi", data)
+    return handle, building, (x, y, z), yaw
 
 
 def chest_move(items, handle, count, slot, capacity, new_handle):

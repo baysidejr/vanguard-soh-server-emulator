@@ -1816,12 +1816,14 @@ def broadcast_object(state, obj, close=False):
             s["send"](zone.open_placed_object(s, ARGS, obj))
 
 
-def place_fixture(state, item):
+def place_fixture(state, item, pose=None):
     """Right-click a furniture item (items.json "fixture": prefab) inside your house: it is
-    placed where you stand, facing your way."""
+    placed where you stand, facing your way. With the client's placement ghost (0x46d), `pose`
+    is the clicked ((x, y, z), yaw), which must be inside the house."""
     player, send = state["player"], state["send"]
     pid, plot = my_house_here(player)
-    if pid is None:
+    if pid is None or (pose is not None and math.hypot(pose[0][0] - plot["loc"][0], pose[0][1] - plot["loc"][1])
+                       > housing.HOUSE_RADIUS):
         send(build_system_text("You can only place items when in your house.", SYSTEM_TEXT_ERROR))
         return
     db = load_housing()
@@ -1835,6 +1837,8 @@ def place_fixture(state, item):
     z = pos[2] - 90.0                    # the pawn stands its collision height above the floor
     f = {"id": st.get("next_fixture", 1), "item": item[1], "prefab": ARGS.content.item(item[1])["fixture"],
          "loc": [pos[0], pos[1], z], "yaw": int(getattr(player, "yaw", 0) or 0)}
+    if pose is not None:
+        f["loc"], f["yaw"] = list(pose[0]), pose[1] & 0xFFFF
     if ARGS.content.item(item[1]).get("chest"):
         f["items"] = []
     st["next_fixture"] = f["id"] + 1
@@ -2165,6 +2169,24 @@ def handle_housing_event(state, event, data):
         return
     if event == housing.TRANSFER:
         transfer_plot(state, social.read_name(data).strip())
+        return
+    if event in (housing.PLACE_REQUEST, housing.SPAWN_FIXTURE):
+        handle = vals[0] if vals else None
+        item = next((i for i in player.items if i[0] == handle), None)
+        prefab = ARGS.content.item(item[1]).get("fixture") if item else None
+        if event == housing.PLACE_REQUEST:
+            state.pop("placing", None)
+            if prefab is None:
+                return
+            if my_house_here(player)[0] is None:
+                send(build_system_text("You can only place items when in your house.", SYSTEM_TEXT_ERROR))
+                return
+            state["placing"] = handle
+            send(housing.placement_preview(prefab))
+            return
+        spawn = housing.parse_spawn_fixture(data)
+        if prefab is not None and spawn is not None and state.pop("placing", None) == handle:
+            place_fixture(state, item, (spawn[2], spawn[3]))
         return
     if event in (housing.CHEST_MANAGE, housing.CHEST_PERMISSION) and vals:
         # 0x467 carries chest id -1: it is the chest whose Manage Chest window is open.
