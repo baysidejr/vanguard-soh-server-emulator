@@ -826,6 +826,15 @@ def apply_buff(state, player, name, spec, now):
     send(zone.zone_event(0x2D4, vgmsg.stat_update(vgmsg.STAT_IDS[stat], player.stats[stat], base=base)))
 
 
+def effect_query(state, eid, now):
+    """0x24a: the client's timer for effect eid ran out but the effect is still shown."""
+    e = next((x for x in getattr(state["player"], "effects", []) if x["id"] == eid), None)
+    if e is None:
+        state["send"](effects.effect_remove(eid))
+    elif "ends" in e:
+        state["send"](effects.effect_timer(eid, max(0.0, e["ends"] - now), e.get("duration", 0)))
+
+
 def apply_dot(state, player, npc, name, spec, now):
     if random.random() < effects.RESIST_CHANCE_NPC:
         state["send"](effects.resisted(npc.entity_id, name, name, you=False))
@@ -8900,6 +8909,7 @@ def handle_message(sock, server, addr, state, payload, args):
             # /sit, /stand: u8 1/0. Pawn m_bResting = 1 sits (verified live).
             player = state["player"]
             player.resting = bool(payload[10]) if len(payload) > 10 else False
+            print(f"  >>> ZONE {'sit' if player.resting else 'stand'}")
             pawn_props_changed(state, {"m_bResting": int(player.resting)})
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x40B and state.get("player"):
             # /camp: 0x40b starts ("It will take 20 seconds..."), 0x40e {i32 seconds}
@@ -8953,6 +8963,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 for m in combat_results(state, args, player, lines, None, player.health > 0,
                                         not player.auto_attack):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.EXPIRED_QUERY and state.get("player") and len(payload) >= 14:
+            effect_query(state, struct.unpack_from("<i", payload, 10)[0], time.time())
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == faction.INFO_REQUEST and state.get("player") and len(payload) >= 14:
             faction_info_request(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == HOTKEYS_REQUEST and state.get("player"):
@@ -9120,8 +9132,12 @@ def try_delete_character(sock, addr, state, payload):
 # crafting list and filter shown, 0x10e /location, 0x127 NPC dialog built, 0x137 journal
 # tracking changed, 0x17e / 0x17f / 0x183 tutorial closed, 0x189 corpse list closed, 0x27a an
 # ability's impact frame on an entity (the console command active_ability_self_impact_on, run by
-# animation notifies during combat; this server applies damage at use, not at impact).
-CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x17F, 0x183, 0x189, 0x27A}
+# animation notifies during combat; this server applies damage at use, not at impact), 0x18a
+# getting up from feign death (pawn +0x3e9, set while m_bIsDead +0x3e8; FUN_009db5a0 /
+# FUN_005eef50; no feign-death ability here yet), 0x3a0 {eid64, bool8} the encounter display's
+# entity is gone client-side (FUN_004b3bd0; the client clears the display itself).
+CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x17F, 0x183, 0x189, 0x27A,
+                  0x18A, 0x3A0}
 
 
 def print_client_log(payload):

@@ -26,6 +26,7 @@ Real ability data (costs, damage, durations) was server-side. The emulator guess
 | `0x23a`* | `i32 id, wstr name, wstr desc, u8, i32 icon, u8, i32 seconds left, bool8 show, bool8 no expiry, bool8 harmful, bool8 short list, f32 duration` | adds an effect to the player's effects window (dispatcher `FUN_00467f80`) |
 | `0x23b`* | `i32 id` | removes it (the client never expires effects itself) |
 | `0x23c` | `i32 id, i32 left, i32 duration, bool8` | timer update (sent every 5 s) |
+| `0x24a` (C->S) | `i32 effect id` | the client's effect timer ran 2 s (and again 12 s) past the end and the effect is still shown (effects tick FUN_00463bd0, manager DAT_0146399c). The server answers 0x23b if the effect is gone, or 0x23c with the time left. Unit-tested |
 | `0x3c5`* | `i32 id, wstr name, wstr desc, i32 icon, bool8 show, bool8 debuff, eid64 caster` | adds an effect to the target window (the current target's list: `0x3c9` clears it, and the server resends on retarget) |
 | `0x3c6` | `eid64 target, i32 id` | removes a target effect |
 | `0x2d4`* | MsgStatUpdate with current = base + bonus | stat buff shown in the character window |

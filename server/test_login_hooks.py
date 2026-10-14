@@ -396,6 +396,20 @@ class FactionInfoRequestTests(unittest.TestCase):
         self.assertEqual(sent, expected)
 
 
+class EffectQueryTests(unittest.TestCase):
+    def test_gone_running_and_untimed(self):
+        import effects
+        sent = []
+        player = zone.Player(name="T", char_id=1, level="c1")
+        player.effects = [{"kind": "buff", "id": 5, "ends": 110.0, "duration": 30},
+                          {"kind": "incoming", "id": 6}]
+        state = {"player": player, "send": sent.append}
+        login_stub.effect_query(state, 9, 100.0)              # not active: remove it
+        login_stub.effect_query(state, 5, 100.0)              # still running: its timer
+        login_stub.effect_query(state, 6, 100.0)              # no timer: nothing
+        self.assertEqual(sent, [effects.effect_remove(9), effects.effect_timer(5, 10.0, 30)])
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json

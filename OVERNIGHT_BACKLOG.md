@@ -25,6 +25,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Tick-driven client requests decoded statically: 0x24a "is this expired effect still on?" (answered: 0x23b if gone, 0x23c timer if running; unit-tested), 0x3a0 encounter entity gone, 0x18a getting up from feign death (first read as standing from /sit; a memory check showed the sit flags are elsewhere, so that change was reverted), 0x167 dialog "summon my corpse" option. Notices are quiet in the log. /sit and /stand now log a line.
 - 2026-10-14: 0x35e identified as the client's faction info request (FUN_004cc5d0, for faction ids it has no row for); answered with 0x35b from factions.json. Unit-tested.
 - 2026-10-14: Combat sweep (scratchpad combat.sh: real fight with abilities, loot) found 0x27a sent at every ability impact (the console command active_ability_self_impact_on from animation notifies). Documented. It and the other answerless client notices (0x6c, 0x71, 0x104, 0x105, 0x10e, 0x127, 0x137, 0x17e, 0x17f, 0x183, 0x189) are now kept out of the "client event" log lines, so sweeps show only real gaps.
 - 2026-10-14: Scanned every FUN_00409210 (generic send) call site for its event id: seven ids the server never mentioned. 0x10b (harvest reward item records) is now answered from the bags (unit-tested); /location 0x10e is a notice; /copycharacter, /aggro, /invulnerability and /attach are developer or GM tools. All listed in CLIENT_REQUESTS.md.

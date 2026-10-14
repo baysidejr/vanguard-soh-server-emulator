@@ -59,6 +59,12 @@ def effect_add(eid, name, desc, icon, left, duration, harmful=False):
                   + struct.pack("<BiBiBBBBf", 0, icon, 0, int(left), 1, 0, int(harmful), 0, float(duration)))
 
 
+# The effects manager's tick (FUN_00463bd0, manager DAT_0146399c) counts each effect's time down
+# and, when one is 2 s (and again 12 s) past its end without a removal, asks about it:
+# 0x24a {i32 effect id}. The answer is the removal (0x23b) or, if it still runs, a timer (0x23c).
+EXPIRED_QUERY = 0x24A
+
+
 def effect_remove(eid):
     return _event(0x23B, struct.pack("<i", eid))
 

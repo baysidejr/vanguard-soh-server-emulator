@@ -30,20 +30,19 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x128` |  | `0x54abfe` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x129` |  | `0x54cc16` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking. No payload; sent when travel-journal tracking changes. Tracking is client-only (docs/TRAVEL.md), so nothing to answer. |
-| `0x167` |  | `0x4c47e6` |  |
+| `0x167` |  | `0x4c47e6` | no payload: the NPC dialog option of type 11, "summon my corpse" (FUN_004c4640 case 11, docs/QUESTS.md). Only sent if an NPC's dialog offers that option, which is server content (no such NPC yet) |
 | `0x17e` |  | `0x5d9145` | tutorial popup closed (ui `tutorial_done`). Tutorials are server content (docs/CONTENT_EDITOR.md); no reply needed |
 | `0x17f` |  | `0x5d9155` | tutorial popup closed with "do not show again" (ui `tutorial_done`). Tutorials are server content |
 | `0x183` |  | `0x68b207` | death-penalty tutorial closed (ui `death_penalty_tutorial_done`, docs/DEATH.md). Tutorials are server content |
 | `0x189` |  | `0x4bfd97` | no payload; Done on the altar's corpse list (ui `corpse_list_done`, docs/DEATH.md). No reply needed |
-| `0x18a` |  | `0x5de743` `0x5ef0f2` |  |
+| `0x18a` |  | `0x5de743` `0x5ef0f2` | no payload: getting up from feign death. While dead-feigning (pawn +0x3e9, with +0x3e8 set), moving or /sit sets +0x3eb (FUN_009db5a0, FUN_005fdfb0) and the effects tick (FUN_005eef50) clears it and sends 0x18a. Notices 93 "You may not do that while feigned." and 334 "You must stand up to do this." belong to it. No feign-death ability exists here yet (content), so it is ignored quietly |
 | `0x18f` |  | `0x4439b6` | **Unreachable:** the sender's only caller chain (FUN_004439f0 <- FUN_00445610) ends in a function nothing calls or points to. |
 | `0x1e7` |  | `0x4d1b9b` | **Unreachable:** sent (no payload, only when grouped) by FUN_004d1b90, whose only caller is a wrapper (FUN_005de750) nothing calls or points to. |
 | `0x214` |  | `0x5de6e5` | **Unreachable:** nothing calls or points to the sending function. |
-| `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
 | `0x250` | `/psioniccancelconcentration` | `0x589f16` | {i32}: the psionic pool, which has no window in the shipped UI (docs/FORMS.md) |
 | `0x27a` |  | `0x433a1e` | {u64 entity id}: the console command `active_ability_self_impact_on <hi> <lo>` (FUN_004107e6 area), run by animation notifies when an ability's impact frame lands. Seen 19 times in one fight (the target and the player). This server applies damage at use, so it is ignored quietly (`CLIENT_NOTICES`) |
 | `0x280` |  | `0x432e9d` | **Unreachable:** nothing calls or points to the sending function. |
-| `0x3a0` |  | `0x4a62c6` |  |
+| `0x3a0` |  | `0x4a62c6` | {eid64, bool8 1}: the encounter display's entity no longer exists client-side (combat-group tick FUN_004b3bd0); the client clears the display itself (FUN_004acd90, the 0x3a2 handler). A notice; ignored quietly |
 | `0x45f` |  | `0x47e69f` |  |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
