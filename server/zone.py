@@ -1339,6 +1339,9 @@ def player_pawn_values(player, location, yaw=0):
         "bSimulateGravity": True,
         "m_iRaceId": player.race,
         "m_Gender": getattr(player, "gender", 0),   # 0 male, 1 female (create request raw +6)
+        # EntityTypes 0x20 = a player: the client only takes a pawn with 0x20 or 0x1000 as
+        # a defensive target (FUN_004cfb90: /targetself, F1, clicking a groupmate).
+        "EntityTypes": 0x20,
         "Health": 100,
         "m_PlayerDisplayName": player.name,
         **getattr(player, "title_values", {}),
