@@ -7196,6 +7196,9 @@ def dev_command(text, player=None):
     if words[0] == "rezme" and player:
         # !rezme: Veyla offers to resurrect you (testing the dialog).
         return [("rezme",)]
+    if words[0] == "die" and player:
+        # !die: drop dead on the spot (testing death, release and resurrection).
+        return [("die",)]
     if words[0] == "tombstone" and player:
         # !tombstone: leave your tombstone at your feet (testing).
         return [("tombstone",)]
@@ -7681,6 +7684,12 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "parleywin":
                         if state.get("parley"):
                             finish_parley(state, state["parley"], "won")
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "die":
+                        p = state["player"]
+                        p.health = 0
+                        for dm in player_death(state, args, p):
+                            send_message(sock, addr, state, dm)
                         continue
                     elif isinstance(m, tuple) and m[0] == "rezme":
                         offer_rez(state, "Veyla Brightsteel", "Rebirth I")

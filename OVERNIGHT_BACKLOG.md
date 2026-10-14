@@ -18,7 +18,6 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 ## Blocked (needs the user or data)
 
 - Griffon flight take-off (needs a hand-pressed double jump).
-- Psionicist form recovery bar on screen (needs a person to watch it).
 - Psionic points, civic stats display: no window in the shipped UI.
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
@@ -26,6 +25,8 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Form recovery bar confirmed on screen with a Psionicist test character; form lost on death and re-applied on release verified live. `!die` dev command.
+- Parked: item links in chat (/itemlinkrequest 0x158 {wstr link}): needs the chat markup for SGOUITagItemLink and the server's reply format.
 - 2026-10-13: /forcecombatstance (0x571) and /applyformondeath (0x5b2); death now ends the active form.
 - 2026-10-13: /decksave, /deckload, /deckclear (0x33a-0x33c) diplomacy deck presets, verified live. docs/CLIENT_REQUESTS.md now names the slash command behind each unhandled request.
 - 2026-10-13: Crafting items use the client's Crafting Resource / Crafting Component item types instead of misc.

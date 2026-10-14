@@ -87,7 +87,7 @@ The unmodified client, talking only to this emulator:
 - [ ] Doors: none exist in the shipped maps or our cottage (checked; see HOUSING.md). The protocol to open one is worked out for when a building with a door is used
 - [ ] Flying: griffon/wyrm/wyvern mounts render, but taking off (second jump in the air) is untested by hand; mount barding
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
-- [ ] Combat-form ability restrictions (the form recovery bar is sent but not confirmed on screen)
+- [ ] Combat-form ability restrictions (which abilities each form allows is server data; every ability works in every form)
 - [ ] The civic stats display (no window in the shipped UI)
 - [ ] Real game data: every item, mob, quest, ability number and reward here is a placeholder until the content editor (docs/CONTENT_EDITOR.md)
 

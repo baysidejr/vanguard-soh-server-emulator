@@ -40,8 +40,10 @@ Read in the client [O], not implemented: the shipped UI files (VGUIAssets) conta
 
 Not done: per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.
 
-## Forms and death (verified live 2026-10-13 for the command; death path unit-tested)
+## Forms and death (verified live 2026-10-13)
 
-`/applyformondeath [on|off]` sends **0x5b2 {u8 on}** (FUN_00611610) and the client prints "Your forms will (NOT) automatically re-apply after death." The option exists because dying ends the active form. The server now does that (`drop_form_on_death`: the form's stance ends and the Forms bar shows none) and, with the option on (saved as `apply_form_on_death`), puts the form back on release or resurrection.
+`/applyformondeath [on|off]` sends **0x5b2 {u8 on}** (FUN_00611610) and the client prints "Your forms will (NOT) automatically re-apply after death." The option exists because dying ends the active form. The server now does that (`drop_form_on_death`: the form's stance ends and the Forms bar shows none) and, with the option on (saved as `apply_form_on_death`), puts the form back on release or resurrection. Seen live on a Psionicist: "You are no longer in a combat form!", "Mindset of Focus wears off." at death, then "You assume Mindset of Focus." after Release to Bind. (`!die` drops you dead for such tests.)
+
+**Recovery bar seen live (2026-10-13):** right after a change, a dark overlay covers the bottom of every form icon and the chosen one gets a blue ring.
 
 `/forcecombatstance [on|off]` sends **0x571 {u8 on}** (FUN_00609010). The server keeps `m_CombatState` = 1 (weapons drawn, ready pose) until it is turned off, whatever auto-attack does. Verified live: the character takes the combat pose and chat says "Combat stance forced on."
