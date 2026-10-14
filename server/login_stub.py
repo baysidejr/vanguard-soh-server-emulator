@@ -1239,6 +1239,10 @@ def rename_character(state, data):
 # does the same for "unlock" (mode 6, 0x5e5). No reply message is known: the server resends
 # the item and says what happened.
 UNBIND, UNBIND_TEMPLATE = 0x5E3, 1464359
+# The client's own bind messages, {i32 item handle} (it looks the item up and words the line by
+# its flags): 0x1e3 "%s has been bound to you and will remain with you even through death."
+# (FUN_005069b0), 0x5e4 "%s has been unbound from you and will be lost upon death." (FUN_00506b90).
+ITEM_BOUND, ITEM_UNBOUND = 0x1E3, 0x5E4
 
 
 def unbind_item(state, target, tool):
@@ -1257,7 +1261,7 @@ def unbind_item(state, target, tool):
         # (The client itself refuses worn items: "Cannot unbind an equipped item.")
         send(zone.zone_event(0x197, vgmsg.inventory_item(item[0], item[1], item[4], zone.item_icon(item[1], item[2]),
                                                          item[3], **zone.item_equip_fields(item[1]))))
-        send(build_system_text(f"{item[1]} is no longer bound to you.", SYSTEM_TEXT_WHITE))
+        send(zone.zone_event(ITEM_UNBOUND, struct.pack("<i", item[0])))
 
 
 # The client's own GM commands (only with --dev-commands): /chunk <name | x y> loads the chunk
@@ -8821,8 +8825,7 @@ def handle_message(sock, server, addr, state, payload, args):
                         save_character_field(player.name, "bound", sorted(player.bound))
                         worn = next((e for e in player.equipment if e[0] == handle), None)
                         if worn:
-                            send_message(sock, addr, state, build_system_text(
-                                f"{worn[1]} is now bound to you.", SYSTEM_TEXT_WHITE))
+                            send_message(sock, addr, state, zone.zone_event(ITEM_BOUND, struct.pack("<i", handle)))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 merchant.REQ_OPEN, merchant.REQ_BUY, merchant.REQ_SELL, merchant.REQ_CLOSE,
                 merchant.REQ_CLOSE2, merchant.REQ_BUYBACK):
