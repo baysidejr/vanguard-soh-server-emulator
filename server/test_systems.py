@@ -993,5 +993,12 @@ class CombatInfoTests(unittest.TestCase):
         self.assertEqual((parry, block), (0.0, 0.0))          # no weapon, no shield
 
 
+class OwnershipTests(unittest.TestCase):
+    def test_layout(self):
+        npc = types.SimpleNamespace(entity_id=0x2000008)
+        m = combat.ownership(npc, 0x1336F1A)
+        self.assertEqual(struct.unpack("<HIIQQB", m), (2, 0x567, 17, 0x2000008, 0x1336F1A, 0))
+
+
 if __name__ == "__main__":
     unittest.main()

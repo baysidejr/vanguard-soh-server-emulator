@@ -938,6 +938,16 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     if was_alive and player.health == 0:
         player.auto_attack = False
         out += player_death(state, args, player)
+    if isinstance(npc, combat.Npc) and npc.alive and getattr(npc, "owner", None) is None \
+            and npc.health < npc.max_health \
+            and getattr(npc, "pet_owner", None) is None:
+        g = getattr(player, "group", None)
+        npc.owner = g.id if g else player.char_id      # the first player (or group) to hurt it
+        msg = combat.ownership(npc, npc.owner)
+        w = state.get("world")
+        if w is not None:
+            w.broadcast(lambda s: msg, exclude=state)
+        out.append(msg)
     if npc:
         out.append(combat.target_health(npc))
         if not npc.alive and not npc.death_shown:

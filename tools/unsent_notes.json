@@ -35,12 +35,12 @@
   },
   "messages": {
     "0x198": [
-      "unknown",
-      "no payload; handler not decoded"
+      "optional",
+      "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
     ],
     "0x1af": [
-      "unknown",
-      "no payload signal"
+      "optional",
+      "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
     ],
     "0x1b1": [
       "optional",
@@ -63,16 +63,16 @@
       "item unequip {3 x i32}; the server resends the item record instead"
     ],
     "0x1bc": [
-      "unknown",
-      "four ints; handler not decoded"
+      "optional",
+      "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
     ],
     "0x1c2": [
       "content",
       "item conversion window (\"Convert %i x %s to:\"); needs conversion recipes"
     ],
     "0x1c3": [
-      "unknown",
-      "u8; handler not decoded (near the conversion messages)"
+      "debug",
+      "item activation result {u8} (\"DEBUG - Item activation succeeded.\")"
     ],
     "0x1c5": [
       "optional",
@@ -99,8 +99,8 @@
       "MsgSingleItemInfo variant"
     ],
     "0x1d8": [
-      "unknown",
-      "i32; handler not decoded"
+      "optional",
+      "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
     ],
     "0x1da": [
       "variant",
@@ -119,8 +119,8 @@
       "item attachment slot (MsgItemAttachSlot); attachments are content"
     ],
     "0x1df": [
-      "unknown",
-      "wstr, i32; handler not decoded"
+      "optional",
+      "container label update {wstr, i32} (InventoryContainerID_)"
     ],
     "0x1e0": [
       "unknown",
@@ -151,8 +151,8 @@
       "i32; handler not decoded"
     ],
     "0x5ae": [
-      "unknown",
-      "two ints; handler not decoded"
+      "optional",
+      "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
     ],
     "0x5af": [
       "unknown",
@@ -243,8 +243,8 @@
       "3 floats; handler not decoded"
     ],
     "0x5e2": [
-      "unknown",
-      "raw payload; handler not decoded"
+      "blocked",
+      "character customization / slot item purchased (store); this server has no store"
     ],
     "0x62a": [
       "unknown",
@@ -471,8 +471,8 @@
       "cast response debug print {i32}"
     ],
     "0x264": [
-      "unknown",
-      "no payload; handler not decoded"
+      "optional",
+      "ability book list refresh (General / Adventuring / Counter / Rescue ability lists)"
     ],
     "0x38b": [
       "optional",
@@ -571,8 +571,8 @@
       "wstr; group handler not decoded"
     ],
     "0x68e": [
-      "unknown",
-      "eid64, u8; group handler not decoded"
+      "optional",
+      "group member list flag {eid64, u8} (GroupMemberList)"
     ],
     "0x690": [
       "optional",
@@ -587,8 +587,8 @@
       "YouJoinedGroup signal; the server joins the player through 0x6bb rows"
     ],
     "0x6aa": [
-      "unknown",
-      "no-payload signal; handler not decoded"
+      "optional",
+      "\"You lost connection with your ...\" banner (group member disconnect)"
     ],
     "0x6b1": [
       "optional",
@@ -607,8 +607,8 @@
       "ability book message; handler not decoded"
     ],
     "0x255": [
-      "unknown",
-      "ability book message; handler not decoded"
+      "optional",
+      "ability book list refresh (General / Adventuring / Counter / Rescue ability lists)"
     ],
     "0x269": [
       "unknown",
@@ -679,12 +679,12 @@
       "diplomacy card info (MsgAbilityParlayCard); the server sends cards with its own messages (docs/DIPLOMACY.md)"
     ],
     "0x21a": [
-      "unknown",
-      "diplomacy card dispatcher; not decoded"
+      "optional",
+      "diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy)"
     ],
     "0x220": [
-      "unknown",
-      "diplomacy card dispatcher; not decoded"
+      "optional",
+      "diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy)"
     ],
     "0x238": [
       "unknown",
@@ -699,20 +699,20 @@
       "parley debug info text"
     ],
     "0x340": [
-      "unknown",
-      "diplomacy records; not decoded"
+      "blocked",
+      "civic diplomacy stats (CivicDiplomacyStats, bDisplayCivicStats); no UI file binds them, so /citystatus lists them in chat"
     ],
     "0x341": [
-      "unknown",
-      "diplomacy records; not decoded"
+      "blocked",
+      "civic diplomacy stats (CivicDiplomacyStats, bDisplayCivicStats); no UI file binds them, so /citystatus lists them in chat"
     ],
     "0x11d": [
       "optional",
       "combat tuning {2 floats}"
     ],
     "0x2d2": [
-      "unknown",
-      "u8; stats handler not decoded"
+      "optional",
+      "attribute list refresh {u8} (PCAttributeList)"
     ],
     "0x2d6": [
       "optional",
@@ -799,20 +799,20 @@
       "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
     ],
     "0x56a": [
-      "unknown",
-      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+      "optional",
+      "mystical particle effect on an entity (FXmystical_IOParticle001fx)"
     ],
     "0x56b": [
       "unknown",
       "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
     ],
     "0x2a9": [
-      "unknown",
-      "quest signal; not decoded"
+      "optional",
+      "active quest list refresh signal (ActiveQuestList)"
     ],
     "0x2c6": [
-      "unknown",
-      "quest i32; not decoded"
+      "optional",
+      "quest details window refresh {i32} (_quest_details_* scroll windows)"
     ],
     "0x2c9": [
       "variant",
@@ -839,8 +839,8 @@
       "learned refining recipe line (\"Refining recipe added:\"); the server uses 0x2ef"
     ],
     "0x2f1": [
-      "unknown",
-      "recipe signal; not decoded"
+      "optional",
+      "recipe tree refresh signal (RefiningRecipeTree, FinishingRecipeTree)"
     ],
     "0x2f2": [
       "variant",
@@ -963,16 +963,16 @@
       "ability examine window {i32}"
     ],
     "0x42e": [
-      "unknown",
-      "i32, f32; not decoded"
+      "optional",
+      "pet ability list updates (PetAbilityList)"
     ],
     "0x434": [
       "content",
       "pet graft slots allowed (PetNumGraftsAllowed, docs/PETS.md)"
     ],
     "0x435": [
-      "unknown",
-      "i32; not decoded"
+      "optional",
+      "pet ability list updates (PetAbilityList)"
     ],
     "0x2ad": [
       "variant",
@@ -1039,8 +1039,8 @@
       "item attach result (\"You have successfully attached a new item!\"); attachments are content"
     ],
     "0x6ee": [
-      "unknown",
-      "brotherhood two ints; not decoded"
+      "optional",
+      "brotherhood member list update {i32, i32} (BrotherhoodMemberList)"
     ],
     "0x4e8": [
       "optional",

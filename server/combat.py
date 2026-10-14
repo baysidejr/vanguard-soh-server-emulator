@@ -636,6 +636,18 @@ def pay_cost(player, refresh):
 ENDURANCE_REGEN = 4          # per second, in and out of combat
 
 
+# Encounter ownership: 0x567 MsgTwoEntityIdsAndBool {eid64 npc, eid64 owner, bool8 damaged by an
+# NPC} (FUN_00549da0). Every client records the owner; the owner's client prints VGClient.int
+# YouHaveEstablishedOwnership ("You have established ownership."), or the group version when the
+# owner id is its group's id; the bool picks the "...but the NPC has been significantly damaged by
+# another NPC" wording.
+OWNERSHIP = 0x567
+
+
+def ownership(npc, owner, damaged_by_npc=False):
+    return _event(OWNERSHIP, struct.pack("<QQB", npc.entity_id, owner, int(damaged_by_npc)))
+
+
 def respawns(npcs, now):
     """NPCs (of one world) that come back to life now."""
     back = []
@@ -647,6 +659,7 @@ def respawns(npcs, now):
             npc.location, npc.loot, npc.wander_goal = npc.home, None, None
             npc.killer = npc.loot_owner = npc.coin_left = npc.casting = None
             npc.open_to_group, npc.pending, npc.rolled = False, set(), False
+            npc.owner = None
             back.append(npc)
     return back
 
