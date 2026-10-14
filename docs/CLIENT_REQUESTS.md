@@ -50,11 +50,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x587` | `/.setuphotkeys` | `0x5fe4bf` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x588` | `/.classflag` | `0x6142a5` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
-| `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
-| `0x5cf` |  | `0x484b3e` | PlacedBuildingNPCListSelection |
-| `0x5d0` |  | `0x484bbe` |  |
-| `0x5d1` |  | `0x484343` | PlacedBuildingNPCList / _building_npc_window |
-| `0x5d2` |  | `0x48434d` | PlacedBuildingNPCList / _building_npc_window |
 | `0x5d9` |  | `0x69ac74` | _lockout_timer_list / RaidLockoutTimerList |
 | `0x5e5` (see Raid lockout list) |  | `0x4fc100` | Could not find that item to unlock. / Programmer error: no unlock item for handle |
 | `0x764` |  | `0x503e6e` | **Unreachable:** nothing calls or points to the sending function. |

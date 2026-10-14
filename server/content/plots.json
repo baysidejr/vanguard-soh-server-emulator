@@ -1,5 +1,5 @@
 {
-  "_comment": "Housing plots (docs/HOUSING.md). plot id: {name, chunk, loc [x, y, z], yaw, cost (copper), upkeep, buildings: [{type, name, prefab (compoundobjectMD.tab root prefab), fixtures, chests}]}. A plot for sale shows a For Sale sign; a built plot shows the house. Placeholder data (docs/CONTENT_EDITOR.md). materials: {item name: count} makes a building a construction project: it is built once the owner has added the materials (Building Construction window).",
+  "_comment": "Housing plots (docs/HOUSING.md). plot id: {name, chunk, loc [x, y, z], yaw, cost (copper), upkeep, buildings: [{type, name, prefab (compoundobjectMD.tab root prefab), fixtures, chests}]}. A plot for sale shows a For Sale sign; a built plot shows the house. Placeholder data (docs/CONTENT_EDITOR.md). materials: {item name: count} makes a building a construction project: it is built once the owner has added the materials (Building Construction window). npcs: [mobs.json keys] are the NPCs the building may hold (Manage NPCs window).",
   "101": {
     "name": "Wastes Homestead",
     "chunk": "chunk_n19_12",
@@ -17,7 +17,10 @@
         "name": "Thestran Cottage",
         "prefab": "Ra6001_P1_C1_Grid_PHcity01_Home001root001_lvl10_ver1",
         "fixtures": 20,
-        "chests": 2
+        "chests": 2,
+        "npcs": [
+          "camp_banker"
+        ]
       },
       {
         "type": 2,
@@ -28,7 +31,10 @@
         "materials": {
           "Rough Stone": 2,
           "Tattered Cloth": 2
-        }
+        },
+        "npcs": [
+          "camp_banker"
+        ]
       }
     ]
   }

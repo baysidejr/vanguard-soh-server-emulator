@@ -1970,6 +1970,92 @@ def handle_chest(state, event, vals):
         send(housing.chest_refresh())
 
 
+def house_npc_options(plot, st):
+    """The mobs.json keys the built house may hold (plots.json building "npcs")."""
+    b = next((o for o in plot.get("buildings", []) if o["type"] == st.get("building")), {})
+    return [k for k in b.get("npcs", []) if k in ARGS.content.mobs]
+
+
+def house_npc_lists(pid, plot, st):
+    mobs = ARGS.content.mobs
+    avail = [(n + 1, mobs[k]["name"], mobs[k].get("title", "")) for n, k in enumerate(house_npc_options(plot, st))]
+    placed = [(e["id"], mobs.get(e["mob"], {}).get("name", e["mob"]), "") for e in st.get("npcs", [])]
+    return housing.npc_list(housing.AVAILABLE_NPCS, avail) + housing.npc_list(housing.PLACED_NPCS, placed)
+
+
+def house_npc(w, pid, entry):
+    """The world NPC for a placed house NPC entry {id, mob, loc, yaw}."""
+    spawn = {"mob": entry["mob"], "x": entry["loc"][0], "y": entry["loc"][1], "z": entry["loc"][2], "yaw": entry["yaw"]}
+    npc = zone.npc_from_template(w, ARGS, housing.NPC_EID_BASE + int(pid) * 64 + entry["id"], spawn,
+                                 ARGS.content.mobs[entry["mob"]])
+    npc.wander, npc.path = 0.0, []
+    return npc
+
+
+def house_npc_event(state, event, data, vals):
+    """Manage NPCs: list, place where the owner stands, remove, go to (owner only, own house)."""
+    player, send = state["player"], state["send"]
+    pid = state.get("plot_window")
+    db = load_housing()
+    st = db.get(str(pid)) if pid is not None else None
+    plot = ARGS.content.plots.get(str(pid)) if pid is not None else None
+    if st is None or plot is None or not st.get("building") or st.get("owner", "").lower() != player.name.lower():
+        return
+    w = state.get("world")
+    if event == housing.SPAWN_NPC:
+        spawn = housing.parse_spawn_npc(data)
+        options = house_npc_options(plot, st)
+        if spawn is None or not 1 <= spawn[0] <= len(options) or w is None:
+            return
+        if my_house_here(player)[0] != str(pid):
+            send(build_system_text("You can only place items when in your house.", SYSTEM_TEXT_ERROR))
+            return
+        entry = {"id": st.get("next_npc", 1), "mob": options[spawn[0] - 1], "loc": list(spawn[2]), "yaw": spawn[1]}
+        if entry["id"] >= 64:
+            return
+        st["next_npc"] = entry["id"] + 1
+        st.setdefault("npcs", []).append(entry)
+        save_housing(db)
+        npc = house_npc(w, pid, entry)
+        w.npcs[npc.entity_id] = npc
+        w.broadcast(lambda s, npc=npc: zone.open_npc(s, ARGS, npc))
+    elif event in (housing.REMOVE_NPC, housing.GOTO_NPC):
+        entry = next((e for e in st.get("npcs", []) if vals and e["id"] == vals[0]), None)
+        if entry is None:
+            return
+        if event == housing.GOTO_NPC:
+            loc = entry["loc"]
+            place_player(state, ARGS, (loc[0] + 100.0, loc[1], loc[2] + 50.0), getattr(player, "chunk", None) or DEFAULT_CHUNK)
+            return
+        st["npcs"].remove(entry)
+        save_housing(db)
+        eid = housing.NPC_EID_BASE + int(pid) * 64 + entry["id"]
+        if w is not None and w.npcs.pop(eid, None) is not None:
+            for s in list(w.members.values()):
+                m = zone.close_actor(s, eid)
+                if m:
+                    s["send"](m)
+    for m in house_npc_lists(pid, plot, st):
+        send(m)
+
+
+def house_npcs_login(state):
+    """Put the chunk's placed house NPCs into its world (once per world)."""
+    w = state.get("world")
+    if w is None or getattr(w, "house_npcs", False):
+        return
+    w.house_npcs = True
+    for pid, st in load_housing().items():
+        plot = ARGS.content.plots.get(pid)
+        if not plot or plot.get("chunk") != w.level:
+            continue
+        for entry in st.get("npcs", []):
+            if entry["mob"] in ARGS.content.mobs:
+                npc = house_npc(w, pid, entry)
+                w.npcs[npc.entity_id] = npc
+                w.broadcast(lambda s, npc=npc: zone.open_npc(s, ARGS, npc))
+
+
 def refresh_fixture_list(pid, st):
     """Redraw the Building Inventory list for everyone with this plot's window open."""
     for s in list(ONLINE.values()):
@@ -2223,6 +2309,9 @@ def handle_housing_event(state, event, data):
         return
     if event == housing.HQ_LEADER_RESPONSE:
         hq_leader_response(state, data)
+        return
+    if event in housing.NPC_WINDOW + (housing.SPAWN_NPC, housing.REMOVE_NPC, housing.GOTO_NPC):
+        house_npc_event(state, event, data, vals)
         return
     if event in (housing.PLACE_REQUEST, housing.SPAWN_FIXTURE):
         handle = vals[0] if vals else None
@@ -8240,6 +8329,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 songs_login(state)
                 fishing_login(state)
                 forms_login(state)
+                house_npcs_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:

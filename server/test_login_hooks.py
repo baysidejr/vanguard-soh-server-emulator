@@ -32,7 +32,8 @@ class LoginHookTests(unittest.TestCase):
             try:
                 for hook in ("social_login", "guild_login", "brotherhood_login", "faction_login",
                              "workorder_login", "mail_login", "title_login", "caravan_login",
-                             "assembly_login", "journal_login", "songs_login", "fishing_login", "forms_login"):
+                             "assembly_login", "journal_login", "songs_login", "fishing_login", "forms_login",
+                             "house_npcs_login"):
                     getattr(login_stub, hook)(state)
             finally:
                 mock.patch.stopall()
@@ -327,6 +328,58 @@ class CallPcTests(unittest.TestCase):
             login_stub.call_answer(target, None, b"\1")
         self.assertEqual(placed, [(target, (110.0, 20.0, 80.0))])
         self.assertEqual(struct.unpack_from("<h", target_sent[-1], 10)[0], login_stub.YOU_HAVE_BEEN_SUMMONED)
+
+
+class HouseNpcTests(unittest.TestCase):
+    """Manage NPCs: lists (0x5cc / 0x5cd), place (0x5ce), remove (0x5cf), and reload at login."""
+    def test_place_remove_reload(self):
+        import struct
+        import housing
+        import world
+        args = mock.Mock()
+        args.content = content.Content()
+        args.client_dir = None
+        pid = "101"
+        plot = args.content.plots[pid]
+        db = {pid: {"owner": "Owner", "building": plot["buildings"][0]["type"]}}
+        sent = []
+        player = zone.Player(name="Owner", char_id=1, level=plot["chunk"])
+        player.live_position = tuple(plot["loc"])
+        w = world.World(plot["chunk"])
+        state = {"player": player, "send": sent.append, "plot_window": pid, "world": w}
+        w.members[1] = state
+        with mock.patch.object(login_stub, "ARGS", args), \
+                mock.patch.object(login_stub, "load_housing", lambda: db), \
+                mock.patch.object(login_stub, "save_housing", lambda d: None), \
+                mock.patch.object(login_stub.zone, "open_npc", lambda s, a, npc: ("open", npc.entity_id)), \
+                mock.patch.object(login_stub.zone, "close_actor", lambda s, eid: ("close", eid)), \
+                mock.patch.object(login_stub, "build_system_text", lambda text, channel=0: text):
+            login_stub.handle_housing_event(state, 0x5D1, b"")
+            avail = [m for m in sent if isinstance(m, bytes) and struct.unpack_from("<I", m, 2)[0] == 0x5CC]
+            self.assertEqual(len(avail), 3)                     # clear, the banker, end of batch
+            self.assertEqual(struct.unpack_from("<i", avail[1], 10)[0], 1)
+            x, y, z = plot["loc"]
+            sent.clear()
+            login_stub.handle_housing_event(state, housing.SPAWN_NPC, struct.pack("<iffff", 1, 16384.0, x + 50, y, z))
+            self.assertEqual(db[pid]["npcs"], [{"id": 1, "mob": "camp_banker", "loc": [x + 50, y, z], "yaw": 16384}])
+            eid = housing.NPC_EID_BASE + 101 * 64 + 1
+            self.assertIn(eid, w.npcs)
+            self.assertTrue(w.npcs[eid].banker)
+            self.assertIn(("open", eid), sent)
+            # a fresh world loads it at login
+            w2 = world.World(plot["chunk"])
+            login_stub.house_npcs_login({"player": player, "send": sent.append, "world": w2})
+            self.assertIn(eid, w2.npcs)
+            sent.clear()
+            login_stub.handle_housing_event(state, housing.REMOVE_NPC, struct.pack("<i", 1))
+            self.assertEqual(db[pid]["npcs"], [])
+            self.assertNotIn(eid, w.npcs)
+            self.assertIn(("close", eid), sent)
+            # someone else's window: nothing
+            db[pid]["owner"] = "Other"
+            sent.clear()
+            login_stub.handle_housing_event(state, 0x5D1, b"")
+            self.assertEqual(sent, [])
 
 
 class CityStatusTests(unittest.TestCase):

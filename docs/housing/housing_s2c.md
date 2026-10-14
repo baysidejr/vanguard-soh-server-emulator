@@ -103,7 +103,7 @@ Flag bits (FUN_0047a180, `_permission_edit_wnd`) [O]: bit0 OpenDoor, bit1 MoveFi
 0x459 MsgStringAndFloat {wstr className, f32 v} FUN_0047d250 -> FUN_00b80900: **spawns the client-side placement preview actor**. It ray-traces from camera/cursor into the world (FUN_00b81c70) and spawns an actor of class `className` there (FUN_00b7ee00, f32 passed as last arg [I: scale]); keeps it at manager+0x14 and enters cursor mode "Floater1" [O/I].
 
 ### Building NPCs (FUN_004864e0)
-0x5cc / 0x5cd MsgBuildingNPCInfo (reg FUN_00484190): i32 npcId(0x14), wstr name(0x18), wstr text2(0x34), wstr (0x50, unused), i32 ctl(0x6c). ctl -1 = clear list, -2 = end of batch -> fill list UI, else add entry (value kept at +0x44). 0x5cc = BuildingNPCList (NPCs you may spawn), 0x5cd = PlacedBuildingNPCList (`_building_npc_window`) [O].
+0x5cc / 0x5cd MsgBuildingNPCInfo (reg FUN_00484190): i32 npcId(0x14), wstr name(0x18), wstr text2(0x34), wstr (0x50, unused), i32 (0x6c). The handler FUN_00486340 tests npcId (msg+0x14): -1 = clear list, -2 = end of batch -> fill list UI, else add entry (FUN_004861e0: record +4 npcId, +8 name, +0x24 text2, +0x44 the i32 at 0x6c). 0x5cc = BuildingNPCList (NPCs you may spawn), 0x5cd = PlacedBuildingNPCList (`_building_npc_window`) [O].
 
 ## House chest (sub-dispatcher FUN_004733d0; generic chest manager)
 | id | payload | handler | effect |

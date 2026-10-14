@@ -92,6 +92,32 @@ NOW_GUILD_USABLE, NO_LONGER_GUILD_USABLE, HQ_ADDED, HQ_REMOVED, NO_GUILD = 383, 
 CLIENT_EVENTS = CLIENT_EVENTS + (BUILDING_DETAILS, GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, MOVE_TO_ME,
                                  SEND_TO_OWNER)
 VIEW_FIXTURE_LIST = 0x4000              # permission bit 14
+# Building NPCs: Manage NPCs (Building Inventory tab, FUN_00484320) sends 0x5d1 and 0x5d2 (no
+# payload) and opens _building_npc_window. The server answers with the NPCs the house may hold,
+# 0x5cc, and the ones placed, 0x5cd: MsgBuildingNPCInfo {i32 id, wstr name, wstr text, wstr, i32}
+# per row (FUN_00486340 / FUN_004861e0: record +4 id, +8 name, +0x24 text, +0x44 the last i32).
+# An id of -1 clears the list and -2 ends the batch (fills the window). Spawn sends
+# 0x5ce {i32 id from 0x5cc, f32 heading (the pawn's yaw), f32 x, y, z (the pawn's location)},
+# Remove 0x5cf {placed id}, Go To 0x5d0 {placed id}.
+NPC_WINDOW, SPAWN_NPC, REMOVE_NPC, GOTO_NPC = (0x5D1, 0x5D2), 0x5CE, 0x5CF, 0x5D0
+AVAILABLE_NPCS, PLACED_NPCS = 0x5CC, 0x5CD
+NPC_EID_BASE = 0x5200000
+CLIENT_EVENTS = CLIENT_EVENTS + NPC_WINDOW + (SPAWN_NPC, REMOVE_NPC, GOTO_NPC)
+
+
+def npc_list(event, rows):
+    """0x5cc / 0x5cd for rows [(id, name, text)]: clear (-1), the rows, end of batch (-2)."""
+    row = lambda nid, name="", text="": _event(event, struct.pack("<i", nid) + _w(name) + _w(text) + _w("")
+                                               + struct.pack("<i", max(nid, 0)))
+    return [row(-1)] + [row(nid, name, text) for nid, name, text in rows] + [row(-2)]
+
+
+def parse_spawn_npc(data):
+    """(available id, yaw, (x, y, z)) from 0x5ce, or None."""
+    if len(data) < 20:
+        return None
+    nid, heading, x, y, z = struct.unpack_from("<iffff", data)
+    return nid, int(heading) & 0xFFFF, (x, y, z)
 
 
 def fixture_list(fixtures):

@@ -194,83 +194,88 @@ def npc_list(rows, verbose=True):
 def populate_world(w, args):
     """Create the shared NPCs of a chunk from content/spawns/<chunk>.json."""
     for n, (spawn, template) in enumerate(args.content.spawns(w.level, args.client_dir)):
-        eid = SPAWN_EID_BASE + n
-        loc = (float(spawn["x"]), float(spawn["y"]), float(spawn["z"]))
-        npc = combat.Npc(eid, template["name"], None,
-                         f"{content.PAWN_PACKAGE}.{template['pawn_class']}",
-                         max_health=template["health"], location=loc)
-        npc.race = template["race"]
-        npc.gear = [tuple(g) for g in template.get("gear", [])]
-        npc.yaw = int(spawn.get("yaw", 0))
-        npc.merchant = template.get("merchant")
-        npc.harvest = template.get("harvest")
-        npc.station = template.get("station") or False   # true (refining) or "finishing"
-        npc.coin = template.get("coin")
-        npc.spells = template.get("spells", [])
-        npc.prop = bool(template.get("prop"))
-        npc.trainer = bool(template.get("trainer"))
-        npc.banker = bool(template.get("banker"))
-        npc.task_master = bool(template.get("task_master"))
-        npc.mailbox = bool(template.get("mailbox"))
-        npc.recipe_trainer = list(template.get("recipe_trainer", []))
-        npc.broker = template.get("broker")
-        npc.altar = bool(template.get("altar"))
-        npc.dialog = args.content.dialogs.get(spawn["mob"])
-        npc.riftway = template.get("riftway")
-        npc.assembly_trainer = list(template.get("assembly_trainer", []))
-        npc.repairs = bool(template.get("repair"))
-        npc.parley = template.get("parley")        # diplomacy.json parley key
-        npc.template_id = spawn["mob"]
-        npc.quests = [k for k, q in args.content.quests.items()
-                      if spawn["mob"] in (q.get("giver"), quest.turn_in(q))
-                      or any(s.get("talk") == spawn["mob"] for s in quest.steps(q))]
-        npc.wander = float(spawn.get("wander", 0))
-        npc.path = [tuple(p[:2]) for p in spawn.get("path", [])]
-        npc.path_pause = float(spawn.get("pause", 2.0))
-        npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
-        npc.blocked = lambda x, y, z, lvl=w.level: npc_blocked(lvl, x, y, z)
-        npc.next_wander = time.time() + n
-        npc.aggro_radius = float(template.get("aggro_radius", 0))
-        npc.level = template.get("level", 1)
-        # Creature races (64+) bite and claw; people swing weapons.
-        npc.attack_visual = template.get("attack_visual", combat.CREATURE_AUTO_ATTACK
-                                         if template["race"] >= 64 else combat.NPC_AUTO_ATTACK)
-        npc.props = {"m_GameplayLevel": npc.level}
-        if "scale" in template:
-            npc.props["DrawScale"] = float(template["scale"])
-        if npc.harvest:
-            npc.props["EntityTypes"] = harvest.HARVESTABLE
-        if npc.station:
-            npc.props["EntityTypes"] = craft.STATION
-        if npc.task_master:
-            npc.props["EntityTypes"] = workorder.TASK_MASTER
-        if npc.mailbox:
-            npc.props["EntityTypes"] = mail.MAILBOX
-        if npc.recipe_trainer:
-            npc.props["EntityTypes"] = trainer.RECIPE_TRAINER
-        if template.get("assembly_station"):
-            npc.props["EntityTypes"] = assembly.STATION | 0x10
-        if npc.assembly_trainer:
-            npc.props["EntityTypes"] = npc.props.get("EntityTypes", 0) | assembly.TRAINER
-        if npc.altar:
-            npc.props["EntityTypes"] = ALTAR
-        if "model" in template:
-            npc.props["m_iModelNum"] = template["model"]
-        if "gender" in template:
-            npc.props["m_Gender"] = template["gender"]
-        if template.get("title"):
-            npc.props["m_PlayerDisplayTitle"] = template["title"]
-        npc.faction = template.get("faction")
-        if npc.faction is not None and template["pawn_class"] == "SGONPCPawn":   # SGOPCPawn has no m_FactionId
-            npc.props["m_FactionId"] = int(npc.faction)
-        npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
-        npc.abilities = list(template.get("abilities", []))
-        npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
-        npc.loot_table = template.get("loot")
-        npc.roll_loot = args.content.roll_loot
-        w.npcs[eid] = npc
-        print(f"  world {w.level}: {template['name']!r} ({spawn['mob']}) at {loc}")
+        npc = npc_from_template(w, args, SPAWN_EID_BASE + n, spawn, template, n)
+        w.npcs[npc.entity_id] = npc
+        print(f"  world {w.level}: {template['name']!r} ({spawn['mob']}) at {npc.location}")
     w.populated = True
+
+
+def npc_from_template(w, args, eid, spawn, template, n=0):
+    """A world NPC from a spawn {mob, x, y, z, yaw, ...} and its mobs.json template."""
+    loc = (float(spawn["x"]), float(spawn["y"]), float(spawn["z"]))
+    npc = combat.Npc(eid, template["name"], None,
+                     f"{content.PAWN_PACKAGE}.{template['pawn_class']}",
+                     max_health=template["health"], location=loc)
+    npc.race = template["race"]
+    npc.gear = [tuple(g) for g in template.get("gear", [])]
+    npc.yaw = int(spawn.get("yaw", 0))
+    npc.merchant = template.get("merchant")
+    npc.harvest = template.get("harvest")
+    npc.station = template.get("station") or False   # true (refining) or "finishing"
+    npc.coin = template.get("coin")
+    npc.spells = template.get("spells", [])
+    npc.prop = bool(template.get("prop"))
+    npc.trainer = bool(template.get("trainer"))
+    npc.banker = bool(template.get("banker"))
+    npc.task_master = bool(template.get("task_master"))
+    npc.mailbox = bool(template.get("mailbox"))
+    npc.recipe_trainer = list(template.get("recipe_trainer", []))
+    npc.broker = template.get("broker")
+    npc.altar = bool(template.get("altar"))
+    npc.dialog = args.content.dialogs.get(spawn["mob"])
+    npc.riftway = template.get("riftway")
+    npc.assembly_trainer = list(template.get("assembly_trainer", []))
+    npc.repairs = bool(template.get("repair"))
+    npc.parley = template.get("parley")        # diplomacy.json parley key
+    npc.template_id = spawn["mob"]
+    npc.quests = [k for k, q in args.content.quests.items()
+                  if spawn["mob"] in (q.get("giver"), quest.turn_in(q))
+                  or any(s.get("talk") == spawn["mob"] for s in quest.steps(q))]
+    npc.wander = float(spawn.get("wander", 0))
+    npc.path = [tuple(p[:2]) for p in spawn.get("path", [])]
+    npc.path_pause = float(spawn.get("pause", 2.0))
+    npc.ground_z = lambda x, y, lvl=w.level: args.content.ground_z(lvl, x, y, args.client_dir)
+    npc.blocked = lambda x, y, z, lvl=w.level: npc_blocked(lvl, x, y, z)
+    npc.next_wander = time.time() + n
+    npc.aggro_radius = float(template.get("aggro_radius", 0))
+    npc.level = template.get("level", 1)
+    # Creature races (64+) bite and claw; people swing weapons.
+    npc.attack_visual = template.get("attack_visual", combat.CREATURE_AUTO_ATTACK
+                                     if template["race"] >= 64 else combat.NPC_AUTO_ATTACK)
+    npc.props = {"m_GameplayLevel": npc.level}
+    if "scale" in template:
+        npc.props["DrawScale"] = float(template["scale"])
+    if npc.harvest:
+        npc.props["EntityTypes"] = harvest.HARVESTABLE
+    if npc.station:
+        npc.props["EntityTypes"] = craft.STATION
+    if npc.task_master:
+        npc.props["EntityTypes"] = workorder.TASK_MASTER
+    if npc.mailbox:
+        npc.props["EntityTypes"] = mail.MAILBOX
+    if npc.recipe_trainer:
+        npc.props["EntityTypes"] = trainer.RECIPE_TRAINER
+    if template.get("assembly_station"):
+        npc.props["EntityTypes"] = assembly.STATION | 0x10
+    if npc.assembly_trainer:
+        npc.props["EntityTypes"] = npc.props.get("EntityTypes", 0) | assembly.TRAINER
+    if npc.altar:
+        npc.props["EntityTypes"] = ALTAR
+    if "model" in template:
+        npc.props["m_iModelNum"] = template["model"]
+    if "gender" in template:
+        npc.props["m_Gender"] = template["gender"]
+    if template.get("title"):
+        npc.props["m_PlayerDisplayTitle"] = template["title"]
+    npc.faction = template.get("faction")
+    if npc.faction is not None and template["pawn_class"] == "SGONPCPawn":   # SGOPCPawn has no m_FactionId
+        npc.props["m_FactionId"] = int(npc.faction)
+    npc.damage = tuple(template.get("damage", combat.NPC_DAMAGE))
+    npc.abilities = list(template.get("abilities", []))
+    npc.respawn = spawn.get("respawn", content.DEFAULT_RESPAWN)
+    npc.loot_table = template.get("loot")
+    npc.roll_loot = args.content.roll_loot
+    return npc
 
 
 def open_npc(state, args, npc):
