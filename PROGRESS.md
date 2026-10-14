@@ -1,18 +1,28 @@
-# Overnight backlog
+# Progress
 
-Working list for autonomous sessions, so progress survives context resets. Newest first in each section. The README checklist and docs/TESTING.md are the public record; this file is the to-do list.
+Where the work stands, so each session (or loop iteration) picks up where the last one left off
+instead of repeating work. Update it after every task: Next action, Last test results, and a Done
+line. Newest first in each section. The README checklist and docs/TESTING.md are the public record.
 
 ## Next action
 
-Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan misses, and look up each reply format in docs/ZONE_MESSAGES.md (that is how the item link and lockout replies were found). Then the remaining unknown reply: guild usable/HQ (0x47a/0x47b).
+Convert the merged crowdsourced batches (`crowdsourced/raw/`, 121 folders) with
+`crowdsourced/convert.py`, see how many records would import cleanly, and report the main issue
+kinds. Do not merge proposals into `server/content/` without review.
 
-## Prioritized tasks
+## Last test results
 
-0. **Client notices:** check the other invented server messages against docs/NOTICES.md (bags full, not online, cooldowns, guild/brotherhood permissions) and use the client's notice where the meaning matches exactly.
-0. **Unhandled client requests:** docs/CLIENT_REQUESTS.md lists 90 ids the client can send that the server never handles. Classify (GM/debug vs player feature) and implement the player ones that need no invented data.
-1. **Protocol correctness:** run the client through login, combat, bags, guild, mail, crafting; collect every "unhandled message" and client error line; fix each.
-5. **Integration gaps:** grep for handlers that print "unknown"/"unhandled" client events in stub_log.txt and implement the ones with known payloads.
-6. **Crowdsourced import:** convert and import the first batch when it lands in `crowdsourced/raw/`.
+- 2026-10-14 (after the crowdsourced merge, fdbff2f): server unit tests OK (about 150), crowdsourced
+  tests OK (118), `python server/content.py` content OK. In-game smoke test (`tools/smoke_test.py`)
+  PASS with 40 commands (run before the merge; the merge touched only crowdsourced/ and two test fixtures).
+
+## Remaining work
+
+1. **Crowdsourced import:** convert the batches, review the proposals, merge clean ones into `server/content/`.
+2. **Sort the 312 server->client messages the server never sends** (docs/ZONE_MESSAGES.md) into needed / variant / debug-GM / content, for a real to-do list and coverage figure.
+3. **Race and class pass in game:** log in one character of each of the 19 races and 15 classes, screenshot, use the first abilities, scan logs.
+4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
+5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
 
 ## Blocked (needs the user or data)
 
