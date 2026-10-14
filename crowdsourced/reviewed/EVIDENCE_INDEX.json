@@ -1,7 +1,7 @@
 {
   "summary": {
-    "batches": 131,
-    "research_rows": 35288,
+    "batches": 133,
+    "research_rows": 35317,
     "normalized_name_groups": 9235,
     "zones_with_explicit_records": 486,
     "counts": {
@@ -9,7 +9,7 @@
       "item": 158,
       "loot": 77,
       "npc": 1408,
-      "quest": 10007,
+      "quest": 10036,
       "zone": 1334,
       "ability": 21598,
       "diplomacy": 6,
@@ -1013,6 +1013,18 @@
     },
     {
       "batch": "raw\\2026-10-14-105011-399405-archive-bulk",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20",
+      "records": 29,
+      "counts": {
+        "quest": 29
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-105523-589705-archive-bulk",
       "records": 0,
       "counts": {}
     }
@@ -585550,6 +585562,465 @@
       ],
       "zones": [],
       "level": 28
+    },
+    {
+      "id": 35288,
+      "type": "quest",
+      "name": "Bracelet of Memories",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/bracelet-of-memories"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 25
+    },
+    {
+      "id": 35289,
+      "type": "quest",
+      "name": "Failures Of Imanjal",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/failures-of-imanjal"
+      ],
+      "zones": [
+        "Skrilien Point"
+      ],
+      "level": 25
+    },
+    {
+      "id": 35290,
+      "type": "quest",
+      "name": "For Restless Souls",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/for-restless-souls"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 14
+    },
+    {
+      "id": 35291,
+      "type": "quest",
+      "name": "Ikara, Jin'Ka Warden",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/ikara-jin-ka-warden"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 17
+    },
+    {
+      "id": 35292,
+      "type": "quest",
+      "name": "Jien, Jin'Ka Warden",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/jien-jin-ka-warden"
+      ],
+      "zones": [
+        "The Tomb of Lord Tsang"
+      ],
+      "level": 18
+    },
+    {
+      "id": 35293,
+      "type": "quest",
+      "name": "Kalendra's Cauldron",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/kalendra-s-cauldron"
+      ],
+      "zones": [
+        "Skrillien Point"
+      ],
+      "level": 20
+    },
+    {
+      "id": 35294,
+      "type": "quest",
+      "name": "Koi, Jin'Ka Warden",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/koi-jin-ka-warden"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 18
+    },
+    {
+      "id": 35295,
+      "type": "quest",
+      "name": "Moving on Up",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/moving-on-up"
+      ],
+      "zones": [
+        "Skrilien Point"
+      ],
+      "level": 18
+    },
+    {
+      "id": 35296,
+      "type": "quest",
+      "name": "Nelon's Tonic",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/nelon-s-tonic"
+      ],
+      "zones": []
+    },
+    {
+      "id": 35297,
+      "type": "quest",
+      "name": "No Rest For The Weary",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/no-rest-for-the-weary"
+      ],
+      "zones": [
+        "Skrillien Point"
+      ],
+      "level": 19
+    },
+    {
+      "id": 35298,
+      "type": "quest",
+      "name": "Portals Of The Abyss",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/portals-of-the-abyss"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 14
+    },
+    {
+      "id": 35299,
+      "type": "quest",
+      "name": "Prisoners Of The Coven",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/prisoners-of-the-coven"
+      ],
+      "zones": [
+        "Skrilien Point"
+      ],
+      "level": 30
+    },
+    {
+      "id": 35300,
+      "type": "quest",
+      "name": "Relic Of Courage",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/relic-of-courage"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 20
+    },
+    {
+      "id": 35301,
+      "type": "quest",
+      "name": "Relic Of Honor",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/relic-of-honor"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 20
+    },
+    {
+      "id": 35302,
+      "type": "quest",
+      "name": "Relic Of Wisdom",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/relic-of-wisdom"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 20
+    },
+    {
+      "id": 35303,
+      "type": "quest",
+      "name": "Rising in Rank",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/rising-in-rank"
+      ],
+      "zones": [
+        "Skrilien Point"
+      ],
+      "level": 18
+    },
+    {
+      "id": 35304,
+      "type": "quest",
+      "name": "Summoning the Houndmaster",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summoning-the-houndmaster"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 25
+    },
+    {
+      "id": 35305,
+      "type": "quest",
+      "name": "The Crux of Cairnworth Hall",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-crux-of-cairnworth-hall"
+      ],
+      "zones": [
+        "Coastal Graveyard"
+      ],
+      "level": 22
+    },
+    {
+      "id": 35306,
+      "type": "quest",
+      "name": "The Dark Witch",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-dark-witch"
+      ],
+      "zones": [
+        "Skrillien Point"
+      ],
+      "level": 19
+    },
+    {
+      "id": 35307,
+      "type": "quest",
+      "name": "The Expert",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 20,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-expert"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 7
+    },
+    {
+      "id": 35308,
+      "type": "quest",
+      "name": "The Higher They Climb",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 21,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-higher-they-climb"
+      ],
+      "zones": [
+        "Skrillien Point"
+      ],
+      "level": 33
+    },
+    {
+      "id": 35309,
+      "type": "quest",
+      "name": "The Jin'Ka Forest",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 22,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-jin-ka-forest"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 15
+    },
+    {
+      "id": 35310,
+      "type": "quest",
+      "name": "The Jin'Ka Wardens",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 23,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-jin-ka-wardens"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 20
+    },
+    {
+      "id": 35311,
+      "type": "quest",
+      "name": "The Tale Of Captain Nakaue",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 24,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-tale-of-captain-nakaue"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 9
+    },
+    {
+      "id": 35312,
+      "type": "quest",
+      "name": "The Tomb Of Lord Tsang",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 25,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-tomb-of-lord-tsang"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 18
+    },
+    {
+      "id": 35313,
+      "type": "quest",
+      "name": "The Ulvari Weakness",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-ulvari-weakness"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 18
+    },
+    {
+      "id": 35314,
+      "type": "quest",
+      "name": "The Water Diamond",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 27,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-water-diamond"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 12
+    },
+    {
+      "id": 35315,
+      "type": "quest",
+      "name": "The Words of Master Vallerex",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 28,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/the-words-of-master-vallerex"
+      ],
+      "zones": [],
+      "level": 20
+    },
+    {
+      "id": 35316,
+      "type": "quest",
+      "name": "Unshackling The Past",
+      "file": "raw\\2026-10-14-105241-599059-archive-quest-level-rewards-v20\\quest.jsonl",
+      "line": 29,
+      "confidence": "medium",
+      "parser_version": 20,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/unshackling-the-past"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 20
     }
   ],
   "by_name": {
@@ -620808,7 +621279,8 @@
     ],
     "quest:bracelet of memories": [
       25706,
-      31160
+      31160,
+      35288
     ],
     "quest:brains!": [
       25707,
@@ -623552,7 +624024,8 @@
     ],
     "quest:failures of imanjal": [
       26392,
-      31854
+      31854,
+      35289
     ],
     "quest:fair salvage": [
       26393,
@@ -624184,7 +624657,8 @@
     ],
     "quest:for restless souls": [
       26550,
-      32012
+      32012,
+      35290
     ],
     "quest:for the empire": [
       26551,
@@ -625732,7 +626206,8 @@
     ],
     "quest:ikara, jin'ka warden": [
       26937,
-      32406
+      32406,
+      35291
     ],
     "quest:illegible schematics": [
       26938,
@@ -626180,7 +626655,8 @@
     ],
     "quest:jien, jin'ka warden": [
       27049,
-      32521
+      32521,
+      35292
     ],
     "quest:jin devourers": [
       27050,
@@ -626300,7 +626776,8 @@
     ],
     "quest:kalendra's cauldron": [
       27079,
-      32551
+      32551,
+      35293
     ],
     "quest:kalendras cauldron": [
       27080,
@@ -626536,7 +627013,8 @@
     ],
     "quest:koi, jin'ka warden": [
       27138,
-      32611
+      32611,
+      35294
     ],
     "quest:kojan elemental bows": [
       27139,
@@ -628404,7 +628882,8 @@
     ],
     "quest:moving on up": [
       27605,
-      33082
+      33082,
+      35295
     ],
     "quest:muddy waters": [
       27606,
@@ -628560,7 +629039,8 @@
     ],
     "quest:nelon's tonic": [
       27644,
-      33120
+      33120,
+      35296
     ],
     "quest:nelon's toolbelt": [
       27645,
@@ -628652,7 +629132,8 @@
     ],
     "quest:no rest for the weary": [
       27667,
-      33144
+      33144,
+      35297
     ],
     "quest:no small task": [
       27668,
@@ -629496,7 +629977,8 @@
     ],
     "quest:portals of the abyss": [
       27878,
-      33357
+      33357,
+      35298
     ],
     "quest:possessed farmers": [
       27879,
@@ -629628,7 +630110,8 @@
     ],
     "quest:prisoners of the coven": [
       27911,
-      33390
+      33390,
+      35299
     ],
     "quest:prisoners taken prisoner": [
       27912,
@@ -630252,15 +630735,18 @@
     ],
     "quest:relic of courage": [
       28067,
-      33546
+      33546,
+      35300
     ],
     "quest:relic of honor": [
       28068,
-      33547
+      33547,
+      35301
     ],
     "quest:relic of wisdom": [
       28069,
-      33548
+      33548,
+      35302
     ],
     "quest:relics of virtue": [
       28070,
@@ -630724,7 +631210,8 @@
     ],
     "quest:rising in rank": [
       28185,
-      33666
+      33666,
+      35303
     ],
     "quest:risk to thestra": [
       28186,
@@ -632588,7 +633075,8 @@
     ],
     "quest:summoning the houndmaster": [
       28651,
-      34138
+      34138,
+      35304
     ],
     "quest:summonling of vol tuniel": [
       28652,
@@ -633736,7 +634224,8 @@
     ],
     "quest:the crux of cairnworth hall": [
       28938,
-      34426
+      34426,
+      35305
     ],
     "quest:the crux of castle landsview": [
       28939,
@@ -633776,7 +634265,8 @@
     ],
     "quest:the dark witch": [
       28948,
-      34436
+      34436,
+      35306
     ],
     "quest:the darkmage": [
       28949,
@@ -633884,7 +634374,8 @@
     ],
     "quest:the expert": [
       28975,
-      34463
+      34463,
+      35307
     ],
     "quest:the eye of ulvari": [
       28976,
@@ -634192,7 +634683,8 @@
     ],
     "quest:the higher they climb": [
       29052,
-      34542
+      34542,
+      35308
     ],
     "quest:the hills are alive": [
       29053,
@@ -634264,11 +634756,13 @@
     ],
     "quest:the jin'ka forest": [
       29070,
-      34560
+      34560,
+      35309
     ],
     "quest:the jin'ka wardens": [
       29071,
-      34561
+      34561,
+      35310
     ],
     "quest:the kalem sisters": [
       29072,
@@ -634880,7 +635374,8 @@
     ],
     "quest:the tale of captain nakaue": [
       29224,
-      34716
+      34716,
+      35311
     ],
     "quest:the tattered note": [
       29225,
@@ -634944,7 +635439,8 @@
     ],
     "quest:the tomb of lord tsang": [
       29240,
-      34732
+      34732,
+      35312
     ],
     "quest:the tomb of lord tsang (quest)": [
       29241,
@@ -635024,7 +635520,8 @@
     ],
     "quest:the ulvari weakness": [
       29260,
-      34753
+      34753,
+      35313
     ],
     "quest:the ulvari and the war golem": [
       29261,
@@ -635128,7 +635625,8 @@
     ],
     "quest:the water diamond": [
       29286,
-      34779
+      34779,
+      35314
     ],
     "quest:the way of the sway": [
       29287,
@@ -635196,7 +635694,8 @@
     ],
     "quest:the words of master vallerex": [
       29303,
-      34796
+      34796,
+      35315
     ],
     "quest:the world is our oyster": [
       29304,
@@ -636092,7 +636591,8 @@
     ],
     "quest:unshackling the past": [
       29527,
-      35023
+      35023,
+      35316
     ],
     "quest:untouched hunting grounds": [
       29528,
@@ -651614,7 +652114,36 @@
       35284,
       35285,
       35286,
-      35287
+      35287,
+      35288,
+      35289,
+      35290,
+      35291,
+      35292,
+      35293,
+      35294,
+      35295,
+      35296,
+      35297,
+      35298,
+      35299,
+      35300,
+      35301,
+      35302,
+      35303,
+      35304,
+      35305,
+      35306,
+      35307,
+      35308,
+      35309,
+      35310,
+      35311,
+      35312,
+      35313,
+      35314,
+      35315,
+      35316
     ],
     "zone": [
       79,
@@ -676324,7 +676853,12 @@
       35063,
       35082,
       35140,
-      35187
+      35187,
+      35290,
+      35298,
+      35307,
+      35311,
+      35314
     ],
     "Gaxton Village · Martok": [
       67,
@@ -678272,7 +678806,13 @@
       34968,
       35011,
       35023,
-      35280
+      35280,
+      35288,
+      35300,
+      35301,
+      35302,
+      35304,
+      35316
     ],
     "Tar Janashir": [
       113,
@@ -680217,7 +680757,8 @@
       34426,
       34427,
       34586,
-      34842
+      34842,
+      35305
     ],
     "Coerti Infenium Sanctuary": [
       195,
@@ -686032,7 +686573,11 @@
       34233,
       34366,
       34472,
-      34473
+      34473,
+      35289,
+      35295,
+      35299,
+      35303
     ],
     "Smuggler's Bend": [
       22712
@@ -686769,7 +687314,13 @@
       34977,
       34986,
       35154,
-      35155
+      35155,
+      35291,
+      35294,
+      35309,
+      35310,
+      35312,
+      35313
     ],
     "The Velerium Mines": [
       22765
@@ -687554,7 +688105,8 @@
     ],
     "The Tomb of Lord Tsang": [
       27049,
-      32521
+      32521,
+      35292
     ],
     "Skrillien Point": [
       27079,
@@ -687568,7 +688120,11 @@
       34029,
       34362,
       34436,
-      34542
+      34542,
+      35293,
+      35297,
+      35306,
+      35308
     ],
     "The Ruins Of Trengal Keep": [
       27089,
