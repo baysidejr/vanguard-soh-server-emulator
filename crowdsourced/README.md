@@ -13,6 +13,14 @@ The server never reads this folder. Records are checked, converted to the server
 | `reviewed/` | Records that were checked and are ready to import, in the same format. |
 | `imported.md` | A log of what was imported into `server/content/`, from which batch, and when. |
 
+## Converting a batch
+
+```
+python crowdsourced/convert.py raw/<YYYY-MM-DD>-<topic>
+```
+
+writes `reviewed/<batch>/proposed/` with entries in the server's own formats (`mobs.json`, `items.json`, `loot.json`, `merchants.json`, `quests.json`) and an `ISSUES.md` listing everything that needs a human: unknown creature races, unsupported item stats, quest steps it can't express, record types it doesn't convert yet. Names that already exist in `server/content/mobs.json` keep their key (e.g. "Ashen Wolf" stays `wastes_wolf`), so a record updates the placeholder instead of duplicating it. Records with no sources are dropped and low-confidence ones are skipped unless `--include-low` is given. Item icons are set to the client's fallback (443) until someone picks the right icon id. The proposed files are merged into `server/content/` by hand, then `python server/content.py` must print "content OK".
+
 ## Licensing and sources
 
 - Every record carries `sources` (URL, page title, date). Keep them: they are the attribution that CC BY-SA wiki content requires, and they let anyone check a value.

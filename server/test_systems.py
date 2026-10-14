@@ -526,5 +526,30 @@ class DialogFlagTests(unittest.TestCase):
         self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "b", "c"])
 
 
+class CrowdConvertTests(unittest.TestCase):
+    def test_convert(self):
+        import json, os, sys, tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "crowdsourced"))
+        import convert
+        src = [{"url": "https://example.org/1"}]
+        recs = [{"type": "creature", "name": "Ashen Wolf", "level": 8, "creature_kind": "wolf", "aggressive": "yes",
+                 "sources": src, "confidence": "medium"},
+                {"type": "creature", "name": "Odd", "creature_kind": "zzz", "sources": src, "confidence": "high"},
+                {"type": "creature", "name": "Unsure", "creature_kind": "bear", "sources": src, "confidence": "low"},
+                {"type": "quest", "name": "Pelts", "giver": "Orin the Trader", "sources": src, "confidence": "high",
+                 "steps": [{"kind": "kill", "target": "Ashen Wolf", "count": 2, "objective": "Hunt"}]}]
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "all.jsonl"), "w", encoding="utf-8") as f:
+                f.write("\n".join(json.dumps(r) for r in recs))
+            b = convert.Batch(d)
+            out = convert.convert(b, convert.creature_races())
+        wolf = out["mobs.json"]["wastes_wolf"]                       # existing key for "Ashen Wolf"
+        self.assertEqual((wolf["race"], wolf["level"]), (119, 8))
+        self.assertEqual(out["quests.json"]["pelts"]["giver"], "camp_merchant")
+        self.assertEqual(out["quests.json"]["pelts"]["steps"][0]["kill"], {"wastes_wolf": 2})
+        self.assertTrue(any("Odd" in i for i in b.issues))
+        self.assertTrue(any("low confidence" in i for i in b.issues))
+
+
 if __name__ == "__main__":
     unittest.main()
