@@ -38,7 +38,7 @@ FUN = ["A - Excellent", "B - Average", "C - Below average", "F - Unacceptable"]
 def parse_quest_feedback(data):
     qid = struct.unpack_from("<i", data, 0)[0]
     end = 4
-    while data[end:end + 2] != b"\0\0":
+    while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
         end += 2
     text = data[4:end].decode("utf-16-le", "replace")
     ch, rw, lo, co, fr, fu = struct.unpack_from("<6i", data, end + 2)
@@ -55,7 +55,7 @@ def _name(table, i, unknown):
 def parse(data):
     """0x4aa payload -> report dict (without who/where)."""
     end = 0
-    while data[end:end + 2] != b"\0\0":
+    while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
         end += 2
     text = data[:end].decode("utf-16-le", "replace")
     cat, sev, rep = struct.unpack_from("<iii", data, end + 2)

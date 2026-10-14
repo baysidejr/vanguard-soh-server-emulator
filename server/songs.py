@@ -81,7 +81,7 @@ def parse_compose(data):
     strings = []
     for _ in range(2):
         end = pos
-        while data[end:end + 2] != b"\0\0":
+        while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
             end += 2
         strings.append(data[pos:end].decode("utf-16-le", "replace"))
         pos = end + 2

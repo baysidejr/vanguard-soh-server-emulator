@@ -1791,7 +1791,7 @@ def chest_friend_event(state, event, data):
     try:
         if event == housing.PERM_ADD_FRIEND:
             end = 0
-            while data[end:end + 2] != b"\0\0":
+            while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
                 end += 2
             name = data[:end].decode("utf-16-le", "replace").strip()
             perm_id = struct.unpack_from("<i", data, end + 2)[0]
@@ -1851,7 +1851,7 @@ def handle_plot_permission(state, event, data):
             st["permissions"] = [q for q in perms if q["id"] != perm_id]
         elif event == housing.PERM_ADD_FRIEND:
             end = 0
-            while data[end:end + 2] != b"\0\0":
+            while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
                 end += 2
             name = data[:end].decode("utf-16-le", "replace").strip()
             perm_id = struct.unpack_from("<i", data, end + 2)[0]

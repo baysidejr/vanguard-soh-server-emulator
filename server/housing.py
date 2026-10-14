@@ -197,7 +197,7 @@ def parse_permission(data):
     """0x470 / 0x472 -> {plot, id, name, rank, flags, all_players, all_guild}."""
     plot, pid = struct.unpack_from("<ii", data, 0)
     end = 8
-    while data[end:end + 2] != b"\0\0":
+    while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
         end += 2
     name = data[8:end].decode("utf-16-le", "replace")
     rank, flags = struct.unpack_from("<iI", data, end + 2)

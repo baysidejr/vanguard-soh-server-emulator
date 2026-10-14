@@ -809,5 +809,29 @@ class FormOnDeathTests(unittest.TestCase):
         self.assertEqual(p.form, 7)
 
 
+class UnterminatedStringTests(unittest.TestCase):
+    def test_no_hang_on_missing_terminator(self):
+        """A UTF-16 string with no terminator used to spin forever in several readers
+        (house permission friends, mail, market, songs, bug reports): one packet froze the server."""
+        import threading
+        import login_stub
+        import housing
+        p = zone.Player("Nobody", 1, 0x0E, 28, "chunk_n20_12")
+        state = {"player": p, "send": lambda m: None}
+        done = []
+
+        def run():
+            for data in (b"", b"A\x00", b"A\x00B"):
+                try:
+                    login_stub.handle_housing_event(state, housing.PERM_ADD_FRIEND, data)
+                except Exception:
+                    pass
+            done.append(1)
+        t = threading.Thread(target=run, daemon=True)
+        t.start()
+        t.join(5)
+        self.assertTrue(done, "handler hung on an unterminated string")
+
+
 if __name__ == "__main__":
     unittest.main()

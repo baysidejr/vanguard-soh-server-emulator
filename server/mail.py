@@ -104,7 +104,7 @@ def parse_send(data):
     out = []
     for _ in range(3):
         end = pos
-        while data[end:end + 2] != b"\0\0":
+        while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
             end += 2
         out.append(data[pos:end].decode("utf-16-le", "replace"))
         pos = end + 2

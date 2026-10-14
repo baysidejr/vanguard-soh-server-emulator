@@ -115,7 +115,7 @@ def parse_search(data):
     out = []
     for _ in range(2):
         end = pos
-        while data[end:end + 2] != b"\0\0":
+        while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
             end += 2
         out.append(data[pos:end].decode("utf-16-le", "replace"))
         pos = end + 2
@@ -130,7 +130,7 @@ def parse_rarity(data):
     min/max level and three i16 (0, class, slot) and the item type."""
     pos = 12
     for _ in range(2):
-        while data[pos:pos + 2] != b"\0\0":
+        while pos + 1 < len(data) and data[pos:pos + 2] != b"\0\0":
             pos += 2
         pos += 2
     pos += 8 + 2 * 6
