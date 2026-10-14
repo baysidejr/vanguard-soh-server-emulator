@@ -146,7 +146,7 @@ Several clients can connect at once. Start a second copy with a different `--ses
 - In the Social window's Find tab, select a player looking for members and press Request to Join.
 - With dev commands, `!give Gender Change` (or Race Change, Character Rename, Experience Debt Clearance, Unbinding Tool) and right-click it: the client opens its own service window.
 - Save diplomacy strategy bars with `/decksave 1` and bring them back with `/deckload 1`.
-- Admin helpers (with `--dev-commands`): `!goto Name`, `!summon Name`, `!call Name` (the summon offer the player accepts), `!chunk -19 12`, `!hide`, `!setupall 20` (level 20, every class ability, skills at the cap). Or make a character a GM with `"access_level": 255` in characters.json and use the client's own `/chunk`, `/gotoplayer`, `/summonplayer` and `/hideme`.
+- Admin helpers (with `--dev-commands`): `!goto Name`, `!summon Name`, `!call Name` (the summon offer the player accepts), `!chunk -19 12`, `!hide`, `!setupall 20` (level 20, every class ability, skills at the cap). Or make a character a GM with `"access_level": 255` in characters.json and use the client's own `/chunk`, `/gotoplayer`, `/summonplayer`, `/summongroup` and `/hideme`.
 - Open your quest journal, click a quest and press Share to offer it to your group; its Locations tab lists the camp's services.
 - Type `/bug` to file a bug report (saved in `server/bug_reports.json`).
 - Visit the Wildgrowth Forest outpost next door (`!tp -223200 29400 3500` with dev commands, or walk west across the chunk edge): Warden Elara Thornwood offers "Wolves at the Edge" and then "Gifts for the Wardens" (pelts, a thornback bear, a word with Bram the merchant) for a Forester's Cloak; timber wolves can root you and the bear can stun.

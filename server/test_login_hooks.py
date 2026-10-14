@@ -410,6 +410,20 @@ class EffectQueryTests(unittest.TestCase):
         self.assertEqual(sent, [effects.effect_remove(9), effects.effect_timer(5, 10.0, 30)])
 
 
+class GmSummonGroupTests(unittest.TestCase):
+    def test_whole_group_comes(self):
+        gm = {"player": zone.Player(name="Gm", char_id=1, level="c1"), "send": [].append, "position": (0.0, 0.0, 0.0)}
+        a = {"player": zone.Player(name="A", char_id=2, level="c1"), "send": [].append}
+        b = {"player": zone.Player(name="B", char_id=3, level="c1"), "send": [].append}
+        moved = []
+        args = mock.Mock(dev_commands=True)
+        with mock.patch.object(login_stub, "ONLINE", {"gm": gm, "a": a, "b": b}), \
+                mock.patch.object(login_stub, "group_states", lambda p: [a, b]), \
+                mock.patch.object(login_stub, "place_player", lambda s, ar, loc, ch: moved.append((s["player"].name, loc))):
+            login_stub.gm_command(gm, args, login_stub.GM_SUMMON_GROUP, "A\0".encode("utf-16-le"))
+        self.assertEqual(moved, [("A", (100.0, 0.0, 50.0)), ("B", (160.0, 0.0, 50.0))])
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json

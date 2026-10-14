@@ -1264,11 +1264,14 @@ def unbind_item(state, target, tool):
 # itself, then sends 0x770 {i32 x, i32 y} (FUN_00613440); /gotoplayer and /summonplayer send
 # 0x79d / 0x7c7 {wstr name}; /hideme [on|off] sends 0x76c {u8 1 on, 2 off, 3 toggle}.
 GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE = 0x770, 0x79D, 0x7C7, 0x76C
+# /summongroup <name> (FUN_00613cd0, access level 8): 0x7c6 {wstr name}, the whole group of that
+# player (or just them) is brought to the GM.
+GM_SUMMON_GROUP = 0x7C6
 # GM test tools on the defensive target (FUN_005fe180 / FUN_005fe230 / FUN_006143c0):
 # /.learnabilities 0x582 {u64 target}, /.maxskills 0x583 {u64 target},
 # /.setupall <level> 0x589 {u64 target, i32 level}.
 GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL = 0x582, 0x583, 0x589
-GM_EVENTS = (GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE, GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL)
+GM_EVENTS = (GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE, GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL, GM_SUMMON_GROUP)
 
 
 def state_by_char_id(char_id):
@@ -1388,20 +1391,26 @@ def gm_command(state, args, event, data):
         # The client's /chunk already sent the ordinary chunk change (0x9) before this.
         if (cx, cy) != tuple(getattr(player, "chunk", None) or DEFAULT_CHUNK) and not state.get("handoff"):
             travel_to_chunk(state, args, cx, cy, 0.0, 0.0)
-    elif event in (GM_GOTO, GM_SUMMON):
+    elif event in (GM_GOTO, GM_SUMMON, GM_SUMMON_GROUP):
         name = social.read_name(data).strip()
         other = ONLINE.get(name.lower())
         if other is None or other.get("player") is None or other is state:
             send(build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
             return
-        mover, to = (state, other) if event == GM_GOTO else (other, state)
+        if event == GM_GOTO:
+            movers, to = [state], other
+        else:
+            movers = [other] if event == GM_SUMMON else [s for s in group_states(other["player"]) or [other]
+                                                        if s is not state]
+            to = state
         dest = to.get("position") or to["player"].live_position or to["player"].spawned_at
         if dest is None:
             return
-        place_player(mover, args, (dest[0] + 100.0, dest[1], dest[2] + 50.0),
-                     getattr(to["player"], "chunk", None) or DEFAULT_CHUNK)
-        if event == GM_SUMMON:
-            other["send"](build_system_text(f"You have been summoned by {player.name}.", SYSTEM_TEXT_WHITE))
+        for n, mover in enumerate(movers):
+            place_player(mover, args, (dest[0] + 100.0 + 60.0 * n, dest[1], dest[2] + 50.0),
+                         getattr(to["player"], "chunk", None) or DEFAULT_CHUNK)
+            if event != GM_GOTO:
+                mover["send"](client_notice(YOU_HAVE_BEEN_SUMMONED))
     elif event in (GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL) and len(data) >= 8:
         target = state_by_char_id(struct.unpack_from("<Q", data)[0])
         if target is None:
