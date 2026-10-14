@@ -2967,7 +2967,7 @@ def pet_use_ability(state, aid):
         return
     t = npc.pet_target if npc.pet_target is not None and npc.pet_target.alive else \
         player.npcs.get(player.target) if player.target else None
-    if t is None or not t.alive or t.prop or t.talks():
+    if t is None or not t.alive or t.service():
         send(build_system_text(f"{npc.name} has no target for {a['name']}.", SYSTEM_TEXT_ERROR))
         return
     d = math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1])
