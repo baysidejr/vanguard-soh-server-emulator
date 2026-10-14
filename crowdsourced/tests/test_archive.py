@@ -19,6 +19,16 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_exact_archive_item_type_labels(self):
+        for raw, expected in [('Quest', 'quest'), ('Quest — Miscellaneous', 'quest'),
+                              ('Weapon — Greataxe', 'weapon'), ('Cloak Armor', 'armor'),
+                              ('Crafting Tool', 'tool'), ('Crafting Material', 'resource'),
+                              ('Quest — Unknown Classification', None)]:
+            html = page('Fixture', '<dl class="kv"><div><dt>Type</dt><dd>' + raw + '</dd></div></dl>')
+            records, _ = collector.parse_page(ORIGIN + '/items/fixture', html)
+            self.assertEqual(records[0]['item_type'], expected)
+            self.assertEqual(records[0]['archive_fields']['type'], [raw])
+
     def test_required_level_is_not_item_level(self):
         html = page("Fixture Gloves", '''<h2>Properties</h2><dl class="kv">
             <div><dt>Item level</dt><dd>16</dd></div><div><dt>Requires</dt><dd>level 6 Adventuring</dd></div>

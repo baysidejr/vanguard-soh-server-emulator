@@ -24,7 +24,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 22
+PARSER_VERSION = 23
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -275,7 +275,9 @@ def parse_page(url, html):
     elif path.startswith("/items/"):
         types = {"jewelry": "jewelry", "medium armor": "armor", "heavy armor": "armor", "light armor": "armor",
                  "armor": "armor", "weapon": "weapon", "shield": "shield", "container": "container",
-                 "food": "food", "drink": "drink", "quest item": "quest", "misc": "misc"}
+                 "food": "food", "drink": "drink", "quest item": "quest", "misc": "misc",
+                 "quest": "quest", "quest — miscellaneous": "quest", "weapon — greataxe": "weapon",
+                 "cloak armor": "armor", "crafting tool": "tool", "crafting material": "resource"}
         slots = {"head":"head", "chest":"chest", "legs":"legs", "hands":"hands", "feet":"feet",
                  "waist":"waist", "cloak":"cloak", "shoulders":"shoulders", "wrists":"wrists",
                  "neck":"neck", "earleft":"ear", "earright":"ear", "fingerleft":"finger",
