@@ -953,6 +953,23 @@ class FloodTests(unittest.TestCase):
             self.assertTrue(login_stub.allow_message(state, say, None))      # refilled after a second
 
 
+class AuditTests(unittest.TestCase):
+    def test_audit_lines(self):
+        import tempfile
+        from unittest import mock
+        import login_stub
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "audit.log")
+            with mock.patch.object(login_stub, "AUDIT_FILE", path):
+                login_stub.audit("trade", giver="Ann", taker="Bo", items=[["Rock", 2]], coins=5)
+                login_stub.audit("mail", sender="Bo", to="Ann", item=None, coins=1, cod=0)
+            lines = [json.loads(x) for x in open(path, encoding="utf-8")]
+        self.assertEqual([x["kind"] for x in lines], ["trade", "mail"])
+        self.assertEqual(lines[0]["items"], [["Rock", 2]])
+        with mock.patch.object(login_stub, "AUDIT_FILE", None):
+            login_stub.audit("trade")                                   # no file: nothing written
+
+
 class ConsoleTests(unittest.TestCase):
     def test_operator_commands(self):
         import io

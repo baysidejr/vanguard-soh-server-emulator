@@ -309,6 +309,8 @@ def main():
             pass
     if args.data_dir:
         use_data_dir(args.data_dir)
+    global AUDIT_FILE
+    AUDIT_FILE = os.path.join(os.path.dirname(CHARACTERS_FILE), "audit.log")
     # Used when a zone connection arrives without going through Play first (--anonymous-zone).
     args.default_player = lambda: zone.Player(name="Someone",
                                               level=args.zone_level or chunk_name(*DEFAULT_CHUNK))
@@ -501,6 +503,21 @@ MAX_READS_PER_WAKE = 64
 FLUSH_HZ = 20
 
 
+def audit(kind, **fields):
+    """One line of the economy audit log (audit.log next to the database, JSON per line): who
+    gave what to whom. For GMs looking into scams or duplication reports."""
+    if AUDIT_FILE is None:
+        return                          # not a running server (unit tests)
+    line = json.dumps(dict({"t": time.strftime("%Y-%m-%d %H:%M:%S"), "kind": kind}, **fields),
+                      ensure_ascii=False)
+    try:
+        with open(AUDIT_FILE, "a", encoding="utf-8") as f:
+            f.write(line + "\n")
+    except OSError as e:
+        print(f"  !!! audit log: {e}")
+
+
+AUDIT_FILE = None                # set by main(): audit.log next to the database
 DATA_FILES = ("HOUSING_FILE", "CARAVANS_FILE", "GUILDS_FILE", "BROTHERHOODS_FILE", "MAIL_FILE", "BUG_FILE",
               "QUEST_FEEDBACK_FILE", "PLAYER_REPORT_FILE", "MARKET_FILE", "CIVIC_FILE", "CHARACTERS_FILE")
 
@@ -5825,6 +5842,9 @@ def complete_trade(t, args):
         amount = min(side.coins, giver["player"].coins)
         giver["player"].coins -= amount
         taker["player"].coins += amount
+        items = [[it[1], it[3]] for gv, it, _ in moves if gv is giver]
+        if items or amount:
+            audit("trade", giver=giver["player"].name, taker=taker["player"].name, items=items, coins=amount)
     for s_state in (a, b):
         p = s_state["player"]
         s_state["send"](merchant.coins(p.coins))
@@ -6660,6 +6680,9 @@ def handle_mail_event(state, event, data):
         deliver_mail(db, target, mail.new(0, player.name, subject, body, coin=0 if cod else max(0, copper),
                                           cod=max(0, copper) if cod else 0, item_=attached))
         save_mail(db)
+        if attached or copper:
+            audit("mail", sender=player.name, to=target, item=[attached["name"], attached["qty"]] if attached else None,
+                  coins=0 if cod else max(0, copper), cod=max(0, copper) if cod else 0)
         send(mail.result(mail.SENT))
         print(f"  {player.name} mailed {target}: {subject!r}")
         return
@@ -6873,6 +6896,8 @@ def handle_market_event(state, event, data):
                                                       f"{listing['price']} copper.", coin=listing["price"],
                                                       from_player=False))
         save_mail(mdb)
+        audit("market", buyer=player.name, seller=listing["seller"], item=[listing["name"], listing.get("qty", 1)],
+              price=listing["price"], paid=cost)
         print(f"  {player.name} bought {listing['name']} from {listing['seller']} for {cost}")
 
 
@@ -9130,6 +9155,7 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "give":
                         if give_item(state, m[1], m[2]):
                             quest_items_changed(state)
+                            audit("dev_give", to=state["player"].name, item=[m[1], m[2]])
                         continue
                     elif isinstance(m, tuple) and m[0] == "trade_event":
                         handle_trade_event(state, m[1], bytes(10) + m[2], args)
