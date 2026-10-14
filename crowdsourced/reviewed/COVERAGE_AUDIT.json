@@ -1,13 +1,14 @@
 {
-  "parser_version": 21,
+  "parser_version": 22,
   "inventory_urls": 104855,
   "counts": {
-    "not_downloaded": 95621,
+    "not_downloaded": 95517,
     "unsupported": 24,
     "source_only": 1565,
     "supported": 104831,
-    "published": 8761,
-    "published_with_issues": 473
+    "published": 8862,
+    "cached_only": 4,
+    "published_with_issues": 472
   },
   "routes": {
     "/": {
@@ -92,10 +93,11 @@
     },
     "/items": {
       "inventory": 75067,
-      "not_downloaded": 75046,
+      "not_downloaded": 74942,
       "unsupported": 1,
+      "published": 121,
       "supported": 75066,
-      "published": 21
+      "cached_only": 4
     },
     "/lore": {
       "inventory": 115,
@@ -125,8 +127,8 @@
       "unsupported": 1,
       "supported": 4781,
       "source_only": 5,
-      "published": 4403,
-      "published_with_issues": 373
+      "published": 4404,
+      "published_with_issues": 372
     },
     "/races": {
       "inventory": 20,
