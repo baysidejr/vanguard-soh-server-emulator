@@ -6,16 +6,16 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Sort the 312 server->client messages the server never sends (docs/ZONE_MESSAGES.md) into needed /
-variant / debug-GM / content, to get a real to-do list and a measured coverage figure. The
-crowdsourced data is not import-ready (crowdsourced/reviewed/IMPORT_READINESS.md); revisit when the
-collector fills quest objectives and NPC races, or write the ability converter.
+Keep reviewing docs/UNSENT_MESSAGES.md (105 rows still "review"): run `python tools/unsent_messages.py`,
+look at the next dispatcher group, record categories in tools/unsent_notes.json, and fix real gaps
+on the way (this pass found /groupboot and /grouppromote doing nothing, and /random, bind and unbind
+using invented text).
 
 ## Last test results
 
-- 2026-10-14 (after the crowdsourced merge, fdbff2f): server unit tests OK (about 150), crowdsourced
-  tests OK (118), `python server/content.py` content OK. In-game smoke test (`tools/smoke_test.py`)
-  PASS with 40 commands (run before the merge; the merge touched only crowdsourced/ and two test fixtures).
+- 2026-10-14 (c5ed7a4): server unit tests OK, crowdsourced tests OK (118), content OK. Live: unbind
+  message (0x5e4), /random (0x31a), group promote and boot with two clients. Smoke test last PASS
+  earlier today (40 commands).
 
 ## Remaining work
 
@@ -36,6 +36,7 @@ collector fills quest objectives and NPC races, or write the ability converter.
 
 ## Done
 
+- 2026-10-14: docs/UNSENT_MESSAGES.md + tools/unsent_messages.py (+ tools/unsent_notes.json): the client messages the server never sends, by subsystem and category. Fixed on the way: /groupboot and /grouppromote implemented; /random, bind and unbind use the client's own messages.
 - 2026-10-14: Converted all 121 crowdsourced batches in memory: only 16 items and 13 quests would import cleanly. Quests lack objective targets and rewards, NPCs lack race and health, ability records have no converter yet. Written up in crowdsourced/reviewed/IMPORT_READINESS.md; nothing merged into server/content/.
 - 2026-10-14: Merged the other agent's crowdsourced/archive-collection branch into main (fdbff2f): conflict in convert.py resolved keeping both sides, 'formula' record type restored, my converter test fixtures updated to the stricter schema. All suites pass.
 - 2026-10-14: Full in-game sweep of the 288 ordinary slash commands not covered before (scratchpad typeall.ps1, numbered say markers tie log lines to commands). The only new request was /hintsreset 0x182 (hint content); the rest were already handled or listed. Note: sending Esc between commands opens the Main Menu, so the sweep no longer does.
