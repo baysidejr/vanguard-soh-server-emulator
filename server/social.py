@@ -19,6 +19,14 @@ import struct
 WHO, FRIEND, IGNORE = 0x44, 0x4F7, 0x4F8
 WORLD_EVENTS = (WHO, FRIEND, IGNORE)
 AFK, ANON, LFG, RANDOM, INSPECT = 0x505, 0x5A6, 0x503, 0x15A, 0x48C
+# The roll everyone nearby sees: 0x31a {eid64 roller, i32 low, i32 high, i32 result}
+# (FUN_005e4020) prints VGClient.int SlashRandomResult, "* * * <name> rolls a magical die between
+# <low> and <high> for a result of <result>. * * *"; the name comes from the roller's pawn.
+RANDOM_RESULT = 0x31A
+
+
+def random_result(roller, lo, hi, result):
+    return struct.pack("<HII", 2, RANDOM_RESULT, 20) + struct.pack("<Qiii", roller, lo, hi, result)
 ZONE_EVENTS = (AFK, ANON, LFG, RANDOM, INSPECT)
 ALL_CHUNKS = -999999
 NO_CRAFT_CLASS = 0xFF

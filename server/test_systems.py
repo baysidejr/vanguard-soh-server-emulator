@@ -976,5 +976,12 @@ class HarvestItemRequestTests(unittest.TestCase):
         self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in msgs], [0x2E2, 0x2E2, 0x2E3])
 
 
+class RandomResultTests(unittest.TestCase):
+    def test_layout(self):
+        import social
+        m = social.random_result(0x1336F1A, 1, 100, 42)
+        self.assertEqual(struct.unpack("<HIIQiii", m), (2, 0x31A, 20, 0x1336F1A, 1, 100, 42))
+
+
 if __name__ == "__main__":
     unittest.main()

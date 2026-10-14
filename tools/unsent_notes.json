@@ -23,39 +23,261 @@
     "FUN_004f54d0": "harvesting"
   },
   "messages": {
-    "0x198": ["unknown", "no payload; handler not decoded"],
-    "0x1af": ["unknown", "no payload signal"],
-    "0x1b1": ["optional", "item back from the crafting inventory {handle, container, slot}; this server never moves items into a crafting inventory (docs/CRAFTING.md)"],
-    "0x1b2": ["optional", "crafting-inventory item used up {handle}; same as 0x1b1"],
-    "0x1b8": ["variant", "item equipped {handle, u8, u8}; the server resends the whole item record (0x197) instead"],
-    "0x1b9": ["variant", "item equip {3 x i32}; the server resends the item record instead"],
-    "0x1ba": ["variant", "item unequip {3 x i32}; the server resends the item record instead"],
-    "0x1bc": ["unknown", "four ints; handler not decoded"],
-    "0x1c2": ["content", "item conversion window (\"Convert %i x %s to:\"); needs conversion recipes"],
-    "0x1c3": ["unknown", "u8; handler not decoded (near the conversion messages)"],
-    "0x1c5": ["optional", "item use failure code {u8}, e.g. 0x16 \"You need to wield a harvesting tool\"; the server words failures as text today"],
-    "0x1d2": ["content", "pet graft added; pet grafts are content (docs/PETS.md)"],
-    "0x1d3": ["content", "pet graft removed"],
-    "0x1d5": ["variant", "MsgSingleItemInfo into another container; the server uses 0x197 and the container-specific messages"],
-    "0x1d6": ["variant", "MsgSingleItemInfo variant"],
-    "0x1d7": ["variant", "MsgSingleItemInfo variant"],
-    "0x1d8": ["unknown", "i32; handler not decoded"],
-    "0x1da": ["variant", "sets an item's +0x668 flag {handle, bool} (docs/ITEM_FIELDS.md); the server resends the record"],
-    "0x1dc": ["variant", "item base data update (damage, AC, level); the server resends the record"],
-    "0x1dd": ["content", "item mod (MsgItemMod); item modifications are content"],
-    "0x1de": ["content", "item attachment slot (MsgItemAttachSlot); attachments are content"],
-    "0x1df": ["unknown", "wstr, i32; handler not decoded"],
-    "0x1e0": ["unknown", "wstr, i32; handler not decoded"],
-    "0x1e1": ["content", "vehicle name field (_inventory_name_vehicle); vehicles (boats) are content"],
-    "0x1e2": ["content", "\"Your vehicle is now called %s.\""],
-    "0x1e3": ["done", "\"%s has been bound to you...\" {handle}: sent when a Bind On Equip item is worn (2026-10-14)"],
-    "0x1e4": ["optional", "unique item add failure; Unique items are not enforced yet"],
-    "0x1e5": ["unknown", "eid64, i32, i32; handler not decoded"],
-    "0x58d": ["unknown", "i32; handler not decoded"],
-    "0x5ae": ["unknown", "two ints; handler not decoded"],
-    "0x5af": ["unknown", "i32 remove-from-container; handler not decoded"],
-    "0x5e4": ["done", "\"%s has been unbound from you...\" {handle}: sent by the Unbinding Tool (verified live 2026-10-14)"],
-    "0x5e6": ["blocked", "Gold Membership unlock; this server has no membership locks"],
-    "0x82e": ["unknown", "item avatar info {i32, wstr}; handler not decoded"]
+    "0x198": [
+      "unknown",
+      "no payload; handler not decoded"
+    ],
+    "0x1af": [
+      "unknown",
+      "no payload signal"
+    ],
+    "0x1b1": [
+      "optional",
+      "item back from the crafting inventory {handle, container, slot}; this server never moves items into a crafting inventory (docs/CRAFTING.md)"
+    ],
+    "0x1b2": [
+      "optional",
+      "crafting-inventory item used up {handle}; same as 0x1b1"
+    ],
+    "0x1b8": [
+      "variant",
+      "item equipped {handle, u8, u8}; the server resends the whole item record (0x197) instead"
+    ],
+    "0x1b9": [
+      "variant",
+      "item equip {3 x i32}; the server resends the item record instead"
+    ],
+    "0x1ba": [
+      "variant",
+      "item unequip {3 x i32}; the server resends the item record instead"
+    ],
+    "0x1bc": [
+      "unknown",
+      "four ints; handler not decoded"
+    ],
+    "0x1c2": [
+      "content",
+      "item conversion window (\"Convert %i x %s to:\"); needs conversion recipes"
+    ],
+    "0x1c3": [
+      "unknown",
+      "u8; handler not decoded (near the conversion messages)"
+    ],
+    "0x1c5": [
+      "optional",
+      "item use failure code {u8}, e.g. 0x16 \"You need to wield a harvesting tool\"; the server words failures as text today"
+    ],
+    "0x1d2": [
+      "content",
+      "pet graft added; pet grafts are content (docs/PETS.md)"
+    ],
+    "0x1d3": [
+      "content",
+      "pet graft removed"
+    ],
+    "0x1d5": [
+      "variant",
+      "MsgSingleItemInfo into another container; the server uses 0x197 and the container-specific messages"
+    ],
+    "0x1d6": [
+      "variant",
+      "MsgSingleItemInfo variant"
+    ],
+    "0x1d7": [
+      "variant",
+      "MsgSingleItemInfo variant"
+    ],
+    "0x1d8": [
+      "unknown",
+      "i32; handler not decoded"
+    ],
+    "0x1da": [
+      "variant",
+      "sets an item's +0x668 flag {handle, bool} (docs/ITEM_FIELDS.md); the server resends the record"
+    ],
+    "0x1dc": [
+      "variant",
+      "item base data update (damage, AC, level); the server resends the record"
+    ],
+    "0x1dd": [
+      "content",
+      "item mod (MsgItemMod); item modifications are content"
+    ],
+    "0x1de": [
+      "content",
+      "item attachment slot (MsgItemAttachSlot); attachments are content"
+    ],
+    "0x1df": [
+      "unknown",
+      "wstr, i32; handler not decoded"
+    ],
+    "0x1e0": [
+      "unknown",
+      "wstr, i32; handler not decoded"
+    ],
+    "0x1e1": [
+      "content",
+      "vehicle name field (_inventory_name_vehicle); vehicles (boats) are content"
+    ],
+    "0x1e2": [
+      "content",
+      "\"Your vehicle is now called %s.\""
+    ],
+    "0x1e3": [
+      "done",
+      "\"%s has been bound to you...\" {handle}: sent when a Bind On Equip item is worn (2026-10-14)"
+    ],
+    "0x1e4": [
+      "optional",
+      "unique item add failure; Unique items are not enforced yet"
+    ],
+    "0x1e5": [
+      "unknown",
+      "eid64, i32, i32; handler not decoded"
+    ],
+    "0x58d": [
+      "unknown",
+      "i32; handler not decoded"
+    ],
+    "0x5ae": [
+      "unknown",
+      "two ints; handler not decoded"
+    ],
+    "0x5af": [
+      "unknown",
+      "i32 remove-from-container; handler not decoded"
+    ],
+    "0x5e4": [
+      "done",
+      "\"%s has been unbound from you...\" {handle}: sent by the Unbinding Tool (verified live 2026-10-14)"
+    ],
+    "0x5e6": [
+      "blocked",
+      "Gold Membership unlock; this server has no membership locks"
+    ],
+    "0x82e": [
+      "unknown",
+      "item avatar info {i32, wstr}; handler not decoded"
+    ],
+    "0x118": [
+      "optional",
+      "class display flags {3 x i32} (ClassShowsSpellDamage / HealingBonus) for the character sheet"
+    ],
+    "0x119": [
+      "optional",
+      "adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...); levels reach the client through MsgScore today"
+    ],
+    "0x11a": [
+      "unknown",
+      "bUse250System {bool8}; meaning unknown"
+    ],
+    "0x11b": [
+      "unknown",
+      "bool8; handler not decoded"
+    ],
+    "0x272": [
+      "content",
+      "raid lockout share offer (Accept / Decline -> /lockoutaccept 0x273); no raid lockouts here"
+    ],
+    "0x31b": [
+      "optional",
+      "strDiplomatRankSelf {wstr}: the diplomat rank title on the character sheet"
+    ],
+    "0x3c3": [
+      "optional",
+      "combat / contest state signal (bInCombat, strContestTye)"
+    ],
+    "0x3e2": [
+      "optional",
+      "server-set defensive target {eid64, u8} (bHaveDefensiveTarget, DefTargetLifePoints)"
+    ],
+    "0x3ec": [
+      "blocked",
+      "Infamy {i32} (PvP); no PvP on this server"
+    ],
+    "0x44b": [
+      "optional",
+      "wounds {5 x u8} (bIsWounded per body part); no wound system yet"
+    ],
+    "0x508": [
+      "optional",
+      "petition submit window {wstr, i32}; petitions go to the GM queue in the original"
+    ],
+    "0x50a": [
+      "optional",
+      "bHasPetition {bool8}"
+    ],
+    "0x544": [
+      "unknown",
+      "no-payload signal"
+    ],
+    "0x545": [
+      "optional",
+      "DialogActive {bool8}: server-side dialog state flag"
+    ],
+    "0x552": [
+      "optional",
+      "bInOutpost {bool8}: outpost flag (the camp is an outpost); what it unlocks is not known"
+    ],
+    "0x553": [
+      "unknown",
+      "wstr + 3 floats; handler not decoded"
+    ],
+    "0x5b0": [
+      "debug",
+      "/.g1 /.g2 GM output {3 x wstr, i32}"
+    ],
+    "0x5c7": [
+      "unknown",
+      "3 floats; handler not decoded"
+    ],
+    "0x5e2": [
+      "unknown",
+      "raw payload; handler not decoded"
+    ],
+    "0x62a": [
+      "unknown",
+      "eid64; handler not decoded"
+    ],
+    "0x62b": [
+      "unknown",
+      "i32; handler not decoded"
+    ],
+    "0x62c": [
+      "unknown",
+      "i64; handler not decoded"
+    ],
+    "0x62d": [
+      "unknown",
+      "wstr; handler not decoded"
+    ],
+    "0x62e": [
+      "unknown",
+      "i32; handler not decoded"
+    ],
+    "0x689": [
+      "unknown",
+      "wstr; handler not decoded"
+    ],
+    "0x723": [
+      "optional",
+      "\"You lost a level, your %s level is now %d.\" {sphere, level}; this server never takes levels away"
+    ],
+    "0x726": [
+      "blocked",
+      "trial-account feature popup (mail, housing...); never send"
+    ],
+    "0x727": [
+      "optional",
+      "group invite referral popup (Accept / Decline -> /groupinvitereferral*)"
+    ],
+    "0x728": [
+      "unknown",
+      "2 floats; handler not decoded"
+    ],
+    "0x75d": [
+      "unknown",
+      "MsgSingleItemInfo in the player dispatcher; purpose not decoded"
+    ]
   }
 }

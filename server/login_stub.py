@@ -4805,13 +4805,12 @@ def handle_social_zone(state, event, data):
     elif event == social.RANDOM and len(data) >= 8:
         lo, hi = struct.unpack_from("<ii", data, 0)
         lo, hi = (lo, hi) if lo <= hi else (hi, lo)
-        text = f"**A Magic Die is rolled by {player.name}. It could have been any number from {lo} to {hi}, " \
-               f"but this time it turned up a {random.randint(lo, hi)}."
+        msg = social.random_result(player.char_id, lo, hi, random.randint(lo, hi))
         w = state.get("world")
         if w is not None:
-            w.broadcast(lambda s: build_system_text(text, SYSTEM_TEXT_WHITE))
+            w.broadcast(lambda s: msg)
         else:
-            send(build_system_text(text, SYSTEM_TEXT_WHITE))
+            send(msg)
     elif event == social.INSPECT:
         name = social.read_name(data).strip()
         target = ONLINE.get(name.lower()) if name else None
