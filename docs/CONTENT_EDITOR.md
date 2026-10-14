@@ -81,6 +81,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Civic diplomacy:** the real civic stats per area, their ranges and their effects were server data; ours is one placeholder value ("Thestran Wastes Camp Prosperity", +5 per win against Orin).
 
+**Deconstruction:** what each item broke down into (components, the level needed) was server data. Every item answers "can not be deconstructed" until that exists (docs/CLIENT_REQUESTS.md, Deconstruction).
+
 **Alternate advancement:** the AA abilities (general, archetype, class and special lists), their costs, ranks and effects were server data, sent as MsgAlternateAdvancementAbilitiesAdd. `/aalist` (0x85c) and the AA window get no answer until that data exists.
 
 **Summoned pets:** what each class summon (Awaken Abomination, Summon Attendant of Hayatet/Rakurr/Tuurgin, Ritual Animatus) creates, its race, model, level, health and abilities were server data; abilities.json has placeholders.
