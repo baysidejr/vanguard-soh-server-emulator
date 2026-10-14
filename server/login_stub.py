@@ -427,7 +427,7 @@ def use_ability(state, args, player, ability):
         # health, damage, abilities}): the same companion as a pet item; casting it again
         # replaces the pet.
         if player.health <= 0:
-            send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+            send(client_notice(NOT_WHILE_DEAD))
             return
         summon_pet(state, args, spec["pet"])
         if refresh > 0:
@@ -442,7 +442,7 @@ def use_ability(state, args, player, ability):
             send(build_system_text("You need a hostile target.", SYSTEM_TEXT_ERROR))
             return
         if player.health <= 0:
-            send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+            send(client_notice(NOT_WHILE_DEAD))
             return
         visual = ability[1] if ability[1] >= 500000 else None
         if visual:
@@ -458,7 +458,7 @@ def use_ability(state, args, player, ability):
         return
     if spec["kind"] in ("heal", "buff"):
         if player.health <= 0:
-            send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+            send(client_notice(NOT_WHILE_DEAD))
             return
         error = combat.pay_cost(player, refresh)
         if error:
@@ -1483,7 +1483,7 @@ def unstuck(state):
         send(build_system_text(f"You can use Unstuck again in {left // 60}m {left % 60}s.", SYSTEM_TEXT_ERROR))
         return
     if player.health <= 0:
-        send(build_system_text("You can't do that while dead.", SYSTEM_TEXT_ERROR))
+        send(client_notice(NOT_WHILE_DEAD))
         return
     state["unstuck_at"] = now
     bind = getattr(player, "bind", None)
@@ -1839,7 +1839,7 @@ def handle_chest(state, event, vals):
         if item is None:
             return
         if slot is None:
-            send(build_system_text("The chest is full.", SYSTEM_TEXT_ERROR))
+            send(client_notice(CHEST_FULL))
             return
         player.items.remove(item)
         send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
@@ -3563,7 +3563,7 @@ def use_tombstone(state):
         if npc is None or player_distance(p, npc) > 600:
             return False
     if player_distance(p, npc) > 600:
-        state["send"](build_system_text("You are too far away.", SYSTEM_TEXT_ERROR))
+        state["send"](client_notice(TOO_FAR_AWAY))
     else:
         recover_tombstone(state, p, npc)
     return True
@@ -4328,7 +4328,7 @@ def handle_social_world(zone_state, event, data, reply):
         if other is None or other is zone_state:
             zone_state["send"](build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
         elif getattr(player, "group", None) is not None:
-            zone_state["send"](build_system_text("You are already in a group.", SYSTEM_TEXT_ERROR))
+            zone_state["send"](client_notice(ALREADY_IN_GROUP))
         elif g is not None and (g.leader is not other["player"] or len(g.members) >= group.MAX_MEMBERS):
             zone_state["send"](build_system_text(f"{name} cannot take you into a group right now.", SYSTEM_TEXT_ERROR))
         else:
@@ -4804,7 +4804,7 @@ def handle_raid_event(state, event, data):
     g = getattr(player, "group", None)
     print(f"  >>> ZONE raid event {event:#x}: {data.hex(' ')}")
     if g is None:
-        send(build_system_text("You are not in a group.", SYSTEM_TEXT_ERROR))
+        send(client_notice(NOT_IN_GROUP))
         return
     members = group_states(player)
     officer = g.leader is player or 2 in g.roles.get(player.char_id, set())
@@ -6117,7 +6117,7 @@ def handle_market_event(state, event, data):
             send(build_system_text("That is your own item; cancel the sale instead.", SYSTEM_TEXT_ERROR))
             return
         if player.coins < cost:
-            send(build_system_text("You can't afford that.", SYSTEM_TEXT_ERROR))
+            send(client_notice(CANT_AFFORD))
             return
         player.coins -= cost
         send(merchant.coins(player.coins))
@@ -7660,6 +7660,14 @@ def dev_command(text, player=None):
 # Zone event 0x192 (wstr text, i32 colour/channel): plain server text in the chat
 # window. Verified colours: 3 white, 4 red, 5 orange, 6 blue, 7 tan.
 SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
+
+
+# The client's own messages (zone event 0x0e {i16 code}, docs/NOTICES.md).
+TOO_FAR_AWAY, NOT_WHILE_DEAD, NOT_IN_GROUP, ALREADY_IN_GROUP, CANT_AFFORD, CHEST_FULL = 111, 112, 197, 201, 251, 349
+
+
+def client_notice(code):
+    return zone.zone_event(0x0E, struct.pack("<h", code))
 
 
 def build_system_text(text, channel=SYSTEM_TEXT_WHITE):
