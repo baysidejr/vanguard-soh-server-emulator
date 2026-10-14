@@ -6,15 +6,18 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Work the "optional" list in docs/UNSENT_MESSAGES.md, most visible first: character sheet combat
-numbers (0x11e), quest-ready markers over NPCs (0x2ce), the client's own ability and auto-attack
-failure messages (0x241, 0x244), Unique items (0x1e4). Decode each handler before sending anything.
+Continue the "optional" list in docs/UNSENT_MESSAGES.md. Good next candidates: escrow merchant
+(consignment) window (0x28d / 0x294-0x296), group member entity change on chunk travel (0x690),
+crafting step highlights (0x30b / 0x30c), object-in-use errors (0x3ca), Unique items (0x1e4 code 0)
+with an items.json flag. Also look for more invented error texts that match client codes
+(docs/NOTICES.md, the 0x241 / 0x244 / 0x1e4 tables).
 
 ## Last test results
 
-- 2026-10-14 (c5ed7a4): server unit tests OK, crowdsourced tests OK (118), content OK. Live: unbind
-  message (0x5e4), /random (0x31a), group promote and boot with two clients. Smoke test last PASS
-  earlier today (40 commands).
+- 2026-10-14 (1729ddc): server unit tests OK, crowdsourced tests OK (118), content OK, in-game smoke
+  test PASS (40 commands). Live checks today: unbind (0x5e4), /random (0x31a), group promote and boot
+  (two clients), stunned and no-target ability failures (0x241), auto-attack without a target (0x244),
+  equipping a non-equippable item (0x1e4).
 
 ## Remaining work
 
@@ -35,6 +38,7 @@ failure messages (0x241, 0x244), Unique items (0x1e4). Decode each handler befor
 
 ## Done
 
+- 2026-10-14: More invented server texts replaced by the client's own messages: ability failures (0x241: not refreshed, stunned, requires a chain, no valid target, not enough energy / endurance), auto-attack refusals (0x244), item errors (0x1e4: no room, cannot equip). Code tables in docs/EFFECTS.md and zone.py. The character sheet avoidance block (0x11e) is now sent; where the client shows it was not found.
 - 2026-10-14: Finished categorizing every unsent server message: 441 sent, 90 not needed (variant 33, content 35, no-op 10, debug 7, blocked 5), 125 optional, 64 undecoded. Measured coverage 73%.
 - 2026-10-14: docs/UNSENT_MESSAGES.md + tools/unsent_messages.py (+ tools/unsent_notes.json): the client messages the server never sends, by subsystem and category. Fixed on the way: /groupboot and /grouppromote implemented; /random, bind and unbind use the client's own messages.
 - 2026-10-14: Converted all 121 crowdsourced batches in memory: only 16 items and 13 quests would import cleanly. Quests lack objective targets and rewards, NPCs lack race and health, ability records have no converter yet. Written up in crowdsourced/reviewed/IMPORT_READINESS.md; nothing merged into server/content/.
