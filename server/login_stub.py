@@ -3601,8 +3601,11 @@ def handle_guild_world(state, event, data, reply):
         return
     rank = mine["members"][next(m for m in mine["members"] if m.lower() == player.name.lower())]
     if event == guild.MEMBER_LIST:
+        # Asked on the world connection, answered on the zone one: the guild dispatcher
+        # (FUN_004f1610) is a zone handler, and on the world connection the client logs
+        # "Received unhandled message id 1259/1260/1261".
         for m in guild.member_list([guild_member(mine, n) for n in mine["members"]]):
-            reply(m)
+            state["send"](m)
     elif event in (guild.TOGGLE_RECRUITING, guild.RECRUIT_NOTES, guild.TAGS, guild.RANK_INVITE,
                    guild.RANK_REMOVE, guild.RANK_MOTD):
         if rank < 9:
