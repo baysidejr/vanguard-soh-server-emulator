@@ -10,7 +10,6 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 0. **Unhandled client requests:** docs/CLIENT_REQUESTS.md lists 105 ids the client can send that the server never handles. Classify (GM/debug vs player feature) and implement the player ones that need no invented data.
 1. **Protocol correctness:** run the client through login, combat, bags, guild, mail, crafting; collect every "unhandled message" and client error line; fix each.
-3. **Persistence audit:** for each saved field, check it survives /camp and a server restart (bag contents, bank, discovered locations, fish records, factions, titles, songs, spheres). Add a unit test that round-trips a character through save/load.
 4. **Automated smoke test:** a script that launches the client, enters the world and checks the stub log and client log for errors, so old features get re-checked after changes.
 5. **Integration gaps:** grep for handlers that print "unknown"/"unhandled" client events in stub_log.txt and implement the ones with known payloads.
 6. **Crowdsourced import:** convert and import the first batch when it lands in `crowdsourced/raw/`.
@@ -25,6 +24,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: Persistence: character loading extracted into player_from_character; a round-trip test loads a record with every saved field set and checks each value, and a guard test fails if a saved field is never read back.
 - 2026-10-14: /transferplot (0x5c6) verified live with two clients.
 - 2026-10-14: Fuzzed the inline zone and world dispatch chains (every event id x 5 payloads, player in a world): no hangs; the only exceptions are short-payload struct errors already caught per message. Guarded /unstuck before spawn.
 - 2026-10-14: Defensive targeting fixed: player pawns lacked EntityTypes 0x20, so the client refused them as defensive targets (clicking a player, F1, /targetself did nothing). Verified live.

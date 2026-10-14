@@ -7631,6 +7631,83 @@ def send_character_list(sock, addr, state):
         print("  (no saved characters to send)")
 
 
+def player_from_character(char, name, args):
+    """A zone.Player from a characters.json record (everything saved is read back here)."""
+    saved = char.get("position")
+    same_chunk = tuple(char.get("position_chunk", ())) == character_chunk(char)
+    player = zone.Player(
+        name=name,
+        char_id=character_id(char),
+        race=character_race_class(char)[0] if char.get("raw") else 0x0E,
+        klass=character_race_class(char)[1] if char.get("raw") else 0x1C,
+        level=args.zone_level or chunk_name(*character_chunk(char)),
+        position=saved if saved and same_chunk else None,
+        save_position=lambda loc, n=name: save_character_position(n, loc))
+    player.chunk = character_chunk(char)
+    player.gender = character_gender(char)
+    player.level_number = char.get("adventure_level", player.level_number)
+    player.appearance = character_appearance(char)
+    player.hotbar = char.get("hotbar")
+    player.quests = quest.QuestLog(char.get("quests"))
+    saved_skills = {int(k): v for k, v in char.get("skills", {}).items()}
+    player.skills = [(sid, saved_skills.get(sid, v), sub) for sid, v, sub in player.skills]
+    if "items" in char:
+        player.items = zone.normalize_items(char["items"])
+    if "coins" in char:
+        player.coins = char["coins"]
+    player.bank = zone.normalize_items(char.get("bank", []))
+    player.durability = dict(char.get("durability", {}))
+    player.friends = list(char.get("friends", []))
+    player.parleys_won = list(char.get("parleys_won", []))
+    player.factions = dict(char.get("factions", {}))
+    player.work_order = char.get("work_order")
+    player.xp_debt = int(char.get("xp_debt", 0))
+    player.tombstone = char.get("tombstone")
+    player.bind = char.get("bind")
+    player.dialog_rewards = list(char.get("dialog_rewards", []))
+    player.played = int(char.get("played", 0))
+    player.titles = list(char.get("titles", []))
+    player.songs = list(char.get("songs", []))
+    player.fish_records = dict(char.get("fish_records", {}))
+    player.discovered = list(char.get("discovered", []))
+    player.flags = list(char.get("flags", []))
+    player.assembly_known = list(char.get("assembly_known", []))
+    player.title_prefix = char.get("title_prefix", -1)
+    player.title_suffix = char.get("title_suffix", -1)
+    player.show_title = char.get("show_title", True)
+    player.session_start = time.time()
+    player.known_recipes = list(char.get("known_recipes", []))
+    player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
+    player.diplomacy_slots = char.get("diplomacy_slots")
+    player.ignores = list(char.get("ignores", []))
+    player.bank_coins = char.get("bank_coins", 0)
+    if "equipment" in char:
+        player.equipment = [tuple(e) for e in char["equipment"]]
+    player.xp = char.get("adventure_xp", player.xp)
+    player.learned = list(char.get("learned_abilities", []))
+    player.spheres = {k: list(v) for k, v in char.get("spheres", {}).items()}
+    player.active_toolbelt = char.get("active_toolbelt")
+    player.bound = set(char.get("bound", []))
+    player.deck_presets = char.get("deck_presets")
+    player.apply_form_on_death = char.get("apply_form_on_death", False)
+    player.access_level = int(char.get("access_level", 0))
+    cname = races_classes.class_name(player.klass)
+    chain_names = (reactions.chain_names(args.content.chains, cname)
+                   + list(args.content.counters.get(cname, []))
+                   + list(args.content.rescues.get(cname, [])))
+    chain_ids = [aid for aid, tag in class_abilities.class_ability_list(args.client_dir, player.klass)
+                 if class_abilities.display_name(tag) in chain_names]
+    player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
+                                                           learned=player.learned + chain_ids)
+                        or player.abilities)
+    player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
+    player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
+    player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)
+    player.song_parts = songs.part_abilities(args.content.songs.get(cname, {}))
+    player.forms = forms.class_forms(args.content.forms.get(cname, {}))
+    return player
+
+
 def handle_message(sock, server, addr, state, payload, args):
     if len(payload) < 2:
         return
@@ -7687,78 +7764,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 char["position_chunk"] = char["chunk"] = [cx, cy]
                 print(f"  {name} travels with the caravan to {cv_loc['level']}")
             # The zone connection with the same session key claims this player.
-            saved = char.get("position")
-            same_chunk = tuple(char.get("position_chunk", ())) == character_chunk(char)
-            player = zone.Player(
-                name=name,
-                char_id=character_id(char),
-                race=character_race_class(char)[0] if char.get("raw") else 0x0E,
-                klass=character_race_class(char)[1] if char.get("raw") else 0x1C,
-                level=args.zone_level or chunk_name(*character_chunk(char)),
-                position=saved if saved and same_chunk else None,
-                save_position=lambda loc, n=name: save_character_position(n, loc))
-            player.chunk = character_chunk(char)
-            player.gender = character_gender(char)
-            player.level_number = char.get("adventure_level", player.level_number)
-            player.appearance = character_appearance(char)
-            player.hotbar = char.get("hotbar")
-            player.quests = quest.QuestLog(char.get("quests"))
-            saved_skills = {int(k): v for k, v in char.get("skills", {}).items()}
-            player.skills = [(sid, saved_skills.get(sid, v), sub) for sid, v, sub in player.skills]
-            if "items" in char:
-                player.items = zone.normalize_items(char["items"])
-            if "coins" in char:
-                player.coins = char["coins"]
-            player.bank = zone.normalize_items(char.get("bank", []))
-            player.durability = dict(char.get("durability", {}))
-            player.friends = list(char.get("friends", []))
-            player.parleys_won = list(char.get("parleys_won", []))
-            player.factions = dict(char.get("factions", {}))
-            player.work_order = char.get("work_order")
-            player.xp_debt = int(char.get("xp_debt", 0))
-            player.tombstone = char.get("tombstone")
-            player.bind = char.get("bind")
-            player.dialog_rewards = list(char.get("dialog_rewards", []))
-            player.played = int(char.get("played", 0))
-            player.titles = list(char.get("titles", []))
-            player.songs = list(char.get("songs", []))
-            player.fish_records = dict(char.get("fish_records", {}))
-            player.discovered = list(char.get("discovered", []))
-            player.flags = list(char.get("flags", []))
-            player.assembly_known = list(char.get("assembly_known", []))
-            player.title_prefix = char.get("title_prefix", -1)
-            player.title_suffix = char.get("title_suffix", -1)
-            player.show_title = char.get("show_title", True)
-            player.session_start = time.time()
-            player.known_recipes = list(char.get("known_recipes", []))
-            player.diplomacy_deck = list(char.get("diplomacy_deck", [])) or None
-            player.diplomacy_slots = char.get("diplomacy_slots")
-            player.ignores = list(char.get("ignores", []))
-            player.bank_coins = char.get("bank_coins", 0)
-            if "equipment" in char:
-                player.equipment = [tuple(e) for e in char["equipment"]]
-            player.xp = char.get("adventure_xp", player.xp)
-            player.learned = list(char.get("learned_abilities", []))
-            player.spheres = {k: list(v) for k, v in char.get("spheres", {}).items()}
-            player.active_toolbelt = char.get("active_toolbelt")
-            player.bound = set(char.get("bound", []))
-            player.deck_presets = char.get("deck_presets")
-            player.apply_form_on_death = char.get("apply_form_on_death", False)
-            player.access_level = int(char.get("access_level", 0))
-            cname = races_classes.class_name(player.klass)
-            chain_names = (reactions.chain_names(args.content.chains, cname)
-                           + list(args.content.counters.get(cname, []))
-                           + list(args.content.rescues.get(cname, [])))
-            chain_ids = [aid for aid, tag in class_abilities.class_ability_list(args.client_dir, player.klass)
-                         if class_abilities.display_name(tag) in chain_names]
-            player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
-                                                                   learned=player.learned + chain_ids)
-                                or player.abilities)
-            player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
-            player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
-            player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)
-            player.song_parts = songs.part_abilities(args.content.songs.get(cname, {}))
-            player.forms = forms.class_forms(args.content.forms.get(cname, {}))
+            player = player_from_character(char, name, args)
             PENDING_PLAYERS[state.get("session", "")] = player
             send_message(sock, addr, state, build_set_name_id(char))
             print(f"  <- sent WORLD event 10 (SetNameID {name!r} id={character_id(char):#x}, "

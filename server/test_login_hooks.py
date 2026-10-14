@@ -51,6 +51,66 @@ class LoginHookListTests(unittest.TestCase):
         self.assertEqual(called - tested, set())
 
 
+class CharacterRoundTripTests(unittest.TestCase):
+    CHAR = {
+        "first": "Tester", "last": "Two", "world": "Stub World", "raw": "00000000e305010313",
+        "adventure_level": 12, "adventure_xp": 345, "coins": 777, "bank_coins": 55,
+        "items": [[10, "Copper Ore", 487, 3, 0]], "bank": [[11, "Copper Ingot", 1, 2, 0]],
+        "equipment": [[12, "Copper Ring", 1225, 15]], "durability": {"12": 80},
+        "skills": {"88": 40}, "learned_abilities": [123], "hotbar": {"1": [1, 2]},
+        "friends": ["Ann"], "ignores": ["Bob"], "parleys_won": ["guard"], "factions": {"1004": 250},
+        "work_order": {"id": 1}, "xp_debt": 90, "tombstone": {"level": "chunk_n19_12", "loc": [1, 2, 3]},
+        "bind": {"level": "chunk_n19_12", "loc": [4, 5, 6]}, "dialog_rewards": ["r1"], "played": 3600,
+        "titles": [2], "songs": [{"name": "s"}], "fish_records": {"Mud Eel": 3.5}, "discovered": ["Mailbox"],
+        "flags": ["orin_trust"], "assembly_known": ["buckle"], "title_prefix": 1, "title_suffix": 2,
+        "show_title": False, "known_recipes": ["copper_ingot"], "diplomacy_deck": [1, 2, 3],
+        "diplomacy_slots": [1, None], "spheres": {"crafting": [3, 40]}, "active_toolbelt": 68,
+        "bound": [12], "deck_presets": {"1": [1, 2]}, "apply_form_on_death": True, "access_level": 5,
+        "gender": 1, "race": 14, "quests": {},
+    }
+    LOADED = {   # characters.json field -> Player attribute, compared after normalising
+        "adventure_level": "level_number", "adventure_xp": "xp", "coins": "coins", "bank_coins": "bank_coins",
+        "learned_abilities": "learned", "hotbar": "hotbar", "friends": "friends", "ignores": "ignores",
+        "parleys_won": "parleys_won", "factions": "factions", "work_order": "work_order", "xp_debt": "xp_debt",
+        "tombstone": "tombstone", "bind": "bind", "dialog_rewards": "dialog_rewards", "played": "played",
+        "titles": "titles", "songs": "songs", "fish_records": "fish_records", "discovered": "discovered",
+        "flags": "flags", "assembly_known": "assembly_known", "title_prefix": "title_prefix",
+        "title_suffix": "title_suffix", "show_title": "show_title", "known_recipes": "known_recipes",
+        "diplomacy_deck": "diplomacy_deck", "diplomacy_slots": "diplomacy_slots", "spheres": "spheres",
+        "active_toolbelt": "active_toolbelt", "deck_presets": "deck_presets",
+        "apply_form_on_death": "apply_form_on_death", "access_level": "access_level", "gender": "gender",
+        "race": "race", "durability": "durability",
+    }
+
+    def test_every_saved_value_comes_back(self):
+        args = mock.Mock()
+        args.content = content.Content()
+        args.client_dir = ".."
+        args.zone_level = None
+        p = login_stub.player_from_character(dict(self.CHAR), "Tester", args)
+        for field, attr in self.LOADED.items():
+            got = getattr(p, attr)
+            want = self.CHAR[field]
+            if isinstance(got, set):
+                got = sorted(got)
+            self.assertEqual(got, want, field)
+        self.assertEqual([list(i) for i in p.items], self.CHAR["items"])
+        self.assertEqual([list(i) for i in p.bank], self.CHAR["bank"])
+        self.assertEqual([list(e) for e in p.equipment], self.CHAR["equipment"])
+        self.assertEqual(dict((sid, v) for sid, v, _ in p.skills).get(88), 40)
+        self.assertEqual(sorted(p.bound), [12])
+
+    def test_every_saved_field_is_read(self):
+        """Each field the server saves (save_character_field / progress) is read back somewhere."""
+        import inspect
+        import re
+        src = inspect.getsource(login_stub)
+        saved = set(re.findall(r'save_character_field\([^,]+, "(\w+)"', src))
+        read = set(re.findall(r'char(?:acter)?\.get\("(\w+)"', src)) | set(re.findall(r'char\["(\w+)"\]', src))
+        self.assertTrue(saved)
+        self.assertEqual(saved - read, set())
+
+
 class FallTests(unittest.TestCase):
     def run_fall(self, zs, x=0.0):
         fs, out = {}, []
