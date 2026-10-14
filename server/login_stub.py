@@ -1355,6 +1355,9 @@ def rope_event(state, args, event):
 # server content (docs/CONTENT_EDITOR.md); the dev command !call <name> sends the offer.
 CALL_OFFER, CALL_ANSWER = 0x270, 0x271
 HOTKEYS_REQUEST = 0x54D
+# Options window "Auto Defensive Target Me" (setter FUN_00657530, registered by FUN_006671f0):
+# 0x117 {u8 on} whenever it changes (FUN_005e2c70 keeps it at manager +0x33c). Saved per character.
+AUTO_DEF_TARGET_ME = 0x117
 YOU_HAVE_BEEN_SUMMONED = 45
 
 
@@ -8223,6 +8226,7 @@ def player_from_character(char, name, args):
     player.fish_records = dict(char.get("fish_records", {}))
     player.discovered = list(char.get("discovered", []))
     player.journal_removed = list(char.get("journal_removed", []))
+    player.auto_def_target_me = bool(char.get("auto_def_target_me", False))
     player.flags = list(char.get("flags", []))
     player.assembly_known = list(char.get("assembly_known", []))
     player.title_prefix = char.get("title_prefix", -1)
@@ -8967,6 +8971,10 @@ def handle_message(sock, server, addr, state, payload, args):
             effect_query(state, struct.unpack_from("<i", payload, 10)[0], time.time())
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == faction.INFO_REQUEST and state.get("player") and len(payload) >= 14:
             faction_info_request(state, struct.unpack_from("<i", payload, 10)[0])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == AUTO_DEF_TARGET_ME and state.get("player") and len(payload) > 10:
+            p = state["player"]
+            p.auto_def_target_me = bool(payload[10])
+            save_character_field(p.name, "auto_def_target_me", p.auto_def_target_me)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == HOTKEYS_REQUEST and state.get("player"):
             # /reloadui rebuilds the UI and asks for the hotbars again (0x54d, no payload;
             # FUN_00682b40 after the reload, FUN_005de260): resend them (0x54e) or they stay empty.
