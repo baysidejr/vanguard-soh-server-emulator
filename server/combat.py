@@ -200,7 +200,23 @@ def use_ability(player, ability, rng=random):
 
 HITS = 3                     # 0x27b damage type: 0 slash, 1 crush, 2 pierce, other "hits"
 AUTO_ATTACK_VISUAL = 0       # MELEE_ABILITIES_0 GENERIC_AUTO_ATTACK
-AUTO_ATTACK_DAMAGE = (4, 9)
+AUTO_ATTACK_DAMAGE = (4, 9)        # bare hands, or a weapon without items.json "damage"
+STRENGTH_BASE, STRENGTH_PER_POINT = 40, 10   # +1 damage per 10 Strength above 40 (placeholder)
+
+
+def auto_attack_damage(player):
+    """(min, max) of an auto-attack swing: the equipped weapon's items.json damage (primary
+    hand or two-hander), plus the Strength bonus."""
+    import zone
+    lo, hi = AUTO_ATTACK_DAMAGE
+    for e in getattr(player, "equipment", []):
+        if e[3] in (28, 36):                       # PRIMARYHAND, TWOHANDS
+            dmg = zone.ITEM_CONTENT.item(e[1]).get("damage")
+            if dmg:
+                lo, hi = dmg
+                break
+    bonus = max(0, (getattr(player, "stats", {}).get("strength", STRENGTH_BASE) - STRENGTH_BASE) // STRENGTH_PER_POINT)
+    return lo + bonus, hi + bonus
 AUTO_ATTACK_SECONDS = 2.0
 
 
@@ -512,7 +528,7 @@ def tick(player, now):
             out.append(("swing", [], None))
         else:
             out.append(("swing", *strike(player, npc, "You", AUTO_ATTACK_VISUAL,
-                                         *AUTO_ATTACK_DAMAGE)))
+                                         *auto_attack_damage(player))))
     if player.health > 0 and player.endurance < player.stats["endurance"]:
         player.endurance = min(player.endurance + ENDURANCE_REGEN, player.stats["endurance"])
         out.append(("endurance",))

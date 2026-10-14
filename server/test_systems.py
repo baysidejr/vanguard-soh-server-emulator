@@ -571,6 +571,10 @@ class ItemStatTests(unittest.TestCase):
         self.assertEqual(p.armor_class, 5 + 8)                      # cloak armor + Armor Class mod
         self.assertEqual(combat.mitigate(20, 25), 16)
         self.assertEqual(combat.mitigate(1, 500), 1)
+        p.stats["strength"] = 60
+        p.equipment = [(2, "Rusty Sword", 422, 28)]
+        lo, hi = zone.ITEM_CONTENT.item("Rusty Sword")["damage"]
+        self.assertEqual(combat.auto_attack_damage(p), (lo + 2, hi + 2))
 
 
 if __name__ == "__main__":
