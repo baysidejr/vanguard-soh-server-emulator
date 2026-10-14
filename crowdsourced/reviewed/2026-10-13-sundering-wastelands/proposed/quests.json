@@ -1,0 +1,107 @@
+{
+  "vengeance_will_be_yours": {
+    "id": 6000,
+    "name": "Vengeance Will Be Yours",
+    "level": 14,
+    "giver": "agent_jargo",
+    "greeting": "",
+    "description": "",
+    "summary": "Collect thirteen Trophy Hearts in Gulgrethor Fortress and return to Jargo.",
+    "accept_text": "",
+    "steps": [
+      {
+        "objective": "",
+        "collect": {
+          "Trophy Heart": 13
+        }
+      }
+    ],
+    "reward": {
+      "xp": 5474,
+      "coin": 140
+    },
+    "turn_in": "agent_jargo",
+    "_source": "https://vgsoharchive.com/quests/vengeance-will-be-yours"
+  },
+  "objects_of_unknown_power": {
+    "id": 6001,
+    "name": "Objects of Unknown Power",
+    "level": 15,
+    "giver": "agent_zyrax",
+    "greeting": "",
+    "description": "",
+    "summary": "Collect six Raised Okami Organs and three Torgazu Symbols for Zyrax.",
+    "accept_text": "",
+    "steps": [
+      {
+        "objective": "",
+        "collect": {
+          "Raised Okami Organ": 6
+        }
+      },
+      {
+        "objective": "",
+        "collect": {
+          "Torgazu Symbol": 3
+        }
+      }
+    ],
+    "reward": {},
+    "turn_in": "agent_zyrax",
+    "_source": "https://vgsoharchive.com/quests/objects-of-unknown-power"
+  },
+  "got_my_eye_on_something": {
+    "id": 6002,
+    "name": "Got My Eye On Something",
+    "level": 15,
+    "giver": "agent_zyrax",
+    "greeting": "",
+    "description": "",
+    "summary": "Bring one Reaper's Eye to Zyrax and choose a pendant.",
+    "accept_text": "",
+    "steps": [
+      {
+        "objective": "",
+        "collect": {
+          "Reaper's Eye": 1
+        }
+      }
+    ],
+    "reward": {
+      "xp": 3618,
+      "coin": 75,
+      "choice": [
+        "Pendant of the Attacker",
+        "Pendant of the Mender",
+        "Pendant of the Spellbinder",
+        "Pendant of the Defender"
+      ]
+    },
+    "turn_in": "agent_zyrax",
+    "requires": [
+      "objects_of_unknown_power"
+    ],
+    "_source": "https://vgsoharchive.com/quests/got-my-eye-on-something"
+  },
+  "remnants_of_the_soulless": {
+    "id": 6003,
+    "name": "Remnants Of The Soulless",
+    "level": 16,
+    "giver": "agent_nuraga",
+    "greeting": "",
+    "description": "",
+    "summary": "Gather six Cursed Soul Shards from souls released by fortress undead, then return to Nuraga.",
+    "accept_text": "",
+    "steps": [
+      {
+        "objective": "",
+        "collect": {
+          "Cursed Soul Shard": 6
+        }
+      }
+    ],
+    "reward": {},
+    "turn_in": "agent_nuraga",
+    "_source": "https://vgsoharchive.com/quests/remnants-of-the-soulless"
+  }
+}

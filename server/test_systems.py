@@ -531,16 +531,16 @@ class CrowdConvertTests(unittest.TestCase):
         import json, os, sys, tempfile
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "crowdsourced"))
         import convert
-        src = [{"url": "https://example.org/1"}]
-        recs = [{"type": "creature", "name": "Ashen Wolf", "level": 8, "creature_kind": "wolf", "aggressive": "yes",
+        src = [{"url": "https://example.org/1", "title": "Example source", "date": None}]
+        recs = [{"type": "creature", "name": "Ashen Wolf", "level": 8, "health": 300, "creature_kind": "wolf", "aggressive": "yes",
                  "sources": src, "confidence": "medium"},
                 {"type": "creature", "name": "Odd", "creature_kind": "zzz", "sources": src, "confidence": "high"},
                 {"type": "creature", "name": "Unsure", "creature_kind": "bear", "sources": src, "confidence": "low"},
-                {"type": "quest", "name": "Pelts", "giver": "Orin the Trader", "sources": src, "confidence": "high",
+                {"type": "quest", "name": "Pelts", "giver": "Orin the Trader", "level": 5, "sources": src, "confidence": "high",
                  "steps": [{"kind": "kill", "target": "Ashen Wolf", "count": 2, "objective": "Hunt"}]}]
         with tempfile.TemporaryDirectory() as d:
             with open(os.path.join(d, "all.jsonl"), "w", encoding="utf-8") as f:
-                f.write("\n".join(json.dumps(r) for r in recs))
+                f.write("\n".join(json.dumps(dict({"notes": ""}, **r)) for r in recs))
             b = convert.Batch(d)
             out = convert.convert(b, convert.creature_races())
         wolf = out["mobs.json"]["wastes_wolf"]                       # existing key for "Ashen Wolf"
@@ -601,7 +601,7 @@ class CrowdConvertMoreTests(unittest.TestCase):
         import json, os, sys, tempfile
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "crowdsourced"))
         import convert
-        src = [{"url": "https://example.org/1"}]
+        src = [{"url": "https://example.org/1", "title": "Example source", "date": None}]
         recs = [
             {"type": "dialogue", "name": "Guard talk", "npc": "Thestran Guard", "sources": src, "confidence": "high",
              "conversation": [{"npc_says": "Halt.", "responses": [{"player_says": "Who are you?", "leads_to": "A guard."},
@@ -619,7 +619,7 @@ class CrowdConvertMoreTests(unittest.TestCase):
         ]
         with tempfile.TemporaryDirectory() as d:
             with open(os.path.join(d, "all.jsonl"), "w", encoding="utf-8") as f:
-                f.write("\n".join(json.dumps(r) for r in recs))
+                f.write("\n".join(json.dumps(dict({"notes": ""}, **r)) for r in recs))
             b = convert.Batch(d)
             out = convert.convert(b, convert.creature_races())
         dlg = out["dialogs.json"]["wastes_thestran_guard"]            # existing key for the guard

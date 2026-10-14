@@ -10,7 +10,9 @@ The server never reads this folder. Records are checked, converted to the server
 |---|---|
 | [AGENT_INSTRUCTIONS.md](AGENT_INSTRUCTIONS.md) | The instructions for an AI agent (or a person) collecting data: what to look for, the record format, the rules. |
 | `raw/<YYYY-MM-DD>-<topic>/` | Batches as delivered: `*.jsonl` files (one JSON record per line), `gaps.jsonl` and a `REPORT.md`. Never edited after delivery. |
-| `reviewed/` | Records that were checked and are ready to import, in the same format. |
+| `reviewed/` | Checked records and generated `proposed/` candidates; proposals with issues still require human review before import. |
+| [validate.py](validate.py) | Read-only batch validation, including common fields, duplicate keys, gaps and the delivery report. |
+| [COLLECTION.md](COLLECTION.md) | Archive inventory, automated collection, background controls, coverage and known extraction gaps. |
 | `imported.md` | A log of what was imported into `server/content/`, from which batch, and when. |
 
 ## Converting a batch
@@ -20,6 +22,32 @@ python crowdsourced/convert.py raw/<YYYY-MM-DD>-<topic>
 ```
 
 writes `reviewed/<batch>/proposed/` with entries in the server's own formats (`mobs.json`, `items.json`, `loot.json`, `merchants.json`, `quests.json`, `dialogs.json`, `factions.json`, `recipes.json`), a `spawns_unplaced.json` of spawn records still to be placed on the map, a `FORMULAS.md` table naming the server constant each formula would replace, and an `ISSUES.md` listing everything that needs a human: unknown creature races, unsupported item stats, quest steps it can't express, dialogue conditions and rewards, recipe craft stages, record types it doesn't convert yet. Names that already exist in `server/content/mobs.json` keep their key (e.g. "Ashen Wolf" stays `wastes_wolf`), so a record updates the placeholder instead of duplicating it. Records with no sources are dropped and low-confidence ones are skipped unless `--include-low` is given. Item icons are set to the client's fallback (443) until someone picks the right icon id. The proposed files are merged into `server/content/` by hand, then `python server/content.py` must print "content OK".
+
+Drop chances are percentages: numeric `1` and text `"1%"` both mean one percent. Qualitative descriptions such as `"rare"` are reported for manual review rather than assigned an invented probability. Quests with unsupported step kinds are withheld entirely to avoid exporting incomplete completion requirements.
+
+Unknown NPC/creature client models, levels or required health withhold the template. Race matching is exact (ignoring spaces and case); model IDs are not guessed from entity names. Unknown bag capacity, weapon delay and aggro radius are omitted with an issue. Loot tables with unknown chances or quantities and merchant inventories with unknown prices are withheld as a whole. Unknown quest targets or required counts withhold the quest. Duplicate records and output-key collisions withhold all conflicting records.
+
+`ISSUES.md` also reports unresolved references against the proposed and current live files. A proposal with unresolved references is not ready to merge. Unmapped item restrictions and properties stay in `_unsupported` for manual handling. `PROVENANCE.json` retains every accepted record's complete source list, confidence and notes; keep it with the proposals. It includes records withheld from conversion and is not a server content file.
+
+Validate a delivered batch before conversion:
+
+```text
+python -B crowdsourced/validate.py raw/<YYYY-MM-DD>-<topic>
+```
+
+Validation accepts explicit unknown values and low-confidence research records. Conversion still skips low-confidence records by default. A clean structural validation does not mean a record is complete or historically verified.
+
+Quest IDs reuse matching keys from live content and earlier proposals, reserving their IDs before assigning new ones starting at 6000. Run conversions sequentially: ID allocation does not lock against concurrent runs. Every rerun rewrites all five proposed JSON files, including empty ones, so removed records cannot linger. Treat `proposed/` as generated output and keep manual edits elsewhere.
+
+## Tests
+
+From the repository root, run:
+
+```text
+python -B -m unittest discover -s crowdsourced/tests -v
+```
+
+The tests use Python's standard library and synthetic records. Temporary batches and proposals are created inside `crowdsourced/tests/` and cleaned up afterward. They check conversion and input validation; they do not prove historical accuracy or validate a merged server content set.
 
 ## Licensing and sources
 

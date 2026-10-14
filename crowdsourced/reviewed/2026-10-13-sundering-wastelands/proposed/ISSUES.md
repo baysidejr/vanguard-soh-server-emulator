@@ -1,0 +1,35 @@
+# Conversion issues
+
+- creature Cursed Soul: no client race for None
+- creature Raised Okami Warwolf: no client race for None
+- creature Coil Reaper: no client race for None
+- npc Agent Jargo: unknown client race, level or required health, skipped; no defaults invented
+- npc Agent Nuraga: unknown client race, level or required health, skipped; no defaults invented
+- npc Agent Zyrax: unknown client race, level or required health, skipped; no defaults invented
+- item Trophy Heart: type 'quest' requires manual mapping
+- item Trophy Heart: quest_item retained in _unsupported; manual mapping required
+- item Reaper's Eye: type 'quest' requires manual mapping
+- item Reaper's Eye: quest_item retained in _unsupported; manual mapping required
+- item Raised Okami Organ: type 'quest' requires manual mapping
+- item Raised Okami Organ: quest_item retained in _unsupported; manual mapping required
+- item Torgazu Symbol: type 'quest' requires manual mapping
+- item Torgazu Symbol: quest_item retained in _unsupported; manual mapping required
+- item Cursed Soul Shard: type 'quest' requires manual mapping
+- item Cursed Soul Shard: quest_item retained in _unsupported; manual mapping required
+- item Pendant of the Attacker: ['hit_points'] kept in _unsupported
+- item Pendant of the Attacker: class_restrictions retained in _unsupported; manual mapping required
+- item Pendant of the Defender: ['hit_points'] kept in _unsupported
+- item Pendant of the Defender: class_restrictions retained in _unsupported; manual mapping required
+- item Pendant of the Spellbinder: ['spell_damage_focus'] kept in _unsupported
+- item Pendant of the Spellbinder: class_restrictions retained in _unsupported; manual mapping required
+- quest Strong is Weak: step kind 'use' needs a manual setup
+- quest Strong is Weak: step kind 'use' needs a manual setup
+- quest Strong is Weak: step kind 'use' needs a manual setup
+- quest Strong is Weak: step kind 'use' needs a manual setup
+- quest Strong is Weak: skipped to avoid exporting incomplete requirements
+- 1 zone record(s) not converted automatically yet
+- quest vengeance_will_be_yours: unresolved mobs.json reference 'agent_jargo'; manual setup required
+- quest objects_of_unknown_power: unresolved mobs.json reference 'agent_zyrax'; manual setup required
+- quest got_my_eye_on_something: unresolved mobs.json reference 'agent_zyrax'; manual setup required
+- quest got_my_eye_on_something: unresolved items.json reference 'Pendant of the Mender'; manual setup required
+- quest remnants_of_the_soulless: unresolved mobs.json reference 'agent_nuraga'; manual setup required

@@ -1,0 +1,52 @@
+# VGSOH Archive — a preservation archive of Vanguard: Saga of Heroes
+
+# documentation, for a game whose servers closed in 2014.
+
+#
+
+# Crawling is welcome. This material exists to stay findable, and that
+
+# includes indexing by search engines and by AI crawlers.
+
+#
+
+# Two limits, both about server load rather than permission:
+
+#
+
+#  * Filtered and sorted views (anything with a query string) are disallowed.
+
+#    The facets combine into an effectively unbounded number of URLs which all
+
+#    render content already reachable from the canonical pages in the sitemap,
+
+#    so crawling them spends crawl budget and CPU on duplicates.
+
+#  * A crawl delay is requested. This runs on a single shared vCPU. Google
+
+#    ignores Crawl-delay — set the rate in Search Console instead — but most
+
+#    other crawlers honour it, and honour it exactly: Ahrefs was measured at
+
+#    0.49 requests a second against a delay of 2, which is the permitted rate
+
+#    to two decimal places. Raised to 5 because crawlers are now better than
+
+#    99% of the traffic here, and a page every five seconds is ample for an
+
+#    archive that changes a few times a week.
+
+
+
+User-agent: *
+
+Disallow: /*?
+
+Allow: /$
+
+Crawl-delay: 5
+
+
+
+Sitemap: https://vgsoharchive.com/sitemap.xml
+
