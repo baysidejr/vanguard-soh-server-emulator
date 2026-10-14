@@ -65,7 +65,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x59e` |  | `0x5e2e2f` |  |
 | `0x5a7` |  | `0x5e29db` | Resurrection / Resurrection |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
-| `0x5c6` |  | `0x5ee89c` | Transfer Plot? / accept |
 | `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
 | `0x5cf` |  | `0x484b3e` | PlacedBuildingNPCListSelection |
 | `0x5d0` |  | `0x484bbe` |  |

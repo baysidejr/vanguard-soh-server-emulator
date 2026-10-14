@@ -1870,6 +1870,29 @@ def housing_tick(now):
     save_mail(mdb)
 
 
+def transfer_plot(state, name):
+    """Give the player's plot (with its building, fixtures and chests) to another player."""
+    player, send = state["player"], state["send"]
+    db = load_housing()
+    pid = next((k for k, v in db.items() if v.get("owner", "").lower() == player.name.lower()), None)
+    other = ONLINE.get(name.lower())
+    if pid is None:
+        send(build_system_text("You don't own a plot.", SYSTEM_TEXT_ERROR))
+    elif other is None or other.get("player") is None or other is state:
+        send(build_system_text(f"{name or 'That player'} must be online to receive your plot.", SYSTEM_TEXT_ERROR))
+    elif any(v.get("owner", "").lower() == name.lower() for v in db.values()):
+        send(build_system_text(f"{other['player'].name} already owns a plot.", SYSTEM_TEXT_ERROR))
+    else:
+        new_owner = other["player"].name
+        db[pid]["owner"] = new_owner
+        save_housing(db)
+        plot_name = ARGS.content.plots.get(pid, {}).get("name", "your plot")
+        send(build_system_text(f"You have transferred {plot_name} to {new_owner}.", SYSTEM_TEXT_WHITE))
+        other["send"](build_system_text(f"{player.name} has transferred {plot_name} to you.", SYSTEM_TEXT_WHITE))
+        print(f"  {player.name} transferred plot {pid} to {new_owner}")
+        refresh_plot(state, pid)
+
+
 def refresh_plot(state, pid):
     """Re-create a plot's world object for everyone in its chunk (sign <-> house)."""
     w = state.get("world")
@@ -2019,6 +2042,9 @@ def handle_housing_event(state, event, data):
     vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 else ()
     if event in (housing.CHEST_OPEN, housing.CHEST_CLOSE, housing.CHEST_DEPOSIT, housing.CHEST_WITHDRAW):
         handle_chest(state, event, vals)
+        return
+    if event == housing.TRANSFER:
+        transfer_plot(state, social.read_name(data).strip())
         return
     if event in (housing.CHEST_MANAGE, housing.CHEST_PERMISSION) and vals:
         # 0x467 carries chest id -1: it is the chest whose Manage Chest window is open.

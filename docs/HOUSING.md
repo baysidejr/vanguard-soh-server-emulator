@@ -209,7 +209,7 @@ All of these go through FUN_004cfb00 / FUN_004cfb50. UI command ids come from FU
 | **0x460** | {i32 objType, i32 objId} | **Inspect** (mouse-over 0x1a0) on a building/plot object; the values are actor +0x3f4 / +0x3f0. 0x82f has the same layout and is sent by Avatar Inspect (0x19f). |
 | **0x481** | {plotId} | **buy**. `plot_info_buy_plot` (0x1a8) only shows PlotPurchaseConfirm; `plot_purchase_cost_accept` (0x1a7) sends. |
 | 0x47f | {plotId} | sell / relinquish (`plot_relinquish_accept`) |
-| 0x5c6 | {wstr targetName} | `/transferplot <name>` then `/transferplotconfirm accept` |
+| 0x5c6 | {wstr targetName} | `/transferplot <name>` then `/transferplotconfirm accept`. Done: the plot (building, fixtures, chests) goes to that player if they are online and own no plot; both get a chat line (verified live 2026-10-14: "Ranger has transferred Wastes Homestead to you.") |
 
 ### Construction
 | id | payload | sent by |

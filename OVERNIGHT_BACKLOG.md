@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: /transferplot (0x5c6) verified live with two clients.
 - 2026-10-14: Fuzzed the inline zone and world dispatch chains (every event id x 5 payloads, player in a world): no hangs; the only exceptions are short-payload struct errors already caught per message. Guarded /unstuck before spawn.
 - 2026-10-14: Defensive targeting fixed: player pawns lacked EntityTypes 0x20, so the client refused them as defensive targets (clicking a player, F1, /targetself did nothing). Verified live.
 - 2026-10-14: GM test tools /.learnabilities, /.maxskills, /.setupall (server side) and !learnall, !maxskills, !setupall <level>, verified live. 
