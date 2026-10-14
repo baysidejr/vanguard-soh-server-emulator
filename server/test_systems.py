@@ -1013,5 +1013,18 @@ class InCombatTests(unittest.TestCase):
         self.assertFalse(combat.in_combat(p))
 
 
+class AutoAttackTargetTests(unittest.TestCase):
+    def test_service_npcs_refused(self):
+        forge = combat.Npc(1, "Camp Forge", None, "x.SGONPCPawn")
+        forge.station = True
+        p = types.SimpleNamespace(auto_attack=False, target=1, npcs={1: forge}, health=100)
+        self.assertEqual(combat.toggle_auto_attack(p), [(combat.AUTO_TARGET_INVALID, "autofail")])
+        self.assertFalse(p.auto_attack)
+        wolf = combat.Npc(2, "Wolf", None, "x.SGONPCPawn")
+        p.target, p.npcs = 2, {2: wolf}
+        self.assertEqual(combat.toggle_auto_attack(p), [])
+        self.assertTrue(p.auto_attack)
+
+
 if __name__ == "__main__":
     unittest.main()

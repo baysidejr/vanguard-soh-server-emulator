@@ -7281,6 +7281,9 @@ def handle_craft_event(state, event, data):
     session = state.get("craft")
     print(f"  >>> ZONE craft event {event:#x}: {data.hex(' ')}")
     if event == craft.USE_STATION:
+        if combat.in_combat(player):
+            send(client_notice(FINISH_COMBAT_BEFORE_CRAFTING))
+            return
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.station:
             send(craft.station_error(0))
@@ -8201,7 +8204,8 @@ SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
 TOO_FAR_AWAY, NOT_WHILE_DEAD, NOT_IN_GROUP, ALREADY_IN_GROUP, CANT_AFFORD, CHEST_FULL = 111, 112, 197, 201, 251, 349
 PLEASE_TARGET_PC, TRADE_NO_SPACE, DEF_TARGET_NOT_PC, NO_SPACE, NO_ROOM_FOR_REWARD, CANT_PURCHASE_PLOT = 49, 88, 169, 256, 320, 366
 NEED_TARGET, NOT_ATTACKABLE, SITE_MISSING_MATERIALS, DONT_OWN_PLOT = 120, 340, 403, 425
-CANT_DESTROY_IN_COMBAT = 94
+CANT_DESTROY_IN_COMBAT, CANT_CHANGE_EQUIPMENT_WHILE_CRAFTING, CANT_BIND_IN_COMBAT = 94, 95, 130
+FINISH_COMBAT_BEFORE_CRAFTING = 144
 
 
 def client_notice(code):
@@ -8856,6 +8860,12 @@ def handle_message(sock, server, addr, state, payload, args):
                 else:
                     set_mount(state, args, player, mount["id"], mount.get("type", zone.MOUNT_GROUND))
                     send_message(sock, addr, state, build_system_text(f"You summon your {item[1]}.", SYSTEM_TEXT_WHITE))
+            elif player and state.get("craft"):
+                send_message(sock, addr, state, client_notice(CANT_CHANGE_EQUIPMENT_WHILE_CRAFTING))
+            elif (player and event == EQUIP_EVENT and item and combat.in_combat(player)
+                  and "bind_on_equip" in args.content.item(item[1]).get("flags", ())
+                  and item[0] not in getattr(player, "bound", set())):
+                send_message(sock, addr, state, client_notice(CANT_BIND_IN_COMBAT))
             elif player:
                 result = (zone.equip_item if event == EQUIP_EVENT else zone.unequip_item)(player, handle)
                 if isinstance(result, (str, int)):

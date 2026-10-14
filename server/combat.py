@@ -354,7 +354,7 @@ def toggle_auto_attack(player):
             return [(AUTO_NO_TARGET, "autofail")]
         if not npc.alive:
             return [(AUTO_TARGET_DEAD, "autofail")]
-        if getattr(npc, "merchant", None) or getattr(npc, "harvest", None):
+        if isinstance(npc, Npc) and npc.service():       # vendors, stations, props, pets...
             return [(AUTO_TARGET_INVALID, "autofail")]
     player.auto_attack = not player.auto_attack
     player.next_swing = time.time()
@@ -683,8 +683,8 @@ def tick(player, now):
         opp = getattr(player, "duel_opponent", None)
         if opp is not None and player.target == opp.char_id and player.health > 0:
             out.append(("pvp", opp))
-        elif npc is None or not npc.alive or player.health <= 0:
-            player.auto_attack = False
+        elif npc is None or not npc.alive or player.health <= 0 or npc.service():
+            player.auto_attack = False          # also when the target is now a vendor, station, pet...
             out.append(("swing", [], None))
         else:
             out.append(("swing", *strike(player, npc, "You", AUTO_ATTACK_VISUAL,
