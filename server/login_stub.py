@@ -1139,6 +1139,11 @@ PAWN_PREFS = {0x113: ("m_bHideHood", "B", 1), 0x114: ("m_bHideHelm", "B", 1), 0x
 MOVE_MODE = 0x72
 # /cleartargets: 0x5e, no payload (FUN_005fcd70).
 CLEAR_TARGETS = 0x5E
+# /cancelability (also /stopcasting, /cancelattack, FUN_005fc8a0): first FUN_005f3d00 cancels
+# what is running, by sending 0x25f while casting, else 0xe2 while a bar runs (+0xe0c/+0xe14),
+# else 0xe1 after clearing a queued ability on the client; then 0x144. None has a payload. The
+# server queues no abilities, so each just drops the pending cast.
+CANCEL_CAST = (0x144, 0x25F, 0xE2, 0xE1)
 RENAME_DONE, RENAME_TAKEN, RENAME_NOT_ALLOWED = 6, 7, 0x0B
 # Saved files that refer to characters by name (mail boxes use the lower-case name).
 def name_stores():
@@ -1370,7 +1375,8 @@ def set_combat_stance(state, args, player, on, out):
         return
     player.stance = on
     values = {"m_CombatState": int(on)}
-    out.append(zone.player_pawn_update(state, args, values))
+    if "ue" in state:                       # not before the Unreal channel is open
+        out.append(zone.player_pawn_update(state, args, values))
     w = state.get("world")
     if w is not None:
         w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
@@ -8033,9 +8039,12 @@ def handle_message(sock, server, addr, state, payload, args):
             p.movement_mode = 1 if payload[10] == 1 else 2
             # bIsWalking alone does not slow the owner's pawn (live test); GroundSpeed does.
             pawn_props_changed(state, {"bIsWalking": p.movement_mode == 1})
-            if not getattr(p, "cc", None):
+            if not getattr(p, "cc", None) and "ue" in state:
                 send_message(sock, addr, state, zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(p)}))
             send_message(sock, addr, state, zone.score_message(p))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CANCEL_CAST and state.get("player"):
+            if state.pop("casting", None):
+                send_message(sock, addr, state, effects.interrupted())
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_TARGETS and state.get("player"):
             state["player"].target = None
             state["def_target"] = 0
@@ -8338,11 +8347,7 @@ def handle_message(sock, server, addr, state, payload, args):
             # /sit, /stand: u8 1/0. Pawn m_bResting = 1 sits (verified live).
             player = state["player"]
             player.resting = bool(payload[10]) if len(payload) > 10 else False
-            values = {"m_bResting": int(player.resting)}
-            send_message(sock, addr, state, zone.player_pawn_update(state, args, values))
-            if state.get("world"):
-                state["world"].broadcast(lambda s: zone.remote_player_update(s, args, player, values),
-                                         exclude=state)
+            pawn_props_changed(state, {"m_bResting": int(player.resting)})
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x40B and state.get("player"):
             # /camp: 0x40b starts ("It will take 20 seconds..."), 0x40e {i32 seconds}
             # counts down, 0x40c finishes, 0x40d abandons (moving cancels it).

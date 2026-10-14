@@ -8,6 +8,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 
 | Id | Command | Call sites | Context |
 |---|---|---|---|
+| `0xd` | `/chatconnect` | | no payload; reconnects the chat service (a separate SOE service in the original) |
+| `0x17d` | `/fallthroughattacktoggle` | | no payload; a server-side combat option whose effect is not known |
+| `0x180` | `/hintsenable` | | no payload; turns hint popups back on (the hints themselves are server content) |
+| `0x181` | `/craftinghintsenable` | | no payload; the same for crafting hints |
 | `0x104` |  | `0x5b7dc6` `0x5b82d6` |  |
 | `0x105` |  | `0x5b03eb` | type6 / type7 |
 | `0x106` |  | `0x5b0405` | type6 / type7 |
@@ -103,6 +107,8 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 - `/hidehood` 0x113, `/hidehelm` 0x114, `/hidecloak` 0x59e `{u8 hidden}`: the client hides the piece on its own pawn first (pawn +0x3a8 / +0x3a9 / +0x3aa), then tells the server. The server saves them (characters.json `pawn_prefs`) and replicates `m_bHideHood` / `m_bHideHelm` / `m_bHideCloak` to everyone in the chunk; they are part of the pawn's properties at login (checked in client memory after a relog).
 - `/setwearpreference <sphere>` 0x110 `{i32}`: 0 Adventuring, 1 Crafting, 2 Diplomacy, 3 Harvesting (FUN_00608d40, any other word prints "Invalid sphere"). `/setwieldpreference <n>` 0x111 `{i32}`: the typed number clamped to 0-3 (FUN_00608f10; words give 0). Saved and replicated as `m_WearPreference` / `m_WieldPreference`. What the client draws differently for each value is not checked.
 - `/walk`, `/run` 0x72 `{u8 1 walk, 2 run}` (FUN_005fccf0): the client changes its own pawn only when the send fails (FUN_00b73620 -> FUN_00bb5ae0 sets GroundSpeed from the race table: walk 185, run 555). With a server it waits, and replicated `bIsWalking` alone did not slow it (live: same distance in 2 s). The server sends GroundSpeed 185 for walking and the normal 337.889 for running (pawn speed read live: 337.9 -> 185 -> 337.9; distance walked in 2 s 673 -> 374), `bIsWalking` for other clients, and MsgScore field 28 (character sheet "walking"/"running").
+- `/cancelability` (also `/stopcasting`, `/cancelattack`, FUN_005fc8a0): FUN_005f3d00 first cancels what is running on the client and sends 0x25f while casting, else 0xe2 while a bar runs (+0xe0c/+0xe14), else 0xe1 after clearing a queued ability (FUN_00428700); then it sends 0x144. None has a payload. The server drops its pending cast for any of them (it queues no abilities). Checked through the dispatcher with a cast in progress; not seen live (no hostile target with a cast-time ability on the hotbar in the test).
+- `/callpcdecline` 0x271 `{u8 0}` and `/lockoutdecline` 0x273 `{u8 0}` answer prompts the server never sends yet.
 - `/cleartargets` 0x5e (no payload): the server forgets the offensive and defensive targets and answers 0x3e0 with none.
 
 ## Handled from static analysis only
