@@ -349,13 +349,23 @@ def next_target(npc):
     return max(alive, key=lambda x: x[0])[1]
 
 
+ARMOR_FACTOR = 100.0         # damage x 100 / (100 + armor class): 25 AC takes 20% off (placeholder curve)
+
+
+def mitigate(dmg, armor_class):
+    """Melee damage after the target's armor class (gear armor + Armor Class mods)."""
+    if armor_class <= 0:
+        return dmg
+    return max(1, int(round(dmg * ARMOR_FACTOR / (ARMOR_FACTOR + armor_class))))
+
+
 def npc_attacks(player, npc, rng=random):
     """The NPC strikes once. Lowers player.health (the HUD bar follows a
     0x2d4 update of the Health stat; see zone.health_update)."""
     if player.health <= 0:
         return []
     npc.aggro, npc.aggro_on = True, player
-    dmg = rng.randint(*npc.damage)
+    dmg = mitigate(rng.randint(*npc.damage), getattr(player, "armor_class", 0))
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, npc.attack_visual))
     player.health = max(player.health - dmg, 0)
     player.pending_displays.append(effects.combat_text(npc.entity_id, player.char_id, "", dmg, kind=0,
@@ -508,6 +518,7 @@ def tick(player, now):
         out.append(("endurance",))
     if 0 < player.health < player.stats["hit_points"] and now - player.last_combat >= REGEN_DELAY:
         regen = REGEN_PER_SECOND * (3 if getattr(player, "resting", False) else 1)
+        regen += round(getattr(player, "regen_bonus", 0) / 6.0)   # Health Regeneration mods are "per 6 seconds"
         player.health = min(player.health + regen, player.stats["hit_points"])
         out.append(("health",))
     return out

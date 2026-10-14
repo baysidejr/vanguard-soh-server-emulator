@@ -565,6 +565,12 @@ class ItemStatTests(unittest.TestCase):
         p.equipment = []
         zone.apply_gear_stats(p)
         self.assertEqual(p.stats["dexterity"], 30)
+        self.assertEqual(p.armor_class, 0)
+        p.equipment = [(1, "Forester's Cloak", 436, 7)]
+        zone.apply_gear_stats(p)
+        self.assertEqual(p.armor_class, 5 + 8)                      # cloak armor + Armor Class mod
+        self.assertEqual(combat.mitigate(20, 25), 16)
+        self.assertEqual(combat.mitigate(1, 500), 1)
 
 
 if __name__ == "__main__":

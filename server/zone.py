@@ -533,9 +533,17 @@ def gear_bonus(player):
     return out
 
 
+def gear_mod_total(player, mod):
+    return sum(int((ITEM_CONTENT.item(e[1]).get("mods") or {}).get(mod, 0)) for e in player.equipment)
+
+
 def apply_gear_stats(player):
     """Move player.stats by the change in gear bonuses since the last call (idempotent);
-    returns the attributes that changed."""
+    returns the attributes that changed. Also sets the gear's armor class (item armor +
+    "Armor Class" mods) and health regeneration bonus used by combat."""
+    player.armor_class = (sum(int(ITEM_CONTENT.item(e[1]).get("armor", 0)) for e in player.equipment)
+                          + gear_mod_total(player, "Armor Class"))
+    player.regen_bonus = gear_mod_total(player, "Health Regeneration")
     new, old = gear_bonus(player), player.__dict__.get("gear_bonus", {})
     changed = []
     for k in set(new) | set(old):
