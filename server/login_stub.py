@@ -5771,6 +5771,29 @@ def submit_quest_feedback(state, data):
     state["send"](build_system_text("Thank you for your quest feedback.", SYSTEM_TEXT_WHITE))
 
 
+PLAYER_REPORT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "player_reports.json")
+PLAYER_REPORT_SECONDS = 60          # one report a minute per player (WaitLongerToSubmitPlayerReport)
+
+
+def submit_player_report(state, data):
+    """/report <name> (bugs.PLAYER_REPORT): kept with the chat lines for a GM to read."""
+    player, send = state["player"], state["send"]
+    now = time.time()
+    if now < state.get("next_report", 0):
+        send(zone.zone_event(0x0E, struct.pack("<h", bugs.REPORT_WAIT)))
+        return
+    try:
+        report = bugs.parse_player_report(data)
+    except struct.error:
+        send(zone.zone_event(0x0E, struct.pack("<h", bugs.REPORT_FAILED)))
+        return
+    report.update(player=player.name, level=player.level)
+    n = bugs.save(PLAYER_REPORT_FILE, report)
+    state["next_report"] = now + PLAYER_REPORT_SECONDS
+    print(f"  player report #{n} from {player.name} about {report['reported']!r} ({len(report['chat'])} chat lines)")
+    send(zone.zone_event(0x0E, struct.pack("<h", bugs.REPORT_SUBMITTED)))
+
+
 def submit_bug_report(state, data):
     """/bug window Submit (bugs.py): keep the report with who and where it was filed."""
     player = state["player"]
@@ -8075,6 +8098,8 @@ def handle_message(sock, server, addr, state, payload, args):
             handle_form_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in songs.CLIENT_EVENTS and state.get("player"):
             handle_song_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.PLAYER_REPORT and state.get("player"):
+            submit_player_report(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.QUEST_FEEDBACK and state.get("player"):
             submit_quest_feedback(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == bugs.SUBMIT and state.get("player"):

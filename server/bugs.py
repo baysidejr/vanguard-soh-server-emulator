@@ -49,6 +49,37 @@ def parse_quest_feedback(data):
             "fun": _name(FUN, fu, "-")}
 
 
+# /report <name>: 0x4ac {i32 line count, wstr reported name, then per chat line {wstr text,
+# i32 channel, u16}} (FUN_00601b90 -> FUN_0063d2c0, recent lines from the chat window; the
+# client pads the message with stale bytes after the last line). The server answers with
+# notice 0x0e {i16 code}: 149 PlayerReportSubmitted, 150 CantSubmitPlayerReport, 148
+# WaitLongerToSubmitPlayerReport (switch FUN_0061d530, code = table entry + 1).
+PLAYER_REPORT = 0x4AC
+REPORT_SUBMITTED, REPORT_FAILED, REPORT_WAIT = 149, 150, 148
+MAX_REPORT_LINES = 200
+
+
+def _wstr(data, pos):
+    end = pos
+    while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
+        end += 2
+    if end + 1 >= len(data):
+        raise struct.error("unterminated string")
+    return data[pos:end].decode("utf-16-le", "replace"), end + 2
+
+
+def parse_player_report(data):
+    count = struct.unpack_from("<i", data, 0)[0]
+    name, pos = _wstr(data, 4)
+    lines = []
+    for _ in range(max(0, min(count, MAX_REPORT_LINES))):
+        text, pos = _wstr(data, pos)
+        channel = struct.unpack_from("<i", data, pos)[0]
+        pos += 6
+        lines.append({"channel": channel, "text": text})
+    return {"reported": name, "chat": lines}
+
+
 def _name(table, i, unknown):
     return table[i] if 0 <= i < len(table) else unknown
 

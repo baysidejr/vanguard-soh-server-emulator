@@ -551,6 +551,21 @@ class CrowdConvertTests(unittest.TestCase):
         self.assertTrue(any("low confidence" in i for i in b.issues))
 
 
+class PlayerReportTests(unittest.TestCase):
+    def test_parse_live_capture(self):
+        import bugs
+        def w(s):
+            return s.encode("utf-16-le") + b"\0\0"
+        data = (struct.pack("<i", 2) + w("test") + w("Sorcha is not online.") + struct.pack("<iH", 4, 0)
+                + w("<pcname>Ranger</pcname> waves") + struct.pack("<iH", 5, 0) + b"\xbb\x01\x00\x00junk")
+        r = bugs.parse_player_report(data)
+        self.assertEqual(r["reported"], "test")
+        self.assertEqual([l["channel"] for l in r["chat"]], [4, 5])
+        self.assertEqual(r["chat"][1]["text"], "<pcname>Ranger</pcname> waves")
+        with self.assertRaises(struct.error):
+            bugs.parse_player_report(struct.pack("<i", 1) + "abc".encode("utf-16-le"))
+
+
 class CrowdConvertMoreTests(unittest.TestCase):
     def test_dialogue_faction_recipe_formula(self):
         import json, os, sys, tempfile

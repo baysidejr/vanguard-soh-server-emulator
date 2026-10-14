@@ -111,6 +111,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 - `/callpcdecline` 0x271 `{u8 0}` and `/lockoutdecline` 0x273 `{u8 0}` answer prompts the server never sends yet.
 - `/cleartargets` 0x5e (no payload): the server forgets the offensive and defensive targets and answers 0x3e0 with none.
 
+## Player reports (verified live 2026-10-14)
+
+`/report <name>` sends 0x4ac `{i32 line count, wstr reported name, per line {wstr text, i32 channel, u16}}` with the recent chat lines (FUN_00601b90 -> FUN_0063d2c0; stale bytes follow the last line). The server saves it in `server/player_reports.json` (not committed) and answers notice 0x0e `{i16 149}` ("Player report submitted. Customer service will review the last 10 lines of chat..."); a second report within a minute gets 148 ("You must wait longer to submit another player report."), a malformed one 150. Codes are the client's notice switch FUN_0061d530 (code = jump-table entry + 1).
+
 ## Handled from static analysis only
 
 - `0x18e` (claim window list request): answered with 0x5ed (clear) + 0x5f0 (end); the claim dispatcher FUN_004458f0 then prints "You don't qualify to claim any account rewards.". Not seen live: `/claim` itself talks to a separate SOE account-claim service (FUN_006f03d0, ClaimSystem.log), not the game server.

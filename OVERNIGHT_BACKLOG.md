@@ -23,6 +23,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: /report <name> (0x4ac) saved to player_reports.json with the chat lines; client notices 149/148/150 found in the notice switch. Verified live.
 - 2026-10-14: /cancelability (0x25f / 0xe2 / 0xe1 / 0x144) drops a pending cast. Second command sweep logged /hintsenable, /craftinghintsenable, /fallthroughattacktoggle, /chatconnect in docs/CLIENT_REQUESTS.md. Fuzzing the zone dispatcher found /walk, /sit and /forcecombatstance before the Unreal channel opened raised KeyError (each caught, but the reply was lost): now guarded.
 - 2026-10-14: In-game sweep of ~60 harmless slash commands found client requests the static scan missed (sent through FUN_00409210). Implemented, verified live: /walk and /run (GroundSpeed 185 / 337.889; replicated bIsWalking alone did not slow the owner), /hidehood /hidehelm /hidecloak, /setwearpreference, /setwieldpreference (saved as pawn_prefs, replicated, restored after relog), /cleartargets. Still unhandled from the sweep: /citystatus 0x12d, /aalist 0x85c, /lockouttimerlist 0x4fc (reply formats unknown), /cyclewieldpreference 0x112, /toggleeppearancegear 0x115.
 - 2026-10-14: crowdsourced/convert.py now converts dialogue (dialogs.json), factions (factions.json, ids 2001+), recipes (inputs/output; stages left for a person), spawns (spawns_unplaced.json) and formulas (FORMULAS.md mapped to the placeholder constants they'd replace). Unit-tested.
