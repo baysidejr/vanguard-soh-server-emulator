@@ -19,6 +19,11 @@ PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx,
 # Building Inventory tab: "Move Fixture to me" (move_tome_fixture_button, FUN_00476020) sends
 # 0x465 {i32 fixture id} (the selected row; "Pickup Fixture" sends 0x462 the same way).
 MOVE_TO_ME = 0x465
+# The fixture's "Send To Owner" option (mo_fixture_option_send_to_owner, FUN_00476120) sends
+# 0x463 {i32 fixture id}. Only trophies (placed by someone else) go back; the answers are notice
+# 358 NoPermissionToSendFixture and 359 CantSendNotTrophy. No item here is a trophy.
+SEND_TO_OWNER, NO_PERMISSION_TO_SEND, CANT_SEND_NOT_TROPHY = 0x463, 358, 359
+SEND_TROPHIES = 0x8000                  # permission bit 15
 # House chests (client chest dispatcher FUN_004733d0): 0x151 {chest id} open, 0x152 close,
 # 0x155 {chest, bag item handle, count, slot} deposit, 0x157 {chest, chest item, count, container, slot}
 # withdraw, 0x153 move inside. Server: 0x199 {chest id, capacity} opens "House Chest",
@@ -84,7 +89,8 @@ BUILDING_DETAILS = 0x474
 # becomes co-owner, and only the leader can clear it (permissions are deleted again).
 GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, HQ_NAME = 0x47A, 0x47B, 0x47C, 0x47D
 NOW_GUILD_USABLE, NO_LONGER_GUILD_USABLE, HQ_ADDED, HQ_REMOVED, NO_GUILD = 383, 382, 28, 27, 26
-CLIENT_EVENTS = CLIENT_EVENTS + (BUILDING_DETAILS, GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, MOVE_TO_ME)
+CLIENT_EVENTS = CLIENT_EVENTS + (BUILDING_DETAILS, GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, MOVE_TO_ME,
+                                 SEND_TO_OWNER)
 VIEW_FIXTURE_LIST = 0x4000              # permission bit 14
 
 

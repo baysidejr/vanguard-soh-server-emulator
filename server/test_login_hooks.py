@@ -270,6 +270,17 @@ class GuildBuildingTests(unittest.TestCase):
         login_stub.send_plot_window(stranger, "101")
         self.assertNotIn(self.housing.fixture_list([{"id": 3, "item": "Oak Table"}])[1], self.sent["Stranger"])
 
+    def test_send_to_owner(self):
+        import struct
+        self.db["101"]["fixtures"] = [{"id": 3, "item": "Oak Table"}]
+        oid = struct.pack("<i", self.housing.FIXTURE_ID_BASE + 3)
+        with mock.patch.object(login_stub, "load_housing", lambda: self.db):
+            owner, stranger = self.login("Owner"), self.login("Stranger")
+            self.event(owner, self.housing.SEND_TO_OWNER, oid)
+            self.event(stranger, self.housing.SEND_TO_OWNER, oid)
+        self.assertEqual(self.notices("Owner"), [self.housing.CANT_SEND_NOT_TROPHY])
+        self.assertEqual(self.notices("Stranger"), [self.housing.NO_PERMISSION_TO_SEND])
+
     def test_building_preview(self):
         import struct
         owner = self.login("Owner")

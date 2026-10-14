@@ -2237,6 +2237,13 @@ def handle_housing_event(state, event, data):
         if event == housing.CHEST_MANAGE:
             send(housing.chest_info(cid, f.get("name", f["item"]), f["item"]))
         return
+    if event == housing.SEND_TO_OWNER and vals:
+        db, pid, st, f = fixture_by_object(vals[0])
+        if f is not None:
+            send(client_notice(housing.CANT_SEND_NOT_TROPHY
+                               if housing.allowed(st, player.name, housing.SEND_TROPHIES, guild_of)
+                               else housing.NO_PERMISSION_TO_SEND))
+        return
     if event in (housing.PICK_UP, housing.NUDGE, housing.MOVE_TO_ME) and vals:
         db, pid, st, f = fixture_by_object(vals[0])
         need = housing.PICKUP_FIXTURE if event == housing.PICK_UP else housing.MOVE_FIXTURE

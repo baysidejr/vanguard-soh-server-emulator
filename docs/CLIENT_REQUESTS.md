@@ -45,7 +45,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x35e` |  | `0x4cc6b0` |  |
 | `0x3a0` |  | `0x4a62c6` |  |
 | `0x45f` |  | `0x47e69f` |  |
-| `0x463` |  | `0x47616d` |  |
 | `0x54d` |  | `0x682b45` |  |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
