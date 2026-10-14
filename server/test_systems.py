@@ -749,5 +749,22 @@ class GenderRaceChangeTests(unittest.TestCase):
             login_stub.save_character_field, login_stub.pawn_props_changed = saved, props
 
 
+class RenameTests(unittest.TestCase):
+    def test_rename_refs(self):
+        import login_stub
+        data = {"boxes": {"orin": [{"from": "Orin", "to": "orin"}], "bob": []},
+                "members": {"Orin": 10, "Justins": 1}, "owner": "Orin", "note": "Orin's house"}
+        out = login_stub.rename_refs(data, "Orin", "Tamsin")
+        self.assertEqual(out["boxes"]["tamsin"], [{"from": "Tamsin", "to": "tamsin"}])
+        self.assertEqual(out["members"], {"Tamsin": 10, "Justins": 1})
+        self.assertEqual((out["owner"], out["note"]), ("Tamsin", "Orin's house"))   # only whole names
+
+    def test_validation(self):
+        import login_stub
+        self.assertTrue(login_stub.valid_first_name("Sorcha"))
+        for bad in ("Al", "Sor cha", "S0rcha", "x" * 21):
+            self.assertFalse(login_stub.valid_first_name(bad))
+
+
 if __name__ == "__main__":
     unittest.main()

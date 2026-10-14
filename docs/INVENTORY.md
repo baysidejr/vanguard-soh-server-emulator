@@ -176,7 +176,7 @@ Right-clicking an item checks its **template id** (item field 1) in `FUN_0050003
 | 1454016 | "Gender Change" ("Press submit to become female.") | 0x5d5 `{i32 new gender, i32 item handle}` | 0x5d6 MsgPaidGenderChangeResult `{i32, i32 code, u8, u8 gender}`: 0x0c done (the client switches gender itself), 0x10 not allowed | done: saves `gender`, sends `m_Gender`. Verified: the character turns female at once and stays female after a relog |
 | 1454021 | none | 0x4fc (no payload) at once | ? | not handled |
 | 1454022 | "Clear Experience Debt" | 0x5da `{i32 item handle}` | 0x5db `{i32 code}` (see DEATH.md) | done |
-| 1463295 | "Character Rename" (first and last name boxes) | 0x5d3 (item handle and the two names; field order unverified) | 0x5d4 `{i32, i32 code, u8, wstr first, wstr last}`: 6 done (strNameSelf / strNameFullSelf), 7 "That first name is not available.", 0xb not allowed | not handled yet |
+| 1463295 | "Character Rename" (first and last name boxes) | 0x5d3 `{wstr first, wstr last, i32 item handle}` (seen live) | 0x5d4 `{i32, i32 code, u8, wstr first, wstr last}`: 6 done (the client renames itself: the HUD shows the new name), 7 "That first name is not available.", 0xb not allowed | done: checks the name (3-20 letters, not taken), keeps the character id, and renames every reference in characters.json, guilds, brotherhoods, mail (lower-case box keys too), market, housing, caravans and civic. Verified: Sorc became "Sorcha Vale"; "Ranger" was refused |
 | 1464359 / 1464362 | none: they put the cursor into targeting mode 5 / 6 (item handle kept at +0x6cc / +0x6d0) | ? | ? | not handled |
 | 1466724 | "_inventory_consume_kronos" (subscription time) | ? | ? | not handled (no use on a private server) |
 

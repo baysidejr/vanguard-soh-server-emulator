@@ -1061,6 +1061,81 @@ def change_gender_race(state, event, value, handle):
                          struct.pack("<iiBB", 0, code, 0, value & 0xFF)))
 
 
+# Character rename item (template 1463295): the client's "Character Rename" window sends
+# 0x5d3 {wstr first, wstr last, i32 item handle} (seen live). Reply 0x5d4 {i32, i32 code, u8,
+# wstr first, wstr last}: 6 done (the client renames itself and prints strNameSelf /
+# strNameFullSelf), 7 "That first name is not available.", 0xb "You are not allowed to change
+# your name.", anything else "Rename failed. Please retry later."
+RENAME, RENAME_REPLY, RENAME_TEMPLATE = 0x5D3, 0x5D4, 1463295
+RENAME_DONE, RENAME_TAKEN, RENAME_NOT_ALLOWED = 6, 7, 0x0B
+# Saved files that refer to characters by name (mail boxes use the lower-case name).
+def name_stores():
+    return (HOUSING_FILE, CARAVANS_FILE, GUILDS_FILE, BROTHERHOODS_FILE, MAIL_FILE, MARKET_FILE, CIVIC_FILE)
+
+
+def rename_refs(obj, old, new):
+    """obj with every string (value or key) equal to old, or to old in lower case, renamed."""
+    def one(s):
+        if s == old:
+            return new
+        if s == old.lower():
+            return new.lower()
+        return s
+    if isinstance(obj, str):
+        return one(obj)
+    if isinstance(obj, list):
+        return [rename_refs(v, old, new) for v in obj]
+    if isinstance(obj, dict):
+        return {one(k) if isinstance(k, str) else k: rename_refs(v, old, new) for k, v in obj.items()}
+    return obj
+
+
+def valid_first_name(name):
+    return 3 <= len(name) <= 20 and name.isalpha()
+
+
+def rename_character(state, data):
+    player, send = state["player"], state["send"]
+    try:
+        (first, last), pos = read_wstrings(data, 0, 2)
+        handle = struct.unpack_from("<i", data, pos)[0]
+    except (struct.error, ValueError):
+        return
+    first, last = first.strip(), last.strip()
+    item = next((i for i in player.items if i[0] == handle), None)
+    chars = load_characters()
+    old = player.name
+    if item is None or zone.template_id(item[1]) != RENAME_TEMPLATE:
+        code = RENAME_NOT_ALLOWED
+    elif not valid_first_name(first) or (last and not last.isalpha()) or any(
+            c["first"].lower() == first.lower() and c["first"] != old for c in chars):
+        code = RENAME_TAKEN
+    else:
+        code = RENAME_DONE
+    print(f"  >>> ZONE rename {old!r} -> {first!r} {last!r} (item {handle}): reply {code:#x}")
+    if code == RENAME_DONE:
+        take_items(state, item[1], 1)
+        for c in chars:
+            if c["first"] == old:
+                character_id(c)                # keep the id: it is derived from the first name
+                c["first"], c["last"] = first, last
+        save_characters(rename_refs(chars, old, first))
+        for path in name_stores():
+            if os.path.exists(path):
+                data_ = load_json_file(path, None)
+                if data_ is not None:
+                    renamed = rename_refs(data_, old, first)
+                    if renamed != data_:
+                        save_json_file(path, renamed)
+        player.name = first
+        if ONLINE.get(old.lower()) is state:
+            ONLINE.pop(old.lower())
+            ONLINE[first.lower()] = state
+        pawn_props_changed(state, {"m_PlayerDisplayName": first})
+    send(zone.zone_event(RENAME_REPLY, struct.pack("<iiB", 0, code, 0)
+                         + (first + "\0").encode("utf-16-le") + (last + "\0").encode("utf-16-le")))
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -7590,6 +7665,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 send_message(sock, addr, state, zone.zone_event(0x30E))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (CHANGE_GENDER, CHANGE_RACE) and state.get("player") and len(payload) >= 18:
             change_gender_race(state, struct.unpack_from("<I", payload, 2)[0], *struct.unpack_from("<ii", payload, 10))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == RENAME and state.get("player"):
+            rename_character(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_DEBT and state.get("player") and len(payload) >= 14:
             clear_debt(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == effects.CANCEL_MAINTAINED and state.get("player") and len(payload) >= 14:
