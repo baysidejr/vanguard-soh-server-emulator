@@ -220,19 +220,50 @@ def auto_attack_damage(player):
 AUTO_ATTACK_SECONDS = 2.0
 
 
+# Hit table (placeholder numbers until real data is found; docs/EFFECTS.md "Avoidance").
+BASE_MISS, MISS_PER_LEVEL = 0.06, 0.02        # attacker misses; +2% per level the defender is above
+BASE_DODGE, DODGE_PER_DEX = 0.04, 0.001       # defender dodges; +0.1% per Dexterity point above 30
+BASE_PARRY, BASE_BLOCK = 0.04, 0.06           # with a weapon in hand / a shield equipped
+BASE_CRIT, CRIT_PER_DEX, CRIT_MULT = 0.05, 0.001, 1.5
+
+
+def roll_outcome(rng, attacker_level, defender_level, defender_dex=30, attacker_dex=30,
+                 can_parry=False, can_block=False):
+    """One swing's outcome: effects.MISS / DODGE / PARRY / BLOCK / CRIT / HIT."""
+    r = rng.random()
+    for outcome, chance in (
+            (effects.MISS, BASE_MISS + MISS_PER_LEVEL * max(0, defender_level - attacker_level)),
+            (effects.DODGE, BASE_DODGE + DODGE_PER_DEX * max(0, defender_dex - 30)),
+            (effects.PARRY, BASE_PARRY if can_parry else 0.0),
+            (effects.BLOCK, BASE_BLOCK if can_block else 0.0),
+            (effects.CRIT, BASE_CRIT + CRIT_PER_DEX * max(0, attacker_dex - 30))):
+        if r < chance:
+            return outcome
+        r -= chance
+    return effects.HIT
+
+
 def strike(player, npc, what, visual, lo, hi, rng=random):
-    """One hit on npc ("<what> hits <npc> for N damage."); the NPC answers if it
-    survives."""
+    """One swing at npc ("<what> hits <npc> for N damage.", or a miss, dodge, parry or
+    critical hit); the NPC answers if it survives."""
     if visual is not None:
         player.pending_displays.append(display_ability(player.char_id, npc.entity_id, visual))
+    outcome = roll_outcome(rng, getattr(player, "level_number", 1), getattr(npc, "level", 1),
+                           attacker_dex=getattr(player, "stats", {}).get("dexterity", 30),
+                           can_parry=getattr(npc, "race", 0) < 64)          # people parry, creatures don't
     dmg = rng.randint(lo, hi)
+    if outcome == effects.CRIT:
+        dmg = int(dmg * CRIT_MULT)
+    elif outcome != effects.HIT:
+        dmg = 0
     npc.health = max(npc.health - dmg, 0)
     player.last_combat = time.time()
     # The client writes the line (0x27b, Combat tab): "You hit Rat for 6 damage." for
     # auto-attack (kind 0, generic verb), "Your Brutal Strike hits Rat ..." for abilities.
     ability = "" if what == "You" else what[len("Your "):]
     player.pending_displays.append(effects.combat_text(player.char_id, npc.entity_id, ability, dmg,
-                                                       kind=0 if not ability else 1, dmg_type=HITS))
+                                                       kind=0 if not ability else 1, dmg_type=HITS,
+                                                       outcome=outcome))
     lines = []
     if not npc.alive:
         npc.died_at = time.time()
@@ -381,11 +412,21 @@ def npc_attacks(player, npc, rng=random):
     if player.health <= 0:
         return []
     npc.aggro, npc.aggro_on = True, player
+    gear = {e[3] for e in getattr(player, "equipment", [])}
+    import zone
+    shield = any(zone.ITEM_CONTENT.item(e[1]).get("type") == "shield" for e in getattr(player, "equipment", []))
+    outcome = roll_outcome(rng, getattr(npc, "level", 1), getattr(player, "level_number", 1),
+                           defender_dex=getattr(player, "stats", {}).get("dexterity", 30),
+                           can_parry=bool(gear & {28, 36}), can_block=shield)
     dmg = mitigate(rng.randint(*npc.damage), getattr(player, "armor_class", 0))
+    if outcome == effects.CRIT:
+        dmg = int(dmg * CRIT_MULT)
+    elif outcome != effects.HIT:
+        dmg = 0
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, npc.attack_visual))
     player.health = max(player.health - dmg, 0)
     player.pending_displays.append(effects.combat_text(npc.entity_id, player.char_id, "", dmg, kind=0,
-                                                       dmg_type=HITS))
+                                                       dmg_type=HITS, outcome=outcome))
     lines = []
     if player.health == 0:
         lines.append(("You have been slain!", "error"))

@@ -582,5 +582,24 @@ class ItemStatTests(unittest.TestCase):
         self.assertEqual(p.stats["hit_points"], 210 + 2 * zone.CON_HP)
 
 
+class AvoidanceTests(unittest.TestCase):
+    def test_outcomes(self):
+        import random as _r
+        import effects
+        rng = _r.Random(7)
+        seen = {combat.roll_outcome(rng, 10, 10, can_parry=True, can_block=True) for _ in range(2000)}
+        self.assertEqual(seen, {effects.MISS, effects.DODGE, effects.PARRY, effects.BLOCK, effects.CRIT, effects.HIT})
+        rng = _r.Random(7)
+        no_def = [combat.roll_outcome(rng, 10, 10) for _ in range(2000)]
+        self.assertNotIn(effects.PARRY, no_def)
+        self.assertNotIn(effects.BLOCK, no_def)
+        # a much higher-level defender is missed far more often
+        rng = _r.Random(1)
+        high = sum(combat.roll_outcome(rng, 1, 20) == effects.MISS for _ in range(2000))
+        self.assertGreater(high, 600)
+        msg = effects.combat_text(1, 2, "", 0, kind=0, outcome=effects.DODGE)
+        self.assertEqual(msg[10 + 8 + 8 + 4 + 1 + 1 + 4 + 4], effects.DODGE)
+
+
 if __name__ == "__main__":
     unittest.main()

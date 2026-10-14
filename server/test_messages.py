@@ -65,7 +65,7 @@ class CombatMessages(unittest.TestCase):
         npc = combat.Npc(5, "Rat", 3, "x.y", max_health=1)
         player.npcs[5], player.target = npc, 5
         lines, hit = combat.use_ability(player, (1, 570001, "Strike", 553, "", 0.0),
-                                        rng=random.Random(1))
+                                        rng=random.Random(2))   # seed 2 hits (seed 1 rolls a miss)
         self.assertIs(hit, npc)
         self.assertFalse(npc.alive)
         self.assertEqual(player.pending_rewards, [combat.KILL_XP])

@@ -121,7 +121,14 @@ def resisted(other_eid, ability, effect="", you=True):
     return struct.pack("<HII", 2, 0x278 if you else 0x279, len(data)) + data
 
 
-def combat_text(source, target, ability, amount, heal=False, crit=False, kind=1, dmg_type=0):
-    """0x27b: the client writes the sentence ("Your X hits/heals ...")."""
+# 0x27b outcome byte (FUN_004368b0): 0/1 miss (a resist for spell damage types 7-12), 2 hit,
+# 3 critical hit, 4 block, 5 dodge, 6 parry ("Rat dodges your attack.", "You parry ...").
+MISS, HIT, CRIT, BLOCK, DODGE, PARRY = 0, 2, 3, 4, 5, 6
+
+
+def combat_text(source, target, ability, amount, heal=False, crit=False, kind=1, dmg_type=0, outcome=None):
+    """0x27b: the client writes the sentence ("Your X hits/heals ...", "You miss Rat!")."""
+    if outcome is None:
+        outcome = CRIT if crit else HIT
     return _event(0x27B, struct.pack("<QQiBBiiBBB", source, target, next(_instances), int(heal), kind,
-                                     amount, 0, 3 if crit else 2, dmg_type, 0) + _w(ability) + struct.pack("<BB", 0, 0))
+                                     amount, 0, outcome, dmg_type, 0) + _w(ability) + struct.pack("<BB", 0, 0))
