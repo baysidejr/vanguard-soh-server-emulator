@@ -222,6 +222,11 @@ class ServiceMessageTests(unittest.TestCase):
         # Three empty slots: 3 x (wstr "" + i32 + wstr "" + i32 + 2 wstr "" + 3 i32) = 3 x 28 bytes.
         self.assertEqual(len(empty) - 10, 84)
         self.assertEqual(craft.grade_letter(749), "B")
+        sid = r["id"] * 10
+        self.assertEqual(craft.missing_steps(r, set()), [sid + 2, sid + 3])   # tongs, mould oil
+        self.assertEqual(craft.missing_steps(r, set(), 0), [])
+        self.assertEqual(craft.missing_steps(r, {"Crucible Tongs"}, 1), [sid + 3])
+        self.assertEqual(craft.step_flag(sid + 2)[2:6], struct.pack("<I", 0x30B))
 
     def test_trainer_list_layout(self):
         import trainer

@@ -90,6 +90,25 @@ def step_id(r, n):
     return r["id"] * 10 + n
 
 
+def missing_steps(r, have, stage=None):
+    """Step ids of recipe r (only stage `stage` if given) whose tool or utility item is not among
+    `have` (item names)."""
+    out = []
+    for n, si, st in all_steps(r):
+        if stage is not None and si != stage:
+            continue
+        need = [st.get("tool"), (st.get("utility") or {}).get("item")]
+        if any(x and x not in have for x in need):
+            out.append(step_id(r, n))
+    return out
+
+
+def step_flag(step, on=True):
+    """0x30b / 0x30c {i32 step id}: set or clear the "needs an item" flag on a step's entry in the
+    crafting window (FUN_005bcdd0 / FUN_005bcfa0; only the current stage's steps)."""
+    return _event(0x30B if on else 0x30C, struct.pack("<i", step))
+
+
 def learn_recipe(r):
     return _event(0x2EF, recipe_record(r))
 

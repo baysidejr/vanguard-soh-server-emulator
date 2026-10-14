@@ -8,12 +8,13 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 Continue the "optional" list in docs/UNSENT_MESSAGES.md. Good next candidates: escrow merchant
 (consignment) window (0x28d / 0x294-0x296), group member entity change on chunk travel (0x690),
-crafting step highlights (0x30b / 0x30c), object-in-use errors (0x3ca), Unique items (0x1e4 code 0)
+object-in-use errors (0x3ca), Unique items (0x1e4 code 0)
 with an items.json flag. Also look for more invented error texts that match client codes
 (docs/NOTICES.md, the 0x241 / 0x244 / 0x1e4 tables).
 
 ## Last test results
 
+- 2026-10-14: server unit tests OK (160), content OK. Live: Stage 2 Mould Oil step dimmed when the oil is missing; not dimmed without 0x30b. Note: run_test.sh needs `--dev-commands` for `!tp` and other ! commands.
 - 2026-10-14 (da3a48e): server unit tests OK, crowdsourced tests OK, content OK, in-game smoke test PASS (40 commands). Live today: race pass (19) and class pass (15), forge auto-attack refused, crafting refused in combat, destroy refused in combat, ability and auto-attack failure messages, item errors.
 
 ## Remaining work
@@ -36,6 +37,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Crafting: steps whose tool or utility item is missing are dimmed in the crafting window (0x30b at Begin and at each stage start). Verified live against a control run without the message.
 - 2026-10-14: Accounts: usernames and salted PBKDF2 passwords (server/accounts.json), a launcher endpoint (HTTP 10180) and tools/play.py that log in and start the client with a one-time session token, server-issued session keys checked by the world server, and characters owned per account (list, play, create, delete). Verified live: wrong password refused, a new account sees an empty character list, the dev token still works.
 - 2026-10-14: Bug fixed: auto-attack (and pet abilities) could kill service NPCs; the Camp Forge died in a test. Client combat rules now enforced with its own notices: no destroying items (94), no starting a craft (144), no binding Bind On Equip items (130) in combat; no changing equipment while crafting (95).
 - 2026-10-14: 271 class ability names re-spaced from the crowdsourced archive ("Lightning Strike I" instead of "Lightningstrike I"); logged in crowdsourced/imported.md.

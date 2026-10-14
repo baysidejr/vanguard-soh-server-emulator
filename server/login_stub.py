@@ -7356,6 +7356,8 @@ def handle_craft_event(state, event, data):
                        catalyst_used=False)
         for m in craft.started(session["quality"]):
             send(m)
+        for sid in craft.missing_steps(session["recipe"], {i[1] for i in player.items}, 0):
+            send(craft.step_flag(sid))
         cat = session["recipe"].get("catalyst")
         item = next((i for i in player.items if cat and i[1] == cat["item"]), None)
         if item is not None:
@@ -7469,6 +7471,8 @@ def craft_action(state, session, action):
         session["stage"] = si + 1
         for m in craft.next_stage(si + 1):
             send(m)
+        for sid in craft.missing_steps(r, {i[1] for i in state["player"].items}, si + 1):
+            send(craft.step_flag(sid))
         return
     send(craft.screen_text(f"Quality: Grade {craft.grade_letter(session['quality'])}"))
     finish_craft(state, r)
