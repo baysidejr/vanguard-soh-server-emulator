@@ -54,6 +54,12 @@ class PackageMap:
 
     def object_index(self, path):
         """Net index of 'Package.Object' (an export directly inside the package)."""
+        cache = self.__dict__.setdefault("_object_index_cache", {})
+        if path not in cache:
+            cache[path] = self._object_index(path)
+        return cache[path]
+
+    def _object_index(self, path):
         pkg_name, obj_name = path.split(".", 1)
         base = 0
         for name, p, _ in self.packages:

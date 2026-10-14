@@ -66,17 +66,31 @@ class BitReader:
 
 
 class BitWriter:
+    """LSB-first bit packer. Bits accumulate in one Python int (much faster than a bit list:
+    packet encoding was most of the server's time with many players)."""
+
     def __init__(self):
-        self.bitlist = []
+        self.acc = 0
+        self.n = 0
 
     def bit(self, b):
-        self.bitlist.append(1 if b else 0)
+        if b:
+            self.acc |= 1 << self.n
+        self.n += 1
 
     def bits(self, value, n):
-        for i in range(n):
-            self.bit((value >> i) & 1)
+        self.acc |= (value & ((1 << n) - 1)) << self.n
+        self.n += n
+
+    def raw(self, data, nbits):
+        """nbits bits from data (bytes, LSB-first), e.g. a bunch payload."""
+        self.bits(int.from_bytes(data, "little"), nbits)
 
     def serialize_int(self, value, value_max):
+        if value_max & (value_max - 1) == 0:
+            # Power of two: always log2(max) bits.
+            self.bits(value, value_max.bit_length() - 1)
+            return
         mask = 1
         new_value = 0
         while new_value + mask < value_max and mask:
@@ -88,16 +102,11 @@ class BitWriter:
             mask <<= 1
 
     def bytes_(self, data):
-        for byte in data:
-            self.bits(byte, 8)
+        self.raw(data, len(data) * 8)
 
     def packed(self):
         """(bytes, bit count) without a terminator, for bunch payloads."""
-        out = bytearray((len(self.bitlist) + 7) // 8)
-        for i, b in enumerate(self.bitlist):
-            if b:
-                out[i >> 3] |= 1 << (i & 7)
-        return bytes(out), len(self.bitlist)
+        return self.acc.to_bytes((self.n + 7) // 8, "little"), self.n
 
     def vector(self, v):
         """FVector::SerializeCompressed (client reader FUN_00962170)."""
@@ -124,12 +133,7 @@ class BitWriter:
 
     def finish(self):
         """Terminator bit, then pad to a whole byte."""
-        bits = self.bitlist + [1]
-        out = bytearray((len(bits) + 7) // 8)
-        for i, b in enumerate(bits):
-            if b:
-                out[i >> 3] |= 1 << (i & 7)
-        return bytes(out)
+        return (self.acc | (1 << self.n)).to_bytes((self.n + 8) // 8, "little")
 
 
 def compact_index(value):
@@ -258,8 +262,7 @@ def encode_packet(packet_id, acks=(), bunches=()):
         if b.reliable or b.open:
             w.serialize_int(b.ch_type, CHTYPE_MAX)
         w.serialize_int(b.nbits, MAX_BUNCH_BITS)
-        for i in range(b.nbits):
-            w.bit((b.data[i >> 3] >> (i & 7)) & 1)
+        w.raw(b.data, b.nbits)
     return w.finish()
 
 
@@ -315,6 +318,11 @@ class UnrealSession:
             w.serialize_int(rep_index, max_index)
             write(w)
         data, nbits = w.packed()
+        return self.actor_open_from(channel, data, nbits)
+
+    def actor_open_from(self, channel, data, nbits):
+        """actor_open_bunch with the payload already encoded (the same actor opened for
+        several connections)."""
         seq = self.out_reliable.get(channel, 0) + 1
         self.out_reliable[channel] = seq
         return Bunch(channel, data, reliable=True, control=True, open_=True,
@@ -333,6 +341,11 @@ class UnrealSession:
         seq = self.out_reliable.get(channel, 0) + 1
         self.out_reliable[channel] = seq
         return Bunch(channel, data, reliable=True, ch_type=CHTYPE_ACTOR, seq=seq, nbits=nbits)
+
+    def unreliable_bunch(self, channel, data, nbits):
+        """An unreliable bunch on an open actor channel: no sequence number, may be lost
+        (fine for movement, where the next update replaces it)."""
+        return Bunch(channel, data, reliable=False, ch_type=CHTYPE_ACTOR, nbits=nbits)
 
     def build(self, bunches=()):
         """One outgoing packet carrying pending acks and the given bunches."""

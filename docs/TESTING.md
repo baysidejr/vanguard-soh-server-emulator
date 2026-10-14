@@ -8,6 +8,23 @@ How each feature has been tested, and what still needs a person at the keyboard.
 
 Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a person (scripted input can't do it, or the result can't be checked by a screenshot) · ⛔ blocked (no UI in the shipped client, or no data)
 
+## Load test (2026-10-14)
+
+`python tools/loadtest.py` runs headless players that speak the client's protocol: launcher token, world login, character Play, zone login, the UE2 handshake (HELLO / LOGIN / JOIN), then ShortServerMove 4 times a second while walking in a circle near the camp, and a ping (zone type 9, echoed at once) every second. `--setup N` makes the `loadtest` account and N characters (copies of Ranger), `--cleanup` removes them, `--procs` spreads the bots over several processes (one Python process manages about 50). Start the server with `--quiet-packets`.
+
+All bots crowd the camp (within about 1400 units), so every move goes to every other player: the worst case. Results on the development PC (one server process):
+
+| Bots | Before the fixes (ping median / p95) | After (median / p95) | Server CPU after |
+|---|---|---|---|
+| 25 | 32 ms / 1340 ms | 11 ms / 23 ms | |
+| 50 | 828 ms / 1050 ms | 7 ms / 120 ms | |
+| 100 | 2.7 s / 5.3 s (7 failed to join) | 11 ms / 450 ms (p95 from the join burst) | 62% of a core |
+| 150 | | 2.6 s / 5.1 s | saturated |
+
+What made the difference (found with cProfile under load): packet bits are packed in one integer instead of a bit list; net-field and object lookups are cached; the encoded property update and the pawn open payload are reused for every recipient; movement goes out as unreliable bunches queued per connection and sent 20 times a second, many to a packet; the loop drains every waiting packet per wake-up; position prints follow `--quiet-packets`; the database connection stays open. Verified with two real clients afterwards: the other player's walking (and walking back into view) shows as before.
+
+Still open: the cost grows with the square of the players in one place (150 in one spot saturate one core); the server never resends a reliable packet that the client did not acknowledge, which is harmless on a LAN but loses messages on a lossy internet link.
+
 ## Needs a person
 
 | Feature | Status | How to test |

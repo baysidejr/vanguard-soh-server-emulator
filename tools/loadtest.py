@@ -1,0 +1,385 @@
+"""Load test: many headless players log in and walk around, to see how the server copes.
+
+Each bot speaks the client's protocol (SOE reliable UDP, then UE2 packets on the zone server):
+it logs in with a launcher token, picks its character on the world server, joins the zone
+(HELLO / LOGIN / JOIN) and then sends ShortServerMove a few times a second while walking in a
+circle, plus a ping every second. The ping round trip (the server echoes type 9 at once) shows how
+far behind the server's single loop is running.
+
+    python tools/loadtest.py --setup 20          # make account "loadtest" and 20 bot characters
+    python tools/loadtest.py --bots 20 --seconds 60
+    python tools/loadtest.py --cleanup           # remove the bot characters and the account
+
+Run it on the server machine (it reads the client's packages, like the server, to encode moves).
+Start the server with --quiet-packets so its logging doesn't dominate. Uses the server's own
+modules and the standard library only.
+"""
+import argparse
+import json
+import math
+import os
+import random
+import secrets
+import socket
+import statistics
+import struct
+import sys
+import threading
+import time
+import types
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "server"))
+
+import accounts      # noqa: E402
+import rpc           # noqa: E402
+import storage       # noqa: E402
+import ue2net        # noqa: E402
+
+ACCOUNT = "loadtest"
+BOT_PREFIX = "Lbot"
+CHARACTERS_FILE = os.path.join(ROOT, "server", "characters.json")
+PC_CHANNEL = 1
+CAMP = (-31000.0, -5500.0, 460.0)
+
+
+def bot_name(i):
+    """Letters only (the server's name rule): Lbotaa, Lbotab, ..."""
+    a, b = divmod(i, 26)
+    return BOT_PREFIX + chr(97 + a % 26) + chr(97 + b)
+
+
+# --- setup ---------------------------------------------------------------------------------
+
+def setup(n, template_name):
+    chars = storage.read_characters(CHARACTERS_FILE)
+    template = next((c for c in chars if c["first"] == template_name), None)
+    if template is None:
+        sys.exit(f"No character named {template_name} to copy.")
+    if ACCOUNT not in accounts.load()["accounts"]:
+        err = accounts.create(ACCOUNT, secrets.token_hex(16))
+        if err:
+            sys.exit(err)
+    token = find_token() or str(random.randint(30000000, 99999999))
+    err = accounts.set_token(ACCOUNT, token)
+    if err:
+        sys.exit(err)
+    keep = [c for c in chars if c.get("account") != ACCOUNT]
+    for i in range(n):
+        c = {k: v for k, v in template.items() if k not in ("id", "guild", "brotherhood", "bound", "house")}
+        ang = 2 * 3.14159 * i / max(n, 1)
+        c.update(first=bot_name(i), last="", account=ACCOUNT,
+                 position=[CAMP[0] + 300 * math.cos(ang), CAMP[1] + 300 * math.sin(ang), CAMP[2]])
+        keep.append(c)
+    storage.write_characters(CHARACTERS_FILE, keep)
+    print(f"Account {ACCOUNT!r} with {n} characters; launcher token {token}")
+    return token
+
+
+def cleanup():
+    chars = storage.read_characters(CHARACTERS_FILE)
+    keep = [c for c in chars if c.get("account") != ACCOUNT]
+    storage.write_characters(CHARACTERS_FILE, keep)
+    data = accounts.load()
+    data["accounts"].pop(ACCOUNT, None)
+    data["launcher_tokens"] = {t: u for t, u in data["launcher_tokens"].items() if u != ACCOUNT}
+    accounts.save(data)
+    print(f"Removed {len(chars) - len(keep)} bot characters and the {ACCOUNT!r} account.")
+
+
+def find_token():
+    return next((t for t, u in accounts.load()["launcher_tokens"].items() if u == ACCOUNT), None)
+
+
+def bot_token():
+    token = find_token()
+    if not token:
+        sys.exit("Run --setup first.")
+    return token
+
+
+# --- SOE reliable UDP ----------------------------------------------------------------------
+
+class SoeConnection:
+    """Client side of one SOE connection: connect, reliable sends, acks, fragment reassembly."""
+
+    def __init__(self, host, port, timeout=10.0):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.settimeout(timeout)
+        self.addr = (host, port)
+        self.out_seq = 0
+        self.frag = None          # [total, bytes]
+        self.inbox = []
+        self.code = random.getrandbits(32)
+        self.sock.sendto(struct.pack(">HIII", 1, 3, self.code, 512) + b"API_PROTOCOL_1.0\0", self.addr)
+        self._recv_one()          # the confirm
+
+    def send(self, payload):
+        self.sock.sendto(struct.pack(">BBH", 0, 0x09, self.out_seq & 0xFFFF) + payload, self.addr)
+        self.out_seq += 1
+
+    def close(self):
+        try:
+            self.sock.sendto(struct.pack(">HIH", 5, self.code, 6), self.addr)
+        finally:
+            self.sock.close()
+
+    def _recv_one(self):
+        data, _ = self.sock.recvfrom(65535)
+        if len(data) < 2 or data[0] != 0:
+            return
+        kind = data[1]
+        if kind in (0x09, 0x0D):
+            seq = struct.unpack_from(">H", data, 2)[0]
+            self.sock.sendto(struct.pack(">BBH", 0, 0x15, seq), self.addr)
+            if kind == 0x09:
+                self.inbox.append(data[4:])
+            elif self.frag is None:
+                total = struct.unpack_from(">I", data, 4)[0]
+                self.frag = [total, data[8:]]
+            else:
+                self.frag[1] += data[4:]
+            if self.frag and len(self.frag[1]) >= self.frag[0]:
+                self.inbox.append(self.frag[1][:self.frag[0]])
+                self.frag = None
+
+    def messages(self, until=None, timeout=10.0):
+        """Application messages as they arrive; stop when until(msg) is true (returns it)."""
+        end = time.time() + timeout
+        while time.time() < end:
+            while self.inbox:
+                m = self.inbox.pop(0)
+                if until is None or until(m):
+                    return m
+            try:
+                self._recv_one()
+            except socket.timeout:
+                break
+        return None
+
+    def poll(self):
+        """Read whatever has arrived without waiting."""
+        self.sock.settimeout(0)
+        try:
+            while True:
+                self._recv_one()
+        except (BlockingIOError, socket.timeout):
+            pass
+        except OSError:
+            pass
+        finally:
+            self.sock.settimeout(10.0)
+        out, self.inbox = self.inbox, []
+        return out
+
+
+def login_request(account, password):
+    a, p = account.encode("latin-1"), password.encode("latin-1")
+    return struct.pack("<HI", 3, len(a)) + a + struct.pack("<I", len(p)) + p
+
+
+def event(event_id, data=b""):
+    return struct.pack("<HII", 2, event_id, len(data)) + data
+
+
+def is_event(msg, event_id):
+    return len(msg) >= 10 and struct.unpack_from("<HI", msg, 0) == (2, event_id)
+
+
+def wfield(text, size=128):
+    raw = text[:size // 2 - 1].encode("utf-16-le")
+    return raw + b"\0" * (size - len(raw))
+
+
+def wtext(raw):
+    return raw.decode("utf-16-le", "replace").split("\0")[0]
+
+
+# --- one bot -------------------------------------------------------------------------------
+
+class Bot(threading.Thread):
+    def __init__(self, i, args, token, net_cache, stats):
+        super().__init__(daemon=True)
+        self.i, self.args, self.token, self.nc, self.stats = i, args, token, net_cache, stats
+        self.name = bot_name(i)
+        self.joined_at = None
+        self.error = None
+        self.rtts = []
+
+    def run(self):
+        try:
+            self.play()
+        except Exception as e:      # report and stop this bot only
+            self.error = f"{type(e).__name__}: {e}"
+
+    def play(self):
+        a, start = self.args, time.time()
+        # Login server: launcher token -> account and session key (event 0x27).
+        c = SoeConnection(a.host, a.login_port)
+        c.send(login_request("SOE_LOGIN", self.token))
+        m = c.messages(lambda m: is_event(m, 0x27))
+        c.close()
+        if m is None:
+            raise RuntimeError("no world-server event from the login server")
+        account, session = wtext(m[10:138]), wtext(m[138:266])
+        # World server: log in, list characters, play.
+        w = SoeConnection(a.host, a.world_port)
+        w.send(login_request(account, session))
+        w.messages(lambda m: is_event(m, 1))
+        w.send(event(0x19))
+        w.send(event(0x19, wfield(self.name) + bytes.fromhex("0100ffff0100ffff00000000")))
+        m = w.messages(lambda m: is_event(m, 8))
+        if m is None:
+            raise RuntimeError("no zone-connect event from the world server")
+        zone_port = struct.unpack_from("<I", m, 10)[0]
+        # Zone server: log in, then the UE2 handshake.
+        z = SoeConnection(a.host, zone_port)
+        z.send(login_request(account, session))
+        ue = {"pid": 0, "seq": 0}
+
+        def unreal(bunches):
+            pkt = ue2net.encode_packet(ue["pid"], (), bunches)
+            ue["pid"] = (ue["pid"] + 1) % ue2net.MAX_PACKETID
+            z.send(struct.pack("<HI", 1, len(pkt)) + pkt)
+
+        def control(text, first=False):
+            ue["seq"] += 1
+            unreal([ue2net.Bunch(0, ue2net.fstring(text), reliable=True, control=True, open_=first,
+                                 ch_type=ue2net.CHTYPE_CONTROL, seq=ue["seq"])])
+
+        def control_text(msg):
+            if len(msg) < 6 or struct.unpack_from("<H", msg, 0)[0] != 1:
+                return []
+            try:
+                _, _, bunches = ue2net.decode_packet(msg[6:6 + struct.unpack_from("<I", msg, 2)[0]])
+            except ValueError:
+                return []
+            return [t for b in bunches if b.channel == 0 and len(b.data) * 8 == b.nbits
+                    for t in ue2net.read_fstrings(b.data)]
+
+        control("HELLO REVISION=0 MINVER=3151 VER=3186", first=True)
+        if z.messages(lambda m: any(t.startswith("CHALLENGE") for t in control_text(m))) is None:
+            raise RuntimeError("no CHALLENGE")
+        control("LOGIN")
+        if z.messages(lambda m: any(t.startswith("WELCOME") for t in control_text(m))) is None:
+            raise RuntimeError("no WELCOME")
+        control("JOIN")
+        self.joined_at = time.time() - start
+        self.walk(z, unreal)
+        z.close()
+
+    def walk(self, z, unreal):
+        a = self.args
+        f = self.nc.field("PlayerController", "ShortServerMove")
+        cx, cy = CAMP[0] + random.uniform(-400, 400), CAMP[1] + random.uniform(-400, 400)
+        r, t0 = random.uniform(100, 300), time.time()
+        end = t0 + a.seconds
+        next_move = next_ping = t0
+        pings = {}
+        while time.time() < end:
+            now = time.time()
+            if now >= next_move:
+                ang = (now - t0) * 0.5 + self.i
+                loc = (int(cx + r * math.cos(ang)), int(cy + r * math.sin(ang)), int(CAMP[2]))
+                data, nbits = rpc.encode_rpc(self.nc, "PlayerController", "ShortServerMove",
+                                             {"TimeStamp": now - t0, "ClientLoc": loc, "View": 0})
+                unreal([ue2net.Bunch(PC_CHANNEL, data, reliable=False, nbits=nbits)])
+                next_move = now + 1.0 / a.move_rate
+            if now >= next_ping:
+                stamp = random.getrandbits(63)
+                pings[stamp] = now
+                z.send(struct.pack("<HQ", 9, stamp))
+                next_ping = now + 1.0
+            for m in z.poll():
+                if len(m) == 10 and struct.unpack_from("<H", m, 0)[0] == 9:
+                    sent = pings.pop(struct.unpack_from("<Q", m, 2)[0], None)
+                    if sent is not None:
+                        self.rtts.append((time.time() - sent) * 1000)
+            time.sleep(0.01)
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--setup", type=int, metavar="N", help="make the loadtest account and N characters")
+    ap.add_argument("--template", default="Ranger", help="character copied for --setup")
+    ap.add_argument("--cleanup", action="store_true", help="remove the bot characters and account")
+    ap.add_argument("--bots", type=int, default=10)
+    ap.add_argument("--seconds", type=float, default=30)
+    ap.add_argument("--move-rate", type=float, default=4.0, help="moves per second per bot")
+    ap.add_argument("--stagger", type=float, default=0.2, help="seconds between bot logins")
+    ap.add_argument("--procs", type=int, default=1, help="bot processes (one Python process tops out "
+                    "around 50 bots)")
+    ap.add_argument("--first", type=int, default=0, help=argparse.SUPPRESS)
+    ap.add_argument("--child", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--host", default="127.0.0.1")
+    ap.add_argument("--login-port", type=int, default=10101)
+    ap.add_argument("--world-port", type=int, default=10100)
+    a = ap.parse_args(argv)
+    if a.cleanup:
+        cleanup()
+        return 0
+    if a.setup:
+        setup(a.setup, a.template)
+        return 0
+    if a.procs > 1 and not a.child:
+        return run_processes(a)
+    import zone
+    pm = zone.package_map(types.SimpleNamespace(client_dir=ROOT, package_maps={}), "chunk_n19_12")
+    token = bot_token()
+    bots = []
+    for i in range(a.first, a.first + a.bots):
+        b = Bot(i, a, token, pm.net_cache, None)
+        b.start()
+        bots.append(b)
+        time.sleep(a.stagger)
+    for b in bots:
+        b.join(a.seconds + 60)
+    results = [{"name": b.name, "joined": b.joined_at, "rtts": b.rtts, "error": b.error} for b in bots]
+    if a.child:
+        print(json.dumps(results))
+        return 0
+    return report(results)
+
+
+def run_processes(a):
+    """Split the bots over a.procs child processes and merge their results."""
+    import subprocess
+    per, extra = divmod(a.bots, a.procs)
+    procs, first = [], 0
+    for k in range(a.procs):
+        n = per + (1 if k < extra else 0)
+        cmd = [sys.executable, os.path.abspath(__file__), "--child", "--bots", str(n), "--first", str(first),
+               "--seconds", str(a.seconds), "--move-rate", str(a.move_rate),
+               "--stagger", str(a.stagger * a.procs), "--host", a.host,
+               "--login-port", str(a.login_port), "--world-port", str(a.world_port)]
+        procs.append(subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True))
+        first += n
+        time.sleep(a.stagger)
+    results = []
+    for p in procs:
+        out, _ = p.communicate()
+        results.extend(json.loads(out.strip().splitlines()[-1]) if out.strip() else [])
+    return report(results, a.bots)
+
+
+def report(results, expected=None):
+    expected = expected or len(results)
+    joined = [r for r in results if r["joined"] is not None]
+    rtts = sorted(x for r in results for x in r["rtts"])
+    print(f"{len(joined)}/{expected} bots joined the zone", end="")
+    if joined:
+        print(f" (login to JOIN: median {statistics.median(r['joined'] for r in joined):.2f}s, "
+              f"max {max(r['joined'] for r in joined):.2f}s)")
+    else:
+        print()
+    if rtts:
+        p = lambda q: rtts[min(len(rtts) - 1, int(q * len(rtts)))]
+        print(f"ping round trip over {len(rtts)} pings: median {p(0.5):.1f} ms, p95 {p(0.95):.1f} ms, "
+              f"max {rtts[-1]:.1f} ms")
+    for r in results:
+        if r["error"]:
+            print(f"  {r['name']}: {r['error']}")
+    return 0 if len(joined) == expected else 1
+
+if __name__ == "__main__":
+    sys.exit(main())

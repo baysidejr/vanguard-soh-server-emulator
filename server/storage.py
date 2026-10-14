@@ -24,28 +24,47 @@ CHARACTERS = "characters.json"
 
 _LOCK = threading.RLock()
 _READY = set()
+_OPEN = {}          # database path -> connection kept open (keep_open)
 
 
 def _db_path(path):
     return os.path.join(os.path.dirname(os.path.abspath(path)), DB_NAME)
 
 
+def keep_open(folder):
+    """Keep one connection to folder's database open instead of opening one per call (the
+    server does this for its own folder; opening and closing cost more than the query)."""
+    with _LOCK:
+        _OPEN.setdefault(_db_path(os.path.join(folder, DB_NAME)), None)
+
+
+def _connect(db):
+    fresh = db not in _READY or not os.path.exists(db)
+    c = sqlite3.connect(db, isolation_level=None, timeout=30, check_same_thread=False)
+    if fresh:
+        c.execute("PRAGMA journal_mode=WAL")
+        c.execute("CREATE TABLE IF NOT EXISTS documents (name TEXT PRIMARY KEY, data TEXT NOT NULL)")
+        c.execute("CREATE TABLE IF NOT EXISTS characters (seq INTEGER PRIMARY KEY, name TEXT NOT NULL UNIQUE,"
+                  " data TEXT NOT NULL)")
+        c.execute("CREATE TABLE IF NOT EXISTS imported (name TEXT PRIMARY KEY)")
+        _READY.add(db)
+    c.execute("PRAGMA synchronous=FULL")
+    return c
+
+
 @contextlib.contextmanager
 def _db(path):
-    """A connection to the database for path (opened per call, so nothing stays locked)."""
+    """A connection to the database for path: the kept-open one, or one opened for this call
+    (so nothing stays locked, e.g. a test's temporary folder)."""
     db = _db_path(path)
     with _LOCK:
-        fresh = db not in _READY or not os.path.exists(db)
-        c = sqlite3.connect(db, isolation_level=None, timeout=30)
+        if db in _OPEN:
+            if _OPEN[db] is None:
+                _OPEN[db] = _connect(db)
+            yield _OPEN[db]
+            return
+        c = _connect(db)
         try:
-            if fresh:
-                c.execute("PRAGMA journal_mode=WAL")
-                c.execute("CREATE TABLE IF NOT EXISTS documents (name TEXT PRIMARY KEY, data TEXT NOT NULL)")
-                c.execute("CREATE TABLE IF NOT EXISTS characters (seq INTEGER PRIMARY KEY, name TEXT NOT NULL UNIQUE,"
-                          " data TEXT NOT NULL)")
-                c.execute("CREATE TABLE IF NOT EXISTS imported (name TEXT PRIMARY KEY)")
-                _READY.add(db)
-            c.execute("PRAGMA synchronous=FULL")
             yield c
         finally:
             c.close()

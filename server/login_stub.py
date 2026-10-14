@@ -324,6 +324,16 @@ def main():
     zone_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     zone_sock.bind((args.host, args.zone_port))
     names = {login_sock: "LOGIN", world_sock: "WORLD", zone_sock: "ZONE"}
+    for sock in names:
+        # Non-blocking so the loop can drain every waiting packet per wake-up; big buffers
+        # so bursts (many players moving) are not dropped.
+        sock.setblocking(False)
+        for opt in (socket.SO_RCVBUF, socket.SO_SNDBUF):
+            try:
+                sock.setsockopt(socket.SOL_SOCKET, opt, 4 * 1024 * 1024)
+            except OSError:
+                pass
+    storage.keep_open(os.path.dirname(CHARACTERS_FILE))
     dev_password = accounts.ensure_dev_account()
     if dev_password:
         print(f"Created account '{accounts.DEV_ACCOUNT}' (password {dev_password}); launcher tokens "
@@ -346,23 +356,37 @@ def main():
     clients = {}
 
     next_tick = next_move = time.time() + 1
+    next_flush = time.time()
     while True:
         ready, _, _ = select.select([login_sock, world_sock, zone_sock], [], [],
-                                    max(min(next_tick, next_move) - time.time(), 0))
+                                    max(min(next_tick, next_move, next_flush) - time.time(), 0))
         for sock in ready:
-            try:
-                data, addr = sock.recvfrom(65535)
-            except ConnectionResetError:
-                # Windows reports an ICMP "port unreachable" from a client that
-                # went away as an error on the next recvfrom; just carry on.
-                continue
-            guarded(serve, sock, names[sock], data, addr, clients, args)
+            # Read everything already waiting (up to a limit, so ticks still run on time):
+            # one select per packet was a large share of the time with many players.
+            for _ in range(MAX_READS_PER_WAKE):
+                try:
+                    data, addr = sock.recvfrom(65535)
+                except BlockingIOError:
+                    break
+                except ConnectionResetError:
+                    # Windows reports an ICMP "port unreachable" from a client that
+                    # went away as an error on the next recvfrom; just carry on.
+                    continue
+                guarded(serve, sock, names[sock], data, addr, clients, args)
+        if time.time() >= next_flush:
+            # Queued movement goes out FLUSH_HZ times a second, many bunches per packet.
+            next_flush = time.time() + 1.0 / FLUSH_HZ
+            guarded(world.flush_bunches, zone.unreal_message)
         if time.time() >= next_move:
             next_move = time.time() + MOVE_TICK
             guarded(movement_tick, zone_sock, clients, args)
         if time.time() >= next_tick:
             next_tick = time.time() + 1
             guarded(world_tick, zone_sock, clients, args)
+
+
+MAX_READS_PER_WAKE = 64
+FLUSH_HZ = 20
 
 
 def guarded(fn, *a):

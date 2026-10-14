@@ -320,6 +320,48 @@ class SphereTests(unittest.TestCase):
         self.assertEqual(len(msgs), 2)
         self.assertEqual(msgs[-1][10:], struct.pack("<ii", 3, 1))
 
+class LoadPathTests(unittest.TestCase):
+    """The faster paths used with many players give the same bytes as the plain ones."""
+
+    def test_bitwriter_round_trip(self):
+        import ue2net
+        w = ue2net.BitWriter()
+        w.bit(1)
+        w.serialize_int(1000, 4096)          # power of two: 12 bits
+        w.serialize_int(5, 20)               # not a power of two
+        w.raw(bytes([0xFF, 0x01, 0xEE]), 9)  # only the first 9 bits count
+        w.vector((-31000, -5500, 460))
+        data, nbits = w.packed()
+        packet = ue2net.encode_packet(7, (3,), [ue2net.Bunch(5, data, reliable=False, nbits=nbits)])
+        pid, acks, bunches = ue2net.decode_packet(packet)
+        self.assertEqual((pid, acks, bunches[0].channel, bunches[0].nbits), (7, [3], 5, nbits))
+        import rpc
+        r = rpc.BitReader(bunches[0].data, bunches[0].nbits)
+        self.assertEqual((r.bit(), r.serialize_int(4096), r.serialize_int(20), r.bits(9)), (1, 1000, 5, 0x1FF))
+        self.assertEqual(rpc.read_vector(r), (-31000, -5500, 460))
+
+    def test_queued_bunches_share_packets(self):
+        import ue2net
+        import world
+        sent = []
+        state = {"ue": ue2net.UnrealSession(), "send": sent.append}
+        for _ in range(30):
+            world.queue_bunch(state, state["ue"].unreliable_bunch(3, bytes(10), 80))
+        world.flush_bunches(lambda pkt: pkt)
+        self.assertEqual(len(sent), 2)                # 25 x 128 bits fill a 3200-bit packet
+        total = sum(len(ue2net.decode_packet(p)[2]) for p in sent)
+        self.assertEqual(total, 30)
+        world.flush_bunches(lambda pkt: pkt)
+        self.assertEqual(len(sent), 2)                # nothing left queued
+
+    def test_object_index_cached(self):
+        import types
+        pm = zone.package_map(types.SimpleNamespace(client_dir="..", package_maps={}), "chunk_n19_12")
+        a = pm.object_index("Engine.PlayerController")
+        self.assertEqual(pm.object_index("Engine.PlayerController"), a)
+        self.assertEqual(pm._object_index("Engine.PlayerController"), a)
+
+
 
 if __name__ == "__main__":
     unittest.main()

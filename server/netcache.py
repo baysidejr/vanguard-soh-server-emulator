@@ -200,11 +200,19 @@ class NetCache:
         self._cache[name] = result
         return result
 
+    def _lookup(self, class_name):
+        """{lower-case name: field}, {index: field} for a class (first match wins, as a scan)."""
+        cache = self.class_cache(class_name)
+        if "by_name" not in cache:
+            by_name, by_index = {}, {}
+            for f in cache["all"]:
+                by_name.setdefault(f.name.lower(), f)
+                by_index.setdefault(f.index, f)
+            cache["by_name"], cache["by_index"] = by_name, by_index
+        return cache["by_name"], cache["by_index"]
+
     def by_index(self, class_name, index):
-        for f in self.class_cache(class_name)["all"]:
-            if f.index == index:
-                return f
-        return None
+        return self._lookup(class_name)[1].get(index)
 
     def props(self, class_name, values):
         """[(rep_index, max_index, writer)] for actor_open_bunch from
@@ -232,6 +240,13 @@ class NetCache:
         """FName on the wire (UPackageMapLevel FUN_00b164f0): SerializeInt(index,
         total + 1), index = position in the package map's concatenated name
         tables (packages in USES order); total = None."""
+        cache = self.__dict__.setdefault("_name_index_cache", {})
+        key = None if name is None else str(name).lower()
+        if key not in cache:
+            cache[key] = self._name_index(name)
+        return cache[key]
+
+    def _name_index(self, name):
         base = 0
         found = None
         for _, p in self.packages:
@@ -247,7 +262,7 @@ class NetCache:
         return found, base
 
     def field(self, class_name, field_name):
-        for f in self.class_cache(class_name)["all"]:
-            if f.name.lower() == field_name.lower():
-                return f
-        raise KeyError(field_name)
+        f = self._lookup(class_name)[0].get(field_name.lower())
+        if f is None:
+            raise KeyError(field_name)
+        return f

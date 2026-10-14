@@ -327,10 +327,19 @@ def open_remote_player(state, args, other):
     loc = other.live_position or other.spawned_at
     values = player_pawn_values(other, loc)
     values.pop("bNetOwner", None)
-    b = ue.actor_open_bunch(channel, pm.object_index(args.pawn_class), pm.max_object_index,
-                            location=loc, extra=(0xFF, -1, 0x3F800000),
-                            properties=pm.net_cache.props(cls, values))
-    return unreal_message(ue.build([b]))
+    # Everyone in the chunk opens this pawn with the same payload: encode it once.
+    key = (id(pm), "open", args.pawn_class, repr(loc), repr(values))
+    payload = _PROPS_CACHE.get(key)
+    if payload is None:
+        tmp = ue2net.UnrealSession()
+        b = tmp.actor_open_bunch(channel, pm.object_index(args.pawn_class), pm.max_object_index,
+                                 location=loc, extra=(0xFF, -1, 0x3F800000),
+                                 properties=pm.net_cache.props(cls, values))
+        payload = (b.data, b.nbits)
+        if len(_PROPS_CACHE) > 512:
+            _PROPS_CACHE.clear()
+        _PROPS_CACHE[key] = payload
+    return unreal_message(ue.build([ue.actor_open_from(channel, *payload)]))
 
 
 def close_actor(state, entity_id):
@@ -448,15 +457,30 @@ def player_teleport(location, rotation=(0, 0, 0), tag=0):
     return zone_event(0x3E5, struct.pack("<fffiiii", *location, *rotation, tag))
 
 
+_PROPS_CACHE = {}
+
+
+def pawn_props(pm, cls_path, values):
+    """(data, nbits) of a property update. Broadcasts send the same values to every player in
+    the chunk, so the encoding is remembered for the next recipients (only the channel and the
+    packet around it differ)."""
+    key = (id(pm), cls_path, repr(values))
+    hit = _PROPS_CACHE.get(key)
+    if hit is None:
+        w = ue2net.BitWriter()
+        for rep_index, max_index, write in pm.net_cache.props(cls_path.split(".", 1)[1], values):
+            w.serialize_int(rep_index, max_index)
+            write(w)
+        hit = w.packed()
+        if len(_PROPS_CACHE) > 512:
+            _PROPS_CACHE.clear()
+        _PROPS_CACHE[key] = hit
+    return hit
+
+
 def pawn_update(state, args, channel, cls_path, values):
     ue, player = state["ue"], state["player"]
-    pm = package_map(args, player.level)
-    cls = cls_path.split(".", 1)[1]
-    w = ue2net.BitWriter()
-    for rep_index, max_index, write in pm.net_cache.props(cls, values):
-        w.serialize_int(rep_index, max_index)
-        write(w)
-    data, nbits = w.packed()
+    data, nbits = pawn_props(package_map(args, player.level), cls_path, values)
     return unreal_message(ue.build([ue.actor_bunch(channel, data, nbits)]))
 
 
@@ -482,7 +506,7 @@ def log_client_rpc(state, b, args, player):
             args.on_move(state, loc)                   # every report: landing = no change
         if moved:
             broadcast_movement(state, args, player, loc, params.get("View"))
-        if moved:
+        if moved and not getattr(args, "quiet_packets", False):
             print(f"  >>> UNREAL {name}: position {loc}")
             save = player.save_position
             now = time.time()
@@ -523,7 +547,15 @@ def broadcast_movement(state, args, player, loc, view):
     yaw = world.view_yaw(view)
     values = {"Location": loc, "Rotation": (0, yaw, 0), "Velocity": vel,
               "PawnPosition": (loc, (0, yaw, 0), vel)}
-    w.broadcast(lambda s: remote_player_update(s, args, player, values), exclude=state)
+    # Encoded once; queued as unreliable bunches and sent with the other players' moves in as
+    # few packets as possible (world.flush_bunches, end of every server loop pass).
+    data, nbits = pawn_props(package_map(args, player.level), args.pawn_class, values)
+    for s in list(w.members.values()):
+        if s is state or "ue" not in s:
+            continue
+        channel = world.channel_for(s, player.char_id)
+        if channel is not None:
+            world.queue_bunch(s, s["ue"].unreliable_bunch(channel, data, nbits))
 
 
 def package_map(args, level):

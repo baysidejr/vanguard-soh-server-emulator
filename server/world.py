@@ -46,6 +46,38 @@ class World:
                 s["send"](m)
 
 
+QUEUED = []                 # connection states with bunches waiting in state["bunches"]
+PACKET_BITS = 400 * 8       # bunch bits per packet (the client's limit is 512 bytes)
+
+
+def queue_bunch(state, bunch):
+    """Send bunch with the next flush_bunches, packed together with other queued bunches."""
+    q = state.get("bunches")
+    if not q:
+        state["bunches"] = q = []
+        QUEUED.append(state)
+    q.append(bunch)
+
+
+def flush_bunches(unreal_message):
+    """Send every queued bunch: per connection, as few UE packets as fit."""
+    while QUEUED:
+        state = QUEUED.pop()
+        bunches, state["bunches"] = state.get("bunches") or [], []
+        if state.get("closed") or "send" not in state or "ue" not in state:
+            continue
+        batch, bits = [], 0
+        for b in bunches:
+            size = b.nbits + 48           # header: flags, channel, type, bit count
+            if batch and bits + size > PACKET_BITS:
+                state["send"](unreal_message(state["ue"].build(batch)))
+                batch, bits = [], 0
+            batch.append(b)
+            bits += size
+        if batch:
+            state["send"](unreal_message(state["ue"].build(batch)))
+
+
 def channel_for(state, entity_id, allocate=False):
     """This connection's actor channel for a world actor."""
     channels = state.setdefault("channels", {})
