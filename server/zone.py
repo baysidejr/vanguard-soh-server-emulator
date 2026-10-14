@@ -758,7 +758,7 @@ def starter_equipment(klass):
 ITEM_CONTENT = content.Content()
 
 
-ITEM_TYPE_IDS = {"misc": 3, "shield": 0, "weapon": 1, "armor": 4, "ranged": 9, "jewelry": 10,
+ITEM_TYPE_IDS = {"misc": 3, "shield": 0, "weapon": 1, "armor": 4, "ranged": 9, "jewelry": 13,   # 10 is diplomacy jewelry (FUN_00d01550 level type 2)
                  "container": 11, "ammo": 20,
                  "harvest_tool": 16, "fishing": 26}
 
