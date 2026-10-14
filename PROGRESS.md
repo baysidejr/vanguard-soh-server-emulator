@@ -23,7 +23,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
 5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
-   - **Decision needed (user):** accounts. The client logs in with a launcher session token (field 2 of PacketLoginRequest, `--sessionid`), and every connection sees every character. Options: tie characters to the token, or add a username/password store (the client also supports `/login user pass world`). Either changes how the two test clients log in, so it waits for the user.
+   - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. Open: a client error message for a refused login; a database instead of JSON files.
 
 ## Blocked (needs the user or data)
 
@@ -36,6 +36,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Accounts: usernames and salted PBKDF2 passwords (server/accounts.json), a launcher endpoint (HTTP 10180) and tools/play.py that log in and start the client with a one-time session token, server-issued session keys checked by the world server, and characters owned per account (list, play, create, delete). Verified live: wrong password refused, a new account sees an empty character list, the dev token still works.
 - 2026-10-14: Bug fixed: auto-attack (and pet abilities) could kill service NPCs; the Camp Forge died in a test. Client combat rules now enforced with its own notices: no destroying items (94), no starting a craft (144), no binding Bind On Equip items (130) in combat; no changing equipment while crafting (95).
 - 2026-10-14: 271 class ability names re-spaced from the crowdsourced archive ("Lightning Strike I" instead of "Lightningstrike I"); logged in crowdsourced/imported.md.
 - 2026-10-14: Class pass: all 15 classes entered the world and used their first four abilities; no server errors.

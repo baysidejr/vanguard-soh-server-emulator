@@ -12,6 +12,7 @@ import random
 import select
 import socket
 import storage
+import accounts
 import struct
 import sys
 import time
@@ -249,6 +250,10 @@ def build_ack_all(channel_type, seq):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--launcher-port", type=int, default=10180,
+                        help="HTTP port of the launcher login endpoint (tools/play.py); 0 turns it off")
+    parser.add_argument("--allow-registration", action="store_true",
+                        help="let the launcher create accounts (POST /register)")
     parser.add_argument("--port", type=int, default=10101, help="login server port")
     parser.add_argument("--world-port", type=int, default=10100, help="world server port (ClientWorldApi default 0x2774)")
     parser.add_argument("--world-address", default="127.0.0.1", help="world/zone address sent to the client")
@@ -307,6 +312,20 @@ def main():
     zone_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     zone_sock.bind((args.host, args.zone_port))
     names = {login_sock: "LOGIN", world_sock: "WORLD", zone_sock: "ZONE"}
+    dev_password = accounts.ensure_dev_account()
+    if dev_password:
+        print(f"Created account '{accounts.DEV_ACCOUNT}' (password {dev_password}); launcher tokens "
+              f"12345678 and 22222222 log in as it. Manage accounts with server/accounts.py.")
+    chars = load_characters()
+    if any("account" not in c for c in chars):
+        for c in chars:
+            c.setdefault("account", accounts.DEV_ACCOUNT)
+        save_characters(chars)
+        print(f"Characters without an account were given to '{accounts.DEV_ACCOUNT}'.")
+    if args.launcher_port:
+        accounts.serve_launcher(args.host, args.launcher_port, args.allow_registration)
+        print(f"Launcher login on HTTP {args.host}:{args.launcher_port}"
+              f"{' (registration open)' if args.allow_registration else ''}")
     print(f"Login stub listening on UDP {args.host}:{args.port}")
     print(f"World stub listening on UDP {args.host}:{args.world_port}")
     print(f"Zone stub listening on UDP {args.host}:{args.zone_port}")
@@ -7785,8 +7804,13 @@ def build_account_character_list(chars):
     return event_message(0x66, bytes(data))
 
 
+def account_characters(account):
+    """The characters belonging to an account (characters.json "account")."""
+    return [c for c in load_characters() if account is not None and c.get("account") == account]
+
+
 def send_account_character_list(sock, addr, state):
-    chars = load_characters()
+    chars = account_characters(state.get("account"))
     n = send_message(sock, addr, state, build_account_character_list(chars))
     names = ", ".join(c["first"] for c in chars) or "none"
     print(f"  <- sent account character list 0x66 ({names}) ({n} packets)")
@@ -7841,6 +7865,7 @@ WORLD_CONN = {}
 # Characters chosen with Play, by session key, until their zone connection logs in.
 PENDING_PLAYERS = {}
 LOGIN_CONN = {}
+LOGIN_BY_KEY = {}      # session key issued at login -> (sock, addr, state) of that login connection
 
 
 def dev_command(text, player=None):
@@ -8242,7 +8267,7 @@ def build_zone_connect_event(host, port, name):
 
 
 def send_character_list(sock, addr, state):
-    chars = [c for c in load_characters() if c["world"] == WORLD_NAME]
+    chars = [c for c in account_characters(state.get("account")) if c["world"] == WORLD_NAME]
     for char in chars:
         n = send_message(sock, addr, state, build_character_record(char))
         print(f"  <- sent WORLD character record 0x19: {char['first']} {char['last']} ({n} packets)")
@@ -8366,7 +8391,10 @@ def handle_message(sock, server, addr, state, payload, args):
             # (seen: 01 00 ff ff 01 00 ff ff 00 00 00 00). Reply: connect to zone.
             name = data[:128].decode("utf-16-le", "replace").split("\0")[0]
             print(f"  >>> WORLD event 0x19 (Play): {name!r}, extra={data[128:].hex(' ')}")
-            char = next((c for c in load_characters() if c["first"] == name), {"first": name})
+            char = next((c for c in account_characters(state.get("account")) if c["first"] == name), None)
+            if char is None:
+                print(f"  <- WORLD Play refused: {name!r} is not a character of {state.get('account')!r}")
+                return
             # Caravans: Play mode byte (+136) 0 normal, 3 go to the caravan, 2 own location and
             # leave the caravan. A caravan member's normal Play first gets the choice (world 0x55).
             mode = data[136] if len(data) > 136 else 0
@@ -9088,7 +9116,15 @@ def handle_message(sock, server, addr, state, payload, args):
             # World login request has the same layout as the login-server one
             # (field1 = account, field2 = session key from event 0x27). ClientWorldApi's
             # dispatcher (FUN_00d9aa60) reads type 4 with the same reader (FUN_00d9a900).
-            print(f"  >>> WORLD login request: account={login[0]!r} session={login[1]!r}")
+            print(f"  >>> WORLD login request: account={login[0]!r}")
+            account = accounts.session_account(login[1])
+            if account is None:
+                reply = build_reliable(state["out_seq"], build_login_reply(False))
+                state["out_seq"] += 1
+                sock.sendto(reply, addr)
+                print("  <- WORLD login refused: unknown session key")
+                return
+            state["account"] = account
             state["session"] = login[1]
             WORLD_BY_SESSION[login[1]] = (sock, addr, state)
             reply = build_reliable(state["out_seq"], build_login_reply(True))
@@ -9108,8 +9144,8 @@ def handle_message(sock, server, addr, state, payload, args):
             zone_state = ZONE_BY_SESSION.get(state.get("session"))
             if zone_state and zone_state.get("player"):
                 handle_brotherhood(zone_state, event_id, payload[10:])
-        elif msg_type == 2 and event_id != 0x6F and LOGIN_CONN and try_delete_character(
-                LOGIN_CONN["sock"], LOGIN_CONN["addr"], LOGIN_CONN["state"], payload):
+        elif msg_type == 2 and event_id != 0x6F and LOGIN_BY_KEY.get(state.get("session")) and try_delete_character(
+                *LOGIN_BY_KEY[state["session"]], payload):
             pass  # the refreshed account list (0x66) goes out on the login connection
         elif msg_type == 2:
             print_client_log(payload)
@@ -9133,6 +9169,17 @@ def handle_message(sock, server, addr, state, payload, args):
         return
     LOGIN_CONN.update(sock=sock, addr=addr, state=state)
     if login:
+        account = accounts.login(login[0], login[1])
+        if account is None:
+            reply = build_reliable(state["out_seq"], build_login_reply(False))
+            state["out_seq"] += 1
+            sock.sendto(reply, addr)
+            print(f"  <- login refused for {login[0]!r} (unknown account, wrong password or launcher token)")
+            return
+        state["account"] = account
+        state["login_key"] = accounts.new_session(account)
+        LOGIN_BY_KEY[state["login_key"]] = (sock, addr, state)
+        print(f"  >>> login: account {account!r}")
         reply = build_reliable(state["out_seq"], build_login_reply(True))
         state["out_seq"] += 1
         sock.sendto(reply, addr)
@@ -9147,7 +9194,7 @@ def handle_message(sock, server, addr, state, payload, args):
         send_account_character_list(sock, addr, state)
 
         # Tell the client which world server to use (event 0x27).
-        event = build_world_server_event(login[0], login[1], WORLD_NAME, args.world_address)
+        event = build_world_server_event(account, state["login_key"], WORLD_NAME, args.world_address)
         packets, state["out_seq"] = build_reliable_fragments(state["out_seq"], event, state["max_raw"])
         for pkt in packets:
             sock.sendto(pkt, addr)
@@ -9162,16 +9209,19 @@ def handle_message(sock, server, addr, state, payload, args):
         print(f"  >>> character create request: {first!r} {last!r} on {world!r}; "
               f"rest={data[pos:].hex(' ')}")
         chars = load_characters()
+        if state.get("account") is None:
+            return
         if any(c["first"].lower() == first.lower() for c in chars):
             result = 1  # "That first name is already taken."
         else:
             result = 0
-            chars.append({"first": first, "last": last, "world": world, "raw": data[pos:].hex()})
+            chars.append({"first": first, "last": last, "world": world, "raw": data[pos:].hex(),
+                          "account": state["account"]})
             save_characters(chars)
-        if result == 0 and WORLD_CONN:
-            # Put it in the character-select list before the client tries to select it.
-            w = WORLD_CONN
-            n = send_message(w["sock"], w["addr"], w["state"], build_character_record(chars[-1]))
+        world = WORLD_BY_SESSION.get(state.get("login_key"))
+        if result == 0 and world:
+            # Put it in this account's character-select list before the client tries to select it.
+            n = send_message(world[0], world[1], world[2], build_character_record(chars[-1]))
             print(f"  <- sent WORLD character record 0x19: {first} {last} ({n} packets)")
         if result == 0:
             send_account_character_list(sock, addr, state)
@@ -9198,7 +9248,7 @@ def try_delete_character(sock, addr, state, payload):
     except (UnicodeDecodeError, struct.error):
         return False
     chars = load_characters()
-    keep = [c for c in chars if c["first"] != name]
+    keep = [c for c in chars if not (c["first"] == name and c.get("account") == state.get("account"))]
     if not name or len(keep) == len(chars):
         return False
     save_characters(keep)

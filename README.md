@@ -111,12 +111,15 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) for everything decoded so far. Topic do
    cd server
    python login_stub.py
    ```
-   It listens on UDP 10101 (login), 10100 (world) and 10102 (zone). It reads package GUIDs from the client's `UnrealScript/` and `Assets/Maps/` folders (nothing is copied or shipped).
-4. In another terminal, start the client directly (this skips the old VGOEmulator launcher):
+   It listens on UDP 10101 (login), 10100 (world) and 10102 (zone), plus HTTP 10180 for the launcher. It reads package GUIDs from the client's `UnrealScript/` and `Assets/Maps/` folders (nothing is copied or shipped).
+4. Make an account, then log in with the launcher (it checks your password with the server and starts the client with a one-time session token, like the original SOE launcher):
    ```
-   cd bin
-   .\VGClient.exe --sessionid=12345678
+   python server/accounts.py create <username> <password>
+   python tools/play.py
    ```
+   Or let players make their own accounts: start the server with `--allow-registration` and run `python tools/play.py --register`.
+
+**Accounts.** Every character belongs to an account and you only see, play and delete your own. Passwords are stored as salted PBKDF2 hashes in `server/accounts.json` (never committed). On first start the server creates a `dev` account (it prints the password once) that owns the existing characters and the test tokens `12345678` / `22222222`, so `bin\VGClient.exe --sessionid=12345678` still works for testing. `python server/accounts.py list | password | token` manage accounts. The launcher endpoint is plain HTTP: keep it on a private network or put it behind TLS before opening a server to the internet. A wrong session token is refused, but the client then waits on its loading screen without an error message (its failure text is not known yet).
 
 To check that nothing is broken, run `python tools/smoke_test.py`: it starts both, enters the world, types a set of commands and reports PASS or FAIL.
 
@@ -124,7 +127,7 @@ For a long-running server, add `--quiet-packets`: the log then keeps the decoded
 
 Characters are saved to `server/characters.json`: position, chunk, level, XP, coins, bag, equipment and hotbar. The emulator prints every packet it receives, decoded where the format is known.
 
-Several clients can connect at once. Start a second copy with a different `--sessionid`; players in the same chunk see each other and share the NPCs.
+Several clients can connect at once (log in again with `tools/play.py`, or for testing start a second copy with `--sessionid=22222222`); players in the same chunk see each other and share the NPCs.
 
 ### Things to try in game
 - Click an NPC to target it. Use your hotbar abilities, or press **`** (auto-attack). Press **U** on a corpse to loot it.

@@ -1,4 +1,6 @@
 """Unit tests for the message builders and rules of the newer systems (no client needed)."""
+import json
+import os
 import struct
 import unittest
 
@@ -1024,6 +1026,50 @@ class AutoAttackTargetTests(unittest.TestCase):
         p.target, p.npcs = 2, {2: wolf}
         self.assertEqual(combat.toggle_auto_attack(p), [])
         self.assertTrue(p.auto_attack)
+
+
+class AccountTests(unittest.TestCase):
+    def setUp(self):
+        import tempfile
+        import accounts
+        self.accounts = accounts
+        self.dir = tempfile.TemporaryDirectory()
+        self.old = accounts.ACCOUNTS_FILE
+        accounts.ACCOUNTS_FILE = os.path.join(self.dir.name, "accounts.json")
+
+    def tearDown(self):
+        self.accounts.ACCOUNTS_FILE = self.old
+        self.dir.cleanup()
+
+    def test_password_and_token_login(self):
+        a = self.accounts
+        self.assertIsNone(a.create("Alice", "correct horse"))
+        self.assertEqual(a.create("alice", "another one"), "That username is taken.")
+        self.assertIsNotNone(a.create("x", "longenough"))                # name too short
+        self.assertIsNotNone(a.create("Bob", "short"))                   # password too short
+        self.assertEqual(a.login("Alice", "correct horse"), "alice")
+        self.assertEqual(a.login("ALICE", "correct horse"), "alice")     # usernames ignore case
+        self.assertIsNone(a.login("Alice", "wrong password"))
+        self.assertIsNone(a.login("Nobody", "correct horse"))
+        self.assertIsNone(a.login(a.LAUNCHER_LOGIN, "12345678"))
+        self.assertIsNone(a.set_token("alice", "12345678"))
+        self.assertEqual(a.login(a.LAUNCHER_LOGIN, "12345678"), "alice")
+        data = json.load(open(a.ACCOUNTS_FILE, encoding="utf-8"))
+        self.assertNotIn("correct horse", json.dumps(data))             # only the hash is stored
+        self.assertIsNone(a.set_password("alice", "new secret"))
+        self.assertIsNone(a.login("Alice", "correct horse"))
+        self.assertEqual(a.login("Alice", "new secret"), "alice")
+
+    def test_sessions_and_dev_account(self):
+        a = self.accounts
+        key = a.new_session("alice")
+        self.assertEqual(a.session_account(key), "alice")
+        self.assertIsNone(a.session_account("made up"))
+        password = a.ensure_dev_account()
+        self.assertTrue(password)
+        self.assertEqual(a.login(a.DEV_ACCOUNT, password), a.DEV_ACCOUNT)
+        self.assertEqual(a.login(a.LAUNCHER_LOGIN, "22222222"), a.DEV_ACCOUNT)
+        self.assertIsNone(a.ensure_dev_account())                        # only on a fresh install
 
 
 if __name__ == "__main__":
