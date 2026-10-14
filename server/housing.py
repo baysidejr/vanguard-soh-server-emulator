@@ -21,6 +21,9 @@ PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx,
 # withdraw, 0x153 move inside. Server: 0x199 {chest id, capacity} opens "House Chest",
 # 0x19f clear, 0x1a1 item (silent), 0x19e item (drawn), 0x1a0 refresh, 0x19c {item} removed, 0x19a close.
 CHEST_OPEN, CHEST_CLOSE, CHEST_DEPOSIT, CHEST_WITHDRAW = 0x151, 0x152, 0x155, 0x157
+# 0x153 {chest, chest item, count (the whole stack, or the split amount), slot}: an item dragged
+# to another slot inside the chest (FUN_00471d00, from the drop handler FUN_00687a80).
+CHEST_MOVE = 0x153
 UPKEEP_DEPOSIT = 0x47E                 # {i32 plot id, i32 copper} -> 0x483 {i32 balance}, 0x0e 0x17c
 # Construction (a building with "materials"): 0x479 starts it, 0x473 {plot} views it,
 # 0x475 {construction id, bag item handle, row data, row index} adds a material,
@@ -52,7 +55,28 @@ CLIENT_EVENTS = (INSPECT, BUY, BUILD, TEAR_DOWN, SELL, PICK_UP, NUDGE, CHEST_OPE
 # /transferplot <name>, then /transferplotconfirm accept: 0x5c6 {wstr name}. The plot (house,
 # fixtures and chests included) goes to that player.
 TRANSFER = 0x5C6
-CLIENT_EVENTS = CLIENT_EVENTS + (TRANSFER,)
+CLIENT_EVENTS = CLIENT_EVENTS + (TRANSFER, CHEST_MOVE)
+
+
+def chest_move(items, handle, count, slot, capacity, new_handle):
+    """Move (or split off `count` of) a chest item [id, name, icon, qty, slot] to `slot`.
+    A whole stack dropped on another item swaps the two. Returns the changed items, or []
+    when nothing can move (unknown item, bad slot, a split onto a used slot)."""
+    it = next((x for x in items if x[0] == handle), None)
+    if it is None or not 0 <= slot < capacity or slot == it[4]:
+        return []
+    other = next((x for x in items if x[4] == slot), None)
+    if 0 < count < it[3]:
+        if other is not None:
+            return []
+        it[3] -= count
+        new = [new_handle, it[1], it[2], count, slot]
+        items.append(new)
+        return [it, new]
+    if other is not None:
+        other[4] = it[4]
+    it[4] = slot
+    return [it] + ([other] if other is not None else [])
 HOUSE_RADIUS = 900                     # "inside the house": this close to the plot centre
 FIXTURE_ID_BASE = 0x5100000
 PURCHASED, SOLD, BUILT, REMOVED, SELL_BUILDINGS_FIRST, ONE_PLOT = 0x170, 0x173, 0x192, 0x1A7, 0x172, 0x16D

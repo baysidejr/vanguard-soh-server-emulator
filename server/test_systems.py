@@ -551,6 +551,27 @@ class CrowdConvertTests(unittest.TestCase):
         self.assertTrue(any("low confidence" in i for i in b.issues))
 
 
+class ChestMoveTests(unittest.TestCase):
+    def items(self):
+        return [[1, "Copper Ore", 487, 5, 0], [2, "Copper Ingot", 1, 1, 3]]
+
+    def test_move_swap_split(self):
+        items = self.items()
+        self.assertEqual(housing.chest_move(items, 1, 5, 7, 20, 99), [[1, "Copper Ore", 487, 5, 7]])
+        items = self.items()
+        housing.chest_move(items, 1, -1, 3, 20, 99)               # whole stack onto another: swap
+        self.assertEqual(sorted((i[0], i[4]) for i in items), [(1, 3), (2, 0)])
+        items = self.items()
+        housing.chest_move(items, 1, 2, 9, 20, 99)                # split 2 off to a free slot
+        self.assertEqual(sorted((i[0], i[3], i[4]) for i in items), [(1, 3, 0), (2, 1, 3), (99, 2, 9)])
+
+    def test_refused(self):
+        for args in ((1, 2, 3), (1, 5, 20), (7, 1, 4), (1, 5, 0)):   # split onto used, bad slot, unknown, same slot
+            items = self.items()
+            self.assertEqual(housing.chest_move(items, *args, 20, 99), [])
+            self.assertEqual(items, self.items())
+
+
 class ItemLinkTests(unittest.TestCase):
     def test_link_names_an_item(self):
         tid = zone.template_id("Copper Ore")

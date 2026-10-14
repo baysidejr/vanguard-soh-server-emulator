@@ -1828,8 +1828,8 @@ def handle_chest(state, event, vals):
     db, pid, st, f = fixture_by_object(cid)
     if f is None or "items" not in f:
         return
-    slot = {housing.CHEST_DEPOSIT: housing.CHEST_DEPOSIT_SLOT,
-            housing.CHEST_WITHDRAW: housing.CHEST_WITHDRAW_SLOT}.get(event, housing.CHEST_VIEW)
+    slot = {housing.CHEST_DEPOSIT: housing.CHEST_DEPOSIT_SLOT, housing.CHEST_WITHDRAW: housing.CHEST_WITHDRAW_SLOT,
+            housing.CHEST_MOVE: housing.CHEST_WITHDRAW_SLOT}.get(event, housing.CHEST_VIEW)
     if not (housing.chest_allowed(st, f, player.name, housing.CHEST_VIEW, guild_of)
             and housing.chest_allowed(st, f, player.name, slot, guild_of)):
         notice(0x1ad)                                    # NoPermissionToUseChest
@@ -1861,6 +1861,17 @@ def handle_chest(state, event, vals):
         save_housing(db)
         send(housing.chest_item(chest_record(it), draw=True))
         send(housing.chest_refresh())
+    elif event == housing.CHEST_MOVE and len(vals) >= 4:
+        new_handle = max([x[0] for x in f["items"]] + [zone.new_item_id(player)]) + 1
+        changed = housing.chest_move(f["items"], vals[1], vals[2], vals[3], cap, new_handle)
+        if changed:
+            save_housing(db)
+            # Redrawn as on opening: removing and re-adding prints "... was removed from your
+            # chest", and removing the new split handle is a client "Programmer error".
+            send(housing.chest_clear())
+            for it in f["items"]:
+                send(housing.chest_item(chest_record(it)))
+            send(housing.chest_refresh())
     elif event == housing.CHEST_WITHDRAW and len(vals) >= 2:
         it = next((x for x in f["items"] if x[0] == vals[1]), None)
         if it is None or not give_item(state, it[1], it[3]):
@@ -2092,7 +2103,7 @@ def handle_housing_event(state, event, data):
     print(f"  >>> ZONE housing event {event:#x}: {data.hex(' ')}")
     notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
     vals = struct.unpack_from(f"<{len(data) // 4}i", data) if len(data) >= 4 else ()
-    if event in (housing.CHEST_OPEN, housing.CHEST_CLOSE, housing.CHEST_DEPOSIT, housing.CHEST_WITHDRAW):
+    if event in (housing.CHEST_OPEN, housing.CHEST_CLOSE, housing.CHEST_DEPOSIT, housing.CHEST_WITHDRAW, housing.CHEST_MOVE):
         handle_chest(state, event, vals)
         return
     if event == housing.TRANSFER:
@@ -7398,6 +7409,9 @@ def dev_command(text, player=None):
             return [("housing", housing.CHEST_DEPOSIT, struct.pack("<iiii", cid, int(words[-1]), -1, 0))]
         if "take" in words:
             return [("housing", housing.CHEST_WITHDRAW, struct.pack("<iiiii", cid, int(words[-1]), -1, -1, 0))]
+        if "move" in words and len(words) >= 6:
+            # !chest <n> move <item handle> <count, -1 = all> <slot>: a drag inside the chest.
+            return [("housing", housing.CHEST_MOVE, struct.pack("<iiii", cid, *map(int, words[-3:])))]
         if "close" in words:
             return [("housing", housing.CHEST_CLOSE, struct.pack("<i", cid))]
         if "manage" in words:

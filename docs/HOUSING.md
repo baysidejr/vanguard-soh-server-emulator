@@ -248,7 +248,7 @@ The mouse-over "Move" option only opens `_fixture_movement_popup`.
 | **0x151** | {chestId} | **open** (only for object type 4) |
 | 0x152 | {chestId} | close |
 | 0x155 | {chestId, invItemHandle, count, destRow} | deposit (drag-drop) |
-| 0x153 | {chestId, chestItemHandle, count, destRow} | move within the chest |
+| 0x153 | {chestId, chestItemHandle, count, destRow} | move within the chest: done (move, swap with the item there, or split `count` off onto a free slot); the server redraws the chest with 0x19f + 0x1a1 items + 0x1a0. Verified live 2026-10-14 (`!chest <n> move <handle> <count> <slot>`) |
 | 0x157 | {chestId, chestItemHandle, count, destContainer, destSlot} | withdraw |
 | 0x466 | {chestId} | Manage Chest |
 | 0x467 | {chestId, permType 0..2, permEntryId, guildRank, u32 0, bool allPlayers, bool allGuild, wstr ""} | save a chest permission |
