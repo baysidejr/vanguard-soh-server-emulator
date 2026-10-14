@@ -439,7 +439,7 @@ def use_ability(state, args, player, ability):
         # attack until it wears off (it still hates the caster and comes back).
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.alive or getattr(npc, "pet_owner", None) is not None:
-            send(build_system_text("You need a hostile target.", SYSTEM_TEXT_ERROR))
+            send(client_notice(NEED_TARGET if npc is None else NOT_ATTACKABLE))
             return
         if player.health <= 0:
             send(client_notice(NOT_WHILE_DEAD))
@@ -1662,7 +1662,7 @@ def handle_altar_use(state, npc):
     """0x2b0 on an altar: bind there, and offer the player's tombstone for summoning (0x2bc)."""
     player, send = state["player"], state["send"]
     if player_distance(player, npc) > ALTAR_RANGE:
-        send(build_system_text("You are too far away from the altar.", SYSTEM_TEXT_ERROR))
+        send(client_notice(TOO_FAR_AWAY))
         return
     bind_here(state, npc)
     stone = getattr(player, "tombstone", None)
@@ -2124,7 +2124,7 @@ def transfer_plot(state, name):
     pid = next((k for k, v in db.items() if v.get("owner", "").lower() == player.name.lower()), None)
     other = ONLINE.get(name.lower())
     if pid is None:
-        send(build_system_text("You don't own a plot.", SYSTEM_TEXT_ERROR))
+        send(client_notice(DONT_OWN_PLOT))
     elif other is None or other.get("player") is None or other is state:
         send(build_system_text(f"{name or 'That player'} must be online to receive your plot.", SYSTEM_TEXT_ERROR))
     elif any(v.get("owner", "").lower() == name.lower() for v in db.values()):
@@ -2461,7 +2461,7 @@ def handle_housing_event(state, event, data):
         c = st["construction"]
         b = next(o for o in plot["buildings"] if o["type"] == c["type"])
         if not housing.construction_done(housing.construction_rows(b["materials"], c["added"])):
-            send(build_system_text("The construction still needs materials.", SYSTEM_TEXT_ERROR))
+            send(client_notice(SITE_MISSING_MATERIALS))
             return
         st.pop("construction")
         send(housing.close_construction())
@@ -6324,7 +6324,7 @@ def handle_mail_event(state, event, data):
             return
         cost = mail.POSTAGE * 4 // 5 + (mail.SHIPPING * 4 // 5 if it else 0) + (0 if cod else max(0, copper))
         if player.coins < cost:
-            send(build_system_text("You can't afford the postage for that.", SYSTEM_TEXT_ERROR))
+            send(client_notice(CANT_AFFORD))
             send(mail.result(mail.DB_ERROR))
             return
         player.coins -= cost
@@ -6477,7 +6477,7 @@ def handle_market_event(state, event, data):
         elif len(mine) >= market.MAX_LISTINGS:
             send(build_system_text("You have too many items on the market.", SYSTEM_TEXT_ERROR))
         elif player.coins < market.deposit(price):
-            send(build_system_text("You can't afford the deposit.", SYSTEM_TEXT_ERROR))
+            send(client_notice(CANT_AFFORD))
         else:
             player.coins -= market.deposit(price)
             send(merchant.coins(player.coins))
@@ -8128,6 +8128,7 @@ SYSTEM_TEXT_WHITE, SYSTEM_TEXT_ERROR, SYSTEM_TEXT_COMBAT = 3, 4, 5
 # The client's own messages (zone event 0x0e {i16 code}, docs/NOTICES.md).
 TOO_FAR_AWAY, NOT_WHILE_DEAD, NOT_IN_GROUP, ALREADY_IN_GROUP, CANT_AFFORD, CHEST_FULL = 111, 112, 197, 201, 251, 349
 PLEASE_TARGET_PC, TRADE_NO_SPACE, DEF_TARGET_NOT_PC, NO_SPACE, NO_ROOM_FOR_REWARD, CANT_PURCHASE_PLOT = 49, 88, 169, 256, 320, 366
+NEED_TARGET, NOT_ATTACKABLE, SITE_MISSING_MATERIALS, DONT_OWN_PLOT = 120, 340, 403, 425
 
 
 def client_notice(code):
