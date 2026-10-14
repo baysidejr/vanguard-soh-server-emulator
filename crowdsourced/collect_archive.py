@@ -24,7 +24,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 23
+PARSER_VERSION = 24
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -287,6 +287,10 @@ def parse_page(url, html):
                       slot=slots.get((get("slot") or "").lower()), rarity=None, level_required=None,
                       armor=number(get("armor class") or ""), stats={}, class_restrictions=None,
                       race_restrictions=None, bind=None, value_copper=None, item_level=number(get("item level") or ""))
+        category, separator, subtype = (get('type') or '').partition(' — ')
+        if separator and category.lower() == 'weapon' and subtype.strip():
+            record['item_type'] = 'weapon'
+            record['weapon_type_recorded'] = subtype.strip()
         rarity = (get("rarity") or "").lower()
         if rarity in ("mundane", "common", "uncommon", "rare", "heroic", "fabled", "legendary"):
             record["rarity"] = rarity

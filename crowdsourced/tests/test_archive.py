@@ -19,6 +19,15 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_explicit_weapon_category_retains_subtype(self):
+        for raw, expected in [('Weapon — Hammer', 'weapon'), ('Weapon — Bladed Staff Weapon', 'weapon'),
+                              ('Unknown — Weapon', None), ('Weaponized Clothing', None), ('Weapon — ', None)]:
+            html = page('Fixture', '<dl class="kv"><div><dt>Type</dt><dd>' + raw + '</dd></div></dl>')
+            records, _ = collector.parse_page(ORIGIN + '/items/fixture', html)
+            self.assertEqual(records[0]['item_type'], expected)
+            if expected:
+                self.assertEqual(records[0]['weapon_type_recorded'], raw.partition(' — ')[2])
+
     def test_exact_archive_item_type_labels(self):
         for raw, expected in [('Quest', 'quest'), ('Quest — Miscellaneous', 'quest'),
                               ('Weapon — Greataxe', 'weapon'), ('Cloak Armor', 'armor'),
