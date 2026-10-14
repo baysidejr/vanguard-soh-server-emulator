@@ -27,6 +27,8 @@ python login_stub.py --quiet-packets --world-address <public address> \
 - `--world-address` is the address the server tells clients to connect to for the world and zone
   servers. On a LAN use the machine's LAN address; on the internet its public address (or name).
   With the default `127.0.0.1` only clients on the same PC can play.
+  (Checked 2026-10-14 with the PC's LAN address in both `--world-address` and the client's
+  `bin/loginserver.txt`: login, world and zone all connected over it and the character spawned.)
 - `--launcher-cert` / `--launcher-key` serve the launcher over HTTPS, so passwords are encrypted.
   A self-signed certificate works (players then pass it with `--cafile`):
   `openssl req -x509 -newkey rsa:2048 -nodes -keyout server.key -out server.crt -days 365 -subj "/CN=myserver"`.
