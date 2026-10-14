@@ -534,6 +534,36 @@ HP_PER_LEVEL = 12             # maximum health gained per adventuring level (pla
 POOL_BASE, POOL_PER_POINT = 100, 2   # endurance / energy at default attributes, per point above
 
 
+# Class attribute leanings (placeholders): the first attribute grows by 1 a level, the second
+# by 1 every 2 levels, on top of these starting bonuses (races_classes ids).
+CLASS_ATTRIBUTES = {
+    28: (("strength", 8), ("constitution", 8)),     # Warrior
+    4: (("constitution", 6), ("strength", 5)),      # Paladin
+    20: (("strength", 6), ("constitution", 6)),     # Dread Knight
+    19: (("dexterity", 8), ("strength", 4)),        # Ranger
+    21: (("dexterity", 10), ("strength", 3)),       # Rogue
+    15: (("dexterity", 6), ("strength", 5)),        # Monk
+    2: (("dexterity", 4), ("intelligence", 4)),     # Bard
+    27: (("wisdom", 5), ("dexterity", 5)),          # Disciple
+    5: (("wisdom", 8), ("constitution", 4)),        # Cleric
+    22: (("wisdom", 8), ("strength", 3)),           # Shaman
+    7: (("wisdom", 6), ("intelligence", 4)),        # Druid
+    25: (("intelligence", 10), ("wisdom", 2)),      # Sorcerer
+    45: (("intelligence", 8), ("wisdom", 2)),       # Necromancer
+    14: (("intelligence", 8), ("wisdom", 3)),       # Psionicist
+    44: (("intelligence", 6), ("wisdom", 4)),       # Blood Mage
+}
+
+
+def innate_bonus(player):
+    """{attribute: bonus} from the class and level (counted as the character's base)."""
+    out = {}
+    level = getattr(player, "level_number", 1)
+    for n, (stat, start) in enumerate(CLASS_ATTRIBUTES.get(getattr(player, "klass", None), ())):
+        out[stat] = out.get(stat, 0) + start + (level - 1) // (1 + n)
+    return out
+
+
 def gear_bonus(player):
     """{attribute: total} from the items.json "stats" of everything equipped."""
     out = {}
@@ -555,14 +585,16 @@ def apply_gear_stats(player):
     player.armor_class = (sum(int(ITEM_CONTENT.item(e[1]).get("armor", 0)) for e in player.equipment)
                           + gear_mod_total(player, "Armor Class"))
     player.regen_bonus = gear_mod_total(player, "Health Regeneration")
-    new, old = gear_bonus(player), player.__dict__.get("gear_bonus", {})
     changed = []
-    for k in set(new) | set(old):
-        delta = new.get(k, 0) - old.get(k, 0)
-        if delta:
-            player.stats[k] = player.stats.get(k, 0) + delta
-            changed.append(k)
-    player.gear_bonus = new
+    for attr, fn in (("innate_bonus", innate_bonus), ("gear_bonus", gear_bonus)):
+        new, old = fn(player), player.__dict__.get(attr, {})
+        for k in set(new) | set(old):
+            delta = new.get(k, 0) - old.get(k, 0)
+            if delta:
+                player.stats[k] = player.stats.get(k, 0) + delta
+                if k not in changed:
+                    changed.append(k)
+        setattr(player, attr, new)
     # Constitution sets maximum health (placeholder: CON_HP per point above the default).
     # Pools from attributes (placeholders): endurance from Vitality, energy from Intelligence
     # and Wisdom, POOL_PER_POINT per point above the defaults.

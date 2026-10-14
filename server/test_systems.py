@@ -637,5 +637,17 @@ class PowerTests(unittest.TestCase):
         self.assertEqual(combat.scaled(caster, (100, 100), "heal"), (105, 105))
 
 
+class ClassAttributeTests(unittest.TestCase):
+    def test_innate(self):
+        p = types.SimpleNamespace(klass=25, level_number=11, equipment=[], stats=dict(zone.DEFAULT_STATS))
+        zone.apply_gear_stats(p)
+        self.assertEqual(p.stats["intelligence"], 20 + 10 + 10)       # start bonus + 1 a level
+        self.assertEqual(p.stats["wisdom"], 20 + 2 + 5)               # + 1 every 2 levels
+        self.assertEqual(zone.stat_base(p, "intelligence"), 40)       # innate counts as base
+        p.level_number = 12
+        self.assertIn("intelligence", zone.apply_gear_stats(p))
+        self.assertEqual(p.stats["intelligence"], 41)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1016,6 +1016,8 @@ def award_xp(player, amount, source, grouped=False):
     if leveled:
         player.health = player.stats["hit_points"]  # a level up heals you fully
         out.append(zone.health_update(player))
+        for name in vgmsg.ATTRIBUTES:                # class attributes grew with the level
+            out.append(zone.attribute_update(player, name))
     save_character_progress(player.name, player.level_number, player.xp)
     return out
 
