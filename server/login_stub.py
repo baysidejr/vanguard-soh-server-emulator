@@ -6090,6 +6090,13 @@ def faction_login(state):
         state["send"](faction.info(int(fid), f["name"], faction_value(player, fid)))
 
 
+def faction_info_request(state, fid):
+    """0x35e: the client met a faction id it has no row for; answer 0x35b if it exists."""
+    f = ARGS.content.factions.get(str(fid))
+    if f is not None:
+        state["send"](faction.info(int(fid), f["name"], faction_value(state["player"], str(fid))))
+
+
 def adjust_faction(state, fid, delta, quiet=False):
     player = state["player"]
     f = ARGS.content.factions.get(str(fid))
@@ -8946,6 +8953,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 for m in combat_results(state, args, player, lines, None, player.health > 0,
                                         not player.auto_attack):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == faction.INFO_REQUEST and state.get("player") and len(payload) >= 14:
+            faction_info_request(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == HOTKEYS_REQUEST and state.get("player"):
             # /reloadui rebuilds the UI and asks for the hotbars again (0x54d, no payload;
             # FUN_00682b40 after the reload, FUN_005de260): resend them (0x54e) or they stay empty.

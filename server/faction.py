@@ -37,6 +37,11 @@ def tier(value):
     return "Ally"
 
 
+# The client asks about a faction id it has no row for (FUN_004cc5d0, e.g. for a name plate's
+# colour): 0x35e {i32 faction id}, once per id. The answer is 0x35b.
+INFO_REQUEST = 0x35E
+
+
 def info(fid, name, value, prestige=False):
     return _event(0x35B, _w(name) + struct.pack("<iiB", fid, value, int(prestige)))
 

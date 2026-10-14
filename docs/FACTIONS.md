@@ -24,6 +24,8 @@ Client to server:
 
 The client prints nothing for the reply; our server answers with chat lines listing the standings.
 
+**Faction info request (0x35e).** When the client needs a faction it has no row for (for a name plate colour, say), FUN_004cc5d0 sends **0x35e {i32 faction id}**, once per id, and waits for the usual **0x35b** MsgFactionInfo. The server sends every content faction at login, so this only fires for ids it never sent. It now answers from factions.json and stays silent for unknown ids. Unit-tested.
+
 ## Tiers
 
 From `FUN_004ca950` (name plate color, BGRA bytes) and the string keys `FactionKOS` ... `FactionAlly`:

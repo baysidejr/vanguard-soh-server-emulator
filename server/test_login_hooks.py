@@ -382,6 +382,20 @@ class HouseNpcTests(unittest.TestCase):
             self.assertEqual(sent, [])
 
 
+class FactionInfoRequestTests(unittest.TestCase):
+    def test_known_and_unknown_ids(self):
+        import faction
+        sent = []
+        args = mock.Mock()
+        args.content.factions = {"2001": {"name": "Camp Guards"}}
+        player = zone.Player(name="T", char_id=1, level="c1")
+        with mock.patch.object(login_stub, "ARGS", args):
+            login_stub.faction_info_request({"player": player, "send": sent.append}, 2001)
+            login_stub.faction_info_request({"player": player, "send": sent.append}, 9999)
+            expected = [faction.info(2001, "Camp Guards", login_stub.faction_value(player, "2001"))]
+        self.assertEqual(sent, expected)
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json

@@ -25,6 +25,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: 0x35e identified as the client's faction info request (FUN_004cc5d0, for faction ids it has no row for); answered with 0x35b from factions.json. Unit-tested.
 - 2026-10-14: Combat sweep (scratchpad combat.sh: real fight with abilities, loot) found 0x27a sent at every ability impact (the console command active_ability_self_impact_on from animation notifies). Documented. It and the other answerless client notices (0x6c, 0x71, 0x104, 0x105, 0x10e, 0x127, 0x137, 0x17e, 0x17f, 0x183, 0x189) are now kept out of the "client event" log lines, so sweeps show only real gaps.
 - 2026-10-14: Scanned every FUN_00409210 (generic send) call site for its event id: seven ids the server never mentioned. 0x10b (harvest reward item records) is now answered from the bags (unit-tested); /location 0x10e is a notice; /copycharacter, /aggro, /invulnerability and /attach are developer or GM tools. All listed in CLIENT_REQUESTS.md.
 - 2026-10-14: Six more invented error texts now use the client's own notices (matched by scratchpad notice_match.py, then checked by hand): construction still missing materials (403), can't afford a market deposit or postage (251), /transferplot without a plot (425), too far from the altar (111), fear with no target (120) or a non-attackable one (340). Unit tests pass. Not seen live: the client checks the altar distance itself and never sends the request.
