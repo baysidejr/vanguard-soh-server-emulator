@@ -1202,7 +1202,45 @@ def unbind_item(state, target, tool):
 # itself, then sends 0x770 {i32 x, i32 y} (FUN_00613440); /gotoplayer and /summonplayer send
 # 0x79d / 0x7c7 {wstr name}; /hideme [on|off] sends 0x76c {u8 1 on, 2 off, 3 toggle}.
 GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE = 0x770, 0x79D, 0x7C7, 0x76C
-GM_EVENTS = (GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE)
+# GM test tools on the defensive target (FUN_005fe180 / FUN_005fe230 / FUN_006143c0):
+# /.learnabilities 0x582 {u64 target}, /.maxskills 0x583 {u64 target},
+# /.setupall <level> 0x589 {u64 target, i32 level}.
+GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL = 0x582, 0x583, 0x589
+GM_EVENTS = (GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE, GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL)
+
+
+def state_by_char_id(char_id):
+    return next((s for s in ONLINE.values() if s.get("player") is not None and s["player"].char_id == char_id), None)
+
+
+def gm_learn_all(s):
+    p = s["player"]
+    known = set(getattr(p, "learned", [])) | {a[1] for a in p.abilities}
+    for n, (aid, tag) in enumerate(class_abilities.class_ability_list(ARGS.client_dir, p.klass)):
+        if aid not in known:
+            learn_ability(s, n, aid, tag)
+
+
+def gm_max_skills(s):
+    p = s["player"]
+    p.skills = [(sid, zone.SKILL_CAP, sub) for sid, _v, sub in p.skills]
+    for sid, v, _sub in p.skills:
+        s["send"](zone.zone_event(0x2D4, vgmsg.stat_update(sid, v, maximum=zone.SKILL_CAP)))
+    save_character_field(p.name, "skills", {str(sid): v for sid, v, _ in p.skills})
+    s["send"](build_system_text(f"All skills raised to {zone.SKILL_CAP}.", SYSTEM_TEXT_WHITE))
+
+
+def gm_set_level(s, level):
+    p = s["player"]
+    p.level_number, p.xp = max(1, min(zone.LEVEL_CAP, level)), 0
+    save_character_progress(p.name, p.level_number, p.xp)
+    zone.apply_gear_stats(p)
+    p.health = p.stats["hit_points"]
+    s["send"](zone.score_message(p))
+    s["send"](zone.health_update(p))
+    for name in vgmsg.ATTRIBUTES:
+        s["send"](zone.attribute_update(p, name))
+    s["send"](build_system_text(f"You are now level {p.level_number}.", SYSTEM_TEXT_WHITE))
 
 
 def place_player(state, args, loc, chunk):
@@ -1239,6 +1277,17 @@ def gm_command(state, args, event, data):
                      getattr(to["player"], "chunk", None) or DEFAULT_CHUNK)
         if event == GM_SUMMON:
             other["send"](build_system_text(f"You have been summoned by {player.name}.", SYSTEM_TEXT_WHITE))
+    elif event in (GM_LEARN_ALL, GM_MAX_SKILLS, GM_SETUP_ALL) and len(data) >= 8:
+        target = state_by_char_id(struct.unpack_from("<Q", data)[0])
+        if target is None:
+            send(build_system_text("Your defensive target must be a player.", SYSTEM_TEXT_ERROR))
+            return
+        if event == GM_SETUP_ALL and len(data) >= 12:
+            gm_set_level(target, struct.unpack_from("<i", data, 8)[0])
+        if event in (GM_LEARN_ALL, GM_SETUP_ALL):
+            gm_learn_all(target)
+        if event in (GM_MAX_SKILLS, GM_SETUP_ALL):
+            gm_max_skills(target)
     elif event == GM_HIDE and data:
         mode = data[0]
         hidden = (not getattr(player, "gm_hidden", False)) if mode == 3 else mode == 1
@@ -7302,6 +7351,13 @@ def dev_command(text, player=None):
     if words[0] == "chunk" and len(words) >= 3 and player:
         # !chunk x y: travel to that chunk's centre (the server side of /chunk).
         return [("gm", GM_CHUNK, struct.pack("<ii", int(words[1]), int(words[2])))]
+    if words[0] in ("setupall", "maxskills", "learnall") and player:
+        # !setupall <level> / !maxskills / !learnall: the GM test tools on yourself.
+        ev = {"setupall": GM_SETUP_ALL, "maxskills": GM_MAX_SKILLS, "learnall": GM_LEARN_ALL}[words[0]]
+        data = struct.pack("<Q", player.char_id)
+        if ev == GM_SETUP_ALL:
+            data += struct.pack("<i", int(words[1]) if len(words) > 1 else zone.LEVEL_CAP)
+        return [("gm", ev, data)]
     if words[0] == "hide" and player:
         # !hide: toggle GM invisibility (the server side of /hideme).
         return [("gm", GM_HIDE, bytes([3]))]

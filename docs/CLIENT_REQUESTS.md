@@ -54,14 +54,11 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x4fb` | `/sharelockouttimer` | `0x60e73f` |  |
 | `0x4fc` | `/lockouttimerlist` | `0x4ff2f9` `0x5ebf91` `0x60e664` | Choose a race and press submit. / _inventory_character_race_change_dropdown |
 | `0x54d` |  | `0x682b45` |  |
-| `0x582` | `/.learnabilities` | `0x5fe1ff` | NotRightNow / Error: You must have a defensive target to use this command on. |
-| `0x583` | `/.maxskills` | `0x5fe2af` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x586` | `/.summongear` | `0x614118` | Error: You must have a defensive target to use this command on. |
 | `0x587` | `/.setuphotkeys` | `0x5fe4bf` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x588` | `/.classflag` | `0x6142a5` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
-| `0x589` | `/.setupall` | `0x6144ac` | Error: Please enter a valid level. / Error: You must have a defensive target to use this command on. |
 | `0x58e` |  | `0x4fbd5f` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x58f` |  | `0x4fbebf` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x592` |  | `0x4d5476` | bShowLFGButton |
@@ -110,3 +107,5 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 ## GM commands
 
 The server handles the client's `/chunk` (0x770 {i32 x, i32 y}; the client starts loading the chunk itself, FUN_00613440), `/gotoplayer` and `/summonplayer` (0x79d / 0x7c7 {wstr name}) and `/hideme` (0x76c {u8 1 on, 2 off, 3 toggle}), only when it runs with `--dev-commands`. Each command-table row has an access level in the high byte of its second field (`/chunk` 0x14, `/gotoplayer` 0x0a, `/summonplayer` 0x05, `/hideme` 0x01, `/fly` 0x19; ordinary commands 0), and the client offers a command only when that level is at most the player's (FUN_005feba0). The player's level is the last field of SetNameID (world event 10, record +0x248). Set `"access_level": 255` on a character in characters.json to make it a GM: the client's `/chunk -19 12` then works (verified live; the client sends the ordinary chunk change itself, so the server lands the player at the chunk centre when the jump isn't to a neighbouring chunk). The same actions work through dev chat commands, verified live with two clients: `!chunk x y` (a full chunk hand-off to the chunk centre), `!goto <name>`, `!summon <name>` (teleport beside them, or a chunk hand-off), `!hide` (the pawn's `m_bGMHide`: other players no longer see the body, but the name plate still shows).
+
+GM test tools on the defensive target: `/.learnabilities` 0x582 {u64 target}, `/.maxskills` 0x583 {u64 target}, `/.setupall <level>` 0x589 {u64 target, i32 level} (FUN_005fe180 / FUN_005fe230 / FUN_006143c0). The server learns every class ability, raises every skill to the cap, and sets the level. The client only sends them with a defensive target, and `/targetself` (F1) gave none in our tests (probably something our own pawn lacks), so they are verified through the matching dev commands on yourself: `!setupall 20` (verified live: a Psionicist learned its abilities, skills went to 50 and the portrait shows 20), `!maxskills`, `!learnall`.

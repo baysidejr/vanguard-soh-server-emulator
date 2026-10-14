@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: GM test tools /.learnabilities, /.maxskills, /.setupall (server side) and !learnall, !maxskills, !setupall <level>, verified live. Open: /targetself gives the client no defensive target.
 - 2026-10-14: GM access level found: SetNameID record +0x248 (characters.json "access_level"). With it the client's own /chunk works (verified live); a GM jump lands at the chunk centre in one hand-off.
 - 2026-10-14: Admin teleports: server side of the client's GM commands (/chunk, /gotoplayer, /summonplayer, /hideme) plus dev chat commands !chunk, !goto, !summon, !hide, verified live with two clients. The client gates its own GM commands on an access level whose source is not found yet. Chunk hand-off refactored into travel_to_chunk (edge walking uses it too).
 - 2026-10-14: All save files (characters, guilds, brotherhoods, mail, market, housing, caravans, civic, bug reports) are written atomically (temp file, fsync, rename), so a crash mid-write can't truncate them. Saves verified live.
