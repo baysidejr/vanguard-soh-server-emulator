@@ -41,7 +41,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x35e` |  | `0x4cc6b0` |  |
 | `0x3a0` |  | `0x4a62c6` |  |
 | `0x45f` |  | `0x47e69f` |  |
-| `0x54d` |  | `0x682b45` |  |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x586` | `/.summongear` | `0x614118` | Error: You must have a defensive target to use this command on. |
@@ -69,7 +68,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x7ec` |  | `0x479dae` | _chest_permission_edit / _chest_guild_rank_select_list **Unreachable:** nothing calls or points to the sending function. |
 | `0x7ed` |  | `0x48230b` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x81f` |  | `0x4ba7ac` | No available work orders. / ----- Available work orders ----- **Unreachable:** nothing calls or points to the sending function. |
-| `0x82c` |  | `0x624a51` | Failed to save nicknames, make sure Nicknames.txt is not read-only. |
+| `0x82c` |  | `0x624a51` | the client's answer to a server query handled in FUN_00622350: it sends the pawn's location values and a byte. Only sent when the server asks, which this server never does |
 | `0x82f` |  | `0x476404` | Avatar Inspect {objType, objId} (FUN_004763b0, same layout as 0x460). The housing click menu has the option (table 0x13e5f38, key 14) but no m_BuildingType offers it (docs/HOUSING.md). |
 | `0x851` | `/aaclear` | `0x5de4a5` | no payload; alternate advancement (server content, see 0x85c) |
 | `0x852` | `/aaadd` | `0x5e2965` | alternate advancement (server content) |

@@ -1345,6 +1345,7 @@ def rope_event(state, args, event):
 # next to the caller with notice 45 "You have been summoned!". Which abilities summon players is
 # server content (docs/CONTENT_EDITOR.md); the dev command !call <name> sends the offer.
 CALL_OFFER, CALL_ANSWER = 0x270, 0x271
+HOTKEYS_REQUEST = 0x54D
 YOU_HAVE_BEEN_SUMMONED = 45
 
 
@@ -8937,6 +8938,10 @@ def handle_message(sock, server, addr, state, payload, args):
                 for m in combat_results(state, args, player, lines, None, player.health > 0,
                                         not player.auto_attack):
                     send_message(sock, addr, state, m)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == HOTKEYS_REQUEST and state.get("player"):
+            # /reloadui rebuilds the UI and asks for the hotbars again (0x54d, no payload;
+            # FUN_00682b40 after the reload, FUN_005de260): resend them (0x54e) or they stay empty.
+            send_message(sock, addr, state, zone.hotbar_message(state["player"]))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (0x54B, 0x54C):
             # Hotbar slot changed (0x54b MsgHotkeyAdd) or cleared (0x54c bank+slot).
             # Saved per character and sent back at the next login (zone.ability_messages).
