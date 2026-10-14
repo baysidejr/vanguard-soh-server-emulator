@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: Admin teleports: server side of the client's GM commands (/chunk, /gotoplayer, /summonplayer, /hideme) plus dev chat commands !chunk, !goto, !summon, !hide, verified live with two clients. The client gates its own GM commands on an access level whose source is not found yet. Chunk hand-off refactored into travel_to_chunk (edge walking uses it too).
 - 2026-10-14: All save files (characters, guilds, brotherhoods, mail, market, housing, caravans, civic, bug reports) are written atomically (temp file, fsync, rename), so a crash mid-write can't truncate them. Saves verified live.
 - 2026-10-14: `--quiet-packets` option: no per-packet hex dumps or ack lines (a login session logs about 15x less).
 - 2026-10-14: Unreal layer: incoming reliable bunches were compared with `<=`, so after a channel's 12-bit sequence wrapped (4095 -> 0) every later reliable bunch would be dropped. Now wrap-aware (UE2 BestSignedDifference). Outgoing sequences already wrapped on the wire. Login and walking re-checked live.

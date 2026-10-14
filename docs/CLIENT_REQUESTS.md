@@ -81,9 +81,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x766` |  | `0x429884` | NoSkillsOrSpells / SkillsAndSpellsHeader |
 | `0x767` |  | `0x429954` |  |
 | `0x768` |  | `0x61c5be` | Character flags cleared. |
-| `0x76c` | `/hideme` | `0x6136c7` | Invalid chunk name. / You are already in that chunk. |
-| `0x770` | `/chunk` | `0x6135ce` | Invalid chunk name. / You are already in that chunk. |
-| `0x79d` | `/gotoplayer` | `0x6138d5` | Setting the hour to %d. |
 | `0x7ae` |  | `0x5ab55e` | Unknown crafting recipe. |
 | `0x7af` |  | `0x5ab61e` | Unknown crafting recipe. |
 | `0x7b0` |  | `0x457eae` | ----- Learned Assembly Recipes ----- / You don't know any assembly recipes. |
@@ -93,7 +90,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x7c0` |  | `0x5059c0` | none / Invalid resource grade. |
 | `0x7c4` | `/fly` | `0x613968` | Setting the hour to %d. |
 | `0x7c6` | `/summongroup` | `0x613d85` |  |
-| `0x7c7` | `/summonplayer` | `0x613c85` |  |
 | `0x7ce` | `/debuggameplay` | `0x60b0ce` | zones / Invalid option. |
 | `0x7e9` | `/attach` | `0x608b0a` |  |
 | `0x7ec` |  | `0x479dae` | _chest_permission_edit / _chest_guild_rank_select_list |
@@ -110,3 +106,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 ## Handled from static analysis only
 
 - `0x18e` (claim window list request): answered with 0x5ed (clear) + 0x5f0 (end); the claim dispatcher FUN_004458f0 then prints "You don't qualify to claim any account rewards.". Not seen live: `/claim` itself talks to a separate SOE account-claim service (FUN_006f03d0, ClaimSystem.log), not the game server.
+
+## GM commands
+
+The server handles the client's `/chunk` (0x770 {i32 x, i32 y}; the client starts loading the chunk itself, FUN_00613440), `/gotoplayer` and `/summonplayer` (0x79d / 0x7c7 {wstr name}) and `/hideme` (0x76c {u8 1 on, 2 off, 3 toggle}), only when it runs with `--dev-commands`. The client itself does not send them yet: each command-table row has an access level in the high byte of its second field (`/chunk` 0x14, `/gotoplayer` 0x0a, `/summonplayer` 0x05, `/hideme` 0x01; ordinary commands 0), and where the client learns the player's level is not found. The same actions work through dev chat commands, verified live with two clients: `!chunk x y` (a full chunk hand-off to the chunk centre), `!goto <name>`, `!summon <name>` (teleport beside them, or a chunk hand-off), `!hide` (the pawn's `m_bGMHide`: other players no longer see the body, but the name plate still shows).

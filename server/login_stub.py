@@ -1198,6 +1198,53 @@ def unbind_item(state, target, tool):
         send(build_system_text(f"{item[1]} is no longer bound to you.", SYSTEM_TEXT_WHITE))
 
 
+# The client's own GM commands (only with --dev-commands): /chunk <name | x y> loads the chunk
+# itself, then sends 0x770 {i32 x, i32 y} (FUN_00613440); /gotoplayer and /summonplayer send
+# 0x79d / 0x7c7 {wstr name}; /hideme [on|off] sends 0x76c {u8 1 on, 2 off, 3 toggle}.
+GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE = 0x770, 0x79D, 0x7C7, 0x76C
+GM_EVENTS = (GM_CHUNK, GM_GOTO, GM_SUMMON, GM_HIDE)
+
+
+def place_player(state, args, loc, chunk):
+    """Teleport within the chunk, or travel to another chunk."""
+    player = state["player"]
+    if tuple(chunk) == tuple(getattr(player, "chunk", None) or DEFAULT_CHUNK):
+        state["send"](zone.player_teleport(tuple(loc)))
+        state.setdefault("move_check", {})["teleport_at"] = time.time()
+    else:
+        travel_to_chunk(state, args, chunk[0], chunk[1], loc[0], loc[1], loc[2])
+
+
+def gm_command(state, args, event, data):
+    player, send = state["player"], state["send"]
+    if not getattr(args, "dev_commands", False):
+        send(build_system_text("You are not a GM on this server.", SYSTEM_TEXT_ERROR))
+        return
+    if event == GM_CHUNK and len(data) >= 8:
+        cx, cy = struct.unpack_from("<ii", data)
+        travel_to_chunk(state, args, cx, cy, 0.0, 0.0)
+    elif event in (GM_GOTO, GM_SUMMON):
+        name = social.read_name(data).strip()
+        other = ONLINE.get(name.lower())
+        if other is None or other.get("player") is None or other is state:
+            send(build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
+            return
+        mover, to = (state, other) if event == GM_GOTO else (other, state)
+        dest = to.get("position") or to["player"].live_position or to["player"].spawned_at
+        if dest is None:
+            return
+        place_player(mover, args, (dest[0] + 100.0, dest[1], dest[2] + 50.0),
+                     getattr(to["player"], "chunk", None) or DEFAULT_CHUNK)
+        if event == GM_SUMMON:
+            other["send"](build_system_text(f"You have been summoned by {player.name}.", SYSTEM_TEXT_WHITE))
+    elif event == GM_HIDE and data:
+        mode = data[0]
+        hidden = (not getattr(player, "gm_hidden", False)) if mode == 3 else mode == 1
+        player.gm_hidden = hidden
+        pawn_props_changed(state, {"m_bGMHide": hidden})
+        send(build_system_text("You are now hidden." if hidden else "You are now visible.", SYSTEM_TEXT_WHITE))
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -4760,8 +4807,18 @@ def chunk_handoff(state, payload, args):
     edge = CHUNK_SIZE / 2 - 1000    # the heightmap ends one cell (400) before the edge
     x = max(-edge, min(edge, loc[0] - dx * CHUNK_SIZE))
     y = max(-edge, min(edge, loc[1] + dy * CHUNK_SIZE))
+    travel_to_chunk(state, args, cx, cy, x, y)
+
+
+def travel_to_chunk(state, args, cx, cy, x, y, z=None):
+    """Move the player to (x, y) in chunk (cx, cy) with a full zone re-connect (as a walk
+    across a chunk edge). z defaults to the ground there."""
+    player = state["player"]
+    old = getattr(player, "chunk", None) or DEFAULT_CHUNK
     level = chunk_name(cx, cy)
-    z = args.content.ground_z(level, x, y, args.client_dir)
+    if z is None:
+        z = args.content.ground_z(level, x, y, args.client_dir)
+        z = z if z is not None else 0.0
     print(f"  >>> ZONE chunk change {tuple(old)} -> ({cx}, {cy}): {level} at ({x:.0f}, {y:.0f}, {z:.0f})")
     player.chunk, player.level = (cx, cy), level
     player.position = (x, y, z + zone.SPAWN_Z_LIFT)
@@ -7232,6 +7289,15 @@ def dev_command(text, player=None):
     if words[0] == "rezme" and player:
         # !rezme: Veyla offers to resurrect you (testing the dialog).
         return [("rezme",)]
+    if words[0] in ("goto", "summon") and len(words) >= 2 and player:
+        # !goto <name> / !summon <name>: the server side of /gotoplayer and /summonplayer.
+        return [("gm", GM_GOTO if words[0] == "goto" else GM_SUMMON, (words[1] + "\0").encode("utf-16-le"))]
+    if words[0] == "chunk" and len(words) >= 3 and player:
+        # !chunk x y: travel to that chunk's centre (the server side of /chunk).
+        return [("gm", GM_CHUNK, struct.pack("<ii", int(words[1]), int(words[2])))]
+    if words[0] == "hide" and player:
+        # !hide: toggle GM invisibility (the server side of /hideme).
+        return [("gm", GM_HIDE, bytes([3]))]
     if words[0] == "die" and player:
         # !die: drop dead on the spot (testing death, release and resurrection).
         return [("die",)]
@@ -7721,6 +7787,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         if state.get("parley"):
                             finish_parley(state, state["parley"], "won")
                         continue
+                    elif isinstance(m, tuple) and m[0] == "gm":
+                        gm_command(state, args, m[1], m[2])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "die":
                         p = state["player"]
                         p.health = 0
@@ -7809,6 +7878,8 @@ def handle_message(sock, server, addr, state, payload, args):
             change_gender_race(state, struct.unpack_from("<I", payload, 2)[0], *struct.unpack_from("<ii", payload, 10))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNBIND and state.get("player") and len(payload) >= 18:
             unbind_item(state, *struct.unpack_from("<ii", payload, 10))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in GM_EVENTS and state.get("player"):
+            gm_command(state, args, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLAIM_LIST and state.get("player"):
             send_message(sock, addr, state, zone.zone_event(CLAIM_CLEAR))
             send_message(sock, addr, state, zone.zone_event(CLAIM_END))
