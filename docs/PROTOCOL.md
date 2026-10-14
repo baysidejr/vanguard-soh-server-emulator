@@ -49,6 +49,8 @@ All three servers use the same SOE UdpLibrary framing: a leading `00`, a packet-
 
 Key functions: connect builder in `UdpConnection::GiveTime` `FUN_00c02830`; cooked-packet dispatcher `FUN_00c01e70`; reliable channel `FUN_00c05350`.
 
+**Resends (server side, 2026-10-14).** The server keeps every reliable packet it sends (`state["unacked"]`) until the client acknowledges it: AckAll `00 15` u16 seq removes everything up to seq (u16, matched against the full counter so it survives the wrap), Ack `00 11` u16 seq removes that one packet and also resends the older unacknowledged ones at once (the receiver only sends Ack1 for a packet that arrived after a gap). Anything still unacknowledged after 0.6 s goes again, doubling the wait up to 9.6 s, at most 12 times (`resend_tick`, 4 times a second). The real client acknowledges promptly: a session of 864 packets needed 1 resend (`!netstats` shows the counts). With 10% of the server's packets thrown away by the load test (`tools/loadtest.py --drop 0.1`) all bots still logged in and the median ping stayed at 12 ms (p95 372 ms).
+
 ## Application layer
 
 Inside a reliable payload every message starts with a little-endian u16 type. Most game traffic is type 2, an event envelope.

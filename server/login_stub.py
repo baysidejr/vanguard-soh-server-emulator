@@ -380,6 +380,7 @@ def main():
         if time.time() >= next_move:
             next_move = time.time() + MOVE_TICK
             guarded(movement_tick, zone_sock, clients, args)
+            guarded(resend_tick, clients, time.time())
         if time.time() >= next_tick:
             next_tick = time.time() + 1
             guarded(world_tick, zone_sock, clients, args)
@@ -7596,13 +7597,15 @@ def serve(sock, server, data, addr, clients, args):
                 clients[key]["last_seen"] = time.time()
         elif data[:2] == b"\x00\x05" and len(data) >= 8:
             reason = struct.unpack_from(">H", data, 6)[0]
-            print(f"  client disconnected, reason {reason} ({DISCONNECT_REASONS.get(reason, '?')})")
             gone = clients.pop(key, None)
+            print(f"  client disconnected, reason {reason} ({DISCONNECT_REASONS.get(reason, '?')}); "
+                  f"{(gone or {}).get('out_seq', 0)} reliable packets sent, {(gone or {}).get('resent', 0)} resent")
             if gone and server == "ZONE":
                 leave_world(gone, args)
         else:
             state = clients.setdefault(key, {"out_seq": 0, "seen": set(), "max_raw": 512})
             state["last_seen"] = time.time()
+            handle_acks(state, data)
             if server == "ZONE" and "send" not in state:
                 state["send"] = lambda m, sock=sock, addr=addr, state=state: (
                     send_message(sock, addr, state, m) if m is not None else None)
@@ -7665,15 +7668,117 @@ def reliable_messages(data):
 
 
 def send_message(sock, addr, state, message):
-    """Send one application message reliably, fragmenting when it doesn't fit."""
+    """Send one application message reliably, fragmenting when it doesn't fit. Each packet is
+    kept until the client acknowledges it, and resent if it doesn't (resend_tick)."""
+    start = state["out_seq"]
     if len(message) + 4 <= state["max_raw"]:
-        sock.sendto(build_reliable(state["out_seq"], message), addr)
+        packets = [build_reliable(start, message)]
         state["out_seq"] += 1
-        return 1
-    packets, state["out_seq"] = build_reliable_fragments(state["out_seq"], message, state["max_raw"])
-    for pkt in packets:
-        sock.sendto(pkt, addr)
+    else:
+        packets, state["out_seq"] = build_reliable_fragments(start, message, state["max_raw"])
+    unacked = state.get("unacked")
+    if unacked is None:
+        import collections
+        unacked = state["unacked"] = collections.OrderedDict()
+    now = time.time()
+    for i, pkt in enumerate(packets):
+        unacked[start + i] = [pkt, now, 0]
+        try:
+            sock.sendto(pkt, addr)
+        except (BlockingIOError, ConnectionResetError):
+            pass                       # the send buffer is full: resend_tick sends it again
+    state["sock"], state["addr"] = sock, addr
+    if len(unacked) > MAX_UNACKED:
+        # A client that stopped acknowledging: forget the oldest rather than grow forever.
+        for _ in range(len(unacked) - MAX_UNACKED):
+            unacked.popitem(last=False)
     return len(packets)
+
+
+# Reliable resends (UdpLibrary keeps every reliable packet until it is acknowledged): the
+# client acknowledges with AckAll (00 15 | u16 seq: everything up to seq) or Ack (00 11 | u16
+# seq: that one). Unacknowledged packets go again after RESEND_SECONDS, doubling each time.
+RESEND_SECONDS = 0.6
+FAST_RESEND_SECONDS = 0.1
+MAX_RESEND_BACKOFF = 4           # at most 0.6 * 2**4 = 9.6 s between tries
+MAX_RESENDS = 12
+MAX_RESENDS_PER_TICK = 32
+MAX_UNACKED = 4096
+
+
+def full_seq(state, seq16):
+    """The full sequence number of a u16 seq from the client (the last sent one at or before it)."""
+    last = state["out_seq"] - 1
+    return last - ((last - seq16) & 0xFFFF)
+
+
+def handle_acks(state, data):
+    """Forget the packets the client acknowledged in this datagram."""
+    unacked = state.get("unacked")
+    if not unacked:
+        return
+    for kind, seq16 in ack_packets(data):
+        top = full_seq(state, seq16)
+        if kind == 0x15:
+            while unacked:
+                first = next(iter(unacked))
+                if first > top:
+                    break
+                unacked.popitem(last=False)
+        else:
+            # Ack1: this packet arrived ahead of a gap. Fast resend: the earlier unacknowledged
+            # packets are very likely lost, so send them now (once per FAST_RESEND_SECONDS).
+            unacked.pop(top, None)
+            now = time.time()
+            for seq, entry in list(unacked.items()):
+                if seq >= top:
+                    break
+                if now - entry[1] >= FAST_RESEND_SECONDS:
+                    try:
+                        state["sock"].sendto(entry[0], state["addr"])
+                    except (BlockingIOError, ConnectionResetError, KeyError):
+                        break
+                    entry[1] = now
+                    state["resent"] = state.get("resent", 0) + 1
+
+
+def ack_packets(data):
+    """(0x15 or 0x11, u16 seq) for every AckAll1 / Ack1 in a datagram, also inside Multi."""
+    if len(data) < 4 or data[0] != 0:
+        return
+    if data[1] in (0x11, 0x15):
+        yield data[1], struct.unpack_from(">H", data, 2)[0]
+    elif data[1] == 0x03:
+        pos = 2
+        while pos < len(data):
+            n = data[pos]
+            yield from ack_packets(data[pos + 1:pos + 1 + n])
+            pos += 1 + n
+
+
+def resend_tick(clients, now):
+    """Send again every reliable packet that is overdue for an acknowledgement."""
+    for state in list(clients.values()):
+        unacked = state.get("unacked")
+        if not unacked or "sock" not in state:
+            continue
+        sent = 0
+        for seq, entry in list(unacked.items()):
+            pkt, last, tries = entry
+            if now - last < RESEND_SECONDS * (2 ** min(tries, MAX_RESEND_BACKOFF)):
+                continue
+            if tries >= MAX_RESENDS:
+                unacked.pop(seq, None)
+                continue
+            try:
+                state["sock"].sendto(pkt, state["addr"])
+            except (BlockingIOError, ConnectionResetError):
+                break
+            entry[1], entry[2] = now, tries + 1
+            state["resent"] = state.get("resent", 0) + 1
+            sent += 1
+            if sent >= MAX_RESENDS_PER_TICK:
+                break
 
 
 def event_message(event_id, data):
@@ -7952,6 +8057,9 @@ def dev_command(text, player=None):
                 return bytes([int(w[2:], 0)])
             return struct.pack("<I", int(w, 0) & 0xFFFFFFFF)
         return [("cev", int(words[1], 0), b"".join(token(w) for w in words[2:]))]
+    if words[0] == "netstats" and player:
+        # !netstats: reliable packets sent to this connection, resent, and waiting for an ack.
+        return [("netstats",)]
     if words[0] == "spherexp" and player and len(words) > 2:
         # !spherexp <1 crafting | 2 diplomacy> <amount>: gain sphere XP (testing level-ups).
         return [("spherexp", int(words[1]), int(words[2]))]
@@ -8487,6 +8595,11 @@ def handle_message(sock, server, addr, state, payload, args):
                         # A client zone event, handled as if the client had sent it.
                         handle_message(sock, server, addr, state,
                                        struct.pack("<HII", 2, m[1], len(m[2])) + m[2], args)
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "netstats":
+                        text = (f"Sent {state.get('out_seq', 0)} reliable packets, resent "
+                                f"{state.get('resent', 0)}, {len(state.get('unacked') or ())} waiting for an ack.")
+                        send_message(sock, addr, state, build_system_text(text, SYSTEM_TEXT_WHITE))
                         continue
                     elif isinstance(m, tuple) and m[0] == "spherexp":
                         sphere_xp(state, m[1], m[2])
@@ -9127,25 +9240,22 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> WORLD login request: account={login[0]!r}")
             account = accounts.session_account(login[1])
             if account is None:
-                reply = build_reliable(state["out_seq"], build_login_reply(False))
-                state["out_seq"] += 1
-                sock.sendto(reply, addr)
+                reply = build_login_reply(False)
+                send_message(sock, addr, state, reply)
                 print("  <- WORLD login refused: unknown session key")
                 return
             state["account"] = account
             state["session"] = login[1]
             WORLD_BY_SESSION[login[1]] = (sock, addr, state)
-            reply = build_reliable(state["out_seq"], build_login_reply(True))
-            state["out_seq"] += 1
-            sock.sendto(reply, addr)
+            reply = build_login_reply(True)
+            send_message(sock, addr, state, reply)
             print(f"  <- sent WORLD PacketLoginReply(success=1): {reply.hex(' ')}")
 
             # World event 1 (dispatcher FUN_0062aaf0): "Successfully logged into
             # WorldServer." and posts UI event 0x19. Empty event data.
             event = struct.pack("<HII", 2, 1, 0)
-            reply = build_reliable(state["out_seq"], event)
-            state["out_seq"] += 1
-            sock.sendto(reply, addr)
+            reply = event
+            send_message(sock, addr, state, reply)
             print(f"  <- sent WORLD event 1 (logged in): {reply.hex(' ')}")
         elif msg_type == 2 and event_id == brotherhood.LEAVE:
             # /brotherhoodleave (after its confirm popup) arrives as a world type-2 event.
@@ -9184,34 +9294,29 @@ def handle_message(sock, server, addr, state, payload, args):
             code = LOGIN_SESSION_EXPIRED if login[0] == accounts.LAUNCHER_LOGIN else LOGIN_BAD_ACCOUNT
         if account is None:
             for msg in (build_login_reply(False), build_login_failure(code)):
-                sock.sendto(build_reliable(state["out_seq"], msg), addr)
-                state["out_seq"] += 1
+                send_message(sock, addr, state, msg)
             print(f"  <- login refused for {login[0]!r} (unknown account, wrong password or launcher token)")
             return
         state["account"] = account
         state["login_key"] = accounts.new_session(account)
         LOGIN_BY_KEY[state["login_key"]] = (sock, addr, state)
         print(f"  >>> login: account {account!r}")
-        reply = build_reliable(state["out_seq"], build_login_reply(True))
-        state["out_seq"] += 1
-        sock.sendto(reply, addr)
+        reply = build_login_reply(True)
+        send_message(sock, addr, state, reply)
         print(f"  <- sent PacketLoginReply(success=1): {reply.hex(' ')}")
 
         # Server-select list entry for our world (event 0x25).
-        reply = build_reliable(state["out_seq"], build_world_list_entry_event(WORLD_NAME))
-        state["out_seq"] += 1
-        sock.sendto(reply, addr)
+        reply = build_world_list_entry_event(WORLD_NAME)
+        send_message(sock, addr, state, reply)
         print(f"  <- sent world list entry event 0x25 ({WORLD_NAME!r}, status Up)")
 
         send_account_character_list(sock, addr, state)
 
         # Tell the client which world server to use (event 0x27).
         event = build_world_server_event(account, state["login_key"], WORLD_NAME, args.world_address)
-        packets, state["out_seq"] = build_reliable_fragments(state["out_seq"], event, state["max_raw"])
-        for pkt in packets:
-            sock.sendto(pkt, addr)
+        n = send_message(sock, addr, state, event)
         print(f"  <- sent world-server event 0x27 (address={args.world_address!r}) "
-              f"in {len(packets)} fragments")
+              f"in {n} fragments")
     elif event_id == 0x139:
         # Character create request: event data starts with first name, last name
         # and world name as NUL-terminated UTF-16LE; the rest (race/class/appearance)

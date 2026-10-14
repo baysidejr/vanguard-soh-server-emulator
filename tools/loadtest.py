@@ -40,6 +40,7 @@ ACCOUNT = "loadtest"
 BOT_PREFIX = "Lbot"
 CHARACTERS_FILE = os.path.join(ROOT, "server", "characters.json")
 PC_CHANNEL = 1
+DROP = 0.0                  # share of incoming reliable packets ignored (--drop)
 CAMP = (-31000.0, -5500.0, 460.0)
 
 
@@ -110,6 +111,8 @@ class SoeConnection:
         self.out_seq = 0
         self.frag = None          # [total, bytes]
         self.inbox = []
+        self.expect = 0           # next reliable sequence number to deliver
+        self.pending = {}         # seq -> packet that arrived early
         self.code = random.getrandbits(32)
         self.sock.sendto(struct.pack(">HIII", 1, 3, self.code, 512) + b"API_PROTOCOL_1.0\0", self.addr)
         self._recv_one()          # the confirm
@@ -129,19 +132,35 @@ class SoeConnection:
         if len(data) < 2 or data[0] != 0:
             return
         kind = data[1]
-        if kind in (0x09, 0x0D):
-            seq = struct.unpack_from(">H", data, 2)[0]
-            self.sock.sendto(struct.pack(">BBH", 0, 0x15, seq), self.addr)
-            if kind == 0x09:
-                self.inbox.append(data[4:])
-            elif self.frag is None:
-                total = struct.unpack_from(">I", data, 4)[0]
-                self.frag = [total, data[8:]]
-            else:
-                self.frag[1] += data[4:]
-            if self.frag and len(self.frag[1]) >= self.frag[0]:
-                self.inbox.append(self.frag[1][:self.frag[0]])
-                self.frag = None
+        if kind not in (0x09, 0x0D):
+            return
+        if DROP and random.random() < DROP:
+            return                # simulated loss: no ack, so the server must send it again
+        seq = struct.unpack_from(">H", data, 2)[0]
+        ahead = (seq - self.expect) & 0xFFFF
+        if ahead < 0x8000 and seq not in self.pending:
+            self.pending[seq] = data
+        if ahead and ahead < 0x8000:
+            # Out of order (a packet before it is missing): Ack1 asks for a fast resend.
+            self.sock.sendto(struct.pack(">BBH", 0, 0x11, seq), self.addr)
+        # Deliver in order (UdpLibrary does), then acknowledge everything delivered so far.
+        while self.expect in self.pending:
+            self._deliver(self.pending.pop(self.expect))
+            self.expect = (self.expect + 1) & 0xFFFF
+        self.sock.sendto(struct.pack(">BBH", 0, 0x15, (self.expect - 1) & 0xFFFF), self.addr)
+
+    def _deliver(self, data):
+        if data[1] == 0x09:
+            self.inbox.append(data[4:])
+            return
+        if self.frag is None:
+            total = struct.unpack_from(">I", data, 4)[0]
+            self.frag = [total, data[8:]]
+        else:
+            self.frag[1] += data[4:]
+        if len(self.frag[1]) >= self.frag[0]:
+            self.inbox.append(self.frag[1][:self.frag[0]])
+            self.frag = None
 
     def messages(self, until=None, timeout=10.0):
         """Application messages as they arrive; stop when until(msg) is true (returns it)."""
@@ -307,6 +326,8 @@ def main(argv=None):
     ap.add_argument("--seconds", type=float, default=30)
     ap.add_argument("--move-rate", type=float, default=4.0, help="moves per second per bot")
     ap.add_argument("--stagger", type=float, default=0.2, help="seconds between bot logins")
+    ap.add_argument("--drop", type=float, default=0.0, help="ignore this share of the server's "
+                    "reliable packets (simulated loss: the server has to resend them)")
     ap.add_argument("--procs", type=int, default=1, help="bot processes (one Python process tops out "
                     "around 50 bots)")
     ap.add_argument("--first", type=int, default=0, help=argparse.SUPPRESS)
@@ -321,6 +342,8 @@ def main(argv=None):
     if a.setup:
         setup(a.setup, a.template)
         return 0
+    global DROP
+    DROP = a.drop
     if a.procs > 1 and not a.child:
         return run_processes(a)
     import zone
@@ -349,7 +372,7 @@ def run_processes(a):
     for k in range(a.procs):
         n = per + (1 if k < extra else 0)
         cmd = [sys.executable, os.path.abspath(__file__), "--child", "--bots", str(n), "--first", str(first),
-               "--seconds", str(a.seconds), "--move-rate", str(a.move_rate),
+               "--seconds", str(a.seconds), "--move-rate", str(a.move_rate), "--drop", str(a.drop),
                "--stagger", str(a.stagger * a.procs), "--host", a.host,
                "--login-port", str(a.login_port), "--world-port", str(a.world_port)]
         procs.append(subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True))

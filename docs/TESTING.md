@@ -23,7 +23,9 @@ All bots crowd the camp (within about 1400 units), so every move goes to every o
 
 What made the difference (found with cProfile under load): packet bits are packed in one integer instead of a bit list; net-field and object lookups are cached; the encoded property update and the pawn open payload are reused for every recipient; movement goes out as unreliable bunches queued per connection and sent 20 times a second, many to a packet; the loop drains every waiting packet per wake-up; position prints follow `--quiet-packets`; the database connection stays open. Verified with two real clients afterwards: the other player's walking (and walking back into view) shows as before.
 
-Still open: the cost grows with the square of the players in one place (150 in one spot saturate one core); the server never resends a reliable packet that the client did not acknowledge, which is harmless on a LAN but loses messages on a lossy internet link.
+Still open: the cost grows with the square of the players in one place (150 in one spot saturate one core).
+
+**Packet loss.** `--drop 0.1` makes every bot ignore 10% of the server's reliable packets (no acknowledgement, as if lost; bots deliver in order and send Ack1 after a gap, like UdpLibrary). With the server's resends (docs/PROTOCOL.md) 10 of 10 bots logged in (login median 2.9 s instead of 0.1 s) and the ping median stayed at 12 ms (p95 372 ms); at 2% loss p95 is 181 ms.
 
 ## Needs a person
 

@@ -933,6 +933,38 @@ class TinyPacketSizeTests(unittest.TestCase):
         self.assertGreater(len(packets), 0)
 
 
+class ResendTests(unittest.TestCase):
+    """Reliable packets are kept until acknowledged and sent again when they are not."""
+
+    class Sock:
+        def __init__(self):
+            self.sent = []
+
+        def sendto(self, pkt, addr):
+            self.sent.append(pkt)
+
+    def test_acks_and_resends(self):
+        import struct
+        import login_stub
+        sock = self.Sock()
+        state = {"out_seq": 65530, "seen": set(), "max_raw": 512}
+        for _ in range(10):                                   # seqs 65530..65539 (u16 wraps at 6)
+            login_stub.send_message(sock, ("h", 1), state, b"\x02\x00hello")
+        self.assertEqual(len(state["unacked"]), 10)
+        self.assertEqual(login_stub.full_seq(state, 2), 65538)
+        login_stub.handle_acks(state, struct.pack(">BBH", 0, 0x15, 1))     # AckAll up to 65537
+        self.assertEqual(list(state["unacked"]), [65538, 65539])
+        multi = bytes([0, 3, 4]) + struct.pack(">BBH", 0, 0x11, 3)         # Ack1 inside Multi
+        login_stub.handle_acks(state, multi)
+        self.assertEqual(list(state["unacked"]), [65538])
+        before = len(sock.sent)
+        login_stub.resend_tick({"k": state}, state["unacked"][65538][1] + 0.1)
+        self.assertEqual(len(sock.sent), before)                          # not overdue yet
+        login_stub.resend_tick({"k": state}, state["unacked"][65538][1] + login_stub.RESEND_SECONDS + 0.01)
+        self.assertEqual(sock.sent[-1][2:4], struct.pack(">H", 65538 & 0xFFFF))
+        self.assertEqual(state["resent"], 1)
+
+
 class SequenceWrapTests(unittest.TestCase):
     def test_seq_window_survives_wrap(self):
         import login_stub

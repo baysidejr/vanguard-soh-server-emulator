@@ -14,6 +14,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Last test results
 
+- 2026-10-14 (resends): unit tests OK (165), content OK, smoke test PASS, load test 10 bots at 10% loss: 10/10 joined, ping median 12 ms.
 - 2026-10-14 (load test): unit tests OK (164), content OK, smoke test PASS, load test 100 bots: median ping 11 ms, p95 450 ms; two real clients see each other walk.
 - 2026-10-14 (SQLite storage): server unit tests OK (161), content OK, smoke test PASS (40 commands) against the database.
 - 2026-10-14: server unit tests OK (160), content OK. Live: Stage 2 Mould Oil step dimmed when the oil is missing; not dimmed without 0x30b. Note: run_test.sh needs `--dev-commands` for `!tp` and other ! commands.
@@ -25,7 +26,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 531 of 720 sent or not needed (73%); open: 125 optional features, 64 undecoded handlers.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
-5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Open: resend unacknowledged reliable packets (needed over the internet), interest management for more than ~150 players in one place, TLS for the launcher endpoint.
+5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Open: interest management for more than ~150 players in one place, TLS for the launcher endpoint.
    - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. A refused login shows the client's own popup (login event 2, code 1002 / 50). Saved in the database (server/vanguard.db).
 
 ## Blocked (needs the user or data)
@@ -39,6 +40,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Reliable resends: the server keeps each reliable packet until the client acknowledges it (AckAll / Ack1), resends after 0.6 s with backoff, and resends at once after an out-of-order Ack1. Load test with 10% simulated loss: all bots log in, median ping 12 ms. Real client: 1 resend in 864 packets (`!netstats`).
 - 2026-10-14: Load test and server speed-ups: tools/loadtest.py (headless players over the real protocol). 100 bots moving in one spot went from 2.7 s median ping (7 failed to join) to 11 ms; see docs/TESTING.md "Load test". Integer bit packing, cached lookups, reused encodings, batched unreliable movement bunches at 20 Hz, socket draining, kept-open database. Verified with two real clients and the smoke test.
 - 2026-10-14: Saved data moved from JSON files to a SQLite database, server/vanguard.db (storage.py): one row per character, so saving one field no longer rewrites every character; accounts, guilds, mail, market, housing, caravans, brotherhoods and civic stats as documents. Old JSON files are imported on first start and renamed *.imported; `storage.py export / import / set` for backups, hand edits and GM flags. Fixed a unit test that read the real housing file. Verified live: login, character list, position and settings saved; smoke test PASS.
 - 2026-10-14: The Z key (/cyclewieldpreference, 0x112) steps m_WieldPreference 0-3; seen live: the third press draws the bow, the fourth sheathes it.
