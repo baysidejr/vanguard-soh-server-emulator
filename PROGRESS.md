@@ -6,9 +6,10 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Convert the merged crowdsourced batches (`crowdsourced/raw/`, 121 folders) with
-`crowdsourced/convert.py`, see how many records would import cleanly, and report the main issue
-kinds. Do not merge proposals into `server/content/` without review.
+Sort the 312 server->client messages the server never sends (docs/ZONE_MESSAGES.md) into needed /
+variant / debug-GM / content, to get a real to-do list and a measured coverage figure. The
+crowdsourced data is not import-ready (crowdsourced/reviewed/IMPORT_READINESS.md); revisit when the
+collector fills quest objectives and NPC races, or write the ability converter.
 
 ## Last test results
 
@@ -18,7 +19,7 @@ kinds. Do not merge proposals into `server/content/` without review.
 
 ## Remaining work
 
-1. **Crowdsourced import:** convert the batches, review the proposals, merge clean ones into `server/content/`.
+1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
 2. **Sort the 312 server->client messages the server never sends** (docs/ZONE_MESSAGES.md) into needed / variant / debug-GM / content, for a real to-do list and coverage figure.
 3. **Race and class pass in game:** log in one character of each of the 19 races and 15 classes, screenshot, use the first abilities, scan logs.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
@@ -35,6 +36,8 @@ kinds. Do not merge proposals into `server/content/` without review.
 
 ## Done
 
+- 2026-10-14: Converted all 121 crowdsourced batches in memory: only 16 items and 13 quests would import cleanly. Quests lack objective targets and rewards, NPCs lack race and health, ability records have no converter yet. Written up in crowdsourced/reviewed/IMPORT_READINESS.md; nothing merged into server/content/.
+- 2026-10-14: Merged the other agent's crowdsourced/archive-collection branch into main (fdbff2f): conflict in convert.py resolved keeping both sides, 'formula' record type restored, my converter test fixtures updated to the stricter schema. All suites pass.
 - 2026-10-14: Full in-game sweep of the 288 ordinary slash commands not covered before (scratchpad typeall.ps1, numbered say markers tie log lines to commands). The only new request was /hintsreset 0x182 (hint content); the rest were already handled or listed. Note: sending Esc between commands opens the Main Menu, so the sweep no longer does.
 - 2026-10-14: 0x117 is the Options window's "Auto Defensive Target Me" checkbox ({u8}, sent on change); now saved per character (auto_def_target_me). What the server should do with it (pick the player as the defensive target of beneficial spells?) is not known.
 - 2026-10-14: Tick-driven client requests decoded statically: 0x24a "is this expired effect still on?" (answered: 0x23b if gone, 0x23c timer if running; unit-tested), 0x3a0 encounter entity gone, 0x18a getting up from feign death (first read as standing from /sit; a memory check showed the sit flags are elsewhere, so that change was reverted), 0x167 dialog "summon my corpse" option. Notices are quiet in the log. /sit and /stand now log a line.
