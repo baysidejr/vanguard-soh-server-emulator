@@ -19,6 +19,11 @@ Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a p
 | Caravan login | 👤 | Join a caravan, stay offline 3+ hours, log in. Expect to appear at the caravan. Never waited out the real 3 hours. |
 | Feel of the numbers | 👤 | XP per kill, damage, health, regen, prices. All placeholders (docs/CONTENT_EDITOR.md); someone who played the game should say what feels wrong. |
 
+## Race and class pass
+
+- **Races (2026-10-14, all 19):** a Warrior of each race was shown on the character select screen and entered the world (`racepass.sh` in the work folder: set the race, start server and client, screenshot the preview, press Play, scan both logs). Every race drew correctly and joined; no server tracebacks. Orc (race 11) adds client warnings that `UEM_halfOrc_F_char` / `UEM_halfOrc_M_char` skeletons are missing: the client asks for the half-orc package, which the shipped client lacks. The Orc still draws.
+- **Classes:** see below once run.
+
 ## Blocked
 
 | Feature | Why |
