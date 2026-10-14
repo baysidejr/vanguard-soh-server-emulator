@@ -926,8 +926,8 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
     out = list(player.pending_displays)
     player.pending_displays.clear()
     colours = {"combat": SYSTEM_TEXT_COMBAT, "error": SYSTEM_TEXT_ERROR, "white": SYSTEM_TEXT_WHITE}
-    out += [effects.ability_failed(text) if kind == "fail" else build_system_text(text, colours[kind])
-            for text, kind in lines]
+    out += [effects.ability_failed(text) if kind == "fail" else combat.auto_attack_failed(text)
+            if kind == "autofail" else build_system_text(text, colours[kind]) for text, kind in lines]
     out.append(zone.health_update(player))
     if getattr(player, "energy_changed", False):
         player.energy_changed = False

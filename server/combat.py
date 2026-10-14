@@ -319,15 +319,34 @@ def experience_reward(amount, source, rest_bonus=0, kind=0, group=0):
     return struct.pack("<HII", 2, XP_EVENT, len(data)) + data
 
 
+# The client's auto-attack failures: 0x244 {u8 code} (FUN_0042b350) prints VGClient.int
+# AutoAttackFail*: 1 "You can't fight with that.", 2 "You don't have a target.", 3 "Your target is
+# dead.", 4 "Your target is not valid to attack.", 5 "Your target is out of range.", 6 "You can't
+# attack with that type of weapon.", each with a screen flash.
+AUTO_ATTACK_FAILED = 0x244
+AUTO_NO_TARGET, AUTO_TARGET_DEAD, AUTO_TARGET_INVALID = 2, 3, 4
+
+
+def auto_attack_failed(code):
+    return _event(AUTO_ATTACK_FAILED, struct.pack("<B", code))
+
+
 def toggle_auto_attack(player):
-    """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state."""
+    """Client event 0x3d8. Returns chat lines; player.auto_attack is the new state. A refusal is
+    an ("autofail", code) line (0x244)."""
     npc = player.npcs.get(player.target) if player.target else None
     opp = getattr(player, "duel_opponent", None)
     if opp is not None and player.target == opp.char_id and player.health > 0:
         npc = opp                                 # dueling: the opponent is a valid target
-    if not player.auto_attack and (npc is None or not npc.alive or getattr(npc, "merchant", None)
-                                   or getattr(npc, "harvest", None) or player.health <= 0):
-        return [("You have no valid target to attack.", "error")]
+    if not player.auto_attack:
+        if player.health <= 0:
+            return [("You can't do that while dead.", "error")]
+        if npc is None:
+            return [(AUTO_NO_TARGET, "autofail")]
+        if not npc.alive:
+            return [(AUTO_TARGET_DEAD, "autofail")]
+        if getattr(npc, "merchant", None) or getattr(npc, "harvest", None):
+            return [(AUTO_TARGET_INVALID, "autofail")]
     player.auto_attack = not player.auto_attack
     player.next_swing = time.time()
     return []
