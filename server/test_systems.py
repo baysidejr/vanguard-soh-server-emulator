@@ -833,5 +833,13 @@ class UnterminatedStringTests(unittest.TestCase):
         self.assertTrue(done, "handler hung on an unterminated string")
 
 
+class TinyPacketSizeTests(unittest.TestCase):
+    def test_fragmenter_always_advances(self):
+        import login_stub
+        packets, seq = login_stub.build_reliable_fragments(0, bytes(100), 4)    # room would be <= 0
+        self.assertEqual(seq, len(packets))
+        self.assertGreater(len(packets), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

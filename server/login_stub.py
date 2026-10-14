@@ -67,6 +67,7 @@ import zone
 PROTOCOL_VERSION = 3
 WORLD_NAME = "Stub World"
 MAX_RAW_PACKET = 1460
+MIN_RAW_PACKET = 64       # a smaller claimed size would leave no room for data (endless fragmenting)
 
 # Cooked packet types handled by FUN_00c01e70 (byte after the leading 00).
 PACKET_NAMES = {
@@ -215,7 +216,7 @@ def build_reliable_fragments(start_seq, payload, max_raw):
         header = struct.pack(">BBH", 0x00, 0x0D, seq)
         if first:
             header += struct.pack(">I", len(payload))
-        room = max_raw - len(header)
+        room = max(1, max_raw - len(header))
         packets.append(header + payload[pos:pos + room])
         pos += room
         seq += 1
@@ -6782,7 +6783,7 @@ def serve(sock, server, data, addr, clients, args):
             protocol, code, max_raw = struct.unpack_from(">III", data, 2)
             name = data[14:].split(b"\0", 1)[0].decode("latin-1")
             print(f"  connect: protocol={protocol} code=0x{code:08x} maxRaw={max_raw} name={name!r}")
-            clients[key] = {"out_seq": 0, "seen": set(), "max_raw": min(max_raw, MAX_RAW_PACKET),
+            clients[key] = {"out_seq": 0, "seen": set(), "max_raw": max(MIN_RAW_PACKET, min(max_raw, MAX_RAW_PACKET)),
                             # UdpLibrary Terminate (reason 6, application) for this connection.
                             "terminate": lambda sock=sock, addr=addr, code=code: sock.sendto(
                                 b"\x00\x05" + struct.pack(">IH", code, 6), addr)}

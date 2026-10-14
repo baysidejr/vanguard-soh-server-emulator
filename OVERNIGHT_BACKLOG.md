@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: Fixed a second one-packet freeze: a connect packet claiming a maximum packet size below the header size made the fragmenter loop forever (no login needed). The size is now clamped to at least 64 and the fragmenter always advances. Every other parsing loop reviewed: all advance.
 - 2026-10-14: Fixed a server freeze: nine UTF-16 string readers (house permissions, mail, broker, songs, bug reports) looped forever on a string with no terminator, so one malformed packet hung the server for everyone. Found by an in-process fuzz of all 28 event handlers (every event id x 5 payloads, each handler under a timeout): now no hangs and no crashes. Regression test added.
 - 2026-10-13: Robustness: every packet and tick runs under a guard that logs the traceback instead of stopping the server for everyone. Fuzzed 3000 malformed packets at all three ports: server kept running, no errors (unauthenticated traffic is dropped early).
 - 2026-10-13: Login smoke test runs all 13 zone-login hooks, and a guard test fails if a new hook is added without it. Mail sending re-checked live after the item-restriction changes.
