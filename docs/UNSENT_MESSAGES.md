@@ -32,7 +32,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x1c1 | MsgSingleByte | u8 | debug | "DEBUG - Item activation succeeded."; "Error: Item to convert not found."; "Error: You cannot convert items while your i |
 | 0x1c2 | MsgDisplayConversionUI | wstr, i32, i32, 3 x [wstr, i32, i32, i32] | content | item conversion window ("Convert %i x %s to:"); needs conversion recipes |
 | 0x1c3 | MsgSingleByte | u8 | debug | item activation result {u8} ("DEBUG - Item activation succeeded.") |
-| 0x1c5 | MsgSingleByte | u8 | optional | item use failure code {u8}, e.g. 0x16 "You need to wield a harvesting tool"; the server words failures as text today |
+| 0x1c5 | MsgSingleByte | u8 | optional | item use failure code {u8} (code table in docs/INVENTORY.md); no item has a use ability yet (needs potion / food data) |
 | 0x1d2 | MsgTwoInts | i32, i32 | content | pet graft added; pet grafts are content (docs/PETS.md) |
 | 0x1d3 | MsgThreeInts | i32, i32, i32 | content | pet graft removed |
 | 0x1d5 | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo into another container; the server uses 0x197 and the container-specific messages |
