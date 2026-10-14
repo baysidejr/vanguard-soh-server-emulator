@@ -551,6 +551,44 @@ class CrowdConvertTests(unittest.TestCase):
         self.assertTrue(any("low confidence" in i for i in b.issues))
 
 
+class CrowdConvertMoreTests(unittest.TestCase):
+    def test_dialogue_faction_recipe_formula(self):
+        import json, os, sys, tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "crowdsourced"))
+        import convert
+        src = [{"url": "https://example.org/1"}]
+        recs = [
+            {"type": "dialogue", "name": "Guard talk", "npc": "Thestran Guard", "sources": src, "confidence": "high",
+             "conversation": [{"npc_says": "Halt.", "responses": [{"player_says": "Who are you?", "leads_to": "A guard."},
+                                                                  {"player_says": "Bye", "leads_to": "end"}]},
+                              {"npc_says": "A guard.", "responses": [{"player_says": "Ok", "leads_to": "end",
+                                                                       "reward": "10 faction"}]}]},
+            {"type": "faction", "name": "Wardens", "enemies": ["Raiders", "Nobody"], "sources": src, "confidence": "high"},
+            {"type": "faction", "name": "Raiders", "sources": src, "confidence": "high"},
+            {"type": "recipe", "name": "Copper Nail", "craft": "blacksmith", "sources": src, "confidence": "high",
+             "ingredients": [{"item": "Copper Ingot", "count": 1}], "output": {"item": "Copper Nail", "count": 5}},
+            {"type": "formula", "name": "XP table", "topic": "experience needed per level", "values": {"2": 1000},
+             "sources": src, "confidence": "medium"},
+            {"type": "spawn", "name": "Wolves", "what": "Ashen Wolf", "location": {"raw": "1, 2"}, "sources": src,
+             "confidence": "high"},
+        ]
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "all.jsonl"), "w", encoding="utf-8") as f:
+                f.write("\n".join(json.dumps(r) for r in recs))
+            b = convert.Batch(d)
+            out = convert.convert(b, convert.creature_races())
+        dlg = out["dialogs.json"]["wastes_thestran_guard"]            # existing key for the guard
+        self.assertEqual(dlg["nodes"]["n0"]["responses"][0]["goto"], "n1")
+        self.assertNotIn("goto", dlg["nodes"]["n0"]["responses"][1])
+        self.assertIn("_manual", dlg["nodes"]["n1"]["responses"][0])
+        fw = next(f for f in out["factions.json"].values() if f["name"] == "Wardens")
+        self.assertEqual(len(fw["enemies"]), 1)
+        self.assertEqual(out["recipes.json"]["copper_nail"]["inputs"], {"Copper Ingot": 1})
+        self.assertEqual(b.formulas[0]["_target"], "zone.xp_for_level")
+        self.assertEqual(out["spawns_unplaced.json"][0]["what"], "Ashen Wolf")
+        self.assertFalse(any("not converted automatically" in i for i in b.issues))
+
+
 class ItemStatTests(unittest.TestCase):
     def test_mods_and_gear_bonus(self):
         import vgmsg

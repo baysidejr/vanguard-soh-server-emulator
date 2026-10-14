@@ -23,6 +23,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-14: crowdsourced/convert.py now converts dialogue (dialogs.json), factions (factions.json, ids 2001+), recipes (inputs/output; stages left for a person), spawns (spawns_unplaced.json) and formulas (FORMULAS.md mapped to the placeholder constants they'd replace). Unit-tested.
 - 2026-10-14: tools/smoke_test.py: automated in-game smoke test (server + client, Enter to play, ~20 commands, log scan, PASS/FAIL). Passes.
 - 2026-10-14: Persistence: character loading extracted into player_from_character; a round-trip test loads a record with every saved field set and checks each value, and a guard test fails if a saved field is never read back.
 - 2026-10-14: /transferplot (0x5c6) verified live with two clients.

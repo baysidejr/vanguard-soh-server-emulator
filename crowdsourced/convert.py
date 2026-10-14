@@ -124,8 +124,25 @@ class Batch:
         return next((r for r in self.of(kind) if r["name"] == name), None)
 
 
+# Which server constant each formula topic would replace (AGENT_INSTRUCTIONS.md "formula").
+FORMULA_TARGETS = {
+    "race starting attributes": "zone.RACE_ATTRIBUTES",
+    "attribute gain per level": "zone.CLASS_ATTRIBUTES / zone.innate_bonus",
+    "hit points per level": "zone.HP_BASE, CON_HP, HP_PER_LEVEL",
+    "armor class mitigation": "combat.mitigate",
+    "dodge/parry/block chance": "combat.BASE_DODGE, BASE_PARRY, BASE_BLOCK, DODGE_PER_DEX",
+    "critical hit chance and damage": "combat.BASE_CRIT, CRIT_PER_DEX, CRIT_MULT",
+    "experience per kill by level difference": "combat.KILL_XP (kill_xp)",
+    "experience needed per level": "zone.xp_for_level",
+    "endurance/energy pools": "zone.POOL_BASE, POOL_PER_POINT",
+    "regeneration rates": "combat regeneration constants",
+    "ability damage scaling": "combat.POWER_PER_LEVEL, POWER_PER_POINT",
+}
+
+
 def convert(batch, races):
-    out = {"mobs.json": {}, "items.json": {}, "loot.json": {}, "merchants.json": {}, "quests.json": {}}
+    out = {"mobs.json": {}, "items.json": {}, "loot.json": {}, "merchants.json": {}, "quests.json": {},
+           "dialogs.json": {}, "factions.json": {}, "recipes.json": {}, "spawns_unplaced.json": []}
     issue = batch.issues.append
 
     for r in batch.of("creature"):
@@ -254,8 +271,76 @@ def convert(batch, races):
         out["quests.json"][slug(r["name"])] = q
         next_id += 1
 
+    # Dialogue: [{"npc_says", "responses": [{"player_says", "leads_to", "requires", "reward"}]}]
+    # -> dialogs.json {start, nodes: {id: {text, responses: [{text, goto}]}}}.
+    for r in batch.of("dialogue"):
+        conv = r.get("conversation") or r.get("tree") or []
+        ids = {n.get("npc_says"): f"n{i}" for i, n in enumerate(conv)}
+        nodes = {}
+        for i, n in enumerate(conv):
+            responses = []
+            for resp in n.get("responses") or []:
+                e = {"text": resp.get("player_says") or ""}
+                target = resp.get("leads_to")
+                if target and target != "end":
+                    if target in ids:
+                        e["goto"] = ids[target]
+                    else:
+                        issue(f"dialogue {r['name']}: reply {e['text']!r} leads to text not in the tree")
+                if resp.get("requires") or resp.get("reward"):
+                    e["_manual"] = {"requires": resp.get("requires"), "reward": resp.get("reward")}
+                    issue(f"dialogue {r['name']}: reply {e['text']!r} has a condition or reward to set by hand")
+                responses.append(e)
+            nodes[f"n{i}"] = {"text": n.get("npc_says") or "", "responses": responses or [{"text": "Farewell."}]}
+        if nodes:
+            out["dialogs.json"][key(r.get("npc") or r["name"])] = {"start": "n0", "nodes": nodes,
+                                                                    "_source": r["sources"][0]["url"]}
+
+    # Factions -> factions.json with new ids (2001+); allies/enemies resolved by name.
+    fids = {r["name"]: str(2001 + i) for i, r in enumerate(batch.of("faction"))}
+    for r in batch.of("faction"):
+        f = {"name": r["name"], "start": 0}
+        for rel in ("allies", "enemies"):
+            names = r.get(rel) or []
+            ids = [int(fids[n]) for n in names if n in fids]
+            if ids:
+                f[rel] = ids
+            if len(ids) < len(names):
+                issue(f"faction {r['name']}: {rel} {[n for n in names if n not in fids]} are not in this batch")
+        if r.get("changes"):
+            f["_changes"] = r["changes"]
+            issue(f"faction {r['name']}: standing changes need numbers set by hand")
+        f["_source"] = r["sources"][0]["url"]
+        out["factions.json"][fids[r["name"]]] = f
+
+    # Recipes: inputs and output; the craft steps need client action ids, so they are left
+    # for a person (see recipes.json for the stage format).
+    for n, r in enumerate(batch.of("recipe")):
+        output = r.get("output")
+        out_name = output.get("item") if isinstance(output, dict) else output
+        rec = {"id": 7001 + n, "name": r["name"], "description": r.get("description") or "",
+               "icon": 475, "inputs": {i["item"]: i.get("count") or 1 for i in r.get("ingredients") or []},
+               "output": out_name or r["name"], "xp": None, "stages": [],
+               "_craft": r.get("craft"), "_level": r.get("level"), "_station": r.get("station"),
+               "_tools": r.get("tools"), "_steps": r.get("steps"), "_source": r["sources"][0]["url"]}
+        out["recipes.json"][slug(r["name"])] = rec
+        issue(f"recipe {r['name']}: stages, actions and xp must be filled in by hand")
+
+    # Spawns: raw locations can't be placed without a person checking the map.
+    for r in batch.of("spawn"):
+        out["spawns_unplaced.json"].append({"what": r.get("what") or r["name"], "zone": r.get("zone"),
+                                            "chunk": r.get("chunk"), "location": r.get("location"),
+                                            "count": r.get("count"), "movement": r.get("movement"),
+                                            "respawn_time": r.get("respawn_time"),
+                                            "_source": r["sources"][0]["url"]})
+
+    # Formulas: written to FORMULAS.md next to the constants they would replace.
+    batch.formulas = [dict(r, _target=FORMULA_TARGETS.get((r.get("topic") or "").lower(), "?"))
+                      for r in batch.of("formula")]
+
     for kind in batch.records:
-        if kind not in ("creature", "npc", "item", "loot", "merchant", "quest"):
+        if kind not in ("creature", "npc", "item", "loot", "merchant", "quest", "dialogue", "faction",
+                        "recipe", "spawn", "formula"):
             issue(f"{len(batch.of(kind))} {kind} record(s) not converted automatically yet")
     return out
 
@@ -274,6 +359,15 @@ def main(argv=None):
         if data:
             with open(os.path.join(dest, fn), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
+    if getattr(batch, "formulas", None):
+        with open(os.path.join(dest, "FORMULAS.md"), "w", encoding="utf-8") as f:
+            f.write("# Game formulas found\n\nEach one would replace a placeholder in the server code "
+                    "(the target column). Check the sources before changing anything.\n\n"
+                    "| Topic | Applies to | Values / formula | Target | Source | Confidence |\n|---|---|---|---|---|---|\n")
+            for r in batch.formulas:
+                vals = r.get("formula") or json.dumps(r.get("values"), ensure_ascii=False)
+                f.write(f"| {r.get('topic')} | {r.get('applies_to') or ''} | {str(vals).replace('|', '/')} | "
+                        f"{r['_target']} | {r['sources'][0]['url']} | {r.get('confidence')} |\n")
     with open(os.path.join(dest, "ISSUES.md"), "w", encoding="utf-8") as f:
         f.write("# Conversion issues\n\n" + ("\n".join(f"- {i}" for i in batch.issues) or "None.") + "\n")
     counts = {fn: len(d) for fn, d in out.items() if d}
