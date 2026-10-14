@@ -38,6 +38,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: tools/scenarios.py: two headless players check chat, group invite and a full trade (item for coins, verified in the database). All PASS.
 - 2026-10-14: CI (GitHub Actions) green again: two tests that read the game client's packages had failed every push since the morning; they now skip without the client.
 - 2026-10-14: Economy audit log (audit.log next to the database): trades, mail with coins / items, broker sales, dev gives.
 - 2026-10-14: --enforce-movement: impossible movement (jump or speed) moves the player back to the last good position. Verified: a bot's 10800-unit jump was undone; the real client walking and !tp teleports triggered nothing.

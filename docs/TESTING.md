@@ -8,6 +8,10 @@ How each feature has been tested, and what still needs a person at the keyboard.
 
 Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a person (scripted input can't do it, or the result can't be checked by a screenshot) · ⛔ blocked (no UI in the shipped client, or no data)
 
+## Multiplayer scenarios (2026-10-14)
+
+`python tools/scenarios.py` (after `--setup`, against a running server) logs in two headless players and checks what otherwise needs two people: a chat line from one reaches the other; a group invite and accept; a trade of an item for 50 copper, verified in the database afterwards (and in `audit.log`). Last run: all three PASS.
+
 ## Load test (2026-10-14)
 
 `python tools/loadtest.py` runs headless players that speak the client's protocol: launcher token, world login, character Play, zone login, the UE2 handshake (HELLO / LOGIN / JOIN), then ShortServerMove 4 times a second while walking in a circle near the camp, and a ping (zone type 9, echoed at once) every second. `--setup N` makes the `loadtest` account and N characters (copies of Ranger), `--cleanup` removes them, `--procs` spreads the bots over several processes (one Python process manages about 50). Start the server with `--quiet-packets`.
