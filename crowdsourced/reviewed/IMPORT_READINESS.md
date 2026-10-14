@@ -31,6 +31,6 @@ health 0; confidence 132 low, 96 medium.
 2. **NPCs:** race and model can't come from these pages. Pick from the client's race list per NPC in
    the content editor, or take them from VGOEmu captures once allowed. Health could fall back to a
    documented per-level placeholder only if the project decides to allow that.
-3. **Abilities:** write the ability converter (100 records per batch are waiting).
+3. **Abilities:** about 3,000 records per batch name the class, level and rank. Their timing numbers are not usable yet: `cast_time_seconds` is always 0 or empty, and the archive numbers sit in `cast_recorded` / `range_recorded` / `cost_recorded` with the unit marked unknown ("bare timing/range units are unknown"). Damage and effect kinds are almost never present. 360 archive ability names match the client's own ability names (rank stripped), so once units are confirmed the cast times could fill server/content/abilities.json "cast".
 4. **Deduplicate batches:** convert only the newest version of each page set (enriched v7 and the
    later bulk batches) to avoid reviewing the same records six times.
