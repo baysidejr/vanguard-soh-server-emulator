@@ -10,6 +10,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Last test results
 
+- 2026-10-14 (CI): GitHub Actions passes on ac4f08d (169 tests, 2 skipped without the client); locally 169 OK, smoke test PASS.
 - 2026-10-14 (capacity round 2): unit tests OK (166), content OK, smoke test PASS; load test steady state: 100 crowd 10.5 ms / 11.4 ms, 150 spread 10.6 / 11.2 ms, 200 spread 10.6 ms / 1.4 s.
 - 2026-10-14 (fuzzing): unit tests OK (166), content OK, smoke test PASS, fuzz 0x900 events x 20 + 200 raw rounds: no errors, no hang; load test 20 bots OK.
 - 2026-10-14 (resends): unit tests OK (165), content OK, smoke test PASS, load test 10 bots at 10% loss: 10/10 joined, ping median 12 ms.
@@ -37,6 +38,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: CI (GitHub Actions) green again: two tests that read the game client's packages had failed every push since the morning; they now skip without the client.
 - 2026-10-14: Economy audit log (audit.log next to the database): trades, mail with coins / items, broker sales, dev gives.
 - 2026-10-14: --enforce-movement: impossible movement (jump or speed) moves the player back to the last good position. Verified: a bot's 10800-unit jump was undone; the real client walking and !tp teleports triggered nothing.
 - 2026-10-14: Failed-login throttling now also covers the game's own login (SOE_LOGIN + token), not only the launcher: 5 failures per address per 5 minutes. Verified: after 5 wrong tokens the right one is refused too.
