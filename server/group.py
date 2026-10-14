@@ -192,5 +192,21 @@ def you_left():
     return _event(0x6A1)
 
 
+# /groupboot <name> (0xb3) and /grouppromote <name> (0xb4), leader only. A non-leader gets 0x6a3
+# {u8} "MustBeGroupLeader" (FUN_004d4b60; the byte is not read). The booted player gets 0x6a2
+# "YouBootedFromGroup"; the others get 0x6bd {eid64, i32} "OtherBootedFromGroup", which also drops
+# that row (FUN_004e0960).
+def must_be_leader():
+    return _event(0x6A3, struct.pack("<B", 1))
+
+
+def you_booted():
+    return _event(0x6A2)
+
+
+def member_booted(member):
+    return _event(0x6BD, struct.pack("<Qi", member.char_id, 0))
+
+
 def disbanded():
     return _event(0x6BE)

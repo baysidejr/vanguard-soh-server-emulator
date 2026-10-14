@@ -278,6 +278,398 @@
     "0x75d": [
       "unknown",
       "MsgSingleItemInfo in the player dispatcher; purpose not decoded"
+    ],
+    "0x253": [
+      "content",
+      "communal casting (\"Your spell is already part of the communal casting!\"); no communal spells in content"
+    ],
+    "0x3a3": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3a4": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3a6": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3ab": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3ad": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3ae": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3af": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3b0": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3b1": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3bb": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3bd": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3bf": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3c1": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3c7": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3c8": [
+      "optional",
+      "encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md)"
+    ],
+    "0x3b3": [
+      "optional",
+      "a group member's ability in flight (MsgClientCombatGroupInFlightAdd)"
+    ],
+    "0x3bc": [
+      "optional",
+      "an enemy group member's ability in flight"
+    ],
+    "0x3be": [
+      "optional",
+      "an enemy group member's state (MsgClientAntiGroupAddState)"
+    ],
+    "0x448": [
+      "content",
+      "feint visual on the target's head (FXspells_GenericFeintTargetHead); needs feint abilities"
+    ],
+    "0x449": [
+      "content",
+      "stealth broken sound (SpellsSounds.StealthOff); needs stealth abilities"
+    ],
+    "0x44a": [
+      "content",
+      "warp-in sound (SpellsSounds.WarpIn); needs teleport abilities"
+    ],
+    "0x224": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x225": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x226": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x227": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x228": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x229": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x22a": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x22b": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x22c": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x22d": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x22e": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x22f": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x232": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x233": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x235": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x236": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x240": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x243": [
+      "optional",
+      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
+    ],
+    "0x241": [
+      "optional",
+      "ability failure code {u8} with the client's own texts (FUN_0043e610); the server uses 0x242 sounds and its own text today"
+    ],
+    "0x1c8": [
+      "unknown",
+      "u8; handler not decoded"
+    ],
+    "0x25a": [
+      "optional",
+      "casting progress {f32}; the server shows casts with 0x25c / 0x260"
+    ],
+    "0x25d": [
+      "optional",
+      "casting progress {f32}; the server shows casts with 0x25c / 0x260"
+    ],
+    "0x25e": [
+      "variant",
+      "cast bar {wstr, f32}, like 0x25c which the server sends"
+    ],
+    "0x263": [
+      "debug",
+      "cast response debug print {i32}"
+    ],
+    "0x264": [
+      "unknown",
+      "no payload; handler not decoded"
+    ],
+    "0x38b": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x38c": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x38f": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x393": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x394": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x395": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x397": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x398": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x399": [
+      "optional",
+      "combat form / progressive form state (docs/FORMS.md); forms work without them"
+    ],
+    "0x390": [
+      "optional",
+      "progressive form info (MsgCombatProgressiveFormInfo, 4 floats)"
+    ],
+    "0x193": [
+      "optional",
+      "pending death message / alert {eid64, wstr, i32} (a countdown before death)"
+    ],
+    "0x194": [
+      "optional",
+      "pending death message / alert {eid64, wstr, i32} (a countdown before death)"
+    ],
+    "0x246": [
+      "optional",
+      "group drain result line {eid64, wstr, i32, u8}; needs drain abilities"
+    ],
+    "0x27c": [
+      "optional",
+      "ability text lines {wstr, i32}; not decoded further"
+    ],
+    "0x27d": [
+      "optional",
+      "ability text lines {wstr, i32}; not decoded further"
+    ],
+    "0x27e": [
+      "content",
+      "\"Your %s distributes %i\" (spread heals or damage); needs such abilities"
+    ],
+    "0x27f": [
+      "content",
+      "\"Your %s distributes %i\" (spread heals or damage); needs such abilities"
+    ],
+    "0x281": [
+      "unknown",
+      "eid64; handler not decoded"
+    ],
+    "0x282": [
+      "content",
+      "charm breaking warning; needs charm abilities"
+    ],
+    "0x3d2": [
+      "optional",
+      "ability phase ended early {eid64, u8, i32}"
+    ],
+    "0x3d3": [
+      "variant",
+      "MsgDisplayAbility, same layout as 0x3d1 which the server sends"
+    ],
+    "0x714": [
+      "optional",
+      "\"You need more open space around you to do that.\""
+    ],
+    "0x68a": [
+      "unknown",
+      "wstr; group handler not decoded"
+    ],
+    "0x6b4": [
+      "unknown",
+      "wstr; group handler not decoded"
+    ],
+    "0x68e": [
+      "unknown",
+      "eid64, u8; group handler not decoded"
+    ],
+    "0x690": [
+      "optional",
+      "group member's entity id changed (chunk travel) {old eid64, new eid64}"
+    ],
+    "0x69f": [
+      "unknown",
+      "eid64; group handler not decoded"
+    ],
+    "0x6a0": [
+      "variant",
+      "YouJoinedGroup signal; the server joins the player through 0x6bb rows"
+    ],
+    "0x6aa": [
+      "unknown",
+      "no-payload signal; handler not decoded"
+    ],
+    "0x6b1": [
+      "optional",
+      "group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot)"
+    ],
+    "0x6c9": [
+      "optional",
+      "group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot)"
+    ],
+    "0x6ca": [
+      "optional",
+      "group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot)"
+    ],
+    "0x216": [
+      "unknown",
+      "ability book message; handler not decoded"
+    ],
+    "0x255": [
+      "unknown",
+      "ability book message; handler not decoded"
+    ],
+    "0x269": [
+      "unknown",
+      "ability book message; handler not decoded"
+    ],
+    "0x21e": [
+      "content",
+      "song melody list refresh (SongMelodyList); songs use 0x-song messages already (docs/SONGS.md)"
+    ],
+    "0x221": [
+      "content",
+      "ability research (\"You have started learning\", \"Your study of %s is finished\"); research is content"
+    ],
+    "0x222": [
+      "content",
+      "ability research (\"You have started learning\", \"Your study of %s is finished\"); research is content"
+    ],
+    "0x223": [
+      "content",
+      "ability research (\"You have started learning\", \"Your study of %s is finished\"); research is content"
+    ],
+    "0x244": [
+      "optional",
+      "auto-attack failure {u8} (AutoAttackFailNoAbility, AutoAttackFailNoTarget)"
+    ],
+    "0x275": [
+      "optional",
+      "\"Select an attack\" prompt {i32, i32}"
+    ],
+    "0x276": [
+      "content",
+      "\"Warping\" / \"Warp failed\" (teleport abilities)"
+    ],
+    "0x277": [
+      "content",
+      "\"Warping\" / \"Warp failed\" (teleport abilities)"
+    ],
+    "0x28a": [
+      "variant",
+      "MsgSingleItemInfo for a merchant list; the server uses its merchant item messages"
+    ],
+    "0x28d": [
+      "optional",
+      "escrow merchant (consignment) window: state, item list, items"
+    ],
+    "0x294": [
+      "optional",
+      "escrow merchant (consignment) window: state, item list, items"
+    ],
+    "0x295": [
+      "optional",
+      "escrow merchant (consignment) window: state, item list, items"
+    ],
+    "0x296": [
+      "optional",
+      "escrow merchant (consignment) window: state, item list, items"
+    ],
+    "0x290": [
+      "optional",
+      "merchant error codes {u8} (\"not interested\", \"out of range\"); the client range-checks before asking"
+    ],
+    "0x29a": [
+      "optional",
+      "merchant error codes {u8} (\"not interested\", \"out of range\"); the client range-checks before asking"
+    ],
+    "0x293": [
+      "unknown",
+      "no-payload merchant signal"
     ]
   }
 }

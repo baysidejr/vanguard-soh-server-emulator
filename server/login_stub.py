@@ -4917,6 +4917,27 @@ def handle_group_event(state, event, payload):
         handle_raid_event(state, event, payload[10:])
     elif event == group.LEAVE:
         leave_group(state)
+    elif event in (group.BOOT, group.PROMOTE):
+        g = getattr(player, "group", None)
+        name = text.strip()
+        if not name and player.target:
+            other = state_by_char_id(player.target)
+            name = other["player"].name if other else ""
+        target = next((s for s in group_states(player) if s["player"].name.lower() == name.lower()), None) if g else None
+        if g is None:
+            send(client_notice(NOT_IN_GROUP))
+        elif g.leader is not player:
+            send(group.must_be_leader())
+        elif target is None or target is state:
+            send(build_system_text(f"{name or 'That player'} is not in your group.", SYSTEM_TEXT_ERROR))
+        elif event == group.BOOT:
+            leave_group(target, booted=True)
+        else:
+            g.leader = target["player"]
+            for m_state in group_states(player):
+                if m_state is not target:        # the new leader's own row: 0x6cb is a "programmer error"
+                    m_state["send"](group.leader_is(g.leader))
+            target["send"](group.you_are_leader())
     elif event == group.DISBAND:
         g = getattr(player, "group", None)
         if g and g.leader is player:
@@ -5285,7 +5306,7 @@ def handle_raid_event(state, event, data):
             s["send"](group.raid_role(who, role))
 
 
-def leave_group(state):
+def leave_group(state, booted=False):
     player = state["player"]
     g = getattr(player, "group", None)
     if g is None:
@@ -5293,16 +5314,18 @@ def leave_group(state):
     player.group = None
     g.members.remove(player)
     if "send" in state:
-        state["send"](group.you_left())
+        state["send"](group.you_booted() if booted else group.you_left())
     if len(g.members) <= 1:
         for m_state in [ONLINE[m.name.lower()] for m in g.members if m.name.lower() in ONLINE]:
+            if booted:
+                m_state["send"](group.member_booted(player))
             m_state["send"](group.disbanded())
             m_state["player"].group = None
         return
     if g.leader is player:
         g.leader = g.members[0]
     for m_state in [ONLINE[m.name.lower()] for m in g.members if m.name.lower() in ONLINE]:
-        m_state["send"](group.member_left(player))
+        m_state["send"](group.member_booted(player) if booted else group.member_left(player))
         m_state["send"](group.leader_is(g.leader))
 
 
