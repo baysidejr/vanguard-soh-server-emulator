@@ -555,9 +555,33 @@ CLASS_ATTRIBUTES = {
 }
 
 
+# Race attribute bonuses (placeholders; races_classes.RACES ids).
+RACE_ATTRIBUTES = {
+    2: {"constitution": 5, "strength": 3},          # Dwarf
+    3: {"intelligence": 4, "dexterity": 3},         # Dark Elf
+    4: {"wisdom": 4, "intelligence": 3},            # High Elf
+    5: {"dexterity": 5, "wisdom": 2},               # Wood Elf
+    6: {"intelligence": 5, "dexterity": 2},         # Gnome
+    7: {"dexterity": 4, "constitution": 3},         # Goblin
+    8: {"dexterity": 2, "intelligence": 2, "wisdom": 2},   # Half Elf
+    9: {"strength": 6, "constitution": 4},          # Lesser Giant
+    10: {"dexterity": 6},                           # Halfling
+    11: {"strength": 6, "constitution": 2},         # Orc
+    12: {"strength": 2, "wisdom": 2, "dexterity": 2},      # Kojani
+    13: {"intelligence": 2, "wisdom": 2, "dexterity": 2},  # Qaliathari
+    14: {"strength": 2, "constitution": 2, "wisdom": 2},   # Thestran
+    15: {"intelligence": 3, "constitution": 3},     # Mordebi
+    17: {"dexterity": 5, "wisdom": 2},              # Raki
+    18: {"strength": 4, "dexterity": 3},            # Vulmane
+    20: {"constitution": 5, "strength": 2},         # Varanthari
+    21: {"strength": 5, "constitution": 2},         # Varanjar
+    22: {"strength": 4, "constitution": 4},         # Kurashasa
+}
+
+
 def innate_bonus(player):
-    """{attribute: bonus} from the class and level (counted as the character's base)."""
-    out = {}
+    """{attribute: bonus} from the race, class and level (counted as the character's base)."""
+    out = dict(RACE_ATTRIBUTES.get(getattr(player, "race", None), {}))
     level = getattr(player, "level_number", 1)
     for n, (stat, start) in enumerate(CLASS_ATTRIBUTES.get(getattr(player, "klass", None), ())):
         out[stat] = out.get(stat, 0) + start + (level - 1) // (1 + n)

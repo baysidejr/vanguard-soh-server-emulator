@@ -84,6 +84,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Wildgrowth Forest outpost (chunk_n20_12):** Elara Thornwood (quests 5003-5004), Bram Oakhollow (forest_supplies), timber wolves, a thornback bear, webweavers, the Wildgrowth Wardens faction (1004) and the Wolf Pelt / Bear Claw / Spider Silk / Forester's Cloak items are all invented placeholders.
 
+**Character formulas:** race and class attribute bonuses, attribute growth per level, health/endurance/energy per level and per attribute point, hit/dodge/parry/block/crit chances, armor mitigation, ability power scaling and the kill XP curve were server data. All of them are placeholders in `server/zone.py` and `server/combat.py` (constants at the top of each formula).
+
 **Bags:** the real bags (names, slot counts, icons, where they drop or are sold) were server data. `server/content/items.json` has one placeholder, "Small Pouch" (8 slots, sold at camp_supplies); see docs/INVENTORY.md "Bags".
 
 **Fishing leaderboards:** the real servers ranked catches across the whole server; ours ranks the characters in characters.json (docs/FISHING.md).

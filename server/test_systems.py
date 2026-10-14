@@ -647,6 +647,9 @@ class ClassAttributeTests(unittest.TestCase):
         p.level_number = 12
         self.assertIn("intelligence", zone.apply_gear_stats(p))
         self.assertEqual(p.stats["intelligence"], 41)
+        p.race = 4                                                    # High Elf: +4 Wisdom, +3 Intelligence
+        zone.apply_gear_stats(p)
+        self.assertEqual((p.stats["intelligence"], p.stats["wisdom"]), (44, 20 + 2 + 5 + 4))
 
 
 if __name__ == "__main__":
