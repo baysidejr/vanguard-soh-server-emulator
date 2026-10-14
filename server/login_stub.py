@@ -7294,6 +7294,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.xp = char.get("adventure_xp", player.xp)
             player.learned = list(char.get("learned_abilities", []))
             player.spheres = {k: list(v) for k, v in char.get("spheres", {}).items()}
+            player.active_toolbelt = char.get("active_toolbelt")
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
                            + list(args.content.counters.get(cname, []))

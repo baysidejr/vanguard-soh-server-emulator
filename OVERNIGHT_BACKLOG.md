@@ -24,6 +24,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Persistence audit (saved vs loaded fields): the active crafting toolbelt was saved but never restored; now sent at zone-in.
 - 2026-10-13: Caster energy verified in game (Sorcerer). Fixed: a fresh login showed health/endurance/energy below their attribute-based maximums; pools now start full.
 - 2026-10-13: All guild world-request replies (errors, NoGuild) go out on the zone connection, where the client handles them (verified: "You can't change that member's notes.").
 - 2026-10-13: Canyon Widow and Webweaver spawn female (the only spider mesh package), so the client stops logging a failed mesh load for each one.

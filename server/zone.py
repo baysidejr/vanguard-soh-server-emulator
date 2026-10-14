@@ -101,6 +101,8 @@ def handle_unreal(send, state, payload, args):
         for m in inventory_messages(player):
             send(m)
         print("  <- ZONE events 0x195/0x197/0x1bb (inventory)")
+        if getattr(player, "active_toolbelt", None):
+            send(craft.active_toolbelt(player.active_toolbelt))   # saved choice (checkmark)
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")

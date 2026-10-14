@@ -193,7 +193,7 @@ Open points:
 ## Utilities and toolbelts (verified live 2026-10-13)
 
 - **Utilities:** a recipe step can need a consumable (`"utility": {"item", "qty"}`; Copper Ingot's "Pour Ingot" step needs Mould Oil, sold at the camp merchant for 5 copper). The client never checks tools or utilities; the server does on the action (0xf6): without the oil it answers 0x2ec {"Mould Oil", 1} ("Missing item: Mould Oil"), with it "You use Mould Oil." and one is taken from the bags. Tools and utilities in the bags are listed under their steps on the Table Setup screen with 0x300 {n, (item handle, step id, selected)} sent before the 0x2eb recipe OK (the catalyst under step -2).
-- **Toolbelts:** crafting equip slots are now known (66 tool, 67-69 the three toolbelts; vgmsg.EQUIP_SLOTS). `/craftingchangeactivetoolbelt 2` sends 0xa4 {68}; the server saves the active belt and answers 0xa5 {68} (the Toolbelts window checkmarks) and 0x30e (closes it). 0xf8 {belt handle} (clicking a belt in the Toolbelts window) does the same; it is not "use tool". Tools are still found anywhere in the bags; belt contents are not enforced yet.
+- **Toolbelts:** crafting equip slots are now known (66 tool, 67-69 the three toolbelts; vgmsg.EQUIP_SLOTS). `/craftingchangeactivetoolbelt 2` sends 0xa4 {68}; the server saves the active belt and answers 0xa5 {68} (the Toolbelts window checkmarks) and 0x30e (closes it). 0xf8 {belt handle} (clicking a belt in the Toolbelts window) does the same; it is not "use tool". Tools are still found anywhere in the bags; belt contents are not enforced yet. The saved belt is sent again (0xa5) at every zone-in, so the checkmark survives a relog.
 
 The rest is the client analysis (static, by a research agent).
 
