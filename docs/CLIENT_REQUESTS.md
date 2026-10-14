@@ -36,7 +36,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x189` |  | `0x4bfd97` |  |
 | `0x18a` |  | `0x5de743` `0x5ef0f2` |  |
 | `0x18f` |  | `0x4439b6` | ClaimName / Some Claim |
-| `0x191` | `/ropeaccept` | `0x5fc9a5` |  |
 | `0x1e7` |  | `0x4d1b9b` | No more items to be randomed! / GroupRandomLootInvitationPopup |
 | `0x214` |  | `0x5de6e5` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
@@ -112,6 +111,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 `/lockouttimerlist [name]` sends 0x4fc `{wstr name}` (empty for yourself). The lockout dispatcher `FUN_00588c50` takes s2c ids 0x4f2-0x502 (id - 0x4f2 indexes a 17-entry jump table at 0x588d9c); 0x4fd `{wstr name}` (`FUN_00583b70`) prints "Displaying lockout timers for %s:" and lists the timers the client already holds. The server answers 0x4fd with the player's name; with no raid lockouts on this server the list is empty. The messages that add timers are not decoded yet. `/sharelockouttimer <id>` (0x4fb `{i32 id}`) gets notice 159 "Invalid lockout timer.", and `/lockoutaccept` / `/lockoutdecline` (0x273 `{u8 1/0}`) get notice 158 "No one is offering you a lockout timer." (ids seen live).
 
 The unlock tool (template 1464362, 0x5e5 `{i32 target, i32 tool}`) has an answer, 0x5e6 `{i32 handle}`: "%s has been unlocked and can now be used without a Gold Membership." (FUN_00506d70). "Locked" means Gold-Membership-only, and this server has no membership tiers, so nothing is locked and the request stays unanswered.
+
+## Rescue rope (verified live 2026-10-14, two clients)
+
+`/rope` (FUN_0060d340) needs a **defensive** target (the name it checks is the client's defensive target; F1, clicking a player, or `/targetgroupmember`), prints "Attempting to throw %s a rope." and sends 0x190 with no payload. The server offers the rope to that player with 0x58a `{wstr thrower}` (FUN_005ed620): a "Help on the way!" popup, "Ranger would like to toss you a rope.", Accept / Decline. Accept (or `/ropeaccept`) sends 0x191 (no payload); the server moves the player beside the thrower and sends notice 465 "You grab the rope and are hauled to safety.", or 464 "No one is holding the other end of the rope." when there is no offer or the thrower left the chunk. Decline (`/ropedecline`) only closes the popup on the client. Notices 463 (rope cooldown) and 466 (can't see the other end) are not used: their conditions were server rules we don't know.
 
 ## Player reports (verified live 2026-10-14)
 

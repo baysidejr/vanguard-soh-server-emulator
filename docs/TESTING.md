@@ -40,6 +40,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `/report <name>` prints "Player report submitted", a second one within a minute "You must wait longer"; the report is in server/player_reports.json
 - [ ] `/walk` slows the character, `/run` restores it; `/hidehood` / `/hidehelm` / `/hidecloak` toggle (✦ the other client sees it) and stay after relogging
 - [ ] Walk, run, jump, fall damage; cross a chunk edge; `/unstuck`; `/camp` back to character select
+- [ ] ✦ Group with the second player, `/targetgroupmember 2`, `/rope`: they get "Help on the way!"; Accept hauls them to you ("You grab the rope and are hauled to safety.")
 - [ ] ✦ Two players see each other move, emote and chat (say, shout, tell, ooc, group)
 
 **Combat**

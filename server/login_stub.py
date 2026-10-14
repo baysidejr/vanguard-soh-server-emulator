@@ -1306,6 +1306,39 @@ def place_player(state, args, loc, chunk):
         travel_to_chunk(state, args, chunk[0], chunk[1], loc[0], loc[1], loc[2])
 
 
+# Rescue rope: /rope [name] (FUN_0060d340) checks for a target, prints "Attempting to throw %s
+# a rope." and sends 0x190 (no payload: the server uses the thrower's target). The target gets
+# 0x58a {wstr thrower} (FUN_005ed620): "%s would like to toss you a rope." with Accept
+# (/ropeaccept, 0x191, no payload) and Decline (client only). Accepting hauls them next to the
+# thrower: notice 465 "You grab the rope and are hauled to safety.", or 464 "No one is holding
+# the other end of the rope." when the thrower is gone or in another chunk.
+ROPE_THROW, ROPE_ACCEPT, ROPE_OFFER = 0x190, 0x191, 0x58A
+NO_ONE_HOLDING_ROPE, GRABBED_ROPE = 464, 465
+
+
+def rope_event(state, args, event):
+    player = state["player"]
+    if event == ROPE_THROW:
+        other = next((s for s in (state_by_char_id(state.get("def_target")), state_by_char_id(player.target))
+                      if s is not None and s is not state and s.get("player") is not None), None)
+        if other is None:
+            return
+        other["rope_from"] = player.char_id
+        other["send"](zone.zone_event(ROPE_OFFER, (player.name + "\0").encode("utf-16-le")))
+        return
+    thrower = state_by_char_id(state.pop("rope_from", None))
+    if thrower is None or thrower.get("player") is None or thrower.get("world") is not state.get("world"):
+        state["send"](client_notice(NO_ONE_HOLDING_ROPE))
+        return
+    dest = thrower.get("position") or thrower["player"].live_position or thrower["player"].spawned_at
+    if dest is None:
+        state["send"](client_notice(NO_ONE_HOLDING_ROPE))
+        return
+    place_player(state, args, (dest[0] + 100.0, dest[1], dest[2] + 50.0),
+                 getattr(thrower["player"], "chunk", None) or DEFAULT_CHUNK)
+    state["send"](client_notice(GRABBED_ROPE))
+
+
 def gm_command(state, args, event, data):
     player, send = state["player"], state["send"]
     if not (getattr(args, "dev_commands", False) or getattr(player, "access_level", 0) > 0):
@@ -8171,6 +8204,8 @@ def handle_message(sock, server, addr, state, payload, args):
                                            description=zone.ITEM_CONTENT.item(name).get("description", ""),
                                            **zone.item_equip_fields(name))
                 send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (ROPE_THROW, ROPE_ACCEPT) and state.get("player"):
+            rope_event(state, args, struct.unpack_from("<I", payload, 2)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CITY_STATUS and state.get("player"):
             city_status(state)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (LOCKOUT_SHARE, LOCKOUT_ANSWER) and state.get("player"):
