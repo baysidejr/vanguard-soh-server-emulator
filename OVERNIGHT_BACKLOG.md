@@ -24,6 +24,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Deconstruct requests (0x58e/0x58f) answered with 0x590 code -1, "<item> can not be deconstructed." (found by pairing request ids with the next s2c id). Reply checked live.
 - 2026-10-14: /mark (0x592) relayed to the group as 0x593 (same layout; group dispatcher handler FUN_004e1640). Request and relay seen live with two grouped clients; the overhead icon not checked visually.
 - 2026-10-14: Rescue rope: /rope 0x190 -> 0x58a offer popup -> /ropeaccept 0x191 -> haul + notice 465 (464 with no thrower). Verified live with two clients.
 - 2026-10-14: All 19 parley error codes (0x330) listed in docs/DIPLOMACY.md. Changing the strategy bar during a parley is now refused with code 2 and an out-of-range slot with code 3 (both the client's own messages).

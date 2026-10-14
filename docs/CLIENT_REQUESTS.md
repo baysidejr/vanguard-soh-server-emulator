@@ -58,8 +58,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x586` | `/.summongear` | `0x614118` | Error: You must have a defensive target to use this command on. |
 | `0x587` | `/.setuphotkeys` | `0x5fe4bf` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x588` | `/.classflag` | `0x6142a5` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
-| `0x58e` |  | `0x4fbd5f` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
-| `0x58f` |  | `0x4fbebf` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
 | `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
 | `0x5cf` |  | `0x484b3e` | PlacedBuildingNPCListSelection |
@@ -109,6 +107,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 `/lockouttimerlist [name]` sends 0x4fc `{wstr name}` (empty for yourself). The lockout dispatcher `FUN_00588c50` takes s2c ids 0x4f2-0x502 (id - 0x4f2 indexes a 17-entry jump table at 0x588d9c); 0x4fd `{wstr name}` (`FUN_00583b70`) prints "Displaying lockout timers for %s:" and lists the timers the client already holds. The server answers 0x4fd with the player's name; with no raid lockouts on this server the list is empty. The messages that add timers are not decoded yet. `/sharelockouttimer <id>` (0x4fb `{i32 id}`) gets notice 159 "Invalid lockout timer.", and `/lockoutaccept` / `/lockoutdecline` (0x273 `{u8 1/0}`) get notice 158 "No one is offering you a lockout timer." (ids seen live).
 
 The unlock tool (template 1464362, 0x5e5 `{i32 target, i32 tool}`) has an answer, 0x5e6 `{i32 handle}`: "%s has been unlocked and can now be used without a Gold Membership." (FUN_00506d70). "Locked" means Gold-Membership-only, and this server has no membership tiers, so nothing is locked and the request stays unanswered.
+
+## Deconstruction (2026-10-14)
+
+The item menu's deconstruct actions (UI switch around 0x68e71e) send 0x58e / 0x58f `{i32 item handle}` (FUN_004fbc40 / FUN_004fbda0; the client itself refuses containers and unknown items). The answer 0x590 `{i32 handle, i32 code}` (FUN_00506ee0) prints "You are not high enough level to deconstruct %s." for code -2 and "%s can not be deconstructed." otherwise. What an item breaks down into was server data, so the server answers -1 for everything, matching the tooltips' "This item cannot be deconstructed." The answer was checked live with `!event 0x590 ea030000 ffffffff` ("Travel Rations can not be deconstructed."); the menu action itself wasn't clicked.
 
 ## Target marks (2026-10-14)
 

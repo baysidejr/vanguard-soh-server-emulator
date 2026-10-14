@@ -4496,6 +4496,11 @@ def handle_social_zone(state, event, data):
 # {eid64 (group manager +0x30), eid64 target, i32 mark}. The group gets the same record back as
 # 0x593 (FUN_004e1640: finds the target's pawn and sets its mark, FUN_004d0420).
 MARK_REQUEST, MARK = 0x592, 0x593
+# Deconstructing an item (FUN_004fbc40 / FUN_004fbda0): 0x58e / 0x58f {i32 item handle}; the
+# client refuses containers itself. The answer 0x590 {i32 handle, i32 code} (FUN_00506ee0) prints
+# "You are not high enough level to deconstruct %s." for -2, else "%s can not be deconstructed.".
+# What an item breaks down into was server data, so every item answers "can not".
+DECONSTRUCT, DECONSTRUCT_RESULT, CANT_DECONSTRUCT = (0x58E, 0x58F), 0x590, -1
 
 
 def mark_target(state, data):
@@ -8219,6 +8224,9 @@ def handle_message(sock, server, addr, state, payload, args):
                                            description=zone.ITEM_CONTENT.item(name).get("description", ""),
                                            **zone.item_equip_fields(name))
                 send_message(sock, addr, state, zone.zone_event(ITEM_LINK_REQUEST, rec))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in DECONSTRUCT and state.get("player") and len(payload) >= 14:
+            handle = struct.unpack_from("<i", payload, 10)[0]
+            send_message(sock, addr, state, zone.zone_event(DECONSTRUCT_RESULT, struct.pack("<ii", handle, CANT_DECONSTRUCT)))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MARK_REQUEST and state.get("player"):
             print(f"  >>> ZONE mark {payload[10:].hex(' ')}")
             mark_target(state, payload[10:])
