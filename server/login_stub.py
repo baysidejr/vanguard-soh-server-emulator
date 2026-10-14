@@ -439,7 +439,7 @@ def use_ability(state, args, player, ability):
         if visual:
             send(combat.display_ability(player.char_id, player.char_id, visual))
         if spec["kind"] == "heal":
-            amount = random.randint(*spec["amount"])
+            amount = random.randint(*combat.scaled(player, spec["amount"], "heal"))
             ts = heal_target(state)
             who = ts["player"]
             who.health = min(who.health + amount, who.stats["hit_points"])
@@ -466,7 +466,8 @@ def use_ability(state, args, player, ability):
         visual = ability[1] if ability[1] >= 500000 else None
         if visual:
             send(combat.display_ability(player.char_id, player.target, visual))
-        duel_strike(state, player, player.duel_opponent, name, combat.ABILITY_DAMAGE.get(ability[1], (8, 16)))
+        duel_strike(state, player, player.duel_opponent, name,
+                    combat.scaled(player, combat.ABILITY_DAMAGE.get(ability[1], (8, 16))))
     else:
         lines, npc = combat.use_ability(player, ability)
         for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
@@ -802,7 +803,7 @@ def apply_dot(state, player, npc, name, spec, now):
     player.effects[:] = [e for e in player.effects if not (e["id"] == eid and e.get("npc") is npc)]
     desc = f"Deals damage every {spec['interval']:g} seconds."
     player.effects.append({"kind": "dot", "id": eid, "name": name, "desc": desc, "icon": spec["icon"],
-                           "npc": npc, "damage": spec["damage"], "ticks": spec["ticks"],
+                           "npc": npc, "damage": combat.scaled(player, spec["damage"]), "ticks": spec["ticks"],
                            "interval": spec["interval"], "next": now + spec["interval"]})
     if player.target == npc.entity_id:
         state["send"](effects.target_effect_add(eid, name, desc, spec["icon"], player.char_id))

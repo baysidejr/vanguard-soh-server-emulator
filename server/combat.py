@@ -167,6 +167,28 @@ ABILITY_VISUALS = {1001: 570001,   # BRUTAL_STRIKE_I
 
 # Damage range per ability id (MsgAbilityInfo field 20); 0 = no damage (buffs, shouts).
 ABILITY_DAMAGE = {1001: (8, 14), 1002: (5, 9), 1003: (12, 20), 1004: (0, 0)}
+# Ability power (placeholders): +8% per level above 1, and +1% per point of the class's
+# main attribute above its default (Strength for fighters, Intelligence for casters'
+# damage, Wisdom for heals).
+POWER_PER_LEVEL, POWER_PER_POINT = 0.08, 0.01
+
+
+def power(player, kind="damage"):
+    """Multiplier for an ability's damage ("damage") or healing ("heal")."""
+    level = getattr(player, "mentor_level", None) or getattr(player, "level_number", 1)
+    if kind == "heal":
+        stat, base = "wisdom", 20
+    elif getattr(player, "klass", None) in ENERGY_CLASSES:
+        stat, base = "intelligence", 20
+    else:
+        stat, base = "strength", 40
+    points = getattr(player, "stats", {}).get(stat, base) - base
+    return max(0.1, 1 + POWER_PER_LEVEL * (level - 1) + POWER_PER_POINT * points)
+
+
+def scaled(player, lo_hi, kind="damage"):
+    m = power(player, kind)
+    return int(round(lo_hi[0] * m)), int(round(lo_hi[1] * m))
 
 
 def use_ability(player, ability, rng=random):
@@ -186,7 +208,7 @@ def use_ability(player, ability, rng=random):
     error = pay_cost(player, ability[5])
     if error:
         return [(error, "error")], None
-    lo, hi = ABILITY_DAMAGE.get(ability[1], (8, 16))
+    lo, hi = scaled(player, ABILITY_DAMAGE.get(ability[1], (8, 16)))
     # Class abilities use their Assets/Abilities id directly (class_abilities.py).
     visual = ABILITY_VISUALS.get(ability[1], ability[1] if ability[1] >= 500000 else None)
     if hi == 0:

@@ -626,5 +626,16 @@ class ResourceTests(unittest.TestCase):
         self.assertEqual(p.stats["energy"], 100 + 5 * zone.POOL_PER_POINT)
 
 
+class PowerTests(unittest.TestCase):
+    def test_power(self):
+        lvl1 = types.SimpleNamespace(level_number=1, klass=28, stats={"strength": 40, "wisdom": 20})
+        self.assertEqual(combat.scaled(lvl1, (10, 20)), (10, 20))
+        lvl11 = types.SimpleNamespace(level_number=11, klass=28, stats={"strength": 50, "wisdom": 20})
+        self.assertEqual(combat.scaled(lvl11, (10, 20)), (19, 38))          # 1 + 0.8 + 0.1
+        caster = types.SimpleNamespace(level_number=1, klass=25, stats={"intelligence": 30, "wisdom": 25})
+        self.assertEqual(combat.scaled(caster, (100, 100)), (110, 110))
+        self.assertEqual(combat.scaled(caster, (100, 100), "heal"), (105, 105))
+
+
 if __name__ == "__main__":
     unittest.main()
