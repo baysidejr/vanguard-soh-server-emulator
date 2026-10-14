@@ -270,13 +270,23 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         npc.killer = player
         player.auto_attack = False
         lines.append((f"You have slain {npc.name}!", "white"))
-        player.pending_rewards.append(KILL_XP)
+        player.pending_rewards.append(kill_xp(player, npc))
     else:
         add_hate(npc, player, dmg)                # fights back from the tick (npc_turns)
     return lines, npc
 
 
-KILL_XP = 150
+KILL_XP = 150                # experience for a kill at the player's own level (placeholder)
+XP_PER_LEVEL_DIFF = 0.15     # +15% per level the NPC is above, -15% per level below
+GRAY_LEVELS = 6              # NPCs this many levels below give nothing
+
+
+def kill_xp(player, npc):
+    """Experience for killing npc: scaled by the level difference; trivial kills give 0."""
+    diff = getattr(npc, "level", 1) - getattr(player, "level_number", 1)
+    if diff <= -GRAY_LEVELS:
+        return 0
+    return max(1, int(round(KILL_XP * (1 + XP_PER_LEVEL_DIFF * diff))))
 XP_EVENT = 0x3D5             # MsgExperienceRewardResult (FUN_005e3510)
 
 

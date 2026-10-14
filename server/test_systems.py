@@ -597,6 +597,10 @@ class AvoidanceTests(unittest.TestCase):
         rng = _r.Random(1)
         high = sum(combat.roll_outcome(rng, 1, 20) == effects.MISS for _ in range(2000))
         self.assertGreater(high, 600)
+        p = types.SimpleNamespace(level_number=10)
+        self.assertEqual(combat.kill_xp(p, types.SimpleNamespace(level=10)), combat.KILL_XP)
+        self.assertGreater(combat.kill_xp(p, types.SimpleNamespace(level=12)), combat.KILL_XP)
+        self.assertEqual(combat.kill_xp(p, types.SimpleNamespace(level=4)), 0)          # gray
         msg = effects.combat_text(1, 2, "", 0, kind=0, outcome=effects.DODGE)
         self.assertEqual(msg[10 + 8 + 8 + 4 + 1 + 1 + 4 + 4], effects.DODGE)
 

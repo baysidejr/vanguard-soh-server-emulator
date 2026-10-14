@@ -55,3 +55,9 @@ The client moves its own pawn, so the server holds a player still by replicating
 ## Avoidance and critical hits (verified live 2026-10-13)
 
 The 0x27b outcome byte (FUN_004368b0) picks the sentence: **0/1 miss** ("Timber Wolf misses you!", "You miss Rat!"; for spell damage types 7-12 it is a resist), **2 hit**, **3 critical hit**, **4 block**, **5 dodge** ("You dodge Timber Wolf's attack.", "Rat dodges your attack."), **6 parry**. Every melee swing both ways rolls one outcome (`combat.roll_outcome`, placeholder numbers): miss 6% + 2% per level the defender is above the attacker; dodge 4% + 0.1% per Dexterity above 30; parry 4% when the defender holds a weapon (players with a primary or two-handed weapon; NPCs of the playable races, not creatures); block 6% with a shield; critical 5% + 0.1% per attacker Dexterity above 30, for 1.5x damage. Avoided swings do no damage.
+
+The character sheet's Dodge, Parry and Block show these chances (parry only with a weapon in hand, block only with a shield).
+
+## Kill experience (verified live 2026-10-13)
+
+A kill gives 150 XP at the player's own level, +15% per level the NPC is above and -15% per level below; NPCs 6 or more levels below give nothing (`combat.kill_xp`, placeholder curve). Level 13 Ranger killing a level 9 Timber Wolf: "You gain 60 adventuring experience!". Group sharing and the group bonus apply on top.

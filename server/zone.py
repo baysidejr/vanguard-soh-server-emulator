@@ -382,7 +382,10 @@ def score_message(player, probe=False):
         ranged=-25.0, spell_attack=-10.0,
         defense_input=6.0, melee_mitigation=1.0 - combat.mitigate(1000, getattr(player, "armor_class", 0)) / 1000.0,
         spell_mitigation=0.02,
-        melee_evasion=0.05, spell_evasion=0.02, block=5.0, dodge=8.0, parry=6.0,
+        melee_evasion=0.05, spell_evasion=0.02,
+        block=100 * combat.BASE_BLOCK if any(ITEM_CONTENT.item(e[1]).get("type") == "shield" for e in getattr(player, "equipment", [])) else 0.0,
+        dodge=100 * (combat.BASE_DODGE + combat.DODGE_PER_DEX * max(0, getattr(player, "stats", {}).get("dexterity", 30) - 30)),
+        parry=100 * combat.BASE_PARRY if any(e[3] in (28, 36) for e in getattr(player, "equipment", [])) else 0.0,
         hp_regen_s=combat.REGEN_PER_SECOND + getattr(player, "regen_bonus", 0) / 6.0,
         endurance_regen_s=5.0, energy_regen_s=3.0))
 

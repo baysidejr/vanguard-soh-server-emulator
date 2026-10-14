@@ -68,7 +68,7 @@ class CombatMessages(unittest.TestCase):
                                         rng=random.Random(2))   # seed 2 hits (seed 1 rolls a miss)
         self.assertIs(hit, npc)
         self.assertFalse(npc.alive)
-        self.assertEqual(player.pending_rewards, [combat.KILL_XP])
+        self.assertEqual(player.pending_rewards, [combat.kill_xp(player, npc)])
         events = [header(m)[0] for m in combat.loot_messages(npc)]
         self.assertEqual(events, [0x1ED, 0x1E8] + [0x1F2] * len(combat.LOOT_TABLE) + [0x1EF])
         out = combat.take_loot(player, npc, -1)

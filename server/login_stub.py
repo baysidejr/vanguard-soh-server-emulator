@@ -869,7 +869,7 @@ def effects_tick(state, args, now):
             if not npc.alive:
                 npc.died_at, npc.killer = now, player
                 lines.append((f"You have slain {npc.name}!", "white"))
-                player.pending_rewards.append(combat.KILL_XP)
+                player.pending_rewards.append(combat.kill_xp(player, npc))
             else:
                 combat.add_hate(npc, player, dmg)
             for m in combat_results(state, args, player, lines, npc, player.health > 0, player.auto_attack):
