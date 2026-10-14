@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Robustness: every packet and tick runs under a guard that logs the traceback instead of stopping the server for everyone. Fuzzed 3000 malformed packets at all three ports: server kept running, no errors (unauthenticated traffic is dropped early).
 - 2026-10-13: Login smoke test runs all 13 zone-login hooks, and a guard test fails if a new hook is added without it. Mail sending re-checked live after the item-restriction changes.
 - 2026-10-13: Form recovery bar confirmed on screen with a Psionicist test character; form lost on death and re-applied on release verified live. `!die` dev command.
 - Parked: item links in chat. Markup and click path found (docs/CHAT.md); the server's reply to 0x158 is still unknown.

@@ -12,6 +12,7 @@ import random
 import select
 import socket
 import struct
+import sys
 import time
 import types
 import traceback
@@ -305,13 +306,24 @@ def main():
                 # Windows reports an ICMP "port unreachable" from a client that
                 # went away as an error on the next recvfrom; just carry on.
                 continue
-            serve(sock, names[sock], data, addr, clients, args)
+            guarded(serve, sock, names[sock], data, addr, clients, args)
         if time.time() >= next_move:
             next_move = time.time() + MOVE_TICK
-            movement_tick(zone_sock, clients, args)
+            guarded(movement_tick, zone_sock, clients, args)
         if time.time() >= next_tick:
             next_tick = time.time() + 1
-            world_tick(zone_sock, clients, args)
+            guarded(world_tick, zone_sock, clients, args)
+
+
+def guarded(fn, *a):
+    """Run one packet or tick; a bug or a malformed packet is logged instead of
+    stopping the server for everyone."""
+    try:
+        fn(*a)
+    except Exception:
+        import traceback
+        print(f"  !!! error in {fn.__name__} (server keeps running):")
+        traceback.print_exc(file=sys.stdout)
 
 
 MOVE_TICK = 0.25
