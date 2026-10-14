@@ -91,6 +91,15 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual([c['count'] for c in records[0]['archive_objective_counters']],[6,3])
         self.assertIsNone(records[0]['steps'])
 
+    def test_inline_tracker_after_prose_is_a_partial_candidate(self):
+        for separator in (' - ', ' '):
+            html = page('Fixture Quest', '<h2>Objectives</h2><div>Return to the giver.' + separator + 'Dockworkers Roused (0/4)</div>')
+            records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
+            self.assertEqual(records[0]['archive_objective_counters'][0]['label'],'Dockworkers Roused')
+            self.assertEqual(records[0]['candidate_steps'][0]['count'],4)
+            self.assertIsNone(records[0]['steps'])
+            self.assertIsNone(records[0]['candidate_steps'][0]['kind'])
+
     def test_timing_units_are_converted_only_when_explicit(self):
         html = page('Fixture Ability','''<dl class="kv"><div><dt>Cast time</dt><dd>10.0</dd></div>
             <div><dt>Refresh</dt><dd>2 minutes</dd></div><div><dt>Range</dt><dd>5m</dd></div>

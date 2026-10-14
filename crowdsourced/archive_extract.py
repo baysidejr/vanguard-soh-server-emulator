@@ -211,8 +211,9 @@ def enrich_quest(record, main):
     objective_nodes = section_nodes(main, 'Objectives')
     objective_text = '\n'.join(node.get_text('\n', strip=True) for node in objective_nodes)
     counters = []
-    for match in re.finditer(r'(?m)(?:^|(?<=\n)|(?<=\)))\s*([^\n()]{1,100}?)\s*\((?:\d+\s*/\s*)?(\d+)\)', objective_text):
-        label, count = match.group(1).strip(), int(match.group(2))
+    for match in re.finditer(r'(?m)(?:^|(?<=\n)|(?<=\))|(?<= - )|(?<=\. ))\s*([^\n().!?]{1,100}?)\s*\((?:\d+\s*/\s*)?(\d+)\)', objective_text):
+        label = re.sub(r'^-\s+', '', match.group(1).strip())
+        count = int(match.group(2))
         if not label or re.search(r'[.!?]', label):
             continue
         # This is an explicit tracker counter, not a deduction from a walkthrough.
