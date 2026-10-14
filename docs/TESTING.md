@@ -33,6 +33,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 
 **Login and world**
 - [ ] Log in, see "Stub World", create a character, delete one, enter the world
+- [ ] A female character shows as female on the select screen and in the world
 - [ ] HUD, minimap, chat, message of the day; character window (C) shows attributes, health, armor class
 - [ ] Walk, run, jump, fall damage; cross a chunk edge; `/unstuck`; `/camp` back to character select
 - [ ] ✦ Two players see each other move, emote and chat (say, shout, tell, ooc, group)
@@ -42,6 +43,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Hotbar abilities, cooldown sweep, cast bars, damage over time icon on the target
 - [ ] Warrior chain: Brutal Strike → Savage Cut → finisher; counter Venom Spit with Riposte
 - [ ] Get stunned, rooted and feared (`!cc stun`, `!cc root`, `!cc fear`)
+- [ ] `/forcecombatstance on` keeps the combat pose; as a Psionicist, pick a mindset, `/applyformondeath on`, `!die`, release: the mindset comes back
 - [ ] Kill a mob, XP bar rises, level up heals you and raises attributes
 - [ ] Die, release, recover the tombstone, bind at the altar
 - [ ] ✦ Duel to 1 HP; a challenge times out after 30 s
@@ -50,6 +52,8 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Loot a corpse; buy and sell from Orin; buyback tab; repair
 - [ ] Equip gear: model changes, tooltip shows stats, attributes on the sheet change
 - [ ] Ctrl+click splits a stack; Small Pouch on the main bar holds 8 items
+- [ ] Service items (`!give` each): Experience Debt Clearance (refused with a tombstone out), Gender Change, Race Change, Character Rename (a taken name is refused), Unbinding Tool on a Bind On Equip item
+- [ ] Jewelry tooltip says "Required Level: 1 Adventuring"; Copper Ore says "Crafting Resource"
 - [ ] Bank items and coins; mail a letter with an item; list and buy on the broker
 - [ ] ✦ Trade an item; group loot with Need/Greed/Pass; master looter `/giveplayerlootitem`
 
@@ -58,6 +62,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Wildgrowth Forest (`!tp -223200 29400 3500`): Elara's two quests, the Forester's Cloak
 - [ ] Conversation trees, faction colors on name plates, `/showfactions`
 - [ ] Win and lose a parley; a parley win unlocks the Thestran Guard's new line
+- [ ] `/decksave 1`, `/deckclear`, `/deckload 1` re-slot the strategy bar
 
 **Crafting and gathering**
 - [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades
