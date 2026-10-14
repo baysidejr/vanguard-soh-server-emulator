@@ -60,7 +60,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x588` | `/.classflag` | `0x6142a5` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x58e` |  | `0x4fbd5f` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
 | `0x58f` |  | `0x4fbebf` | Programmer error: no deconstruct item for handle / You cannot deconstruct a container. |
-| `0x592` |  | `0x4d5476` | bShowLFGButton |
+| `0x592` | `/mark <STAR, FIST, DIAMOND, SPADE, COG, FIRE, TRIDENT, PLUS, CLEAR> [DEFENSIVE or OFFENSIVE]` (also the target menu's MOMark* entries) | `0x4d5476` | group target marks (FUN_0060c150 -> FUN_004d5400): the group's id (manager +0x30/+0x34), the target and the mark. No pawn property holds a mark, and the group message that would show it to the group is not found yet |
 | `0x5a7` |  | `0x5e29db` | Resurrection / Resurrection |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
 | `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
