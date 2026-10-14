@@ -60,7 +60,7 @@ The character sheet's Dodge, Parry and Block show these chances (parry only with
 
 ## Kill experience (verified live 2026-10-13)
 
-A kill gives 150 XP at the player's own level, +15% per level the NPC is above and -15% per level below; NPCs 6 or more levels below give nothing (`combat.kill_xp`, placeholder curve). Level 13 Ranger killing a level 9 Timber Wolf: "You gain 60 adventuring experience!". Group sharing and the group bonus apply on top.
+A kill gives 150 XP at the player's own level, +15% per level the NPC is above and -15% per level below; NPCs 6 or more levels below give nothing (`combat.kill_xp`, placeholder curve). Level 13 Ranger killing a level 9 Timber Wolf: "You gain 60 adventuring experience!". Group sharing and the group bonus apply on top. Each level needs 12% more experience than the one before (`zone.xp_for_level`: 1000 for level 1, 3900 at 13, 8610 at 20; cap 50; placeholder curve); the XP bar shows progress toward it (level 13 Ranger with 878 XP: 22.51%).
 
 ## Ability power (verified live 2026-10-13)
 

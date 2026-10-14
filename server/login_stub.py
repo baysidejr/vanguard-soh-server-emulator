@@ -1006,8 +1006,8 @@ def award_xp(player, amount, source, grouped=False):
             out.append(build_system_text("You have paid off your experience debt.", SYSTEM_TEXT_WHITE))
     player.xp += amount
     leveled = False
-    while player.xp >= zone.XP_PER_LEVEL:
-        player.xp -= zone.XP_PER_LEVEL
+    while player.xp >= zone.xp_for_level(player.level_number) and player.level_number < zone.LEVEL_CAP:
+        player.xp -= zone.xp_for_level(player.level_number)
         player.level_number += 1
         out.append(build_system_text(f"You have reached level {player.level_number}!",
                                      SYSTEM_TEXT_WHITE))

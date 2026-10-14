@@ -334,7 +334,13 @@ def close_actor(state, entity_id):
     return unreal_message(ue.build([ue.actor_close_bunch(channel)]))
 
 
-XP_PER_LEVEL = 1000
+XP_PER_LEVEL = 1000            # experience from level 1 to 2 (placeholder curve below)
+LEVEL_CAP = 50
+
+
+def xp_for_level(level):
+    """Experience needed to go from level to level + 1: grows 12% a level (placeholder)."""
+    return int(round(XP_PER_LEVEL * 1.12 ** (max(1, level) - 1) / 10)) * 10
 
 
 CRAFTING, DIPLOMACY = 1, 2              # spheres (0 is adventuring), as in 0x3d5 kind and 0x713
@@ -370,9 +376,9 @@ def score_message(player, probe=False):
     return zone_event(0x3DE, vgmsg.score(probe=probe,
         bind_x=loc[0], bind_y=loc[1], bind_z=loc[2], race=player.race,
         adv_class=player.klass, adv_level=getattr(player, "mentor_level", None) or player.level_number,
-        adv_exp_amount=player.xp, adv_exp_amount_next=XP_PER_LEVEL,
-        adv_exp_frac=player.xp / XP_PER_LEVEL,
-        adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / XP_PER_LEVEL),
+        adv_exp_amount=player.xp, adv_exp_amount_next=xp_for_level(player.level_number),
+        adv_exp_frac=player.xp / xp_for_level(player.level_number),
+        adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / xp_for_level(player.level_number)),
         armor_class=getattr(player, "armor_class", 0), craft_level=sphere(player, CRAFTING)[0], harvest_level=1,
         dip_level=sphere(player, DIPLOMACY)[0],
         craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,

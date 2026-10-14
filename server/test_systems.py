@@ -652,5 +652,12 @@ class ClassAttributeTests(unittest.TestCase):
         self.assertEqual((p.stats["intelligence"], p.stats["wisdom"]), (44, 20 + 2 + 5 + 4))
 
 
+class XpCurveTests(unittest.TestCase):
+    def test_curve(self):
+        self.assertEqual(zone.xp_for_level(1), 1000)
+        self.assertGreater(zone.xp_for_level(20), zone.xp_for_level(10))
+        self.assertEqual(zone.xp_for_level(2), 1120)
+
+
 if __name__ == "__main__":
     unittest.main()
