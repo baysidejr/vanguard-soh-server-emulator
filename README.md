@@ -81,13 +81,13 @@ The unmodified client, talking only to this emulator:
 - [x] Travel journal (Locations tab: the chunk's merchants, trainers, services, stations, riftways and your house); in-game bug reports (/bug); Bard songs (compose, save, play, stop, energy cost); minions (the Minions window, timed skeleton servants from a Bone Charm); Psionicist mindsets (combat forms bar); fishing achievements and best-catch leaderboards (Achievements tab); quest feedback window (--quest-feedback)
 - [x] Splitting stacks (Ctrl+click), bags on the main bar (Small Pouch), master looter /giveplayerlootitem, duel challenge timeouts, brotherhood XP bonus, parley item rewards, diplomacy card refresh timers, civic diplomacy, class summons (Necromancer abomination, Shaman attendants, Psionicist simulacrum), Fear
 - [x] Maintained stances (Effects Maintained window, right-click to cancel); merchant buyback tab; encounter (group-of-mobs) display; /unstuck; resist chances; NPCs calling nearby friends for help
-- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker); locations discovered by walking near them; fishing combos (learned patterns shown on the Achievements page); minion special attacks; dialogue unlocked by winning a parley; combat reaction windows close when their enemy dies
+- [x] GM NPC list (`!npclist`) for content building; travel-journal tracking with `/traveldirections` (compass marker); locations discovered by walking near them; fishing combos (learned patterns shown on the Achievements page); minion special attacks; dialogue unlocked by winning a parley; NPC stuns and roots on players; combat reaction windows close when their enemy dies
 
 ### Not done yet
 - [ ] Doors: none exist in the shipped maps or our cottage (checked; see HOUSING.md). The protocol to open one is worked out for when a building with a door is used
 - [ ] Flying mounts (`!mount <id> fly` does not lift off yet), mount barding
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
-- [ ] Song interruption by fear or flying (NPCs don't cast fear yet)
+- [ ] Fear on players (forcing the player to run); songs are interrupted by stuns
 - [ ] Combat-form ability restrictions (the form recovery bar is sent but not confirmed on screen)
 - [ ] Server-sent travel routes (0x384)
 - [ ] Combat chain reset message (0x393)

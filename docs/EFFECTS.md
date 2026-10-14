@@ -45,3 +45,9 @@ Abilities with abilities.json `"stance": true` (the Ranger's Offensive / Precisi
 ## Fear (verified live 2026-10-13)
 
 abilities.json `"kind": "fear", "duration": s` (Necromancer "Fear I": 1.5 s cast, 8 s): the targeted NPC runs straight away from the caster at 80% speed and doesn't swing until it wears off; it keeps its hate and comes back afterwards. Chat: "Canyon Widow flees in terror!". Server: `combat.chase_step` / `combat.npc_turns` check `npc.feared_until`.
+
+## Stuns and roots on players (verified live 2026-10-13)
+
+The client moves its own pawn, so the server holds a player still by replicating the pawn's **GroundSpeed = 0** and restores it (with the mount bonus) when the effect ends. mobs.json abilities with `"kind": "stun"` or `"root"` and `"duration"` (the Robed Wanderer's Dazing Blow: 15%, 3 s) put a harmful effect icon up and print "Robed Wanderer's Dazing Blow stuns you!"; "You can move again." when it wears off. A stun also blocks abilities ("You are stunned!") and interrupts a playing Bard song. Measured with `!cc root 8` (dev): holding W moved 1008 units in 3 s before, 0 while rooted, 1009 after.
+
+Fear on players (running them away) is not done: it would need the server to steer the client's pawn.
