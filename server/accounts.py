@@ -19,6 +19,7 @@ Command line (run from server/):
     python accounts.py create <username> <password>
     python accounts.py password <username> <new password>
     python accounts.py token <username> <launcher token>
+    python accounts.py untoken <launcher token>  (e.g. the dev test tokens, on a public server)
     python accounts.py suspend <username>      (and unsuspend <username>)
     python accounts.py list
 """
@@ -241,12 +242,22 @@ def ensure_dev_account(tokens=("12345678", "22222222")):
 
 
 def main(argv):
+    global ACCOUNTS_FILE
+    if argv[:1] == ["--data-dir"] and len(argv) >= 2:
+        # The server's --data-dir, when it keeps its data elsewhere.
+        ACCOUNTS_FILE = os.path.join(os.path.abspath(argv[1]), "accounts.json")
+        argv = argv[2:]
     if len(argv) >= 3 and argv[0] == "create":
         err = create(argv[1], argv[2])
     elif len(argv) >= 3 and argv[0] == "password":
         err = set_password(argv[1], argv[2])
     elif len(argv) >= 3 and argv[0] == "token":
         err = set_token(argv[1], argv[2])
+    elif len(argv) >= 2 and argv[0] == "untoken":
+        data = load()
+        err = None if data["launcher_tokens"].pop(argv[1], None) else "No such launcher token."
+        if err is None:
+            save(data)
     elif len(argv) >= 2 and argv[0] in ("suspend", "unsuspend"):
         err = set_suspended(argv[1], argv[0] == "suspend")
     elif argv[:1] == ["list"]:

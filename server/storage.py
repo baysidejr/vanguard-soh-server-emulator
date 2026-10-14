@@ -247,6 +247,8 @@ def import_file(src, folder):
 
 def main(argv):
     here = os.path.dirname(os.path.abspath(__file__))
+    if argv[:1] == ["--data-dir"] and len(argv) >= 2:
+        here, argv = os.path.abspath(argv[1]), argv[2:]     # the server's --data-dir
     if argv[:1] == ["export"]:
         out = argv[1] if len(argv) > 1 else os.path.join(here, "export")
         for n in export(here, out):
