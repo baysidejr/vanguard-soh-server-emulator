@@ -3552,6 +3552,11 @@ def stop_song(state, quiet=False):
 
 def play_song(state, song):
     player, send = state["player"], state["send"]
+    cc = getattr(player, "cc", None)
+    if cc is not None and time.time() < cc["until"] and cc["kind"] in ("stun", "fear"):
+        # The client's own refusals: 483 CantUseSongFeared, or the stunned ability failure.
+        send(client_notice(CANT_USE_SONG_FEARED) if cc["kind"] == "fear" else effects.ability_failed(effects.STUNNED))
+        return
     by_id = {aid: spec for _, aid, _, spec in player.song_parts}
     stop_song(state, quiet=True)
     spec = songs.effect(song, by_id)
@@ -8206,6 +8211,7 @@ PLEASE_TARGET_PC, TRADE_NO_SPACE, DEF_TARGET_NOT_PC, NO_SPACE, NO_ROOM_FOR_REWAR
 NEED_TARGET, NOT_ATTACKABLE, SITE_MISSING_MATERIALS, DONT_OWN_PLOT = 120, 340, 403, 425
 CANT_DESTROY_IN_COMBAT, CANT_CHANGE_EQUIPMENT_WHILE_CRAFTING, CANT_BIND_IN_COMBAT = 94, 95, 130
 FINISH_COMBAT_BEFORE_CRAFTING = 144
+CANT_USE_SONG_FEARED = 483
 
 
 def client_notice(code):

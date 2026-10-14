@@ -424,6 +424,26 @@ class GmSummonGroupTests(unittest.TestCase):
         self.assertEqual(moved, [("A", (100.0, 0.0, 50.0)), ("B", (160.0, 0.0, 50.0))])
 
 
+class SongCrowdControlTests(unittest.TestCase):
+    def test_no_song_while_feared_or_stunned(self):
+        import struct
+        import time
+        import effects
+        for kind, expect in (("fear", ("notice", 483)), ("stun", ("fail", effects.STUNNED))):
+            sent = []
+            player = zone.Player(name="Bard", char_id=1, level="c1")
+            player.cc = {"kind": kind, "until": time.time() + 10}
+            player.song_parts = []
+            login_stub.play_song({"player": player, "send": sent.append}, {"name": "Tune"})
+            self.assertEqual(len(sent), 1)
+            mid = struct.unpack_from("<I", sent[0], 2)[0]
+            if expect[0] == "notice":
+                self.assertEqual((mid, struct.unpack_from("<h", sent[0], 10)[0]), (0x0E, 483))
+            else:
+                self.assertEqual(sent[0], effects.ability_failed(expect[1]))
+            self.assertFalse(getattr(player, "playing_song", None))
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json
