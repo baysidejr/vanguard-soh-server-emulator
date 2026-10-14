@@ -71,6 +71,10 @@ def effect_facts(value):
     for match in re.finditer(critical, value, re.I):
         facts.append(dict(kind='critical_chance_increase_observation', values=[numeric(match.group(1))],
             unit='percent', basis_unresolved=True, conditions_unparsed=True))
+    modifier = r'([+-]\d+(?:\.\d+)?)\s+(Arcane Spell Damage|Spiritual Spell Damage|Health|Arcane Absorption|Spiritual Absorption)\b'
+    for match in re.finditer(modifier, value, re.I):
+        facts.append(dict(kind='effect_stat_modifier_observation', stat_recorded=match.group(2),
+            values=[numeric(match.group(1))], conditions_unparsed=True))
     return facts
 
 

@@ -10,6 +10,12 @@ from test_archive import page
 
 
 class AbilityEffectTests(unittest.TestCase):
+    def test_signed_effect_stat_modifiers_preserve_labels_and_scope(self):
+        facts=effect_facts('+8 Arcane Spell Damage -3 Spiritual Absorption +8% Health')
+        self.assertEqual([f['values'] for f in facts],[[8],[-3]])
+        self.assertEqual([f['stat_recorded'] for f in facts],['Arcane Spell Damage','Spiritual Absorption'])
+        self.assertTrue(all(f['conditions_unparsed'] for f in facts))
+
     def test_item_chance_observations_do_not_invent_healing_or_percentage_basis(self):
         fact=effect_facts('15% chance on attack to heal wearer +8 Health')[0]
         self.assertEqual(fact['chance_percent'],15)
