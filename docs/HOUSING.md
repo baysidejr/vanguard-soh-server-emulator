@@ -230,6 +230,19 @@ All of these go through FUN_004cfb00 / FUN_004cfb50. UI command ids come from FU
 | 0x47b | {plotId} | set / relinquish guild HQ |
 | 0x47c | {i32, i32, wstr "", bool8 accept} | guild leader's answer |
 
+**Guild headquarters (verified live 2026-10-14, one client: Ranger owns plot 101 and leads Night Watch).** The rules come from the client's own tooltips (VGClient.int `BuildingGuildHeadQuarters`, `BuildingGuildHeadQuartersRemove`). The owner must be in a guild (else notice 26 "You're not in a guild."). The guild leader must be at the plot to confirm (the server's range is 2000 units in the same chunk, a choice). There is one HQ per guild. Once confirmed, the plot's permissions are replaced by one guild permission (all guild members may open the door), and the leader becomes co-owner. Only the leader can clear it, which deletes the permissions again.
+1. Admin tab > Make Guild Headquarters > Accept sends 0x47b {plot}.
+2. The leader gets S->C 0x47c {i32 plot, i32 guild id, wstr owner, bool8 0}: "Ranger would like to designate their plot as the guild headquarters...".
+3. The leader's Accept echoes 0x47c {101, 2, "", 1}.
+4. Every online member gets notice 28 "Your guild has a new guild headquarters." and 0x47b {guild id, 1}. The Admin button turns into "Relinquish Guild Headquarters".
+5. Relinquish > Accept sends 0x47b again. Members get notice 27 "Your guild no longer has a guild headquarters." and 0x47b {0, 0}.
+
+The plot window also sends 0x47d {0, wstr guild name} for an HQ. Plot info (0x454) fields 25-27 carry the guild-usable flag, the HQ guild id and the HQ flag.
+
+**Guild usable** (0x47a {plot}, owner only) flips a saved flag, answers 0x47a {bool8} and shows notice 383 "This building is now flagged as guild usable. To allow guild members access to this building, you must create a permission with guild options selected." or 382. Unit-tested. The flag grants nothing by itself: access comes from permissions, as the notice says. The toggle button was not found in the plot window during the live test.
+
+**Building preview** (0x474 {building type} from the Buildings tab when the plot is empty) is answered with 0x474 in the 0x453 layout, listing the building's materials from plots.json. Unit-tested. It was not seen live because plot 101 already has a house.
+
 ### Fixtures
 | id | payload | sent by |
 |---|---|---|

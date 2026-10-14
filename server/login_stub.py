@@ -2041,7 +2041,12 @@ def send_plot_window(state, pid):
     if st and housing.charge_upkeep(plot, st, time.time()):
         save_housing(db)
     mine = bool(st) and st.get("owner", "").lower() == player.name.lower()
+    state["plot_window"] = pid
     send(housing.plot_info(int(pid), plot, st, mine))
+    if st and st.get("hq_guild") is not None:
+        g = load_guilds().get(str(st["hq_guild"]))
+        if g:
+            send(housing.hq_name(g["name"]))
     if st and st.get("building"):
         send(housing.building_info(int(pid), plot, st, mine))
     if mine:
@@ -2169,6 +2174,16 @@ def handle_housing_event(state, event, data):
         return
     if event == housing.TRANSFER:
         transfer_plot(state, social.read_name(data).strip())
+        return
+    if event == housing.BUILDING_DETAILS:
+        plot = ARGS.content.plots.get(str(state.get("plot_window")))
+        b = next((o for o in (plot or {}).get("buildings", []) if vals and o["type"] == vals[0]), None)
+        if b is not None:
+            rows = housing.construction_rows(b.get("materials", {}), {}, zone.template_id)
+            send(housing.construction_info(int(state["plot_window"]), b["name"], rows, housing.BUILDING_DETAILS))
+        return
+    if event == housing.HQ_LEADER_RESPONSE:
+        hq_leader_response(state, data)
         return
     if event in (housing.PLACE_REQUEST, housing.SPAWN_FIXTURE):
         handle = vals[0] if vals else None
@@ -2325,6 +2340,13 @@ def handle_housing_event(state, event, data):
         save_housing(db)
         send(housing.upkeep_balance(st["upkeep_balance"]))
         notice(0x17c)                                    # DepositSuccess
+    elif event == housing.GUILD_USABLE and mine and st.get("building"):
+        st["guild_usable"] = not st.get("guild_usable", False)
+        save_housing(db)
+        send(housing.guild_usable(st["guild_usable"]))
+        send(client_notice(housing.NOW_GUILD_USABLE if st["guild_usable"] else housing.NO_LONGER_GUILD_USABLE))
+    elif event == housing.GUILD_HQ and st and st.get("building"):
+        guild_hq_request(state, db, pid, plot, st)
     elif event == housing.TEAR_DOWN and mine and st.get("building"):
         st.pop("building", None)
         st.pop("built", None)
@@ -2343,6 +2365,87 @@ def handle_housing_event(state, event, data):
         save_character_field(player.name, "coins", player.coins)
         notice(housing.SOLD)
         refresh_plot(state, pid)
+
+
+HQ_LEADER_RANGE = 2000.0           # how close the guild leader must be to the plot (server choice)
+
+
+def guild_hq_request(state, db, pid, plot, st):
+    """0x47b from the plot window: the owner asks for guild HQ (the leader confirms), or the
+    guild leader clears it."""
+    player, send = state["player"], state["send"]
+    guilds = load_guilds()
+    mine = guild_of(player.name, guilds)
+    if st.get("hq_guild") is not None:
+        if not housing.is_hq_leader(st, player.name, mine):
+            send(build_system_text("Only the guild leader can clear the Guild Headquarters.", SYSTEM_TEXT_ERROR))
+            return
+        set_guild_hq(db, pid, st, None, guilds)
+        return
+    if st.get("owner", "").lower() != player.name.lower():
+        return
+    if mine is None:
+        send(client_notice(housing.NO_GUILD))
+        return
+    if any(v.get("hq_guild") == mine["id"] for v in db.values()):
+        send(build_system_text("Only one plot can be flagged as the Guild Headquarters.", SYSTEM_TEXT_ERROR))
+        return
+    leader = next((m for m, r in mine["members"].items() if r == guild.LEADER), None)
+    ls = ONLINE.get((leader or "").lower())
+    pos = ls and (ls.get("position") or ls["player"].live_position or ls["player"].spawned_at)
+    if (not ls or not ls.get("player") or pos is None or ls["player"].level != plot["chunk"]
+            or math.hypot(pos[0] - plot["loc"][0], pos[1] - plot["loc"][1]) > HQ_LEADER_RANGE):
+        send(build_system_text("The Guild Leader must be present at the plot to confirm the action.",
+                               SYSTEM_TEXT_ERROR))
+        return
+    ls["hq_offer"] = (int(pid), mine["id"])
+    ls["send"](housing.hq_leader_confirm(int(pid), mine["id"], st["owner"]))
+
+
+def hq_leader_response(state, data):
+    """The guild leader's Accept / Decline of a plot as the guild's headquarters (0x47c)."""
+    player, send = state["player"], state["send"]
+    r = housing.parse_hq_response(data)
+    offer = state.pop("hq_offer", None)
+    if r is None or offer is None or (r[0], r[1]) != offer:
+        return
+    db = load_housing()
+    pid = str(r[0])
+    st = db.get(pid)
+    guilds = load_guilds()
+    g = guilds.get(str(r[1]))
+    owner = ONLINE.get((st or {}).get("owner", "").lower())
+    if not r[2]:
+        if owner:
+            owner["send"](build_system_text(f"{player.name} declined to make your plot the Guild Headquarters.",
+                                            SYSTEM_TEXT_ERROR))
+        return
+    if (st is None or g is None or guild_of(player.name, guilds) is not g or g["members"].get(player.name) != guild.LEADER
+            or guild_of(st.get("owner", ""), guilds) is not g
+            or any(v.get("hq_guild") == g["id"] for v in db.values())):
+        return
+    set_guild_hq(db, pid, st, g["id"], guilds)
+
+
+def set_guild_hq(db, pid, st, guild_id, guilds):
+    """Make plot pid guild guild_id's headquarters (None clears it). Either way the plot's
+    permissions are replaced; every online guild member is told."""
+    old = st.get("hq_guild")
+    if guild_id is None:
+        st.pop("hq_guild", None)
+        st["permissions"] = []
+    else:
+        st["hq_guild"] = guild_id
+        st["permissions"] = [housing.hq_guild_permission()]
+    save_housing(db)
+    g = guilds.get(str(guild_id if guild_id is not None else old))
+    for name in (g or {}).get("members", {}):
+        s = ONLINE.get(name.lower())
+        if s and s.get("player"):
+            s["send"](client_notice(housing.HQ_ADDED if guild_id is not None else housing.HQ_REMOVED))
+            s["send"](housing.hq_state(guild_id or 0, guild_id is not None))
+            if s.get("plot_window") == pid:
+                send_plot_window(s, pid)
 
 
 def owned_titles(player):

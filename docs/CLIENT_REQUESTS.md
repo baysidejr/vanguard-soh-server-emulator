@@ -47,10 +47,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x45f` |  | `0x47e69f` |  |
 | `0x463` |  | `0x47616d` |  |
 | `0x465` |  | `0x476066` | bPlotIsHQ |
-| `0x46d` |  | `0x47db00` | _building_guild_leader_headquarters_confirm / BuildingGuildLeaderHeadquartersConfirm |
-| `0x474` |  | `0x476d2c` | BuildingGuildHeadquartersRelinquishConfirm |
-| `0x47a` |  | `0x476668` `0x476a48` | PlotPurchaseConfirm / PlotRelinquishConfirm |
-| `0x47c` |  | `0x47d8fd` `0x47da0d` | _building_guild_leader_headquarters_confirm / BuildingGuildLeaderHeadquartersConfirm |
 | `0x54d` |  | `0x682b45` |  |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |

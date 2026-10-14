@@ -68,7 +68,7 @@ The unmodified client, talking only to this emulator:
 - [x] Fishing: cast into water, the pull minigame, catch fish, bait use and Fishing skill-ups
 - [x] Assembly crafting: assembly trainer, recipe categories, combine components into an item at an assembly bench
 - [x] Riftways: /rift and the client's Riftway map travel between riftway stones (one destination placed)
-- [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instantly, or a home from construction materials), place and pick up furniture, storage chests
+- [x] Housing: buy a plot from its For Sale sign, build a cottage on it (instantly, or a home from construction materials), place and pick up furniture, storage chests, make it your guild's headquarters (the guild leader confirms)
 - [x] Hotbar cooldown sweep
 - [x] Raids: /raidcreate, up to 24 players in four raid groups, ready checks; mentoring (a higher member drops to your level)
 - [x] The Find window: search for groups or players looking for a group

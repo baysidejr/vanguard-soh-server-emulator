@@ -63,6 +63,60 @@ CLIENT_EVENTS = CLIENT_EVENTS + (TRANSFER, CHEST_MOVE)
 # roll} (FUN_0047da50; fields registered by FUN_00473be0) with the ghost's pose.
 PLACE_REQUEST, SPAWN_FIXTURE, PLACEMENT_PREVIEW = 0x461, 0x46D, 0x459
 CLIENT_EVENTS = CLIENT_EVENTS + (PLACE_REQUEST, SPAWN_FIXTURE)
+# Selecting a building on the plot window's Buildings tab (plot_selected_building_details,
+# FUN_00476ce0) sends 0x474 {i32 building type}; the answer 0x474 has the 0x453 layout and lists
+# the materials it needs as "%s ( %d )" (FUN_0047ed10).
+BUILDING_DETAILS = 0x474
+# Guild buildings (Admin tab). 0x47a {plot} toggles "guild usable" (toggle_building_guild_usable,
+# FUN_00476a00) -> 0x47a {bool8} and notice 383 / 382. 0x47b {plot} (the accept button of
+# BuildingGuildHeadquartersConfirm or ...RelinquishConfirm, FUN_00476a80 / FUN_00476b30) makes the
+# plot the owner's guild headquarters, or clears it. The guild leader confirms: S->C 0x47c
+# {i32 a, i32 b, wstr owner, bool8} opens BuildingGuildLeaderHeadquartersConfirm; the leader's
+# Accept / Decline sends 0x47c {i32 a, i32 b, wstr "", bool8 accept} (FUN_0047d830 /
+# FUN_0047d940) with a and b echoed. Here a is the plot id and b the guild id. 0x47b {i32 guild,
+# bool8 hq} updates the window, 0x47d {i32, wstr guild name} names the HQ (strGuildHQName).
+# The client's own tooltips give the rules (VGClient.int BuildingGuildHeadQuarters /
+# BuildingGuildHeadQuartersRemove): the owner must be in a guild, the guild leader must be at the
+# plot to confirm, one HQ per guild, existing permissions are replaced by guild access, the leader
+# becomes co-owner, and only the leader can clear it (permissions are deleted again).
+GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, HQ_NAME = 0x47A, 0x47B, 0x47C, 0x47D
+NOW_GUILD_USABLE, NO_LONGER_GUILD_USABLE, HQ_ADDED, HQ_REMOVED, NO_GUILD = 383, 382, 28, 27, 26
+CLIENT_EVENTS = CLIENT_EVENTS + (BUILDING_DETAILS, GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE)
+
+
+def guild_usable(flag):
+    return _event(GUILD_USABLE, struct.pack("<B", int(flag)))
+
+
+def hq_state(guild_id, is_hq):
+    return _event(GUILD_HQ, struct.pack("<iB", guild_id, int(is_hq)))
+
+
+def hq_leader_confirm(pid, guild_id, owner):
+    return _event(HQ_LEADER_RESPONSE, struct.pack("<ii", pid, guild_id) + _w(owner) + b"\0")
+
+
+def parse_hq_response(data):
+    """(plot id, guild id, accepted) from the leader's 0x47c, or None if malformed."""
+    if len(data) < 11:
+        return None
+    a, b = struct.unpack_from("<ii", data)
+    end = 8
+    while end + 1 < len(data) and data[end:end + 2] != b"\0\0":
+        end += 2
+    if end + 2 >= len(data):
+        return None
+    return a, b, bool(data[end + 2])
+
+
+def hq_name(guild_name):
+    return _event(HQ_NAME, struct.pack("<i", 0) + _w(guild_name))
+
+
+def hq_guild_permission():
+    """The permission an HQ starts with: guild members may enter (OpenDoor)."""
+    return {"id": 1, "name": "Guild", "rank": 0, "flags": OPEN_DOOR, "all_players": False, "all_guild": True,
+            "friends": []}
 
 
 def placement_preview(prefab, scale=1.0):
@@ -156,8 +210,9 @@ def plot_info(pid, plot, state, mine):
                         last + UPKEEP_PERIOD if state else 0, int((state or {}).get("bought", 0)))
     data += struct.pack("<fffi", x, y, z, (state or {}).get("missed", 0))
     data += struct.pack("<BBBBBBBB", int(mine), 0, int(mine), int(mine), int(mine), int(mine),
-                        int(mine and not built), 0)
-    data += struct.pack("<iBB", 0, 0, 0)
+                        int(mine and not built), int(bool((state or {}).get("guild_usable"))))
+    hq = (state or {}).get("hq_guild")
+    data += struct.pack("<iBB", hq or 0, int(hq is not None), 0)
     opts = (plot.get("buildings", []) + [None] * 10)[:10]
     for o in opts:
         if o is None:
@@ -225,15 +280,15 @@ def construction_done(rows):
     return all(r[2] >= r[3] for r in rows)
 
 
-def construction_info(site_id, name, rows):
+def construction_info(site_id, name, rows, event=0x453):
     """0x453 MsgConstructionInfoFull (FUN_00482ad0): {i32 site, i32 0, wstr project,
     i32 percent, 20 x (i32 resource id, wstr name, f32 needed, f32 added)}; opens the
-    Building Construction window."""
+    Building Construction window. With event BUILDING_DETAILS it is the Buildings tab preview."""
     data = struct.pack("<ii", site_id, 0) + _w(name) + struct.pack("<i", construction_percent(rows))
     for n in range(20):
         rid, rname, a, b = rows[n] if n < len(rows) else (0, "", 0, 0)
         data += struct.pack("<i", rid) + _w(rname) + struct.pack("<ff", float(b), float(a))
-    return _event(0x453, data)
+    return _event(event, data)
 
 
 def close_construction():
@@ -332,6 +387,8 @@ def allowed(st, name, flag, guild_of=lambda n: None):
         return True
     owner_guild = guild_of(st.get("owner", ""))
     mine = guild_of(name)
+    if is_hq_leader(st, name, mine):
+        return True
     for p in st.get("permissions", []):
         covers = _covers(p, name, owner_guild, mine)
         if covers and p.get("flags", 0) & NO_ACCESS:
@@ -339,6 +396,16 @@ def allowed(st, name, flag, guild_of=lambda n: None):
         if covers and p.get("flags", 0) & flag:
             return True
     return False
+
+
+def is_hq_leader(st, name, guild):
+    """Is `name` the leader of the guild whose headquarters this plot is (a co-owner)?"""
+    if st is None or st.get("hq_guild") is None or guild is None or guild.get("id") != st["hq_guild"]:
+        return False
+    return any(m.lower() == name.lower() and r == HQ_LEADER_RANK for m, r in guild.get("members", {}).items())
+
+
+HQ_LEADER_RANK = 10                    # guild.LEADER
 
 
 def has_construction(flag):

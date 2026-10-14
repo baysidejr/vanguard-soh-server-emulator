@@ -147,6 +147,122 @@ class FixturePlacementTests(unittest.TestCase):
         self.assertEqual(sent[-1], "You can only place items when in your house.")
 
 
+class GuildBuildingTests(unittest.TestCase):
+    """Guild usable (0x47a), guild headquarters (0x47b / 0x47c) and the building preview (0x474)."""
+    def setUp(self):
+        import housing
+        self.db = {"101": {"owner": "Owner", "building": 1,
+                           "permissions": [{"id": 3, "name": "Friends", "flags": 1, "friends": ["Bob"]}]}}
+        self.guilds = {"5": {"id": 5, "name": "Night Watch", "members": {"Owner": 1, "Boss": 10}},
+                       "6": {"id": 6, "name": "Others", "members": {"Stranger": 10}}}
+        self.args = mock.Mock()
+        self.args.content.plots = {"101": {"name": "Plot", "chunk": "c1", "loc": [0.0, 0.0, 0.0], "cost": 1, "upkeep": 0,
+                                           "buildings": [{"type": 1, "name": "Cottage", "fixtures": 5, "chests": 1},
+                                                         {"type": 2, "name": "Home",
+                                                          "materials": {"Rough Stone": 2}}]}}
+        self.online = {}
+        self.sent = {}
+        self.patches = [mock.patch.object(login_stub, "ARGS", self.args),
+                        mock.patch.object(login_stub, "ONLINE", self.online),
+                        mock.patch.object(login_stub, "load_housing", lambda: self.db),
+                        mock.patch.object(login_stub, "save_housing", lambda d: None),
+                        mock.patch.object(login_stub, "load_guilds", lambda: self.guilds),
+                        mock.patch.object(login_stub, "build_system_text", lambda text, channel=0: text),
+                        mock.patch.object(login_stub.zone, "template_id", lambda name: 77)]
+        for p in self.patches:
+            p.start()
+        self.housing = housing
+
+    def tearDown(self):
+        for p in self.patches:
+            p.stop()
+
+    def login(self, name, pos=(100.0, 0.0, 0.0), chunk="c1"):
+        player = zone.Player(name=name, char_id=len(self.online) + 1, level=chunk)
+        player.live_position = pos
+        self.sent[name] = []
+        s = {"player": player, "send": self.sent[name].append}
+        self.online[name.lower()] = s
+        return s
+
+    def event(self, s, event, data):
+        login_stub.handle_housing_event(s, event, data)
+
+    def notices(self, name):
+        import struct
+        return [struct.unpack_from("<h", m, 10)[0] for m in self.sent[name]
+                if not isinstance(m, str) and struct.unpack_from("<I", m, 2)[0] == 0x0E]
+
+    def test_guild_usable_toggle(self):
+        import struct
+        owner = self.login("Owner")
+        self.event(owner, self.housing.GUILD_USABLE, struct.pack("<i", 101))
+        self.assertTrue(self.db["101"]["guild_usable"])
+        self.assertIn(self.housing.guild_usable(True), self.sent["Owner"])
+        self.assertEqual(self.notices("Owner"), [self.housing.NOW_GUILD_USABLE])
+        self.event(owner, self.housing.GUILD_USABLE, struct.pack("<i", 101))
+        self.assertFalse(self.db["101"]["guild_usable"])
+        # not the owner: nothing
+        other = self.login("Boss")
+        self.event(other, self.housing.GUILD_USABLE, struct.pack("<i", 101))
+        self.assertFalse(self.db["101"]["guild_usable"])
+
+    def test_hq_confirmed_by_leader_then_cleared(self):
+        import struct
+        owner, boss = self.login("Owner"), self.login("Boss")
+        self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.assertIn(self.housing.hq_leader_confirm(101, 5, "Owner"), self.sent["Boss"])
+        self.assertNotIn("hq_guild", self.db["101"])
+        accept = struct.pack("<ii", 101, 5) + b"\0\0" + b"\1"
+        self.event(boss, self.housing.HQ_LEADER_RESPONSE, accept)
+        self.assertEqual(self.db["101"]["hq_guild"], 5)
+        self.assertEqual(self.db["101"]["permissions"], [self.housing.hq_guild_permission()])
+        self.assertIn(self.housing.HQ_ADDED, self.notices("Owner"))
+        self.assertIn(self.housing.HQ_ADDED, self.notices("Boss"))
+        self.assertTrue(self.housing.allowed(self.db["101"], "Boss", self.housing.PAY_UPKEEP, login_stub.guild_of))
+        # the same answer again does nothing (offer used up)
+        self.event(boss, self.housing.HQ_LEADER_RESPONSE, accept)
+        # the owner can't clear it, the leader can
+        self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.assertEqual(self.db["101"]["hq_guild"], 5)
+        self.event(boss, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.assertNotIn("hq_guild", self.db["101"])
+        self.assertEqual(self.db["101"]["permissions"], [])
+        self.assertIn(self.housing.HQ_REMOVED, self.notices("Owner"))
+
+    def test_hq_refusals(self):
+        import struct
+        owner = self.login("Owner")
+        # leader offline / away from the plot
+        self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.assertEqual(self.sent["Owner"][-1], "The Guild Leader must be present at the plot to confirm the action.")
+        boss = self.login("Boss", pos=(9000.0, 0.0, 0.0))
+        self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.assertEqual(self.sent["Boss"], [])
+        # declined
+        boss["player"].live_position = (50.0, 0.0, 0.0)
+        self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.event(boss, self.housing.HQ_LEADER_RESPONSE, struct.pack("<ii", 101, 5) + b"\0\0\0")
+        self.assertNotIn("hq_guild", self.db["101"])
+        self.assertIn("Boss declined", self.sent["Owner"][-1])
+        # an answer nobody asked for
+        stranger = self.login("Stranger")
+        self.event(stranger, self.housing.HQ_LEADER_RESPONSE, struct.pack("<ii", 101, 6) + b"\0\0\1")
+        self.assertNotIn("hq_guild", self.db["101"])
+        # not in a guild
+        del self.guilds["5"]["members"]["Owner"]
+        self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
+        self.assertEqual(self.notices("Owner")[-1], self.housing.NO_GUILD)
+
+    def test_building_preview(self):
+        import struct
+        owner = self.login("Owner")
+        owner["plot_window"] = "101"
+        self.event(owner, self.housing.BUILDING_DETAILS, struct.pack("<i", 2))
+        self.assertEqual(self.sent["Owner"], [self.housing.construction_info(
+            101, "Home", [(77, "Rough Stone", 0, 2)], self.housing.BUILDING_DETAILS)])
+
+
 class CityStatusTests(unittest.TestCase):
     def run_status(self, parleys, saved):
         import json
