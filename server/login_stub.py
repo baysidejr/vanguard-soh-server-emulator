@@ -178,6 +178,18 @@ def build_login_reply(success):
     return struct.pack("<HB", 4, 1 if success else 0)
 
 
+# Login failure: login event 2 {i32 code} (dispatcher FUN_00617b10 -> FUN_0051d0e0) opens the
+# client's own popup: 50 / 51 "Invalid login account name. Please exit and try again.", 52 / 54 /
+# 1015 no Vanguard subscription, 53 account suspended, 1002 "Login session timed out. Please exit
+# and reenter the game through Launchpad.", anything else "Login failed.".
+LOGIN_FAILED_EVENT = 2
+LOGIN_BAD_ACCOUNT, LOGIN_SUSPENDED, LOGIN_SESSION_EXPIRED = 50, 53, 1002
+
+
+def build_login_failure(code):
+    return struct.pack("<HIIi", 2, LOGIN_FAILED_EVENT, 4, code)
+
+
 def build_reliable(seq, payload):
     # Reliable1: 00 09 | u16be sequence | payload
     return struct.pack(">BBH", 0x00, 0x09, seq & 0xFFFF) + payload   # u16 on the wire: wraps
@@ -9171,9 +9183,10 @@ def handle_message(sock, server, addr, state, payload, args):
     if login:
         account = accounts.login(login[0], login[1])
         if account is None:
-            reply = build_reliable(state["out_seq"], build_login_reply(False))
-            state["out_seq"] += 1
-            sock.sendto(reply, addr)
+            code = LOGIN_SESSION_EXPIRED if login[0] == accounts.LAUNCHER_LOGIN else LOGIN_BAD_ACCOUNT
+            for msg in (build_login_reply(False), build_login_failure(code)):
+                sock.sendto(build_reliable(state["out_seq"], msg), addr)
+                state["out_seq"] += 1
             print(f"  <- login refused for {login[0]!r} (unknown account, wrong password or launcher token)")
             return
         state["account"] = account

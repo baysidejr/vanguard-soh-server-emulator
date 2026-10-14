@@ -23,7 +23,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
 5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
-   - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. Open: a client error message for a refused login; a database instead of JSON files.
+   - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. A refused login shows the client's own popup (login event 2, code 1002 / 50). Open: a database instead of JSON files.
 
 ## Blocked (needs the user or data)
 
