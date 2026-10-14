@@ -27,8 +27,10 @@ COMMANDS = ["/who", "/played", "/time", "/loc", "/random 100", "/afk", "/afk", "
             "/showfactions", "/sit", "/stand", "/decksave 1", "/deckload 1", "/targetself",
             "/forcecombatstance on", "/forcecombatstance off", "/claim", "Hello from the smoke test",
             "/walk", "/run", "/hidehood", "/hidehood", "/hidecloak", "/hidecloak", "/cleartargets", "/cancelability",
+            "/lockouttimerlist", "/lockoutdecline", "/citystatus", "/inspect Nobody", "/readycheck",
+            "/itemlinkrequest <item=1:1::0:0:0:0:0:x>Copper Ore</link>",
             # dev commands that leave no lasting change on the character
-            "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide"]
+            "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide", "!plot 101"]
 
 # Server log lines that mean something went wrong.
 SERVER_PROBLEMS = re.compile(r"Traceback|!!! error in|>>> handler error|malformed message")
