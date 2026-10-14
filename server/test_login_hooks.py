@@ -254,6 +254,22 @@ class GuildBuildingTests(unittest.TestCase):
         self.event(owner, self.housing.GUILD_HQ, struct.pack("<i", 101))
         self.assertEqual(self.notices("Owner")[-1], self.housing.NO_GUILD)
 
+    def test_fixture_list(self):
+        import struct
+        msgs = self.housing.fixture_list([{"id": 2, "item": "Storage Chest", "items": []}, {"id": 3, "item": "Oak Table"}])
+        ids = [struct.unpack_from("<I", m, 2)[0] for m in msgs]
+        self.assertEqual(ids, [0x45A, 0x45C, 0x45C, 0x45B])
+        self.assertEqual(struct.unpack_from("<iBB", msgs[1], 10), (self.housing.FIXTURE_ID_BASE + 2, 1, 0))
+        self.assertEqual(msgs[2][16:].decode("utf-16-le"), "Oak Table\0")
+        # the owner sees it in the plot window
+        owner = self.login("Owner")
+        self.db["101"]["fixtures"] = [{"id": 3, "item": "Oak Table"}]
+        login_stub.send_plot_window(owner, "101")
+        self.assertIn(self.housing.fixture_list([{"id": 3, "item": "Oak Table"}])[1], self.sent["Owner"])
+        stranger = self.login("Stranger")
+        login_stub.send_plot_window(stranger, "101")
+        self.assertNotIn(self.housing.fixture_list([{"id": 3, "item": "Oak Table"}])[1], self.sent["Stranger"])
+
     def test_building_preview(self):
         import struct
         owner = self.login("Owner")

@@ -25,6 +25,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Building Inventory tab: the plot window now sends the fixture list (0x45a / 0x45c / 0x45b; first bool = chest, from the client's chest counter), and "Move Fixture to me" (0x465) moves the fixture to the player. Both verified live ("Chests: ( 1 of 3 )"; the chest reopened at Ranger's feet).
 - 2026-10-14: Guild headquarters (0x47b / 0x47c, the leader confirms, the rules from the client's own tooltips) verified live: set, confirm popup, notice 28, button changes to Relinquish, cleared with notice 27. Guild usable toggle (0x47a -> 0x47a {bool} + notice 383/382) and the Buildings tab preview (0x474 -> 0x474 materials) unit-tested.
 - 2026-10-14: The client's own furniture placement answered: 0x461 {item handle} -> 0x459 {wstr prefab, f32 1.0} ghost preview, 0x46d {handle, building, x, y, z, yaw, pitch, roll} (wire order from the field registration FUN_00473be0) places the fixture at the clicked pose if it is inside the house. Unit-tested. Live, the client never sends 0x461 (see Blocked). Found that 0x461 comes from dragging a bag item onto the world, not from a menu (no menu adds option 0x149).
 - 2026-10-14: Callers followed up several levels (scratchpad reach2.py): 0x18f and 0x1e7 are unreachable too (their only caller chains end in functions nothing calls, jumps to or points at), marked in docs/CLIENT_REQUESTS.md. Other candidates from that pass were false positives from bad function-start guesses and were left alone.

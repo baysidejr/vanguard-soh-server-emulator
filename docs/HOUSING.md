@@ -156,7 +156,7 @@ Building permissions have 10 slots; chest permissions have 3.
 | id | payload | effect |
 |---|---|---|
 | 0x45a | none | clear the fixture list |
-| 0x45c | {i32 fixtureId, bool8, bool8, wstr name} | add a fixture silently (meaning of the bools unknown) |
+| 0x45c | {i32 fixtureId, bool8 chest, bool8, wstr name} | add a fixture silently. The first bool marks a chest: the client counts those for "Chests: (n of m)" (FUN_00479e00 counts records with byte +8 set). The second bool's meaning is unknown. |
 | 0x45d | same as 0x45c | add a fixture and show it immediately |
 | 0x45b | none | rebuild the list and the fixture/chest counts |
 | 0x45e | {fixtureId} | remove one fixture |
@@ -240,6 +240,8 @@ All of these go through FUN_004cfb00 / FUN_004cfb50. UI command ids come from FU
 The plot window also sends 0x47d {0, wstr guild name} for an HQ. Plot info (0x454) fields 25-27 carry the guild-usable flag, the HQ guild id and the HQ flag.
 
 **Guild usable** (0x47a {plot}, owner only) flips a saved flag, answers 0x47a {bool8} and shows notice 383 "This building is now flagged as guild usable. To allow guild members access to this building, you must create a permission with guild options selected." or 382. Unit-tested. The flag grants nothing by itself: access comes from permissions, as the notice says. The toggle button was not found in the plot window during the live test.
+
+**Building Inventory (verified live 2026-10-14).** With the house built, the plot window sends the fixture list (0x45a, 0x45c per fixture with its object id, 0x45b) to anyone with the ViewFixtureList permission (bit 14), and again after a placement or pickup. Seen: "Id 84934658: Storage Chest", "Fixtures: ( 1 of 30 )", "Chests: ( 1 of 3 )". "Move Fixture to me" sends 0x465 {object id}; the server moves the fixture to the player's feet (needs MoveFixture and the player inside that house) and reopens it for the chunk. Verified live. "Pickup Fixture" sends 0x462, already handled.
 
 **Building preview** (0x474 {building type} from the Buildings tab when the plot is empty) is answered with 0x474 in the 0x453 layout, listing the building's materials from plots.json. Unit-tested. It was not seen live because plot 101 already has a house.
 

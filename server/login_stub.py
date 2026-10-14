@@ -1847,6 +1847,7 @@ def place_fixture(state, item, pose=None):
     take_items(state, item[1], 1)
     broadcast_object(state, fixture_object(pid, f))
     send(build_system_text(f"You place the {item[1]}.", SYSTEM_TEXT_WHITE))
+    refresh_fixture_list(pid, st)
 
 
 def chest_record(it):
@@ -1941,6 +1942,15 @@ def handle_chest(state, event, vals):
         save_housing(db)
         send(housing.chest_removed(it[0]))
         send(housing.chest_refresh())
+
+
+def refresh_fixture_list(pid, st):
+    """Redraw the Building Inventory list for everyone with this plot's window open."""
+    for s in list(ONLINE.values()):
+        p = s.get("player")
+        if p and s.get("plot_window") == pid and housing.allowed(st, p.name, housing.VIEW_FIXTURE_LIST, guild_of):
+            for m in housing.fixture_list(st.get("fixtures", [])):
+                s["send"](m)
 
 
 def fixture_by_object(oid):
@@ -2049,6 +2059,9 @@ def send_plot_window(state, pid):
             send(housing.hq_name(g["name"]))
     if st and st.get("building"):
         send(housing.building_info(int(pid), plot, st, mine))
+        if housing.allowed(st, player.name, housing.VIEW_FIXTURE_LIST, guild_of):
+            for m in housing.fixture_list(st.get("fixtures", [])):
+                send(m)
     if mine:
         for p in st.get("permissions", []):
             send(housing.permission_message(p))
@@ -2224,7 +2237,7 @@ def handle_housing_event(state, event, data):
         if event == housing.CHEST_MANAGE:
             send(housing.chest_info(cid, f.get("name", f["item"]), f["item"]))
         return
-    if event in (housing.PICK_UP, housing.NUDGE) and vals:
+    if event in (housing.PICK_UP, housing.NUDGE, housing.MOVE_TO_ME) and vals:
         db, pid, st, f = fixture_by_object(vals[0])
         need = housing.PICKUP_FIXTURE if event == housing.PICK_UP else housing.MOVE_FIXTURE
         if f is None or not housing.allowed(st, player.name, need, guild_of):
@@ -2239,6 +2252,17 @@ def handle_housing_event(state, event, data):
             broadcast_object(state, obj, close=True)
             give_item(state, f["item"])
             notice(0x178)                                # RemovedFixtureFromBldg
+            refresh_fixture_list(pid, st)
+        elif event == housing.MOVE_TO_ME:
+            here, _ = my_house_here(player)
+            if here != pid:
+                send(build_system_text("You can only place items when in your house.", SYSTEM_TEXT_ERROR))
+                return
+            pos = player.live_position or player.spawned_at
+            f["loc"] = [pos[0], pos[1], pos[2] - 90.0]
+            f["yaw"] = int(getattr(player, "yaw", 0) or 0)
+            save_housing(db)
+            broadcast_object(state, fixture_object(pid, f))
         elif len(data) >= 32:
             dx, dy, dz = struct.unpack_from("<fff", data, 8)
             dyaw = struct.unpack_from("<i", data, 20)[0]

@@ -16,6 +16,9 @@ import time
 
 INSPECT, BUY, BUILD, TEAR_DOWN, SELL = 0x460, 0x481, 0x479, 0x480, 0x47F
 PICK_UP, NUDGE = 0x462, 0x464          # {i32 fixture id}; {i32 id, i32, f32 dx, dy, dz, i32 dyaw, dpitch, droll}
+# Building Inventory tab: "Move Fixture to me" (move_tome_fixture_button, FUN_00476020) sends
+# 0x465 {i32 fixture id} (the selected row; "Pickup Fixture" sends 0x462 the same way).
+MOVE_TO_ME = 0x465
 # House chests (client chest dispatcher FUN_004733d0): 0x151 {chest id} open, 0x152 close,
 # 0x155 {chest, bag item handle, count, slot} deposit, 0x157 {chest, chest item, count, container, slot}
 # withdraw, 0x153 move inside. Server: 0x199 {chest id, capacity} opens "House Chest",
@@ -81,7 +84,21 @@ BUILDING_DETAILS = 0x474
 # becomes co-owner, and only the leader can clear it (permissions are deleted again).
 GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, HQ_NAME = 0x47A, 0x47B, 0x47C, 0x47D
 NOW_GUILD_USABLE, NO_LONGER_GUILD_USABLE, HQ_ADDED, HQ_REMOVED, NO_GUILD = 383, 382, 28, 27, 26
-CLIENT_EVENTS = CLIENT_EVENTS + (BUILDING_DETAILS, GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE)
+CLIENT_EVENTS = CLIENT_EVENTS + (BUILDING_DETAILS, GUILD_USABLE, GUILD_HQ, HQ_LEADER_RESPONSE, MOVE_TO_ME)
+VIEW_FIXTURE_LIST = 0x4000              # permission bit 14
+
+
+def fixture_list(fixtures):
+    """The Building Inventory list: 0x45a clear, 0x45c MsgBuildingFixtureInfo {i32 fixture id,
+    bool8 chest, bool8, wstr name} per fixture (FUN_00483a90; the first bool is what the client
+    counts for "Chests: (n of m)", FUN_00479e00; the second is copied to the row, meaning
+    unknown), 0x45b rebuild the rows and the counts. The id is the fixture's object id, which
+    Pickup Fixture (0x462) and Move Fixture to me (0x465) send back."""
+    out = [_event(0x45A)]
+    for f in fixtures:
+        out.append(_event(0x45C, struct.pack("<iBB", FIXTURE_ID_BASE + f["id"], int("items" in f), 0) + _w(f["item"])))
+    out.append(_event(0x45B))
+    return out
 
 
 def guild_usable(flag):
