@@ -185,6 +185,30 @@ def update_character(path, name, fields):
         return _transaction(c, run)
 
 
+def backup(folder, keep=10):
+    """Copy folder's database to folder/backups/vanguard-<date>-<time>.db with SQLite's online
+    backup (safe while the server is writing) and keep the newest `keep` copies. Returns the
+    new file's path."""
+    import datetime
+    out_dir = os.path.join(folder, "backups")
+    os.makedirs(out_dir, exist_ok=True)
+    name = "vanguard-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + ".db"
+    target = os.path.join(out_dir, name)
+    with _db(os.path.join(folder, CHARACTERS)) as c:
+        dest = sqlite3.connect(target)
+        try:
+            c.backup(dest)
+        finally:
+            dest.close()
+    old = sorted(f for f in os.listdir(out_dir) if f.startswith("vanguard-") and f.endswith(".db"))
+    for f in old[:-keep] if keep > 0 else []:
+        try:
+            os.remove(os.path.join(out_dir, f))
+        except OSError:
+            pass
+    return target
+
+
 def write_json_atomic(path, data, **dump_args):
     """Write data as JSON to path so a crash or power cut mid-write can't leave a
     truncated file: write a temporary file next to it, then rename it over the old one."""
@@ -227,6 +251,8 @@ def main(argv):
         out = argv[1] if len(argv) > 1 else os.path.join(here, "export")
         for n in export(here, out):
             print(f"wrote {os.path.join(out, n)}")
+    elif argv[:1] == ["backup"]:
+        print(f"wrote {backup(here)}")
     elif len(argv) == 2 and argv[0] == "import":
         import_file(argv[1], here)
         print(f"imported {argv[1]}")

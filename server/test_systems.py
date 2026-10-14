@@ -1182,6 +1182,13 @@ class StorageTests(unittest.TestCase):
             self.assertEqual(len(json.load(open(os.path.join(out, "characters.json"), encoding="utf-8"))), 3)
             storage.write_json_atomic(os.path.join(out, "guilds.json"), {"h": 1})
             storage.import_file(os.path.join(out, "guilds.json"), d)
+            b = storage.backup(d, keep=1)
+            storage.backup(d, keep=1)
+            self.assertEqual(len(os.listdir(os.path.join(d, "backups"))), 1)
+            import sqlite3
+            con = sqlite3.connect(b if os.path.exists(b) else os.path.join(d, "backups", os.listdir(os.path.join(d, "backups"))[0]))
+            self.assertEqual(con.execute("SELECT count(*) FROM characters").fetchone()[0], 3)
+            con.close()
             self.assertEqual(storage.read_json(guilds), {"h": 1})
 
 

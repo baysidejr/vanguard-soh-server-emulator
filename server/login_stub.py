@@ -255,6 +255,8 @@ def main():
     parser.add_argument("--anonymous-zone", action="store_true",
                         help="debugging: let a zone connection enter the world without logging in "
                              "(as 'Someone'); never on a public server")
+    parser.add_argument("--backup-hours", type=float, default=6.0,
+                        help="copy the database to <data folder>/backups this often (0: never); keeps 10")
     parser.add_argument("--data-dir", default=None,
                         help="folder for the saved data (vanguard.db, reports); default: the server folder")
     parser.add_argument("--launcher-cert", default=None,
@@ -4239,6 +4241,14 @@ def world_tick(zone_sock, clients, args):
         print(f"  !!! network: {SEND_FAILURES[0]} packets not sent (send buffer full), {RECEIVE_GAPS[0]} client "
               f"packets arrived after a lost one, this second")
         SEND_FAILURES[0] = RECEIVE_GAPS[0] = 0
+    hours = getattr(args, "backup_hours", 0)
+    if isinstance(hours, (int, float)) and hours > 0:
+        if now >= BACKUP_DUE[0]:
+            BACKUP_DUE[0] = now + hours * 3600
+            try:
+                print(f"  database backup: {storage.backup(os.path.dirname(CHARACTERS_FILE))}")
+            except Exception as e:                      # a full disk must not stop the game
+                print(f"  !!! database backup failed: {e}")
     group_tick()
     housing_tick(now)
     duel_tick(now)
@@ -7916,6 +7926,7 @@ MAX_RESENDS_PER_TICK = 8         # per connection
 MAX_RESENDS_PER_TICK_ALL = 400   # for the whole server
 RESEND_WINDOW = 16               # only the oldest packets of a connection are looked at
 MAX_UNACKED = 4096
+BACKUP_DUE = [0.0]               # next automatic database backup (the first one at start)
 SEND_FAILURES = [0]              # sendto refused (send buffer full); logged by world_tick
 LOOP_STATS = [0, 0.0]            # packets read, seconds idle in select (this second)
 PING_AGE = [0.0]                 # oldest load-test ping read this second (seconds in transit)

@@ -37,6 +37,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Automatic database backups (SQLite online backup) at start and every 6 hours to server/backups, keeping 10; storage.py backup by hand.
 - 2026-10-14: Graceful shutdown (Ctrl+C, SIGTERM, Ctrl+Break): players told, saved (position, play time) and disconnected. Verified: Ctrl+Break with a client in the world saved Ranger and the client exited cleanly. Full fuzz run (login, world, 7 contexts, raw) clean after the hardening changes.
 - 2026-10-14: Caravan login verified (last logout set 4 h back in the database): the client's Caravan options popup, then entering the world at the caravan's location.
 - 2026-10-14: Raid of 24 tested with the real client leading 23 load-test bots (loadtest --auto-accept): four raid groups of 6, ready check. New dev command !groupinfo.
