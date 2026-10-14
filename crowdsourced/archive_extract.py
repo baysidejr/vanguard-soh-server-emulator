@@ -45,6 +45,14 @@ def effect_facts(value):
     for match in re.finditer(periodic,value,re.I):
         facts.append(dict(kind='periodic_resource_restoration',values=[numeric(match.group(1))],
             resource=match.group(2).lower(),interval_seconds=numeric(match.group(3)),conditions_unparsed=True))
+    attribute = rf"\b(?:increases?|increasing)\s+(?:your|the users|the user's)\s+(strength|dexterity|intelligence|wisdom|constitution|vitality)\s+by\s+{num}(?!\d|%|\.\d|\s+%)"
+    for match in re.finditer(attribute, value, re.I):
+        facts.append(dict(kind='attribute_increase', attribute=match.group(1).lower(),
+            values=[numeric(match.group(2))], conditions_unparsed=True))
+    sleep = rf'\bputs the target into a deep sleep for\s+{num}\s+(?:sec|seconds?)\b'
+    for match in re.finditer(sleep, value, re.I):
+        facts.append(dict(kind='crowd_control_duration', effect='sleep',
+            duration_seconds=numeric(match.group(1)), conditions_unparsed=True))
     return facts
 
 

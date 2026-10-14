@@ -10,6 +10,21 @@ from test_archive import page
 
 
 class AbilityEffectTests(unittest.TestCase):
+    def test_explicit_attribute_increase_is_not_a_percentage(self):
+        fact=effect_facts('The words increase the users strength by 35 when spoken aloud.')[0]
+        self.assertEqual(fact['attribute'],'strength')
+        self.assertEqual(fact['values'],[35])
+        self.assertTrue(fact['conditions_unparsed'])
+        self.assertEqual(effect_facts('Increases your strength by 35%.'),[])
+        self.assertEqual(effect_facts('Increases your strength by 35 %.'),[])
+
+    def test_explicit_sleep_duration_requires_units(self):
+        fact=effect_facts('This poison puts the target into a deep sleep for 25 sec.')[0]
+        self.assertEqual(fact['effect'],'sleep')
+        self.assertEqual(fact['duration_seconds'],25)
+        self.assertTrue(fact['conditions_unparsed'])
+        self.assertEqual(effect_facts('Puts the target into a deep sleep for 25.'),[])
+
     def test_healing_amount_and_explicit_duration_are_preserved(self):
         fact=effect_facts('Heals your defensive target for 704 over 18 sec.')[0]
         self.assertEqual(fact['values'],[704])
