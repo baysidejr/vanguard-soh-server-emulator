@@ -601,13 +601,14 @@ def apply_crowd_control(state, npc, a, eid, now):
     a stun also stops abilities and a playing song. Shown in the harmful effects window."""
     player, send = state["player"], state["send"]
     secs = float(a.get("duration", 3.0))
-    player.cc = {"kind": a["kind"], "until": now + secs, "eid": eid}
+    player.cc = {"kind": a["kind"], "until": now + secs, "eid": eid, "npc": npc, "next": now}
     send(zone.player_pawn_update(state, ARGS, {"GroundSpeed": 0.0}))
-    desc = "You can't move or act." if a["kind"] == "stun" else "You can't move."
+    desc = {"stun": "You can't move or act.", "root": "You can't move.",
+            "fear": "You flee in terror and can't act."}[a["kind"]]
     send(effects.effect_add(eid, a["name"], desc, a.get("icon", 553), secs, secs, harmful=True))
-    verb = "stuns" if a["kind"] == "stun" else "roots"
+    verb = {"stun": "stuns", "root": "roots", "fear": "terrifies"}[a["kind"]]
     send(build_system_text(f"{npc.name}'s {a['name']} {verb} you!", SYSTEM_TEXT_ERROR))
-    if a["kind"] == "stun" and getattr(player, "playing_song", None):
+    if a["kind"] in ("stun", "fear") and getattr(player, "playing_song", None):
         stop_song(state)
         send(build_system_text("Your song is interrupted.", SYSTEM_TEXT_ERROR))
     print(f"  {npc.name} {verb} {player.name} for {secs:g}s")
@@ -617,7 +618,11 @@ def crowd_control_tick(state, now):
     """Once a second: a stun or root wears off; the pawn gets its speed back."""
     player = state["player"]
     cc = getattr(player, "cc", None)
-    if cc is None or now < cc["until"]:
+    if cc is None:
+        return
+    if now < cc["until"]:
+        if cc["kind"] == "fear":
+            fear_step(state, cc, now)
         return
     player.cc = None
     speed = BASE_GROUND_SPEED * (MOUNT_SPEED if getattr(player, "mount", None) else 1.0)
@@ -626,9 +631,29 @@ def crowd_control_tick(state, now):
     state["send"](build_system_text("You can move again.", SYSTEM_TEXT_WHITE))
 
 
+FEAR_STEP = 250.0           # units a feared player is pushed each second (about walking speed)
+
+
+def fear_step(state, cc, now):
+    """A feared player runs from the NPC: the client can't be steered, so the server roots
+    the pawn and moves it with a server teleport (0x3e5) each second, facing away."""
+    player = state["player"]
+    pos = player.live_position or state.get("position")
+    src = getattr(cc["npc"], "location", None)
+    if pos is None or src is None:
+        return
+    dx, dy = pos[0] - src[0], pos[1] - src[1]
+    d = math.hypot(dx, dy) or 1.0
+    x, y = pos[0] + dx / d * FEAR_STEP, pos[1] + dy / d * FEAR_STEP
+    gz = ARGS.content.ground_z(player.level, x, y, ARGS.client_dir)
+    loc = (x, y, (gz if gz is not None else pos[2]) + 100.0)
+    yaw = int(math.degrees(math.atan2(dy, dx)) * 65536 / 360) & 0xFFFF
+    state["send"](zone.player_teleport(loc, (0, yaw, 0)))
+
+
 def stunned(player):
     cc = getattr(player, "cc", None)
-    return cc is not None and cc["kind"] == "stun" and time.time() < cc["until"]
+    return cc is not None and cc["kind"] in ("stun", "fear") and time.time() < cc["until"]
 
 
 def npc_cast(state, npc, spell, now):
@@ -6897,8 +6922,8 @@ def dev_command(text, player=None):
         # !mount [id] [fly]: ride mount id (default 1000); !mount 0 dismounts (testing).
         mid = int(words[1]) if len(words) > 1 else 1000
         return [("mount", mid or None, zone.MOUNT_FLYING if "fly" in words else zone.MOUNT_GROUND)]
-    if words[0] == "cc" and player and len(words) > 1 and words[1] in ("stun", "root"):
-        # !cc stun|root [seconds]: be stunned or rooted as if by an NPC (testing).
+    if words[0] == "cc" and player and len(words) > 1 and words[1] in ("stun", "root", "fear"):
+        # !cc stun|root|fear [seconds]: be stunned, rooted or feared (by your target) as if by an NPC (testing).
         return [("cc", words[1], float(words[2]) if len(words) > 2 else 4.0)]
     if words[0] == "parleywin" and player:
         # !parleywin: win the open parley at once (testing its rewards).
@@ -7377,7 +7402,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         set_mount(state, args, state["player"], m[1], m[2])
                         continue
                     elif isinstance(m, tuple) and m[0] == "cc":
-                        fake = types.SimpleNamespace(name="A test")
+                        p = state["player"]
+                        fake = (p.npcs.get(p.target) if p.target else None) or types.SimpleNamespace(
+                            name="A test", location=(p.live_position or p.spawned_at))
                         apply_crowd_control(state, fake, {"name": "Test " + m[1].title(), "kind": m[1],
                                                           "duration": m[2]}, 0x7E00001, time.time())
                         continue
