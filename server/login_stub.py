@@ -1067,6 +1067,7 @@ def change_gender_race(state, event, value, handle):
 # strNameFullSelf), 7 "That first name is not available.", 0xb "You are not allowed to change
 # your name.", anything else "Rename failed. Please retry later."
 RENAME, RENAME_REPLY, RENAME_TEMPLATE = 0x5D3, 0x5D4, 1463295
+FORCE_STANCE = 0x571
 RENAME_DONE, RENAME_TAKEN, RENAME_NOT_ALLOWED = 6, 7, 0x0B
 # Saved files that refer to characters by name (mail boxes use the lower-case name).
 def name_stores():
@@ -1193,7 +1194,9 @@ def award_xp(player, amount, source, grouped=False):
 
 
 def set_combat_stance(state, args, player, on, out):
-    """m_CombatState = 1 draws weapons (verified live); everyone in the chunk sees it."""
+    """m_CombatState = 1 draws weapons (verified live); everyone in the chunk sees it.
+    /forcecombatstance keeps them drawn."""
+    on = on or getattr(player, "forced_stance", False)
     if getattr(player, "stance", False) == on:
         return
     player.stance = on
@@ -1224,6 +1227,7 @@ def player_death(state, args, player):
     player.xp_debt = min(DEBT_CAP, getattr(player, "xp_debt", 0) + DEBT_PER_DEATH)
     save_character_field(player.name, "xp_debt", player.xp_debt)
     player.died_at = state.get("position") or player.live_position or player.spawned_at
+    drop_form_on_death(state, player)
     out = [zone.player_pawn_update(state, args, {"Health": 0, "m_bIsDead": 1}),
            combat.play_animation(player.char_id, combat.ANIM_DEATH),
            combat.death_popup(300)]
@@ -1474,6 +1478,7 @@ def answer_rez(state, args, accept):
         send(zone.player_teleport(tuple(rez["spot"])))
     send(build_system_text(f"You have been resurrected by {rez['caster']} and win back {back} experience.",
                            SYSTEM_TEXT_WHITE))
+    restore_form_after_death(state, player)
 
 
 RIFT_PRICES = {"green": 50, "blue": 500, "yellow": 2000, "red": 5000, "purple": 0}
@@ -2842,6 +2847,30 @@ def level_chunk(level):
     return tuple(-int(p[1:]) if p.startswith("n") else int(p) for p in level.split("_")[1:3])
 
 
+# /applyformondeath [on|off]: 0x5b2 {u8 on} (FUN_00611610; the client prints "Your forms will
+# (NOT) automatically re-apply after death."). Death ends the active form; with the option on,
+# releasing or being resurrected puts it back.
+APPLY_FORM_ON_DEATH = 0x5B2
+
+
+def drop_form_on_death(state, player):
+    if getattr(player, "form", -1) == -1:
+        return
+    for e in getattr(player, "effects", []):
+        if e.get("form"):
+            e["ends"] = 0
+    player.lost_form, player.form = player.form, -1
+    state["send"](forms.current(-1))
+
+
+def restore_form_after_death(state, player):
+    fid = getattr(player, "lost_form", -1)
+    player.lost_form = -1
+    form = next((f for f in getattr(player, "forms", []) if f[0] == fid), None)
+    if form is not None and getattr(player, "apply_form_on_death", False):
+        apply_form(state, form, time.time())
+
+
 def forms_login(state):
     """Combat forms / Psionicist mindsets (forms.py): the Forms bar, no form active."""
     player = state["player"]
@@ -2870,7 +2899,13 @@ def handle_form_event(state, event, data):
         send(forms.result(2))                           # not ready yet
         send(forms.current(getattr(player, "form", -1)))
         return
-    _, name, spec = form
+    apply_form(state, form, now)
+
+
+def apply_form(state, form, now):
+    """Make form (id, name, spec) the active stance and tell the Forms bar."""
+    player, send = state["player"], state["send"]
+    fid, name, spec = form
     for e in getattr(player, "effects", []):
         if e.get("form") and e["name"] != name:
             e["ends"] = 0
@@ -7509,6 +7544,7 @@ def handle_message(sock, server, addr, state, payload, args):
             player.active_toolbelt = char.get("active_toolbelt")
             player.bound = set(char.get("bound", []))
             player.deck_presets = char.get("deck_presets")
+            player.apply_form_on_death = char.get("apply_form_on_death", False)
             cname = races_classes.class_name(player.klass)
             chain_names = (reactions.chain_names(args.content.chains, cname)
                            + list(args.content.counters.get(cname, []))
@@ -7702,6 +7738,7 @@ def handle_message(sock, server, addr, state, payload, args):
                           zone.health_update(player),
                           zone.player_teleport(tuple(spot))):
                     send_message(sock, addr, state, m)
+                restore_form_after_death(state, player)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x2B0 and state.get("player"):
             # Interact with an "other" entity (altars): {eid64 target, bool8}.
             eid = struct.unpack_from("<Q", payload, 10)[0]
@@ -7726,6 +7763,19 @@ def handle_message(sock, server, addr, state, payload, args):
             change_gender_race(state, struct.unpack_from("<I", payload, 2)[0], *struct.unpack_from("<ii", payload, 10))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UNBIND and state.get("player") and len(payload) >= 18:
             unbind_item(state, *struct.unpack_from("<ii", payload, 10))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == APPLY_FORM_ON_DEATH and state.get("player") and len(payload) >= 11:
+            state["player"].apply_form_on_death = bool(payload[10])
+            save_character_field(state["player"].name, "apply_form_on_death", bool(payload[10]))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == FORCE_STANCE and state.get("player") and len(payload) >= 11:
+            # /forcecombatstance [on|off]: {u8 on} (FUN_00609010). Weapons stay drawn until turned off.
+            p = state["player"]
+            p.forced_stance = bool(payload[10])
+            out = []
+            set_combat_stance(state, args, p, p.forced_stance or p.auto_attack, out)
+            for m in out:
+                send_message(sock, addr, state, m)
+            send_message(sock, addr, state, build_system_text(
+                "Combat stance forced on." if p.forced_stance else "Combat stance no longer forced.", SYSTEM_TEXT_WHITE))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == RENAME and state.get("player"):
             rename_character(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_DEBT and state.get("player") and len(payload) >= 14:

@@ -39,3 +39,9 @@ Read in the client [O], not implemented: the shipped UI files (VGUIAssets) conta
 **Recovery bar:** 0x140 `{i32 0, f32 fraction}` (FUN_005f4630) sets the gamevar AdvCannotChangeFormStatus to fraction x 100; VGUIMainBar.xml draws it as a DOWN_TO_UP StatusBar (graphic VgrdFormRefresh) over each form icon. The server sends 1.0 on a change and counts it down once a second to 0 over the 5 s cooldown (`login_stub.form_bar_tick`). Not confirmed on screen: the blue rings seen on the inactive forms stayed after the countdown, so they are something else.
 
 Not done: per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.
+
+## Forms and death (verified live 2026-10-13 for the command; death path unit-tested)
+
+`/applyformondeath [on|off]` sends **0x5b2 {u8 on}** (FUN_00611610) and the client prints "Your forms will (NOT) automatically re-apply after death." The option exists because dying ends the active form. The server now does that (`drop_form_on_death`: the form's stance ends and the Forms bar shows none) and, with the option on (saved as `apply_form_on_death`), puts the form back on release or resurrection.
+
+`/forcecombatstance [on|off]` sends **0x571 {u8 on}** (FUN_00609010). The server keeps `m_CombatState` = 1 (weapons drawn, ready pose) until it is turned off, whatever auto-attack does. Verified live: the character takes the combat pose and chat says "Combat stance forced on."

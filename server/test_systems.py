@@ -788,5 +788,26 @@ class ItemFlagTests(unittest.TestCase):
             zone.ITEM_CONTENT.items.update(saved)
 
 
+class FormOnDeathTests(unittest.TestCase):
+    def test_form_dropped_and_restored(self):
+        import login_stub
+        sent = []
+        p = zone.Player("Nobody", 1, 0x0E, 14, "chunk_n20_12")
+        p.forms = [(7, "Mindset of Clarity", {"stat": "intelligence", "bonus": 12, "icon": 692})]
+        p.effects = []
+        state = {"player": p, "send": sent.append}
+        login_stub.apply_form(state, p.forms[0], 0)
+        self.assertEqual(p.form, 7)
+        login_stub.drop_form_on_death(state, p)
+        self.assertEqual((p.form, p.lost_form), (-1, 7))
+        self.assertTrue(all(e["ends"] == 0 for e in p.effects if e.get("form")))
+        p.apply_form_on_death = False
+        login_stub.restore_form_after_death(state, p)
+        self.assertEqual(p.form, -1)
+        p.lost_form, p.apply_form_on_death = 7, True
+        login_stub.restore_form_after_death(state, p)
+        self.assertEqual(p.form, 7)
+
+
 if __name__ == "__main__":
     unittest.main()

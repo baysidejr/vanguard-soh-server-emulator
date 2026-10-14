@@ -55,7 +55,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x4fb` | `/sharelockouttimer` | `0x60e73f` |  |
 | `0x4fc` | `/lockouttimerlist` | `0x4ff2f9` `0x5ebf91` `0x60e664` | Choose a race and press submit. / _inventory_character_race_change_dropdown |
 | `0x54d` |  | `0x682b45` |  |
-| `0x571` | `/forcecombatstance` | `0x6090b4` |  |
 | `0x582` | `/.learnabilities` | `0x5fe1ff` | NotRightNow / Error: You must have a defensive target to use this command on. |
 | `0x583` | `/.maxskills` | `0x5fe2af` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
@@ -70,7 +69,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x59e` |  | `0x5e2e2f` |  |
 | `0x5a7` |  | `0x5e29db` | Resurrection / Resurrection |
 | `0x5b1` | `/.g1` `/.g2` | `0x5fee93` `0x5fef43` | %.0f / ssssiis |
-| `0x5b2` | `/applyformondeath` | `0x6116c7` |  |
 | `0x5c6` |  | `0x5ee89c` | Transfer Plot? / accept |
 | `0x5ce` |  | `0x484abf` | BuildingNPCListSelection / PlacedBuildingNPCListSelection |
 | `0x5cf` |  | `0x484b3e` | PlacedBuildingNPCListSelection |
