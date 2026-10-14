@@ -865,5 +865,22 @@ class ChannelSequenceTests(unittest.TestCase):
         self.assertLess(ue2net.seq_diff(10, 20, 4096), 0)
 
 
+class HealTargetTests(unittest.TestCase):
+    def test_defensive_target_first(self):
+        import login_stub
+        me = zone.Player("Healer", 1, 0x0E, 5, "chunk_n20_12")
+        friend = zone.Player("Friend", 2, 0x0E, 28, "chunk_n20_12")
+        w = types.SimpleNamespace(members={})
+        state = {"player": me, "world": w}
+        fs = {"player": friend}
+        w.members = {1: state, 2: fs}
+        me.target = None
+        self.assertIs(login_stub.heal_target(state), state)          # nobody targeted: yourself
+        state["def_target"] = 2
+        self.assertIs(login_stub.heal_target(state), fs)             # the defensive target
+        friend.health = 0
+        self.assertIs(login_stub.heal_target(state), state)          # not a dead one
+
+
 if __name__ == "__main__":
     unittest.main()

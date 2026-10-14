@@ -517,13 +517,15 @@ HEAL_HATE = 0.5              # hate per point healed, on every NPC fighting the 
 
 
 def heal_target(state):
-    """A heal lands on the targeted player (alive, in the same chunk), else on the caster."""
+    """A heal lands on the defensive target (F1 / clicking a player), else on a player
+    who is the offensive target, else on the caster (alive and in the same chunk)."""
     player = state["player"]
     w = state.get("world")
-    ts = w.members.get(player.target) if w is not None and player.target else None
-    if ts is None or ts.get("player") is None or ts["player"].health <= 0:
-        return state
-    return ts
+    for target in (state.get("def_target"), player.target):
+        ts = w.members.get(target) if w is not None and target else None
+        if ts is not None and ts.get("player") is not None and ts["player"].health > 0:
+            return ts
+    return state
 
 
 def heal_hate(state, healed, amount):
