@@ -4044,12 +4044,24 @@ def movement_warning(ms, loc, now):
     return None
 
 
+def service_range_check(state, player):
+    """Walking away from the banker, mailbox or broker ends that session (and closes its
+    window), so it can't be used from across the map."""
+    for key, close in (("banking", bank.stop), ("mail_session", mail.close), ("market", market.close)):
+        npc = state.get(key)
+        if hasattr(npc, "location") and player_distance(player, npc) > SERVICE_RANGE:
+            state.pop(key, None)
+            state["send"](close())
+            print(f"  {player.name} walked away from {npc.name}: {key} ended")
+
+
 def on_move(state, loc):
-    """Every movement report: fall damage, then the movement sanity check."""
+    """Every movement report: fall damage, service ranges, then the movement sanity check."""
     check_fall(state, loc)
     player = state.get("player")
     if player is None:
         return
+    service_range_check(state, player)
     warning = movement_warning(state.setdefault("move_check", {}), loc, time.time())
     if warning:
         player.move_warnings = getattr(player, "move_warnings", 0) + 1
@@ -6473,7 +6485,7 @@ def handle_mail_event(state, event, data):
             return
         if not state.get("mail_session"):
             send(mail.info())
-        state["mail_session"] = True
+        state["mail_session"] = npc                      # the mailbox (see service_range_check)
         mail_list(state, box)
         return
     if event == mail.CLOSE:
@@ -6624,7 +6636,7 @@ def handle_market_event(state, event, data):
         if state.get("trade"):
             send(market_notice(0x51))
             return
-        state["market"] = True
+        state["market"] = npc                            # the broker (see service_range_check)
         send(market.info(npc.broker))
         for m in market.my_listings(mine):
             send(m)
@@ -7084,7 +7096,10 @@ def handle_bank_event(state, event, data):
         if npc is None or not npc.banker:
             send(bank.error(bank.ERR_NOT_BANKER))
             return
-        state["banking"] = True
+        if player_distance(player, npc) > SERVICE_RANGE:
+            send(client_notice(TOO_FAR_AWAY))
+            return
+        state["banking"] = npc                           # the banker (see service_range_check)
         send(bank.start("Bank", player.bank_coins))
         for i in player.bank:
             send(bank.item(bank_record(*i, getattr(player, "durability", {}).get(str(i[0]), 100))))

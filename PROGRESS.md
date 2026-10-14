@@ -6,11 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Continue the "optional" list in docs/UNSENT_MESSAGES.md. Good next candidates: escrow merchant
-(consignment) window (0x28d / 0x294-0x296), group member entity change on chunk travel (0x690),
-object-in-use errors (0x3ca), Unique items (0x1e4 code 0)
-with an items.json flag. Also look for more invented error texts that match client codes
-(docs/NOTICES.md, the 0x241 / 0x244 / 0x1e4 tables).
+Server hardening is in good shape (database, resends, in-order delivery, load test, fuzzer, authorization audit). Next candidates: remaining optional client messages in docs/UNSENT_MESSAGES.md (escrow merchant 0x28d / 0x294-0x296, group member entity change 0x690); a faster encoder or one process per chunk if more than ~200 players per zone are ever needed; re-run tools/fuzz.py --world --contexts after big handler changes.
 
 ## Last test results
 
@@ -42,6 +38,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Bank, mail and broker sessions end (and their windows close) when the player walks more than 1500 units from the banker, mailbox or broker; the bank also checks range when it opens. Verified live.
 - 2026-10-14: Server capacity, second round: fixed a resend storm (RTT-based timeout, rationed resends), NPC movement batched like players, spatial grid for movement, crowd thinning, SQL lookups by account/name. One zone now holds ~200 moving players spread over a chunk (steady p95 11 ms at 150) or ~100 in one spot; numbers in docs/TESTING.md. Verified: smoke test PASS; a chasing Canyon Widow still follows the player in the real client.
 - 2026-10-14: Authorization audit (agent, read-only) and fixes: item duplication by a stale Play on a second client (Play now closes the playing connection and drops unclaimed Plays; zone login rebuilds from the saved record after a kick); work-order supplies are quest items (no trade, mail, broker, sale or bank), so abandon/re-take no longer prints ore; master looter can only hand out its own group's corpses; trades cancel if an offered item was split, destroyed or swapped; merchant buys capped at a stack and sell prices never above the cheapest asking price; caravan, group, guild and brotherhood invites re-checked on accept; assembly trainers only sell their own recipes; loot and merchant trades within 1500 units. Movement updates now thinner for distant players (every 3rd within 12000, every 10th beyond).
 - 2026-10-14: Security: Customize (world 0x13b) could change any character's appearance without an account check; now only your own. Character create validates names. Fuzzer sweeps the login and world servers too (--world): clean.
