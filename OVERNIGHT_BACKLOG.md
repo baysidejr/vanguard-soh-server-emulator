@@ -24,6 +24,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Reachability check of the unhandled client requests: 19 ids are sent only from functions nothing references (no call, jump or pointer in VGClient.exe), marked Unreachable in docs/CLIENT_REQUESTS.md.
 - 2026-10-14: House chest drags inside the chest (0x153 {chest, item, count, slot}, from the drop handler FUN_00687a80): move, swap, split. The chest is redrawn silently (removing a split's new handle is a client "Programmer error"). Verified live with !chest <n> move. Deposits now honour the dropped slot and a split count (0x155), withdrawals a split count (0x157); verified live.
 - 2026-10-14: /sharelockouttimer and /lockoutaccept, /lockoutdecline answered with the client's InvalidLockout / NoLockoutOffer notices. Unlock tool 0x5e5: its answer 0x5e6 is about Gold Membership locks, which this server doesn't have; documented, left unanswered.
 - 2026-10-14: Item links: the answer to 0x158 is s2c 0x158 with the item record (FUN_005de090), found in ZONE_MESSAGES.md; the server resolves the item by name or template id. Tooltip popup verified live.

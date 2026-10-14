@@ -4,6 +4,8 @@ Every event id the client can send (the last `push imm` before a call to its sen
 
 The scan only sees ids pushed right before `FUN_004cfb00` / `FUN_004cfb50`. Some commands send through `FUN_00409210` instead (`/walk`, `/run`, `/cyclewieldpreference`, ...), so an in-game sweep of the slash commands (`sweep.sh`) finds more; the "Command" column for those was filled in from that sweep. Contexts are the nearest strings and can mislead (0x113 is `/hidehood`, not a lockout prompt).
 
+Rows marked **Unreachable** were checked on 2026-10-14: the function around every call site has no caller, no jump to it and no pointer to it anywhere in VGClient.exe (MSVC vtables and Unreal native tables would hold one), so the shipped client can't send them. They need no server code.
+
 Many are GM or debug commands (chunk travel, set hour, character flags, "defensive target" commands). The rest are player features with no server side yet. When one is implemented, remove its row.
 
 | Id | Command | Call sites | Context |
@@ -23,8 +25,8 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x120` |  | `0x451fc7` |  |
 | `0x126` |  | `0x54ac25` | You can only request debug information during a parley session. |
 | `0x127` |  | `0x4c0b55` `0x4c7985` | NPCDialogText |
-| `0x128` |  | `0x54abfe` |  |
-| `0x129` |  | `0x54cc16` |  |
+| `0x128` |  | `0x54abfe` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x129` |  | `0x54cc16` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking |
 | `0x138` |  | `0x5d3461` |  |
 | `0x167` |  | `0x4c47e6` |  |
@@ -36,12 +38,12 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x18f` |  | `0x4439b6` | ClaimName / Some Claim |
 | `0x191` | `/ropeaccept` | `0x5fc9a5` |  |
 | `0x1e7` |  | `0x4d1b9b` | No more items to be randomed! / GroupRandomLootInvitationPopup |
-| `0x214` |  | `0x5de6e5` |  |
+| `0x214` |  | `0x5de6e5` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
 | `0x250` |  | `0x589f16` |  |
 | `0x271` |  | `0x5e2a53` `0x5e2ae3` | Resurrection |
 | `0x27a` |  | `0x433a1e` |  |
-| `0x280` |  | `0x432e9d` |  |
+| `0x280` |  | `0x432e9d` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x35e` |  | `0x4cc6b0` |  |
 | `0x3a0` |  | `0x4a62c6` |  |
 | `0x45f` |  | `0x47e69f` |  |
@@ -69,25 +71,25 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x5d2` |  | `0x48434d` | PlacedBuildingNPCList / _building_npc_window |
 | `0x5d9` |  | `0x69ac74` | _lockout_timer_list / RaidLockoutTimerList |
 | `0x5e5` (see Raid lockout list) |  | `0x4fc100` | Could not find that item to unlock. / Programmer error: no unlock item for handle |
-| `0x764` |  | `0x503e6e` |  |
-| `0x765` |  | `0x4f972e` | Programmer error: no item matching valid handle / Cannot store a container inside another container. |
-| `0x766` |  | `0x429884` | NoSkillsOrSpells / SkillsAndSpellsHeader |
-| `0x767` |  | `0x429954` |  |
-| `0x768` |  | `0x61c5be` | Character flags cleared. |
-| `0x7ae` |  | `0x5ab55e` | Unknown crafting recipe. |
-| `0x7af` |  | `0x5ab61e` | Unknown crafting recipe. |
-| `0x7b0` |  | `0x457eae` | ----- Learned Assembly Recipes ----- / You don't know any assembly recipes. |
-| `0x7b1` |  | `0x457f6e` |  |
-| `0x7b6` |  | `0x41c235` |  |
-| `0x7b7` |  | `0x4c09db` |  |
-| `0x7c0` |  | `0x5059c0` | none / Invalid resource grade. |
+| `0x764` |  | `0x503e6e` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x765` |  | `0x4f972e` | Programmer error: no item matching valid handle / Cannot store a container inside another container. **Unreachable:** nothing calls or points to the sending function. |
+| `0x766` |  | `0x429884` | NoSkillsOrSpells / SkillsAndSpellsHeader **Unreachable:** nothing calls or points to the sending function. |
+| `0x767` |  | `0x429954` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x768` |  | `0x61c5be` | Character flags cleared. **Unreachable:** nothing calls or points to the sending function. |
+| `0x7ae` |  | `0x5ab55e` | Unknown crafting recipe. **Unreachable:** nothing calls or points to the sending function. |
+| `0x7af` |  | `0x5ab61e` | Unknown crafting recipe. **Unreachable:** nothing calls or points to the sending function. |
+| `0x7b0` |  | `0x457eae` | ----- Learned Assembly Recipes ----- / You don't know any assembly recipes. **Unreachable:** nothing calls or points to the sending function. |
+| `0x7b1` |  | `0x457f6e` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x7b6` |  | `0x41c235` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x7b7` |  | `0x4c09db` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x7c0` |  | `0x5059c0` | none / Invalid resource grade. **Unreachable:** nothing calls or points to the sending function. |
 | `0x7c4` | `/fly` | `0x613968` | Setting the hour to %d. |
 | `0x7c6` | `/summongroup` | `0x613d85` |  |
 | `0x7ce` | `/debuggameplay` | `0x60b0ce` | zones / Invalid option. |
 | `0x7e9` | `/attach` | `0x608b0a` |  |
-| `0x7ec` |  | `0x479dae` | _chest_permission_edit / _chest_guild_rank_select_list |
-| `0x7ed` |  | `0x48230b` |  |
-| `0x81f` |  | `0x4ba7ac` | No available work orders. / ----- Available work orders ----- |
+| `0x7ec` |  | `0x479dae` | _chest_permission_edit / _chest_guild_rank_select_list **Unreachable:** nothing calls or points to the sending function. |
+| `0x7ed` |  | `0x48230b` | **Unreachable:** nothing calls or points to the sending function. |
+| `0x81f` |  | `0x4ba7ac` | No available work orders. / ----- Available work orders ----- **Unreachable:** nothing calls or points to the sending function. |
 | `0x82c` |  | `0x624a51` | Failed to save nicknames, make sure Nicknames.txt is not read-only. |
 | `0x82f` |  | `0x476404` |  |
 | `0x851` |  | `0x5de4a5` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
