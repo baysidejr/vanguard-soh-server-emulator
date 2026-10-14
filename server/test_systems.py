@@ -933,6 +933,25 @@ class TinyPacketSizeTests(unittest.TestCase):
         self.assertGreater(len(packets), 0)
 
 
+class SecondLoginTests(unittest.TestCase):
+    def test_second_login_closes_the_first(self):
+        from unittest import mock
+        import login_stub
+        p_old, p_new = zone.Player("Twice", 1, 0x0E, 28, "chunk_n20_12"), zone.Player("Twice", 1, 0x0E, 28, "chunk_n20_12")
+        ended = []
+        old = {"player": p_old, "session": "a", "terminate": lambda: ended.append(1)}
+        new = {"player": p_new, "session": "b"}
+        handoff = {"player": p_new, "session": "a"}
+        with mock.patch.dict(login_stub.ONLINE, {"twice": old}, clear=True), \
+                mock.patch.object(login_stub, "leave_world") as leave:
+            login_stub.kick_other_session(handoff, None)        # same session: a chunk handoff
+            self.assertFalse(old.get("closed"))
+            login_stub.kick_other_session(new, None)
+            self.assertTrue(old["closed"])
+            self.assertEqual(ended, [1])
+            leave.assert_called_once_with(old, None)
+
+
 class ResendTests(unittest.TestCase):
     """Reliable packets are kept until acknowledged and sent again when they are not."""
 

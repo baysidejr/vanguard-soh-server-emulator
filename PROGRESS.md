@@ -40,6 +40,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: One character, one connection: logging in a character that is already playing closes the older connection (it returns to character select), so two clients can never run and save the same character. Verified live with two clients picking Ranger.
 - 2026-10-14: Launcher over HTTPS: login_stub.py --launcher-cert / --launcher-key, tools/play.py --https / --cafile. Verified with a self-signed certificate: HTTPS login works, plain HTTP and an untrusted certificate are refused.
 - 2026-10-14: Bug fixed: client messages longer than one packet (fragments) were ignored, so a long chat line (287 characters) was lost. Client packets are now delivered in order with a reorder buffer, fragments joined, Ack1 sent after a gap. Verified live: the old server drops the line, the new one receives all of it.
 - 2026-10-14: Reliable resends: the server keeps each reliable packet until the client acknowledges it (AckAll / Ack1), resends after 0.6 s with backoff, and resends at once after an out-of-order Ack1. Load test with 10% simulated loss: all bots log in, median ping 12 ms. Real client: 1 resend in 864 packets (`!netstats`).

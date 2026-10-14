@@ -7503,6 +7503,24 @@ def played_seconds(player):
     return int(getattr(player, "played", 0) + time.time() - getattr(player, "session_start", time.time()))
 
 
+def kick_other_session(state, args):
+    """The character of this new zone login is already playing on another connection (a second
+    client, or a crashed one the server hasn't timed out yet): end that one, so one character
+    never runs twice. A chunk handoff keeps its session and is not a second login."""
+    name = state["player"].name.lower()
+    old = ONLINE.get(name)
+    if old is None or old is state or old.get("closed") or old.get("session") == state.get("session"):
+        return
+    print(f"  {state['player'].name} logged in again: closing the older connection")
+    leave_world(old, args)
+    old["closed"] = True
+    if callable(old.get("terminate")):
+        try:
+            old["terminate"]()
+        except OSError:
+            pass
+
+
 def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
@@ -7595,6 +7613,8 @@ def serve(sock, server, data, addr, clients, args):
                 leave_world(gone, args)
         else:
             state = clients.setdefault(key, {"out_seq": 0, "max_raw": 512})
+            if state.get("closed"):
+                return                         # replaced by a newer login; dropped next tick
             state["last_seen"] = time.time()
             handle_acks(state, data)
             if server == "ZONE" and "send" not in state:
@@ -8572,6 +8592,7 @@ def handle_message(sock, server, addr, state, payload, args):
             state["session"] = login[1]
             ZONE_BY_SESSION[login[1]] = state
             if state["player"]:
+                kick_other_session(state, args)
                 ONLINE[state["player"].name.lower()] = state
             send_message(sock, addr, state, build_login_reply(True))
             if state["player"]:
