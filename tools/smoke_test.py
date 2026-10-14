@@ -25,7 +25,9 @@ CLIENT_LOG = os.path.join(BIN, "Logs", "VGClient.log")
 # Commands typed in game; each should be answered without an error in the logs.
 COMMANDS = ["/who", "/played", "/time", "/loc", "/random 100", "/afk", "/afk", "/lfg", "/lfg",
             "/showfactions", "/sit", "/stand", "/decksave 1", "/deckload 1", "/targetself",
-            "/forcecombatstance on", "/forcecombatstance off", "/claim", "Hello from the smoke test"]
+            "/forcecombatstance on", "/forcecombatstance off", "/claim", "Hello from the smoke test",
+            # dev commands that leave no lasting change on the character
+            "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide"]
 
 # Server log lines that mean something went wrong.
 SERVER_PROBLEMS = re.compile(r"Traceback|!!! error in|>>> handler error|malformed message")
@@ -132,7 +134,7 @@ def main():
     time.sleep(1)
     client_log_start = os.path.getsize(CLIENT_LOG) if os.path.exists(CLIENT_LOG) else 0
     with open(LOG, "w", encoding="utf-8") as out:
-        server = subprocess.Popen([sys.executable, "-u", "login_stub.py", "--quiet-packets"], cwd=SERVER,
+        server = subprocess.Popen([sys.executable, "-u", "login_stub.py", "--quiet-packets", "--dev-commands"], cwd=SERVER,
                                   stdout=out, stderr=subprocess.STDOUT)
     time.sleep(2)
     subprocess.Popen([os.path.join(BIN, "VGClient.exe"), "--sessionid=12345678"], cwd=BIN)
