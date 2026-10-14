@@ -37,6 +37,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: --enforce-movement: impossible movement (jump or speed) moves the player back to the last good position. Verified: a bot's 10800-unit jump was undone; the real client walking and !tp teleports triggered nothing.
 - 2026-10-14: Failed-login throttling now also covers the game's own login (SOE_LOGIN + token), not only the launcher: 5 failures per address per 5 minutes. Verified: after 5 wrong tokens the right one is refused too.
 - 2026-10-14: Flood limits: 300 messages/s per connection (burst 600), kick after 10 s over it; chat 5 lines/s. Verified: a bot sending ~1800 messages/s was disconnected after 10 s while another player was unaffected; smoke test and fuzzer unaffected.
 - 2026-10-14: docs/HOSTING.md (ports, --world-address, HTTPS, data folder, what never to enable publicly, removing the dev test tokens, players' setup, console, backups, capacity). accounts.py untoken; accounts.py and storage.py take --data-dir.

@@ -255,6 +255,9 @@ def main():
     parser.add_argument("--anonymous-zone", action="store_true",
                         help="debugging: let a zone connection enter the world without logging in "
                              "(as 'Someone'); never on a public server")
+    parser.add_argument("--enforce-movement", action="store_true",
+                        help="move players back when they report impossible movement (speed or "
+                             "teleport hacks); otherwise it is only logged")
     parser.add_argument("--backup-hours", type=float, default=6.0,
                         help="copy the database to <data folder>/backups this often (0: never); keeps 10")
     parser.add_argument("--data-dir", default=None,
@@ -4159,10 +4162,21 @@ def on_move(state, loc):
     if player is None:
         return
     service_range_check(state, player)
-    warning = movement_warning(state.setdefault("move_check", {}), loc, time.time())
-    if warning:
-        player.move_warnings = getattr(player, "move_warnings", 0) + 1
-        print(f"  MOVEMENT WARNING {player.name}: {warning} at ({loc[0]:.0f}, {loc[1]:.0f}, {loc[2]:.0f})")
+    ms = state.setdefault("move_check", {})
+    warning = movement_warning(ms, loc, time.time())
+    if not warning:
+        ms["good"] = loc
+        return
+    player.move_warnings = getattr(player, "move_warnings", 0) + 1
+    print(f"  MOVEMENT WARNING {player.name}: {warning} at ({loc[0]:.0f}, {loc[1]:.0f}, {loc[2]:.0f})")
+    good = ms.get("good")
+    if getattr(ARGS, "enforce_movement", False) is True and good is not None:
+        # --enforce-movement: back to the last position that passed (a server teleport, whose
+        # echo excuses the jump back from the check).
+        state["send"](zone.player_teleport(tuple(good)))
+        player.live_position = state["position"] = good
+        ms["last"] = ms["start"] = good
+        print(f"  {player.name} moved back to ({good[0]:.0f}, {good[1]:.0f}, {good[2]:.0f})")
 
 
 def check_fall(state, loc):

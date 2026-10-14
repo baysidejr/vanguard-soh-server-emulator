@@ -89,6 +89,11 @@ Each player needs their own Vanguard client (version 1.324.1.139565) with this r
 - Login attempts: 5 failed logins per address per 5 minutes, counting both the launcher's
   password check and the game's own login (so launcher tokens can't be guessed either).
 - A character logged in twice keeps only the newer connection.
+- Movement: a report that jumps more than 2000 units without a server teleport, or averages more
+  than riding speed (with room for lag) over 2 seconds, is logged as `MOVEMENT WARNING`. With
+  `--enforce-movement` the player is also moved back to their last good position (a speed or
+  teleport hack gets nowhere). Normal walking, riding and server teleports never triggered it in
+  testing, but it is off by default.
 
 ## How many players
 
@@ -100,5 +105,4 @@ longer than that (each login opens every nearby player and NPC for the newcomer)
 ## Known gaps
 
 All game data (items, mobs, quests, abilities, rewards) is placeholder content; see
-docs/CONTENT_EDITOR.md. The server trusts the position the client reports (no movement cheat
-detection beyond a warning in the log).
+docs/CONTENT_EDITOR.md.
