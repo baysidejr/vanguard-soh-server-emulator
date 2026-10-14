@@ -31,11 +31,24 @@ class LoginHookTests(unittest.TestCase):
             login_stub.save_caravans([{"leader": "Tester", "members": ["Tester", "Other"]}])
             try:
                 for hook in ("social_login", "guild_login", "brotherhood_login", "faction_login",
-                             "workorder_login", "mail_login", "title_login", "caravan_login"):
+                             "workorder_login", "mail_login", "title_login", "caravan_login",
+                             "assembly_login", "journal_login", "songs_login", "fishing_login", "forms_login"):
                     getattr(login_stub, hook)(state)
             finally:
                 mock.patch.stopall()
         self.assertTrue(sent)
+
+
+class LoginHookListTests(unittest.TestCase):
+    def test_every_zone_login_hook_is_covered(self):
+        """The zone login calls <name>_login(state) hooks; the smoke test above must run each."""
+        import inspect
+        import re
+        src = inspect.getsource(login_stub)
+        called = set(re.findall(r"^\s+(\w+_login)\(state\)$", src, re.M))
+        tested = set(re.findall(r'"(\w+_login)"', inspect.getsource(LoginHookTests)))
+        self.assertTrue(called)
+        self.assertEqual(called - tested, set())
 
 
 class FallTests(unittest.TestCase):
