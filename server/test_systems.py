@@ -898,12 +898,19 @@ class UnterminatedStringTests(unittest.TestCase):
     def test_no_hang_on_missing_terminator(self):
         """A UTF-16 string with no terminator used to spin forever in several readers
         (house permission friends, mail, market, songs, bug reports): one packet froze the server."""
+        import tempfile
         import threading
+        from unittest import mock
         import login_stub
         import housing
         p = zone.Player("Nobody", 1, 0x0E, 28, "chunk_n20_12")
         state = {"player": p, "send": lambda m: None}
         done = []
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        patch = mock.patch.object(login_stub, "HOUSING_FILE", os.path.join(tmp.name, "housing.json"))
+        patch.start()
+        self.addCleanup(patch.stop)
 
         def run():
             for data in (b"", b"A\x00", b"A\x00B"):
@@ -1054,7 +1061,8 @@ class AccountTests(unittest.TestCase):
         self.assertIsNone(a.login(a.LAUNCHER_LOGIN, "12345678"))
         self.assertIsNone(a.set_token("alice", "12345678"))
         self.assertEqual(a.login(a.LAUNCHER_LOGIN, "12345678"), "alice")
-        data = json.load(open(a.ACCOUNTS_FILE, encoding="utf-8"))
+        import storage
+        data = storage.read_json(a.ACCOUNTS_FILE)
         self.assertNotIn("correct horse", json.dumps(data))             # only the hash is stored
         self.assertIsNone(a.set_password("alice", "new secret"))
         self.assertIsNone(a.login("Alice", "correct horse"))
@@ -1073,6 +1081,36 @@ class AccountTests(unittest.TestCase):
         self.assertFalse(a.is_suspended(a.DEV_ACCOUNT))
         self.assertIsNone(a.set_suspended(a.DEV_ACCOUNT, True))
         self.assertTrue(a.is_suspended(a.DEV_ACCOUNT))
+
+class StorageTests(unittest.TestCase):
+    def test_database_imports_and_updates(self):
+        import tempfile
+        import storage
+        with tempfile.TemporaryDirectory() as d:
+            chars = os.path.join(d, "characters.json")
+            guilds = os.path.join(d, "guilds.json")
+            storage.write_json_atomic(chars, [{"first": "Ann", "level": 1}, {"first": "Bo", "level": 2}])
+            storage.write_json_atomic(guilds, {"g": {"members": ["Ann"]}})
+            self.assertEqual([c["first"] for c in storage.read_characters(chars)], ["Ann", "Bo"])
+            self.assertFalse(os.path.exists(chars))                       # imported, kept as a backup
+            self.assertTrue(os.path.exists(chars + ".imported"))
+            self.assertTrue(storage.update_character(chars, "Bo", {"level": 3}))
+            self.assertFalse(storage.update_character(chars, "Nobody", {"level": 3}))
+            storage.update_character(chars, "Ann", lambda c: c.update(level=c["level"] + 10))
+            self.assertEqual([c["level"] for c in storage.read_characters(chars)], [11, 3])
+            storage.write_characters(chars, storage.read_characters(chars) + [{"first": "Cy"}])
+            self.assertEqual([c["first"] for c in storage.read_characters(chars)], ["Ann", "Bo", "Cy"])
+            self.assertEqual(storage.read_json(guilds), {"g": {"members": ["Ann"]}})
+            self.assertEqual(storage.read_json(os.path.join(d, "mail.json"), {"x": 1}), {"x": 1})
+            storage.write_json(guilds, {})
+            self.assertEqual(storage.read_json(guilds), {})
+            out = os.path.join(d, "out")
+            self.assertIn("characters.json", storage.export(d, out))
+            self.assertEqual(len(json.load(open(os.path.join(out, "characters.json"), encoding="utf-8"))), 3)
+            storage.write_json_atomic(os.path.join(out, "guilds.json"), {"h": 1})
+            storage.import_file(os.path.join(out, "guilds.json"), d)
+            self.assertEqual(storage.read_json(guilds), {"h": 1})
+
 
 
 if __name__ == "__main__":

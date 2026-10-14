@@ -14,6 +14,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Last test results
 
+- 2026-10-14 (SQLite storage): server unit tests OK (161), content OK, smoke test PASS (40 commands) against the database.
 - 2026-10-14: server unit tests OK (160), content OK. Live: Stage 2 Mould Oil step dimmed when the oil is missing; not dimmed without 0x30b. Note: run_test.sh needs `--dev-commands` for `!tp` and other ! commands.
 - 2026-10-14 (da3a48e): server unit tests OK, crowdsourced tests OK, content OK, in-game smoke test PASS (40 commands). Live today: race pass (19) and class pass (15), forge auto-attack refused, crafting refused in combat, destroy refused in combat, ability and auto-attack failure messages, item errors.
 
@@ -23,8 +24,8 @@ with an items.json flag. Also look for more invented error texts that match clie
 2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 531 of 720 sent or not needed (73%); open: 125 optional features, 64 undecoded handlers.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** equip, split, destroy, sort flows (not covered by the slash-command sweep).
-5. **Production readiness:** database instead of JSON files, accounts and passwords, many players at once.
-   - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. A refused login shows the client's own popup (login event 2, code 1002 / 50). Open: a database instead of JSON files.
+5. **Production readiness:** many players at once (load testing), TLS for the launcher endpoint. Database: done (SQLite, 2026-10-14).
+   - **Accounts: done** (user chose username and password, 2026-10-14): server/accounts.py, tools/play.py launcher, characters owned per account. A refused login shows the client's own popup (login event 2, code 1002 / 50). Saved in the database (server/vanguard.db).
 
 ## Blocked (needs the user or data)
 
@@ -37,6 +38,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Saved data moved from JSON files to a SQLite database, server/vanguard.db (storage.py): one row per character, so saving one field no longer rewrites every character; accounts, guilds, mail, market, housing, caravans, brotherhoods and civic stats as documents. Old JSON files are imported on first start and renamed *.imported; `storage.py export / import / set` for backups, hand edits and GM flags. Fixed a unit test that read the real housing file. Verified live: login, character list, position and settings saved; smoke test PASS.
 - 2026-10-14: The Z key (/cyclewieldpreference, 0x112) steps m_WieldPreference 0-3; seen live: the third press draws the bow, the fourth sheathes it.
 - 2026-10-14: Crafting stations can only be used within 800 units; farther away the client prints its own "You're too far away to do that." (0x2e9 code 2). Verified live at 1000 units (refused) and next to the forge (opens).
 - 2026-10-14: Crafting: steps whose tool or utility item is missing are dimmed in the crafting window (0x30b at Begin and at each stage start). Verified live against a control run without the message.

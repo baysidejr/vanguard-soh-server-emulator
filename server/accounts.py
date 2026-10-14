@@ -50,18 +50,14 @@ MAX_FAILURES, FAILURE_WINDOW = 5, 300
 
 
 def load():
-    try:
-        with open(ACCOUNTS_FILE, encoding="utf-8") as f:
-            data = json.load(f)
-    except (OSError, ValueError):
-        data = {}
+    data = storage.read_json(ACCOUNTS_FILE, {})
     data.setdefault("accounts", {})
     data.setdefault("launcher_tokens", {})
     return data
 
 
 def save(data):
-    storage.write_json_atomic(ACCOUNTS_FILE, data)
+    storage.write_json(ACCOUNTS_FILE, data)
 
 
 def _hash(password, salt, iterations=ITERATIONS):

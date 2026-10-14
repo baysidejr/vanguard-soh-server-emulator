@@ -1267,12 +1267,11 @@ def rename_character(state, data):
                 c["first"], c["last"] = first, last
         save_characters(rename_refs(chars, old, first))
         for path in name_stores():
-            if os.path.exists(path):
-                data_ = load_json_file(path, None)
-                if data_ is not None:
-                    renamed = rename_refs(data_, old, first)
-                    if renamed != data_:
-                        save_json_file(path, renamed)
+            data_ = load_json_file(path, None)
+            if data_ is not None:
+                renamed = rename_refs(data_, old, first)
+                if renamed != data_:
+                    save_json_file(path, renamed)
         player.name = first
         if ONLINE.get(old.lower()) is state:
             ONLINE.pop(old.lower())
@@ -1848,15 +1847,11 @@ PLOT_OBJECT_BASE = 0x5000000
 
 def load_housing():
     """{plot id: {owner, bought, building (type), built}}"""
-    try:
-        with open(HOUSING_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return {}
+    return storage.read_json(HOUSING_FILE, {})
 
 
 def save_housing(db):
-    storage.write_json_atomic(HOUSING_FILE, db)
+    storage.write_json(HOUSING_FILE, db)
 
 
 def plot_object(pid, plot, st):
@@ -3151,15 +3146,11 @@ CARAVANS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "carava
 
 
 def load_caravans():
-    try:
-        with open(CARAVANS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return []
+    return storage.read_json(CARAVANS_FILE, [])
 
 
 def save_caravans(cs):
-    storage.write_json_atomic(CARAVANS_FILE, cs)
+    storage.write_json(CARAVANS_FILE, cs)
 
 
 def caravan_of(name, cs=None):
@@ -4280,15 +4271,11 @@ GUILDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "guilds.j
 
 
 def load_guilds():
-    try:
-        with open(GUILDS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return {}
+    return storage.read_json(GUILDS_FILE, {})
 
 
 def save_guilds(guilds):
-    storage.write_json_atomic(GUILDS_FILE, guilds)
+    storage.write_json(GUILDS_FILE, guilds)
 
 
 def guild_of(name, guilds=None):
@@ -4571,15 +4558,11 @@ BROTHERHOODS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "br
 
 
 def load_brotherhoods():
-    try:
-        with open(BROTHERHOODS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return []
+    return storage.read_json(BROTHERHOODS_FILE, [])
 
 
 def save_brotherhoods(bhs):
-    storage.write_json_atomic(BROTHERHOODS_FILE, [b for b in bhs if len(b["members"]) > 1])
+    storage.write_json(BROTHERHOODS_FILE, [b for b in bhs if len(b["members"]) > 1])
 
 
 def brotherhood_of(name, bhs=None):
@@ -6341,15 +6324,11 @@ MAILBOX_RANGE = 800
 
 def load_mail():
     """{"next_id": n, "boxes": {lower-case name: [mail dicts]}}"""
-    try:
-        with open(MAIL_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return {"next_id": 1, "boxes": {}}
+    return storage.read_json(MAIL_FILE, {"next_id": 1, "boxes": {}})
 
 
 def save_mail(db):
-    storage.write_json_atomic(MAIL_FILE, db)
+    storage.write_json(MAIL_FILE, db)
 
 
 def deliver_mail(db, to, m):
@@ -6506,15 +6485,11 @@ MARKET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "market.j
 
 def load_market():
     """{"next_id": n, "listings": [{id, seller, name, icon, qty, price, posted}]}"""
-    try:
-        with open(MARKET_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return {"next_id": market.FIRST_ID, "listings": []}
+    return storage.read_json(MARKET_FILE, {"next_id": market.FIRST_ID, "listings": []})
 
 
 def save_market(db):
-    storage.write_json_atomic(MARKET_FILE, db)
+    storage.write_json(MARKET_FILE, db)
 
 
 def expire_market(db):
@@ -7216,15 +7191,11 @@ CIVIC_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "civic.jso
 
 
 def load_json_file(path, default):
-    try:
-        with open(path, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return default
+    return storage.read_json(path, default)
 
 
 def save_json_file(path, data):
-    storage.write_json_atomic(path, data)
+    storage.write_json(path, data)
 
 
 def civic_stats():
@@ -7846,43 +7817,26 @@ CHARACTERS_FILE =os.path.join(os.path.dirname(os.path.abspath(__file__)), "chara
 
 
 def load_characters():
-    try:
-        with open(CHARACTERS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return []
+    return storage.read_characters(CHARACTERS_FILE)
 
 
 def save_character_position(name, loc):
-    chars = load_characters()
-    for c in chars:
-        if c["first"] == name:
-            c["position"] = list(loc)
-            c["position_chunk"] = list(character_chunk(c))
-            save_characters(chars)
-            return
+    def move(c):
+        c["position"] = list(loc)
+        c["position_chunk"] = list(character_chunk(c))
+    storage.update_character(CHARACTERS_FILE, name, move)
 
 
 def save_character_progress(name, level, xp):
-    chars = load_characters()
-    for c in chars:
-        if c["first"] == name:
-            c["adventure_level"], c["adventure_xp"] = level, xp
-            save_characters(chars)
-            return
+    storage.update_character(CHARACTERS_FILE, name, {"adventure_level": level, "adventure_xp": xp})
 
 
 def save_character_field(name, field, value):
-    chars = load_characters()
-    for c in chars:
-        if c["first"] == name:
-            c[field] = value
-            save_characters(chars)
-            return
+    storage.update_character(CHARACTERS_FILE, name, {field: value})
 
 
 def save_characters(chars):
-    storage.write_json_atomic(CHARACTERS_FILE, chars)
+    storage.write_characters(CHARACTERS_FILE, chars)
 
 
 # The most recent world-server / login-server connections, so each side can push
