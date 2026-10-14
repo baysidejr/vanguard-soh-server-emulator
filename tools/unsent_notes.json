@@ -231,8 +231,8 @@
       "bInOutpost {bool8}: outpost flag (the camp is an outpost); what it unlocks is not known"
     ],
     "0x553": [
-      "unknown",
-      "wstr + 3 floats; handler not decoded"
+      "optional",
+      "spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (world FUN_00b77ee0: \"Failed to spawn actor\"); for scripted effects"
     ],
     "0x5b0": [
       "debug",
@@ -575,8 +575,8 @@
       "group member list flag {eid64, u8} (GroupMemberList)"
     ],
     "0x690": [
-      "optional",
-      "group member's entity id changed (chunk travel) {old eid64, new eid64}"
+      "no-op",
+      "group member's entity id changed {old eid64, new eid64}; player entity ids are stable across chunks here"
     ],
     "0x69f": [
       "unknown",
@@ -587,8 +587,8 @@
       "YouJoinedGroup signal; the server joins the player through 0x6bb rows"
     ],
     "0x6aa": [
-      "optional",
-      "\"You lost connection with your ...\" banner (group member disconnect)"
+      "no-op",
+      "\"You lost connection with your group. Re-forming your group...\" banner: for a group-server outage; this server keeps groups in the zone process, so it never happens"
     ],
     "0x6b1": [
       "optional",

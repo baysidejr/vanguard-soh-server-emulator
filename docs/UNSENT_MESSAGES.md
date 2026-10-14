@@ -6,15 +6,15 @@ The client handles 720 zone messages; the server code mentions 446 of them (61%)
 
 | Category | Count |
 |---|---|
-| optional | 140 |
-| unknown | 39 |
+| optional | 139 |
+| unknown | 38 |
 | content | 35 |
 | variant | 34 |
-| no-op | 10 |
+| no-op | 12 |
 | debug | 8 |
 | blocked | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 541 of 720 (75%). Still open: 140 optional features and 39 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 543 of 720 (75%). Still open: 139 optional features and 38 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 33
 
@@ -75,7 +75,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 541 of 720 (75%).
 | 0x544 | (none) |  | unknown | no-payload signal |
 | 0x545 | MsgSingleBool | bool8 | optional | DialogActive {bool8}: server-side dialog state flag |
 | 0x552 | MsgSingleBool | bool8 | optional | bInOutpost {bool8}: outpost flag (the camp is an outpost); what it unlocks is not known |
-| 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | unknown | wstr + 3 floats; handler not decoded |
+| 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | optional | spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (world FUN_00b77ee0: "Failed to spawn actor"); for scripted effects |
 | 0x5b0 | MsgThreeStringsAndInt | wstr, wstr, wstr, i32 | debug | /.g1 /.g2 GM output {3 x wstr, i32} |
 | 0x5c7 | MsgThreeFloats | f32, f32, f32 | unknown | 3 floats; handler not decoded |
 | 0x5e2 | (raw) |  | blocked | character customization / slot item purchased (store); this server has no store |
@@ -220,10 +220,10 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 541 of 720 (75%).
 |---|---|---|---|---|
 | 0x68a | MsgSendSingleSGOString | wstr | unknown | wstr; group handler not decoded |
 | 0x68e | MsgEntityIDAndByte | eid64, u8 | optional | group member list flag {eid64, u8} (GroupMemberList) |
-| 0x690 | MsgGroupMemberNewEntityId | eid64, eid64 | optional | group member's entity id changed (chunk travel) {old eid64, new eid64} |
+| 0x690 | MsgGroupMemberNewEntityId | eid64, eid64 | no-op | group member's entity id changed {old eid64, new eid64}; player entity ids are stable across chunks here |
 | 0x69f | MsgSingleEntityId | eid64 | unknown | eid64; group handler not decoded |
 | 0x6a0 | (none) |  | variant | YouJoinedGroup signal; the server joins the player through 0x6bb rows |
-| 0x6aa | (none) |  | optional | "You lost connection with your ..." banner (group member disconnect) |
+| 0x6aa | (none) |  | no-op | "You lost connection with your group. Re-forming your group..." banner: for a group-server outage; this server keeps groups in the zone process, so it never happens |
 | 0x6b1 | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
 | 0x6b4 | MsgSendSingleSGOString | wstr | unknown | wstr; group handler not decoded |
 | 0x6c9 | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
