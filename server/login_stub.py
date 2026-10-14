@@ -1817,6 +1817,19 @@ def chest_record(it):
     return vgmsg.inventory_item(it[0], it[1], it[4], it[2], it[3], **zone.item_equip_fields(it[1]))
 
 
+def chest_redraw(send, f):
+    """Redraw an open chest as on opening (clear, every item silently, refresh): removing and
+    re-adding items prints "... was removed from your chest" for each."""
+    send(housing.chest_clear())
+    for it in f["items"]:
+        send(housing.chest_item(chest_record(it)))
+    send(housing.chest_refresh())
+
+
+def chest_new_handle(player, f):
+    return max([x[0] for x in f["items"]] + [zone.new_item_id(player)]) + 1
+
+
 def handle_chest(state, event, vals):
     player, send = state["player"], state["send"]
     notice = lambda code: send(zone.zone_event(0x0E, struct.pack("<h", code)))
@@ -1845,36 +1858,47 @@ def handle_chest(state, event, vals):
     elif state.get("chest") != cid:
         return
     elif event == housing.CHEST_DEPOSIT and len(vals) >= 2:
+        # {chest, bag item, count (-1 = the whole stack), slot (-1 = any)}: the dropped slot when
+        # it is free, else the first free one; a count below the stack splits it.
         item = next((i for i in player.items if i[0] == vals[1]), None)
         used = {it[4] for it in f["items"]}
-        slot = next((s for s in range(cap) if s not in used), None)
+        want = vals[3] if len(vals) >= 4 else -1
+        slot = want if 0 <= want < cap and want not in used else next((s for s in range(cap) if s not in used), None)
         if item is None:
             return
         if slot is None:
             send(client_notice(CHEST_FULL))
             return
-        player.items.remove(item)
-        send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+        count = vals[2] if len(vals) >= 3 and 0 < vals[2] < item[3] else item[3]
+        if count == item[3]:
+            player.items.remove(item)
+            send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+            it = [item[0], item[1], item[2], item[3], slot]
+        else:
+            player.items[player.items.index(item)] = item[:3] + (item[3] - count, item[4])
+            send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - count)))
+            it = [chest_new_handle(player, f), item[1], item[2], count, slot]
         save_character_field(player.name, "items", [list(i) for i in player.items])
-        it = [item[0], item[1], item[2], item[3], slot]
         f["items"].append(it)
         save_housing(db)
         send(housing.chest_item(chest_record(it), draw=True))
         send(housing.chest_refresh())
     elif event == housing.CHEST_MOVE and len(vals) >= 4:
-        new_handle = max([x[0] for x in f["items"]] + [zone.new_item_id(player)]) + 1
-        changed = housing.chest_move(f["items"], vals[1], vals[2], vals[3], cap, new_handle)
+        changed = housing.chest_move(f["items"], vals[1], vals[2], vals[3], cap, chest_new_handle(player, f))
         if changed:
             save_housing(db)
-            # Redrawn as on opening: removing and re-adding prints "... was removed from your
-            # chest", and removing the new split handle is a client "Programmer error".
-            send(housing.chest_clear())
-            for it in f["items"]:
-                send(housing.chest_item(chest_record(it)))
-            send(housing.chest_refresh())
+            chest_redraw(send, f)        # (removing the new split handle is a client "Programmer error")
     elif event == housing.CHEST_WITHDRAW and len(vals) >= 2:
+        # {chest, chest item, count (-1 = all), container, slot}: the items land in the first free
+        # bag slot; a count below the stack leaves the rest in the chest.
         it = next((x for x in f["items"] if x[0] == vals[1]), None)
-        if it is None or not give_item(state, it[1], it[3]):
+        count = vals[2] if it is not None and len(vals) >= 3 and 0 < vals[2] < it[3] else (it[3] if it else 0)
+        if it is None or not give_item(state, it[1], count):
+            return
+        if count < it[3]:
+            it[3] -= count
+            save_housing(db)
+            chest_redraw(send, f)
             return
         f["items"].remove(it)
         save_housing(db)
@@ -7403,12 +7427,17 @@ def dev_command(text, player=None):
         # !plot [id]: inspect a plot as if its sign were right-clicked (testing).
         return [("housing", housing.INSPECT, struct.pack("<ii", 1, int(words[1]) if len(words) > 1 else 101))]
     if words[0] == "chest" and player and len(words) > 1:
-        # !chest <fixture n> [put <bag handle> | take <item handle> | close]: the chest's menu and drags (testing).
+        # !chest <fixture n> [put <bag handle> [count slot] | take <item handle> [count] | close]:
+        # the chest's menu and drags (testing).
         cid = housing.FIXTURE_ID_BASE + int(words[1])
         if "put" in words:
-            return [("housing", housing.CHEST_DEPOSIT, struct.pack("<iiii", cid, int(words[-1]), -1, 0))]
+            at = words.index("put")
+            h, n, s = (list(map(int, words[at + 1:at + 4])) + [-1, -1])[:3]
+            return [("housing", housing.CHEST_DEPOSIT, struct.pack("<iiii", cid, h, n, s))]
         if "take" in words:
-            return [("housing", housing.CHEST_WITHDRAW, struct.pack("<iiiii", cid, int(words[-1]), -1, -1, 0))]
+            at = words.index("take")
+            h, n = (list(map(int, words[at + 1:at + 3])) + [-1])[:2]
+            return [("housing", housing.CHEST_WITHDRAW, struct.pack("<iiiii", cid, h, n, -1, 0))]
         if "move" in words and len(words) >= 6:
             # !chest <n> move <item handle> <count, -1 = all> <slot>: a drag inside the chest.
             return [("housing", housing.CHEST_MOVE, struct.pack("<iiii", cid, *map(int, words[-3:])))]
