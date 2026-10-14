@@ -14,10 +14,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Last test results
 
-- 2026-10-14 (1729ddc): server unit tests OK, crowdsourced tests OK (118), content OK, in-game smoke
-  test PASS (40 commands). Live checks today: unbind (0x5e4), /random (0x31a), group promote and boot
-  (two clients), stunned and no-target ability failures (0x241), auto-attack without a target (0x244),
-  equipping a non-equippable item (0x1e4).
+- 2026-10-14 (da3a48e): server unit tests OK, crowdsourced tests OK, content OK, in-game smoke test PASS (40 commands). Live today: race pass (19) and class pass (15), forge auto-attack refused, crafting refused in combat, destroy refused in combat, ability and auto-attack failure messages, item errors.
 
 ## Remaining work
 
@@ -39,6 +36,7 @@ with an items.json flag. Also look for more invented error texts that match clie
 
 ## Done
 
+- 2026-10-14: Bug fixed: auto-attack (and pet abilities) could kill service NPCs; the Camp Forge died in a test. Client combat rules now enforced with its own notices: no destroying items (94), no starting a craft (144), no binding Bind On Equip items (130) in combat; no changing equipment while crafting (95).
 - 2026-10-14: 271 class ability names re-spaced from the crowdsourced archive ("Lightning Strike I" instead of "Lightningstrike I"); logged in crowdsourced/imported.md.
 - 2026-10-14: Class pass: all 15 classes entered the world and used their first four abilities; no server errors.
 - 2026-10-14: Race pass: all 19 races shown on character select and entered the world, no server errors (Orc logs missing half-orc skeletons from the client itself). Encounter ownership (0x567) sent on first damage. 541 of 720 client messages now sent or not needed (75%).
