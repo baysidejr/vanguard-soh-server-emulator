@@ -1070,6 +1070,9 @@ class AccountTests(unittest.TestCase):
         self.assertEqual(a.login(a.DEV_ACCOUNT, password), a.DEV_ACCOUNT)
         self.assertEqual(a.login(a.LAUNCHER_LOGIN, "22222222"), a.DEV_ACCOUNT)
         self.assertIsNone(a.ensure_dev_account())                        # only on a fresh install
+        self.assertFalse(a.is_suspended(a.DEV_ACCOUNT))
+        self.assertIsNone(a.set_suspended(a.DEV_ACCOUNT, True))
+        self.assertTrue(a.is_suspended(a.DEV_ACCOUNT))
 
 
 if __name__ == "__main__":

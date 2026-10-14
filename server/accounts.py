@@ -19,6 +19,7 @@ Command line (run from server/):
     python accounts.py create <username> <password>
     python accounts.py password <username> <new password>
     python accounts.py token <username> <launcher token>
+    python accounts.py suspend <username>      (and unsuspend <username>)
     python accounts.py list
 """
 import hashlib
@@ -107,6 +108,21 @@ def set_token(username, token, data=None):
     data["launcher_tokens"][token] = username.lower()
     save(data)
     return None
+
+
+def set_suspended(username, flag, data=None):
+    data = data if data is not None else load()
+    acc = data["accounts"].get((username or "").lower())
+    if acc is None:
+        return "No such account."
+    acc["suspended"] = bool(flag)
+    save(data)
+    return None
+
+
+def is_suspended(username, data=None):
+    data = data if data is not None else load()
+    return bool(data["accounts"].get((username or "").lower(), {}).get("suspended"))
 
 
 def check_password(username, password, data=None):
@@ -228,13 +244,15 @@ def main(argv):
         err = set_password(argv[1], argv[2])
     elif len(argv) >= 3 and argv[0] == "token":
         err = set_token(argv[1], argv[2])
+    elif len(argv) >= 2 and argv[0] in ("suspend", "unsuspend"):
+        err = set_suspended(argv[1], argv[0] == "suspend")
     elif argv[:1] == ["list"]:
         data = load()
         tokens = {}
         for t, u in data["launcher_tokens"].items():
             tokens.setdefault(u, []).append(t)
         for key, acc in sorted(data["accounts"].items()):
-            print(f"{acc['name']}: launcher tokens {tokens.get(key, [])}")
+            print(f"{acc['name']}{' (suspended)' if acc.get('suspended') else ''}: launcher tokens {tokens.get(key, [])}")
         return 0
     else:
         print(__doc__)

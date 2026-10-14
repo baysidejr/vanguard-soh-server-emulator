@@ -9182,8 +9182,11 @@ def handle_message(sock, server, addr, state, payload, args):
     LOGIN_CONN.update(sock=sock, addr=addr, state=state)
     if login:
         account = accounts.login(login[0], login[1])
-        if account is None:
+        if account is not None and accounts.is_suspended(account):
+            code, account = LOGIN_SUSPENDED, None
+        elif account is None:
             code = LOGIN_SESSION_EXPIRED if login[0] == accounts.LAUNCHER_LOGIN else LOGIN_BAD_ACCOUNT
+        if account is None:
             for msg in (build_login_reply(False), build_login_failure(code)):
                 sock.sendto(build_reliable(state["out_seq"], msg), addr)
                 state["out_seq"] += 1
