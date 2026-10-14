@@ -1,0 +1,137 @@
+{
+  "batch": "raw\\2026-10-14-035058-444718-archive-bulk",
+  "collisions": [
+    {
+      "output_key": "becoming_a_diplomat_mordebi",
+      "names": [
+        "Becoming a Diplomat (Mordebi)",
+        "Becoming a Diplomat(Mordebi)"
+      ],
+      "sources": [
+        [
+          {
+            "url": "https://vgsoharchive.com/quests/becoming-a-diplomat-mordebi-2",
+            "title": "Becoming a Diplomat (Mordebi) · Vanguard Archive",
+            "date": null
+          }
+        ],
+        [
+          {
+            "url": "https://vgsoharchive.com/quests/becoming-a-diplomat-mordebi",
+            "title": "Becoming a Diplomat(Mordebi) · Vanguard Archive",
+            "date": null
+          }
+        ]
+      ],
+      "observations": [
+        {
+          "name": "Becoming a Diplomat (Mordebi)",
+          "level": null,
+          "zone": "Khal",
+          "giver": "Aspelta Kamidalta",
+          "chain_previous": null,
+          "chain_next": "Studying Your Statements (Mordebi)",
+          "archive_fields": {
+            "starts with": [
+              "Aspelta Kamidalta"
+            ],
+            "location": [
+              "4749, -58730, 1263"
+            ],
+            "next": [
+              "Studying Your Statements (Mordebi)"
+            ],
+            "repeatable": [
+              "Yes"
+            ]
+          }
+        },
+        {
+          "name": "Becoming a Diplomat(Mordebi)",
+          "level": 1,
+          "zone": "Khal",
+          "giver": "Aspelta Kamidalta",
+          "chain_previous": null,
+          "chain_next": null,
+          "archive_fields": {
+            "starts with": [
+              "Aspelta Kamidalta"
+            ],
+            "location": [
+              "4749, -58730, 1263"
+            ]
+          }
+        }
+      ],
+      "resolution": "Unresolved archive identity; keep exact names and separate records. All colliding conversion candidates remain withheld. Shared giver and location do not establish identical quest mechanics."
+    },
+    {
+      "output_key": "beginning_diplomacy_dark_elf",
+      "names": [
+        "Beginning Diplomacy (Dark Elf)",
+        "Beginning Diplomacy(Dark Elf)"
+      ],
+      "sources": [
+        [
+          {
+            "url": "https://vgsoharchive.com/quests/beginning-diplomacy-dark-elf-2",
+            "title": "Beginning Diplomacy (Dark Elf) · Vanguard Archive",
+            "date": null
+          }
+        ],
+        [
+          {
+            "url": "https://vgsoharchive.com/quests/beginning-diplomacy-dark-elf",
+            "title": "Beginning Diplomacy(Dark Elf) · Vanguard Archive",
+            "date": null
+          }
+        ]
+      ],
+      "observations": [
+        {
+          "name": "Beginning Diplomacy (Dark Elf)",
+          "level": null,
+          "zone": "Hathor Zhi",
+          "giver": "Nalzen Hun'tlar",
+          "chain_previous": "{{{previous}}}",
+          "chain_next": "Statements (Dark Elf)",
+          "archive_fields": {
+            "starts with": [
+              "Nalzen Hun'tlar"
+            ],
+            "location": [
+              "-72638, 11091, -9989"
+            ],
+            "previous": [
+              "{{{previous}}}"
+            ],
+            "next": [
+              "Statements (Dark Elf)"
+            ],
+            "repeatable": [
+              "Yes"
+            ]
+          }
+        },
+        {
+          "name": "Beginning Diplomacy(Dark Elf)",
+          "level": null,
+          "zone": "Hathor Zhi",
+          "giver": "Nalzen Hun'tlar",
+          "chain_previous": null,
+          "chain_next": null,
+          "archive_fields": {
+            "starts with": [
+              "Nalzen Hun'tlar"
+            ],
+            "location": [
+              "-72638, 11091, -9989"
+            ]
+          }
+        }
+      ],
+      "resolution": "Unresolved archive identity; keep exact names and separate records. All colliding conversion candidates remain withheld. Shared giver and location do not establish identical quest mechanics."
+    }
+  ],
+  "notes": "Read-only review of delivered evidence. Earlier batch remains immutable. Template placeholder {{{previous}}} is unresolved source text, not a known predecessor. Explicit repeatable labels remain in archive_fields pending typed extraction."
+}
