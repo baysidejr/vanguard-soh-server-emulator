@@ -7234,6 +7234,11 @@ def handle_craft_event(state, event, data):
             send(craft.recipe_result(craft.RECIPE_OK, r["id"]))
     elif event == craft.CONFIRM and session["recipe"]:
         send(craft.workbench())
+    elif event == craft.AUTO_FILL:
+        send(craft.auto_fill(True))
+    elif event == craft.BACK and not session.get("begun"):
+        session["recipe"] = None
+        send(craft.back_to_recipes())
     elif event == craft.BEGIN and session["recipe"]:
         session.update(begun=True, stage=0, done=set(), ap=0, quality=500, comp=None, had_comp=False,
                        catalyst_used=False)

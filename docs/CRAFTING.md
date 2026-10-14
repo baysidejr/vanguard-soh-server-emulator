@@ -248,6 +248,7 @@ Server replies:
 - **0x101** → S **0x1b1 {i32 handle, i32 container(-1), i32 slot}** (`FUN_00512e30`). It moves the item back to the bag and toggles the flag off (`FUN_005b49b0`) [O]. Then 0x305.
 - **0x106** → S **0x30f {bool8}** checkbox (`FUN_005b3640`) [O]. If on, the server may auto-place everything (one 0x1b0 per item) [I].
 - **0x107** → S **0x310** (back to recipe select, state 4) after returning the placed items with 0x1b1 [I].
+- **Implemented (verified live 2026-10-14 at the Camp Forge).** "Auto Setup Table" (0x106) is answered with 0x30f {1}, and the checkbox shows the tick. This server always places the recipe's utilities and tools itself, so the box stays on. Back (0x107) is answered with 0x310: the window returns to "No recipe selected" and the client prints "Select the recipe you wish to use.". No items need returning, because this server never moves them into a crafting inventory. Selecting the recipe again and crafting works as before.
 - **0x103** needs no reply [I].
 - Optional per-step highlight: S **0x30b {i32 stepId}** sets and **0x30c {i32 stepId}** clears a flag on that step's entry in the crafting window (current stage only; `FUN_005bcdd0`/`FUN_005bcfa0`). Probably "this step still needs an item/tool" [I].
 

@@ -14,11 +14,9 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x17d` | `/fallthroughattacktoggle` | | no payload; a server-side combat option whose effect is not known |
 | `0x180` | `/hintsenable` | | no payload; turns hint popups back on (the hints themselves are server content) |
 | `0x181` | `/craftinghintsenable` | | no payload; the same for crafting hints |
-| `0x104` |  | `0x5b7dc6` `0x5b82d6` |  |
-| `0x105` |  | `0x5b03eb` | type6 / type7 |
-| `0x106` |  | `0x5b0405` | type6 / type7 |
-| `0x107` |  | `0x5b05e5` | CraftingRecipeSelectDescription / CraftingRecipeSelectNumUses |
-| `0x108` |  | `0x5aa9f4` | type6 / type7 |
+| `0x104` | `/craftingselectstep` | `0x5b7dc6` `0x5b82d6` | no payload; sent whenever the crafting action-family list is shown (ui `crafting_select_action_family`). A notice; no reply needed (docs/CRAFTING.md) |
+| `0x105` |  | `0x5b03eb` | no payload; the recipe type filter (ui `setup_cra_ref_select_type` / `setup_cra_fin_select_type`). A notice; no reply needed |
+| `0x108` |  | `0x5aa9f4` | {i32 recipe id}: journal recipe info (ui 0xf7 / 0xf8, `journal_cra_*_select_recipe`). The client shows the recipe from its own data; not needed (docs/CRAFTING.md) |
 | `0x112` | `/cyclewieldpreference` (the Z key) | `0x5fc65a` | no payload. The portrait help text says "To wield weapons for the portrait hit the Z key", so it probably draws/sheathes weapons through `m_WieldPreference` (0-3); which value means what is not known |
 | `0x117` |  | `0x5e2cc5` | Call Confirmation / Lockout Timer Confirmation |
 | `0x120` |  | `0x451fc7` |  |

@@ -22,13 +22,27 @@ import struct
 
 USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2 = 0xFA, 0xFE, 0xFB, 0xFC, 0xF6, 0xFD, 0x102
 CATALYST = 0xF7                      # {i32 item handle}: the player adds the offered catalyst
-CLIENT_EVENTS = (USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2, CATALYST)
+# Table Setup buttons: the auto-fill checkbox (crafting_auto_fill_inventory_toggle, FUN_005b0400)
+# sends 0x106 and is redrawn by 0x30f {bool8} (FUN_005b3640); Back (refining_setup_back,
+# FUN_005b05e0) sends 0x107 and 0x310 returns the window to recipe selection. This server always
+# places the recipe's utilities and tools itself (0x300 lists them selected), so the checkbox
+# stays on.
+AUTO_FILL, BACK = 0x106, 0x107
+CLIENT_EVENTS = (USE_STATION, SELECT, CONFIRM, BEGIN, ACTION, CANCEL, CANCEL2, CATALYST, AUTO_FILL, BACK)
 STATION = 0x4                        # EntityTypes bit
 MAX_AP = 100
 RECIPE_OK, RECIPE_MISSING = 0xFF, 2
 # 0x2ec action rejected {wstr name, u8 code}: 1 missing item, 3 missing tool,
 # 4 missing tool of type, 6 not enough action points, 7 not now.
 MISSING_TOOL, NO_AP, NOT_NOW = 3, 6, 7
+
+
+def auto_fill(flag):
+    return _event(0x30F, struct.pack("<B", int(flag)))
+
+
+def back_to_recipes():
+    return _event(0x310)
 
 
 def _event(event_id, data=b""):
