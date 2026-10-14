@@ -17,7 +17,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Blocked (needs the user or data)
 
-- Griffon flight take-off (needs a hand-pressed double jump).
+- Griffon flight take-off: the take-off request (client event 0x5a) never reaches the server even with a scripted running double jump; chain documented in docs/MOUNTS.md. Needs a runtime breakpoint (or a person to try by hand).
 - Psionic points, civic stats display: no window in the shipped UI.
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.

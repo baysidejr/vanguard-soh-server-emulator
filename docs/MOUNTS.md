@@ -125,3 +125,10 @@ From the Engine.u script text, Pawn block `reliable if (bNetDirty && Role==ROLE_
 | vtable 0x117a1ec | Pawn vtable (+0x2b8 Dismount, +0x3c8 Add, +0x3cc Remove) |
 
 None of this has been tested live yet.
+
+## Flying take-off chain (static analysis + live memory, 2026-10-14; still not achieved)
+
+- Jump (FUN_00baf7e0) on a mounted pawn: if the mount type (+0x78c, `m_MountType`) is 3 and Physics (+0x39) is 2 (falling), it calls GameClient vfunc 0x170 → FUN_00b713d0 → callback (5, 0, 0x5a) → FUN_006eb1b0, which would send client **event 0x5a** (PacketSGOMessage, the ordinary event envelope). Standing still and mounted, Jump instead calls vfunc 0x174 (event **0x5b**) and, if that isn't sent, plays the "jumpInAir" animation. Moving (speed >= 10), Jump is a normal jump.
+- Read live with the griffon (`!mount 5001 fly`): Physics 1 on the ground, mount type 3, ground speed 540.6, the other gate bytes 0. A running jump works (z 503 → 715 → 495), but neither 0x5a nor 0x5b ever reached the server, mid-air or standing; normal events do arrive through the same send function.
+- So the take-off branch is probably not reached (the client may consider the pawn not falling while mounted), or the send is gated by state we haven't set. Next step: break on FUN_00baf7e0 / FUN_006eb1b0 at runtime. If 0x5a does arrive one day, the server most likely has to switch the pawn to PHYS_Flying (4).
+- Test helpers used: `scratchpad/flyseq.ps1` (hold W, Space, Space) and `!tp ~ ~ 60000` to drop while mounted.
