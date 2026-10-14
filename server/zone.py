@@ -759,7 +759,7 @@ ITEM_CONTENT = content.Content()
 
 
 ITEM_TYPE_IDS = {"misc": 3, "shield": 0, "weapon": 1, "armor": 4, "ranged": 9, "jewelry": 13,   # 10 is diplomacy jewelry (FUN_00d01550 level type 2)
-                 "container": 11, "ammo": 20,
+                 "container": 11, "ammo": 20, "component": 7, "resource": 22,   # "Crafting Component" / "Crafting Resource"
                  "harvest_tool": 16, "fishing": 26}
 
 
@@ -830,6 +830,8 @@ def item_equip_fields(name, durability=100, bound=False):
              102: item_flags(name, bound)}
     # Field 74 = item type; 0 would be "Shield", 3 is a plain item.
     extra[74] = ITEM_TYPE_IDS[tpl.get("type", "misc")]
+    if tpl.get("type", "misc") in ("component", "resource"):
+        extra[106] = -1          # no durability line ("Required Level: N Crafting" stays)
     if tpl.get("type", "misc") == "misc":
         extra[106] = -1          # no durability line
         extra[76] = 0            # no "Required Level" line

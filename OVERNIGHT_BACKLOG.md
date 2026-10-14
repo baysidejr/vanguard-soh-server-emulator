@@ -25,6 +25,7 @@ Scan the client's own logs (`bin/Logs/*.log`, `UnhandledMessagesClient.log` line
 
 ## Done
 
+- 2026-10-13: Crafting items use the client's Crafting Resource / Crafting Component item types instead of misc.
 - 2026-10-13: Jewelry tooltips said "Required Level: 1 Diplomacy" (item type 10 is diplomacy jewelry); now type 13, "1 Adventuring".
 - 2026-10-13: Item flags (field 102) from items.json, Bind On Equip, trade/mail/broker/sell restrictions, unbinding tool (0x5e3) verified live.
 - 2026-10-13: Character rename item (0x5d3/0x5d4) with name migration across all save files; character-select preview now shows gender (record +0x1a0).
