@@ -10,6 +10,14 @@ from test_archive import page
 
 
 class AbilityEffectTests(unittest.TestCase):
+    def test_explicit_effect_duration_converts_only_labelled_units(self):
+        for raw, expected in [('1 hour',3600),('2 minutes',120),('25 sec',25)]:
+            fact=effect_facts('This effect will stay on the user for '+raw+'.')[0]
+            self.assertEqual(fact['kind'],'effect_duration')
+            self.assertEqual(fact['duration_seconds'],expected)
+            self.assertTrue(fact['conditions_unparsed'])
+        self.assertEqual(effect_facts('This effect will stay on the user for 25.'),[])
+
     def test_explicit_attribute_increase_is_not_a_percentage(self):
         fact=effect_facts('The words increase the users strength by 35 when spoken aloud.')[0]
         self.assertEqual(fact['attribute'],'strength')

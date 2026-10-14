@@ -1,12 +1,12 @@
 {
   "summary": {
-    "batches": 191,
-    "research_rows": 41426,
+    "batches": 192,
+    "research_rows": 41435,
     "normalized_name_groups": 13525,
     "zones_with_explicit_records": 486,
     "counts": {
       "creature": 643,
-      "item": 4653,
+      "item": 4662,
       "loot": 77,
       "npc": 1408,
       "quest": 11633,
@@ -1427,6 +1427,13 @@
       "batch": "raw\\2026-10-14-171037-177246-archive-bulk",
       "records": 0,
       "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27",
+      "records": 9,
+      "counts": {
+        "item": 9
+      }
     }
   ],
   "records": [
@@ -671462,6 +671469,123 @@
         "https://vgsoharchive.com/items/batch-of-dusky-softwood-wind-chimes"
       ],
       "zones": []
+    },
+    {
+      "id": 41426,
+      "type": "item",
+      "name": "Advanced Scroll of Bear's Strength I",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-bear-s-strength-i"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41427,
+      "type": "item",
+      "name": "Advanced Scroll of Bear's Strength II",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-bear-s-strength-ii"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41428,
+      "type": "item",
+      "name": "Advanced Scroll of Blinding Strikes I",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-blinding-strikes-i"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41429,
+      "type": "item",
+      "name": "Advanced Scroll of Cat's Feet I",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-cat-s-feet-i"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41430,
+      "type": "item",
+      "name": "Advanced Scroll of Cat's Feet II",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-cat-s-feet-ii"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41431,
+      "type": "item",
+      "name": "Advanced Scroll of Float",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-float"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41432,
+      "type": "item",
+      "name": "Advanced Scroll of Water Breathing",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-water-breathing"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41433,
+      "type": "item",
+      "name": "Advanced Scroll of Wolf's Legs I",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-wolf-s-legs-i"
+      ],
+      "zones": []
+    },
+    {
+      "id": 41434,
+      "type": "item",
+      "name": "Advanced Scroll of Wolf's Legs II",
+      "file": "raw\\2026-10-14-171433-514608-archive-item-effect-duration-v27\\item.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 27,
+      "source_urls": [
+        "https://vgsoharchive.com/items/advanced-scroll-of-wolf-s-legs-ii"
+      ],
+      "zones": []
     }
   ],
   "by_name": {
@@ -728349,26 +728473,31 @@
     "item:advanced scroll of bear's strength i": [
       37410,
       37548,
-      37619
+      37619,
+      41426
     ],
     "item:advanced scroll of bear's strength ii": [
       37411,
       37549,
-      37620
+      37620,
+      41427
     ],
     "item:advanced scroll of blinding strikes i": [
       37412,
-      37550
+      37550,
+      41428
     ],
     "item:advanced scroll of cat's feet i": [
       37413,
       37551,
-      37621
+      37621,
+      41429
     ],
     "item:advanced scroll of cat's feet ii": [
       37414,
       37552,
-      37622
+      37622,
+      41430
     ],
     "item:advanced scroll of evacuation": [
       37415,
@@ -728376,7 +728505,8 @@
     ],
     "item:advanced scroll of float": [
       37416,
-      37554
+      37554,
+      41431
     ],
     "item:advanced scroll of vampiric thirst": [
       37417,
@@ -728384,15 +728514,18 @@
     ],
     "item:advanced scroll of water breathing": [
       37418,
-      37556
+      37556,
+      41432
     ],
     "item:advanced scroll of wolf's legs i": [
       37419,
-      37557
+      37557,
+      41433
     ],
     "item:advanced scroll of wolf's legs ii": [
       37420,
-      37558
+      37558,
+      41434
     ],
     "item:advanced shadowy flechette i": [
       37421,
@@ -745241,7 +745374,16 @@
       41422,
       41423,
       41424,
-      41425
+      41425,
+      41426,
+      41427,
+      41428,
+      41429,
+      41430,
+      41431,
+      41432,
+      41433,
+      41434
     ],
     "loot": [
       23,

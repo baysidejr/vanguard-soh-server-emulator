@@ -53,6 +53,13 @@ def effect_facts(value):
     for match in re.finditer(sleep, value, re.I):
         facts.append(dict(kind='crowd_control_duration', effect='sleep',
             duration_seconds=numeric(match.group(1)), conditions_unparsed=True))
+    effect_duration = rf'\bthis effect will stay on the user for\s+{num}\s+(hours?|minutes?|seconds?|sec)\b'
+    for match in re.finditer(effect_duration, value, re.I):
+        amount = numeric(match.group(1))
+        unit = match.group(2).lower()
+        multiplier = 3600 if unit.startswith('hour') else 60 if unit.startswith('minute') else 1
+        facts.append(dict(kind='effect_duration', duration_seconds=amount * multiplier,
+            conditions_unparsed=True))
     return facts
 
 
