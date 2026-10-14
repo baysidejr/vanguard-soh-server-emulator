@@ -24,6 +24,7 @@ Keep sweeping slash commands in game (`sweep.sh`) for requests the static scan m
 
 ## Done
 
+- 2026-10-14: Callers followed up several levels (scratchpad reach2.py): 0x18f and 0x1e7 are unreachable too (their only caller chains end in functions nothing calls, jumps to or points at), marked in docs/CLIENT_REQUESTS.md. Other candidates from that pass were false positives from bad function-start guesses and were left alone.
 - 2026-10-14: /toggleeppearancegear (0x115) answered with 0x116 {bool} and saved (app_gear_visible). Visible effect not identified.
 - 2026-10-14: Deconstruct requests (0x58e/0x58f) answered with 0x590 code -1, "<item> can not be deconstructed." (found by pairing request ids with the next s2c id). Reply checked live.
 - 2026-10-14: /mark (0x592) relayed to the group as 0x593 (same layout; group dispatcher handler FUN_004e1640). Request and relay seen live with two grouped clients; the overhead icon not checked visually.

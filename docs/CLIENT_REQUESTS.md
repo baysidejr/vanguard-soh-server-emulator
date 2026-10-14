@@ -4,7 +4,7 @@ Every event id the client can send (the last `push imm` before a call to its sen
 
 The scan only sees ids pushed right before `FUN_004cfb00` / `FUN_004cfb50`. Some commands send through `FUN_00409210` instead (`/walk`, `/run`, `/cyclewieldpreference`, ...), so an in-game sweep of the slash commands (`sweep.sh`) finds more; the "Command" column for those was filled in from that sweep. Contexts are the nearest strings and can mislead (0x113 is `/hidehood`, not a lockout prompt).
 
-Rows marked **Unreachable** were checked on 2026-10-14: the function around every call site has no caller, no jump to it and no pointer to it anywhere in VGClient.exe (MSVC vtables and Unreal native tables would hold one), so the shipped client can't send them. They need no server code.
+Rows marked **Unreachable** were checked on 2026-10-14: the function around every call site has no caller, no jump to it and no pointer to it anywhere in VGClient.exe (or, for 0x18f and 0x1e7, every caller up the chain has none) (MSVC vtables and Unreal native tables would hold one), so the shipped client can't send them. They need no server code.
 
 Many are GM or debug commands (chunk travel, set hour, character flags, "defensive target" commands). The rest are player features with no server side yet. When one is implemented, remove its row.
 
@@ -34,8 +34,8 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x183` |  | `0x68b207` | _tutorial_do_not_show_sel / _death_penalty_tutorial_do_not_show_sel |
 | `0x189` |  | `0x4bfd97` |  |
 | `0x18a` |  | `0x5de743` `0x5ef0f2` |  |
-| `0x18f` |  | `0x4439b6` | ClaimName / Some Claim |
-| `0x1e7` |  | `0x4d1b9b` | No more items to be randomed! / GroupRandomLootInvitationPopup |
+| `0x18f` |  | `0x4439b6` | **Unreachable:** the sender's only caller chain (FUN_004439f0 <- FUN_00445610) ends in a function nothing calls or points to. |
+| `0x1e7` |  | `0x4d1b9b` | **Unreachable:** sent (no payload, only when grouped) by FUN_004d1b90, whose only caller is a wrapper (FUN_005de750) nothing calls or points to. |
 | `0x214` |  | `0x5de6e5` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
 | `0x250` |  | `0x589f16` |  |
