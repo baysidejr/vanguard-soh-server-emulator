@@ -6784,6 +6784,7 @@ def build_character_record(char):
     struct.pack_into("<I", rec, 0x180, klass)
     struct.pack_into("<I", rec, 0x184, char.get("adventure_level", 10))
     struct.pack_into("<I", rec, 0x19c, race)
+    struct.pack_into("<I", rec, 0x1a0, character_gender(char))   # obj+0x94; 1 = the female preview (verified live)
     struct.pack_into("<ii", rec, 0x1a4, *character_chunk(char))
     rec[0x1b7:0x1f7] = character_appearance(char)
     rec += (" ".join(["0"] * 180)).encode("ascii") + b"\0"

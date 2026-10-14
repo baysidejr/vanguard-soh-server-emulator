@@ -182,4 +182,4 @@ Right-clicking an item checks its **template id** (item field 1) in `FUN_0050003
 
 All replies are zone events in the main dispatcher `FUN_00622350` (jump-table indices 14-17 for 0x5d4/0x5d6/0x5d8/0x5db).
 
-**Player gender.** The create request (MsgClientCharacterCreate, schema `FUN_004896a0`) is: wstr first, last, world, a fourth wstr, i32, **u8 gender**, u8 race, u8 class, i32, i32, 64 slider bytes. In the bytes the server keeps after the names (`raw`), gender is +6 (0 male, 1 female). The server sends it as the player pawn's `m_Gender` and MsgScore field 6. Before this, every character was drawn male.
+**Player gender.** The create request (MsgClientCharacterCreate, schema `FUN_004896a0`) is: wstr first, last, world, a fourth wstr, i32, **u8 gender**, u8 race, u8 class, i32, i32, 64 slider bytes. In the bytes the server keeps after the names (`raw`), gender is +6 (0 male, 1 female). The server sends it as the player pawn's `m_Gender`, MsgScore field 6 and the character-select record's u32 at **+0x1a0** (client obj+0x94; found by setting candidate fields to 1 until the select-screen preview turned female). Before this, every character was drawn male.
