@@ -2,12 +2,13 @@
   "parser_version": 29,
   "inventory_urls": 104855,
   "counts": {
-    "not_downloaded": 91294,
+    "not_downloaded": 91189,
     "unsupported": 24,
     "source_only": 1565,
     "supported": 104831,
-    "published": 13089,
-    "published_with_issues": 472
+    "published": 13189,
+    "published_with_issues": 472,
+    "cached_only": 5
   },
   "routes": {
     "/": {
@@ -106,11 +107,12 @@
     },
     "/mobs": {
       "inventory": 15419,
-      "not_downloaded": 14527,
+      "not_downloaded": 14422,
       "unsupported": 1,
-      "published": 792,
+      "published": 892,
       "supported": 15418,
-      "published_with_issues": 100
+      "published_with_issues": 100,
+      "cached_only": 5
     },
     "/mounts": {
       "inventory": 4,
