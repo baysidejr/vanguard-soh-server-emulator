@@ -41,7 +41,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x214` |  | `0x5de6e5` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x24a` |  | `0x463dc2` `0x463e12` `0x463e68` |  |
 | `0x250` | `/psioniccancelconcentration` | `0x589f16` | {i32}: the psionic pool, which has no window in the shipped UI (docs/FORMS.md) |
-| `0x27a` |  | `0x433a1e` |  |
+| `0x27a` |  | `0x433a1e` | {u64 entity id}: the console command `active_ability_self_impact_on <hi> <lo>` (FUN_004107e6 area), run by animation notifies when an ability's impact frame lands. Seen 19 times in one fight (the target and the player). This server applies damage at use, so it is ignored quietly (`CLIENT_NOTICES`) |
 | `0x280` |  | `0x432e9d` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x35e` |  | `0x4cc6b0` |  |
 | `0x3a0` |  | `0x4a62c6` |  |

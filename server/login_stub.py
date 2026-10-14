@@ -9106,11 +9106,22 @@ def try_delete_character(sock, addr, state, payload):
     return True
 
 
+# Client notices that need no answer (docs/CLIENT_REQUESTS.md), left out of the "client event"
+# log lines so sweeps show only real gaps: 0x6c after the UI loads, 0x71 BECOME_PC, 0x104 / 0x105
+# crafting list and filter shown, 0x10e /location, 0x127 NPC dialog built, 0x137 journal
+# tracking changed, 0x17e / 0x17f / 0x183 tutorial closed, 0x189 corpse list closed, 0x27a an
+# ability's impact frame on an entity (the console command active_ability_self_impact_on, run by
+# animation notifies during combat; this server applies damage at use, not at impact).
+CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x17F, 0x183, 0x189, 0x27A}
+
+
 def print_client_log(payload):
     # Event envelope u16 2 | u32 eventId | u32 len | data. Event 0x6f is a client
     # log line: u16 0x0c, string file, string text (u32 length-prefixed).
     try:
         _, event_id, _ = struct.unpack_from("<HII", payload, 0)
+        if event_id in CLIENT_NOTICES:
+            return
         if event_id != 0x6F:
             print(f"  >>> client event 0x{event_id:x} ({len(payload)} bytes): {payload[10:].hex(' ')}")
             return
