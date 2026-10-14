@@ -1,14 +1,14 @@
 {
   "summary": {
-    "batches": 125,
-    "research_rows": 30485,
-    "normalized_name_groups": 9206,
+    "batches": 129,
+    "research_rows": 30514,
+    "normalized_name_groups": 9235,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 623,
+      "creature": 643,
       "item": 158,
-      "loot": 74,
-      "npc": 1402,
+      "loot": 77,
+      "npc": 1408,
       "quest": 5233,
       "zone": 1334,
       "ability": 21598,
@@ -979,6 +979,30 @@
         "merchant": 2,
         "npc": 16
       }
+    },
+    {
+      "batch": "raw\\2026-10-14-103934-398534-archive-bulk",
+      "records": 29,
+      "counts": {
+        "creature": 20,
+        "loot": 3,
+        "npc": 6
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-104259-042730-archive-bulk",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-14-104446-766015-archive-bulk",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-14-104617-025221-archive-bulk",
+      "records": 0,
+      "counts": {}
     }
   ],
   "records": [
@@ -509961,6 +509985,447 @@
         "Leth Nurae"
       ],
       "level": 50
+    },
+    {
+      "id": 30485,
+      "type": "creature",
+      "name": "Ancient Shambler",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-shambler"
+      ],
+      "zones": [
+        "Ruin Falls"
+      ]
+    },
+    {
+      "id": 30486,
+      "type": "creature",
+      "name": "Ancient Spirit",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-spirit"
+      ],
+      "zones": [
+        "Frostshard Lake"
+      ],
+      "level": 33
+    },
+    {
+      "id": 30487,
+      "type": "creature",
+      "name": "Ancient Sporefiend",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-sporefiend"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 53
+    },
+    {
+      "id": 30488,
+      "type": "creature",
+      "name": "Ancient Tome",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-tome"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 30489,
+      "type": "creature",
+      "name": "Ancient Tome - Vurm",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-tome-vurm"
+      ],
+      "zones": [
+        "Thelaseen"
+      ]
+    },
+    {
+      "id": 30490,
+      "type": "creature",
+      "name": "Ancient Treelord",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-treelord"
+      ],
+      "zones": [
+        "Flordiel"
+      ]
+    },
+    {
+      "id": 30491,
+      "type": "creature",
+      "name": "Ancient Trunkbreaker",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-trunkbreaker"
+      ],
+      "zones": [
+        "Dead Glade"
+      ],
+      "level": 48
+    },
+    {
+      "id": 30492,
+      "type": "creature",
+      "name": "Ancient Velok",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-velok"
+      ],
+      "zones": [
+        "Vursog Moor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30493,
+      "type": "creature",
+      "name": "Andake Neqo",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andake-neqo"
+      ],
+      "zones": [
+        "Sands Of Sorrow"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30494,
+      "type": "creature",
+      "name": "Andecite Slab",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andecite-slab"
+      ],
+      "zones": [
+        "Abammisi Lake"
+      ],
+      "level": 1
+    },
+    {
+      "id": 30495,
+      "type": "creature",
+      "name": "Andren Tobsen",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andren-tobsen"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 25
+    },
+    {
+      "id": 30496,
+      "type": "creature",
+      "name": "Andrew Tarn",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andrew-tarn"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 40
+    },
+    {
+      "id": 30497,
+      "type": "creature",
+      "name": "Andron Kroll",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andron-kroll"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ],
+      "level": 10
+    },
+    {
+      "id": 30498,
+      "type": "creature",
+      "name": "Andrus's Defender",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andrus-s-defender"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 50
+    },
+    {
+      "id": 30499,
+      "type": "creature",
+      "name": "Andruzius",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andruzius"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 14
+    },
+    {
+      "id": 30500,
+      "type": "creature",
+      "name": "Andryphal",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andryphal"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 18
+    },
+    {
+      "id": 30501,
+      "type": "creature",
+      "name": "Aneas Fin",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aneas-fin"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 30502,
+      "type": "creature",
+      "name": "Anegla Gelion",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/anegla-gelion"
+      ],
+      "zones": [
+        "Keejay Cove"
+      ],
+      "level": 25
+    },
+    {
+      "id": 30503,
+      "type": "creature",
+      "name": "Angea Singello",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/angea-singello"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30504,
+      "type": "creature",
+      "name": "Angered Cave Bear",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/angered-cave-bear"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 9
+    },
+    {
+      "id": 30505,
+      "type": "loot",
+      "name": "Ancient Trunkbreaker",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ancient-trunkbreaker"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30506,
+      "type": "loot",
+      "name": "Andecite Slab",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andecite-slab"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30507,
+      "type": "loot",
+      "name": "Angered Cave Bear",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/angered-cave-bear"
+      ],
+      "zones": []
+    },
+    {
+      "id": 30508,
+      "type": "npc",
+      "name": "Ander Mudd",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ander-mudd"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 20
+    },
+    {
+      "id": 30509,
+      "type": "npc",
+      "name": "Andrew Kurbin",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andrew-kurbin"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 30510,
+      "type": "npc",
+      "name": "Andyran Resh",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/andyran-resh"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ]
+    },
+    {
+      "id": 30511,
+      "type": "npc",
+      "name": "Aneesha Verthi",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/aneesha-verthi"
+      ],
+      "zones": [
+        "Khal"
+      ]
+    },
+    {
+      "id": 30512,
+      "type": "npc",
+      "name": "Ang Di Lowrock",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ang-di-lowrock"
+      ],
+      "zones": [
+        "Temple of the Ancestors"
+      ],
+      "level": 8
+    },
+    {
+      "id": 30513,
+      "type": "npc",
+      "name": "Angela Varde",
+      "file": "raw\\2026-10-14-103934-398534-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/angela-varde"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ]
     }
   ],
   "by_name": {
@@ -558860,6 +559325,93 @@
     ],
     "npc:anathin caulon": [
       30484
+    ],
+    "creature:ancient shambler": [
+      30485
+    ],
+    "creature:ancient spirit": [
+      30486
+    ],
+    "creature:ancient sporefiend": [
+      30487
+    ],
+    "creature:ancient tome": [
+      30488
+    ],
+    "creature:ancient tome - vurm": [
+      30489
+    ],
+    "creature:ancient treelord": [
+      30490
+    ],
+    "creature:ancient trunkbreaker": [
+      30491
+    ],
+    "creature:ancient velok": [
+      30492
+    ],
+    "creature:andake neqo": [
+      30493
+    ],
+    "creature:andecite slab": [
+      30494
+    ],
+    "creature:andren tobsen": [
+      30495
+    ],
+    "creature:andrew tarn": [
+      30496
+    ],
+    "creature:andron kroll": [
+      30497
+    ],
+    "creature:andrus's defender": [
+      30498
+    ],
+    "creature:andruzius": [
+      30499
+    ],
+    "creature:andryphal": [
+      30500
+    ],
+    "creature:aneas fin": [
+      30501
+    ],
+    "creature:anegla gelion": [
+      30502
+    ],
+    "creature:angea singello": [
+      30503
+    ],
+    "creature:angered cave bear": [
+      30504
+    ],
+    "loot:ancient trunkbreaker": [
+      30505
+    ],
+    "loot:andecite slab": [
+      30506
+    ],
+    "loot:angered cave bear": [
+      30507
+    ],
+    "npc:ander mudd": [
+      30508
+    ],
+    "npc:andrew kurbin": [
+      30509
+    ],
+    "npc:andyran resh": [
+      30510
+    ],
+    "npc:aneesha verthi": [
+      30511
+    ],
+    "npc:ang di lowrock": [
+      30512
+    ],
+    "npc:angela varde": [
+      30513
     ]
   },
   "by_kind": {
@@ -559486,7 +560038,27 @@
       30445,
       30446,
       30447,
-      30448
+      30448,
+      30485,
+      30486,
+      30487,
+      30488,
+      30489,
+      30490,
+      30491,
+      30492,
+      30493,
+      30494,
+      30495,
+      30496,
+      30497,
+      30498,
+      30499,
+      30500,
+      30501,
+      30502,
+      30503,
+      30504
     ],
     "item": [
       13,
@@ -559722,7 +560294,10 @@
       30463,
       30464,
       30465,
-      30466
+      30466,
+      30505,
+      30506,
+      30507
     ],
     "npc": [
       24,
@@ -561126,7 +561701,13 @@
       30481,
       30482,
       30483,
-      30484
+      30484,
+      30508,
+      30509,
+      30510,
+      30511,
+      30512,
+      30513
     ],
     "quest": [
       45,
@@ -590117,7 +590698,8 @@
       30280,
       30294,
       30353,
-      30388
+      30388,
+      30508
     ],
     "Ca'ial Brael": [
       5,
@@ -591430,7 +592012,8 @@
       29658,
       30021,
       30023,
-      30256
+      30256,
+      30495
     ],
     "Northern Highlands": [
       107,
@@ -591994,7 +592577,8 @@
       30359,
       30467,
       30475,
-      30481
+      30481,
+      30500
     ],
     "Three Rivers Village": [
       116,
@@ -592238,7 +592822,8 @@
       29991,
       30034,
       30187,
-      30189
+      30189,
+      30494
     ],
     "Abella Cove": [
       140,
@@ -592568,7 +593153,9 @@
       30213,
       30369,
       30370,
-      30443
+      30443,
+      30487,
+      30498
     ],
     "Anires Point": [
       150,
@@ -593438,7 +594025,8 @@
       30435,
       30436,
       30437,
-      30439
+      30439,
+      30491
     ],
     "Deeprealm Tunnels": [
       220,
@@ -593734,7 +594322,8 @@
       28637,
       28638,
       28639,
-      29522
+      29522,
+      30490
     ],
     "Flowing Sea": [
       243,
@@ -593806,7 +594395,8 @@
       28856,
       29569,
       29957,
-      30421
+      30421,
+      30486
     ],
     "Gardens of Nirashuri": [
       249,
@@ -595344,7 +595934,8 @@
       30447,
       30468,
       30483,
-      30484
+      30484,
+      30501
     ],
     "Khal": [
       14211,
@@ -595611,7 +596202,8 @@
       30396,
       30402,
       30446,
-      30477
+      30477,
+      30511
     ],
     "Lomshir Plain": [
       14231,
@@ -595706,7 +596298,9 @@
       29724,
       29760,
       29829,
-      29971
+      29971,
+      30510,
+      30513
     ],
     "Southwatch": [
       14415,
@@ -596008,7 +596602,8 @@
       29706,
       29758,
       30202,
-      30264
+      30264,
+      30496
     ],
     "Jalen's Retreat": [
       22587
@@ -596095,7 +596690,8 @@
       29650
     ],
     "Keejay Cove": [
-      22600
+      22600,
+      30502
     ],
     "Khegor's End": [
       22602
@@ -596481,7 +597077,8 @@
       29136,
       29302,
       29629,
-      29632
+      29632,
+      30497
     ],
     "Port Aughos": [
       22651
@@ -596720,7 +597317,8 @@
       29568,
       29934,
       29946,
-      29950
+      29950,
+      30485
     ],
     "Ruins Of Trengal Keep": [
       22681,
@@ -596796,7 +597394,8 @@
       30143,
       30144,
       30440,
-      30478
+      30478,
+      30493
     ],
     "Scorpion cave": [
       22688
@@ -597269,7 +597868,8 @@
       22743
     ],
     "Temple of the Ancestors": [
-      22744
+      22744,
+      30512
     ],
     "Tharridon's Scar": [
       22745
@@ -597423,7 +598023,8 @@
       29655,
       29656,
       29988,
-      30209
+      30209,
+      30499
     ],
     "The Velerium Mines": [
       22765
@@ -597443,7 +598044,8 @@
       29923,
       30223,
       30426,
-      30428
+      30428,
+      30489
     ],
     "Thelaseen: Lair of the Drake Riders": [
       22768
@@ -597564,7 +598166,8 @@
       29744,
       29958,
       30100,
-      30320
+      30320,
+      30504
     ],
     "Vault of the Hidden": [
       22794
@@ -597600,7 +598203,8 @@
       22805
     ],
     "Vursog Moor": [
-      22806
+      22806,
+      30492
     ],
     "WLT (Qalia)": [
       22807
