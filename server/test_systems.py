@@ -983,5 +983,15 @@ class RandomResultTests(unittest.TestCase):
         self.assertEqual(struct.unpack("<HIIQiii", m), (2, 0x31A, 20, 0x1336F1A, 1, 100, 42))
 
 
+class CombatInfoTests(unittest.TestCase):
+    def test_sheet_percentages(self):
+        p = types.SimpleNamespace(equipment=[], stats={"dexterity": 50})
+        m = combat.combat_info(p)
+        self.assertEqual(struct.unpack_from("<I", m, 2)[0], 0x11E)
+        dodge, parry, block, _, _ = struct.unpack_from("<ffffi", m, 10)
+        self.assertAlmostEqual(dodge, 6.0, places=4)          # 4% + 0.1% x 20 Dexterity above 30
+        self.assertEqual((parry, block), (0.0, 0.0))          # no weapon, no shield
+
+
 if __name__ == "__main__":
     unittest.main()

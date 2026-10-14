@@ -436,6 +436,28 @@ def mitigate(dmg, armor_class):
     return max(1, int(round(dmg * ARMOR_FACTOR / (ARMOR_FACTOR + armor_class))))
 
 
+def player_avoidance(player):
+    """The player's (dodge, parry, block) chances as npc_attacks rolls them (fractions)."""
+    import zone
+    gear = {e[3] for e in getattr(player, "equipment", [])}
+    shield = any(zone.ITEM_CONTENT.item(e[1]).get("type") == "shield" for e in getattr(player, "equipment", []))
+    dex = getattr(player, "stats", {}).get("dexterity", 30)
+    return (BASE_DODGE + DODGE_PER_DEX * max(0, dex - 30), BASE_PARRY if gear & {28, 36} else 0.0,
+            BASE_BLOCK if shield else 0.0)
+
+
+# Character sheet avoidance: 0x11e MsgCombatInfo {f32 dodge, f32 parry, f32 block, f32, i32}
+# (FUN_0055e020) fills AdvDexterityDodgeMax / AdvDexterityParryMax / AdvStrengthBlockMax with %.2f
+# and shows each line only when it is above zero. Sent as percentages. The last two fields are
+# kept at manager +0x80 / +0x84; their use is unknown, so 0.
+COMBAT_INFO = 0x11E
+
+
+def combat_info(player):
+    dodge, parry, block = player_avoidance(player)
+    return _event(COMBAT_INFO, struct.pack("<ffffi", dodge * 100, parry * 100, block * 100, 0.0, 0))
+
+
 def npc_attacks(player, npc, rng=random):
     """The NPC strikes once. Lowers player.health (the HUD bar follows a
     0x2d4 update of the Health stat; see zone.health_update)."""

@@ -33,7 +33,7 @@ class LoginHookTests(unittest.TestCase):
                 for hook in ("social_login", "guild_login", "brotherhood_login", "faction_login",
                              "workorder_login", "mail_login", "title_login", "caravan_login",
                              "assembly_login", "journal_login", "songs_login", "fishing_login", "forms_login",
-                             "house_npcs_login"):
+                             "house_npcs_login", "combat_sheet_login"):
                     getattr(login_stub, hook)(state)
             finally:
                 mock.patch.stopall()

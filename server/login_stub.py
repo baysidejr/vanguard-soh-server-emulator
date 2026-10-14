@@ -1011,6 +1011,7 @@ def gear_changed(state, args, player):
         state["send"](zone.attribute_update(player, name))
     state["send"](zone.health_update(player))
     state["send"](zone.score_message(player))
+    state["send"](combat.combat_info(player))
     values = {"m_AttachmentGroups": zone.gear_attachments(player)}
     state["send"](zone.player_pawn_update(state, args, values))
     w = state.get("world")
@@ -2658,6 +2659,11 @@ def app_gear_toggle(state):
     player.app_gear_visible = not getattr(player, "app_gear_visible", False)
     save_character_field(player.name, "app_gear_visible", player.app_gear_visible)
     state["send"](zone.zone_event(APP_GEAR_STATE, struct.pack("<B", int(player.app_gear_visible))))
+
+
+def combat_sheet_login(state):
+    """The character sheet's dodge / parry / block lines (combat.combat_info)."""
+    state["send"](combat.combat_info(state["player"]))
 
 
 def title_login(state):
@@ -8392,6 +8398,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 fishing_login(state)
                 forms_login(state)
                 house_npcs_login(state)
+                combat_sheet_login(state)
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
