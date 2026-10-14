@@ -1137,6 +1137,10 @@ PAWN_PREFS = {0x113: ("m_bHideHood", "B", 1), 0x114: ("m_bHideHelm", "B", 1), 0x
 # replicated Pawn.bIsWalking for everyone else, and MsgScore field 28 (the character sheet's
 # "walking"/"running").
 MOVE_MODE = 0x72
+# /lockouttimerlist [name]: 0x4fc {wstr name, empty = yourself}. The answer 0x4fd {wstr name}
+# (dispatcher FUN_00588c50, ids 0x4f2-0x502 -> FUN_00583b70) prints "Displaying lockout timers
+# for %s:" and lists the timers the client already holds; this server has no raid lockouts.
+LOCKOUT_LIST, LOCKOUT_LIST_REPLY = 0x4FC, 0x4FD
 # /cleartargets: 0x5e, no payload (FUN_005fcd70).
 CLEAR_TARGETS = 0x5E
 # /cancelability (also /stopcasting, /cancelattack, FUN_005fc8a0): first FUN_005f3d00 cancels
@@ -8074,6 +8078,9 @@ def handle_message(sock, server, addr, state, payload, args):
             if not getattr(p, "cc", None) and "ue" in state:
                 send_message(sock, addr, state, zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(p)}))
             send_message(sock, addr, state, zone.score_message(p))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == LOCKOUT_LIST and state.get("player"):
+            send_message(sock, addr, state, zone.zone_event(LOCKOUT_LIST_REPLY,
+                                                            (state["player"].name + "\0").encode("utf-16-le")))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CANCEL_CAST and state.get("player"):
             if state.pop("casting", None):
                 send_message(sock, addr, state, effects.interrupted())

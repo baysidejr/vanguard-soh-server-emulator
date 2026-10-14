@@ -56,7 +56,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x47a` |  | `0x476668` `0x476a48` | PlotPurchaseConfirm / PlotRelinquishConfirm |
 | `0x47c` |  | `0x47d8fd` `0x47da0d` | _building_guild_leader_headquarters_confirm / BuildingGuildLeaderHeadquartersConfirm |
 | `0x4fb` | `/sharelockouttimer` | `0x60e73f` |  |
-| `0x4fc` | `/lockouttimerlist` | `0x4ff2f9` `0x5ebf91` `0x60e664` | Choose a race and press submit. / _inventory_character_race_change_dropdown |
 | `0x54d` |  | `0x682b45` |  |
 | `0x584` | `/.maxattributes` | `0x5fe35f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
 | `0x585` | `/.minattributes` | `0x5fe40f` | Error: You must have a defensive target to use this command on. / Error: You must have a defensive target to use this command on. |
@@ -110,6 +109,10 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 - `/cancelability` (also `/stopcasting`, `/cancelattack`, FUN_005fc8a0): FUN_005f3d00 first cancels what is running on the client and sends 0x25f while casting, else 0xe2 while a bar runs (+0xe0c/+0xe14), else 0xe1 after clearing a queued ability (FUN_00428700); then it sends 0x144. None has a payload. The server drops its pending cast for any of them (it queues no abilities). Checked through the dispatcher with a cast in progress; not seen live (no hostile target with a cast-time ability on the hotbar in the test).
 - `/callpcdecline` 0x271 `{u8 0}` and `/lockoutdecline` 0x273 `{u8 0}` answer prompts the server never sends yet.
 - `/cleartargets` 0x5e (no payload): the server forgets the offensive and defensive targets and answers 0x3e0 with none.
+
+## Raid lockout list (verified live 2026-10-14)
+
+`/lockouttimerlist [name]` sends 0x4fc `{wstr name}` (empty for yourself). The lockout dispatcher `FUN_00588c50` takes s2c ids 0x4f2-0x502 (id - 0x4f2 indexes a 17-entry jump table at 0x588d9c); 0x4fd `{wstr name}` (`FUN_00583b70`) prints "Displaying lockout timers for %s:" and lists the timers the client already holds. The server answers 0x4fd with the player's name; with no raid lockouts on this server the list is empty. The messages that add timers are not decoded yet.
 
 ## Player reports (verified live 2026-10-14)
 
