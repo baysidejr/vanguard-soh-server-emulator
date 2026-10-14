@@ -1,15 +1,15 @@
 {
   "summary": {
-    "batches": 106,
-    "research_rows": 28513,
-    "normalized_name_groups": 7234,
+    "batches": 109,
+    "research_rows": 28813,
+    "normalized_name_groups": 7534,
     "zones_with_explicit_records": 481,
     "counts": {
       "creature": 78,
       "item": 158,
       "loot": 14,
       "npc": 1321,
-      "quest": 3959,
+      "quest": 4259,
       "zone": 1334,
       "ability": 21598,
       "diplomacy": 6,
@@ -821,6 +821,27 @@
     },
     {
       "batch": "raw\\2026-10-14-075253-569742-archive-bulk",
+      "records": 100,
+      "counts": {
+        "quest": 100
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-080113-610548-archive-bulk",
+      "records": 100,
+      "counts": {
+        "quest": 100
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-080933-679841-archive-bulk",
+      "records": 100,
+      "counts": {
+        "quest": 100
+      }
+    },
+    {
+      "batch": "raw\\2026-10-14-081753-695139-archive-bulk",
       "records": 100,
       "counts": {
         "quest": 100
@@ -479084,6 +479105,4680 @@
       ],
       "zones": [],
       "level": 7
+    },
+    {
+      "id": 28513,
+      "type": "quest",
+      "name": "Spiritual Exercises",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spiritual-exercises"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28514,
+      "type": "quest",
+      "name": "Spiritual Fulfillment",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spiritual-fulfillment"
+      ],
+      "zones": [
+        "River Palace"
+      ],
+      "level": 32
+    },
+    {
+      "id": 28515,
+      "type": "quest",
+      "name": "Spiritual Guidance",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spiritual-guidance"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28516,
+      "type": "quest",
+      "name": "Spiritual Release",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spiritual-release"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28517,
+      "type": "quest",
+      "name": "Spiritual Weapons",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spiritual-weapons"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28518,
+      "type": "quest",
+      "name": "Splintered Bark Gloves",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-bark-gloves"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28519,
+      "type": "quest",
+      "name": "Splintered Membranous Belt",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-belt"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28520,
+      "type": "quest",
+      "name": "Splintered Membranous Belt (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-belt-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28521,
+      "type": "quest",
+      "name": "Splintered Membranous Boots",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-boots"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28522,
+      "type": "quest",
+      "name": "Splintered Membranous Boots (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-boots-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28523,
+      "type": "quest",
+      "name": "Splintered Membranous Cap",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-cap"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28524,
+      "type": "quest",
+      "name": "Splintered Membranous Cap (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-cap-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28525,
+      "type": "quest",
+      "name": "Splintered Membranous Gloves",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-gloves"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28526,
+      "type": "quest",
+      "name": "Splintered Membranous Gloves (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-gloves-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28527,
+      "type": "quest",
+      "name": "Splintered Membranous Leggings",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-leggings"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28528,
+      "type": "quest",
+      "name": "Splintered Membranous Leggings (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-leggings-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28529,
+      "type": "quest",
+      "name": "Splintered Membranous Shoulders",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-shoulders"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28530,
+      "type": "quest",
+      "name": "Splintered Membranous Shoulders (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-shoulders-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28531,
+      "type": "quest",
+      "name": "Splintered Membranous Tunic",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-tunic"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28532,
+      "type": "quest",
+      "name": "Splintered Membranous Tunic (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 20,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-tunic-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28533,
+      "type": "quest",
+      "name": "Splintered Membranous Underlay",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 21,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-underlay"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28534,
+      "type": "quest",
+      "name": "Splintered Membranous Underlay (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 22,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-underlay-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28535,
+      "type": "quest",
+      "name": "Splintered Membranous Wristguards",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 23,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-wristguards"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28536,
+      "type": "quest",
+      "name": "Splintered Membranous Wristguards (Quest)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 24,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/splintered-membranous-wristguards-quest"
+      ],
+      "zones": [],
+      "level": 50
+    },
+    {
+      "id": 28537,
+      "type": "quest",
+      "name": "Spoilcralwers of Zoth Uluus",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 25,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spoilcralwers-of-zoth-uluus"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ],
+      "level": 30
+    },
+    {
+      "id": 28538,
+      "type": "quest",
+      "name": "Spoilcrawlers of Zoth Uluus",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spoilcrawlers-of-zoth-uluus"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ],
+      "level": 33
+    },
+    {
+      "id": 28539,
+      "type": "quest",
+      "name": "Spore Gathering",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 27,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spore-gathering"
+      ],
+      "zones": [
+        "Flordiel"
+      ]
+    },
+    {
+      "id": 28540,
+      "type": "quest",
+      "name": "Spores of the Blood Cap",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 28,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spores-of-the-blood-cap"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28541,
+      "type": "quest",
+      "name": "Spread The Word",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 29,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spread-the-word"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 2
+    },
+    {
+      "id": 28542,
+      "type": "quest",
+      "name": "Spy Games",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 30,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/spy-games"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28543,
+      "type": "quest",
+      "name": "Ssre'vessk",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 31,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/ssre-vessk"
+      ],
+      "zones": [
+        "Skrillien Point"
+      ],
+      "level": 22
+    },
+    {
+      "id": 28544,
+      "type": "quest",
+      "name": "Starspark Extract",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 32,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/starspark-extract"
+      ],
+      "zones": [],
+      "level": 31
+    },
+    {
+      "id": 28545,
+      "type": "quest",
+      "name": "Starspark Medicine",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 33,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/starspark-medicine"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 36
+    },
+    {
+      "id": 28546,
+      "type": "quest",
+      "name": "Starspark Pearls",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 34,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/starspark-pearls"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 30
+    },
+    {
+      "id": 28547,
+      "type": "quest",
+      "name": "Start Learning about Civic Diplomacy",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 35,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/start-learning-about-civic-diplomacy"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28548,
+      "type": "quest",
+      "name": "Start Parleying With The Citizens",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 36,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/start-parleying-with-the-citizens"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 30
+    },
+    {
+      "id": 28549,
+      "type": "quest",
+      "name": "Stasis Threaded Gloves",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 37,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-gloves"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 47
+    },
+    {
+      "id": 28550,
+      "type": "quest",
+      "name": "Stasis Threaded Hood",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 38,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-hood"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ]
+    },
+    {
+      "id": 28551,
+      "type": "quest",
+      "name": "Stasis Threaded Pantaloons",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 39,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-pantaloons"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ]
+    },
+    {
+      "id": 28552,
+      "type": "quest",
+      "name": "Stasis Threaded Robe",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 40,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-robe"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ]
+    },
+    {
+      "id": 28553,
+      "type": "quest",
+      "name": "Stasis Threaded Sash",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 41,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-sash"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 47
+    },
+    {
+      "id": 28554,
+      "type": "quest",
+      "name": "Stasis Threaded Shawl",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 42,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-shawl"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 47
+    },
+    {
+      "id": 28555,
+      "type": "quest",
+      "name": "Stasis Threaded Slippers",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 43,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-slippers"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 47
+    },
+    {
+      "id": 28556,
+      "type": "quest",
+      "name": "Stasis Threaded Underlay",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 44,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stasis-threaded-underlay"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 47
+    },
+    {
+      "id": 28557,
+      "type": "quest",
+      "name": "State Of The Union",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 45,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/state-of-the-union"
+      ],
+      "zones": [
+        "Yothkai Dreg"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28558,
+      "type": "quest",
+      "name": "Statements",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 46,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/statements"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28559,
+      "type": "quest",
+      "name": "Status Of The Legion",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 47,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/status-of-the-legion"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28560,
+      "type": "quest",
+      "name": "Stealing From Thieves",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 48,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stealing-from-thieves"
+      ],
+      "zones": [
+        "Ocean Watch"
+      ],
+      "level": 23
+    },
+    {
+      "id": 28561,
+      "type": "quest",
+      "name": "Stealing Stolen Goods",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 49,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stealing-stolen-goods"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 40
+    },
+    {
+      "id": 28562,
+      "type": "quest",
+      "name": "Stealing The Wind",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 50,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stealing-the-wind"
+      ],
+      "zones": [
+        "Tehatamani Harbor"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28563,
+      "type": "quest",
+      "name": "Stealing Their Means",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 51,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stealing-their-means"
+      ],
+      "zones": [
+        "Tehatamani Harbor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28564,
+      "type": "quest",
+      "name": "Stem The Tide",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 52,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stem-the-tide"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 18
+    },
+    {
+      "id": 28565,
+      "type": "quest",
+      "name": "Stepping On A Weed",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 53,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stepping-on-a-weed"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28566,
+      "type": "quest",
+      "name": "Sticks And Sticks",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 54,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sticks-and-sticks"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28567,
+      "type": "quest",
+      "name": "Sticks and Stones",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 55,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sticks-and-stones"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 17
+    },
+    {
+      "id": 28568,
+      "type": "quest",
+      "name": "Stifling Supply Lines",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 56,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stifling-supply-lines"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ],
+      "level": 18
+    },
+    {
+      "id": 28569,
+      "type": "quest",
+      "name": "Still Water",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 57,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/still-water"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28570,
+      "type": "quest",
+      "name": "Stirrings In The Sand",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 58,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stirrings-in-the-sand"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28571,
+      "type": "quest",
+      "name": "Stolen Goods",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 59,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-goods"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 12
+    },
+    {
+      "id": 28572,
+      "type": "quest",
+      "name": "Stolen Goods (Khal)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 60,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-goods-khal"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28573,
+      "type": "quest",
+      "name": "Stolen Goods (Lomshir Plain)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 61,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-goods-lomshir-plain"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28574,
+      "type": "quest",
+      "name": "Stolen Goods (Lomshir)",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 62,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-goods-lomshir"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28575,
+      "type": "quest",
+      "name": "Stolen Heirloom",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 63,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-heirloom"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28576,
+      "type": "quest",
+      "name": "Stolen Homes",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 64,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-homes"
+      ],
+      "zones": [
+        "Zossyr Hakrel"
+      ],
+      "level": 29
+    },
+    {
+      "id": 28577,
+      "type": "quest",
+      "name": "Stolen Property",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 65,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-property"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 11
+    },
+    {
+      "id": 28578,
+      "type": "quest",
+      "name": "Stolen Supplies",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 66,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-supplies"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28579,
+      "type": "quest",
+      "name": "Stolen Textiles",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 67,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-textiles"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28580,
+      "type": "quest",
+      "name": "Stolen Treasures",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 68,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-treasures"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28581,
+      "type": "quest",
+      "name": "Stolen Valuables",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 69,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stolen-valuables"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28582,
+      "type": "quest",
+      "name": "Stoned Operatives",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 70,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stoned-operatives"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28583,
+      "type": "quest",
+      "name": "Stones Within Stones",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 71,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stones-within-stones"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28584,
+      "type": "quest",
+      "name": "Stop The Calamity",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 72,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-calamity"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28585,
+      "type": "quest",
+      "name": "Stop The Leak",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 73,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-leak"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28586,
+      "type": "quest",
+      "name": "Stop The Madness",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 74,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-madness"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28587,
+      "type": "quest",
+      "name": "Stop The Surveyors",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 75,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-surveyors"
+      ],
+      "zones": [
+        "Grimsea Watch"
+      ],
+      "level": 3
+    },
+    {
+      "id": 28588,
+      "type": "quest",
+      "name": "Stop the Cultists",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 76,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-cultists"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28589,
+      "type": "quest",
+      "name": "Stop the Flow",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 77,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-flow"
+      ],
+      "zones": [
+        "Dahknarg"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28590,
+      "type": "quest",
+      "name": "Stop the Protest",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 78,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stop-the-protest"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
+    },
+    {
+      "id": 28591,
+      "type": "quest",
+      "name": "Stopping The Smugglers",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 79,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stopping-the-smugglers"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28592,
+      "type": "quest",
+      "name": "Stopping the Advance",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 80,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stopping-the-advance"
+      ],
+      "zones": [
+        "Tehatamani Harbor"
+      ],
+      "level": 48
+    },
+    {
+      "id": 28593,
+      "type": "quest",
+      "name": "Stories Of Loss",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 81,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stories-of-loss"
+      ],
+      "zones": [
+        "Shaletooth Tower"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28594,
+      "type": "quest",
+      "name": "Storm Crystals",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 82,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/storm-crystals"
+      ],
+      "zones": [
+        "Karrus Hakrel"
+      ],
+      "level": 35
+    },
+    {
+      "id": 28595,
+      "type": "quest",
+      "name": "Stormblast, Edge of the Mistral Storm",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 83,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stormblast-edge-of-the-mistral-storm"
+      ],
+      "zones": [],
+      "level": 32
+    },
+    {
+      "id": 28596,
+      "type": "quest",
+      "name": "Storming The Castle",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 84,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/storming-the-castle"
+      ],
+      "zones": [
+        "Ruins Of Trengal Keep"
+      ],
+      "level": 20
+    },
+    {
+      "id": 28597,
+      "type": "quest",
+      "name": "Stormslam, Blitz Of The Mistral Storm",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 85,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stormslam-blitz-of-the-mistral-storm"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ],
+      "level": 31
+    },
+    {
+      "id": 28598,
+      "type": "quest",
+      "name": "Stormspiders",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 86,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stormspiders"
+      ],
+      "zones": [
+        "Shoreline Ruins"
+      ],
+      "level": 17
+    },
+    {
+      "id": 28599,
+      "type": "quest",
+      "name": "Stormwynd Beacon",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 87,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stormwynd-beacon"
+      ],
+      "zones": [
+        "Shoreline Ruins"
+      ],
+      "level": 40
+    },
+    {
+      "id": 28600,
+      "type": "quest",
+      "name": "Stormwynd Ruins",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 88,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stormwynd-ruins"
+      ],
+      "zones": [
+        "Shoreline Ruins"
+      ],
+      "level": 19
+    },
+    {
+      "id": 28601,
+      "type": "quest",
+      "name": "Stout for Greencopper Tower",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 89,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stout-for-greencopper-tower"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 9
+    },
+    {
+      "id": 28602,
+      "type": "quest",
+      "name": "Stranded Shores",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 90,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stranded-shores"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28603,
+      "type": "quest",
+      "name": "Strange Bedfellows",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 91,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strange-bedfellows"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 22
+    },
+    {
+      "id": 28604,
+      "type": "quest",
+      "name": "Strange Business",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 92,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strange-business"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 8
+    },
+    {
+      "id": 28605,
+      "type": "quest",
+      "name": "Strange Shards",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 93,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strange-shards"
+      ],
+      "zones": [
+        "Seawatch Coast"
+      ],
+      "level": 34
+    },
+    {
+      "id": 28606,
+      "type": "quest",
+      "name": "Strange Spirits",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 94,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strange-spirits"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 25
+    },
+    {
+      "id": 28607,
+      "type": "quest",
+      "name": "Strange Things Are Afoot",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 95,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strange-things-are-afoot"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 23
+    },
+    {
+      "id": 28608,
+      "type": "quest",
+      "name": "Strangers At The Door",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 96,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strangers-at-the-door"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 9
+    },
+    {
+      "id": 28609,
+      "type": "quest",
+      "name": "Strategic Advice",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 97,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strategic-advice"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28610,
+      "type": "quest",
+      "name": "Stray Chicken",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 98,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stray-chicken"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28611,
+      "type": "quest",
+      "name": "Strength Defined",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 99,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strength-defined"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28612,
+      "type": "quest",
+      "name": "Strength of Silk",
+      "file": "raw\\2026-10-14-080113-610548-archive-bulk\\quest.jsonl",
+      "line": 100,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strength-of-silk"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 23
+    },
+    {
+      "id": 28613,
+      "type": "quest",
+      "name": "Strength of the Legion",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strength-of-the-legion"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28614,
+      "type": "quest",
+      "name": "Strengthening the Spell",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strengthening-the-spell"
+      ],
+      "zones": [
+        "Ruin Falls"
+      ],
+      "level": 48
+    },
+    {
+      "id": 28615,
+      "type": "quest",
+      "name": "Strident Sap Belt",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-belt"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28616,
+      "type": "quest",
+      "name": "Strident Sap Boots",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-boots"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28617,
+      "type": "quest",
+      "name": "Strident Sap Cap",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-cap"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28618,
+      "type": "quest",
+      "name": "Strident Sap Gloves",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-gloves"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28619,
+      "type": "quest",
+      "name": "Strident Sap Leggings",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-leggings"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28620,
+      "type": "quest",
+      "name": "Strident Sap Shoulders",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-shoulders"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28621,
+      "type": "quest",
+      "name": "Strident Sap Tunic",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-tunic"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28622,
+      "type": "quest",
+      "name": "Strident Sap Underlay",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-underlay"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28623,
+      "type": "quest",
+      "name": "Strident Sap Wristguards",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strident-sap-wristguards"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28624,
+      "type": "quest",
+      "name": "Strike First, Strike Hardest",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strike-first-strike-hardest"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28625,
+      "type": "quest",
+      "name": "Striking Deeper",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/striking-deeper"
+      ],
+      "zones": [
+        "Tehatamani Harbor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28626,
+      "type": "quest",
+      "name": "Striking Home",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/striking-home"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28627,
+      "type": "quest",
+      "name": "Striking the Viper",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/striking-the-viper"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 26
+    },
+    {
+      "id": 28628,
+      "type": "quest",
+      "name": "Striped Jackals",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/striped-jackals"
+      ],
+      "zones": [
+        "Seawatch Coast"
+      ],
+      "level": 34
+    },
+    {
+      "id": 28629,
+      "type": "quest",
+      "name": "Stripes The Kitten",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/stripes-the-kitten"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 2
+    },
+    {
+      "id": 28630,
+      "type": "quest",
+      "name": "Strongbeard's Supplies",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/strongbeard-s-supplies"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28631,
+      "type": "quest",
+      "name": "Studded Forest Leather Belt",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-belt"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28632,
+      "type": "quest",
+      "name": "Studded Forest Leather Boots",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 20,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-boots"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28633,
+      "type": "quest",
+      "name": "Studded Forest Leather Cap",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 21,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-cap"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28634,
+      "type": "quest",
+      "name": "Studded Forest Leather Gloves",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 22,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-gloves"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28635,
+      "type": "quest",
+      "name": "Studded Forest Leather Leggings",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 23,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-leggings"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28636,
+      "type": "quest",
+      "name": "Studded Forest Leather Shoulders",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 24,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-shoulders"
+      ],
+      "zones": [
+        "Flordiel"
+      ]
+    },
+    {
+      "id": 28637,
+      "type": "quest",
+      "name": "Studded Forest Leather Tunic",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 25,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-tunic"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28638,
+      "type": "quest",
+      "name": "Studded Forest Leather Underlay",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-underlay"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28639,
+      "type": "quest",
+      "name": "Studded Forest Leather Wristguards",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 27,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studded-forest-leather-wristguards"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28640,
+      "type": "quest",
+      "name": "Studying Bricks",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 28,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-bricks"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 18
+    },
+    {
+      "id": 28641,
+      "type": "quest",
+      "name": "Studying Bricks - Thestrian",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 29,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-bricks-thestrian"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28642,
+      "type": "quest",
+      "name": "Studying Cornerstone",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 30,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-cornerstone"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 19
+    },
+    {
+      "id": 28643,
+      "type": "quest",
+      "name": "Studying Cornerstone - Initiate - Qalian",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 31,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-cornerstone-initiate-qalian"
+      ],
+      "zones": [
+        "Varryn Dunes"
+      ],
+      "level": 31
+    },
+    {
+      "id": 28644,
+      "type": "quest",
+      "name": "Studying Cornerstone - Thestrian",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 32,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-cornerstone-thestrian"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28645,
+      "type": "quest",
+      "name": "Studying Your Statements",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 33,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-your-statements"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28646,
+      "type": "quest",
+      "name": "Studying Your Statements(Raki)",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 34,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/studying-your-statements-raki"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28647,
+      "type": "quest",
+      "name": "Summon the Oracle",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 35,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summon-the-oracle"
+      ],
+      "zones": [
+        "Rahz Inkur"
+      ],
+      "level": 48
+    },
+    {
+      "id": 28648,
+      "type": "quest",
+      "name": "Summoning Circle",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 36,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summoning-circle"
+      ],
+      "zones": [
+        "Razad"
+      ],
+      "level": 44
+    },
+    {
+      "id": 28649,
+      "type": "quest",
+      "name": "Summoning Karujin",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 37,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summoning-karujin"
+      ],
+      "zones": [
+        "The Ruins Of Trengal Keep"
+      ],
+      "level": 28
+    },
+    {
+      "id": 28650,
+      "type": "quest",
+      "name": "Summoning of Vol Tuniel",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 38,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summoning-of-vol-tuniel"
+      ],
+      "zones": [
+        "Strand Of The Ancients"
+      ],
+      "level": 26
+    },
+    {
+      "id": 28651,
+      "type": "quest",
+      "name": "Summoning the Houndmaster",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 39,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summoning-the-houndmaster"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 25
+    },
+    {
+      "id": 28652,
+      "type": "quest",
+      "name": "Summonling Of Vol Tuniel",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 40,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/summonling-of-vol-tuniel"
+      ],
+      "zones": [
+        "Strand Of The Ancients"
+      ],
+      "level": 28
+    },
+    {
+      "id": 28653,
+      "type": "quest",
+      "name": "Sun Cho's Research",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 41,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sun-cho-s-research"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28654,
+      "type": "quest",
+      "name": "Sun Village Supplies",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 42,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sun-village-supplies"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28655,
+      "type": "quest",
+      "name": "Sunken Brew",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 43,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sunken-brew"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28656,
+      "type": "quest",
+      "name": "Supplies for Master Yaol",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 44,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/supplies-for-master-yaol"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28657,
+      "type": "quest",
+      "name": "Supplies in Order",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 45,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/supplies-in-order"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28658,
+      "type": "quest",
+      "name": "Supply Delivery",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 46,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/supply-delivery"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28659,
+      "type": "quest",
+      "name": "Supplying the Post",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 47,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/supplying-the-post"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28660,
+      "type": "quest",
+      "name": "Suppressing Canine Senses",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 48,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/suppressing-canine-senses"
+      ],
+      "zones": [
+        "Grimsea Watch"
+      ],
+      "level": 3
+    },
+    {
+      "id": 28661,
+      "type": "quest",
+      "name": "Suppression",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 49,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/suppression"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 17
+    },
+    {
+      "id": 28662,
+      "type": "quest",
+      "name": "Surgical Strike",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 50,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/surgical-strike"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28663,
+      "type": "quest",
+      "name": "Surprise Attack",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 51,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/surprise-attack"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28664,
+      "type": "quest",
+      "name": "Suspicious Activities",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 52,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/suspicious-activities"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 41
+    },
+    {
+      "id": 28665,
+      "type": "quest",
+      "name": "Suspicious Behavior",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 53,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/suspicious-behavior"
+      ],
+      "zones": [
+        "Mekalia"
+      ]
+    },
+    {
+      "id": 28666,
+      "type": "quest",
+      "name": "Swamp Leather: Belt",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 54,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-belt"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28667,
+      "type": "quest",
+      "name": "Swamp Leather: Boots",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 55,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-boots"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28668,
+      "type": "quest",
+      "name": "Swamp Leather: Cap",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 56,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-cap"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28669,
+      "type": "quest",
+      "name": "Swamp Leather: Gloves",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 57,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-gloves"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28670,
+      "type": "quest",
+      "name": "Swamp Leather: Leggings",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 58,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-leggings"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28671,
+      "type": "quest",
+      "name": "Swamp Leather: Shoulders",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 59,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-shoulders"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28672,
+      "type": "quest",
+      "name": "Swamp Leather: Tunic",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 60,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-tunic"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28673,
+      "type": "quest",
+      "name": "Swamp Leather: Underlay",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 61,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-underlay"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28674,
+      "type": "quest",
+      "name": "Swamp Leather: Wristguards",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 62,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-leather-wristguards"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28675,
+      "type": "quest",
+      "name": "Swamp Satin: Arms",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 63,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-arms"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ]
+    },
+    {
+      "id": 28676,
+      "type": "quest",
+      "name": "Swamp Satin: Cuffs",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 64,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-cuffs"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28677,
+      "type": "quest",
+      "name": "Swamp Satin: Gloves",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 65,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-gloves"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ]
+    },
+    {
+      "id": 28678,
+      "type": "quest",
+      "name": "Swamp Satin: Hood",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 66,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-hood"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28679,
+      "type": "quest",
+      "name": "Swamp Satin: Pantaloons",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 67,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-pantaloons"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28680,
+      "type": "quest",
+      "name": "Swamp Satin: Robe",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 68,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-robe"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28681,
+      "type": "quest",
+      "name": "Swamp Satin: Sash",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 69,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-sash"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ]
+    },
+    {
+      "id": 28682,
+      "type": "quest",
+      "name": "Swamp Satin: Shawl",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 70,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-shawl"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28683,
+      "type": "quest",
+      "name": "Swamp Satin: Slippers",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 71,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamp-satin-slippers"
+      ],
+      "zones": [
+        "Vsurog Moor"
+      ],
+      "level": 45
+    },
+    {
+      "id": 28684,
+      "type": "quest",
+      "name": "Swamps Of The Dead",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 72,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swamps-of-the-dead"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28685,
+      "type": "quest",
+      "name": "Swatting Pests",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 73,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swatting-pests"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 3
+    },
+    {
+      "id": 28686,
+      "type": "quest",
+      "name": "Sweeper Agent",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 74,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sweeper-agent"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28687,
+      "type": "quest",
+      "name": "Swiftfoot Shanty",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 75,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swiftfoot-shanty"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 32
+    },
+    {
+      "id": 28688,
+      "type": "quest",
+      "name": "Swine For The Canine",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 76,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swine-for-the-canine"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28689,
+      "type": "quest",
+      "name": "Switching It Up",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 77,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/switching-it-up"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ],
+      "level": 30
+    },
+    {
+      "id": 28690,
+      "type": "quest",
+      "name": "Swordsmith's Letter",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 78,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swordsmith-s-letter"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28691,
+      "type": "quest",
+      "name": "Swordsmiths Letter",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 79,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/swordsmiths-letter"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28692,
+      "type": "quest",
+      "name": "Sybarite Magnate Gurz",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 80,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sybarite-magnate-gurz"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28693,
+      "type": "quest",
+      "name": "Sybarite Magnate Nargol",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 81,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/sybarite-magnate-nargol"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28694,
+      "type": "quest",
+      "name": "Symbols of the Flordiel",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 82,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/symbols-of-the-flordiel"
+      ],
+      "zones": [
+        "Ichtakhta"
+      ],
+      "level": 50
+    },
+    {
+      "id": 28695,
+      "type": "quest",
+      "name": "Symphony Of The Butcher",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 83,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/symphony-of-the-butcher"
+      ],
+      "zones": [
+        "Strand of the Ancients"
+      ],
+      "level": 26
+    },
+    {
+      "id": 28696,
+      "type": "quest",
+      "name": "T'Lyas The Wicked",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 84,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/t-lyas-the-wicked"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 40
+    },
+    {
+      "id": 28697,
+      "type": "quest",
+      "name": "Tablets Of Awakening",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 85,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tablets-of-awakening"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28698,
+      "type": "quest",
+      "name": "Tactical Disruption",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 86,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tactical-disruption"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 18
+    },
+    {
+      "id": 28699,
+      "type": "quest",
+      "name": "Taejin's Blade",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 87,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taejin-s-blade"
+      ],
+      "zones": [
+        "Isle of Dawn"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28700,
+      "type": "quest",
+      "name": "Taint of the Yukionna",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 88,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taint-of-the-yukionna"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 11
+    },
+    {
+      "id": 28701,
+      "type": "quest",
+      "name": "Tainted Artifacts",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 89,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tainted-artifacts"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ],
+      "level": 40
+    },
+    {
+      "id": 28702,
+      "type": "quest",
+      "name": "Tainted Carapaces",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 90,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tainted-carapaces"
+      ],
+      "zones": [
+        "Nusibe Necropolis"
+      ],
+      "level": 46
+    },
+    {
+      "id": 28703,
+      "type": "quest",
+      "name": "Tainted Knowledge",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 91,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tainted-knowledge"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28704,
+      "type": "quest",
+      "name": "Take Back The Mill",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 92,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/take-back-the-mill"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28705,
+      "type": "quest",
+      "name": "Take Back The Power",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 93,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/take-back-the-power"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 34
+    },
+    {
+      "id": 28706,
+      "type": "quest",
+      "name": "Take Down Drell",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 94,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/take-down-drell"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28707,
+      "type": "quest",
+      "name": "Take It To Them",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 95,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/take-it-to-them"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28708,
+      "type": "quest",
+      "name": "Take Them Down",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 96,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/take-them-down"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ],
+      "level": 18
+    },
+    {
+      "id": 28709,
+      "type": "quest",
+      "name": "Take To The Seas",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 97,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/take-to-the-seas"
+      ],
+      "zones": [
+        "Konarthi Point"
+      ]
+    },
+    {
+      "id": 28710,
+      "type": "quest",
+      "name": "Taking A Cue From History",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 98,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taking-a-cue-from-history"
+      ],
+      "zones": [
+        "Dahknarg"
+      ],
+      "level": 6
+    },
+    {
+      "id": 28711,
+      "type": "quest",
+      "name": "Taking Back",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 99,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taking-back"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28712,
+      "type": "quest",
+      "name": "Taking Down The Rats",
+      "file": "raw\\2026-10-14-080933-679841-archive-bulk\\quest.jsonl",
+      "line": 100,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taking-down-the-rats"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 12
+    },
+    {
+      "id": 28713,
+      "type": "quest",
+      "name": "TASK: Blood Of The Forest",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-blood-of-the-forest"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28714,
+      "type": "quest",
+      "name": "TASK: Destroy The Betrayers",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-destroy-the-betrayers"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28715,
+      "type": "quest",
+      "name": "TASK: Dragon Turtle Meat",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-dragon-turtle-meat"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28716,
+      "type": "quest",
+      "name": "TASK: Ease The Souls",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-ease-the-souls"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28717,
+      "type": "quest",
+      "name": "TASK: End The Suffering",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-end-the-suffering"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 17
+    },
+    {
+      "id": 28718,
+      "type": "quest",
+      "name": "TASK: Flitter Swatting",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-flitter-swatting"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28719,
+      "type": "quest",
+      "name": "TASK: Fly Swatting",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-fly-swatting"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 17
+    },
+    {
+      "id": 28720,
+      "type": "quest",
+      "name": "TASK:Don't Spy on Me",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-don-t-spy-on-me"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28721,
+      "type": "quest",
+      "name": "Talakor The Vampire Slayer",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talakor-the-vampire-slayer"
+      ],
+      "zones": [
+        "Shoreline Ruins"
+      ],
+      "level": 40
+    },
+    {
+      "id": 28722,
+      "type": "quest",
+      "name": "Talisman Of The Worthy",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 7
+    },
+    {
+      "id": 28723,
+      "type": "quest",
+      "name": "Talisman of the Worthy - Part 2",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-2"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28724,
+      "type": "quest",
+      "name": "Talisman of the Worthy - Part 3",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-3"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28725,
+      "type": "quest",
+      "name": "Talk To Brergre",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talk-to-brergre"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28726,
+      "type": "quest",
+      "name": "Talk To Veskal",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talk-to-veskal"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 12
+    },
+    {
+      "id": 28727,
+      "type": "quest",
+      "name": "Tall Tales",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tall-tales"
+      ],
+      "zones": [
+        "Falgarholm"
+      ],
+      "level": 30
+    },
+    {
+      "id": 28728,
+      "type": "quest",
+      "name": "Talons Of Telon",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/talons-of-telon"
+      ],
+      "zones": [
+        "Skrilien Point"
+      ],
+      "level": 25
+    },
+    {
+      "id": 28729,
+      "type": "quest",
+      "name": "Taming Of The Ghostfang",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taming-of-the-ghostfang"
+      ],
+      "zones": [
+        "Grimsea Watch"
+      ],
+      "level": 5
+    },
+    {
+      "id": 28730,
+      "type": "quest",
+      "name": "Taming The Beast",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taming-the-beast"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 16
+    },
+    {
+      "id": 28731,
+      "type": "quest",
+      "name": "Taming the Beast (Quest)",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/taming-the-beast-quest"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28732,
+      "type": "quest",
+      "name": "Tanalion's Training",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 20,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tanalion-s-training"
+      ],
+      "zones": [],
+      "level": 11
+    },
+    {
+      "id": 28733,
+      "type": "quest",
+      "name": "Tanalion's Wisdom",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 21,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tanalion-s-wisdom"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28734,
+      "type": "quest",
+      "name": "Tankards",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 22,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tankards"
+      ],
+      "zones": [
+        "Tursh"
+      ]
+    },
+    {
+      "id": 28735,
+      "type": "quest",
+      "name": "Tanvager's Man",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 23,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tanvager-s-man"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28736,
+      "type": "quest",
+      "name": "Tanvu Alliance",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 24,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tanvu-alliance"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 28737,
+      "type": "quest",
+      "name": "Tanvu Sojourn",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 25,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tanvu-sojourn"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 1
+    },
+    {
+      "id": 28738,
+      "type": "quest",
+      "name": "Tanvu Sojurn",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tanvu-sojurn"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28739,
+      "type": "quest",
+      "name": "Tao's Idol",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 27,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tao-s-idol"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 13
+    },
+    {
+      "id": 28740,
+      "type": "quest",
+      "name": "Tap Your Potential - Diplomacy Introduction",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 28,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/tap-your-potential-diplomacy-introduction"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 4
+    },
+    {
+      "id": 28741,
+      "type": "quest",
+      "name": "Task For Naemsog: Greater Ksaravi",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 29,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-naemsog-greater-ksaravi"
+      ],
+      "zones": [],
+      "level": 11
+    },
+    {
+      "id": 28742,
+      "type": "quest",
+      "name": "Task For Neamsog: Fiendflies",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 30,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-neamsog-fiendflies"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 8
+    },
+    {
+      "id": 28743,
+      "type": "quest",
+      "name": "Task For Neamsog: Lesser Ksaravi",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 31,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-neamsog-lesser-ksaravi"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28744,
+      "type": "quest",
+      "name": "Task For Neamsog: River Krokodus",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 32,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-neamsog-river-krokodus"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 11
+    },
+    {
+      "id": 28745,
+      "type": "quest",
+      "name": "Task For Neamsog: Ruquasa Lions",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 33,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-neamsog-ruquasa-lions"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 11
+    },
+    {
+      "id": 28746,
+      "type": "quest",
+      "name": "Task For Renton Keep: A Loss Of Food",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 34,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-a-loss-of-food"
+      ],
+      "zones": [],
+      "level": 17
+    },
+    {
+      "id": 28747,
+      "type": "quest",
+      "name": "Task For Renton Keep: A Watchful Eye",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 35,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-a-watchful-eye"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 19
+    },
+    {
+      "id": 28748,
+      "type": "quest",
+      "name": "Task For Renton Keep: Anti-Venom Supply",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 36,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-anti-venom-supply"
+      ],
+      "zones": [],
+      "level": 17
+    },
+    {
+      "id": 28749,
+      "type": "quest",
+      "name": "Task For Renton Keep: Badger Aggression",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 37,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-badger-aggression"
+      ],
+      "zones": [],
+      "level": 16
+    },
+    {
+      "id": 28750,
+      "type": "quest",
+      "name": "Task For Renton Keep: Bat Troubles",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 38,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-bat-troubles"
+      ],
+      "zones": [],
+      "level": 16
+    },
+    {
+      "id": 28751,
+      "type": "quest",
+      "name": "Task For Renton Keep: Bloodthief Cleansing",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 39,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-bloodthief-cleansing"
+      ],
+      "zones": [],
+      "level": 17
+    },
+    {
+      "id": 28752,
+      "type": "quest",
+      "name": "Task For Renton Keep: Curses!",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 40,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-curses"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 19
+    },
+    {
+      "id": 28753,
+      "type": "quest",
+      "name": "Task For Renton Keep: Infectious Insectus",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 41,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-infectious-insectus"
+      ],
+      "zones": [],
+      "level": 17
+    },
+    {
+      "id": 28754,
+      "type": "quest",
+      "name": "Task For Renton Keep: Lizard Hides",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 42,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-lizard-hides"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 20
+    },
+    {
+      "id": 28755,
+      "type": "quest",
+      "name": "Task For Renton Keep: Mauler Claws",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 43,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-mauler-claws"
+      ],
+      "zones": [],
+      "level": 17
+    },
+    {
+      "id": 28756,
+      "type": "quest",
+      "name": "Task For Renton Keep: Overpopulation",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 44,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-renton-keep-overpopulation"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 19
+    },
+    {
+      "id": 28757,
+      "type": "quest",
+      "name": "Task For Southwatch: Blackclaw Crows",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 45,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-blackclaw-crows"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 27
+    },
+    {
+      "id": 28758,
+      "type": "quest",
+      "name": "Task For Southwatch: Creatures In The Hills",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 46,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-creatures-in-the-hills"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 31
+    },
+    {
+      "id": 28759,
+      "type": "quest",
+      "name": "Task For Southwatch: Drive Back Wolves",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 47,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-drive-back-wolves"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 25
+    },
+    {
+      "id": 28760,
+      "type": "quest",
+      "name": "Task For Southwatch: Eradicate The Plague Vermin",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 48,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-eradicate-the-plague-vermin"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 33
+    },
+    {
+      "id": 28761,
+      "type": "quest",
+      "name": "Task For Southwatch: Ghosts Among Us",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 49,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-ghosts-among-us"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 33
+    },
+    {
+      "id": 28762,
+      "type": "quest",
+      "name": "Task For Southwatch: Harry The Undead",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 50,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-harry-the-undead"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 33
+    },
+    {
+      "id": 28763,
+      "type": "quest",
+      "name": "Task For Southwatch: Jumpy Cravings",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 51,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-jumpy-cravings"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 31
+    },
+    {
+      "id": 28764,
+      "type": "quest",
+      "name": "Task For Southwatch: Meat For Southwatch",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 52,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-meat-for-southwatch"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 29
+    },
+    {
+      "id": 28765,
+      "type": "quest",
+      "name": "Task For Southwatch: Red Sparrow Bandit Camps",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 53,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-red-sparrow-bandit-camps"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 27
+    },
+    {
+      "id": 28766,
+      "type": "quest",
+      "name": "Task For Southwatch: Remove Grave Stirges",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 54,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-remove-grave-stirges"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 31
+    },
+    {
+      "id": 28767,
+      "type": "quest",
+      "name": "Task For Southwatch: The Nisse Of Southwatch",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 55,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-the-nisse-of-southwatch"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 29
+    },
+    {
+      "id": 28768,
+      "type": "quest",
+      "name": "Task For Southwatch: Timber Of The Dead",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 56,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-timber-of-the-dead"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 33
+    },
+    {
+      "id": 28769,
+      "type": "quest",
+      "name": "Task For Southwatch: Wild Griffons",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 57,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-southwatch-wild-griffons"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 29
+    },
+    {
+      "id": 28770,
+      "type": "quest",
+      "name": "Task For Tahean's",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 58,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28771,
+      "type": "quest",
+      "name": "Task For Tahean's Vengeance:",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 59,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28772,
+      "type": "quest",
+      "name": "Task For Tahean's Vengeance: Earth",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 60,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-earth"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28773,
+      "type": "quest",
+      "name": "Task For Tahean's Vengeance: Kaon",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 61,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-kaon"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28774,
+      "type": "quest",
+      "name": "Task For Tahean's Vengeance: Kill",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 62,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-kill"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28775,
+      "type": "quest",
+      "name": "Task For Tahean's Vengeance: Stirge",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 63,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-stirge"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28776,
+      "type": "quest",
+      "name": "Task For Tahean's Vengeance: Summit",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 64,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-summit"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28777,
+      "type": "quest",
+      "name": "Task For Three Rivers: Bugbear Expansion",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 65,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-bugbear-expansion"
+      ],
+      "zones": [],
+      "level": 13
+    },
+    {
+      "id": 28778,
+      "type": "quest",
+      "name": "Task For Three Rivers: Clan Bears",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 66,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-clan-bears"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28779,
+      "type": "quest",
+      "name": "Task For Three Rivers: Dreckwater Mosquitos",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 67,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-dreckwater-mosquitos"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28780,
+      "type": "quest",
+      "name": "Task For Three Rivers: Fallen Star Fragments",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 68,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-fallen-star-fragments"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28781,
+      "type": "quest",
+      "name": "Task For Three Rivers: Giant Spiders",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 69,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-giant-spiders"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 8
+    },
+    {
+      "id": 28782,
+      "type": "quest",
+      "name": "Task For Three Rivers: Leechsnakes",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 70,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-leechsnakes"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28783,
+      "type": "quest",
+      "name": "Task For Three Rivers: Road To Bordinar's Cleft",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 71,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-road-to-bordinar-s-cleft"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 8
+    },
+    {
+      "id": 28784,
+      "type": "quest",
+      "name": "Task For Three Rivers: Stone Slimes",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 72,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-stone-slimes"
+      ],
+      "zones": [],
+      "level": 13
+    },
+    {
+      "id": 28785,
+      "type": "quest",
+      "name": "Task For Three Rivers: Supplies For Khazbatak",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 73,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-supplies-for-khazbatak"
+      ],
+      "zones": [],
+      "level": 7
+    },
+    {
+      "id": 28786,
+      "type": "quest",
+      "name": "Task For Three Rivers: Venomous Mudcroakers",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 74,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-venomous-mudcroakers"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28787,
+      "type": "quest",
+      "name": "Task For Three Rivers: Zihurr Arthropods",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 75,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-zihurr-arthropods"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28788,
+      "type": "quest",
+      "name": "Task For Veskal's Exchange: Anti-Venom",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 76,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-veskal-s-exchange-anti-venom"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 12
+    },
+    {
+      "id": 28789,
+      "type": "quest",
+      "name": "Task For Veskal's Exchange: Beetle Bark",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 77,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-veskal-s-exchange-beetle-bark"
+      ],
+      "zones": [],
+      "level": 14
+    },
+    {
+      "id": 28790,
+      "type": "quest",
+      "name": "Task For Veskal's Exchange: Blood Stones",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 78,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-veskal-s-exchange-blood-stones"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 12
+    },
+    {
+      "id": 28791,
+      "type": "quest",
+      "name": "Task For Veskal's Exchange: Foul Water",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 79,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-veskal-s-exchange-foul-water"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28792,
+      "type": "quest",
+      "name": "Task For Veskal's Exchange: Ice Fruit",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 80,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-veskal-s-exchange-ice-fruit"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 14
+    },
+    {
+      "id": 28793,
+      "type": "quest",
+      "name": "Task For Veskal's Exchange: Redcap Mobility",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 81,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-veskal-s-exchange-redcap-mobility"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 25
+    },
+    {
+      "id": 28794,
+      "type": "quest",
+      "name": "Task for Neamsog: Greater Ksaravi",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 82,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-neamsog-greater-ksaravi"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 12
+    },
+    {
+      "id": 28795,
+      "type": "quest",
+      "name": "Task for Neamsog: Krokodus",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 83,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-neamsog-krokodus"
+      ],
+      "zones": [],
+      "level": 9
+    },
+    {
+      "id": 28796,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Cleaning the Lake",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 84,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-cleaning-the-lake"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28797,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Cockatrice Annoyance",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 85,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-cockatrice-annoyance"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28798,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Earth Sorrow Essence",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 86,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-earth-sorrow-essence"
+      ],
+      "zones": [],
+      "level": 14
+    },
+    {
+      "id": 28799,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Kaon Soulspark Threat",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 87,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-kaon-soulspark-threat"
+      ],
+      "zones": [],
+      "level": 14
+    },
+    {
+      "id": 28800,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Kill Forest Stalkers",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 88,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-kill-forest-stalkers"
+      ],
+      "zones": [],
+      "level": 14
+    },
+    {
+      "id": 28801,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Kill Shadow Lurkers",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 89,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-kill-shadow-lurkers"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28802,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Stirge Stingers",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 90,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-stirge-stingers"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 28803,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Summit Jumper Threat",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 91,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-summit-jumper-threat"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28804,
+      "type": "quest",
+      "name": "Task for Tahean's Vengeance:Wolverine Pelts",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 92,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-tahean-s-vengeance-wolverine-pelts"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 10
+    },
+    {
+      "id": 28805,
+      "type": "quest",
+      "name": "Task for Three Rivers: Beyond Khazbatak",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 93,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-beyond-khazbatak"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28806,
+      "type": "quest",
+      "name": "Task for Three Rivers: Dreckwater Mosquitoes",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 94,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-dreckwater-mosquitoes"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28807,
+      "type": "quest",
+      "name": "Task for Three Rivers: Goliath Spiders",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 95,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-goliath-spiders"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28808,
+      "type": "quest",
+      "name": "Task for Three Rivers: Greater Stonesmashers",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 96,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-greater-stonesmashers"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28809,
+      "type": "quest",
+      "name": "Task for Three Rivers: Murk Tortoise Eggs",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 97,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-murk-tortoise-eggs"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 11
+    },
+    {
+      "id": 28810,
+      "type": "quest",
+      "name": "Task for Three Rivers: River Cleansing",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 98,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-river-cleansing"
+      ],
+      "zones": []
+    },
+    {
+      "id": 28811,
+      "type": "quest",
+      "name": "Task for Three Rivers: Stonesmasher Gamehunters",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 99,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-stonesmasher-gamehunters"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 28812,
+      "type": "quest",
+      "name": "Task for Three Rivers: Zihurr Arthopods",
+      "file": "raw\\2026-10-14-081753-695139-archive-bulk\\quest.jsonl",
+      "line": 100,
+      "confidence": "medium",
+      "parser_version": 18,
+      "source_urls": [
+        "https://vgsoharchive.com/quests/task-for-three-rivers-zihurr-arthopods"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 11
     }
   ],
   "by_name": {
@@ -522067,6 +526762,906 @@
     ],
     "quest:spirits' reprieve": [
       28512
+    ],
+    "quest:spiritual exercises": [
+      28513
+    ],
+    "quest:spiritual fulfillment": [
+      28514
+    ],
+    "quest:spiritual guidance": [
+      28515
+    ],
+    "quest:spiritual release": [
+      28516
+    ],
+    "quest:spiritual weapons": [
+      28517
+    ],
+    "quest:splintered bark gloves": [
+      28518
+    ],
+    "quest:splintered membranous belt": [
+      28519
+    ],
+    "quest:splintered membranous belt (quest)": [
+      28520
+    ],
+    "quest:splintered membranous boots": [
+      28521
+    ],
+    "quest:splintered membranous boots (quest)": [
+      28522
+    ],
+    "quest:splintered membranous cap": [
+      28523
+    ],
+    "quest:splintered membranous cap (quest)": [
+      28524
+    ],
+    "quest:splintered membranous gloves": [
+      28525
+    ],
+    "quest:splintered membranous gloves (quest)": [
+      28526
+    ],
+    "quest:splintered membranous leggings": [
+      28527
+    ],
+    "quest:splintered membranous leggings (quest)": [
+      28528
+    ],
+    "quest:splintered membranous shoulders": [
+      28529
+    ],
+    "quest:splintered membranous shoulders (quest)": [
+      28530
+    ],
+    "quest:splintered membranous tunic": [
+      28531
+    ],
+    "quest:splintered membranous tunic (quest)": [
+      28532
+    ],
+    "quest:splintered membranous underlay": [
+      28533
+    ],
+    "quest:splintered membranous underlay (quest)": [
+      28534
+    ],
+    "quest:splintered membranous wristguards": [
+      28535
+    ],
+    "quest:splintered membranous wristguards (quest)": [
+      28536
+    ],
+    "quest:spoilcralwers of zoth uluus": [
+      28537
+    ],
+    "quest:spoilcrawlers of zoth uluus": [
+      28538
+    ],
+    "quest:spore gathering": [
+      28539
+    ],
+    "quest:spores of the blood cap": [
+      28540
+    ],
+    "quest:spread the word": [
+      28541
+    ],
+    "quest:spy games": [
+      28542
+    ],
+    "quest:ssre'vessk": [
+      28543
+    ],
+    "quest:starspark extract": [
+      28544
+    ],
+    "quest:starspark medicine": [
+      28545
+    ],
+    "quest:starspark pearls": [
+      28546
+    ],
+    "quest:start learning about civic diplomacy": [
+      28547
+    ],
+    "quest:start parleying with the citizens": [
+      28548
+    ],
+    "quest:stasis threaded gloves": [
+      28549
+    ],
+    "quest:stasis threaded hood": [
+      28550
+    ],
+    "quest:stasis threaded pantaloons": [
+      28551
+    ],
+    "quest:stasis threaded robe": [
+      28552
+    ],
+    "quest:stasis threaded sash": [
+      28553
+    ],
+    "quest:stasis threaded shawl": [
+      28554
+    ],
+    "quest:stasis threaded slippers": [
+      28555
+    ],
+    "quest:stasis threaded underlay": [
+      28556
+    ],
+    "quest:state of the union": [
+      28557
+    ],
+    "quest:statements": [
+      28558
+    ],
+    "quest:status of the legion": [
+      28559
+    ],
+    "quest:stealing from thieves": [
+      28560
+    ],
+    "quest:stealing stolen goods": [
+      28561
+    ],
+    "quest:stealing the wind": [
+      28562
+    ],
+    "quest:stealing their means": [
+      28563
+    ],
+    "quest:stem the tide": [
+      28564
+    ],
+    "quest:stepping on a weed": [
+      28565
+    ],
+    "quest:sticks and sticks": [
+      28566
+    ],
+    "quest:sticks and stones": [
+      28567
+    ],
+    "quest:stifling supply lines": [
+      28568
+    ],
+    "quest:still water": [
+      28569
+    ],
+    "quest:stirrings in the sand": [
+      28570
+    ],
+    "quest:stolen goods": [
+      28571
+    ],
+    "quest:stolen goods (khal)": [
+      28572
+    ],
+    "quest:stolen goods (lomshir plain)": [
+      28573
+    ],
+    "quest:stolen goods (lomshir)": [
+      28574
+    ],
+    "quest:stolen heirloom": [
+      28575
+    ],
+    "quest:stolen homes": [
+      28576
+    ],
+    "quest:stolen property": [
+      28577
+    ],
+    "quest:stolen supplies": [
+      28578
+    ],
+    "quest:stolen textiles": [
+      28579
+    ],
+    "quest:stolen treasures": [
+      28580
+    ],
+    "quest:stolen valuables": [
+      28581
+    ],
+    "quest:stoned operatives": [
+      28582
+    ],
+    "quest:stones within stones": [
+      28583
+    ],
+    "quest:stop the calamity": [
+      28584
+    ],
+    "quest:stop the leak": [
+      28585
+    ],
+    "quest:stop the madness": [
+      28586
+    ],
+    "quest:stop the surveyors": [
+      28587
+    ],
+    "quest:stop the cultists": [
+      28588
+    ],
+    "quest:stop the flow": [
+      28589
+    ],
+    "quest:stop the protest": [
+      28590
+    ],
+    "quest:stopping the smugglers": [
+      28591
+    ],
+    "quest:stopping the advance": [
+      28592
+    ],
+    "quest:stories of loss": [
+      28593
+    ],
+    "quest:storm crystals": [
+      28594
+    ],
+    "quest:stormblast, edge of the mistral storm": [
+      28595
+    ],
+    "quest:storming the castle": [
+      28596
+    ],
+    "quest:stormslam, blitz of the mistral storm": [
+      28597
+    ],
+    "quest:stormspiders": [
+      28598
+    ],
+    "quest:stormwynd beacon": [
+      28599
+    ],
+    "quest:stormwynd ruins": [
+      28600
+    ],
+    "quest:stout for greencopper tower": [
+      28601
+    ],
+    "quest:stranded shores": [
+      28602
+    ],
+    "quest:strange bedfellows": [
+      28603
+    ],
+    "quest:strange business": [
+      28604
+    ],
+    "quest:strange shards": [
+      28605
+    ],
+    "quest:strange spirits": [
+      28606
+    ],
+    "quest:strange things are afoot": [
+      28607
+    ],
+    "quest:strangers at the door": [
+      28608
+    ],
+    "quest:strategic advice": [
+      28609
+    ],
+    "quest:stray chicken": [
+      28610
+    ],
+    "quest:strength defined": [
+      28611
+    ],
+    "quest:strength of silk": [
+      28612
+    ],
+    "quest:strength of the legion": [
+      28613
+    ],
+    "quest:strengthening the spell": [
+      28614
+    ],
+    "quest:strident sap belt": [
+      28615
+    ],
+    "quest:strident sap boots": [
+      28616
+    ],
+    "quest:strident sap cap": [
+      28617
+    ],
+    "quest:strident sap gloves": [
+      28618
+    ],
+    "quest:strident sap leggings": [
+      28619
+    ],
+    "quest:strident sap shoulders": [
+      28620
+    ],
+    "quest:strident sap tunic": [
+      28621
+    ],
+    "quest:strident sap underlay": [
+      28622
+    ],
+    "quest:strident sap wristguards": [
+      28623
+    ],
+    "quest:strike first, strike hardest": [
+      28624
+    ],
+    "quest:striking deeper": [
+      28625
+    ],
+    "quest:striking home": [
+      28626
+    ],
+    "quest:striking the viper": [
+      28627
+    ],
+    "quest:striped jackals": [
+      28628
+    ],
+    "quest:stripes the kitten": [
+      28629
+    ],
+    "quest:strongbeard's supplies": [
+      28630
+    ],
+    "quest:studded forest leather belt": [
+      28631
+    ],
+    "quest:studded forest leather boots": [
+      28632
+    ],
+    "quest:studded forest leather cap": [
+      28633
+    ],
+    "quest:studded forest leather gloves": [
+      28634
+    ],
+    "quest:studded forest leather leggings": [
+      28635
+    ],
+    "quest:studded forest leather shoulders": [
+      28636
+    ],
+    "quest:studded forest leather tunic": [
+      28637
+    ],
+    "quest:studded forest leather underlay": [
+      28638
+    ],
+    "quest:studded forest leather wristguards": [
+      28639
+    ],
+    "quest:studying bricks": [
+      28640
+    ],
+    "quest:studying bricks - thestrian": [
+      28641
+    ],
+    "quest:studying cornerstone": [
+      28642
+    ],
+    "quest:studying cornerstone - initiate - qalian": [
+      28643
+    ],
+    "quest:studying cornerstone - thestrian": [
+      28644
+    ],
+    "quest:studying your statements": [
+      28645
+    ],
+    "quest:studying your statements(raki)": [
+      28646
+    ],
+    "quest:summon the oracle": [
+      28647
+    ],
+    "quest:summoning circle": [
+      28648
+    ],
+    "quest:summoning karujin": [
+      28649
+    ],
+    "quest:summoning of vol tuniel": [
+      28650
+    ],
+    "quest:summoning the houndmaster": [
+      28651
+    ],
+    "quest:summonling of vol tuniel": [
+      28652
+    ],
+    "quest:sun cho's research": [
+      28653
+    ],
+    "quest:sun village supplies": [
+      28654
+    ],
+    "quest:sunken brew": [
+      28655
+    ],
+    "quest:supplies for master yaol": [
+      28656
+    ],
+    "quest:supplies in order": [
+      28657
+    ],
+    "quest:supply delivery": [
+      28658
+    ],
+    "quest:supplying the post": [
+      28659
+    ],
+    "quest:suppressing canine senses": [
+      28660
+    ],
+    "quest:suppression": [
+      28661
+    ],
+    "quest:surgical strike": [
+      28662
+    ],
+    "quest:surprise attack": [
+      28663
+    ],
+    "quest:suspicious activities": [
+      28664
+    ],
+    "quest:suspicious behavior": [
+      28665
+    ],
+    "quest:swamp leather: belt": [
+      28666
+    ],
+    "quest:swamp leather: boots": [
+      28667
+    ],
+    "quest:swamp leather: cap": [
+      28668
+    ],
+    "quest:swamp leather: gloves": [
+      28669
+    ],
+    "quest:swamp leather: leggings": [
+      28670
+    ],
+    "quest:swamp leather: shoulders": [
+      28671
+    ],
+    "quest:swamp leather: tunic": [
+      28672
+    ],
+    "quest:swamp leather: underlay": [
+      28673
+    ],
+    "quest:swamp leather: wristguards": [
+      28674
+    ],
+    "quest:swamp satin: arms": [
+      28675
+    ],
+    "quest:swamp satin: cuffs": [
+      28676
+    ],
+    "quest:swamp satin: gloves": [
+      28677
+    ],
+    "quest:swamp satin: hood": [
+      28678
+    ],
+    "quest:swamp satin: pantaloons": [
+      28679
+    ],
+    "quest:swamp satin: robe": [
+      28680
+    ],
+    "quest:swamp satin: sash": [
+      28681
+    ],
+    "quest:swamp satin: shawl": [
+      28682
+    ],
+    "quest:swamp satin: slippers": [
+      28683
+    ],
+    "quest:swamps of the dead": [
+      28684
+    ],
+    "quest:swatting pests": [
+      28685
+    ],
+    "quest:sweeper agent": [
+      28686
+    ],
+    "quest:swiftfoot shanty": [
+      28687
+    ],
+    "quest:swine for the canine": [
+      28688
+    ],
+    "quest:switching it up": [
+      28689
+    ],
+    "quest:swordsmith's letter": [
+      28690
+    ],
+    "quest:swordsmiths letter": [
+      28691
+    ],
+    "quest:sybarite magnate gurz": [
+      28692
+    ],
+    "quest:sybarite magnate nargol": [
+      28693
+    ],
+    "quest:symbols of the flordiel": [
+      28694
+    ],
+    "quest:symphony of the butcher": [
+      28695
+    ],
+    "quest:t'lyas the wicked": [
+      28696
+    ],
+    "quest:tablets of awakening": [
+      28697
+    ],
+    "quest:tactical disruption": [
+      28698
+    ],
+    "quest:taejin's blade": [
+      28699
+    ],
+    "quest:taint of the yukionna": [
+      28700
+    ],
+    "quest:tainted artifacts": [
+      28701
+    ],
+    "quest:tainted carapaces": [
+      28702
+    ],
+    "quest:tainted knowledge": [
+      28703
+    ],
+    "quest:take back the mill": [
+      28704
+    ],
+    "quest:take back the power": [
+      28705
+    ],
+    "quest:take down drell": [
+      28706
+    ],
+    "quest:take it to them": [
+      28707
+    ],
+    "quest:take them down": [
+      28708
+    ],
+    "quest:take to the seas": [
+      28709
+    ],
+    "quest:taking a cue from history": [
+      28710
+    ],
+    "quest:taking back": [
+      28711
+    ],
+    "quest:taking down the rats": [
+      28712
+    ],
+    "quest:task: blood of the forest": [
+      28713
+    ],
+    "quest:task: destroy the betrayers": [
+      28714
+    ],
+    "quest:task: dragon turtle meat": [
+      28715
+    ],
+    "quest:task: ease the souls": [
+      28716
+    ],
+    "quest:task: end the suffering": [
+      28717
+    ],
+    "quest:task: flitter swatting": [
+      28718
+    ],
+    "quest:task: fly swatting": [
+      28719
+    ],
+    "quest:task:don't spy on me": [
+      28720
+    ],
+    "quest:talakor the vampire slayer": [
+      28721
+    ],
+    "quest:talisman of the worthy": [
+      28722
+    ],
+    "quest:talisman of the worthy - part 2": [
+      28723
+    ],
+    "quest:talisman of the worthy - part 3": [
+      28724
+    ],
+    "quest:talk to brergre": [
+      28725
+    ],
+    "quest:talk to veskal": [
+      28726
+    ],
+    "quest:tall tales": [
+      28727
+    ],
+    "quest:talons of telon": [
+      28728
+    ],
+    "quest:taming of the ghostfang": [
+      28729
+    ],
+    "quest:taming the beast": [
+      28730
+    ],
+    "quest:taming the beast (quest)": [
+      28731
+    ],
+    "quest:tanalion's training": [
+      28732
+    ],
+    "quest:tanalion's wisdom": [
+      28733
+    ],
+    "quest:tankards": [
+      28734
+    ],
+    "quest:tanvager's man": [
+      28735
+    ],
+    "quest:tanvu alliance": [
+      28736
+    ],
+    "quest:tanvu sojourn": [
+      28737
+    ],
+    "quest:tanvu sojurn": [
+      28738
+    ],
+    "quest:tao's idol": [
+      28739
+    ],
+    "quest:tap your potential - diplomacy introduction": [
+      28740
+    ],
+    "quest:task for naemsog: greater ksaravi": [
+      28741
+    ],
+    "quest:task for neamsog: fiendflies": [
+      28742
+    ],
+    "quest:task for neamsog: lesser ksaravi": [
+      28743
+    ],
+    "quest:task for neamsog: river krokodus": [
+      28744
+    ],
+    "quest:task for neamsog: ruquasa lions": [
+      28745
+    ],
+    "quest:task for renton keep: a loss of food": [
+      28746
+    ],
+    "quest:task for renton keep: a watchful eye": [
+      28747
+    ],
+    "quest:task for renton keep: anti-venom supply": [
+      28748
+    ],
+    "quest:task for renton keep: badger aggression": [
+      28749
+    ],
+    "quest:task for renton keep: bat troubles": [
+      28750
+    ],
+    "quest:task for renton keep: bloodthief cleansing": [
+      28751
+    ],
+    "quest:task for renton keep: curses!": [
+      28752
+    ],
+    "quest:task for renton keep: infectious insectus": [
+      28753
+    ],
+    "quest:task for renton keep: lizard hides": [
+      28754
+    ],
+    "quest:task for renton keep: mauler claws": [
+      28755
+    ],
+    "quest:task for renton keep: overpopulation": [
+      28756
+    ],
+    "quest:task for southwatch: blackclaw crows": [
+      28757
+    ],
+    "quest:task for southwatch: creatures in the hills": [
+      28758
+    ],
+    "quest:task for southwatch: drive back wolves": [
+      28759
+    ],
+    "quest:task for southwatch: eradicate the plague vermin": [
+      28760
+    ],
+    "quest:task for southwatch: ghosts among us": [
+      28761
+    ],
+    "quest:task for southwatch: harry the undead": [
+      28762
+    ],
+    "quest:task for southwatch: jumpy cravings": [
+      28763
+    ],
+    "quest:task for southwatch: meat for southwatch": [
+      28764
+    ],
+    "quest:task for southwatch: red sparrow bandit camps": [
+      28765
+    ],
+    "quest:task for southwatch: remove grave stirges": [
+      28766
+    ],
+    "quest:task for southwatch: the nisse of southwatch": [
+      28767
+    ],
+    "quest:task for southwatch: timber of the dead": [
+      28768
+    ],
+    "quest:task for southwatch: wild griffons": [
+      28769
+    ],
+    "quest:task for tahean's": [
+      28770
+    ],
+    "quest:task for tahean's vengeance:": [
+      28771
+    ],
+    "quest:task for tahean's vengeance: earth": [
+      28772
+    ],
+    "quest:task for tahean's vengeance: kaon": [
+      28773
+    ],
+    "quest:task for tahean's vengeance: kill": [
+      28774
+    ],
+    "quest:task for tahean's vengeance: stirge": [
+      28775
+    ],
+    "quest:task for tahean's vengeance: summit": [
+      28776
+    ],
+    "quest:task for three rivers: bugbear expansion": [
+      28777
+    ],
+    "quest:task for three rivers: clan bears": [
+      28778
+    ],
+    "quest:task for three rivers: dreckwater mosquitos": [
+      28779
+    ],
+    "quest:task for three rivers: fallen star fragments": [
+      28780
+    ],
+    "quest:task for three rivers: giant spiders": [
+      28781
+    ],
+    "quest:task for three rivers: leechsnakes": [
+      28782
+    ],
+    "quest:task for three rivers: road to bordinar's cleft": [
+      28783
+    ],
+    "quest:task for three rivers: stone slimes": [
+      28784
+    ],
+    "quest:task for three rivers: supplies for khazbatak": [
+      28785
+    ],
+    "quest:task for three rivers: venomous mudcroakers": [
+      28786
+    ],
+    "quest:task for three rivers: zihurr arthropods": [
+      28787
+    ],
+    "quest:task for veskal's exchange: anti-venom": [
+      28788
+    ],
+    "quest:task for veskal's exchange: beetle bark": [
+      28789
+    ],
+    "quest:task for veskal's exchange: blood stones": [
+      28790
+    ],
+    "quest:task for veskal's exchange: foul water": [
+      28791
+    ],
+    "quest:task for veskal's exchange: ice fruit": [
+      28792
+    ],
+    "quest:task for veskal's exchange: redcap mobility": [
+      28793
+    ],
+    "quest:task for neamsog: greater ksaravi": [
+      28794
+    ],
+    "quest:task for neamsog: krokodus": [
+      28795
+    ],
+    "quest:task for tahean's vengeance:cleaning the lake": [
+      28796
+    ],
+    "quest:task for tahean's vengeance:cockatrice annoyance": [
+      28797
+    ],
+    "quest:task for tahean's vengeance:earth sorrow essence": [
+      28798
+    ],
+    "quest:task for tahean's vengeance:kaon soulspark threat": [
+      28799
+    ],
+    "quest:task for tahean's vengeance:kill forest stalkers": [
+      28800
+    ],
+    "quest:task for tahean's vengeance:kill shadow lurkers": [
+      28801
+    ],
+    "quest:task for tahean's vengeance:stirge stingers": [
+      28802
+    ],
+    "quest:task for tahean's vengeance:summit jumper threat": [
+      28803
+    ],
+    "quest:task for tahean's vengeance:wolverine pelts": [
+      28804
+    ],
+    "quest:task for three rivers: beyond khazbatak": [
+      28805
+    ],
+    "quest:task for three rivers: dreckwater mosquitoes": [
+      28806
+    ],
+    "quest:task for three rivers: goliath spiders": [
+      28807
+    ],
+    "quest:task for three rivers: greater stonesmashers": [
+      28808
+    ],
+    "quest:task for three rivers: murk tortoise eggs": [
+      28809
+    ],
+    "quest:task for three rivers: river cleansing": [
+      28810
+    ],
+    "quest:task for three rivers: stonesmasher gamehunters": [
+      28811
+    ],
+    "quest:task for three rivers: zihurr arthopods": [
+      28812
     ]
   },
   "by_kind": {
@@ -527608,7 +533203,307 @@
       28509,
       28510,
       28511,
-      28512
+      28512,
+      28513,
+      28514,
+      28515,
+      28516,
+      28517,
+      28518,
+      28519,
+      28520,
+      28521,
+      28522,
+      28523,
+      28524,
+      28525,
+      28526,
+      28527,
+      28528,
+      28529,
+      28530,
+      28531,
+      28532,
+      28533,
+      28534,
+      28535,
+      28536,
+      28537,
+      28538,
+      28539,
+      28540,
+      28541,
+      28542,
+      28543,
+      28544,
+      28545,
+      28546,
+      28547,
+      28548,
+      28549,
+      28550,
+      28551,
+      28552,
+      28553,
+      28554,
+      28555,
+      28556,
+      28557,
+      28558,
+      28559,
+      28560,
+      28561,
+      28562,
+      28563,
+      28564,
+      28565,
+      28566,
+      28567,
+      28568,
+      28569,
+      28570,
+      28571,
+      28572,
+      28573,
+      28574,
+      28575,
+      28576,
+      28577,
+      28578,
+      28579,
+      28580,
+      28581,
+      28582,
+      28583,
+      28584,
+      28585,
+      28586,
+      28587,
+      28588,
+      28589,
+      28590,
+      28591,
+      28592,
+      28593,
+      28594,
+      28595,
+      28596,
+      28597,
+      28598,
+      28599,
+      28600,
+      28601,
+      28602,
+      28603,
+      28604,
+      28605,
+      28606,
+      28607,
+      28608,
+      28609,
+      28610,
+      28611,
+      28612,
+      28613,
+      28614,
+      28615,
+      28616,
+      28617,
+      28618,
+      28619,
+      28620,
+      28621,
+      28622,
+      28623,
+      28624,
+      28625,
+      28626,
+      28627,
+      28628,
+      28629,
+      28630,
+      28631,
+      28632,
+      28633,
+      28634,
+      28635,
+      28636,
+      28637,
+      28638,
+      28639,
+      28640,
+      28641,
+      28642,
+      28643,
+      28644,
+      28645,
+      28646,
+      28647,
+      28648,
+      28649,
+      28650,
+      28651,
+      28652,
+      28653,
+      28654,
+      28655,
+      28656,
+      28657,
+      28658,
+      28659,
+      28660,
+      28661,
+      28662,
+      28663,
+      28664,
+      28665,
+      28666,
+      28667,
+      28668,
+      28669,
+      28670,
+      28671,
+      28672,
+      28673,
+      28674,
+      28675,
+      28676,
+      28677,
+      28678,
+      28679,
+      28680,
+      28681,
+      28682,
+      28683,
+      28684,
+      28685,
+      28686,
+      28687,
+      28688,
+      28689,
+      28690,
+      28691,
+      28692,
+      28693,
+      28694,
+      28695,
+      28696,
+      28697,
+      28698,
+      28699,
+      28700,
+      28701,
+      28702,
+      28703,
+      28704,
+      28705,
+      28706,
+      28707,
+      28708,
+      28709,
+      28710,
+      28711,
+      28712,
+      28713,
+      28714,
+      28715,
+      28716,
+      28717,
+      28718,
+      28719,
+      28720,
+      28721,
+      28722,
+      28723,
+      28724,
+      28725,
+      28726,
+      28727,
+      28728,
+      28729,
+      28730,
+      28731,
+      28732,
+      28733,
+      28734,
+      28735,
+      28736,
+      28737,
+      28738,
+      28739,
+      28740,
+      28741,
+      28742,
+      28743,
+      28744,
+      28745,
+      28746,
+      28747,
+      28748,
+      28749,
+      28750,
+      28751,
+      28752,
+      28753,
+      28754,
+      28755,
+      28756,
+      28757,
+      28758,
+      28759,
+      28760,
+      28761,
+      28762,
+      28763,
+      28764,
+      28765,
+      28766,
+      28767,
+      28768,
+      28769,
+      28770,
+      28771,
+      28772,
+      28773,
+      28774,
+      28775,
+      28776,
+      28777,
+      28778,
+      28779,
+      28780,
+      28781,
+      28782,
+      28783,
+      28784,
+      28785,
+      28786,
+      28787,
+      28788,
+      28789,
+      28790,
+      28791,
+      28792,
+      28793,
+      28794,
+      28795,
+      28796,
+      28797,
+      28798,
+      28799,
+      28800,
+      28801,
+      28802,
+      28803,
+      28804,
+      28805,
+      28806,
+      28807,
+      28808,
+      28809,
+      28810,
+      28811,
+      28812
     ],
     "zone": [
       79,
@@ -551298,7 +557193,10 @@
       28487,
       28488,
       28502,
-      28504
+      28504,
+      28604,
+      28659,
+      28688
     ],
     "Ca'ial Brael": [
       5,
@@ -551384,7 +557282,9 @@
       28309,
       28389,
       28455,
-      28477
+      28477,
+      28516,
+      28740
     ],
     "Fathesi Coast": [
       37,
@@ -551495,7 +557395,13 @@
       28348,
       28364,
       28475,
-      28506
+      28506,
+      28515,
+      28540,
+      28722,
+      28723,
+      28724,
+      28736
     ],
     "Lomshir": [
       51,
@@ -551598,7 +557504,17 @@
       28408,
       28461,
       28495,
-      28509
+      28509,
+      28542,
+      28571,
+      28573,
+      28574,
+      28581,
+      28626,
+      28658,
+      28685,
+      28692,
+      28693
     ],
     "Gaxton Village · Martok": [
       67,
@@ -551785,7 +557701,8 @@
       28044,
       28045,
       28046,
-      28168
+      28168,
+      28607
     ],
     "Cragwind Ridge": [
       101,
@@ -551848,7 +557765,9 @@
       28434,
       28441,
       28500,
-      28501
+      28501,
+      28597,
+      28689
     ],
     "Hathor Zhi": [
       102,
@@ -551960,7 +557879,10 @@
       28349,
       28443,
       28503,
-      28511
+      28511,
+      28558,
+      28559,
+      28613
     ],
     "Jalen's Crossing": [
       103,
@@ -551985,7 +557907,8 @@
       28076,
       28211,
       28371,
-      28416
+      28416,
+      28700
     ],
     "Kaon's Rush": [
       104,
@@ -552052,7 +557975,14 @@
       28081,
       28182,
       28193,
-      28470
+      28470,
+      28561,
+      28567,
+      28583,
+      28657,
+      28703,
+      28717,
+      28718
     ],
     "Ksaravi Gulch": [
       105,
@@ -552160,7 +558090,10 @@
       28282,
       28288,
       28436,
-      28448
+      28448,
+      28566,
+      28602,
+      28708
     ],
     "Misthaven Crossing": [
       106,
@@ -552224,7 +558157,9 @@
       28236,
       28324,
       28438,
-      28456
+      28456,
+      28612,
+      28696
     ],
     "Northern Highlands": [
       107,
@@ -552293,7 +558228,15 @@
       28201,
       28203,
       28230,
-      28357
+      28357,
+      28570,
+      28586,
+      28712,
+      28742,
+      28743,
+      28744,
+      28745,
+      28794
     ],
     "Renton Keep": [
       109,
@@ -552347,7 +558290,19 @@
       28402,
       28403,
       28405,
-      28406
+      28406,
+      28564,
+      28585,
+      28640,
+      28641,
+      28642,
+      28644,
+      28686,
+      28747,
+      28752,
+      28754,
+      28756,
+      28788
     ],
     "Seawatch Coast": [
       110,
@@ -552423,7 +558378,9 @@
       28334,
       28335,
       28336,
-      28337
+      28337,
+      28605,
+      28628
     ],
     "Silverlake": [
       111,
@@ -552457,7 +558414,8 @@
       28243,
       28279,
       28350,
-      28458
+      28458,
+      28651
     ],
     "Tar Janashir": [
       113,
@@ -552543,7 +558501,12 @@
       28339,
       28340,
       28411,
-      28507
+      28507,
+      28545,
+      28546,
+      28664,
+      28687,
+      28705
     ],
     "Tauthien Delta": [
       114,
@@ -552567,7 +558530,8 @@
       27021,
       27535,
       28118,
-      28297
+      28297,
+      28568
     ],
     "The Temple Of Dailuk": [
       115,
@@ -552618,7 +558582,16 @@
       28162,
       28194,
       28209,
-      28256
+      28256,
+      28608,
+      28663,
+      28697,
+      28713,
+      28714,
+      28715,
+      28716,
+      28719,
+      28720
     ],
     "Three Rivers Village": [
       116,
@@ -552692,7 +558665,22 @@
       27960,
       28138,
       28290,
-      28326
+      28326,
+      28661,
+      28706,
+      28778,
+      28779,
+      28780,
+      28781,
+      28782,
+      28783,
+      28786,
+      28806,
+      28807,
+      28808,
+      28809,
+      28811,
+      28812
     ],
     "Wardship Of The Sleeping Moon": [
       117,
@@ -552776,7 +558764,8 @@
       26680,
       27347,
       27741,
-      28376
+      28376,
+      28576
     ],
     "Nerail Tharazen": [
       122,
@@ -553043,7 +559032,8 @@
       28217,
       28251,
       28253,
-      28472
+      28472,
+      28588
     ],
     "Alyssa's Chance": [
       147,
@@ -553090,7 +559080,8 @@
       27551,
       27552,
       27553,
-      27877
+      27877,
+      28662
     ],
     "Anires Point": [
       150,
@@ -553335,7 +559326,12 @@
       28481,
       28483,
       28499,
-      28505
+      28505,
+      28569,
+      28578,
+      28601,
+      28630,
+      28707
     ],
     "Brennan's Stead": [
       166,
@@ -553775,7 +559771,9 @@
       28189,
       28198,
       28491,
-      28510
+      28510,
+      28589,
+      28710
     ],
     "Dahknarg Village": [
       211,
@@ -554051,7 +560049,8 @@
       27852,
       28206,
       28311,
-      28315
+      28315,
+      28727
     ],
     "Falgorholm City": [
       235,
@@ -554140,7 +560139,17 @@
       26574,
       26575,
       26576,
-      26577
+      26577,
+      28539,
+      28631,
+      28632,
+      28633,
+      28634,
+      28635,
+      28636,
+      28637,
+      28638,
+      28639
     ],
     "Flowing Sea": [
       243,
@@ -554333,7 +560342,10 @@
       28105,
       28106,
       28112,
-      28156
+      28156,
+      28587,
+      28660,
+      28729
     ],
     "Grotto of the Eyeless": [
       262,
@@ -554484,7 +560496,35 @@
       27461,
       27462,
       27463,
-      27464
+      27464,
+      28518,
+      28519,
+      28521,
+      28523,
+      28525,
+      28527,
+      28529,
+      28531,
+      28533,
+      28535,
+      28549,
+      28550,
+      28551,
+      28552,
+      28553,
+      28554,
+      28555,
+      28556,
+      28615,
+      28616,
+      28617,
+      28618,
+      28619,
+      28620,
+      28621,
+      28622,
+      28623,
+      28694
     ],
     "Imanjal Sacellum": [
       546,
@@ -554672,7 +560712,13 @@
       28152,
       28283,
       28317,
-      28384
+      28384,
+      28575,
+      28582,
+      28611,
+      28653,
+      28654,
+      28699
     ],
     "Isle of Garuzamut": [
       556,
@@ -555013,7 +561059,10 @@
       28321,
       28327,
       28329,
-      28478
+      28478,
+      28656,
+      28690,
+      28691
     ],
     "Tursh Village": [
       14023,
@@ -555202,7 +561251,15 @@
       28382,
       28383,
       28482,
-      28493
+      28493,
+      28548,
+      28565,
+      28584,
+      28590,
+      28610,
+      28629,
+      28704,
+      28735
     ],
     "Veskal's Exchange": [
       14036,
@@ -555325,7 +561382,13 @@
       28429,
       28430,
       28462,
-      28463
+      28463,
+      28577,
+      28627,
+      28726,
+      28790,
+      28792,
+      28793
     ],
     "Leth Nurae": [
       14054,
@@ -555429,7 +561492,11 @@
       28275,
       28313,
       28370,
-      28474
+      28474,
+      28517,
+      28580,
+      28603,
+      28733
     ],
     "Khal": [
       14211,
@@ -555631,7 +561698,11 @@
       28399,
       28465,
       28471,
-      28479
+      28479,
+      28572,
+      28579,
+      28645,
+      28655
     ],
     "Lomshir Plain": [
       14231,
@@ -555712,7 +561783,8 @@
       28356,
       28375,
       28442,
-      28444
+      28444,
+      28730
     ],
     "Southwatch": [
       14415,
@@ -555784,7 +561856,20 @@
       28464,
       28467,
       28468,
-      28469
+      28469,
+      28757,
+      28758,
+      28759,
+      28760,
+      28761,
+      28762,
+      28763,
+      28764,
+      28765,
+      28766,
+      28767,
+      28768,
+      28769
     ],
     "Zarabadi Landing": [
       17653,
@@ -555956,7 +562041,8 @@
       28312,
       28386,
       28418,
-      28473
+      28473,
+      28698
     ],
     "Jalen's Retreat": [
       22587
@@ -556031,7 +562117,8 @@
       27494,
       27510,
       27516,
-      28323
+      28323,
+      28594
     ],
     "Keejay Cove": [
       22600
@@ -556058,7 +562145,8 @@
       27250,
       27264,
       27295,
-      27643
+      27643,
+      28709
     ],
     "Ksaravi Hollow": [
       22609
@@ -556193,7 +562281,13 @@
       28347,
       28431,
       28445,
-      28480
+      28480,
+      28541,
+      28606,
+      28665,
+      28684,
+      28725,
+      28737
     ],
     "Merchant": [
       22627
@@ -556225,7 +562319,8 @@
       27608,
       27610,
       27997,
-      28028
+      28028,
+      28702
     ],
     "Oathbreaker (Red Swallow) Caves": [
       22638
@@ -556244,7 +562339,8 @@
       22641,
       27314,
       28051,
-      28052
+      28052,
+      28560
     ],
     "Oculus of Koan": [
       22642
@@ -556307,7 +562403,8 @@
       27816,
       27958,
       28119,
-      28378
+      28378,
+      28701
     ],
     "Port Aughos": [
       22651
@@ -556371,7 +562468,8 @@
       27938,
       28183,
       28244,
-      28372
+      28372,
+      28647
     ],
     "Rakshasa Citadel": [
       22661
@@ -556402,7 +562500,8 @@
       28207,
       28299,
       28392,
-      28451
+      28451,
+      28648
     ],
     "Red Sparrow Depths": [
       22665
@@ -556451,7 +562550,8 @@
       25972,
       26008,
       26136,
-      28015
+      28015,
+      28514
     ],
     "River Valley": [
       22677,
@@ -556496,7 +562596,8 @@
       27224,
       27232,
       27538,
-      28452
+      28452,
+      28614
     ],
     "Ruins Of Trengal Keep": [
       22681,
@@ -556510,7 +562611,8 @@
       27660,
       28186,
       28287,
-      28497
+      28497,
+      28596
     ],
     "Ruins Of Vol Tuniel Lower Level": [
       22682
@@ -556525,7 +562627,9 @@
       22685,
       25649,
       26843,
-      27530
+      27530,
+      28537,
+      28538
     ],
     "Sample Dungeon": [
       22686
@@ -556570,7 +562674,8 @@
     ],
     "Shaletooth Tower": [
       22697,
-      26305
+      26305,
+      28593
     ],
     "Shaman's Glade": [
       22698,
@@ -556610,7 +562715,11 @@
       27381,
       27708,
       27849,
-      28496
+      28496,
+      28598,
+      28599,
+      28600,
+      28721
     ],
     "Shores of Darkness": [
       22703
@@ -556675,7 +562784,8 @@
       27911,
       28007,
       28185,
-      28377
+      28377,
+      28728
     ],
     "Smuggler's Bend": [
       22712
@@ -556745,7 +562855,9 @@
       27790,
       27791,
       28173,
-      28417
+      28417,
+      28650,
+      28652
     ],
     "Stranglewater Cove": [
       22728
@@ -556837,7 +562949,8 @@
       28137,
       28306,
       28440,
-      28490
+      28490,
+      28591
     ],
     "Tehatamani Empire": [
       22738
@@ -556885,7 +562998,11 @@
       28159,
       28180,
       28181,
-      28380
+      28380,
+      28562,
+      28563,
+      28592,
+      28625
     ],
     "Telon": [
       22740
@@ -557023,7 +563140,9 @@
       27758,
       27843,
       28040,
-      28117
+      28117,
+      28624,
+      28739
     ],
     "The Velerium Mines": [
       22765
@@ -557085,7 +563204,8 @@
       25716,
       26068,
       26762,
-      26992
+      26992,
+      28734
     ],
     "Uknown": [
       22785
@@ -557111,7 +563231,8 @@
     "Varryn Dunes": [
       22792,
       27234,
-      27235
+      27235,
+      28643
     ],
     "Vault Of Heroes": [
       22793,
@@ -557134,7 +563255,9 @@
       27732,
       27733,
       27838,
-      28134
+      28134,
+      28803,
+      28804
     ],
     "Vault of the Hidden": [
       22794
@@ -557217,7 +563340,8 @@
       22921,
       25975,
       27926,
-      28143
+      28143,
+      28557
     ],
     "ZONE": [
       22916,
@@ -557264,7 +563388,25 @@
       27806,
       27807,
       27808,
-      27809
+      27809,
+      28666,
+      28667,
+      28668,
+      28669,
+      28670,
+      28671,
+      28672,
+      28673,
+      28674,
+      28675,
+      28676,
+      28677,
+      28678,
+      28679,
+      28680,
+      28681,
+      28682,
+      28683
     ],
     "Atoosa Madari": [
       25144
@@ -557426,7 +563568,8 @@
       26600,
       26758,
       27155,
-      28030
+      28030,
+      28695
     ],
     "Lomshir · Halgarad": [
       26644
@@ -557504,10 +563647,12 @@
     ],
     "Skrillien Point": [
       27079,
-      27667
+      27667,
+      28543
     ],
     "The Ruins Of Trengal Keep": [
-      27089
+      27089,
+      28649
     ],
     "Dakhnarg": [
       27127
