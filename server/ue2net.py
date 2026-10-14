@@ -234,6 +234,11 @@ def decode_packet(data):
     return packet_id, acks, bunches
 
 
+def seq_diff(a, b, modulus):
+    """a - b for sequence numbers that wrap at modulus (UE2 BestSignedDifference)."""
+    return ((a - b + modulus // 2) % modulus) - modulus // 2
+
+
 def encode_packet(packet_id, acks=(), bunches=()):
     w = BitWriter()
     w.serialize_int(packet_id, MAX_PACKETID)
@@ -274,8 +279,8 @@ class UnrealSession:
         fresh = []
         for b in bunches:
             if b.reliable:
-                if b.seq <= self.in_reliable.get(b.channel, 0):
-                    continue  # resend of something already handled
+                if seq_diff(b.seq, self.in_reliable.get(b.channel, 0), MAX_CHSEQUENCE) <= 0:
+                    continue  # resend of something already handled (wrap-aware: 4095 -> 0)
                 self.in_reliable[b.channel] = b.seq
             fresh.append(b)
         return packet_id, acks, fresh

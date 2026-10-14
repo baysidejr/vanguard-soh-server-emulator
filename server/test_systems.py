@@ -856,5 +856,14 @@ class SequenceWrapTests(unittest.TestCase):
         self.assertEqual([p[2:4] for p in packets[:2]], [bytes([0xFF, 0xFF]), bytes([0, 0])])
 
 
+class ChannelSequenceTests(unittest.TestCase):
+    def test_wrap_aware(self):
+        import ue2net
+        self.assertEqual(ue2net.seq_diff(0, 4095, 4096), 1)          # after the wrap: newer
+        self.assertEqual(ue2net.seq_diff(4095, 0, 4096), -1)
+        self.assertEqual(ue2net.seq_diff(5, 5, 4096), 0)              # a resend
+        self.assertLess(ue2net.seq_diff(10, 20, 4096), 0)
+
+
 if __name__ == "__main__":
     unittest.main()
