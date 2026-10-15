@@ -9147,7 +9147,7 @@ def leave_world(state, args):
         if npc.aggro_on is player:
             npc.aggro_on = combat.next_target(npc)
             if npc.aggro_on is None:
-                npc.aggro, npc.moving = False, False
+                combat.give_up(npc)          # nobody left: walk home and heal
     w.broadcast(lambda s: zone.close_actor(s, player.char_id))
     print(f"  {player.name} left {w.level}")
 
