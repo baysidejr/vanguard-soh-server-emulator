@@ -529,6 +529,8 @@ def log_client_rpc(state, b, args, player):
         print(f"  >>> UNREAL RPC undecodable ({e}): {b.data.hex(' ')}")
         return
     loc = params.get("ClientLoc")
+    if params.get("View") is not None:
+        player.yaw = world.view_yaw(params["View"])      # facing (builder !spawn uses it)
     if params.get("TimeStamp") is not None:
         state["move_ts"] = params["TimeStamp"]
     if loc is not None:
