@@ -67,7 +67,8 @@ The same 50 bots (`soak.sh 50 300`) after the evening's changes (NPC give-up and
 
 - Unit tests (test_systems): saving checks the content first and keeps a backup (EditorTests), saves keep the file's key order, archive search and drafts for mobs, items, quests and loot (ArchiveDraftTests), accounts and proposals (EditorAccountsTests).
 - EditorPageTests opens the page in headless Edge (skipped without Edge) and runs its `#selftest`: every quest, mob, item and ability goes through its form and back unchanged, and every field of the Recipes, Parley, Factions, Work orders, Riftways and Forms & songs forms gets change/input events with its value untouched without changing the file. It caught forms that added `"start": 0`, `push: 0` and step `action`/`ap` values that were not in the file.
-- By hand (2026-10-15): headless Edge driven over the DevTools protocol (`cdp.mjs` in the work folder) edited and saved the Factions, Recipes, Parley and Work orders tabs against a copy of the content folder; each saved file differed from the original only in the edited lines.
+- EditorSaveTests (skipped without Edge and Node) drives the page with `tools/editor_e2e.mjs` (headless Edge over the DevTools protocol): it changes one value in the Factions and Recipes tabs, clicks Save, and requires each file on disk to differ from before in exactly that line.
+- By hand (2026-10-15): the same driver edited and saved the Factions, Recipes, Parley and Work orders tabs against a copy of the content folder; each saved file differed from the original only in the edited lines.
 
 ## Fuzzing (2026-10-14)
 

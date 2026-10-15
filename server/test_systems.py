@@ -20,6 +20,7 @@ import reactions
 import songs
 import titles
 import travel
+import shutil
 import types
 import vgmsg
 import zone
@@ -1538,6 +1539,51 @@ class EditorPageTests(unittest.TestCase):
         finally:
             httpd.shutdown()
         self.assertIn("SELFTEST OK", dom, dom[dom.find("SELFTEST"):][:2000])
+
+
+@unittest.skipUnless(os.path.exists(EDGE) and shutil.which("node"), "needs Microsoft Edge and Node for a page check")
+class EditorSaveTests(unittest.TestCase):
+    def test_tab_saves_change_only_the_edited_lines(self):
+        """Edit one field in the Factions and Recipes tabs, click Save: each file on disk differs
+        from before only in that value (and keeps its key order)."""
+        import subprocess, sys, tempfile, threading
+        tools = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools")
+        sys.path.insert(0, tools)
+        import editor
+        with tempfile.TemporaryDirectory() as d:
+            c = os.path.join(d, "content")
+            shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content"), c)
+            before = {f: open(os.path.join(c, f), encoding="utf-8").read() for f in ("factions.json", "recipes.json")}
+            handler = type("H", (editor.Handler,), {"directory": c, "backups_dir": os.path.join(d, "bk")})
+            httpd = editor.http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+            threading.Thread(target=httpd.serve_forever, daemon=True).start()
+            base = f"http://127.0.0.1:{httpd.server_address[1]}/"
+            cases = [("#factions", [
+                "(() => { const tr=[...document.querySelectorAll('#facTable tr')].find(t=>t.cells[0]&&t.cells[0].textContent==='1003');"
+                " const k=tr.querySelector('[data-k=kill]'); k.value='-12'; k.dispatchEvent(new Event('change')); return 1; })()",
+                "document.getElementById('saveFactions').click(), 1", 1500,
+                "document.getElementById('problems').innerText"]),
+                ("#recipes=copper_ingot", [
+                "(() => { const i=document.querySelector('#recBody [data-f=xp]'); i.value='121'; i.dispatchEvent(new Event('input')); return 1; })()",
+                "document.getElementById('saveRecipes').click(), 1", 1500,
+                "document.getElementById('problems').innerText"])]
+            try:
+                for hash_, steps in cases:
+                    sf = os.path.join(d, "steps.json")
+                    with open(sf, "w", encoding="utf-8") as f:
+                        json.dump(steps, f)
+                    out = subprocess.run(["node", os.path.join(tools, "editor_e2e.mjs"), base + hash_, sf],
+                                         capture_output=True, text=True, timeout=90)
+                    self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
+                    self.assertIn("Saved", out.stdout.strip().splitlines()[-1])
+            finally:
+                httpd.shutdown()
+            for f, old_value, new_value in (("factions.json", '"kill": -10', '"kill": -12'), ("recipes.json", '"xp": 120', '"xp": 121')):
+                after = open(os.path.join(c, f), encoding="utf-8").read()
+                changed = [(a, b) for a, b in zip(before[f].splitlines(), after.splitlines()) if a != b]
+                self.assertEqual(len(changed), 1, changed)
+                self.assertIn(old_value, changed[0][0])
+                self.assertIn(new_value, changed[0][1])
 
 
 class ArchiveSearchTests(unittest.TestCase):

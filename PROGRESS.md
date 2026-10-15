@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: tools/editor_e2e.mjs (DevTools-protocol driver for the editor page) and EditorSaveTests: a real click on Save in two tabs must change exactly the edited line on disk. Editor tabs grouped under headings with the current one highlighted.
+
 - 2026-10-15: Editor AA and Housing plots tabs (in the selftest); every content file now has a form.
 
 - 2026-10-15: Editor Reactions tab (chains, counters, rescues; in the selftest).
