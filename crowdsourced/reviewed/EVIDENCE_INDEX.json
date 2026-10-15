@@ -1,19 +1,19 @@
 {
   "summary": {
-    "batches": 250,
-    "research_rows": 47935,
-    "normalized_name_groups": 19650,
+    "batches": 251,
+    "research_rows": 48048,
+    "normalized_name_groups": 19763,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 4838,
+      "creature": 4924,
       "item": 5504,
-      "loot": 734,
-      "npc": 2079,
+      "loot": 739,
+      "npc": 2093,
       "quest": 11633,
       "zone": 1334,
       "ability": 21615,
       "diplomacy": 6,
-      "merchant": 184,
+      "merchant": 192,
       "recipe": 8
     },
     "errors": 0,
@@ -1970,6 +1970,16 @@
         "loot": 17,
         "merchant": 3,
         "npc": 11
+      }
+    },
+    {
+      "batch": "raw\\2026-10-15-001355-057556-archive-bulk",
+      "records": 113,
+      "counts": {
+        "creature": 86,
+        "loot": 5,
+        "merchant": 8,
+        "npc": 14
       }
     }
   ],
@@ -768768,6 +768778,1721 @@
         "Bordinar's Cleft"
       ],
       "level": 8
+    },
+    {
+      "id": 47935,
+      "type": "creature",
+      "name": "FURUDYN",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furudyn"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 18
+    },
+    {
+      "id": 47936,
+      "type": "creature",
+      "name": "Frostbite",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostbite"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47937,
+      "type": "creature",
+      "name": "Frostfang Beast",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostfang-beast"
+      ],
+      "zones": [
+        "Karrus Hakrel"
+      ],
+      "level": 36
+    },
+    {
+      "id": 47938,
+      "type": "creature",
+      "name": "Frostshard",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostshard"
+      ],
+      "zones": [
+        "Frostshard Lake"
+      ]
+    },
+    {
+      "id": 47939,
+      "type": "creature",
+      "name": "Frostshard Terror",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostshard-terror"
+      ],
+      "zones": [],
+      "level": 34
+    },
+    {
+      "id": 47940,
+      "type": "creature",
+      "name": "Frostwere",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwere"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 34
+    },
+    {
+      "id": 47941,
+      "type": "creature",
+      "name": "Frostwind Claw",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwind-claw"
+      ],
+      "zones": [
+        "Frostshard Lake"
+      ],
+      "level": 32
+    },
+    {
+      "id": 47942,
+      "type": "creature",
+      "name": "Frostwind Drake",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwind-drake"
+      ],
+      "zones": [],
+      "level": 38
+    },
+    {
+      "id": 47943,
+      "type": "creature",
+      "name": "Frostwind Talon",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwind-talon"
+      ],
+      "zones": [],
+      "level": 33
+    },
+    {
+      "id": 47944,
+      "type": "creature",
+      "name": "Frostwing",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwing"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47945,
+      "type": "creature",
+      "name": "Frostwing Claw",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwing-claw"
+      ],
+      "zones": [
+        "Dargun's Tomb"
+      ],
+      "level": 30
+    },
+    {
+      "id": 47946,
+      "type": "creature",
+      "name": "Frostwing Talon",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwing-talon"
+      ],
+      "zones": [],
+      "level": 31
+    },
+    {
+      "id": 47947,
+      "type": "creature",
+      "name": "Frozen Xennu Custodian",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frozen-xennu-custodian"
+      ],
+      "zones": [
+        "Mind's Crown"
+      ],
+      "level": 43
+    },
+    {
+      "id": 47948,
+      "type": "creature",
+      "name": "Frug",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frug"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ],
+      "level": 35
+    },
+    {
+      "id": 47949,
+      "type": "creature",
+      "name": "Fu Eri",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fu-eri"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 47950,
+      "type": "creature",
+      "name": "Fu Jia",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fu-jia"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 47951,
+      "type": "creature",
+      "name": "Fungus Gorger",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fungus-gorger"
+      ],
+      "zones": [
+        "Karrus Hakrel"
+      ]
+    },
+    {
+      "id": 47952,
+      "type": "creature",
+      "name": "Fungus Spores",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fungus-spores"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ]
+    },
+    {
+      "id": 47953,
+      "type": "creature",
+      "name": "Furi Norkin",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furi-norkin"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47954,
+      "type": "creature",
+      "name": "Furious Animate",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furious-animate"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 4
+    },
+    {
+      "id": 47955,
+      "type": "creature",
+      "name": "Furious Atoll Deformation",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furious-atoll-deformation"
+      ],
+      "zones": [
+        "Skawlra Rock"
+      ],
+      "level": 22
+    },
+    {
+      "id": 47956,
+      "type": "creature",
+      "name": "Furious Burnfiend",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furious-burnfiend"
+      ],
+      "zones": [
+        "Afrit"
+      ]
+    },
+    {
+      "id": 47957,
+      "type": "creature",
+      "name": "Furious Redcap",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furious-redcap"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 8
+    },
+    {
+      "id": 47958,
+      "type": "creature",
+      "name": "Furrowsear",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furrowsear"
+      ],
+      "zones": [
+        "Spider Bluffs"
+      ]
+    },
+    {
+      "id": 47959,
+      "type": "creature",
+      "name": "Furtive Ksaravi",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furtive-ksaravi"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 15
+    },
+    {
+      "id": 47960,
+      "type": "creature",
+      "name": "Fury Craljikk",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-craljikk"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 20
+    },
+    {
+      "id": 47961,
+      "type": "creature",
+      "name": "Fury Durag",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-durag"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47962,
+      "type": "creature",
+      "name": "Fury Felkira",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-felkira"
+      ],
+      "zones": []
+    },
+    {
+      "id": 47963,
+      "type": "creature",
+      "name": "Fury Felkria",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-felkria"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 47964,
+      "type": "creature",
+      "name": "Fury Fik",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-fik"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47965,
+      "type": "creature",
+      "name": "Fury Frixxen",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-frixxen"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47966,
+      "type": "creature",
+      "name": "Fury Galki",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-galki"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47967,
+      "type": "creature",
+      "name": "Fury Gronk",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-gronk"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47968,
+      "type": "creature",
+      "name": "Fury Hetrix",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-hetrix"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 47969,
+      "type": "creature",
+      "name": "Fury Klax",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-klax"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 47970,
+      "type": "creature",
+      "name": "Fury Lidkrun",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-lidkrun"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47971,
+      "type": "creature",
+      "name": "Fury Melik",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-melik"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47972,
+      "type": "creature",
+      "name": "Fury Mronplat",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-mronplat"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47973,
+      "type": "creature",
+      "name": "Fury Niliza",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-niliza"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47974,
+      "type": "creature",
+      "name": "Fury Puxle",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-puxle"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47975,
+      "type": "creature",
+      "name": "Fury Rinx",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-rinx"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47976,
+      "type": "creature",
+      "name": "Fury Sitrik",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-sitrik"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47977,
+      "type": "creature",
+      "name": "Fury Threkdra",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-threkdra"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47978,
+      "type": "creature",
+      "name": "Fury Throklur",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-throklur"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 47979,
+      "type": "creature",
+      "name": "Fury Tikoga",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-tikoga"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 16
+    },
+    {
+      "id": 47980,
+      "type": "creature",
+      "name": "Fury Traxi",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-traxi"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 47981,
+      "type": "creature",
+      "name": "Fury Vekrel",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-vekrel"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 47982,
+      "type": "creature",
+      "name": "Fury Vukar",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-vukar"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ]
+    },
+    {
+      "id": 47983,
+      "type": "creature",
+      "name": "Fury Zalvix",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fury-zalvix"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47984,
+      "type": "creature",
+      "name": "G'eldantar Baentlar",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/g-eldantar-baentlar"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 47985,
+      "type": "creature",
+      "name": "Gaat",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaat"
+      ],
+      "zones": [
+        "Temple Of Tehatamani"
+      ],
+      "level": 50
+    },
+    {
+      "id": 47986,
+      "type": "creature",
+      "name": "Gabbro Animate",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gabbro-animate"
+      ],
+      "zones": [],
+      "level": 6
+    },
+    {
+      "id": 47987,
+      "type": "creature",
+      "name": "Gaebgra",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaebgra"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 6
+    },
+    {
+      "id": 47988,
+      "type": "creature",
+      "name": "Gaedel Threeftseven",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaedel-threeftseven"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 1
+    },
+    {
+      "id": 47989,
+      "type": "creature",
+      "name": "Gaella Roki",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaella-roki"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 10
+    },
+    {
+      "id": 47990,
+      "type": "creature",
+      "name": "Gagarian Block",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gagarian-block"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 9
+    },
+    {
+      "id": 47991,
+      "type": "creature",
+      "name": "Gahren Leopard",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gahren-leopard"
+      ],
+      "zones": [
+        "Nusibe Necropolis"
+      ],
+      "level": 47
+    },
+    {
+      "id": 47992,
+      "type": "creature",
+      "name": "Gaiemog",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaiemog"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 45
+    },
+    {
+      "id": 47993,
+      "type": "creature",
+      "name": "Gaile",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaile"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 15
+    },
+    {
+      "id": 47994,
+      "type": "creature",
+      "name": "Gajtodsa Yamtha",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gajtodsa-yamtha"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47995,
+      "type": "creature",
+      "name": "Gakov",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gakov"
+      ],
+      "zones": [
+        "Northern Stonepine Ridge"
+      ],
+      "level": 25
+    },
+    {
+      "id": 47996,
+      "type": "creature",
+      "name": "Galadu Gladesworn",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galadu-gladesworn"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ],
+      "level": 50
+    },
+    {
+      "id": 47997,
+      "type": "creature",
+      "name": "Galajir The Demented",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galajir-the-demented"
+      ],
+      "zones": [
+        "Ruins Of Trengal Keep"
+      ]
+    },
+    {
+      "id": 47998,
+      "type": "creature",
+      "name": "Galdor, The Fierce",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galdor-the-fierce"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 40
+    },
+    {
+      "id": 47999,
+      "type": "creature",
+      "name": "Galewind Vulture",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galewind-vulture"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ]
+    },
+    {
+      "id": 48000,
+      "type": "creature",
+      "name": "Galgourn Simoro",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galgourn-simoro"
+      ],
+      "zones": [
+        "Strand Of The Ancients"
+      ]
+    },
+    {
+      "id": 48001,
+      "type": "creature",
+      "name": "Galiandenn Requiar",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galiandenn-requiar"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 25
+    },
+    {
+      "id": 48002,
+      "type": "creature",
+      "name": "Galinda Mussary",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galinda-mussary"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 15
+    },
+    {
+      "id": 48003,
+      "type": "creature",
+      "name": "Gallanar",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gallanar"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48004,
+      "type": "creature",
+      "name": "Gallant Of Verael",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gallant-of-verael"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ],
+      "level": 39
+    },
+    {
+      "id": 48005,
+      "type": "creature",
+      "name": "Gallaya The Infected",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gallaya-the-infected"
+      ],
+      "zones": [],
+      "level": 18
+    },
+    {
+      "id": 48006,
+      "type": "creature",
+      "name": "Gallin Mountainstone",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gallin-mountainstone"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 40
+    },
+    {
+      "id": 48007,
+      "type": "creature",
+      "name": "Galman Dorvak",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galman-dorvak"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 48008,
+      "type": "creature",
+      "name": "Galnessa Favah",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galnessa-favah"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 1
+    },
+    {
+      "id": 48009,
+      "type": "creature",
+      "name": "Galraught Malhammer",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galraught-malhammer"
+      ],
+      "zones": [],
+      "level": 20
+    },
+    {
+      "id": 48010,
+      "type": "creature",
+      "name": "Galsem",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galsem"
+      ],
+      "zones": [
+        "Vursog Moor"
+      ],
+      "level": 46
+    },
+    {
+      "id": 48011,
+      "type": "creature",
+      "name": "Galvanic Of Zossyr",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galvanic-of-zossyr"
+      ],
+      "zones": [
+        "Zossyr Hakrel"
+      ],
+      "level": 33
+    },
+    {
+      "id": 48012,
+      "type": "creature",
+      "name": "Gammy",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 78,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gammy"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 11
+    },
+    {
+      "id": 48013,
+      "type": "creature",
+      "name": "Gamorn Reggar",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 79,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gamorn-reggar"
+      ],
+      "zones": [
+        "Konarthi Point"
+      ],
+      "level": 20
+    },
+    {
+      "id": 48014,
+      "type": "creature",
+      "name": "Gamornir Jokum",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 80,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gamornir-jokum"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 20
+    },
+    {
+      "id": 48015,
+      "type": "creature",
+      "name": "Gandaigol Gladesworn",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 81,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gandaigol-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 48016,
+      "type": "creature",
+      "name": "Ganklin Grim",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 82,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ganklin-grim"
+      ],
+      "zones": [
+        "Wildgrowth Forest"
+      ],
+      "level": 13
+    },
+    {
+      "id": 48017,
+      "type": "creature",
+      "name": "Gao Li",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 83,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gao-li"
+      ],
+      "zones": [
+        "Magi Hold"
+      ],
+      "level": 25
+    },
+    {
+      "id": 48018,
+      "type": "creature",
+      "name": "Gaping Maw Frog",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 84,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaping-maw-frog"
+      ],
+      "zones": [
+        "Shrine Of The Flame"
+      ]
+    },
+    {
+      "id": 48019,
+      "type": "creature",
+      "name": "Gar",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 85,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gar"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 1
+    },
+    {
+      "id": 48020,
+      "type": "creature",
+      "name": "Garad",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\creature.jsonl",
+      "line": 86,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/garad"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 48021,
+      "type": "loot",
+      "name": "FURUDYN",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furudyn"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48022,
+      "type": "loot",
+      "name": "Frostwing Claw",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/frostwing-claw"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48023,
+      "type": "loot",
+      "name": "Furious Animate",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/furious-animate"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48024,
+      "type": "loot",
+      "name": "Gaat",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaat"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48025,
+      "type": "loot",
+      "name": "Gaiemog",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaiemog"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48026,
+      "type": "merchant",
+      "name": "Fu Tse",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fu-tse"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 48027,
+      "type": "merchant",
+      "name": "Fu Tse Fairlotus",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fu-tse-fairlotus"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48028,
+      "type": "merchant",
+      "name": "Fui'Dral Kendyl",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fui-dral-kendyl"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 48029,
+      "type": "merchant",
+      "name": "Fujash Goldflute",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fujash-goldflute"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 48030,
+      "type": "merchant",
+      "name": "Gadin Edson",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gadin-edson"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ]
+    },
+    {
+      "id": 48031,
+      "type": "merchant",
+      "name": "Galanor Jareps",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galanor-jareps"
+      ],
+      "zones": [
+        "Mekalia"
+      ]
+    },
+    {
+      "id": 48032,
+      "type": "merchant",
+      "name": "Gamaria Firehand",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gamaria-firehand"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ]
+    },
+    {
+      "id": 48033,
+      "type": "merchant",
+      "name": "Gandwell Lorns",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\merchant.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gandwell-lorns"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
+    },
+    {
+      "id": 48034,
+      "type": "npc",
+      "name": "Fu Tse",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fu-tse"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 1
+    },
+    {
+      "id": 48035,
+      "type": "npc",
+      "name": "Fu Tse Fairlotus",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fu-tse-fairlotus"
+      ],
+      "zones": []
+    },
+    {
+      "id": 48036,
+      "type": "npc",
+      "name": "Fuer Tet",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fuer-tet"
+      ],
+      "zones": [
+        "Sunset Pointe"
+      ]
+    },
+    {
+      "id": 48037,
+      "type": "npc",
+      "name": "Fui'Dral Kendyl",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fui-dral-kendyl"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 48038,
+      "type": "npc",
+      "name": "Fujash Goldflute",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/fujash-goldflute"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 48039,
+      "type": "npc",
+      "name": "Ga'roum Rokah",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ga-roum-rokah"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 15
+    },
+    {
+      "id": 48040,
+      "type": "npc",
+      "name": "Gaakt",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaakt"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 40
+    },
+    {
+      "id": 48041,
+      "type": "npc",
+      "name": "Gadin Edson",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gadin-edson"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 48042,
+      "type": "npc",
+      "name": "Gaea Permont",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gaea-permont"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 48043,
+      "type": "npc",
+      "name": "Galanor Jareps",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/galanor-jareps"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 48044,
+      "type": "npc",
+      "name": "Gamaria Firehand",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gamaria-firehand"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 40
+    },
+    {
+      "id": 48045,
+      "type": "npc",
+      "name": "Gandwell Lorns",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gandwell-lorns"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
+    },
+    {
+      "id": 48046,
+      "type": "npc",
+      "name": "Ganthin Grizzlebeard",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ganthin-grizzlebeard"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 40
+    },
+    {
+      "id": 48047,
+      "type": "npc",
+      "name": "Gara Falien",
+      "file": "raw\\2026-10-15-001355-057556-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gara-falien"
+      ],
+      "zones": [],
+      "level": 17
     }
   ],
   "by_name": {
@@ -856005,6 +857730,345 @@
     ],
     "npc:frightened mountain fae": [
       47934
+    ],
+    "creature:furudyn": [
+      47935
+    ],
+    "creature:frostbite": [
+      47936
+    ],
+    "creature:frostfang beast": [
+      47937
+    ],
+    "creature:frostshard": [
+      47938
+    ],
+    "creature:frostshard terror": [
+      47939
+    ],
+    "creature:frostwere": [
+      47940
+    ],
+    "creature:frostwind claw": [
+      47941
+    ],
+    "creature:frostwind drake": [
+      47942
+    ],
+    "creature:frostwind talon": [
+      47943
+    ],
+    "creature:frostwing": [
+      47944
+    ],
+    "creature:frostwing claw": [
+      47945
+    ],
+    "creature:frostwing talon": [
+      47946
+    ],
+    "creature:frozen xennu custodian": [
+      47947
+    ],
+    "creature:frug": [
+      47948
+    ],
+    "creature:fu eri": [
+      47949
+    ],
+    "creature:fu jia": [
+      47950
+    ],
+    "creature:fungus gorger": [
+      47951
+    ],
+    "creature:fungus spores": [
+      47952
+    ],
+    "creature:furi norkin": [
+      47953
+    ],
+    "creature:furious animate": [
+      47954
+    ],
+    "creature:furious atoll deformation": [
+      47955
+    ],
+    "creature:furious burnfiend": [
+      47956
+    ],
+    "creature:furious redcap": [
+      47957
+    ],
+    "creature:furrowsear": [
+      47958
+    ],
+    "creature:furtive ksaravi": [
+      47959
+    ],
+    "creature:fury craljikk": [
+      47960
+    ],
+    "creature:fury durag": [
+      47961
+    ],
+    "creature:fury felkira": [
+      47962
+    ],
+    "creature:fury felkria": [
+      47963
+    ],
+    "creature:fury fik": [
+      47964
+    ],
+    "creature:fury frixxen": [
+      47965
+    ],
+    "creature:fury galki": [
+      47966
+    ],
+    "creature:fury gronk": [
+      47967
+    ],
+    "creature:fury hetrix": [
+      47968
+    ],
+    "creature:fury klax": [
+      47969
+    ],
+    "creature:fury lidkrun": [
+      47970
+    ],
+    "creature:fury melik": [
+      47971
+    ],
+    "creature:fury mronplat": [
+      47972
+    ],
+    "creature:fury niliza": [
+      47973
+    ],
+    "creature:fury puxle": [
+      47974
+    ],
+    "creature:fury rinx": [
+      47975
+    ],
+    "creature:fury sitrik": [
+      47976
+    ],
+    "creature:fury threkdra": [
+      47977
+    ],
+    "creature:fury throklur": [
+      47978
+    ],
+    "creature:fury tikoga": [
+      47979
+    ],
+    "creature:fury traxi": [
+      47980
+    ],
+    "creature:fury vekrel": [
+      47981
+    ],
+    "creature:fury vukar": [
+      47982
+    ],
+    "creature:fury zalvix": [
+      47983
+    ],
+    "creature:g'eldantar baentlar": [
+      47984
+    ],
+    "creature:gaat": [
+      47985
+    ],
+    "creature:gabbro animate": [
+      47986
+    ],
+    "creature:gaebgra": [
+      47987
+    ],
+    "creature:gaedel threeftseven": [
+      47988
+    ],
+    "creature:gaella roki": [
+      47989
+    ],
+    "creature:gagarian block": [
+      47990
+    ],
+    "creature:gahren leopard": [
+      47991
+    ],
+    "creature:gaiemog": [
+      47992
+    ],
+    "creature:gaile": [
+      47993
+    ],
+    "creature:gajtodsa yamtha": [
+      47994
+    ],
+    "creature:gakov": [
+      47995
+    ],
+    "creature:galadu gladesworn": [
+      47996
+    ],
+    "creature:galajir the demented": [
+      47997
+    ],
+    "creature:galdor, the fierce": [
+      47998
+    ],
+    "creature:galewind vulture": [
+      47999
+    ],
+    "creature:galgourn simoro": [
+      48000
+    ],
+    "creature:galiandenn requiar": [
+      48001
+    ],
+    "creature:galinda mussary": [
+      48002
+    ],
+    "creature:gallanar": [
+      48003
+    ],
+    "creature:gallant of verael": [
+      48004
+    ],
+    "creature:gallaya the infected": [
+      48005
+    ],
+    "creature:gallin mountainstone": [
+      48006
+    ],
+    "creature:galman dorvak": [
+      48007
+    ],
+    "creature:galnessa favah": [
+      48008
+    ],
+    "creature:galraught malhammer": [
+      48009
+    ],
+    "creature:galsem": [
+      48010
+    ],
+    "creature:galvanic of zossyr": [
+      48011
+    ],
+    "creature:gammy": [
+      48012
+    ],
+    "creature:gamorn reggar": [
+      48013
+    ],
+    "creature:gamornir jokum": [
+      48014
+    ],
+    "creature:gandaigol gladesworn": [
+      48015
+    ],
+    "creature:ganklin grim": [
+      48016
+    ],
+    "creature:gao li": [
+      48017
+    ],
+    "creature:gaping maw frog": [
+      48018
+    ],
+    "creature:gar": [
+      48019
+    ],
+    "creature:garad": [
+      48020
+    ],
+    "loot:furudyn": [
+      48021
+    ],
+    "loot:frostwing claw": [
+      48022
+    ],
+    "loot:furious animate": [
+      48023
+    ],
+    "loot:gaat": [
+      48024
+    ],
+    "loot:gaiemog": [
+      48025
+    ],
+    "merchant:fu tse": [
+      48026
+    ],
+    "merchant:fu tse fairlotus": [
+      48027
+    ],
+    "merchant:fui'dral kendyl": [
+      48028
+    ],
+    "merchant:fujash goldflute": [
+      48029
+    ],
+    "merchant:gadin edson": [
+      48030
+    ],
+    "merchant:galanor jareps": [
+      48031
+    ],
+    "merchant:gamaria firehand": [
+      48032
+    ],
+    "merchant:gandwell lorns": [
+      48033
+    ],
+    "npc:fu tse": [
+      48034
+    ],
+    "npc:fu tse fairlotus": [
+      48035
+    ],
+    "npc:fuer tet": [
+      48036
+    ],
+    "npc:fui'dral kendyl": [
+      48037
+    ],
+    "npc:fujash goldflute": [
+      48038
+    ],
+    "npc:ga'roum rokah": [
+      48039
+    ],
+    "npc:gaakt": [
+      48040
+    ],
+    "npc:gadin edson": [
+      48041
+    ],
+    "npc:gaea permont": [
+      48042
+    ],
+    "npc:galanor jareps": [
+      48043
+    ],
+    "npc:gamaria firehand": [
+      48044
+    ],
+    "npc:gandwell lorns": [
+      48045
+    ],
+    "npc:ganthin grizzlebeard": [
+      48046
+    ],
+    "npc:gara falien": [
+      48047
     ]
   },
   "by_kind": {
@@ -860846,7 +862910,93 @@
       47900,
       47901,
       47902,
-      47903
+      47903,
+      47935,
+      47936,
+      47937,
+      47938,
+      47939,
+      47940,
+      47941,
+      47942,
+      47943,
+      47944,
+      47945,
+      47946,
+      47947,
+      47948,
+      47949,
+      47950,
+      47951,
+      47952,
+      47953,
+      47954,
+      47955,
+      47956,
+      47957,
+      47958,
+      47959,
+      47960,
+      47961,
+      47962,
+      47963,
+      47964,
+      47965,
+      47966,
+      47967,
+      47968,
+      47969,
+      47970,
+      47971,
+      47972,
+      47973,
+      47974,
+      47975,
+      47976,
+      47977,
+      47978,
+      47979,
+      47980,
+      47981,
+      47982,
+      47983,
+      47984,
+      47985,
+      47986,
+      47987,
+      47988,
+      47989,
+      47990,
+      47991,
+      47992,
+      47993,
+      47994,
+      47995,
+      47996,
+      47997,
+      47998,
+      47999,
+      48000,
+      48001,
+      48002,
+      48003,
+      48004,
+      48005,
+      48006,
+      48007,
+      48008,
+      48009,
+      48010,
+      48011,
+      48012,
+      48013,
+      48014,
+      48015,
+      48016,
+      48017,
+      48018,
+      48019,
+      48020
     ],
     "item": [
       13,
@@ -867088,7 +869238,12 @@
       47917,
       47918,
       47919,
-      47920
+      47920,
+      48021,
+      48022,
+      48023,
+      48024,
+      48025
     ],
     "npc": [
       24,
@@ -869169,7 +871324,21 @@
       47931,
       47932,
       47933,
-      47934
+      47934,
+      48034,
+      48035,
+      48036,
+      48037,
+      48038,
+      48039,
+      48040,
+      48041,
+      48042,
+      48043,
+      48044,
+      48045,
+      48046,
+      48047
     ],
     "quest": [
       45,
@@ -903950,7 +906119,15 @@
       47807,
       47921,
       47922,
-      47923
+      47923,
+      48026,
+      48027,
+      48028,
+      48029,
+      48030,
+      48031,
+      48032,
+      48033
     ],
     "recipe": [
       419,
@@ -904173,7 +906350,13 @@
       47821,
       47822,
       47846,
-      47857
+      47857,
+      47960,
+      47965,
+      47973,
+      47979,
+      47982,
+      47983
     ],
     "Wildgrowth Forest": [
       2,
@@ -904676,7 +906859,8 @@
       47621,
       47703,
       47759,
-      47815
+      47815,
+      48016
     ],
     "Halgarad": [
       5,
@@ -905064,7 +907248,8 @@
       47287,
       47540,
       47612,
-      47895
+      47895,
+      47990
     ],
     "Ca'ial Brael": [
       5,
@@ -905436,7 +907621,8 @@
       47468,
       47643,
       47921,
-      47924
+      47924,
+      48015
     ],
     "Fathesi Coast": [
       37,
@@ -905788,7 +907974,22 @@
       47493,
       47586,
       47923,
-      47931
+      47931,
+      47953,
+      47961,
+      47964,
+      47966,
+      47967,
+      47970,
+      47971,
+      47972,
+      47974,
+      47975,
+      47976,
+      47977,
+      47978,
+      48020,
+      48040
     ],
     "Lomshir": [
       51,
@@ -906220,7 +908421,9 @@
       47810,
       47922,
       47930,
-      47933
+      47933,
+      47935,
+      48039
     ],
     "Gaxton Village · Martok": [
       67,
@@ -907011,7 +909214,9 @@
       47715,
       47717,
       47718,
-      47734
+      47734,
+      47948,
+      47999
     ],
     "Hathor Zhi": [
       102,
@@ -907388,7 +909593,10 @@
       47231,
       47374,
       47567,
-      47724
+      47724,
+      47984,
+      48028,
+      48037
     ],
     "Jalen's Crossing": [
       103,
@@ -907480,7 +909688,8 @@
       47859,
       47900,
       47901,
-      47925
+      47925,
+      47936
     ],
     "Kaon's Rush": [
       104,
@@ -908510,7 +910719,8 @@
       47376,
       47397,
       47471,
-      47697
+      47697,
+      48012
     ],
     "Renton Keep": [
       109,
@@ -909351,7 +911561,8 @@
       47350,
       47449,
       47844,
-      47894
+      47894,
+      47994
     ],
     "Tauthien Delta": [
       114,
@@ -909695,7 +911906,8 @@
       47862,
       47891,
       47929,
-      47932
+      47932,
+      48008
     ],
     "Three Rivers Village": [
       116,
@@ -909997,7 +912209,9 @@
       47338,
       47787,
       47788,
-      47789
+      47789,
+      48030,
+      48041
     ],
     "Wardship Of The Sleeping Moon": [
       117,
@@ -910185,7 +912399,8 @@
       46499,
       46500,
       47385,
-      47769
+      47769,
+      48011
     ],
     "Nerail Tharazen": [
       122,
@@ -910444,7 +912659,8 @@
       47669,
       47670,
       47672,
-      47708
+      47708,
+      47956
     ],
     "Ahgram": [
       146,
@@ -911652,7 +913868,13 @@
       47337,
       47396,
       47778,
-      47934
+      47934,
+      47954,
+      48002,
+      48006,
+      48032,
+      48044,
+      48046
     ],
     "Brennan's Stead": [
       166,
@@ -912563,7 +914785,8 @@
       46478,
       47509,
       47510,
-      47668
+      47668,
+      47945
     ],
     "Dark Eye Hold": [
       213,
@@ -913278,7 +915501,8 @@
       46911,
       47184,
       47515,
-      47794
+      47794,
+      47992
     ],
     "Flowing Sea": [
       243,
@@ -913396,7 +915620,9 @@
       43553,
       45523,
       45886,
-      47275
+      47275,
+      47938,
+      47941
     ],
     "Gardens of Nirashuri": [
       249,
@@ -914581,7 +916807,8 @@
       46926,
       47615,
       47622,
-      47876
+      47876,
+      48017
     ],
     "Tanvu": [
       14021,
@@ -915029,7 +917256,14 @@
       47762,
       47765,
       47783,
-      47793
+      47793,
+      47949,
+      47950,
+      48019,
+      48026,
+      48029,
+      48034,
+      48038
     ],
     "Tursh Village": [
       14023,
@@ -915619,7 +917853,11 @@
       47357,
       47358,
       47474,
-      47477
+      47477,
+      47957,
+      47988,
+      48033,
+      48045
     ],
     "Veskal's Exchange": [
       14036,
@@ -916385,7 +918623,8 @@
       47459,
       47460,
       47464,
-      47475
+      47475,
+      48001
     ],
     "Khal": [
       14211,
@@ -917068,7 +919307,10 @@
       47453,
       47455,
       47499,
-      47848
+      47848,
+      47959,
+      47987,
+      47993
     ],
     "Lomshir Plain": [
       14231,
@@ -917541,7 +919783,8 @@
       47699,
       47710,
       47726,
-      47884
+      47884,
+      47940
     ],
     "Zarabadi Landing": [
       17653,
@@ -918058,7 +920301,8 @@
       46784,
       46810,
       46818,
-      47927
+      47927,
+      47998
     ],
     "Jalen's Retreat": [
       22587,
@@ -918326,7 +920570,9 @@
       47623,
       47755,
       47860,
-      47902
+      47902,
+      47937,
+      47951
     ],
     "Keejay Cove": [
       22600,
@@ -918383,7 +920629,8 @@
       46672,
       46689,
       46959,
-      47928
+      47928,
+      48013
     ],
     "Ksaravi Hollow": [
       22609
@@ -918912,7 +921159,9 @@
       47227,
       47228,
       47402,
-      47514
+      47514,
+      48031,
+      48043
     ],
     "Merchant": [
       22627,
@@ -918975,7 +921224,8 @@
       45471,
       47377,
       47378,
-      47379
+      47379,
+      47947
     ],
     "Misthaven Mines": [
       22630
@@ -918994,7 +921244,8 @@
     ],
     "Northern Stonepine Ridge": [
       22636,
-      45521
+      45521,
+      47995
     ],
     "Nusibe Necropolis": [
       22637,
@@ -919074,7 +921325,8 @@
       47262,
       47293,
       47294,
-      47721
+      47721,
+      47991
     ],
     "Oathbreaker (Red Swallow) Caves": [
       22638
@@ -920225,7 +922477,8 @@
       46950,
       47011,
       47053,
-      47055
+      47055,
+      47997
     ],
     "Ruins Of Vol Tuniel Lower Level": [
       22682
@@ -920336,7 +922589,9 @@
       47825,
       47827,
       47831,
-      47833
+      47833,
+      47952,
+      48004
     ],
     "Sample Dungeon": [
       22686
@@ -920751,7 +923006,8 @@
       47641,
       47642,
       47702,
-      47713
+      47713,
+      48018
     ],
     "Shrine of the Eternal Flame": [
       22706,
@@ -920822,7 +923078,8 @@
       43569,
       44243,
       46101,
-      46471
+      46471,
+      47955
     ],
     "Skrilien Point": [
       22711,
@@ -920979,7 +923236,8 @@
       43219,
       43572,
       43655,
-      44742
+      44742,
+      47958
     ],
     "Spider Caves West": [
       22718
@@ -921142,7 +923400,8 @@
       46487,
       47023,
       47119,
-      47446
+      47446,
+      48000
     ],
     "Stranglewater Cove": [
       22728,
@@ -921240,7 +923499,8 @@
       45314,
       45315,
       46559,
-      46813
+      46813,
+      48036
     ],
     "Swamps Of Rumug": [
       22732,
@@ -921490,7 +923750,8 @@
       47601,
       47603,
       47605,
-      47780
+      47780,
+      47996
     ],
     "Tehatamani Empire": [
       22738
@@ -921713,7 +923974,8 @@
       46593,
       46737,
       46739,
-      47722
+      47722,
+      47985
     ],
     "Temple of Ghalnn": [
       22742
@@ -922432,7 +924694,10 @@
       47461,
       47704,
       47818,
-      47851
+      47851,
+      47944,
+      47989,
+      48014
     ],
     "Vault of the Hidden": [
       22794
@@ -922554,7 +924819,8 @@
       47663,
       47664,
       47761,
-      47786
+      47786,
+      48010
     ],
     "WLT (Qalia)": [
       22807
