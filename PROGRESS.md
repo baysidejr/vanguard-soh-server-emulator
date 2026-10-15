@@ -70,7 +70,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Done
 
-- 2026-10-15: An NPC healed after evading also refreshes the target frame of players targeting it (0x3e2-style target health). Not seen on screen: the client drops the target on a long teleport, which is how the test left the leash.
+- 2026-10-15: An NPC healed after evading also refreshes the target frame of players targeting it (combat.target_health). Not seen on screen: the client drops the target on a long teleport, which is how the test left the leash.
 - 2026-10-15: Leashed NPCs now clear their hate list and heal to full when back home (no more kiting a wounded NPC past its leash and re-pulling it). Seen live in the server log; unit test LeashTests.
 - 2026-10-15: Two bugs found live: (1) a leashed NPC walking home re-aggroed every tick ("Ashen Wolf notices you!" flood) - leashed NPCs no longer proximity-aggro until back in range; (2) the pet default-attack toggle could never turn off - 0x86/0x87 were swapped (the client flips first, then sends 0x86 = on). Both fixed and seen live (badge off/on). Unit tests LeashTests, PetDefaultTests.
 - 2026-10-15: mobs.json `crit` (NPC critical chance); with it, wounds from real critical hits were seen live. Unit test MobCritTests.
