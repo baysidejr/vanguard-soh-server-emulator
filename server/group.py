@@ -79,6 +79,19 @@ def error(code):
     return _event(0x6B5, struct.pack("<B", code))
 
 
+# Invite referral (verified live 2026-10-14): a member who is not the leader invites someone, and
+# the leader gets 0x727 {eid64 member, eid64 invitee, wstr text, wstr invitee name}
+# (FUN_005eb550): an "Invite Referral" popup showing the text (also echoed to chat). Accept runs
+# /groupinvitereferralaccept, which the client turns into a normal invite (0xb0) of the stored
+# name; Decline sends nothing.
+REFERRAL = 0x727
+
+
+def referral(member, invitee_id, invitee_name):
+    text = f"{member.name} would like to invite {invitee_name} to the group."
+    return _event(REFERRAL, struct.pack("<QQ", member.char_id, invitee_id) + _w(text) + _w(invitee_name))
+
+
 # Request to join (docs/GROUPS.md): world type 5 0x58b {wstr leader} from the Find list;
 # the leader gets zone 0x58b {wstr leader, wstr requester, i32 level, i32 class} (an
 # Invite/Decline dialog; Invite sends a normal 0xb0). Decline: world 0x58c {wstr requester};

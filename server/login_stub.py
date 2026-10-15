@@ -5144,12 +5144,18 @@ def handle_group_event(state, event, payload):
         g = getattr(player, "group", None)
         if target is None or target is state:
             send(build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
-        elif g and g.leader is not player:
+        elif g and g.leader is not player and ONLINE.get(g.leader.name.lower()) is None:
             send(group.error(1))
         elif getattr(target["player"], "group", None):
             send(group.error(2))
         elif g and len(g.members) >= g.limit():
             send(group.error(3))
+        elif g and g.leader is not player:
+            # not the leader: refer the invite to the leader (0x727)
+            ONLINE[g.leader.name.lower()]["send"](group.referral(player, target["player"].char_id,
+                                                                 target["player"].name))
+            send(build_system_text(f"You ask {g.leader.name} to invite {target['player'].name} to the group.",
+                                   SYSTEM_TEXT_WHITE))
         else:
             target["player"].pending_invite = state
             target["player"].pending_invite_at = time.time()

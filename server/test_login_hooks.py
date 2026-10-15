@@ -609,3 +609,20 @@ class BreathTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GroupReferralTests(unittest.TestCase):
+    def test_member_invite_goes_to_leader(self):
+        import struct
+        import group
+        sent = {"lead": [], "mem": [], "out": []}
+        st = {k: {"player": zone.Player(name=k.title(), char_id=i, level="c1"), "send": sent[k].append}
+              for i, k in enumerate(("lead", "mem", "out"), 1)}
+        g = group.Group(st["lead"]["player"])
+        g.members.append(st["mem"]["player"])
+        st["lead"]["player"].group = st["mem"]["player"].group = g
+        with mock.patch.object(login_stub, "ONLINE", st):
+            login_stub.handle_group_event(st["mem"], group.INVITE, b"\0" * 10 + "Out\0".encode("utf-16-le"))
+        self.assertEqual(sent["out"], [])                       # no invite popup from a non-leader
+        self.assertIn("Mem would like to invite Out to the group.\0".encode("utf-16-le"), sent["lead"][-1])
+        self.assertIn(struct.pack("<QQ", 2, 3), sent["lead"][-1])
