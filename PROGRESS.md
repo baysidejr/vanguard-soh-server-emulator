@@ -46,6 +46,7 @@ Look for more character-window values the server knows but leaves empty (Stats t
 
 ## Done
 
+- 2026-10-15: Content editor Talk tab for NPC conversations: nodes, replies with links, actions and flags; rename keeps order and links. Checked in headless Edge.
 - 2026-10-15: The content editor shows item icons, decoded from the client's icon sheets (iconsTK.xml plus TGA/BMP), with a picker grid of all 2,063 icons on the Items tab and icons on the loot rows. Unit test IconTests.
 - 2026-10-15: Content editor: "Start a new mob/item from this record" turns an archive record into a draft in the form. It copies only known values, records the source, and lists what still needs filling in (e.g. health, icon), with nothing saved until the user saves. Unit test ArchiveDraftTests; checked in headless Edge.
 - 2026-10-15: Content editor Archive tab: a name search over the ~19,000 crowdsourced archive records (newest per name), with every known field, sources and confidence, plus "Look up in archive" buttons on the Mobs, Items and Quests forms. Unit test ArchiveSearchTests.
