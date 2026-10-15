@@ -687,6 +687,24 @@ class GreetTests(unittest.TestCase):
         self.assertEqual(login_stub.greet_kind(npc, []), login_stub.GREET_MERCHANT)
 
 
+class ChatterTests(unittest.TestCase):
+    def test_chatter_reaches_only_nearby_players(self):
+        near, far = [], []
+        p_near = mock.Mock(live_position=(100.0, 0.0, 0.0), spawned_at=None)
+        p_far = mock.Mock(live_position=(9000.0, 0.0, 0.0), spawned_at=None)
+        npc = mock.Mock(chatter=["Keep your blade sharp."], chatter_every=60.0, alive=True, aggro=False,
+                        location=(0.0, 0.0, 0.0), next_chatter=None)
+        npc.name = "Thestran Guard"
+        w = mock.Mock(npcs={1: npc}, members={1: {"player": p_near, "send": near.append},
+                                             2: {"player": p_far, "send": far.append}})
+        login_stub.npc_chatter_tick(w, 1000.0)
+        self.assertEqual(near, [])                 # first a random wait
+        login_stub.npc_chatter_tick(w, 1000.0 + 61)
+        self.assertEqual(len(near), 1)
+        self.assertIn("Keep your blade sharp.".encode("utf-16-le"), near[0])
+        self.assertEqual(far, [])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

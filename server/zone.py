@@ -234,6 +234,9 @@ def npc_from_template(w, args, eid, spawn, template, n=0):
     npc.prop = bool(template.get("prop"))
     npc.trainer = bool(template.get("trainer"))
     npc.banker = bool(template.get("banker"))
+    npc.chatter = list(template.get("chatter", []))           # lines said now and then (login_stub.npc_chatter_tick)
+    npc.chatter_every = float(template.get("chatter_every", 120))
+    npc.aggro_say = template.get("aggro_say")                  # said on noticing a player; {player} = their name
     npc.task_master = bool(template.get("task_master"))
     npc.mailbox = bool(template.get("mailbox"))
     npc.recipe_trainer = list(template.get("recipe_trainer", []))

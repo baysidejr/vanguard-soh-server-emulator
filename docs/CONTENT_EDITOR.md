@@ -74,6 +74,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Item rarity | rarity of every item (Mundane ... Legendary+), which decides what goes to group loot rolls | items.json `rarity` names (only Copper Ring is set, uncommon; default mundane) |
 | Combat chains and reactions | which abilities chain into which (per class and rank), reaction windows, counters (which enemy casts they answer) and rescues | `server/content/chains.json`: one placeholder chain for Ranger and one for Warrior; `rescues.json` (Warrior Taunt I) |
 | NPC spells and counters | which NPCs cast which spells (cast time, damage, icon, counterable or interruptible), which player abilities counter or interrupt them | mobs.json `spells` on the Canyon Widow (Venom Spit), `server/content/counters.json` (Riposte I, Parry I) |
+| NPC speech | what each NPC says now and then and when it attacks (and whether real NPCs did either) | mobs.json `chatter` / `chatter_every` / `aggro_say` placeholders on the Thestran Guard, Garret Holm, the Robed Wanderer and the Dwarf Scout |
 | Experience | XP per kill or quest, level curve | 150 XP per kill, ±15% per level of difference, none from mobs 6+ levels below (`combat.KILL_XP`); level N needs 1000 × 1.12^(N−1) (`zone.xp_for_level`), cap 50 |
 | Tutorial popups | when each tutorial shows (first death, first level, ...) and its title and text: MsgTutorialDisplayEvent carries two server strings (ctor FUN_005d9a00); the client only remembers "do not show again" (0x183 for the death penalty tutorial) | none |
 

@@ -37,7 +37,8 @@
         "duration": 3.0,
         "icon": 553
       }
-    ]
+    ],
+    "aggro_say": "You should not have come here, {player}."
   },
   "wastes_robed_dwarf": {
     "name": "Robed Dwarf",
@@ -113,7 +114,12 @@
     ],
     "loot": "common_scraps",
     "title": "Guard",
-    "faction": 1001
+    "faction": 1001,
+    "chatter": [
+      "Keep your blade close. The wastes don't forgive the careless.",
+      "Spiders in the canyon again. Watch your step out there.",
+      "Another quiet watch. I'll take it."
+    ]
   },
   "wastes_dwarf_scout": {
     "name": "Dwarf Scout",
@@ -143,7 +149,8 @@
       ]
     ],
     "loot": "common_scraps",
-    "faction": 1001
+    "faction": 1001,
+    "aggro_say": "Another one for the pit!"
   },
   "camp_merchant": {
     "name": "Orin the Trader",
@@ -427,7 +434,12 @@
       ]
     ],
     "faction": 1001,
-    "task_master": true
+    "task_master": true,
+    "chatter": [
+      "Work orders! Honest coin for honest work!",
+      "The forge never sleeps, and neither do my orders."
+    ],
+    "chatter_every": 180
   },
   "camp_mailbox": {
     "name": "Mailbox",

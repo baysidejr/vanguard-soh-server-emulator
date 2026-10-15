@@ -559,6 +559,8 @@ def movement_tick(zone_sock, clients, args):
                 vs = w.members.get(victim.char_id)
                 if vs is not None:
                     vs["send"](build_system_text(f"{npc.name} notices you!", SYSTEM_TEXT_ERROR))
+                if npc.aggro_say:
+                    npc_say(w, npc, npc.aggro_say.replace("{player}", victim.name))
         for npc in list(w.npcs.values()):
             helpers = combat.social_assist(npc, w.npcs.values())
             if helpers:
@@ -4711,6 +4713,7 @@ def world_tick(zone_sock, clients, args):
         for s in list(w.members.values()):
             if now - s.get("last_seen", now) > 30:      # client gone without a disconnect
                 leave_world(s, args)
+        npc_chatter_tick(w, now)
         for npc in combat.respawns(w.npcs, now):
             print(f"  <- respawn {npc.name}")
             npc.death_shown = False
@@ -4724,6 +4727,33 @@ def world_tick(zone_sock, clients, args):
                     out.append(combat.target_health(npc))
                 return [m for m in out if m is not None]
             w.broadcast(build)
+
+
+# NPC speech (mobs.json "chatter": [lines], "chatter_every": seconds, "aggro_say": line): the
+# normal say line (0x0f, channel CHAT_SAY: "Thestran Guard says, ...") to the players within
+# SAY_RANGE of the NPC. Chatter waits a random part of chatter_every first, then about
+# chatter_every between lines (+/- 25%), and only while someone is near.
+SAY_RANGE = 1500
+
+
+def npc_say(w, npc, text):
+    msg = build_chat_line(npc.name, text)
+    for s in list(w.members.values()):
+        p = s.get("player")
+        if p is not None and npc.location and player_distance(p, npc) <= SAY_RANGE:
+            s["send"](msg)
+
+
+def npc_chatter_tick(w, now, rng=random):
+    for npc in list(w.npcs.values()):
+        if not npc.chatter or not npc.alive or npc.aggro:
+            continue
+        due = getattr(npc, "next_chatter", None)
+        if due is None:
+            npc.next_chatter = now + rng.uniform(0, npc.chatter_every)
+        elif now >= due:
+            npc.next_chatter = now + npc.chatter_every * rng.uniform(0.75, 1.25)
+            npc_say(w, npc, rng.choice(npc.chatter))
 
 
 ARGS = None           # parsed command line (set in main)
