@@ -110,6 +110,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Work orders in the editor:** the Work orders tab edits workorders.json: id, name, icon, task master, recipe (flagging NPCs that are not task masters and recipes that are not work-order only), difficulty, skill, supplies, deliveries and the reward (coin, crafting XP, faction standing).
 
+**Riftways in the editor:** the Riftways tab edits riftways.json as a table (name, region, price color, and the landing chunk and position; an empty chunk means not open on this server yet). It is part of the page selftest.
+
 **Factions in the editor:** the Factions tab edits factions.json as a table (name, starting standing, kill change, allies, enemies, prestige) and shows how many mobs belong to each.
 
 **Crafting recipes in the editor:** the Recipes tab edits recipes.json: id, name, output, icon, XP, max action points, book group, trainer cost, skill, kind, work-order flag, inputs, and the stages with their steps (action, AP, tool, utility item); the catalyst and complications are edited as JSON.

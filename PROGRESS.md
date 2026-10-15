@@ -80,6 +80,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Editor Riftways tab (riftways.json table; in the selftest). Unit test for activating a reaction on a dead enemy (code 5).
+
 - 2026-10-15: Archive loot drafts (loot.json table per creature; unknown items, missing chances and small samples flagged). Unit test ArchiveDraftTests.test_loot_draft; UI path in headless Edge.
 
 - 2026-10-15: Archive quest drafts: the editor turns an archive quest record into a quests.json draft (known names mapped to our mob / quest keys, the rest listed to fill in). Unit test ArchiveDraftTests.test_quest_draft_maps_known_names; UI path checked in headless Edge. Also: client event 0x4a decoded (hard-landing report, logged only).
