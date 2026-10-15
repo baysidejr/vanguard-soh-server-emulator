@@ -83,6 +83,8 @@ Content: 75 regions hold 1,152 NPCs imported from the archive (four of them, Kha
 
 ## Done
 
+- 2026-10-15: Imported merchants (41 placed) sell the placeholder stock general_goods, since the archive has no wares.
+
 - 2026-10-15: Bulk archive import: 71 more zones, 959 NPCs (941 templates), all zones with positioned NPCs except the two placeholder-camp zones; 1,152 archive NPCs in 75 regions in all. Spot-checked live in Bordinar's Cleft (surface camp and an underground hall). Races are continent placeholders.
 
 - 2026-10-15: Ahgram (33 NPCs), New Targonor (52) and Tanvu (49) imported from the archive and their riftway hubs opened with braziers; with Khal (59) the server has 193 archive NPCs in four regions reachable by riftway from the camp.

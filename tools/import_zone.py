@@ -85,8 +85,10 @@ def template(rec):
     services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]
     if services:
         t["title"] = ", ".join(s.title() for s in services)[:40]
-    # Services the server can run from what the archive says (merchants have no wares there, task
-    # masters no work orders, so those keep only the title).
+    # Services the server can run from what the archive says. Merchants get the shared placeholder
+    # stock "general_goods" (the archive has no wares); task masters keep only the title.
+    if "merchant" in services:
+        t["merchant"] = "general_goods"
     if "banker" in services:
         t["banker"] = True
     if "repair" in services:

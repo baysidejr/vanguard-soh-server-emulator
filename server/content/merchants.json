@@ -1,5 +1,5 @@
 {
-  "_comment": "Merchant inventories: item name (content/items.json) and price in copper. Sell value to merchants = price / 4. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Merchant inventories: item name (content/items.json) and price in copper. Sell value to merchants = price / 4. Placeholder data (docs/CONTENT_EDITOR.md). general_goods is the placeholder stock of every merchant imported from the archive (tools/import_zone.py): the archive does not record what merchants sold.",
   "camp_supplies": [
     {
       "item": "Travel Rations",
@@ -114,6 +114,40 @@
     {
       "item": "Dire Wolf Harness",
       "price": 800
+    }
+  ],
+  "general_goods": [
+    {
+      "item": "Travel Rations",
+      "price": 25
+    },
+    {
+      "item": "Waterskin",
+      "price": 40
+    },
+    {
+      "item": "Rusty Sword",
+      "price": 150
+    },
+    {
+      "item": "Round Shield",
+      "price": 300
+    },
+    {
+      "item": "Traveler's Boots",
+      "price": 120
+    },
+    {
+      "item": "Miner's Pick",
+      "price": 200
+    },
+    {
+      "item": "Crucible Tongs",
+      "price": 80
+    },
+    {
+      "item": "Smelting Flux",
+      "price": 30
     }
   ]
 }
