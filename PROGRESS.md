@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fireworks and quest-node particles still invisible.
+Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memorization, combat forms need decoding; petitions left alone on purpose). Not seen live yet: a wound from a real critical hit (crits are rare), the pet default-attack toggle button (tested via !cev). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 
+- 2026-10-15 (after live re-checks of skill buttons and the resting refusal): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the 0x685 fix and two-client checks): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.5 ms, fuzz clean, smoke PASS). Two clients: chatter, loot sparkle, builder spawn and undo all reach the other player.
 - 2026-10-15 (after !reload): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after console reload, more unit tests): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.2 ms, fuzz clean, smoke 49 commands PASS).
