@@ -704,6 +704,10 @@ class ChatterTests(unittest.TestCase):
         self.assertIn("Keep your blade sharp.".encode("utf-16-le"), near[0])
         self.assertEqual(far, [])
 
+    def test_npcs_without_chatter_fields(self):
+        w = mock.Mock(npcs={1: object()}, members={})
+        login_stub.npc_chatter_tick(w, 1.0)          # tombstones and pets have no "chatter"
+
 
 class QuestNodeTests(unittest.TestCase):
     def test_nodes_light_up_while_the_quest_needs_their_item(self):

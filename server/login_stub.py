@@ -559,7 +559,7 @@ def movement_tick(zone_sock, clients, args):
                 vs = w.members.get(victim.char_id)
                 if vs is not None:
                     vs["send"](build_system_text(f"{npc.name} notices you!", SYSTEM_TEXT_ERROR))
-                if npc.aggro_say:
+                if getattr(npc, "aggro_say", None):
                     npc_say(w, npc, npc.aggro_say.replace("{player}", victim.name))
         for npc in list(w.npcs.values()):
             helpers = combat.social_assist(npc, w.npcs.values())
@@ -4746,7 +4746,7 @@ def npc_say(w, npc, text):
 
 def npc_chatter_tick(w, now, rng=random):
     for npc in list(w.npcs.values()):
-        if not npc.chatter or not npc.alive or npc.aggro:
+        if not getattr(npc, "chatter", None) or not npc.alive or npc.aggro:   # (tombstones, pets: none)
             continue
         due = getattr(npc, "next_chatter", None)
         if due is None:
