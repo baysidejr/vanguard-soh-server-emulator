@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Scenario "parley line": a bot hails Orin and gets 0x321 with the parley option id, presence and type from diplomacy.json. 12 scenarios now.
+
 - 2026-10-15: Scenario "quest reply": a bot targets the Thestran Guard and picks the quest reply; it gets Wanderer Trouble's offer page (the scenario setup clears the quests the bots copy from Ranger). Conversation replies are now logged.
 
 - 2026-10-15: Scenario "ignore" (two bots): B ignores A, A's trade request is refused and never reaches B. tools/check_all.py 6 of 6 (unit 245).

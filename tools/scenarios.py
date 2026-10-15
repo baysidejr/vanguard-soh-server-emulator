@@ -244,6 +244,27 @@ def main():
     fails += check("quest reply", qid == c.quests["wanderer_trouble"]["id"],
                    f"offer page for quest {qid}" + ("" if offer else f"; events received: {', '.join(got_ids)}"))
 
+    # Parley offer line: hail Orin (target him, say "Hail, ..."); his options include 0x321 {eid64,
+    # i32 n, {wstr text, i32 option id, i32 presence, i32, i32, bool8, bool8, u8 type}}.
+    import diplomacy
+    orin = next(n for n, (sp, _t) in enumerate(c.spawns("chunk_n19_12", ROOT)) if sp["mob"] == "camp_merchant")
+    a.got.clear()
+    a.send(0x5D, struct.pack("<Q", zone.SPAWN_EID_BASE + orin))
+    a.pump(0.3)
+    a.send(0x74, wstr("Hail, Orin the Trader."))
+    line = a.wait_for(0x321)
+    ok = False
+    if line:
+        d = line[0]
+        end = d.index(b"\x00\x00", 12)
+        while (end - 12) % 2:
+            end = d.index(b"\x00\x00", end + 1)
+        option, presence, _x, _y, _b1, _b2, ptype = struct.unpack_from("<iiiiBBB", d, end + 2)
+        cfg = c.diplomacy["parleys"][c.mobs["camp_merchant"]["parley"]]
+        ok = (option, presence, ptype) == (diplomacy.PARLEY_OPTION_ID, cfg.get("presence", 0),
+                                           diplomacy.PARLEY_TYPES[cfg.get("type", "entertain")])
+    fails += check("parley line", ok, f"0x321={bool(line)}")
+
     # Ignore: B ignores A (world social 0x4f8 {wstr name, bool8 on}); A's trade request (0xc0) is
     # refused with "<B> is ignoring you." and B gets no invite. B stops ignoring A afterwards.
     b.world.send(struct.pack("<HII", 5, 0x4F8, len(wstr(a.name)) + 1) + wstr(a.name) + bytes([1]))
