@@ -210,6 +210,44 @@ def archive_search(query, kind=None, limit=40):
     return hits[:limit]
 
 
+def draft(kind, name):
+    """A starting point for a new mob or item from the archive record (type, name): only the
+    values the archive actually has (nothing invented), the source in "_source", and the fields a
+    person still has to fill in "_needs". Items go through crowdsourced/convert.py's mapping."""
+    rec = archive_index().get((kind, name))
+    if rec is None:
+        return None
+    sys.path.insert(0, os.path.join(ROOT, "crowdsourced"))
+    import convert
+    src = (rec.get("sources") or [{}])[0].get("url")
+    if kind in ("creature", "npc"):
+        race = convert.find_race(convert.creature_races(), rec.get("creature_kind") or rec.get("race"))
+        level = rec.get("level") or (rec.get("level_range") or [None])[0]
+        m = {"name": rec["name"], "pawn_class": "SGONPCPawn"}
+        for k, v in (("race", race), ("level", level), ("health", rec.get("health")), ("title", rec.get("title"))):
+            if v is not None:
+                m[k] = v
+        if isinstance(rec.get("damage"), list):
+            m["damage"] = rec["damage"]
+        if str(rec.get("aggressive", "")).lower() == "yes" and rec.get("aggro_range") is not None:
+            m["aggro_radius"] = rec["aggro_range"]
+        m["_needs"] = [k for k in ("race", "level", "health", "damage") if k not in m]
+        m["_source"] = src
+        return {"file": "mobs.json", "key": convert.slug(rec["name"]), "value": m}
+    if kind == "item":
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "all.jsonl"), "w", encoding="utf-8") as f:
+                f.write(json.dumps(dict(rec, notes=rec.get("notes") or "", confidence=rec.get("confidence") or "low")))
+            batch = convert.Batch(d, include_low=True)
+            out = convert.convert(batch, convert.creature_races())
+        it = out["items.json"].get(rec["name"])
+        if it is None:
+            return {"error": "; ".join(batch.issues) or "the converter could not map this item"}
+        it["_needs"] = ["icon"] + [k for k in ("type",) if k not in it]
+        return {"file": "items.json", "key": rec["name"], "value": it}
+    return {"error": f"no draft for {kind} records yet"}
+
+
 def chunks():
     return sorted(f[:-4] for f in os.listdir(MAPS) if f.startswith("chunk_") and f.endswith(".vgr")) \
         if os.path.isdir(MAPS) else []
@@ -245,6 +283,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     return self.reply(200, {"name": q["name"], "text": f.read()})
             if u.path == "/api/archive":
                 return self.reply(200, archive_search(q.get("q"), q.get("type")))
+            if u.path == "/api/draft":
+                d = draft(q.get("type"), q.get("name"))
+                return self.reply(200, d) if d else self.reply(404, {"error": "no such record"})
             if u.path == "/api/schema":
                 return self.reply(200, schema())
             if u.path == "/api/races":

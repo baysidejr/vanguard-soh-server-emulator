@@ -1450,3 +1450,26 @@ class ArchiveSearchTests(unittest.TestCase):
                 self.assertEqual(editor.archive_search("w"), [])
             finally:
                 editor._ARCHIVE[:] = saved
+
+
+class ArchiveDraftTests(unittest.TestCase):
+    def test_drafts_copy_only_known_values(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        src = [{"url": "https://example.org/x", "title": "X", "date": None}]
+        recs = {("creature", "Grey Wolf"): {"type": "creature", "name": "Grey Wolf", "level": 7, "creature_kind": "wolf",
+                                            "sources": src},
+                ("item", "Iron Cap"): {"type": "item", "name": "Iron Cap", "item_type": "armor", "slot": "head",
+                                       "armor": 5, "sources": src, "confidence": "low", "notes": ""}}
+        saved = list(editor._ARCHIVE)
+        editor._ARCHIVE[:] = [recs]
+        try:
+            d = editor.draft("creature", "Grey Wolf")
+            self.assertEqual((d["file"], d["value"]["race"], d["value"]["level"]), ("mobs.json", 119, 7))
+            self.assertEqual(d["value"]["_needs"], ["health", "damage"])                  # nothing invented
+            i = editor.draft("item", "Iron Cap")["value"]
+            self.assertEqual((i["type"], i["slot"], i["armor"], i["_source"]), ("armor", "HEAD", 5, src[0]["url"]))
+            self.assertIsNone(editor.draft("item", "Nope"))
+        finally:
+            editor._ARCHIVE[:] = saved
