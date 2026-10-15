@@ -3274,14 +3274,15 @@ def build_spawn(state, args, key, wander=0):
     print(f"  builder: {player.name} spawned {key} at {entry['x']}, {entry['y']} (spawn {n})")
 
 
-def build_despawn(state, args):
+def targeted_spawn(state, args):
+    """(npc, spawn file path, parsed file, entry index) for the targeted spawned NPC, or None
+    (after telling the player why). Entries are matched by mob key and spawn position."""
     player, send = state["player"], state["send"]
-    w = state.get("world")
     npc = player.npcs.get(player.target) if player.target else None
-    if w is None or npc is None or not getattr(npc, "template_id", None) or \
+    if state.get("world") is None or npc is None or not getattr(npc, "template_id", None) or \
             not zone.SPAWN_EID_BASE <= npc.entity_id < zone.SPAWN_EID_BASE + 0x100000:
         send(build_system_text("Target a spawned NPC first.", SYSTEM_TEXT_ERROR))
-        return
+        return None
     path = spawn_file(args, player.level)
     doc = json.load(open(path, encoding="utf-8"))
     home = npc.home or npc.location
@@ -3289,7 +3290,48 @@ def build_despawn(state, args):
                   if s.get("mob") == npc.template_id and abs(s["x"] - home[0]) < 2 and abs(s["y"] - home[1]) < 2), None)
     if match is None:
         send(build_system_text(f"{npc.name} is not in {os.path.basename(path)}.", SYSTEM_TEXT_ERROR))
+        return None
+    return npc, path, doc, match
+
+
+def build_edit(state, args, what, value=None):
+    """!wander <radius>, !respawn <seconds>, !path add / !path clear on the targeted spawn:
+    saved to the spawn file and applied to the live NPC."""
+    found = targeted_spawn(state, args)
+    if found is None:
         return
+    npc, path, doc, i = found
+    entry, send = doc["spawns"][i], state["send"]
+    if what == "wander":
+        entry["wander"] = int(value)
+        npc.wander = float(value)
+        text = f"{npc.name} now wanders {int(value)} units."
+    elif what == "respawn":
+        entry["respawn"] = int(value)
+        npc.respawn = int(value)
+        text = f"{npc.name} now respawns after {int(value)} seconds."
+    elif what == "path add":
+        pos = state.get("position") or state["player"].live_position
+        entry.setdefault("path", []).append([int(pos[0]), int(pos[1])])
+        npc.path = [tuple(p[:2]) for p in entry["path"]]
+        text = f"Added waypoint {len(entry['path'])} ({int(pos[0])}, {int(pos[1])}) to {npc.name}'s patrol."
+    elif what == "path clear":
+        entry.pop("path", None)
+        npc.path = []
+        text = f"Cleared {npc.name}'s patrol."
+    else:
+        return
+    write_spawn_file(path, doc)
+    send(build_system_text(text + f" (spawn {i}, saved)", SYSTEM_TEXT_WHITE))
+
+
+def build_despawn(state, args):
+    player, send = state["player"], state["send"]
+    w = state.get("world")
+    found = targeted_spawn(state, args)
+    if found is None:
+        return
+    npc, path, doc, match = found
     doc["spawns"].pop(match)
     write_spawn_file(path, doc)
     del w.npcs[npc.entity_id]
@@ -9529,6 +9571,12 @@ def dev_command(text, player=None):
         # !spawn <mob key> [wander radius]: builder mode, place a mob at your feet and save it
         # to content/spawns/<chunk>.json (docs/CONTENT_EDITOR.md "In-game builder").
         return [("build_spawn", words[1], int(words[2]) if len(words) > 2 else 0)]
+    if words[0] in ("wander", "respawn") and len(words) >= 2 and player:
+        # !wander <radius> / !respawn <seconds>: builder mode, on the targeted spawned NPC.
+        return [("build_edit", words[0], int(words[1]))]
+    if words[0] == "path" and len(words) >= 2 and words[1] in ("add", "clear") and player:
+        # !path add (your position as the next waypoint) / !path clear: builder mode.
+        return [("build_edit", "path " + words[1], None)]
     if words[0] == "despawn" and player:
         # !despawn: builder mode, remove the targeted spawned NPC from the world and the file.
         return [("build_despawn",)]
@@ -10087,6 +10135,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "build_spawn":
                         build_spawn(state, args, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "build_edit":
+                        build_edit(state, args, m[1], m[2])
                         continue
                     elif isinstance(m, tuple) and m[0] == "build_despawn":
                         build_despawn(state, args)

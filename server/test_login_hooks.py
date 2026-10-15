@@ -826,6 +826,10 @@ class BuilderTests(unittest.TestCase):
                 login_stub.build_spawn(state, args, "forest_bear")
             self.assertIn('"forest_bear"', open(path, encoding="utf-8").read())
             player.npcs, player.target = {npc.entity_id: npc}, npc.entity_id
+            login_stub.build_edit(state, args, "wander", 250)
+            login_stub.build_edit(state, args, "path add")
+            entry = json.loads(open(path, encoding="utf-8").read())["spawns"][-1]
+            self.assertEqual((entry["wander"], entry["path"]), (250, [[-30500, -6000]]))
             login_stub.build_despawn(state, args)
             self.assertEqual(json.loads(open(path, encoding="utf-8").read()), json.loads(before))
             self.assertEqual(w.npcs, {})
