@@ -84,6 +84,8 @@ Content: 75 regions hold 1,256 NPCs imported from the archive (36 riftway destin
 
 ## Done
 
+- 2026-10-15: 37 drop items imported from the archive's item records (the other 489 drops have no item page in the archive yet).
+
 - 2026-10-15: Imported creatures get their archive loot tables (111 tables).
 
 - 2026-10-15: Located archive creatures imported as hostile mobs (179; level, aggression, respawn from the archive; race from the creature type where it maps). Seen live: Blackheart in Lomshir's underground hall noticed Ranger. Unit test ImportZoneTests.test_located_creatures.
