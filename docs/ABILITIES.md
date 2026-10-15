@@ -214,7 +214,7 @@ The client has no cast bar for an enemy's spell (`castbars_report` research): an
 
 - 0x248 `{eid64 caster}` ("<name> begins to cast a spell."), 0x3a5 `{i32 in-flight id, i32 icon, wstr name, f32 seconds}` (one icon at a time), and, if the player has a counter ability (`content/counters.json`: Warrior Riposte I, Ranger Parry I), a counter reaction 0x391 type 2 on the caster for the cast time. Counter abilities have ability record wire #44 = 1: locked except during a counter window; a direct use gets 0x242 `{0x01}` (only as a reaction).
 - Activating the counter (0x145) cancels the cast: 0x3a7 `{i32 id, i32 3 (Countered), i32 0, i32 0, bool8 0}` removes the icon, 0x3b2 `{0, 2, 0, 0, 0}` shows "Countered" in the incoming attacks queue, and "You counter Canyon Widow's Venom Spit!" (verified live with Justins and `!react`). A cast that finishes hits for its damage (combat text) and closes the counter window; 0x3a8 clears the icons.
-- The 0x248 line shows in the **Combat** chat tab ("Canyon Widow begins to cast a spell.", verified live). Not seen yet: the 0x3a5 icon did not show in our tests (the Target Display window is the target frame; toggling it with `!ui` hides the frame). Interrupts (result 13) and the anti-group rows (0x3b5/0x3bc/0x3bd) are not used.
+- The 0x248 line shows in the **Combat** chat tab ("Canyon Widow begins to cast a spell.", verified live). The 0x3a5 icon shows left of the target frame as the spell icon with a countdown and "Identified!" (seen live 2026-10-15 with Venom Spit; earlier tests missed it). Interrupts (result 13) and the anti-group rows (0x3b5/0x3bc/0x3bd) are not used.
 
 ## Rescues (verified live 2026-10-13, two clients)
 
