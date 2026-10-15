@@ -39,4 +39,4 @@ Client dispatcher `FUN_005af590`. The flow mirrors ability trainers:
 
 Recipe trainers have `EntityTypes 0x80`. The other built-in dialogue options added by `0x2b1`–`0x2ba` (`FUN_004c7a00`, option type in brackets): 0x2b1 "Do you have anything to teach me?" [0], 0x2b2 recipes [1], 0x2b3 "I need to do some banking" [3], 0x2b4 "I'm looking for work." [4].
 
-Assembly trainers (`0x49c`–`0x4a0`, `MsgAssemblyTrainerRecipe {wstr, i32, i32, f32, wstr}`) follow the same pattern and are not implemented.
+Assembly trainers (`0x49c`–`0x4a0`, `MsgAssemblyTrainerRecipe {wstr, i32, i32, f32, wstr}`) follow the same pattern; they are implemented and partly verified live in docs/ASSEMBLY.md (Brenna Ashford, Copper Ring).
