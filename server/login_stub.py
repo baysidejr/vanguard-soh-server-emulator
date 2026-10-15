@@ -2412,9 +2412,6 @@ def handle_rift(state, args, data):
     if not dest.get("chunk"):
         say(f"The riftway to {dest['name']} is not open on this server yet.")
         return
-    if dest["chunk"] != player.level:
-        say(f"The riftway to {dest['name']} is in another region (not supported yet).")
-        return
     price = RIFT_PRICES.get(dest.get("color"), 0)
     if player.coins < price:
         say("You can't afford to travel there.")
@@ -2423,7 +2420,15 @@ def handle_rift(state, args, data):
         player.coins -= price
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
-    z = ARGS.content.ground_z(player.level, dest["x"], dest["y"], ARGS.client_dir)
+    if dest["chunk"] != player.level:
+        # Another region: a full chunk change, landing at the destination (riftways.json "z" for
+        # a raised hub, else the ground there).
+        send(build_system_text(f"The riftway carries you to {dest['name']}.", SYSTEM_TEXT_WHITE))
+        cx, cy = level_chunk(dest["chunk"])
+        travel_to_chunk(state, ARGS, cx, cy, float(dest["x"]), float(dest["y"]),
+                        float(dest["z"]) if dest.get("z") is not None else None)
+        return
+    z = dest.get("z") if dest.get("z") is not None else ARGS.content.ground_z(player.level, dest["x"], dest["y"], ARGS.client_dir)
     send(zone.player_teleport((float(dest["x"]), float(dest["y"]), float(z) + 100.0)))
     send(build_system_text(f"The riftway carries you to {dest['name']}.", SYSTEM_TEXT_WHITE))
 

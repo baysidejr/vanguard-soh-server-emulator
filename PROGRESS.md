@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Riftways travel between regions (chunk change to the destination); Khal opened at its hub (PoINames.txt) with a brazier back. Verified live both ways. Khal's imported NPCs are now reachable in normal play.
+
 - 2026-10-15: import_zone places quest givers at their quests' start locations too (quest archive locations carry the chunk); Khal now has 59 NPCs. Quests themselves wait for more data: of Khal's 200, 108 have no objectives yet and most kill targets have no positions.
 
 - 2026-10-15: Class trainers: mobs.json trainer_classes (only those classes see and use the trainer; verified live in Khal). The archive importer maps services (banker, repair, broker, class trainers); Khal regenerated with a trainer for every class and a banker. Re-runs add missing fields to existing templates without changing edited ones.

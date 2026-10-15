@@ -119,3 +119,7 @@ The token is the uppercased value the server receives. The tab is the continent.
 | Kojan | Blighted Lands [15-22] | BlightedLands | Green |
 
 The client has no world coordinates or chunk ids for any of these. Those are server-only data and should be logged in `docs/CONTENT_EDITOR.md`.
+
+## Travel between regions (verified live 2026-10-15)
+
+A destination in another chunk is reached with a full chunk change (`login_stub.travel_to_chunk`), landing at its riftways.json x, y and optional z (for a raised hub; else the ground). The first one open is **Khal**, at its hub from the client's `PoINames.txt` ("Khal [Hub]", -6747, -25611, 1442 in chunk -13, -9), with a Riftseeker Brazier there (`riftway_khal`) for the way back. Seen: `/rift KHAL` at the camp brazier moved Ranger to the caravan stop outside Khal, and `/rift SUNDERINGWASTELANDS` at the Khal brazier back to the camp. The PoI list also names the hubs of Ahgram, New Targonor and Tanvu.

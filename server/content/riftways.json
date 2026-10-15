@@ -1,5 +1,5 @@
 {
-  "_comment": "Riftway destinations (docs/RIFTWAYS.md). key: the uppercased /rift argument the client sends (0x597). name, region (map tab), color (price tier: green 50, blue 500, yellow 2000, red 5000 copper, purple hub = free here), chunk/x/y: where travel lands (null = not open on this server yet). Riftway stones are mob templates with \"riftway\": key. Positions are placeholders (docs/CONTENT_EDITOR.md).",
+  "_comment": "Riftway destinations (docs/RIFTWAYS.md). key: the uppercased /rift argument the client sends (0x597). name, region (map tab), color (price tier: green 50, blue 500, yellow 2000, red 5000 copper, purple hub = free here), chunk/x/y (and optional z for a raised spot): where travel lands, in any chunk (null = not open on this server yet). Riftway stones are mob templates with \"riftway\": key. Positions are placeholders (docs/CONTENT_EDITOR.md).",
   "NEWTARGONOR": {
     "name": "New Targonor",
     "region": "Thestra",
@@ -132,9 +132,10 @@
     "name": "Khal",
     "region": "Qalia",
     "color": "purple",
-    "chunk": null,
-    "x": null,
-    "y": null
+    "chunk": "chunk_n13_n9",
+    "x": -6747,
+    "y": -25611,
+    "z": 1442
   },
   "AHGRAM": {
     "name": "Ahgram",
