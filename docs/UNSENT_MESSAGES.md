@@ -66,7 +66,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 624 of 720 (86%).
 | 0x50a | MsgSingleBool | bool8 | optional | bHasPetition {bool8} |
 | 0x544 | (none) |  | content | no payload: the local pawn enters feign death; getting up sends 0x18a. Needs a feign-death ability (FUN_005de0e0) [decoded 2026-10-14] |
 | 0x545 | MsgSingleBool | bool8 | optional | DialogActive {bool8}: server-side dialog state flag |
-| 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | optional | spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (world FUN_00b77ee0: "Failed to spawn actor"); for scripted effects |
+| 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | optional | spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (FUN_005e5040 -> world FUN_00b77ee0). Tried 2026-10-15 with FXfire.FXfire_Fireworks001fx (FX packages announced): the spawn returns an actor (winbreak) but nothing showed; the emitter may need triggering |
 | 0x5b0 | MsgThreeStringsAndInt | wstr, wstr, wstr, i32 | debug | /.g1 /.g2 GM output {3 x wstr, i32} |
 | 0x5e2 | (raw) |  | blocked | character customization / slot item purchased (store); this server has no store |
 | 0x62a | MsgSingleEntityId | eid64 | variant | {eid64}: sets the local player's entity id; the client already has it from the zone-in (inferred) (FUN_005e1140) [decoded 2026-10-14] |
