@@ -10,6 +10,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Last test results
 
+- 2026-10-15 (after NPC fleeing): tools/check_all.py --client 7 of 7 passed (unit 234, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the NPC reset paths: leash, death, logout, pet): tools/check_all.py --client 7 of 7 passed (unit 233, smoke PASS).
 - 2026-10-15 (after NPC reset on logout): tools/check_all.py --client 7 of 7 passed (unit 232, smoke PASS).
 - 2026-10-15 (after NPC give-up and the editor body fix): tools/check_all.py --client 7 of 7 passed (unit 232, smoke PASS).
