@@ -1,0 +1,101 @@
+{
+  "batch": "raw/2026-10-15-012032-885662-archive-bulk",
+  "output_key": "guard_captain_shitao",
+  "status": "unresolved; all colliding records withheld from conversion",
+  "records": [
+    {
+      "kind": "creature",
+      "record": {
+        "name": "Guard Captain Shitao",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/guard-captain-shitao-2",
+            "title": "Guard Captain Shitao · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-15T05:25:50+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "creature",
+        "level": null,
+        "zone": "Tanvu",
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": null,
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Tanvu"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "kind": "creature",
+      "record": {
+        "name": "Guard-Captain Shitao",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/guard-captain-shitao",
+            "title": "Guard-Captain Shitao · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-15T05:25:45+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tanvu"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "chunk": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Tanvu",
+            "url": "https://vgsoharchive.com/zones/tanvu"
+          }
+        ],
+        "type": "creature",
+        "level": 50,
+        "zone": "Tanvu",
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "5 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Tanvu"
+        ],
+        "original_source_urls": []
+      }
+    }
+  ],
+  "decision": "Preserve both archive transcriptions. Similar names alone do not establish entity identity; do not guess game IDs or merge records. This batch remains research evidence with a validation issue and is excluded from zero-issue coverage."
+}
