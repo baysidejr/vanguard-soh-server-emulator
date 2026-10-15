@@ -84,6 +84,8 @@ Content: 75 regions hold 1,144 NPCs imported from the archive (36 riftway destin
 
 ## Done
 
+- 2026-10-15: Imported human NPCs (Thestran, Qaliathari, Kojani) get a model variant 0-3 from their name, so a town is not all one face (gender is not in the archive). Not compared side by side in game yet.
+
 - 2026-10-15: Archive import refined and regenerated (no template had been edited): titles from the archive role ("Light Armor Vendor"), quest objects (type Object) skipped; 1,124 templates, 1,144 NPCs.
 
 - 2026-10-15: NPCs can offer several parleys (mobs.json parley list; option id per parley). The archive's parley types and presence are imported: 77 NPCs offer their real parley types (generic setups per type); seen live with Afshin Budjiri (Gossip / Convince / Interview).

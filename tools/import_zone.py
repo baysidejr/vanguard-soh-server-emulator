@@ -22,6 +22,7 @@ import json
 import os
 import re
 import sys
+import zlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, "server", "content")
@@ -116,6 +117,8 @@ def template(rec):
     t = {"name": rec["name"], "pawn_class": "SGONPCPawn",
          "race": CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE),
          "level": level, "health": 100 + 40 * level}
+    if t["race"] in (12, 13, 14):         # the human races have model variants 0-3: vary the look by name
+        t["model"] = zlib.crc32(rec["name"].encode("utf-8")) % 4
     services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]
     if services:
         t["title"] = ", ".join(s.title() for s in services)[:40]
