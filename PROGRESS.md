@@ -54,6 +54,7 @@ Effects: now that the FX packages load, find how ability and spell visuals are p
 
 ## Done
 
+- 2026-10-15: Item conversion: items.json `convert` opens the client's Conversion window on right-click (0x1c2); Convert (0x9a {handle, choice}) turns 4 Copper Ore into 1 Copper Ingot (seen live). Unit test ConversionTests.
 - 2026-10-15: Ability effects: with the FX packages announced, the FX_ actions of 0x3d1 ability displays now play (Blade of Winter tints the Canyon Widow red, then blue; seen live). Fixed the chatter tick crashing on tombstones (it also skipped respawns that second).
 - 2026-10-15: With the FX packages announced, the loot sparkle is visible live (white glints on a dead Canyon Widow).
 - 2026-10-15: The package map now announces the client's FX* ServerPackages (38, after the defaults). Quest nodes also set m_bShowIOParticle, the client's gate for the particles (found with winbreak); the attach call now runs, though the particles are still not visible in screenshots.

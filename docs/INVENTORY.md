@@ -207,3 +207,11 @@ items.json `"flags"` sets wire field 102 (tooltip lines from FUN_006ab640): `no_
 - **Bind On Equip:** right-clicking such an item opens the client's own "Bind On Equip Confirmation" ("Equipping this item will prevent you from trading it with other players. Accept this restriction and equip it?"); Accept sends the normal equip. The server then adds the handle to the character's saved `bound` list and says "Copper Ring is now bound to you." Bound items are sent with the Soulbound bit; the tooltip reads "Soulbound (unbindable) Bind On Equip".
 - **Enforced by the server:** No Trade, Soulbound and Quest items can't be traded, mailed or put on the broker; No Sell and Quest items can't be sold to merchants (`zone.item_restriction`).
 - Which real items carried which flags is unknown (docs/CONTENT_EDITOR.md); no shipped item has flags yet.
+
+## Item conversion (verified live 2026-10-15)
+
+items.json `"convert": {"count": 4, "into": [["Copper Ingot", 1], ["Copper Wire", 2]]}` (1-3 choices) makes an item convertible. Right-clicking it sends the usual 0x8e, and the server answers **0x1c2** MsgDisplayConversionUI `{wstr item, i32 count, i32 handle, 3 x {wstr result, i32 qty, i32 kept, i32 0}}` (FUN_00507060).
+
+- The client opens the Conversion window, "Convert 4 x Copper Ore to:", with one row and Convert button per choice. A choice with qty 0 is hidden; kept > 0 adds a second line "<kept> x <item>". The handle is stored at inventory +0x6d4.
+- Convert sends **0x9a** `{i32 handle, i32 choice 1-3}` (UI actions 0x8e-0x90 -> FUN_004fc5b0); Cancel (action 0x8d) only closes the window.
+- The server takes `count` off the stack and gives the result ("You convert 4 Copper Ore into 1 Copper Ingot.", `login_stub.handle_conversion`). Copper Ore's conversion is a placeholder. The 0x1c1 replies ("Error: Item to convert not found.") are debug strings and are not used.
