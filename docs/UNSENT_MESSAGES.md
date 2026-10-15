@@ -6,28 +6,28 @@ The client handles 720 zone messages; the server code mentions 504 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 90 |
-| variant | 53 |
+| optional | 86 |
+| variant | 57 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 630 of 720 (87%). Still open: 90 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 634 of 720 (88%). Still open: 86 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x196 | - |  | no-op | the dispatcher returns at once |
-| 0x198 | ? |  | optional | inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*) |
-| 0x1af | (none) |  | optional | inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*) |
+| 0x198 | ? |  | variant | no payload (FUN_0050fd90): rebuilds the inventory list from the client's own items; the list already fills from 0x197 records [checked 2026-10-15] |
+| 0x1af | (none) |  | variant | item equip message (FUN_0050fe80: "Programmer error, item equip message from server invalid."), not a list refresh; the server equips with 0x197 + 0x1a7 (verified live) [checked 2026-10-15] |
 | 0x1b1 | MsgThreeInts | i32, i32, i32 | optional | item back from the crafting inventory {handle, container, slot}; this server never moves items into a crafting inventory (docs/CRAFTING.md) |
 | 0x1b2 | MsgSingleInt | i32 | optional | crafting-inventory item used up {handle}; same as 0x1b1 |
 | 0x1b8 | MsgIntAndTwoBytes | i32, u8, u8 | variant | item equipped {handle, u8, u8}; the server resends the whole item record (0x197) instead |
 | 0x1b9 | MsgThreeInts | i32, i32, i32 | variant | item equip {3 x i32}; the server resends the item record instead |
 | 0x1ba | MsgThreeInts | i32, i32, i32 | variant | item unequip {3 x i32}; the server resends the item record instead |
-| 0x1bc | MsgFourInts | i32, i32, i32, i32 | optional | inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*) |
+| 0x1bc | MsgFourInts | i32, i32, i32, i32 | variant | {i32 item, i32 container or -1, i32, i32} (FUN_00511270): moves an item between containers; the server moves items by resending the record (0x197) [checked 2026-10-15] |
 | 0x1c1 | MsgSingleByte | u8 | debug | "DEBUG - Item activation succeeded."; "Error: Item to convert not found."; "Error: You cannot convert items while your i |
 | 0x1c3 | MsgSingleByte | u8 | debug | item activation result {u8} ("DEBUG - Item activation succeeded.") |
 | 0x1d2 | MsgTwoInts | i32, i32 | content | pet graft added; pet grafts are content (docs/PETS.md) |
@@ -35,7 +35,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 630 of 720 (87%).
 | 0x1d5 | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo into another container; the server uses 0x197 and the container-specific messages |
 | 0x1d6 | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo variant |
 | 0x1d7 | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo variant |
-| 0x1d8 | MsgSingleInt | i32 | optional | inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*) |
+| 0x1d8 | MsgSingleInt | i32 | variant | {i32 handle} (FUN_00510940): an item record update keyed by handle; the server resends 0x197 [checked 2026-10-15] |
 | 0x1da | MsgIntAndByte | i32, u8 | variant | sets an item's +0x668 flag {handle, bool} (docs/ITEM_FIELDS.md); the server resends the record |
 | 0x1dc | MsgInvItemBaseDataUpdate | i32, i32, i32, i32, i32, u8, f32, f32, i32, i32, i32, u8, bool8, wstr, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, i32, i32, i32, 3 x [i32] | variant | item base data update (damage, AC, level); the server resends the record |
 | 0x1dd | MsgItemMod | i32, i32, i32, i32, i32, bool8, i32, i32, i32, i32, wstr, wstr | content | item mod (MsgItemMod); item modifications are content |
