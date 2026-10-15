@@ -348,7 +348,7 @@ class Bot(threading.Thread):
                 data, nbits = rpc.encode_rpc(self.nc, "PlayerController", "ShortServerMove",
                                              {"TimeStamp": now - t0, "ClientLoc": loc, "View": 0})
                 unreal([ue2net.Bunch(PC_CHANNEL, data, reliable=False, nbits=nbits)])
-                next_move = now + 1.0 / a.move_rate
+                next_move = now + 1.0 / a.move_rate if a.move_rate > 0 else end   # 0: stand still
             if a.auto_accept and now >= next_accept:
                 # Accept any group / raid invite (0xb1); without a pending invite the server ignores it.
                 z.send(event(0xB1))

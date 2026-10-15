@@ -103,6 +103,21 @@ def loot_buttons(group, npc):
     return [loot_button(SHOW_SHARE, share), loot_button(SHOW_START_ROLLING, mode == RANDOM_FOR_MAGICAL)]
 
 
+# Corpse unlock lines (FUN_005213b0 / FUN_00521520, text in VGClient.int): 0x684 {bool8 ok,
+# wstr name, bool8 group}: not ok "CorpseYouCannotUnlock"; empty name "CorpseUnlockedToAll" (The
+# corpse is now unlocked for everyone that is allowed to loot it.); else CorpseUnlockedToPCGroup /
+# CorpseUnlockedToPC with the name. 0x685 {wstr who, wstr corpse}: "%1 has unlocked the %2 to you."
+UNLOCK_RESULT, UNLOCKED_TO_YOU = 0x684, 0x685
+
+
+def unlock_result(ok=True, name="", group=False):
+    return _event(UNLOCK_RESULT, struct.pack("<B", int(ok)) + _w(name) + struct.pack("<B", int(group)))
+
+
+def unlocked_to_you(who, corpse):
+    return _event(UNLOCKED_TO_YOU, _w(who) + _w(corpse))
+
+
 def loot_button(event_id, shown):
     return _event(event_id, bytes([int(bool(shown))]))
 

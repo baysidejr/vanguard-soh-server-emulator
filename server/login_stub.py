@@ -5857,8 +5857,10 @@ def handle_grouploot_event(state, event, data):
         elif event == grouploot.ALLOW_GROUP:
             npc.open_to_group = True
             send(grouploot.loot_button(grouploot.SHOW_SHARE, False))
+            send(grouploot.unlock_result())             # "...unlocked for everyone that is allowed to loot it."
             for m in members:
-                m["send"](build_system_text(f"{player.name} lets the group loot {npc.name}.", SYSTEM_TEXT_WHITE))
+                if m is not state:
+                    m["send"](grouploot.unlocked_to_you(player.name, npc.name))
         elif s["mode"] == grouploot.RANDOM_FOR_MAGICAL:
             if npc.loot is None:
                 combat.loot_messages(npc)                # roll the corpse's items

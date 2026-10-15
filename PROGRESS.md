@@ -52,6 +52,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Share Loot Rights now uses the client's own lines: 0x684 to the looter ("The corpse is now unlocked for everyone that is allowed to loot it.", seen live with a bot in the group) and 0x685 to the other members. tools/loadtest.py --move-rate 0 no longer crashes (bots stand still).
 - 2026-10-15: Escrow: items that don't fit in the bags go to the character's escrow instead of being lost (give_item). Bankers offer "Do I have any escrow items that I can claim?" (0x2b6), which opens the Escrow Merchant window (0xed -> 0x28d, 0x295, 0x294); right-click (0xef) hands the item over. Seen live with Hollis Grent: full bags refused, then claimed after freeing a slot. Unit test EscrowTests.
 - 2026-10-15: Loot sparkle: 0x564 {eid64} goes to the chunk when an NPC with coin or items dies, and 0x565 stops it when the corpse is looted empty (0x565 is not in ZONE_MESSAGES.md; same dispatcher). Checked with winbreak: the client's add and remove handlers run with the corpse id. 594/720 messages sent or not needed. Unit tests LootSparkleTests.
 - 2026-10-15: General abilities on the ability book's General page: Sprint (GroundSpeed x1.25 for 45 s), Recall (to the bind point) and Recall to House, defined in abilities.json with "general": true. Seen live: 3 s of running went 1248 units while sprinting and 1008 after it ended; Recall teleported to the bind point. Recall to House put the Ranger beside their house on plot 101. Unit tests GeneralAbilityTests.

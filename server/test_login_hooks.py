@@ -634,6 +634,12 @@ class LootSparkleTests(unittest.TestCase):
         self.assertEqual(sent, [login_stub.combat.loot_sparkle(npc, False)])
         self.assertEqual(struct.unpack_from("<I", sent[0], 2)[0], 0x565)
 
+    def test_unlock_lines(self):
+        self.assertEqual(login_stub.grouploot.unlock_result()[10:], b"\x01\x00\x00\x00")
+        m = login_stub.grouploot.unlocked_to_you("Ranger", "Canyon Widow")
+        self.assertEqual(struct.unpack_from("<I", m, 2)[0], 0x685)
+        self.assertIn("Canyon Widow".encode("utf-16-le"), m)
+
     def test_props_never_sparkle(self):
         self.assertFalse(login_stub.corpse_lootable(mock.Mock(prop=True)))
 
