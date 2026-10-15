@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details and progressive combat forms; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Needs a person: flight descent, the feel of the numbers. Content: the real game data. The editor now has a form for every main content file and drafts mobs, items, quests and loot tables from the archive; next is filling the camp and forest with archive data (mobs, quests, loot) through it, which is a content decision for the user (placeholders stay until then).
+Content: four regions (Khal, Ahgram, New Targonor, Tanvu) hold 193 NPCs imported from the archive with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
+- 2026-10-15 (after the archive imports and cross-region riftways): tools/check_all.py --client 7 of 7 passed (unit 249, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after full content validation and the remaining editor tabs): tools/check_all.py --client 7 of 7 passed (unit 244, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (15-minute soak, 50 bots): memory flat at 223 MB, p95 11.3 ms, no lost packets, no errors (docs/TESTING.md).
 - 2026-10-15 (after the archive quest and loot drafts): tools/check_all.py --client 7 of 7 passed (unit 242, load p95 11.3 ms, fuzz clean, smoke PASS).
