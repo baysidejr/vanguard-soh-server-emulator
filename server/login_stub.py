@@ -5481,11 +5481,9 @@ def handle_social_zone(state, event, data):
 # {eid64 (group manager +0x30), eid64 target, i32 mark}. The group gets the same record back as
 # 0x593 (FUN_004e1640: finds the target's pawn and sets its mark, FUN_004d0420).
 MARK_REQUEST, MARK = 0x592, 0x593
-# Deconstructing an item (FUN_004fbc40 / FUN_004fbda0): 0x58e / 0x58f {i32 item handle}; the
-# client refuses containers itself. The answer 0x590 {i32 handle, i32 code} (FUN_00506ee0) prints
-# "You are not high enough level to deconstruct %s." for -2, else "%s can not be deconstructed.".
-# What an item breaks down into was server data, so every item answers "can not".
-DECONSTRUCT, DECONSTRUCT_RESULT, CANT_DECONSTRUCT = (0x58E, 0x58F), 0x590, -1
+# Deconstruction refusals: 0x590 {i32 handle, i32 code} (FUN_00506ee0) prints "You are not high
+# enough level to deconstruct %s." for -2, else "%s can not be deconstructed." (handle_deconstruct).
+DECONSTRUCT_RESULT, CANT_DECONSTRUCT = 0x590, -1
 
 
 def mark_target(state, data):
@@ -7031,6 +7029,51 @@ def handle_conversion(state, data):
         send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - conv["count"])))
     give_item(state, name, qty, quiet=True)
     send(build_system_text(f"You convert {conv['count']} {item[1]} into {qty} {name}.", SYSTEM_TEXT_WHITE))
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    quest_items_changed(state)
+
+
+# Deconstruction (FUN_004f9d50 / FUN_00693980 / FUN_004fcd50): right-clicking an items.json
+# "salvage_kit" item gets 0x58d {i32 kit handle}: the client keeps the kit (inventory +0x6c8)
+# and puts the cursor in targeting mode 4. Clicking a bag item it allows (not worn; equipment,
+# or item fields +0x78/+0x7c/+0x80 above 0; else "This item cannot be deconstructed.") opens
+# "Deconstruct: <item>" with two buttons: items sends 0x58e, dust sends 0x58f, both
+# {i32 target, i32 kit}. The target goes; items.json "salvage" [[item, qty], ...] (or one
+# SALVAGE_DEFAULT) or one SALVAGE_DUST comes back, and the kit loses one charge (stack).
+DECONSTRUCT_TARGET, DECONSTRUCT_ITEMS, DECONSTRUCT_DUST = 0x58D, 0x58E, 0x58F
+SALVAGE_DEFAULT, SALVAGE_DUST = "Copper Ingot", "Shimmering Dust"
+
+
+def handle_deconstruct(state, event, data):
+    player, send = state["player"], state["send"]
+    if len(data) < 8:
+        return
+    target_h, kit_h = struct.unpack_from("<ii", data, 0)
+    target = next((i for i in player.items if i[0] == target_h), None)
+    kit = next((i for i in player.items if i[0] == kit_h), None)
+    if target is None or kit is None or not ARGS.content.item(kit[1]).get("salvage_kit") or target is kit:
+        send(build_system_text("Could not find that item to deconstruct.", SYSTEM_TEXT_ERROR))
+        return
+    tpl = ARGS.content.item(target[1])
+    if zone.bag_items(player.items, target_h) or tpl.get("quest") or "quest" in (tpl.get("flags") or []):
+        send(zone.zone_event(DECONSTRUCT_RESULT, struct.pack("<ii", target_h, CANT_DECONSTRUCT)))
+        return
+    if event == DECONSTRUCT_DUST:
+        results = [[SALVAGE_DUST, 1]]
+    else:
+        results = tpl.get("salvage") or [[SALVAGE_DEFAULT, 1]]
+    player.items.remove(target)
+    send(zone.zone_event(0x1A5, struct.pack("<iB", target[0], 0)))
+    if kit[3] > 1:
+        player.items[player.items.index(kit)] = kit[:3] + (kit[3] - 1, kit[4])
+        send(zone.zone_event(0x1AE, struct.pack("<ii", kit[0], kit[3] - 1)))
+    else:
+        player.items.remove(kit)
+        send(zone.zone_event(0x1A5, struct.pack("<iB", kit[0], 0)))
+    for name, qty in results:
+        give_item(state, name, qty, quiet=True)
+    got = ", ".join(f"{q} {n}" for n, q in results)
+    send(build_system_text(f"You deconstruct {target[1]} into {got}.", SYSTEM_TEXT_WHITE))
     save_character_field(player.name, "items", [list(i) for i in player.items])
     quest_items_changed(state)
 
@@ -9899,9 +9942,6 @@ def handle_message(sock, server, addr, state, payload, args):
             journal_remove(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == APP_GEAR_TOGGLE and state.get("player"):
             app_gear_toggle(state)
-        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in DECONSTRUCT and state.get("player") and len(payload) >= 14:
-            handle = struct.unpack_from("<i", payload, 10)[0]
-            send_message(sock, addr, state, zone.zone_event(DECONSTRUCT_RESULT, struct.pack("<ii", handle, CANT_DECONSTRUCT)))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MARK_REQUEST and state.get("player"):
             print(f"  >>> ZONE mark {payload[10:].hex(' ')}")
             mark_target(state, payload[10:])
@@ -10111,6 +10151,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 use_barding(state, args, item)
             elif item and args.content.item(item[1]).get("convert"):
                 offer_conversion(state, item)
+            elif item and args.content.item(item[1]).get("salvage_kit"):
+                state["send"](zone.zone_event(DECONSTRUCT_TARGET, struct.pack("<i", item[0])))
             elif item and args.content.item(item[1]).get("use"):
                 use_item(state, args, item)
             elif item and args.content.item(item[1]).get("pet"):
@@ -10186,6 +10228,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
                     quest_items_changed(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (DECONSTRUCT_ITEMS, DECONSTRUCT_DUST):
+            if state.get("player"):
+                handle_deconstruct(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CONVERT_REQUEST:
             if state.get("player"):
                 handle_conversion(state, payload[10:])

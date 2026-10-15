@@ -146,6 +146,9 @@ def validate(directory=CONTENT_DIR):
             problems.append(f"item {name}: use must be {{heal, energy, endurance: n}}")
         if "cooldown" in it and not (isinstance(it["cooldown"], (int, float)) and it["cooldown"] >= 0):
             problems.append(f"item {name}: cooldown must be seconds")
+        for opt in it.get("salvage") or []:
+            if not (isinstance(opt, list) and len(opt) == 2 and opt[0] in c.items and isinstance(opt[1], int) and opt[1] > 0):
+                problems.append(f"item {name}: salvage entry {opt!r} needs a known item and a quantity")
         conv = it.get("convert")
         if conv is not None:
             into = conv.get("into") if isinstance(conv, dict) else None

@@ -215,3 +215,12 @@ items.json `"convert": {"count": 4, "into": [["Copper Ingot", 1], ["Copper Wire"
 - The client opens the Conversion window, "Convert 4 x Copper Ore to:", with one row and Convert button per choice. A choice with qty 0 is hidden; kept > 0 adds a second line "<kept> x <item>". The handle is stored at inventory +0x6d4.
 - Convert sends **0x9a** `{i32 handle, i32 choice 1-3}` (UI actions 0x8e-0x90 -> FUN_004fc5b0); Cancel (action 0x8d) only closes the window.
 - The server takes `count` off the stack and gives the result ("You convert 4 Copper Ore into 1 Copper Ingot.", `login_stub.handle_conversion`). Copper Ore's conversion is a placeholder. The 0x1c1 replies ("Error: Item to convert not found.") are debug strings and are not used.
+
+## Deconstruction (verified live 2026-10-15)
+
+Right-clicking an items.json `"salvage_kit": true` item (the placeholder "Salvage Kit") gets **0x58d** `{i32 kit handle}` (FUN_004f9d50): the client keeps the kit (inventory +0x6c8) and puts the cursor into targeting mode 4.
+
+- Clicking a bag item (FUN_00693980) refuses worn items ("Cannot deconstruct an equipped item.") and items that are neither equipment (+0x5c >= 0) nor have +0x78/+0x7c/+0x80 above 0 ("This item cannot be deconstructed."). Otherwise it opens "Deconstruct: <item>" with **Resource**, **Dust** and Cancel (FUN_004fcd50).
+- Resource sends **0x58e**, Dust **0x58f**, both `{i32 target, i32 kit}` (FUN_004fbc40 / FUN_004fbda0).
+- The server removes the target and one kit charge, then gives items.json `"salvage": [[item, qty], ...]` (default 1 Copper Ingot) or 1 Shimmering Dust: "You deconstruct Rusted Dagger into 1 Copper Ingot." (`login_stub.handle_deconstruct`). Refusals use **0x590** `{i32 handle, i32 code}` (FUN_00506ee0): -2 "You are not high enough level to deconstruct %s.", else "%s can not be deconstructed."
+- The kit, the dust and the salvage lists are placeholders.

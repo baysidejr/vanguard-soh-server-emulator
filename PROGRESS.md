@@ -54,6 +54,7 @@ Effects: now that the FX packages load, find how ability and spell visuals are p
 
 ## Done
 
+- 2026-10-15: Deconstruction: a Salvage Kit (0x58d) puts the cursor in deconstruct mode; the client's Deconstruct window sends 0x58e (resources) / 0x58f (dust); seen live (Rusted Dagger into 1 Copper Ingot, kit 3 -> 2). Replaced the old always-refuse answer. Unit test DeconstructTests.
 - 2026-10-15: Item conversion: items.json `convert` opens the client's Conversion window on right-click (0x1c2); Convert (0x9a {handle, choice}) turns 4 Copper Ore into 1 Copper Ingot (seen live). Unit test ConversionTests.
 - 2026-10-15: Ability effects: with the FX packages announced, the FX_ actions of 0x3d1 ability displays now play (Blade of Winter tints the Canyon Widow red, then blue; seen live). Fixed the chatter tick crashing on tombstones (it also skipped respawns that second).
 - 2026-10-15: With the FX packages announced, the loot sparkle is visible live (white glints on a dead Canyon Widow).

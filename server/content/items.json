@@ -58,7 +58,17 @@
       8
     ],
     "delay": 2.0,
-    "skill": 43
+    "skill": 43,
+    "salvage": [
+      [
+        "Copper Ingot",
+        2
+      ],
+      [
+        "Copper Buckle",
+        1
+      ]
+    ]
   },
   "Yew Longbow": {
     "icon": 427,
@@ -87,7 +97,13 @@
       6
     ],
     "delay": 1.6,
-    "skill": 198
+    "skill": 198,
+    "salvage": [
+      [
+        "Copper Ingot",
+        1
+      ]
+    ]
   },
   "Minstrel's Scimitar": {
     "icon": 479,
@@ -554,5 +570,16 @@
   "Plate Barding": {
     "icon": 1225,
     "barding": 205
+  },
+  "Salvage Kit": {
+    "type": "misc",
+    "icon": 495,
+    "salvage_kit": true,
+    "description": "Right-click, then click a piece of equipment to break it down. One use per kit."
+  },
+  "Shimmering Dust": {
+    "type": "component",
+    "icon": 489,
+    "description": "Fine dust left by deconstructing an item."
   }
 }

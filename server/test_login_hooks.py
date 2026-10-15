@@ -742,6 +742,22 @@ class ConversionTests(unittest.TestCase):
         self.assertEqual(sorted((i[1], i[3]) for i in player.items), [("Copper Ingot", 1), ("Copper Ore", 2)])
 
 
+class DeconstructTests(unittest.TestCase):
+    def test_salvage_and_dust(self):
+        sent = []
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        player.items = [(1, "Hunter's Shortsword", 422, 1, 0), (2, "Salvage Kit", 495, 2, 1), (3, "Rusted Dagger", 429, 1, 2)]
+        state = {"player": player, "send": sent.append}
+        args = mock.Mock()
+        args.content = content.Content()
+        with mock.patch.object(login_stub, "ARGS", args, create=True), \
+                mock.patch.object(login_stub, "save_character_field"), \
+                mock.patch.object(login_stub, "quest_items_changed"):
+            login_stub.handle_deconstruct(state, login_stub.DECONSTRUCT_ITEMS, struct.pack("<ii", 1, 2))
+            login_stub.handle_deconstruct(state, login_stub.DECONSTRUCT_DUST, struct.pack("<ii", 3, 2))
+        self.assertEqual(sorted(i[1] for i in player.items), ["Copper Buckle", "Copper Ingot", "Shimmering Dust"])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False
