@@ -85,6 +85,19 @@ def template(rec):
     services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]
     if services:
         t["title"] = ", ".join(s.title() for s in services)[:40]
+    # Services the server can run from what the archive says (merchants have no wares there, task
+    # masters no work orders, so those keep only the title).
+    if "banker" in services:
+        t["banker"] = True
+    if "repair" in services:
+        t["repair"] = True
+    if "broker" in services:
+        t["broker"] = f"{rec.get('zone') or 'Local'} Market"
+    if "trainer" in services and rec.get("training_classes_recorded"):
+        t["trainer"] = True
+        t["trainer_classes"] = sorted(set(rec["training_classes_recorded"]))
+        if len(t["trainer_classes"]) == 1:          # "Warrior Trainer" rather than "Trainer"
+            t["title"] = t["title"].replace("Trainer", f"{t['trainer_classes'][0]} Trainer", 1)[:40]
     src = (rec.get("sources") or [{}])[0].get("url")
     if src:
         t["_source"] = src
@@ -123,15 +136,24 @@ def write(path, doc):
 
 
 def apply(level, mobs, spawns, content=CONTENT):
-    """Add the templates and spawns that are not there yet. Returns (templates added, spawns added)."""
+    """Add the templates and spawns that are not there yet; a template that is already there only
+    gains the fields it lacks (a builder's edits are never changed). Returns (templates added,
+    spawns added)."""
     mobs_path = os.path.join(content, "mobs.json")
     existing = load(mobs_path, {})
     new_mobs = {k: v for k, v in mobs.items() if k not in existing}
+    grew = False
+    for k, v in mobs.items():
+        if k in existing and isinstance(existing[k], dict):
+            for field, value in v.items():
+                if field not in existing[k]:
+                    existing[k][field] = value
+                    grew = True
     spawn_path = os.path.join(content, "spawns", level + ".json")
     doc = load(spawn_path, {"spawns": []})
     have = {s.get("mob") for s in doc.get("spawns", [])}
     new_spawns = [s for s in spawns if s["mob"] not in have]
-    if new_mobs:
+    if new_mobs or grew:
         existing.update(new_mobs)
         write(mobs_path, existing)
     if new_spawns:

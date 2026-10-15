@@ -240,6 +240,7 @@ def npc_from_template(w, args, eid, spawn, template, n=0):
     npc.spells = template.get("spells", [])
     npc.prop = bool(template.get("prop"))
     npc.trainer = bool(template.get("trainer"))
+    npc.trainer_classes = template.get("trainer_classes") or []     # empty: trains every class
     npc.banker = bool(template.get("banker"))
     npc.corpse_summoner = bool(template.get("corpse_summoner"))   # dialog option: bring my tombstone
     npc.chatter = list(template.get("chatter", []))           # lines said now and then (login_stub.npc_chatter_tick)

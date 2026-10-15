@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Class trainers: mobs.json trainer_classes (only those classes see and use the trainer; verified live in Khal). The archive importer maps services (banker, repair, broker, class trainers); Khal regenerated with a trainer for every class and a banker. Re-runs add missing fields to existing templates without changing edited ones.
+
 - 2026-10-15: Archive NPC positions decoded: they are chunk-local x, y, z, and the client's ChunkNames.txt maps zone names to chunks. tools/import_zone.py places a zone's archive NPCs (drafts, or --apply into content). First import: Khal (27 NPCs, chunk -13 -9); seen live: Afshin Budjiri (Trainer) in his hall, as a Qaliathari.
 
 - 2026-10-15: Quest pages carry the turn-in NPC's chunk and position (fields 22-26, quest.WHERE = login_stub.quest_where): the journal's "Show Completion Chunk" lists "Sundering Wastelands (-19,12)" (seen live). The journal Details option was left on "Show Completion Chunk" in the client's settings (radio choice).

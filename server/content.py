@@ -198,6 +198,10 @@ def validate(directory=CONTENT_DIR):
         if r.get("chunk") and not all(isinstance(r.get(k), (int, float)) for k in ("x", "y")):
             problems.append(f"riftway {key}: an open destination (chunk set) needs x and y")
     for mid, m in c.mobs.items():
+        if isinstance(m, dict) and m.get("trainer_classes") and not (
+                isinstance(m["trainer_classes"], list)
+                and all(x in races_classes.ADVENTURING_CLASSES.values() for x in m["trainer_classes"])):
+            problems.append(f"mob {mid}: trainer_classes must be class names (races_classes)")
         # "riftway": "" is a stone you can travel from that is not itself a destination
         if isinstance(m, dict) and m.get("riftway") not in (None, "") and m["riftway"] not in c.riftways:
             problems.append(f"mob {mid}: riftway {m['riftway']} is not in riftways.json")

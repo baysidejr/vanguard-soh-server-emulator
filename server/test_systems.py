@@ -1632,6 +1632,15 @@ class ImportZoneTests(unittest.TestCase):
             self.assertEqual(import_zone.apply(level, mobs, spawns, content), (0, 0))     # a second run adds nothing
             kept = json.load(open(os.path.join(content, "mobs.json"), encoding="utf-8"))
             self.assertEqual(kept["arch_afshin_budjiri"]["name"], "Edited by a builder")
+            self.assertEqual(kept["arch_afshin_budjiri"]["level"], 40)                 # missing fields added
+
+    def test_trainer_classes(self):
+        import login_stub
+        npc = types.SimpleNamespace(trainer=True, trainer_classes=["Ranger"])
+        self.assertTrue(login_stub.trains(npc, types.SimpleNamespace(klass=19)))      # Ranger
+        self.assertFalse(login_stub.trains(npc, types.SimpleNamespace(klass=28)))     # Warrior
+        npc.trainer_classes = []
+        self.assertTrue(login_stub.trains(npc, types.SimpleNamespace(klass=28)))
 
 
 class ArchiveSearchTests(unittest.TestCase):

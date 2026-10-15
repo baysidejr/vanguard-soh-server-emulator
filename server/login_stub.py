@@ -6803,7 +6803,7 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(merchant.DIALOG_WARES))
     if npc.repairs:
         out.append(zone.zone_event(merchant.DIALOG_REPAIR))
-    if npc.trainer:
+    if trains(npc, player):
         out.append(zone.zone_event(trainer.OPTION))
     if npc.recipe_trainer:
         out.append(zone.zone_event(trainer.RECIPE_OPTION))
@@ -8714,6 +8714,13 @@ def learn_ability(state, n, aid, tag):
     print(f"  {player.name} learned {ability[2]}")
 
 
+def trains(npc, player):
+    """An ability trainer for this player's class: mobs.json "trainer" and, if it has one,
+    "trainer_classes" (class names) listing the classes it trains."""
+    classes = getattr(npc, "trainer_classes", None) or []
+    return bool(npc.trainer) and (not classes or races_classes.class_name(player.klass) in classes)
+
+
 def handle_trainer_event(state, event, data):
     """Ability trainer (trainer.py): list what the class can learn next, sell it."""
     player, send = state["player"], state["send"]
@@ -8722,7 +8729,7 @@ def handle_trainer_event(state, event, data):
     offers = class_abilities.trainable(ARGS.client_dir, player.klass, learned)
     if event == trainer.START:
         npc = player.npcs.get(player.target) if player.target else None
-        if npc is None or not npc.trainer:
+        if npc is None or not trains(npc, player):
             return
         if state.get("training"):
             send(trainer.end())         # 0x493 appends: clear the earlier list
