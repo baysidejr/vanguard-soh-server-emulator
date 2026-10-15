@@ -67,6 +67,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Bug found with two clients: the group member's corpse-unlock line read "Canyon Widow has unlocked the Ranger to you." 0x685 sends the corpse first; fixed and seen live ("Ranger has unlocked the Canyon Widow to you.").
 - 2026-10-15: Builder `!reload` applies changed content now and names the first problem if it does not validate (seen live).
 - 2026-10-15: Console `reload` (unit-tested; the console only reads a real terminal, so a piped test is not possible). Unit tests for spyglass, fireworks, corpse summoning, skill direction, stage banner.
 - 2026-10-15: Combat-form ability restrictions (forms.json `abilities`, ability record #61-68, server refusal); seen live. `!forms` resends the ability book. Unit test FormRestrictionTests.

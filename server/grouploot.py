@@ -106,7 +106,8 @@ def loot_buttons(group, npc):
 # Corpse unlock lines (FUN_005213b0 / FUN_00521520, text in VGClient.int): 0x684 {bool8 ok,
 # wstr name, bool8 group}: not ok "CorpseYouCannotUnlock"; empty name "CorpseUnlockedToAll" (The
 # corpse is now unlocked for everyone that is allowed to loot it.); else CorpseUnlockedToPCGroup /
-# CorpseUnlockedToPC with the name. 0x685 {wstr who, wstr corpse}: "%1 has unlocked the %2 to you."
+# CorpseUnlockedToPC with the name. 0x685 {wstr corpse, wstr who}: "<who> has unlocked the <corpse> to you."
+# (the client fills %1 from the second string; seen live 2026-10-15)
 UNLOCK_RESULT, UNLOCKED_TO_YOU = 0x684, 0x685
 
 
@@ -115,7 +116,7 @@ def unlock_result(ok=True, name="", group=False):
 
 
 def unlocked_to_you(who, corpse):
-    return _event(UNLOCKED_TO_YOU, _w(who) + _w(corpse))
+    return _event(UNLOCKED_TO_YOU, _w(corpse) + _w(who))
 
 
 def loot_button(event_id, shown):
