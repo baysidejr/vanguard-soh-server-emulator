@@ -1027,8 +1027,8 @@
       "item attach result (\"You have successfully attached a new item!\"); attachments are content"
     ],
     "0x6ee": [
-      "optional",
-      "brotherhood member list update {i32, i32} (BrotherhoodMemberList)"
+      "variant",
+      "{i32 member id, i32 amount} (FUN_0046f1b0): brotherhood XP sharing; the earner's contribution (+0x30) grows by amount x member count and every other member's (+0x2c) by amount; the server resends the member record (0x6ea) with the new contribution instead [decoded 2026-10-15]"
     ],
     "0x4e8": [
       "optional",

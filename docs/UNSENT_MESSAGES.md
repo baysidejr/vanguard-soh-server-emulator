@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 504 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 92 |
-| variant | 51 |
+| optional | 91 |
+| variant | 52 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 628 of 720 (87%). Still open: 92 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 629 of 720 (87%). Still open: 91 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -350,7 +350,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 628 of 720 (87%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x6ee | MsgTwoInts | i32, i32 | optional | brotherhood member list update {i32, i32} (BrotherhoodMemberList) |
+| 0x6ee | MsgTwoInts | i32, i32 | variant | {i32 member id, i32 amount} (FUN_0046f1b0): brotherhood XP sharing; the earner's contribution (+0x30) grows by amount x member count and every other member's (+0x2c) by amount; the server resends the member record (0x6ea) with the new contribution instead [decoded 2026-10-15] |
 
 ## FUN_004b7550 (crafting actions): 1
 
