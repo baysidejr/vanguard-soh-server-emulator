@@ -320,6 +320,24 @@ class SphereTests(unittest.TestCase):
         self.assertEqual(len(msgs), 2)
         self.assertEqual(msgs[-1][10:], struct.pack("<ii", 3, 1))
 
+class QuestIconTests(unittest.TestCase):
+    def test_npc_icon(self):
+        import types
+        import quest
+        quests = {"a": {"id": 1, "giver": "orin", "level": 10, "kill": {"wolf": 2}},
+                  "b": {"id": 2, "giver": "orin", "level": 10, "requires": ["a"]},
+                  "c": {"id": 3, "giver": "smith", "level": 1, "sphere": "crafting"}}
+        log = types.SimpleNamespace(active={}, done=[])
+        have = lambda name: 0
+        self.assertEqual(quest.npc_icon(quests, "orin", log, have, 10), quest.ICON_AVAILABLE)
+        self.assertEqual(quest.npc_icon(quests, "smith", log, have, 20), 1 * 5 + quest.ICON_LOW)
+        self.assertIsNone(quest.npc_icon(quests, "nobody", log, have, 10))
+        log.active["a"] = {"step": 0, "count": 2}
+        state = quest.npc_icon(quests, "orin", log, have, 10)
+        self.assertEqual(state, quest.ICON_DONE)                       # kills done, hand in to orin
+        self.assertEqual(struct.unpack("<HIIQB", quest.show_icon(7, 3)), (2, 0x560, 9, 7, 3))
+
+
 class LoadPathTests(unittest.TestCase):
     """The faster paths used with many players give the same bytes as the plain ones."""
 

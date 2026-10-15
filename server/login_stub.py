@@ -4312,6 +4312,7 @@ def world_tick(zone_sock, clients, args):
             form_bar_tick(state, now)
             for m in encounter.sync(state.setdefault("encounter", {}), player, player.npcs):
                 state["send"](m)
+            refresh_quest_icons(state)
             reactions_tick(state, now)
         for action in combat.tick(player, now):
             if action[0] == "swing":
@@ -6186,6 +6187,28 @@ def quest_talk(state, npc):
             line = line or st[prog["step"]].get("say")
             quest_advance(state, key, q, npc.entity_id)
     return line
+
+
+def refresh_quest_icons(state):
+    """Keep the quest icons over this player's NPCs up to date (sends only changes)."""
+    player = state.get("player")
+    if player is None or "send" not in state:
+        return
+    shown = state.setdefault("quest_icons", {})
+    have = have_items(player)
+    quests = ARGS.content.quests
+    for npc in list(player.npcs.values()):
+        if not npc.alive or not getattr(npc, "template_id", None):
+            continue
+        kind = quest.npc_icon(quests, npc.template_id, player.quests, have, player.level_number)
+        if kind == shown.get(npc.entity_id):
+            continue
+        if kind is None:
+            shown.pop(npc.entity_id, None)
+            state["send"](quest.clear_icon(npc.entity_id))
+        else:
+            shown[npc.entity_id] = kind
+            state["send"](quest.show_icon(npc.entity_id, kind))
 
 
 def quest_items_changed(state):

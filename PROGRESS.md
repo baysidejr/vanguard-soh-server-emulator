@@ -38,6 +38,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Quest icons over NPCs (0x560/0x563): available, in progress, ready to hand in, low; verified live (gold star over Orin, blue dots after accepting).
 - 2026-10-14: 35 more client handlers decoded (agent, static): quest icons over NPCs (0x560-0x563), loot sparkle (0x564), Auto Defensive Target Me option (0x11b), item cooldown groups (0x1e5), duel pet lists (0x406/0x407), screenshot-upload ids (0x62b/c/e) and more. Undecoded: 38 -> 3.
 - 2026-10-14: tools/scenarios.py: two headless players check chat, group invite and a full trade (item for coins, verified in the database). All PASS.
 - 2026-10-14: CI (GitHub Actions) green again: two tests that read the game client's packages had failed every push since the morning; they now skip without the client.

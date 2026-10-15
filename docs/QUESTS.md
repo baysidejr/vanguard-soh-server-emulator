@@ -244,3 +244,7 @@ NPCs with an entry in `server/content/dialogs.json` talk in conversation trees. 
 
 - **Abandon (verified live):** the journal's Abandon (after its confirmation) sends **0x15f** `{i32 quest id}`; the server drops the quest and answers **0x2c3** `{i32 quest id, u8 0, u8 0}`, which prints "Quest abandoned." and removes it from the journal and tracker.
 - **Share (not yet tried with two clients):** Share sends **0x166** `{i32 quest id}`; groupmates who don't have the quest (and have done its prerequisites) get the offer page (0x2c0) and "Ranger shares the quest Wanderer Trouble with you."; their Accept (0x15d) is allowed away from the quest giver for a shared quest.
+
+## Quest icons over NPCs (verified live 2026-10-14)
+
+0x560 `{eid64 npc, u8 type}` puts a quest icon over an NPC; 0x561 `{eid64, u8}` removes it if the type matches, 0x562 removes all, 0x563 `{eid64}` removes one NPC's. type = sphere x 5 + state: states 0 Soon, 1 Available, 2 In progress, 3 Done, 4 Low; spheres 0 adventure, 1 crafting, 2 diplomacy (the client's FX table, FUN_0058df90: `FXspells_QuestIcon<State>[Craft|Diplo]001fx`). The server picks one icon per NPC (Done > Available > In progress > Low; Soon for a quest with a `min_level` the player has not reached; Low = 10 levels below, a placeholder) and refreshes them once a second (`refresh_quest_icons`). Seen: a gold star shield over Orin for Forge Supplies, a blue "..." shield once it was accepted.

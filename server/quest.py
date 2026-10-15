@@ -160,6 +160,52 @@ def finished(q):
     return _event(0x2C5, struct.pack("<iBB", q["id"], 0, 0))
 
 
+# Quest icons over NPCs (decoded 2026-10-14): 0x560 {eid64, u8 type} shows one, 0x561 {eid64, u8}
+# removes it if the type matches, 0x562 removes all, 0x563 {eid64} removes one entity's.
+# type = sphere * 5 + state (client FX table FUN_0058df90: FXspells_QuestIcon<State>[Craft|Diplo]001fx).
+ICON_SOON, ICON_AVAILABLE, ICON_IN_PROGRESS, ICON_DONE, ICON_LOW = 0, 1, 2, 3, 4
+SPHERES = {"adventure": 0, "crafting": 1, "diplomacy": 2}
+LOW_LEVELS = 10            # placeholder: a quest this many levels below the player is "low"
+
+
+def icon_type(state, sphere="adventure"):
+    return SPHERES.get(sphere, 0) * 5 + state
+
+
+def npc_icon(quests, tpl, log, have, level):
+    """The icon over the NPC with template tpl for a player (quest log, item counts, level), or
+    None: something to hand in here beats a new quest, beats one in progress, beats a low one."""
+    best = None
+    rank = {ICON_DONE: 4, ICON_AVAILABLE: 3, ICON_IN_PROGRESS: 2, ICON_LOW: 1, ICON_SOON: 0}
+    for key, q in quests.items():
+        if key in log.done:
+            continue
+        state = None
+        if key in log.active:
+            if ready(q, log.active[key], have) and turn_in(q) == tpl:
+                state = ICON_DONE
+            elif q.get("giver") == tpl or turn_in(q) == tpl:
+                state = ICON_IN_PROGRESS
+        elif q.get("giver") == tpl and all(r in log.done for r in q.get("requires", [])):
+            if level < q.get("min_level", 0):
+                state = ICON_SOON
+            elif q.get("level", level) + LOW_LEVELS <= level:
+                state = ICON_LOW
+            else:
+                state = ICON_AVAILABLE
+        if state is not None and (best is None or rank[state] > rank[best[0]]):
+            best = (state, q.get("sphere", "adventure"))
+    return icon_type(*best) if best else None
+
+
+def show_icon(eid, kind):
+    return _event(0x560, struct.pack("<QB", eid, kind))
+
+
+def clear_icon(eid):
+    return _event(0x563, struct.pack("<Q", eid))
+
+
 def new_progress():
     return {"step": 0, "count": 0}
 
