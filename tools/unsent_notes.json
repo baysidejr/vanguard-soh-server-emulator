@@ -519,12 +519,12 @@
       "group drain result line {eid64, wstr, i32, u8}; needs drain abilities"
     ],
     "0x27c": [
-      "optional",
-      "ability text lines {wstr, i32}; not decoded further"
+      "content",
+      "damage distribution line {wstr ability, i32 amount} (FUN_004359f0 / FUN_00435b20): \"Your <ability> distributes <n> damage away from you.\" printed on chat channel 0x20; needs damage-spreading abilities (wards); tried 2026-10-15 with {\"Stone Ward\", 40}: nothing appeared in the default chat tab, so channel 0x20 is filtered there"
     ],
     "0x27d": [
-      "optional",
-      "ability text lines {wstr, i32}; not decoded further"
+      "content",
+      "damage distribution line {wstr ability, i32 amount} (FUN_004359f0 / FUN_00435b20): \"Your <ability> distributes <n> damage away from you.\" printed on chat channel 0x20; needs damage-spreading abilities (wards); tried 2026-10-15 with {\"Stone Ward\", 40}: nothing appeared in the default chat tab, so channel 0x20 is filtered there (same text as 0x27c)"
     ],
     "0x27e": [
       "content",

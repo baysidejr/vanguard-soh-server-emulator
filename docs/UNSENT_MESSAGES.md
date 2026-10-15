@@ -7,13 +7,13 @@ The client handles 720 zone messages; the server code mentions 506 of them (70%)
 | Category | Count |
 |---|---|
 | variant | 75 |
-| optional | 42 |
+| optional | 40 |
 | blocked | 33 |
-| content | 31 |
+| content | 33 |
 | no-op | 25 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 678 of 720 (94%). Still open: 42 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 680 of 720 (94%). Still open: 40 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -157,8 +157,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 678 of 720 (94%).
 | 0x193 | MsgClientMessagePendingDeath | eid64, wstr, i32 | optional | {eid64 entity, wstr text, i32}: seen live, prints the text in gray in chat at once (sent with i32 0 about a living NPC); a scripted NPC line, needs content |
 | 0x194 | MsgDisplayAlertPendingDeath | eid64, wstr, i32 | optional | {eid64 entity, wstr text, i32}: seen live with i32 0 about a living NPC that was then killed: nothing showed; the i32 or the entity state it needs is unknown; tried 2026-10-15 on the player itself with i32 1, 5 and 30: nothing in chat or on screen |
 | 0x246 | MsgAbilityGroupDrainResult | eid64, wstr, i32, u8 | optional | group drain result line {eid64, wstr, i32, u8}; needs drain abilities |
-| 0x27c | MsgStringAndInt | wstr, i32 | optional | ability text lines {wstr, i32}; not decoded further |
-| 0x27d | MsgStringAndInt | wstr, i32 | optional | ability text lines {wstr, i32}; not decoded further |
+| 0x27c | MsgStringAndInt | wstr, i32 | content | damage distribution line {wstr ability, i32 amount} (FUN_004359f0 / FUN_00435b20): "Your <ability> distributes <n> damage away from you." printed on chat channel 0x20; needs damage-spreading abilities (wards); tried 2026-10-15 with {"Stone Ward", 40}: nothing appeared in the default chat tab, so channel 0x20 is filtered there |
+| 0x27d | MsgStringAndInt | wstr, i32 | content | damage distribution line {wstr ability, i32 amount} (FUN_004359f0 / FUN_00435b20): "Your <ability> distributes <n> damage away from you." printed on chat channel 0x20; needs damage-spreading abilities (wards); tried 2026-10-15 with {"Stone Ward", 40}: nothing appeared in the default chat tab, so channel 0x20 is filtered there (same text as 0x27c) |
 | 0x27e | MsgStringAndInt | wstr, i32 | content | "Your %s distributes %i" (spread heals or damage); needs such abilities |
 | 0x27f | MsgStringAndInt | wstr, i32 | content | "Your %s distributes %i" (spread heals or damage); needs such abilities |
 | 0x281 | MsgSingleEntityId | eid64 | content | {eid64}: sets EntityTypes bit 0x10000 on a pawn, the daze idle animation; needs daze abilities (FUN_00433930) [decoded 2026-10-14] |
