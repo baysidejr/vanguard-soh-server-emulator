@@ -47,6 +47,8 @@ class Content:
         self.rescues = _load(os.path.join(directory, "rescues.json"))
         self.songs = _load(os.path.join(directory, "songs.json"))
         self.forms = _load(os.path.join(directory, "forms.json"))
+        hints_path = os.path.join(directory, "hints.json")
+        self.hints = _load(hints_path) if os.path.exists(hints_path) else {}
         aa_path = os.path.join(directory, "aa.json")
         self.aa = _load(aa_path) if os.path.exists(aa_path) else {}
         self._terrain = {}

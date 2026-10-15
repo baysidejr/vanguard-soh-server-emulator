@@ -27,6 +27,7 @@ import class_abilities
 import chat
 import combat
 import aa
+import hints
 import group
 import grouploot
 import encounter
@@ -1110,6 +1111,10 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
                 w.broadcast(lambda s: [m for m in (
                     zone.npc_update(s, args, npc, {"Health": 0, "m_bIsDead": 1}),
                     combat.play_animation(npc, combat.ANIM_DEATH)) if m is not None])
+    if player.pending_rewards:
+        m = hint(player, "kill")
+        if m:
+            out.append(m)
     for amount in player.pending_rewards:
         members = [s for s in group_states(player) if s.get("world") is state.get("world")]             or [state]
         share = max(1, amount * (100 + 10 * (len(members) - 1)) // 100 // len(members))
@@ -1828,6 +1833,35 @@ def handle_aa_event(state, args, event, data):
         send(build_system_text(f"{p.name} now has {p.aa_points} AA points.", SYSTEM_TEXT_WHITE))
 
 
+def hint(player, key):
+    """The hint popup for a trigger (hints.py), once per character; None if not due."""
+    content = getattr(ARGS, "content", None)
+    seen = player.__dict__.setdefault("hints_seen", [])
+    h = hints.pick(getattr(content, "hints", {}) or {}, key, seen, getattr(player, "hints_off", False))
+    if h is None:
+        return None
+    seen.append(key)
+    save_character_field(player.name, "hints_seen", seen)
+    return hints.show(*h)
+
+
+def handle_hint_event(state, event):
+    """0x17f closed with "Do not show me any more hints", /hintsenable, /craftinghintsenable,
+    /hintsreset."""
+    player = state["player"]
+    if event == hints.CLOSED_NO_MORE:
+        player.hints_off = True
+    elif event in (hints.ENABLE, hints.ENABLE_CRAFTING):
+        player.hints_off = False
+        state["send"](build_system_text("Hints are turned on.", SYSTEM_TEXT_WHITE))
+    elif event == hints.RESET:
+        player.hints_off = False
+        player.hints_seen = []
+        save_character_field(player.name, "hints_seen", [])
+        state["send"](build_system_text("Hints you have already seen will be shown again.", SYSTEM_TEXT_WHITE))
+    save_character_field(player.name, "hints_off", player.hints_off)
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -1859,6 +1893,9 @@ def award_xp(player, amount, source, grouped=False):
         leveled = True
     out.append(zone.score_message(player))           # recomputes maximum health for the new level
     if leveled:
+        m = hint(player, "level")
+        if m:
+            out.append(m)
         player.health = player.stats["hit_points"]  # a level up heals you fully
         out.append(zone.health_update(player))
         for name in vgmsg.ATTRIBUTES:                # class attributes grew with the level
@@ -1896,6 +1933,9 @@ def player_death(state, args, player):
     """The player's pawn falls (m_bIsDead + death animation) and the release
     popup opens. Death adds experience debt; the tombstone appears on release."""
     print(f"  <- {player.name} died")
+    m = hint(player, "death")
+    if m:
+        state["send"](m)
     for s in group_states(player):
         if s is not state:
             s["send"](zone.zone_event(0x691, struct.pack("<Q", player.char_id)))   # "<name> died!!"
@@ -5481,7 +5521,8 @@ def open_loot(state, npc):
     msgs = combat.loot_messages(npc)
     group_loot_opened(state, npc)
     loot_coin(state, npc)
-    return msgs
+    m = hint(state["player"], "loot")
+    return msgs + ([m] if m else [])
 
 
 def assign_loot_turn(npc):
@@ -8922,6 +8963,8 @@ def player_from_character(char, name, args):
     player.apply_form_on_death = char.get("apply_form_on_death", False)
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
+    player.hints_seen = list(char.get("hints_seen") or [])
+    player.hints_off = bool(char.get("hints_off", False))
     player.aa_ranks = {int(k): int(v) for k, v in (char.get("aa_ranks") or {}).items()}
     player.aa_points = int(char.get("aa_points", 0))
     player.aa_spent = int(char.get("aa_spent", 0))
@@ -9055,6 +9098,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 forms_login(state)
                 house_npcs_login(state)
                 combat_sheet_login(state)
+                m = hint(state["player"], "welcome")
+                if m:
+                    send_message(sock, addr, state, m)
                 # The saved Auto Defensive Target Me option back into the client (0x11b {bool8}).
                 send_message(sock, addr, state, zone.zone_event(
                     AUTO_DEF_TARGET_ME_SET, bytes([bool(getattr(state["player"], "auto_def_target_me", False))])))
@@ -9638,6 +9684,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in hints.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_hint_event(state, struct.unpack_from("<I", payload, 2)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in aa.CLIENT_EVENTS:
             if state.get("player"):
                 handle_aa_event(state, args, struct.unpack_from("<I", payload, 2)[0], payload[10:])
@@ -9908,7 +9957,7 @@ def try_delete_character(sock, addr, state, payload):
 # getting up from feign death (pawn +0x3e9, set while m_bIsDead +0x3e8; FUN_009db5a0 /
 # FUN_005eef50; no feign-death ability here yet), 0x3a0 {eid64, bool8} the encounter display's
 # entity is gone client-side (FUN_004b3bd0; the client clears the display itself).
-CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x17F, 0x183, 0x189, 0x27A,
+CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x183, 0x189, 0x27A,
                   0x18A, 0x3A0}
 
 

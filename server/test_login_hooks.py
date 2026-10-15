@@ -677,3 +677,21 @@ class UseItemTests(unittest.TestCase):
             login_stub.use_item(state, args, p.items[0])
         self.assertEqual(sent[-1], zone.zone_event(0x1C5, bytes([7])))
         self.assertEqual((p.health, len(p.items)), (70, 1))
+
+
+class HintTests(unittest.TestCase):
+    def test_once_per_character_and_off(self):
+        import hints
+        args = mock.Mock()
+        args.content.hints = {"welcome": {"title": "Hi", "text": "Move"}, "death": {"title": "D", "text": "x"}}
+        p = zone.Player(name="R", char_id=1, level="c1")
+        with mock.patch.object(login_stub, "ARGS", args), \
+                mock.patch.object(login_stub, "save_character_field", lambda *a: None):
+            m = login_stub.hint(p, "welcome")
+            self.assertEqual(m, hints.show(2, "Hi", "Move"))
+            self.assertIsNone(login_stub.hint(p, "welcome"))         # once
+            self.assertIsNone(login_stub.hint(p, "level"))           # no such hint
+            login_stub.handle_hint_event({"player": p, "send": [].append}, hints.CLOSED_NO_MORE)
+            self.assertIsNone(login_stub.hint(p, "death"))           # turned off
+            login_stub.handle_hint_event({"player": p, "send": [].append}, hints.RESET)
+            self.assertIsNotNone(login_stub.hint(p, "welcome"))
