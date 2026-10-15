@@ -513,7 +513,11 @@ def log_client_rpc(state, b, args, player):
         if moved:
             broadcast_movement(state, args, player, loc, params.get("View"))
         if moved and not getattr(args, "quiet_packets", False):
-            print(f"  >>> UNREAL {name}: position {loc}")
+            extra = ""
+            if getattr(player, "flying", False):
+                view = params.get("View") or 0
+                extra = f" view pitch {((view >> 15) & 0x7FFF) * 2} yaw {(view & 0x7FFF) * 2}"
+            print(f"  >>> UNREAL {name}: position {loc}{extra}")
             save = player.save_position
             now = time.time()
             # Ignore positions at the world origin: the client reports one when the
