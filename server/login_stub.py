@@ -1935,12 +1935,16 @@ def handle_skill_direction(state, data):
     if len(data) < 12:
         return
     sid, direction, category = struct.unpack_from("<iii", data)
-    if category != attributes.CRAFTING or direction not in attributes.DIRECTIONS \
-            or sid not in {s for s, _sub in attributes.CRAFT_SKILLS}:
+    if direction not in attributes.DIRECTIONS:
+        return
+    if category != attributes.CRAFTING or sid not in {s for s, _sub in attributes.CRAFT_SKILLS}:
+        state["send"](attributes.direction_result(attributes.DIRECTION_NO_SKILL, sid, category,
+                                                  getattr(player, "skill_dirs", {}).get(sid, 0)))
         return
     player.skill_dirs = {**getattr(player, "skill_dirs", {}), sid: direction}
     save_character_field(player.name, "skill_dirs", {str(k): v for k, v in player.skill_dirs.items()})
     state["send"](attributes.craft_skill_update(sid, zone.sphere(player, zone.CRAFTING)[0], direction))
+    state["send"](attributes.direction_result(attributes.DIRECTION_OK, sid, category, direction))
 
 
 def handle_allocate(state, data):

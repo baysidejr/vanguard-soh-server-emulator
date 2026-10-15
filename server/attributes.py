@@ -117,6 +117,18 @@ def craft_skill_records(level, dirs=None):
                             raw={11: dirs.get(sid, 0)}) for sid, sub in CRAFT_SKILLS]
 
 
+# The answer to a skill's - / lock / + button (FUN_00574850): 0x2d8 {i32 result, i32 stat id,
+# i32 category, i32 direction}. Result 0 "You successfully set the directional movement of your
+# skill.", 1 "You may only set the directional movement of skills.", 2 "You don't have that
+# skill.", 0xff "...failed ... for unknown reasons."; the stat's direction (+0x44) is set either way.
+DIRECTION_RESULT = 0x2D8
+DIRECTION_OK, DIRECTION_NOT_SKILL, DIRECTION_NO_SKILL = 0, 1, 2
+
+
+def direction_result(result, sid, category, direction):
+    return _event(DIRECTION_RESULT, struct.pack("<iiii", result, sid, category, direction))
+
+
 def craft_skill_update(sid, level, direction):
     """0x2d4 for one crafting skill with its direction (field 9); every other field resent."""
     import vgmsg

@@ -720,7 +720,7 @@
     ],
     "0x2d8": [
       "optional",
-      "/skillmovementset answer {4 x i32} (\"You successfully set the directional movement of your skill\")"
+      "skill direction answer {i32 result, i32 stat, i32 category, i32 direction} (FUN_00574850): sent for every - / lock / + skill button (attributes.direction_result) [sent 2026-10-15]"
     ],
     "0x2d9": [
       "content",
