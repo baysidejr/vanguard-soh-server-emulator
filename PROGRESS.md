@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Quest option types decoded live (7 check = complete, 8 dots = in progress, 9 star = available; all click to 0x15c). Bug fixed: every quest option showed the green check; now each state has its icon. TESTING regression list: check the three icons.
+
 - 2026-10-15: Scenario "parley line": a bot hails Orin and gets 0x321 with the parley option id, presence and type from diplomacy.json. 12 scenarios now.
 
 - 2026-10-15: Scenario "quest reply": a bot targets the Thestran Guard and picks the quest reply; it gets Wanderer Trouble's offer page (the scenario setup clears the quests the bots copy from Ranger). Conversation replies are now logged.

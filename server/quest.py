@@ -21,7 +21,11 @@ import struct
 import time
 
 OFFER, IN_PROGRESS, READY, DONE = 0, 1, 3, 4
-OPTION_TYPE = 7
+# 0x2bf quest option types (verified live 2026-10-15, all clicks send 0x15c): the icon beside the
+# option is the quest state's: 7 a green check (complete, turn in), 8 blue dots (in progress),
+# 9 a yellow star (available).
+OPTION_COMPLETE, OPTION_PROGRESS, OPTION_AVAILABLE = 7, 8, 9
+OPTION_TYPES = (OPTION_COMPLETE, OPTION_PROGRESS, OPTION_AVAILABLE)
 CLICK_OPTION, ACCEPT, CONTINUE, COMPLETE, REQUEST_INFO = 0x15C, 0x15D, 0x160, 0x161, 0x164
 ABANDON, SHARE = 0x15F, 0x166          # {i32 quest id}: journal Abandon (after its confirm), Share
 SELECT_REWARD, REWARD_INFO = 0x163, 0x162   # {i32 quest id, i32 item id} / {i32 quest id}

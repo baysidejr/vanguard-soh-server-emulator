@@ -680,10 +680,10 @@ class LearnActionTests(unittest.TestCase):
 class GreetTests(unittest.TestCase):
     def test_greet_kinds(self):
         npc = mock.Mock(merchant=None, trainer=None, recipe_trainer=None, assembly_trainer=[])
-        t = login_stub.quest.OPTION_TYPE
+        q = login_stub.quest
         self.assertEqual(login_stub.greet_kind(npc, []), login_stub.GREET_GENERAL)
-        self.assertEqual(login_stub.greet_kind(npc, [("Wolf Pelts", 1, t)]), login_stub.GREET_QUESTER)
-        self.assertEqual(login_stub.greet_kind(npc, [("Wolf Pelts (in progress)", 1, t)]), login_stub.GREET_PROGRESS)
+        self.assertEqual(login_stub.greet_kind(npc, [("Wolf Pelts", 1, q.OPTION_AVAILABLE)]), login_stub.GREET_QUESTER)
+        self.assertEqual(login_stub.greet_kind(npc, [("Wolf Pelts (in progress)", 1, q.OPTION_PROGRESS)]), login_stub.GREET_PROGRESS)
         npc.merchant = "camp"
         self.assertEqual(login_stub.greet_kind(npc, []), login_stub.GREET_MERCHANT)
 

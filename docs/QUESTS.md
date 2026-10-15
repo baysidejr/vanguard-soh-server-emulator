@@ -226,7 +226,7 @@ Not used for this: **0x2a2/0x2a3** MsgQuestJournalAdd. That is the Adventure Jou
    - To finish, send 0x2c5 `{QID, 0, 0}` ("Robed Wanderers completed.", the quest leaves the journal) and 0x3d5 XP `{amount, 0, 0, 0, 0, npc, 0, 0}`.
 
 ## 5. Open points
-- Which of types 7/8/9 means "available / in progress / turn-in": only the click path is observed (all send 0x15c).
+- **Option types 7/8/9 (verified live 2026-10-15):** the icon beside a quest option in the Dialogue window: **7** a green check (complete, ready to turn in), **8** blue dots (in progress), **9** a yellow star (available), the same symbols as the quest icons over NPCs. All three send 0x15c when clicked. The server used 7 for every state until then (in-progress quests showed the check); it now sends 9 / 8 / 7 (`quest.OPTION_AVAILABLE` / `OPTION_PROGRESS` / `OPTION_COMPLETE`). Seen: "Supplies for the Forge (in progress)" with blue dots, and clicking it opened the progress page.
 - The meaning of 0x2b0, fields 15/19/20/21, and the records' fields b and d.
 - That the client accepts 0x2c0 without a prior 0x2bb: 0x2c0 opens the dialogue page itself through FUN_004c40a0(1).
 - Test live.

@@ -162,6 +162,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 
 **Quests and NPCs**
 - [ ] Wanderer Trouble: offer, tracker, kill counts, pick a reward
+- [ ] Quest options in the Dialogue window: a yellow star for an available quest, blue dots for one in progress, a green check for one ready to turn in
 - [ ] Click the chosen reward again: Complete hides; choose again and complete
 - [ ] NPCs talk now and then (Thestran Guard, Garret Holm); Orin's greeting voice plays
 - [ ] With a tombstone out, Veyla's "I'd like to summon my earthly remains." brings it to you

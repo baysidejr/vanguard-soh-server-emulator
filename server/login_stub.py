@@ -6768,11 +6768,11 @@ def npc_dialog(state, npc):
         if key in log.active:
             prog = log.active[key]
             if quest.ready(q, prog, have) and quest.turn_in(q) == tpl:
-                opts.append((f"{q['name']} (complete)", q["id"], quest.OPTION_TYPE))
+                opts.append((f"{q['name']} (complete)", q["id"], quest.OPTION_COMPLETE))
             elif q.get("giver") == tpl:
-                opts.append((f"{q['name']} (in progress)", q["id"], quest.OPTION_TYPE))
+                opts.append((f"{q['name']} (in progress)", q["id"], quest.OPTION_PROGRESS))
         elif q.get("giver") == tpl and all(r in log.done for r in q.get("requires", [])):
-            opts.append((q["name"], q["id"], quest.OPTION_TYPE))
+            opts.append((q["name"], q["id"], quest.OPTION_AVAILABLE))
             greeting = greeting or q.get("greeting")
     # Start clean: 0x55f closes an open Dialogue window and frees all its options
     # (0x2bf only replaces quest options), and an empty 0x3ea clears the text
@@ -6828,10 +6828,10 @@ GREET_GENERAL, GREET_QUESTER, GREET_PROGRESS, GREET_TRAINER, GREET_MERCHANT = ra
 
 
 def greet_kind(npc, opts):
-    texts = [o[0] for o in opts if len(o) > 2 and o[2] == quest.OPTION_TYPE]
-    if any(t.endswith("(complete)") or t.endswith("(in progress)") for t in texts):
+    kinds = [o[2] for o in opts if len(o) > 2 and o[2] in quest.OPTION_TYPES]
+    if any(k in (quest.OPTION_COMPLETE, quest.OPTION_PROGRESS) for k in kinds):
         return GREET_PROGRESS
-    if texts:
+    if kinds:
         return GREET_QUESTER
     if npc.merchant:
         return GREET_MERCHANT
