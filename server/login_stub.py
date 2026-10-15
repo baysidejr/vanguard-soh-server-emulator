@@ -634,6 +634,10 @@ def movement_tick(zone_sock, clients, args):
             values = combat.chase_step(npc, target, MOVE_TICK)
             if values:
                 zone.queue_npc_move(w, args, npc, values)
+                if "Health" in values:
+                    # Healed after evading: refresh the target frame of anyone targeting it.
+                    msg = combat.target_health(npc)
+                    w.broadcast(lambda s, npc=npc, msg=msg: msg if s["player"].target == npc.entity_id else None)
 
 
 def use_ability(state, args, player, ability):
