@@ -2332,7 +2332,7 @@ def handle_altar_use(state, npc):
     if not stone:
         send(zone.zone_event(0x0E, struct.pack("<h", NO_CORPSES)))
         return
-    where = stone["level"] if stone["level"] != player.level else "the Sundering Wastes"
+    where = chunk_display_name(stone["level"])        # the zone's name ("Khal") for the corpse list
     send(zone.zone_event(0x2BC, struct.pack("<i", 1) + (f"{where}\0").encode("utf-16-le")
                          + struct.pack("<ii", zone.tombstone_eid(player), 0)))
 
