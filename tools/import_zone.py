@@ -51,10 +51,10 @@ def level_name(x, y):
     return f"chunk_{'n' if x < 0 else ''}{abs(x)}_{'n' if y < 0 else ''}{abs(y)}"
 
 
-def archive_npcs(raw=RAW):
-    """name -> newest npc record (the batches are read in name order, later ones win)."""
+def archive_npcs(raw=RAW, kind="npc"):
+    """name -> newest record of that kind (the batches are read in name order, later ones win)."""
     recs = {}
-    for fn in sorted(glob.glob(os.path.join(raw, "*", "npc.jsonl"))):
+    for fn in sorted(glob.glob(os.path.join(raw, "*", f"{kind}.jsonl"))):
         with open(fn, encoding="utf-8", errors="ignore") as f:
             for line in f:
                 try:
@@ -104,8 +104,31 @@ def template(rec):
     return t
 
 
-def plan(zone, recs, chunks):
-    """(level, {key: template}, [spawn]) for a zone's NPCs that have a position."""
+QUEST_LOC = re.compile(r"(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)(?:.*\((-?\d+),\s*(-?\d+)\))?")
+
+
+def quest_giver_spots(zone, quests, chunk):
+    """giver name -> ((x, y, z), quest record) from the zone's quest records: a quest's archive
+    "location" is where it starts, i.e. where its giver stands ("33289, -95029, 2936 in Khal
+    (-13, -9)"). Only spots in the zone's own chunk; the first quest of each giver wins."""
+    out = {}
+    for q in sorted(quests.values(), key=lambda r: r["name"]):
+        if q.get("zone") != zone or not q.get("giver") or "," in q["giver"]:
+            continue                      # "Kurake , Kurake Wamani": several names, which one is unclear
+        for loc in (q.get("archive_fields") or {}).get("location") or []:
+            m = QUEST_LOC.search(str(loc))
+            if not m:
+                continue
+            if m.group(4) is not None and (int(m.group(4)), int(m.group(5))) != chunk:
+                continue
+            out.setdefault(q["giver"], (tuple(float(m.group(i)) for i in (1, 2, 3)), q))
+            break
+    return out
+
+
+def plan(zone, recs, chunks, quests=None, continent=None):
+    """(level, {key: template}, [spawn]) for a zone's NPCs that have a position, then the quest
+    givers the NPC records don't place, at their quests' start locations."""
     if zone not in chunks:
         raise SystemExit(f"{zone!r} is not in ChunkNames.txt")
     level = level_name(*chunks[zone])
@@ -115,6 +138,15 @@ def plan(zone, recs, chunks):
         if rec.get("zone") != zone or pos is None:
             continue
         key = key_for(rec["name"])
+        mobs[key] = template(rec)
+        spawns.append({"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0})
+    for giver, (pos, q) in quest_giver_spots(zone, quests or {}, chunks[zone]).items():
+        key = key_for(giver)
+        if key in mobs:
+            continue
+        rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level")})
+        rec.setdefault("sources", q.get("sources"))
+        rec.setdefault("continent", continent)          # the zone's, for the placeholder race
         mobs[key] = template(rec)
         spawns.append({"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0})
     return level, mobs, spawns
@@ -167,8 +199,10 @@ def main(argv=None):
     ap.add_argument("zone", help='the zone name as in ChunkNames.txt, e.g. "Khal"')
     ap.add_argument("--apply", action="store_true", help="add to server/content instead of writing drafts")
     a = ap.parse_args(argv)
-    level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks())
-    print(f"{a.zone}: {level}, {len(spawns)} NPCs with a position in the archive")
+    zone_rec = archive_npcs(kind="zone").get(a.zone) or {}
+    level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks(), archive_npcs(kind="quest"),
+                               zone_rec.get("continent"))
+    print(f"{a.zone}: {level}, {len(spawns)} NPCs with a position in the archive (NPC records and quest start locations)")
     if not a.apply:
         out = os.path.join(DRAFTS, re.sub(r"[^A-Za-z0-9]+", "_", a.zone))
         write(os.path.join(out, "mobs.json"), mobs)

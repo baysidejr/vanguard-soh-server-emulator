@@ -1634,6 +1634,23 @@ class ImportZoneTests(unittest.TestCase):
             self.assertEqual(kept["arch_afshin_budjiri"]["name"], "Edited by a builder")
             self.assertEqual(kept["arch_afshin_budjiri"]["level"], 40)                 # missing fields added
 
+    def test_quest_givers_from_quest_locations(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        quests = {
+            "A": {"name": "A", "zone": "Khal", "giver": "Wadj Peheb", "level": 5,
+                  "archive_fields": {"location": ["33289, -95029, 2936 in Khal (-13, -9)"]}},
+            "B": {"name": "B", "zone": "Khal", "giver": "Kurake , Kurake Wamani",
+                  "archive_fields": {"location": ["1, 2, 3 in Khal (-13, -9)"]}},
+            "C": {"name": "C", "zone": "Khal", "giver": "Far Away",
+                  "archive_fields": {"location": ["1, 2, 3 in Elsewhere (-14, -9)"]}}}
+        spots = import_zone.quest_giver_spots("Khal", quests, (-13, -9))
+        self.assertEqual(list(spots), ["Wadj Peheb"])        # several names and other chunks are skipped
+        level, mobs, spawns = import_zone.plan("Khal", {}, {"Khal": (-13, -9)}, quests, "Qalia")
+        self.assertEqual(spawns, [{"mob": "arch_wadj_peheb", "x": 33289, "y": -95029, "z": 2936, "yaw": 0}])
+        self.assertEqual((mobs["arch_wadj_peheb"]["level"], mobs["arch_wadj_peheb"]["race"]), (5, 13))
+
     def test_trainer_classes(self):
         import login_stub
         npc = types.SimpleNamespace(trainer=True, trainer_classes=["Ranger"])

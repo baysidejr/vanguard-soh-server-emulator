@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: import_zone places quest givers at their quests' start locations too (quest archive locations carry the chunk); Khal now has 59 NPCs. Quests themselves wait for more data: of Khal's 200, 108 have no objectives yet and most kill targets have no positions.
+
 - 2026-10-15: Class trainers: mobs.json trainer_classes (only those classes see and use the trainer; verified live in Khal). The archive importer maps services (banker, repair, broker, class trainers); Khal regenerated with a trainer for every class and a banker. Re-runs add missing fields to existing templates without changing edited ones.
 
 - 2026-10-15: Archive NPC positions decoded: they are chunk-local x, y, z, and the client's ChunkNames.txt maps zone names to chunks. tools/import_zone.py places a zone's archive NPCs (drafts, or --apply into content). First import: Khal (27 NPCs, chunk -13 -9); seen live: Afshin Budjiri (Trainer) in his hall, as a Qaliathari.
