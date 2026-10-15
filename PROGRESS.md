@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 40 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 39 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 

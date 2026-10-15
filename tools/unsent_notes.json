@@ -803,8 +803,8 @@
       "ActiveQuestList refresh signal; the journal's list fills from the quest entries (0x2cb) without it (seen live 2026-10-15)"
     ],
     "0x2c6": [
-      "optional",
-      "quest details window refresh {i32} (_quest_details_* scroll windows)"
+      "variant",
+      "{i32 quest id} (FUN_005a0bb0): redraws that quest if it is the one on the open dialogue page (mgr+0x84, by page state +0x11c) or the one selected in the journal (mgr+0x200); the server resends the whole page (0x2c0 / 0x2cb) instead [checked 2026-10-15]"
     ],
     "0x2c9": [
       "variant",

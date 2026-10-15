@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 506 of them (70%)
 
 | Category | Count |
 |---|---|
-| variant | 75 |
-| optional | 40 |
+| variant | 76 |
+| optional | 39 |
 | blocked | 33 |
 | content | 33 |
 | no-op | 25 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 680 of 720 (94%). Still open: 40 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 681 of 720 (94%). Still open: 39 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -226,7 +226,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 680 of 720 (94%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x2a9 | (none) |  | variant | ActiveQuestList refresh signal; the journal's list fills from the quest entries (0x2cb) without it (seen live 2026-10-15) |
-| 0x2c6 | MsgSingleInt | i32 | optional | quest details window refresh {i32} (_quest_details_* scroll windows) |
+| 0x2c6 | MsgSingleInt | i32 | variant | {i32 quest id} (FUN_005a0bb0): redraws that quest if it is the one on the open dialogue page (mgr+0x84, by page state +0x11c) or the one selected in the journal (mgr+0x200); the server resends the whole page (0x2c0 / 0x2cb) instead [checked 2026-10-15] |
 | 0x2c9 | MsgQuestInitClient | i32 questId, wstr, i32, u8, i32, f32, i64, i32, i32, i32 | variant | quest journal init list (MsgQuestInitClient); the server sends quest pages individually |
 | 0x2ce | MsgQuestConditionsMet | eid64, i32, bool8 | variant | quest conditions met {eid64, i32 quest, bool8}: marks the journal entry ready (record +0x9c) and redraws it; the server sends the quest page in its ready state instead |
 | 0x2d1 | MsgIntAndFloat | i32, f32 | content | {i32 quest id, f32 seconds left}: quest timer; needs timed quests (FUN_00592b70) [decoded 2026-10-14] |
