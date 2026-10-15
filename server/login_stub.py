@@ -4581,6 +4581,30 @@ def use_tombstone(state):
     return True
 
 
+# Corpse summoning (verified live 2026-10-15): an NPC with mobs.json "corpse_summoner" offers the
+# client's dialog option 0x2b9 (type 0xb, "summon my corpse") while the player has a tombstone;
+# choosing it sends 0x167 (no payload). The tombstone moves to the player's feet (same chunk).
+SUMMON_CORPSE_OPTION, SUMMON_CORPSE = 0x2B9, 0x167
+
+
+def summon_corpse(state, args):
+    player, send = state["player"], state["send"]
+    npc = player.npcs.get(player.target) if player.target else None
+    if npc is None or not getattr(npc, "corpse_summoner", False):
+        return
+    send(zone.zone_event(quest.END_CONVERSATION))
+    if not getattr(player, "tombstone", None):
+        send(build_system_text("You have no tombstone to summon.", SYSTEM_TEXT_ERROR))
+        return
+    pos = state.get("position") or player.live_position
+    if pos is None or player_distance(player, npc) > SERVICE_RANGE:
+        send(client_notice(TOO_FAR_AWAY))
+        return
+    player.died_at = (pos[0] + 80.0, pos[1], pos[2])
+    place_tombstone(state, args, player)
+    send(build_system_text(f"{npc.name} summons your tombstone to you.", SYSTEM_TEXT_WHITE))
+
+
 def recover_tombstone(state, player, npc):
     """Looting your own tombstone: it crumbles and half the experience debt comes back."""
     if getattr(npc, "tombstone_of", "").lower() != player.name.lower():
@@ -6438,6 +6462,8 @@ def npc_dialog(state, npc):
     if npc.banker:
         out.append(zone.zone_event(bank.OPTION))
         out.append(zone.zone_event(merchant.DIALOG_ESCROW))
+    if getattr(npc, "corpse_summoner", False) and getattr(player, "tombstone", None):
+        out.append(zone.zone_event(SUMMON_CORPSE_OPTION))
     if not state.get("parley"):
         out.append(zone.zone_event(NPC_GREET, struct.pack("<i", greet_kind(npc, opts))))
     return out
@@ -10271,6 +10297,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (DECONSTRUCT_ITEMS, DECONSTRUCT_DUST):
             if state.get("player"):
                 handle_deconstruct(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == SUMMON_CORPSE:
+            if state.get("player"):
+                summon_corpse(state, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CONVERT_REQUEST:
             if state.get("player"):
                 handle_conversion(state, payload[10:])

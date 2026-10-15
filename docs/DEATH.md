@@ -144,3 +144,7 @@ There is no client code that parses an altar-specific window. An altar is a pawn
 - `/corpsedrag` and `/tombstonedrag` send **0x17a** (no payload). The server moves the targeted tombstone (or your own) to your feet for everyone in the chunk if it is yours or its owner consented to you and it is within 1500 units ("You drag Ranger's tombstone."; the owner's map marker moves too). Failures are 0x5fa `{u8}`: 2 no consent, 3 no target ("You must first target a corpse that you wish to drag."), 4 zone, 5 invalid target, 6 too far (1 is a developer-only success line).
 - `/decaytime` sends **0x3dd**; the answer is 0x688 `{i32 seconds}` ("The corpse will decay in 172789 seconds."). Tombstones last 48 hours (reported only; they don't decay yet).
 - A group member's death sends 0x691 `{eid64}` to the rest of the group ("<name> died!!").
+
+## Summoning your tombstone (verified live 2026-10-15)
+
+An NPC with mobs.json `"corpse_summoner": true` (Veyla Brightsteel) adds the client's dialog option 0x2b9 while you have a tombstone: "I'd like to summon my earthly remains." Choosing it sends **0x167** (no payload); the tombstone moves to your feet ("Veyla Brightsteel summons your tombstone to you.", `login_stub.summon_corpse`). Free and in the same chunk; who offers it and what it costs is content.

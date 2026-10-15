@@ -25,7 +25,7 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x128` |  | `0x54abfe` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x129` |  | `0x54cc16` | **Unreachable:** nothing calls or points to the sending function. |
 | `0x137` |  | `0x5d5f0a` | TJTrackEntryChange / TravelJournalIsTracking. No payload; sent when travel-journal tracking changes. Tracking is client-only (docs/TRAVEL.md), so nothing to answer. |
-| `0x167` |  | `0x4c47e6` | no payload: the NPC dialog option of type 11, "summon my corpse" (FUN_004c4640 case 11, docs/QUESTS.md). Only sent if an NPC's dialog offers that option, which is server content (no such NPC yet) |
+| `0x167` |  | `0x4c47e6` | no payload: the NPC dialog option of type 11, "summon my corpse" (FUN_004c4640 case 11, docs/QUESTS.md). Offered by mobs.json `corpse_summoner` NPCs (Veyla Brightsteel); moves the tombstone to the player (docs/DEATH.md) |
 | `0x17e` |  | `0x5d9145` | tutorial popup closed (ui `tutorial_done`). Tutorials are server content (docs/CONTENT_EDITOR.md); no reply needed |
 | `0x17f` |  | `0x5d9155` | tutorial popup closed with "do not show again" (ui `tutorial_done`). Tutorials are server content |
 | `0x183` |  | `0x68b207` | death-penalty tutorial closed (ui `death_penalty_tutorial_done`, docs/DEATH.md). Tutorials are server content |
