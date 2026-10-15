@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 501 of them (69%)
 
 | Category | Count |
 |---|---|
-| optional | 96 |
-| variant | 50 |
+| optional | 95 |
+| variant | 51 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 624 of 720 (86%). Still open: 96 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 625 of 720 (86%). Still open: 95 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -334,7 +334,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 624 of 720 (86%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x35a | - |  | no-op | the dispatcher returns at once |
-| 0x35c | (none) |  | optional | prestige factions refresh signal (PCPrestigeFactions) |
+| 0x35c | (none) |  | variant | PCPrestigeFactions refresh signal; 0x35b / 0x35d with prestige = 1 already fill and refresh the list (seen live) |
 
 ## FUN_00577bc0 (stats and skills): 2
 
