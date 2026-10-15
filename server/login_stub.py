@@ -3281,6 +3281,7 @@ def build_spawn(state, args, key, wander=0):
         w.broadcast(lambda s, eid=npc.entity_id: zone.close_actor(s, eid))
     push_undo(state, path, old_text, undo, f"spawn of {template.get('name', key)}")
     print(f"  builder: {player.name} spawned {key} at {entry['x']}, {entry['y']} (spawn {n})")
+    audit("builder_spawn", by=player.name, chunk=player.level, mob=key, x=entry["x"], y=entry["y"])
 
 
 BUILD_UNDO_DEPTH = 20
@@ -3311,6 +3312,7 @@ def build_undo(state):
     live_undo()
     state["send"](build_system_text(f"Undid the {label}.", SYSTEM_TEXT_WHITE))
     print(f"  builder: {state['player'].name} undid the {label}")
+    audit("builder_undo", by=state["player"].name, undid=label)
 
 
 def targeted_spawn(state, args):
@@ -3364,6 +3366,7 @@ def build_edit(state, args, what, value=None):
         return
     write_spawn_file(path, doc)
     send(build_system_text(text + f" (spawn {i}, saved)", SYSTEM_TEXT_WHITE))
+    audit("builder_edit", by=state["player"].name, chunk=state["player"].level, mob=npc.template_id, change=what, value=value)
 
     def undo(npc=npc, before=before):
         npc.wander, npc.respawn, npc.path = before
@@ -3394,6 +3397,7 @@ def build_despawn(state, args):
         w.broadcast(lambda s, back=back: zone.open_npc(s, args, back))
     push_undo(state, path, old_text, undo, f"removal of {npc.name}")
     print(f"  builder: {player.name} removed {npc.template_id} spawn {match}")
+    audit("builder_despawn", by=player.name, chunk=player.level, mob=npc.template_id, x=removed["x"], y=removed["y"])
 
 
 # Builder commands without --dev-commands: characters with access_level >= BUILDER_LEVEL
