@@ -26,7 +26,7 @@ Classes `(none)` = handler ignores payload (signal); `(raw)` = handler reads the
 | 0x1 | (raw) | eid64 (+0), bool8 (+8), then string at +10 | FUN_00620750 | Also id 0x9. Raw struct; FUN_00b70ae0(eidLo,eidHi,bool,0,str). Purpose unknown (entity/name related). Observed raw read. |
 | 0x9 | (raw) | same as 0x1 | FUN_00620750 | Same handler as 0x1. |
 | 0xf | MsgTwoStringsAndInt | wstr, wstr, i32 | inline | Two strings + int -> chat/text window routing (FUN_0057f7d0/FUN_005897b0/FUN_00589410). Inferred: chat/tell message. |
-| 0x2d | (raw) | eid64 a, eid64 b(or -1), i32 @+0x10, i32 @+0x14, i32 @+0x18 | FUN_0061fcb0 | Looks up entity a (and optional b) then FUN_00bc3780(...) -> actor animation/effect between two entities. Inferred. |
+| 0x2d | (raw) | eid64 a, eid64 b(or -1), i32 @+0x10, i32 @+0x14, i32 @+0x18 | FUN_0061fcb0 | Looks up entity a (and optional b) then FUN_00bc3780(...) -> actor animation/effect between two entities. Inferred. FUN_00bc3780 turns the ints into names through FUN_00bc2b20 / FUN_00bc2c70, which index client tables by id range (1-999, 1001-1099, 2001-2099, 3001-3099) and attach with FUN_00bbb3d0 (2026-10-15). Tried live with ids 1 and 5 on the player: nothing clearly attributable. |
 | 0x2e | (raw) | eid64, i32, i32 | FUN_0061fd10 | Look up entity then FUN_00bbb490(i32,i32). Inferred actor state/anim. |
 | 0x30 | (none) |  | inline | VGMID_PENDING_DISCONNECT: "Setting zone connection to pending close because we zoning!" Observed. |
 | 0x6f | (raw packet) | i16 subtype (4 or 10), ... | FUN_00622250 | Housing packets: subtype 4 -> FUN_0071a500 housing sub-dispatch; 10 -> HousingTeleportDataPacket. Observed. |
