@@ -638,6 +638,28 @@ class LootSparkleTests(unittest.TestCase):
         self.assertFalse(login_stub.corpse_lootable(mock.Mock(prop=True)))
 
 
+class EscrowTests(unittest.TestCase):
+    def test_full_bags_go_to_escrow_then_a_banker_hands_it_over(self):
+        sent = []
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        banker = mock.Mock(banker=True)
+        player.npcs, player.target = {7: banker}, 7
+        state = {"player": player, "send": sent.append}
+        with mock.patch.object(login_stub, "save_character_field"),                 mock.patch.object(login_stub, "player_distance", return_value=10),                 mock.patch.object(login_stub, "quest_items_changed"):
+            with mock.patch.object(login_stub.zone, "free_bag_slot", return_value=None):
+                self.assertTrue(login_stub.give_item(state, "Tattered Cloth", 2))
+                self.assertFalse(login_stub.give_item(state, "Rough Stone", escrow=False))
+            self.assertEqual([e[0] for e in player.escrow], ["Tattered Cloth"])
+            sent.clear()
+            login_stub.handle_escrow_event(state, login_stub.merchant.REQ_ESCROW_OPEN, b"")
+            ids = [struct.unpack_from("<I", m, 2)[0] for m in sent if isinstance(m, bytes)]
+            self.assertEqual(ids[-3:], [0x28D, 0x295, 0x294])
+            login_stub.handle_escrow_event(state, login_stub.merchant.REQ_ESCROW_TAKE,
+                                           struct.pack("<i", login_stub.merchant.ESCROW_HANDLE_BASE))
+        self.assertEqual(player.escrow, [])
+        self.assertEqual([i[1] for i in player.items][-1:], ["Tattered Cloth"])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

@@ -122,6 +122,7 @@ The client forces item+0x58b = 0xFF (normal tooltip path). [O]
 
 Escrow / repair (not needed for a basic vendor) [O]:
 - Escrow start 0x28d, item 0x295, list publish 0x294, remove 0x296 {i32 handle}.
+- **Escrow (verified live 2026-10-15):** items that don't fit in the bags (quest and parley rewards, dev gives, fixtures picked up, assembly output; `login_stub.give_item`) wait in the character's escrow (`escrow` field) with "Your bags are full: X is waiting for you in escrow." Every banker's dialog gets option 0x2b6, which the client labels "Do I have any escrow items that I can claim?". Clicking it sends 0xed; the server answers 0x28b, 0x28d (shows the "Escrow Merchant" window), 0x295 per item (0x285 layout, price 0, field 12 = stack size) and 0x294. Right-clicking an item (UI action 0xb7 `merchant_escrow_buyback`) sends 0xef {i32 handle}: it goes to the bag ("You receive Rough Stone.") and the list is redrawn, or "You don't have space in your inventory for that." Chest withdrawals and mail attachments keep their item in place instead (escrow=False).
 - Repair start 0x297, entry 0x29f {i32 handle, f32 cost} (state 2), publish 0x29e, remove 0x2a0 {i32 handle}.
 - Client 0xef / 0xf2 {i32 handle} come from UI actions 0xb7 / 0xb8. 0xf3 (no payload) is action 0xb9 (repair-all?) [I].
 

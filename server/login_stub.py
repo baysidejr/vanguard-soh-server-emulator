@@ -2531,7 +2531,7 @@ def handle_chest(state, event, vals):
         # bag slot; a count below the stack leaves the rest in the chest.
         it = next((x for x in f["items"] if x[0] == vals[1]), None)
         count = vals[2] if it is not None and len(vals) >= 3 and 0 < vals[2] < it[3] else (it[3] if it else 0)
-        if it is None or not give_item(state, it[1], count):
+        if it is None or not give_item(state, it[1], count, escrow=False):
             return
         if count < it[3]:
             it[3] -= count
@@ -6403,7 +6403,48 @@ def npc_dialog(state, npc):
         out.append(zone.zone_event(market.OPTION))
     if npc.banker:
         out.append(zone.zone_event(bank.OPTION))
+        out.append(zone.zone_event(merchant.DIALOG_ESCROW))
     return out
+
+
+def add_escrow(state, name, qty=1):
+    player = state["player"]
+    player.escrow = list(getattr(player, "escrow", [])) + [[name, zone.item_icon(name, 443), qty]]
+    save_character_field(player.name, "escrow", player.escrow)
+    what = name if qty == 1 else f"{qty} {name}"
+    state["send"](build_system_text(f"Your bags are full: {what} is waiting for you in escrow. "
+                                    "Any banker can hand it over.", SYSTEM_TEXT_ERROR))
+
+
+def handle_escrow_event(state, event, data):
+    """The Escrow Merchant window at a banker (merchant.escrow_window)."""
+    player, send = state["player"], state["send"]
+    npc = player.npcs.get(player.target) if player.target else None
+    if npc is None or not npc.banker:
+        send(merchant.close_window(2))
+        return
+    if player_distance(player, npc) > SERVICE_RANGE:
+        send(merchant.close_window(1))
+        return
+    escrow = list(getattr(player, "escrow", []))
+    if event == merchant.REQ_ESCROW_OPEN:
+        send(zone.zone_event(0x55F))          # the window replaces the dialogue
+        for m in merchant.escrow_window([tuple(e) for e in escrow]):
+            send(m)
+        return
+    n = struct.unpack_from("<i", data, 0)[0] - merchant.ESCROW_HANDLE_BASE if len(data) >= 4 else -1
+    if not 0 <= n < len(escrow):
+        return
+    name, _icon, qty = escrow[n]
+    if not give_item(state, name, qty, escrow=False):
+        return
+    escrow.pop(n)
+    player.escrow = escrow
+    save_character_field(player.name, "escrow", escrow)
+    # Handles are list positions: redraw the list so they stay in step.
+    for m in merchant.escrow_window([tuple(e) for e in escrow]):
+        send(m)
+    quest_items_changed(state)
 
 
 def task_master_option(npc):
@@ -6727,10 +6768,14 @@ def quest_items_changed(state):
             quest_advance(state, key, q, player.char_id)
 
 
-def give_item(state, name, qty=1, quiet=False):
-    """Put a new item in the player's bags; False if they are full."""
+def give_item(state, name, qty=1, quiet=False, escrow=True):
+    """Put a new item in the player's bags. When they are full the item goes to escrow (any
+    banker hands it over), or with escrow=False nothing happens and the result is False."""
     player, send = state["player"], state["send"]
     slot = zone.free_bag_slot(player)
+    if slot is None and escrow:
+        add_escrow(state, name, qty)
+        return True
     if slot is None:
         send(client_notice(NO_SPACE))
         return False
@@ -7248,7 +7293,7 @@ def handle_mail_event(state, event, data):
             send(build_system_text("You can't afford the cash on delivery price.", SYSTEM_TEXT_ERROR))
             return
         it = m["item"]
-        if not give_item(state, it["name"], it.get("qty", 1)):
+        if not give_item(state, it["name"], it.get("qty", 1), escrow=False):
             return
         if cod:
             player.coins -= cod
@@ -9274,6 +9319,7 @@ def player_from_character(char, name, args):
     player.tombstone = char.get("tombstone")
     player.bind = char.get("bind")
     player.dialog_rewards = list(char.get("dialog_rewards", []))
+    player.escrow = [list(e) for e in char.get("escrow", [])]
     player.played = int(char.get("played", 0))
     player.titles = list(char.get("titles", []))
     player.songs = list(char.get("songs", []))
@@ -9975,6 +10021,10 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
                     quest_items_changed(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
+                merchant.REQ_ESCROW_OPEN, merchant.REQ_ESCROW_TAKE):
+            if state.get("player"):
+                handle_escrow_event(state, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 merchant.REQ_REPAIR_OPEN, merchant.REQ_REPAIR, merchant.REQ_REPAIR_ALL):
             if state.get("player"):

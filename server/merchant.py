@@ -47,12 +47,12 @@ def dialog(npc):
     return [_event(DIALOG_OPEN, struct.pack("<Q", npc.entity_id)), _event(DIALOG_WARES)]
 
 
-def merchant_item(item_id, handle, name, icon, price, slot=-1, description=""):
+def merchant_item(item_id, handle, name, icon, price, slot=-1, description="", qty=1):
     """0x285 MsgClientMerchantItem (serializer FUN_00542950)."""
     return (struct.pack("<ii", item_id, handle) + _w(name) + _w(description) + _w("")
             + struct.pack("<iiif", slot, 0, icon, float(price))
             + struct.pack("<BBB", 0, 1, 0)
-            + struct.pack("<iiiii", 1, 0, 0, 0, 100)
+            + struct.pack("<iiiii", qty, 0, 0, 0, 100)
             + _w("") + _w("") + struct.pack("<8i", *[-1] * 8) + _w("")
             + struct.pack("<3i", -1, -1, -1) + _w("") + _w(""))
 
@@ -138,6 +138,32 @@ def buyback_price(handle, price):
 
 def buyback_removed(handle):
     return _event(0x1D9, struct.pack("<i", handle))
+
+
+# Escrow (verified live 2026-10-15): items that didn't fit in the bags wait with any banker.
+# Dialog option 0x2b6 (type 0xe) "escrow" -> client 0xed (FUN_005462c0) -> 0x28b clear, 0x28d
+# (FUN_00542ba0: sets EscrowMerchantTranactionStarted, which shows the "Escrow Merchant" window),
+# 0x295 MsgClientMerchantItem per item (same layout as 0x285, into list +0x18), 0x294 publishes
+# EscrowMerchantItemList. Right-clicking an item (UI action 0xb7 merchant_escrow_buyback) sends
+# 0xef {i32 handle}; 0x296 {i32 handle} takes it off the list. Closing is the merchant close.
+DIALOG_ESCROW = 0x2B6
+REQ_ESCROW_OPEN, REQ_ESCROW_TAKE = 0xED, 0xEF
+ESCROW_OPEN, ESCROW_ITEM, ESCROW_PUBLISH, ESCROW_REMOVE = 0x28D, 0x295, 0x294, 0x296
+ESCROW_HANDLE_BASE = 80000
+
+
+def escrow_window(entries):
+    """entries: [(name, icon, qty)]; handle = ESCROW_HANDLE_BASE + index."""
+    out = [_event(WINDOW_CLEAR), _event(ESCROW_OPEN)]
+    for n, (name, icon, qty) in enumerate(entries):
+        h = ESCROW_HANDLE_BASE + n
+        out.append(_event(ESCROW_ITEM, merchant_item(h, h, name, icon, 0, qty=qty)))
+    out.append(_event(ESCROW_PUBLISH))
+    return out
+
+
+def escrow_removed(handle):
+    return _event(ESCROW_REMOVE, struct.pack("<i", handle))
 
 
 def repair_window(entries):
