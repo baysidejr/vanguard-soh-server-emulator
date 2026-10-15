@@ -7059,7 +7059,14 @@ def handle_workorder_event(state, event, data):
 def wo_cleanup(state, w):
     """The order is over: forget its recipe and clear it from the character."""
     set_work_order(state, None)
-    state["send"](craft.forget_recipe(ARGS.content.recipes[w["recipe"]]))
+    r = ARGS.content.recipes[w["recipe"]]
+    state["send"](craft.forget_recipe(r))
+    # Its step actions too, unless a recipe the player keeps uses the same action.
+    kept = {st["action"] for k in zone.book_recipes(ARGS, state["player"]) if k is not r
+            for _, _, st in craft.all_steps(k)}
+    for _, _, st in craft.all_steps(r):
+        if st["action"] not in kept:
+            state["send"](craft.forget_action(st["action"]))
 
 
 def player_distance(player, npc):

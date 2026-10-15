@@ -118,6 +118,11 @@ def forget_recipe(r):
     return _event(0x2F4, struct.pack("<i", r["id"]))
 
 
+def forget_action(action_id):
+    """0x2e6 {i32 action id}: remove one known crafting action (FUN_004b66b0; 0x2e4 clears all)."""
+    return _event(0x2E6, struct.pack("<i", action_id))
+
+
 def learn_action(r, n):
     """0x2e8 {i32 action, wstr name, wstr desc, i32 icon, i32 family, i32 ap}: the
     window offers actions whose family equals the clicked step's id."""
