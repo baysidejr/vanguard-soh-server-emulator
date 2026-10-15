@@ -315,6 +315,7 @@ def maybe_flee(npc, now=None):
         return False
     npc.fled = True
     npc.feared_until = (time.time() if now is None else now) + FLEE_SECONDS
+    npc.pulled = True            # it calls for help as it runs (social_assist, next tick)
     return True
 
 

@@ -78,7 +78,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Deconstruction | what each item breaks down into (resources or dust), the kit item and its charges, level limits | items.json `salvage_kit` (Salvage Kit), `salvage` on Rusted Dagger and Hunter's Shortsword, Shimmering Dust; default 1 Copper Ingot |
 | Corpse summoning | which NPCs summon tombstones, cost, range | mobs.json `corpse_summoner` on Veyla Brightsteel (free) |
 | NPC critical chance | how often each NPC lands critical hits | mobs.json `crit` (0-1) overrides the formula (none set) |
-| NPC fleeing | which creatures run at low health, at what share, for how long, whether they call for help | mobs.json `flee_at` (0-1): runs from its attacker for 4 s once per fight; set on the two wolves at 0.2 (placeholder) |
+| NPC fleeing | which creatures run at low health, at what share, for how long, whether they call for help | mobs.json `flee_at` (0-1): runs from its attacker for 4 s once per fight and calls idle allies of its faction within 700 units ("X calls for help!", like a pull); set on the two wolves at 0.2 (placeholder) |
 | Wounds | what causes wounds and how badly, what each severity does to stats, how they heal (rest, abilities, healers) | crits wound a random part 50% of the time, rest heals one level per 20 s, release clears; no stat effect |
 | Prestige factions | which factions are prestige factions and what unlocks them | factions.json `prestige` on 1005 Order of the Riftwatch, unlocked by the Supplies for the Forge reward |
 | NPC speech | what each NPC says now and then and when it attacks (and whether real NPCs did either) | mobs.json `chatter` / `chatter_every` / `aggro_say` placeholders on the Thestran Guard, Garret Holm, the Robed Wanderer and the Dwarf Scout |

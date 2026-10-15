@@ -1046,6 +1046,10 @@ class FleeTests(unittest.TestCase):
         npc.health = 15
         self.assertTrue(c.maybe_flee(npc, 10.0))
         self.assertEqual(npc.feared_until, 10.0 + c.FLEE_SECONDS)
+        npc.aggro_on = mock.Mock(char_id=5)
+        friend = c.Npc(2, "Ashen Wolf", None, "x", max_health=100, location=(100.0, 0.0, 0.0))
+        friend.template_id = npc.template_id
+        self.assertEqual(c.social_assist(npc, [npc, friend]), [friend])     # calls for help as it runs
         self.assertFalse(c.maybe_flee(npc, 11.0))        # once per fight
 
 
