@@ -712,3 +712,21 @@ class GroupCastTests(unittest.TestCase):
             login_stub.group_cast_sync(a, a["player"], 102.0)
         self.assertEqual(sent, [group.member_casting(a["player"], 553, "Regrowth I", 2.0),
                                 group.member_cast_over(a["player"], 553)])
+
+
+class OutpostTests(unittest.TestCase):
+    def test_flag_follows_position(self):
+        sent = []
+        args = mock.Mock()
+        args.content.outposts = {"camp": {"chunk": "c1", "loc": [0, 0], "radius": 100}}
+        p = zone.Player(name="R", char_id=1, level="c1")
+        state = {"player": p, "send": sent.append, "ue": object(), "position": (500.0, 0.0, 0.0),
+                 "outpost_after": 0}
+        with mock.patch.object(login_stub, "ARGS", args):
+            login_stub.outpost_sync(state)                 # outside at first: on, then off
+            self.assertEqual(sent, [zone.zone_event(0x552, bytes([1])), zone.zone_event(0x552, bytes([0]))])
+            login_stub.outpost_sync(state)
+            self.assertEqual(len(sent), 2)                 # no change, nothing sent
+            state["position"] = (10.0, 0.0, 0.0)
+            login_stub.outpost_sync(state)
+            self.assertEqual(sent[-1], zone.zone_event(0x552, bytes([1])))

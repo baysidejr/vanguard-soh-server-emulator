@@ -5869,6 +5869,39 @@ def group_cast_sync(state, player, now):
     state["cast_shown"] = key
 
 
+# Outposts (verified live 2026-10-15): 0x552 {bool8} sets bInOutpost, which shows the Outpost
+# icon (VgrdMiniIconOutpost) on the player's portrait (VGUIPlayerStatus.xml). The server turns it
+# on inside an outposts.json area and off on leaving it.
+IN_OUTPOST = 0x552
+OUTPOST_DELAY = 5.0                     # seconds after entering the world before the first update
+
+
+def outpost_at(level, pos):
+    """The outposts.json entry containing pos in chunk level, or None."""
+    if not pos:
+        return None
+    for o in getattr(ARGS.content, "outposts", {}).values():
+        if o.get("chunk") == level and math.hypot(pos[0] - o["loc"][0], pos[1] - o["loc"][1]) <= o.get("radius", 1500):
+            return o
+    return None
+
+
+def outpost_sync(state):
+    player = state["player"]
+    if state.get("position") is None or "ue" not in state:
+        return                          # not in the world yet
+    if time.time() < state.setdefault("outpost_after", time.time() + OUTPOST_DELAY):
+        return                          # the UI resets the icon while it loads; tell it after
+    inside = outpost_at(player.level, state.get("position")) is not None
+    if inside != state.get("in_outpost"):
+        if state.get("in_outpost") is None and not inside:
+            # The icon starts visible while the game var starts false, and the client only
+            # redraws on a change: switch it on, then off (seen live).
+            state["send"](zone.zone_event(IN_OUTPOST, bytes([1])))
+        state["in_outpost"] = inside
+        state["send"](zone.zone_event(IN_OUTPOST, bytes([int(inside)])))
+
+
 def group_tick():
     """Once a second: members' positions and vitals to the rest of the group;
     group loot rolls that ran out of time; group invitations that expired (0x6b7)."""
@@ -5894,6 +5927,8 @@ def group_tick():
                                                   SYSTEM_TEXT_WHITE))
         if p is not None and getattr(p, "group", None) is not None:
             group_cast_sync(s, p, now)
+        if p is not None and s.get("send") and ARGS is not None:
+            outpost_sync(s)
     for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
               if getattr(s.get("player"), "group", None)}.values():
         lot = getattr(g, "lottery", None)

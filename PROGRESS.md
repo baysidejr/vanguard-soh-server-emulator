@@ -28,7 +28,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 587 of 720 sent or not needed (81%); open: 133 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 588 of 720 sent or not needed (81%); open: 132 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
@@ -43,6 +43,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 
 ## Done
 
+- 2026-10-15: Outposts. 0x552 {bool8} bInOutpost shows the Outpost icon (a small tower) on the portrait. The server turns it on inside content/outposts.json areas (the two camps) and off outside. The icon starts visible while the flag starts false, and the client only redraws on a change, so the first update outside sends on, then off, about 5 s after entering the world. Seen live; unit test OutpostTests.
 - 2026-10-14: Merged crowdsourced/archive-collection into main at the user's request (59dbb21): 912 files, mostly crowdsourced/raw and reviewed data plus the collection tools. No conflicts; server tests 181 OK, crowdsourced tests 133 OK, CI green.
 - 2026-10-14: The loot window's "Share Loot Rights" (0x6ca) and "Start Item Rolling" (0x6c9) buttons are now shown in the loot modes that use them. Before this they were never visible, so 0xb7 / 0xb8 were only reachable by dev command. Seen live with two clients: sharing, and a roll popup on the other member. Unit test LootButtonTests.
 - 2026-10-14: A group member's spell being cast shows by their row in the group window (0x3b3 adds the icon, 0x3b4 removes it). Seen live with two clients; unit test GroupCastTests. Also: a 10-minute soak with 50 bots kept memory flat.
