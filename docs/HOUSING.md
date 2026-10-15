@@ -437,6 +437,8 @@ FUN_004771d0(loc) and FUN_00b7e750 use FUN_00b75d40(loc) → zone (FUN_007f08d0,
   - FUN_007f08d0 found no type-3 zone, so the client offered to delete the item.
 - **Hypothesis:** the trace that picks the point and zone does not hit the prefab's static meshes, even though the pawn walks on them. That suggests those StaticMeshActors are not flagged as world geometry for TRACE_World-style traces, or the point is stale. Next steps: break in FUN_00b753d0 to see which trace it uses and what it hits, and compare the prefab StaticMeshActor flags (bWorldGeometry, bBlockZeroExtentTraces) in binaryprefabs.sgo.
 - The cottage floor is about 155 units above the plot's z (450 -> 605).
+- **Where 389 comes from (third look):** FUN_00b753d0 does return the pawn's real location (-29500, -6450, 605.2). The 389.25 is the **hit point** that FUN_00b75d40 writes back. Its downward trace (flags 0x86, in UE2 terms Movers | Level | LevelGeometry) goes **through the cottage floor** and stops on the terrain 216 units below, so the zone it reports is the outdoor one. The pawn stands on the floor, but this trace ignores the prefab's floor mesh. Moving the plot's z changed nothing (the house stays where it is).
+- **So drag placement needs the house floor to block a level-geometry trace.** The likely candidates are the prefab StaticMeshActors' world-geometry flags, or how the original spawned house prefabs (as level geometry rather than a replicated actor). Right-click placement doesn't depend on this.
 
 ### 4. Fixture placement preview (client-side ghost) [O]
 
