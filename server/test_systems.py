@@ -1670,6 +1670,27 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual(spawns, [{"mob": "arch_wadj_peheb", "x": 33289, "y": -95029, "z": 2936, "yaw": 0}])
         self.assertEqual((mobs["arch_wadj_peheb"]["level"], mobs["arch_wadj_peheb"]["race"]), (5, 13))
 
+    def test_parley_types(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        rec = {"archive_fields": {"parley types": ["[[[ Gossip ]]], , , [[[ Convice ]]], [[[ Interview ]]]"],
+                                  "presence": ["700"]}}
+        self.assertEqual(import_zone.parley_types(rec), ["gossip", "convince", "interview"])
+        t = import_zone.template(dict(rec, name="X", level=10))
+        self.assertEqual(t["parley"], ["archive_gossip_700", "archive_convince_700", "archive_interview_700"])
+        self.assertEqual(import_zone.parley_types({"archive_fields": {"parley types": [", ,"]}}), [])
+
+    def test_several_parley_offers(self):
+        import diplomacy
+        m = diplomacy.parley_offer(5, [{"type": "gossip"}, {"type": "convince", "presence": 3}])
+        _t, eid, n = struct.unpack_from("<HII", m)
+        body = m[10:10 + n]
+        self.assertEqual(struct.unpack_from("<Qi", body), (5, 2))
+        second = body.index("Let's talk business.\0".encode("utf-16-le"), 12 + 1) + len("Let's talk business.\0".encode("utf-16-le"))
+        self.assertEqual(struct.unpack_from("<iiiiBBB", body, second),
+                         (diplomacy.PARLEY_OPTION_ID + 1, 3, 0, 0, 0, 0, diplomacy.PARLEY_TYPES["convince"]))
+
     def test_trainer_classes(self):
         import login_stub
         npc = types.SimpleNamespace(trainer=True, trainer_classes=["Ranger"])
