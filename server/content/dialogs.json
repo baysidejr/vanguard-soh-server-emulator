@@ -1,5 +1,5 @@
 {
-  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item> | trade:blacksmith|outfitter|artificer (sets the crafting trade)}] (at most 5)}}}. A response with neither goto nor action ends the conversation. \"requires_flag\": a flag the player must have earned (a parley reward \"flag\") before the response shows. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item> | trade:blacksmith|outfitter|artificer (sets the crafting trade) | quest:<quest key> (opens that quest's offer or progress page; Accept works from here)}] (at most 5)}}}. A response with neither goto nor action ends the conversation. \"requires_flag\": a flag the player must have earned (a parley reward \"flag\") before the response shows. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
   "wastes_thestran_guard": {
     "start": "hello",
     "nodes": {
@@ -42,6 +42,10 @@
           {
             "text": "I'll keep an eye out. (+ camp standing)",
             "action": "faction:1001:25"
+          },
+          {
+            "text": "How do I thin the wanderers out? (quest)",
+            "action": "quest:wanderer_trouble"
           },
           {
             "text": "Back to my questions.",

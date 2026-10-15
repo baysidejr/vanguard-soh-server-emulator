@@ -74,6 +74,7 @@ Server: 44 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Conversations can offer quests: dialogs.json reply action `quest:<key>` opens the offer (Accept allowed from that NPC) or progress page; content check validates the key; the guard's "dangers" node offers Wanderer Trouble. Live: offer and Accept from the guard (tested with Wolves at the Edge, then Ranger's quests restored). Unit test DialogQuestTests. Also: editor mob fields for crit / flee_at.
 - 2026-10-15: Memorization reviewed: the Memory window is not in the shipped Index.xml and nothing else can start memorizing, so its 18 messages are blocked (676/720, 93%). Tried live: 0x230 {handle, i32, seconds} shows the "Memorizing <name>" popup, 0x226 {handle} "You have memorized <name>." closes it (docs/ABILITIES.md).
 
 - 2026-10-15: NPC fleeing: mobs.json `flee_at` (health share) makes an NPC run from its attacker for 4 s once per fight ("<name> turns to flee!"), then come back; reset on respawn and evade. Ashen/forest wolves at 0.2 (placeholder). Live: Ashen Wolf with a temporary 0.95 fled after one Blade hit. Unit test FleeTests; content check validates the value.

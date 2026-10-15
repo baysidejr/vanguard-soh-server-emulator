@@ -6915,6 +6915,9 @@ def handle_dialog_response(state, data):
         set_craft_trade(state, action.split(":", 1)[1])
     elif action == "wares" and npc.merchant:
         send(zone.zone_event(merchant.DIALOG_WARES))
+    elif action.startswith("quest:"):
+        dialog_quest(state, action.split(":", 1)[1], npc.entity_id)
+        return
     if "goto" in r:
         node = dl["nodes"][r["goto"]]
         send(quest.npc_text(npc.entity_id, ""))
@@ -6922,6 +6925,23 @@ def handle_dialog_response(state, data):
         send(quest.responses(npc.entity_id, names.index(r["goto"]), [x["text"] for x in visible_responses(player, node)]))
     elif not action or action == "end":
         send(zone.zone_event(quest.END_CONVERSATION))
+
+
+def dialog_quest(state, key, npc_eid):
+    """dialogs.json action "quest:<key>": a reply that opens the quest's page from the
+    conversation. A quest not taken yet shows its offer (Accept is allowed even when this NPC is
+    not the giver, like a shared quest); one in progress shows its progress; one already done or
+    still locked by "requires" ends the conversation."""
+    player, send = state["player"], state["send"]
+    q = ARGS.content.quests.get(key)
+    log = player.quests
+    if q is None or key in log.done or not all(r in log.done for r in q.get("requires", [])):
+        send(zone.zone_event(quest.END_CONVERSATION))
+    elif key in log.active:
+        send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], have=have_items(player)))
+    else:
+        state.setdefault("shared_quests", set()).add(key)
+        send(quest.page(q, npc_eid, quest.OFFER))
 
 
 def quest_by_id(qid):

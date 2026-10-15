@@ -239,6 +239,7 @@ NPCs with an entry in `server/content/dialogs.json` talk in conversation trees. 
 - Each node is sent as an empty 0x3ea (clear), the node text (0x3ea) and **0x2af {npc, node index, 5 x wstr}**, which replaces the previous replies.
 - A click sends **0x15b {i32 node index, u8 reply}**. The server echoes "You say, "...".", runs the reply's action (`faction:<id>:<n>`, `give:<item>`, `wares`, `end`; rewards are paid once per character, saved as `dialog_rewards`) and either sends the `goto` node or ends the conversation (0x55f).
 - The client only opens the dialogue when the player is near the NPC (hailing from about 2900 units away does nothing).
+- **Quests from a conversation (verified live 2026-10-15):** a reply with the action `quest:<quest key>` opens that quest's page in the same window (`login_stub.dialog_quest`). A quest not taken yet shows the offer, and Accept works even though the NPC is not the quest's giver (it counts as offered, like a shared quest). One in progress shows its progress. A quest already done, or still locked by `requires`, ends the conversation. Seen: the Thestran Guard's "Any dangers" node with a quest reply opened "Wolves at the Edge", and Accept put it in the journal and tracker ("You agree to hunt the timber wolves."). The shipped reply offers Wanderer Trouble.
 
 ## Abandoning and sharing (2026-10-13)
 

@@ -271,6 +271,9 @@ def validate(directory=CONTENT_DIR):
             for r in node.get("responses", []):
                 if "goto" in r and r["goto"] not in dl["nodes"]:
                     problems.append(f"dialog {mid} node {nid}: goto {r['goto']} missing")
+                act = r.get("action", "")
+                if act.startswith("quest:") and act[6:] not in c.quests:
+                    problems.append(f"dialog {mid} node {nid}: unknown quest {act[6:]}")
     for wid, w in c.workorders.items():
         if w.get("recipe") not in c.recipes:
             problems.append(f"work order {wid}: unknown recipe {w.get('recipe')}")

@@ -3,6 +3,7 @@ import json
 import os
 import struct
 import unittest
+import unittest.mock
 
 import assembly
 import bugs
@@ -538,6 +539,27 @@ class DialogFlagTests(unittest.TestCase):
         self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "c"])
         p.flags = ["x"]
         self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "b", "c"])
+
+
+class DialogQuestTests(unittest.TestCase):
+    def test_offer_progress_done(self):
+        import login_stub
+        q = {"id": 7, "name": "Q", "requires": ["first"], "steps": [{"talk": "x", "objective": "Talk"}]}
+        sent = []
+        player = types.SimpleNamespace(quests=types.SimpleNamespace(active={}, done={"first"}), items=[])
+        state = {"player": player, "send": sent.append}
+        args = types.SimpleNamespace(content=types.SimpleNamespace(quests={"q": q}))
+        with unittest.mock.patch.object(login_stub, "ARGS", args):
+            login_stub.dialog_quest(state, "q", 5)
+            self.assertEqual(payload(sent[-1])[0], 0x2C0)          # the offer page
+            self.assertIn("q", state["shared_quests"])              # Accept allowed here
+            player.quests.active["q"] = login_stub.quest.new_progress()
+            login_stub.dialog_quest(state, "q", 5)
+            self.assertEqual(payload(sent[-1])[0], 0x2C0)          # progress page
+            player.quests.done = set()                              # requirement not met
+            del player.quests.active["q"]
+            login_stub.dialog_quest(state, "q", 5)
+            self.assertEqual(payload(sent[-1])[0], login_stub.quest.END_CONVERSATION)
 
 
 class CrowdConvertTests(unittest.TestCase):
