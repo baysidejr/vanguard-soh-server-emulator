@@ -234,6 +234,6 @@ The client's packages have no general abilities (Sprint, Recall and so on), so t
 
 - `sprint` `{speed, duration}`: GroundSpeed times `speed` (1.25) for `duration` seconds ("You start to sprint." / "You stop sprinting."), like /walk and riding.
 - `recall`: teleports to the bind point ("You return to your bind point."); 10 s cast.
-- `recall_house`: teleports beside the character's own built house, if any.
+- `recall_house`: teleports beside the character's own built house, if any. Seen live (the Ranger landed by the Wastes Homestead house).
 
 Icons, descriptions and refresh times come from the VG archive (`_source` in each entry).
