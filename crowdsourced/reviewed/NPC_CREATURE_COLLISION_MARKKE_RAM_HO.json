@@ -1,0 +1,154 @@
+{
+  "batch": "raw/2026-10-15-054319-484665-archive-bulk",
+  "status": "unresolved; all colliding records withheld from conversion",
+  "collision_groups": {
+    "markke_ram_ho": [
+      {
+        "kind": "creature",
+        "record": {
+          "name": "Markke Ram´ho",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/markke-ram-ho-2",
+              "title": "Markke Ram´ho · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T09:47:22+00:00",
+          "archive_fields": {
+            "zone": [
+              "Lomshir Plain"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [],
+          "type": "creature",
+          "level": null,
+          "zone": "Lomshir Plain",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Lomshir Plain"
+          ],
+          "original_source_urls": []
+        }
+      },
+      {
+        "kind": "npc",
+        "record": {
+          "name": "Markke Ram'ho",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/markke-ram-ho",
+              "title": "Markke Ram'ho · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T09:47:17+00:00",
+          "archive_fields": {
+            "zone": [
+              "Lomshir Plain"
+            ],
+            "role": [
+              "General NPC"
+            ],
+            "difficulty": [
+              "6 dots"
+            ],
+            "location": [
+              "-62229, 31070, 11318"
+            ],
+            "chunk": [
+              "Lomshir Plain"
+            ],
+            "continent": [
+              "Qalia"
+            ],
+            "locations seen": [
+              "Dark Horse Downs"
+            ],
+            "parley types": [
+              ", ,"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Lomshir Plain",
+              "url": "https://vgsoharchive.com/zones/lomshir-plain"
+            },
+            {
+              "name": "A Case of the Jitters",
+              "url": "https://vgsoharchive.com/quests/a-case-of-the-jitters"
+            },
+            {
+              "name": "Revenge is a Scorpion",
+              "url": "https://vgsoharchive.com/quests/revenge-is-a-scorpion"
+            },
+            {
+              "name": "A Case Of The Jitters",
+              "url": "https://vgsoharchive.com/quests/a-case-of-the-jitters"
+            },
+            {
+              "name": "Revenge Is A Scorpion",
+              "url": "https://vgsoharchive.com/quests/revenge-is-a-scorpion"
+            },
+            {
+              "name": "Cabochon Of Rousenhets",
+              "url": "https://vgsoharchive.com/items/cabochon-of-rousenhets-4"
+            },
+            {
+              "name": "Card of Appeal to the Heart",
+              "url": "https://vgsoharchive.com/items/card-of-appeal-to-the-heart"
+            },
+            {
+              "name": "Obsidian Scorpion Earrings",
+              "url": "https://vgsoharchive.com/items/obsidian-scorpion-earrings"
+            }
+          ],
+          "type": "npc",
+          "level": 40,
+          "zone": "Lomshir Plain",
+          "health": null,
+          "damage": null,
+          "race": null,
+          "title": null,
+          "services": [
+            "quest giver"
+          ],
+          "quests_given": [
+            "A Case Of The Jitters",
+            "Revenge Is A Scorpion"
+          ],
+          "chunk": "Lomshir Plain",
+          "location": {
+            "raw": "-62229, 31070, 11318",
+            "format": "source coordinates; axis order unspecified",
+            "chunk": "Lomshir Plain"
+          },
+          "zones_recorded": [
+            "Lomshir Plain"
+          ],
+          "continent": "Qalia",
+          "locations_seen_recorded": "Dark Horse Downs",
+          "difficulty_recorded": "6 dots",
+          "original_source_urls": []
+        }
+      }
+    ]
+  },
+  "assessment": "Creature and NPC source pages normalize to the same conversion key. Preserve both complete source records. Name similarity alone does not establish identity or justify merging entity kind, roles, levels or locations. No identity or ID inference is made."
+}
