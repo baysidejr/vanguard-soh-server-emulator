@@ -299,7 +299,23 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         player.pending_rewards.append(kill_xp(player, npc))
     else:
         add_hate(npc, player, dmg)                # fights back from the tick (npc_turns)
+        if maybe_flee(npc):
+            lines.append((f"{npc.name} turns to flee!", "combat"))
     return lines, npc
+
+
+FLEE_SECONDS = 4.0
+
+
+def maybe_flee(npc, now=None):
+    """mobs.json "flee_at" (0-1): below that share of its health the NPC runs from its attacker
+    for FLEE_SECONDS, once per fight (the fear movement), then comes back. True when it starts."""
+    share = getattr(npc, "flee_at", None)
+    if not share or getattr(npc, "fled", False) or npc.health > share * npc.max_health:
+        return False
+    npc.fled = True
+    npc.feared_until = (time.time() if now is None else now) + FLEE_SECONDS
+    return True
 
 
 KILL_XP = 150                # experience for a kill at the player's own level (placeholder)
@@ -653,6 +669,7 @@ def chase_step(npc, target, dt, rng=random, now=None):
             if getattr(npc, "evading", False):
                 npc.evading = False
                 npc.health = npc.max_health
+                npc.fled = False
                 values = dict(values or {}, Health=npc.max_health)
                 print(f"  {npc.name} is back home at full health")
         return values
@@ -722,6 +739,7 @@ def respawns(npcs, now):
             npc.location, npc.loot, npc.wander_goal = npc.home, None, None
             npc.killer = npc.loot_owner = npc.coin_left = npc.casting = None
             npc.open_to_group, npc.pending, npc.rolled = False, set(), False
+            npc.fled = False
             npc.owner = None
             back.append(npc)
     return back

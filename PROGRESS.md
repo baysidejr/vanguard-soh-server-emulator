@@ -73,6 +73,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Done
 
+- 2026-10-15: NPC fleeing: mobs.json `flee_at` (health share) makes an NPC run from its attacker for 4 s once per fight ("<name> turns to flee!"), then come back; reset on respawn and evade. Ashen/forest wolves at 0.2 (placeholder). Live: Ashen Wolf with a temporary 0.95 fled after one Blade hit. Unit test FleeTests; content check validates the value.
 - 2026-10-15: An NPC that was fighting a pet turns on the owner (or gives up) once the pet is gone, instead of standing idle at its damaged health even without an aggro radius. Live with the Dust Bear (no aggro radius): after /pet dismiss it kept fighting Ranger (health down, a wound). Logic moved to combat.after_pet; unit test AfterPetTests.
 - 2026-10-15: An NPC whose attacker logs out (or drops) with nobody else on its hate list also walks home and heals; seen live after closing the client mid-fight (the server drops a silent connection after up to 180 s).
 - 2026-10-15: An NPC whose last attacker died now walks home and heals (it used to stand over the corpse at its damaged health); seen live (Canyon Widow after killing Ranger). The intermittent unit failure was caught: EditorAccountsTests read a reset connection after a 403 refusal. The editor now reads off an unread request body before replying (Windows sends a reset when a socket closes with unread data). Not reproducible on demand afterwards (0 of 6 full runs with either version), so the fix is the likely cause, not proven.

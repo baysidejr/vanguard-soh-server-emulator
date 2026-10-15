@@ -1023,6 +1023,19 @@ class AfterPetTests(unittest.TestCase):
         self.assertTrue(npc2.evading)                     # owner dead: walks home
 
 
+class FleeTests(unittest.TestCase):
+    def test_flees_once_below_the_share(self):
+        c = login_stub.combat
+        npc = c.Npc(1, "Ashen Wolf", None, "x", max_health=100, location=(0.0, 0.0, 0.0))
+        npc.flee_at = 0.2
+        npc.health = 50
+        self.assertFalse(c.maybe_flee(npc, 10.0))
+        npc.health = 15
+        self.assertTrue(c.maybe_flee(npc, 10.0))
+        self.assertEqual(npc.feared_until, 10.0 + c.FLEE_SECONDS)
+        self.assertFalse(c.maybe_flee(npc, 11.0))        # once per fight
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

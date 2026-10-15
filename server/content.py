@@ -125,6 +125,8 @@ def validate(directory=CONTENT_DIR):
             problems.append(f"mob {mid}: chatter must be a list of lines")
         if "chatter_every" in m and not (isinstance(m["chatter_every"], (int, float)) and m["chatter_every"] >= 10):
             problems.append(f"mob {mid}: chatter_every must be at least 10 seconds")
+        if "flee_at" in m and not (isinstance(m["flee_at"], (int, float)) and 0 < m["flee_at"] < 1):
+            problems.append(f"mob {mid}: flee_at must be a health share between 0 and 1")
         if "crit" in m and not (isinstance(m["crit"], (int, float)) and 0 <= m["crit"] <= 1):
             problems.append(f"mob {mid}: crit must be a chance from 0 to 1")
         if "aggro_say" in m and not isinstance(m["aggro_say"], str):
