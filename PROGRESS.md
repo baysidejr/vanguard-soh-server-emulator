@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Last test results
 
+- 2026-10-15 (after the NPC-file reload): tools/check_all.py --client 7 of 7 passed (unit 220, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after live mobs.json reload): tools/check_all.py --client 7 of 7 passed (unit 220, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after live spawn-file reload): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after pet default attack): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
@@ -63,6 +64,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: The live NPC reload also covers quests.json, dialogs.json and loot.json.
 - 2026-10-15: mobs.json edits also apply live to loaded chunks (seen live: a renamed guard).
 - 2026-10-15: Spawn files edited while their chunk is loaded (web editor, by hand) are applied live at the next content reload; builder saves are not reloaded twice. Seen live.
 - 2026-10-15: Pet default attack: 0x435 marks Ashfang's Savage Bite, the pet uses it whenever it is ready, 0x86/0x87 toggle it (seen live).
