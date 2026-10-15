@@ -10,7 +10,7 @@ Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a p
 
 ## Multiplayer scenarios (2026-10-14)
 
-`python tools/scenarios.py` (after `--setup`, against a running server) logs in two headless players and checks what otherwise needs two people: a chat line from one reaches the other; a group invite and accept; a trade of an item for 50 copper, verified in the database afterwards (and in `audit.log`); a private tell; founding a guild, inviting and joining (checked in the database), disbanding it; a brotherhood invite, join and leave; a duel challenge, accept, countdown and start. Last run: all seven PASS.
+`python tools/scenarios.py` (after `--setup`, against a running server) logs in two headless players and checks what otherwise needs two people: a chat line from one reaches the other; a group invite and accept; a trade of an item for 50 copper, verified in the database afterwards (and in `audit.log`); a private tell; adding a friend; founding a guild, inviting and joining (checked in the database), disbanding it; a brotherhood invite, join and leave; a duel challenge, accept, countdown and start. Last run: all eight PASS.
 
 ## Load test (2026-10-14)
 

@@ -6,6 +6,7 @@ Two load-test bots (Lbotaa = A, Lbotab = B) log in to a running server and go th
   trade  A offers an item, B offers 50 copper, both accept; the database must show the item
          with B and the coins with A
   tell   A sends B a private message
+  friend A adds B to the friends list (and removes B again)
   brotherhood  A invites B, B joins (checked in the database) and leaves again
   guild  A founds a guild and invites B, B joins (checked in the database), A disbands it
   duel   A challenges B, B accepts, the countdown runs and the duel starts
@@ -153,6 +154,15 @@ def main():
         b.pump(0.2)
         heard = any("psst from A".encode("utf-16-le") in m for m in b.got + b.world.poll())
     fails += check("tell", heard)
+
+    # Friends: world social message (type 5) 0x4f7 {wstr name, bool8 add}; A gets 0x4f2 (added).
+    a.world.send(struct.pack("<HII", 5, 0x4F7, len(wstr(b.name)) + 1) + wstr(b.name) + bytes([1]))
+    end, added = time.time() + 3, False
+    while time.time() < end and not added:
+        a.pump(0.2)
+        added = any(len(m) >= 6 and struct.unpack_from("<I", m, 2)[0] == 0x4F2 for m in a.got + a.world.poll())
+    fails += check("friend", added)
+    a.world.send(struct.pack("<HII", 5, 0x4F7, len(wstr(b.name)) + 1) + wstr(b.name) + bytes([0]))
 
     # Guild: A founds one (0x4d3 {eid64, wstr name}), invites B (0x4d5 {wstr}), B gets the
     # popup (0x4e9) and accepts (0x4d6); the saved guild lists both. Then A disbands it (0x4da).
