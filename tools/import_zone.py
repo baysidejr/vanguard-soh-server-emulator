@@ -123,6 +123,9 @@ def template(rec):
     t = {"name": rec["name"], "pawn_class": "SGONPCPawn",
          "race": CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE),
          "level": level, "health": 100 + 40 * level}
+    dots = next((int(d[0]) for d in (rec.get("archive_fields") or {}).get("difficulty") or [] if d[:1].isdigit()), None)
+    if dots:
+        t["difficulty"] = max(0, min(5, dots - 1))
     if t["race"] in (12, 13, 14):         # the human races have model variants 0-3: vary the look by name
         t["model"] = zlib.crc32(rec["name"].encode("utf-8")) % 4
     services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]
@@ -208,6 +211,8 @@ def creature_template(rec, continent):
          "health": (100 + 40 * level) * dots // 2, "damage": [max(1, level), max(2, 3 * level * dots // 3)]}
     if "Aggressive" in (af.get("behaviour") or []):
         t["aggro_radius"] = 600
+    if any(d[:1].isdigit() for d in af.get("difficulty") or []):
+        t["difficulty"] = max(0, min(5, dots - 1))      # /con wording: 1 dot slightly easier ... 6 extremely
     src = (rec.get("sources") or [{}])[0].get("url")
     if src:
         t["_source"] = src

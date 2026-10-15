@@ -867,7 +867,10 @@ def consider(player, npc):
     deathwish?"; chosen from the level difference."""
     diff = npc.level - player.level_number
     con = 4 if diff == 0 else max(0, min(7, 4 + (diff // 2 if diff > 0 else -((-diff + 1) // 2))))
-    data = struct.pack("<iiii", 0, con, 1, npc.level)
+    # difficulty (verified live 2026-10-15): 0 "slightly easier than normal for its level", 1 normal,
+    # ... 4 "much more difficult", 5 "extremely difficult". mobs.json "difficulty" (the archive's dots - 1).
+    difficulty = getattr(npc, "difficulty", None)
+    data = struct.pack("<iiii", 0, con, 1 if difficulty is None else int(difficulty), npc.level)
     data += (npc.name + "\0").encode("utf-16-le") + "\0".encode("utf-16-le")
     return struct.pack("<HII", 2, CONSIDER_RESULT, len(data)) + data
 

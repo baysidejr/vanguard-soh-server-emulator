@@ -423,3 +423,7 @@ When an NPC is pulled (its hate list goes from empty to non-empty), idle NPCs of
 ## NPC speech (2026-10-15)
 
 mobs.json `chatter` (a list of lines) makes an NPC speak now and then: the normal say line (zone event 0x0f, channel 3, "Thestran Guard says, ...") to every player within 1500 units (`login_stub.npc_chatter_tick`). The first line comes after a random part of `chatter_every` (default 120 s), then about every `chatter_every` seconds (+/- 25%); not while fighting or dead. `aggro_say` is said when the NPC notices a player on its own (proximity aggro); `{player}` becomes the player's name. Seen live 2026-10-15 with two clients at the camp: both got the Thestran Guard's and Garret Holm's lines. The lines in mobs.json are placeholders (docs/CONTENT_EDITOR.md).
+
+## Difficulty in /con (verified live 2026-10-15)
+
+The third i32 of 0x3da (MsgConsiderResult) is the difficulty sentence: **0** "This target is slightly easier than normal for its level", **1** "of average difficulty", **4** "much more difficult", **5** "extremely difficult" (2 and 3 lie between). mobs.json `"difficulty"` sets it (default 1); the archive importer sets it from the archive's difficulty dots (1 dot = 0 ... 6 dots = 5). Seen: Afshin Budjiri (none set) "of average difficulty"; probes of 0, 4 and 5 gave the sentences above.
