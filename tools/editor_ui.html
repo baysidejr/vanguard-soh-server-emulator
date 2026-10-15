@@ -93,6 +93,7 @@
         <div><label>Faction</label><select id="mFaction"></select></div>
         <div><label>Loot table</label><select id="mLoot"></select></div>
         <div><label>Merchant list</label><select id="mMerchant"></select></div>
+        <div><label>Parley (Parley tab)</label><select id="mParley"></select></div>
         <div><label>Scale</label><input id="mScale" type="number" step="0.1"></div>
         <div><label>Chatter every (seconds, default 120)</label><input id="mChatterEvery" type="number"></div>
         <div><label>Says when it attacks ({player} = their name)</label><input id="mAggroSay"></div>
@@ -419,7 +420,7 @@ $("tabMobs").onclick = () => setMode("mobs");
 let mobDoc = null, mobSel = null, raceModels = {}, modelHint = () => {};
 const FLAGS = ["trainer", "banker", "repair", "station", "task_master", "mailbox", "altar", "assembly_station", "prop"];
 const SIMPLE = { name: "mName", title: "mTitle", pawn_class: "mPawn", race: "mRace", model: "mModel", gender: "mGender",
-  level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", scale: "mScale",
+  level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", parley: "mParley", scale: "mScale",
   chatter_every: "mChatterEvery", aggro_say: "mAggroSay", crit: "mCrit", flee_at: "mFlee" };
 const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_radius", "scale", "faction", "chatter_every", "crit", "flee_at"]);
 async function initMobs() {
@@ -441,6 +442,9 @@ async function initMobs() {
   $("mFaction").innerHTML = await opts("factions.json", "name");
   $("mLoot").innerHTML = await opts("loot.json");
   $("mMerchant").innerHTML = await opts("merchants.json");
+  const parleys = JSON.parse((await api("/api/file?name=diplomacy.json")).body.text).parleys || {};
+  $("mParley").innerHTML = '<option value="">(none)</option><option value="true">(yes: the first parley)</option>' +
+    Object.keys(parleys).map(k => `<option value="${k}">${k}</option>`).join("");
   if (!schema) schema = (await api("/api/schema")).body;
   $("mFlags").innerHTML = FLAGS.map(f => `<label style="margin:0;color:#e8e2d6"><input type="checkbox" id="f_${f}" style="width:auto"> ${f}</label>`).join("");
   listMobs();
@@ -516,6 +520,7 @@ function storeMob() {                                  // the form back into mob
     if (v === "") continue;
     m[k] = NUMERIC.has(k) && !isNaN(Number(v)) ? Number(v) : v;
   }
+  if (m.parley === "true") m.parley = true;             // true: the first parley
   if ($("mDmg0").value !== "") m.damage = [Number($("mDmg0").value), Number($("mDmg1").value || $("mDmg0").value)];
   for (const f of FLAGS) if ($("f_" + f).checked) m[f] = old[f] !== undefined && old[f] !== false ? old[f] : true;
   if (gearRows.length) m.gear = gearRows.map(g => g.slice());
