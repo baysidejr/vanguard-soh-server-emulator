@@ -1506,6 +1506,9 @@ def player_pawn_values(player, location, yaw=0):
     }
     if getattr(player, "movement_mode", 2) == 1:
         values["bIsWalking"] = True             # /walk
+    if getattr(player, "flying", False):
+        values["bSimulateGravity"] = False      # a flier, for players who arrive while it flies
+        values["Physics"] = 4
     gear = gear_attachments(player)
     if gear:
         values["m_AttachmentGroups"] = gear
