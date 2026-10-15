@@ -10,6 +10,8 @@ Two load-test bots (Lbotaa = A, Lbotab = B) log in to a running server and go th
   brotherhood  A invites B, B joins (checked in the database) and leaves again
   guild  A founds a guild and invites B, B joins (checked in the database), A disbands it
   duel   A challenges B, B accepts, the countdown runs and the duel starts
+  aa     A trains an alternate advancement ability (0x85a); the server answers 0x860 and
+         saves the rank and the spent point
 Each step prints PASS or FAIL; the exit code is the number of failures.
 
     python tools/scenarios.py --setup                 (makes the two bots, gives B coins)
@@ -88,6 +90,8 @@ def main():
     if sys.argv[1:] == ["--setup"]:
         loadtest.setup(2, "Ranger")
         storage.update_character(CHARACTERS, loadtest.bot_name(1), {"coins": 500})
+        storage.update_character(CHARACTERS, loadtest.bot_name(0),
+                                 {"aa_points": 3, "aa_spent": 0, "aa_ranks": {}})
         return 0
     import zone
     pm = zone.package_map(types.SimpleNamespace(client_dir=ROOT, package_maps={}), "chunk_n19_12")
@@ -211,6 +215,15 @@ def main():
         started = a.wait_for(0x401, 15) and b.wait_for(0x401, 15)
         fails += check("duel", bool(challenged and countdown and started),
                        f"challenge={bool(challenged)}, countdown={bool(countdown)}, start={bool(started)}")
+    # Alternate advancement: A trains Hardiness (1001, 1 point) with 0x85a {i32 id}; the server
+    # answers 0x860 {id, list, rank, cost} and saves the rank and the points.
+    a.send(0x85A, struct.pack("<i", 1001))
+    trained = a.wait_for(0x860)
+    time.sleep(0.3)
+    saved = storage.read_character(CHARACTERS, a.name)
+    ok = (bool(trained) and struct.unpack_from("<iiii", trained[0])[:3] == (1001, 0, 1)
+          and saved.get("aa_ranks", {}).get("1001") == 1 and saved.get("aa_spent") == 1)
+    fails += check("aa", ok, f"0x860={bool(trained)}, ranks={saved.get('aa_ranks')}, spent={saved.get('aa_spent')}")
     a.zone.close()
     b.zone.close()
     print(f"{fails} failed")
