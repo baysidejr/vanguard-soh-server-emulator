@@ -8611,6 +8611,9 @@ def craft_action(state, session, action):
         return
     if si + 1 < len(craft.stages(r)):
         session["stage"] = si + 1
+        done_name, next_name = craft.stages(r)[si][0], craft.stages(r)[si + 1][0]
+        if done_name and next_name:
+            send(craft.banner(f"{done_name} complete. Next: {next_name}"))
         for m in craft.next_stage(si + 1):
             send(m)
         for sid in craft.missing_steps(r, {i[1] for i in state["player"].items}, si + 1):

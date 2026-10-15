@@ -231,6 +231,11 @@ def alert(text):
     return _event(0x308, _w(text) + _w("") + struct.pack("<i", 0))
 
 
+def banner(text):
+    """0x307 (FUN_005b86a0): orange screen text, the same size as the complication alert."""
+    return _event(0x307, _w(text) + _w("") + struct.pack("<i", 0))
+
+
 def screen_text(text):
     """0x2fa with step -1: white floating screen text."""
     return _event(0x2FA, _w(text) + _w("") + struct.pack("<i", -1))

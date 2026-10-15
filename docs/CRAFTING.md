@@ -297,3 +297,5 @@ The crafting journal's recipe page (Abilities window, Crafting tab: Refining / F
 ## Station use refusals (2026-10-15)
 
 Using a crafting station (0xfa) while already crafting, harvesting or assembling, while flying or while sitting gets **0x3ca** `{u8 code}` (FUN_0054a680) instead of the window: 1 "You are already using an object.", 7 "You cannot do that while flying.", 6 "You cannot do that while resting." (also 2 "That object is already in use.", 3 "You are too far away."; 4/5 print nothing). The client shows it as yellow text at the top of the screen (seen live with `!event 0x3ca 06`). `login_stub.object_use_refusal`; unit test ObjectUseTests.
+
+Stage banner: when a stage of a multi-stage recipe is done the server sends **0x307** `{wstr text, wstr "", i32 0}` (FUN_005b86a0): orange screen text plus a chat copy, "Preparation complete. Next: Smelting" (`craft.banner`; rendering seen live with `!event`).
