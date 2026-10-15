@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 461 of them (64%)
 
 | Category | Count |
 |---|---|
-| optional | 139 |
-| variant | 46 |
+| optional | 137 |
+| variant | 48 |
 | content | 40 |
 | no-op | 18 |
 | debug | 8 |
 | blocked | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 581 of 720 (80%). Still open: 139 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 583 of 720 (80%). Still open: 137 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 31
 
@@ -202,12 +202,12 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 581 of 720 (80%).
 | 0x28a | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo for a merchant list; the server uses its merchant item messages |
 | 0x28d | (none) |  | optional | escrow merchant (consignment) window: state, item list, items |
 | 0x28e | - |  | no-op | the dispatcher returns at once |
-| 0x290 | MsgSingleByte | u8 | optional | merchant error codes {u8} ("not interested", "out of range"); the client range-checks before asking |
+| 0x290 | MsgSingleByte | u8 | variant | merchant close / failure {u8 reason}: the same handler as 0x284 (FUN_00545920), which the server sends |
 | 0x293 | (none) |  | variant | no payload: same handler as 0x28b (sent), clears the merchant lists (FUN_00545460) [decoded 2026-10-14] |
 | 0x294 | (none) |  | optional | escrow merchant (consignment) window: state, item list, items |
 | 0x295 | MsgClientMerchantItem | i32, i32, wstr, wstr, wstr, i32, i32, i32, f32, u8, u8, u8, i32, i32, i32, i32, i32, 2 x [wstr], i32, i32, i32, i32, i32, i32, i32, i32, wstr, i32, i32, i32, wstr, wstr | optional | escrow merchant (consignment) window: state, item list, items |
 | 0x296 | MsgSingleInt | i32 | optional | escrow merchant (consignment) window: state, item list, items |
-| 0x29a | MsgSingleByte | u8 | optional | merchant error codes {u8} ("not interested", "out of range"); the client range-checks before asking |
+| 0x29a | MsgSingleByte | u8 | variant | merchant close / failure {u8 reason}: the same handler as 0x284 (FUN_00545920), which the server sends |
 
 ## FUN_004e2910 (groups): 10
 

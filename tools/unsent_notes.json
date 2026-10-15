@@ -663,12 +663,12 @@
       "escrow merchant (consignment) window: state, item list, items"
     ],
     "0x290": [
-      "optional",
-      "merchant error codes {u8} (\"not interested\", \"out of range\"); the client range-checks before asking"
+      "variant",
+      "merchant close / failure {u8 reason}: the same handler as 0x284 (FUN_00545920), which the server sends"
     ],
     "0x29a": [
-      "optional",
-      "merchant error codes {u8} (\"not interested\", \"out of range\"); the client range-checks before asking"
+      "variant",
+      "merchant close / failure {u8 reason}: the same handler as 0x284 (FUN_00545920), which the server sends"
     ],
     "0x293": [
       "variant",
