@@ -1,19 +1,19 @@
 {
   "summary": {
-    "batches": 287,
-    "research_rows": 51678,
-    "normalized_name_groups": 23393,
+    "batches": 288,
+    "research_rows": 51792,
+    "normalized_name_groups": 23507,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 7392,
+      "creature": 7474,
       "item": 5504,
-      "loot": 1172,
-      "npc": 2711,
+      "loot": 1181,
+      "npc": 2729,
       "quest": 11633,
       "zone": 1334,
       "ability": 21615,
       "diplomacy": 6,
-      "merchant": 303,
+      "merchant": 308,
       "recipe": 8
     },
     "errors": 0,
@@ -2312,6 +2312,16 @@
         "loot": 15,
         "merchant": 1,
         "npc": 16
+      }
+    },
+    {
+      "batch": "raw\\2026-10-15-045319-165053-archive-bulk",
+      "records": 114,
+      "counts": {
+        "creature": 82,
+        "loot": 9,
+        "merchant": 5,
+        "npc": 18
       }
     }
   ],
@@ -825270,6 +825280,1751 @@
         "The Temple Of Dailuk"
       ],
       "level": 10
+    },
+    {
+      "id": 51678,
+      "type": "creature",
+      "name": "Large Mine Crawler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-mine-crawler"
+      ],
+      "zones": [],
+      "level": 4
+    },
+    {
+      "id": 51679,
+      "type": "creature",
+      "name": "Large Mutated Crawler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-mutated-crawler"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 13
+    },
+    {
+      "id": 51680,
+      "type": "creature",
+      "name": "Large Mutated Spider Eggs",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-mutated-spider-eggs"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51681,
+      "type": "creature",
+      "name": "Large Plains Cub",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-plains-cub"
+      ],
+      "zones": [
+        "Dead Glade"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51682,
+      "type": "creature",
+      "name": "Large Pond Gnawer",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-pond-gnawer"
+      ],
+      "zones": [
+        "Renton Keep"
+      ]
+    },
+    {
+      "id": 51683,
+      "type": "creature",
+      "name": "Large Shirker",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-shirker"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ]
+    },
+    {
+      "id": 51684,
+      "type": "creature",
+      "name": "Large Skulker",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-skulker"
+      ],
+      "zones": [
+        "Khal"
+      ]
+    },
+    {
+      "id": 51685,
+      "type": "creature",
+      "name": "Large Valley Boar",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-valley-boar"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 32
+    },
+    {
+      "id": 51686,
+      "type": "creature",
+      "name": "Large Weed",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-weed"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ]
+    },
+    {
+      "id": 51687,
+      "type": "creature",
+      "name": "Large West-wake Shark",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/large-west-wake-shark"
+      ],
+      "zones": [
+        "Trial Island"
+      ]
+    },
+    {
+      "id": 51688,
+      "type": "creature",
+      "name": "Larkyn Gladesworn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/larkyn-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51689,
+      "type": "creature",
+      "name": "Lars Olson",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lars-olson"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51690,
+      "type": "creature",
+      "name": "Larzzik",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/larzzik"
+      ],
+      "zones": [
+        "Swamps Of Rumug"
+      ],
+      "level": 43
+    },
+    {
+      "id": 51691,
+      "type": "creature",
+      "name": "Lasha",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lasha"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ]
+    },
+    {
+      "id": 51692,
+      "type": "creature",
+      "name": "Lasharg The Drift",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lasharg-the-drift"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 16
+    },
+    {
+      "id": 51693,
+      "type": "creature",
+      "name": "Lasher Broodmaster",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lasher-broodmaster"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51694,
+      "type": "creature",
+      "name": "Lasher Hauler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lasher-hauler"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ]
+    },
+    {
+      "id": 51695,
+      "type": "creature",
+      "name": "Lasher Mauler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lasher-mauler"
+      ],
+      "zones": [
+        "Ksaravi Gulch"
+      ]
+    },
+    {
+      "id": 51696,
+      "type": "creature",
+      "name": "Lashtail",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lashtail"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ],
+      "level": 39
+    },
+    {
+      "id": 51697,
+      "type": "creature",
+      "name": "Latas The Siphon",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/latas-the-siphon"
+      ],
+      "zones": [
+        "Jharru Flats"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51698,
+      "type": "creature",
+      "name": "Lathelas The Lost",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lathelas-the-lost"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ]
+    },
+    {
+      "id": 51699,
+      "type": "creature",
+      "name": "Lathia Eningold",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lathia-eningold"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51700,
+      "type": "creature",
+      "name": "Lathor Wyvernfang",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lathor-wyvernfang"
+      ],
+      "zones": [
+        "River Palace"
+      ]
+    },
+    {
+      "id": 51701,
+      "type": "creature",
+      "name": "Lau Mung",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lau-mung"
+      ],
+      "zones": [
+        "Magi Hold"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51702,
+      "type": "creature",
+      "name": "Laughing Maude",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laughing-maude"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 40
+    },
+    {
+      "id": 51703,
+      "type": "creature",
+      "name": "Lavandis Weyal",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lavandis-weyal"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 51704,
+      "type": "creature",
+      "name": "Laxan Wyvernfang",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laxan-wyvernfang"
+      ],
+      "zones": [
+        "Zossyr Hakrel"
+      ]
+    },
+    {
+      "id": 51705,
+      "type": "creature",
+      "name": "Laykee",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laykee"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ],
+      "level": 40
+    },
+    {
+      "id": 51706,
+      "type": "creature",
+      "name": "Laylas the Unseen",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laylas-the-unseen"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 12
+    },
+    {
+      "id": 51707,
+      "type": "creature",
+      "name": "Lcea Traboh",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lcea-traboh"
+      ],
+      "zones": [
+        "Traboh Island"
+      ]
+    },
+    {
+      "id": 51708,
+      "type": "creature",
+      "name": "Lead Artisan",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lead-artisan"
+      ],
+      "zones": [
+        "Abella Cove"
+      ]
+    },
+    {
+      "id": 51709,
+      "type": "creature",
+      "name": "Leafsaw Crawler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leafsaw-crawler"
+      ],
+      "zones": [
+        "Cliffs Of Ghelgad"
+      ],
+      "level": 1
+    },
+    {
+      "id": 51710,
+      "type": "creature",
+      "name": "Leafshaker",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leafshaker"
+      ],
+      "zones": [
+        "Flordiel"
+      ],
+      "level": 47
+    },
+    {
+      "id": 51711,
+      "type": "creature",
+      "name": "Leaper Fawn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leaper-fawn"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51712,
+      "type": "creature",
+      "name": "Leaper Protector",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leaper-protector"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51713,
+      "type": "creature",
+      "name": "Leathela",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leathela"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 17
+    },
+    {
+      "id": 51714,
+      "type": "creature",
+      "name": "Lector Priest",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lector-priest"
+      ],
+      "zones": [
+        "Nusibe Necropolis"
+      ]
+    },
+    {
+      "id": 51715,
+      "type": "creature",
+      "name": "Ledge Crawler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ledge-crawler"
+      ],
+      "zones": [],
+      "level": 5
+    },
+    {
+      "id": 51716,
+      "type": "creature",
+      "name": "Ledge Spider",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ledge-spider"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51717,
+      "type": "creature",
+      "name": "Leechsnake",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leechsnake"
+      ],
+      "zones": [],
+      "level": 11
+    },
+    {
+      "id": 51718,
+      "type": "creature",
+      "name": "Leenea Toi",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leenea-toi"
+      ],
+      "zones": [
+        "River Palace"
+      ],
+      "level": 35
+    },
+    {
+      "id": 51719,
+      "type": "creature",
+      "name": "Leenea Toi The Temptress",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leenea-toi-the-temptress"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51720,
+      "type": "creature",
+      "name": "Leessak The Sentinel",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leessak-the-sentinel"
+      ],
+      "zones": [
+        "Ruins of Vol Tuniel"
+      ],
+      "level": 34
+    },
+    {
+      "id": 51721,
+      "type": "creature",
+      "name": "Leftoe Fuzzyfoot",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leftoe-fuzzyfoot"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 31
+    },
+    {
+      "id": 51722,
+      "type": "creature",
+      "name": "Legaira Gladesworn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legaira-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51723,
+      "type": "creature",
+      "name": "Legebor Gladesworn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legebor-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51724,
+      "type": "creature",
+      "name": "Legeren Enusinor",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legeren-enusinor"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51725,
+      "type": "creature",
+      "name": "Legion Wasp",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legion-wasp"
+      ],
+      "zones": [],
+      "level": 8
+    },
+    {
+      "id": 51726,
+      "type": "creature",
+      "name": "Legionnaire Akariva",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-akariva"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 51727,
+      "type": "creature",
+      "name": "Legionnaire Akarlva",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-akarlva"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51728,
+      "type": "creature",
+      "name": "Legionnaire Ardroth",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-ardroth"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51729,
+      "type": "creature",
+      "name": "Legionnaire Arkenviir",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-arkenviir"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51730,
+      "type": "creature",
+      "name": "Legionnaire Astyl",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-astyl"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51731,
+      "type": "creature",
+      "name": "Legionnaire Awor",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-awor"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51732,
+      "type": "creature",
+      "name": "Legionnaire Baenar",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-baenar"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51733,
+      "type": "creature",
+      "name": "Legionnaire Bakaranir",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-bakaranir"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51734,
+      "type": "creature",
+      "name": "Legionnaire Ceroyka",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-ceroyka"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51735,
+      "type": "creature",
+      "name": "Legionnaire Curindyl",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-curindyl"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51736,
+      "type": "creature",
+      "name": "Legionnaire Cybol",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-cybol"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51737,
+      "type": "creature",
+      "name": "Legionnaire Daldread",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-daldread"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 25
+    },
+    {
+      "id": 51738,
+      "type": "creature",
+      "name": "Legionnaire Defender",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-defender"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 45
+    },
+    {
+      "id": 51739,
+      "type": "creature",
+      "name": "Legionnaire Deiryn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-deiryn"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 51740,
+      "type": "creature",
+      "name": "Legionnaire Delinao",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-delinao"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51741,
+      "type": "creature",
+      "name": "Legionnaire Do'tlar",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-do-tlar"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51742,
+      "type": "creature",
+      "name": "Legionnaire Dreelka",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-dreelka"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51743,
+      "type": "creature",
+      "name": "Legionnaire Elburdihn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-elburdihn"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51744,
+      "type": "creature",
+      "name": "Legionnaire Endunir",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-endunir"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51745,
+      "type": "creature",
+      "name": "Legionnaire Envek",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-envek"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 51746,
+      "type": "creature",
+      "name": "Legionnaire Erlera",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-erlera"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51747,
+      "type": "creature",
+      "name": "Legionnaire Ethyte",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-ethyte"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51748,
+      "type": "creature",
+      "name": "Legionnaire Faekpol",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-faekpol"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ]
+    },
+    {
+      "id": 51749,
+      "type": "creature",
+      "name": "Legionnaire Faledroth",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-faledroth"
+      ],
+      "zones": [
+        "Pankor Zhi"
+      ],
+      "level": 25
+    },
+    {
+      "id": 51750,
+      "type": "creature",
+      "name": "Legionnaire Freduis",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-freduis"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51751,
+      "type": "creature",
+      "name": "Legionnaire Frinihra",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-frinihra"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51752,
+      "type": "creature",
+      "name": "Legionnaire Fyrn'drid",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-fyrndrid"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 12
+    },
+    {
+      "id": 51753,
+      "type": "creature",
+      "name": "Legionnaire Gervaina",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-gervaina"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51754,
+      "type": "creature",
+      "name": "Legionnaire Ghazrad",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-ghazrad"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 40
+    },
+    {
+      "id": 51755,
+      "type": "creature",
+      "name": "Legionnaire Grellihnur",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 78,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-grellihnur"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51756,
+      "type": "creature",
+      "name": "Legionnaire Hadtri",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 79,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-hadtri"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 30
+    },
+    {
+      "id": 51757,
+      "type": "creature",
+      "name": "Legionnaire Haidira",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 80,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-haidira"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51758,
+      "type": "creature",
+      "name": "Legionnaire Haithiv",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 81,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-haithiv"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51759,
+      "type": "creature",
+      "name": "Legionnaire Helviiryn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\creature.jsonl",
+      "line": 82,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-helviiryn"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51760,
+      "type": "loot",
+      "name": "Lashtail",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lashtail"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51761,
+      "type": "loot",
+      "name": "Laylas the Unseen",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laylas-the-unseen"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51762,
+      "type": "loot",
+      "name": "Leafsaw Crawler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leafsaw-crawler"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51763,
+      "type": "loot",
+      "name": "Leafshaker",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leafshaker"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51764,
+      "type": "loot",
+      "name": "Lector Priest",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lector-priest"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51765,
+      "type": "loot",
+      "name": "Ledge Crawler",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ledge-crawler"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51766,
+      "type": "loot",
+      "name": "Leechsnake",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leechsnake"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51767,
+      "type": "loot",
+      "name": "Leenea Toi",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leenea-toi"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51768,
+      "type": "loot",
+      "name": "Leessak The Sentinel",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leessak-the-sentinel"
+      ],
+      "zones": []
+    },
+    {
+      "id": 51769,
+      "type": "merchant",
+      "name": "Lax Harbixk",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lax-harbixk"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 51770,
+      "type": "merchant",
+      "name": "Laxx Harbixk",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laxx-harbixk"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 51771,
+      "type": "merchant",
+      "name": "Ldooz Shafaq",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\merchant.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ldooz-shafaq"
+      ],
+      "zones": [
+        "Khal"
+      ]
+    },
+    {
+      "id": 51772,
+      "type": "merchant",
+      "name": "Leaneth Arlenik",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\merchant.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leaneth-arlenik"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 51773,
+      "type": "merchant",
+      "name": "Leddo Savobar",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\merchant.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leddo-savobar"
+      ],
+      "zones": [
+        "Skawlra Rock"
+      ]
+    },
+    {
+      "id": 51774,
+      "type": "npc",
+      "name": "Lars Orson",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lars-orson"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 25
+    },
+    {
+      "id": 51775,
+      "type": "npc",
+      "name": "Lash",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lash"
+      ],
+      "zones": [],
+      "level": 5
+    },
+    {
+      "id": 51776,
+      "type": "npc",
+      "name": "Lax Harbixk",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lax-harbixk"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 51777,
+      "type": "npc",
+      "name": "Laxx Harbixk",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/laxx-harbixk"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 20
+    },
+    {
+      "id": 51778,
+      "type": "npc",
+      "name": "Layel Winroa",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/layel-winroa"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ],
+      "level": 7
+    },
+    {
+      "id": 51779,
+      "type": "npc",
+      "name": "Layowen",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/layowen"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51780,
+      "type": "npc",
+      "name": "Ldooz Shafaq",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ldooz-shafaq"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 51781,
+      "type": "npc",
+      "name": "Leaneth Arlenik",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leaneth-arlenik"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51782,
+      "type": "npc",
+      "name": "Leddo Savobar",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leddo-savobar"
+      ],
+      "zones": [
+        "Skawlra Rock"
+      ],
+      "level": 40
+    },
+    {
+      "id": 51783,
+      "type": "npc",
+      "name": "Ledrolan Lothrin",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ledrolan-lothrin"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51784,
+      "type": "npc",
+      "name": "Leesa Entan",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leesa-entan"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ]
+    },
+    {
+      "id": 51785,
+      "type": "npc",
+      "name": "Lefanen",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/lefanen"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 16
+    },
+    {
+      "id": 51786,
+      "type": "npc",
+      "name": "Leganor Faruethen",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/leganor-faruethen"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 50
+    },
+    {
+      "id": 51787,
+      "type": "npc",
+      "name": "Legionnaire Aeleknia",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-aeleknia"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 15
+    },
+    {
+      "id": 51788,
+      "type": "npc",
+      "name": "Legionnaire Anteki",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-anteki"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51789,
+      "type": "npc",
+      "name": "Legionnaire Cindihn",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-cindihn"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51790,
+      "type": "npc",
+      "name": "Legionnaire Dyleth",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-dyleth"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 51791,
+      "type": "npc",
+      "name": "Legionnaire Havlern",
+      "file": "raw\\2026-10-15-045319-165053-archive-bulk\\npc.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/legionnaire-havlern"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
     }
   ],
   "by_name": {
@@ -923736,6 +925491,348 @@
     ],
     "npc:laran bahahn": [
       51677
+    ],
+    "creature:large mine crawler": [
+      51678
+    ],
+    "creature:large mutated crawler": [
+      51679
+    ],
+    "creature:large mutated spider eggs": [
+      51680
+    ],
+    "creature:large plains cub": [
+      51681
+    ],
+    "creature:large pond gnawer": [
+      51682
+    ],
+    "creature:large shirker": [
+      51683
+    ],
+    "creature:large skulker": [
+      51684
+    ],
+    "creature:large valley boar": [
+      51685
+    ],
+    "creature:large weed": [
+      51686
+    ],
+    "creature:large west-wake shark": [
+      51687
+    ],
+    "creature:larkyn gladesworn": [
+      51688
+    ],
+    "creature:lars olson": [
+      51689
+    ],
+    "creature:larzzik": [
+      51690
+    ],
+    "creature:lasha": [
+      51691
+    ],
+    "creature:lasharg the drift": [
+      51692
+    ],
+    "creature:lasher broodmaster": [
+      51693
+    ],
+    "creature:lasher hauler": [
+      51694
+    ],
+    "creature:lasher mauler": [
+      51695
+    ],
+    "creature:lashtail": [
+      51696
+    ],
+    "creature:latas the siphon": [
+      51697
+    ],
+    "creature:lathelas the lost": [
+      51698
+    ],
+    "creature:lathia eningold": [
+      51699
+    ],
+    "creature:lathor wyvernfang": [
+      51700
+    ],
+    "creature:lau mung": [
+      51701
+    ],
+    "creature:laughing maude": [
+      51702
+    ],
+    "creature:lavandis weyal": [
+      51703
+    ],
+    "creature:laxan wyvernfang": [
+      51704
+    ],
+    "creature:laykee": [
+      51705
+    ],
+    "creature:laylas the unseen": [
+      51706
+    ],
+    "creature:lcea traboh": [
+      51707
+    ],
+    "creature:lead artisan": [
+      51708
+    ],
+    "creature:leafsaw crawler": [
+      51709
+    ],
+    "creature:leafshaker": [
+      51710
+    ],
+    "creature:leaper fawn": [
+      51711
+    ],
+    "creature:leaper protector": [
+      51712
+    ],
+    "creature:leathela": [
+      51713
+    ],
+    "creature:lector priest": [
+      51714
+    ],
+    "creature:ledge crawler": [
+      51715
+    ],
+    "creature:ledge spider": [
+      51716
+    ],
+    "creature:leechsnake": [
+      51717
+    ],
+    "creature:leenea toi": [
+      51718
+    ],
+    "creature:leenea toi the temptress": [
+      51719
+    ],
+    "creature:leessak the sentinel": [
+      51720
+    ],
+    "creature:leftoe fuzzyfoot": [
+      51721
+    ],
+    "creature:legaira gladesworn": [
+      51722
+    ],
+    "creature:legebor gladesworn": [
+      51723
+    ],
+    "creature:legeren enusinor": [
+      51724
+    ],
+    "creature:legion wasp": [
+      51725
+    ],
+    "creature:legionnaire akariva": [
+      51726
+    ],
+    "creature:legionnaire akarlva": [
+      51727
+    ],
+    "creature:legionnaire ardroth": [
+      51728
+    ],
+    "creature:legionnaire arkenviir": [
+      51729
+    ],
+    "creature:legionnaire astyl": [
+      51730
+    ],
+    "creature:legionnaire awor": [
+      51731
+    ],
+    "creature:legionnaire baenar": [
+      51732
+    ],
+    "creature:legionnaire bakaranir": [
+      51733
+    ],
+    "creature:legionnaire ceroyka": [
+      51734
+    ],
+    "creature:legionnaire curindyl": [
+      51735
+    ],
+    "creature:legionnaire cybol": [
+      51736
+    ],
+    "creature:legionnaire daldread": [
+      51737
+    ],
+    "creature:legionnaire defender": [
+      51738
+    ],
+    "creature:legionnaire deiryn": [
+      51739
+    ],
+    "creature:legionnaire delinao": [
+      51740
+    ],
+    "creature:legionnaire do'tlar": [
+      51741
+    ],
+    "creature:legionnaire dreelka": [
+      51742
+    ],
+    "creature:legionnaire elburdihn": [
+      51743
+    ],
+    "creature:legionnaire endunir": [
+      51744
+    ],
+    "creature:legionnaire envek": [
+      51745
+    ],
+    "creature:legionnaire erlera": [
+      51746
+    ],
+    "creature:legionnaire ethyte": [
+      51747
+    ],
+    "creature:legionnaire faekpol": [
+      51748
+    ],
+    "creature:legionnaire faledroth": [
+      51749
+    ],
+    "creature:legionnaire freduis": [
+      51750
+    ],
+    "creature:legionnaire frinihra": [
+      51751
+    ],
+    "creature:legionnaire fyrn'drid": [
+      51752
+    ],
+    "creature:legionnaire gervaina": [
+      51753
+    ],
+    "creature:legionnaire ghazrad": [
+      51754
+    ],
+    "creature:legionnaire grellihnur": [
+      51755
+    ],
+    "creature:legionnaire hadtri": [
+      51756
+    ],
+    "creature:legionnaire haidira": [
+      51757
+    ],
+    "creature:legionnaire haithiv": [
+      51758
+    ],
+    "creature:legionnaire helviiryn": [
+      51759
+    ],
+    "loot:lashtail": [
+      51760
+    ],
+    "loot:laylas the unseen": [
+      51761
+    ],
+    "loot:leafsaw crawler": [
+      51762
+    ],
+    "loot:leafshaker": [
+      51763
+    ],
+    "loot:lector priest": [
+      51764
+    ],
+    "loot:ledge crawler": [
+      51765
+    ],
+    "loot:leechsnake": [
+      51766
+    ],
+    "loot:leenea toi": [
+      51767
+    ],
+    "loot:leessak the sentinel": [
+      51768
+    ],
+    "merchant:lax harbixk": [
+      51769
+    ],
+    "merchant:laxx harbixk": [
+      51770
+    ],
+    "merchant:ldooz shafaq": [
+      51771
+    ],
+    "merchant:leaneth arlenik": [
+      51772
+    ],
+    "merchant:leddo savobar": [
+      51773
+    ],
+    "npc:lars orson": [
+      51774
+    ],
+    "npc:lash": [
+      51775
+    ],
+    "npc:lax harbixk": [
+      51776
+    ],
+    "npc:laxx harbixk": [
+      51777
+    ],
+    "npc:layel winroa": [
+      51778
+    ],
+    "npc:layowen": [
+      51779
+    ],
+    "npc:ldooz shafaq": [
+      51780
+    ],
+    "npc:leaneth arlenik": [
+      51781
+    ],
+    "npc:leddo savobar": [
+      51782
+    ],
+    "npc:ledrolan lothrin": [
+      51783
+    ],
+    "npc:leesa entan": [
+      51784
+    ],
+    "npc:lefanen": [
+      51785
+    ],
+    "npc:leganor faruethen": [
+      51786
+    ],
+    "npc:legionnaire aeleknia": [
+      51787
+    ],
+    "npc:legionnaire anteki": [
+      51788
+    ],
+    "npc:legionnaire cindihn": [
+      51789
+    ],
+    "npc:legionnaire dyleth": [
+      51790
+    ],
+    "npc:legionnaire havlern": [
+      51791
     ]
   },
   "by_kind": {
@@ -931131,7 +933228,89 @@
       51642,
       51643,
       51644,
-      51645
+      51645,
+      51678,
+      51679,
+      51680,
+      51681,
+      51682,
+      51683,
+      51684,
+      51685,
+      51686,
+      51687,
+      51688,
+      51689,
+      51690,
+      51691,
+      51692,
+      51693,
+      51694,
+      51695,
+      51696,
+      51697,
+      51698,
+      51699,
+      51700,
+      51701,
+      51702,
+      51703,
+      51704,
+      51705,
+      51706,
+      51707,
+      51708,
+      51709,
+      51710,
+      51711,
+      51712,
+      51713,
+      51714,
+      51715,
+      51716,
+      51717,
+      51718,
+      51719,
+      51720,
+      51721,
+      51722,
+      51723,
+      51724,
+      51725,
+      51726,
+      51727,
+      51728,
+      51729,
+      51730,
+      51731,
+      51732,
+      51733,
+      51734,
+      51735,
+      51736,
+      51737,
+      51738,
+      51739,
+      51740,
+      51741,
+      51742,
+      51743,
+      51744,
+      51745,
+      51746,
+      51747,
+      51748,
+      51749,
+      51750,
+      51751,
+      51752,
+      51753,
+      51754,
+      51755,
+      51756,
+      51757,
+      51758,
+      51759
     ],
     "item": [
       13,
@@ -937811,7 +939990,16 @@
       51657,
       51658,
       51659,
-      51660
+      51660,
+      51760,
+      51761,
+      51762,
+      51763,
+      51764,
+      51765,
+      51766,
+      51767,
+      51768
     ],
     "npc": [
       24,
@@ -940524,7 +942712,25 @@
       51674,
       51675,
       51676,
-      51677
+      51677,
+      51774,
+      51775,
+      51776,
+      51777,
+      51778,
+      51779,
+      51780,
+      51781,
+      51782,
+      51783,
+      51784,
+      51785,
+      51786,
+      51787,
+      51788,
+      51789,
+      51790,
+      51791
     ],
     "quest": [
       45,
@@ -975424,7 +977630,12 @@
       51416,
       51417,
       51544,
-      51661
+      51661,
+      51769,
+      51770,
+      51771,
+      51772,
+      51773
     ],
     "recipe": [
       419,
@@ -977064,7 +979275,10 @@
       51081,
       51229,
       51552,
-      51667
+      51667,
+      51688,
+      51722,
+      51723
     ],
     "Fathesi Coast": [
       37,
@@ -977501,7 +979715,11 @@
       51413,
       51428,
       51437,
-      51545
+      51545,
+      51769,
+      51770,
+      51776,
+      51777
     ],
     "Lomshir": [
       51,
@@ -978024,7 +980242,8 @@
       51043,
       51312,
       51429,
-      51446
+      51446,
+      51754
     ],
     "Gaxton Village · Martok": [
       67,
@@ -979363,7 +981582,34 @@
       51314,
       51443,
       51521,
-      51562
+      51562,
+      51726,
+      51727,
+      51728,
+      51729,
+      51730,
+      51731,
+      51732,
+      51733,
+      51734,
+      51735,
+      51736,
+      51740,
+      51741,
+      51745,
+      51746,
+      51747,
+      51748,
+      51750,
+      51752,
+      51753,
+      51756,
+      51758,
+      51759,
+      51788,
+      51789,
+      51790,
+      51791
     ],
     "Jalen's Crossing": [
       103,
@@ -979477,7 +981723,8 @@
       51237,
       51608,
       51624,
-      51634
+      51634,
+      51691
     ],
     "Kaon's Rush": [
       104,
@@ -979748,7 +981995,11 @@
       51593,
       51597,
       51616,
-      51640
+      51640,
+      51713,
+      51724,
+      51783,
+      51785
     ],
     "Ksaravi Gulch": [
       105,
@@ -980055,7 +982306,9 @@
       51495,
       51505,
       51506,
-      51507
+      51507,
+      51694,
+      51695
     ],
     "Misthaven Crossing": [
       106,
@@ -980337,7 +982590,9 @@
       50605,
       50611,
       50618,
-      51585
+      51585,
+      51692,
+      51784
     ],
     "Northern Highlands": [
       107,
@@ -980658,7 +982913,8 @@
       51456,
       51482,
       51483,
-      51513
+      51513,
+      51683
     ],
     "Renton Keep": [
       109,
@@ -980920,7 +983176,9 @@
       50782,
       50847,
       51567,
-      51578
+      51578,
+      51682,
+      51774
     ],
     "Seawatch Coast": [
       110,
@@ -982004,7 +984262,14 @@
       51625,
       51635,
       51661,
-      51677
+      51677,
+      51742,
+      51743,
+      51744,
+      51751,
+      51755,
+      51757,
+      51787
     ],
     "Three Rivers Village": [
       116,
@@ -982349,7 +984614,8 @@
       51170,
       51199,
       51529,
-      51612
+      51612,
+      51699
     ],
     "Wardship Of The Sleeping Moon": [
       117,
@@ -982565,7 +984831,8 @@
       50984,
       50986,
       51002,
-      51105
+      51105,
+      51704
     ],
     "Nerail Tharazen": [
       122,
@@ -982646,7 +984913,8 @@
       45566,
       47611,
       47816,
-      51245
+      51245,
+      51708
     ],
     "Achatlan Lair": [
       141,
@@ -984663,7 +986931,8 @@
       51498,
       51500,
       51502,
-      51503
+      51503,
+      51709
     ],
     "Coastal Graveyard": [
       194,
@@ -985433,7 +987702,8 @@
       50023,
       50778,
       51580,
-      51594
+      51594,
+      51681
     ],
     "Deeprealm Tunnels": [
       220,
@@ -985610,7 +987880,8 @@
       49454,
       49481,
       49572,
-      51277
+      51277,
+      51696
     ],
     "Dragons Maw": [
       227,
@@ -986026,7 +988297,8 @@
       48790,
       50496,
       50581,
-      51244
+      51244,
+      51710
     ],
     "Flowing Sea": [
       243,
@@ -987510,7 +989782,8 @@
       50762,
       50795,
       51310,
-      51627
+      51627,
+      51701
     ],
     "Tanvu": [
       14021,
@@ -989156,7 +991429,10 @@
       51228,
       51230,
       51636,
-      51669
+      51669,
+      51679,
+      51680,
+      51686
     ],
     "Leth Nurae": [
       14054,
@@ -989685,7 +991961,12 @@
       51171,
       51188,
       51231,
-      51595
+      51595,
+      51703,
+      51772,
+      51779,
+      51781,
+      51786
     ],
     "Khal": [
       14211,
@@ -990517,7 +992798,12 @@
       51598,
       51600,
       51633,
-      51666
+      51666,
+      51684,
+      51712,
+      51721,
+      51771,
+      51780
     ],
     "Lomshir Plain": [
       14231,
@@ -990746,7 +993032,8 @@
       51433,
       51444,
       51530,
-      51642
+      51642,
+      51706
     ],
     "Southwatch": [
       14415,
@@ -991047,7 +993334,8 @@
       49687,
       50465,
       50770,
-      51605
+      51605,
+      51685
     ],
     "Zarabadi Landing": [
       17653,
@@ -991598,7 +993886,8 @@
       51599,
       51615,
       51644,
-      51662
+      51662,
+      51702
     ],
     "Jalen's Retreat": [
       22587,
@@ -991769,7 +994058,8 @@
       51186,
       51257,
       51305,
-      51638
+      51638,
+      51697
     ],
     "Kalendra's Coven": [
       22590
@@ -992798,7 +995088,8 @@
       51098,
       51111,
       51183,
-      51372
+      51372,
+      51714
     ],
     "Oathbreaker (Red Swallow) Caves": [
       22638
@@ -993056,7 +995347,10 @@
       50868,
       51250,
       51385,
-      51451
+      51451,
+      51737,
+      51738,
+      51749
     ],
     "Pantheon of the Ancients": [
       22649,
@@ -993774,7 +996068,9 @@
       50160,
       50786,
       51126,
-      51249
+      51249,
+      51700,
+      51718
     ],
     "River Valley": [
       22677,
@@ -994220,7 +996516,9 @@
       50308,
       50813,
       50838,
-      51626
+      51626,
+      51698,
+      51720
     ],
     "Sample Dungeon": [
       22686
@@ -994763,7 +997061,9 @@
       51375,
       51376,
       51384,
-      51551
+      51551,
+      51773,
+      51782
     ],
     "Skrilien Point": [
       22711,
@@ -995335,7 +997635,8 @@
       50343,
       50686,
       51039,
-      51210
+      51210,
+      51690
     ],
     "Tanvu Bay": [
       22734
@@ -995534,7 +997835,9 @@
       51215,
       51253,
       51431,
-      51438
+      51438,
+      51705,
+      51778
     ],
     "Tehatamani Empire": [
       22738
@@ -996307,7 +998610,8 @@
     "Traboh Island": [
       22776,
       44112,
-      51354
+      51354,
+      51707
     ],
     "Tree Of Sorrow": [
       22777,
@@ -996322,7 +998626,8 @@
       45475,
       45510,
       48321,
-      48322
+      48322,
+      51687
     ],
     "Trickster's Haven": [
       22779,
