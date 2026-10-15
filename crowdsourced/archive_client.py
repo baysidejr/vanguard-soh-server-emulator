@@ -65,7 +65,7 @@ class ArchiveClient:
             text = body.decode("utf-8")
         self.network_requests += 1
         temporary = path.with_suffix('.tmp')
-        temporary.write_text(text, encoding="utf-8")
+        temporary.write_bytes(body)
         temporary.replace(path)
         metadata=path.with_suffix('.meta.json')
         staged=metadata.with_suffix('.tmp')

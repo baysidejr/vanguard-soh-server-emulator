@@ -314,6 +314,22 @@ class ArchivePublicationTests(unittest.TestCase):
             client.get(url)
         sleep.assert_called_once_with(3)
 
+    def test_download_cache_preserves_response_bytes_and_hash(self):
+        import hashlib
+        with patch.object(ArchiveClient, 'get', return_value='User-agent: *\nCrawl-delay: 5\n'):
+            client = ArchiveClient(self.root / 'cache')
+        url = ORIGIN + '/items/byte-fixture'
+        body = b'<html>line one\nline two\r\n</html>'
+        with patch('archive_client.time.sleep'), patch('archive_client.build_opener') as opener:
+            response = opener.return_value.open.return_value.__enter__.return_value
+            response.url = url
+            response.read.return_value = body
+            self.assertEqual(client.get(url), body.decode('utf-8'))
+        cached = client.cache / (hashlib.sha256(url.encode()).hexdigest() + '.txt')
+        self.assertEqual(cached.read_bytes(), body)
+        metadata = json.loads(cached.with_suffix('.meta.json').read_text(encoding='utf-8'))
+        self.assertEqual(metadata['sha256'], hashlib.sha256(cached.read_bytes()).hexdigest())
+
     def test_graceful_stop_publishes_pending_queue_without_fetching(self):
         class Client:
             network_requests = 0
