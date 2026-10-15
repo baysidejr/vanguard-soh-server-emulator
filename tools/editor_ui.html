@@ -63,7 +63,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -236,6 +236,14 @@
       <table id="shopTable" style="border-collapse:collapse;width:100%"></table>
       <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
     </div>
+  </div>
+  <div id="facview" style="flex:1;display:none;min-height:0;flex-direction:column;overflow-y:auto;padding:10px 16px">
+    <div class="bar" style="padding:0 0 8px;border:0">
+      <strong>Factions</strong><span style="flex:1"></span>
+      <button id="newFaction">New faction</button><button id="saveFactions" class="primary">Save factions.json</button>
+    </div>
+    <table id="facTable" style="border-collapse:collapse;width:100%"></table>
+    <p class="hint">Standing runs from -20000 to 20000. "Kill" is the change for killing one of its members (default -50). Allies change the same way when its members die, enemies the opposite way (ids, comma separated). A prestige faction stays hidden until the first change. Mobs join a faction on the Mobs tab; quests and parleys can reward standing.</p>
   </div>
   <div id="recview" style="flex:1;display:none;min-height:0">
     <div id="recList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
@@ -423,6 +431,8 @@ function setMode(m) {
   $("shopview").style.display = m === "shops" ? "flex" : "none";
   $("dipview").style.display = m === "diplomacy" ? "flex" : "none";
   $("recview").style.display = m === "recipes" ? "flex" : "none";
+  $("facview").style.display = m === "factions" ? "flex" : "none";
+  if (m === "factions" && !facDoc) initFactions();
   if (m === "recipes" && !recDoc) initRecipes();
   if (m === "diplomacy" && !dipDoc) initDiplomacy();
   if (m === "shops" && !shopDoc) initShops();
@@ -747,6 +757,57 @@ $("saveShops").onclick = async () => {
   const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
   showProblems(r.body.problems, "Saved merchants.json.");
+};
+
+// ---- factions ----
+let facDoc = null, facMobs = {};
+$("tabFactions").onclick = () => setMode("factions");
+async function initFactions() {
+  facDoc = JSON.parse((await api("/api/file?name=factions.json")).body.text);
+  facMobs = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
+  showFactions();
+}
+function idList(text) { return text.split(/[ ,]+/).filter(Boolean).map(Number).filter(n => !isNaN(n)); }
+function showFactions() {
+  const t = $("facTable");
+  t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Id</th><th>Name</th><th>Start</th><th>Kill</th><th>Allies</th><th>Enemies</th><th>Prestige</th><th>Members</th><th></th></tr>";
+  for (const id of Object.keys(facDoc).filter(k => !k.startsWith("_")).sort()) {
+    const f = facDoc[id], tr = document.createElement("tr");
+    const members = Object.values(facMobs).filter(m => m && String(m.faction) === id).length;
+    tr.innerHTML = `<td>${id}</td><td><input data-k="name" value="${esc(f.name || "")}" style="width:100%"></td>
+      <td><input data-k="start" type="number" min="-20000" max="20000" value="${f.start ?? 0}" style="width:90px"></td>
+      <td><input data-k="kill" type="number" value="${f.kill ?? ""}" placeholder="-50" style="width:80px"></td>
+      <td><input data-k="allies" value="${(f.allies || []).join(", ")}" style="width:120px"></td>
+      <td><input data-k="enemies" value="${(f.enemies || []).join(", ")}" style="width:120px"></td>
+      <td><input data-k="prestige" type="checkbox" style="width:auto" ${f.prestige ? "checked" : ""}></td>
+      <td class="hint">${members}</td><td><button>Remove</button></td>`;
+    tr.querySelectorAll("input").forEach(i => i.onchange = () => {
+      const g = k => tr.querySelector(`[data-k=${k}]`);
+      const n = { name: g("name").value, start: Number(g("start").value || 0) };
+      if (g("kill").value !== "") n.kill = Number(g("kill").value);
+      const al = idList(g("allies").value), en = idList(g("enemies").value);
+      if (al.length) n.allies = al;
+      if (en.length) n.enemies = en;
+      if (g("prestige").checked) n.prestige = true;
+      for (const [k, v] of Object.entries(f)) if (!["name", "start", "kill", "allies", "enemies", "prestige"].includes(k)) n[k] = v;
+      facDoc[id] = n;
+    });
+    tr.querySelector("button").onclick = () => {
+      if (members && !confirm(`${members} mob(s) belong to ${f.name}. Remove it anyway?`)) return;
+      delete facDoc[id]; showFactions();
+    };
+    t.appendChild(tr);
+  }
+}
+$("newFaction").onclick = () => {
+  const ids = Object.keys(facDoc).filter(k => !k.startsWith("_")).map(Number);
+  facDoc[String((ids.length ? Math.max(...ids) : 1000) + 1)] = { name: "New Faction", start: 0 };
+  showFactions();
+};
+$("saveFactions").onclick = async () => {
+  const r = await api("/api/file?name=factions.json", { method: "PUT", body: JSON.stringify(facDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved factions.json.");
 };
 
 // ---- crafting recipes ----
@@ -1583,6 +1644,7 @@ $("saveSpawns").onclick = async () => {
 whoAmI().then(ok => { if (ok) loadFiles(); });
 if (location.hash === "#spawns") setMode("spawns");
 if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
+if (location.hash.startsWith("#factions")) setMode("factions");
 if (location.hash.startsWith("#recipes")) { recSel = location.hash.split("=")[1] || null; setMode("recipes"); }
 if (location.hash.startsWith("#diplomacy")) { if (location.hash.includes("=")) dipSel = decodeURIComponent(location.hash.split("=")[1]); setMode("diplomacy"); }
 if (location.hash.startsWith("#shops")) { setMode("shops"); setTimeout(() => { shopSel = location.hash.split("=")[1]; if (shopSel) { listShops(); showShop(); } }, 800); }
