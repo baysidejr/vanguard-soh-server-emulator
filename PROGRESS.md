@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 75 regions hold 1,152 NPCs imported from the archive (four of them, Khal, Ahgram, New Targonor and Tanvu, reachable by riftway from the camp; the rest with !chunk) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 75 regions hold 1,152 NPCs imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
@@ -82,6 +82,8 @@ Content: 75 regions hold 1,152 NPCs imported from the archive (four of them, Kha
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: 31 more riftway destinations opened at their zone map labels (36 of 39 open), each with a brazier; Wildgrowth Forest lands at our outpost. Seen live: camp -> Wildgrowth -> Lomshir -> camp.
 
 - 2026-10-15: Imported merchants (41 placed) sell the placeholder stock general_goods, since the archive has no wares.
 
