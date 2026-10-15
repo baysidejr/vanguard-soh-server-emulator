@@ -112,17 +112,17 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 641 of 720 (89%).
 | 0x253 | MsgSingleInt | i32 | content | communal casting ("Your spell is already part of the communal casting!"); no communal spells in content |
 | 0x3a3 | (none) |  | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3a4 | MsgSingleEntityId | eid64 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
-| 0x3a6 | MsgSingleInt | i32 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
+| 0x3a6 | MsgSingleInt | i32 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md); tried 2026-10-15 during a fight with an encounter row ({i32 3}): nothing visible changed |
 | 0x3ab | (none) |  | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
-| 0x3ad | (none) |  | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
-| 0x3ae | (none) |  | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
+| 0x3ad | (none) |  | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md); tried 2026-10-15 during a fight with an encounter row (no payload): nothing visible changed |
+| 0x3ae | (none) |  | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md); tried 2026-10-15 during a fight with an encounter row (no payload): nothing visible changed |
 | 0x3af | MsgSingleEntityId | eid64 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3b0 | MsgSingleEntityId | eid64 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3b1 | MsgFourIntsAndBool | i32, i32, i32, i32, bool8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3bb | MsgEntityIDAndInt | eid64, i32 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3bd | MsgEntityIDFourIntsAndBool | eid64, i32, i32, i32, i32, bool8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3be | MsgClientAntiGroupAddState | eid64, i32, i32, wstr, wstr | optional | an enemy group member's state (MsgClientAntiGroupAddState) |
-| 0x3c1 | MsgSingleByte | u8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
+| 0x3c1 | MsgSingleByte | u8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md); tried 2026-10-15 during a fight with an encounter row ({u8 2}): nothing visible changed |
 | 0x3c7 | MsgEntityIDAndIntAndBool | eid64, i32, bool8 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x3c8 | MsgSingleInt | i32 | optional | encounter / combat-group window detail; the server sends the basic encounter display (docs/CREATURES.md) |
 | 0x448 | MsgSingleEntityId | eid64 | content | feint visual on the target's head (FXspells_GenericFeintTargetHead); needs feint abilities |
