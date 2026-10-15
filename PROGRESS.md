@@ -31,7 +31,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Blocked (needs the user or data)
 
-- Client-side furniture placement: dragging furniture onto the cottage floor gives the client's delete prompt, because FUN_004771d0 finds no house-interior zone (type byte +0x388 == 3, linked at +0xa8 to the house object) at the drop point. Needs a runtime look at the cottage prefab's zones. Right-click placement still works.
+- Client-side furniture placement: dragging furniture onto the cottage floor gives the client's delete prompt, because FUN_004771d0 finds no house-interior zone (type byte +0x388 == 3, linked at +0xa8 to the house object) at the drop point. Runtime look done (2026-10-14, docs/HOUSING.md): the drop point is in the level's own zone (type 1); the cottage prefab brings no house-interior zone (zone types come from a table keyed by zone name, FUN_00810f30). Needs the right house prefab / zone data. Right-click placement still works.
 - Psionic points, civic stats display: no window in the shipped UI (`/citystatus` lists civic stats in chat).
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.

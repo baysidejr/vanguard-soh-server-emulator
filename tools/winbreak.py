@@ -8,7 +8,7 @@ client function runs while you play, e.g. which branch of Jump runs on a mounted
     python tools/winbreak.py --pid 1234 --seconds 30 0xbaf7e0 0x6eb1b0
     python tools/winbreak.py --seconds 30 0xbaf7e0          # the first VGClient.exe found
 
-Each hit prints one line; --max-hits limits how many per address are printed (all are counted).
+Each hit prints one line (--dump eax+0x388:4 adds memory at a register + offset); --max-hits limits how many per address are printed (all are counted).
 Only for debugging your own client. Uses ctypes and the standard library only.
 """
 import argparse
@@ -89,6 +89,7 @@ class Debugger:
         self.original = {}          # address -> original byte
         self.rearm = {}             # thread id -> address to put the int3 back on after one step
         self.hits = {}
+        self.dumps = []             # (register, offset, length) printed at every hit
 
     def read(self, addr, n):
         buf = (ctypes.c_char * n)()
@@ -155,6 +156,10 @@ class Debugger:
                                       f"eax={ctx.Eax:#x} ecx={ctx.Ecx:#x} edx={ctx.Edx:#x} ebx={ctx.Ebx:#x} "
                                       f"esi={ctx.Esi:#x} edi={ctx.Edi:#x} [esp]=" + " ".join(f"{w:#x}" for w in words),
                                       flush=True)
+                                for reg, off, length in self.dumps:
+                                    base = getattr(ctx, reg.capitalize(), 0)
+                                    data = self.read((base + off) & 0xFFFFFFFF, length) if base else b""
+                                    print(f"    [{reg}+{off:#x}] = {data.hex(' ') or '(unreadable)'}", flush=True)
                             self.write(addr, self.original[addr])
                             ctx.Eip = addr
                             ctx.EFlags |= 0x100                  # one step, then put the int3 back
@@ -183,11 +188,17 @@ def main():
     ap.add_argument("--pid", type=int)
     ap.add_argument("--seconds", type=float, default=30)
     ap.add_argument("--max-hits", type=int, default=20)
+    ap.add_argument("--dump", action="append", default=[], metavar="REG+OFF:LEN",
+                    help="also print LEN bytes at register+offset at every hit, e.g. eax+0x388:4")
     a = ap.parse_args()
     pid = a.pid or find_pid()
     if not pid:
         sys.exit("VGClient.exe is not running")
     d = Debugger(pid)
+    for spec in a.dump:
+        where, _, length = spec.partition(":")
+        reg, _, off = where.partition("+")
+        d.dumps.append((reg.strip().lower(), int(off or "0", 0), int(length or "4", 0)))
     for addr in a.addresses:
         d.original[addr] = d.read(addr, 1)
     d.run(a.seconds, a.max_hits)
