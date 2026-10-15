@@ -37,6 +37,22 @@ POOL_ORDER = ("inspire", "reason", "flatter", "demand")     # 0x31d / 0x32c pair
 PARLEY_TYPES = {"entertain": 0, "convince": 1, "interview": 2, "gossip": 3, "incite": 4}
 
 
+PARLEY_OFFER = 0x321
+
+
+def parley_offer(npc_eid, config):
+    """0x321 {eid64 npc, i32 n, n x {wstr text, i32 option id, i32 shown, i32, i32, bool8, bool8,
+    u8 type}} (FUN_00555e40, verified live 2026-10-15): redraws the dialogue's parley option as
+    "<text>" over "<Type> <expression icons> : <shown>", e.g. "Convince [Demand][Reason]
+    [Flattery] : 15". Clicking it still sends 0x125 {option id}. The shown number is presumably
+    the presence the parley asks for [I]; the other two i32s and the bools are stored by the
+    client but not decoded, so they are sent as 0."""
+    rec = (_w(config.get("offer", "Let's talk business.")) +
+           struct.pack("<iiiiBBB", PARLEY_OPTION_ID, int(config.get("presence", 0)), 0, 0, 0, 0,
+                       PARLEY_TYPES.get(config.get("type", "entertain"), 0)))
+    return _event(PARLEY_OFFER, struct.pack("<Qi", npc_eid, 1) + rec)
+
+
 def _event(event_id, data=b""):
     return struct.pack("<HII", 2, event_id, len(data)) + data
 

@@ -6781,6 +6781,8 @@ def npc_dialog(state, npc):
         opts.append(task_master_option(npc))
     if opts:
         out.append(quest.options(npc.entity_id, opts))
+    if npc.parley:
+        out.append(diplomacy.parley_offer(npc.entity_id, parley_config(npc)))
     if npc.merchant:
         out.append(zone.zone_event(merchant.DIALOG_WARES))
     if npc.repairs:
@@ -6866,6 +6868,12 @@ def handle_escrow_event(state, event, data):
 def task_master_option(npc):
     return ("I'm looking for work. (Work orders)", workorder.OPTION_ID, workorder.OPTION_TYPE) \
         if getattr(npc, "task_master", False) else None
+
+
+def parley_config(npc):
+    """The diplomacy.json parley an NPC runs (mobs.json "parley": a key, or true for the first)."""
+    parleys = ARGS.content.diplomacy["parleys"]
+    return parleys.get(npc.parley) if isinstance(npc.parley, str) else next(iter(parleys.values()))
 
 
 def visible_responses(player, node):
@@ -8282,8 +8290,7 @@ def handle_parley_event(state, event, data):
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.parley:
             return
-        parleys = dip["parleys"]
-        config = parleys.get(npc.parley) if isinstance(npc.parley, str) else next(iter(parleys.values()))
+        config = parley_config(npc)
         deck, slots = diplomacy_deck(player)
         p = diplomacy.Parley(config, dip["cards"], [c for c in slots if c is not None])
         p.npc = npc

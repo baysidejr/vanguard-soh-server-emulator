@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 39 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 
@@ -74,6 +74,8 @@ Server: 39 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Parley offer line 0x321 decoded and sent: the parley option shows the text over "<Type> <expression icons> : <number>" (Orin: "Let's talk business." / "Entertain ... : 10"; diplomacy.json `offer`, `presence`); clicking still starts the parley (seen live). Unit test ParleyTests.test_offer_record. Also traced 0x11d (blocked), 0x27c/0x27d (damage distribution, content), 0x2c6 (variant).
 
 - 2026-10-15: Re-checked quest sharing with two clients: `/sharequest <name>` (no journal selection) offered Wolves at the Edge to Justins, who accepted it away from the giver. QUESTS.md's stale "not yet tried" line fixed. Both characters' quests restored afterwards.
 

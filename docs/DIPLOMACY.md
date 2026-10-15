@@ -12,6 +12,7 @@ The client's parley manager handles server messages in `FUN_00556560`. All messa
 - Parley types: 0 Entertain, 1 Convince, 2 Interview, 3 Gossip, 4 Incite. The window title becomes "Parley - <type>".
 - The bar (`ParlayDialogStatus`) runs from 0 to 21 and starts at 11. Above 11 the player controls the conversation. The window shows the bar as an offset from the middle (3, 6, ...).
 - An NPC opts in with `"parley": true` in `mobs.json`.
+- **Parley offer line (verified live 2026-10-15):** after the options the server sends **0x321** `{eid64 npc, i32 n, n x {wstr text, i32 option id, i32 shown, i32, i32, bool8, bool8, u8 type}}` (FUN_00555e40). The client redraws the parley option as the text over "<Type> <expression icons> : <shown>": Entertain shows Reason/Inspire/Flattery icons, Convince Demand/Reason/Flattery, Interview all four, Gossip Demand/Inspire/Flattery, Incite Demand/Reason/Inspire (type 0-4). Seen on Orin: "Let's talk business." over "Entertain [icons] : 10"; clicking it still sends 0x125 {9001} and starts the parley. The text and number come from the parley's diplomacy.json `offer` and `presence`. The number is presumably the presence the parley asks for (the client has the strings "You need more presence for that." and Academic / Clergy / Crafter / Domestic / Merchant / Noble / Outsider / Soldier Presence) [I]. The other two i32s and the bools go into client lists that were not decoded, so they are sent as 0.
 
 ## Deck and strategy slots
 
@@ -136,7 +137,7 @@ A card with diplomacy.json `"refresh": N` can't be played again for N rounds. Af
 **Not done yet**
 - (done, verified live 2026-10-13) unlocked dialogue: a parley reward `"flag": name` (+ optional `"flag_text"`) is saved per character (`flags`); dialogs.json responses with `"requires_flag"` only show once the player has it. Beating Orin adds "Orin says I can be trusted." to the Thestran Guard's conversation. Faction (`reward.faction`) and items (`reward.item`: a name or [name, qty], given on every win; verified live: "You receive 2 Travel Rations.") are done; dev `!parleywin` wins the open parley
 - opening the repertoire window by script (slotting a card from it uses the same `0xd7`)
-- the `0x321` option format with presence requirements
+- what 0x321's last two i32s and two bools do (the line itself is done, above), and presence itself (no presence stats are sent)
 - the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI). `/citystatus` (0x12d, no payload; FUN_0054cf00 clears the stats first) is therefore answered with chat lines "<stat>: <value>" (the server's own wording; verified live: "Thestran Wastes Camp Prosperity: 60"), or, with no civic stats, 0x330 `{i32 16, i32 0}`: the client's "No civic diplomacy here." popup (code switch FUN_005531e0, CivicDiplomacyNoCivicStats; unit-tested, not seen live).
 
 Unknown fields: the trailing wstr in `0x31d`; card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.

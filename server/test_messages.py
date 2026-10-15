@@ -187,6 +187,17 @@ class QuestStepTests(unittest.TestCase):
 
 
 class ParleyTests(unittest.TestCase):
+    def test_offer_record(self):
+        import diplomacy
+        m = diplomacy.parley_offer(5, {"type": "convince", "presence": 15, "offer": "Hi"})
+        _t, eid, n = struct.unpack_from("<HII", m)
+        body = m[10:10 + n]
+        self.assertEqual(eid, 0x321)
+        self.assertEqual(struct.unpack_from("<Qi", body), (5, 1))
+        self.assertEqual(body[12:18], "Hi\0".encode("utf-16-le"))
+        self.assertEqual(struct.unpack_from("<iiiiBBB", body, 18),
+                         (diplomacy.PARLEY_OPTION_ID, 15, 0, 0, 0, 0, 1))
+
     def test_costs_pools_and_outcome(self):
         import content
         import diplomacy
