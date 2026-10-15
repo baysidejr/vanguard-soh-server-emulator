@@ -1007,8 +1007,8 @@
       "assembly recipe removed from the book"
     ],
     "0x34f": [
-      "optional",
-      "\"You have discovered an assembly recipe\" (discovery announcement)"
+      "variant",
+      "{i32 recipe, i32 ingredient}: \"You have discovered a new assembly recipe: %s\" / \"...an assembly recipe ingredient!\" (FUN_00457fd0); the server announces learned recipes with 0x34d"
     ],
     "0x45d": [
       "variant",

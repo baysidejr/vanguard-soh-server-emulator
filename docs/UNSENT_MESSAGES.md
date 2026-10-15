@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 496 of them (68%)
 
 | Category | Count |
 |---|---|
-| optional | 113 |
-| variant | 47 |
+| optional | 112 |
+| variant | 48 |
 | content | 29 |
 | no-op | 19 |
 | debug | 8 |
 | blocked | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 607 of 720 (84%). Still open: 113 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%). Still open: 112 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -331,7 +331,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 607 of 720 (84%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x34e | MsgSingleInt | i32 | optional | assembly recipe removed from the book |
-| 0x34f | MsgTwoInts | i32, i32 | optional | "You have discovered an assembly recipe" (discovery announcement) |
+| 0x34f | MsgTwoInts | i32, i32 | variant | {i32 recipe, i32 ingredient}: "You have discovered a new assembly recipe: %s" / "...an assembly recipe ingredient!" (FUN_00457fd0); the server announces learned recipes with 0x34d |
 
 ## FUN_00483d60 (housing): 2
 
