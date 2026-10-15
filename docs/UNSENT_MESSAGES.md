@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 500 of them (69%)
 
 | Category | Count |
 |---|---|
-| optional | 99 |
+| optional | 97 |
 | variant | 50 |
-| content | 29 |
+| content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 621 of 720 (86%). Still open: 99 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 623 of 720 (86%). Still open: 97 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -183,7 +183,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 621 of 720 (86%).
 | 0x223 | MsgIntAndByte | i32, u8 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x255 | MsgIntAndBool | i32, bool8 | optional | ability book list refresh (General / Adventuring / Counter / Rescue ability lists) |
 | 0x269 | MsgSingleInt | i32 | variant | forget one combat chain {i32 finisher ability id}: FUN_00428060 deletes the 0x268 chain definitions whose finisher (wire field 13, record +0x30) matches; the server resends all chains instead (0x26a + 0x268), and a 0x268 with a known finisher already replaces that chain |
-| 0x275 | MsgTwoInts | i32, i32 | optional | "Select an attack" prompt {i32, i32} |
+| 0x275 | MsgTwoInts | i32, i32 | content | {i32, i32}: green screen text "Select an attack now to warp." (FUN_0042b750) for an ability that warps the next attack; needs that ability's data |
 | 0x276 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |
 | 0x277 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |
 
@@ -314,7 +314,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 621 of 720 (86%).
 |---|---|---|---|---|
 | 0x23d | MsgIntAndBool | i32, bool8 | optional | attached abilities (effects window) refresh |
 | 0x24f | (none) |  | optional | attached abilities (effects window) refresh |
-| 0x254 | MsgStringAndTwoInts | wstr, i32, i32 | optional | ability failure reason {wstr, i32, i32} ("because you are not in the required state") |
+| 0x254 | MsgStringAndTwoInts | wstr, i32, i32 | content | ability failure reason {wstr ability, i32, i32}: "... because you are not in the required state." / "... have not detected the required state on your target" / "... required level of success"; needs ability state requirements (content) |
 
 ## FUN_0045fda0 (assembly book): 2
 

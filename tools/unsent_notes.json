@@ -631,8 +631,8 @@
       "ability research (\"You have started learning\", \"Your study of %s is finished\"); research is content"
     ],
     "0x275": [
-      "optional",
-      "\"Select an attack\" prompt {i32, i32}"
+      "content",
+      "{i32, i32}: green screen text \"Select an attack now to warp.\" (FUN_0042b750) for an ability that warps the next attack; needs that ability's data"
     ],
     "0x276": [
       "content",
@@ -999,8 +999,8 @@
       "attached abilities (effects window) refresh"
     ],
     "0x254": [
-      "optional",
-      "ability failure reason {wstr, i32, i32} (\"because you are not in the required state\")"
+      "content",
+      "ability failure reason {wstr ability, i32, i32}: \"... because you are not in the required state.\" / \"... have not detected the required state on your target\" / \"... required level of success\"; needs ability state requirements (content)"
     ],
     "0x34e": [
       "optional",
