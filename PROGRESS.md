@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Builder mode: `!undo` and a spawn-placement check against obstacles (the web editor already warns). Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Performance: find what doubled the soak CPU since 2026-10-14 (movement handling dominates). Effects: fireworks and quest-node particles still invisible.
+Builder mode: `!undo` and a spawn-placement check against obstacles (the web editor already warns). Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fireworks and quest-node particles still invisible.
 
 ## Last test results
 
@@ -58,6 +58,7 @@ Builder mode: `!undo` and a spawn-placement check against obstacles (the web edi
 
 ## Done
 
+- 2026-10-15: CPU question settled: the 2026-10-14 server uses the same CPU under the same load (9.6 vs 9.7 s per 30 s), so nothing regressed. tools/loadtest.py now passes --data-dir to its child processes (they ignored it with --procs > 1).
 - 2026-10-15: Builder `!undo` (last 20 changes: file text and live NPC) and an obstacle warning on `!spawn`; seen live (spawn, despawn, undo, undo left the file unchanged).
 - 2026-10-15: Builder edits on the targeted spawned NPC: `!wander`, `!respawn`, `!path add` / `!path clear`, saved and applied live (Bram walked a two-point patrol).
 - 2026-10-15: In-game builder: `!spawn <mob> [wander]` places a mob at your feet and saves it to the chunk's spawn file; `!despawn` removes the targeted one (seen live; unit test BuilderTests).

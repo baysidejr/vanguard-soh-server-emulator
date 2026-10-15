@@ -445,7 +445,8 @@ def run_processes(a):
                "--seconds", str(a.seconds), "--move-rate", str(a.move_rate), "--drop", str(a.drop),
                "--spread", str(a.spread)] + (["--auto-accept"] if a.auto_accept else []) + [
                "--stagger", str(a.stagger * a.procs), "--host", a.host,
-               "--login-port", str(a.login_port), "--world-port", str(a.world_port)]
+               "--login-port", str(a.login_port), "--world-port", str(a.world_port)] + (
+               ["--data-dir", a.data_dir] if a.data_dir else [])
         procs.append(subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True))
         first += n
         time.sleep(a.stagger)
