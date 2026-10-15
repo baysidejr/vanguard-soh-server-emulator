@@ -64,6 +64,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Crafting stage banner seen during a real craft (driven with !cev). The game-client smoke test now also runs a crafting session, wounds, !mobs, Sprint and the Character window (49 commands, PASS).
 - 2026-10-15: The live NPC reload also covers quests.json, dialogs.json and loot.json.
 - 2026-10-15: mobs.json edits also apply live to loaded chunks (seen live: a renamed guard).
 - 2026-10-15: Spawn files edited while their chunk is loaded (web editor, by hand) are applied live at the next content reload; builder saves are not reloaded twice. Seen live.

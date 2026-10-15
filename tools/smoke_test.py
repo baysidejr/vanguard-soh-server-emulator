@@ -31,7 +31,11 @@ COMMANDS = ["/who", "/played", "/time", "/loc", "/random 100", "/afk", "/afk", "
             "/itemlinkrequest <item=1:1::0:0:0:0:0:x>Copper Ore</link>",
             "/reloadui",
             # dev commands that leave no lasting change on the character
-            "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide", "!plot 101"]
+            "!mount 1000", "!mount 0", "!cc stun 1", "!hide", "!hide", "!plot 101",
+            # 2026-10-15 features: a crafting session at the camp forge opened and cancelled,
+            # a wound set and healed, the builder's mob list, Sprint, the faction lists.
+            "!target Camp Forge", "!cev 0xfa", "!cev 0xfe 5001 0", "!cev 0xfd",
+            "!wound 2 1", "!wound 2 0", "!mobs bear", "!use Sprint", "!ui Character"]
 
 # Server log lines that mean something went wrong.
 SERVER_PROBLEMS = re.compile(r"Traceback|!!! error in|>>> handler error|malformed message")
