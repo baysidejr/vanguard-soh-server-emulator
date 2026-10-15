@@ -269,6 +269,8 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
             continue
         mobs[key] = creature_template(rec, continent)
         sp = {"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0}
+        if "random" in ((rec.get("archive_fields") or {}).get("spawn") or []):
+            sp["wander"] = 400            # the archive's "random" spawn: it roams rather than stands
         if respawn_seconds(rec):
             sp["respawn"] = respawn_seconds(rec)
         spawns.append(sp)
