@@ -5521,6 +5521,7 @@ def open_loot(state, npc):
     msgs = combat.loot_messages(npc)
     group_loot_opened(state, npc)
     loot_coin(state, npc)
+    msgs = msgs + grouploot.loot_buttons(getattr(state["player"], "group", None), npc)
     m = hint(state["player"], "loot")
     return msgs + ([m] if m else [])
 
@@ -5719,12 +5720,14 @@ def handle_grouploot_event(state, event, data):
             notice(grouploot.NO_PERMISSION)
         elif event == grouploot.ALLOW_GROUP:
             npc.open_to_group = True
+            send(grouploot.loot_button(grouploot.SHOW_SHARE, False))
             for m in members:
                 m["send"](build_system_text(f"{player.name} lets the group loot {npc.name}.", SYSTEM_TEXT_WHITE))
         elif s["mode"] == grouploot.RANDOM_FOR_MAGICAL:
             if npc.loot is None:
                 combat.loot_messages(npc)                # roll the corpse's items
             start_roll(g, npc)
+            send(grouploot.loot_button(grouploot.SHOW_START_ROLLING, False))
         else:
             notice(grouploot.INVALID_MODE)
     elif event == grouploot.NEED_GREED:

@@ -90,6 +90,23 @@ def _rstr(data, pos):
     return data[pos:end].decode("utf-16-le", "replace"), end + 2
 
 
+# Loot window buttons (VGUILoot.xml): 0x6ca {bool8} shows "Share Loot Rights" (sends 0xb7),
+# 0x6c9 {bool8} shows "Start Item Rolling" (sends 0xb8); the client keeps them hidden until told.
+SHOW_SHARE, SHOW_START_ROLLING = 0x6CA, 0x6C9
+
+
+def loot_buttons(group, npc):
+    """[0x6ca, 0x6c9] for someone who may loot npc: share rights in Round Robin and Master
+    Looter (until shared), start rolling in Random For Magical."""
+    mode = settings(group)["mode"] if group is not None else None
+    share = mode in (ROUND_ROBIN, MASTER_LOOTER) and not getattr(npc, "open_to_group", False)
+    return [loot_button(SHOW_SHARE, share), loot_button(SHOW_START_ROLLING, mode == RANDOM_FOR_MAGICAL)]
+
+
+def loot_button(event_id, shown):
+    return _event(event_id, bytes([int(bool(shown))]))
+
+
 def settings(group):
     """The group's loot settings (created with defaults)."""
     if not hasattr(group, "loot"):

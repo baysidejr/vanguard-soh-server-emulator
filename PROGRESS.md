@@ -28,7 +28,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 585 of 720 sent or not needed (81%); open: 135 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 587 of 720 sent or not needed (81%); open: 133 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
@@ -43,6 +43,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 
 ## Done
 
+- 2026-10-14: The loot window's "Share Loot Rights" (0x6ca) and "Start Item Rolling" (0x6c9) buttons are now shown in the loot modes that use them. Before this they were never visible, so 0xb7 / 0xb8 were only reachable by dev command. Seen live with two clients: sharing, and a roll popup on the other member. Unit test LootButtonTests.
 - 2026-10-14: A group member's spell being cast shows by their row in the group window (0x3b3 adds the icon, 0x3b4 removes it). Seen live with two clients; unit test GroupCastTests. Also: a 10-minute soak with 50 bots kept memory flat.
 - 2026-10-14: tools/scenarios.py gained an "aa" scenario: a bot trains an AA ability over the wire, and the server answers 0x860 and saves it. 9/9 scenarios pass; check_all 6/6.
 - 2026-10-14: Housing drag placement, second runtime look (docs/HOUSING.md). The cottage room does become a type-3 house zone linked to the house. The in-house check is handed the point (-29500, -6450, 389), the terrain under the floor, while Ranger stands on the floor at 605. Still blocked; the next step is FUN_00b753d0 and the trace flags.

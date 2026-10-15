@@ -1293,3 +1293,18 @@ class AATests(unittest.TestCase):
         import aa
         self.assertEqual(aa.gain(0, 0, 0, 1000, aa.MIN_LEVEL - 1), (0, 0, 0))
         self.assertEqual(aa.gain(0, 900, 2, 1000, aa.MIN_LEVEL), (150, 3, 1))
+
+
+class LootButtonTests(unittest.TestCase):
+    def test_buttons_per_mode(self):
+        g = types.SimpleNamespace(leader=types.SimpleNamespace(char_id=1))
+        npc = types.SimpleNamespace()
+        for mode, want in ((grouploot.FREE_FOR_ALL, (0, 0)), (grouploot.MASTER_LOOTER, (1, 0)),
+                           (grouploot.ROUND_ROBIN, (1, 0)), (grouploot.RANDOM_FOR_MAGICAL, (0, 1))):
+            grouploot.settings(g)["mode"] = mode
+            got = [payload(m) for m in grouploot.loot_buttons(g, npc)]
+            self.assertEqual(got, [(0x6CA, bytes([want[0]])), (0x6C9, bytes([want[1]]))])
+        npc.open_to_group = True
+        grouploot.settings(g)["mode"] = grouploot.MASTER_LOOTER
+        self.assertEqual(payload(grouploot.loot_buttons(g, npc)[0]), (0x6CA, b"\0"))
+        self.assertEqual(payload(grouploot.loot_buttons(None, npc)[0]), (0x6CA, b"\0"))
