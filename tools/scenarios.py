@@ -6,6 +6,7 @@ Two load-test bots (Lbotaa = A, Lbotab = B) log in to a running server and go th
   trade  A offers an item, B offers 50 copper, both accept; the database must show the item
          with B and the coins with A
   tell   A sends B a private message
+  guild  A founds a guild and invites B, B joins (checked in the database), A disbands it
   duel   A challenges B, B accepts, the countdown runs and the duel starts
 Each step prints PASS or FAIL; the exit code is the number of failures.
 
@@ -151,6 +152,23 @@ def main():
         b.pump(0.2)
         heard = any("psst from A".encode("utf-16-le") in m for m in b.got + b.world.poll())
     fails += check("tell", heard)
+
+    # Guild: A founds one (0x4d3 {eid64, wstr name}), invites B (0x4d5 {wstr}), B gets the
+    # popup (0x4e9) and accepts (0x4d6); the saved guild lists both. Then A disbands it (0x4da).
+    gname = "Scenario Guild %d" % (int(time.time()) % 100000)
+    a.send(0x4D3, bytes(8) + wstr(gname))
+    a.pump(0.5)
+    a.send(0x4D5, wstr(b.name))
+    invited = b.wait_for(0x4E9)
+    b.send(0x4D6)
+    b.pump(0.5)
+    guilds = storage.read_json(os.path.join(ROOT, "server", "guilds.json"), {})
+    g = next((g for g in guilds.values() if g.get("name") == gname), None)
+    members = sorted(g["members"]) if g else []
+    fails += check("guild", bool(invited) and members == sorted([a.name, b.name]),
+                   f"invite popup={bool(invited)}, members={members}")
+    a.send(0x4DA)
+    a.pump(0.5)
 
     # Duel: A picks B as defensive target (0x5c {u64}), challenges (0x3fd); B accepts
     # (0x3ff {0}); both get the countdown (0x400), then the start (0x401) after 10 s.
