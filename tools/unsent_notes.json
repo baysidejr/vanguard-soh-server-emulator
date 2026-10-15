@@ -239,8 +239,8 @@
       "/.g1 /.g2 GM output {3 x wstr, i32}"
     ],
     "0x5c7": [
-      "unknown",
-      "{f32 a, f32 b, f32 secs}: fades two PlayerController floats (+0x58c/+0x590) from a to b; no native reader, probably UnrealScript (FUN_005e1080) [decoded 2026-10-14]"
+      "optional",
+      "{f32 from, f32 to, f32 seconds}: fades the camera field of view from one value to the other (seen live: 85 -> 20 over 3 s zooms in smoothly); 0x728 sets it back [decoded 2026-10-14]"
     ],
     "0x5e2": [
       "blocked",
@@ -283,8 +283,8 @@
       "group invite referral popup (Accept / Decline -> /groupinvitereferral*)"
     ],
     "0x728": [
-      "unknown",
-      "{f32, f32}: sets the same two PlayerController floats as 0x5c7 directly; meaning not found (FUN_005e0fe0) [decoded 2026-10-14]"
+      "optional",
+      "{f32, f32}: the camera field of view in degrees (seen live: 0.5 magnifies hugely, 500 is an extreme wide angle, 85 is normal); a zoom for scripted moments or a spyglass [decoded 2026-10-14]"
     ],
     "0x75d": [
       "variant",

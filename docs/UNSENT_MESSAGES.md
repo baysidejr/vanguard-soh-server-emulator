@@ -6,15 +6,15 @@ The client handles 720 zone messages; the server code mentions 457 of them (63%)
 
 | Category | Count |
 |---|---|
-| optional | 141 |
+| optional | 143 |
 | variant | 45 |
 | content | 40 |
 | no-op | 18 |
 | debug | 8 |
 | blocked | 8 |
-| unknown | 3 |
+| unknown | 1 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 576 of 720 (80%). Still open: 141 optional features and 3 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 576 of 720 (80%). Still open: 143 optional features and 1 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 33
 
@@ -76,7 +76,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 576 of 720 (80%).
 | 0x552 | MsgSingleBool | bool8 | optional | bInOutpost {bool8}: outpost flag (the camp is an outpost); what it unlocks is not known |
 | 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | optional | spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (world FUN_00b77ee0: "Failed to spawn actor"); for scripted effects |
 | 0x5b0 | MsgThreeStringsAndInt | wstr, wstr, wstr, i32 | debug | /.g1 /.g2 GM output {3 x wstr, i32} |
-| 0x5c7 | MsgThreeFloats | f32, f32, f32 | unknown | {f32 a, f32 b, f32 secs}: fades two PlayerController floats (+0x58c/+0x590) from a to b; no native reader, probably UnrealScript (FUN_005e1080) [decoded 2026-10-14] |
+| 0x5c7 | MsgThreeFloats | f32, f32, f32 | optional | {f32 from, f32 to, f32 seconds}: fades the camera field of view from one value to the other (seen live: 85 -> 20 over 3 s zooms in smoothly); 0x728 sets it back [decoded 2026-10-14] |
 | 0x5e2 | (raw) |  | blocked | character customization / slot item purchased (store); this server has no store |
 | 0x62a | MsgSingleEntityId | eid64 | variant | {eid64}: sets the local player's entity id; the client already has it from the zone-in (inferred) (FUN_005e1140) [decoded 2026-10-14] |
 | 0x62b | MsgSingleInt | i32 | no-op | {i32} CharacterId, only for the vgplayers.com screenshot upload XML (FUN_005e11e0) [decoded 2026-10-14] |
@@ -88,7 +88,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 576 of 720 (80%).
 | 0x723 | MsgTwoInts | i32, i32 | optional | "You lost a level, your %s level is now %d." {sphere, level}; this server never takes levels away |
 | 0x726 | (raw) |  | blocked | trial-account feature popup (mail, housing...); never send |
 | 0x727 | MsgTwoEntityIdsAndTwoStrings | eid64, eid64, wstr, wstr | optional | group invite referral popup (Accept / Decline -> /groupinvitereferral*) |
-| 0x728 | MsgTwoFloats | f32, f32 | unknown | {f32, f32}: sets the same two PlayerController floats as 0x5c7 directly; meaning not found (FUN_005e0fe0) [decoded 2026-10-14] |
+| 0x728 | MsgTwoFloats | f32, f32 | optional | {f32, f32}: the camera field of view in degrees (seen live: 0.5 magnifies hugely, 500 is an extreme wide angle, 85 is normal); a zoom for scripted moments or a spyglass [decoded 2026-10-14] |
 | 0x75d | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo: updates an existing item in place without a UI refresh; the server resends 0x197 (FUN_005e4ed0) [decoded 2026-10-14] |
 
 ## FUN_004b4210 (combat groups / encounters): 22
