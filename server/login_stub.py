@@ -421,6 +421,34 @@ def content_reload_tick(args, now):
     args.content = content.Content()
     zone.ITEM_CONTENT = args.content
     print("  content reloaded (changed files)")
+    for w in world.all_worlds():
+        if w.populated and spawn_stamp(args, w.level) != SPAWN_STAMPS.get(w.level):
+            refresh_world_spawns(w, args)
+
+
+# Spawn files edited while their chunk is loaded (the web editor, by hand) are applied at the
+# next reload: the chunk's spawned NPCs are closed and created again from the file for everyone
+# there. The builder commands change the world themselves, so they record the new stamp.
+SPAWN_STAMPS = world.SPAWN_STAMPS     # level -> spawn file mtime the world matches
+
+
+def spawn_stamp(args, level):
+    path = os.path.join(args.content.directory, "spawns", level + ".json")
+    return os.path.getmtime(path) if os.path.exists(path) else None
+
+
+def refresh_world_spawns(w, args):
+    old = [eid for eid in w.npcs if zone.SPAWN_EID_BASE <= eid < zone.SPAWN_EID_BASE + 0x100000]
+    for eid in old:
+        del w.npcs[eid]
+        w.broadcast(lambda s, eid=eid: zone.close_actor(s, eid))
+    zone.populate_world(w, args)
+    SPAWN_STAMPS[w.level] = spawn_stamp(args, w.level)
+    for eid, npc in list(w.npcs.items()):
+        if zone.SPAWN_EID_BASE <= eid < zone.SPAWN_EID_BASE + 0x100000:
+            w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
+    print(f"  spawns of {w.level} reloaded: {len(old)} NPCs replaced by "
+          f"{sum(1 for e in w.npcs if zone.SPAWN_EID_BASE <= e < zone.SPAWN_EID_BASE + 0x100000)}")
 
 
 def console_lines():
@@ -3244,6 +3272,7 @@ def write_spawn_file(path, doc):
     with open(tmp, "w", encoding="utf-8", newline="") as f:
         f.write(text.replace("\n", nl))
     os.replace(tmp, path)
+    SPAWN_STAMPS[os.path.basename(path)[:-5]] = os.path.getmtime(path)   # the world is already in step
 
 
 def build_spawn(state, args, key, wander=0):
@@ -3309,6 +3338,7 @@ def build_undo(state):
     with open(tmp, "w", encoding="utf-8", newline="") as f:
         f.write(old_text)
     os.replace(tmp, path)
+    SPAWN_STAMPS[os.path.basename(path)[:-5]] = os.path.getmtime(path)
     live_undo()
     state["send"](build_system_text(f"Undid the {label}.", SYSTEM_TEXT_WHITE))
     print(f"  builder: {state['player'].name} undid the {label}")

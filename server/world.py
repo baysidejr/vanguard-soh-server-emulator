@@ -17,6 +17,8 @@ def world_for(level):
     return _worlds[level]
 
 
+SPAWN_STAMPS = {}          # level -> mtime of the spawn file its NPCs were made from
+
 def all_worlds():
     return list(_worlds.values())
 

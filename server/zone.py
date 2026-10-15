@@ -210,6 +210,9 @@ def npc_list(rows, verbose=True):
 
 def populate_world(w, args):
     """Create the shared NPCs of a chunk from content/spawns/<chunk>.json."""
+    import os
+    path = os.path.join(args.content.directory, "spawns", w.level + ".json")
+    world.SPAWN_STAMPS[w.level] = os.path.getmtime(path) if os.path.exists(path) else None
     for n, (spawn, template) in enumerate(args.content.spawns(w.level, args.client_dir)):
         npc = npc_from_template(w, args, SPAWN_EID_BASE + n, spawn, template, n)
         w.npcs[npc.entity_id] = npc
