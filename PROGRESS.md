@@ -44,6 +44,7 @@ The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty 
 
 ## Done
 
+- 2026-10-15: The Stats tab's Melee Critical Chance / Damage now show the server's real values (MsgScore 80 / 81: 5% + 0.1% per Dexterity above 30, +50% damage). Seen live: 8.00% / 50.00%. Ranged and spell crits stay 0 because the server has none.
 - 2026-10-15: Player pawns replicate m_GameplayLevel from spawn and after level ups, so the defensive target panel shows the right level (13 instead of 1). Seen live.
 - 2026-10-15: Defensive target panel. 0x3e2 {eid64, u8 0-255} fills the health bar of the panel under the portrait, which had stayed empty. It is sent whenever the defensive target or its health changes. Seen live; unit test DefTargetPanelTests.
 - 2026-10-15: Crafting attribute points. Problem Solving, Reasoning, Ingenuity and Finesse are now on the crafting tab with their own pool (2 points per crafting level, granted on crafting level up). Seen live; unit test CraftAttributeTests.

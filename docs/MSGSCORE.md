@@ -110,8 +110,8 @@ Game variables shown as "bar(max N)" are `SGOUIGameVarDataStatusInfo{max=N, valu
 | 77 | f32 | 0x130 | general crit chance % | PCAdvGeneralCriticalChance | O | Character |
 | 78 | f32 | 0x134 | spell crit chance % | PCAdvSpellCriticalChance | O | Character |
 | 79 | f32 | 0x138 | ranged crit chance % | PCAdvRangedCriticalChance | O | Character |
-| 80 | f32 | 0x13c | melee crit chance % | PCAdvMeleeCriticalChance | O | Character |
-| 81 | f32 | 0x148 | melee crit damage % | PCAdvMeleeCriticalDamage | O | Character |
+| 80 | f32 | 0x13c | melee crit chance % | PCAdvMeleeCriticalChance | O | Character; sent (combat.crit_chance, seen 8.00% at Dex 60) |
+| 81 | f32 | 0x148 | melee crit damage % | PCAdvMeleeCriticalDamage | O | Character; sent (50%) |
 | 82 | f32 | 0x140 | spell crit damage % | PCAdvSpellCriticalDamage | O | Character |
 | 83 | f32 | 0x144 | ranged crit damage % | PCAdvRangedCriticalDamage | O | Character |
 | 84 | f32 | 0x14c | strikethrough chance % | PCAdvStrikethroughChance | O | Character |

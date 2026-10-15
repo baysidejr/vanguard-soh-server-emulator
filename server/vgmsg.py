@@ -49,6 +49,10 @@ SCORE_FIELDS = {
     "melee_mitigation": 64, "spell_mitigation": 65,
     "melee_evasion": 69, "spell_evasion": 70, "block": 71, "dodge": 72, "parry": 73,
     "energy_regen": 74, "flurry_resist": 75, "rampage_resist": 76,
+    # Stats tab, Critical (percent): 77 general, 78 spell, 79 ranged, 80 melee chance; 81 melee,
+    # 82 spell, 83 ranged extra damage.
+    "crit_chance": 77, "spell_crit_chance": 78, "ranged_crit_chance": 79, "melee_crit_chance": 80,
+    "melee_crit_damage": 81, "spell_crit_damage": 82, "ranged_crit_damage": 83,
     "energy_regen_s": 102, "hp_regen_s": 103, "endurance_regen_s": 104,
 }
 assert len(SCORE_TYPES) == 111, len(SCORE_TYPES)

@@ -247,6 +247,11 @@ BASE_PARRY, BASE_BLOCK = 0.04, 0.06           # with a weapon in hand / a shield
 BASE_CRIT, CRIT_PER_DEX, CRIT_MULT = 0.05, 0.001, 1.5
 
 
+def crit_chance(dex):
+    """A melee swing's critical chance (also shown on the character window's Stats tab)."""
+    return BASE_CRIT + CRIT_PER_DEX * max(0, dex - 30)
+
+
 def roll_outcome(rng, attacker_level, defender_level, defender_dex=30, attacker_dex=30,
                  can_parry=False, can_block=False):
     """One swing's outcome: effects.MISS / DODGE / PARRY / BLOCK / CRIT / HIT."""
@@ -256,7 +261,7 @@ def roll_outcome(rng, attacker_level, defender_level, defender_dex=30, attacker_
             (effects.DODGE, BASE_DODGE + DODGE_PER_DEX * max(0, defender_dex - 30)),
             (effects.PARRY, BASE_PARRY if can_parry else 0.0),
             (effects.BLOCK, BASE_BLOCK if can_block else 0.0),
-            (effects.CRIT, BASE_CRIT + CRIT_PER_DEX * max(0, attacker_dex - 30))):
+            (effects.CRIT, crit_chance(attacker_dex))):
         if r < chance:
             return outcome
         r -= chance
