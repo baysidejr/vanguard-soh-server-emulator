@@ -847,6 +847,7 @@ def stat_messages(player):
     for name in attributes.CRAFT_STATS:
         out.append(attributes.craft_update(name, craft_alloc))
     out += harvest_updates(player)
+    out.append(skill_pool_caps(player))
     return out
 
 
@@ -909,6 +910,24 @@ DEFAULT_SKILLS = [
     (0x5b, 1, 0x15),    # Fishing
 ]
 SKILL_CAP = 50
+
+# Skills tab group headers (verified live 2026-10-15): each header shows its pool's maximum
+# minus the skill points spent in the group (PCPoolAdv<Group> = max - spent, FUN_0056b8xx);
+# without 0x2d6 the maximum is 0 and the headers read -85, -90, ... 0x2d6 MsgSkillPoolCaps
+# {12 x i32} (FUN_0056e500): 0 weapon types, 1 spell schools, 2 combat, 3 perception, 4 general,
+# 5 weapon specialization, 6-7 harvesting, 8-11 crafting. The maximum here is SKILL_CAP for every
+# skill in the group (placeholder), so a header shows how much the group can still grow.
+SKILL_POOL_CAPS = 0x2D6
+POOL_OF_SUBTYPE = {0: 0, 9: 1, 4: 2, 7: 3, 0x1E: 4, 2: 5}
+
+
+def skill_pool_caps(player):
+    caps = [0] * 12
+    for _sid, _value, subtype in getattr(player, "skills", []):
+        pool = POOL_OF_SUBTYPE.get(subtype)
+        if pool is not None:
+            caps[pool] += SKILL_CAP
+    return zone_event(SKILL_POOL_CAPS, struct.pack("<12i", *caps))
 
 # Starter inventory: (item id, name, icon, quantity). Icons are the numbered
 # entries of VGUIAssets/Global/Icons/iconsTK.xml (400..99008); 443 is the

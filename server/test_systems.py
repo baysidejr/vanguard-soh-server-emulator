@@ -1351,3 +1351,11 @@ class HarvestTabTests(unittest.TestCase):
         self.assertEqual(eid, 0x2D4)
         self.assertEqual(struct.unpack_from("<iB", data), (zone.HARVEST_INSTANCE + 0x0F, 3))   # instance, category
         self.assertEqual(len(zone.harvest_records(p)), 3)
+
+
+class SkillPoolTests(unittest.TestCase):
+    def test_caps_per_group(self):
+        p = types.SimpleNamespace(skills=[(1, 25, 0), (2, 30, 0), (3, 10, 4), (4, 1, 0x15)])
+        eid, data = payload(zone.skill_pool_caps(p))
+        caps = struct.unpack("<12i", data)
+        self.assertEqual((eid, caps[0], caps[2], sum(caps)), (0x2D6, 100, 50, 150))
