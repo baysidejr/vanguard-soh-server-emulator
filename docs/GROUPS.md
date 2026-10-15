@@ -110,7 +110,7 @@ Display back to clients (zone conn):
 
 With Justins in Ranger's group, `/raidcreate` (0xac) makes the server send 0x6c2 to every member: both get "You have joined the raid.". `/readycheck` (0xa8) sends the leader 0x6c4 ("You have requested a raid ready check.") and the others 0x6c5 {leader row id}, which opens the client's "Ready Check" popup ("Ranger has requested a ready check. Are you ready?"). The answer 0xa9 {initiator row, status} is passed to the leader as 0x6c6 {row, status}: when nobody clicks, the client answers AFK after 15 s and the leader sees "Justins is afk!". The limit is 24; new raid members get 0x6d7 and a free raid group (0x6bb field 5). Moving members between raid groups (0xaa -> 0x6c1) and raid roles (0xab -> 0x6a6, toggled) are coded but untested; `/raidalert` (0xa7 -> 0x551 on-screen text) showed nothing in the one test.
 
-The rest of this section is the client analysis (static, by a research agent), including mentoring and the Find (LFG/LFM) window, which are not implemented yet.
+The rest of this section is the client analysis (static, by a research agent), including mentoring and the Find (LFG/LFM) window (both implemented since; see their sections below).
 
 
 [O] = read in code. [I] = inferred. Wire = SGO fields packed LE in registration order (see ZONE_MESSAGES.md).
