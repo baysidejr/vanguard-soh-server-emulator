@@ -10,6 +10,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Last test results
 
+- 2026-10-14 (after flight): tools/check_all.py --client: 7 of 7 passed (unit 171, content, scenarios 8/8, load 20 bots p95 11.5 ms, server log clean, fuzz clean, smoke test PASS).
 - 2026-10-14 (check_all): unit 171 OK, content OK, scenarios 8/8, load test 20 bots p95 11 ms, fuzz clean; smoke test PASS earlier today.
 - 2026-10-14 (CI): GitHub Actions passes on ac4f08d (169 tests, 2 skipped without the client); locally 169 OK, smoke test PASS.
 - 2026-10-14 (capacity round 2): unit tests OK (166), content OK, smoke test PASS; load test steady state: 100 crowd 10.5 ms / 11.4 ms, 150 spread 10.6 / 11.2 ms, 200 spread 10.6 ms / 1.4 s.
