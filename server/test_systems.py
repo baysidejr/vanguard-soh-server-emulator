@@ -1473,3 +1473,16 @@ class ArchiveDraftTests(unittest.TestCase):
             self.assertIsNone(editor.draft("item", "Nope"))
         finally:
             editor._ARCHIVE[:] = saved
+
+
+@unittest.skipUnless(os.path.isdir(os.path.join("..", "VGUIAssets")), "needs the client's icon sheets")
+class IconTests(unittest.TestCase):
+    def test_icon_png(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        self.assertGreater(len(editor.icon_index()), 1000)
+        data = editor.icon_png(436)
+        self.assertTrue(data.startswith(b"\x89PNG"))
+        self.assertEqual(struct.unpack(">II", data[16:24]), (40, 40))
+        self.assertIsNone(editor.icon_png(999999999))

@@ -155,7 +155,9 @@
       <div class="qgrid">
         <div><label>Type</label><select id="iType"></select></div>
         <div><label>Equip slot</label><select id="iSlot"></select></div>
-        <div><label>Icon number (iconsTK.xml)</label><input id="iIcon" type="number"></div>
+        <div><label>Icon number (iconsTK.xml)</label><div style="display:flex;gap:6px;align-items:center">
+          <img id="iIconImg" width="40" height="40" style="background:#000;border:1px solid #4d463c">
+          <input id="iIcon" type="number"><button id="pickIcon">Pick</button></div></div>
         <div><label>Rarity</label><select id="iRarity"></select></div>
         <div><label>Required level</label><input id="iLevel" type="number"></div>
         <div><label>Armor</label><input id="iArmor" type="number"></div>
@@ -185,6 +187,10 @@
       <p class="hint">Records collected from the community archive (crowdsourced/raw). They are a reference for filling in content by hand: values can be missing or uncertain (see confidence and notes), so check the source before relying on one.</p>
       <div id="archDetail"></div>
     </div>
+  </div>
+  <div id="iconPicker" style="display:none;position:fixed;inset:40px 60px;background:#1d1b18;border:1px solid #6b5526;z-index:10;flex-direction:column">
+    <div class="bar"><strong>Pick an icon</strong><input id="iconFilter" placeholder="number" style="width:120px"><span style="flex:1"></span><button id="closeIcons">Close</button></div>
+    <div id="iconGrid" style="overflow-y:auto;flex:1;padding:8px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start"></div>
   </div>
   <div id="spawnview">
     <div id="mapwrap"><canvas id="map"></canvas></div>
@@ -450,6 +456,7 @@ function showItem() {
     if (el.tagName === "SELECT" && v !== "" && ![...el.options].some(o => o.value === String(v))) el.add(new Option(v + " (unknown)", v));
     el.value = v;
   }
+  $("iIcon").oninput();
   $("iDmg0").value = (it.damage || [])[0] ?? ""; $("iDmg1").value = (it.damage || [])[1] ?? "";
   $("iMesh0").value = (it.mesh || [])[0] ?? ""; $("iMesh1").value = (it.mesh || [])[1] ?? "";
   for (const f of schema.flags) $("if_" + f).checked = (it.flags || []).includes(f);
@@ -472,6 +479,26 @@ function drawStats() {
     tr.querySelector("button").onclick = () => { statRows.splice(i, 1); drawStats(); };
     t.appendChild(tr);
   });
+}
+const iconUrl = n => `/api/icon.png?n=${n}`;
+$("iIcon").oninput = () => { $("iIconImg").src = $("iIcon").value ? iconUrl($("iIcon").value) : ""; };
+let iconList = null;
+$("pickIcon").onclick = async () => {
+  if (!iconList) iconList = (await api("/api/icons")).body;
+  $("iconPicker").style.display = "flex"; drawIcons();
+};
+$("closeIcons").onclick = () => { $("iconPicker").style.display = "none"; };
+$("iconFilter").oninput = () => drawIcons();
+function drawIcons() {
+  const f = $("iconFilter").value.trim();
+  $("iconGrid").innerHTML = "";
+  for (const n of iconList.filter(n => !f || String(n).includes(f)).slice(0, 2500)) {
+    const im = document.createElement("img");
+    im.loading = "lazy"; im.width = im.height = 40; im.src = iconUrl(n); im.title = n;
+    im.style.cssText = "cursor:pointer;border:1px solid #2c2823;background:#000";
+    im.onclick = () => { $("iIcon").value = n; $("iIcon").oninput(); $("iconPicker").style.display = "none"; };
+    $("iconGrid").appendChild(im);
+  }
 }
 $("addStat").onclick = () => { if (itemSel) { statRows.push(["stats", schema.stats[0], 1]); drawStats(); } };
 $("addMod").onclick = () => { if (itemSel) { statRows.push(["mods", schema.mods[0], 1]); drawStats(); } };
@@ -648,7 +675,8 @@ function showLoot() {
       <td><input type="number" min="0" max="100" value="${Math.round((r.chance ?? 1) * 1000) / 10}" data-k="chance" style="width:80px"></td>
       <td><input type="number" min="1" value="${q[0]}" data-k="q0" style="width:60px"></td>
       <td><input type="number" min="1" value="${q[1]}" data-k="q1" style="width:60px"></td>
-      <td><input type="number" value="${r.icon ?? ""}" data-k="icon" style="width:80px"></td>
+      <td style="white-space:nowrap"><img src="${r.icon != null ? "/api/icon.png?n=" + r.icon : ""}" width="24" height="24" style="vertical-align:middle;background:#000">
+        <input type="number" value="${r.icon ?? ""}" data-k="icon" style="width:80px"></td>
       <td><button data-del="1">Remove</button></td>`;
     tr.querySelectorAll("input").forEach(inp => inp.oninput = () => {
       const k = inp.dataset.k, v = inp.value;
@@ -656,6 +684,7 @@ function showLoot() {
       else if (k === "chance") r.chance = Math.max(0, Math.min(1, Number(v) / 100));
       else if (k === "q0" || k === "q1") { r.quantity = [Number(tr.querySelector("[data-k=q0]").value), Number(tr.querySelector("[data-k=q1]").value)]; }
       else if (k === "icon") { if (v === "") delete r.icon; else r.icon = Number(v); }
+      tr.querySelector("img").src = r.icon != null ? "/api/icon.png?n=" + r.icon : "";
     });
     tr.querySelector("[data-del]").onclick = () => { rows.splice(i, 1); showLoot(); listLoot(); };
     t.appendChild(tr);
@@ -796,6 +825,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash === "#iconpicker") { setMode("items"); setTimeout(() => $("pickIcon").onclick(), 800); }
 if (location.hash.startsWith("#draft=")) { const [t, ...n] = decodeURIComponent(location.hash.slice(7)).split(":"); startDraft({ type: t, name: n.join(":") }); }
 if (location.hash.startsWith("#archive")) { const p = decodeURIComponent(location.hash.split("=")[1] || ""); lookUp(p, ""); setTimeout(() => { const f = $("archList").firstChild; if (f && f.onclick) f.onclick(); }, 1500); }
 if (location.hash.startsWith("#items")) { setMode("items"); setTimeout(() => { itemSel = decodeURIComponent(location.hash.split("=")[1] || ""); if (itemSel) { listItems(); showItem(); } }, 800); }

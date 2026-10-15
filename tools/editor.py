@@ -38,6 +38,7 @@ CONTENT = os.path.join(ROOT, "server", "content")
 BACKUPS = os.path.join(ROOT, "server", "backups", "content")
 MAPS = os.path.join(ROOT, "Assets", "Maps")
 ARCHIVE = os.path.join(ROOT, "crowdsourced", "raw")
+ICONS = os.path.join(ROOT, "VGUIAssets", "Global", "Icons")
 UI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "editor_ui.html")
 NAME = re.compile(r"^(spawns/)?[A-Za-z0-9_\-]+\.json$")
 
@@ -92,6 +93,72 @@ def save(directory, name, text, backups=BACKUPS):
     with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(text.replace("\r\n", "\n").replace("\n", nl))
     return []
+
+
+def png_rgba(width, height, rows):
+    """An RGBA PNG from rows of bytes (4 per pixel)."""
+    raw = b"".join(b"\0" + bytes(r) for r in rows)
+
+    def chunk(kind, data):
+        return (struct.pack(">I", len(data)) + kind + data
+                + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF))
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(raw, 6)) + chunk(b"IEND", b""))
+
+
+_ICON_INDEX, _TEXTURES = {}, {}
+ICON_ENTRY = re.compile(r'<AnimationInfo name="(\d+)">\s*<AnimationFrame[^>]*>\s*<TextureName>([^<]+)</TextureName>\s*'
+                        r'<Rect x="(\d+)" y="(\d+)" width="(\d+)" height="(\d+)"')
+
+
+def icon_index(path=None):
+    """{icon number: (texture file, x, y, w, h)} from the client's iconsTK.xml."""
+    if not _ICON_INDEX:
+        path = path or os.path.join(ICONS, "iconsTK.xml")
+        if os.path.exists(path):
+            with open(path, encoding="utf-8-sig") as f:
+                for m in ICON_ENTRY.finditer(f.read()):
+                    _ICON_INDEX.setdefault(int(m.group(1)), (m.group(2), *map(int, m.group(3, 4, 5, 6))))
+    return _ICON_INDEX
+
+
+def texture(name):
+    """Rows (top-down) of RGBA bytes of an uncompressed TGA or BMP icon sheet."""
+    if name not in _TEXTURES:
+        with open(os.path.join(ICONS, name), "rb") as f:
+            d = f.read()
+        rows = []
+        if name.lower().endswith(".tga") and d[2] == 2:
+            idlen, (w, h), bpp, desc = d[0], struct.unpack_from("<HH", d, 12), d[16], d[17]
+            px, start, bottom_up = bpp // 8, 18 + idlen, not desc & 0x20
+            stride = w * px
+        elif name.lower().endswith(".bmp") and d[:2] == b"BM":
+            start = struct.unpack_from("<I", d, 10)[0]
+            w, h = struct.unpack_from("<ii", d, 18)
+            px = struct.unpack_from("<H", d, 28)[0] // 8
+            stride, bottom_up, h = (w * px + 3) & ~3, h > 0, abs(h)
+        else:
+            raise ValueError(f"unsupported texture {name}")
+        for j in range(h):
+            line = d[start + j * stride:start + j * stride + w * px]
+            out = bytearray(4 * w)
+            out[0::4], out[1::4], out[2::4] = line[2::px], line[1::px], line[0::px]
+            out[3::4] = line[3::px] if px == 4 else b"\xff" * w
+            rows.append(bytes(out))
+        if bottom_up:
+            rows.reverse()
+        _TEXTURES[name] = rows
+    return _TEXTURES[name]
+
+
+def icon_png(n):
+    """A PNG of client icon number n (the items.json "icon"), or None."""
+    entry = icon_index().get(int(n))
+    if entry is None:
+        return None
+    name, x, y, w, h = entry
+    rows = texture(name)
+    return png_rgba(w, h, [rows[y + j][4 * x:4 * (x + w)] for j in range(h)])
 
 
 def png(width, height, gray):
@@ -286,6 +353,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if u.path == "/api/draft":
                 d = draft(q.get("type"), q.get("name"))
                 return self.reply(200, d) if d else self.reply(404, {"error": "no such record"})
+            if u.path == "/api/icon.png":
+                data = icon_png(q.get("n", "0"))
+                return self.reply(200, data, "image/png") if data else self.reply(404, {"error": "no such icon"})
+            if u.path == "/api/icons":
+                return self.reply(200, sorted(icon_index()))
             if u.path == "/api/schema":
                 return self.reply(200, schema())
             if u.path == "/api/races":
