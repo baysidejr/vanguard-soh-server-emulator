@@ -7168,7 +7168,7 @@ def handle_deconstruct(state, event, data):
 # zoom. 0x5c7 {f32 from, f32 to, f32 seconds} (FUN_005e1080) fades the camera field of view
 # (90 is the normal view); right-clicking again fades back.
 CAMERA_FOV_FADE = 0x5C7
-NORMAL_FOV = 90.0                  # the client's default (compared live with 0x728 at 85, 90 and 100)
+NORMAL_FOV = 90.0                  # the client's default (compared live against fixed views of 85, 90 and 100)
 
 
 def use_spyglass(state, spec):
