@@ -80,6 +80,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Editor "Forms & songs" tab (forms.json, songs.json; in the selftest).
+
 - 2026-10-15: Editor Riftways tab (riftways.json table; in the selftest). Unit test for activating a reaction on a dead enemy (code 5).
 
 - 2026-10-15: Archive loot drafts (loot.json table per creature; unknown items, missing chances and small samples flagged). Unit test ArchiveDraftTests.test_loot_draft; UI path in headless Edge.

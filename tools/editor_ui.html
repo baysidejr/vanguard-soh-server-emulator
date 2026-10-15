@@ -66,7 +66,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabWork">Work orders</button><button id="tabRift">Riftways</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabWork">Work orders</button><button id="tabRift">Riftways</button><button id="tabClassSets">Forms &amp; songs</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -239,6 +239,15 @@
       <table id="shopTable" style="border-collapse:collapse;width:100%"></table>
       <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
     </div>
+  </div>
+  <div id="csview" style="flex:1;display:none;min-height:0;flex-direction:column;overflow-y:auto;padding:10px 16px">
+    <div class="bar" style="padding:0 0 8px;border:0">
+      <select id="csFile"><option value="forms.json">Combat forms (forms.json)</option><option value="songs.json">Bard song parts (songs.json)</option></select>
+      <span style="flex:1"></span>
+      <button id="newCsRow">New entry</button><button id="saveCs" class="primary">Save</button>
+    </div>
+    <table id="csTable" style="border-collapse:collapse;width:100%"></table>
+    <p class="hint" id="csHint"></p>
   </div>
   <div id="riftview" style="flex:1;display:none;min-height:0;flex-direction:column;overflow-y:auto;padding:10px 16px">
     <div class="bar" style="padding:0 0 8px;border:0">
@@ -457,6 +466,8 @@ function setMode(m) {
   $("facview").style.display = m === "factions" ? "flex" : "none";
   $("woview").style.display = m === "work" ? "flex" : "none";
   $("riftview").style.display = m === "rift" ? "flex" : "none";
+  $("csview").style.display = m === "classsets" ? "flex" : "none";
+  if (m === "classsets" && !csDoc) initClassSets();
   if (m === "rift" && !riftDoc) initRift();
   if (m === "work" && !woDoc) initWork();
   if (m === "factions" && !facDoc) initFactions();
@@ -784,6 +795,65 @@ $("saveShops").onclick = async () => {
   const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
   showProblems(r.body.problems, "Saved merchants.json.");
+};
+
+// ---- forms and songs: {class: {entry name: {flat fields}}} ----
+let csDoc = null;
+$("tabClassSets").onclick = () => setMode("classsets");
+$("csFile").onchange = () => initClassSets();
+async function initClassSets() {
+  csDoc = JSON.parse((await api("/api/file?name=" + $("csFile").value)).body.text);
+  $("csHint").textContent = csDoc._comment || "";
+  showClassSets();
+}
+function csFields() {                                 // every field used, and whether it is numeric / a list
+  const f = {};
+  for (const [cls, set] of Object.entries(csDoc)) if (!cls.startsWith("_") && set && typeof set === "object")
+    for (const e of Object.values(set)) for (const [k, v] of Object.entries(e || {}))
+      f[k] = f[k] || (Array.isArray(v) ? "list" : typeof v === "number" ? "number" : "text");
+  return f;
+}
+function showClassSets() {
+  const t = $("csTable"), fields = csFields(), names = Object.keys(fields);
+  t.innerHTML = `<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Class</th><th>Name</th>${names.map(n => `<th>${esc(n)}</th>`).join("")}<th></th></tr>`;
+  for (const [cls, set] of Object.entries(csDoc)) {
+    if (cls.startsWith("_") || !set || typeof set !== "object") continue;
+    for (const name of Object.keys(set)) {
+      const e = set[name], tr = document.createElement("tr");
+      tr.innerHTML = `<td>${esc(cls)}</td><td>${esc(name)}</td>` + names.map(n => {
+        const v = e[n], kind = fields[n];
+        const shown = v === undefined ? "" : kind === "list" ? (v || []).join(", ") : v;
+        return `<td><input data-f="${esc(n)}" ${kind === "number" ? 'type="number"' : ""} value="${esc(shown)}" style="width:${kind === "list" ? 200 : kind === "number" ? 70 : 110}px"></td>`;
+      }).join("") + "<td><button>Remove</button></td>";
+      tr.querySelectorAll("input").forEach(i => i.onchange = () => {
+        const n = {};
+        for (const k of new Set(Object.keys(e).concat(names))) {
+          const inp = tr.querySelector(`[data-f="${CSS.escape(k)}"]`);
+          if (!inp) { if (k in e) n[k] = e[k]; continue; }
+          const raw = inp.value, kind = fields[k];
+          if (raw === "") continue;
+          n[k] = kind === "number" ? Number(raw) : kind === "list" ? raw.split(",").map(s => s.trim()).filter(Boolean) : raw;
+        }
+        set[name] = n;
+      });
+      tr.querySelector("button").onclick = () => { delete set[name]; showClassSets(); };
+      t.appendChild(tr);
+    }
+  }
+}
+$("newCsRow").onclick = () => {
+  const cls = prompt("Class (as in races_classes, e.g. Psionicist, Bard):"); if (!cls) return;
+  const name = prompt("Name of the new entry:"); if (!name) return;
+  csDoc[cls] = csDoc[cls] || {};
+  if (csDoc[cls][name]) return;
+  csDoc[cls][name] = $("csFile").value === "songs.json" ? { part: "verse", energy: 1 } : { stat: "strength", bonus: 5 };
+  showClassSets();
+};
+$("saveCs").onclick = async () => {
+  const f = $("csFile").value;
+  const r = await api("/api/file?name=" + f, { method: "PUT", body: JSON.stringify(csDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, `Saved ${f}.`);
 };
 
 // ---- riftways ----
@@ -1846,6 +1916,7 @@ if (location.hash === "#spawns") setMode("spawns");
 if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
 if (location.hash.startsWith("#factions")) setMode("factions");
 if (location.hash.startsWith("#rift")) setMode("rift");
+if (location.hash.startsWith("#classsets")) { if (location.hash.includes("=")) $("csFile").value = location.hash.split("=")[1]; setMode("classsets"); }
 if (location.hash.startsWith("#work")) { woSel = location.hash.split("=")[1] || null; setMode("work"); }
 if (location.hash.startsWith("#recipes")) { recSel = location.hash.split("=")[1] || null; setMode("recipes"); }
 if (location.hash.startsWith("#diplomacy")) { if (location.hash.includes("=")) dipSel = decodeURIComponent(location.hash.split("=")[1]); setMode("diplomacy"); }
@@ -1900,6 +1971,11 @@ if (location.hash === "#selftest") (async () => {
   await doc("factions", () => facDoc);
   { const before = sorted(facDoc); showFactions(); poke("facTable");
     if (sorted(facDoc) !== before) out.push(`factions: ${before} -> ${sorted(facDoc)}`); }
+  for (const f of ["forms.json", "songs.json"]) {
+    setMode("classsets"); $("csFile").value = f; csDoc = null; await initClassSets();
+    const before = sorted(csDoc); poke("csTable");
+    if (sorted(csDoc) !== before) out.push(`${f}: ${before} -> ${sorted(csDoc)}`);
+  }
   await doc("rift", () => riftDoc);
   { const before = sorted(riftDoc); showRift(); poke("riftTable");
     if (sorted(riftDoc) !== before) out.push(`riftways: ${before} -> ${sorted(riftDoc)}`); }

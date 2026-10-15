@@ -110,6 +110,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Work orders in the editor:** the Work orders tab edits workorders.json: id, name, icon, task master, recipe (flagging NPCs that are not task masters and recipes that are not work-order only), difficulty, skill, supplies, deliveries and the reward (coin, crafting XP, faction standing).
 
+**Forms and songs in the editor:** the "Forms & songs" tab edits forms.json (combat forms / mindsets) and songs.json (bard song parts) as one table per file: class, name and a column for every field the file uses (numbers stay numbers, lists are comma separated). A field no entry has yet (for example a form's `abilities`) is added in the Files tab. Both files are in the page selftest.
+
 **Riftways in the editor:** the Riftways tab edits riftways.json as a table (name, region, price color, and the landing chunk and position; an empty chunk means not open on this server yet). It is part of the page selftest.
 
 **Factions in the editor:** the Factions tab edits factions.json as a table (name, starting standing, kill change, allies, enemies, prestige) and shows how many mobs belong to each.
