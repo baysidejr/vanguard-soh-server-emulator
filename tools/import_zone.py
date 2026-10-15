@@ -73,6 +73,35 @@ def position(rec):
     return tuple(nums[:3]) if len(nums) >= 3 else None
 
 
+PARLEY_WORDS = {"gossip": "gossip", "incite": "incite", "entertain": "entertain", "convince": "convince",
+                "convice": "convince", "interview": "interview"}    # "Convice" is the archive's spelling
+
+
+def parley_types(rec):
+    """The parley types an NPC offers, from the archive's "parley types" field
+    ("[[[ Gossip ]]], , , [[[ Convice ]]], [[[ Interview ]]]"), in order, without repeats."""
+    out = []
+    for v in (rec.get("archive_fields") or {}).get("parley types") or []:
+        for word in re.findall(r"[A-Za-z]+", v):
+            t = PARLEY_WORDS.get(word.lower())
+            if t and t not in out:
+                out.append(t)
+    return out
+
+
+def parley_key(ptype, presence):
+    return f"archive_{ptype}_{presence}"
+
+
+def parley_setup(ptype, presence):
+    """A generic diplomacy.json parley of that type (placeholder cards, lines and reward; the
+    archive records only the type and the presence it asks for)."""
+    return {"offer": f"I'd like to {ptype} with you." if ptype != "interview" else "May I ask you a few questions?",
+            "presence": presence, "type": ptype, "npc_cards": [40100, 40101, 40102], "npc_pools": {"reason": 1},
+            "lines": ["Go on.", "I'm not convinced.", "That's a fair point.", "Hmm, interesting."],
+            "win_at": 17, "lose_at": 5, "reward": {"xp": 100}, "_archive_placeholder": True}
+
+
 def key_for(name):
     return "arch_" + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
 
@@ -95,6 +124,10 @@ def template(rec):
         t["repair"] = True
     if "broker" in services:
         t["broker"] = f"{rec.get('zone') or 'Local'} Market"
+    types = parley_types(rec)
+    if types:
+        presence = next((int(p) for p in (rec.get("archive_fields") or {}).get("presence") or [] if str(p).isdigit()), 0)
+        t["parley"] = [parley_key(pt, presence) for pt in types]
     if "trainer" in services and rec.get("training_classes_recorded"):
         t["trainer"] = True
         t["trainer_classes"] = sorted(set(rec["training_classes_recorded"]))
@@ -190,6 +223,19 @@ def apply(level, mobs, spawns, content=CONTENT):
     if new_mobs or grew:
         existing.update(new_mobs)
         write(mobs_path, existing)
+    # The generic parleys the templates refer to (diplomacy.json), created once.
+    wanted = {k for m in existing.values() if isinstance(m, dict) and isinstance(m.get("parley"), list)
+              for k in m["parley"] if k.startswith("archive_")}
+    dip_path = os.path.join(content, "diplomacy.json")
+    if wanted and os.path.exists(dip_path):
+        dip = load(dip_path, {})
+        parleys = dip.setdefault("parleys", {})
+        missing = [k for k in sorted(wanted) if k not in parleys]
+        for k in missing:
+            _, ptype, presence = k.split("_")
+            parleys[k] = parley_setup(ptype, int(presence))
+        if missing:
+            write(dip_path, dip)
     if new_spawns:
         doc.setdefault("spawns", []).extend(new_spawns)
         write(spawn_path, doc)

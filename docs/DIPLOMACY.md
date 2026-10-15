@@ -145,3 +145,7 @@ Unknown fields: the trailing wstr in `0x31d` (tried 2026-10-15 with "TRAILING TE
 ## Saved strategy decks (verified live 2026-10-13)
 
 `/decksave N` and `/deckload N` send **0x33a / 0x33b {i32 N}** (the client itself refuses anything outside 1-10: "You must specify a deck number for this command (1-10)"); `/deckclear` sends **0x33c** with no payload. The server keeps up to ten saved strategy bars per character (`deck_presets` in characters.json). Load and clear re-slot the bar with the usual 0x237/0x238 messages and save it. No reply message is known, so the server prints "Strategy deck 1 saved.", "Strategy deck 1 loaded.", "Strategy bar cleared." or "You have no strategy deck 7."
+
+## Several parleys per NPC, from the archive (verified live 2026-10-15)
+
+mobs.json `"parley"` may be a list of diplomacy.json keys. Each becomes its own dialogue option and its own 0x321 record, with option ids 9001, 9002, ...; the client sends the clicked id in 0x125 and the server starts that parley (`login_stub.parley_configs` / `parley_config`). The archive records which parley types an NPC offers ("[[[ Gossip ]]], , , [[[ Convice ]]], [[[ Interview ]]]") and the presence it asks; `tools/import_zone.py` turns those into keys `archive_<type>_<presence>`, each a generic parley of that type (placeholder cards, lines and an XP reward, marked `_archive_placeholder`), created in diplomacy.json once. 77 imported NPCs offer parleys. Seen: Afshin Budjiri in Khal offers Gossip, Convince and Interview (presence 1); choosing Convince opened "Parley - Convince".

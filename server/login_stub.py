@@ -6818,15 +6818,15 @@ def npc_dialog(state, npc):
                                    [r["text"] for r in visible_responses(player, node)]))
     else:
         out.append(quest.npc_text(npc.entity_id, greeting or f"Greetings, {player.name}."))
-    if npc.parley:
-        opts.append(("Let's talk business. (Parley)", diplomacy.PARLEY_OPTION_ID,
+    for i, cfg in enumerate(parley_configs(npc) if npc.parley else []):
+        opts.append((cfg.get("offer", "Let's talk business.") + " (Parley)", diplomacy.PARLEY_OPTION_ID + i,
                      diplomacy.OPTION_TYPE))
     if task_master_option(npc):
         opts.append(task_master_option(npc))
     if opts:
         out.append(quest.options(npc.entity_id, opts))
-    if npc.parley:
-        out.append(diplomacy.parley_offer(npc.entity_id, parley_config(npc)))
+    if npc.parley and parley_configs(npc):
+        out.append(diplomacy.parley_offer(npc.entity_id, parley_configs(npc)))
     if npc.merchant:
         out.append(zone.zone_event(merchant.DIALOG_WARES))
     if npc.repairs:
@@ -6914,10 +6914,22 @@ def task_master_option(npc):
         if getattr(npc, "task_master", False) else None
 
 
-def parley_config(npc):
-    """The diplomacy.json parley an NPC runs (mobs.json "parley": a key, or true for the first)."""
+def parley_configs(npc):
+    """The diplomacy.json parleys an NPC offers (mobs.json "parley": a key, a list of keys, or
+    true for the first one). Each is a dialogue option of its own (PARLEY_OPTION_ID + index)."""
     parleys = ARGS.content.diplomacy["parleys"]
-    return parleys.get(npc.parley) if isinstance(npc.parley, str) else next(iter(parleys.values()))
+    if isinstance(npc.parley, list):
+        return [parleys[k] for k in npc.parley if k in parleys]
+    if isinstance(npc.parley, str):
+        return [parleys[npc.parley]] if npc.parley in parleys else []
+    return [next(iter(parleys.values()))] if npc.parley else []
+
+
+def parley_config(npc, option_id=None):
+    """The parley behind a clicked option id (the first one without an id)."""
+    configs = parley_configs(npc)
+    i = (option_id or diplomacy.PARLEY_OPTION_ID) - diplomacy.PARLEY_OPTION_ID
+    return configs[i] if 0 <= i < len(configs) else (configs[0] if configs else None)
 
 
 def visible_responses(player, node):
@@ -8360,7 +8372,9 @@ def handle_parley_event(state, event, data):
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.parley:
             return
-        config = parley_config(npc)
+        config = parley_config(npc, struct.unpack_from("<i", data)[0] if len(data) >= 4 else None)
+        if config is None:
+            return
         deck, slots = diplomacy_deck(player)
         p = diplomacy.Parley(config, dip["cards"], [c for c in slots if c is not None])
         p.npc = npc

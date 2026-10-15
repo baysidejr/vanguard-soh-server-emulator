@@ -344,6 +344,9 @@ def validate(directory=CONTENT_DIR):
         elif not any(not dip["cards"].get(str(cid), {}).get("cost") for cid in p["npc_cards"]):
             problems.append(f"parley {pid}: needs at least one npc card without a cost")
     for mid, m in c.mobs.items():
+        for key in (m.get("parley") if isinstance(m, dict) and isinstance(m.get("parley"), list) else []):
+            if key not in dip.get("parleys", {}):
+                problems.append(f"mob {mid}: parley {key} is not in diplomacy.json")
         if isinstance(m, dict) and isinstance(m.get("parley"), str) and m["parley"] not in dip.get("parleys", {}):
             problems.append(f"mob {mid}: unknown parley {m['parley']}")
     for rid, r in c.recipes.items():
