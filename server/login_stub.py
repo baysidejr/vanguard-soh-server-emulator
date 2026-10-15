@@ -6986,6 +6986,55 @@ def buy_back(state, handle):
             merchant.coins(player.coins)]
 
 
+# Item conversion (verified live 2026-10-15): items.json "convert": {"count": n, "into":
+# [[item, qty], ...]} (up to 3 choices). Right-clicking the item sends 0x1c2 MsgDisplayConversionUI
+# {wstr item, i32 count, i32 handle, 3 x {wstr result, i32 qty, i32 kept, i32 0}} (FUN_00507060):
+# the Conversion window, "Convert 4 x Copper Ore to:" with one Convert button per choice (a choice
+# with qty 0 is hidden; "kept" > 0 adds a second line "<kept> x <item>"). Convert sends 0x9a
+# {i32 handle, i32 choice 1-3} (FUN_004fc5b0); Cancel sends nothing.
+CONVERSION_UI, CONVERT_REQUEST = 0x1C2, 0x9A
+
+
+def conversion_ui(item, conv):
+    w = lambda s: (s + chr(0)).encode("utf-16-le")
+    data = w(item[1]) + struct.pack("<ii", conv["count"], item[0])
+    opts = list(conv["into"])[:3]
+    for name, qty in opts + [("", 0)] * (3 - len(opts)):
+        data += w(name) + struct.pack("<iii", qty, 0, 0)
+    return zone.zone_event(CONVERSION_UI, data)
+
+
+def offer_conversion(state, item):
+    conv = ARGS.content.item(item[1])["convert"]
+    if item[3] < conv["count"]:
+        state["send"](build_system_text(f"You need {conv['count']} {item[1]} to convert them.", SYSTEM_TEXT_ERROR))
+        return
+    state["send"](conversion_ui(item, conv))
+
+
+def handle_conversion(state, data):
+    player, send = state["player"], state["send"]
+    if len(data) < 8:
+        return
+    handle, choice = struct.unpack_from("<ii", data, 0)
+    item = next((i for i in player.items if i[0] == handle), None)
+    conv = ARGS.content.item(item[1]).get("convert") if item else None
+    if not conv or not 1 <= choice <= len(conv["into"]) or item[3] < conv["count"]:
+        send(build_system_text("You can't convert that.", SYSTEM_TEXT_ERROR))
+        return
+    name, qty = conv["into"][choice - 1]
+    if item[3] == conv["count"]:
+        player.items.remove(item)
+        send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+    else:
+        player.items[player.items.index(item)] = item[:3] + (item[3] - conv["count"], item[4])
+        send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - conv["count"])))
+    give_item(state, name, qty, quiet=True)
+    send(build_system_text(f"You convert {conv['count']} {item[1]} into {qty} {name}.", SYSTEM_TEXT_WHITE))
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    quest_items_changed(state)
+
+
 def take_items(state, name, need):
     """Remove `need` of an item from the bags (whole stacks first come first)."""
     player, send = state["player"], state["send"]
@@ -10060,6 +10109,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 place_fixture(state, item)
             elif item and args.content.item(item[1]).get("barding") is not None:
                 use_barding(state, args, item)
+            elif item and args.content.item(item[1]).get("convert"):
+                offer_conversion(state, item)
             elif item and args.content.item(item[1]).get("use"):
                 use_item(state, args, item)
             elif item and args.content.item(item[1]).get("pet"):
@@ -10135,6 +10186,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 save_character_field(player.name, "coins", player.coins)
                 if event == merchant.REQ_BUY:
                     quest_items_changed(state)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CONVERT_REQUEST:
+            if state.get("player"):
+                handle_conversion(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (
                 merchant.REQ_ESCROW_OPEN, merchant.REQ_ESCROW_TAKE):
             if state.get("player"):

@@ -306,7 +306,20 @@
   },
   "Copper Ore": {
     "type": "resource",
-    "icon": 487
+    "icon": 487,
+    "convert": {
+      "count": 4,
+      "into": [
+        [
+          "Copper Ingot",
+          1
+        ],
+        [
+          "Copper Wire",
+          2
+        ]
+      ]
+    }
   },
   "Copper Ingot": {
     "type": "component",

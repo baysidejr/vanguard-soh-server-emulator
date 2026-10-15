@@ -725,6 +725,23 @@ class QuestNodeTests(unittest.TestCase):
         self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in sent], [0x56A, 0x56B])
 
 
+class ConversionTests(unittest.TestCase):
+    def test_convert_four_ore_into_an_ingot(self):
+        sent = []
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        player.items = [(7, "Copper Ore", 443, 6, 0)]
+        state = {"player": player, "send": sent.append}
+        args = mock.Mock()
+        args.content = content.Content()
+        with mock.patch.object(login_stub, "ARGS", args, create=True), \
+                mock.patch.object(login_stub, "save_character_field"), \
+                mock.patch.object(login_stub, "quest_items_changed"):
+            ui = login_stub.conversion_ui(player.items[0], args.content.item("Copper Ore")["convert"])
+            self.assertEqual(struct.unpack_from("<I", ui, 2)[0], 0x1C2)
+            login_stub.handle_conversion(state, struct.pack("<ii", 7, 1))
+        self.assertEqual(sorted((i[1], i[3]) for i in player.items), [("Copper Ingot", 1), ("Copper Ore", 2)])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

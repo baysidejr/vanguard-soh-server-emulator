@@ -146,6 +146,17 @@ def validate(directory=CONTENT_DIR):
             problems.append(f"item {name}: use must be {{heal, energy, endurance: n}}")
         if "cooldown" in it and not (isinstance(it["cooldown"], (int, float)) and it["cooldown"] >= 0):
             problems.append(f"item {name}: cooldown must be seconds")
+        conv = it.get("convert")
+        if conv is not None:
+            into = conv.get("into") if isinstance(conv, dict) else None
+            if not (isinstance(conv, dict) and isinstance(conv.get("count"), int) and conv["count"] > 0
+                    and isinstance(into, list) and 1 <= len(into) <= 3):
+                problems.append(f"item {name}: convert must be {{count: n, into: [[item, qty], ...] (1-3)}}")
+            else:
+                for opt in into:
+                    if not (isinstance(opt, list) and len(opt) == 2 and opt[0] in c.items
+                            and isinstance(opt[1], int) and opt[1] > 0):
+                        problems.append(f"item {name}: convert option {opt!r} needs a known item and a quantity")
     import aa as aa_rules
     import vgmsg as vg
     aa_ids = [a.get("id") for a in c.aa.get("abilities", [])]
