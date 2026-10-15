@@ -39,6 +39,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Flight for onlookers (no gravity on the flier for others, zero velocity when it hovers; seen with two clients) and for late arrivals. UDP transport moved into server/soe.py (check_all --client 7/7). Housing drag placement: the cottage's zones are in compoundobjectMD.tab (Type = zone type) but the point lookup never finds them.
 - 2026-10-14: Flying works: a breakpoint logger on the live client (tools/winbreak.py) showed a standing mounted Jump sends event 0x5b (it was arriving, unhandled). The server answers with ClientAdjustPosition(PHYS_Flying, PlayerFlying) (enum byte in 5 bits); verified: level flight over rising ground, climbing to 8500 units, landing when low, dismount drops the rider. Open: descending by view pitch with real mouse input.
 - 2026-10-14: tools/check_all.py runs every automated check in one go (unit, content, 8 multiplayer scenarios, 20-bot load test, fuzzing): 6 of 6 passed.
 - 2026-10-14: Quest icons over NPCs (0x560/0x563): available, in progress, ready to hand in, low; verified live (gold star over Orin, blue dots after accepting).
