@@ -311,6 +311,17 @@ class EncounterTests(unittest.TestCase):
         a.health = 50
         self.assertEqual([payload(m)[0] for m in encounter.sync(enc, p, npcs)], [0x3B9])
 
+    def test_evade_clears_target_line_before_the_record(self):
+        p, a = self.P(), self.npc(1)
+        npcs, enc = {1: a}, {}
+        combat.add_hate(a, p, 5)
+        a.aggro_on, p.target = p, 1
+        encounter.sync(enc, p, npcs)
+        a.hate.clear()
+        a.aggro_on = None                         # gave up (leash)
+        ids = [payload(m)[0] for m in encounter.sync(enc, p, npcs)]
+        self.assertEqual(ids, [0x3BA, 0x491, 0x3A2])   # target line, aggro, then the clear
+
 
 class TravelJournalTests(unittest.TestCase):
     def test_login_messages(self):
