@@ -108,7 +108,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Civic diplomacy:** the real civic stats per area, their ranges and their effects were server data; ours is one placeholder value ("Thestran Wastes Camp Prosperity", +5 per win against Orin).
 
-**Deconstruction:** what each item broke down into (components, the level needed) was server data. Every item answers "can not be deconstructed" until that exists (docs/CLIENT_REQUESTS.md, Deconstruction).
+**Deconstruction:** what each item broke down into (components, the level needed) was server data. items.json `salvage` lists the results per item (placeholders on Rusted Dagger and Hunter's Shortsword; default 1 Copper Ingot, or Shimmering Dust); see docs/INVENTORY.md "Deconstruction".
 
 **Alternate advancement:** the AA abilities (general, archetype, class and special lists), their costs, ranks and effects were server data, sent as MsgAlternateAdvancementAbilitiesAdd. `/aalist` (0x85c) and the AA window get no answer until that data exists. Placeholders now: `server/content/aa.json` (9 abilities over the four lists, attribute bonuses per rank) and the AA experience rate in `server/aa.py`.
 
