@@ -66,6 +66,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Builder `!reload` applies changed content now and names the first problem if it does not validate (seen live).
 - 2026-10-15: Console `reload` (unit-tested; the console only reads a real terminal, so a piped test is not possible). Unit tests for spyglass, fireworks, corpse summoning, skill direction, stage banner.
 - 2026-10-15: Combat-form ability restrictions (forms.json `abilities`, ability record #61-68, server refusal); seen live. `!forms` resends the ability book. Unit test FormRestrictionTests.
 - 2026-10-15: Message review: 11 more reclassified (crafting-inventory step not used, cast progress, recipe tree, assembly slots, tracking, assembly recipe removal, phase-end); 658/720 (91%). Left: encounter details, memorization, combat forms, petitions (not touched on purpose), a few effects.

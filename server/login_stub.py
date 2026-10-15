@@ -403,6 +403,19 @@ def content_stamp(directory=content.CONTENT_DIR):
     return stamp
 
 
+def force_content_reload(args):
+    """Apply changed content now instead of at the next 5-second check (console `reload`,
+    builder `!reload`). Returns the validation problems ([] when it reloaded)."""
+    CONTENT_STAMP[0], CONTENT_STAMP[1] = -1.0, 0.0
+    problems = content.validate()
+    if problems:
+        print(f"  !!! content has {len(problems)} problem(s); keeping the old content: {problems[0]}")
+        CONTENT_STAMP[1] = time.time() + CONTENT_CHECK_SECONDS
+        return problems
+    content_reload_tick(args, time.time())
+    return []
+
+
 def content_reload_tick(args, now):
     if now < CONTENT_STAMP[1]:
         return
@@ -496,9 +509,7 @@ def console_command(line, clients, args):
     elif word == "backup":
         print(f"database backup: {storage.backup(os.path.dirname(CHARACTERS_FILE))}")
     elif word == "reload":
-        # Apply changed content now instead of at the next 5-second check.
-        CONTENT_STAMP[0], CONTENT_STAMP[1] = -1.0, 0.0
-        content_reload_tick(args, time.time())
+        force_content_reload(args)
     elif word:
         print("commands: who, announce <text>, kick <name>, backup, reload, stop")
     return None
@@ -3456,7 +3467,7 @@ def build_despawn(state, args):
 # (`python storage.py set <character> access_level N`, docs/HOSTING.md) may use the in-game
 # builder and the lookups it needs on any server; every other ! command still needs
 # --dev-commands.
-BUILDER_COMMANDS = {"spawn", "despawn", "wander", "respawn", "path", "undo", "mobs", "npclist", "tp", "target"}
+BUILDER_COMMANDS = {"spawn", "despawn", "wander", "respawn", "path", "undo", "mobs", "reload", "npclist", "tp", "target"}
 BUILDER_LEVEL = 1
 
 
@@ -9724,6 +9735,9 @@ def dev_command(text, player=None):
         if len(rows) > len(shown):
             lines.append(build_system_text(f"  ... and {len(rows) - len(shown)} more; add a filter.", SYSTEM_TEXT_WHITE))
         return lines
+    if words[0] == "reload" and player:
+        # !reload: builder mode, apply changed content files now (after validating them).
+        return [("build_reload",)]
     if words[0] == "undo" and player:
         # !undo: builder mode, take back your last !spawn / !despawn / !wander / !respawn / !path.
         return [("build_undo",)]
@@ -10285,6 +10299,12 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "build_spawn":
                         build_spawn(state, args, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "build_reload":
+                        problems = force_content_reload(args)
+                        text = (f"Content not reloaded: {len(problems)} problem(s). First: {problems[0]}" if problems
+                                else "Content reloaded.")
+                        send_message(sock, addr, state, build_system_text(text, SYSTEM_TEXT_ERROR if problems else SYSTEM_TEXT_WHITE))
                         continue
                     elif isinstance(m, tuple) and m[0] == "build_undo":
                         build_undo(state)

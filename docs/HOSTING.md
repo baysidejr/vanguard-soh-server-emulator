@@ -60,7 +60,7 @@ Then make accounts (`python server/accounts.py create <name> <password>`), or op
 `python server/accounts.py list | suspend <name> | unsuspend <name> | password <name> <new>`
 manage them. Make someone a GM with `python server/storage.py set <character> access_level 255`
 (while the character is offline); GMs get the client's own `/chunk`, `/gotoplayer`,
-`/summonplayer`, `/summongroup` and `/hideme`. Any access level of 1 or more also allows the in-game builder (`!spawn`, `!despawn`, `!wander`, `!respawn`, `!path`, `!undo`, `!mobs`, plus `!npclist`, `!tp`, `!target`) without `--dev-commands`, so builders can work on a hosted server; changes go straight into `server/content/spawns/` (docs/CONTENT_EDITOR.md). Verified live 2026-10-15 on a server without `--dev-commands`: an access level 1 character could `!spawn` and `!undo`, and `!kill` was ignored. Every builder change is written to the audit log (`audit.log` next to the database) as builder_spawn / builder_despawn / builder_edit / builder_undo with the character name.
+`/summonplayer`, `/summongroup` and `/hideme`. Any access level of 1 or more also allows the in-game builder (`!spawn`, `!despawn`, `!wander`, `!respawn`, `!path`, `!undo`, `!mobs`, `!reload`, plus `!npclist`, `!tp`, `!target`) without `--dev-commands`, so builders can work on a hosted server; changes go straight into `server/content/spawns/` (docs/CONTENT_EDITOR.md). Verified live 2026-10-15 on a server without `--dev-commands`: an access level 1 character could `!spawn` and `!undo`, and `!kill` was ignored. Every builder change is written to the audit log (`audit.log` next to the database) as builder_spawn / builder_despawn / builder_edit / builder_undo with the character name.
 
 ## Players
 
