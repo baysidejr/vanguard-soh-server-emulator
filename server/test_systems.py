@@ -1498,3 +1498,20 @@ class MeshListTests(unittest.TestCase):
         for key, m in mobs.items():
             for t, n, _slot in (m.get("gear") or []) if isinstance(m, dict) else []:
                 self.assertIn(n, editor.mesh_numbers(t), f"{key}: gear ({t}, {n}) not in the client")
+
+
+@unittest.skipUnless(os.path.isdir(os.path.join("..", "Assets", "Maps")), "needs the client's maps")
+class SpawnWarningTests(unittest.TestCase):
+    def test_spawn_inside_rock_is_warned(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        import obstacles
+        name = "spawns/chunk_n19_12.json"
+        text = open(os.path.join(editor.CONTENT, "spawns", "chunk_n19_12.json"), encoding="utf-8").read()
+        self.assertEqual(editor.spawn_warnings(editor.CONTENT, name, text), [])        # the real camp is clean
+        rock = next(o for o in obstacles.obstacles("chunk_n19_12") if o[2] > 200)
+        doc = json.loads(text)
+        doc["spawns"].append({"mob": "wastes_wolf", "x": round(rock[0]), "y": round(rock[1])})
+        warn = editor.spawn_warnings(editor.CONTENT, name, json.dumps(doc))
+        self.assertTrue(any("inside an obstacle" in w for w in warn), warn)

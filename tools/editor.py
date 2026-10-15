@@ -79,6 +79,42 @@ def check(directory, name, text):
     return problems
 
 
+def spawn_warnings(directory, name, text):
+    """Hints (not errors) for a spawn file: a creature standing inside a rock or wall, a patrol
+    leg that walks through one (the server's steering would have to go around it)."""
+    if not name.startswith("spawns/"):
+        return []
+    import obstacles as obstacles_mod
+    chunk = name[len("spawns/"):-len(".json")]
+    try:
+        doc = json.loads(text)
+        mobs = content_mod.Content(directory).mobs
+    except (ValueError, OSError):
+        return []
+    obs = obstacles_mod.obstacles(chunk)
+    if not obs:
+        return []
+    t = terrain(chunk)
+    out = []
+    for n, sp in enumerate(doc.get("spawns", []), 1):
+        m = mobs.get(sp.get("mob"), {})
+        if m.get("prop") or m.get("station") or "x" not in sp:
+            continue                                   # scenery is meant to sit among objects
+        label = f"spawn {n} ({m.get('name', sp.get('mob'))})"
+        z = sp.get("z") if sp.get("z") is not None else (t.height(sp["x"], sp["y"]) if t else None)
+        if z is not None and obstacles_mod.blocked(obs, sp["x"], sp["y"], z + 50):
+            out.append(f"{label} stands inside an obstacle at ({sp['x']}, {sp['y']})")
+        path = sp.get("path") or []
+        for a, b in zip(path, path[1:] + path[:1]):
+            za = t.height(a[0], a[1]) if t else None
+            zb = t.height(b[0], b[1]) if t else None
+            pa = (a[0], a[1], za + 50) if za is not None else tuple(a)
+            pb = (b[0], b[1], zb + 50) if zb is not None else tuple(b)
+            if not obstacles_mod.clear_path(obs, pa, pb):
+                out.append(f"{label}: patrol leg {tuple(a)} -> {tuple(b)} crosses an obstacle")
+    return out
+
+
 def save(directory, name, text, backups=BACKUPS):
     """Write text after a successful check; returns the problems (nothing written if any)."""
     problems = check(directory, name, text)
@@ -387,6 +423,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.reply(200, data, "image/png") if data else self.reply(404, {"error": "no such icon"})
             if u.path == "/api/icons":
                 return self.reply(200, sorted(icon_index()))
+            if u.path == "/api/obstacles":
+                import obstacles as obstacles_mod
+                return self.reply(200, [[round(o[0]), round(o[1]), round(o[2])] for o in obstacles_mod.obstacles(q.get("chunk", ""))])
             if u.path == "/api/meshes":
                 return self.reply(200, mesh_numbers(q.get("type", "0")))
             if u.path == "/api/schema":
@@ -416,10 +455,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
             name = q.get("name")
             safe_path(self.directory, name)
             problems = check(self.directory, name, text) if u.path == "/api/check" else save(self.directory, name, text)
+            warnings = [] if problems else spawn_warnings(self.directory, name, text)
         except ValueError as e:
             return self.reply(400, {"error": str(e)})
         self.reply(200 if not problems else 422, {"saved": u.path == "/api/file" and not problems,
-                                                  "problems": problems})
+                                                  "problems": problems, "warnings": warnings})
 
 
 def main():

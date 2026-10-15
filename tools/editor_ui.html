@@ -231,6 +231,7 @@
       </div>
       <p class="hint">Click a spawn to edit it, drag it to move it (its patrol moves along), click empty ground to add one of the mob below, shift-click to add a patrol waypoint to the selected spawn. Delete removes the selected spawn.</p>
       <label>New spawns use mob</label><select id="newMob"></select>
+      <label style="color:#e8e2d6"><input type="checkbox" id="showObs" checked style="width:auto" onchange="draw()"> Show obstacles (orange, at 16x and closer)</label>
       <div id="spawnForm" style="display:none">
         <h3 id="spawnTitle"></h3>
         <label>Mob</label><select id="sMob"></select>
@@ -261,10 +262,11 @@ async function api(path, opts) {
   const body = r.headers.get("Content-Type").includes("json") ? await r.json() : null;
   return { ok: r.ok, status: r.status, body };
 }
-function showProblems(list, okText) {
+function showProblems(list, okText, warnings) {
   $("problems").innerHTML = "";
-  if (!list.length) { $("problems").innerHTML = `<div class="good">${okText}</div>`; return; }
+  if (!list.length) $("problems").innerHTML = `<div class="good">${okText}</div>`;
   for (const p of list) { const d = document.createElement("div"); d.className = "bad"; d.textContent = p; $("problems").appendChild(d); }
+  for (const w of warnings || []) { const d = document.createElement("div"); d.style.color = "#f0c674"; d.textContent = "warning: " + w; $("problems").appendChild(d); }
 }
 
 async function loadFiles() {
@@ -936,11 +938,12 @@ async function loadChunk(chunk) {
     zoom = [64, 16, 4, 1].find(z => span * z < (e[2] - e[0]) * 0.8) || 1;
   }
   $("zoom").value = zoom; SIZE = 768 * zoom;
+  api("/api/obstacles?chunk=" + chunk).then(r => { obstacleList = r.ok ? r.body : []; draw(); });
   img = new Image();
   img.onload = () => { draw(); centre(); detail(); };
   img.src = "/api/terrain.png?chunk=" + chunk;
 }
-let spawnDoc = null;
+let spawnDoc = null, obstacleList = [];
 let SIZE = 768, zoom = 1;
 function toPx(x, y) { const e = info.extent; return [(x - e[0]) / (e[2] - e[0]) * SIZE, (y - e[1]) / (e[3] - e[1]) * SIZE]; }
 function toWorld(px, py) { const e = info.extent; return [e[0] + px / SIZE * (e[2] - e[0]), e[1] + py / SIZE * (e[3] - e[1])]; }
@@ -950,6 +953,14 @@ function draw() {
   g.drawImage(img, 0, 0, SIZE, SIZE);
   if (hi && hiBox && zoom > 1) { const [px, py] = toPx(hiBox[0], hiBox[1]), [qx, qy] = toPx(hiBox[2], hiBox[3]); g.drawImage(hi, px, py, qx - px, qy - py); }
   if (!info) return;
+  if (zoom >= 16 && $("showObs").checked) {             // rocks, walls, trees the NPCs steer around
+    g.strokeStyle = "rgba(255,140,60,.55)";
+    for (const [x, y, r] of obstacleList) {
+      const [px, py] = toPx(x, y), pr = r / (info.extent[2] - info.extent[0]) * SIZE;
+      if (pr < 1.5) continue;
+      g.beginPath(); g.arc(px, py, pr, 0, 7); g.stroke();
+    }
+  }
   g.font = "11px system-ui";
   spawns.forEach((s, i) => {
     const [px, py] = toPx(s.x, s.y);
@@ -1046,7 +1057,7 @@ $("saveSpawns").onclick = async () => {
   spawnDoc.spawns = spawns;
   const r = await api("/api/file?name=" + encodeURIComponent(spawnFile), { method: "PUT", body: JSON.stringify(spawnDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
-  showProblems(r.body.problems, `Saved ${spawnFile} (${spawns.length} spawns).`);
+  showProblems(r.body.problems, `Saved ${spawnFile} (${spawns.length} spawns).`, r.body.warnings);
 };
 
 loadFiles();
