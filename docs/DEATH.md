@@ -147,4 +147,4 @@ There is no client code that parses an altar-specific window. An altar is a pawn
 
 ## Summoning your tombstone (verified live 2026-10-15)
 
-An NPC with mobs.json `"corpse_summoner": true` (Veyla Brightsteel) adds the client's dialog option 0x2b9 while you have a tombstone: "I'd like to summon my earthly remains." Choosing it sends **0x167** (no payload); the tombstone moves to your feet ("Veyla Brightsteel summons your tombstone to you.", `login_stub.summon_corpse`). Free and in the same chunk; who offers it and what it costs is content.
+An NPC with mobs.json `"corpse_summoner": true` (Veyla Brightsteel) adds the client's dialog option 0x2b9 while you have a tombstone: "I'd like to summon my earthly remains." Choosing it sends **0x167** (no payload); the tombstone moves to your feet ("Veyla Brightsteel summons your tombstone to you.", `login_stub.summon_corpse`). Other players see the tombstone move (seen with a second client 2026-10-15: "Ranger's corpse" by Veyla). Free and in the same chunk; who offers it and what it costs is content.
