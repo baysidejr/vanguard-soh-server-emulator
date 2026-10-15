@@ -72,7 +72,11 @@ def main():
 
     code, out = run([PY, "-m", "unittest", "discover", "-p", "test_*.py"], cwd=SERVER)
     ran = re.search(r"Ran (\d+) tests", out)
-    note("unit tests", code == 0, ran.group(0) if ran else out[-200:])
+    failed = re.findall(r"^(?:FAIL|ERROR): (\S+ \(\S+\))", out, re.M)
+    if code != 0:
+        with open(os.path.join(SERVER, "check_unit_failure.txt"), "w", encoding="utf-8") as f:
+            f.write(out)          # the whole run, to chase intermittent failures
+    note("unit tests", code == 0, (ran.group(0) if ran else out[-200:]) + (f"; failed: {', '.join(failed)}" if failed else ""))
     code, out = run([PY, "content.py"], cwd=SERVER)
     note("content", out.strip().endswith("content OK"), out.strip().splitlines()[-1] if out.strip() else "")
 
