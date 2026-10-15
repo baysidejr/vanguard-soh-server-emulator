@@ -33,6 +33,10 @@
   #mobForm { flex: 1; overflow-y: auto; padding: 10px 16px; }
   #mobForm .grid { display: grid; grid-template-columns: repeat(3, minmax(160px, 1fr)); gap: 4px 14px; }
   #mobForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #recview .grid3 { display: grid; grid-template-columns: repeat(3, minmax(150px, 1fr)); gap: 4px 14px; }
+  #recview label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #recview .grid3 input, #recview .grid3 select { width: 100%; box-sizing: border-box; }
+  #recview table td { padding: 2px 4px; }
   #dipview .grid2 { display: grid; grid-template-columns: repeat(2, minmax(160px, 1fr)); gap: 4px 14px; }
   #dipview label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
   #dipview .grid2 input, #dipview .grid2 select { width: 100%; box-sizing: border-box; }
@@ -59,7 +63,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -231,6 +235,18 @@
       </div>
       <table id="shopTable" style="border-collapse:collapse;width:100%"></table>
       <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
+    </div>
+  </div>
+  <div id="recview" style="flex:1;display:none;min-height:0">
+    <div id="recList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
+    <div style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="recKey">Pick a recipe</strong><span style="flex:1"></span>
+        <button id="newRecipe">New recipe</button><button id="delRecipe">Delete</button>
+        <button id="saveRecipes" class="primary">Save recipes.json</button>
+      </div>
+      <div id="recBody"></div>
+      <p class="hint">A recipe turns its inputs into the output item at a crafting station. Each stage is a set of steps the player takes in order; a step costs action points (AP) out of the recipe's max AP, may need a tool in the bags and may use up a utility item. Complications happen during a stage and lower quality until their counter action is used. Action ids are the client's crafting actions (30001 and up here are placeholders).</p>
     </div>
   </div>
   <div id="dipview" style="flex:1;display:none;min-height:0">
@@ -406,6 +422,8 @@ function setMode(m) {
   if (m === "proposals") listProposals();
   $("shopview").style.display = m === "shops" ? "flex" : "none";
   $("dipview").style.display = m === "diplomacy" ? "flex" : "none";
+  $("recview").style.display = m === "recipes" ? "flex" : "none";
+  if (m === "recipes" && !recDoc) initRecipes();
   if (m === "diplomacy" && !dipDoc) initDiplomacy();
   if (m === "shops" && !shopDoc) initShops();
   if (m === "dialogs" && !dialogDoc) initDialogs();
@@ -729,6 +747,132 @@ $("saveShops").onclick = async () => {
   const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
   showProblems(r.body.problems, "Saved merchants.json.");
+};
+
+// ---- crafting recipes ----
+let recDoc = null, recSel = null;
+$("tabRecipes").onclick = () => setMode("recipes");
+async function initRecipes() {
+  recDoc = JSON.parse((await api("/api/file?name=recipes.json")).body.text);
+  if (!Object.keys(itemDoc).length) itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
+  $("itemNames").innerHTML = Object.keys(itemDoc).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${esc(k)}">`).join("");
+  listRecipes();
+  if (recSel) showRecipe();
+}
+function listRecipes() {
+  const el = $("recList"); el.innerHTML = "";
+  for (const k of Object.keys(recDoc).filter(k => !k.startsWith("_")).sort()) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer" + (k === recSel ? ";background:#4a3f2c" : "");
+    d.textContent = `${k} - ${recDoc[k].name || ""}`;
+    d.onclick = () => { recSel = k; listRecipes(); showRecipe(); };
+    el.appendChild(d);
+  }
+}
+function recStages(r) {                    // stages as a list (a recipe may use one "stage" + "steps")
+  if (!r.stages) { r.stages = [{ name: r.stage || "Stage 1", steps: r.steps || [] }]; delete r.stage; delete r.steps; }
+  return r.stages;
+}
+function showRecipe() {
+  const r = recDoc[recSel], body = $("recBody"); body.innerHTML = "";
+  if (!r) return;
+  $("recKey").textContent = recSel;
+  const f = (k, label, type = "text", extra = "") =>
+    `<div><label>${label}</label><input data-f="${k}" type="${type}" value="${esc(r[k] ?? "")}" ${extra}></div>`;
+  body.innerHTML = `<div class="grid3">
+      ${f("id", "Recipe id", "number")}${f("name", "Name")}${f("output", "Output item", "text", 'list="itemNames"')}
+      <div><label>Icon <img id="recIconImg" width="20" height="20" style="vertical-align:middle;background:#000"></label><div style="display:flex;gap:4px"><input id="recIcon" data-f="icon" type="number" value="${r.icon ?? ""}"><button id="recPickIcon">Pick</button></div></div>
+      ${f("xp", "Crafting XP", "number")}${f("max_ap", "Max action points (default 100)", "number")}
+      ${f("category", "Book group (1 General, 2 Unique, 3 Work Order)", "number")}${f("trainer_cost", "Trainer cost (copper; empty = known)", "number")}
+      ${f("skill", "Skill stat id (default 40 Smelting)", "number")}
+      <div><label>Kind</label><select data-f="kind"><option value="">refining</option><option value="finishing" ${r.kind === "finishing" ? "selected" : ""}>finishing</option></select></div>
+      <div><label><input type="checkbox" id="recWO" style="width:auto" ${r.work_order ? "checked" : ""}> Work order only</label></div>
+    </div>
+    <label>Description</label><input data-f="description" value="${esc(r.description || "")}" style="width:100%;box-sizing:border-box">
+    <label style="margin-top:10px">Inputs</label><table id="recInputs"></table><button id="recAddInput">Add input</button>
+    <div id="recStages"></div><button id="recAddStage" style="margin-top:6px">Add stage</button>
+    <label style="margin-top:10px">Catalyst and complications (JSON)</label>
+    <textarea id="recExtra" rows="10" style="width:100%;box-sizing:border-box;font-family:monospace">${esc(JSON.stringify({ catalyst: r.catalyst, complications: r.complications }, null, 2))}</textarea>`;
+  const NUM = new Set(["id", "xp", "max_ap", "category", "trainer_cost", "skill", "icon"]);
+  body.querySelectorAll("[data-f]").forEach(el => {
+    el.oninput = el.onchange = () => {
+      const k = el.dataset.f, v = el.value;
+      if (v === "") delete r[k]; else r[k] = NUM.has(k) ? Number(v) : v;
+      if (k === "icon") $("recIconImg").src = v ? iconUrl(v) : "";
+    };
+  });
+  $("recIconImg").src = r.icon != null ? iconUrl(r.icon) : "";
+  $("recPickIcon").onclick = () => openIconPicker("recIcon");
+  $("recWO").onchange = e => { if (e.target.checked) r.work_order = true; else delete r.work_order; };
+  const inputs = $("recInputs");
+  Object.entries(r.inputs || {}).forEach(([name, n]) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><input list="itemNames" value="${esc(name)}" style="width:240px"></td><td><input type="number" min="1" value="${n}" style="width:70px"></td>
+      <td class="hint">${itemDoc[name] ? "" : "not in items.json"}</td><td><button>Remove</button></td>`;
+    const [ni, qi] = tr.querySelectorAll("input");
+    const rebuild = () => {                            // keep the order, rename the key
+      const out = {};
+      for (const [k, v] of Object.entries(r.inputs)) out[k === name ? ni.value : k] = k === name ? Number(qi.value) : v;
+      r.inputs = out; showRecipe();
+    };
+    ni.onchange = rebuild; qi.onchange = rebuild;
+    tr.querySelector("button").onclick = () => { delete r.inputs[name]; showRecipe(); };
+    inputs.appendChild(tr);
+  });
+  $("recAddInput").onclick = () => { r.inputs = r.inputs || {}; r.inputs[""] = 1; showRecipe(); };
+  const stagesEl = $("recStages");
+  recStages(r).forEach((st, si) => {
+    const box = document.createElement("div");
+    box.style.cssText = "border:1px solid #3a352e;padding:6px 8px;margin-top:10px";
+    box.innerHTML = `<div style="display:flex;gap:8px;align-items:center"><strong>Stage ${si + 1}</strong>
+        <input value="${esc(st.name || "")}" style="flex:1"><button data-a="addstep">Add step</button><button data-a="delstage">Remove stage</button></div>
+      <table style="width:100%;margin-top:4px"><tr style="color:#b9ae9b;font-size:12px;text-align:left"><th>Step</th><th>Description</th><th>Action</th><th>AP</th><th>Tool</th><th>Utility (item, qty)</th><th></th></tr></table>`;
+    box.querySelector("input").oninput = e => { st.name = e.target.value; };
+    box.querySelector("[data-a=addstep]").onclick = () => { st.steps.push({ name: "New Step", description: "", action: 30000, ap: 10 }); showRecipe(); };
+    box.querySelector("[data-a=delstage]").onclick = () => { r.stages.splice(si, 1); showRecipe(); };
+    const t = box.querySelector("table");
+    (st.steps || []).forEach((sp, pi) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td><input data-k="name" value="${esc(sp.name || "")}" style="width:130px"></td>
+        <td><input data-k="description" value="${esc(sp.description || "")}" style="width:100%;min-width:200px"></td>
+        <td><input data-k="action" type="number" value="${sp.action ?? ""}" style="width:80px"></td>
+        <td><input data-k="ap" type="number" value="${sp.ap ?? ""}" style="width:56px"></td>
+        <td><input data-k="tool" list="itemNames" value="${esc(sp.tool || "")}" style="width:130px"></td>
+        <td style="white-space:nowrap"><input data-k="uitem" list="itemNames" value="${esc((sp.utility || {}).item || "")}" style="width:120px"><input data-k="uqty" type="number" min="1" value="${(sp.utility || {}).qty ?? ""}" style="width:48px"></td>
+        <td><button>Remove</button></td>`;
+      tr.querySelectorAll("input").forEach(i => i.onchange = () => {
+        const g = k => tr.querySelector(`[data-k=${k}]`).value;
+        const n = { name: g("name"), description: g("description"), action: Number(g("action") || 0), ap: Number(g("ap") || 0) };
+        if (g("tool")) n.tool = g("tool");
+        if (g("uitem")) n.utility = { item: g("uitem"), qty: Number(g("uqty") || 1) };
+        st.steps[pi] = n;
+      });
+      tr.querySelector("button").onclick = () => { st.steps.splice(pi, 1); showRecipe(); };
+      t.appendChild(tr);
+    });
+    stagesEl.appendChild(box);
+  });
+  $("recAddStage").onclick = () => { recStages(r).push({ name: `Stage ${r.stages.length + 1}`, steps: [] }); showRecipe(); };
+  $("recExtra").onchange = e => {
+    try {
+      const x = JSON.parse(e.target.value || "{}");
+      for (const k of ["catalyst", "complications"]) { if (x[k] === undefined || x[k] === null) delete r[k]; else r[k] = x[k]; }
+      showProblems([]);
+    } catch (err) { showProblems([`${recSel}: catalyst / complications are not valid JSON: ${err.message}`]); }
+  };
+}
+$("newRecipe").onclick = () => {
+  const k = prompt("Key for the new recipe (letters, digits, _):"); if (!k || recDoc[k]) return;
+  const ids = Object.values(recDoc).filter(r => r && r.id).map(r => r.id);
+  recDoc[k] = { id: (ids.length ? Math.max(...ids) : 5000) + 1, name: "New Recipe", inputs: {}, output: "", xp: 50,
+                stages: [{ name: "Stage 1", steps: [] }] };
+  recSel = k; listRecipes(); showRecipe();
+};
+$("delRecipe").onclick = () => { if (!recSel || !confirm(`Delete recipe ${recSel}?`)) return; delete recDoc[recSel]; recSel = null; $("recBody").innerHTML = ""; listRecipes(); };
+$("saveRecipes").onclick = async () => {
+  const r = await api("/api/file?name=recipes.json", { method: "PUT", body: JSON.stringify(recDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved recipes.json.");
 };
 
 // ---- diplomacy (parleys) ----
@@ -1439,6 +1583,7 @@ $("saveSpawns").onclick = async () => {
 whoAmI().then(ok => { if (ok) loadFiles(); });
 if (location.hash === "#spawns") setMode("spawns");
 if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
+if (location.hash.startsWith("#recipes")) { recSel = location.hash.split("=")[1] || null; setMode("recipes"); }
 if (location.hash.startsWith("#diplomacy")) { if (location.hash.includes("=")) dipSel = decodeURIComponent(location.hash.split("=")[1]); setMode("diplomacy"); }
 if (location.hash.startsWith("#shops")) { setMode("shops"); setTimeout(() => { shopSel = location.hash.split("=")[1]; if (shopSel) { listShops(); showShop(); } }, 800); }
 if (location.hash === "#spawns-guard") { setMode("spawns"); setTimeout(() => { sel = spawns.findIndex(s => s.path); form(); draw(); }, 2500); }

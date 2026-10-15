@@ -77,6 +77,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Editor Recipes tab (recipes.json: fields, inputs, stages and steps; catalyst / complications as JSON) and a parley dropdown on the mob form; checked in headless Edge screenshots.
+
 - 2026-10-15: Editor Parley tab (diplomacy.json: cards, starting deck and slots, parleys with the NPCs that use them); checked in headless Edge screenshots (the Chrome extension was not connected), `#diplomacy=p:<key>` opens a parley directly.
 
 - 2026-10-15: Run-together class ability names: tools/ability_names.py adds a word-split pass (vocabulary from VGClient.int and the archive, pieces of 3+ letters seen 20+ times) for tags the archive does not spell: 115 more names re-spaced (386 in all), marked "word split".

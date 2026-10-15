@@ -104,6 +104,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Quest feedback:** with `--quest-feedback`, the server opens the client's Quest Feedback window (`SGOUI toggle "Quest Feedback"`) after each completed quest. The window asks for challenge, reward, lore, confusion, friends needed, a fun grade and comments. Accept sends 0x4ab {i32 quest id (-1 here), wstr comments, 6 x i32}, and the server saves the answers with the quest key in `server/quest_feedback.json` (not committed). The client's own opener, 0x4ad {wstr, i32}, shows nothing (verified live).
 
+**Crafting recipes in the editor:** the Recipes tab edits recipes.json: id, name, output, icon, XP, max action points, book group, trainer cost, skill, kind, work-order flag, inputs, and the stages with their steps (action, AP, tool, utility item); the catalyst and complications are edited as JSON.
+
 **Diplomacy in the editor:** the Parley tab edits diplomacy.json: the cards (expression, push, cost and gain per expression, refresh), the starting deck and strategy slots, and each parley (option text, type, presence, win/lose thresholds, the NPC's cards, starting pools and replies, and the reward as JSON), with the NPCs that use it.
 
 **Combat forms and Psionicist mindsets:** which forms each class has, and what each one does, were server data. `server/content/forms.json` holds placeholders; see docs/FORMS.md.
