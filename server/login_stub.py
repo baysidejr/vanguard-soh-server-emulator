@@ -7323,6 +7323,7 @@ def faction_login(state):
         if f.get("prestige") and str(fid) not in getattr(player, "factions", {}):
             continue                     # a prestige faction shows once it is unlocked
         state["send"](faction.info(int(fid), f["name"], faction_value(player, fid), bool(f.get("prestige"))))
+    state["send"](faction.publish())
 
 
 def faction_info_request(state, fid):
@@ -7331,6 +7332,7 @@ def faction_info_request(state, fid):
     if f is not None and not (f.get("prestige") and str(fid) not in getattr(state["player"], "factions", {})):
         state["send"](faction.info(int(fid), f["name"], faction_value(state["player"], str(fid)),
                                    bool(f.get("prestige"))))
+        state["send"](faction.publish())
 
 
 def adjust_faction(state, fid, delta, quiet=False):
@@ -10472,6 +10474,7 @@ def handle_message(sock, server, addr, state, payload, args):
                                              resend=state.get("deck_sent", False)):
                 send_message(sock, addr, state, m)
             state["deck_sent"] = True
+            send_message(sock, addr, state, faction.publish())   # the rebuilt UI's faction lists
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == craft.JOURNAL_RECIPE and len(payload) >= 14:
             if state.get("player"):
                 r = recipe_by_id(struct.unpack_from("<i", payload, 10)[0])

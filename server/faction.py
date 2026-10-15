@@ -46,6 +46,13 @@ def info(fid, name, value, prestige=False):
     return _event(0x35B, _w(name) + struct.pack("<iiB", fid, value, int(prestige)))
 
 
+def publish():
+    """0x35c (no payload; dispatcher FUN_004ccc50 -> FUN_004cb110 + FUN_004cb240): publishes the
+    rows 0x35b stored into the PCPrestigeFactions and PCPlayerFactions lists. Without it the
+    Diplomacy - Factions tab stays empty (verified live 2026-10-15)."""
+    return _event(0x35C)
+
+
 def unlocked(fid, name, value):
     """0x35d (FUN_004cc820): "You've unlocked a new prestige faction: %s!" and the row."""
     return _event(0x35D, _w(name) + struct.pack("<iiB", fid, value, 1))

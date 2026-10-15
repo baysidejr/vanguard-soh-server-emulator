@@ -13,7 +13,7 @@ Server to client:
 | 0x35b | `{wstr name, i32 faction id, i32 value, bool8 prestige}` | Adds a faction to the Factions window (gamevar `PCPlayerFactions`; `PCPrestigeFactions` when prestige is set). Handler `FUN_004cc720`. [O] |
 | 0x358 | `{i32 faction id, i32 value}` | New standing for a faction the client already knows. If the value moves into another tier, the client recolors the name plates of every NPC whose `m_FactionId` is that faction (`FUN_004cca10` → `FUN_004ca8c0`, `FUN_004ca950`, `FUN_00b74020`). [O, verified live: a wolf's name turned red at Kill on Sight] |
 | 0x35d | same as 0x35b | "You've unlocked a new prestige faction: %s!" [O] |
-| 0x35c | none | refreshes the prestige list [I] |
+| 0x35c | none | **publishes** the rows 0x35b stored into both lists, PCPrestigeFactions (FUN_004cb110) and PCPlayerFactions (FUN_004cb240). Without it the Diplomacy - Factions tab stays empty. Sent after the login rows, after a requested row and on the UI-loaded notice (0x6c). [O, verified live 2026-10-15] |
 
 Client to server:
 

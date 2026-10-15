@@ -393,7 +393,7 @@ class FactionInfoRequestTests(unittest.TestCase):
         with mock.patch.object(login_stub, "ARGS", args):
             login_stub.faction_info_request({"player": player, "send": sent.append}, 2001)
             login_stub.faction_info_request({"player": player, "send": sent.append}, 9999)
-            expected = [faction.info(2001, "Camp Guards", login_stub.faction_value(player, "2001"))]
+            expected = [faction.info(2001, "Camp Guards", login_stub.faction_value(player, "2001")), faction.publish()]
         self.assertEqual(sent, expected)
 
 
