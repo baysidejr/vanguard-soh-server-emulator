@@ -53,6 +53,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: NPC greeting voices: every NPC dialog sends 0x581 with the greeting kind (quester, quest progress, trainer, merchant, general); the client plays the NPC voice set's line. Handler checked with winbreak (Orin: MerchantGreet). Unit test GreetTests.
 - 2026-10-15: Crafting actions learned during play (trainer recipe, work order) are announced with 0x2e5 ("New action acquired: Heat Ingot"), seen live buying Copper Wire from Brenna. tools/loadtest.py setup gives each bot at most 30 bag items (the bots copy Ranger, whose bags were full, which made the scenarios trade fail).
 - 2026-10-15: Share Loot Rights now uses the client's own lines: 0x684 to the looter ("The corpse is now unlocked for everyone that is allowed to loot it.", seen live with a bot in the group) and 0x685 to the other members. tools/loadtest.py --move-rate 0 no longer crashes (bots stand still).
 - 2026-10-15: Escrow: items that don't fit in the bags go to the character's escrow instead of being lost (give_item). Bankers offer "Do I have any escrow items that I can claim?" (0x2b6), which opens the Escrow Merchant window (0xed -> 0x28d, 0x295, 0x294); right-click (0xef) hands the item over. Seen live with Hollis Grent: full bags refused, then claimed after freeing a slot. Unit test EscrowTests.

@@ -6406,7 +6406,29 @@ def npc_dialog(state, npc):
     if npc.banker:
         out.append(zone.zone_event(bank.OPTION))
         out.append(zone.zone_event(merchant.DIALOG_ESCROW))
+    if not state.get("parley"):
+        out.append(zone.zone_event(NPC_GREET, struct.pack("<i", greet_kind(npc, opts))))
     return out
+
+
+# NPC greeting voice (FUN_004c64d0): 0x581 {i32 kind} plays the talking NPC's voice-set line
+# 1 QuesterGreet, 2 QuesterProgress, 3 TrainerGreet, 4 MerchantGreet, else GeneralGreet; only for
+# NPCs of a humanoid race (pawn race 2-22, 186-206 or 348-368).
+NPC_GREET = 0x581
+GREET_GENERAL, GREET_QUESTER, GREET_PROGRESS, GREET_TRAINER, GREET_MERCHANT = range(5)
+
+
+def greet_kind(npc, opts):
+    texts = [o[0] for o in opts if len(o) > 2 and o[2] == quest.OPTION_TYPE]
+    if any(t.endswith("(complete)") or t.endswith("(in progress)") for t in texts):
+        return GREET_PROGRESS
+    if texts:
+        return GREET_QUESTER
+    if npc.merchant:
+        return GREET_MERCHANT
+    if npc.trainer or npc.recipe_trainer or getattr(npc, "assembly_trainer", None):
+        return GREET_TRAINER
+    return GREET_GENERAL
 
 
 def add_escrow(state, name, qty=1):

@@ -29,7 +29,7 @@ Other slash commands (category 18 = "merchant", table at 0x13ee4a0, 0x18-byte en
 - **0x2bb (699)** MsgSingleEntityId `eid64 npc`. Sets the talking NPC (`TalkingNPCName`), sets the flag at +0x24 = 1, and calls FUN_004c1e70(1,0), which opens the dialog. FUN_004c51c0/FUN_004c4960 [O behaviour; I that this opens the window].
 - **0x2b5** (no payload). Adds option "Show me your wares." with type 5. FUN_004c7a00 [O]. Siblings: 0x2b1 teach (type 0), 0x2b2 recipes (1), 0x2b3 banking (3), 0x2b4 work (4), 0x2b6 escrow (0xe), 0x2b7 market (0xf), 0x2b8 assembly (2), 0x2b9 corpse summon (0xb), 0x2ba "I need to repair my gear." (0x10). [O]
 - Alternative: **0x2bf** MsgEntityIDAndInt `eid64, i32 count`, followed by `count` records of MsgStringAndTwoInts `wstr text, i32 id, i32 type`. Each record becomes an option (text, type = 2nd int, id = 1st int). FUN_004c8d60 [O]
-- Optional: **0x581** MsgSingleInt `i32 4` plays the voice set's "MerchantGreet". FUN_004c64d0 [O]
+- Optional: **0x581** MsgSingleInt `i32 4` plays the voice set's "MerchantGreet". FUN_004c64d0 [O]. Kinds: 1 QuesterGreet, 2 QuesterProgress, 3 TrainerGreet, 4 MerchantGreet, anything else GeneralGreet; played only for NPCs of a humanoid race (pawn race 2-22, 186-206, 348-368). The server sends it with every NPC dialog (`login_stub.greet_kind`: quest in progress or ready, quest on offer, merchant, trainer, else general). Checked with tools/winbreak.py on 2026-10-15: talking to Orin (race 14) runs the handler with kind 4 past the race check.
 - After building the dialog, the client sends **0x127** (no payload, an ack). [O] The server can ignore it.
 - Clicking an option -> FUN_0068a680 -> FUN_004c4860 -> FUN_004c4640(option): type 5 -> 0xe5. [O]
 
