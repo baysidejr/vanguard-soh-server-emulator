@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Effects: now that the FX packages load, find how ability and spell visuals are played (zone raw event 0x2d indexes client FX tables by id, docs/ZONE_MESSAGES.md) and whether the quest-node particles (m_bShowIOParticle) show. Server: remaining optional messages in docs/UNSENT_MESSAGES.md (115). Content editor: patrol waypoint checks against obstacles; the hosted, crowdsourced editor later.
+Server: remaining optional messages in docs/UNSENT_MESSAGES.md (99; the big groups are encounter-window details, ability memorization and combat forms, all needing decoding). Effects: why the quest-node particles (m_bShowIOParticle) do not show. Content editor: the hosted, crowdsourced editor later.
 
 ## Last test results
 
+- 2026-10-15 (after conversion, deconstruction, wounds, corpse summoning, reward de-select): tools/check_all.py --client 7 of 7 passed (unit 216, scenarios, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (FX packages in the package map): tools/check_all.py --client 7 of 7 passed (unit 211, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after escrow, loot sparkle, unlock lines, action announcements): tools/check_all.py --client 7 of 7 passed (unit 208, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS). A first run failed the trade scenario: bot bags full (fixed in loadtest setup).
 - 2026-10-15 (escrow): unit tests OK (206), content OK; escrow checked live.
