@@ -86,6 +86,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 
 ## Done
 
+- 2026-10-15: Imported NPCs face their nearest neighbour within 800 units (else a direction fixed by their key) instead of all facing east (the archive has no headings). Unit test ImportZoneTests.test_npcs_face_their_neighbour; not looked at in game yet.
+
 - 2026-10-15: Quest givers no longer doubled under a second spelling ("Ardalan" / "Ardalan Awji"): a quest-placed giver within 50 units of an NPC already placed is skipped. Archive content regenerated: 1379 spawns (179 creatures).
 
 - 2026-10-15: Tombstones are removed from their own region's world (summoning a corpse from another region, or recovering it after travel, no longer leaves the old stone standing). Unit test TombstoneRegionTests; not seen live.

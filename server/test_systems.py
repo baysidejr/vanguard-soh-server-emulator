@@ -1656,7 +1656,8 @@ class ImportZoneTests(unittest.TestCase):
                 f.write(json.dumps({"name": "Nowhere Man", "zone": "Khal"}) + "\n")       # no position
             level, mobs, spawns = import_zone.plan("Khal", import_zone.archive_npcs(os.path.join(d, "raw")), chunks)
             self.assertEqual(level, "chunk_n13_n9")
-            self.assertEqual(spawns, [{"mob": "arch_afshin_budjiri", "x": -9686, "y": -35413, "z": 1540, "yaw": 0}])
+            self.assertEqual([{k: v for k, v in sp.items() if k != "yaw"} for sp in spawns],
+                             [{"mob": "arch_afshin_budjiri", "x": -9686, "y": -35413, "z": 1540}])
             t = mobs["arch_afshin_budjiri"]
             self.assertEqual((t["race"], t["level"], t["title"], t["_source"]), (13, 40, "Trainer", "https://example.org/a"))
             content = os.path.join(d, "content")
@@ -1683,8 +1684,18 @@ class ImportZoneTests(unittest.TestCase):
         spots = import_zone.quest_giver_spots("Khal", quests, (-13, -9))
         self.assertEqual(list(spots), ["Wadj Peheb"])        # several names and other chunks are skipped
         level, mobs, spawns = import_zone.plan("Khal", {}, {"Khal": (-13, -9)}, quests, "Qalia")
-        self.assertEqual(spawns, [{"mob": "arch_wadj_peheb", "x": 33289, "y": -95029, "z": 2936, "yaw": 0}])
+        self.assertEqual([{k: v for k, v in sp.items() if k != "yaw"} for sp in spawns],
+                         [{"mob": "arch_wadj_peheb", "x": 33289, "y": -95029, "z": 2936}])
         self.assertEqual((mobs["arch_wadj_peheb"]["level"], mobs["arch_wadj_peheb"]["race"]), (5, 13))
+
+    def test_npcs_face_their_neighbour(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        a, b, c = {"mob": "a", "x": 0, "y": 0}, {"mob": "b", "x": 100, "y": 0}, {"mob": "c", "x": 0, "y": 5000}
+        import_zone.face([a, b, c])
+        self.assertEqual((a["yaw"], b["yaw"]), (0, 32768))           # a looks east at b, b west at a
+        self.assertTrue(0 <= c["yaw"] < 65536)                        # alone: a fixed direction
 
     def test_quest_giver_not_doubled(self):
         import sys
@@ -1706,7 +1717,8 @@ class ImportZoneTests(unittest.TestCase):
               "A Crate": {"name": "A Crate", "zone": "Lomshir", "archive_fields": {"location": ["1, 2, 3"], "type": ["Object"]}},
               "Elsewhere": {"name": "Elsewhere", "zone": "Lomshir", "archive_fields": {"location": ["1, 2, 3 in X (5, 5)"]}}}
         level, mobs, spawns = import_zone.plan("Lomshir", {}, {"Lomshir": (-15, -9)}, {}, "Qalia", cr)
-        self.assertEqual(spawns, [{"mob": "arch_blackheart", "x": 39719, "y": -61690, "z": -2349, "yaw": 0, "respawn": 1200}])
+        self.assertEqual([{k: v for k, v in sp.items() if k != "yaw"} for sp in spawns],
+                         [{"mob": "arch_blackheart", "x": 39719, "y": -61690, "z": -2349, "respawn": 1200}])
         t = mobs["arch_blackheart"]
         self.assertEqual((t["level"], t["aggro_radius"], t["health"]), (9, 600, (100 + 40 * 9) * 4 // 2))
 

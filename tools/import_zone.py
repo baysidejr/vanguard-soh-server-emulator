@@ -19,6 +19,7 @@ import argparse
 import datetime
 import glob
 import json
+import math
 import os
 import re
 import sys
@@ -237,6 +238,27 @@ def respawn_seconds(rec):
     return None
 
 
+def face(spawns, near=800.0):
+    """Headings for spawns placed at yaw 0 (the archive has none): each faces its nearest
+    neighbour within `near` units, as people in a town do, else a direction fixed by its key."""
+    for s in spawns:
+        if s.get("yaw"):
+            continue
+        best = None
+        for o in spawns:
+            if o is s:
+                continue
+            d = math.hypot(o["x"] - s["x"], o["y"] - s["y"])
+            if 1.0 < d <= near and (best is None or d < best[0]):
+                best = (d, o)
+        if best:
+            ang = math.atan2(best[1]["y"] - s["y"], best[1]["x"] - s["x"])
+            s["yaw"] = int(math.degrees(ang) * 65536 / 360) & 0xFFFF
+        else:
+            s["yaw"] = zlib.crc32(s["mob"].encode("utf-8")) & 0xFFFF
+    return spawns
+
+
 def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
     """(level, {key: template}, [spawn]) for a zone's NPCs that have a position, then the quest
     givers the NPC records don't place, at their quests' start locations."""
@@ -276,7 +298,7 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
         if respawn_seconds(rec):
             sp["respawn"] = respawn_seconds(rec)
         spawns.append(sp)
-    return level, mobs, spawns
+    return level, mobs, face(spawns)
 
 
 def load(path, default):
