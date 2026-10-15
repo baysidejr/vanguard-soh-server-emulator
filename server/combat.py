@@ -491,6 +491,24 @@ def combat_info(player):
     return _event(COMBAT_INFO, struct.pack("<ffffi", dodge * 100, parry * 100, block * 100, 0.0, 0))
 
 
+# Wounds (docs/EFFECTS.md "Wounds"): five body parts (head, torso, left arm, right arm, legs),
+# each 0 Unwounded, 1 Minor, 2 Mid, 3 Major, 4 Incapacitated. An NPC's critical hit wounds a random
+# part (WOUND_CHANCE); login_stub.wounds_tick sends the change and heals them while resting.
+WOUND_PARTS = ("Head", "Torso", "Left Arm", "Right Arm", "Legs")
+WOUND_MAX, WOUND_CHANCE = 4, 0.5
+
+
+def wound(player, rng=random):
+    if rng.random() >= WOUND_CHANCE:
+        return
+    w = list(getattr(player, "wounds", None) or [0] * 5)
+    part = rng.randrange(5)
+    if w[part] < WOUND_MAX:
+        w[part] += 1
+        player.wounds = w
+        player.wounds_dirty = True
+
+
 def npc_attacks(player, npc, rng=random):
     """The NPC strikes once. Lowers player.health (the HUD bar follows a
     0x2d4 update of the Health stat; see zone.health_update)."""
@@ -506,6 +524,7 @@ def npc_attacks(player, npc, rng=random):
     dmg = mitigate(rng.randint(*npc.damage), getattr(player, "armor_class", 0))
     if outcome == effects.CRIT:
         dmg = int(dmg * CRIT_MULT)
+        wound(player, rng)
     elif outcome != effects.HIT:
         dmg = 0
     player.pending_displays.append(display_ability(npc.entity_id, player.char_id, npc.attack_visual))

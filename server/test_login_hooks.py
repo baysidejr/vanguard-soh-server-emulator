@@ -34,7 +34,7 @@ class LoginHookTests(unittest.TestCase):
                 for hook in ("social_login", "guild_login", "brotherhood_login", "faction_login",
                              "workorder_login", "mail_login", "title_login", "caravan_login",
                              "assembly_login", "journal_login", "songs_login", "fishing_login", "forms_login",
-                             "house_npcs_login", "combat_sheet_login"):
+                             "house_npcs_login", "combat_sheet_login", "wounds_login"):
                     getattr(login_stub, hook)(state)
             finally:
                 mock.patch.stopall()
@@ -767,6 +767,24 @@ class ObjectUseTests(unittest.TestCase):
         self.assertEqual(login_stub.object_use_refusal({"player": p}), login_stub.USE_RESTING)
         p.flying = True
         self.assertEqual(login_stub.object_use_refusal({"player": p}), login_stub.USE_FLYING)
+
+
+class WoundTests(unittest.TestCase):
+    def test_crit_wounds_and_rest_heals(self):
+        rng = mock.Mock(random=mock.Mock(return_value=0.0), randrange=mock.Mock(return_value=0))
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        login_stub.combat.wound(player, rng)
+        login_stub.combat.wound(player, rng)
+        self.assertEqual(player.wounds, [2, 0, 0, 0, 0])
+        sent = []
+        state = {"player": player, "send": sent.append}
+        player.resting, player.health = True, 10
+        with mock.patch.object(login_stub, "save_character_field"), \
+                mock.patch.object(login_stub.combat, "in_combat", return_value=False):
+            login_stub.wounds_tick(state, 100.0)          # sends the wound, starts the timer
+            login_stub.wounds_tick(state, 100.0 + login_stub.WOUND_HEAL_SECONDS)
+        self.assertEqual(player.wounds, [1, 0, 0, 0, 0])
+        self.assertEqual([m[10:] for m in sent], [bytes([2, 0, 0, 0, 0]), bytes([1, 0, 0, 0, 0])])
 
 
 class BreathTests(unittest.TestCase):

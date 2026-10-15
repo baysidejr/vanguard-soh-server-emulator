@@ -118,3 +118,15 @@ From the client's switch (byte table 0x43f980, jump table 0x43f86c). The first t
 | 0x45 | Your level is too high to use this ability. |
 | 0x46 | FailCastClassOrRaceLocked |
 | 0xff | You fail to cast for an unknown reason. |
+
+## Wounds (verified live 2026-10-15)
+
+**0x44b** MsgWoundsUpdate `{5 x u8}` (FUN_005ef110) gives the severity of each body part in the order head, torso, left arm, right arm, legs: 0 Unwounded, 1 Minor, 2 Mid, 3 Major, 4 Incapacitated (client strings). The client compares with what it had and prints the changes: "Your head was just wounded! The severity of the wound is up to Minor" as screen text, plus "You have been wounded!" / "Right Arm - Mid" and "Some of your wounds have been cured!" / "Right Arm - Unwounded" in chat. It also sets the game vars nWoundsHead, nWoundsTorso, nWoundsLeftArm, nWoundsRightArm and nWoundsLeg.
+
+The server's rules are placeholders:
+- An NPC's critical hit wounds a random part one level, half the time (`combat.wound`).
+- While sitting out of combat, the worst wound heals one level every 20 s (`login_stub.wounds_tick`).
+- Releasing after death clears all wounds.
+- Wounds are saved (`wounds`) and sent at login. They have no effect on stats yet.
+
+`!wound <part 0-4> <severity 0-4>` sets one for testing. Seen live: "Right Arm - Mid", then Minor and Unwounded after sitting.

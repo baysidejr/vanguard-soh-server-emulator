@@ -3214,6 +3214,51 @@ def app_gear_toggle(state):
     state["send"](zone.zone_event(APP_GEAR_STATE, struct.pack("<B", int(player.app_gear_visible))))
 
 
+# Wounds: 0x44b MsgWoundsUpdate {5 x u8 severity} (FUN_005ef110, verified live 2026-10-15) sets
+# nWoundsHead / Torso / LeftArm / RightArm / Leg and prints the changes ("Your head was just
+# wounded! The severity of the wound is up to Minor", "Some of your wounds have been cured!").
+WOUNDS = 0x44B
+WOUND_HEAL_SECONDS = 20              # one level off the worst wound per 20 s of resting out of combat
+
+
+def wounds_message(player):
+    return zone.zone_event(WOUNDS, bytes(getattr(player, "wounds", None) or [0] * 5))
+
+
+def wounds_login(state):
+    if any(getattr(state["player"], "wounds", None) or []):
+        state["send"](wounds_message(state["player"]))
+
+
+def set_wounds(state, wounds):
+    player = state["player"]
+    player.wounds = list(wounds)
+    player.wounds_dirty = True
+    wounds_tick(state, time.time())
+
+
+def wounds_tick(state, now):
+    player = state["player"]
+    w = getattr(player, "wounds", None)
+    if not w:
+        return
+    if any(w) and getattr(player, "resting", False) and not combat.in_combat(player) and player.health > 0:
+        due = getattr(player, "wound_heal_at", 0)
+        if not due:
+            player.wound_heal_at = now + WOUND_HEAL_SECONDS
+        elif now >= due:
+            worst = max(range(5), key=lambda i: w[i])
+            w[worst] -= 1
+            player.wounds_dirty = True
+            player.wound_heal_at = now + WOUND_HEAL_SECONDS
+    else:
+        player.wound_heal_at = 0
+    if getattr(player, "wounds_dirty", False):
+        player.wounds_dirty = False
+        state["send"](wounds_message(player))
+        save_character_field(player.name, "wounds", list(w))
+
+
 def combat_sheet_login(state):
     """The character sheet's dodge / parry / block lines (combat.combat_info)."""
     state["send"](combat.combat_info(state["player"]))
@@ -4680,6 +4725,7 @@ def world_tick(zone_sock, clients, args):
             energy_tick(state, now)
             journal_tick(state)
             crowd_control_tick(state, now)
+            wounds_tick(state, now)
             form_bar_tick(state, now)
             for m in encounter.sync(state.setdefault("encounter", {}), player, player.npcs):
                 state["send"](m)
@@ -9352,6 +9398,11 @@ def dev_command(text, player=None):
         player.quests.active.pop(words[1], None)
         save_character_field(player.name, "quests", player.quests.to_json())
         return []
+    if words[0] == "wound" and len(words) >= 3 and player:
+        # !wound <part 0-4> <severity 0-4>: set a wound (testing; 0 head ... 4 legs).
+        w = list(getattr(player, "wounds", None) or [0] * 5)
+        w[int(words[1]) % 5] = max(0, min(4, int(words[2])))
+        return [("wounds", w)]
     if words[0] == "questkill" and player:
         # !questkill: count a kill of the target's kind toward active quests (testing).
         npc = player.npcs.get(player.target)
@@ -9594,6 +9645,7 @@ def player_from_character(char, name, args):
     player.escrow = [list(e) for e in char.get("escrow", [])]
     player.played = int(char.get("played", 0))
     player.titles = list(char.get("titles", []))
+    player.wounds = [int(x) for x in (char.get("wounds") or [0] * 5)][:5]
     player.songs = list(char.get("songs", []))
     player.fish_records = dict(char.get("fish_records", {}))
     player.discovered = list(char.get("discovered", []))
@@ -9762,6 +9814,7 @@ def handle_message(sock, server, addr, state, payload, args):
                 forms_login(state)
                 house_npcs_login(state)
                 combat_sheet_login(state)
+                wounds_login(state)
                 m = hint(state["player"], "welcome")
                 if m:
                     send_message(sock, addr, state, m)
@@ -9898,6 +9951,9 @@ def handle_message(sock, server, addr, state, payload, args):
                     elif isinstance(m, tuple) and m[0] == "faction":
                         adjust_faction(state, m[1], m[2])
                         continue
+                    elif isinstance(m, tuple) and m[0] == "wounds":
+                        set_wounds(state, m[1])
+                        continue
                     elif isinstance(m, tuple) and m[0] == "quest_kill":
                         quest_kill(state, m[1])
                         faction_kill(state, m[1])
@@ -9938,6 +9994,8 @@ def handle_message(sock, server, addr, state, payload, args):
             if player and player.health <= 0:
                 player.health = player.stats["hit_points"]
                 place_tombstone(state, args, player)
+                if any(getattr(player, "wounds", None) or []):
+                    set_wounds(state, [0] * 5)          # a released spirit comes back whole
                 bind = getattr(player, "bind", None)
                 spot = bind["loc"] if bind and bind["level"] == player.level else player.spawned_at
                 for m in (combat.death_popup(0, True),
