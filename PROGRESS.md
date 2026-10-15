@@ -10,6 +10,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Last test results
 
+- 2026-10-15 (after the ability import and editor login mode): tools/check_all.py --client 7 of 7 passed (unit 199, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the content editor work): tools/check_all.py --client 7 of 7 passed (unit 194, scenarios, load p95 10.8 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after crafting trade, skills tab, skill buttons): tools/check_all.py --client 7 of 7 passed (unit 189, scenarios, load p95 11.6 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after harvesting tab, crits, def-target panel): tools/check_all.py --client 7 of 7 passed (unit 186, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS).
