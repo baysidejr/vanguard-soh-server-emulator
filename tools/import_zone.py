@@ -1,0 +1,168 @@
+"""Place a zone's NPCs from the crowdsourced archive at their recorded positions.
+
+The archive's NPC locations ("-9686, -35413, 1540") are the zone chunk's own coordinates (x, y, z),
+the same frame as the server's spawn files: checked 2026-10-15 by placing Khal's NPCs, and Afshin
+Budjiri stood on the floor of a trainer's hall. The client's bin/Resources/Texts/ChunkNames.txt
+gives each zone's chunk.
+
+    python tools/import_zone.py "Khal"              # report; drafts in crowdsourced/drafts/<zone>/
+    python tools/import_zone.py "Khal" --apply      # add to server/content (never overwrites)
+
+Each NPC becomes a mobs.json template "arch_<name>" (name, level, its services as the title, a
+placeholder race from its continent and placeholder health) with "_source" (the archive page),
+and a spawn at its position in content/spawns/<chunk>.json. Existing templates and spawns of the
+same key are left alone, so it can be run again as the archive grows. What the archive doesn't
+have (appearance, gear, services' wares, dialogue) is left for the content editor.
+Uses only the Python standard library.
+"""
+import argparse
+import datetime
+import glob
+import json
+import os
+import re
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONTENT = os.path.join(ROOT, "server", "content")
+RAW = os.path.join(ROOT, "crowdsourced", "raw")
+DRAFTS = os.path.join(ROOT, "crowdsourced", "drafts")
+CHUNK_NAMES = os.path.join(ROOT, "bin", "Resources", "Texts", "ChunkNames.txt")
+CONTINENT_RACE = {"Thestra": 14, "Qalia": 13, "Kojan": 12}     # placeholder look per continent
+DEFAULT_RACE = 14
+
+
+def read_text(path):
+    data = open(path, "rb").read()
+    return data.decode("utf-16") if data[:2] in (b"\xff\xfe", b"\xfe\xff") else data.decode("latin-1")
+
+
+def zone_chunks(path=CHUNK_NAMES):
+    """display name -> (chunk x, chunk y) for the overland chunks (instances use 1000+ ids)."""
+    out = {}
+    for m in re.finditer(r'DISPLAYNAME="([^"]*)" X=(-?\d+) Y=(-?\d+)', read_text(path)):
+        name, x, y = m.group(1), int(m.group(2)), int(m.group(3))
+        if name and abs(x) < 1000 and abs(y) < 1000:
+            out.setdefault(name, (x, y))
+    return out
+
+
+def level_name(x, y):
+    return f"chunk_{'n' if x < 0 else ''}{abs(x)}_{'n' if y < 0 else ''}{abs(y)}"
+
+
+def archive_npcs(raw=RAW):
+    """name -> newest npc record (the batches are read in name order, later ones win)."""
+    recs = {}
+    for fn in sorted(glob.glob(os.path.join(raw, "*", "npc.jsonl"))):
+        with open(fn, encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                if r.get("name"):
+                    recs[r["name"]] = r
+    return recs
+
+
+def position(rec):
+    loc = rec.get("location") or {}
+    raw = loc.get("raw") if isinstance(loc, dict) else loc if isinstance(loc, str) else None
+    nums = [float(v) for v in re.findall(r"-?\d+(?:\.\d+)?", raw or "")]
+    return tuple(nums[:3]) if len(nums) >= 3 else None
+
+
+def key_for(name):
+    return "arch_" + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
+
+
+def template(rec):
+    level = int(rec.get("level") or 20)
+    t = {"name": rec["name"], "pawn_class": "SGONPCPawn",
+         "race": CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE),
+         "level": level, "health": 100 + 40 * level}
+    services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]
+    if services:
+        t["title"] = ", ".join(s.title() for s in services)[:40]
+    src = (rec.get("sources") or [{}])[0].get("url")
+    if src:
+        t["_source"] = src
+    return t
+
+
+def plan(zone, recs, chunks):
+    """(level, {key: template}, [spawn]) for a zone's NPCs that have a position."""
+    if zone not in chunks:
+        raise SystemExit(f"{zone!r} is not in ChunkNames.txt")
+    level = level_name(*chunks[zone])
+    mobs, spawns = {}, []
+    for rec in sorted(recs.values(), key=lambda r: r["name"]):
+        pos = position(rec)
+        if rec.get("zone") != zone or pos is None:
+            continue
+        key = key_for(rec["name"])
+        mobs[key] = template(rec)
+        spawns.append({"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0})
+    return level, mobs, spawns
+
+
+def load(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return default
+
+
+def write(path, doc):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(doc, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+
+def apply(level, mobs, spawns, content=CONTENT):
+    """Add the templates and spawns that are not there yet. Returns (templates added, spawns added)."""
+    mobs_path = os.path.join(content, "mobs.json")
+    existing = load(mobs_path, {})
+    new_mobs = {k: v for k, v in mobs.items() if k not in existing}
+    spawn_path = os.path.join(content, "spawns", level + ".json")
+    doc = load(spawn_path, {"spawns": []})
+    have = {s.get("mob") for s in doc.get("spawns", [])}
+    new_spawns = [s for s in spawns if s["mob"] not in have]
+    if new_mobs:
+        existing.update(new_mobs)
+        write(mobs_path, existing)
+    if new_spawns:
+        doc.setdefault("spawns", []).extend(new_spawns)
+        write(spawn_path, doc)
+    return len(new_mobs), len(new_spawns)
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("zone", help='the zone name as in ChunkNames.txt, e.g. "Khal"')
+    ap.add_argument("--apply", action="store_true", help="add to server/content instead of writing drafts")
+    a = ap.parse_args(argv)
+    level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks())
+    print(f"{a.zone}: {level}, {len(spawns)} NPCs with a position in the archive")
+    if not a.apply:
+        out = os.path.join(DRAFTS, re.sub(r"[^A-Za-z0-9]+", "_", a.zone))
+        write(os.path.join(out, "mobs.json"), mobs)
+        write(os.path.join(out, "spawns", level + ".json"), {"spawns": spawns})
+        print(f"drafts written to {os.path.relpath(out, ROOT)} (run again with --apply to add them)")
+        return 0
+    added_mobs, added_spawns = apply(level, mobs, spawns)
+    print(f"added {added_mobs} templates to mobs.json and {added_spawns} spawns to spawns/{level}.json")
+    if added_mobs or added_spawns:
+        log = os.path.join(ROOT, "crowdsourced", "imported.md")
+        with open(log, "a", encoding="utf-8") as f:
+            f.write(f"| {datetime.date.today()} | all raw batches, npc.jsonl ({a.zone}) | {added_spawns} NPCs at their "
+                    f"recorded positions (placeholder race and health) | server/content/mobs.json, "
+                    f"spawns/{level}.json via tools/import_zone.py |\n")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

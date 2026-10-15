@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Archive NPC positions decoded: they are chunk-local x, y, z, and the client's ChunkNames.txt maps zone names to chunks. tools/import_zone.py places a zone's archive NPCs (drafts, or --apply into content). First import: Khal (27 NPCs, chunk -13 -9); seen live: Afshin Budjiri (Trainer) in his hall, as a Qaliathari.
+
 - 2026-10-15: Quest pages carry the turn-in NPC's chunk and position (fields 22-26, quest.WHERE = login_stub.quest_where): the journal's "Show Completion Chunk" lists "Sundering Wastelands (-19,12)" (seen live). The journal Details option was left on "Show Completion Chunk" in the client's settings (radio choice).
 
 - 2026-10-15: Quest option types decoded live (7 check = complete, 8 dots = in progress, 9 star = available; all click to 0x15c). Bug fixed: every quest option showed the green check; now each state has its icon. TESTING regression list: check the three icons.
