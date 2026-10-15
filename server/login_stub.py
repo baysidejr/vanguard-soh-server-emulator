@@ -1879,6 +1879,20 @@ def handle_craft_allocate(state, stat_id, mode):
         print(f"  {player.name} puts {n} crafting point(s) into {name}")
 
 
+def handle_skill_direction(state, data):
+    """0xe3 from a crafting skill's - / lock / + button: remember it and light that button."""
+    player = state["player"]
+    if len(data) < 12:
+        return
+    sid, direction, category = struct.unpack_from("<iii", data)
+    if category != attributes.CRAFTING or direction not in attributes.DIRECTIONS \
+            or sid not in {s for s, _sub in attributes.CRAFT_SKILLS}:
+        return
+    player.skill_dirs = {**getattr(player, "skill_dirs", {}), sid: direction}
+    save_character_field(player.name, "skill_dirs", {str(k): v for k, v in player.skill_dirs.items()})
+    state["send"](attributes.craft_skill_update(sid, zone.sphere(player, zone.CRAFTING)[0], direction))
+
+
 def handle_allocate(state, data):
     """0xe4 from the Attributes tab's + / Max buttons (attributes.py)."""
     player, send = state["player"], state["send"]
@@ -9132,6 +9146,7 @@ def player_from_character(char, name, args):
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
     player.craft_trade = int(char.get("craft_trade", 0xFF))
+    player.skill_dirs = {int(k): int(v) for k, v in (char.get("skill_dirs") or {}).items()}
     player.attr_alloc = {k: int(v) for k, v in (char.get("attr_alloc") or {}).items() if k in attributes.ORDER}
     player.craft_alloc = {k: int(v) for k, v in (char.get("craft_alloc") or {}).items()
                           if k in attributes.CRAFT_STATS}
@@ -9856,6 +9871,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == attributes.SET_DIRECTION:
+            if state.get("player"):
+                handle_skill_direction(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == attributes.ALLOCATE:
             if state.get("player"):
                 handle_allocate(state, payload[10:])

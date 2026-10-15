@@ -96,10 +96,32 @@ CRAFT_SKILLS = (
 CRAFT_SKILL_PER_LEVEL = 5          # placeholder: crafting skills follow the crafting level
 
 
-def craft_skill_records(level):
+# Skill direction (verified live 2026-10-15): the - / lock / + buttons on a crafting skill send
+# 0xe3 {i32 stat instance id, i32 direction (1 increase, 2 decrease, 0 locked), i32 category}
+# (FUN_0056ed90). The highlighted button is stat +0x44, which only the server sets: 0x2d4 field 9
+# (0x2d5 field 11 at login). Increase = may gain, decrease = may give points to other skills of
+# the pool, locked = neither (VGClient.int tooltips); the redistribution rules are server data.
+SET_DIRECTION = 0xE3
+DIRECTIONS = (0, 1, 2)
+
+
+def craft_skill_value(level):
+    return CRAFT_SKILL_PER_LEVEL * max(1, level)
+
+
+def craft_skill_records(level, dirs=None):
     import vgmsg
-    v = CRAFT_SKILL_PER_LEVEL * max(1, level)
-    return [vgmsg.stat_info(sid, v, category=CRAFTING, kind=2, subtype=sub, maximum=v) for sid, sub in CRAFT_SKILLS]
+    v = craft_skill_value(level)
+    dirs = dirs or {}
+    return [vgmsg.stat_info(sid, v, category=CRAFTING, kind=2, subtype=sub, maximum=v,
+                            raw={11: dirs.get(sid, 0)}) for sid, sub in CRAFT_SKILLS]
+
+
+def craft_skill_update(sid, level, direction):
+    """0x2d4 for one crafting skill with its direction (field 9); every other field resent."""
+    import vgmsg
+    v = craft_skill_value(level)
+    return _event(0x2D4, vgmsg.stat_update(sid, v, category=CRAFTING, maximum=v, raw={9: direction}))
 
 
 def craft_records(alloc):

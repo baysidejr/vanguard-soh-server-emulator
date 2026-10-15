@@ -45,7 +45,8 @@ Look for more character-window values the server knows but leaves empty (Stats t
 
 ## Done
 
-- 2026-10-15: Crafting trade and crafting Skills tab. The camp trainer's conversation sets Blacksmith, Outfitter or Artificer (saved; MsgScore field 43; 0x311). The trade's skill lists are filled from category-1 skill records, with the subtype per list and stat ids decoded, and the headers come from 0x2d6 fields 6-9. Seen live, including after a relog. Unit test CraftSkillTabTests. Not done: the skills' - / lock / + buttons.
+- 2026-10-15: The crafting skills' - / lock / + buttons. 0xe3 is decoded and the server saves the choice and lights the button with 0x2d4 field 9. The full stat record field map is in docs/MSGSCORE.md. Seen live, including after a relog. Unit test SkillDirectionTests.
+- 2026-10-15: Crafting trade and crafting Skills tab. The camp trainer's conversation sets Blacksmith, Outfitter or Artificer (saved; MsgScore field 43; 0x311). The trade's skill lists are filled from category-1 skill records, with the subtype per list and stat ids decoded, and the headers come from 0x2d6 fields 6-9. Seen live, including after a relog. Unit test CraftSkillTabTests.
 - 2026-10-15: Skills tab group headers. 0x2d6 skill pool caps (field order decoded) make the headers show room left (65, 60, 38, 10) instead of negative numbers. Seen live; unit test SkillPoolTests.
 - 2026-10-15: The character window's Harvesting tab is filled: category-3 skill records, MsgScore field 23 = 8 (Harvester), 0x2e0 primary/secondary, and 0x2d4 updates (field 0 = instance id, field 12 = stat id). It shows "Skill 1 - Dark Elf Harvester", Mining 1, Harvesting 1 (seen live). Unit test HarvestTabTests.
 - 2026-10-15: The Stats tab's Melee Critical Chance / Damage now show the server's real values (MsgScore 80 / 81: 5% + 0.1% per Dexterity above 30, +50% damage). Seen live: 8.00% / 50.00%. Ranged and spell crits stay 0 because the server has none.

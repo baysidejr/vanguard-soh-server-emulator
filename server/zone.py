@@ -840,7 +840,7 @@ def stat_messages(player):
     import attributes
     craft_alloc = getattr(player, "craft_alloc", None) or {}
     recs += attributes.craft_records(craft_alloc)
-    recs += attributes.craft_skill_records(sphere(player, CRAFTING)[0])
+    recs += attributes.craft_skill_records(sphere(player, CRAFTING)[0], getattr(player, "skill_dirs", None))
     recs += harvest_records(player)
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:

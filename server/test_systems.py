@@ -20,6 +20,7 @@ import songs
 import titles
 import travel
 import types
+import vgmsg
 import zone
 
 
@@ -1371,3 +1372,13 @@ class CraftSkillTabTests(unittest.TestCase):
         self.assertEqual(caps[6:10], (2 * 50, 1 * 50, 6 * 50, 1 * 50))       # finishing, special, refining, general
         p.craft_trade = 0xFF
         self.assertEqual(struct.unpack("<12i", payload(zone.skill_pool_caps(p))[1])[6:10], (0, 0, 0, 0))
+
+
+class SkillDirectionTests(unittest.TestCase):
+    def test_update_carries_direction(self):
+        import attributes as at
+        eid, data = payload(at.craft_skill_update(40, 2, 1))
+        self.assertEqual(eid, 0x2D4)
+        self.assertIn(bytes([1]), data)
+        recs = at.craft_skill_records(2, {40: 2})
+        self.assertEqual(len(recs), len(at.CRAFT_SKILLS))
