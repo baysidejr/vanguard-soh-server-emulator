@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Last test results
 
+- 2026-10-15 (after !reload): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after console reload, more unit tests): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.2 ms, fuzz clean, smoke 49 commands PASS).
 - 2026-10-15 (after form restrictions): tools/check_all.py --client 7 of 7 passed (unit 221, load p95 10.9 ms, fuzz clean, smoke 49 commands PASS).
 - 2026-10-15 (after the NPC-file reload): tools/check_all.py --client 7 of 7 passed (unit 220, load p95 11.2 ms, fuzz clean, smoke PASS).
