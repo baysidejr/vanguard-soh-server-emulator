@@ -9581,7 +9581,7 @@ def dev_command(text, player=None):
     if words[0] == "event":
         # !event <id> <hex...>: send a zone event; "T" stands for your target's entity id (eid64).
         tgt = struct.pack("<Q", (player.target or 0) if player else 0).hex()
-        data = bytes.fromhex("".join(tgt if w == "T" else w for w in words[2:]))
+        data = bytes.fromhex("".join(w.replace("T", tgt) for w in words[2:]))   # "T" anywhere = target eid
         print(f"  <- dev: zone event {words[1]} ({len(data)} bytes)")
         return [zone.zone_event(int(words[1], 0), data)]
     return []
