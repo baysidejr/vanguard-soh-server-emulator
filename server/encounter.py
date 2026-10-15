@@ -88,6 +88,12 @@ def sync(enc, player, npcs_by_eid):
     # Main record.
     if enc.get("main") != want_main:
         if enc.get("main") is not None:
+            old = npcs_by_eid.get(enc["main"])
+            if old is not None and old.alive and old.aggro_on is None:
+                # It stopped fighting (evaded): 0x3a2 leaves the target-of-target line and the
+                # red name, so clear those first, while the record still exists (seen live 2026-10-15).
+                out.append(target_of_target(old))
+                out.append(aggro(old, player, con_of(player, old)))
             out.append(clear_main())
         if want_main is not None:
             if want_main in rows:
