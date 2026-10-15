@@ -155,6 +155,35 @@ def validate(directory=CONTENT_DIR):
             continue
         if not (isinstance(o, dict) and isinstance(o.get("chunk"), str) and pair(o.get("loc")) and num(o.get("radius"))):
             problems.append(f"outpost {oid}: needs chunk, loc [x, y] and radius")
+    loot_names = {e.get("name") for rows in c.loot.values() if isinstance(rows, list) for e in rows if isinstance(e, dict)}
+    for pid, p in c.plots.items():
+        if pid.startswith("_"):
+            continue
+        if not (isinstance(p, dict) and isinstance(p.get("chunk"), str) and isinstance(p.get("loc"), list)
+                and len(p["loc"]) >= 2 and num(p.get("cost", 0))):
+            problems.append(f"plot {pid}: needs chunk, loc [x, y, z] and a numeric cost")
+            continue
+        for b in p.get("buildings", []):
+            for item in (b.get("materials") or {}):
+                if item not in c.items and item not in loot_names:   # loot-only items count too
+                    problems.append(f"plot {pid} building {b.get('name')}: unknown material {item}")
+            for mob in b.get("npcs", []):
+                if mob not in c.mobs:
+                    problems.append(f"plot {pid} building {b.get('name')}: unknown NPC {mob}")
+    for rid, r in c.assembly.items():
+        if rid.startswith("_"):
+            continue
+        if not isinstance(r, dict) or not num(r.get("id")):
+            problems.append(f"assembly {rid}: needs a numeric id")
+            continue
+        if r.get("reward") not in c.items:
+            problems.append(f"assembly {rid}: reward {r.get('reward')} is not in items.json")
+        ing = r.get("ingredients", [])
+        if len(ing) > 5:
+            problems.append(f"assembly {rid}: at most 5 ingredients")
+        for i in ing:
+            if not isinstance(i, dict) or i.get("item") not in c.items:
+                problems.append(f"assembly {rid}: unknown ingredient {i.get('item') if isinstance(i, dict) else i}")
     for hid, h in c.hints.items():
         if not hid.startswith("_") and not (isinstance(h, dict) and isinstance(h.get("title"), str) and isinstance(h.get("text"), str)):
             problems.append(f"hint {hid}: needs title and text")
