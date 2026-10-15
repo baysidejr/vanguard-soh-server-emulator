@@ -117,7 +117,7 @@ FUN_00621d60 zone 0x0f formatter (3/5 only); FUN_005fc6a0 C->S command send; FUN
 FUN_004a0930 /N; FUN_004a0c20 list channels; FUN_004a1bc0 add channel; FUN_00612700 /emote (0x314);
 FUN_006127e0 /social -> FUN_004d08d0 (0x313); FUN_007f3640 ability id -> package.
 
-## Item and player links (static analysis, not implemented)
+## Item and player links (item link answer verified live 2026-10-14)
 
 Chat text is markup. The tag table (FUN_00cb2e10) registers `item` (type 0x12), `/item` and `/link` (0x14, closing tags) and `pcname` (0x13), besides `color`, `size`, `align`, `indent`, `nl`, `image`, `highlight`, `tab`, `key`, `gamevar`/`gv` and `visibilitygamevar`/`vgv`.
 
