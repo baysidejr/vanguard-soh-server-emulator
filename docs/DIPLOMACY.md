@@ -140,7 +140,7 @@ A card with diplomacy.json `"refresh": N` can't be played again for N rounds. Af
 - what 0x321's last two i32s and two bools do (the line itself is done, above), and presence itself (no presence stats are sent)
 - the civic stats display (0x340 MsgThreeInts, 0x341 list; gamevars CivicDiplomacyStats / bDisplayCivicStats have no window in the shipped UI). `/citystatus` (0x12d, no payload; FUN_0054cf00 clears the stats first) is therefore answered with chat lines "<stat>: <value>" (the server's own wording; verified live: "Thestran Wastes Camp Prosperity: 60"), or, with no civic stats, 0x330 `{i32 16, i32 0}`: the client's "No civic diplomacy here." popup (code switch FUN_005531e0, CivicDiplomacyNoCivicStats; unit-tested, not seen live).
 
-Unknown fields: the trailing wstr in `0x31d` (tried 2026-10-15 with "TRAILING TEST STRING": nothing showed in the parley window, the dialogue or chat); card fields 3 and `+0xa0`; the bool in `0x31f`; client messages `0x126`, `0x129` and `0x12d`.
+Unknown fields: the trailing wstr in `0x31d` (tried 2026-10-15 with "TRAILING TEST STRING": nothing showed in the parley window, the dialogue or chat); card fields 3 and `+0xa0`; the bool in `0x31f` (tried 2026-10-15: 0 and 1 both show "You Lose." and the Complete button, no visible difference); client messages `0x126` (/parleyassess, a debug request) and `0x129` (unreachable, docs/CLIENT_REQUESTS.md). `0x12d` is `/citystatus` (above).
 
 ## Saved strategy decks (verified live 2026-10-13)
 
