@@ -24,7 +24,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 567 of 720 sent or not needed (78%); open: 150 optional features, 3 undecoded handlers (0x5c7, 0x728, 0x269).
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 577 of 720 sent or not needed (80%); open: 143 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
@@ -39,6 +39,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Decoded the last unknown server message, 0x269: {i32 finisher ability id} forgets that combat chain. The client keys chain definitions (0x268) on the finisher, per its deserializer FUN_004203b0 and FUN_00432260 / FUN_00428060. Not needed by the server, which resends every chain. Every client handler is now decoded.
 - 2026-10-14: Flight for onlookers (no gravity on the flier for others, zero velocity when it hovers; seen with two clients) and for late arrivals. UDP transport moved into server/soe.py (check_all --client 7/7). Housing drag placement: the cottage's zones are in compoundobjectMD.tab (Type = zone type) but the point lookup never finds them.
 - 2026-10-14: Flying works: a breakpoint logger on the live client (tools/winbreak.py) showed a standing mounted Jump sends event 0x5b (it was arriving, unhandled). The server answers with ClientAdjustPosition(PHYS_Flying, PlayerFlying) (enum byte in 5 bits); verified: level flight over rising ground, climbing to 8500 units, landing when low, dismount drops the rider. Open: descending by view pitch with real mouse input.
 - 2026-10-14: tools/check_all.py runs every automated check in one go (unit, content, 8 multiplayer scenarios, 20-bot load test, fuzzing): 6 of 6 passed.

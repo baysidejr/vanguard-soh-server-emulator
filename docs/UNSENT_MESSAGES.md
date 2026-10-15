@@ -7,14 +7,13 @@ The client handles 720 zone messages; the server code mentions 457 of them (63%)
 | Category | Count |
 |---|---|
 | optional | 143 |
-| variant | 45 |
+| variant | 46 |
 | content | 40 |
 | no-op | 18 |
 | debug | 8 |
 | blocked | 8 |
-| unknown | 1 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 576 of 720 (80%). Still open: 143 optional features and 1 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 577 of 720 (80%). Still open: 143 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 33
 
@@ -192,7 +191,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 576 of 720 (80%).
 | 0x222 | MsgTwoInts | i32, i32 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x223 | MsgIntAndByte | i32, u8 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x255 | MsgIntAndBool | i32, bool8 | optional | ability book list refresh (General / Adventuring / Counter / Rescue ability lists) |
-| 0x269 | MsgSingleInt | i32 | unknown | {i32 id}: deletes ability-book records of an unidentified list and marks the book dirty (FUN_00428060) [decoded 2026-10-14] |
+| 0x269 | MsgSingleInt | i32 | variant | forget one combat chain {i32 finisher ability id}: FUN_00428060 deletes the 0x268 chain definitions whose finisher (wire field 13, record +0x30) matches; the server resends all chains instead (0x26a + 0x268), and a 0x268 with a known finisher already replaces that chain |
 | 0x275 | MsgTwoInts | i32, i32 | optional | "Select an attack" prompt {i32, i32} |
 | 0x276 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |
 | 0x277 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |

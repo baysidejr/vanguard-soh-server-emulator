@@ -611,8 +611,8 @@
       "ability book list refresh (General / Adventuring / Counter / Rescue ability lists)"
     ],
     "0x269": [
-      "unknown",
-      "{i32 id}: deletes ability-book records of an unidentified list and marks the book dirty (FUN_00428060) [decoded 2026-10-14]"
+      "variant",
+      "forget one combat chain {i32 finisher ability id}: FUN_00428060 deletes the 0x268 chain definitions whose finisher (wire field 13, record +0x30) matches; the server resends all chains instead (0x26a + 0x268), and a 0x268 with a known finisher already replaces that chain"
     ],
     "0x21e": [
       "content",

@@ -271,7 +271,7 @@ Classes `(none)` = handler ignores payload (signal); `(raw)` = handler reads the
 | 0x266 | FUN_00556560 | MsgIntAndTwoFloats | FUN_0054e1a0 | i32, f32, f32 |  |
 | 0x267 | FUN_00556560 | (none) | FUN_0054d060 |  | no payload / signal |
 | 0x268 | FUN_00432600 | MsgAbilityAddChain | FUN_00432260 | i32, i32, 5 x [i32, i32], i32, i32 |  |
-| 0x269 | FUN_00432600 | MsgSingleInt | FUN_00428060 | i32 |  |
+| 0x269 | FUN_00432600 | MsgSingleInt | FUN_00428060 | i32 | forget the combat chain with this finisher ability id (see 0x268) |
 | 0x26a | FUN_00432600 | (none) | FUN_004288b0 |  | no payload / signal |
 | 0x26b | FUN_0058b870 | MsgClientPsionicPoolConcentrationAdd | FUN_0058b760 | i32, i32, i32, wstr, i32, i32 |  |
 | 0x26e | FUN_005ef9e0 | MsgTwoStringsAndInt | FUN_005eace0 | wstr, wstr, i32 | strings: "Error: resurrect message received while still pending a deci"; "%s is trying to resurrect you with %s."; "Decline" |
