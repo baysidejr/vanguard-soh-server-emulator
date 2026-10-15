@@ -5,6 +5,7 @@ Two load-test bots (Lbotaa = A, Lbotab = B) log in to a running server and go th
   group  A invites B, B accepts
   trade  A offers an item, B offers 50 copper, both accept; the database must show the item
          with B and the coins with A
+  duel   A challenges B, B accepts, the countdown runs and the duel starts
 Each step prints PASS or FAIL; the exit code is the number of failures.
 
     python tools/scenarios.py --setup                 (makes the two bots, gives B coins)
@@ -139,6 +140,21 @@ def main():
     coins = after_a.get("coins", 0) - before_a.get("coins", 0) == 50 and before_b.get("coins", 0) - after_b.get("coins", 0) == 50
     fails += check("trade", bool(done) and moved and coins,
                    f"done={bool(done)}, {item[1]} moved={moved}, 50 copper moved={coins}")
+    # Duel: A picks B as defensive target (0x5c {u64}), challenges (0x3fd); B accepts
+    # (0x3ff {0}); both get the countdown (0x400), then the start (0x401) after 10 s.
+    import login_stub
+    b_id = login_stub.character_id(dict(storage.read_character(CHARACTERS, b.name)))
+    if b_id is None:
+        fails += check("duel", False, "B has no character id yet")
+    else:
+        a.send(0x5C, struct.pack("<Q", b_id))
+        a.send(0x3FD)
+        challenged = b.wait_for(0x3FE)
+        b.send(0x3FF, struct.pack("<i", 0))
+        countdown = a.wait_for(0x400) and b.wait_for(0x400)
+        started = a.wait_for(0x401, 15) and b.wait_for(0x401, 15)
+        fails += check("duel", bool(challenged and countdown and started),
+                       f"challenge={bool(challenged)}, countdown={bool(countdown)}, start={bool(started)}")
     a.zone.close()
     b.zone.close()
     print(f"{fails} failed")
