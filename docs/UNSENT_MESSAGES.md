@@ -7,13 +7,13 @@ The client handles 720 zone messages; the server code mentions 506 of them (70%)
 | Category | Count |
 |---|---|
 | variant | 75 |
-| optional | 43 |
-| blocked | 32 |
+| optional | 42 |
+| blocked | 33 |
 | content | 31 |
 | no-op | 25 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 677 of 720 (94%). Still open: 43 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 678 of 720 (94%). Still open: 42 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -329,7 +329,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 677 of 720 (94%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x11d | MsgCombatTuningInfo | f32, f32 | optional | combat tuning {2 floats} |
+| 0x11d | MsgCombatTuningInfo | f32, f32 | blocked | combat tuning {f32 K, f32} (FUN_0055df90 -> [DAT_01463978+0x78], +0x7c): K scales AdvACMeleeMitigation (K x AC / (120 x level), FUN_00572500, docs/MSGSCORE.md field 42), but no shipped window shows the AdvAC* game variables; the character sheet shows MsgScore fields 64/65 (AdvMitigationMelee/Spell), which the server sends. The second float's reader was not found [checked 2026-10-15] |
 | 0x2d2 | MsgSingleByte | u8 | no-op | PCAttributeList refresh {u8}: no shipped UI file reads this game var (searched 2026-10-15) |
 
 ## FUN_00462d90 (assembly trainer): 1

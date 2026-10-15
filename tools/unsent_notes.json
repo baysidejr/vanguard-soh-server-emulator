@@ -699,8 +699,8 @@
       "civic diplomacy stats (CivicDiplomacyStats, bDisplayCivicStats); no UI file binds them, so /citystatus lists them in chat"
     ],
     "0x11d": [
-      "optional",
-      "combat tuning {2 floats}"
+      "blocked",
+      "combat tuning {f32 K, f32} (FUN_0055df90 -> [DAT_01463978+0x78], +0x7c): K scales AdvACMeleeMitigation (K x AC / (120 x level), FUN_00572500, docs/MSGSCORE.md field 42), but no shipped window shows the AdvAC* game variables; the character sheet shows MsgScore fields 64/65 (AdvMitigationMelee/Spell), which the server sends. The second float's reader was not found [checked 2026-10-15]"
     ],
     "0x2d2": [
       "no-op",
