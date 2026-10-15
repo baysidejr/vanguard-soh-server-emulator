@@ -59,6 +59,12 @@ The same 50 bots (`soak.sh 50 300`: `--procs 2 --spread 4000 --stagger 0.1`) aft
 
 The same 50 bots (`soak.sh 50 300`) after the evening's changes (NPC give-up and evade, fleeing, parley offer line, quests from conversations). Memory stayed flat at 222 MB, CPU was about 9.5 s per 30 s as in the earlier run, and all 50 bots joined. Over 14,554 steady-state pings the median was 10.6 ms and p95 11.3 ms (42.6 ms max). The bots saw no lost packets and the server log had no errors.
 
+## Content editor (2026-10-15)
+
+- Unit tests (test_systems): saving checks the content first and keeps a backup (EditorTests), saves keep the file's key order, archive search and drafts for mobs, items, quests and loot (ArchiveDraftTests), accounts and proposals (EditorAccountsTests).
+- EditorPageTests opens the page in headless Edge (skipped without Edge) and runs its `#selftest`: every quest, mob, item and ability goes through its form and back unchanged, and every field of the Recipes, Parley, Factions, Work orders, Riftways and Forms & songs forms gets change/input events with its value untouched without changing the file. It caught forms that added `"start": 0`, `push: 0` and step `action`/`ap` values that were not in the file.
+- By hand (2026-10-15): headless Edge driven over the DevTools protocol (`cdp.mjs` in the work folder) edited and saved the Factions, Recipes, Parley and Work orders tabs against a copy of the content folder; each saved file differed from the original only in the edited lines.
+
 ## Fuzzing (2026-10-14)
 
 `python tools/fuzz.py` logs a load-test bot into the zone and sends every client event id from 1 to 0x900 with random payloads of awkward sizes (empty, 1-3 bytes, small ints, 600 bytes), then rounds of random UE2 packets, unknown message types and raw datagrams that skip the reliable layer. After each id a ping checks the server still answers; a silent server gets a fresh login to tell a closed connection from a hang. Run it against a server with its own `--data-dir` (see the script's help), since random events change saved data.
