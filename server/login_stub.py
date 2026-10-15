@@ -624,16 +624,7 @@ def movement_tick(zone_sock, clients, args):
                     victim["send"](zone.zone_event(0x556, struct.pack("<Q", npc.entity_id)))  # "X calls for help!"
                 print(f"  {npc.name} calls for help: {', '.join(h.name for h in helpers)}")
         for npc in w.npcs.values():
-            if (npc.alive and not npc.aggro and npc.hate and not getattr(npc, "evading", False)
-                    and getattr(npc, "fighting_pet_until", 0) and time.time() > npc.fighting_pet_until):
-                # The pet that held it is gone: it turns on the pet's owner (whoever it hates
-                # most), or gives up when nobody is left.
-                npc.fighting_pet_until = 0
-                nxt = combat.next_target(npc)
-                if nxt is not None:
-                    npc.aggro, npc.aggro_on = True, nxt
-                else:
-                    combat.give_up(npc)
+            combat.after_pet(npc, time.time())
             if npc.aggro_on is not None and npc.aggro_on.health <= 0:
                 # Its target died: the next player on its hate list, if any.
                 npc.hate.pop(npc.aggro_on.char_id, None)

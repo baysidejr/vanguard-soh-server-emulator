@@ -1005,6 +1005,24 @@ class GiveUpTests(unittest.TestCase):
                          (False, None, {}, (0.0, 0.0, 0.0), True))
 
 
+class AfterPetTests(unittest.TestCase):
+    def test_turns_on_owner_or_gives_up(self):
+        c = login_stub.combat
+        owner = mock.Mock(health=50)
+        npc = c.Npc(1, "Dust Bear", None, "x", location=(0.0, 0.0, 0.0))
+        npc.hate = {5: (owner, 10)}
+        npc.fighting_pet_until = 100.0
+        c.after_pet(npc, 99.0)
+        self.assertFalse(npc.aggro)                       # the pet still holds it
+        c.after_pet(npc, 101.0)
+        self.assertEqual((npc.aggro, npc.aggro_on), (True, owner))
+        npc2 = c.Npc(2, "Dust Bear", None, "x", location=(0.0, 0.0, 0.0))
+        npc2.hate = {5: (mock.Mock(health=0), 10)}
+        npc2.fighting_pet_until = 100.0
+        c.after_pet(npc2, 101.0)
+        self.assertTrue(npc2.evading)                     # owner dead: walks home
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

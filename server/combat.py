@@ -612,6 +612,20 @@ def give_up(npc):
     print(f"  {npc.name} gives up the chase and returns home")
 
 
+def after_pet(npc, now):
+    """The pet that held this NPC is gone (its fighting_pet_until ran out): it turns on whoever
+    it hates most (the pet's owner), or gives up when nobody is left."""
+    if not (npc.alive and not npc.aggro and npc.hate and not getattr(npc, "evading", False)
+            and getattr(npc, "fighting_pet_until", 0) and now > npc.fighting_pet_until):
+        return
+    npc.fighting_pet_until = 0
+    nxt = next_target(npc)
+    if nxt is not None:
+        npc.aggro, npc.aggro_on = True, nxt
+    else:
+        give_up(npc)
+
+
 def chase_step(npc, target, dt, rng=random, now=None):
     """One movement step for an NPC: chase its attacker (target = x, y, z), walk
     home after losing it, or wander around home within npc.wander. Returns the
