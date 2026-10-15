@@ -4324,6 +4324,15 @@ def world_tick(zone_sock, clients, args):
                 send_message(zone_sock, addr, state, zone.health_update(player))
             elif action[0] == "endurance":
                 send_message(zone_sock, addr, state, zone.endurance_update(player))
+    STATUS[1] += LOOP_STATS[0]
+    STATUS[2] += 1.0 - min(1.0, LOOP_STATS[1])
+    if now >= STATUS[0]:
+        if STATUS[0]:
+            secs = STATUS_SECONDS
+            print(f"  status {time.strftime('%H:%M')}: {len(ONLINE)} players online, {len(clients)} connections, "
+                  f"{STATUS[1] / secs:.0f} packets/s in, loop busy {100 * STATUS[2] / secs:.0f}%, "
+                  f"{sum(s.get('resent', 0) for s in clients.values())} packets resent to current connections")
+        STATUS[0], STATUS[1], STATUS[2] = now + STATUS_SECONDS, 0, 0.0
     if PING_AGE[0] > 0.2:
         print(f"  !!! load: a ping took {PING_AGE[0]:.1f} s to reach the server; {LOOP_STATS[0]} packets read, "
               f"{LOOP_STATS[1]:.2f} s idle this second")
@@ -8083,6 +8092,8 @@ RESEND_WINDOW = 16               # only the oldest packets of a connection are l
 MAX_UNACKED = 4096
 BACKUP_DUE = [0.0]               # next automatic database backup (the first one at start)
 SEND_FAILURES = [0]              # sendto refused (send buffer full); logged by world_tick
+STATUS_SECONDS = 600            # a status line in the log this often
+STATUS = [0.0, 0, 0.0]           # next status time, packets read, busy seconds since the last line
 LOOP_STATS = [0, 0.0]            # packets read, seconds idle in select (this second)
 PING_AGE = [0.0]                 # oldest load-test ping read this second (seconds in transit)
 RECEIVE_GAPS = [0]               # client packets that arrived after a missing one (lost on the way)

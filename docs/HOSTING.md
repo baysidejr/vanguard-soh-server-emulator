@@ -81,6 +81,8 @@ Each player needs their own Vanguard client (version 1.324.1.139565) with this r
 - `audit.log` next to the database records every trade, mail with coins or an item, broker
   sale and dev `!give` (one JSON line each: who, to whom, what): the place to look when a player
   reports a scam or a duplication.
+- Every 10 minutes the log gets a `status` line: players online, connections, packets a second,
+  how busy the server loop was, resends.
 - Lines starting with `!!!` in the log are worth a look: handler errors (the server keeps
   running), `!!! load` (it is falling behind), `!!! network` (packets lost), failed backups.
 
