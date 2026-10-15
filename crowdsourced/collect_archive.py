@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
@@ -527,7 +528,7 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
     metadata = []
     started = timestamp()
     fatal = False
-    client.closed_connection_failure = False
+    client.transient_connection_failure = False
     for _ in range(limit):
         if (STATE / 'stop.request').exists():
             break
@@ -600,7 +601,7 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
             # Stop immediately on access/rate/server/parser failure instead of hammering the host.
             queue.appendleft(url)
             fatal = True
-            client.closed_connection_failure = isinstance(e, RemoteDisconnected)
+            client.transient_connection_failure = transient_connection_error(e)
             print(gaps[-1]["notes"], flush=True)
             break
     queue = deque(u for u in queue if u not in done)
@@ -657,12 +658,22 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
     return list(queue), fatal, batch
 
 
+def transient_connection_error(error):
+    """Retry only transport failures, never HTTP responses or parser failures."""
+    if isinstance(error, HTTPError):
+        return False
+    if isinstance(error, URLError):
+        error = error.reason
+    return isinstance(error, (TimeoutError, RemoteDisconnected, ConnectionResetError,
+                              ConnectionAbortedError, BrokenPipeError))
+
+
 def recover_closed_connection(client):
     """Keep the failed URL pending and cool down; never reduce a longer robots delay."""
     client.minimum_interval = min(60.0, max(15.0, client.minimum_interval) + 15.0)
     client.delay = max(client.delay, client.minimum_interval)
     write_json(client.interval_path, client.minimum_interval)
-    print(f"Closed connection: retrying saved queue after {client.delay:g}s; request interval {client.delay:g}s", flush=True)
+    print(f"Transient connection failure: retrying saved queue after {client.delay:g}s; request interval {client.delay:g}s", flush=True)
     deadline = time.monotonic() + client.delay
     while time.monotonic() < deadline:
         if (STATE / 'stop.request').exists():
@@ -716,7 +727,7 @@ def main(argv=None):
             ap.error("provide --seed, --queue, or use run after inventory")
         while urls:
             urls, fatal, batch = collect(client, urls, args.limit, args.topic, args.follow_links or args.action=='run')
-            if (fatal and args.action == "run" and getattr(client, "closed_connection_failure", False)
+            if (fatal and args.action == "run" and getattr(client, "transient_connection_failure", False)
                     and not (STATE / "stop.request").exists()):
                 if recover_closed_connection(client):
                     continue

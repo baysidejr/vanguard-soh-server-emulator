@@ -314,6 +314,41 @@ class ArchivePublicationTests(unittest.TestCase):
             client.get(url)
         sleep.assert_called_once_with(13)
 
+    def test_transient_transport_failures_exclude_http_and_parser_errors(self):
+        from http.client import RemoteDisconnected
+        from urllib.error import HTTPError, URLError
+        for error in (TimeoutError('read timed out'), RemoteDisconnected('closed'),
+                      ConnectionResetError('reset'), URLError(TimeoutError('connect timed out'))):
+            with self.subTest(error=error):
+                self.assertTrue(collector.transient_connection_error(error))
+        for error in (HTTPError(ORIGIN, code, 'denied', {}, None) for code in (401, 403, 429, 500)):
+            try:
+                self.assertFalse(collector.transient_connection_error(error))
+            finally:
+                error.close()
+        self.assertFalse(collector.transient_connection_error(ValueError('parser drift')))
+        self.assertFalse(collector.transient_connection_error(URLError('DNS failure')))
+
+    def test_timeout_publishes_partial_batch_and_keeps_failed_url_pending(self):
+        class Client:
+            network_requests = 0
+            def get(self, url):
+                if url.endswith('/failed'):
+                    raise TimeoutError('read timed out')
+                return '<main><h1>Fixture</h1></main>'
+        state = self.root / 'timeout-state'
+        destination = self.root / 'raw' / 'timeout-batch'
+        urls = [ORIGIN + '/items/success', ORIGIN + '/items/failed']
+        client = Client()
+        with patch.object(collector, 'STATE', state), patch.object(collector, 'batch_path', return_value=destination):
+            queue, fatal, _ = collector.collect(client, urls, 2, 'fixture')
+        self.assertTrue(fatal)
+        self.assertTrue(client.transient_connection_failure)
+        self.assertEqual(queue, urls[1:])
+        self.assertEqual(json.loads((state / 'done.json').read_text()), urls[:1])
+        self.assertEqual(json.loads((destination / 'manifest.json').read_text())['pages'], 1)
+        self.assertTrue((destination / 'VALIDATION.json').is_file())
+
     def test_closed_connection_backoff_persists_steps_and_honors_stop(self):
         from types import SimpleNamespace
         state = self.root / 'retry-state'
