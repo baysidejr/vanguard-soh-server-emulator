@@ -61,7 +61,7 @@ The unmodified client, talking only to this emulator:
 - [x] Broker: list items for sale, search, buy (delivered by mail, seller paid by mail), cancel
 - [x] Death penalty: experience debt, a tombstone at the death spot, recovering it wins back half the debt; altars bind you and summon your tombstone; resurrection offers (Accept/Decline)
 - [x] NPC conversation trees (data-driven replies with faction and item rewards)
-- [x] Mounts: summon a horse from an item, ride, /dismount; fly a griffon (Jump to take off, climb, land by flying low); mount barding (cloth or plate armor on the horse)
+- [x] Mounts: summon a horse from an item, ride, /dismount; fly a griffon (Jump to take off, climb, land by flying low); mount barding (cloth or plate armor on the horse); usable food with a reuse timer (Travel Rations heal, the tooltip shows the time left)
 - [x] Titles (prefix/suffix, /titleset, quest rewards, shown over the head), the game clock (/time), /played
 - [x] Duels: /duel challenge popup, countdown, auto-attack fight to 1 HP; caravans (invite, member list, remove, log in at the caravan after 3 hours offline)
 - [x] Pets: summon a wolf from an item; it follows and attacks on /pet attack

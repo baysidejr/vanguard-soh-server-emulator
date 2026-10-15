@@ -1196,6 +1196,62 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     state["send"](zone.player_pawn_update(state, args, values))
 
 
+# Usable items (verified live 2026-10-14): items.json "use" {"heal": n, "energy": n,
+# "endurance": n} and "cooldown" seconds. Right-clicking one uses up one and starts the reuse
+# timer: 0x1e5 {i64 seconds remaining, i32 group, i32 seconds} (FUN_0050f910) on every item whose
+# field 107 is that group, so the tooltip shows "Time Remaining: 21.0". Using it again before then
+# gets 0x1c5 {u8 7} ("Unable to use that item because the ability is not refreshed.").
+ITEM_COOLDOWN, ITEM_USE_FAILED = 0x1E5, 0x1C5
+USE_NOT_REFRESHED = 7
+
+
+def item_cooldown(group, remaining, seconds):
+    return zone.zone_event(ITEM_COOLDOWN, struct.pack("<qii", int(remaining), group, int(seconds)))
+
+
+def use_item(state, args, item):
+    player, send = state["player"], state["send"]
+    tpl = args.content.item(item[1])
+    group = zone.cooldown_group(item[1])
+    cooldowns = player.__dict__.setdefault("item_cooldowns", {})
+    now = time.time()
+    if player.health <= 0:
+        return
+    if cooldowns.get(group, 0) > now:
+        send(zone.zone_event(ITEM_USE_FAILED, struct.pack("<B", USE_NOT_REFRESHED)))
+        return
+    use = tpl["use"]
+    gained = []
+    for key, pool in (("heal", "hit_points"), ("energy", "energy"), ("endurance", "endurance")):
+        amount = int(use.get(key, 0))
+        if not amount or pool not in player.stats:
+            continue
+        attr = "health" if pool == "hit_points" else pool
+        before = getattr(player, attr, 0)
+        setattr(player, attr, min(before + amount, player.stats[pool]))
+        if getattr(player, attr) > before:
+            gained.append(f"{int(getattr(player, attr) - before)} {'health' if key == 'heal' else key}")
+    # one off the stack that was clicked
+    if item[3] > 1:
+        player.items[player.items.index(item)] = item[:3] + (item[3] - 1, item[4])
+        send(zone.zone_event(0x1AE, struct.pack("<ii", item[0], item[3] - 1)))
+    else:
+        player.items.remove(item)
+        send(zone.zone_event(0x1A5, struct.pack("<iB", item[0], 0)))
+    save_character_field(player.name, "items", [list(i) for i in player.items])
+    send(zone.health_update(player))
+    if "energy" in use:
+        send(zone.energy_update(player))
+    if "endurance" in use:
+        send(zone.endurance_update(player))
+    seconds = float(tpl.get("cooldown", 0))
+    if seconds > 0:
+        cooldowns[group] = now + seconds
+        send(item_cooldown(group, seconds, seconds))
+    send(build_system_text(f"You use the {item[1]}" + (f" and gain {', '.join(gained)}." if gained else "."),
+                           SYSTEM_TEXT_WHITE))
+
+
 # Mount barding (verified live 2026-10-14): an m_AttachmentGroups element (500, barding index,
 # slot 45 MOUNTBARDING) next to the mount dresses a modular mount (ids under 4000) in
 # MOD_MOUNT_ARMOR_<size><index>: 0xx a saddle blanket, 1xx a cloth caparison, 2xx plate. It shows
@@ -9351,6 +9407,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 place_fixture(state, item)
             elif item and args.content.item(item[1]).get("barding") is not None:
                 use_barding(state, args, item)
+            elif item and args.content.item(item[1]).get("use"):
+                use_item(state, args, item)
             elif item and args.content.item(item[1]).get("pet"):
                 if getattr(player, "pet", None) is not None:
                     dismiss_pet(state)

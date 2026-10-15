@@ -656,3 +656,24 @@ class BardingTests(unittest.TestCase):
         self.assertIsNone(login_stub.mount_barding(args, p))
         p.mount, p.items = 1000, []                         # the item is gone
         self.assertIsNone(login_stub.mount_barding(args, p))
+
+
+class UseItemTests(unittest.TestCase):
+    def test_heal_cooldown_and_refusal(self):
+        import struct
+        sent = []
+        p = zone.Player(name="R", char_id=1, level="c1")
+        p.stats = {"hit_points": 100, "energy": 50}
+        p.health, p.energy = 30, 10
+        p.items = [(7, "Snack", 442, 2, 0)]
+        state = {"player": p, "send": sent.append}
+        args = mock.Mock()
+        args.content.item = lambda name: {"use": {"heal": 40}, "cooldown": 30}
+        with mock.patch.object(login_stub, "save_character_field", lambda *a: None), \
+                mock.patch.object(zone, "cooldown_group", lambda name: 9):
+            login_stub.use_item(state, args, p.items[0])
+            self.assertEqual((p.health, p.items), (70, [(7, "Snack", 442, 1, 0)]))
+            self.assertIn(zone.zone_event(0x1E5, struct.pack("<qii", 30, 9, 30)), sent)
+            login_stub.use_item(state, args, p.items[0])
+        self.assertEqual(sent[-1], zone.zone_event(0x1C5, bytes([7])))
+        self.assertEqual((p.health, len(p.items)), (70, 1))

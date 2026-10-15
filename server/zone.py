@@ -976,6 +976,10 @@ def item_equip_fields(name, durability=100, bound=False):
         extra[84] = tpl["skill"]
     if "armor" in tpl:
         extra[85] = tpl["armor"]
+    if "use" in tpl:
+        # Field 107 (+0x5e4): the item's reuse-timer group; 0x1e5 starts a timer on every item of
+        # the group (FUN_0050f910).
+        extra[107] = cooldown_group(name)
     out_mods = vgmsg.item_mods(tpl.get("stats"), tpl.get("mods"))
     if tpl.get("bag"):
         extra[14] = tpl["bag"]           # capacity: the client makes InventoryContainerID_<handle>
@@ -1308,6 +1312,11 @@ SPAWN_Z_LIFT = 90.0   # observed: spawn z 4900 -> pawn at 4990 (= CollisionHeigh
 
 MOUNT_PACKAGE, MOUNT_SLOT, BARDING_SLOT = 500, 39, 45
 MOUNT_GROUND, MOUNT_FLYING = 1, 3         # m_MountType (0 none, 2 aquatic)
+
+
+def cooldown_group(name):
+    """Items share a reuse timer when they name the same "cooldown_group"; else one per template."""
+    return ITEM_CONTENT.item(name).get("cooldown_group") or template_id(name)
 
 
 def gear_attachments(player, slots=60):

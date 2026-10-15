@@ -114,6 +114,14 @@ def validate(directory=CONTENT_DIR):
         for g in m.get("gear", []):
             if len(g) != 3:
                 problems.append(f"mob {mid}: gear entry {g} needs [type, mesh, slot]")
+    for name, it in c.items.items():
+        if not isinstance(it, dict):
+            continue
+        use = it.get("use")
+        if use is not None and (not isinstance(use, dict) or set(use) - {"heal", "energy", "endurance"}):
+            problems.append(f"item {name}: use must be {{heal, energy, endurance: n}}")
+        if "cooldown" in it and not (isinstance(it["cooldown"], (int, float)) and it["cooldown"] >= 0):
+            problems.append(f"item {name}: cooldown must be seconds")
     for lid, entries in c.merchants.items():
         for e in entries:
             if e.get("item") not in c.items:

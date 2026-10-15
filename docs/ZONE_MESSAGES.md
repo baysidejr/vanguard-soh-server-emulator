@@ -176,7 +176,7 @@ Classes `(none)` = handler ignores payload (signal); `(raw)` = handler reads the
 | 0x1e2 | FUN_00513250 | MsgSendSingleSGOString | FUN_004ff010 | wstr | strings: "Your vehicle is now called %s." |
 | 0x1e3 | FUN_00513250 | MsgSingleInt | FUN_005069b0 | i32 | strings: "%s has been bound to you and will remain with you even throu"; "%s has been attuned to you and can not be traded." |
 | 0x1e4 | FUN_00513250 | MsgSingleInt | FUN_004fa120 | i32 | strings: "Failed to add item.  You already have one of that Unique ite"; "Only adding one item as that item is Unique!"; "There is not enough space in your inventory for that item." |
-| 0x1e5 | FUN_00513250 | MsgLongAndTwoInts | FUN_0050f910 | eid64, i32, i32 |  |
+| 0x1e5 | FUN_00513250 | MsgLongAndTwoInts | FUN_0050f910 | eid64, i32, i32 | item reuse timer {i64 seconds remaining, i32 group (item field 107), i32 seconds} (INVENTORY.md) |
 | 0x1e8 | FUN_00523100 | MsgEntityIDAndBool | FUN_00520be0 | eid64, bool8 | strings: "LootIsPending"; "LootFrom"; "Results" |
 | 0x1ea | FUN_00523100 | MsgEntityIDAndBool | FUN_00520be0 | eid64, bool8 | strings: "LootIsPending"; "LootFrom"; "Results" |
 | 0x1ed | FUN_00523100 | (none) | FUN_00521270 |  | no payload / signal strings: "LootIsPending"; "LootIsLooting" |

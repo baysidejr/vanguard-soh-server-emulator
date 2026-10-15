@@ -24,7 +24,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 579 of 720 sent or not needed (80%); open: 141 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 581 of 720 sent or not needed (80%); open: 139 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
@@ -39,6 +39,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Usable items: items.json "use" {heal, energy, endurance} and "cooldown". Right-click uses one, then 0x1e5 {i64 remaining, i32 group, i32 seconds} starts the reuse timer on every item whose field 107 is the group (tooltip "Time Remaining", seen live). Early reuse gets 0x1c5 code 7. Travel Rations heal 40 every 30 s. Unit test UseItemTests.
 - 2026-10-14: Mount barding: the element (500, index, 45) dresses a modular mount (0xx blanket, 1xx cloth caparison, 2xx plate). Barding items (Green Caparison, Plate Barding at the camp merchant) are put on or off by right-click, saved, and shown whenever you ride. Verified live; unit test BardingTests.
 - 2026-10-14: Guild invites expire after 60 s. The invited player gets 0x4e8 (closes the popup, "Your guild invite to <guild> has expired."), and the inviter gets a line too. Verified live with a bot as the invitee; unit test GuildInviteTimeoutTests.
 - 2026-10-14: Group invite referral (0x727): when a member who is not the leader uses /invite, the leader gets the client's "Invite Referral" popup, and Accept sends an ordinary invite. Verified live with two clients and a bot (the bot joined the group). Unit test GroupReferralTests.
