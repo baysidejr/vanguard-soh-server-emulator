@@ -10510,7 +10510,9 @@ def handle_message(sock, server, addr, state, payload, args):
             send_message(sock, addr, state, zone.zone_event(LOCKOUT_LIST_REPLY,
                                                             (state["player"].name + "\0").encode("utf-16-le")))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in CANCEL_CAST and state.get("player"):
-            if state.pop("casting", None):
+            cast = state.pop("casting", None)
+            print(f"  >>> ZONE cancel 0x{struct.unpack_from('<I', payload, 2)[0]:x}" + (" (cast dropped)" if cast else ""))
+            if cast:
                 send_message(sock, addr, state, effects.interrupted())
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CLEAR_TARGETS and state.get("player"):
             state["player"].target = None

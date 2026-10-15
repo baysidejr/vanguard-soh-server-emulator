@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: /stopcasting checked live (Recall cancelled: client 0xe2 + 0x144, cast dropped); cancels are now logged. Ranger's Regrowth I learned in the test (left in the book).
+
 - 2026-10-15: A fleeing NPC calls for help (idle same-faction allies within 700 units join, "X calls for help!"). Unit test in FleeTests; not seen live (the camp wolves always notice together, so no idle ally is left to call).
 
 - 2026-10-15: tools/editor_e2e.mjs (DevTools-protocol driver for the editor page) and EditorSaveTests: a real click on Save in two tabs must change exactly the edited line on disk. Editor tabs grouped under headings with the current one highlighted.
