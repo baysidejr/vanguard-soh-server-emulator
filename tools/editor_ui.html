@@ -76,7 +76,7 @@
         <div><label>Title (under the name)</label><input id="mTitle"></div>
         <div><label>Pawn class</label><select id="mPawn"><option>SGONPCPawn</option><option>SGOPCPawn</option></select></div>
         <div><label>Race / creature</label><select id="mRace"></select></div>
-        <div><label>Model variant</label><input id="mModel" type="number"></div>
+        <div><label>Model variant <span id="mModelHint" class="hint"></span></label><input id="mModel" type="number"></div>
         <div><label>Gender (0 male, 1 female)</label><input id="mGender" type="number"></div>
         <div><label>Level</label><input id="mLevel" type="number"></div>
         <div><label>Health</label><input id="mHealth" type="number"></div>
@@ -326,7 +326,7 @@ $("tabSpawns").onclick = () => setMode("spawns");
 $("tabMobs").onclick = () => setMode("mobs");
 
 // ---- mobs ----
-let mobDoc = null, mobSel = null;
+let mobDoc = null, mobSel = null, raceModels = {}, modelHint = () => {};
 const FLAGS = ["trainer", "banker", "repair", "station", "task_master", "mailbox", "altar", "assembly_station", "prop"];
 const SIMPLE = { name: "mName", title: "mTitle", pawn_class: "mPawn", race: "mRace", model: "mModel", gender: "mGender",
   level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", scale: "mScale" };
@@ -334,6 +334,13 @@ const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_ra
 async function initMobs() {
   mobDoc = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
   const races = (await api("/api/races")).body;
+  raceModels = Object.fromEntries(races.map(r => [r.id, r.models]));
+  const hint = () => {
+    const ms = raceModels[$("mRace").value], v = $("mModel").value;
+    $("mModelHint").textContent = ms && ms.length ? `(this race has ${ms.join(", ")})` : "";
+    $("mModelHint").style.color = ms && ms.length && v !== "" && !ms.includes(Number(v)) ? "#ff8f7a" : "";
+  };
+  $("mRace").addEventListener("change", hint); $("mModel").addEventListener("input", hint); modelHint = hint;
   $("mRace").innerHTML = races.map(r => `<option value="${r.id}">${r.id} ${r.name}</option>`).join("");
   const opts = async (file, label) => {
     const d = JSON.parse((await api("/api/file?name=" + file)).body.text);
@@ -370,6 +377,7 @@ function showMob() {
   }
   $("mDmg0").value = (m.damage || [])[0] ?? ""; $("mDmg1").value = (m.damage || [])[1] ?? "";
   for (const f of FLAGS) $("f_" + f).checked = !!m[f];
+  modelHint();
   gearRows = (m.gear || []).map(g => g.slice());
   drawGear();
   const other = {};
