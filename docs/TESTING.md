@@ -47,6 +47,10 @@ So one zone process holds about 200 moving players spread over a chunk, or about
 
 **Packet loss.** `--drop 0.1` makes every bot ignore 10% of the server's reliable packets (no acknowledgement, as if lost; bots deliver in order and send Ack1 after a gap, like UdpLibrary). With the server's resends (docs/PROTOCOL.md) 10 of 10 bots logged in (login median 2.9 s instead of 0.1 s) and the ping median stayed at 12 ms (p95 372 ms); at 2% loss p95 is 181 ms.
 
+## Soak test (2026-10-14)
+
+50 bots spread over 4000 units ran for 10 minutes against one server (`loadtest.py --bots 50 --seconds 600 --procs 2 --spread 4000`), with the server's memory sampled every 30 s. The working set stayed at 205 MB from the first sample to the last (no growth), and the server used about 5 s of CPU per 30 s (17% of one core). Over 29,850 pings the median round trip was 10.5 ms and p95 11.1 ms, with a 56 ms maximum. All 50 bots joined and none lost a packet. The server log had no errors.
+
 ## Fuzzing (2026-10-14)
 
 `python tools/fuzz.py` logs a load-test bot into the zone and sends every client event id from 1 to 0x900 with random payloads of awkward sizes (empty, 1-3 bytes, small ints, 600 bytes), then rounds of random UE2 packets, unknown message types and raw datagrams that skip the reliable layer. After each id a ping checks the server still answers; a silent server gets a fresh login to tell a closed connection from a hang. Run it against a server with its own `--data-dir` (see the script's help), since random events change saved data.
