@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Builder mode: `!undo` and a spawn-placement check against obstacles (the web editor already warns). Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fireworks and quest-node particles still invisible.
+Builder mode: place props and service NPCs too, and a GM-only guard for hosted servers. Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fireworks and quest-node particles still invisible.
 
 ## Last test results
 
