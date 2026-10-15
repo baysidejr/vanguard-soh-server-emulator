@@ -421,8 +421,12 @@ def content_reload_tick(args, now):
     args.content = content.Content()
     zone.ITEM_CONTENT = args.content
     print("  content reloaded (changed files)")
+    mobs_stamp = os.path.getmtime(os.path.join(args.content.directory, "mobs.json"))
+    mobs_changed = SPAWN_STAMPS.get("mobs.json") not in (None, mobs_stamp)
+    SPAWN_STAMPS["mobs.json"] = mobs_stamp
     for w in world.all_worlds():
-        if w.populated and spawn_stamp(args, w.level) != SPAWN_STAMPS.get(w.level):
+        # A changed mob template (mobs.json) re-creates the NPCs of every loaded chunk too.
+        if w.populated and (mobs_changed or spawn_stamp(args, w.level) != SPAWN_STAMPS.get(w.level)):
             refresh_world_spawns(w, args)
 
 
