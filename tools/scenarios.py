@@ -6,6 +6,7 @@ Two load-test bots (Lbotaa = A, Lbotab = B) log in to a running server and go th
   trade  A offers an item, B offers 50 copper, both accept; the database must show the item
          with B and the coins with A
   tell   A sends B a private message
+  brotherhood  A invites B, B joins (checked in the database) and leaves again
   guild  A founds a guild and invites B, B joins (checked in the database), A disbands it
   duel   A challenges B, B accepts, the countdown runs and the duel starts
 Each step prints PASS or FAIL; the exit code is the number of failures.
@@ -169,6 +170,21 @@ def main():
                    f"invite popup={bool(invited)}, members={members}")
     a.send(0x4DA)
     a.pump(0.5)
+
+    # Brotherhood: A invites B (0x4bd {wstr}), B gets the popup (0x4bd) and accepts (0x4be);
+    # the saved brotherhood lists both. B leaves (0x4c0): one member left, so it is dropped.
+    path = os.path.join(ROOT, "server", "brotherhoods.json")
+    a.send(0x4BD, wstr(b.name))
+    popup = b.wait_for(0x4BD)
+    b.send(0x4BE)
+    b.pump(0.5)
+    bh = next((x for x in storage.read_json(path, []) if a.name in x.get("members", [])), None)
+    joined = bool(bh) and sorted(bh["members"]) == sorted([a.name, b.name])
+    b.send(0x4C0)
+    b.pump(0.5)
+    gone = not any(a.name in x.get("members", []) for x in storage.read_json(path, []))
+    fails += check("brotherhood", bool(popup) and joined and gone,
+                   f"popup={bool(popup)}, both saved={joined}, dropped after leaving={gone}")
 
     # Duel: A picks B as defensive target (0x5c {u64}), challenges (0x3fd); B accepts
     # (0x3ff {0}); both get the countdown (0x400), then the start (0x401) after 10 s.
