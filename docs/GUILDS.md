@@ -4,6 +4,7 @@
 - `!guildcreate` opens the client's own "Enter Guild Name" dialog (`0x4e7`). Accepting sends `0x4d3`, and the server prints "You have founded the guild Wastes Wardens."
 - `/guildinvite Justins` opens the Guild Invite popup on the other client, and chat says "Ranger has invited you to join Wastes Wardens at the rank of Recruit."
 - Accept prints "You have joined the guild.", and the leader sees "Justins has joined the guild."
+- **Invite timeout (verified live 2026-10-14):** an unanswered invite expires after 60 s (`INVITE_TIMEOUT`, `group_tick`). The invited player gets **0x4e8** `{wstr guild name, i32 0}` (FUN_004e9d20). It closes the `_guild_invite_confirm` popup [O] and prints "Your guild invite to Night Watch has expired." The inviter gets "Your guild invitation to Lbotaa has expired."
 - **Guild name over the head (verified live):** the player pawn's replicated `m_GuildId` (SGOPCPawn net field 122) is set at spawn and on create/join/leave. Every client also gets a `0x40` name tag for each guild, so Ranger shows "(Wastes Wardens)" under the name. After `/guildquit` the tag goes away and members see "Ranger has left the guild."
 - Fields 123 `m_bIsAfk` and 124 `m_LfgStatus` are next to it, but replicating `m_bIsAfk` = 1 made the pawn vanish on every client, so AFK/LFG show only in /who.
 - `/gu Hello guild!` shows as "[Guild][Justins]: Hello guild!" for the leader and "To [Guild]: Hello guild!" for the speaker.

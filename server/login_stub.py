@@ -4630,6 +4630,7 @@ def handle_guild_event(state, event, data):
             say(f"{target['player'].name} is already in a guild.", True)
         else:
             target["guild_invite"] = (mine["id"], player.name)
+            target["guild_invite_at"] = (time.time(), mine["name"])
             target["send"](guild.invite(player.char_id, player.name, mine["name"], ranks=mine.get("ranks")))
             say(f"You invite {target['player'].name} to join {mine['name']}.")
     elif event in (guild.QUIT, guild.KICK, guild.DELETE):
@@ -5631,6 +5632,16 @@ def group_tick():
             s["send"](zone.zone_event(0x6B7, struct.pack("<i", 0)))      # "GroupInviteTimedOut"
             if inviter.get("player") is not None and ONLINE.get(inviter["player"].name.lower()) is inviter:
                 inviter["send"](build_system_text(f"Your group invitation to {p.name} has expired.",
+                                                  SYSTEM_TEXT_WHITE))
+        if s.get("guild_invite") and now - s.get("guild_invite_at", (now, ""))[0] > INVITE_TIMEOUT:
+            # 0x4e8 {wstr guild, i32} (FUN_004e9d20) closes the invite popup and prints
+            # "Your guild invite to <guild> has expired."
+            gid, inviter_name = s.pop("guild_invite")
+            guild_name = s.pop("guild_invite_at")[1]
+            s["send"](zone.zone_event(0x4E8, (guild_name + chr(0)).encode("utf-16-le") + struct.pack("<i", 0)))
+            inviter = ONLINE.get(inviter_name.lower())
+            if inviter is not None and p is not None:
+                inviter["send"](build_system_text(f"Your guild invitation to {p.name} has expired.",
                                                   SYSTEM_TEXT_WHITE))
     for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
               if getattr(s.get("player"), "group", None)}.values():

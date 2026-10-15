@@ -626,3 +626,16 @@ class GroupReferralTests(unittest.TestCase):
         self.assertEqual(sent["out"], [])                       # no invite popup from a non-leader
         self.assertIn("Mem would like to invite Out to the group.\0".encode("utf-16-le"), sent["lead"][-1])
         self.assertIn(struct.pack("<QQ", 2, 3), sent["lead"][-1])
+
+
+class GuildInviteTimeoutTests(unittest.TestCase):
+    def test_expired_invite_closes_popup_and_tells_inviter(self):
+        sent = {"a": [], "b": []}
+        a = {"player": zone.Player(name="A", char_id=1, level="c1"), "send": sent["a"].append}
+        b = {"player": zone.Player(name="B", char_id=2, level="c1"), "send": sent["b"].append,
+             "guild_invite": (5, "A"), "guild_invite_at": (0.0, "Night Watch")}
+        with mock.patch.object(login_stub, "ONLINE", {"a": a, "b": b}):
+            login_stub.group_tick()
+        self.assertNotIn("guild_invite", b)
+        self.assertIn(zone.zone_event(0x4E8, "Night Watch\0".encode("utf-16-le") + bytes(4)), sent["b"])
+        self.assertTrue(any("invitation to B has expired".encode("utf-16-le") in m for m in sent["a"]))

@@ -24,7 +24,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 578 of 720 sent or not needed (80%); open: 142 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 579 of 720 sent or not needed (80%); open: 141 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
@@ -39,6 +39,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Guild invites expire after 60 s. The invited player gets 0x4e8 (closes the popup, "Your guild invite to <guild> has expired."), and the inviter gets a line too. Verified live with a bot as the invitee; unit test GuildInviteTimeoutTests.
 - 2026-10-14: Group invite referral (0x727): when a member who is not the leader uses /invite, the leader gets the client's "Invite Referral" popup, and Accept sends an ordinary invite. Verified live with two clients and a bot (the bot joined the group). Unit test GroupReferralTests.
 - 2026-10-14: Decoded the last unknown server message, 0x269: {i32 finisher ability id} forgets that combat chain. The client keys chain definitions (0x268) on the finisher, per its deserializer FUN_004203b0 and FUN_00432260 / FUN_00428060. Not needed by the server, which resends every chain. Every client handler is now decoded.
 - 2026-10-14: Flight for onlookers (no gravity on the flier for others, zero velocity when it hovers; seen with two clients) and for late arrivals. UDP transport moved into server/soe.py (check_all --client 7/7). Housing drag placement: the cottage's zones are in compoundobjectMD.tab (Type = zone type) but the point lookup never finds them.
