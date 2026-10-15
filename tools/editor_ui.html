@@ -1028,7 +1028,9 @@ function showRecipe() {
         <td><button>Remove</button></td>`;
       tr.querySelectorAll("input").forEach(i => i.onchange = () => {
         const g = k => tr.querySelector(`[data-k=${k}]`).value;
-        const n = { name: g("name"), description: g("description"), action: Number(g("action") || 0), ap: Number(g("ap") || 0) };
+        const n = { name: g("name"), description: g("description") };
+        if (g("action") !== "") n.action = Number(g("action"));
+        if (g("ap") !== "") n.ap = Number(g("ap"));
         if (g("tool")) n.tool = g("tool");
         if (g("uitem")) n.utility = { item: g("uitem"), qty: Number(g("uqty") || 1) };
         st.steps[pi] = n;
@@ -1117,12 +1119,13 @@ function showDip() {
       const c = dipDoc.cards[id], tr = document.createElement("tr");
       tr.innerHTML = `<td>${id}</td><td><input data-k="name" value="${esc(c.name || "")}" style="width:100%"></td>
         <td><select data-k="expression">${EXPR.map(x => `<option ${x === c.expression ? "selected" : ""}>${x}</option>`).join("")}</select></td>
-        <td><input data-k="push" type="number" value="${c.push ?? 0}" style="width:54px"></td>
+        <td><input data-k="push" type="number" value="${c.push ?? ""}" style="width:54px"></td>
         <td style="white-space:nowrap">${exprInputs(c.cost, "cost")}</td><td style="white-space:nowrap">${exprInputs(c.gain, "gain")}</td>
         <td><input data-k="refresh" type="number" min="0" value="${c.refresh ?? ""}" style="width:54px"></td><td><button>Remove</button></td>`;
       const store = () => {
-        const n = { name: tr.querySelector("[data-k=name]").value, expression: tr.querySelector("[data-k=expression]").value,
-                    push: Number(tr.querySelector("[data-k=push]").value || 0) };
+        const n = { name: tr.querySelector("[data-k=name]").value, expression: tr.querySelector("[data-k=expression]").value };
+        const push = tr.querySelector("[data-k=push]").value;
+        if (push !== "") n.push = Number(push);
         const cost = readExpr(tr, "cost"), gain = readExpr(tr, "gain"), rf = tr.querySelector("[data-k=refresh]").value;
         if (cost) n.cost = cost;
         if (gain) n.gain = gain;
