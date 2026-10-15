@@ -5,6 +5,7 @@ Two load-test bots (Lbotaa = A, Lbotab = B) log in to a running server and go th
   group  A invites B, B accepts
   trade  A offers an item, B offers 50 copper, both accept; the database must show the item
          with B and the coins with A
+  tell   A sends B a private message
   duel   A challenges B, B accepts, the countdown runs and the duel starts
 Each step prints PASS or FAIL; the exit code is the number of failures.
 
@@ -140,6 +141,17 @@ def main():
     coins = after_a.get("coins", 0) - before_a.get("coins", 0) == 50 and before_b.get("coins", 0) - after_b.get("coins", 0) == 50
     fails += check("trade", bool(done) and moved and coins,
                    f"done={bool(done)}, {item[1]} moved={moved}, 50 copper moved={coins}")
+    # Tell: world message type 6 {u32 0x14, u32 length, wstr 'tell "Name" text'}; B gets it on
+    # its own world or zone connection.
+    text = 'tell "%s" psst from A' % b.name
+    a.world.send(struct.pack("<HII", 6, 0x14, len(wstr(text))) + wstr(text))
+    end = time.time() + 3
+    heard = False
+    while time.time() < end and not heard:
+        b.pump(0.2)
+        heard = any("psst from A".encode("utf-16-le") in m for m in b.got + b.world.poll())
+    fails += check("tell", heard)
+
     # Duel: A picks B as defensive target (0x5c {u64}), challenges (0x3fd); B accepts
     # (0x3ff {0}); both get the countdown (0x400), then the start (0x401) after 10 s.
     import login_stub

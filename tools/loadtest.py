@@ -293,6 +293,7 @@ class Bot(threading.Thread):
         if m is None:
             raise RuntimeError("no zone-connect event from the world server")
         zone_port = struct.unpack_from("<I", m, 10)[0]
+        self.world = w            # kept: tells, shouts and other slash commands go through it
         # Zone server: log in, then the UE2 handshake.
         z = SoeConnection(a.host, zone_port)
         z.send(login_request(account, session))
