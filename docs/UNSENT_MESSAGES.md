@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 497 of them (69%)
 
 | Category | Count |
 |---|---|
-| optional | 106 |
+| optional | 103 |
 | variant | 49 |
 | content | 29 |
-| no-op | 21 |
+| no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 614 of 720 (85%). Still open: 106 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 617 of 720 (85%). Still open: 103 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -58,8 +58,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 614 of 720 (85%).
 | 0x11a | MsgSingleBool | bool8 | optional | bUse250System {bool8}: switches the weapon tooltip and character-sheet haste / dual-wield figures to an alternate formula (FUN_005e1510) [decoded 2026-10-14] |
 | 0x272 | MsgStringAndInt | wstr, i32 | content | raid lockout share offer (Accept / Decline -> /lockoutaccept 0x273); no raid lockouts here |
 | 0x274 | - |  | no-op | the dispatcher returns at once |
-| 0x31b | MsgSendSingleSGOString | wstr | optional | strDiplomatRankSelf {wstr}: the diplomat rank title on the character sheet |
-| 0x3c3 | (none) |  | optional | combat / contest state signal (bInCombat, strContestTye) |
+| 0x31b | MsgSendSingleSGOString | wstr | no-op | strDiplomatRankSelf {wstr}: no shipped UI file reads this game var (searched 2026-10-15) |
+| 0x3c3 | (none) |  | no-op | combat / contest state (bInCombat, strContestTye): no shipped UI file reads these game vars (searched 2026-10-15) |
 | 0x3e3 | - |  | no-op | the dispatcher returns at once |
 | 0x3ec | MsgSingleInt | i32 | blocked | Infamy {i32} (PvP); no PvP on this server |
 | 0x44b | MsgWoundsUpdate | 5 x [u8] | optional | wounds {5 x u8} (bIsWounded per body part); no wound system yet |
@@ -322,7 +322,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 614 of 720 (85%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x11d | MsgCombatTuningInfo | f32, f32 | optional | combat tuning {2 floats} |
-| 0x2d2 | MsgSingleByte | u8 | optional | attribute list refresh {u8} (PCAttributeList) |
+| 0x2d2 | MsgSingleByte | u8 | no-op | PCAttributeList refresh {u8}: no shipped UI file reads this game var (searched 2026-10-15) |
 | 0x2d8 | MsgFourInts | i32, i32, i32, i32 | optional | /skillmovementset answer {4 x i32} ("You successfully set the directional movement of your skill") |
 
 ## FUN_0045fda0 (assembly book): 2

@@ -191,12 +191,12 @@
       "raid lockout share offer (Accept / Decline -> /lockoutaccept 0x273); no raid lockouts here"
     ],
     "0x31b": [
-      "optional",
-      "strDiplomatRankSelf {wstr}: the diplomat rank title on the character sheet"
+      "no-op",
+      "strDiplomatRankSelf {wstr}: no shipped UI file reads this game var (searched 2026-10-15)"
     ],
     "0x3c3": [
-      "optional",
-      "combat / contest state signal (bInCombat, strContestTye)"
+      "no-op",
+      "combat / contest state (bInCombat, strContestTye): no shipped UI file reads these game vars (searched 2026-10-15)"
     ],
     "0x3e2": [
       "optional",
@@ -711,8 +711,8 @@
       "combat tuning {2 floats}"
     ],
     "0x2d2": [
-      "optional",
-      "attribute list refresh {u8} (PCAttributeList)"
+      "no-op",
+      "PCAttributeList refresh {u8}: no shipped UI file reads this game var (searched 2026-10-15)"
     ],
     "0x2d6": [
       "optional",
