@@ -887,6 +887,52 @@ class FormRestrictionTests(unittest.TestCase):
         self.assertIn("can only be used in Mindset of Clarity".encode("utf-16-le"), sent[0])
 
 
+class SmallFeatureTests(unittest.TestCase):
+    """Messages of 2026-10-15 features that were checked live; these pin their layouts."""
+
+    def test_spyglass_toggles_the_zoom(self):
+        sent = []
+        state = {"send": sent.append}
+        login_stub.use_spyglass(state, {"fov": 20, "seconds": 1})
+        login_stub.use_spyglass(state, {"fov": 20, "seconds": 1})
+        self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in sent], [0x5C7, 0x5C7])
+        self.assertEqual(struct.unpack_from("<fff", sent[0], 10), (90.0, 20.0, 1.0))
+        self.assertEqual(struct.unpack_from("<fff", sent[1], 10), (20.0, 90.0, 1.0))
+
+    def test_fireworks_play_and_use_one(self):
+        sent = []
+        player = zone.Player(name="T", char_id=7, level="c")
+        player.items = [(1, "Blue Rocket", 444, 2, 0)]
+        state = {"player": player, "send": sent.append}
+        with mock.patch.object(login_stub, "save_character_field"):
+            login_stub.set_off_fireworks(state, player.items[0], 60002)
+        self.assertEqual(struct.unpack_from("<I", sent[0], 2)[0], login_stub.combat.DISPLAY_EVENT)
+        self.assertEqual(struct.unpack_from("<i", sent[0], 10 + 16)[0], 60002)
+        self.assertEqual(player.items[0][3], 1)
+
+    def test_corpse_summon_moves_the_tombstone(self):
+        sent = []
+        player = zone.Player(name="T", char_id=7, level="c")
+        player.tombstone = {"level": "c", "loc": [0.0, 0.0, 0.0]}
+        npc = mock.Mock(corpse_summoner=True)
+        npc.name = "Veyla Brightsteel"
+        player.npcs, player.target = {5: npc}, 5
+        state = {"player": player, "send": sent.append, "position": (100.0, 200.0, 300.0)}
+        with mock.patch.object(login_stub, "player_distance", return_value=50), \
+                mock.patch.object(login_stub, "place_tombstone") as place:
+            login_stub.summon_corpse(state, mock.Mock())
+        place.assert_called_once()
+        self.assertEqual(player.died_at, (180.0, 200.0, 300.0))
+
+    def test_direction_answer_and_banner_layouts(self):
+        import attributes, craft
+        m = attributes.direction_result(0, 231, 1, 2)
+        self.assertEqual((struct.unpack_from("<I", m, 2)[0], struct.unpack_from("<iiii", m, 10)), (0x2D8, (0, 231, 1, 2)))
+        b = craft.banner("Preparation complete. Next: Smelting")
+        self.assertEqual(struct.unpack_from("<I", b, 2)[0], 0x307)
+        self.assertIn("Next: Smelting".encode("utf-16-le"), b)
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False
