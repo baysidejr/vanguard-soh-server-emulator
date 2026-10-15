@@ -124,6 +124,40 @@ def validate(directory=CONTENT_DIR):
                 problems.append(f"forms {cls}/{name}: bonus must be a number")
             if "abilities" in f and not (isinstance(f["abilities"], list) and all(isinstance(a, str) for a in f["abilities"])):
                 problems.append(f"forms {cls}/{name}: abilities must be a list of ability names")
+    num = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)
+    pair = lambda v: isinstance(v, list) and len(v) == 2 and all(num(x) for x in v)
+    kinds = ("strike", "dot", "heal", "buff", "fear", "pet", "sprint", "recall", "recall_house")
+    for name, a in c.abilities.items():
+        if name.startswith("_"):
+            continue
+        if not isinstance(a, dict):
+            problems.append(f"ability {name}: must be an object")
+            continue
+        if "kind" in a and a["kind"] not in kinds:
+            problems.append(f"ability {name}: kind must be one of {', '.join(kinds)}")
+        for k in ("refresh", "cast", "icon", "duration", "bonus", "ticks", "interval", "speed"):
+            if k in a and not num(a[k]):
+                problems.append(f"ability {name}: {k} must be a number")
+        for k in ("damage", "amount"):
+            if k in a and not pair(a[k]):
+                problems.append(f"ability {name}: {k} must be [min, max]")
+        if a.get("kind") == "pet" and not isinstance(a.get("pet"), dict):
+            problems.append(f"ability {name}: a pet ability needs \"pet\" {{name, race, ...}}")
+    for tid, t in c.titles.items():
+        if not tid.startswith("_") and not (isinstance(t, dict) and isinstance(t.get("name"), str) and t["name"]):
+            problems.append(f"title {tid}: needs a name")
+    for label, table in (("chains", c.chains), ("counters", c.counters), ("rescues", c.rescues)):
+        for cls in table:
+            if not cls.startswith("_") and cls not in races_classes.ADVENTURING_CLASSES.values():
+                problems.append(f"{label} {cls}: not a class name (races_classes)")
+    for oid, o in c.outposts.items():
+        if oid.startswith("_"):
+            continue
+        if not (isinstance(o, dict) and isinstance(o.get("chunk"), str) and pair(o.get("loc")) and num(o.get("radius"))):
+            problems.append(f"outpost {oid}: needs chunk, loc [x, y] and radius")
+    for hid, h in c.hints.items():
+        if not hid.startswith("_") and not (isinstance(h, dict) and isinstance(h.get("title"), str) and isinstance(h.get("text"), str)):
+            problems.append(f"hint {hid}: needs title and text")
     for key, r in c.riftways.items():
         if key.startswith("_"):
             continue

@@ -1470,8 +1470,17 @@ class ContentFormsRiftwaysTests(unittest.TestCase):
             rifts = json.load(open(os.path.join(c, "riftways.json"), encoding="utf-8"))
             rifts["NEWPLACE"] = {"name": "New", "color": "pink", "chunk": "chunk_n19_12", "x": None, "y": None}
             json.dump(rifts, open(os.path.join(c, "riftways.json"), "w", encoding="utf-8"))
+            ab = json.load(open(os.path.join(c, "abilities.json"), encoding="utf-8"))
+            ab["Bad Spell"] = {"kind": "explode", "refresh": "soon", "damage": [5]}
+            json.dump(ab, open(os.path.join(c, "abilities.json"), "w", encoding="utf-8"))
+            for fname, key, val in (("outposts.json", "nowhere", {"name": "X"}), ("hints.json", "bad", {"title": 1})):
+                doc = json.load(open(os.path.join(c, fname), encoding="utf-8"))
+                doc[key] = val
+                json.dump(doc, open(os.path.join(c, fname), "w", encoding="utf-8"))
             problems = " | ".join(content.validate(c))
-            for text in ("forms Wizard: not a class", "stat must be", "bonus must be", "color must be", "needs x and y"):
+            for text in ("forms Wizard: not a class", "stat must be", "bonus must be", "color must be", "needs x and y",
+                         "kind must be", "refresh must be a number", "damage must be [min, max]",
+                         "outpost nowhere", "hint bad"):
                 self.assertIn(text, problems)
 
 
