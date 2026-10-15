@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 505 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 80 |
-| variant | 62 |
+| optional | 79 |
+| variant | 63 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 640 of 720 (88%). Still open: 80 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 641 of 720 (89%). Still open: 79 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -309,7 +309,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 640 of 720 (88%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x42b | MsgSingleInt | i32 | optional | ability examine window {i32} |
-| 0x42e | MsgIntAndFloat | i32, f32 | optional | pet ability list updates (PetAbilityList) |
+| 0x42e | MsgIntAndFloat | i32, f32 | variant | {i32 ability id, f32 frac} (FUN_00578ec0): sets the pet ability's +0x128/+0x12c to frac x 100; the server shows pet cooldowns with 0x42c (verified live) |
 | 0x434 | MsgSingleInt | i32 | content | pet graft slots allowed (PetNumGraftsAllowed, docs/PETS.md) |
 
 ## FUN_0045fda0 (assembly book): 2

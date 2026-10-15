@@ -955,8 +955,8 @@
       "ability examine window {i32}"
     ],
     "0x42e": [
-      "optional",
-      "pet ability list updates (PetAbilityList)"
+      "variant",
+      "{i32 ability id, f32 frac} (FUN_00578ec0): sets the pet ability's +0x128/+0x12c to frac x 100; the server shows pet cooldowns with 0x42c (verified live)"
     ],
     "0x434": [
       "content",
