@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 505 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 73 |
-| variant | 69 |
+| variant | 75 |
+| optional | 62 |
 | content | 31 |
-| no-op | 24 |
-| blocked | 10 |
+| no-op | 25 |
+| blocked | 14 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%). Still open: 73 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 658 of 720 (91%). Still open: 62 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -22,8 +22,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 | 0x196 | - |  | no-op | the dispatcher returns at once |
 | 0x198 | ? |  | variant | no payload (FUN_0050fd90): rebuilds the inventory list from the client's own items; the list already fills from 0x197 records [checked 2026-10-15] |
 | 0x1af | (none) |  | variant | item equip message (FUN_0050fe80: "Programmer error, item equip message from server invalid."), not a list refresh; the server equips with 0x197 + 0x1a7 (verified live) [checked 2026-10-15] |
-| 0x1b1 | MsgThreeInts | i32, i32, i32 | optional | item back from the crafting inventory {handle, container, slot}; this server never moves items into a crafting inventory (docs/CRAFTING.md) |
-| 0x1b2 | MsgSingleInt | i32 | optional | crafting-inventory item used up {handle}; same as 0x1b1 |
+| 0x1b1 | MsgThreeInts | i32, i32, i32 | blocked | item back from the crafting inventory {handle, container, slot}: this server's crafting takes the inputs from the bags and has no crafting-inventory step (docs/CRAFTING.md) |
+| 0x1b2 | MsgSingleInt | i32 | blocked | crafting-inventory item used up {handle}: no crafting-inventory step (docs/CRAFTING.md) |
 | 0x1b8 | MsgIntAndTwoBytes | i32, u8, u8 | variant | item equipped {handle, u8, u8}; the server resends the whole item record (0x197) instead |
 | 0x1b9 | MsgThreeInts | i32, i32, i32 | variant | item equip {3 x i32}; the server resends the item record instead |
 | 0x1ba | MsgThreeInts | i32, i32, i32 | variant | item unequip {3 x i32}; the server resends the item record instead |
@@ -44,7 +44,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 | 0x1e0 | MsgStringAndInt | wstr, i32 | variant | {wstr, i32 handle}: replaces item field 69 (extra tooltip text); the server resends the item instead (FUN_00509800) [decoded 2026-10-14] |
 | 0x1e1 | MsgSingleInt | i32 | content | vehicle name field (_inventory_name_vehicle); vehicles (boats) are content |
 | 0x1e2 | MsgSendSingleSGOString | wstr | content | "Your vehicle is now called %s." |
-| 0x5ae | MsgTwoInts | i32, i32 | optional | inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*) |
+| 0x5ae | MsgTwoInts | i32, i32 | variant | {i32, i32} attached-item list (with 0x5af): the assembly window's ingredient slots fill from 0x354 candidates (verified live, docs/ASSEMBLY.md) |
 | 0x5af | MsgSingleInt | i32 | variant | {i32 handle}: takes an item off the hidden attached list that 0x5ae fills (FUN_004ff330) [decoded 2026-10-14] |
 | 0x5e6 | MsgSingleInt | i32 | blocked | Gold Membership unlock; this server has no membership locks |
 | 0x82e | MsgSingleItemAvatarInfo | i32, wstr | no-op | {i32 handle, wstr}: sets item field 5; nothing reads it but item copies (inferred) (FUN_00506230) [decoded 2026-10-14] |
@@ -134,8 +134,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x1c8 | MsgSingleByte | u8 | content | {u8}: the player's requirement state that ability field 37 must match (0xff none) (FUN_005f4340) [decoded 2026-10-14] |
-| 0x25a | MsgSingleFloat | f32 | optional | casting progress {f32}; the server shows casts with 0x25c / 0x260 |
-| 0x25d | MsgSingleFloat | f32 | optional | casting progress {f32}; the server shows casts with 0x25c / 0x260 |
+| 0x25a | MsgSingleFloat | f32 | variant | casting progress {f32}: the client runs the cast bar itself from 0x25c (seconds) and 0x260 interrupts it (verified live) |
+| 0x25d | MsgSingleFloat | f32 | variant | casting progress {f32}: the client runs the cast bar itself from 0x25c (seconds) and 0x260 interrupts it (verified live) |
 | 0x25e | MsgStringAndFloat | wstr, f32 | variant | cast bar {wstr, f32}, like 0x25c which the server sends |
 | 0x263 | MsgSingleInt | i32 | debug | cast response debug print {i32} |
 | 0x264 | (none) |  | variant | ability book list refresh; the General / Adventuring / Diplomacy pages fill from 0x215 records (verified live) |
@@ -163,7 +163,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 | 0x27f | MsgStringAndInt | wstr, i32 | content | "Your %s distributes %i" (spread heals or damage); needs such abilities |
 | 0x281 | MsgSingleEntityId | eid64 | content | {eid64}: sets EntityTypes bit 0x10000 on a pawn, the daze idle animation; needs daze abilities (FUN_00433930) [decoded 2026-10-14] |
 | 0x282 | (none) |  | content | charm breaking warning; needs charm abilities |
-| 0x3d2 | MsgDisplayAbilityEndPhaseEarly | eid64, u8, i32 | optional | ability phase ended early {eid64, u8, i32} |
+| 0x3d2 | MsgDisplayAbilityEndPhaseEarly | eid64, u8, i32 | no-op | ability phase ended early {eid64, u8, i32}: ends a 0x3d1 display early; this server plays no display during a cast, so there is nothing to cut short |
 | 0x3d3 | MsgDisplayAbility | eid64, eid64, i32, i32, i32, i32, u8, u8, bool8, u8, i32, i32, u8, u8, u8, bool8, u8, f32, i32 | variant | MsgDisplayAbility, same layout as 0x3d1 which the server sends |
 | 0x3d4 | MsgDisplayAddChatText | eid64, eid64, bool8, u8, i32, wstr | debug | "DEBUG ABILITY TEXT: Client: HandleDisplayAddChatText Start"; "] - <" |
 | 0x714 | (none) |  | optional | "You need more open space around you to do that." |
@@ -275,7 +275,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 |---|---|---|---|---|
 | 0x11c | MsgSingleInt | i32 | no-op | {i32 trade}: sets nJournalAssemblyTrade / strCraftingTradeSelf and refreshes the recipe trees (FUN_005a8f50); no shipped UI file reads those game vars (searched 2026-10-15) |
 | 0x2f0 | MsgLearnedCraftingRecipe | wstr, i32, i32, i32 | variant | learned refining recipe line ("Refining recipe added:"); the server uses 0x2ef |
-| 0x2f1 | (none) |  | optional | recipe tree refresh signal (RefiningRecipeTree, FinishingRecipeTree) |
+| 0x2f1 | (none) |  | variant | recipe tree refresh (RefiningRecipeTree, FinishingRecipeTree): the crafting journal's recipe pages fill from 0x2ef records (verified live) |
 | 0x2f3 | MsgAddCraftingRecipe | wstr, wstr, i32 x9, bool8, bool8, i32, 4 x [wstr]  (followed by N x MsgCraftingRecipeAction, N = field@0x50) | variant | full recipe definition (MsgAddCraftingRecipe + actions); the server sends recipes with 0x2ee / 0x2ef |
 
 ## FUN_005bad40 (crafting): 4
@@ -283,7 +283,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x301 | - |  | no-op | the dispatcher returns at once |
-| 0x305 | MsgTwoInts | i32, i32 | optional | crafting inventory slots used {i32, i32}; this server has no crafting inventory step |
+| 0x305 | MsgTwoInts | i32, i32 | blocked | crafting inventory slots used {i32, i32}: no crafting-inventory step (docs/CRAFTING.md) |
 | 0x306 | (none) |  | content | "You have mastered this recipe." (recipe mastery) |
 | 0x312 | (none) |  | blocked | "Secondary crafting trade set.": this server has one crafting trade per character (0x311 primary) |
 
@@ -293,8 +293,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 |---|---|---|---|---|
 | 0x2ad | MsgStringAndTwoInts | wstr, i32, i32 | variant | travel journal category, like 0x2ae which the server sends |
 | 0x381 | MsgSingleInt | i32 | variant | several travel journal entries in one message; the server sends 0x382 per entry |
-| 0x384 | MsgSingleInt | i32 | optional | server route for a tracked location (docs/TRAVEL.md: tracking is client-only) |
-| 0x385 | MsgSingleByte | u8 | optional | "Route to location found." / "You are in the wrong chunk to track that entry." |
+| 0x384 | MsgSingleInt | i32 | variant | server route for a tracked location: travel-journal tracking runs in the client (docs/TRAVEL.md, verified live with /traveldirections) |
+| 0x385 | MsgSingleByte | u8 | variant | "Route to location found." / "wrong chunk": tracking runs in the client (docs/TRAVEL.md) |
 
 ## FUN_00467f80 (attached abilities (effects)): 3
 
@@ -316,7 +316,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x34e | MsgSingleInt | i32 | optional | assembly recipe removed from the book |
+| 0x34e | MsgSingleInt | i32 | blocked | assembly recipe removed from the book: this server never takes a learned assembly recipe away |
 | 0x34f | MsgTwoInts | i32, i32 | variant | {i32 recipe, i32 ingredient}: "You have discovered a new assembly recipe: %s" / "...an assembly recipe ingredient!" (FUN_00457fd0); the server announces learned recipes with 0x34d |
 
 ## FUN_00483d60 (housing): 2

@@ -43,12 +43,12 @@
       "item equip message (FUN_0050fe80: \"Programmer error, item equip message from server invalid.\"), not a list refresh; the server equips with 0x197 + 0x1a7 (verified live) [checked 2026-10-15]"
     ],
     "0x1b1": [
-      "optional",
-      "item back from the crafting inventory {handle, container, slot}; this server never moves items into a crafting inventory (docs/CRAFTING.md)"
+      "blocked",
+      "item back from the crafting inventory {handle, container, slot}: this server's crafting takes the inputs from the bags and has no crafting-inventory step (docs/CRAFTING.md)"
     ],
     "0x1b2": [
-      "optional",
-      "crafting-inventory item used up {handle}; same as 0x1b1"
+      "blocked",
+      "crafting-inventory item used up {handle}: no crafting-inventory step (docs/CRAFTING.md)"
     ],
     "0x1b8": [
       "variant",
@@ -151,8 +151,8 @@
       "{i32 handle}: picks the item to deconstruct and the confirm popup, which sends 0x58e; sent for items.json salvage_kit (docs/INVENTORY.md) [sent 2026-10-15]"
     ],
     "0x5ae": [
-      "optional",
-      "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
+      "variant",
+      "{i32, i32} attached-item list (with 0x5af): the assembly window's ingredient slots fill from 0x354 candidates (verified live, docs/ASSEMBLY.md)"
     ],
     "0x5af": [
       "variant",
@@ -447,12 +447,12 @@
       "{u8}: the player's requirement state that ability field 37 must match (0xff none) (FUN_005f4340) [decoded 2026-10-14]"
     ],
     "0x25a": [
-      "optional",
-      "casting progress {f32}; the server shows casts with 0x25c / 0x260"
+      "variant",
+      "casting progress {f32}: the client runs the cast bar itself from 0x25c (seconds) and 0x260 interrupts it (verified live)"
     ],
     "0x25d": [
-      "optional",
-      "casting progress {f32}; the server shows casts with 0x25c / 0x260"
+      "variant",
+      "casting progress {f32}: the client runs the cast bar itself from 0x25c (seconds) and 0x260 interrupts it (verified live)"
     ],
     "0x25e": [
       "variant",
@@ -543,8 +543,8 @@
       "charm breaking warning; needs charm abilities"
     ],
     "0x3d2": [
-      "optional",
-      "ability phase ended early {eid64, u8, i32}"
+      "no-op",
+      "ability phase ended early {eid64, u8, i32}: ends a 0x3d1 display early; this server plays no display during a cast, so there is nothing to cut short"
     ],
     "0x3d3": [
       "variant",
@@ -727,8 +727,8 @@
       "attribute points to spend (PCPotentialPoolAdv, \"You have gained new %s attribute points\"); the point rules are server data"
     ],
     "0x305": [
-      "optional",
-      "crafting inventory slots used {i32, i32}; this server has no crafting inventory step"
+      "blocked",
+      "crafting inventory slots used {i32, i32}: no crafting-inventory step (docs/CRAFTING.md)"
     ],
     "0x306": [
       "content",
@@ -831,8 +831,8 @@
       "learned refining recipe line (\"Refining recipe added:\"); the server uses 0x2ef"
     ],
     "0x2f1": [
-      "optional",
-      "recipe tree refresh signal (RefiningRecipeTree, FinishingRecipeTree)"
+      "variant",
+      "recipe tree refresh (RefiningRecipeTree, FinishingRecipeTree): the crafting journal's recipe pages fill from 0x2ef records (verified live)"
     ],
     "0x2f2": [
       "variant",
@@ -971,12 +971,12 @@
       "several travel journal entries in one message; the server sends 0x382 per entry"
     ],
     "0x384": [
-      "optional",
-      "server route for a tracked location (docs/TRAVEL.md: tracking is client-only)"
+      "variant",
+      "server route for a tracked location: travel-journal tracking runs in the client (docs/TRAVEL.md, verified live with /traveldirections)"
     ],
     "0x385": [
-      "optional",
-      "\"Route to location found.\" / \"You are in the wrong chunk to track that entry.\""
+      "variant",
+      "\"Route to location found.\" / \"wrong chunk\": tracking runs in the client (docs/TRAVEL.md)"
     ],
     "0x23d": [
       "variant",
@@ -991,8 +991,8 @@
       "ability failure reason {wstr ability, i32, i32}: \"... because you are not in the required state.\" / \"... have not detected the required state on your target\" / \"... required level of success\"; needs ability state requirements (content)"
     ],
     "0x34e": [
-      "optional",
-      "assembly recipe removed from the book"
+      "blocked",
+      "assembly recipe removed from the book: this server never takes a learned assembly recipe away"
     ],
     "0x34f": [
       "variant",

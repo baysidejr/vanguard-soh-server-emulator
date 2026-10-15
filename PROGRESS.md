@@ -64,6 +64,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Message review: 11 more reclassified (crafting-inventory step not used, cast progress, recipe tree, assembly slots, tracking, assembly recipe removal, phase-end); 658/720 (91%). Left: encounter details, memorization, combat forms, petitions (not touched on purpose), a few effects.
 - 2026-10-15: Crafting stage banner seen during a real craft (driven with !cev). The game-client smoke test now also runs a crafting session, wounds, !mobs, Sprint and the Character window (49 commands, PASS).
 - 2026-10-15: The live NPC reload also covers quests.json, dialogs.json and loot.json.
 - 2026-10-15: mobs.json edits also apply live to loaded chunks (seen live: a renamed guard).
