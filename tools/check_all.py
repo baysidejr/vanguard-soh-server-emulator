@@ -46,8 +46,25 @@ def server_errors():
     return len(re.findall(r"Traceback|handler error|!!! error", text))
 
 
+def port_free(port=10101):
+    """False if a server already holds the login port: the checks would then talk to it instead
+    of their own server."""
+    import socket
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.bind(("0.0.0.0", port))
+        return True
+    except OSError:
+        return False
+    finally:
+        s.close()
+
+
 def main():
     results = []
+    if not port_free():
+        print("FAIL  a server is already running on port 10101; stop it first (the checks start their own)")
+        sys.exit(1)
 
     def note(name, ok, detail=""):
         results.append((name, ok, detail))

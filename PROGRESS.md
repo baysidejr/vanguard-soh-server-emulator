@@ -10,6 +10,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 
 ## Last test results
 
+- 2026-10-14 (after AA): tools/check_all.py 6 of 6 passed (unit 178, scenarios, load p95 11.5 ms, fuzz clean). A first run failed only because a leftover live-test server held port 10101; check_all now refuses to start in that case.
 - 2026-10-14 (after referrals, guild invite timeout, barding, usable items): tools/check_all.py --client 7 of 7 passed (unit 175, scenarios, load p95 11.5 ms, fuzz clean, smoke PASS).
 - 2026-10-14 (after flight): tools/check_all.py --client: 7 of 7 passed (unit 171, content, scenarios 8/8, load 20 bots p95 11.5 ms, server log clean, fuzz clean, smoke test PASS).
 - 2026-10-14 (check_all): unit 171 OK, content OK, scenarios 8/8, load test 20 bots p95 11 ms, fuzz clean; smoke test PASS earlier today.
