@@ -8416,6 +8416,25 @@ def learn_recipe_actions(send, r, known):
         send(craft.learn_counter(c))
 
 
+# Using an object (FUN_0054a680): 0x3ca {u8 code} prints 1 "You are already using an object.",
+# 2 "That object is already in use.", 3 "You are too far away.", 6 "You cannot do that while
+# resting.", 7 "You cannot do that while flying." (4 and 5 print nothing).
+OBJECT_USE_ERROR = 0x3CA
+USE_BUSY, USE_TAKEN, USE_TOO_FAR, USE_RESTING, USE_FLYING = 1, 2, 3, 6, 7
+
+
+def object_use_refusal(state):
+    """Why the player can't start using a station now (an 0x3ca code), or 0."""
+    player = state["player"]
+    if (state.get("craft") or {}).get("begun") or state.get("harvest") or state.get("assembling"):
+        return USE_BUSY
+    if getattr(player, "flying", False):
+        return USE_FLYING
+    if getattr(player, "resting", False):
+        return USE_RESTING
+    return 0
+
+
 def recipe_by_id(rid):
     return next((r for r in ARGS.content.recipes.values() if r["id"] == rid), None)
 
@@ -8435,6 +8454,10 @@ def handle_craft_event(state, event, data):
     if event == craft.USE_STATION:
         if combat.in_combat(player):
             send(client_notice(FINISH_COMBAT_BEFORE_CRAFTING))
+            return
+        refusal = object_use_refusal(state)
+        if refusal:
+            send(zone.zone_event(OBJECT_USE_ERROR, struct.pack("<B", refusal)))
             return
         npc = player.npcs.get(player.target) if player.target else None
         if npc is None or not npc.station:

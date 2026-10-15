@@ -293,3 +293,7 @@ The recipe window's "Recipe Skill" is the recipe's `skill` stat id (`stat_names.
 ## Journal recipe page (verified live 2026-10-15)
 
 The crafting journal's recipe page (Abilities window, Crafting tab: Refining / Finishing) stayed blank. Selecting a recipe sends **0x108** `{i32 recipe id}` and shows nothing until the server answers (FUN_005aa990 only sends while the recipe's "details pending" byte, +4, is set). The answer is **0x2f2**, the full recipe in the same layout as the 0x2ee add (FUN_005ac180 updates the recipe and redraws the page). The client then shows the name, icon, "Recipe Skill" and description. **0x309** `{i32 count, count x i32 step id}` adds the red "Steps missing items: <step>, ..." line for steps whose tool or utility the player doesn't carry (`craft.missing_steps`). Seen: Copper Ingot "Steps missing items: Pour Ingot", and Copper Buckle (finishing) with nothing missing. Only recipes in the player's book are answered.
+
+## Station use refusals (2026-10-15)
+
+Using a crafting station (0xfa) while already crafting, harvesting or assembling, while flying or while sitting gets **0x3ca** `{u8 code}` (FUN_0054a680) instead of the window: 1 "You are already using an object.", 7 "You cannot do that while flying.", 6 "You cannot do that while resting." (also 2 "That object is already in use.", 3 "You are too far away."; 4/5 print nothing). The client shows it as yellow text at the top of the screen (seen live with `!event 0x3ca 06`). `login_stub.object_use_refusal`; unit test ObjectUseTests.

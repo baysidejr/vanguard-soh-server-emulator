@@ -758,6 +758,17 @@ class DeconstructTests(unittest.TestCase):
         self.assertEqual(sorted(i[1] for i in player.items), ["Copper Buckle", "Copper Ingot", "Shimmering Dust"])
 
 
+class ObjectUseTests(unittest.TestCase):
+    def test_refusals(self):
+        p = mock.Mock(flying=False, resting=False)
+        self.assertEqual(login_stub.object_use_refusal({"player": p}), 0)
+        self.assertEqual(login_stub.object_use_refusal({"player": p, "craft": {"begun": True}}), login_stub.USE_BUSY)
+        p.resting = True
+        self.assertEqual(login_stub.object_use_refusal({"player": p}), login_stub.USE_RESTING)
+        p.flying = True
+        self.assertEqual(login_stub.object_use_refusal({"player": p}), login_stub.USE_FLYING)
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

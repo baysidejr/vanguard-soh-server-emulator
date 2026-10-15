@@ -1064,7 +1064,7 @@
     ],
     "0x3ca": [
       "optional",
-      "object use error {u8} (\"You are already using an object.\", \"That object is already in use.\")"
+      "object use error {u8}: sent when a station is used while busy, flying or resting (docs/CRAFTING.md) [sent 2026-10-15]"
     ],
     "0x26b": [
       "blocked",
