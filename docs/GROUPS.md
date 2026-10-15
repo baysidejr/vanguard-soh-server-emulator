@@ -238,6 +238,10 @@ Menu switch FUN_006a8060 (jump table 0x6aa19c, index = id-1).
 LFG/LFM: FUN_00583ed0 / FUN_005846c0 (builders), FUN_00584620 / FUN_00584e10 (Search), FUN_005867f0 (LFM toggle),
 FUN_00584eb0 (page router), FUN_00582990 (0x502).
 
+## A member's spell in the group window (verified live 2026-10-14, two clients)
+
+While a member casts a spell with a cast time, the others see the spell's icon next to that member's row in the group window. **0x3b3** `{eid64 member, i32 icon, wstr name, f32 seconds}` (FUN_004b2020) adds it. It stays until **0x3b4** `{eid64 member, i32 icon, i32 result, i32 value, bool8}` (FUN_004b2460) removes it. The server syncs this once a second from the caster's cast state (`login_stub.group_cast_sync`), so a cast that finishes, is moved out of, stunned or cancelled clears the icon. Seen: Ranger's Regrowth I icon by his row on Justins's screen, gone once the heal landed.
+
 ## Invite referral (verified live 2026-10-14, two clients and a bot)
 
 A member who is not the leader can still `/invite <name>` (0xb0). The server refers it to the leader with **0x727** `{eid64 member, eid64 invitee, wstr text, wstr invitee name}` (handler FUN_005eb550). The leader's client shows an "Invite Referral" popup with the text ("Justins would like to invite Lbotaa to the group.", also echoed to chat) and stores the name. **Accept** runs `/groupinvitereferralaccept`, which the client turns into an ordinary invite (0xb0) of the stored name, so no new request exists. **Decline** sends nothing. The member gets a white line, "You ask Ranger to invite Lbotaa to the group." If the leader is offline, the old 0x6b5 code 1 (not leader) still applies. `group.referral`, `login_stub.handle_group_event`.

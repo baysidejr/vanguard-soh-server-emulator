@@ -43,6 +43,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 
 ## Done
 
+- 2026-10-14: A group member's spell being cast shows by their row in the group window (0x3b3 adds the icon, 0x3b4 removes it). Seen live with two clients; unit test GroupCastTests. Also: a 10-minute soak with 50 bots kept memory flat.
 - 2026-10-14: tools/scenarios.py gained an "aa" scenario: a bot trains an AA ability over the wire, and the server answers 0x860 and saves it. 9/9 scenarios pass; check_all 6/6.
 - 2026-10-14: Housing drag placement, second runtime look (docs/HOUSING.md). The cottage room does become a type-3 house zone linked to the house. The in-house check is handed the point (-29500, -6450, 389), the terrain under the floor, while Ranger stands on the floor at 605. Still blocked; the next step is FUN_00b753d0 and the trace flags.
 - 2026-10-14: Hints. 0x56f {i32 id, wstr title, wstr text, bool8} puts a red "!" by the portrait that opens the client's Hints window. The server shows content/hints.json hints once per character: welcome, first kill, loot, level, death. /hintsreset and /hintsenable work. Seen live. The "Do not show me any more hints" box sent the plain close (0x17e) even when ticked (winbreak), so it has no effect. Unit test HintTests.

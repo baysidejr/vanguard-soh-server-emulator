@@ -197,6 +197,18 @@ def member_vitals(member):
                                       _byte(member.endurance, member.stats["endurance"])))]
 
 
+# A member's spell being cast (verified live 2026-10-14): 0x3b3 {eid64 member, i32 icon, wstr
+# name, f32 seconds} puts the spell's icon next to the member's row in the group window
+# (FUN_004b2020); it stays until 0x3b4 {eid64 member, i32 icon, i32 result, i32 value, bool8}
+# removes it (FUN_004b2460).
+def member_casting(member, icon, name, seconds):
+    return _event(0x3B3, struct.pack("<Qi", member.char_id, icon) + _w(name) + struct.pack("<f", float(seconds)))
+
+
+def member_cast_over(member, icon):
+    return _event(0x3B4, struct.pack("<QiiiB", member.char_id, icon, 0, 0, 0))
+
+
 def member_left(member):
     return _event(0x6BC, struct.pack("<Qi", member.char_id, 0))
 

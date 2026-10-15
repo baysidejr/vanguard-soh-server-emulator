@@ -5847,6 +5847,25 @@ def leave_group(state, booted=False):
 INVITE_TIMEOUT = 60                  # seconds a group invitation stays open
 
 
+def group_cast_sync(state, player, now):
+    """The rest of the group sees the spell a member is casting by the member's row (0x3b3),
+    until it goes off or is interrupted (0x3b4). Synced once a second, so every way a cast
+    ends (finished, moved, stunned, /stopcast) clears it."""
+    cast = state.get("casting")
+    shown = state.get("cast_shown")
+    key = (cast["ability"][3], cast["ability"][2]) if cast else None
+    if key == shown:
+        return
+    others = [s for s in group_states(player) if s is not state]
+    if shown is not None:
+        for s in others:
+            s["send"](group.member_cast_over(player, shown[0]))
+    if key is not None:
+        for s in others:
+            s["send"](group.member_casting(player, key[0], key[1], max(0.0, cast["ends"] - now)))
+    state["cast_shown"] = key
+
+
 def group_tick():
     """Once a second: members' positions and vitals to the rest of the group;
     group loot rolls that ran out of time; group invitations that expired (0x6b7)."""
@@ -5870,6 +5889,8 @@ def group_tick():
             if inviter is not None and p is not None:
                 inviter["send"](build_system_text(f"Your guild invitation to {p.name} has expired.",
                                                   SYSTEM_TEXT_WHITE))
+        if p is not None and getattr(p, "group", None) is not None:
+            group_cast_sync(s, p, now)
     for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
               if getattr(s.get("player"), "group", None)}.values():
         lot = getattr(g, "lottery", None)

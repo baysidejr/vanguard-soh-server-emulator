@@ -695,3 +695,20 @@ class HintTests(unittest.TestCase):
             self.assertIsNone(login_stub.hint(p, "death"))           # turned off
             login_stub.handle_hint_event({"player": p, "send": [].append}, hints.RESET)
             self.assertIsNotNone(login_stub.hint(p, "welcome"))
+
+
+class GroupCastTests(unittest.TestCase):
+    def test_cast_shown_then_cleared(self):
+        import group
+        sent = []
+        a = {"player": zone.Player(name="A", char_id=1, level="c1"), "send": [].append}
+        b = {"player": zone.Player(name="B", char_id=2, level="c1"), "send": sent.append}
+        ability = (5, 600, "Regrowth I", 553, "", 0.0)
+        a["casting"] = {"ability": ability, "ends": 102.0, "pos": None}
+        with mock.patch.object(login_stub, "group_states", lambda p: [a, b]):
+            login_stub.group_cast_sync(a, a["player"], 100.0)
+            login_stub.group_cast_sync(a, a["player"], 101.0)        # still casting: nothing new
+            a.pop("casting")
+            login_stub.group_cast_sync(a, a["player"], 102.0)
+        self.assertEqual(sent, [group.member_casting(a["player"], 553, "Regrowth I", 2.0),
+                                group.member_cast_over(a["player"], 553)])
