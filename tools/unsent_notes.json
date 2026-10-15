@@ -223,8 +223,8 @@
       "no payload: the local pawn enters feign death; getting up sends 0x18a. Needs a feign-death ability (FUN_005de0e0) [decoded 2026-10-14]"
     ],
     "0x545": [
-      "optional",
-      "DialogActive {bool8}: server-side dialog state flag"
+      "variant",
+      "DialogActive {bool8}: the Dialogue window's visibility (VGUIDialogs.xml); NPC dialogs open it with 0x2bb (verified live)"
     ],
     "0x552": [
       "optional",

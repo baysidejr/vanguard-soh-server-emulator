@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 505 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 78 |
-| variant | 64 |
+| optional | 77 |
+| variant | 65 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 642 of 720 (89%). Still open: 78 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 643 of 720 (89%). Still open: 77 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -65,7 +65,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 642 of 720 (89%).
 | 0x508 | MsgStringAndInt | wstr, i32 | optional | petition submit window {wstr, i32}; petitions go to the GM queue in the original |
 | 0x50a | MsgSingleBool | bool8 | optional | bHasPetition {bool8} |
 | 0x544 | (none) |  | content | no payload: the local pawn enters feign death; getting up sends 0x18a. Needs a feign-death ability (FUN_005de0e0) [decoded 2026-10-14] |
-| 0x545 | MsgSingleBool | bool8 | optional | DialogActive {bool8}: server-side dialog state flag |
+| 0x545 | MsgSingleBool | bool8 | variant | DialogActive {bool8}: the Dialogue window's visibility (VGUIDialogs.xml); NPC dialogs open it with 0x2bb (verified live) |
 | 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | optional | spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (FUN_005e5040 -> world FUN_00b77ee0). Tried 2026-10-15 with FXfire.FXfire_Fireworks001fx (FX packages announced): the spawn returns an actor (winbreak) but nothing showed; the emitter may need triggering |
 | 0x5b0 | MsgThreeStringsAndInt | wstr, wstr, wstr, i32 | debug | /.g1 /.g2 GM output {3 x wstr, i32} |
 | 0x5e2 | (raw) |  | blocked | character customization / slot item purchased (store); this server has no store |
