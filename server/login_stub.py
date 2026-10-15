@@ -5949,6 +5949,28 @@ def outpost_sync(state):
         state["send"](zone.zone_event(IN_OUTPOST, bytes([int(inside)])))
 
 
+# Defensive target panel (verified live 2026-10-15): 0x3e2 {eid64 entity, u8 health 0-255}
+# (FUN_005eaa00) fills DefTargetLifePoints, the health bar of the defensive target panel by the
+# portrait, when the entity is the player's defensive target; otherwise the bar stays empty.
+DEF_TARGET_HEALTH = 0x3E2
+
+
+def def_target_sync(state):
+    tid = state.get("def_target")
+    if not tid:
+        state.pop("def_target_shown", None)
+        return
+    w = state.get("world")
+    ts = w.members.get(tid) if w is not None else None
+    who = ts["player"] if ts is not None and ts.get("player") is not None else None
+    if who is None:
+        return
+    hp = max(0, min(255, round(255 * who.health / max(1, who.stats.get("hit_points", 1)))))
+    if state.get("def_target_shown") != (tid, hp):
+        state["def_target_shown"] = (tid, hp)
+        state["send"](zone.zone_event(DEF_TARGET_HEALTH, struct.pack("<QB", tid, hp)))
+
+
 def group_tick():
     """Once a second: members' positions and vitals to the rest of the group;
     group loot rolls that ran out of time; group invitations that expired (0x6b7)."""
@@ -5976,6 +5998,7 @@ def group_tick():
             group_cast_sync(s, p, now)
         if p is not None and s.get("send") and ARGS is not None:
             outpost_sync(s)
+            def_target_sync(s)
     for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
               if getattr(s.get("player"), "group", None)}.values():
         lot = getattr(g, "lottery", None)

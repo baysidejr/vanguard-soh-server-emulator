@@ -1,6 +1,7 @@
 """Smoke test: every per-login hook runs for a fresh character before its pawn exists
 (no position, no Unreal channel), against temporary data files."""
 import os
+import struct
 import tempfile
 import unittest
 from unittest import mock
@@ -730,3 +731,20 @@ class OutpostTests(unittest.TestCase):
             state["position"] = (10.0, 0.0, 0.0)
             login_stub.outpost_sync(state)
             self.assertEqual(sent[-1], zone.zone_event(0x552, bytes([1])))
+
+
+class DefTargetPanelTests(unittest.TestCase):
+    def test_health_sent_on_change(self):
+        sent = []
+        other = zone.Player(name="B", char_id=9, level="c1")
+        other.stats, other.health = {"hit_points": 200}, 100
+        w = mock.Mock()
+        w.members = {9: {"player": other}}
+        state = {"player": zone.Player(name="A", char_id=1, level="c1"), "send": sent.append,
+                 "world": w, "def_target": 9}
+        login_stub.def_target_sync(state)
+        login_stub.def_target_sync(state)                    # unchanged: nothing more
+        other.health = 0
+        login_stub.def_target_sync(state)
+        self.assertEqual(sent, [zone.zone_event(0x3E2, struct.pack("<QB", 9, 128)),
+                                zone.zone_event(0x3E2, struct.pack("<QB", 9, 0))])

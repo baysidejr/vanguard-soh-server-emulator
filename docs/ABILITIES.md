@@ -191,6 +191,10 @@ Rules for a visible, usable ability:
 
 `server/class_abilities.py` gives each adventuring class four starting abilities taken from the client's own `Assets/Abilities/<PREFIX>_ABILITIES.aby` (WAR, PAL, DRK, RNG, ROG, BRD, MNK, DSC, CLR, SHM, DRU, SOR, NEC, PSI, BMG). Each export is named `<PREFIX>_ABILITIES_<id>` and ends with a tag such as `BLADE_WINTER_I`, which becomes the ability's name. The id is also MsgAbilityInfo field 20 and the visual id sent in `0x3d1`, so using the ability plays its real animation. Costs, levels, damage and icons were server-side data and are placeholders. Run `python class_abilities.py` to list the picks.
 
+## Defensive target panel (verified live 2026-10-15)
+
+Picking a defensive target (F1, clicking a player, /targetself) shows a small panel under the portrait with the target's name, but its health bar stays empty until the server sends **0x3e2** `{eid64 entity, u8 health 0-255}` (FUN_005eaa00, game var DefTargetLifePoints). The client only applies it when the entity is its current defensive target. The server sends it once a second whenever the defensive target or its health changes (`login_stub.def_target_sync`). Seen: Ranger with himself as defensive target, full bar, then `!hurt 250` lowered both his own bar and the panel's. The level shield on the panel still shows 1 (DefTargetLevel comes from elsewhere, not found yet).
+
 ## Reactions: chains and finishers (verified live 2026-10-13)
 
 Implemented in `server/reactions.py` and `login_stub` (`chain_next`, `activate_reaction`, `reactions_tick`); chains are content (`server/content/chains.json`, per class: opener → up to 4 steps → finisher, by ability name).
