@@ -421,11 +421,11 @@ def content_reload_tick(args, now):
     args.content = content.Content()
     zone.ITEM_CONTENT = args.content
     print("  content reloaded (changed files)")
-    mobs_stamp = os.path.getmtime(os.path.join(args.content.directory, "mobs.json"))
+    mobs_stamp = npc_files_stamp(args.content.directory)
     mobs_changed = SPAWN_STAMPS.get("mobs.json") not in (None, mobs_stamp)
     SPAWN_STAMPS["mobs.json"] = mobs_stamp
     for w in world.all_worlds():
-        # A changed mob template (mobs.json) re-creates the NPCs of every loaded chunk too.
+        # A changed file NPCs are built from (NPC_FILES) re-creates the NPCs of every loaded chunk too.
         if w.populated and (mobs_changed or spawn_stamp(args, w.level) != SPAWN_STAMPS.get(w.level)):
             refresh_world_spawns(w, args)
 
@@ -433,6 +433,14 @@ def content_reload_tick(args, now):
 # Spawn files edited while their chunk is loaded (the web editor, by hand) are applied at the
 # next reload: the chunk's spawned NPCs are closed and created again from the file for everyone
 # there. The builder commands change the world themselves, so they record the new stamp.
+NPC_FILES = ("mobs.json", "quests.json", "dialogs.json", "loot.json")   # read by zone.npc_from_template
+
+
+def npc_files_stamp(directory):
+    return max((os.path.getmtime(os.path.join(directory, f)) for f in NPC_FILES
+                if os.path.exists(os.path.join(directory, f))), default=None)
+
+
 SPAWN_STAMPS = world.SPAWN_STAMPS     # level -> spawn file mtime the world matches
 
 
