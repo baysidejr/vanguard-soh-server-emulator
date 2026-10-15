@@ -4152,6 +4152,22 @@ FISH = [("Sand Carp", 0.7), ("Mud Eel", 0.3)]
 CHUNK_NAMES = {"chunk_n19_12": "Sundering Wastelands", "chunk_n19_13": "Sundering Wastelands"}
 
 
+def chunk_display_name(level):
+    """A chunk's zone name from the client's bin/Resources/Texts/ChunkNames.txt (read once), e.g.
+    chunk_n13_n9 -> "Khal"; CHUNK_NAMES or the level name when the file has none."""
+    if "_loaded" not in CHUNK_NAMES:
+        CHUNK_NAMES["_loaded"] = True
+        path = os.path.join(ARGS.client_dir if ARGS else "", "bin", "Resources", "Texts", "ChunkNames.txt")
+        try:
+            data = open(path, "rb").read()
+            text = data.decode("utf-16") if data[:2] in (b"\xff\xfe", b"\xfe\xff") else data.decode("latin-1")
+        except OSError:
+            text = ""
+        for m in re.finditer(r'DISPLAYNAME="([^"]+)" X=(-?\d+) Y=(-?\d+)', text):
+            CHUNK_NAMES.setdefault(chunk_name(int(m.group(2)), int(m.group(3))), m.group(1))
+    return CHUNK_NAMES.get(level, level)
+
+
 def fish_fresh(name):
     return bool(ARGS.content.item(name).get("fish", {}).get("fresh_water"))
 
@@ -4163,7 +4179,7 @@ def record_catch(state, name, bait, combo=None):
     lo, hi = ARGS.content.item(name).get("fish", {}).get("weight", [0.5, 3.0])
     weight = round(random.uniform(lo, hi), 1)
     records = player.__dict__.setdefault("fish_records", {})
-    rec, best = fishing.add_catch(records, name, weight, CHUNK_NAMES.get(player.level, player.level), bait,
+    rec, best = fishing.add_catch(records, name, weight, chunk_display_name(player.level), bait,
                                   time.strftime("%Y-%m-%d"))
     if combo and not rec.get("combo"):
         rec["combo"] = list(combo)
