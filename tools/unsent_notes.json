@@ -371,76 +371,76 @@
       "warp-in sound (SpellsSounds.WarpIn); needs teleport abilities"
     ],
     "0x224": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "memorized lists reset (no payload); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x225": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "memory slots {u8 mastery slots, u8 discipline slots} into MemoryDisciplineSlots / MemoryMasterySlots; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x226": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "discipline memorized {i32 ability handle}: \"You have memorized <name>.\" and the Memorizing popup closes (seen live); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x227": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "discipline memorized {i32 handle} (variant of 0x226); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x228": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "discipline memorized into a slot {i32 handle, i32 slot}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x229": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "discipline memorized into a slot {i32 handle, i32 slot}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x22a": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "discipline forgotten {i32 handle} (\"You forget <name>.\"); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x22b": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "discipline forgotten {i32 handle}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x22c": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "mastery memorized {i32 handle, i32 slot}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x22d": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "mastery memorized {i32 handle, i32 slot}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x22e": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "mastery forgotten {i32 handle}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x22f": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "mastery forgotten {i32 handle}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x232": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "memorized ability moved {i32, i32} (\"This Ability could not be moved.\" on failure); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x233": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "memorized ability moved {i32, i32}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x235": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "automatic memorizing from the memory queue started (no payload); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x236": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "memory queue reset (no payload); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x240": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "answer to a memorize request {u8 code} (\"You begin memorizing.\" / \"You must be resting to memorize.\"); the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x243": [
-      "optional",
-      "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"): the client has a \"Memory\" window (VGUIMemory.xml, MemorizedMasteries) and a \"Memorizing\" timer (VGUIMemTimeRemaining.xml), but `!ui Memory` shows nothing; this server gives abilities straight from the ability book, and the memorization rules are unknown"
+      "blocked",
+      "answer to a mastery memorize request {u8 code}; the Memory window (VGUIMemory.xml) is not listed in the shipped Index.xml, so the client never loads it and has no way to ask to memorize, forget or reorder; there is no slash command either (docs/ABILITIES.md, Memorization) [checked 2026-10-15]"
     ],
     "0x1c8": [
       "content",

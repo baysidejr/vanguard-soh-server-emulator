@@ -237,3 +237,14 @@ The client's packages have no general abilities (Sprint, Recall and so on), so t
 - `recall_house`: teleports beside the character's own built house, if any. Seen live (the Ranger landed by the Wastes Homestead house).
 
 Icons, descriptions and refresh times come from the VG archive (`_source` in each entry).
+
+## Memorization (checked 2026-10-15; a cut feature)
+
+The client still has the ability-memory system ("VGClientAbilityMemory": memorized disciplines and masteries, memory slots, a memorize queue, ability flag #6 "Requires memorization"), but the shipped UI cannot use it. The Memory window (VGUIAssets/Shells/Default/Windows/VGUIMemory.xml) is not listed in Index.xml, so the client never loads it. Its drag-drop and right-click actions are the only way to ask to memorize or forget, and no slash command exists. The server therefore sends flag #6 = 0 and never memorizes. The messages are recorded as blocked in docs/UNSENT_MESSAGES.md.
+
+Two of them were tried live with `!event`:
+
+- 0x230 `{i32 ability handle, i32, i32 seconds}` (FUN_004410e0) opens the loaded "Memorizing" popup (VGUIMemTimeRemaining.xml) with the ability's name. Seen: "Memorizing / Evasive Style I" for handle 1. The handle is the book handle (the first field of the ability record), not the ability id. An unknown handle prints "DEBUG - Programmer error in VGClientAbilityMemory::HandleAbilityStartDisciplineTimer: invalid ability Handle".
+- 0x226 `{i32 handle}` prints "You have memorized Evasive Style I." and closes the popup.
+
+0x225 `{u8, u8}` (FUN_0043b060) fills the two slot counts (MemoryDisciplineSlots, MemoryMasterySlots), which only the unloaded window reads.

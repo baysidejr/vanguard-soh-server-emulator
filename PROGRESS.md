@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memorization, combat forms need decoding; petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 44 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 
@@ -73,6 +73,8 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Memorization reviewed: the Memory window is not in the shipped Index.xml and nothing else can start memorizing, so its 18 messages are blocked (676/720, 93%). Tried live: 0x230 {handle, i32, seconds} shows the "Memorizing <name>" popup, 0x226 {handle} "You have memorized <name>." closes it (docs/ABILITIES.md).
 
 - 2026-10-15: NPC fleeing: mobs.json `flee_at` (health share) makes an NPC run from its attacker for 4 s once per fight ("<name> turns to flee!"), then come back; reset on respawn and evade. Ashen/forest wolves at 0.2 (placeholder). Live: Ashen Wolf with a temporary 0.95 fled after one Blade hit. Unit test FleeTests; content check validates the value.
 - 2026-10-15: An NPC that was fighting a pet turns on the owner (or gives up) once the pet is gone, instead of standing idle at its damaged health even without an aggro radius. Live with the Dust Bear (no aggro radius): after /pet dismiss it kept fighting Ranger (health down, a wound). Logic moved to combat.after_pet; unit test AfterPetTests.
