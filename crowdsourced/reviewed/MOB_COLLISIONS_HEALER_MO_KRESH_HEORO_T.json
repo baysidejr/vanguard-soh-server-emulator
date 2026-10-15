@@ -1,0 +1,175 @@
+{
+  "batch": "raw/2026-10-15-021033-142573-archive-bulk",
+  "status": "unresolved; all colliding records withheld from conversion",
+  "collision_groups": {
+    "healer_mo_kresh": [
+      {
+        "kind": "creature",
+        "record": {
+          "name": "Healer Mo'kresh",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/healer-mo-kresh",
+              "title": "Healer Mo'kresh · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T06:12:35+00:00",
+          "archive_fields": {
+            "difficulty": [
+              "2 dots"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Lomshir",
+              "url": "https://vgsoharchive.com/zones/lomshir"
+            }
+          ],
+          "type": "creature",
+          "level": 15,
+          "zone": null,
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "2 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Lomshir"
+          ],
+          "original_source_urls": []
+        }
+      },
+      {
+        "kind": "creature",
+        "record": {
+          "name": "Healer Mo´kresh",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/healer-mo-kresh-2",
+              "title": "Healer Mo´kresh · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T06:12:40+00:00",
+          "archive_fields": {
+            "zone": [
+              "Lomshir"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [],
+          "type": "creature",
+          "level": null,
+          "zone": "Lomshir",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Lomshir"
+          ],
+          "original_source_urls": []
+        }
+      }
+    ],
+    "heoro_t": [
+      {
+        "kind": "creature",
+        "record": {
+          "name": "Heoro'T",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/heoro-t",
+              "title": "Heoro'T · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T06:15:40+00:00",
+          "archive_fields": {
+            "zone": [
+              "The Tomb Of Lord Tsang"
+            ],
+            "continent": [
+              "Kojan"
+            ]
+          },
+          "referenced_entities": [],
+          "type": "creature",
+          "level": 25,
+          "zone": "The Tomb Of Lord Tsang",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "The Tomb Of Lord Tsang"
+          ],
+          "original_source_urls": []
+        }
+      },
+      {
+        "kind": "creature",
+        "record": {
+          "name": "Heoro´T",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/heoro-t-2",
+              "title": "Heoro´T · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T06:15:45+00:00",
+          "archive_fields": {
+            "role": [
+              "Order of the Lotus Fist"
+            ],
+            "continent": [
+              "Kojan"
+            ]
+          },
+          "referenced_entities": [],
+          "type": "creature",
+          "level": null,
+          "zone": null,
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [],
+          "original_source_urls": []
+        }
+      }
+    ]
+  },
+  "decision": "Preserve all archive transcriptions. Similar names alone do not establish entity identity; do not guess game IDs or merge records. This batch remains research evidence with two validation issues and is excluded from zero-issue coverage."
+}
