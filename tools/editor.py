@@ -37,6 +37,7 @@ import content as content_mod   # noqa: E402
 CONTENT = os.path.join(ROOT, "server", "content")
 BACKUPS = os.path.join(ROOT, "server", "backups", "content")
 MAPS = os.path.join(ROOT, "Assets", "Maps")
+ARCHIVE = os.path.join(ROOT, "crowdsourced", "raw")
 UI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "editor_ui.html")
 NAME = re.compile(r"^(spawns/)?[A-Za-z0-9_\-]+\.json$")
 
@@ -169,6 +170,46 @@ def schema():
             "mods": sorted(vgmsg.MOD_TYPES)}
 
 
+_ARCHIVE = []
+
+
+def archive_index(directory=ARCHIVE):
+    """The newest collected record per (type, name) from crowdsourced/raw/*/*.jsonl (the archive
+    reference; read once, ~1 s)."""
+    if _ARCHIVE:
+        return _ARCHIVE[0]
+    best = {}
+    for folder in sorted(os.listdir(directory)) if os.path.isdir(directory) else []:
+        if not os.path.isdir(os.path.join(directory, folder)):
+            continue
+        for f in os.listdir(os.path.join(directory, folder)):
+            if not f.endswith(".jsonl") or f == "gaps.jsonl":
+                continue
+            with open(os.path.join(directory, folder, f), encoding="utf-8") as fh:
+                for line in fh:
+                    try:
+                        r = json.loads(line)
+                    except ValueError:
+                        continue
+                    if not isinstance(r, dict) or not r.get("name") or not r.get("type"):
+                        continue
+                    key = (r["type"], r["name"])
+                    if key not in best or str(r.get("collected_at", "")) >= str(best[key].get("collected_at", "")):
+                        best[key] = r
+    _ARCHIVE.append(best)
+    return best
+
+
+def archive_search(query, kind=None, limit=40):
+    """Archive records whose name contains query (case-insensitive), exact matches first."""
+    q = (query or "").strip().lower()
+    if len(q) < 2:
+        return []
+    hits = [r for (t, n), r in archive_index().items() if (kind in (None, "", t)) and q in n.lower()]
+    hits.sort(key=lambda r: (r["name"].lower() != q, len(r["name"]), r["name"]))
+    return hits[:limit]
+
+
 def chunks():
     return sorted(f[:-4] for f in os.listdir(MAPS) if f.startswith("chunk_") and f.endswith(".vgr")) \
         if os.path.isdir(MAPS) else []
@@ -202,6 +243,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if u.path == "/api/file":
                 with open(safe_path(self.directory, q.get("name")), encoding="utf-8") as f:
                     return self.reply(200, {"name": q["name"], "text": f.read()})
+            if u.path == "/api/archive":
+                return self.reply(200, archive_search(q.get("q"), q.get("type")))
             if u.path == "/api/schema":
                 return self.reply(200, schema())
             if u.path == "/api/races":

@@ -1427,3 +1427,26 @@ class EditorPageTests(unittest.TestCase):
         finally:
             httpd.shutdown()
         self.assertIn("SELFTEST OK", dom, dom[dom.find("SELFTEST"):][:2000])
+
+
+class ArchiveSearchTests(unittest.TestCase):
+    def test_newest_record_and_ranking(self):
+        import sys, tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        with tempfile.TemporaryDirectory() as d:
+            for folder, lvl, when in (("a", 5, "2026-01-01"), ("b", 9, "2026-02-01")):
+                os.makedirs(os.path.join(d, folder))
+                with open(os.path.join(d, folder, "creature.jsonl"), "w", encoding="utf-8") as f:
+                    f.write(json.dumps({"type": "creature", "name": "Grey Wolf", "level": lvl, "collected_at": when}) + "\n")
+                    f.write(json.dumps({"type": "creature", "name": "Wolf", "level": 1, "collected_at": when}) + "\nnot json\n")
+            saved = list(editor._ARCHIVE)
+            editor._ARCHIVE.clear()
+            try:
+                editor.archive_index(d)
+                hits = editor.archive_search("wolf", "creature")
+                self.assertEqual([h["name"] for h in hits], ["Wolf", "Grey Wolf"])          # exact match first
+                self.assertEqual(hits[1]["level"], 9)                                          # newest record wins
+                self.assertEqual(editor.archive_search("w"), [])
+            finally:
+                editor._ARCHIVE[:] = saved

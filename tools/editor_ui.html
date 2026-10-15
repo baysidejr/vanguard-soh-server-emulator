@@ -51,7 +51,7 @@
 <body>
 <nav>
   <h1>Content editor</h1>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabQuests">Quests</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabQuests">Quests</button><button id="tabArchive">Archive</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -67,6 +67,7 @@
     <div id="mobForm">
       <div class="bar" style="padding:0 0 8px;border:0">
         <strong id="mobKey">Pick a mob</strong><span style="flex:1"></span>
+        <button onclick="lookUp($('mName').value, '')">Look up in archive</button>
         <button id="newMobBtn">New</button><button id="dupMobBtn">Duplicate</button><button id="delMobBtn">Delete</button>
         <button id="saveMobs" class="primary">Save mobs.json</button>
       </div>
@@ -110,6 +111,7 @@
     <div id="questForm" style="flex:1;overflow-y:auto;padding:10px 16px">
       <div class="bar" style="padding:0 0 8px;border:0">
         <strong id="questKey">Pick a quest</strong><span style="flex:1"></span>
+        <button onclick="lookUp($('qName').value, 'quest')">Look up in archive</button>
         <button id="newQuest">New</button><button id="delQuest">Delete</button>
         <button id="saveQuests" class="primary">Save quests.json</button>
       </div>
@@ -146,6 +148,7 @@
     <div id="itemForm" style="flex:1;overflow-y:auto;padding:10px 16px">
       <div class="bar" style="padding:0 0 8px;border:0">
         <strong id="itemKey">Pick an item</strong><span style="flex:1"></span>
+        <button onclick="lookUp(itemSel, 'item')">Look up in archive</button>
         <button id="newItem">New</button><button id="dupItem">Duplicate</button><button id="delItem">Delete</button>
         <button id="saveItems" class="primary">Save items.json</button>
       </div>
@@ -167,6 +170,20 @@
       <table id="statTable" style="border-collapse:collapse"></table>
       <label>Other fields (JSON: use, cooldown, mount, barding, fixture, bag, pet, harvest...)</label>
       <textarea id="iOther" spellcheck="false" style="width:100%;height:120px;box-sizing:border-box;background:#15130f;color:#e8e2d6;border:1px solid #4d463c;font:12px Consolas,monospace"></textarea>
+    </div>
+  </div>
+  <div id="archview" style="flex:1;display:none;min-height:0">
+    <div style="width:300px;display:flex;flex-direction:column;border-right:1px solid #3a352e">
+      <div style="display:flex;gap:4px;margin:6px">
+        <input id="archQ" placeholder="Search the archive by name" style="flex:1">
+        <select id="archType"><option value="">all</option><option>creature</option><option>npc</option><option>item</option>
+          <option>quest</option><option>loot</option><option>merchant</option><option>ability</option><option>recipe</option><option>zone</option><option>diplomacy</option></select>
+      </div>
+      <div id="archList" style="overflow-y:auto;flex:1"></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:10px 16px">
+      <p class="hint">Records collected from the community archive (crowdsourced/raw). They are a reference for filling in content by hand: values can be missing or uncertain (see confidence and notes), so check the source before relying on one.</p>
+      <div id="archDetail"></div>
     </div>
   </div>
   <div id="spawnview">
@@ -254,6 +271,7 @@ function setMode(m) {
   if (m === "quests" && !questDoc) initQuests();
   $("itemview").style.display = m === "items" ? "flex" : "none";
   if (m === "items" && !itemsReady) initItems();
+  $("archview").style.display = m === "archive" ? "flex" : "none";
   $("problems").innerHTML = "";
   if (m === "spawns" && !$("chunk").options.length) initSpawns();
 }
@@ -348,6 +366,34 @@ $("saveMobs").onclick = async () => {
   showProblems(r.body.problems, "Saved mobs.json.");
 };
 let pendingMob = null;
+
+// ---- archive reference ----
+$("tabArchive").onclick = () => setMode("archive");
+let archTimer = null;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+async function archSearch() {
+  const q = $("archQ").value, t = $("archType").value;
+  const r = await api(`/api/archive?q=${encodeURIComponent(q)}&type=${encodeURIComponent(t)}`);
+  $("archList").innerHTML = "";
+  for (const rec of r.body || []) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer;border-bottom:1px solid #2c2823";
+    d.innerHTML = `${esc(rec.name)} <span class="hint">${esc(rec.type)}${rec.level != null ? " · level " + esc(rec.level) : ""}${rec.zone ? " · " + esc(rec.zone) : ""}</span>`;
+    d.onclick = () => archShow(rec);
+    $("archList").appendChild(d);
+  }
+  if (!(r.body || []).length) $("archList").innerHTML = '<div class="hint" style="padding:8px">No matches (type at least 2 letters).</div>';
+}
+function archShow(rec) {
+  const skip = new Set(["sources", "notes", "archive_fields", "parser_version", "collected_at", "original_source_urls"]);
+  const rows = Object.entries(rec).filter(([k, v]) => !skip.has(k) && v !== null && !(Array.isArray(v) && !v.length) && v !== "")
+    .map(([k, v]) => `<tr><td style="color:#b9ae9b;padding:2px 12px 2px 0;vertical-align:top">${esc(k)}</td><td><pre style="margin:0;white-space:pre-wrap;font:13px Consolas,monospace">${esc(typeof v === "object" ? JSON.stringify(v, null, 1) : v)}</pre></td></tr>`).join("");
+  const src = (rec.sources || []).map(s => `<li>${esc(s.title || s.url)} <span class="hint">${esc(s.url)}</span></li>`).join("");
+  $("archDetail").innerHTML = `<h3>${esc(rec.name)} <span class="hint">${esc(rec.type)}, confidence ${esc(rec.confidence || "?")}</span></h3>
+    <table>${rows}</table><h4>Sources</h4><ul>${src}</ul><p class="hint">${esc(rec.notes || "")}</p>`;
+}
+$("archQ").oninput = $("archType").onchange = () => { clearTimeout(archTimer); archTimer = setTimeout(archSearch, 250); };
+function lookUp(name, type) { setMode("archive"); $("archQ").value = name || ""; $("archType").value = type || ""; archSearch(); }
 
 // ---- items ----
 let itemsReady = false, itemSel = null, schema = null, statRows = [];
@@ -728,6 +774,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash.startsWith("#archive")) { const p = decodeURIComponent(location.hash.split("=")[1] || ""); lookUp(p, ""); setTimeout(() => { const f = $("archList").firstChild; if (f && f.onclick) f.onclick(); }, 1500); }
 if (location.hash.startsWith("#items")) { setMode("items"); setTimeout(() => { itemSel = decodeURIComponent(location.hash.split("=")[1] || ""); if (itemSel) { listItems(); showItem(); } }, 800); }
 // #selftest: every quest and mob goes through its form and back unchanged (for headless checks)
 if (location.hash === "#selftest") (async () => {
