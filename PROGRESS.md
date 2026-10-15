@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Last test results
 
+- 2026-10-15 (after live mobs.json reload): tools/check_all.py --client 7 of 7 passed (unit 220, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after live spawn-file reload): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after pet default attack): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after message reclassification): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
