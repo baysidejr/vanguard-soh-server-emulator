@@ -405,7 +405,80 @@ def draft(kind, name):
             return {"error": "; ".join(batch.issues) or "the converter could not map this item"}
         it["_needs"] = ["icon"] + [k for k in ("type",) if k not in it]
         return {"file": "items.json", "key": rec["name"], "value": it}
+    if kind == "quest":
+        return quest_draft(rec, src, convert.slug)
     return {"error": f"no draft for {kind} records yet"}
+
+
+def quest_draft(rec, src, slug, content_dir=None):
+    """A quests.json starting point from an archive quest record. Names the archive uses for the
+    giver, turn-in, kill targets and the previous quest become our keys when a mob (or quest)
+    with that exact name exists; otherwise they are kept as "_giver_name" etc. and listed in
+    "_needs", like everything else the archive doesn't say (it rarely has dialogue)."""
+    content_dir = content_dir or CONTENT
+    def load(name):
+        try:
+            with open(os.path.join(content_dir, name), encoding="utf-8") as f:
+                return json.load(f)
+        except (OSError, ValueError):
+            return {}
+    mobs, quests = load("mobs.json"), load("quests.json")
+    mob_key = {m.get("name", "").lower(): k for k, m in mobs.items() if isinstance(m, dict)}
+    quest_key = {q.get("name", "").lower(): k for k, q in quests.items() if isinstance(q, dict)}
+    q, needs = {"name": rec["name"]}, []
+    if rec.get("level") is not None:
+        q["level"] = rec["level"]
+    for ours, theirs in (("giver", "giver"), ("turn_in", "turn_in")):
+        name = rec.get(theirs)
+        if name and name.lower() in mob_key:
+            q[ours] = mob_key[name.lower()]
+        elif name:
+            q[f"_{ours}_name"] = name
+            needs.append(f"{ours} (the archive says {name}; no mob has that name yet)")
+        elif ours == "giver":
+            needs.append("giver")
+    prev = rec.get("chain_previous")
+    if prev and prev.lower() in quest_key:
+        q["requires"] = [quest_key[prev.lower()]]
+    elif prev:
+        q["_previous_name"] = prev
+    for ours, theirs in (("greeting", "start_text"), ("description", "description"), ("summary", "summary")):
+        if rec.get(theirs):
+            q[ours] = rec[theirs]
+    if "description" not in q:
+        needs.append("description")
+    steps = []
+    for s in (rec.get("steps") or rec.get("candidate_steps") or []):
+        kind, target, count = s.get("kind"), s.get("target"), int(s.get("count") or 1)
+        step = {"objective": s.get("objective") or ""}
+        if kind == "collect" and target:
+            step["collect"] = {target: count}
+        elif kind == "kill" and target and target.lower() in mob_key:
+            step["kill"] = {mob_key[target.lower()]: count}
+        elif kind == "kill":
+            step["_kill_name"], step["_count"] = target or step["objective"], count
+            needs.append(f"the mob to kill for \"{step['objective']}\"")
+        else:
+            step["_unmapped"] = s
+            needs.append(f"step \"{step['objective']}\" ({kind or 'unknown kind'})")
+        steps.append(step)
+    if steps:
+        q["steps"] = steps
+    else:
+        needs.append("steps")
+    rw, reward = rec.get("rewards") or {}, {}
+    if rw.get("xp") is not None:
+        reward["xp"] = rw["xp"]
+    if rw.get("coin_copper") is not None:
+        reward["coin"] = rw["coin_copper"]
+    for k in ("items", "choice"):
+        if rw.get(k):
+            reward[k] = list(rw[k])
+    if reward:
+        q["reward"] = reward
+    q["_needs"] = needs
+    q["_source"] = src
+    return {"file": "quests.json", "key": slug(rec["name"]), "value": q}
 
 
 # Gear mesh types (docs/GEAR.md "PackageIndex"): type -> name (the <NAME>_ITEMS.uem package)

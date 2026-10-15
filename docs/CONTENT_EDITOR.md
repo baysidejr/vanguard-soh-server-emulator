@@ -104,6 +104,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Quest feedback:** with `--quest-feedback`, the server opens the client's Quest Feedback window (`SGOUI toggle "Quest Feedback"`) after each completed quest. The window asks for challenge, reward, lore, confusion, friends needed, a fun grade and comments. Accept sends 0x4ab {i32 quest id (-1 here), wstr comments, 6 x i32}, and the server saves the answers with the quest key in `server/quest_feedback.json` (not committed). The client's own opener, 0x4ad {wstr, i32}, shows nothing (verified live).
 
+**Quests from the archive:** an archive quest record has a "Start a new quest from this record" button. The draft copies the name, level, steps (collect steps with their item and count; kill steps when a mob with that name exists), rewards (XP, coin, items, choice) and the greeting / description / summary when the archive has them. The giver, turn-in and previous quest become our keys when a mob or quest with that exact name exists; otherwise the archive's names are kept as `_giver_name`, `_turn_in_name`, `_previous_name` and the editor lists what to fill in. Checked in headless Edge with "Got My Eye On Something" (Agent Zyrax, level 15, Reaper's Eye, 3618 XP, four pendants to choose from).
+
 **Work orders in the editor:** the Work orders tab edits workorders.json: id, name, icon, task master, recipe (flagging NPCs that are not task masters and recipes that are not work-order only), difficulty, skill, supplies, deliveries and the reward (coin, crafting XP, faction standing).
 
 **Factions in the editor:** the Factions tab edits factions.json as a table (name, starting standing, kill change, allies, enemies, prestige) and shows how many mobs belong to each.

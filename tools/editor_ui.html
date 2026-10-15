@@ -1308,7 +1308,7 @@ function archShow(rec) {
   const src = (rec.sources || []).map(s => `<li>${esc(s.title || s.url)} <span class="hint">${esc(s.url)}</span></li>`).join("");
   $("archDetail").innerHTML = `<h3>${esc(rec.name)} <span class="hint">${esc(rec.type)}, confidence ${esc(rec.confidence || "?")}</span></h3>
     <table>${rows}</table><h4>Sources</h4><ul>${src}</ul><p class="hint">${esc(rec.notes || "")}</p>
-    ${["creature", "npc", "item"].includes(rec.type) ? `<p><button id="draftBtn" class="primary">Start a new ${rec.type === "item" ? "item" : "mob"} from this record</button>
+    ${["creature", "npc", "item", "quest"].includes(rec.type) ? `<p><button id="draftBtn" class="primary">Start a new ${rec.type === "creature" || rec.type === "npc" ? "mob" : rec.type} from this record</button>
     <span class="hint">Copies only what the archive knows; you fill in the rest and save.</span></p>` : ""}`;
   if ($("draftBtn")) $("draftBtn").onclick = () => startDraft(rec);
 }
@@ -1323,13 +1323,22 @@ async function startDraft(rec) {
     if (!storeMob()) return;
     while (mobDoc[key]) key += "_2";
     mobDoc[key] = value; mobSel = key; listMobs(); showMob();
+  } else if (file === "quests.json") {
+    setMode("quests"); while (!questDoc) await new Promise(res => setTimeout(res, 50));
+    if (questSel && questDoc[questSel] && !storeQuest()) return;
+    while (questDoc[key]) key += "_2";
+    if (value.id === undefined) {
+      const ids = Object.values(questDoc).filter(q => q && q.id).map(q => q.id);
+      value.id = (ids.length ? Math.max(...ids) : 5000) + 1;
+    }
+    questDoc[key] = value; questSel = key; listQuests(); showQuest();
   } else {
     setMode("items"); while (!itemsReady) await new Promise(res => setTimeout(res, 50));
     if (!storeItem()) return;
     while (itemDoc[key]) key += " (archive)";
     itemDoc[key] = value; itemSel = key; listItems(); showItem();
   }
-  showProblems(needs.map(n => `${key}: fill in ${n} (the archive doesn't have it), then save`), `${key} drafted from the archive; review it and save.`);
+  showProblems(needs.map(n => `${key}: fill in ${n}${n.includes("(") ? "" : " (the archive doesn't have it)"}, then save`), `${key} drafted from the archive; review it and save.`);
 }
 $("archQ").oninput = $("archType").onchange = () => { clearTimeout(archTimer); archTimer = setTimeout(archSearch, 250); };
 function lookUp(name, type) { setMode("archive"); $("archQ").value = name || ""; $("archType").value = type || ""; archSearch(); }

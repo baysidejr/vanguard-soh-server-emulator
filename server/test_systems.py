@@ -1526,6 +1526,26 @@ class ArchiveSearchTests(unittest.TestCase):
 
 
 class ArchiveDraftTests(unittest.TestCase):
+    def test_quest_draft_maps_known_names(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        rec = {"name": "Wolf Trouble", "level": 12, "giver": "Orin the Trader", "turn_in": "Nobody Here",
+               "chain_previous": "Wanderer Trouble",
+               "candidate_steps": [{"objective": "Ashen Wolf Slain (3)", "kind": "kill", "target": "Ashen Wolf", "count": 3},
+                                   {"objective": "Pelts (2)", "kind": "collect", "target": "Wolf Pelt", "count": 2},
+                                   {"objective": "Shadow Slain (1)", "kind": "kill", "target": None, "count": 1}],
+               "rewards": {"xp": 300, "coin_copper": 75, "items": None, "choice": ["A", "B"]}}
+        d = editor.quest_draft(rec, "https://example.org/q", lambda n: n.lower().replace(" ", "_"))
+        q = d["value"]
+        self.assertEqual((d["file"], d["key"]), ("quests.json", "wolf_trouble"))
+        self.assertEqual((q["giver"], q["_turn_in_name"], q["requires"]), ("camp_merchant", "Nobody Here", ["wanderer_trouble"]))
+        self.assertEqual(q["steps"][0]["kill"], {"wastes_wolf": 3})
+        self.assertEqual(q["steps"][1]["collect"], {"Wolf Pelt": 2})
+        self.assertEqual(q["steps"][2]["_count"], 1)
+        self.assertEqual(q["reward"], {"xp": 300, "coin": 75, "choice": ["A", "B"]})
+        self.assertTrue(any("turn_in" in n for n in q["_needs"]) and any("Shadow" in n for n in q["_needs"]))
+
     def test_drafts_copy_only_known_values(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
