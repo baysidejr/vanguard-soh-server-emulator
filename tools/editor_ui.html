@@ -108,6 +108,7 @@
         <div><label>Says when it attacks ({player} = their name)</label><input id="mAggroSay"></div>
         <div><label>Critical chance (0-1, empty = formula)</label><input id="mCrit" type="number" step="0.01" min="0" max="1"></div>
         <div><label>Flees below this health share (0-1)</label><input id="mFlee" type="number" step="0.05" min="0" max="1"></div>
+        <div><label>Difficulty (/con)</label><select id="mDifficulty"><option value="">(default: average)</option><option value="0">0 slightly easier</option><option value="1">1 average</option><option value="2">2 slightly harder</option><option value="3">3 more difficult</option><option value="4">4 much more difficult</option><option value="5">5 extremely difficult</option></select></div>
       </div>
       <label>Says now and then (one line each, to players nearby)</label>
       <textarea id="mChatter" spellcheck="true" style="height:60px"></textarea>
@@ -534,8 +535,8 @@ let mobDoc = null, mobSel = null, raceModels = {}, modelHint = () => {};
 const FLAGS = ["trainer", "banker", "repair", "station", "task_master", "mailbox", "altar", "assembly_station", "prop"];
 const SIMPLE = { name: "mName", title: "mTitle", pawn_class: "mPawn", race: "mRace", model: "mModel", gender: "mGender",
   level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", parley: "mParley", scale: "mScale",
-  chatter_every: "mChatterEvery", aggro_say: "mAggroSay", crit: "mCrit", flee_at: "mFlee" };
-const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_radius", "scale", "faction", "chatter_every", "crit", "flee_at"]);
+  chatter_every: "mChatterEvery", aggro_say: "mAggroSay", crit: "mCrit", flee_at: "mFlee", difficulty: "mDifficulty" };
+const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_radius", "scale", "faction", "chatter_every", "crit", "flee_at", "difficulty"]);
 async function initMobs() {
   mobDoc = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
   const races = (await api("/api/races")).body;
