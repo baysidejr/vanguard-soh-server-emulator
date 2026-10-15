@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content editor (tools/editor.py): next candidates are a merchants tab, gear editing for humanoid NPCs, and validating patrol waypoints against obstacles. Longer term: the hosted, crowdsourced editor (accounts, review queue). Server: remaining optional messages in docs/UNSENT_MESSAGES.md.
+Effects: now that the FX packages load, find how ability and spell visuals are played (zone raw event 0x2d indexes client FX tables by id, docs/ZONE_MESSAGES.md) and whether the quest-node particles (m_bShowIOParticle) show. Server: remaining optional messages in docs/UNSENT_MESSAGES.md (115). Content editor: patrol waypoint checks against obstacles; the hosted, crowdsourced editor later.
 
 ## Last test results
 
