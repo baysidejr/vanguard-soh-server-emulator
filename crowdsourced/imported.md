@@ -9,3 +9,6 @@ One line per import into `server/content/`: date, batch folder, records imported
 | 2026-10-15 | all raw batches, npc.jsonl (Khal) | 27 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n13_n9.json via tools/import_zone.py |
 | 2026-10-15 | all raw batches, npc.jsonl (Khal) | 32 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n13_n9.json via tools/import_zone.py |
 | 2026-10-15 | all raw batches, quest.jsonl (Khal) | 32 quest givers at their quests' start locations (race from the zone's continent) | server/content/mobs.json, spawns/chunk_n13_n9.json via tools/import_zone.py |
+| 2026-10-15 | all raw batches, npc.jsonl (Ahgram) | 33 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n14_n11.json via tools/import_zone.py |
+| 2026-10-15 | all raw batches, npc.jsonl (New Targonor) | 52 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n27_24.json via tools/import_zone.py |
+| 2026-10-15 | all raw batches, npc.jsonl (Tanvu) | 49 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n19_6.json via tools/import_zone.py |

@@ -82,6 +82,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Ahgram (33 NPCs), New Targonor (52) and Tanvu (49) imported from the archive and their riftway hubs opened with braziers; with Khal (59) the server has 193 archive NPCs in four regions reachable by riftway from the camp.
+
 - 2026-10-15: Riftways travel between regions (chunk change to the destination); Khal opened at its hub (PoINames.txt) with a brazier back. Verified live both ways. Khal's imported NPCs are now reachable in normal play.
 
 - 2026-10-15: import_zone places quest givers at their quests' start locations too (quest archive locations carry the chunk); Khal now has 59 NPCs. Quests themselves wait for more data: of Khal's 200, 108 have no objectives yet and most kill targets have no positions.
