@@ -1457,6 +1457,24 @@ class SkillDirectionTests(unittest.TestCase):
         self.assertEqual(len(recs), len(at.CRAFT_SKILLS))
 
 
+class ContentFormsRiftwaysTests(unittest.TestCase):
+    def test_bad_forms_and_riftways_are_reported(self):
+        import content, shutil, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            c = os.path.join(d, "content")
+            shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content"), c)
+            self.assertEqual(content.validate(c), [])
+            forms = json.load(open(os.path.join(c, "forms.json"), encoding="utf-8"))
+            forms["Wizard"] = {"X": {"stat": "luck", "bonus": "lots"}}
+            json.dump(forms, open(os.path.join(c, "forms.json"), "w", encoding="utf-8"))
+            rifts = json.load(open(os.path.join(c, "riftways.json"), encoding="utf-8"))
+            rifts["NEWPLACE"] = {"name": "New", "color": "pink", "chunk": "chunk_n19_12", "x": None, "y": None}
+            json.dump(rifts, open(os.path.join(c, "riftways.json"), "w", encoding="utf-8"))
+            problems = " | ".join(content.validate(c))
+            for text in ("forms Wizard: not a class", "stat must be", "bonus must be", "color must be", "needs x and y"):
+                self.assertIn(text, problems)
+
+
 class EditorTests(unittest.TestCase):
     def test_check_and_save(self):
         import shutil, sys, tempfile

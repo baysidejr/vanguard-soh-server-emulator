@@ -80,6 +80,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: content.py validates forms.json (class, stat, bonus, abilities) and riftways.json (color, x/y for open destinations, mob riftway keys) so the new editor tabs cannot save broken files. Unit test ContentFormsRiftwaysTests.
+
 - 2026-10-15: Editor "Forms & songs" tab (forms.json, songs.json; in the selftest).
 
 - 2026-10-15: Editor Riftways tab (riftways.json table; in the selftest). Unit test for activating a reaction on a dead enemy (code 5).

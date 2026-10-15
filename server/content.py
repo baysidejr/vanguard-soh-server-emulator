@@ -107,6 +107,37 @@ def validate(directory=CONTENT_DIR):
                 problems.append(f"songs {cls}/{name}: unknown part {p.get('part')!r}")
         if not any(p.get("part") == "melody" for p in parts.values()):
             problems.append(f"songs {cls}: no melody (a song needs one)")
+    import races_classes
+    attributes = ("strength", "constitution", "dexterity", "vitality", "intelligence", "wisdom")
+    for cls, forms in c.forms.items():
+        if cls.startswith("_"):
+            continue
+        if cls not in races_classes.ADVENTURING_CLASSES.values():
+            problems.append(f"forms {cls}: not a class name (races_classes)")
+        for name, f in (forms.items() if isinstance(forms, dict) else []):
+            if not isinstance(f, dict):
+                problems.append(f"forms {cls}/{name}: must be an object")
+                continue
+            if f.get("stat") not in attributes:
+                problems.append(f"forms {cls}/{name}: stat must be one of {', '.join(attributes)}")
+            if not isinstance(f.get("bonus", 0), (int, float)):
+                problems.append(f"forms {cls}/{name}: bonus must be a number")
+            if "abilities" in f and not (isinstance(f["abilities"], list) and all(isinstance(a, str) for a in f["abilities"])):
+                problems.append(f"forms {cls}/{name}: abilities must be a list of ability names")
+    for key, r in c.riftways.items():
+        if key.startswith("_"):
+            continue
+        if not isinstance(r, dict):
+            problems.append(f"riftway {key}: must be an object")
+            continue
+        if r.get("color") not in ("green", "blue", "yellow", "red", "purple"):
+            problems.append(f"riftway {key}: color must be green, blue, yellow, red or purple")
+        if r.get("chunk") and not all(isinstance(r.get(k), (int, float)) for k in ("x", "y")):
+            problems.append(f"riftway {key}: an open destination (chunk set) needs x and y")
+    for mid, m in c.mobs.items():
+        # "riftway": "" is a stone you can travel from that is not itself a destination
+        if isinstance(m, dict) and m.get("riftway") not in (None, "") and m["riftway"] not in c.riftways:
+            problems.append(f"mob {mid}: riftway {m['riftway']} is not in riftways.json")
     for mid, m in c.mobs.items():
         for key in ("name", "pawn_class", "race", "health"):
             if key not in m:
