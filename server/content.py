@@ -146,6 +146,14 @@ def validate(directory=CONTENT_DIR):
             problems.append(f"item {name}: use must be {{heal, energy, endurance: n}}")
         if "cooldown" in it and not (isinstance(it["cooldown"], (int, float)) and it["cooldown"] >= 0):
             problems.append(f"item {name}: cooldown must be seconds")
+        if "fireworks" in it and not (isinstance(it["fireworks"], int) and 60000 <= it["fireworks"] < 70000):
+            problems.append(f"item {name}: fireworks must be an ITEM_ABILITIES id (60002-60022)")
+        spy = it.get("spyglass")
+        if spy is not None and not (isinstance(spy, dict) and 1 <= spy.get("fov", 20) <= 170
+                                    and 0 < spy.get("seconds", 1) <= 30):
+            problems.append(f"item {name}: spyglass must be {{fov: 1-170, seconds: 0-30}}")
+        if "salvage_kit" in it and not isinstance(it["salvage_kit"], bool):
+            problems.append(f"item {name}: salvage_kit must be true or false")
         for opt in it.get("salvage") or []:
             if not (isinstance(opt, list) and len(opt) == 2 and opt[0] in c.items and isinstance(opt[1], int) and opt[1] > 0):
                 problems.append(f"item {name}: salvage entry {opt!r} needs a known item and a quantity")
