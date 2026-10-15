@@ -138,6 +138,9 @@ def status_line(q, prog, have=lambda name: 0):
     return f"{step.get('objective', '')} ({min(step_count(step, prog, have), need)}/{need})"
 
 
+WHERE = None    # q -> (chunk x, chunk y, x, y, z) of the quest's turn-in NPC, or None (set by the server)
+
+
 def page(q, npc_eid, state, prog=None, journal=False, have=lambda name: 0, rewards=False):
     """0x2c0 (dialogue page) or 0x2cb (journal entry). rewards: fill the reward slots (send
     their 0x2c7 item records first)."""
@@ -151,7 +154,7 @@ def page(q, npc_eid, state, prog=None, journal=False, have=lambda name: 0, rewar
             + struct.pack("<BBB", 1, 0, 0)
             + struct.pack("<qff", int(time.time()), -1.0, -1.0)
             + struct.pack("<iiB", 0, 0, 0)
-            + struct.pack("<iiiii", 0, 0, 0, 0, 0)
+            + struct.pack("<iiiii", *((WHERE and WHERE(q)) or (0, 0, 0, 0, 0)))
             + struct.pack("<iii", 0, -1, -1)
             + b"".join(struct.pack("<iiiB", i, qty, g, 0) for i, qty, g in slots))
     return _event(0x2CB if journal else 0x2C0, data)

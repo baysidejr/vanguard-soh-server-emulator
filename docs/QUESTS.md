@@ -107,7 +107,7 @@ The same layout is used by **0x2cb** (section 2). Wire order:
 | 19 | i32 | +0xd8 | +0xc4 | ? (send 0) |
 | 20 | i32 | +0xdc | +0xc8 | ? (send 0) |
 | 21 | bool | +0xe0 | +0xcc | ? |
-| 22 | i32 | +0xe4 | +0xd0 | CompletionChunkX [O member] |
+| 22 | i32 | +0xe4 | +0xd0 | CompletionChunkX [O member]. **Verified live 2026-10-15:** the server sends the turn-in NPC's chunk and spawn position in 22-26 (`login_stub.quest_where`, from the spawn files); with the journal's Details > "Show Completion Chunk" the quest row reads "Sundering Wastelands (-19,12)" |
 | 23 | i32 | +0xe8 | +0xd4 | CompletionChunkY (name taken from FUN_00b70e80; "Unknown Zone" sets X and Y to 0) [O] |
 | 24-26 | i32 ×3 | +0xec..+0xf4 | +0xf4..+0xfc | location x, y, z, converted to floats [O] |
 | 27 | i32 | +0xf8 | +0x108 | **N = number of trailing records** [O] |

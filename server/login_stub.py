@@ -278,6 +278,7 @@ def main():
     args.craft_event = lambda state, event, data: handle_craft_event(state, event, data)
     global ARGS
     ARGS = args
+    quest.WHERE = quest_where           # quest pages carry the turn-in NPC's place
     args.zone_in_events = [int(v, 0) for v in args.zone_in_events.split(",") if v]
 
     login_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -6965,6 +6966,30 @@ def handle_dialog_response(state, data):
         send(quest.responses(npc.entity_id, names.index(r["goto"]), [x["text"] for x in visible_responses(player, node)]))
     elif not action or action == "end":
         send(zone.zone_event(quest.END_CONVERSATION))
+
+
+def quest_where(q):
+    """(chunk x, chunk y, x, y, z) of the NPC a quest is turned in to: its first spawn in the
+    spawn files (quest page fields 22-26, the completion zone and location), or None."""
+    mob = quest.turn_in(q)
+    if not mob:
+        return None
+    directory = os.path.join(ARGS.content.directory, "spawns")
+    for fn in sorted(os.listdir(directory)) if os.path.isdir(directory) else []:
+        if not fn.endswith(".json"):
+            continue
+        try:
+            with open(os.path.join(directory, fn), encoding="utf-8") as f:
+                spawns = json.load(f).get("spawns", [])
+        except (OSError, ValueError):
+            continue
+        sp = next((s for s in spawns if s.get("mob") == mob), None)
+        if sp is not None:
+            level = fn[:-5]
+            cx, cy = level_chunk(level)
+            z = ARGS.content.ground_z(level, sp["x"], sp["y"], ARGS.client_dir) or 0
+            return cx, cy, int(sp["x"]), int(sp["y"]), int(z)
+    return None
 
 
 def dialog_quest(state, key, npc_eid):
