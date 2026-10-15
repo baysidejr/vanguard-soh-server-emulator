@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Look for more character-window values the server knows but leaves empty (Stats tab: damage bonuses, accuracy, heal; Skills tab). Other candidates: the pet ability examine popup (0x42b), remaining optional client messages in docs/UNSENT_MESSAGES.md.
+Content editor (tools/editor.py): next candidates are a merchants tab, gear editing for humanoid NPCs, and validating patrol waypoints against obstacles. Longer term: the hosted, crowdsourced editor (accounts, review queue). Server: remaining optional messages in docs/UNSENT_MESSAGES.md.
 
 ## Last test results
 
+- 2026-10-15 (after the content editor work): tools/check_all.py --client 7 of 7 passed (unit 194, scenarios, load p95 10.8 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after crafting trade, skills tab, skill buttons): tools/check_all.py --client 7 of 7 passed (unit 189, scenarios, load p95 11.6 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after harvesting tab, crits, def-target panel): tools/check_all.py --client 7 of 7 passed (unit 186, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after attribute points, outposts, loot buttons, group casts): tools/check_all.py --client 7 of 7 passed (unit 183, scenarios 9/9, load p95 11.3 ms, fuzz clean, smoke PASS).
