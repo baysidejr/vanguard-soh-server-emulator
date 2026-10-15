@@ -73,3 +73,13 @@ Implemented in `server/grouploot.py` (message builders and rules, unit-tested in
 ## Encounter ownership
 
 The first player (or group) to hurt an NPC owns it until it respawns: the server sets `npc.owner` (the group id when grouped, else the player id) and sends **0x567** MsgTwoEntityIdsAndBool `{eid64 npc, eid64 owner, bool8 damaged by an NPC}` to everyone in the chunk (FUN_00549da0). Each client records the owner; the owner's client prints "You have established ownership." or "Your group has established ownership." (the bool selects the "...but the NPC has been significantly damaged by another NPC. No loot or experience rewards will be granted." wording, unused here). What ownership changes for loot and experience beyond the existing loot rights is not decided yet. The message goes out (checked in-process), but in a live fight on 2026-10-14 the ownership line was not seen in the Chat or Combat tab; it may print to a channel neither tab shows.
+
+## Loot sparkle (2026-10-15)
+
+The client's loot effect on a corpse (`FXspells_Loot001fx`, FUN_005240f0) is driven by three zone events in the sub-dispatcher FUN_005249b0:
+
+- **0x564** `{eid64}` (FUN_00524920 -> FUN_00524870) starts the sparkle on the entity, once per entity.
+- **0x565** `{eid64}` (FUN_00523f20 -> FUN_00523cb0) stops it. docs/ZONE_MESSAGES.md does not list 0x565 or 0x566, but this dispatcher handles them.
+- **0x566** (no payload, FUN_00523e30) walks every sparkle in the list (inferred: clears them all; not used).
+
+The server sends 0x564 to the whole chunk with the death of any NPC that has coin or items (`login_stub.corpse_lootable`; not props, merchants or tombstones). It sends 0x565 when the last coin and item come off (`corpse_emptied`). If the bag is full the items stay, and so does the sparkle. Checked live with tools/winbreak.py: FUN_00524870 runs with the corpse's entity id when a Canyon Widow dies, and FUN_00523cb0 runs when the corpse is looted empty. The effect itself was not clearly visible in screenshots.

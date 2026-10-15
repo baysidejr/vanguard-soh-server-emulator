@@ -747,6 +747,16 @@ def loot_messages(npc):
     return out
 
 
+# Loot sparkle (FUN_005249b0): 0x564 {eid64} starts the sparkle effect on a corpse that has
+# something to loot, once per entity (FUN_00524920); 0x565 {eid64} stops it (FUN_00523f20).
+LOOT_SPARKLE_EVENT = 0x564
+LOOT_SPARKLE_OFF_EVENT = 0x565
+
+
+def loot_sparkle(npc, on=True):
+    return _event(LOOT_SPARKLE_EVENT if on else LOOT_SPARKLE_OFF_EVENT, struct.pack("<Q", npc.entity_id))
+
+
 def corpse_coin(npc, rng=random):
     """Copper on a corpse: mobs.json "coin" [min, max], else 2-6 copper per level. Rolled
     once per death."""

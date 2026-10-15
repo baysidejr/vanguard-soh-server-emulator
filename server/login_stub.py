@@ -1154,9 +1154,10 @@ def combat_results(state, args, player, lines, npc, was_alive, was_attacking):
             npc.stance = False
             w = state.get("world")
             if w is not None:
+                sparkle = combat.loot_sparkle(npc) if corpse_lootable(npc) else None
                 w.broadcast(lambda s: [m for m in (
                     zone.npc_update(s, args, npc, {"Health": 0, "m_bIsDead": 1}),
-                    combat.play_animation(npc, combat.ANIM_DEATH)) if m is not None])
+                    combat.play_animation(npc, combat.ANIM_DEATH), sparkle) if m is not None])
     if player.pending_rewards:
         m = hint(player, "kill")
         if m:
@@ -5634,6 +5635,7 @@ def open_loot(state, npc):
     msgs = combat.loot_messages(npc)
     group_loot_opened(state, npc)
     loot_coin(state, npc)
+    corpse_emptied(state, npc)
     msgs = msgs + grouploot.loot_buttons(getattr(state["player"], "group", None), npc)
     m = hint(state["player"], "loot")
     return msgs + ([m] if m else [])
@@ -5650,6 +5652,26 @@ def assign_loot_turn(npc):
     for m in group_states(killer):
         if m["player"] is not npc.loot_owner:
             m["send"](grouploot.other_turn(npc.loot_owner.char_id))
+
+
+def corpse_lootable(npc):
+    """A corpse with items or coin left (the loot sparkle shows on it)."""
+    if npc.prop or getattr(npc, "tombstone_of", None) or npc.merchant:
+        return False
+    return npc.loot is None or bool(npc.loot) or combat.corpse_coin(npc) > 0
+
+
+def corpse_emptied(state, npc):
+    """The last coin or item came off: the sparkle stops for everyone in the chunk."""
+    if getattr(npc, "sparkle_off", False) or corpse_lootable(npc):
+        return
+    npc.sparkle_off = True
+    w = state.get("world")
+    msg = combat.loot_sparkle(npc, False)
+    if w is not None:
+        w.broadcast(lambda s: msg)
+    else:
+        state["send"](msg)
 
 
 def loot_coin(state, npc):
@@ -5772,6 +5794,7 @@ def finish_roll(g):
         p = winner["player"]
         for m in combat.take_loot(p, npc, item[0]):
             winner["send"](m)
+        corpse_emptied(winner, npc)
         save_character_field(p.name, "items", [list(i) for i in p.items])
         for s in members:
             s["send"](grouploot.looted(p, item[1], item[3]))
@@ -5871,6 +5894,7 @@ def handle_grouploot_event(state, event, data):
         p = to["player"]
         for m in combat.take_loot(p, npc, item[0]):
             to["send"](m)
+        corpse_emptied(to, npc)
         if to is not state:
             send(zone.zone_event(combat.LOOT_TAKEN_EVENT, struct.pack("<iB", item[0], 1)))
         save_character_field(p.name, "items", [list(i) for i in p.items])
@@ -9849,6 +9873,7 @@ def handle_message(sock, server, addr, state, payload, args):
                     msgs = combat.take_loot(player, npc, handle)
                     save_character_field(player.name, "items", [list(i) for i in player.items])
                     taken = [i for i in before if i not in (npc.loot or [])]
+                    corpse_emptied(state, npc)
                     if getattr(player, "group", None):
                         for s in group_states(player):
                             for _id, name, _icon, qty in taken:

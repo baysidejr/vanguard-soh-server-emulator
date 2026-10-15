@@ -10,6 +10,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Last test results
 
+- 2026-10-15 (loot sparkle): unit tests OK (205), content OK; live: client sparkle handlers hit on death and on looting empty.
 - 2026-10-15 (general abilities): unit tests OK (203), content OK; Sprint and Recall checked live.
 - 2026-10-15 (after the journal and diplomacy page fixes): tools/check_all.py --client 7 of 7 passed (unit 200, smoke PASS). A parley with Orin still opens normally after the deck is sent at UI load.
 - 2026-10-15 (after the ability import and editor login mode): tools/check_all.py --client 7 of 7 passed (unit 199, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS).
@@ -50,6 +51,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Loot sparkle: 0x564 {eid64} goes to the chunk when an NPC with coin or items dies, and 0x565 stops it when the corpse is looted empty (0x565 is not in ZONE_MESSAGES.md; same dispatcher). Checked with winbreak: the client's add and remove handlers run with the corpse id. 594/720 messages sent or not needed. Unit tests LootSparkleTests.
 - 2026-10-15: General abilities on the ability book's General page: Sprint (GroundSpeed x1.25 for 45 s), Recall (to the bind point) and Recall to House, defined in abilities.json with "general": true. Seen live: 3 s of running went 1248 units while sprinting and 1008 after it ended; Recall teleported to the bind point. Recall to House put the Ranger beside their house on plot 101. Unit tests GeneralAbilityTests.
 - 2026-10-15: The ability book's Diplomacy page lists the character's cards. The deck is sent on the client's UI-loaded notice (0x6c), after the rebuild that empties the list. Seen live (5 cards with their expressions); the card icons are placeholders.
 - 2026-10-15: The crafting journal recipe page works. It was blank: 0x108 is answered with 0x2f2 (recipe details) and 0x309 (steps missing items). Seen live for refining and finishing recipes. Unit test JournalRecipeTests.

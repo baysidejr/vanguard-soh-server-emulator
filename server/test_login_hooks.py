@@ -619,6 +619,25 @@ class GeneralAbilityTests(unittest.TestCase):
         self.assertFalse(login_stub.general_ability(state, mock.Mock(), player, {"kind": "recall"}))
 
 
+class LootSparkleTests(unittest.TestCase):
+    def test_sparkle_stops_when_emptied(self):
+        npc = mock.Mock(prop=False, merchant=False, tombstone_of=None, loot=[(1, "Tattered Cloth", 1, 1)],
+                        coin_left=0, entity_id=0x2000008, sparkle_off=False)
+        sent = []
+        state = {"send": sent.append}
+        self.assertTrue(login_stub.corpse_lootable(npc))
+        login_stub.corpse_emptied(state, npc)
+        self.assertEqual(sent, [])
+        npc.loot = []
+        login_stub.corpse_emptied(state, npc)
+        login_stub.corpse_emptied(state, npc)
+        self.assertEqual(sent, [login_stub.combat.loot_sparkle(npc, False)])
+        self.assertEqual(struct.unpack_from("<I", sent[0], 2)[0], 0x565)
+
+    def test_props_never_sparkle(self):
+        self.assertFalse(login_stub.corpse_lootable(mock.Mock(prop=True)))
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False
