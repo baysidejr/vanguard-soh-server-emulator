@@ -1,11 +1,11 @@
 {
   "summary": {
-    "batches": 278,
-    "research_rows": 51198,
-    "normalized_name_groups": 22913,
+    "batches": 279,
+    "research_rows": 51199,
+    "normalized_name_groups": 22914,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 7076,
+      "creature": 7077,
       "item": 5504,
       "loot": 1109,
       "npc": 2626,
@@ -2245,6 +2245,13 @@
         "loot": 8,
         "merchant": 7,
         "npc": 35
+      }
+    },
+    {
+      "batch": "raw\\2026-10-15-040752-361242-archive-bulk",
+      "records": 1,
+      "counts": {
+        "creature": 1
       }
     }
   ],
@@ -818021,6 +818028,22 @@
       "zones": [
         "Tanvu"
       ]
+    },
+    {
+      "id": 51198,
+      "type": "creature",
+      "name": "Kiet Le",
+      "file": "raw\\2026-10-15-040752-361242-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/kiet-le"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 1
     }
   ],
   "by_name": {
@@ -915047,6 +915070,9 @@
     ],
     "npc:kiet fan": [
       51197
+    ],
+    "creature:kiet le": [
+      51198
     ]
   },
   "by_kind": {
@@ -922126,7 +922152,8 @@
       51144,
       51145,
       51146,
-      51147
+      51147,
+      51198
     ],
     "item": [
       13,
@@ -978741,7 +978768,8 @@
       51082,
       51143,
       51162,
-      51197
+      51197,
+      51198
     ],
     "Tursh Village": [
       14023,
