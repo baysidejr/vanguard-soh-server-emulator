@@ -52,10 +52,16 @@ def level_name(x, y):
     return f"chunk_{'n' if x < 0 else ''}{abs(x)}_{'n' if y < 0 else ''}{abs(y)}"
 
 
-def archive_npcs(raw=RAW, kind="npc"):
-    """name -> newest record of that kind (the batches are read in name order, later ones win)."""
+EXTRA_RAW = []     # more raw folders (--raw), e.g. the collection branch's, read after RAW
+
+
+def archive_npcs(raw=None, kind="npc"):
+    """name -> newest record of that kind (each folder's batches are read in name order, later
+    ones win; folders in order: raw, or RAW then EXTRA_RAW)."""
     recs = {}
-    for fn in sorted(glob.glob(os.path.join(raw, "*", f"{kind}.jsonl"))):
+    roots = [raw] if isinstance(raw, str) else (raw or [RAW] + EXTRA_RAW)
+    files = [fn for root in roots for fn in sorted(glob.glob(os.path.join(root, "*", f"{kind}.jsonl")))]
+    for fn in files:
         with open(fn, encoding="utf-8", errors="ignore") as f:
             for line in f:
                 try:
@@ -258,7 +264,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("zone", help='the zone name as in ChunkNames.txt, e.g. "Khal"')
     ap.add_argument("--apply", action="store_true", help="add to server/content instead of writing drafts")
+    ap.add_argument("--raw", action="append", default=[],
+                    help="another folder of raw batches to read as well (e.g. one taken from the collection branch)")
     a = ap.parse_args(argv)
+    EXTRA_RAW.extend(a.raw)
     zone_rec = archive_npcs(kind="zone").get(a.zone) or {}
     level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks(), archive_npcs(kind="quest"),
                                zone_rec.get("continent"))

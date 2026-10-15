@@ -1620,7 +1620,12 @@
     "level": 45,
     "health": 1900,
     "_source": "https://vgsoharchive.com/quests/an-unworthy-plea",
-    "model": 3
+    "model": 3,
+    "parley": [
+      "archive_gossip_700",
+      "archive_convince_700",
+      "archive_interview_700"
+    ]
   },
   "arch_heleqi_joroush": {
     "name": "Heleqi Joroush",
@@ -1775,7 +1780,8 @@
     "level": 18,
     "health": 820,
     "_source": "https://vgsoharchive.com/quests/artisan-s-saga-full-magic-alchemist",
-    "model": 2
+    "model": 2,
+    "title": "Trainer - Outfitter"
   },
   "arch_kajen_shandar": {
     "name": "Kajen Shandar",
@@ -1793,7 +1799,8 @@
     "level": 20,
     "health": 900,
     "_source": "https://vgsoharchive.com/quests/blackmarket-mysteries",
-    "model": 3
+    "model": 3,
+    "title": "1st Wife of the Sultan"
   },
   "arch_haftan_the_black": {
     "name": "Haftan The Black",
@@ -1820,7 +1827,8 @@
     "level": 10,
     "health": 500,
     "_source": "https://vgsoharchive.com/quests/executive-privileges",
-    "model": 3
+    "model": 3,
+    "title": "Kodiyah Family (Textile Trader)"
   },
   "arch_dawen_krelodog": {
     "name": "Dawen Krelodog",
@@ -1920,7 +1928,9 @@
     "level": 12,
     "health": 580,
     "_source": "https://vgsoharchive.com/quests/royal-order",
-    "model": 2
+    "model": 2,
+    "title": "Merchant's Guild",
+    "merchant": "general_goods"
   },
   "arch_varies": {
     "name": "Varies",
@@ -2491,7 +2501,13 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/an-unexpected-alliance",
-    "model": 0
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_royal_petitioner_redforge": {
     "name": "Royal Petitioner Redforge",
@@ -2546,7 +2562,13 @@
     "level": 8,
     "health": 420,
     "_source": "https://vgsoharchive.com/quests/dispatching-the-team",
-    "model": 0
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_petitioner_goldsmith": {
     "name": "Petitioner Goldsmith",
@@ -2636,7 +2658,9 @@
     "level": 12,
     "health": 580,
     "_source": "https://vgsoharchive.com/quests/important-designs",
-    "model": 1
+    "model": 1,
+    "title": "Heavy Armor Vendor",
+    "merchant": "general_goods"
   },
   "arch_carind_seaforge": {
     "name": "Carind Seaforge",
@@ -2866,7 +2890,8 @@
     "level": 12,
     "health": 580,
     "_source": "https://vgsoharchive.com/quests/confront-the-council",
-    "model": 2
+    "model": 2,
+    "title": "Warden of the Sun"
   },
   "arch_celahir_greybranch": {
     "name": "Celahir Greybranch",
@@ -2902,7 +2927,8 @@
     "level": 3,
     "health": 220,
     "_source": "https://vgsoharchive.com/quests/delve-deaper-into-evaluations",
-    "model": 2
+    "model": 2,
+    "title": "Deacon of the Wind"
   },
   "arch_mino": {
     "name": "Mino",
@@ -2911,7 +2937,8 @@
     "level": 12,
     "health": 580,
     "_source": "https://vgsoharchive.com/quests/educate-the-youth",
-    "model": 3
+    "model": 3,
+    "title": "Diplomacy Trainer"
   },
   "arch_noble_hyak": {
     "name": "Noble Hyak",
@@ -2929,7 +2956,8 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/learning-kojani-style-artificer",
-    "model": 3
+    "model": 3,
+    "title": "Artificer Instructor"
   },
   "arch_eyaka": {
     "name": "Eyaka",
@@ -2956,7 +2984,8 @@
     "level": 12,
     "health": 580,
     "_source": "https://vgsoharchive.com/quests/return-to-the-elders",
-    "model": 3
+    "model": 3,
+    "title": "Sorcerer Instructor"
   },
   "arch_hedrien_loamskin": {
     "name": "Hedrien Loamskin",
@@ -2965,7 +2994,13 @@
     "level": 10,
     "health": 500,
     "_source": "https://vgsoharchive.com/quests/scare-off-the-poachers",
-    "model": 1
+    "model": 1,
+    "title": "Warden of the Spring",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_cho_moonflower": {
     "name": "Cho Moonflower",
@@ -3011,7 +3046,8 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/the-path-of-the-beast",
-    "model": 0
+    "model": 0,
+    "title": "Warden of the Moon"
   },
   "arch_gildhur_boarmaul": {
     "name": "Gildhur Boarmaul",
@@ -3020,7 +3056,8 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/the-trial-of-the-beast",
-    "model": 2
+    "model": 2,
+    "title": "Warden of the Beasts"
   },
   "arch_dolnir_wintersreach": {
     "name": "Dolnir Wintersreach",
@@ -3039,7 +3076,8 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/the-trial-of-the-glade",
-    "model": 1
+    "model": 1,
+    "title": "Warden of the Glade"
   },
   "arch_elleron_lunarian": {
     "name": "Elleron Lunarian",
@@ -3408,7 +3446,8 @@
     "level": 34,
     "health": 1460,
     "_source": "https://vgsoharchive.com/quests/blood-from-a-stone-cragwind-ridge",
-    "model": 0
+    "model": 0,
+    "title": "Treasure Hunter"
   },
   "arch_askiva_dasahigish": {
     "name": "Askiva Dasahigish",
@@ -3805,7 +3844,8 @@
     "level": 40,
     "health": 1700,
     "_source": "https://vgsoharchive.com/quests/a-bit-of-crystal",
-    "model": 0
+    "model": 0,
+    "title": "Lead Researcher"
   },
   "arch_researcher_akkon": {
     "name": "Researcher Akkon",
@@ -3863,7 +3903,9 @@
     "level": 27,
     "health": 1180,
     "_source": "https://vgsoharchive.com/quests/a-hermit-s-only-friends",
-    "model": 2
+    "model": 2,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_ghostclaw_liarn": {
     "name": "Ghostclaw Liarn",
@@ -3953,7 +3995,8 @@
     "level": 3,
     "health": 220,
     "_source": "https://vgsoharchive.com/quests/report-to-agent-narglok-part-2",
-    "model": 2
+    "model": 2,
+    "title": "Agent Narglok's Assistant"
   },
   "arch_hrinka_tzin": {
     "name": "Hrinka Tzin",
@@ -3998,7 +4041,13 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/blood-and-seals",
-    "model": 0
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_entertain_1",
+      "archive_interview_1"
+    ]
   },
   "arch_shield_diadra": {
     "name": "Shield Diadra",
@@ -4043,7 +4092,8 @@
     "level": 15,
     "health": 700,
     "_source": "https://vgsoharchive.com/quests/call-from-the-high-warchief",
-    "model": 3
+    "model": 3,
+    "title": "Order of the Hunter"
   },
   "arch_thane_kojomash": {
     "name": "Thane Kojomash",
@@ -4314,7 +4364,9 @@
     "level": 19,
     "health": 860,
     "_source": "https://vgsoharchive.com/quests/to-roll-a-die",
-    "model": 3
+    "model": 3,
+    "title": "General Goods Vendor",
+    "merchant": "general_goods"
   },
   "arch_karox_of_the_ichtakhta": {
     "name": "Karox of the Ichtakhta",
@@ -4350,7 +4402,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/a-larger-world",
-    "model": 3
+    "model": 3,
+    "title": "Diplomacy Instructor"
   },
   "arch_ang_di_lowrock": {
     "name": "Ang Di Lowrock",
@@ -4368,7 +4421,14 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/additional-refining",
-    "model": 2
+    "model": 2,
+    "title": "Merchant - Weapons Vendor",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_3",
+      "archive_entertain_3",
+      "archive_interview_3"
+    ]
   },
   "arch_veteran_sixfish": {
     "name": "Veteran Sixfish",
@@ -4404,7 +4464,8 @@
     "level": 7,
     "health": 380,
     "_source": "https://vgsoharchive.com/quests/as-good-as-done",
-    "model": 1
+    "model": 1,
+    "title": "Trainer - Harvesting"
   },
   "arch_hoangsu_halfmoon": {
     "name": "Hoangsu Halfmoon",
@@ -4593,7 +4654,8 @@
     "level": 7,
     "health": 380,
     "_source": "https://vgsoharchive.com/quests/monster-tea-party",
-    "model": 2
+    "model": 2,
+    "title": "Informant"
   },
   "arch_aoma_halfmoon": {
     "name": "Aoma Halfmoon",
@@ -4629,7 +4691,8 @@
     "level": 6,
     "health": 340,
     "_source": "https://vgsoharchive.com/quests/return-to-elder-wen-starbrook",
-    "model": 3
+    "model": 3,
+    "title": "Healer Instructor"
   },
   "arch_veteran_gatewatcher": {
     "name": "Veteran Gatewatcher",
@@ -4656,7 +4719,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/the-artisan",
-    "model": 2
+    "model": 2,
+    "title": "Crafting Advisor"
   },
   "arch_stones_of_hirak_sun": {
     "name": "Stones of Hirak Sun",
@@ -5001,7 +5065,8 @@
     "level": 16,
     "health": 740,
     "_source": "https://vgsoharchive.com/quests/lost-magic",
-    "model": 1
+    "model": 1,
+    "title": "Sage Arcane"
   },
   "arch_gwalen_themnar": {
     "name": "Gwalen Themnar",
@@ -5028,7 +5093,9 @@
     "level": 16,
     "health": 740,
     "_source": "https://vgsoharchive.com/quests/supplies-in-order",
-    "model": 3
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_missive_board": {
     "name": "Missive Board",
@@ -5046,7 +5113,8 @@
     "level": 16,
     "health": 740,
     "_source": "https://vgsoharchive.com/quests/task-stong-wings",
-    "model": 3
+    "model": 3,
+    "title": "All Missive quests are repeteable"
   },
   "arch_inquisitor_theramir": {
     "name": "Inquisitor Theramir",
@@ -5595,7 +5663,13 @@
     "level": 26,
     "health": 1140,
     "_source": "https://vgsoharchive.com/quests/charm-crafter",
-    "model": 1
+    "model": 1,
+    "title": "Crafting Instructor",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_mina_zeya": {
     "name": "Mina Zeya",
@@ -5604,7 +5678,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/cheer-up-iry",
-    "model": 1
+    "model": 1,
+    "title": "Diplomacy Instructor"
   },
   "arch_vhayl_melafin": {
     "name": "Vhayl Melafin",
@@ -5622,7 +5697,13 @@
     "level": 8,
     "health": 420,
     "_source": "https://vgsoharchive.com/quests/dune-eagle-shipment",
-    "model": 2
+    "model": 2,
+    "title": "Crafting Taskmaster",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_edi_nenankale": {
     "name": "Edi Nenankale",
@@ -5658,7 +5739,9 @@
     "level": 20,
     "health": 900,
     "_source": "https://vgsoharchive.com/quests/go-learn-rebuttals",
-    "model": 0
+    "model": 0,
+    "title": "Flower Vendor",
+    "merchant": "general_goods"
   },
   "arch_jamshah_nezriar": {
     "name": "Jamshah Nezriar",
@@ -5685,7 +5768,12 @@
     "level": 20,
     "health": 900,
     "_source": "https://vgsoharchive.com/quests/implicate-karim",
-    "model": 0
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_mina": {
     "name": "Mina",
@@ -5739,7 +5827,12 @@
     "level": 23,
     "health": 1020,
     "_source": "https://vgsoharchive.com/quests/old-scrolls",
-    "model": 1
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_nolnoc": {
     "name": "Nolnoc",
@@ -5748,7 +5841,8 @@
     "level": 7,
     "health": 380,
     "_source": "https://vgsoharchive.com/quests/poisoned-bridge",
-    "model": 0
+    "model": 0,
+    "title": "Ksaravi NPC"
   },
   "arch_kurake": {
     "name": "Kurake",
@@ -6214,7 +6308,8 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/bones-and-dust",
-    "model": 0
+    "model": 0,
+    "title": "Peacebearer of Gloriann"
   },
   "arch_ranger_shyath": {
     "name": "Ranger Shyath",
@@ -6241,7 +6336,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/ethereal-study",
-    "model": 0
+    "model": 0,
+    "title": "(Peacebearer of Gloriann)"
   },
   "arch_felgrand_owesh": {
     "name": "Felgrand Owesh",
@@ -6259,7 +6355,13 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/flight-of-the-griffon",
-    "model": 2
+    "model": 2,
+    "parley": [
+      "archive_incite_1",
+      "archive_entertain_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_dragoon_malarose": {
     "name": "Dragoon Malarose",
@@ -6286,7 +6388,8 @@
     "level": 9,
     "health": 460,
     "_source": "https://vgsoharchive.com/quests/into-the-arcanium",
-    "model": 3
+    "model": 3,
+    "title": "Quest: Layowen"
   },
   "arch_ileyria": {
     "name": "Ileyria",
@@ -6445,7 +6548,8 @@
     "level": 6,
     "health": 340,
     "_source": "https://vgsoharchive.com/quests/barbarian-aid",
-    "model": 2
+    "model": 2,
+    "title": "Consul of Qur´xa"
   },
   "arch_horseward_ali_kjerg": {
     "name": "Horseward Ali-Kjerg",
@@ -6535,7 +6639,8 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/follow-those-robes",
-    "model": 0
+    "model": 0,
+    "title": "Diplomacy Instructor"
   },
   "arch_captain_nakaue": {
     "name": "Captain Nakaue",
@@ -6598,7 +6703,9 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/paying-a-debt",
-    "model": 3
+    "model": 3,
+    "title": "Ranged Weapon Vendor",
+    "merchant": "general_goods"
   },
   "arch_farika_jakeer": {
     "name": "Farika Jakeer",
@@ -6636,7 +6743,9 @@
     "level": 26,
     "health": 1140,
     "_source": "https://vgsoharchive.com/quests/the-dyemakers-tests",
-    "model": 0
+    "model": 0,
+    "title": "Master Dyemaker / Exotic Goods Vendor",
+    "merchant": "general_goods"
   },
   "arch_lephik_suvn": {
     "name": "Lephik Suvn",
@@ -6947,7 +7056,9 @@
     "level": 10,
     "health": 500,
     "_source": "https://vgsoharchive.com/quests/hay-is-for-horses",
-    "model": 3
+    "model": 3,
+    "title": "Mount Vendor",
+    "merchant": "general_goods"
   },
   "arch_forelorn_excavator": {
     "name": "Forelorn Excavator",
@@ -7127,7 +7238,9 @@
     "level": 50,
     "health": 2100,
     "_source": "https://vgsoharchive.com/quests/magi-hold-containment-unit",
-    "model": 1
+    "model": 1,
+    "title": "Merchant - Crafting Equipment",
+    "merchant": "general_goods"
   },
   "arch_hanai_amberwolf": {
     "name": "Hanai Amberwolf",
@@ -7136,7 +7249,9 @@
     "level": 50,
     "health": 2100,
     "_source": "https://vgsoharchive.com/quests/magi-hold-dissent-in-the-ranks",
-    "model": 0
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_naji_sevenblade": {
     "name": "Naji Sevenblade",
@@ -7217,7 +7332,8 @@
     "level": 9,
     "health": 460,
     "_source": "https://vgsoharchive.com/quests/bringing-the-bones",
-    "model": 3
+    "model": 3,
+    "title": "Ruler of the Rothak Ogres"
   },
   "arch_warseer_fezzik": {
     "name": "Warseer Fezzik",
@@ -7271,7 +7387,8 @@
     "level": 11,
     "health": 540,
     "_source": "https://vgsoharchive.com/quests/kojani-amateur-education-outfitter",
-    "model": 3
+    "model": 3,
+    "title": "Leather Stitcher"
   },
   "arch_kimaka_rett": {
     "name": "Kimaka Rett",
@@ -7280,7 +7397,8 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/learning-kojani-style-blacksmith",
-    "model": 2
+    "model": 2,
+    "title": "Blacksmith Instructor"
   },
   "arch_mutokash": {
     "name": "Mutokash",
@@ -7289,7 +7407,8 @@
     "level": 9,
     "health": 460,
     "_source": "https://vgsoharchive.com/quests/lost-kef",
-    "model": 0
+    "model": 0,
+    "title": "Work Order Giver"
   },
   "arch_general_zowt": {
     "name": "General Zowt",
@@ -7433,7 +7552,8 @@
     "level": 15,
     "health": 700,
     "_source": "https://vgsoharchive.com/quests/increasing-fares",
-    "model": 2
+    "model": 2,
+    "title": "Coin Master"
   },
   "arch_bonesinger_trok": {
     "name": "Bonesinger Trok",
@@ -7715,7 +7835,8 @@
     "level": 17,
     "health": 780,
     "_source": "https://vgsoharchive.com/quests/beetle-infestation",
-    "model": 3
+    "model": 3,
+    "title": "Disciple of Talakor"
   },
   "arch_dark_tome": {
     "name": "Dark Tome",
@@ -7760,7 +7881,8 @@
     "level": 17,
     "health": 780,
     "_source": "https://vgsoharchive.com/quests/horse-meat",
-    "model": 1
+    "model": 1,
+    "title": "Disciple of Talakor"
   },
   "arch_leesa_entan": {
     "name": "Leesa Entan",
@@ -7823,7 +7945,8 @@
     "level": 23,
     "health": 1020,
     "_source": "https://vgsoharchive.com/quests/soul-and-brain-power",
-    "model": 1
+    "model": 1,
+    "title": "United Races of Thestra"
   },
   "arch_wilson_delond": {
     "name": "Wilson Delond",
@@ -7988,7 +8111,9 @@
     "level": 20,
     "health": 900,
     "_source": "https://vgsoharchive.com/quests/breaking-into-the-business",
-    "model": 3
+    "model": 3,
+    "title": "Banker",
+    "banker": true
   },
   "arch_gregg_nolan": {
     "name": "Gregg Nolan",
@@ -8096,7 +8221,8 @@
     "level": 53,
     "health": 2220,
     "_source": "https://vgsoharchive.com/quests/genesis-the-bookseller",
-    "model": 2
+    "model": 2,
+    "title": "Rumormonger"
   },
   "arch_opeth_allister": {
     "name": "Opeth Allister",
@@ -8618,7 +8744,8 @@
     "level": 11,
     "health": 540,
     "_source": "https://vgsoharchive.com/quests/qalian-amateur-education-artificer",
-    "model": 2
+    "model": 2,
+    "title": "Written"
   },
   "arch_seknon": {
     "name": "Seknon",
@@ -8663,7 +8790,9 @@
     "level": 13,
     "health": 620,
     "_source": "https://vgsoharchive.com/quests/the-hunt-continues",
-    "model": 2
+    "model": 2,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_researcher_fryxplaz": {
     "name": "Researcher Fryxplaz",
@@ -8850,7 +8979,8 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/alley-whispers",
-    "model": 2
+    "model": 2,
+    "title": "Duke of Bightwood Dells"
   },
   "arch_divin_starling": {
     "name": "Divin Starling",
@@ -8949,7 +9079,13 @@
     "level": 18,
     "health": 820,
     "_source": "https://vgsoharchive.com/quests/zihurr-invasion",
-    "model": 1
+    "model": 1,
+    "parley": [
+      "archive_gossip_200",
+      "archive_incite_200",
+      "archive_entertain_200",
+      "archive_interview_200"
+    ]
   },
   "arch_asirav_prana": {
     "name": "Asirav Prana",
@@ -9145,7 +9281,9 @@
     "level": 41,
     "health": 1740,
     "_source": "https://vgsoharchive.com/quests/some-like-it-some-don-t",
-    "model": 0
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_warder_mendent": {
     "name": "Warder Mendent",
@@ -9244,7 +9382,8 @@
     "level": 35,
     "health": 1500,
     "_source": "https://vgsoharchive.com/quests/one-rank-4-badge",
-    "model": 1
+    "model": 1,
+    "title": "Bounty Hunter Quartermaster"
   },
   "arch_mah_dizzle": {
     "name": "Mah Dizzle",
@@ -9354,7 +9493,9 @@
     "level": 19,
     "health": 860,
     "_source": "https://vgsoharchive.com/quests/arachnid-waylayers",
-    "model": 3
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_guard_knott": {
     "name": "Guard Knott",
@@ -9426,7 +9567,9 @@
     "level": 21,
     "health": 940,
     "_source": "https://vgsoharchive.com/quests/seonid-s-meal",
-    "model": 3
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_guard_dallard": {
     "name": "Guard Dallard",
@@ -9534,7 +9677,9 @@
     "level": 18,
     "health": 820,
     "_source": "https://vgsoharchive.com/quests/moving-on-up",
-    "model": 0
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_guard_madari": {
     "name": "Guard Madari",
@@ -9552,7 +9697,9 @@
     "level": 17,
     "health": 780,
     "_source": "https://vgsoharchive.com/quests/shells-for-sale",
-    "model": 0
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_captain_nekamhat_moullai": {
     "name": "Captain Nekamhat Moullai",
@@ -9821,7 +9968,8 @@
     "level": 34,
     "health": 1460,
     "_source": "https://vgsoharchive.com/quests/etched-in-stone-part-4",
-    "model": 3
+    "model": 3,
+    "title": "Master Carver"
   },
   "arch_old_woman_sparrowsong": {
     "name": "Old Woman Sparrowsong",
@@ -9920,7 +10068,8 @@
     "level": 30,
     "health": 1300,
     "_source": "https://vgsoharchive.com/quests/the-salvation-of-the-jharru",
-    "model": 1
+    "model": 1,
+    "title": "Emmissary of Khal"
   },
   "arch_nighthunter_mikka": {
     "name": "Nighthunter Mikka",
@@ -10207,7 +10356,12 @@
     "level": 44,
     "health": 1860,
     "_source": "https://vgsoharchive.com/quests/a-poet-s-request",
-    "model": 1
+    "model": 1,
+    "parley": [
+      "archive_entertain_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_disciple_akomi": {
     "name": "Disciple Akomi",
@@ -10243,7 +10397,8 @@
     "level": 20,
     "health": 900,
     "_source": "https://vgsoharchive.com/quests/affinity-to-preservation",
-    "model": 3
+    "model": 3,
+    "title": "Cleric Instructor"
   },
   "arch_lieutenant_asa_aurora": {
     "name": "Lieutenant Asa Aurora",
@@ -10252,7 +10407,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/ancestral-recall",
-    "model": 0
+    "model": 0,
+    "title": "Outside Hotel"
   },
   "arch_charred_corpse": {
     "name": "Charred Corpse",
@@ -10270,7 +10426,8 @@
     "level": 7,
     "health": 380,
     "_source": "https://vgsoharchive.com/quests/battle-training",
-    "model": 0
+    "model": 0,
+    "title": "Ghost Wind Instructor"
   },
   "arch_nyrasir": {
     "name": "Nyrasir",
@@ -10306,7 +10463,9 @@
     "level": 7,
     "health": 380,
     "_source": "https://vgsoharchive.com/quests/bureaucracy-of-the-written-word",
-    "model": 2
+    "model": 2,
+    "title": "Ranged Weapon Vendor",
+    "merchant": "general_goods"
   },
   "arch_disciple_hirro": {
     "name": "Disciple Hirro",
@@ -10369,7 +10528,8 @@
     "level": 11,
     "health": 540,
     "_source": "https://vgsoharchive.com/quests/kojani-amateur-education-blacksmith",
-    "model": 3
+    "model": 3,
+    "title": "Swordsmith of Tanvu"
   },
   "arch_ji_ki_the_teacher": {
     "name": "Ji Ki the Teacher",
@@ -10423,7 +10583,13 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/learning-kojani-style-outfitter",
-    "model": 3
+    "model": 3,
+    "title": "Trainer - Outfitter",
+    "parley": [
+      "archive_entertain_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_guan_sun_cho": {
     "name": "Guan Sun Cho",
@@ -10450,7 +10616,12 @@
     "level": 5,
     "health": 300,
     "_source": "https://vgsoharchive.com/quests/poetic-justice",
-    "model": 0
+    "model": 0,
+    "parley": [
+      "archive_entertain_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ]
   },
   "arch_celinal": {
     "name": "Celinal",
@@ -10486,7 +10657,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/the-civil-service-of-the-empire",
-    "model": 3
+    "model": 3,
+    "title": "Diplomacy Instructor"
   },
   "arch_guan_chi_ake": {
     "name": "Guan Chi Ake",
@@ -10513,7 +10685,8 @@
     "level": 20,
     "health": 900,
     "_source": "https://vgsoharchive.com/quests/the-vise-of-curiosity",
-    "model": 2
+    "model": 2,
+    "title": "Superintendent of Elven Affairs"
   },
   "arch_academic_faelana": {
     "name": "Academic Faelana",
@@ -11068,7 +11241,8 @@
     "level": 32,
     "health": 1380,
     "_source": "https://vgsoharchive.com/quests/swiftfoot-shanty",
-    "model": 3
+    "model": 3,
+    "title": "Bringer of Storms"
   },
   "arch_janashir_jones": {
     "name": "Janashir Jones",
@@ -11077,7 +11251,11 @@
     "level": 35,
     "health": 1500,
     "_source": "https://vgsoharchive.com/quests/the-treasure-of-aanak-vor-dan",
-    "model": 0
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_entertain_700"
+    ]
   },
   "arch_analyst_zatop": {
     "name": "Analyst Zatop",
@@ -11187,7 +11365,8 @@
     "level": 10,
     "health": 500,
     "_source": "https://vgsoharchive.com/quests/artist-s-supplies",
-    "model": 0
+    "model": 0,
+    "title": "Caial Brael Artist"
   },
   "arch_warden_allegran": {
     "name": "Warden Allegran",
@@ -11270,7 +11449,8 @@
     "level": 40,
     "health": 1700,
     "_source": "https://vgsoharchive.com/quests/cloaks-of-the-lucent-hero",
-    "model": 2
+    "model": 2,
+    "title": "Elite Lucent Circle Outfitter"
   },
   "arch_dvuli_citira": {
     "name": "Dvuli Citira",
@@ -11435,7 +11615,9 @@
     "level": 14,
     "health": 660,
     "_source": "https://vgsoharchive.com/quests/foul-gypsies",
-    "model": 3
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_oka_tesel": {
     "name": "Oka Tesel",
@@ -11623,7 +11805,8 @@
     "level": 3,
     "health": 220,
     "_source": "https://vgsoharchive.com/quests/assist-the-inquisitor",
-    "model": 3
+    "model": 3,
+    "title": "Sages Arcana"
   },
   "arch_novice_richard": {
     "name": "Novice Richard",
@@ -11632,7 +11815,8 @@
     "level": 2,
     "health": 180,
     "_source": "https://vgsoharchive.com/quests/back-to-the-high-inquisitor",
-    "model": 1
+    "model": 1,
+    "title": "Healer Instructor"
   },
   "arch_investigator_trenkle": {
     "name": "Investigator Trenkle",
@@ -11641,7 +11825,13 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/bad-juju",
-    "model": 1
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_entertain_1",
+      "archive_interview_1"
+    ]
   },
   "arch_inquisitor_shayle": {
     "name": "Inquisitor Shayle",
@@ -11668,7 +11858,8 @@
     "level": 6,
     "health": 340,
     "_source": "https://vgsoharchive.com/quests/brave-student",
-    "model": 0
+    "model": 0,
+    "title": "Spellcaster Instructor"
   },
   "arch_shimmerleaf_elder_baroo": {
     "name": "Shimmerleaf Elder Baroo",
@@ -11686,7 +11877,8 @@
     "level": 10,
     "health": 500,
     "_source": "https://vgsoharchive.com/quests/burying-brownies",
-    "model": 0
+    "model": 0,
+    "title": "Sages Arcana"
   },
   "arch_inquisitor_senn": {
     "name": "Inquisitor Senn",
@@ -11732,7 +11924,8 @@
     "level": 1,
     "health": 140,
     "_source": "https://vgsoharchive.com/quests/diplomatic-training",
-    "model": 1
+    "model": 1,
+    "title": "Diplomacy Trainer"
   },
   "arch_inquisitor_westlen": {
     "name": "Inquisitor Westlen",
@@ -11741,7 +11934,8 @@
     "level": 4,
     "health": 260,
     "_source": "https://vgsoharchive.com/quests/dire-tidings",
-    "model": 1
+    "model": 1,
+    "title": "Sages Arcana"
   },
   "arch_lucara_tandir": {
     "name": "Lucara Tandir",
@@ -11750,7 +11944,8 @@
     "level": 8,
     "health": 420,
     "_source": "https://vgsoharchive.com/quests/experimental-equipment",
-    "model": 1
+    "model": 1,
+    "title": "Crafting Equipment Supply"
   },
   "arch_tharrin_granitebeard": {
     "name": "Tharrin Granitebeard",
@@ -11858,7 +12053,8 @@
     "level": 2,
     "health": 180,
     "_source": "https://vgsoharchive.com/quests/safe-field",
-    "model": 1
+    "model": 1,
+    "title": "(near road)"
   },
   "arch_guard_tranton": {
     "name": "Guard Tranton",
@@ -12362,7 +12558,9 @@
     "level": 10,
     "health": 500,
     "_source": "https://vgsoharchive.com/quests/journey-to-themnwar-s-shield",
-    "model": 3
+    "model": 3,
+    "title": "General Goods Vendor",
+    "merchant": "general_goods"
   },
   "arch_jepidy_falyre": {
     "name": "Jepidy Falyre",
@@ -12425,7 +12623,8 @@
     "level": 30,
     "health": 1300,
     "_source": "https://vgsoharchive.com/quests/even-more-foes-of-the-sleeping-moon",
-    "model": 2
+    "model": 2,
+    "title": "Celestine Ward"
   },
   "arch_elder_argulx": {
     "name": "Elder Argulx",
@@ -12471,5 +12670,1368 @@
     "health": 1300,
     "_source": "https://vgsoharchive.com/quests/the-jharru-of-zossyr",
     "model": 2
+  },
+  "arch_gatrik_qoj": {
+    "name": "Gatrik Qoj",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/gatrik-qoj"
+  },
+  "arch_gholam_moullai": {
+    "name": "Gholam Moullai",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/gholam-moullai"
+  },
+  "arch_grakaya_dashta": {
+    "name": "Grakaya Dashta",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/grakaya-dashta"
+  },
+  "arch_grand_provisioner_teravin": {
+    "name": "Grand Provisioner Teravin",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "parley": [
+      "archive_incite_700",
+      "archive_entertain_700",
+      "archive_convince_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/grand-provisioner-teravin"
+  },
+  "arch_hajir_thoun": {
+    "name": "Hajir Thoun",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/hajir-thoun"
+  },
+  "arch_hanla_taljin": {
+    "name": "Hanla Taljin",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 3,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/hanla-taljin"
+  },
+  "arch_krenthar_garxon": {
+    "name": "Krenthar Garxon",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/krenthar-garxon"
+  },
+  "arch_krovax_threxva": {
+    "name": "Krovax Threxva",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "parley": [
+      "archive_gossip_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/krovax-threxva"
+  },
+  "arch_majordomo_nerox": {
+    "name": "Majordomo Nerox",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "parley": [
+      "archive_incite_700",
+      "archive_entertain_700",
+      "archive_convince_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/majordomo-nerox"
+  },
+  "arch_malra_suhvo": {
+    "name": "Malra Suhvo",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "title": "Crafting Instructor",
+    "_source": "https://vgsoharchive.com/mobs/malra-suhvo"
+  },
+  "arch_mil_xar_turken": {
+    "name": "Mil'xar Turken",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/mil-xar-turken"
+  },
+  "arch_oloq_foulqoth": {
+    "name": "Oloq Foulqoth",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/oloq-foulqoth"
+  },
+  "arch_paser_rahebaber": {
+    "name": "Paser Rahebaber",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "title": "Merchant - Weapons Vendor",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/paser-rahebaber"
+  },
+  "arch_raqarsh_uriic": {
+    "name": "Raqarsh Uriic",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/raqarsh-uriic"
+  },
+  "arch_kenrolir": {
+    "name": "Kenrolir",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 15,
+    "health": 700,
+    "model": 2,
+    "title": "Merchant - Heavy Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/kenrolir"
+  },
+  "arch_kin_de": {
+    "name": "Kin De",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 15,
+    "health": 700,
+    "model": 2,
+    "title": "Merchant - Medium Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/kin-de"
+  },
+  "arch_lix": {
+    "name": "Lix",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 15,
+    "health": 700,
+    "model": 2,
+    "title": "Merchant - Weapons Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/lix"
+  },
+  "arch_musoi": {
+    "name": "Musoi",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 15,
+    "health": 700,
+    "model": 2,
+    "title": "Merchant - Light Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/musoi"
+  },
+  "arch_garnet_thunderaxe": {
+    "name": "Garnet Thunderaxe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/garnet-thunderaxe"
+  },
+  "arch_janna_runeaxe": {
+    "name": "Janna Runeaxe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/janna-runeaxe"
+  },
+  "arch_janus_thunderaxe": {
+    "name": "Janus Thunderaxe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 3,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/janus-thunderaxe"
+  },
+  "arch_kafus_thunderaxe": {
+    "name": "Kafus Thunderaxe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kafus-thunderaxe"
+  },
+  "arch_kahz_oilbard": {
+    "name": "Kahz Oilbard",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "title": "City Scriber",
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kahz-oilbard"
+  },
+  "arch_kahzin_runeaxe": {
+    "name": "Kahzin Runeaxe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kahzin-runeaxe"
+  },
+  "arch_kalon_runeaxe": {
+    "name": "Kalon Runeaxe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kalon-runeaxe"
+  },
+  "arch_kurik_steelheart": {
+    "name": "Kurik Steelheart",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "model": 3,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kurik-steelheart"
+  },
+  "arch_landsview_scribe": {
+    "name": "Landsview Scribe",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 18,
+    "health": 820,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/landsview-scribe"
+  },
+  "arch_paloa_tunza": {
+    "name": "Paloa Tunza",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 30,
+    "health": 1300,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/paloa-tunza"
+  },
+  "arch_kernk_dunwarden": {
+    "name": "Kernk Dunwarden",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 35,
+    "health": 1500,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/kernk-dunwarden"
+  },
+  "arch_olsar_dunwarden": {
+    "name": "Olsar Dunwarden",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 35,
+    "health": 1500,
+    "model": 1,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/olsar-dunwarden"
+  },
+  "arch_outrider_erryon": {
+    "name": "Outrider Erryon",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/outrider-erryon"
+  },
+  "arch_jux_jinkletoe": {
+    "name": "Jux Jinkletoe",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/jux-jinkletoe"
+  },
+  "arch_herald_of_vaisa": {
+    "name": "Herald Of Vaisa",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/herald-of-vaisa"
+  },
+  "arch_qaar_vhejal": {
+    "name": "Qaar Vhejal",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 30,
+    "health": 1300,
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/qaar-vhejal"
+  },
+  "arch_hadi": {
+    "name": "Hadi",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/hadi"
+  },
+  "arch_hadjejeh_forrughi": {
+    "name": "Hadjejeh Forrughi",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/hadjejeh-forrughi"
+  },
+  "arch_hasti_sabbah": {
+    "name": "Hasti Sabbah",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/hasti-sabbah"
+  },
+  "arch_jalil_taleqani": {
+    "name": "Jalil Taleqani",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/jalil-taleqani"
+  },
+  "arch_kademeia_mathaari": {
+    "name": "Kademeia Mathaari",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/kademeia-mathaari"
+  },
+  "arch_kakenaber_nasiri": {
+    "name": "Kakenaber Nasiri",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kakenaber-nasiri"
+  },
+  "arch_karim_sabet": {
+    "name": "Karim Sabet",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "title": "Arms Dealer",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/karim-sabet"
+  },
+  "arch_karmala_wapashta": {
+    "name": "Karmala Wapashta",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "title": "Merchant - Housing",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/karmala-wapashta"
+  },
+  "arch_laila_qoli": {
+    "name": "Laila Qoli",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/laila-qoli"
+  },
+  "arch_maggan_aslan": {
+    "name": "Maggan Aslan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 0,
+    "title": "Head of the Dockworker´s Union",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/maggan-aslan"
+  },
+  "arch_malkemau_shadjehat": {
+    "name": "Malkemau Shadjehat",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/malkemau-shadjehat"
+  },
+  "arch_mihdi_khadim": {
+    "name": "Mihdi Khadim",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 2,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/mihdi-khadim"
+  },
+  "arch_naedimani_bazargan": {
+    "name": "Naedimani Bazargan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/naedimani-bazargan"
+  },
+  "arch_nargoe_edropot": {
+    "name": "Nargoe Edropot",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/nargoe-edropot"
+  },
+  "arch_nasreen_qoli": {
+    "name": "Nasreen Qoli",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "title": "Priest of Sea & Sand",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/nasreen-qoli"
+  },
+  "arch_parviz_qoli": {
+    "name": "Parviz Qoli",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "title": "Merchant - Weapons Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/parviz-qoli"
+  },
+  "arch_pawanas_ebtehaj": {
+    "name": "Pawanas Ebtehaj",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/pawanas-ebtehaj"
+  },
+  "arch_qeedimani_sumech": {
+    "name": "Qeedimani Sumech",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/qeedimani-sumech"
+  },
+  "arch_rahia_jadarri": {
+    "name": "Rahia Jadarri",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 0,
+    "title": "Captain of the Guard",
+    "_source": "https://vgsoharchive.com/mobs/rahia-jadarri"
+  },
+  "arch_korhal_the_ancient": {
+    "name": "Korhal The Ancient",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 3,
+    "title": "Shaman",
+    "_source": "https://vgsoharchive.com/mobs/korhal-the-ancient"
+  },
+  "arch_kanda_krihnga": {
+    "name": "Kanda Krihnga",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 15,
+    "health": 700,
+    "model": 1,
+    "title": "Merchant - Heavy Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/kanda-krihnga"
+  },
+  "arch_kiyo": {
+    "name": "Kiyo",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "title": "Master of the Dragon Style",
+    "_source": "https://vgsoharchive.com/mobs/kiyo"
+  },
+  "arch_keenix_robie": {
+    "name": "Keenix Robie",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 15,
+    "health": 700,
+    "model": 2,
+    "title": "Warrior Instructor",
+    "_source": "https://vgsoharchive.com/mobs/keenix-robie"
+  },
+  "arch_qano": {
+    "name": "Qano",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/qano"
+  },
+  "arch_garret_barol": {
+    "name": "Garret Barol",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "title": "Merchant - Heavy Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/garret-barol"
+  },
+  "arch_iras_piarka": {
+    "name": "Iras Piarka",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "title": "Merchant - Ranged Weapons",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/iras-piarka"
+  },
+  "arch_keyna_danadas": {
+    "name": "Keyna Danadas",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/keyna-danadas"
+  },
+  "arch_nyandir_winstar": {
+    "name": "Nyandir Winstar",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 700,
+    "model": 1,
+    "title": "Crafting Instructor",
+    "_source": "https://vgsoharchive.com/mobs/nyandir-winstar"
+  },
+  "arch_lukus_loqu": {
+    "name": "Lukus Loqu",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/lukus-loqu"
+  },
+  "arch_lars_orson": {
+    "name": "Lars Orson",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 25,
+    "health": 1100,
+    "model": 3,
+    "parley": [
+      "archive_gossip_200",
+      "archive_incite_200",
+      "archive_entertain_200",
+      "archive_interview_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/lars-orson"
+  },
+  "arch_racfir_gravna": {
+    "name": "Racfir Gravna",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 35,
+    "health": 1500,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/racfir-gravna"
+  },
+  "arch_rajakah_gajras": {
+    "name": "Rajakah Gajras",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/rajakah-gajras"
+  },
+  "arch_gladen_the_hunter": {
+    "name": "Gladen The Hunter",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Merchant - Ranged Weapons",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/gladen-the-hunter"
+  },
+  "arch_murcio_renfir": {
+    "name": "Murcio Renfir",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "title": "Merchant - Heavy Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/murcio-renfir"
+  },
+  "arch_nawyn_blael": {
+    "name": "Nawyn Blael",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/nawyn-blael"
+  },
+  "arch_master_fhungusu": {
+    "name": "Master Fhungusu",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/master-fhungusu"
+  },
+  "arch_ghost_of_adyra_savinth": {
+    "name": "Ghost Of Adyra Savinth",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 22,
+    "health": 980,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/ghost-of-adyra-savinth"
+  },
+  "arch_lorna_tallure": {
+    "name": "Lorna Tallure",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 3,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/lorna-tallure"
+  },
+  "arch_lumina_osgood": {
+    "name": "Lumina Osgood",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Crafting Instructor",
+    "_source": "https://vgsoharchive.com/mobs/lumina-osgood"
+  },
+  "arch_nanthor_dankind": {
+    "name": "Nanthor Dankind",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/nanthor-dankind"
+  },
+  "arch_leddo_savobar": {
+    "name": "Leddo Savobar",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/leddo-savobar"
+  },
+  "arch_master_vallerex": {
+    "name": "Master Vallerex",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 21,
+    "health": 940,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/master-vallerex"
+  },
+  "arch_feldin_wrisman": {
+    "name": "Feldin Wrisman",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/feldin-wrisman"
+  },
+  "arch_gelrion_surmae": {
+    "name": "Gelrion Surmae",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "title": "Merchant - Weapons Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/gelrion-surmae"
+  },
+  "arch_ha_ku": {
+    "name": "Ha Ku",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 2,
+    "title": "Merchant - Crafting Equipment",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/ha-ku"
+  },
+  "arch_ikolo": {
+    "name": "Ikolo",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "title": "Healer Instructor",
+    "_source": "https://vgsoharchive.com/mobs/ikolo"
+  },
+  "arch_lang": {
+    "name": "Lang",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "parley": [
+      "archive_entertain_1",
+      "archive_convince_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/lang"
+  },
+  "arch_nujen_starsinger": {
+    "name": "Nujen Starsinger",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Merchant - Clothing",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_entertain_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/nujen-starsinger"
+  },
+  "arch_quon": {
+    "name": "Quon",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 50,
+    "health": 2100,
+    "model": 3,
+    "parley": [
+      "archive_entertain_1",
+      "archive_convince_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/quon"
+  },
+  "arch_grenthel": {
+    "name": "Grenthel",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/grenthel"
+  },
+  "arch_gua": {
+    "name": "Gua",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/gua"
+  },
+  "arch_guard_abdu": {
+    "name": "Guard Abdu",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/guard-abdu"
+  },
+  "arch_guard_belk": {
+    "name": "Guard Belk",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/guard-belk"
+  },
+  "arch_guard_bijan": {
+    "name": "Guard Bijan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/guard-bijan"
+  },
+  "arch_guard_chalipa": {
+    "name": "Guard Chalipa",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/guard-chalipa"
+  },
+  "arch_guard_cyrus": {
+    "name": "Guard Cyrus",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/guard-cyrus"
+  },
+  "arch_guard_dahab": {
+    "name": "Guard Dahab",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/guard-dahab"
+  },
+  "arch_guard_droug": {
+    "name": "Guard Droug",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/guard-droug"
+  },
+  "arch_ihsan": {
+    "name": "Ihsan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/ihsan"
+  },
+  "arch_illyag": {
+    "name": "Illyag",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/illyag"
+  },
+  "arch_jahkeen_slaksul": {
+    "name": "Jahkeen Slaksul",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/jahkeen-slaksul"
+  },
+  "arch_jalal_iravan": {
+    "name": "Jalal Iravan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/jalal-iravan"
+  },
+  "arch_jalal_meheru": {
+    "name": "Jalal Meheru",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/jalal-meheru"
+  },
+  "arch_kajjar_meuresh": {
+    "name": "Kajjar Meuresh",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "title": "Banker",
+    "banker": true,
+    "_source": "https://vgsoharchive.com/mobs/kajjar-meuresh"
+  },
+  "arch_kancel_avir": {
+    "name": "Kancel Avir",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kancel-avir"
+  },
+  "arch_lakishta_ormshan": {
+    "name": "Lakishta Ormshan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/lakishta-ormshan"
+  },
+  "arch_nal_osho": {
+    "name": "Nal Osho",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/nal-osho"
+  },
+  "arch_nariman": {
+    "name": "Nariman",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/nariman"
+  },
+  "arch_paser_nequ": {
+    "name": "Paser Nequ",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/paser-nequ"
+  },
+  "arch_payam": {
+    "name": "Payam",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_entertain_200",
+      "archive_convince_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/payam"
+  },
+  "arch_qarm": {
+    "name": "Qarm",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_convince_700"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/qarm"
+  },
+  "arch_hido_kani_daylily": {
+    "name": "Hido Kani Daylily",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "parley": [
+      "archive_gossip_60",
+      "archive_entertain_60",
+      "archive_convince_60",
+      "archive_interview_60"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/hido-kani-daylily"
+  },
+  "arch_krait_muratsu": {
+    "name": "Krait Muratsu",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 50,
+    "health": 2100,
+    "model": 0,
+    "title": "Master of the Harmonious Body Style",
+    "_source": "https://vgsoharchive.com/mobs/krait-muratsu"
+  },
+  "arch_rakell_summerglade": {
+    "name": "Rakell Summerglade",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 700,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/rakell-summerglade"
+  },
+  "arch_garkael_polkosh": {
+    "name": "Garkael Polkosh",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/garkael-polkosh"
+  },
+  "arch_garnith_aelowyn": {
+    "name": "Garnith Aelowyn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "title": "United Races of Thestra",
+    "_source": "https://vgsoharchive.com/mobs/garnith-aelowyn"
+  },
+  "arch_ramaok": {
+    "name": "Ramaok",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 700,
+    "model": 3,
+    "title": "Merchant - Light Armor Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/ramaok"
   }
 }
