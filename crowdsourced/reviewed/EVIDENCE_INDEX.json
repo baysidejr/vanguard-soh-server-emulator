@@ -1,19 +1,19 @@
 {
   "summary": {
-    "batches": 262,
-    "research_rows": 49344,
-    "normalized_name_groups": 21059,
+    "batches": 263,
+    "research_rows": 49464,
+    "normalized_name_groups": 21179,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 5861,
+      "creature": 5938,
       "item": 5504,
-      "loot": 914,
-      "npc": 2255,
+      "loot": 930,
+      "npc": 2278,
       "quest": 11633,
       "zone": 1334,
       "ability": 21615,
       "diplomacy": 6,
-      "merchant": 214,
+      "merchant": 218,
       "recipe": 8
     },
     "errors": 0,
@@ -2085,6 +2085,16 @@
         "creature": 98,
         "loot": 21,
         "npc": 2
+      }
+    },
+    {
+      "batch": "raw\\2026-10-15-015352-968106-archive-bulk",
+      "records": 120,
+      "counts": {
+        "creature": 77,
+        "loot": 16,
+        "merchant": 4,
+        "npc": 23
       }
     }
   ],
@@ -789935,6 +789945,1812 @@
       "zones": [
         "Martok"
       ]
+    },
+    {
+      "id": 49344,
+      "type": "creature",
+      "name": "Gwaeleun Anuwyn",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwaeleun-anuwyn"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ]
+    },
+    {
+      "id": 49345,
+      "type": "creature",
+      "name": "Gwartak Boneseer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-boneseer"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 4
+    },
+    {
+      "id": 49346,
+      "type": "creature",
+      "name": "Gwartak Clan Scout",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-clan-scout"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 6
+    },
+    {
+      "id": 49347,
+      "type": "creature",
+      "name": "Gwartak Clsaboteur",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-clsaboteur"
+      ],
+      "zones": [
+        "Rille's Strike"
+      ],
+      "level": 4
+    },
+    {
+      "id": 49348,
+      "type": "creature",
+      "name": "Gwartak Clsapper",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-clsapper"
+      ],
+      "zones": [
+        "Rille's Strike"
+      ],
+      "level": 3
+    },
+    {
+      "id": 49349,
+      "type": "creature",
+      "name": "Gwartak Gatherer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-gatherer"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 3
+    },
+    {
+      "id": 49350,
+      "type": "creature",
+      "name": "Gwartak Grunt",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-grunt"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 1
+    },
+    {
+      "id": 49351,
+      "type": "creature",
+      "name": "Gwartak Hillscourer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-hillscourer"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 2
+    },
+    {
+      "id": 49352,
+      "type": "creature",
+      "name": "Gwartak Hovelguard",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-hovelguard"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 4
+    },
+    {
+      "id": 49353,
+      "type": "creature",
+      "name": "Gwartak Junction Miner",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-junction-miner"
+      ],
+      "zones": [],
+      "level": 8
+    },
+    {
+      "id": 49354,
+      "type": "creature",
+      "name": "Gwartak Lookout",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-lookout"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 5
+    },
+    {
+      "id": 49355,
+      "type": "creature",
+      "name": "Gwartak Moleshark Tamer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-moleshark-tamer"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 8
+    },
+    {
+      "id": 49356,
+      "type": "creature",
+      "name": "Gwartak Reinforcer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-reinforcer"
+      ],
+      "zones": [],
+      "level": 7
+    },
+    {
+      "id": 49357,
+      "type": "creature",
+      "name": "Gwartak Scavenger",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-scavenger"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 3
+    },
+    {
+      "id": 49358,
+      "type": "creature",
+      "name": "Gwartak Slaver",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-slaver"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 6
+    },
+    {
+      "id": 49359,
+      "type": "creature",
+      "name": "Gwartak Spiderhunter",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-spiderhunter"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 2
+    },
+    {
+      "id": 49360,
+      "type": "creature",
+      "name": "Gwartak Spirit Summoner",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-spirit-summoner"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 7
+    },
+    {
+      "id": 49361,
+      "type": "creature",
+      "name": "Gwartak Stockpiler",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-stockpiler"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 5
+    },
+    {
+      "id": 49362,
+      "type": "creature",
+      "name": "Gwartak Tunnel Dweller",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-tunnel-dweller"
+      ],
+      "zones": [],
+      "level": 6
+    },
+    {
+      "id": 49363,
+      "type": "creature",
+      "name": "Gwartak Tunnel Fighter",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-tunnel-fighter"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 6
+    },
+    {
+      "id": 49364,
+      "type": "creature",
+      "name": "Gwary",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwary"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 49365,
+      "type": "creature",
+      "name": "Gwella Thunderaxe",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwella-thunderaxe"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ]
+    },
+    {
+      "id": 49366,
+      "type": "creature",
+      "name": "Gwillas Gladesworn",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwillas-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49367,
+      "type": "creature",
+      "name": "Haaden Boenshif",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haaden-boenshif"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49368,
+      "type": "creature",
+      "name": "Haarg Forager",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haarg-forager"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 49369,
+      "type": "creature",
+      "name": "Haarg Queen",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haarg-queen"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 7
+    },
+    {
+      "id": 49370,
+      "type": "creature",
+      "name": "Haarg Swarmer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haarg-swarmer"
+      ],
+      "zones": [],
+      "level": 6
+    },
+    {
+      "id": 49371,
+      "type": "creature",
+      "name": "Haarg Swarmling",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haarg-swarmling"
+      ],
+      "zones": [],
+      "level": 7
+    },
+    {
+      "id": 49372,
+      "type": "creature",
+      "name": "Haarg Swarmlord",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haarg-swarmlord"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 7
+    },
+    {
+      "id": 49373,
+      "type": "creature",
+      "name": "Haburt",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haburt"
+      ],
+      "zones": [
+        "Shoreline Ruins"
+      ],
+      "level": 19
+    },
+    {
+      "id": 49374,
+      "type": "creature",
+      "name": "Hadark Ironeye",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadark-ironeye"
+      ],
+      "zones": [
+        "Renton Keep"
+      ],
+      "level": 1
+    },
+    {
+      "id": 49375,
+      "type": "creature",
+      "name": "Hadejejeh Forrughi",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadejejeh-forrughi"
+      ],
+      "zones": [
+        "Khal"
+      ]
+    },
+    {
+      "id": 49376,
+      "type": "creature",
+      "name": "Hadelthash Nittick",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadelthash-nittick"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49377,
+      "type": "creature",
+      "name": "Hadem Jorta",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadem-jorta"
+      ],
+      "zones": [
+        "Nusibe Necropolis"
+      ]
+    },
+    {
+      "id": 49378,
+      "type": "creature",
+      "name": "Hadi Qazai",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadi-qazai"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49379,
+      "type": "creature",
+      "name": "Hadl Coldfire",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadl-coldfire"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ]
+    },
+    {
+      "id": 49380,
+      "type": "creature",
+      "name": "Hadl Greenspear",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadl-greenspear"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49381,
+      "type": "creature",
+      "name": "Hadl Grundod",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadl-grundod"
+      ],
+      "zones": [],
+      "level": 20
+    },
+    {
+      "id": 49382,
+      "type": "creature",
+      "name": "Hadu Khaef",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadu-khaef"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ]
+    },
+    {
+      "id": 49383,
+      "type": "creature",
+      "name": "Haekemish Bandit",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-bandit"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 10
+    },
+    {
+      "id": 49384,
+      "type": "creature",
+      "name": "Haekemish Drudge",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-drudge"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49385,
+      "type": "creature",
+      "name": "Haekemish Excavator",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-excavator"
+      ],
+      "zones": [],
+      "level": 11
+    },
+    {
+      "id": 49386,
+      "type": "creature",
+      "name": "Haekemish Historian",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-historian"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49387,
+      "type": "creature",
+      "name": "Haekemish Inspector",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-inspector"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 12
+    },
+    {
+      "id": 49388,
+      "type": "creature",
+      "name": "Haekemish Sawbones",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-sawbones"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49389,
+      "type": "creature",
+      "name": "Haekemish Scout",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-scout"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ]
+    },
+    {
+      "id": 49390,
+      "type": "creature",
+      "name": "Haekemish Sentry",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-sentry"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ]
+    },
+    {
+      "id": 49391,
+      "type": "creature",
+      "name": "Haekemish Trader",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-trader"
+      ],
+      "zones": [
+        "Hag's Coastline"
+      ]
+    },
+    {
+      "id": 49392,
+      "type": "creature",
+      "name": "Hael",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hael"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 10
+    },
+    {
+      "id": 49393,
+      "type": "creature",
+      "name": "Haelra Do'tlar",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haelra-do-tlar"
+      ],
+      "zones": [],
+      "level": 35
+    },
+    {
+      "id": 49394,
+      "type": "creature",
+      "name": "Haelra Do´tlar",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haelra-do-tlar-2"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ]
+    },
+    {
+      "id": 49395,
+      "type": "creature",
+      "name": "Haen",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haen"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49396,
+      "type": "creature",
+      "name": "Hafeez Al´Azzimat",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hafeez-al-azzimat-2"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49397,
+      "type": "creature",
+      "name": "Hag Abhorrent",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hag-abhorrent"
+      ],
+      "zones": [
+        "Hag's Coastline"
+      ]
+    },
+    {
+      "id": 49398,
+      "type": "creature",
+      "name": "Hag Eclipse",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hag-eclipse"
+      ],
+      "zones": [
+        "Hag's Coastline"
+      ]
+    },
+    {
+      "id": 49399,
+      "type": "creature",
+      "name": "Hag Elite",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hag-elite"
+      ],
+      "zones": [],
+      "level": 24
+    },
+    {
+      "id": 49400,
+      "type": "creature",
+      "name": "Hag Emissary",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hag-emissary"
+      ],
+      "zones": [
+        "Hag's Coastline"
+      ],
+      "level": 24
+    },
+    {
+      "id": 49401,
+      "type": "creature",
+      "name": "Hag Guard",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hag-guard"
+      ],
+      "zones": [],
+      "level": 23
+    },
+    {
+      "id": 49402,
+      "type": "creature",
+      "name": "Haggor",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haggor"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 5
+    },
+    {
+      "id": 49403,
+      "type": "creature",
+      "name": "Hagrek The Vindictive",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hagrek-the-vindictive"
+      ],
+      "zones": [
+        "Frostshard Lake"
+      ]
+    },
+    {
+      "id": 49404,
+      "type": "creature",
+      "name": "Hahmid Rahzimi",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hahmid-rahzimi"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49405,
+      "type": "creature",
+      "name": "Haifara Bayesh",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haifara-bayesh"
+      ],
+      "zones": [
+        "Coterie Infineum Sanctuary"
+      ],
+      "level": 35
+    },
+    {
+      "id": 49406,
+      "type": "creature",
+      "name": "Haji Fang Dawnstar",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haji-fang-dawnstar"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 49407,
+      "type": "creature",
+      "name": "Hajmar The Fear Lord",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hajmar-the-fear-lord"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49408,
+      "type": "creature",
+      "name": "Haju the Deranged",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haju-the-deranged"
+      ],
+      "zones": [
+        "Swamps Of Rumug"
+      ],
+      "level": 49
+    },
+    {
+      "id": 49409,
+      "type": "creature",
+      "name": "Hajurwa Metasha",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hajurwa-metasha"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 49410,
+      "type": "creature",
+      "name": "Hakosh Kros",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hakosh-kros"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49411,
+      "type": "creature",
+      "name": "Hal Goodword",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hal-goodword"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49412,
+      "type": "creature",
+      "name": "Hald Darkhammer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hald-darkhammer"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ]
+    },
+    {
+      "id": 49413,
+      "type": "creature",
+      "name": "Half Elf Villager",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/half-elf-villager"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 10
+    },
+    {
+      "id": 49414,
+      "type": "creature",
+      "name": "Halfling Leftovers",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halfling-leftovers"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ]
+    },
+    {
+      "id": 49415,
+      "type": "creature",
+      "name": "Halfling Seeker",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halfling-seeker"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 49416,
+      "type": "creature",
+      "name": "Halga Burat",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halga-burat"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 10
+    },
+    {
+      "id": 49417,
+      "type": "creature",
+      "name": "Halga Ummorf",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halga-ummorf"
+      ],
+      "zones": [],
+      "level": 30
+    },
+    {
+      "id": 49418,
+      "type": "creature",
+      "name": "Halgar The Hero",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halgar-the-hero"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49419,
+      "type": "creature",
+      "name": "Haliathor Gladesworn",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haliathor-gladesworn"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49420,
+      "type": "creature",
+      "name": "Halinix The Coaxing",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halinix-the-coaxing"
+      ],
+      "zones": [
+        "Veskal's Exchange"
+      ],
+      "level": 29
+    },
+    {
+      "id": 49421,
+      "type": "loot",
+      "name": "Gwartak Boneseer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-boneseer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49422,
+      "type": "loot",
+      "name": "Gwartak Hillscourer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-hillscourer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49423,
+      "type": "loot",
+      "name": "Gwartak Hovelguard",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-hovelguard"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49424,
+      "type": "loot",
+      "name": "Gwartak Junction Miner",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-junction-miner"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49425,
+      "type": "loot",
+      "name": "Gwartak Lookout",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-lookout"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49426,
+      "type": "loot",
+      "name": "Gwartak Moleshark Tamer",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-moleshark-tamer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49427,
+      "type": "loot",
+      "name": "Gwartak Scavenger",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-scavenger"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49428,
+      "type": "loot",
+      "name": "Gwartak Slaver",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-slaver"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49429,
+      "type": "loot",
+      "name": "Gwartak Spiderhunter",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-spiderhunter"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49430,
+      "type": "loot",
+      "name": "Gwartak Spirit Summoner",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-spirit-summoner"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49431,
+      "type": "loot",
+      "name": "Gwartak Stockpiler",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-stockpiler"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49432,
+      "type": "loot",
+      "name": "Gwartak Tunnel Fighter",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwartak-tunnel-fighter"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49433,
+      "type": "loot",
+      "name": "Haekemish Inspector",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haekemish-inspector"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49434,
+      "type": "loot",
+      "name": "Hag Emissary",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hag-emissary"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49435,
+      "type": "loot",
+      "name": "Haju the Deranged",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haju-the-deranged"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49436,
+      "type": "loot",
+      "name": "Halinix The Coaxing",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\loot.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halinix-the-coaxing"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49437,
+      "type": "merchant",
+      "name": "Ha Ku",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ha-ku"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 49438,
+      "type": "merchant",
+      "name": "Halawen Cora",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halawen-cora"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ]
+    },
+    {
+      "id": 49439,
+      "type": "merchant",
+      "name": "Halena Neymin",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\merchant.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halena-neymin"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 49440,
+      "type": "merchant",
+      "name": "Halgar Burat",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\merchant.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halgar-burat"
+      ],
+      "zones": [
+        "Halgarad"
+      ]
+    },
+    {
+      "id": 49441,
+      "type": "npc",
+      "name": "Gwalen Themnar",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwalen-themnar"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ]
+    },
+    {
+      "id": 49442,
+      "type": "npc",
+      "name": "Gwaleun Anuwyn",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwaleun-anuwyn"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49443,
+      "type": "npc",
+      "name": "Gwasan",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwasan"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49444,
+      "type": "npc",
+      "name": "Gwealla Thunderaxe",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/gwealla-thunderaxe"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49445,
+      "type": "npc",
+      "name": "Ha Ku",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ha-ku"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49446,
+      "type": "npc",
+      "name": "Haag",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haag"
+      ],
+      "zones": [
+        "Konarthi Point"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49447,
+      "type": "npc",
+      "name": "Hadi",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadi"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49448,
+      "type": "npc",
+      "name": "Hadin Starblossom",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadin-starblossom"
+      ],
+      "zones": []
+    },
+    {
+      "id": 49449,
+      "type": "npc",
+      "name": "Hadjejeh Forrughi",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadjejeh-forrughi"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 49450,
+      "type": "npc",
+      "name": "Hadu Khajef",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hadu-khajef"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 10
+    },
+    {
+      "id": 49451,
+      "type": "npc",
+      "name": "Hafeez Al'Azzimat",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hafeez-al-azzimat"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49452,
+      "type": "npc",
+      "name": "Haftan The Black",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haftan-the-black"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49453,
+      "type": "npc",
+      "name": "Hagir Silvereye",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hagir-silvereye"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 89
+    },
+    {
+      "id": 49454,
+      "type": "npc",
+      "name": "Hai Li",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hai-li"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49455,
+      "type": "npc",
+      "name": "Hai Tang",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hai-tang"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 25
+    },
+    {
+      "id": 49456,
+      "type": "npc",
+      "name": "Haj Kru",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/haj-kru"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 10
+    },
+    {
+      "id": 49457,
+      "type": "npc",
+      "name": "Hajir Thoun",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hajir-thoun"
+      ],
+      "zones": [
+        "Afrit"
+      ]
+    },
+    {
+      "id": 49458,
+      "type": "npc",
+      "name": "Hajir Verolk",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/hajir-verolk"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 20
+    },
+    {
+      "id": 49459,
+      "type": "npc",
+      "name": "Halarok Tannaron",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halarok-tannaron"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 15
+    },
+    {
+      "id": 49460,
+      "type": "npc",
+      "name": "Halawen Cora",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 20,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halawen-cora"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 30
+    },
+    {
+      "id": 49461,
+      "type": "npc",
+      "name": "Halena Neymin",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 21,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halena-neymin"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 50
+    },
+    {
+      "id": 49462,
+      "type": "npc",
+      "name": "Halfling Stein",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 22,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halfling-stein"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 1
+    },
+    {
+      "id": 49463,
+      "type": "npc",
+      "name": "Halgar Burat",
+      "file": "raw\\2026-10-15-015352-968106-archive-bulk\\npc.jsonl",
+      "line": 23,
+      "confidence": "medium",
+      "parser_version": 31,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/halgar-burat"
+      ],
+      "zones": [
+        "Halgarad"
+      ]
     }
   ],
   "by_name": {
@@ -881399,6 +883215,366 @@
     ],
     "npc:guura": [
       49343
+    ],
+    "creature:gwaeleun anuwyn": [
+      49344
+    ],
+    "creature:gwartak boneseer": [
+      49345
+    ],
+    "creature:gwartak clan scout": [
+      49346
+    ],
+    "creature:gwartak clsaboteur": [
+      49347
+    ],
+    "creature:gwartak clsapper": [
+      49348
+    ],
+    "creature:gwartak gatherer": [
+      49349
+    ],
+    "creature:gwartak grunt": [
+      49350
+    ],
+    "creature:gwartak hillscourer": [
+      49351
+    ],
+    "creature:gwartak hovelguard": [
+      49352
+    ],
+    "creature:gwartak junction miner": [
+      49353
+    ],
+    "creature:gwartak lookout": [
+      49354
+    ],
+    "creature:gwartak moleshark tamer": [
+      49355
+    ],
+    "creature:gwartak reinforcer": [
+      49356
+    ],
+    "creature:gwartak scavenger": [
+      49357
+    ],
+    "creature:gwartak slaver": [
+      49358
+    ],
+    "creature:gwartak spiderhunter": [
+      49359
+    ],
+    "creature:gwartak spirit summoner": [
+      49360
+    ],
+    "creature:gwartak stockpiler": [
+      49361
+    ],
+    "creature:gwartak tunnel dweller": [
+      49362
+    ],
+    "creature:gwartak tunnel fighter": [
+      49363
+    ],
+    "creature:gwary": [
+      49364
+    ],
+    "creature:gwella thunderaxe": [
+      49365
+    ],
+    "creature:gwillas gladesworn": [
+      49366
+    ],
+    "creature:haaden boenshif": [
+      49367
+    ],
+    "creature:haarg forager": [
+      49368
+    ],
+    "creature:haarg queen": [
+      49369
+    ],
+    "creature:haarg swarmer": [
+      49370
+    ],
+    "creature:haarg swarmling": [
+      49371
+    ],
+    "creature:haarg swarmlord": [
+      49372
+    ],
+    "creature:haburt": [
+      49373
+    ],
+    "creature:hadark ironeye": [
+      49374
+    ],
+    "creature:hadejejeh forrughi": [
+      49375
+    ],
+    "creature:hadelthash nittick": [
+      49376
+    ],
+    "creature:hadem jorta": [
+      49377
+    ],
+    "creature:hadi qazai": [
+      49378
+    ],
+    "creature:hadl coldfire": [
+      49379
+    ],
+    "creature:hadl greenspear": [
+      49380
+    ],
+    "creature:hadl grundod": [
+      49381
+    ],
+    "creature:hadu khaef": [
+      49382
+    ],
+    "creature:haekemish bandit": [
+      49383
+    ],
+    "creature:haekemish drudge": [
+      49384
+    ],
+    "creature:haekemish excavator": [
+      49385
+    ],
+    "creature:haekemish historian": [
+      49386
+    ],
+    "creature:haekemish inspector": [
+      49387
+    ],
+    "creature:haekemish sawbones": [
+      49388
+    ],
+    "creature:haekemish scout": [
+      49389
+    ],
+    "creature:haekemish sentry": [
+      49390
+    ],
+    "creature:haekemish trader": [
+      49391
+    ],
+    "creature:hael": [
+      49392
+    ],
+    "creature:haelra do'tlar": [
+      49393
+    ],
+    "creature:haelra do´tlar": [
+      49394
+    ],
+    "creature:haen": [
+      49395
+    ],
+    "creature:hafeez al´azzimat": [
+      49396
+    ],
+    "creature:hag abhorrent": [
+      49397
+    ],
+    "creature:hag eclipse": [
+      49398
+    ],
+    "creature:hag elite": [
+      49399
+    ],
+    "creature:hag emissary": [
+      49400
+    ],
+    "creature:hag guard": [
+      49401
+    ],
+    "creature:haggor": [
+      49402
+    ],
+    "creature:hagrek the vindictive": [
+      49403
+    ],
+    "creature:hahmid rahzimi": [
+      49404
+    ],
+    "creature:haifara bayesh": [
+      49405
+    ],
+    "creature:haji fang dawnstar": [
+      49406
+    ],
+    "creature:hajmar the fear lord": [
+      49407
+    ],
+    "creature:haju the deranged": [
+      49408
+    ],
+    "creature:hajurwa metasha": [
+      49409
+    ],
+    "creature:hakosh kros": [
+      49410
+    ],
+    "creature:hal goodword": [
+      49411
+    ],
+    "creature:hald darkhammer": [
+      49412
+    ],
+    "creature:half elf villager": [
+      49413
+    ],
+    "creature:halfling leftovers": [
+      49414
+    ],
+    "creature:halfling seeker": [
+      49415
+    ],
+    "creature:halga burat": [
+      49416
+    ],
+    "creature:halga ummorf": [
+      49417
+    ],
+    "creature:halgar the hero": [
+      49418
+    ],
+    "creature:haliathor gladesworn": [
+      49419
+    ],
+    "creature:halinix the coaxing": [
+      49420
+    ],
+    "loot:gwartak boneseer": [
+      49421
+    ],
+    "loot:gwartak hillscourer": [
+      49422
+    ],
+    "loot:gwartak hovelguard": [
+      49423
+    ],
+    "loot:gwartak junction miner": [
+      49424
+    ],
+    "loot:gwartak lookout": [
+      49425
+    ],
+    "loot:gwartak moleshark tamer": [
+      49426
+    ],
+    "loot:gwartak scavenger": [
+      49427
+    ],
+    "loot:gwartak slaver": [
+      49428
+    ],
+    "loot:gwartak spiderhunter": [
+      49429
+    ],
+    "loot:gwartak spirit summoner": [
+      49430
+    ],
+    "loot:gwartak stockpiler": [
+      49431
+    ],
+    "loot:gwartak tunnel fighter": [
+      49432
+    ],
+    "loot:haekemish inspector": [
+      49433
+    ],
+    "loot:hag emissary": [
+      49434
+    ],
+    "loot:haju the deranged": [
+      49435
+    ],
+    "loot:halinix the coaxing": [
+      49436
+    ],
+    "merchant:ha ku": [
+      49437
+    ],
+    "merchant:halawen cora": [
+      49438
+    ],
+    "merchant:halena neymin": [
+      49439
+    ],
+    "merchant:halgar burat": [
+      49440
+    ],
+    "npc:gwalen themnar": [
+      49441
+    ],
+    "npc:gwaleun anuwyn": [
+      49442
+    ],
+    "npc:gwasan": [
+      49443
+    ],
+    "npc:gwealla thunderaxe": [
+      49444
+    ],
+    "npc:ha ku": [
+      49445
+    ],
+    "npc:haag": [
+      49446
+    ],
+    "npc:hadi": [
+      49447
+    ],
+    "npc:hadin starblossom": [
+      49448
+    ],
+    "npc:hadjejeh forrughi": [
+      49449
+    ],
+    "npc:hadu khajef": [
+      49450
+    ],
+    "npc:hafeez al'azzimat": [
+      49451
+    ],
+    "npc:haftan the black": [
+      49452
+    ],
+    "npc:hagir silvereye": [
+      49453
+    ],
+    "npc:hai li": [
+      49454
+    ],
+    "npc:hai tang": [
+      49455
+    ],
+    "npc:haj kru": [
+      49456
+    ],
+    "npc:hajir thoun": [
+      49457
+    ],
+    "npc:hajir verolk": [
+      49458
+    ],
+    "npc:halarok tannaron": [
+      49459
+    ],
+    "npc:halawen cora": [
+      49460
+    ],
+    "npc:halena neymin": [
+      49461
+    ],
+    "npc:halfling stein": [
+      49462
+    ],
+    "npc:halgar burat": [
+      49463
     ]
   },
   "by_kind": {
@@ -887263,7 +889439,84 @@
       49317,
       49318,
       49319,
-      49320
+      49320,
+      49344,
+      49345,
+      49346,
+      49347,
+      49348,
+      49349,
+      49350,
+      49351,
+      49352,
+      49353,
+      49354,
+      49355,
+      49356,
+      49357,
+      49358,
+      49359,
+      49360,
+      49361,
+      49362,
+      49363,
+      49364,
+      49365,
+      49366,
+      49367,
+      49368,
+      49369,
+      49370,
+      49371,
+      49372,
+      49373,
+      49374,
+      49375,
+      49376,
+      49377,
+      49378,
+      49379,
+      49380,
+      49381,
+      49382,
+      49383,
+      49384,
+      49385,
+      49386,
+      49387,
+      49388,
+      49389,
+      49390,
+      49391,
+      49392,
+      49393,
+      49394,
+      49395,
+      49396,
+      49397,
+      49398,
+      49399,
+      49400,
+      49401,
+      49402,
+      49403,
+      49404,
+      49405,
+      49406,
+      49407,
+      49408,
+      49409,
+      49410,
+      49411,
+      49412,
+      49413,
+      49414,
+      49415,
+      49416,
+      49417,
+      49418,
+      49419,
+      49420
     ],
     "item": [
       13,
@@ -893685,7 +895938,23 @@
       49338,
       49339,
       49340,
-      49341
+      49341,
+      49421,
+      49422,
+      49423,
+      49424,
+      49425,
+      49426,
+      49427,
+      49428,
+      49429,
+      49430,
+      49431,
+      49432,
+      49433,
+      49434,
+      49435,
+      49436
     ],
     "npc": [
       24,
@@ -895942,7 +898211,30 @@
       49221,
       49222,
       49342,
-      49343
+      49343,
+      49441,
+      49442,
+      49443,
+      49444,
+      49445,
+      49446,
+      49447,
+      49448,
+      49449,
+      49450,
+      49451,
+      49452,
+      49453,
+      49454,
+      49455,
+      49456,
+      49457,
+      49458,
+      49459,
+      49460,
+      49461,
+      49462,
+      49463
     ],
     "quest": [
       45,
@@ -930753,7 +933045,11 @@
       48892,
       48975,
       48976,
-      49212
+      49212,
+      49437,
+      49438,
+      49439,
+      49440
     ],
     "recipe": [
       419,
@@ -931918,7 +934214,12 @@
       48891,
       48899,
       48904,
-      49080
+      49080,
+      49410,
+      49416,
+      49418,
+      49440,
+      49463
     ],
     "Ca'ial Brael": [
       5,
@@ -932301,7 +934602,10 @@
       48418,
       48419,
       48526,
-      48788
+      48788,
+      49364,
+      49366,
+      49419
     ],
     "Fathesi Coast": [
       37,
@@ -932690,7 +934994,11 @@
       48902,
       48950,
       49251,
-      49343
+      49343,
+      49368,
+      49369,
+      49372,
+      49402
     ],
     "Lomshir": [
       51,
@@ -933148,7 +935456,8 @@
       49110,
       49118,
       49121,
-      49123
+      49123,
+      49459
     ],
     "Gaxton Village · Martok": [
       67,
@@ -933758,7 +936067,9 @@
       47598,
       47814,
       48270,
-      48271
+      48271,
+      49394,
+      49405
     ],
     "Cragwind Ridge": [
       101,
@@ -934380,7 +936691,8 @@
       48404,
       48976,
       48980,
-      49317
+      49317,
+      49392
     ],
     "Jalen's Crossing": [
       103,
@@ -934479,7 +936791,8 @@
       48797,
       48798,
       48799,
-      48810
+      48810,
+      49443
     ],
     "Kaon's Rush": [
       104,
@@ -934718,7 +937031,10 @@
       48207,
       48254,
       48264,
-      48344
+      48344,
+      49438,
+      49441,
+      49460
     ],
     "Ksaravi Gulch": [
       105,
@@ -935265,7 +937581,9 @@
       48945,
       49028,
       49090,
-      49126
+      49126,
+      49344,
+      49442
     ],
     "Northern Highlands": [
       107,
@@ -935822,7 +938140,8 @@
       48994,
       49024,
       49054,
-      49129
+      49129,
+      49374
     ],
     "Seawatch Coast": [
       110,
@@ -936467,7 +938786,8 @@
       48998,
       49002,
       49003,
-      49006
+      49006,
+      49407
     ],
     "Tauthien Delta": [
       114,
@@ -936841,7 +939161,11 @@
       49159,
       49213,
       49216,
-      49318
+      49318,
+      49383,
+      49389,
+      49390,
+      49451
     ],
     "Three Rivers Village": [
       116,
@@ -937173,7 +939497,9 @@
       49081,
       49120,
       49127,
-      49130
+      49130,
+      49411,
+      49414
     ],
     "Wardship Of The Sleeping Moon": [
       117,
@@ -937641,7 +939967,8 @@
       48648,
       48747,
       48782,
-      48996
+      48996,
+      49457
     ],
     "Ahgram": [
       146,
@@ -938040,7 +940367,8 @@
       48272,
       48641,
       49212,
-      49222
+      49222,
+      49452
     ],
     "Alyssa's Chance": [
       147,
@@ -938896,7 +941224,27 @@
       48833,
       48845,
       48851,
-      49033
+      49033,
+      49345,
+      49346,
+      49349,
+      49350,
+      49351,
+      49352,
+      49354,
+      49355,
+      49357,
+      49358,
+      49359,
+      49360,
+      49361,
+      49363,
+      49365,
+      49379,
+      49380,
+      49412,
+      49444,
+      49453
     ],
     "Brennan's Stead": [
       166,
@@ -940202,7 +942550,8 @@
       44744,
       46889,
       47380,
-      47496
+      47496,
+      49454
     ],
     "Dragons Maw": [
       227,
@@ -940725,7 +943074,8 @@
       47941,
       48493,
       48714,
-      48840
+      48840,
+      49403
     ],
     "Gardens of Nirashuri": [
       249,
@@ -941016,7 +943366,11 @@
       46355,
       46359,
       47008,
-      47450
+      47450,
+      49391,
+      49397,
+      49398,
+      49400
     ],
     "Halls of the Pantheon": [
       268,
@@ -942418,7 +944772,11 @@
       48948,
       48969,
       48982,
-      48983
+      48983,
+      49395,
+      49406,
+      49437,
+      49445
     ],
     "Tursh Village": [
       14023,
@@ -943056,7 +945414,9 @@
       49122,
       49131,
       49214,
-      49303
+      49303,
+      49376,
+      49462
     ],
     "Veskal's Exchange": [
       14036,
@@ -943364,7 +945724,8 @@
       48155,
       48975,
       48977,
-      49182
+      49182,
+      49420
     ],
     "Leth Nurae": [
       14054,
@@ -943846,7 +946207,9 @@
       49166,
       49172,
       49174,
-      49175
+      49175,
+      49439,
+      49461
     ],
     "Khal": [
       14211,
@@ -944577,7 +946940,13 @@
       49115,
       49116,
       49117,
-      49124
+      49124,
+      49367,
+      49375,
+      49378,
+      49404,
+      49447,
+      49449
     ],
     "Lomshir Plain": [
       14231,
@@ -944781,7 +947150,11 @@
       49032,
       49083,
       49105,
-      49308
+      49308,
+      49382,
+      49387,
+      49450,
+      49456
     ],
     "Southwatch": [
       14415,
@@ -945962,7 +948335,8 @@
       46689,
       46959,
       47928,
-      48013
+      48013,
+      49446
     ],
     "Ksaravi Hollow": [
       22609
@@ -946671,7 +949045,8 @@
       47721,
       47991,
       48476,
-      48668
+      48668,
+      49377
     ],
     "Oathbreaker (Red Swallow) Caves": [
       22638
@@ -947488,7 +949863,9 @@
       35542,
       36287,
       36737,
-      36854
+      36854,
+      49347,
+      49348
     ],
     "Rindol Field": [
       22674
@@ -948311,7 +950688,8 @@
       48925,
       49125,
       49128,
-      49167
+      49167,
+      49373
     ],
     "Shores of Darkness": [
       22703,
@@ -949028,7 +951406,8 @@
       48808,
       48841,
       48844,
-      49171
+      49171,
+      49408
     ],
     "Tanvu Bay": [
       22734
@@ -949815,7 +952194,9 @@
       48319,
       48585,
       48914,
-      48919
+      48919,
+      49413,
+      49455
     ],
     "The Velerium Mines": [
       22765
@@ -950191,7 +952572,8 @@
       48640,
       48818,
       48819,
-      48820
+      48820,
+      49458
     ],
     "Vault of the Hidden": [
       22794
