@@ -77,6 +77,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Editor saves keep the file's key order (the browser moved integer-like keys and "_comment"), so a save changes only the edited lines. Checked end to end: headless Edge driven over the DevTools protocol (vgemu_work/cdp.mjs) edited and saved the Factions, Recipes and Parley tabs against a copy of the content folder; the diffs held just the edits. Unit test EditorTests.test_save_keeps_key_order.
+
 - 2026-10-15: Editor Factions tab (factions.json table with member counts); headless Edge screenshot.
 
 - 2026-10-15: Editor Recipes tab (recipes.json: fields, inputs, stages and steps; catalyst / complications as JSON) and a parley dropdown on the mob form; checked in headless Edge screenshots.

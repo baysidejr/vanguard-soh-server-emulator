@@ -126,12 +126,53 @@ def spawn_warnings(directory, name, text):
     return out
 
 
+def keep_order(new, old):
+    """new with its object keys in old's order (recursively; keys old doesn't have go last).
+    The browser puts integer-like keys ("1001", "40029") first and in numeric order, which would
+    move "_comment" and reorder cards in every saved file."""
+    if isinstance(new, dict) and isinstance(old, dict):
+        keys = [k for k in old if k in new] + [k for k in new if k not in old]
+        return {k: keep_order(new[k], old.get(k)) for k in keys}
+    if isinstance(new, list) and isinstance(old, list):
+        return [keep_order(v, old[i] if i < len(old) else None) for i, v in enumerate(new)]
+    return new
+
+
+def _keys(v):
+    """Every object key in v, in document order (to tell whether keep_order moved any)."""
+    if isinstance(v, dict):
+        for k, x in v.items():
+            yield k
+            yield from _keys(x)
+    elif isinstance(v, list):
+        for x in v:
+            yield from _keys(x)
+
+
+def ordered_text(path, text):
+    """text, rewritten in the existing file's key order when only the order differs from it
+    (formatting is kept otherwise: a hand edit in the Files tab stays as typed)."""
+    if not os.path.exists(path):
+        return text
+    try:
+        with open(path, encoding="utf-8") as f:
+            old_text = f.read()
+        old, new = json.loads(old_text), json.loads(text)
+    except ValueError:
+        return text
+    kept = keep_order(new, old)
+    if list(_keys(kept)) == list(_keys(new)):
+        return text
+    return json.dumps(kept, indent=2, ensure_ascii=False) + ("\n" if old_text.endswith("\n") else "")
+
+
 def save(directory, name, text, backups=BACKUPS):
     """Write text after a successful check; returns the problems (nothing written if any)."""
     problems = check(directory, name, text)
     if problems:
         return problems
     path = safe_path(directory, name)
+    text = ordered_text(path, text)
     if os.path.exists(path):
         os.makedirs(backups, exist_ok=True)
         stamp = time.strftime("%Y%m%d-%H%M%S")

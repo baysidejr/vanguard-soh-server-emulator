@@ -1455,6 +1455,17 @@ class EditorTests(unittest.TestCase):
             self.assertEqual(len(os.listdir(os.path.join(d, "bk"))), 1)                      # backup kept
             self.assertTrue(editor.png(2, 1, [[0, 255]]).startswith(b"\x89PNG"))
 
+    def test_save_keeps_key_order(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        old = {"_comment": "c", "1002": {"name": "b", "start": 0}, "1001": {"start": 1, "name": "a"}}
+        browser = {"1001": {"name": "a", "start": 1}, "1002": {"name": "B", "start": 0}, "_comment": "c", "1003": {}}
+        kept = editor.keep_order(browser, old)
+        self.assertEqual(list(kept), ["_comment", "1002", "1001", "1003"])
+        self.assertEqual(list(kept["1001"]), ["start", "name"])
+        self.assertEqual(kept["1002"]["name"], "B")
+
 
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
