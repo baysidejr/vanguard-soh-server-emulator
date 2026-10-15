@@ -10,6 +10,8 @@
   .tabs { display: flex; flex-wrap: wrap; margin: 0 8px 8px; gap: 4px; }
   .tabs button { padding: 4px 6px; }
   .tabs button { flex: 1; }
+  .tabgroup { margin: 6px 10px 2px; color: #8f8574; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tabs button.on { background: #6b5526; color: #fff2d6; border-color: #a8873e; }
   #files { overflow-y: auto; flex: 1; }
   #files div { padding: 4px 12px; cursor: pointer; }
   #files div:hover { background: #332f29; }
@@ -66,7 +68,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabWork">Work orders</button><button id="tabRift">Riftways</button><button id="tabClassSets">Forms &amp; songs</button><button id="tabFlat">Titles, hints, outposts</button><button id="tabReact">Reactions</button><button id="tabAA">AA</button><button id="tabPlots">Housing plots</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabgroup">World</div><div class="tabs"><button id="tabMobs" data-mode="mobs">Mobs</button><button id="tabSpawns" data-mode="spawns">Spawns</button><button id="tabLoot" data-mode="loot">Loot</button><button id="tabShops" data-mode="shops">Shops</button><button id="tabDialogs" data-mode="dialogs">Talk</button><button id="tabFactions" data-mode="factions">Factions</button><button id="tabRift" data-mode="rift">Riftways</button><button id="tabPlots" data-mode="plots">Housing plots</button></div><div class="tabgroup">Quests and crafting</div><div class="tabs"><button id="tabQuests" data-mode="quests">Quests</button><button id="tabItems" data-mode="items">Items</button><button id="tabRecipes" data-mode="recipes">Recipes</button><button id="tabWork" data-mode="work">Work orders</button></div><div class="tabgroup">Abilities</div><div class="tabs"><button id="tabAbilities" data-mode="abilities">Abilities</button><button id="tabReact" data-mode="react">Reactions</button><button id="tabAA" data-mode="aa">AA</button><button id="tabClassSets" data-mode="classsets">Forms &amp; songs</button><button id="tabDiplomacy" data-mode="diplomacy">Parley</button></div><div class="tabgroup">Other</div><div class="tabs"><button id="tabFlat" data-mode="flat">Titles, hints, outposts</button><button id="tabFiles" data-mode="files">Files</button><button id="tabArchive" data-mode="archive">Archive</button><button id="tabProposals" data-mode="proposals">Proposals</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -477,6 +479,7 @@ $("saveBtn").onclick = () => send("/api/file");
 
 // ---- spawns ----
 function setMode(m) {
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.mode === m));
   mode = m;
   $("editor").style.display = m === "files" ? "" : "none";
   $("fileBar").style.display = m === "files" ? "" : "none";
