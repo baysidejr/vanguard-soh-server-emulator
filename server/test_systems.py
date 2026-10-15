@@ -1600,6 +1600,40 @@ class EditorSaveTests(unittest.TestCase):
                 self.assertIn(new_value, changed[0][1])
 
 
+class ImportZoneTests(unittest.TestCase):
+    def test_plan_and_apply_never_overwrite(self):
+        import sys, tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        with tempfile.TemporaryDirectory() as d:
+            names = os.path.join(d, "ChunkNames.txt")
+            with open(names, "w", encoding="latin-1") as f:
+                f.write('SHORTNAME="Khal" DISPLAYNAME="Khal" X=-13 Y=-9\nSHORTNAME="X" DISPLAYNAME="Inst" X=3000 Y=3000\n')
+            chunks = import_zone.zone_chunks(names)
+            self.assertEqual(chunks, {"Khal": (-13, -9)})                 # instances (1000+) left out
+            raw = os.path.join(d, "raw", "b1")
+            os.makedirs(raw)
+            with open(os.path.join(raw, "npc.jsonl"), "w", encoding="utf-8") as f:
+                f.write(json.dumps({"name": "Afshin Budjiri", "zone": "Khal", "continent": "Qalia", "level": 40,
+                                    "services": ["trainer", "quest giver"],
+                                    "location": {"raw": "-9686, -35413, 1540"},
+                                    "sources": [{"url": "https://example.org/a"}]}) + "\n")
+                f.write(json.dumps({"name": "Nowhere Man", "zone": "Khal"}) + "\n")       # no position
+            level, mobs, spawns = import_zone.plan("Khal", import_zone.archive_npcs(os.path.join(d, "raw")), chunks)
+            self.assertEqual(level, "chunk_n13_n9")
+            self.assertEqual(spawns, [{"mob": "arch_afshin_budjiri", "x": -9686, "y": -35413, "z": 1540, "yaw": 0}])
+            t = mobs["arch_afshin_budjiri"]
+            self.assertEqual((t["race"], t["level"], t["title"], t["_source"]), (13, 40, "Trainer", "https://example.org/a"))
+            content = os.path.join(d, "content")
+            os.makedirs(os.path.join(content, "spawns"))
+            with open(os.path.join(content, "mobs.json"), "w", encoding="utf-8") as f:
+                json.dump({"arch_afshin_budjiri": {"name": "Edited by a builder"}}, f)
+            self.assertEqual(import_zone.apply(level, mobs, spawns, content), (0, 1))     # template kept, spawn added
+            self.assertEqual(import_zone.apply(level, mobs, spawns, content), (0, 0))     # a second run adds nothing
+            kept = json.load(open(os.path.join(content, "mobs.json"), encoding="utf-8"))
+            self.assertEqual(kept["arch_afshin_budjiri"]["name"], "Edited by a builder")
+
+
 class ArchiveSearchTests(unittest.TestCase):
     def test_newest_record_and_ranking(self):
         import sys, tempfile
