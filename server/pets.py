@@ -44,6 +44,18 @@ def ability(n, a):
                                                  refresh=0.0))
 
 
+# Default (auto) attack (FUN_0057b920 / FUN_0057bdb0): 0x435 {i32 ability id} marks a pet ability
+# as the default attack (pet types 8 / 0xb). The pet bar's toggle sends 0x86 {id} when it is the
+# default (turn it off) and 0x87 {id} when not (turn it on). The pet then uses it whenever it is
+# ready while fighting.
+DEFAULT_ATTACK = 0x435
+DEFAULT_OFF, DEFAULT_ON = 0x86, 0x87
+
+
+def default_attack(aid):
+    return _event(DEFAULT_ATTACK, struct.pack("<i", aid))
+
+
 def ability_timer(aid, seconds):
     """0x42c {i32 ability id, f32 remaining, f32 total, f32 0}: the pet ability's cooldown."""
     return _event(0x42C, struct.pack("<ifff", aid, float(seconds), float(seconds), 0.0))

@@ -103,3 +103,7 @@ Pet ability bar [O]:
 6. Rename (0x80 wstr) -> store it and send `0x418 wstr`.
 7. Dismiss (0x7f), or pet death: send `0x41b 5` ("returns to dust"), then `0x41a`, then close or despawn the actor for all clients. For minions, send `0x41f eid`.
 8. Re-send 0x419 and 0x41d on zone-in or reconnect. The client keeps no pet state across sessions.
+
+## Default attack (verified live 2026-10-15)
+
+A pet ability with `"default": true` (Ashfang's Savage Bite) is marked with **0x435** `{i32 ability id}` on summon. While the pet fights, the server uses it whenever it is ready ("Ashfang uses Savage Bite!" each refresh, seen live against a Canyon Widow). The pet bar's default-attack toggle sends **0x86** `{id}` (it was the default: turn it off) or **0x87** `{id}` (turn it on); the server answers with a line ("Ashfang will no longer use Savage Bite on its own.") and, when turning it on, 0x435.

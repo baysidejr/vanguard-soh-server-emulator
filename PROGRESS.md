@@ -60,6 +60,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Pet default attack: 0x435 marks Ashfang's Savage Bite, the pet uses it whenever it is ready, 0x86/0x87 toggle it (seen live).
 - 2026-10-15: Reviewed 11 more unsent messages: 0x6ee (brotherhood XP sharing), 0x1df (item rename, seen live), inventory 0x198/0x1af/0x1bc/0x1d8 (item updates, not list refreshes), loot and effects refreshes; all variants. 638/720 (88%). The intermittent unit failure did not reproduce under a 50-bot load (6 runs).
 - 2026-10-15: `!mobs [filter]` lists mob keys for the builder.
 - 2026-10-15: Builder commands work for characters with access_level >= 1 on any server (other ! commands still need --dev-commands); unit test BuilderAccessTests.

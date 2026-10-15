@@ -3657,8 +3657,10 @@ def summon_pet(state, args, spec):
     npc.pet_abilities = {}
     for n, a in enumerate(spec.get("abilities", [])):
         aid, msg = pets.ability(n, a)
-        npc.pet_abilities[aid] = dict(a, ready=0.0)
+        npc.pet_abilities[aid] = dict(a, ready=0.0, auto=bool(a.get("default")))
         send(msg)
+        if a.get("default"):
+            send(pets.default_attack(aid))
     send(build_system_text(f"{npc.name} answers your call.", SYSTEM_TEXT_WHITE))
 
 
@@ -3855,6 +3857,13 @@ def companion_tick(state, args, npc, now, dt, health_msg, on_death, stop=pets.FO
             if (getattr(npc, "queued_ability", None) is not None and math.hypot(
                     t.location[0] - npc.location[0], t.location[1] - npc.location[1]) <= combat.MELEE_RANGE + 200):
                 pet_fire_ability(state, npc, npc.queued_ability, t, now)
+                if not t.alive:
+                    return
+            auto = next((aid for aid, a in getattr(npc, "pet_abilities", {}).items()
+                         if a.get("auto") and now >= a["ready"]), None)
+            if auto is not None and math.hypot(t.location[0] - npc.location[0],
+                                               t.location[1] - npc.location[1]) <= combat.MELEE_RANGE + 200:
+                pet_fire_ability(state, npc, auto, t, now)      # the default attack, when ready
                 if not t.alive:
                     return
             if (math.hypot(t.location[0] - npc.location[0], t.location[1] - npc.location[1])
@@ -10389,6 +10398,17 @@ def handle_message(sock, server, addr, state, payload, args):
             cancel_maintained(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in pets.MINION_EVENTS and state.get("player"):
             handle_minion_event(state, struct.unpack_from("<I", payload, 2)[0])
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (pets.DEFAULT_OFF, pets.DEFAULT_ON) \
+                and state.get("player") and len(payload) >= 14:
+            pet = getattr(state["player"], "pet", None)
+            aid = struct.unpack_from("<i", payload, 10)[0]
+            a = getattr(pet, "pet_abilities", {}).get(aid) if pet else None
+            if a is not None:
+                a["auto"] = struct.unpack_from("<I", payload, 2)[0] == pets.DEFAULT_ON
+                if a["auto"]:
+                    send_message(sock, addr, state, pets.default_attack(aid))
+                send_message(sock, addr, state, build_system_text(
+                    f"{pet.name} will {'now' if a['auto'] else 'no longer'} use {a['name']} on its own.", SYSTEM_TEXT_WHITE))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == pets.USE_ABILITY and state.get("player") and len(payload) >= 14:
             pet_use_ability(state, struct.unpack_from("<i", payload, 10)[0])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x249 and state.get("player") and len(payload) >= 14:
