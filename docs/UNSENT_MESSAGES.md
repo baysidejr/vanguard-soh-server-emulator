@@ -163,8 +163,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 583 of 720 (80%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x193 | MsgClientMessagePendingDeath | eid64, wstr, i32 | optional | pending death message / alert {eid64, wstr, i32} (a countdown before death) |
-| 0x194 | MsgDisplayAlertPendingDeath | eid64, wstr, i32 | optional | pending death message / alert {eid64, wstr, i32} (a countdown before death) |
+| 0x193 | MsgClientMessagePendingDeath | eid64, wstr, i32 | optional | {eid64 entity, wstr text, i32}: seen live, prints the text in gray in chat at once (sent with i32 0 about a living NPC); a scripted NPC line, needs content |
+| 0x194 | MsgDisplayAlertPendingDeath | eid64, wstr, i32 | optional | {eid64 entity, wstr text, i32}: seen live with i32 0 about a living NPC that was then killed: nothing showed; the i32 or the entity state it needs is unknown |
 | 0x246 | MsgAbilityGroupDrainResult | eid64, wstr, i32, u8 | optional | group drain result line {eid64, wstr, i32, u8}; needs drain abilities |
 | 0x27c | MsgStringAndInt | wstr, i32 | optional | ability text lines {wstr, i32}; not decoded further |
 | 0x27d | MsgStringAndInt | wstr, i32 | optional | ability text lines {wstr, i32}; not decoded further |
