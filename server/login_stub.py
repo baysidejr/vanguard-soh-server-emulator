@@ -1863,6 +1863,22 @@ def handle_hint_event(state, event):
     save_character_field(player.name, "hints_off", player.hints_off)
 
 
+def handle_craft_allocate(state, stat_id, mode):
+    """The crafting tab's + / Max: crafting attribute points come with crafting levels."""
+    player, send = state["player"], state["send"]
+    name = next((n for n, sid in attributes.CRAFT_STATS.items() if sid == stat_id), None)
+    alloc = player.__dict__.setdefault("craft_alloc", {})
+    level = zone.sphere(player, zone.CRAFTING)[0]
+    n, code = attributes.allocate(name, mode, level, alloc, attributes.CRAFTING)
+    if n:
+        save_character_field(player.name, "craft_alloc", alloc)
+    value = attributes.CRAFT_BASE + alloc.get(name, 0) if name else 0
+    send(attributes.result(code, stat_id, value, attributes.pool(level, alloc), attributes.CRAFTING))
+    if n:
+        send(attributes.craft_update(name, alloc))
+        print(f"  {player.name} puts {n} crafting point(s) into {name}")
+
+
 def handle_allocate(state, data):
     """0xe4 from the Attributes tab's + / Max buttons (attributes.py)."""
     player, send = state["player"], state["send"]
@@ -1870,6 +1886,9 @@ def handle_allocate(state, data):
         return
     stat_id, mode, category = struct.unpack_from("<iii", data)
     name = next((n for n, sid in vgmsg.STAT_IDS.items() if sid == stat_id), None)
+    if category == attributes.CRAFTING:
+        handle_craft_allocate(state, stat_id, mode)
+        return
     alloc = player.__dict__.setdefault("attr_alloc", {})
     if category != attributes.ADVENTURING:
         n, code = 0, attributes.NOT_ALLOWED
@@ -9051,6 +9070,8 @@ def player_from_character(char, name, args):
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
     player.attr_alloc = {k: int(v) for k, v in (char.get("attr_alloc") or {}).items() if k in attributes.ORDER}
+    player.craft_alloc = {k: int(v) for k, v in (char.get("craft_alloc") or {}).items()
+                          if k in attributes.CRAFT_STATS}
     player.hints_seen = list(char.get("hints_seen") or [])
     player.hints_off = bool(char.get("hints_off", False))
     player.aa_ranks = {int(k): int(v) for k, v in (char.get("aa_ranks") or {}).items()}

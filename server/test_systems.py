@@ -1325,3 +1325,17 @@ class AttributePointTests(unittest.TestCase):
         eid, data = payload(at.result(0, 3, 51, 2))
         self.assertEqual((eid, struct.unpack("<iiiii", data)), (0x2D9, (0, 3, 0, 51, 2)))
         self.assertEqual(payload(at.set_pool(7)), (0x2DA, struct.pack("<ii", 7, 0)))
+
+
+class CraftAttributeTests(unittest.TestCase):
+    def test_codes_and_level_grant(self):
+        import attributes as at
+        alloc = {}
+        self.assertEqual(at.allocate("reasoning", at.ONE, 2, alloc, at.CRAFTING), (1, 28))
+        self.assertEqual(at.allocate("finesse", at.MAX, 2, alloc, at.CRAFTING), (1, 29))
+        self.assertEqual(at.allocate("ingenuity", at.ONE, 2, alloc, at.CRAFTING), (0, at.NO_POINTS))
+        self.assertEqual(at.allocate("strength", at.ONE, 9, alloc, at.CRAFTING), (0, at.NOT_ALLOWED))
+        p = types.SimpleNamespace(spheres={"1": [1, 990]}, craft_alloc={})
+        msgs = zone.gain_sphere_xp(p, zone.CRAFTING, 20)
+        self.assertEqual([payload(m)[0] for m in msgs], [0x713, 0x2DA, 0x2DB])
+        self.assertEqual(payload(msgs[1])[1], struct.pack("<ii", 2, 1))

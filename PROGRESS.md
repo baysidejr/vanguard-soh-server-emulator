@@ -44,6 +44,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 
 ## Done
 
+- 2026-10-15: Crafting attribute points. Problem Solving, Reasoning, Ingenuity and Finesse are now on the crafting tab with their own pool (2 points per crafting level, granted on crafting level up). Seen live; unit test CraftAttributeTests.
 - 2026-10-15: Attribute points. An agent decoded 0x2da (pool), 0xe4 (+ / Max), 0x2d9 (result) and 0x2db (gained). The Attributes tab now shows the points (2 per level), and + / Max raise attributes up to the cap with the client's own messages. Saved and verified live, including after a relog. Unit test AttributePointTests; docs/MSGSCORE.md.
 - 2026-10-15: Outposts. 0x552 {bool8} bInOutpost shows the Outpost icon (a small tower) on the portrait. The server turns it on inside content/outposts.json areas (the two camps) and off outside. The icon starts visible while the flag starts false, and the client only redraws on a change, so the first update outside sends on, then off, about 5 s after entering the world. Seen live; unit test OutpostTests.
 - 2026-10-14: Merged crowdsourced/archive-collection into main at the user's request (59dbb21): 912 files, mostly crowdsourced/raw and reviewed data plus the collection tools. No conflicts; server tests 181 OK, crowdsourced tests 133 OK, CI green.

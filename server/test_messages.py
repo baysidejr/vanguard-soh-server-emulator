@@ -317,8 +317,9 @@ class SphereTests(unittest.TestCase):
         p = P()
         msgs = zone.gain_sphere_xp(p, zone.CRAFTING, 2100)
         self.assertEqual(zone.sphere(p, zone.CRAFTING), [3, 100])
-        self.assertEqual(len(msgs), 2)
-        self.assertEqual(msgs[-1][10:], struct.pack("<ii", 3, 1))
+        levels = [m for m in msgs if struct.unpack_from("<I", m, 2)[0] == 0x713]   # plus 0x2da / 0x2db
+        self.assertEqual(len(levels), 2)
+        self.assertEqual(levels[-1][10:], struct.pack("<ii", 3, 1))
 
 class QuestIconTests(unittest.TestCase):
     def test_npc_icon(self):

@@ -103,6 +103,8 @@ def handle_unreal(send, state, payload, args):
             send(m)
         import attributes
         send(attributes.set_pool(attributes.pool(player.level_number, getattr(player, "attr_alloc", {}))))
+        send(attributes.set_pool(attributes.pool(sphere(player, CRAFTING)[0], getattr(player, "craft_alloc", {})),
+                                 attributes.CRAFTING))
         print("  <- ZONE events 0x2d5/0x2d4 (stats)")
         for m in inventory_messages(player):
             send(m)
@@ -393,6 +395,11 @@ def gain_sphere_xp(player, which, amount):
         lv[1] -= SPHERE_XP_PER_LEVEL
         lv[0] += 1
         out.append(zone_event(0x713, struct.pack("<ii", lv[0], which)))   # "Your Crafting level is now 2."
+    if out and which == CRAFTING:
+        import attributes                # crafting attribute points come with crafting levels
+        out.append(attributes.set_pool(attributes.pool(lv[0], getattr(player, "craft_alloc", {})),
+                                       attributes.CRAFTING))
+        out.append(attributes.gained(attributes.CRAFTING))
     return out
 
 
@@ -826,9 +833,14 @@ def stat_messages(player):
     for sid, value, subtype in player.skills:
         recs.append(vgmsg.stat_info(sid, value, kind=2, subtype=subtype, maximum=SKILL_CAP))
     recs.append(vgmsg.stat_info(vgmsg.STAT_IDS["breath"], BREATH_MAX, kind=5, maximum=BREATH_MAX))
+    import attributes
+    craft_alloc = getattr(player, "craft_alloc", None) or {}
+    recs += attributes.craft_records(craft_alloc)
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
         out.append(attribute_update(player, name))
+    for name in attributes.CRAFT_STATS:
+        out.append(attributes.craft_update(name, craft_alloc))
     return out
 
 

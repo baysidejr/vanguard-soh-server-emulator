@@ -20,7 +20,13 @@ import struct
 ALLOCATE = 0xE4
 SET_POOL, RESULT, GAINED = 0x2DA, 0x2D9, 0x2DB
 ONE, MAX = 1, 3
-ADVENTURING = 0
+ADVENTURING, CRAFTING = 0, 1
+# Crafting attributes (category 1 stat records; the crafting tab of the character window):
+# stat id, and the order of their result codes 28-31 (raised) and 32-35 (can't raise).
+CRAFT_STATS = {"problem_solving": 42, "reasoning": 151, "ingenuity": 234, "finesse": 239}
+CRAFT_ORDER = ("reasoning", "finesse", "ingenuity", "problem_solving")
+CRAFT_RAISED, CRAFT_RAISE_FAILED = 28, 32
+CRAFT_BASE = 20
 POINTS_PER_LEVEL = 2
 CAP_PER_LEVEL = 1
 # Result codes 0-5 (raised) and 6-11 (can't raise) run in this order (FUN_00575100).
@@ -45,28 +51,43 @@ def cap(level):
     return CAP_PER_LEVEL * level
 
 
-def set_pool(points):
-    return _event(SET_POOL, struct.pack("<ii", points, ADVENTURING))
+def set_pool(points, category=ADVENTURING):
+    return _event(SET_POOL, struct.pack("<ii", points, category))
 
 
-def gained():
-    return _event(GAINED, bytes([ADVENTURING]))
+def gained(category=ADVENTURING):
+    return _event(GAINED, bytes([category]))
 
 
-def result(code, stat_id, new_value, points):
-    return _event(RESULT, struct.pack("<iiiii", code, stat_id, ADVENTURING, new_value, points))
+def result(code, stat_id, new_value, points, category=ADVENTURING):
+    return _event(RESULT, struct.pack("<iiiii", code, stat_id, category, new_value, points))
 
 
-def allocate(name, mode, level, alloc):
+def allocate(name, mode, level, alloc, category=ADVENTURING):
     """(points added, result code) for a + (ONE) or Max (MAX) press on attribute name."""
-    if name not in ORDER:
+    order, raised, failed = ((CRAFT_ORDER, CRAFT_RAISED, CRAFT_RAISE_FAILED) if category == CRAFTING
+                             else (ORDER, 0, RAISE_FAILED))
+    if name not in order:
         return 0, NOT_ALLOWED
     left = pool(level, alloc)
     if left <= 0:
         return 0, NO_POINTS
     room = cap(level) - alloc.get(name, 0)
     if room <= 0:
-        return 0, RAISE_FAILED + ORDER.index(name)
+        return 0, failed + order.index(name)
     n = min(left, room) if mode == MAX else 1
     alloc[name] = alloc.get(name, 0) + n
-    return n, ORDER.index(name)
+    return n, raised + order.index(name)
+
+
+def craft_records(alloc):
+    """0x2d5 stat records (category 1, attribute) of the crafting attributes."""
+    import vgmsg
+    return [vgmsg.stat_info(sid, CRAFT_BASE + alloc.get(name, 0), category=CRAFTING, kind=1,
+                            maximum=CRAFT_BASE + alloc.get(name, 0)) for name, sid in CRAFT_STATS.items()]
+
+
+def craft_update(name, alloc):
+    import vgmsg
+    value = CRAFT_BASE + alloc.get(name, 0)
+    return _event(0x2D4, vgmsg.stat_update(CRAFT_STATS[name], value, category=CRAFTING))
