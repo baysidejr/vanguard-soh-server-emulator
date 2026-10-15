@@ -20,6 +20,24 @@ from upackage import Package
 DEFAULT_PACKAGES = ["Core", "Engine", "SGOUnrealAbstractionLayer"]
 
 
+def fx_packages(client_dir):
+    """The FX* packages among the client's own ServerPackages (bin/sysconfig.ini), in order.
+    The client loads only the packages the server announces, and effects such as the loot
+    sparkle (FXspells) and quest-node particles (FXmystical) find their emitter class by
+    name among loaded packages, so these follow the defaults (after them, so the indices of
+    everything before stay the same)."""
+    out = []
+    try:
+        with open(os.path.join(client_dir, "bin", "sysconfig.ini"), encoding="utf-8", errors="replace") as f:
+            for line in f:
+                key, _, value = line.strip().partition("=")
+                if key == "ServerPackages" and value.startswith("FX") and value not in out and                         os.path.exists(os.path.join(client_dir, "UnrealScript", value + ".u")):
+                    out.append(value)
+    except OSError:
+        pass
+    return out
+
+
 def find_map(client_dir, level):
     """Path of a level package (<level>.vgr) in the client's map folder."""
     maps = os.path.join(client_dir, "Assets", "Maps")
@@ -34,7 +52,9 @@ class PackageMap:
     from package-map entry 0 (a Core-first map made it look for 'Level
     Core.MyLevel' and quit with a version-mismatch error)."""
 
-    def __init__(self, client_dir, level, names=DEFAULT_PACKAGES):
+    def __init__(self, client_dir, level, names=None):
+        if names is None:
+            names = DEFAULT_PACKAGES + fx_packages(client_dir)
         level_path = find_map(client_dir, level)
         self.packages = [(level, Package(level_path), os.path.basename(level_path))]
         for name in names:

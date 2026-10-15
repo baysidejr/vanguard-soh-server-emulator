@@ -168,7 +168,7 @@ client → HELLO REVISION=0 MINVER=3151 VER=3186
 server → CHALLENGE VER=3186 CHALLENGE=12345 STATS=0
 client → LOGIN
 server → USES GUID=... PKG=chunk_n19_12 ... FNAME=chunk_n19_12.vgr   (level package first)
-server → USES ... Core / Engine / SGOUnrealAbstractionLayer
+server → USES ... Core / Engine / SGOUnrealAbstractionLayer, then the 38 FX* packages from bin/sysconfig.ini ServerPackages (FXfire ... FXweather)
 server → WELCOME LEVEL=chunk_n19_12 LONE=0
 client → JOIN                      (log: "INITIAL LEVEL LOAD COMPLETE", "Sending join.")
 client → zone event 0x71 BECOME_PC (20 bytes: ff×8, then zeros)
@@ -178,7 +178,7 @@ server → actor channel 1 open: Engine.PlayerController at a PlayerStart, bNetO
 
 The client never sends UE2 acks: the UE2 stream rides on UdpLibrary's reliable channel.
 
-**Package map.** `UNetPendingLevel::NotifyReceivedText` (`FUN_009677e0`) builds the client's package map only from `USES GUID=<4×u32 hex> PKG=<name> FLAGS=<flags> SIZE=<bytes> GEN=<generations> FNAME=<file>` lines received before WELCOME. WELCOME checks that each package exists locally with that GUID. The level is loaded from entry 0, so the level package must come first (with Core first the client quit with "Version mismatch … Level Core.MyLevel"). `server/upackage.py` reads GUIDs, generations and export tables from the player's own files (version 129, licensee 35; `UObject` is 0x30 bytes in this build).
+**Package map.** `UNetPendingLevel::NotifyReceivedText` (`FUN_009677e0`) builds the client's package map only from `USES GUID=<4×u32 hex> PKG=<name> FLAGS=<flags> SIZE=<bytes> GEN=<generations> FNAME=<file>` lines received before WELCOME. WELCOME checks that each package exists locally with that GUID. The level is loaded from entry 0, so the level package must come first (with Core first the client quit with "Version mismatch … Level Core.MyLevel"). `server/upackage.py` reads GUIDs, generations and export tables from the player's own files (version 129, licensee 35; `UObject` is 0x30 bytes in this build). Since 2026-10-15 the FX* packages of the client's own `ServerPackages` list follow the three defaults (`packagemap.fx_packages`): the client loads only announced packages, and effects such as the quest-node particles find their emitter class by name. They come after the defaults, so earlier object indices don't change; MaxObjectIndex grows from about 10k to 21,518. check_all 7/7 with them.
 
 **Object references** (`UPackageMapLevel::SerializeObject`, `FUN_00953ad0`): 1 bit (1 = actor, by channel index SerializeInt(1024)); otherwise SerializeInt(index, MaxObjectIndex), where index = sum of earlier packages' export counts + the export index.
 

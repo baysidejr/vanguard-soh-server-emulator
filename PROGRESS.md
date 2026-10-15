@@ -10,6 +10,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Last test results
 
+- 2026-10-15 (FX packages in the package map): tools/check_all.py --client 7 of 7 passed (unit 211, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after escrow, loot sparkle, unlock lines, action announcements): tools/check_all.py --client 7 of 7 passed (unit 208, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS). A first run failed the trade scenario: bot bags full (fixed in loadtest setup).
 - 2026-10-15 (escrow): unit tests OK (206), content OK; escrow checked live.
 - 2026-10-15 (loot sparkle): unit tests OK (205), content OK; live: client sparkle handlers hit on death and on looting empty.
@@ -53,6 +54,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: The package map now announces the client's FX* ServerPackages (38, after the defaults). Quest nodes also set m_bShowIOParticle, the client's gate for the particles (found with winbreak); the attach call now runs, though the particles are still not visible in screenshots.
 - 2026-10-15: Quest harvest nodes: harvest nodes whose item a current quest step still needs get 0x56a (mystical particles), and 0x56b when the bags hold enough or the node is depleted. The client handlers run (winbreak), but the particles were not visible, as with the loot sparkle. Unit test QuestNodeTests.
 - 2026-10-15: NPC speech: mobs.json `chatter` lines are said now and then to players within 1500 units ("Thestran Guard says, Another quiet watch...", seen live), and `aggro_say` when an NPC notices a player. Placeholder lines on four NPCs. Unit test ChatterTests.
 - 2026-10-15: NPC greeting voices: every NPC dialog sends 0x581 with the greeting kind (quester, quest progress, trainer, merchant, general); the client plays the NPC voice set's line. Handler checked with winbreak (Orin: MerchantGreet). Unit test GreetTests.

@@ -6842,10 +6842,21 @@ def refresh_quest_nodes(state, have):
         if on and npc.entity_id not in lit:
             lit.add(npc.entity_id)
             print(f"  <- quest node: {npc.name} ({npc.entity_id:#x}) for {player.name}")
+            quest_node_flag(state, npc, True)
             state["send"](zone.zone_event(QUEST_NODE_ON, struct.pack("<Q", npc.entity_id)))
         elif not on and npc.entity_id in lit:
             lit.discard(npc.entity_id)
+            quest_node_flag(state, npc, False)
             state["send"](zone.zone_event(QUEST_NODE_OFF, struct.pack("<Q", npc.entity_id)))
+
+
+def quest_node_flag(state, npc, on):
+    """The client only attaches the particles to a pawn whose m_bShowIOParticle (SGONPCPawn,
+    bit 0 of pawn +0xb18) is set (FUN_0058ddf0, checked with winbreak); this player only."""
+    if "ue" in state:
+        m = zone.npc_update(state, ARGS, npc, {"m_bShowIOParticle": int(on)})
+        if m is not None:
+            state["send"](m)
 
 
 def quest_items_changed(state):
