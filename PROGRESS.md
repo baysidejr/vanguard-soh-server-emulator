@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Last test results
 
+- 2026-10-15 (after message reclassification): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after builder undo/GM access/audit, loadtest fix): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.2 ms, fuzz clean, smoke PASS). The run before failed only the unit tests, intermittently (third time today, each time right after a live client/server); 12 reruns passed. check_all now names the failing test and keeps the output in server/check_unit_failure.txt.
 - 2026-10-15 (after the in-game builder, second plot, soak): tools/check_all.py --client 7 of 7 passed (unit 218, load p95 11.2 ms, fuzz clean, smoke PASS). 50-bot soak: memory flat at 220 MB, CPU 34% of a core (docs/TESTING.md).
 - 2026-10-15 (after prestige factions, faction list fix, row casts, validation): tools/check_all.py --client 7 of 7 passed (unit 217, load p95 11.3 ms, fuzz clean, smoke PASS).
@@ -59,6 +60,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Reviewed 11 more unsent messages: 0x6ee (brotherhood XP sharing), 0x1df (item rename, seen live), inventory 0x198/0x1af/0x1bc/0x1d8 (item updates, not list refreshes), loot and effects refreshes; all variants. 638/720 (88%). The intermittent unit failure did not reproduce under a 50-bot load (6 runs).
 - 2026-10-15: `!mobs [filter]` lists mob keys for the builder.
 - 2026-10-15: Builder commands work for characters with access_level >= 1 on any server (other ! commands still need --dev-commands); unit test BuilderAccessTests.
 - 2026-10-15: CPU question settled: the 2026-10-14 server uses the same CPU under the same load (9.6 vs 9.7 s per 30 s), so nothing regressed. tools/loadtest.py now passes --data-dir to its child processes (they ignored it with --procs > 1).
