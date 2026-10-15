@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 505 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 79 |
-| variant | 63 |
+| optional | 78 |
+| variant | 64 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 641 of 720 (89%). Still open: 79 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 642 of 720 (89%). Still open: 78 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -54,7 +54,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 641 of 720 (89%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x118 | MsgThreeInts | i32, i32, i32 | no-op | class display flags {3 x i32} (ClassShowsSpellDamage / ClassShowsHealingBonus): no shipped UI file reads these game vars (searched VGUIAssets, 2026-10-15) |
-| 0x119 | MsgThreeInts | i32, i32, i32 | optional | adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...); levels reach the client through MsgScore today |
+| 0x119 | MsgThreeInts | i32, i32, i32 | variant | adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...): nAdvLevelSelf is the portrait's level number (VGUIPlayerStatus.xml), which already shows the right level from MsgScore (seen live: 13, 21) |
 | 0x11a | MsgSingleBool | bool8 | optional | bUse250System {bool8}: switches the weapon tooltip and character-sheet haste / dual-wield figures to an alternate formula (FUN_005e1510) [decoded 2026-10-14] |
 | 0x272 | MsgStringAndInt | wstr, i32 | content | raid lockout share offer (Accept / Decline -> /lockoutaccept 0x273); no raid lockouts here |
 | 0x274 | - |  | no-op | the dispatcher returns at once |

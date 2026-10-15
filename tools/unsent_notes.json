@@ -175,8 +175,8 @@
       "class display flags {3 x i32} (ClassShowsSpellDamage / ClassShowsHealingBonus): no shipped UI file reads these game vars (searched VGUIAssets, 2026-10-15)"
     ],
     "0x119": [
-      "optional",
-      "adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...); levels reach the client through MsgScore today"
+      "variant",
+      "adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...): nAdvLevelSelf is the portrait's level number (VGUIPlayerStatus.xml), which already shows the right level from MsgScore (seen live: 13, 21)"
     ],
     "0x11a": [
       "optional",
