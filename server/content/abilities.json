@@ -1,12 +1,18 @@
 {
   "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number; cast: cast time in seconds (moving interrupts). Real numbers were server data (docs/CONTENT_EDITOR.md). stance: true makes a buff a maintained stance (no timer, one stance at a time, shown in the Effects Maintained window; right-click there cancels it).",
   "Adamant Foeman I": {
+    "description": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/adamant-foeman-i",
     "kind": "buff",
     "stat": "constitution",
     "bonus": 15,
     "duration": 45.0
   },
   "Decimate I": {
+    "description": "A devastating melee attack that deals 400% weapon damage plus 57 (67) to 63 (74).",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/decimate-i",
     "kind": "dot",
     "damage": [
       4,
@@ -16,6 +22,9 @@
     "interval": 3.0
   },
   "Deadly Shot I": {
+    "description": "A deadly shot that deals ranged damage plus 25.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/deadly-shot-i",
     "kind": "dot",
     "damage": [
       3,
@@ -26,6 +35,10 @@
     "cast": 2.0
   },
   "Healing Touch I": {
+    "icon": 679,
+    "description": "Heals your defensive target for 117.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/healing-touch-i",
     "kind": "heal",
     "amount": [
       30,
@@ -34,6 +47,9 @@
     "cast": 2.5
   },
   "Regrowth I": {
+    "description": "Heals for 282 initially, then for 218 over 12 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/regrowth-i",
     "kind": "heal",
     "amount": [
       25,
@@ -63,6 +79,10 @@
     "icon": 560
   },
   "Awaken Abomination I": {
+    "icon": 710,
+    "description": "Awakens an abomination to serve your needs.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/awaken-abomination-i",
     "kind": "pet",
     "cast": 3.0,
     "pet": {
@@ -123,6 +143,9 @@
     }
   },
   "Simulacrum I": {
+    "icon": 413,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/simulacrum-i",
     "kind": "pet",
     "cast": 3.0,
     "pet": {
@@ -138,6 +161,9 @@
     }
   },
   "Ritual Animatus I": {
+    "icon": 676,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/ritual-animatus-i",
     "kind": "pet",
     "cast": 4.0,
     "pet": {
@@ -153,8 +179,1722 @@
     }
   },
   "Fear I": {
+    "icon": 702,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/fear-i",
     "kind": "fear",
     "duration": 8.0,
     "cast": 1.5
+  },
+  "Brutal Strike I": {
+    "description": "A powerful attack that increases melee damage by 6.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/brutal-strike-i"
+  },
+  "Devastating Blow I": {
+    "description": "A devastating attack that deals 150% damage plus 31 (32) to 35 (36) to your target. In addition, the target is immobilized for 3 sec.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/devastating-blow-i"
+  },
+  "Savage Cut I": {
+    "description": "A brutal slicing attack that causes your target to bleed, taking 125 damage and adding 1458 hate over 20 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/savage-cut-i"
+  },
+  "Infuriating Shot I": {
+    "description": "A stinging shot that deals 109 to 118 and increases hate by 234.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/infuriating-shot-i"
+  },
+  "Taunting Strike I": {
+    "description": "This attack deals 75% weapon damage plus 11 and instills great anger in your enemy.",
+    "_source": "https://vgsoharchive.com/abilities/taunting-strike-i"
+  },
+  "Riposte I": {
+    "description": "Counterattack after a successful parry, dealing 300% weapon damage plus 48 (52) to 54 (58).",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/riposte-i"
+  },
+  "Power Attack I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/power-attack-i"
+  },
+  "Stunning Bellow I": {
+    "description": "Stuns your opponent for 7 sec or 2 hits.",
+    "_source": "https://vgsoharchive.com/abilities/stunning-bellow-i"
+  },
+  "Taunt I": {
+    "description": "Increases your target's hatred of you by 200.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/taunt-i"
+  },
+  "Stinging Cut I": {
+    "description": "Slashes your opponent for 150% weapon damage, adds 394 hate and leaves a stinging wound which adds an additional 1624 hate over 16 sec.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/stinging-cut-i"
+  },
+  "Shield Bash I": {
+    "description": "You bash the target with your shield, dealing 34 to 40 damage and stunning them for 2 seconds. Greatly increases hate.",
+    "_source": "https://vgsoharchive.com/abilities/shield-bash-i"
+  },
+  "Coercion I": {
+    "description": "Forces the target to focus on you for 2 attacks or 4 seconds and 115 to 123 damage.",
+    "refresh": 60.0,
+    "_source": "https://vgsoharchive.com/abilities/coercion-i"
+  },
+  "Whirlwind I": {
+    "description": "You strike up to 6 targets adjacent to you in a whirl of steel, inflicting melee damage plus 44.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/whirlwind-i"
+  },
+  "Steel Tempest I": {
+    "description": "A finishing attack which hits up to 6 targets adjacent to you, inflicting melee damage plus 224.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/steel-tempest-i"
+  },
+  "Battle Frenzy I": {
+    "description": "A finishing attack which deals 98 to 108 damage and raises your group's attack speed and accuracy by 10% for 30 seconds.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/battle-frenzy-i"
+  },
+  "Enrage I": {
+    "description": "You become enraged, gaining a 15% increase in damage for 18 sec.",
+    "refresh": 120.0,
+    "_source": "https://vgsoharchive.com/abilities/enrage-i"
+  },
+  "Defenseless I": {
+    "description": "A finishing attack which deals 42 to 49 damage and reduces your enemy's armor by 35% for 60 seconds.",
+    "_source": "https://vgsoharchive.com/abilities/defenseless-i"
+  },
+  "Killing Blow I": {
+    "description": "Execute a coup de grace on a wounded opponent. This attack deals 400% weapon damage plus 228 to 242. Target must be below 20% health.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/killing-blow-i"
+  },
+  "Kick I": {
+    "description": "A crushing kick that inflicts 17 (19) to 21 (23) damage and has a chance to stun for 1 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/kick-i"
+  },
+  "Waylay I": {
+    "description": "A savage attack that increases melee damage by 45.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/waylay-i"
+  },
+  "Leap Attack I": {
+    "description": "You leap at your enemy and strike, inflicting 125% weapon damage plus 15.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/leap-attack-i"
+  },
+  "Obliterate I": {
+    "description": "A brutal melee attack that deals 400% weapon damage plus 126 to 136. Only available after performing Decimate.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/obliterate-i"
+  },
+  "Blade's Bite I": {
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/blade-s-bite-i"
+  },
+  "Destroy I": {
+    "description": "A destructive melee attack that deals 400% weapon damage plus 257 to 273. Only available after performing Obliterate",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/destroy-i"
+  },
+  "Cleave I": {
+    "description": "Deals unmitigated damage every 3 seconds. Adds hate every 3 seconds. Increase caste critical chance. Reduce Ennemy's mitigation.",
+    "refresh": 60.0,
+    "_source": "https://vgsoharchive.com/abilities/cleave-i"
+  },
+  "Rend Armor I": {
+    "description": "Rends your opponent's armor, reducing their ability to mitigate damage by 15% for 45 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/rend-armor-i"
+  },
+  "Intimidating Snarl I": {
+    "description": "You emit a terrible snarl, intimidating all opponents within 10m, reducing their damage by 1% for 30 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/intimidating-snarl-i"
+  },
+  "Holy Strike I": {
+    "icon": 563,
+    "description": "Deals normal damage plus 5. Deals an additional 8 to 12 damage to undead and fiends.",
+    "_source": "https://vgsoharchive.com/abilities/holy-strike-i"
+  },
+  "Smite I": {
+    "icon": 687,
+    "description": "Deals 132 to 142 damage and instills your opponent with 197 hatred of you.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/smite-i"
+  },
+  "Devout Foeman I": {
+    "description": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+    "_source": "https://vgsoharchive.com/abilities/devout-foeman-i"
+  },
+  "Champion's Might I": {
+    "description": "Deals 33 to 37 damage to your target and increases your strength by 15 for 5 minutes.",
+    "_source": "https://vgsoharchive.com/abilities/champion-s-might-i"
+  },
+  "Upbraid I": {
+    "icon": 647,
+    "description": "Instills your opponent with 376 hate of you.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/upbraid-i"
+  },
+  "Marshalling Cry I": {
+    "icon": 571,
+    "description": "This war cry emboldens you and your allies, increasing damage by 49 and accuracy by 30% for 10 sec.",
+    "_source": "https://vgsoharchive.com/abilities/marshalling-cry-i"
+  },
+  "Protector's Fury I": {
+    "icon": 421,
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/protector-s-fury-i"
+  },
+  "Sunburst I": {
+    "icon": 533,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/sunburst-i"
+  },
+  "Vothdar's Mighty Strike I": {
+    "icon": 567,
+    "description": "Chain melee attack which grants a group STR buff (5 min) (only available after landing a melee critical hit)",
+    "_source": "https://vgsoharchive.com/abilities/vothdar-s-mighty-strike-i"
+  },
+  "Sentinel's Blessing I": {
+    "icon": 520,
+    "description": "Strikes your target for 66 to 72 damage and surrounds you with a shield that increases your armor class by 86 for 5 min.",
+    "_source": "https://vgsoharchive.com/abilities/sentinel-s-blessing-i"
+  },
+  "Retort I": {
+    "icon": 534,
+    "_source": "https://vgsoharchive.com/abilities/retort-i"
+  },
+  "Blood Oath I": {
+    "icon": 708,
+    "description": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )",
+    "_source": "https://vgsoharchive.com/abilities/blood-oath-i"
+  },
+  "Vanquish I": {
+    "icon": 1054,
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/vanquish-i"
+  },
+  "Contrition I": {
+    "icon": 20745,
+    "description": "A shield strike directed at the attacker of your defensive target that deals 190 to 202 damage and adds 1430 hate over 8 sec.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/contrition-i"
+  },
+  "Shining Beacon I": {
+    "icon": 701,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/shining-beacon-i"
+  },
+  "Vexing Strike I": {
+    "icon": 551,
+    "description": "Deals melee damage plus 6 damage. Increases your Dreadful Countenance. Upon crit, you receive an extra increase to your Dreadful Countenance.",
+    "_source": "https://vgsoharchive.com/abilities/vexing-strike-i"
+  },
+  "Devour Strength I": {
+    "icon": 569,
+    "description": "Reduces your opponent's strength and dexterity by 10, while increasing your strength and dexterity by 10 for 5 minutes.",
+    "_source": "https://vgsoharchive.com/abilities/devour-strength-i"
+  },
+  "Torture I": {
+    "description": "Deals 193 to 205 damage and adds 273 hate over 24 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/torture-i"
+  },
+  "Dark Ward I": {
+    "description": "Blocks 25% of incoming damage for the next 5 incoming attacks or 60 sec.",
+    "_source": "https://vgsoharchive.com/abilities/dark-ward-i"
+  },
+  "Malice I": {
+    "description": "Deals 150% weapon damage plus 17 to 21 damage. Increases your Dreadful Countenance. Deals an extra 18 to 22 damage when flanking with an ally.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/malice-i"
+  },
+  "Frighten I": {
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/frighten-i"
+  },
+  "Wrack I": {
+    "description": "Deals 400% of weapon damage plus 43 to 49. Increases Dreadful Countenance.",
+    "_source": "https://vgsoharchive.com/abilities/wrack-i"
+  },
+  "Bleak Foeman I": {
+    "description": "Raises your chance to block incoming attacks by 100% for 60 sec or until you block or activate another ability. This turns off your auto-attack.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/bleak-foeman-i"
+  },
+  "Harrow I": {
+    "description": "Drains life equal to 200% of your melee damage plus 38 to 44 damage. Only usable from behind.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/harrow-i"
+  },
+  "Provoke I": {
+    "description": "Increases your opponent's hatred of you by 594.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/provoke-i"
+  },
+  "Abyssal Chains I": {
+    "description": "Reduces opponent's movement speed by 70% for 20 to 30 sec.",
+    "_source": "https://vgsoharchive.com/abilities/abyssal-chains-i"
+  },
+  "Incite I": {
+    "description": "Deals melee damage plus 80 and increases your opponent's aggression toward you by 1418.",
+    "_source": "https://vgsoharchive.com/abilities/incite-i"
+  },
+  "Vengeance I": {
+    "description": "Counterattack that deals melee damage plus 54 and stuns your opponent for 3 seconds or 3 hits. Only usable after a block.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/vengeance-i"
+  },
+  "Dreadful Visage I": {
+    "description": "Increases your Dreadful Countenance",
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/dreadful-visage-i"
+  },
+  "Phantasmal Blade I": {
+    "description": "Paralyzes your opponent for 20 to 30 seconds or 1 hit. Only usable from behind. Only usable outside of combat.",
+    "_source": "https://vgsoharchive.com/abilities/phantasmal-blade-i"
+  },
+  "Ravaging Darkness I": {
+    "description": "Deals 50% weapon damage. Drains 80 endurance from an opponent over 8 sec and adds to your Dreadful Countenance over time.",
+    "refresh": 40.0,
+    "_source": "https://vgsoharchive.com/abilities/ravaging-darkness-i"
+  },
+  "Black Wind I": {
+    "description": "Deals melee damage plus 77 to all opponents in front of you. Increases hate by 292. Only usable with a two handed weapon equipped.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/black-wind-i"
+  },
+  "Ruin I": {
+    "description": "Deals 400% of weapon damage plus 175 to 187. Increases Dreadful Countenance. Only usable after Wrack.",
+    "_source": "https://vgsoharchive.com/abilities/ruin-i"
+  },
+  "Despoil I": {
+    "icon": 707,
+    "description": "Strips a lesser enchantment from an opponent.",
+    "_source": "https://vgsoharchive.com/abilities/despoil-i"
+  },
+  "Cull I": {
+    "icon": 534,
+    "description": "Drains 369 to 389 health from an opponent.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/cull-i"
+  },
+  "Devour Mind I": {
+    "description": "Reduces your opponent's intelligence and wisdom by 40, while increasing your intelligence and wisdom by 40 for 5 minutes.",
+    "_source": "https://vgsoharchive.com/abilities/devour-mind-i"
+  },
+  "Inflame I": {
+    "description": "Deals melee damage plus 171 and increases your opponent's aggression toward you by 2868. Only usable after Incite.",
+    "_source": "https://vgsoharchive.com/abilities/inflame-i"
+  },
+  "Dark Bastion I": {
+    "icon": 402,
+    "description": "Deals melee damage plus 198. Increases armor class by 600 for 5 minutes. Only usable after Shield of Fear.",
+    "_source": "https://vgsoharchive.com/abilities/dark-baston-i"
+  },
+  "Ominous Fate I": {
+    "description": "Stuns your opponent for 2 sec or 2 hits. Increases your Dreadful Countenance.",
+    "_source": "https://vgsoharchive.com/abilities/ominous-fate-i"
+  },
+  "Vile Strike I": {
+    "description": "Deals melee damage plus 267 damage and drains 160 to 172 health, returning it in energy to you.",
+    "_source": "https://vgsoharchive.com/abilities/vile-strike-i"
+  },
+  "Backlash I": {
+    "description": "Deals 1736 to 1828 physical damage when you are hit. Lasts for 30 seconds, or until you are hit.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/backlash-i"
+  },
+  "Ferocity I": {
+    "description": "Increases your damage by 30% and increases endurance heal. Lasts 30 sec.",
+    "_source": "https://vgsoharchive.com/abilities/ferocity-i"
+  },
+  "Parry I": {
+    "description": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/parry-i"
+  },
+  "Stalker's Grace I": {
+    "description": "Increases dexterity and constitution by 9 for your defensive target's party.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/stalker-s-grace-i"
+  },
+  "Windsong I": {
+    "description": "Strikes your opponent with a flurry of attacks, dealing melee damage plus 33. Has a chance to add multiple extra attacks.",
+    "_source": "https://vgsoharchive.com/abilities/windsong-i"
+  },
+  "Entangling Web I": {
+    "description": "Reduces opponent's movement speed by 40% for 25 to 35 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/entangling-web-i"
+  },
+  "Critical Shot I": {
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/critical-shot-i"
+  },
+  "Rancor I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/rancor-i"
+  },
+  "Tame I": {
+    "description": "Charms a creature, allowing you to control it for 75 seconds. Only usable on Creatures.",
+    "_source": "https://vgsoharchive.com/abilities/tame-i"
+  },
+  "Cripple I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/cripple-i"
+  },
+  "Thorn Cloak I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/thorn-cloak-i"
+  },
+  "Winter Cloak I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/winter-cloak-i"
+  },
+  "Regress I": {
+    "description": "A waning spell that reduces your opponent's hatred of you by 20% plus 1080.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/regress-i"
+  },
+  "Splitting Arrow I": {
+    "description": "Splits an arrow so that it will hit up to 6 opponents within 10m of your target for 150% weapon damage plus 27 to 31.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/splitting-arrow-i"
+  },
+  "Sweeping Strike I": {
+    "description": "An arcing strike that deals 37 to 43 damage to all opponents in front of you.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/sweeping-strike-i"
+  },
+  "Intercept I": {
+    "description": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/intercept-i"
+  },
+  "Poison Shot I": {
+    "description": "Shoots a poisoned arrow that deals 1855 to 1953 damage over 20 secs.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/poison-shot-i"
+  },
+  "Destructive Swarm I": {
+    "icon": 662,
+    "description": "Deals 876 to 923 over 32 sec and reduces accuracy by 5% for 32 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/desctructive-swarm-i"
+  },
+  "Barbshroud I": {
+    "description": "Covers your defensive target's party in a shroud of barbs, reflecing 21 to 24 physical damage upon attackers.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/barbshroud-i"
+  },
+  "Debilitating Shot I": {
+    "icon": 603,
+    "description": "A hindering shot that reduces attack and casting speed by 20% for 10 attacks or spell casts.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/debilitating-shot-i"
+  },
+  "Scare Creature I": {
+    "icon": 685,
+    "description": "Frightens a creature or fey and causes it to run from you for 15 sec. Only usable on Creatures and Fey.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/scare-creature-i"
+  },
+  "Nature's Remedy I": {
+    "description": "Removes a lesser poison and lesser disease from an ally.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/nature-s-remedy-i"
+  },
+  "Shocking Arrow I": {
+    "description": "An electrified shot that deals 200% weapon damage plus 37 to 43. Has a chance to stun your opponent for 3 sec.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/shocking-arrow-i"
+  },
+  "Dawn Arrow I": {
+    "description": "Deals 400% weapon damage plus 104 to 111.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/dawn-arrow-i"
+  },
+  "Dusk Arrow I": {
+    "icon": 20724,
+    "description": "Deals 2573 to 2708 damage over 36 seconds. Lowers movement by 60%.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/dusk-arrow-i"
+  },
+  "Hurricane I": {
+    "icon": 657,
+    "description": "A flurry of charged attacks that deal 337 damage to all opponents within 10m. Damage increases the closer your opponent is to you.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/hurricane-i"
+  },
+  "Stunning Shot I": {
+    "icon": 568,
+    "description": "Fires an arrow with such force it stuns your opponent for 3 seconds. Deals 393 to 415 damage if you are in Style of Precision.",
+    "_source": "https://vgsoharchive.com/abilities/stunning-shot-i"
+  },
+  "Envenomed Strike I": {
+    "icon": 542,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/envenomed-strike-i"
+  },
+  "Fleetblade I": {
+    "description": "A quick attack that deals 50% weapon damage plus 41 to 47 damage and has a 20% chance to score a critical hit.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/fleetblade-i"
+  },
+  "Freeze I": {
+    "description": "Encases the target with ice dealing 637 to 676 damage and making them immobile for 6 sec.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/freeze-i"
+  },
+  "Wicked Strike I": {
+    "description": "A cruel strike that inflicts melee damage plus 8.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/wicked-strike-i"
+  },
+  "Lacerate I": {
+    "description": "Slashes your target, inflicting 210 to 224 damage over 15 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/lacerate-i"
+  },
+  "Keen Eye I": {
+    "icon": 647,
+    "description": "Increases your damage by 25, your accuracy by 6% and your critical chance by 8% for 12 sec.",
+    "refresh": 54.0,
+    "_source": "https://vgsoharchive.com/abilities/keen-eye-i"
+  },
+  "Backstab I": {
+    "refresh": 7.2,
+    "_source": "https://vgsoharchive.com/abilities/backstab-i"
+  },
+  "Pickpocket I": {
+    "description": "This ability allows you to pick the pocket of your target. This will occasionally result in usable or crafting items.",
+    "refresh": 5.0,
+    "_source": "https://vgsoharchive.com/abilities/pickpocket-i"
+  },
+  "Hemorrhage I": {
+    "description": "Cuts your foe deeply, causing 620 to 654 damage over 30 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/hemorrhage-i"
+  },
+  "Ravage I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/ravage-i"
+  },
+  "Drub I": {
+    "icon": 529,
+    "description": "Disorients your target, lowering its hatred of you by 540.",
+    "refresh": 5.4,
+    "_source": "https://vgsoharchive.com/abilities/drub-i"
+  },
+  "Shank I": {
+    "icon": 705,
+    "refresh": 18.0,
+    "_source": "https://vgsoharchive.com/abilities/shank-i"
+  },
+  "Blackjack I": {
+    "icon": 734,
+    "refresh": 27.0,
+    "_source": "https://vgsoharchive.com/abilities/blackjack-i"
+  },
+  "Elusive Mark I": {
+    "icon": 561,
+    "description": "Increases your ability to parry attacks by 50% for 12 sec.",
+    "refresh": 54.0,
+    "_source": "https://vgsoharchive.com/abilities/elusive-mark-i"
+  },
+  "Death Whirl I": {
+    "icon": 443,
+    "description": "75% damage to all nearby opponents and if you have their back plus 200 to 214 damage",
+    "_source": "https://vgsoharchive.com/abilities/death-whirl-i"
+  },
+  "Trick Attack I": {
+    "icon": 20750,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/trick-attack-i"
+  },
+  "Fatal Stroke I": {
+    "icon": 538,
+    "description": "A killing blow that increases melee damage by 399 to a dying target.",
+    "refresh": 27.0,
+    "_source": "https://vgsoharchive.com/abilities/fatal-stroke-i"
+  },
+  "Vital Strikes I": {
+    "icon": 412,
+    "description": "Increases your critical chance by 100% for 6 sec.",
+    "_source": "https://vgsoharchive.com/abilities/vital-strikes-i"
+  },
+  "Deadly Strike I": {
+    "icon": 726,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/deadly-strike-i"
+  },
+  "Impale I": {
+    "icon": 427,
+    "description": "Impales your opponent, creating a massive wound which causes 1287 to 1357 damage over 30 sec. Only available after performing Hemorrhage.",
+    "refresh": 18.0,
+    "_source": "https://vgsoharchive.com/abilities/impale-i"
+  },
+  "Shiv I": {
+    "icon": 694,
+    "refresh": 18.0,
+    "_source": "https://vgsoharchive.com/abilities/shiv-i"
+  },
+  "Knee Break I": {
+    "description": "A stomping kick that inflicts 17 to 21 damage and reduces your foe's movement by 70% for 20 sec.",
+    "refresh": 7.2,
+    "_source": "https://vgsoharchive.com/abilities/knee-break-i"
+  },
+  "Feint I": {
+    "description": "You feint, preventing your target from attacking for 1 sec.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/feint-i"
+  },
+  "Revenge I": {
+    "description": "Counterattack after a successful parry, dealing 150% weapon damage plus 26 to 30.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/revenge-i"
+  },
+  "Cleave the Mountain I": {
+    "icon": 571,
+    "description": "A powerful over hand attack that deals 300% weapon damage plus 116 to 126. Only available after performing Hewing the Mountain.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/cleave-the-mountain-i"
+  },
+  "Cyclone Tears the Sky I": {
+    "icon": 495,
+    "description": "In a whirl, you inflict melee damage plus 172 to all opponents within 8m. Only available after performing Split the Clouds.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/cyclone-tears-the-sky-i"
+  },
+  "Hewing the Mountain I": {
+    "description": "A powerful over hand attack that deals 300% weapon damage plus 53 to 59 and stuns for 3 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/hewing-the-mountain-i"
+  },
+  "Split the Clouds I": {
+    "icon": 667,
+    "description": "In a whirl of blades, you inflict melee damage plus 119 to all opponents within 8m.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/split-the-clouds-i"
+  },
+  "Fox Overtakes the Hare I": {
+    "icon": 1054,
+    "description": "Enables you to deal a killing blow, inflicting 400% weapon damage plus 206 - 220 and rooting the target in place for 6 seconds",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/fox-overtakes-the-hare-i"
+  },
+  "Razor Parts Silk I": {
+    "icon": 538,
+    "description": "A strong rending strike that reduces mitigation by 15% and inflicts 154 to 166 damage over 24 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/razor-parts-silk-i"
+  },
+  "Sever the Tie I": {
+    "icon": 536,
+    "description": "A rapid slashing attack that deals melee damage plus 6.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/sever-the-tie-i"
+  },
+  "Swirl of the Tempest I": {
+    "icon": 20749,
+    "description": "In a quick flash you inflict 75% weapon damage plus 27 to 31 to all opponents in front of you.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/swirl-of-the-tempest-i"
+  },
+  "Thread the Needle I": {
+    "description": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 15 for 30 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/thread-the-needle-i"
+  },
+  "Humming Blade I": {
+    "icon": 429,
+    "description": "Increases your melee damage by 6. Reduces total energy by 20% while active.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/humming-blade-i"
+  },
+  "Echoing Cut I": {
+    "icon": 419,
+    "description": "Counterattack after a successful parry, dealing 150% weapon damage plus 21 to 25. Only usable after you parry.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/echoing-cut-i"
+  },
+  "Hinder I": {
+    "description": "Intercepts an enemy who is attacking your defensive target. Deals 150% weapon damage plus 34 to 38 and adds 246 hate.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/hinder-i"
+  },
+  "Hummingbird Darts In I": {
+    "description": "A penetrating thrust that reduces arcane resistance by 28 and deals 445 to 471 damage over 36 sec.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/hummingbird-darts-in-i"
+  },
+  "Iron Hand I": {
+    "description": "Your hands and weapons become hard as iron, increasing the damage done by all melee attacks by 5.",
+    "_source": "https://vgsoharchive.com/abilities/iron-hand-i"
+  },
+  "Boundless Fist I": {
+    "icon": 706,
+    "description": "A powerful attack that deals melee damage plus 10 damage. Increases Jin by 1.",
+    "_source": "https://vgsoharchive.com/abilities/boundless-fist-i"
+  },
+  "Ashen Hand I": {
+    "icon": 687,
+    "description": "Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44.",
+    "_source": "https://vgsoharchive.com/abilities/ashen-hand-i"
+  },
+  "Jin Surge I": {
+    "icon": 534,
+    "description": "A surge of Jin envelops allies within 10m, increasing the damage of their next 3 attacks by 33.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/jin-surge-i"
+  },
+  "Crescent Kick I": {
+    "icon": 626,
+    "description": "A kick attack that deals 24 to 28 damage. Increases Jin by 2.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/crescent-kick-i"
+  },
+  "Swaying Step I": {
+    "icon": 440,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/swaying-step-i"
+  },
+  "Flying Kick I": {
+    "icon": 595,
+    "description": "A devastating kick that hammers your opponent, inflicting melee damage plus 131. Increases Jin by 1. A finishing attack.",
+    "_source": "https://vgsoharchive.com/abilities/flying-kick-i"
+  },
+  "Stinging Backfist I": {
+    "description": "Counterattack after a successful dodge, quickly backhanding for 200% weapon damage plus 33 to 37.",
+    "_source": "https://vgsoharchive.com/abilities/stinging-backfist-i"
+  },
+  "Whirling Storm I": {
+    "description": "You become a whirling storm, inflicting melee damage plus 19 to all opponents within 10m. Increases Jin by 1.",
+    "_source": "https://vgsoharchive.com/abilities/whirling-storm-i"
+  },
+  "Secret of Flames I": {
+    "icon": 590,
+    "_source": "https://vgsoharchive.com/abilities/secret-of-flames-i"
+  },
+  "Ignore Pain I": {
+    "description": "Heals you for 25% of your base hit points and allows you to ignore 20% of the damage inflicted on you for 20 sec.",
+    "_source": "https://vgsoharchive.com/abilities/ignore-pain-i"
+  },
+  "Thousand Fists I": {
+    "description": "Unleashes a flurry of blows on your opponent, striking multiple times for melee damage plus 49. Increases Jin by 1.",
+    "_source": "https://vgsoharchive.com/abilities/thousand-fists-i"
+  },
+  "Goading Slap I": {
+    "description": "Deals 55 to 61 damage and causes your opponent to have 250 additional hatred for your defensive target.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/goading-slap-i"
+  },
+  "Feet of the Fire Dragon I": {
+    "description": "Flames surround your feet, burning your opponent for 161 to 173 damage over 16 seconds Increases Jin by 1",
+    "_source": "https://vgsoharchive.com/abilities/feet-of-the-fire-dragon-i"
+  },
+  "Staggering Punch I": {
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/staggering-punch-i"
+  },
+  "Eagle Claw I": {
+    "description": "Tears through your opponents armor, inflicting 66 to 72 damage and reducing mitigation by 15% for 18 seconds. Increases Jin by 1.",
+    "_source": "https://vgsoharchive.com/abilities/eagle-claw-i"
+  },
+  "Dragon's Rage I": {
+    "description": "A precise attack that deals 54 to 60 damage, but will always result in a critical hit",
+    "refresh": 300.0,
+    "_source": "https://vgsoharchive.com/abilities/dragon-s-rage-i"
+  },
+  "Quivering Palm I": {
+    "description": "Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15 sec. A counterattack.",
+    "_source": "https://vgsoharchive.com/abilities/quivering-palm-i"
+  },
+  "Divine Typhoon I": {
+    "description": "You become like a typhoon, striking your opponent for melee damage plus 309. Increases Jin by 1. A finishing attack.",
+    "_source": "https://vgsoharchive.com/abilities/divine-typhoon-i"
+  },
+  "Foolhardy Swagger I": {
+    "description": "Increases the hate of all opponents within 10m of your defensive target by 10%.",
+    "_source": "https://vgsoharchive.com/abilities/foolhardy-swagger-i"
+  },
+  "Reed in the Wind I": {
+    "icon": 443,
+    "_source": "https://vgsoharchive.com/abilities/reed-in-the-wind-i"
+  },
+  "Thundering Fists I": {
+    "description": "You pound your opponent with mighty strikes, hitting 3 times for melee damage plus 84. Only available after executing Thousand Fists. Increases Jin by 1.",
+    "_source": "https://vgsoharchive.com/abilities/thundering-fists-i"
+  },
+  "Clumsy Whirl I": {
+    "description": "A whirling counter attack used after you dodge an opponent's attack. Deals melee damage plus 203 to enemies withing 10m.",
+    "_source": "https://vgsoharchive.com/abilities/clumsy-whirl-i"
+  },
+  "Steal the Wind I": {
+    "description": "Counterattack after a successful dodge, inflicting 292 to 310 damage and slowing your opponent's attack speed by 15% while increasing your's by 15%",
+    "_source": "https://vgsoharchive.com/abilities/steal-the-wind-i"
+  },
+  "Divine Avalanche I": {
+    "description": "You become like a mighty avalanche, striking your opponent for melee damage plus 512. Increases Jin by 1. An adventuring finishing attack.",
+    "_source": "https://vgsoharchive.com/abilities/divine-avalanche-i"
+  },
+  "Cloud Dragon's Ruse I": {
+    "refresh": 300.0,
+    "_source": "https://vgsoharchive.com/abilities/cloud-dragon-s-ruse-i"
+  },
+  "Celestial Breeze I": {
+    "description": "Heals all allies within 10m for 555.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/celestial-breeze-i"
+  },
+  "Blooming Ridge Hand I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/blooming-ridge-hand-i"
+  },
+  "Dodge I": {
+    "description": "Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/dodge-i"
+  },
+  "Astral Wind I": {
+    "description": "Heals an ally for 627.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/astral-wind-i"
+  },
+  "Blessed Wind I": {
+    "icon": 598,
+    "description": "A graceful attack that deals 50% weapon damage plus 10 to 14. Heals your defensive target for 65 over 8 sec. Increases Jin by 1.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/blessed-wind-i"
+  },
+  "Soul Cutter I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/soul-cutter-i"
+  },
+  "Ra'Jin Flare I": {
+    "description": "Channels a flare of Ra'Jin into your shuriken, dealing 300% damage plus 623 to 657 damage to an opponent.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/ra-jin-flare-i"
+  },
+  "Void Hand I": {
+    "icon": 687,
+    "description": "A brutal attack that deals normal damage plus 7. Increases Jin by 1.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/void-hand-i"
+  },
+  "Lao'Jin Flare I": {
+    "icon": 680,
+    "description": "Heals an ally for 314.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/lao-jin-flare-i"
+  },
+  "Impenetrable Mind I": {
+    "description": "Fortifies the minds of your defensive target's party by increasing their mental resistance by 105 for 1 hour.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/impenetrable-mind-i"
+  },
+  "Falling Petal I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/falling-petal-i"
+  },
+  "Paralyzing Touch I": {
+    "description": "Counterattack that paralyzes your opponent for 30 sec or until they are hit. Only usable after a feint.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/paralyzing-touch-i"
+  },
+  "Leech's Grasp I": {
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/leech-s-grasp-i"
+  },
+  "Essence Thief I": {
+    "icon": 685,
+    "description": "Strikes at the essence of your opponent, dealing 323 to 343 damage and draining 283 to 301 energy.",
+    "_source": "https://vgsoharchive.com/abilities/essence-thief-i"
+  },
+  "White Lotus Strike I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/white-lotus-strike-i"
+  },
+  "Sage's Endowment I": {
+    "description": "Forms a bound with an ally, transfering them a portion of your energy over time.",
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/sage-s-endowment-i"
+  },
+  "Knife Hand I": {
+    "description": "A cutting attack that deals 896 to 946 damage over 16 sec. Increases Jin by 1.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/knife-hand-i"
+  },
+  "Cyclone Kick I": {
+    "description": "A whirling kick that deals 300% weapon damage plus 58 to 64. Has an increased chance to score a critical hit.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/cyclone-kick-i"
+  },
+  "Concordant Hand I": {
+    "description": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 76 to 82 and heals your allies for 555. Increases Jin by 1.",
+    "_source": "https://vgsoharchive.com/abilities/concordant-hand-i"
+  },
+  "Sun Fist I": {
+    "description": "Counterattack dealing 200% weapon damage plus 82 to 90. Increases Jin by 3. Can only be used after a dodge.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/sun-fist-i"
+  },
+  "Inner Focus I": {
+    "description": "Grants inner focus to an ally, increasing Jin by 1 every 10 sec for 5 minutes.",
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/inner-focus-i"
+  },
+  "Baiting Strike I": {
+    "description": "Causes your opponent to feel 1753 more hatred for your defensive target.",
+    "_source": "https://vgsoharchive.com/abilities/baiting-strike-i"
+  },
+  "Mindless Clutch I": {
+    "description": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/mindless-clutch-i"
+  },
+  "Anathema I": {
+    "icon": 671,
+    "description": "Divine power smashes your target, inflicting 45 to 50 damage.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/anathema-i"
+  },
+  "Resolution I": {
+    "description": "Boosts hit points by 210 and also grants 252 armor class bonus for your defense target's party.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/resolution-i"
+  },
+  "Ward Shield I": {
+    "description": "Surrounds you with a shield of power, protecting you from the next two incoming attacks.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/ward-shield-i"
+  },
+  "Purification I": {
+    "icon": 714,
+    "description": "Partially cures an ally afflicted with poison.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/purification-i"
+  },
+  "Replenishing Strike I": {
+    "description": "Deals 50% weapon damage and restores 76 energy to you.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/replenishing-strike-i"
+  },
+  "Alleviate I": {
+    "description": "Heals your defensive target for 704 over 18 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/alleviate-i"
+  },
+  "Turn Undead I": {
+    "icon": 451,
+    "_source": "https://vgsoharchive.com/abilities/turn-undead-i"
+  },
+  "Divine Light I": {
+    "description": "Instantly heals your defensive target for 478.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/divine-light-i"
+  },
+  "Renewal I": {
+    "description": "Increass the health and endurance regeneration rate of you and your allies.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/renewal-i"
+  },
+  "Smiting Blow I": {
+    "icon": 733,
+    "description": "A brutal attack that deals 200% weapon damage plus 45 to 51, lowers spiritual resistance by 50% and damage by 10% for 30 sec.",
+    "refresh": 18.0,
+    "_source": "https://vgsoharchive.com/abilities/smiting-blow-i"
+  },
+  "Pacify I": {
+    "icon": 697,
+    "description": "Calms your opponent's spirit, lowering their hatred of you by 50%",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/pacify-i"
+  },
+  "Holy Fire I": {
+    "icon": 590,
+    "description": "Consecrates your weapon with holy fire, burning undead targets with each attack for 25 to 29 damage. Only one weapon consecration active at once.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/holy-fire-i"
+  },
+  "Rout I": {
+    "icon": 735,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/rout-i"
+  },
+  "Hallow I": {
+    "refresh": 20.4,
+    "_source": "https://vgsoharchive.com/abilities/hallow-i"
+  },
+  "Spirit Ward I": {
+    "description": "This powerful spell increases an ally's resistance to spiritual attacks by 95.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/spirit-ward-i"
+  },
+  "Spirit Strike I": {
+    "icon": 687,
+    "description": "Smashes your enemy with an intense blast of spiritual energy, dealing 53 to 60 damage and reducing spiritual resistance by 10 for 30 sec.",
+    "_source": "https://vgsoharchive.com/abilities/spirit-strike-i"
+  },
+  "Boon of Hayatet I": {
+    "icon": 20068,
+    "_source": "https://vgsoharchive.com/abilities/boon-of-hayatet-i"
+  },
+  "Remedy I": {
+    "icon": 678,
+    "description": "Heals your defensive target for 117.",
+    "_source": "https://vgsoharchive.com/abilities/remedy-i"
+  },
+  "Flesh Rot I": {
+    "icon": 662,
+    "description": "Infects your target with a powerful disease that deals 340 to 361 damage over 32 sec.",
+    "_source": "https://vgsoharchive.com/abilities/flesh-rot-i"
+  },
+  "Winter's Roar I": {
+    "icon": 414,
+    "description": "Freezes your target with a blast of cold, dealing 60 to 66 damage and immobilizing them for 3 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/winter-s-roar-i"
+  },
+  "Restoration I": {
+    "icon": 677,
+    "description": "Heals your defensive target for 522.",
+    "_source": "https://vgsoharchive.com/abilities/restoration-i"
+  },
+  "Hoarfrost I": {
+    "icon": 529,
+    "description": "Chills your opponent to the bone, inflicting 197 to 210 damage over 24 sec and reducing cold resistance by 46.",
+    "_source": "https://vgsoharchive.com/abilities/hoarfrost-i"
+  },
+  "Grasp of Goromund I": {
+    "icon": 704,
+    "_source": "https://vgsoharchive.com/abilities/grasp-of-goromund-i"
+  },
+  "Lethargy I": {
+    "icon": 765,
+    "description": "Slows down your opponent's attack speed by 15% for 2 minutes.",
+    "_source": "https://vgsoharchive.com/abilities/lethargy-i"
+  },
+  "Umbra Burst I": {
+    "icon": 706,
+    "description": "Strikes your opponent with spiritual energy, dealing 251 to 267 damage.",
+    "_source": "https://vgsoharchive.com/abilities/umbra-burst-i"
+  },
+  "Purge I": {
+    "icon": 681,
+    "description": "Removes a minor poison and minor disease from an ally.",
+    "_source": "https://vgsoharchive.com/abilities/purge-i"
+  },
+  "Panacea I": {
+    "icon": 679,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/panacea-i"
+  },
+  "Wings of Hayatet I": {
+    "icon": 20723,
+    "_source": "https://vgsoharchive.com/abilities/wings-of-hayatet-i"
+  },
+  "Skin of Rakurr I": {
+    "icon": 20741,
+    "_source": "https://vgsoharchive.com/abilities/skin-of-rakurr-i"
+  },
+  "Rage of Tuurgin I": {
+    "description": "Group buff, increases strength and constitution by 35, and melee damage by 10%.",
+    "_source": "https://vgsoharchive.com/abilities/rage-of-tuurgin-i"
+  },
+  "Skin of Tuurgin I": {
+    "icon": 20361,
+    "_source": "https://vgsoharchive.com/abilities/skin-of-tuurgin-i"
+  },
+  "Ritual of Sacrifice I": {
+    "icon": 708,
+    "description": "Allows you to sacrifice 80 hit points to gain 40 energy.",
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/ritual-of-sacrifice-i"
+  },
+  "Fire Claw I": {
+    "icon": 622,
+    "description": "Strikes your opponent with a fiery claw, dealing 226 to 240 damage and an additional 92 to 100 damage over 16 sec.",
+    "_source": "https://vgsoharchive.com/abilities/fire-claw-i"
+  },
+  "Life Ward I": {
+    "icon": 688,
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/life-ward-i"
+  },
+  "Rakurr's Grace I": {
+    "description": "This Rakurr patron ability increases your agility, dexterity, avoidance and melee attack and refresh speed.",
+    "_source": "https://vgsoharchive.com/abilities/rakurrs-grace-i"
+  },
+  "Deafening Roar I": {
+    "icon": 20755,
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/deafening-roar-i"
+  },
+  "Gelid Blast I": {
+    "icon": 658,
+    "description": "Blasts your opponent with freezing wind, dealing 520 to 551 damage and an additional 520 to 551 damage over 16 sec.",
+    "_source": "https://vgsoharchive.com/abilities/gelid-blast-i"
+  },
+  "Breath of Immolation I": {
+    "icon": 652,
+    "_source": "https://vgsoharchive.com/abilities/breath-of-immolation-i"
+  },
+  "Ancestor's Gift I": {
+    "icon": 1052,
+    "description": "Heals all allies within 10m for 555.",
+    "_source": "https://vgsoharchive.com/abilities/ancestor-s-gift-i"
+  },
+  "Heal Attendant I": {
+    "icon": 681,
+    "description": "Heals the servant of your patron for 736.",
+    "_source": "https://vgsoharchive.com/abilities/heal-attendant-i"
+  },
+  "Snarl I": {
+    "icon": 449,
+    "description": "You emit a low snarl which reduces hate by 2015.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/snarl-i"
+  },
+  "Remove Curse I": {
+    "icon": 681,
+    "description": "Removes a minor curse from an ally.",
+    "_source": "https://vgsoharchive.com/abilities/remove-curse-i"
+  },
+  "Strike of Skamadiz I": {
+    "icon": 733,
+    "description": "You strike with the power of Skamadiz, inflicting 150% weapon damage plus 11 to 15.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/strike-of-skamadiz-i"
+  },
+  "Hammer of Krigus I": {
+    "icon": 734,
+    "description": "You attack with the decaying touch of Krigus, inflicting 80 to 88 damage and reducing strength and constitution by 36 for 60 sec.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/hammer-of-krigus-i"
+  },
+  "Tearing Claw I": {
+    "icon": 571,
+    "description": "Rakes your opponent with terrible claws, inflicting 544.",
+    "_source": "https://vgsoharchive.com/abilities/tearing-claw-i"
+  },
+  "Vicious Bite I": {
+    "icon": 643,
+    "_source": "https://vgsoharchive.com/abilities/vicious-bite-i"
+  },
+  "Sundering Claw I": {
+    "icon": 608,
+    "description": "A vicious attack that tears through your opponent's armor, reducing mitigation by 15% and dealing 352 to 374 damage over 24 sec.",
+    "_source": "https://vgsoharchive.com/abilities/sundering-claw-i"
+  },
+  "Bite of Nag-Suul I": {
+    "icon": 732,
+    "description": "You attack with the poisoned touch of Nag-Suul, inflicting 123 to 133 damage and an additional 1575 to 1659 damage over 40 sec.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/bite-of-nag-suul-i"
+  },
+  "Acuity I": {
+    "description": "This Hayatet patron ability increases your groups energy regeneration and maximum energy, as well as increasing their spell casting and refresh times.",
+    "_source": "https://vgsoharchive.com/abilities/acuity-i"
+  },
+  "Coat of the Great Bear I": {
+    "description": "Single Target Buff + Cold Resistance + 5% Cold Absorption",
+    "_source": "https://vgsoharchive.com/abilities/coat-of-the-great-bear-i"
+  },
+  "Curse of Frailty I": {
+    "icon": 637,
+    "description": "Curses your target, lowering spiritual, arcane and physical resistances by 122 for 5 min.",
+    "_source": "https://vgsoharchive.com/abilities/curse-of-frailty-i"
+  },
+  "Ignite I": {
+    "icon": 616,
+    "description": "Scorches your target, reducing spell accuracy by 10% and fire resistance by 210 for 60 sec.",
+    "_source": "https://vgsoharchive.com/abilities/ignite-i"
+  },
+  "Intercession I": {
+    "icon": 20745,
+    "_source": "https://vgsoharchive.com/abilities/intercession-i"
+  },
+  "Speed of Rakurr I": {
+    "description": "Single Target Buffs, +40% run speed",
+    "_source": "https://vgsoharchive.com/abilities/speed-of-rakurr-i"
+  },
+  "Firestorm I": {
+    "icon": 667,
+    "description": "Scorching flame rains down in a 10m area around your opponent, causing 376 to 398 damage to up to 9 additional opponents.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/firestorm-i"
+  },
+  "Aegis of Life I": {
+    "icon": 543,
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/aegis-of-life-i"
+  },
+  "Tuurgin's Vigor I": {
+    "description": "Single Target Buff, Reduces the Endurance Cost of All Attacks + Endurance Regeneration",
+    "_source": "https://vgsoharchive.com/abilities/tuurgin-s-vigor-i"
+  },
+  "Phoenix Fury I": {
+    "icon": 533,
+    "description": "The fury of Hayatet rages through your opponent, inflicting 1044 to 1100 damage.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/phoenix-fury-i"
+  },
+  "Boon of Rakurr I": {
+    "icon": 644,
+    "_source": "https://vgsoharchive.com/abilities/boon-of-rakurr-i"
+  },
+  "Spear of the Ancestors I": {
+    "icon": 443,
+    "description": "You summon strength from your ancestors and strike your opponent, dealing melee damage plus 153. Heals you for 32 endurance over 4 seconds",
+    "refresh": 45.0,
+    "_source": "https://vgsoharchive.com/abilities/spear-of-the-ancestors-i"
+  },
+  "Gnashing Bite I": {
+    "icon": 718,
+    "description": "A tearing bite attack that deals melee damage plus 51, and reduces the effectiveness of heals on your target by 40% for 45 sec.",
+    "_source": "https://vgsoharchive.com/abilities/gnashing-bite-i"
+  },
+  "Hamstring I": {
+    "icon": 570,
+    "_source": "https://vgsoharchive.com/abilities/hamstring-i"
+  },
+  "Throat Rip I": {
+    "icon": 567,
+    "description": "Rips at your opponent's throat, inflicting 3649 to 3839 over 32 sec. 3649 to 3839 damage is inflicted on a critical hit.",
+    "refresh": 45.0,
+    "_source": "https://vgsoharchive.com/abilities/throat-rip-i"
+  },
+  "Claw of Winter I": {
+    "icon": 718,
+    "description": "Rends your opponent with a icy claw, inflicting melee damage plus 213 damage and stunning for 3 sec.",
+    "_source": "https://vgsoharchive.com/abilities/claw-of-winter-i"
+  },
+  "Lightning Strike I": {
+    "icon": 614,
+    "description": "Calls down a bolt of lightning that deals 84 to 94 arcane damage to an opponent.",
+    "_source": "https://vgsoharchive.com/abilities/lightning-strike-i"
+  },
+  "Barbwood Talisman I": {
+    "icon": 695,
+    "_source": "https://vgsoharchive.com/abilities/barbwood-talisman-i"
+  },
+  "Venomous Thorns I": {
+    "icon": 587,
+    "description": "Poisons an opponent with toxic thorns dealing 289 to 309 physical damage and 417 to 442 physical damage over 8 sec.",
+    "_source": "https://vgsoharchive.com/abilities/venomous-thorns-i"
+  },
+  "Stormcaller's Fury I": {
+    "icon": 557,
+    "_source": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i"
+  },
+  "Solar Flare I": {
+    "icon": 533,
+    "description": "Burns an opponent for 251 to 270 fire damage and deals 89 to 99 fire damage over 4 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/solar-flare-i"
+  },
+  "Soothe I": {
+    "icon": 677,
+    "description": "Heals yourself or an ally for 115 and 224 over 16 seconds.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/soothe-i"
+  },
+  "Roseberries I": {
+    "icon": 20316,
+    "description": "Summons a bunch of roseberries for your targets group that can be used 20 times to heal yourself for 180 points of health.",
+    "_source": "https://vgsoharchive.com/abilities/roseberries-i"
+  },
+  "Nature's Wrath I": {
+    "icon": 619,
+    "description": "Deals 1947 to 2051 physical damage over 32 sec.",
+    "_source": "https://vgsoharchive.com/abilities/nature-s-wrath-i"
+  },
+  "Restore I": {
+    "icon": 679,
+    "description": "Heals yourself or an ally for 316 points of health.",
+    "_source": "https://vgsoharchive.com/abilities/restore-i"
+  },
+  "Binding Roots I": {
+    "icon": 704,
+    "description": "Roots your opponent in place for 40 seconds. Has a 50% chance to break when your opponent is hit.",
+    "_source": "https://vgsoharchive.com/abilities/binding-roots-i"
+  },
+  "Sageberries I": {
+    "icon": 545,
+    "description": "Summons a bunch of sageberries for your targets group that can be used 20 times to cure yourself of a minor poison.",
+    "_source": "https://vgsoharchive.com/abilities/sageberries-i"
+  },
+  "Barkskin I": {
+    "icon": 584,
+    "description": "Covers your defensive target's party with a skin of bark that increases fire resistance and physical resistance by 63.",
+    "_source": "https://vgsoharchive.com/abilities/barkskin-i"
+  },
+  "Nature's Calm I": {
+    "icon": 618,
+    "_source": "https://vgsoharchive.com/abilities/nature-s-calm-i"
+  },
+  "Rampant Roots I": {
+    "icon": 703,
+    "description": "Roots burst from the ground and trap all opponents within 10 meters for 20 sec. Incoming damage may break the effects of this spell.",
+    "_source": "https://vgsoharchive.com/abilities/rampant-roots-i"
+  },
+  "Starfall I": {
+    "icon": 20737,
+    "description": "You pull a star from the sky dealing 2572 to 2708 damage to your target.",
+    "_source": "https://vgsoharchive.com/abilities/starfall-i"
+  },
+  "Wild Growth I": {
+    "icon": 673,
+    "description": "Thorny vines deal 1091 to 1151 physical damage over 24 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/wild-growth-i"
+  },
+  "Cyclone I": {
+    "icon": 653,
+    "description": "A swirling gust of wind deals 357 to 379 arcane damage to an opponent and up to 9 additional opponents within 10m.",
+    "_source": "https://vgsoharchive.com/abilities/cyclone-i"
+  },
+  "Okeli's Shield I": {
+    "icon": 565,
+    "description": "Protects an ally with a shield that reduces incoming damage by 100% for 2 hits or 30 sec.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/okeli-s-shield-i"
+  },
+  "Thunderclap I": {
+    "icon": 532,
+    "description": "A clap of thunder deals 884 to 933 arcane damage to an opponent.",
+    "_source": "https://vgsoharchive.com/abilities/thunderclap-i"
+  },
+  "Tranquility I": {
+    "icon": 467,
+    "description": "Shelters yourself or a targeted ally, making them invulnerable for 20 sec. This ability removes all hate from the target.",
+    "_source": "https://vgsoharchive.com/abilities/tranquility-i"
+  },
+  "Hibernate I": {
+    "icon": 687,
+    "_source": "https://vgsoharchive.com/abilities/hibernate-i"
+  },
+  "Mottleberries I": {
+    "icon": 20317,
+    "_source": "https://vgsoharchive.com/abilities/mottleberries-i"
+  },
+  "Deadly Swarm I": {
+    "icon": 502,
+    "description": "Summons a plague of insects to swarm over your opponent, inflicting 5357 to 5635 damage over 16 seconds.",
+    "_source": "https://vgsoharchive.com/abilities/deadly-swarm-i"
+  },
+  "Healing Turn I": {
+    "icon": 726,
+    "description": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 393.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/healing-turn-i"
+  },
+  "Suncaller's Fury I": {
+    "icon": 555,
+    "description": "Infuses an ally's weapon with fire, allowing it to deal 247 to 264 additional fire damage upon attacking.",
+    "_source": "https://vgsoharchive.com/abilities/suncaller-s-fury-i"
+  },
+  "Soothing Rain I": {
+    "icon": 680,
+    "description": "Heals you and any allies within 10m for 1640 over 16 sec.",
+    "_source": "https://vgsoharchive.com/abilities/soothing-rain-i"
+  },
+  "Moon Talisman I": {
+    "description": "Buffs an ally, increasing their strength by 20 and vitality by 32.",
+    "_source": "https://vgsoharchive.com/abilities/moon-talisman-i"
+  },
+  "Earthquake I": {
+    "icon": 611,
+    "description": "The earth around you quakes and rolls, causing 2225 to 2343 damage to opponents within 10m.",
+    "_source": "https://vgsoharchive.com/abilities/earthquake-i"
+  },
+  "Mimic I": {
+    "description": "Copies and magnifies the arcane evocation spell cast previous to it. Can only be cast after a critical hit with arcane.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/mimic-i"
+  },
+  "Power of the Grave I": {
+    "icon": 401,
+    "description": "Grants your defensive target's party unnatural vigor and intellect, increasing both constitution and intelligence by 9",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/power-of-the-grave-i"
+  },
+  "Torment I": {
+    "icon": 619,
+    "description": "Directs tormenting spirits to attack the soul of your opponent, slowing movement by 50% and inflicting 412 to 438 damage over 60 seconds.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/torment-i"
+  },
+  "Crippling Blight I": {
+    "icon": 553,
+    "description": "Cripples your opponent, lowering damage dealt by up to 18. The weakness fades quickly during its initial 20 sec, but lingers for 2 minutes.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/crippling-blight-i"
+  },
+  "Blood Rite I": {
+    "icon": 681,
+    "description": "Transfers a portion of your life to your abomination, healing it for 197.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/blood-rite-i"
+  },
+  "Bone Spike I": {
+    "icon": 20726,
+    "description": "Hurls a spear of bone at your opponent dealing, 55 to 62 physical damage.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/bone-spike-i"
+  },
+  "Plague of Infestation I": {
+    "icon": 502,
+    "description": "Spawns a swarm of scarabs to devour your opponent piece by piece, dealing 1022 to 1078 damage over 60 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/plague-of-infestation-i"
+  },
+  "Drain Life I": {
+    "icon": 707,
+    "description": "Steals life from your target, dealing 93 to 102 damage and healing you for the same amount.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/drain-life-i"
+  },
+  "Vile Ritual I": {
+    "icon": 1069,
+    "description": "Performs a ritual on a nearby corpse, which grants you 374 energy and your pet 374 life.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/vile-ritual-i"
+  },
+  "Sealed Fate I": {
+    "icon": 1058,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/sealed-fate-i"
+  },
+  "Devouring Shadows I": {
+    "icon": 20736,
+    "description": "Shadows slowly consume your opponent's life force, dealing 1089 to 1149 damage over 60 sec and transferring half of the life to you.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/devouring-shadows-i"
+  },
+  "Death Incarnate I": {
+    "icon": 1054,
+    "_source": "https://vgsoharchive.com/abilities/death-incarnate-i"
+  },
+  "Dark Rebuke I": {
+    "icon": 546,
+    "description": "Spiritual energy crushes your target for 227 to 241 damage. Deals 131 to 140 added damage to undead targets.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/dark-rebuke-i"
+  },
+  "Detonate Corpse I": {
+    "icon": 20735,
+    "description": "Explodes the targeted corpse with great force, dealing 372 to 393 damage to all opponents within 10m. Consumes a corpse.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/detonate-corpse-i"
+  },
+  "Spectre's Touch I": {
+    "icon": 687,
+    "description": "A soul chilling blast of cold that inflicts 542 to 573 damage.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/spectre-s-touch-i"
+  },
+  "Soul Trap I": {
+    "icon": 685,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/soul-trap-i"
+  },
+  "Grasp of the Grave I": {
+    "icon": 20740,
+    "description": "The chill of death overcomes your target, inflicting 1769 to 1863 damage over 60 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/grasp-of-the-grave-i"
+  },
+  "Shadow Feast I": {
+    "icon": 20752,
+    "description": "Feasts upon the soul of your opponent, dealing 532 to 562 damage and stealing 72 constitution from them.",
+    "_source": "https://vgsoharchive.com/abilities/shadow-feast-i"
+  },
+  "Devour Curse I": {
+    "icon": 647,
+    "description": "Removes minor curse from your target. Can be used to remove stronger curses, but will need to be used more than once.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/devour-curse-i"
+  },
+  "Death Shroud I": {
+    "icon": 414,
+    "description": "Wraps your defensive target's party in a deathly coat, greatly increasing cold resistance by 130.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/death-shroud-i"
+  },
+  "Ritual of Necropotence I": {
+    "icon": 449,
+    "description": "Consumes the energy in a nearby corpse and grants you an additional 5% damage for 30 minutes.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/ritual-of-necropotence-i"
+  },
+  "Soul Blight I": {
+    "icon": 659,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/soul-blight-i"
+  },
+  "Poison Burst I": {
+    "description": "A blast of noxious poison hits all opponents within 10 meters for 460 to 488 damage.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/poison-burst-i"
+  },
+  "Corruption I": {
+    "icon": 573,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/corruption-i"
+  },
+  "Mend Flesh I": {
+    "icon": 777,
+    "description": "Mends the flesh of your abomination, healing 1500 over 24 sec.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/mend-flesh-i"
+  },
+  "Despoiling Blight I": {
+    "icon": 660,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/despoiling-blight-i"
+  },
+  "Life Draught I": {
+    "icon": 20742,
+    "description": "Pulls the life from your target, dealing 269 to 285 damage and heals you and your group for 75% of the damage done.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/life-draught-i"
+  },
+  "Bonemail I": {
+    "description": "Clothes you and your abomination in spiked bone armor which increases armor class by 558 and causes damage to any that attack you.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/bonemail-i"
+  },
+  "Bone Spear I": {
+    "icon": 20726,
+    "description": "Hurls a spear of bone at your opponent, dealing 502 to 530 physical damage.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/bone-spear-i"
+  },
+  "Union of Thought I": {
+    "icon": 665,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/union-of-thought-i"
+  },
+  "Mental Blast I": {
+    "icon": 519,
+    "description": "Blasts your opponent's mind with raw mental power, dealing 45 to 52 damage. Decreases your opponent's intelligence by 3 for 8 seconds.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/mental-blast-i"
+  },
+  "Expansive Mind I": {
+    "icon": 697,
+    "description": "Expands the minds of your defensive target's party, increasing intelligence and wisdom by 37. (Does not stack with Mass Mental Focus)",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/expansive-mind-i"
+  },
+  "Temporal Shift I": {
+    "icon": 765,
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/temporal-shift-i"
+  },
+  "Compression Sphere I": {
+    "icon": 467,
+    "description": "Forms a psionic sphere around your opponent that slowly collapses, crushing your opponent and dealing 455 to 483 over 20 seconds.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/compression-sphere-i"
+  },
+  "Time Trick I": {
+    "icon": 754,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/time-trick-i"
+  },
+  "Thought Pulse I": {
+    "icon": 439,
+    "description": "Unleashes massive telekinetic force, inflicting 195 to 209 damage.",
+    "refresh": 6.0,
+    "_source": "https://vgsoharchive.com/abilities/thought-pulse-i"
+  },
+  "Suggestion I": {
+    "icon": 645,
+    "description": "Forces your opponent to obey your commands for 20 to 30 sec.\nOnly usable on opponents lower than level 31.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/suggestion-i"
+  },
+  "Acumen I": {
+    "icon": 648,
+    "description": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/acumen-i"
+  },
+  "Dementia I": {
+    "icon": 448,
+    "description": "Causes your opponent and up to 10 enemies within 10m of it to suffer intense mental pains, taking 424 to 449 damage over 8 sec.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/dementia-i"
+  },
+  "Enthrall I": {
+    "icon": 1053,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/enthrall-i"
+  },
+  "Time Stop I": {
+    "icon": 20746,
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/time-stop-i"
+  },
+  "Telekinetic Blast I": {
+    "description": "Projects a powerful telekinetic blast at your offensive target, inflicting 2164 to 2282 damage and stunning it for 4 sec.",
+    "_source": "https://vgsoharchive.com/abilities/telekinetic-blast-i"
+  },
+  "Psychic Schism I": {
+    "icon": 573,
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/psychic-schism-i"
+  },
+  "Memory Shift I": {
+    "description": "Causes your opponent to feel 2044 more hatred for your defensive target.",
+    "_source": "https://vgsoharchive.com/abilities/memory-shift-i"
+  },
+  "Resurgence I": {
+    "description": "Causes a surge of mental power within the mind of an ally, restoring 1000 energy.",
+    "_source": "https://vgsoharchive.com/abilities/resurgence-i"
+  },
+  "Temporal Acceleration I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/temporal-acceleration-i"
+  },
+  "Corporeal Hammer I": {
+    "description": "Smashes your opponent with psychic force, inflicting 1779 to 1878 damage.",
+    "_source": "https://vgsoharchive.com/abilities/corporeal-hammer-i"
+  },
+  "Phantom Thought I": {
+    "description": "Fills an ally's mind with illusionary energy. Your ally's energy will be healed for and increased by 1000 for 15 seconds.",
+    "_source": "https://vgsoharchive.com/abilities/phantom-thought-i"
+  },
+  "Chronoshift I": {
+    "description": "Causes a violent shift in time, dealing 292 to 309 damage to all opponents within 10m.",
+    "refresh": 12.0,
+    "_source": "https://vgsoharchive.com/abilities/chronoshift-i"
+  },
+  "Thought Surge I": {
+    "description": "A burst of psychic energy that hits up to 10 opponents in front of you for 485 to 512 damage.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/thought-surge-i"
+  },
+  "Paralysis Field I": {
+    "icon": 20745,
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/paralysis-field-i"
+  },
+  "Exploding Cyst I": {
+    "icon": 549,
+    "_source": "https://vgsoharchive.com/abilities/exploding-cyst-i"
+  },
+  "Infuse Health I": {
+    "icon": 679,
+    "description": "Infuses 113 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+    "_source": "https://vgsoharchive.com/abilities/infuse-health-i"
+  },
+  "Union of Blood I": {
+    "icon": 708,
+    "description": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/union-of-blood-i"
+  },
+  "Blood Gift I": {
+    "icon": 677,
+    "description": "You use your blood to heal an ally, other than yourself, for 914. Heals for an extra 2% per level of Blood Union.",
+    "_source": "https://vgsoharchive.com/abilities/blood-gift-i"
+  },
+  "Constrict I": {
+    "icon": 704,
+    "description": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.",
+    "_source": "https://vgsoharchive.com/abilities/constrict-i"
+  },
+  "Scarlet Ritual I": {
+    "icon": 1058,
+    "_source": "https://vgsoharchive.com/abilities/scarlet-ritual-i"
+  },
+  "Life Husk I": {
+    "icon": 531,
+    "description": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+    "_source": "https://vgsoharchive.com/abilities/life-husk-i"
+  },
+  "Vitalize I": {
+    "icon": 455,
+    "description": "Fills your defensive target's party with life, granting them 23 additional vitality.",
+    "_source": "https://vgsoharchive.com/abilities/vitalize-i"
+  },
+  "Mental Transmutation I": {
+    "icon": 449,
+    "description": "Transmutes 115 health into 115 energy.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/mental-transmutation-i"
+  },
+  "Flesh Mender's Ritual I": {
+    "icon": 683,
+    "_source": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-i"
+  },
+  "Serak's Augmentation I": {
+    "description": "Increases you and your allies Constitution and Physical resistance.",
+    "_source": "https://vgsoharchive.com/abilities/serak-s-augmentation-i"
+  },
+  "Entwining Vein I": {
+    "icon": 620,
+    "_source": "https://vgsoharchive.com/abilities/entwining-vein-i"
+  },
+  "Numb I": {
+    "icon": 697,
+    "description": "Numbs your opponent's mind, lowering your hate by 1914.",
+    "_source": "https://vgsoharchive.com/abilities/numb-i"
+  },
+  "Strip Enchantment I": {
+    "icon": 685,
+    "description": "Strips a minor enchantment from your opponent.",
+    "_source": "https://vgsoharchive.com/abilities/strip-enchantment-i"
+  },
+  "Transfusion of Serak I": {
+    "icon": 452,
+    "description": "Heals for 635 health over 16 seconds.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/transfusion-of-serak-i"
+  },
+  "Mental Infusion I": {
+    "description": "Increases you and your allies Intelligence and Wisdom.",
+    "_source": "https://vgsoharchive.com/abilities/mental-infusion-i"
+  },
+  "Frenzied Symbiote I": {
+    "icon": 651,
+    "_source": "https://vgsoharchive.com/abilities/frenzied-symbiote-i"
+  },
+  "Physical Transmutation I": {
+    "icon": 684,
+    "refresh": 45.0,
+    "_source": "https://vgsoharchive.com/abilities/physical-transmutation-i"
+  },
+  "Renewing Symbiote I": {
+    "icon": 1062,
+    "_source": "https://vgsoharchive.com/abilities/renewing-symbiote-i"
+  },
+  "Severing Ritual I": {
+    "icon": 532,
+    "_source": "https://vgsoharchive.com/abilities/severing-ritual-i"
+  },
+  "Sheltering Rune I": {
+    "icon": 661,
+    "description": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 6 seconds.",
+    "_source": "https://vgsoharchive.com/abilities/sheltering-rune-i"
+  },
+  "Blood Letting Ritual I": {
+    "icon": 765,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/blood-letting-ritual-i"
+  },
+  "Regeneration I": {
+    "description": "Increases you and your allies health regeneration.",
+    "_source": "https://vgsoharchive.com/abilities/regeneration-i"
   }
 }
