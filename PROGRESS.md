@@ -54,6 +54,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: With the FX packages announced, the loot sparkle is visible live (white glints on a dead Canyon Widow).
 - 2026-10-15: The package map now announces the client's FX* ServerPackages (38, after the defaults). Quest nodes also set m_bShowIOParticle, the client's gate for the particles (found with winbreak); the attach call now runs, though the particles are still not visible in screenshots.
 - 2026-10-15: Quest harvest nodes: harvest nodes whose item a current quest step still needs get 0x56a (mystical particles), and 0x56b when the bags hold enough or the node is depleted. The client handlers run (winbreak), but the particles were not visible, as with the loot sparkle. Unit test QuestNodeTests.
 - 2026-10-15: NPC speech: mobs.json `chatter` lines are said now and then to players within 1500 units ("Thestran Guard says, Another quiet watch...", seen live), and `aggro_say` when an NPC notices a player. Placeholder lines on four NPCs. Unit test ChatterTests.
