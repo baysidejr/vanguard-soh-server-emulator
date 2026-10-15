@@ -46,6 +46,7 @@ Look for more character-window values the server knows but leaves empty (Stats t
 
 ## Done
 
+- 2026-10-15: Content editor Items tab, with pick lists from the server code via /api/schema and stats and mods as rows; items added to the #selftest round trip (passes). content.validate now checks item type, slot, flags, rarity, stats and mods.
 - 2026-10-15: Content editor Quests tab (giver and turn-in, steps as rows, rewards). Added a #selftest round trip of every quest and mob through the forms, run by EditorPageTests in headless Edge; it found and fixed the race picker dropping prop race ids.
 - 2026-10-15: Content editor Loot tab (rows of item / chance / quantity / icon), plus loot validation in content.validate.
 - 2026-10-15: Content editor Mobs tab: a form per mob with pick lists for race and creature (from CREATURES.md), faction, loot and merchant, role check boxes, the rest as JSON, and New / Duplicate / Delete. Screenshot checked in headless Edge.

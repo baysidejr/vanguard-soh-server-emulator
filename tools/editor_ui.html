@@ -35,6 +35,10 @@
   #mobForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
   #mobForm input, #mobForm select { width: 100%; box-sizing: border-box; }
   #mobForm textarea { width: 100%; height: 140px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: 12px Consolas, monospace; }
+  #itemForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #itemForm input, #itemForm select { width: 100%; box-sizing: border-box; }
+  #itemForm textarea.small { width: 100%; height: 48px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: inherit; }
+  #itemList div { padding: 4px 10px; cursor: pointer; } #itemList div:hover { background: #332f29; }
   #questForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
   #questForm input, #questForm select { width: 100%; box-sizing: border-box; }
   #questForm textarea.small { width: 100%; height: 48px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: inherit; }
@@ -47,7 +51,7 @@
 <body>
 <nav>
   <h1>Content editor</h1>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabLoot">Loot</button><button id="tabQuests">Quests</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabQuests">Quests</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -134,6 +138,37 @@
       </div>
     </div>
   </div>
+  <div id="itemview" style="flex:1;display:none;min-height:0">
+    <div style="width:240px;display:flex;flex-direction:column;border-right:1px solid #3a352e">
+      <input id="itemFilter" placeholder="Filter" style="margin:6px">
+      <div id="itemList" style="overflow-y:auto;flex:1"></div>
+    </div>
+    <div id="itemForm" style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="itemKey">Pick an item</strong><span style="flex:1"></span>
+        <button id="newItem">New</button><button id="dupItem">Duplicate</button><button id="delItem">Delete</button>
+        <button id="saveItems" class="primary">Save items.json</button>
+      </div>
+      <div class="qgrid">
+        <div><label>Type</label><select id="iType"></select></div>
+        <div><label>Equip slot</label><select id="iSlot"></select></div>
+        <div><label>Icon number (iconsTK.xml)</label><input id="iIcon" type="number"></div>
+        <div><label>Rarity</label><select id="iRarity"></select></div>
+        <div><label>Required level</label><input id="iLevel" type="number"></div>
+        <div><label>Armor</label><input id="iArmor" type="number"></div>
+        <div><label>Damage min - max</label><div style="display:flex;gap:4px"><input id="iDmg0" type="number"><input id="iDmg1" type="number"></div></div>
+        <div><label>Delay (seconds)</label><input id="iDelay" type="number" step="0.1"></div>
+        <div><label>Skill id</label><input id="iSkill" type="number"></div>
+        <div><label>Model: mesh type, number</label><div style="display:flex;gap:4px"><input id="iMesh0" type="number"><input id="iMesh1" type="number"></div></div>
+      </div>
+      <label>Description</label><textarea id="iDesc" class="small"></textarea>
+      <label>Flags</label><div id="iFlags" style="display:flex;flex-wrap:wrap;gap:4px 14px"></div>
+      <h4>Stats <button id="addStat">Add</button> &nbsp; Mods <button id="addMod">Add</button></h4>
+      <table id="statTable" style="border-collapse:collapse"></table>
+      <label>Other fields (JSON: use, cooldown, mount, barding, fixture, bag, pet, harvest...)</label>
+      <textarea id="iOther" spellcheck="false" style="width:100%;height:120px;box-sizing:border-box;background:#15130f;color:#e8e2d6;border:1px solid #4d463c;font:12px Consolas,monospace"></textarea>
+    </div>
+  </div>
   <div id="spawnview">
     <div id="mapwrap"><canvas id="map"></canvas></div>
     <div id="side">
@@ -217,6 +252,8 @@ function setMode(m) {
   if (m === "loot" && !lootDoc) initLoot();
   $("questview").style.display = m === "quests" ? "flex" : "none";
   if (m === "quests" && !questDoc) initQuests();
+  $("itemview").style.display = m === "items" ? "flex" : "none";
+  if (m === "items" && !itemsReady) initItems();
   $("problems").innerHTML = "";
   if (m === "spawns" && !$("chunk").options.length) initSpawns();
 }
@@ -311,6 +348,96 @@ $("saveMobs").onclick = async () => {
   showProblems(r.body.problems, "Saved mobs.json.");
 };
 let pendingMob = null;
+
+// ---- items ----
+let itemsReady = false, itemSel = null, schema = null, statRows = [];
+$("tabItems").onclick = () => setMode("items");
+const ISIMPLE = { type: ["iType", false], slot: ["iSlot", false], icon: ["iIcon", true], rarity: ["iRarity", false],
+  level: ["iLevel", true], armor: ["iArmor", true], delay: ["iDelay", true], skill: ["iSkill", true], description: ["iDesc", false] };
+async function initItems() {
+  itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
+  schema = (await api("/api/schema")).body;
+  const opt = list => '<option value="">(none)</option>' + list.map(v => `<option>${v}</option>`).join("");
+  $("iType").innerHTML = opt(schema.item_types); $("iSlot").innerHTML = opt(schema.slots); $("iRarity").innerHTML = opt(schema.rarities);
+  $("iFlags").innerHTML = schema.flags.map(f => `<label style="margin:0;color:#e8e2d6;display:inline"><input type="checkbox" id="if_${f}" style="width:auto"> ${f}</label>`).join("");
+  itemsReady = true;
+  listItems();
+}
+$("itemFilter").oninput = () => listItems();
+function listItems() {
+  const f = $("itemFilter").value.toLowerCase();
+  $("itemList").innerHTML = "";
+  for (const k of Object.keys(itemDoc).filter(k => !k.startsWith("_") && k.toLowerCase().includes(f)).sort()) {
+    const d = document.createElement("div");
+    d.textContent = k; if (k === itemSel) d.style.background = "#4a3f2c";
+    d.onclick = () => { if (!storeItem()) return; itemSel = k; listItems(); showItem(); };
+    $("itemList").appendChild(d);
+  }
+}
+function showItem() {
+  const it = itemDoc[itemSel]; if (!it) return;
+  $("itemKey").textContent = itemSel;
+  for (const [k, [id]] of Object.entries(ISIMPLE)) {
+    const el = $(id), v = it[k] ?? "";
+    if (el.tagName === "SELECT" && v !== "" && ![...el.options].some(o => o.value === String(v))) el.add(new Option(v + " (unknown)", v));
+    el.value = v;
+  }
+  $("iDmg0").value = (it.damage || [])[0] ?? ""; $("iDmg1").value = (it.damage || [])[1] ?? "";
+  $("iMesh0").value = (it.mesh || [])[0] ?? ""; $("iMesh1").value = (it.mesh || [])[1] ?? "";
+  for (const f of schema.flags) $("if_" + f).checked = (it.flags || []).includes(f);
+  statRows = Object.entries(it.stats || {}).map(([k, v]) => ["stats", k, v]).concat(Object.entries(it.mods || {}).map(([k, v]) => ["mods", k, v]));
+  drawStats();
+  const other = {};
+  for (const [k, v] of Object.entries(it)) if (!(k in ISIMPLE) && !["damage", "mesh", "flags", "stats", "mods"].includes(k)) other[k] = v;
+  $("iOther").value = JSON.stringify(other, null, 2);
+}
+function drawStats() {
+  const t = $("statTable"); t.innerHTML = "";
+  statRows.forEach((r, i) => {
+    const names = r[0] === "stats" ? schema.stats : schema.mods;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td style="color:#b9ae9b;padding-right:8px">${r[0] === "stats" ? "stat" : "mod"}</td>
+      <td><select>${names.map(n => `<option ${n === r[1] ? "selected" : ""}>${n}</option>`).join("")}${names.includes(r[1]) ? "" : `<option selected>${r[1]}</option>`}</select></td>
+      <td><input type="number" value="${r[2]}" style="width:90px"></td><td><button>Remove</button></td>`;
+    tr.querySelector("select").onchange = e => r[1] = e.target.value;
+    tr.querySelector("input").oninput = e => r[2] = Number(e.target.value);
+    tr.querySelector("button").onclick = () => { statRows.splice(i, 1); drawStats(); };
+    t.appendChild(tr);
+  });
+}
+$("addStat").onclick = () => { if (itemSel) { statRows.push(["stats", schema.stats[0], 1]); drawStats(); } };
+$("addMod").onclick = () => { if (itemSel) { statRows.push(["mods", schema.mods[0], 1]); drawStats(); } };
+function storeItem() {
+  if (!itemSel || !itemDoc[itemSel]) return true;
+  let other;
+  try { other = JSON.parse($("iOther").value || "{}"); }
+  catch (e) { showProblems([`${itemSel}: other fields are not valid JSON: ${e.message}`]); return false; }
+  const it = {};
+  for (const [k, [id, num]] of Object.entries(ISIMPLE)) { const v = $(id).value; if (v !== "") it[k] = num ? Number(v) : v; }
+  if ($("iDmg0").value !== "") it.damage = [Number($("iDmg0").value), Number($("iDmg1").value || $("iDmg0").value)];
+  if ($("iMesh0").value !== "") it.mesh = [Number($("iMesh0").value), Number($("iMesh1").value || 0)];
+  const flags = schema.flags.filter(f => $("if_" + f).checked); if (flags.length) it.flags = flags;
+  for (const [kind, k, v] of statRows) { it[kind] = it[kind] || {}; it[kind][k] = v; }
+  itemDoc[itemSel] = Object.assign(it, other);
+  return true;
+}
+$("newItem").onclick = () => {
+  if (!storeItem()) return;
+  const k = prompt("Name of the new item (as shown in game):"); if (!k || itemDoc[k]) return;
+  itemDoc[k] = { icon: 443, type: "misc" }; itemSel = k; listItems(); showItem();
+};
+$("dupItem").onclick = () => {
+  if (!itemSel || !storeItem()) return;
+  const k = prompt("Name of the copy:", itemSel + " II"); if (!k || itemDoc[k]) return;
+  itemDoc[k] = JSON.parse(JSON.stringify(itemDoc[itemSel])); itemSel = k; listItems(); showItem();
+};
+$("delItem").onclick = () => { if (itemSel && confirm("Delete " + itemSel + "?")) { delete itemDoc[itemSel]; itemSel = null; listItems(); } };
+$("saveItems").onclick = async () => {
+  if (!storeItem()) return;
+  const r = await api("/api/file?name=items.json", { method: "PUT", body: JSON.stringify(itemDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved items.json.");
+};
 
 // ---- quests ----
 let questDoc = null, questSel = null, questMobs = {};
@@ -601,6 +728,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash.startsWith("#items")) { setMode("items"); setTimeout(() => { itemSel = decodeURIComponent(location.hash.split("=")[1] || ""); if (itemSel) { listItems(); showItem(); } }, 800); }
 // #selftest: every quest and mob goes through its form and back unchanged (for headless checks)
 if (location.hash === "#selftest") (async () => {
   const sorted = o => JSON.stringify(o, (k, v) => v && typeof v === "object" && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort()) : v);
@@ -614,6 +742,11 @@ if (location.hash === "#selftest") (async () => {
   for (const k of Object.keys(mobDoc).filter(k => !k.startsWith("_"))) {
     const before = sorted(mobDoc[k]); mobSel = k; showMob(); storeMob();
     if (sorted(mobDoc[k]) !== before) out.push(`mob ${k}: ${before} -> ${sorted(mobDoc[k])}`);
+  }
+  setMode("items"); while (!itemsReady) await new Promise(r => setTimeout(r, 50));
+  for (const k of Object.keys(itemDoc).filter(k => !k.startsWith("_"))) {
+    const before = sorted(itemDoc[k]); itemSel = k; showItem(); storeItem();
+    if (sorted(itemDoc[k]) !== before) out.push(`item ${k}: ${before} -> ${sorted(itemDoc[k])}`);
   }
   const pre = document.createElement("pre"); pre.id = "selftest";
   pre.textContent = "SELFTEST " + (out.length ? "FAIL\n" + out.join("\n") : "OK");

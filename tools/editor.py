@@ -158,6 +158,17 @@ def races(doc=os.path.join(ROOT, "docs", "CREATURES.md")):
     return out
 
 
+def schema():
+    """Vocabularies the forms offer (taken from the server code, so they never drift)."""
+    import grouploot
+    import vgmsg
+    import zone
+    return {"item_types": sorted(zone.ITEM_TYPE_IDS), "slots": sorted(vgmsg.EQUIP_SLOTS),
+            "flags": list(zone.ITEM_FLAGS), "rarities": list(grouploot.RARITY_NAMES),
+            "stats": sorted(k for k in vgmsg.STAT_IDS if k in vgmsg.ATTRIBUTES or k.startswith("res_")),
+            "mods": sorted(vgmsg.MOD_TYPES)}
+
+
 def chunks():
     return sorted(f[:-4] for f in os.listdir(MAPS) if f.startswith("chunk_") and f.endswith(".vgr")) \
         if os.path.isdir(MAPS) else []
@@ -191,6 +202,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if u.path == "/api/file":
                 with open(safe_path(self.directory, q.get("name")), encoding="utf-8") as f:
                     return self.reply(200, {"name": q["name"], "text": f.read()})
+            if u.path == "/api/schema":
+                return self.reply(200, schema())
             if u.path == "/api/races":
                 return self.reply(200, races())
             if u.path == "/api/chunks":

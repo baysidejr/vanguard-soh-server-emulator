@@ -120,9 +120,27 @@ def validate(directory=CONTENT_DIR):
         for g in m.get("gear", []):
             if len(g) != 3:
                 problems.append(f"mob {mid}: gear entry {g} needs [type, mesh, slot]")
+    import zone as zone_rules
+    import vgmsg as vg
+    import grouploot as loot_rules
     for name, it in c.items.items():
         if not isinstance(it, dict):
             continue
+        if "type" in it and it["type"] not in zone_rules.ITEM_TYPE_IDS:
+            problems.append(f"item {name}: unknown type {it['type']!r}")
+        if "slot" in it and it["slot"] not in vg.EQUIP_SLOTS:
+            problems.append(f"item {name}: unknown slot {it['slot']!r}")
+        for f in it.get("flags", []):
+            if f not in zone_rules.ITEM_FLAGS:
+                problems.append(f"item {name}: unknown flag {f!r}")
+        if "rarity" in it and it["rarity"] not in loot_rules.RARITY_NAMES:
+            problems.append(f"item {name}: unknown rarity {it['rarity']!r}")
+        for k in (it.get("stats") or {}):
+            if k not in vg.STAT_IDS:
+                problems.append(f"item {name}: unknown stat {k!r}")
+        for k in (it.get("mods") or {}):
+            if k not in vg.MOD_TYPES:
+                problems.append(f"item {name}: unknown mod {k!r}")
         use = it.get("use")
         if use is not None and (not isinstance(use, dict) or set(use) - {"heal", "energy", "endurance"}):
             problems.append(f"item {name}: use must be {{heal, energy, endurance: n}}")
