@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 505 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 77 |
-| variant | 65 |
+| optional | 73 |
+| variant | 69 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 643 of 720 (89%). Still open: 77 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 647 of 720 (89%). Still open: 73 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -138,7 +138,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 643 of 720 (89%).
 | 0x25d | MsgSingleFloat | f32 | optional | casting progress {f32}; the server shows casts with 0x25c / 0x260 |
 | 0x25e | MsgStringAndFloat | wstr, f32 | variant | cast bar {wstr, f32}, like 0x25c which the server sends |
 | 0x263 | MsgSingleInt | i32 | debug | cast response debug print {i32} |
-| 0x264 | (none) |  | optional | ability book list refresh (General / Adventuring / Counter / Rescue ability lists) |
+| 0x264 | (none) |  | variant | ability book list refresh; the General / Adventuring / Diplomacy pages fill from 0x215 records (verified live) |
 | 0x38b | MsgTwoInts | i32, i32 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
 | 0x38c | MsgIntAndByte | i32, u8 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
 | 0x38f | MsgTwoInts | i32, i32 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
@@ -178,7 +178,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 643 of 720 (89%).
 | 0x221 | MsgResearchAbilityInfo | wstr, wstr, i32, i32, u8, i32 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x222 | MsgTwoInts | i32, i32 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x223 | MsgIntAndByte | i32, u8 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
-| 0x255 | MsgIntAndBool | i32, bool8 | optional | ability book list refresh (General / Adventuring / Counter / Rescue ability lists) |
+| 0x255 | MsgIntAndBool | i32, bool8 | variant | ability book list refresh; the ability book pages fill from 0x215 records (verified live) |
 | 0x269 | MsgSingleInt | i32 | variant | forget one combat chain {i32 finisher ability id}: FUN_00428060 deletes the 0x268 chain definitions whose finisher (wire field 13, record +0x30) matches; the server resends all chains instead (0x26a + 0x268), and a 0x268 with a known finisher already replaces that chain |
 | 0x275 | MsgTwoInts | i32, i32 | content | {i32, i32}: green screen text "Select an attack now to warp." (FUN_0042b750) for an ability that warps the next attack; needs that ability's data |
 | 0x276 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |
@@ -202,8 +202,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 643 of 720 (89%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x217 | MsgAbilityParlayCard | i32, wstr, i32, i32, i32, i32, u8, u8, u8, u8, i32 x8, u8, u8, u8, wstr, i32, i32, i32, bool8, 3 x [i32] | variant | diplomacy card info (MsgAbilityParlayCard); the server sends cards with its own messages (docs/DIPLOMACY.md) |
-| 0x21a | MsgSingleInt | i32 | optional | diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy) |
-| 0x220 | MsgIntAndBool | i32, bool8 | optional | diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy) |
+| 0x21a | MsgSingleInt | i32 | variant | diplomacy repertoire / strategy refresh; the repertoire and strategy bar fill from the deck messages sent on UI load (verified live, docs/DIPLOMACY.md) |
+| 0x220 | MsgIntAndBool | i32, bool8 | variant | diplomacy repertoire / strategy refresh; the repertoire and strategy bar fill from the deck messages sent on UI load (verified live, docs/DIPLOMACY.md) |
 | 0x238 | MsgTwoInts | i32, i32 | variant | {i32, i32}: same as 0x237 without a UI refresh (FUN_00555cb0) [decoded 2026-10-14] |
 | 0x321 | MsgEntityIDAndInt | eid64, i32 | optional | parley expressions list {eid64, i32 + records} (Entertain, Reason, Inspire images) |
 | 0x329 | MsgSendSingleSGOString | wstr | debug | parley debug info text |

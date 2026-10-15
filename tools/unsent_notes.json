@@ -463,8 +463,8 @@
       "cast response debug print {i32}"
     ],
     "0x264": [
-      "optional",
-      "ability book list refresh (General / Adventuring / Counter / Rescue ability lists)"
+      "variant",
+      "ability book list refresh; the General / Adventuring / Diplomacy pages fill from 0x215 records (verified live)"
     ],
     "0x38b": [
       "optional",
@@ -599,8 +599,8 @@
       "{i32 n, n x {id, ranges, cast time, recast, costs}} (not MsgSingleInt): refreshes stats of known abilities (FUN_004287f0) [decoded 2026-10-14]"
     ],
     "0x255": [
-      "optional",
-      "ability book list refresh (General / Adventuring / Counter / Rescue ability lists)"
+      "variant",
+      "ability book list refresh; the ability book pages fill from 0x215 records (verified live)"
     ],
     "0x269": [
       "variant",
@@ -671,12 +671,12 @@
       "diplomacy card info (MsgAbilityParlayCard); the server sends cards with its own messages (docs/DIPLOMACY.md)"
     ],
     "0x21a": [
-      "optional",
-      "diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy)"
+      "variant",
+      "diplomacy repertoire / strategy refresh; the repertoire and strategy bar fill from the deck messages sent on UI load (verified live, docs/DIPLOMACY.md)"
     ],
     "0x220": [
-      "optional",
-      "diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy)"
+      "variant",
+      "diplomacy repertoire / strategy refresh; the repertoire and strategy bar fill from the deck messages sent on UI load (verified live, docs/DIPLOMACY.md)"
     ],
     "0x238": [
       "variant",
