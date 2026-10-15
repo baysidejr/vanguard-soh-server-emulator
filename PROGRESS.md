@@ -10,6 +10,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Last test results
 
+- 2026-10-14 (after referrals, guild invite timeout, barding, usable items): tools/check_all.py --client 7 of 7 passed (unit 175, scenarios, load p95 11.5 ms, fuzz clean, smoke PASS).
 - 2026-10-14 (after flight): tools/check_all.py --client: 7 of 7 passed (unit 171, content, scenarios 8/8, load 20 bots p95 11.5 ms, server log clean, fuzz clean, smoke test PASS).
 - 2026-10-14 (check_all): unit 171 OK, content OK, scenarios 8/8, load test 20 bots p95 11 ms, fuzz clean; smoke test PASS earlier today.
 - 2026-10-14 (CI): GitHub Actions passes on ac4f08d (169 tests, 2 skipped without the client); locally 169 OK, smoke test PASS.
@@ -39,6 +40,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Item reuse timers survive a relog. They are saved per character and resent after the inventory at spawn. Verified live: tooltip "Time Remaining: 8:52". check_all --client 7/7 passed before this change.
 - 2026-10-14: Usable items: items.json "use" {heal, energy, endurance} and "cooldown". Right-click uses one, then 0x1e5 {i64 remaining, i32 group, i32 seconds} starts the reuse timer on every item whose field 107 is the group (tooltip "Time Remaining", seen live). Early reuse gets 0x1c5 code 7. Travel Rations heal 40 every 30 s. Unit test UseItemTests.
 - 2026-10-14: Mount barding: the element (500, index, 45) dresses a modular mount (0xx blanket, 1xx cloth caparison, 2xx plate). Barding items (Green Caparison, Plate Barding at the camp merchant) are put on or off by right-click, saved, and shown whenever you ride. Verified live; unit test BardingTests.
 - 2026-10-14: Guild invites expire after 60 s. The invited player gets 0x4e8 (closes the popup, "Your guild invite to <guild> has expired."), and the inviter gets a line too. Verified live with a bot as the invitee; unit test GuildInviteTimeoutTests.

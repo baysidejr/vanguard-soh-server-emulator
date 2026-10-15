@@ -171,7 +171,7 @@ An items.json entry with `"use": {"heal": n, "energy": n, "endurance": n}` and `
 - Field 107 is the item's reuse group: items.json `"cooldown_group"`, else the template id (`zone.cooldown_group`). Items in one group share the timer.
 - Using one again early gets **0x1c5** `{u8 7}`: "Unable to use that item because the ability is not refreshed.".
 
-Timers are kept in memory only (not across a relog). Server: `login_stub.use_item`. Content: Travel Rations restore 40 health every 30 s (placeholder numbers).
+Running timers are saved per character (`item_cooldowns` {group: [until, seconds]}) and sent again right after the inventory when you log in. Seen live: "Time Remaining: 8:52" after a relog. They must come after the items; sent from an earlier login hook they showed nothing. Server: `login_stub.use_item`. Content: Travel Rations restore 40 health every 30 s (placeholder numbers).
 
 ## Bags (verified live 2026-10-13)
 

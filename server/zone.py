@@ -105,6 +105,11 @@ def handle_unreal(send, state, payload, args):
         for m in inventory_messages(player):
             send(m)
         print("  <- ZONE events 0x195/0x197/0x1bb (inventory)")
+        # Item reuse timers still running from before a relog ({group: (until, seconds)});
+        # sent after the items, which pick the timer up by their field 107.
+        for group, (until, seconds) in getattr(player, "item_cooldowns", {}).items():
+            if until > time.time():
+                send(item_cooldown(group, until - time.time(), seconds))
         if getattr(player, "active_toolbelt", None):
             send(craft.active_toolbelt(player.active_toolbelt))   # saved choice (checkmark)
         for m in ability_messages(player):
@@ -1312,6 +1317,12 @@ SPAWN_Z_LIFT = 90.0   # observed: spawn z 4900 -> pawn at 4990 (= CollisionHeigh
 
 MOUNT_PACKAGE, MOUNT_SLOT, BARDING_SLOT = 500, 39, 45
 MOUNT_GROUND, MOUNT_FLYING = 1, 3         # m_MountType (0 none, 2 aquatic)
+
+
+def item_cooldown(group, remaining, seconds):
+    """0x1e5 {i64 seconds remaining, i32 group, i32 seconds}: the reuse timer of every item whose
+    field 107 is group (FUN_0050f910)."""
+    return zone_event(0x1E5, struct.pack("<qii", int(remaining), group, int(seconds)))
 
 
 def cooldown_group(name):

@@ -1205,8 +1205,7 @@ ITEM_COOLDOWN, ITEM_USE_FAILED = 0x1E5, 0x1C5
 USE_NOT_REFRESHED = 7
 
 
-def item_cooldown(group, remaining, seconds):
-    return zone.zone_event(ITEM_COOLDOWN, struct.pack("<qii", int(remaining), group, int(seconds)))
+item_cooldown = zone.item_cooldown
 
 
 def use_item(state, args, item):
@@ -1217,7 +1216,7 @@ def use_item(state, args, item):
     now = time.time()
     if player.health <= 0:
         return
-    if cooldowns.get(group, 0) > now:
+    if cooldowns.get(group, (0, 0))[0] > now:
         send(zone.zone_event(ITEM_USE_FAILED, struct.pack("<B", USE_NOT_REFRESHED)))
         return
     use = tpl["use"]
@@ -1246,7 +1245,9 @@ def use_item(state, args, item):
         send(zone.endurance_update(player))
     seconds = float(tpl.get("cooldown", 0))
     if seconds > 0:
-        cooldowns[group] = now + seconds
+        cooldowns[group] = (now + seconds, seconds)
+        save_character_field(player.name, "item_cooldowns",
+                             {str(g): list(v) for g, v in cooldowns.items() if v[0] > now})
         send(item_cooldown(group, seconds, seconds))
     send(build_system_text(f"You use the {item[1]}" + (f" and gain {', '.join(gained)}." if gained else "."),
                            SYSTEM_TEXT_WHITE))
@@ -8827,6 +8828,7 @@ def player_from_character(char, name, args):
     player.apply_form_on_death = char.get("apply_form_on_death", False)
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
+    player.item_cooldowns = {int(g): tuple(v) for g, v in (char.get("item_cooldowns") or {}).items()}
     known = {prop for prop, _, _ in PAWN_PREFS.values()}
     player.pawn_prefs = {k: int(v) for k, v in char.get("pawn_prefs", {}).items() if k in known}
     player.access_level = int(char.get("access_level", 0))
