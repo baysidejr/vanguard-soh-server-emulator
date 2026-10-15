@@ -969,6 +969,19 @@ class LeashTests(unittest.TestCase):
         p.live_position = (100.0, 0.0, 0.0)
         self.assertIs(c.proximity_aggro(npc, [p]), p)
 
+    def test_evading_npc_inside_the_leash_does_not_reaggro(self):
+        # Seen live 2026-10-15: wolves that chased a griffon rider past the leash gave up, took one
+        # step home (back inside the leash), noticed the player again and gave up again, forever.
+        c = login_stub.combat
+        npc = c.Npc(1, "Ashen Wolf", None, "x", location=(0.0, 0.0, 0.0))
+        npc.aggro_radius = 800
+        npc.location = (c.LEASH - 10.0, 0.0, 0.0)
+        c.give_up(npc)
+        p = mock.Mock(live_position=(c.LEASH + 100.0, 0.0, 0.0), spawned_at=None, health=10, char_id=5)
+        self.assertIsNone(c.proximity_aggro(npc, [p]))
+        npc.evading = False                                    # home again
+        self.assertIs(c.proximity_aggro(npc, [p]), p)
+
     def test_leash_forgets_and_heals_at_home(self):
         c = login_stub.combat
         npc = c.Npc(1, "Ashen Wolf", None, "x", max_health=100, location=(0.0, 0.0, 0.0))

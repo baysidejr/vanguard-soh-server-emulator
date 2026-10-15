@@ -129,6 +129,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded
 - [ ] A lootable corpse sparkles; spell effects show (Blade of Winter tints the target)
 - [ ] Wound an Ashen Wolf, run past its leash: it walks home, heals to 100%, the target frame turns white and its target line reads "--"; no "notices you!" flood
+- [ ] Let two Ashen Wolves notice you, then `!tp -28900 -9400 ~`: each gives up once at the leash and walks home; they do not notice you again on the way (no "gives up" loop)
 - [ ] Die to a Canyon Widow: it walks home and heals instead of standing over the corpse
 - [ ] Summon Ashfang (Wolf Whistle): it uses Savage Bite on its own; right-click the bite on the pet bar: the green "+" goes away ("will no longer"), right-click again brings it back
 - [ ] ✦ Duel to 1 HP; a challenge times out after 30 s

@@ -882,6 +882,9 @@ def proximity_aggro(npc, players, kos=None):
         return None
     if getattr(npc, "fighting_pet_until", 0) > time.time():
         return None                                  # busy with a player's pet
+    if getattr(npc, "evading", False):
+        return None      # gave up and walking home: no new fight until it is back (one step
+                         # inside the leash it would re-aggro, chase out and give up again)
     home = getattr(npc, "home", None)
     if home is not None and math.hypot(npc.location[0] - home[0], npc.location[1] - home[1]) > LEASH:
         return None      # leashed and walking home: re-aggroing here would drop again next tick

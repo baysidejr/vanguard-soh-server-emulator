@@ -78,6 +78,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Bug fixed: an NPC that gave up re-aggroed one step inside the leash and gave up again in a loop ("Ashen Wolf notices you!" flood after a griffon flight over the wolves). proximity_aggro now skips evading NPCs until they are home. Live: two wolves left behind at the leash gave up once each and walked home. Unit test LeashTests.test_evading_npc_inside_the_leash_does_not_reaggro. Flight descent tried by script (mouse-look down + forward): it barely moved, still needs a person.
+
 - 2026-10-15: Ignore refuses group invites, trade requests and duel challenges ("<name> is ignoring you."), verified with two clients; chat was already filtered. Unit test IgnoreRefusalTests. Also: INVENTORY.md's "weapon not drawn" line was stale (bow on the back, sword in hand, seen live).
 
 - 2026-10-15: Editor #selftest (EditorPageTests, headless Edge) now also round-trips the Recipes, Parley, Factions and Work orders forms: every field gets change/input events with its value untouched and the file must not change. It caught the Factions form adding "start": 0 to a faction without one (fixed).
