@@ -12,6 +12,7 @@ from urllib.robotparser import RobotFileParser
 HERE = Path(__file__).resolve().parent
 ORIGIN = "https://vgsoharchive.com"
 USER_AGENT = "VanguardCrowdsourcedCollector/0.1"
+MIN_REQUEST_INTERVAL = 15.0
 
 
 class NoRedirect(HTTPRedirectHandler):
@@ -25,13 +26,13 @@ class ArchiveClient:
         self.cache = Path(cache) if cache else HERE / ".cache" / "archive"
         self.cache.mkdir(parents=True, exist_ok=True)
         self.clock = self.cache / "last-request.json"
-        self.delay = 5.0
+        self.delay = MIN_REQUEST_INTERVAL
         self.network_requests = 0
         self.network_request_attempts = 0
         robots = self.get(ORIGIN + "/robots.txt", policy_check=False)
         self.policy = RobotFileParser()
         self.policy.parse(robots.splitlines())
-        self.delay = max(5.0, self.policy.crawl_delay(USER_AGENT) or 0)
+        self.delay = max(MIN_REQUEST_INTERVAL, self.policy.crawl_delay(USER_AGENT) or 0)
         self.sitemaps = self.policy.site_maps() or []
         self.policy_checked_at = time.time()
 
@@ -42,7 +43,7 @@ class ArchiveClient:
         if policy_check and time.time() - self.policy_checked_at > 86400:
             robots = self.get(ORIGIN + "/robots.txt", policy_check=False)
             self.policy.parse(robots.splitlines())
-            self.delay = max(5.0, self.policy.crawl_delay(USER_AGENT) or 0)
+            self.delay = max(MIN_REQUEST_INTERVAL, self.policy.crawl_delay(USER_AGENT) or 0)
             self.policy_checked_at = time.time()
         if policy_check and not self.policy.can_fetch(USER_AGENT, url):
             raise ValueError(f"robots.txt disallows {url}")

@@ -312,7 +312,7 @@ class ArchivePublicationTests(unittest.TestCase):
             response.url = url
             response.read.return_value = b'<html>Fixture</html>'
             client.get(url)
-        sleep.assert_called_once_with(3)
+        sleep.assert_called_once_with(13)
 
     def test_download_cache_preserves_response_bytes_and_hash(self):
         import hashlib
