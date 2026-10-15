@@ -2288,7 +2288,10 @@ def handle_corpse_event(state, event, data):
 
 
 def remove_tombstone(state, player, quiet=False):
-    w = state.get("world")
+    # The stone stands in its own region's world, which need not be the player's (a corpse
+    # summoned from another region, or recovered after travelling).
+    level = (getattr(player, "tombstone", None) or {}).get("level")
+    w = next((x for x in world.all_worlds() if x.level == level), None) if level else state.get("world")
     eid = zone.tombstone_eid(player)
     if w is not None and eid in w.npcs:
         del w.npcs[eid]
@@ -4941,7 +4944,7 @@ def use_tombstone(state):
 
 # Corpse summoning (verified live 2026-10-15): an NPC with mobs.json "corpse_summoner" offers the
 # client's dialog option 0x2b9 (type 0xb, "summon my corpse") while the player has a tombstone;
-# choosing it sends 0x167 (no payload). The tombstone moves to the player's feet (same chunk).
+# choosing it sends 0x167 (no payload). The tombstone moves to the player's feet, from any region.
 SUMMON_CORPSE_OPTION, SUMMON_CORPSE = 0x2B9, 0x167
 
 

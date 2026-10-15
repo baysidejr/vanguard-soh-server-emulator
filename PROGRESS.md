@@ -85,6 +85,8 @@ Content: 75 regions hold 1,256 NPCs imported from the archive (36 riftway destin
 
 ## Done
 
+- 2026-10-15: Tombstones are removed from their own region's world (summoning a corpse from another region, or recovering it after travel, no longer leaves the old stone standing). Unit test TombstoneRegionTests; not seen live.
+
 - 2026-10-15: Altars of Binding at the archive's zone bind spots (20 in 15 regions); releasing to a bind in another region travels there (seen live: camp death -> Khal altar). Ranger restored from the run's backup afterwards (camp bind, old tombstone).
 
 - 2026-10-15: /con difficulty sentence decoded (0 slightly easier ... 5 extremely difficult); mobs.json difficulty, imported from the archive's dots for 609 NPCs and creatures.

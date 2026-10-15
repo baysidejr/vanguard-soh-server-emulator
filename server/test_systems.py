@@ -582,6 +582,22 @@ class OpenSpaceTests(unittest.TestCase):
             self.assertFalse(login_stub.inside_a_house(p))        # an empty plot is open ground
 
 
+class TombstoneRegionTests(unittest.TestCase):
+    def test_remove_from_the_tombstones_own_region(self):
+        import login_stub
+        far = login_stub.world.world_for("chunk_test_far")
+        here = login_stub.world.world_for("chunk_test_here")
+        player = types.SimpleNamespace(name="Ghost", char_id=77, tombstone={"level": "chunk_test_far", "loc": [0, 0, 0]})
+        eid = login_stub.zone.tombstone_eid(player)
+        far.npcs[eid] = object()
+        state = {"world": here, "send": lambda m: None, "player": player}
+        with unittest.mock.patch.object(login_stub, "save_character_field"), \
+                unittest.mock.patch.object(login_stub, "tombstone_marker", return_value=[]):
+            login_stub.remove_tombstone(state, player)
+        self.assertNotIn(eid, far.npcs)
+        self.assertIsNone(player.tombstone)
+
+
 class ChunkArrivalTests(unittest.TestCase):
     def test_label_before_centre(self):
         import login_stub, tempfile
