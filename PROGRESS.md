@@ -57,6 +57,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (99; the big grou
 
 ## Done
 
+- 2026-10-15: In-game builder: `!spawn <mob> [wander]` places a mob at your feet and saves it to the chunk's spawn file; `!despawn` removes the targeted one (seen live; unit test BuilderTests).
 - 2026-10-15: Second housing plot (102 Canyon Overlook, placeholder); the building preview (0x474) is seen live there for the first time.
 - 2026-10-15: Casts by NPCs that are not your target go on their encounter row (0x3bc, removed with 0x3bf); the client accepts them (winbreak) but draws no row icon. The target's own cast icon (0x3a5) shows fine.
 - 2026-10-15: Fixed the empty "Other Factions" list on the Diplomacy - Factions tab: 0x35b only stores a row, and 0x35c publishes both faction lists. Now sent after the login rows and on UI load; all four factions show with their bars (seen live).

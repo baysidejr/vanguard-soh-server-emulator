@@ -805,6 +805,32 @@ class PrestigeFactionTests(unittest.TestCase):
         self.assertEqual(player.factions["1005"], 250)
 
 
+class BuilderTests(unittest.TestCase):
+    def test_spawn_then_despawn_restores_the_file(self):
+        import json, shutil
+        with tempfile.TemporaryDirectory() as d:
+            shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(login_stub.__file__)), "content"),
+                            os.path.join(d, "content"))
+            path = os.path.join(d, "content", "spawns", "chunk_n19_12.json")
+            before = open(path, encoding="utf-8").read()
+            args = mock.Mock(client_dir=None)
+            args.content = content.Content(os.path.join(d, "content"))
+            args.content.ground_z = lambda *a: 450.0
+            w = mock.Mock(npcs={})
+            player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+            sent = []
+            state = {"player": player, "send": sent.append, "world": w, "position": (-30500.0, -6000.0, 450.0)}
+            npc = mock.Mock(template_id="forest_bear", home=(-30500.0, -6000.0, 450.0))
+            npc.name = "Thornback Bear"
+            with mock.patch.object(login_stub.zone, "npc_from_template", side_effect=lambda w_, a, eid, *r: setattr(npc, "entity_id", eid) or npc):
+                login_stub.build_spawn(state, args, "forest_bear")
+            self.assertIn('"forest_bear"', open(path, encoding="utf-8").read())
+            player.npcs, player.target = {npc.entity_id: npc}, npc.entity_id
+            login_stub.build_despawn(state, args)
+            self.assertEqual(json.loads(open(path, encoding="utf-8").read()), json.loads(before))
+            self.assertEqual(w.npcs, {})
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

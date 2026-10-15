@@ -3228,6 +3228,76 @@ WOUNDS = 0x44B
 WOUND_HEAL_SECONDS = 20              # one level off the worst wound per 20 s of resting out of combat
 
 
+# In-game builder (dev commands): !spawn <mob key> [wander] appends {mob, x, y, yaw, respawn,
+# wander} at the player's feet to content/spawns/<chunk>.json and opens the NPC for everyone in
+# the chunk at once (entity id SPAWN_EID_BASE + its index, as after a restart). !despawn removes
+# the targeted spawned NPC's entry (matched by mob and position) and its actor.
+def spawn_file(args, level):
+    return os.path.join(args.content.directory, "spawns", level + ".json")
+
+
+def write_spawn_file(path, doc):
+    old = open(path, encoding="utf-8", newline="").read() if os.path.exists(path) else ""
+    nl = "\r\n" if "\r\n" in old else "\n"
+    text = json.dumps(doc, indent=2, ensure_ascii=False) + ("\n" if old.endswith(("\n", "\r\n")) else "")
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="") as f:
+        f.write(text.replace("\n", nl))
+    os.replace(tmp, path)
+
+
+def build_spawn(state, args, key, wander=0):
+    player, send = state["player"], state["send"]
+    w = state.get("world")
+    template = args.content.mobs.get(key)
+    pos = state.get("position") or player.live_position
+    if template is None:
+        send(build_system_text(f"No mob template {key!r} in mobs.json.", SYSTEM_TEXT_ERROR))
+        return
+    if w is None or pos is None:
+        return
+    path = spawn_file(args, player.level)
+    doc = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {"spawns": []}
+    entry = {"mob": key, "x": int(pos[0]), "y": int(pos[1]), "yaw": int(getattr(player, "yaw", 0)) & 0xFFFF,
+             "respawn": 60}
+    if wander:
+        entry["wander"] = int(wander)
+    doc.setdefault("spawns", []).append(entry)
+    write_spawn_file(path, doc)
+    n = len(doc["spawns"]) - 1
+    spawn = dict(entry, z=args.content.ground_z(player.level, entry["x"], entry["y"], args.client_dir))
+    npc = zone.npc_from_template(w, args, zone.SPAWN_EID_BASE + n, spawn, template, n)
+    w.npcs[npc.entity_id] = npc
+    w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
+    send(build_system_text(f"Spawned {template.get('name', key)} (spawn {n}) and saved it to {os.path.basename(path)}.",
+                           SYSTEM_TEXT_WHITE))
+    print(f"  builder: {player.name} spawned {key} at {entry['x']}, {entry['y']} (spawn {n})")
+
+
+def build_despawn(state, args):
+    player, send = state["player"], state["send"]
+    w = state.get("world")
+    npc = player.npcs.get(player.target) if player.target else None
+    if w is None or npc is None or not getattr(npc, "template_id", None) or \
+            not zone.SPAWN_EID_BASE <= npc.entity_id < zone.SPAWN_EID_BASE + 0x100000:
+        send(build_system_text("Target a spawned NPC first.", SYSTEM_TEXT_ERROR))
+        return
+    path = spawn_file(args, player.level)
+    doc = json.load(open(path, encoding="utf-8"))
+    home = npc.home or npc.location
+    match = next((i for i, s in enumerate(doc.get("spawns", []))
+                  if s.get("mob") == npc.template_id and abs(s["x"] - home[0]) < 2 and abs(s["y"] - home[1]) < 2), None)
+    if match is None:
+        send(build_system_text(f"{npc.name} is not in {os.path.basename(path)}.", SYSTEM_TEXT_ERROR))
+        return
+    doc["spawns"].pop(match)
+    write_spawn_file(path, doc)
+    del w.npcs[npc.entity_id]
+    w.broadcast(lambda s, eid=npc.entity_id: zone.close_actor(s, eid))
+    send(build_system_text(f"Removed {npc.name} (spawn {match}) from {os.path.basename(path)}.", SYSTEM_TEXT_WHITE))
+    print(f"  builder: {player.name} removed {npc.template_id} spawn {match}")
+
+
 def wounds_message(player):
     return zone.zone_event(WOUNDS, bytes(getattr(player, "wounds", None) or [0] * 5))
 
@@ -9455,6 +9525,13 @@ def dev_command(text, player=None):
         player.quests.active.pop(words[1], None)
         save_character_field(player.name, "quests", player.quests.to_json())
         return []
+    if words[0] == "spawn" and len(words) >= 2 and player:
+        # !spawn <mob key> [wander radius]: builder mode, place a mob at your feet and save it
+        # to content/spawns/<chunk>.json (docs/CONTENT_EDITOR.md "In-game builder").
+        return [("build_spawn", words[1], int(words[2]) if len(words) > 2 else 0)]
+    if words[0] == "despawn" and player:
+        # !despawn: builder mode, remove the targeted spawned NPC from the world and the file.
+        return [("build_despawn",)]
     if words[0] == "wound" and len(words) >= 3 and player:
         # !wound <part 0-4> <severity 0-4>: set a wound (testing; 0 head ... 4 legs).
         w = list(getattr(player, "wounds", None) or [0] * 5)
@@ -10007,6 +10084,12 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "faction":
                         adjust_faction(state, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "build_spawn":
+                        build_spawn(state, args, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "build_despawn":
+                        build_despawn(state, args)
                         continue
                     elif isinstance(m, tuple) and m[0] == "wounds":
                         set_wounds(state, m[1])
