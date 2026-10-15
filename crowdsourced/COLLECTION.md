@@ -75,3 +75,5 @@ python -B crowdsourced/validate.py raw/<batch-name>
 ```
 
 Tests use synthetic fixtures and temporary files inside `crowdsourced/tests/`; they make no network requests. Coverage includes source parsing, malformed rank tables, conflicting item values, card pools, safe URLs, crawl spacing, unknown values, and completion checkpoints after successful publication. A clean batch validation is not historical authentication or proof that the zone is fully covered.
+
+Closed-connection recovery in continuous runs preserves the partial batch and failed URL, then increases the request interval from 15 to 30, 45 and 60 seconds. Further closed connections retain the 60-second interval; a longer robots delay always takes precedence. The interval is persisted across restarts and is not reset after success. Cooldown respects graceful stop requests. Other failures (including HTTP access/rate errors, timeouts and parser errors) still stop for review.

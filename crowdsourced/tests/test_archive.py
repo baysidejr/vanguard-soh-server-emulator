@@ -314,6 +314,32 @@ class ArchivePublicationTests(unittest.TestCase):
             client.get(url)
         sleep.assert_called_once_with(13)
 
+    def test_closed_connection_backoff_persists_steps_and_honors_stop(self):
+        from types import SimpleNamespace
+        state = self.root / 'retry-state'
+        state.mkdir()
+        client = SimpleNamespace(minimum_interval=15.0, delay=15.0,
+                                 interval_path=state / 'interval.json')
+        with patch.object(collector, 'STATE', state):
+            for expected in (30, 45, 60, 60):
+                with patch('collect_archive.time.monotonic', side_effect=[0, 100]):
+                    self.assertTrue(collector.recover_closed_connection(client))
+                self.assertEqual(client.delay, expected)
+                self.assertEqual(json.loads(client.interval_path.read_text()), expected)
+            (state / 'stop.request').write_text('stop')
+            with patch('collect_archive.time.monotonic', return_value=0), patch('collect_archive.time.sleep') as sleep:
+                self.assertFalse(collector.recover_closed_connection(client))
+                sleep.assert_not_called()
+
+    def test_client_restores_interval_and_honors_longer_robots_delay(self):
+        cache = self.root / 'saved-rate'
+        cache.mkdir()
+        (cache / 'request-interval.json').write_text('45')
+        with patch.object(ArchiveClient, 'get', return_value='User-agent: *\nCrawl-delay: 90\n'):
+            client = ArchiveClient(cache)
+        self.assertEqual(client.minimum_interval, 45)
+        self.assertEqual(client.delay, 90)
+
     def test_download_cache_preserves_response_bytes_and_hash(self):
         import hashlib
         with patch.object(ArchiveClient, 'get', return_value='User-agent: *\nCrawl-delay: 5\n'):
