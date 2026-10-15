@@ -2,7 +2,7 @@
 
 > **Verified live (2026-10-13), with `!forms` on Ranger:**
 > - The server sends the forms on the zone connection. The world connection logs them as unhandled.
-> - `!ui Forms` shows the Forms bar with the three mindsets from `content/forms.json`. The bar did not show by itself.
+> - `!ui Forms` shows the Forms bar with the three mindsets from `content/forms.json`. The bar did not show by itself. Why (2026-10-15): the bar's frame is shown by `bHasCombatForms`, which the client sets itself when a form is added (0x5f54ae) and clears on 0x38a. The outer "Forms" window (VGUIMainBar.xml) is simply closed in the default layout, so a player opens it once and the client remembers the layout. None of the no-payload form signals (0x394, 0x395, 0x397, 0x398) shows it.
 > - Clicking one sends 0x13e {2, 0}. The server answers 0x13f {0} and 0x38d {2, 0}, applies it as a maintained stance and prints "You assume Mindset of Focus."
 > - A new form replaces the old one. A change is allowed once every 5 seconds.
 > - `/combatformset <name>` answered "You don't have knowledge of that." in the test, so use the bar.
