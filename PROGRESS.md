@@ -43,6 +43,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 
 ## Done
 
+- 2026-10-14: Merged crowdsourced/archive-collection into main at the user's request (59dbb21): 912 files, mostly crowdsourced/raw and reviewed data plus the collection tools. No conflicts; server tests 181 OK, crowdsourced tests 133 OK, CI green.
 - 2026-10-14: The loot window's "Share Loot Rights" (0x6ca) and "Start Item Rolling" (0x6c9) buttons are now shown in the loot modes that use them. Before this they were never visible, so 0xb7 / 0xb8 were only reachable by dev command. Seen live with two clients: sharing, and a roll popup on the other member. Unit test LootButtonTests.
 - 2026-10-14: A group member's spell being cast shows by their row in the group window (0x3b3 adds the icon, 0x3b4 removes it). Seen live with two clients; unit test GroupCastTests. Also: a 10-minute soak with 50 bots kept memory flat.
 - 2026-10-14: tools/scenarios.py gained an "aa" scenario: a bot trains an AA ability over the wire, and the server answers 0x860 and saves it. 9/9 scenarios pass; check_all 6/6.
