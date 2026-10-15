@@ -9922,6 +9922,15 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == UI_LOADED and state.get("player"):
+            # The client's UI finished (re)loading (0x6c, also after /reloadui). Its rebuild
+            # empties the diplomacy card lists, so the repertoire (the ability book's Diplomacy
+            # page and the strategy window) is sent now rather than at login (verified live).
+            deck, slots = diplomacy_deck(state["player"])
+            for m in diplomacy.deck_messages(ARGS.content.diplomacy["cards"], deck, slots,
+                                             resend=state.get("deck_sent", False)):
+                send_message(sock, addr, state, m)
+            state["deck_sent"] = True
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == craft.JOURNAL_RECIPE and len(payload) >= 14:
             if state.get("player"):
                 r = recipe_by_id(struct.unpack_from("<i", payload, 10)[0])
@@ -10208,6 +10217,7 @@ def try_delete_character(sock, addr, state, payload):
 # getting up from feign death (pawn +0x3e9, set while m_bIsDead +0x3e8; FUN_009db5a0 /
 # FUN_005eef50; no feign-death ability here yet), 0x3a0 {eid64, bool8} the encounter display's
 # entity is gone client-side (FUN_004b3bd0; the client clears the display itself).
+UI_LOADED = 0x6C
 CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x183, 0x189, 0x27A,
                   0x18A, 0x3A0}
 

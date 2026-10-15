@@ -15,6 +15,8 @@ The client's parley manager handles server messages in `FUN_00556560`. All messa
 
 ## Deck and strategy slots
 
+**Update (verified live 2026-10-15):** the deck is now also sent when the client reports that its UI finished loading (client event **0x6c**, also after /reloadui). This is after the rebuild, so the ability book's Diplomacy page (the `DiplomacyRepertoire` page list) shows the character's cards outside a parley; it was empty before. A parley then resends with the usual 0x239 clean-up. The card icons are still the client's missing-icon placeholder (443), because the real card icons are server data.
+
 The deck must be sent **when the parley starts, not at login.** A UI rebuild after login (`FUN_005e1f40` → `FUN_0054f140`) recreates the `DiplomacyRepertoire` and `DiplomacyStrategy` lists empty, so cards sent at login disappear. The slot count survives, which is why the bar showed 3 empty slots.
 
 At every `0x125`, before `0x31d`, the server sends:

@@ -48,6 +48,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: The ability book's Diplomacy page lists the character's cards. The deck is sent on the client's UI-loaded notice (0x6c), after the rebuild that empties the list. Seen live (5 cards with their expressions); the card icons are placeholders.
 - 2026-10-15: The crafting journal recipe page works. It was blank: 0x108 is answered with 0x2f2 (recipe details) and 0x309 (steps missing items). Seen live for refining and finishing recipes. Unit test JournalRecipeTests.
 - 2026-10-15: Imported archive ability data into abilities.json: 355 class abilities got icons (200), tooltips (276), refresh (217) and cast times, logged in crowdsourced/imported.md. Seen live: Ranger's ability book shows the archive icons. Note that refresh times are now real archive values for those abilities.
 - 2026-10-15: Content editor Abilities tab with all 808 class abilities, and archive fill of icon, description, cast and refresh (355 have data). The archive's IconNNN numbers match the client's icons. The server now applies abilities.json icon, description and refresh to the ability book and the trainer offers. Unit tests AbilityContentTests and AbilityArchiveTests; the self-test round trip covers abilities (it caught "pet" kinds being dropped).
