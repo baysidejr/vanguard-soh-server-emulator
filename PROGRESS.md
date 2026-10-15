@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Last test results
 
+- 2026-10-15 (after live spawn-file reload): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after pet default attack): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after message reclassification): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after builder undo/GM access/audit, loadtest fix): tools/check_all.py --client 7 of 7 passed (unit 219, load p95 11.2 ms, fuzz clean, smoke PASS). The run before failed only the unit tests, intermittently (third time today, each time right after a live client/server); 12 reruns passed. check_all now names the failing test and keeps the output in server/check_unit_failure.txt.
