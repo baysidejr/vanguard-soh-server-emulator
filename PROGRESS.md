@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty primary/secondary skills; an agent is decoding what fills it (strHarLevelRaceClass, PCHarPrimary*, 0x2e0). Then fill it. Other candidates: the pet ability examine popup (0x42b), the DefTargetLevel shield on the defensive target panel.
+Look for more character-window values the server knows but leaves empty (Stats tab: damage bonuses, accuracy, heal; Skills tab). Other candidates: the pet ability examine popup (0x42b), remaining optional client messages in docs/UNSENT_MESSAGES.md.
 
 ## Last test results
 
+- 2026-10-15 (after harvesting tab, crits, def-target panel): tools/check_all.py --client 7 of 7 passed (unit 186, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after attribute points, outposts, loot buttons, group casts): tools/check_all.py --client 7 of 7 passed (unit 183, scenarios 9/9, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-14 (soak): 50 bots for 10 minutes: memory flat at 205 MB, 17% of a core, ping p95 11.1 ms, no errors (docs/TESTING.md).
 - 2026-10-14 (after AA and hints): tools/check_all.py --client 7 of 7 passed (unit 179, scenarios, load p95 11.5 ms, fuzz clean, smoke PASS).
@@ -29,7 +30,7 @@ The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty 
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 590 of 720 sent or not needed (82%); open: 130 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 590 of 720 sent or not needed (81%); open: 130 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
