@@ -582,6 +582,20 @@ class OpenSpaceTests(unittest.TestCase):
             self.assertFalse(login_stub.inside_a_house(p))        # an empty plot is open ground
 
 
+class QuestWhereTests(unittest.TestCase):
+    def test_turn_in_npc_place(self):
+        import login_stub, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "spawns"))
+            with open(os.path.join(d, "spawns", "chunk_n19_12.json"), "w", encoding="utf-8") as f:
+                json.dump({"spawns": [{"mob": "orin", "x": -31350, "y": -5450}]}, f)
+            content_ = types.SimpleNamespace(directory=d, ground_z=lambda *a: 450.0)
+            args = types.SimpleNamespace(content=content_, client_dir=None)
+            with unittest.mock.patch.object(login_stub, "ARGS", args):
+                self.assertEqual(login_stub.quest_where({"giver": "orin"}), (-19, 12, -31350, -5450, 450))
+                self.assertIsNone(login_stub.quest_where({"giver": "nobody"}))
+
+
 class DialogQuestTests(unittest.TestCase):
     def test_offer_progress_done(self):
         import login_stub
