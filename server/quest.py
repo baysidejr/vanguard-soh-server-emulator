@@ -13,7 +13,9 @@ slots {i32 item id, i32 qty, i32 group, bool8} list the items (cached first with
 item record, or the client asks 0x162 and shows nothing). Fixed items get a group each; the
 choice items share one group. Clicking an item sends 0x163 {i32 quest id, i32 item id};
 the server answers 0x2cf {quest id, item id} ("Selecting %s") and 0x2c8 {quest id, bool8 1}
-(shows the Complete button). Complete sends 0x161 {i32 quest id, i32 item id}.
+(shows the Complete button). Clicking the chosen item again sends 0x163 again: 0x2d0 {quest id, item
+id} takes the choice back and 0x2c8 {quest id, 0} hides Complete (verified live 2026-10-15).
+Complete sends 0x161 {i32 quest id, i32 item id}.
 XP is granted separately (0x3d5)."""
 import struct
 import time
@@ -42,6 +44,11 @@ def reward_slots(q):
 
 def reward_selected(q, item_id):
     return _event(0x2CF, struct.pack("<ii", q["id"], item_id))
+
+
+def reward_deselected(q, item_id):
+    """0x2d0 {quest id, item id} (FUN_005971c0): "De-selecting %s", the item is unmarked."""
+    return _event(0x2D0, struct.pack("<ii", q["id"], item_id))
 
 
 def show_complete_button(q, show=True):

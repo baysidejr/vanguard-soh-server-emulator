@@ -54,6 +54,7 @@ Effects: now that the FX packages load, find how ability and spell visuals are p
 
 ## Done
 
+- 2026-10-15: Quest reward choice can be taken back: clicking the chosen reward again sends 0x2d0 and hides Complete; choosing another de-selects the first (seen live with Wanderer Trouble, then completed with the shortsword).
 - 2026-10-15: Crafting stage banner (0x307 orange screen text, "Preparation complete. Next: Smelting").
 - 2026-10-15: Station use refusals (0x3ca): already busy, flying or resting; the client shows them as top-of-screen text (seen live). Unit test ObjectUseTests.
 - 2026-10-15: Deconstruction: a Salvage Kit (0x58d) puts the cursor in deconstruct mode; the client's Deconstruct window sends 0x58e (resources) / 0x58f (dust); seen live (Rusted Dagger into 1 Copper Ingot, kit 3 -> 2). Replaced the old always-refuse answer. Unit test DeconstructTests.

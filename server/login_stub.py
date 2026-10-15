@@ -6644,7 +6644,17 @@ def handle_quest_event(state, event, payload):
     elif event == quest.SELECT_REWARD and key in log.active and len(payload) >= 18:
         item_id = struct.unpack_from("<i", payload, 14)[0]
         names = {i: name for i, name, _, _, choice in quest.reward_slots(q) if choice}
-        if item_id in names:
+        if item_id in names and state.get("quest_reward_choice") == (key, names[item_id]):
+            # Clicking the chosen reward again takes the choice back.
+            state.pop("quest_reward_choice")
+            send(quest.reward_deselected(q, item_id))
+            send(quest.show_complete_button(q, False))
+        elif item_id in names:
+            prev = state.get("quest_reward_choice")
+            if prev and prev[0] == key:
+                old = next((i for i, n in names.items() if n == prev[1]), None)
+                if old is not None:
+                    send(quest.reward_deselected(q, old))
             state["quest_reward_choice"] = (key, names[item_id])
             send(quest.reward_selected(q, item_id))
             send(quest.show_complete_button(q))
