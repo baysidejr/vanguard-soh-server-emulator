@@ -142,6 +142,20 @@ def validate(directory=CONTENT_DIR):
         for r in (a.get("requires") or {}):
             if int(r) not in aa_ids:
                 problems.append(f"aa {a.get('id')}: requires unknown ability {r}")
+    for tid, entries in c.loot.items():
+        if not isinstance(entries, list):
+            problems.append(f"loot {tid}: must be a list of drops")
+            continue
+        for n, e in enumerate(entries):
+            if not isinstance(e, dict) or not str(e.get("name", "")).strip():
+                problems.append(f"loot {tid} row {n + 1}: needs an item name")
+                continue
+            ch = e.get("chance", 1.0)
+            if not isinstance(ch, (int, float)) or not 0 <= ch <= 1:
+                problems.append(f"loot {tid} row {n + 1}: chance must be 0..1")
+            q = e.get("quantity", [1, 1])
+            if not (isinstance(q, list) and len(q) == 2 and all(isinstance(x, int) and x >= 1 for x in q) and q[0] <= q[1]):
+                problems.append(f"loot {tid} row {n + 1}: quantity must be [min, max] with 1 <= min <= max")
     for lid, entries in c.merchants.items():
         for e in entries:
             if e.get("item") not in c.items:

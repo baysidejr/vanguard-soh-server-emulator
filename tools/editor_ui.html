@@ -7,7 +7,8 @@
   body { margin: 0; font: 14px system-ui, sans-serif; background: #1d1b18; color: #e8e2d6; display: flex; height: 100vh; }
   nav { width: 230px; background: #26231f; border-right: 1px solid #3a352e; display: flex; flex-direction: column; }
   nav h1 { font-size: 15px; margin: 12px; color: #d8b56a; }
-  .tabs { display: flex; margin: 0 8px 8px; gap: 4px; }
+  .tabs { display: flex; flex-wrap: wrap; margin: 0 8px 8px; gap: 4px; }
+  .tabs button { padding: 4px 6px; }
   .tabs button { flex: 1; }
   #files { overflow-y: auto; flex: 1; }
   #files div { padding: 4px 12px; cursor: pointer; }
@@ -42,7 +43,7 @@
 <body>
 <nav>
   <h1>Content editor</h1>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabLoot">Loot</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -81,6 +82,19 @@
       <div id="mFlags" style="display:flex;flex-wrap:wrap;gap:4px 14px"></div>
       <label>Other fields (JSON: gear, abilities, spells, harvest, parley...)</label>
       <textarea id="mOther" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <div id="lootview" style="flex:1;display:none;min-height:0">
+    <div id="lootList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
+    <div style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="lootKey">Pick a loot table</strong><span style="flex:1"></span>
+        <button id="newLoot">New table</button><button id="addDrop">Add item</button>
+        <button id="saveLoot" class="primary">Save loot.json</button>
+      </div>
+      <table id="lootTable" style="border-collapse:collapse;width:100%"></table>
+      <p class="hint">Chance is per kill (each row rolls on its own). Icons come from items.json when the item is there. Mobs pick a table on the Mobs tab.</p>
+      <datalist id="itemNames"></datalist>
     </div>
   </div>
   <div id="spawnview">
@@ -162,6 +176,8 @@ function setMode(m) {
   $("spawnview").style.display = m === "spawns" ? "flex" : "none";
   $("mobview").style.display = m === "mobs" ? "flex" : "none";
   if (m === "mobs" && !mobDoc) initMobs();
+  $("lootview").style.display = m === "loot" ? "flex" : "none";
+  if (m === "loot" && !lootDoc) initLoot();
   $("problems").innerHTML = "";
   if (m === "spawns" && !$("chunk").options.length) initSpawns();
 }
@@ -250,6 +266,58 @@ $("saveMobs").onclick = async () => {
   showProblems(r.body.problems, "Saved mobs.json.");
 };
 let pendingMob = null;
+
+// ---- loot ----
+let lootDoc = null, lootSel = null, itemDoc = {};
+$("tabLoot").onclick = () => setMode("loot");
+async function initLoot() {
+  lootDoc = JSON.parse((await api("/api/file?name=loot.json")).body.text);
+  itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
+  $("itemNames").innerHTML = Object.keys(itemDoc).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k.replace(/"/g, "&quot;")}">`).join("");
+  listLoot();
+}
+function listLoot() {
+  $("lootList").innerHTML = "";
+  for (const k of Object.keys(lootDoc).filter(k => !k.startsWith("_")).sort()) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer" + (k === lootSel ? ";background:#4a3f2c" : "");
+    d.textContent = `${k} (${lootDoc[k].length})`;
+    d.onclick = () => { lootSel = k; listLoot(); showLoot(); };
+    $("lootList").appendChild(d);
+  }
+}
+function showLoot() {
+  $("lootKey").textContent = lootSel;
+  const rows = lootDoc[lootSel];
+  const t = $("lootTable");
+  t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Item</th><th>Chance %</th><th>Min</th><th>Max</th><th>Icon</th><th></th></tr>";
+  rows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    const q = r.quantity || [1, 1];
+    tr.innerHTML = `<td><input list="itemNames" value="${(r.name || "").replace(/"/g, "&quot;")}" data-k="name" style="width:100%"></td>
+      <td><input type="number" min="0" max="100" value="${Math.round((r.chance ?? 1) * 1000) / 10}" data-k="chance" style="width:80px"></td>
+      <td><input type="number" min="1" value="${q[0]}" data-k="q0" style="width:60px"></td>
+      <td><input type="number" min="1" value="${q[1]}" data-k="q1" style="width:60px"></td>
+      <td><input type="number" value="${r.icon ?? ""}" data-k="icon" style="width:80px"></td>
+      <td><button data-del="1">Remove</button></td>`;
+    tr.querySelectorAll("input").forEach(inp => inp.oninput = () => {
+      const k = inp.dataset.k, v = inp.value;
+      if (k === "name") { r.name = v; if (itemDoc[v] && itemDoc[v].icon) { r.icon = itemDoc[v].icon; tr.querySelector("[data-k=icon]").value = r.icon; } }
+      else if (k === "chance") r.chance = Math.max(0, Math.min(1, Number(v) / 100));
+      else if (k === "q0" || k === "q1") { r.quantity = [Number(tr.querySelector("[data-k=q0]").value), Number(tr.querySelector("[data-k=q1]").value)]; }
+      else if (k === "icon") { if (v === "") delete r.icon; else r.icon = Number(v); }
+    });
+    tr.querySelector("[data-del]").onclick = () => { rows.splice(i, 1); showLoot(); listLoot(); };
+    t.appendChild(tr);
+  });
+}
+$("addDrop").onclick = () => { if (!lootSel) return; lootDoc[lootSel].push({ name: "", icon: 443, quantity: [1, 1], chance: 0.5 }); showLoot(); listLoot(); };
+$("newLoot").onclick = () => { const k = prompt("Key for the new loot table:"); if (!k || lootDoc[k]) return; lootDoc[k] = []; lootSel = k; listLoot(); showLoot(); };
+$("saveLoot").onclick = async () => {
+  const r = await api("/api/file?name=loot.json", { method: "PUT", body: JSON.stringify(lootDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved loot.json.");
+};
 
 async function initSpawns() {
   const m = await api("/api/file?name=mobs.json");
@@ -378,6 +446,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash.startsWith("#loot")) { setMode("loot"); setTimeout(() => { lootSel = location.hash.split("=")[1]; if (lootSel) { listLoot(); showLoot(); } }, 800); }
 if (location.hash.startsWith("#mobs")) { pendingMob = location.hash.split("=")[1] || null; setMode("mobs"); }
 </script>
 </body>
