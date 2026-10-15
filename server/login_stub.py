@@ -3006,6 +3006,8 @@ def duel_tick(now):
             for s, me, opp in ((a, pa, pb), (b, pb, pa)):
                 me.target = opp.char_id
                 s["send"](duel.start(opp.char_id))
+                pet = getattr(opp, "pet", None)
+                s["send"](duel.attackable([pet.entity_id] if pet is not None else []))
                 s["send"](combat.targets(duel.Target(opp)))
 
 
@@ -3036,6 +3038,7 @@ def end_duel(winner, loser):
         p.duel_opponent = None
         p.auto_attack = False
         s["send"](duel.result(won))
+        s["send"](duel.attackable([]))
         for m in combat.auto_attack_state(False):
             s["send"](m)
 

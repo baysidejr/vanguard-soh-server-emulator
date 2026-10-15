@@ -41,6 +41,12 @@ def start(opponent_eid):
     return _event(0x401, struct.pack("<Q", opponent_eid))
 
 
+def attackable(eids):
+    """0x406 {i32 n, n x eid64}: the pets / charmed pawns this duelist may attack during the duel
+    (FUN_004ca180; 0x407 {eid64} adds one). An empty list clears it."""
+    return _event(0x406, struct.pack("<i", len(eids)) + b"".join(struct.pack("<Q", e) for e in eids))
+
+
 def declined():
     return _event(0x402)
 
