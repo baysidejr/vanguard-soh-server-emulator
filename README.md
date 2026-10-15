@@ -36,7 +36,7 @@ The unmodified client, talking only to this emulator:
 - [x] Groups (invite, accept, group window with live bars, group chat), merchants (buy/sell), equip/unequip, real item tooltips, NPC wandering
 - [x] Chat: say, shout, tell, OOC, group, emotes and social animations
 - [x] Walking (or teleporting) across chunk edges into the neighbouring zone
-- [x] Quests from NPCs (offer page, tracker, kill counts, turn-in rewards) and player-to-player trading
+- [x] Quests from NPCs (offer page, tracker, kill counts, turn-in rewards, quest icons over the NPCs) and player-to-player trading
 - [x] Sitting and camping; endurance costs; NPCs in more than one zone
 - [x] Creatures (wolves, bears, spiders... any of the client's 330 creature races)
 - [x] Harvesting resource nodes (mining a copper vein) and crafting at a station (smelting a copper ingot)
