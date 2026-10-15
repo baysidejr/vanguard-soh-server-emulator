@@ -83,6 +83,8 @@ Content: 75 regions hold 1,152 NPCs imported from the archive (36 riftway destin
 
 ## Done
 
+- 2026-10-15: Checked all riftway landings against the terrain: 4 stand on mesh-built ground far above the heightmap (Jalen's Crossing 32k above), so they and their braziers use the label z; Jalen's Crossing and Razad seen live. Spawns without z in such places would be misplaced; imported NPCs carry their archive z.
+
 - 2026-10-15: GM chunk jumps (!chunk, /chunk) land at the chunk's map label instead of its centre (which can be off the terrain: the camp chunk centre gave z -20320). Unit test ChunkArrivalTests.
 
 - 2026-10-15: 31 more riftway destinations opened at their zone map labels (36 of 39 open), each with a brazier; Wildgrowth Forest lands at our outpost. Seen live: camp -> Wildgrowth -> Lomshir -> camp.
