@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 504 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 86 |
-| variant | 57 |
+| optional | 82 |
+| variant | 61 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 634 of 720 (88%). Still open: 86 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 638 of 720 (88%). Still open: 82 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -257,8 +257,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 634 of 720 (88%).
 |---|---|---|---|---|
 | 0x1ea | MsgEntityIDAndBool | eid64, bool8 | variant | loot window open, like 0x1e8 which the server sends |
 | 0x1ee | - |  | no-op | the dispatcher returns at once |
-| 0x1f8 | (none) |  | optional | loot list refresh signals (LootItemList) |
-| 0x63c | (none) |  | optional | loot list refresh signals (LootItemList) |
+| 0x1f8 | (none) |  | variant | LootItemList refresh; the loot window fills from 0x1f2 + 0x1ef (verified live) |
+| 0x63c | (none) |  | variant | LootItemList refresh; the loot window fills from 0x1f2 + 0x1ef (verified live) |
 
 ## FUN_00536140 (map and dungeon finder): 4
 
@@ -309,8 +309,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 634 of 720 (88%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x23d | MsgIntAndBool | i32, bool8 | optional | attached abilities (effects window) refresh |
-| 0x24f | (none) |  | optional | attached abilities (effects window) refresh |
+| 0x23d | MsgIntAndBool | i32, bool8 | variant | {i32, bool8} attached-abilities (effects window) refresh; the effect windows fill from the effect add / remove messages (verified live, docs/EFFECTS.md) |
+| 0x24f | (none) |  | variant | attached-abilities (effects window) list refresh; the effect windows fill without it (verified live) |
 | 0x254 | MsgStringAndTwoInts | wstr, i32, i32 | content | ability failure reason {wstr ability, i32, i32}: "... because you are not in the required state." / "... have not detected the required state on your target" / "... required level of success"; needs ability state requirements (content) |
 
 ## FUN_0045fda0 (assembly book): 2

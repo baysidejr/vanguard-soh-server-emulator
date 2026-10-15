@@ -759,12 +759,12 @@
       "loot window open, like 0x1e8 which the server sends"
     ],
     "0x1f8": [
-      "optional",
-      "loot list refresh signals (LootItemList)"
+      "variant",
+      "LootItemList refresh; the loot window fills from 0x1f2 + 0x1ef (verified live)"
     ],
     "0x63c": [
-      "optional",
-      "loot list refresh signals (LootItemList)"
+      "variant",
+      "LootItemList refresh; the loot window fills from 0x1f2 + 0x1ef (verified live)"
     ],
     "0x684": [
       "optional",
@@ -983,12 +983,12 @@
       "\"Route to location found.\" / \"You are in the wrong chunk to track that entry.\""
     ],
     "0x23d": [
-      "optional",
-      "attached abilities (effects window) refresh"
+      "variant",
+      "{i32, bool8} attached-abilities (effects window) refresh; the effect windows fill from the effect add / remove messages (verified live, docs/EFFECTS.md)"
     ],
     "0x24f": [
-      "optional",
-      "attached abilities (effects window) refresh"
+      "variant",
+      "attached-abilities (effects window) list refresh; the effect windows fill without it (verified live)"
     ],
     "0x254": [
       "content",
