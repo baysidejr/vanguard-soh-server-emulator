@@ -58,7 +58,7 @@ The world server's type-5 packets use the same frame as types 2 and 6: `u16 5, u
 | C→S | `0x48c` | `wstr name` | `/inspect [name]` |
 | S→C | `0x48d`, `0x490 {wstr name, wstr class, i32 level}`, `0x48f` (an item record per equipped item), `0x48e` | | the Inspect window, in this order (`0x48f`/`0x490` are dropped without `0x48d` first) |
 
-Not done yet: server-side ignore filtering (the client already hides ignored speakers). The Find window, LFG/LFM and Request to Join are in GROUPS.md; guilds in GUILDS.md.
+**Ignore on the server (verified live with two clients 2026-10-15):** say, shout, tells and other chat from an ignored player are not sent to the one ignoring them (the client also hides ignored speakers); a tell is dropped silently, so the sender still sees their own echo. Group invites, trade requests and duel challenges to someone who ignores you are refused with "<name> is ignoring you." (the server's wording; `login_stub.refused_by_ignore`). Seen: Justins typed `/ignore Ranger`, Ranger's `/invite Justins` got the red line and Justins no popup. The Find window, LFG/LFM and Request to Join are in GROUPS.md; guilds in GUILDS.md.
 
 ## /played (verified live 2026-10-13)
 

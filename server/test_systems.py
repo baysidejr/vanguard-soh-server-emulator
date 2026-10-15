@@ -541,6 +541,18 @@ class DialogFlagTests(unittest.TestCase):
         self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "b", "c"])
 
 
+class IgnoreRefusalTests(unittest.TestCase):
+    def test_refused_only_when_ignored(self):
+        import login_stub
+        sent = []
+        state = {"player": types.SimpleNamespace(name="Ranger"), "send": sent.append}
+        target = types.SimpleNamespace(name="Justins", ignores=[])
+        self.assertFalse(login_stub.refused_by_ignore(state, target))
+        target.ignores = ["ranger"]
+        self.assertTrue(login_stub.refused_by_ignore(state, target))
+        self.assertIn("Justins is ignoring you.".encode("utf-16-le"), sent[-1])
+
+
 class OpenSpaceTests(unittest.TestCase):
     def test_inside_a_built_house(self):
         import login_stub

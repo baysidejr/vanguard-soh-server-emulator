@@ -3622,6 +3622,8 @@ def handle_duel_event(state, event, data):
             notice(0xB5 if other is None else 0xB6)       # need a defensive target / can't duel yourself
             return
         o = other["player"]
+        if refused_by_ignore(state, o):
+            return
         if getattr(o, "duel_opponent", None) is not None or other.get("duel_from"):
             send(duel.busy())
             return
@@ -5139,6 +5141,15 @@ def ignores(listener, speaker_name):
     return listener is not None and speaker_name.lower() in [n.lower() for n in getattr(listener, "ignores", [])]
 
 
+def refused_by_ignore(state, target_player):
+    """Group invites, trade requests and duel challenges to someone who ignores the sender are
+    refused (the server's own wording); True when refused. Tells are dropped silently instead."""
+    if not ignores(target_player, state["player"].name):
+        return False
+    state["send"](build_system_text(f"{target_player.name} is ignoring you.", SYSTEM_TEXT_ERROR))
+    return True
+
+
 def world_chat(zone_state, command, reply):
     """Chat commands from the world connection (see chat.py)."""
     player = zone_state["player"]
@@ -5877,6 +5888,8 @@ def handle_group_event(state, event, payload):
             send(build_system_text(f"{name or 'That player'} is not online.", SYSTEM_TEXT_ERROR))
         elif g and g.leader is not player and ONLINE.get(g.leader.name.lower()) is None:
             send(group.error(1))
+        elif refused_by_ignore(state, target["player"]):
+            pass
         elif getattr(target["player"], "group", None):
             send(group.error(2))
         elif g and len(g.members) >= g.limit():
@@ -6594,6 +6607,8 @@ def handle_trade_event(state, event, payload, args):
         if (target is None or target is state or target.get("trade") or target.get("trade_invite")
                 or t is not None or state.get("trade_invite_to")):
             send(build_system_text(f"You can't trade with {name or 'that'} right now.", SYSTEM_TEXT_ERROR))
+            return
+        if refused_by_ignore(state, target["player"]):
             return
         target["trade_invite"] = state
         state["trade_invite_to"] = target
