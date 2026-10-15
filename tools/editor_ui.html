@@ -33,6 +33,9 @@
   #mobForm { flex: 1; overflow-y: auto; padding: 10px 16px; }
   #mobForm .grid { display: grid; grid-template-columns: repeat(3, minmax(160px, 1fr)); gap: 4px 14px; }
   #mobForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #woview .grid3 { display: grid; grid-template-columns: repeat(3, minmax(150px, 1fr)); gap: 4px 14px; }
+  #woview label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #woview .grid3 input, #woview .grid3 select { width: 100%; box-sizing: border-box; }
   #recview .grid3 { display: grid; grid-template-columns: repeat(3, minmax(150px, 1fr)); gap: 4px 14px; }
   #recview label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
   #recview .grid3 input, #recview .grid3 select { width: 100%; box-sizing: border-box; }
@@ -63,7 +66,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabWork">Work orders</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -235,6 +238,18 @@
       </div>
       <table id="shopTable" style="border-collapse:collapse;width:100%"></table>
       <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
+    </div>
+  </div>
+  <div id="woview" style="flex:1;display:none;min-height:0">
+    <div id="woList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
+    <div style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="woKey">Pick a work order</strong><span style="flex:1"></span>
+        <button id="newWO">New work order</button><button id="delWO">Delete</button>
+        <button id="saveWO" class="primary">Save workorders.json</button>
+      </div>
+      <div id="woBody"></div>
+      <p class="hint">A task master NPC hands out work orders. Accepting one gives the supplies; the player crafts the order's recipe (a recipe marked "work order only" on the Recipes tab) and hands in the deliveries for the reward. Abandoning takes the supplies back. Orders can be repeated. Difficulty is the skill level the order is moderate for.</p>
     </div>
   </div>
   <div id="facview" style="flex:1;display:none;min-height:0;flex-direction:column;overflow-y:auto;padding:10px 16px">
@@ -432,6 +447,8 @@ function setMode(m) {
   $("dipview").style.display = m === "diplomacy" ? "flex" : "none";
   $("recview").style.display = m === "recipes" ? "flex" : "none";
   $("facview").style.display = m === "factions" ? "flex" : "none";
+  $("woview").style.display = m === "work" ? "flex" : "none";
+  if (m === "work" && !woDoc) initWork();
   if (m === "factions" && !facDoc) initFactions();
   if (m === "recipes" && !recDoc) initRecipes();
   if (m === "diplomacy" && !dipDoc) initDiplomacy();
@@ -757,6 +774,113 @@ $("saveShops").onclick = async () => {
   const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
   showProblems(r.body.problems, "Saved merchants.json.");
+};
+
+// ---- work orders ----
+let woDoc = null, woSel = null, woMobs = {}, woRecipes = {};
+$("tabWork").onclick = () => setMode("work");
+async function initWork() {
+  woDoc = JSON.parse((await api("/api/file?name=workorders.json")).body.text);
+  woMobs = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
+  woRecipes = JSON.parse((await api("/api/file?name=recipes.json")).body.text);
+  if (!Object.keys(itemDoc).length) itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
+  $("itemNames").innerHTML = Object.keys(itemDoc).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${esc(k)}">`).join("");
+  listWork();
+  if (woSel) showWork();
+}
+function listWork() {
+  const el = $("woList"); el.innerHTML = "";
+  for (const k of Object.keys(woDoc).filter(k => !k.startsWith("_")).sort()) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer" + (k === woSel ? ";background:#4a3f2c" : "");
+    d.textContent = `${k} - ${woDoc[k].name || ""}`;
+    d.onclick = () => { woSel = k; listWork(); showWork(); };
+    el.appendChild(d);
+  }
+}
+function itemCountTable(obj, onChange) {            // {item: count} rows with add / remove
+  const box = document.createElement("div");
+  const t = document.createElement("table"); box.appendChild(t);
+  Object.entries(obj).forEach(([name, n]) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><input list="itemNames" value="${esc(name)}" style="width:260px"></td><td><input type="number" min="1" value="${n}" style="width:70px"></td>
+      <td class="hint">${itemDoc[name] ? "" : "not in items.json"}</td><td><button>Remove</button></td>`;
+    const [ni, qi] = tr.querySelectorAll("input");
+    const rebuild = () => {
+      const out = {};
+      for (const [k, v] of Object.entries(obj)) out[k === name ? ni.value : k] = k === name ? Number(qi.value) : v;
+      onChange(out);
+    };
+    ni.onchange = rebuild; qi.onchange = rebuild;
+    tr.querySelector("button").onclick = () => { const out = { ...obj }; delete out[name]; onChange(out); };
+    t.appendChild(tr);
+  });
+  const add = document.createElement("button"); add.textContent = "Add item";
+  add.onclick = () => onChange({ ...obj, "": 1 });
+  box.appendChild(add);
+  return box;
+}
+function showWork() {
+  const w = woDoc[woSel], body = $("woBody"); body.innerHTML = "";
+  if (!w) return;
+  $("woKey").textContent = woSel;
+  const masters = Object.entries(woMobs).filter(([k, m]) => m && typeof m === "object" && !k.startsWith("_"));
+  const recipes = Object.entries(woRecipes).filter(([k]) => !k.startsWith("_"));
+  const rw = w.reward || {};
+  body.innerHTML = `<div class="grid3">
+      <div><label>Id</label><input data-f="id" type="number" value="${w.id ?? ""}"></div>
+      <div><label>Name</label><input data-f="name" value="${esc(w.name || "")}"></div>
+      <div><label>Icon <img id="woIconImg" width="20" height="20" style="vertical-align:middle;background:#000"></label><div style="display:flex;gap:4px"><input id="woIcon" data-f="icon" type="number" value="${w.icon ?? ""}"><button id="woPickIcon">Pick</button></div></div>
+      <div><label>Task master</label><select data-f="task_master">${masters.map(([k, m]) => `<option value="${k}" ${k === w.task_master ? "selected" : ""}>${esc(m.name || k)}${m.task_master ? "" : " (not a task master)"}</option>`).join("")}</select></div>
+      <div><label>Recipe</label><select data-f="recipe">${recipes.map(([k, r]) => `<option value="${k}" ${k === w.recipe ? "selected" : ""}>${esc(r.name || k)}${r.work_order ? "" : " (not work-order only)"}</option>`).join("")}</select></div>
+      <div><label>Difficulty (skill level)</label><input data-f="difficulty" type="number" value="${w.difficulty ?? ""}"></div>
+      <div><label>Skill stat id (40 Smelting)</label><input data-f="skill" type="number" value="${w.skill ?? ""}"></div>
+      <div><label>Reward coin (copper)</label><input id="woCoin" type="number" value="${rw.coin ?? ""}"></div>
+      <div><label>Reward crafting XP</label><input id="woXp" type="number" value="${rw.xp ?? ""}"></div>
+    </div>
+    <label>Description</label><textarea data-f="description" rows="3" style="width:100%;box-sizing:border-box">${esc(w.description || "")}</textarea>
+    <label>Reward faction standing (id: amount, comma separated)</label><input id="woFaction" value="${Object.entries(rw.faction || {}).map(([k, v]) => `${k}: ${v}`).join(", ")}" style="width:100%;box-sizing:border-box">
+    <label style="margin-top:10px">Supplies (given on accept)</label><div id="woSupplies"></div>
+    <label style="margin-top:10px">Deliveries (handed in)</label><div id="woDeliver"></div>`;
+  const NUM = new Set(["id", "icon", "difficulty", "skill"]);
+  body.querySelectorAll("[data-f]").forEach(el => {
+    el.oninput = el.onchange = () => {
+      const k = el.dataset.f, v = el.value;
+      if (v === "") delete w[k]; else w[k] = NUM.has(k) ? Number(v) : v;
+      if (k === "icon") $("woIconImg").src = v ? iconUrl(v) : "";
+    };
+  });
+  $("woIconImg").src = w.icon != null ? iconUrl(w.icon) : "";
+  $("woPickIcon").onclick = () => openIconPicker("woIcon");
+  const reward = () => {
+    const r = { ...(w.reward || {}) };
+    for (const [id, k] of [["woCoin", "coin"], ["woXp", "xp"]]) { const v = $(id).value; if (v === "") delete r[k]; else r[k] = Number(v); }
+    const fac = {};
+    for (const part of $("woFaction").value.split(",")) {
+      const [k, v] = part.split(":").map(s => s && s.trim());
+      if (k && v && !isNaN(Number(v))) fac[k] = Number(v);
+    }
+    if (Object.keys(fac).length) r.faction = fac; else delete r.faction;
+    w.reward = r;
+  };
+  ["woCoin", "woXp", "woFaction"].forEach(id => $(id).onchange = reward);
+  $("woSupplies").appendChild(itemCountTable(w.supplies || {}, v => { w.supplies = v; showWork(); }));
+  $("woDeliver").appendChild(itemCountTable(w.deliver || {}, v => { w.deliver = v; showWork(); }));
+}
+$("newWO").onclick = () => {
+  const k = prompt("Key for the new work order (letters, digits, _):"); if (!k || woDoc[k]) return;
+  const ids = Object.values(woDoc).filter(w => w && w.id).map(w => w.id);
+  const tm = Object.keys(woMobs).find(m => woMobs[m] && woMobs[m].task_master) || "";
+  const rc = Object.keys(woRecipes).find(r => woRecipes[r] && woRecipes[r].work_order) || "";
+  woDoc[k] = { id: (ids.length ? Math.max(...ids) : 7000) + 1, name: "New Work Order", description: "", task_master: tm, recipe: rc,
+               supplies: {}, deliver: {}, difficulty: 1, skill: 40, reward: { coin: 50, xp: 100 } };
+  woSel = k; listWork(); showWork();
+};
+$("delWO").onclick = () => { if (!woSel || !confirm(`Delete work order ${woSel}?`)) return; delete woDoc[woSel]; woSel = null; $("woBody").innerHTML = ""; listWork(); };
+$("saveWO").onclick = async () => {
+  const r = await api("/api/file?name=workorders.json", { method: "PUT", body: JSON.stringify(woDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved workorders.json.");
 };
 
 // ---- factions ----
@@ -1645,6 +1769,7 @@ whoAmI().then(ok => { if (ok) loadFiles(); });
 if (location.hash === "#spawns") setMode("spawns");
 if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
 if (location.hash.startsWith("#factions")) setMode("factions");
+if (location.hash.startsWith("#work")) { woSel = location.hash.split("=")[1] || null; setMode("work"); }
 if (location.hash.startsWith("#recipes")) { recSel = location.hash.split("=")[1] || null; setMode("recipes"); }
 if (location.hash.startsWith("#diplomacy")) { if (location.hash.includes("=")) dipSel = decodeURIComponent(location.hash.split("=")[1]); setMode("diplomacy"); }
 if (location.hash.startsWith("#shops")) { setMode("shops"); setTimeout(() => { shopSel = location.hash.split("=")[1]; if (shopSel) { listShops(); showShop(); } }, 800); }
