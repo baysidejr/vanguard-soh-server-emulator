@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: remaining optional messages in docs/UNSENT_MESSAGES.md (99; the big groups are encounter-window details, ability memorization and combat forms, all needing decoding). Effects: why the quest-node particles (m_bShowIOParticle) do not show. Content editor: the hosted, crowdsourced editor later.
+Builder mode: `!undo` and a spawn-placement check against obstacles (the web editor already warns). Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Performance: find what doubled the soak CPU since 2026-10-14 (movement handling dominates). Effects: fireworks and quest-node particles still invisible.
 
 ## Last test results
 
+- 2026-10-15 (after the in-game builder, second plot, soak): tools/check_all.py --client 7 of 7 passed (unit 218, load p95 11.2 ms, fuzz clean, smoke PASS). 50-bot soak: memory flat at 220 MB, CPU 34% of a core (docs/TESTING.md).
 - 2026-10-15 (after prestige factions, faction list fix, row casts, validation): tools/check_all.py --client 7 of 7 passed (unit 217, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after spyglass, fireworks items, dev-tool fix): tools/check_all.py --client 7 of 7 passed (unit 216, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after conversion, deconstruction, wounds, corpse summoning, reward de-select): tools/check_all.py --client 7 of 7 passed (unit 216, scenarios, load p95 11.4 ms, fuzz clean, smoke PASS).
