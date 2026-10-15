@@ -889,16 +889,21 @@ def npc_cast(state, npc, spell, now):
     player, send = state["player"], state["send"]
     secs = float(spell.get("cast", 3.0))
     fid, icon_msg = reactions.in_flight(spell["name"], spell.get("icon", 553), secs)
-    npc.casting = {"spell": spell, "ends": now + secs, "victim": player, "fid": fid, "rid": None}
+    on_row = npc.entity_id in state.get("encounter", {}).get("rows", {})
+    npc.casting = {"spell": spell, "ends": now + secs, "victim": player, "fid": fid, "rid": None, "row": on_row}
     send(reactions.begins_to_cast(npc.entity_id))
-    send(icon_msg)
+    if on_row:
+        # Not the target: the icon goes on its encounter row instead of beside the target frame.
+        send(reactions.row_in_flight(npc.entity_id, fid, spell["name"], spell.get("icon", 553)))
+    else:
+        send(icon_msg)
     counters = getattr(player, "counters", [])
     if counters:
         rid, msg = reactions.open_reaction(npc.entity_id, counters[0], secs, reactions.COUNTER)
         state.setdefault("reactions", {})[rid] = {"ability": counters[0], "ends": now + secs, "counter_of": npc}
         npc.casting["rid"] = rid
         send(msg)
-    print(f"  <- {npc.name} casts {spell['name']} at {player.name} ({secs:g}s)")
+    print(f"  <- {npc.name} casts {spell['name']} at {player.name} ({secs:g}s){' (on its row)' if on_row else ''}")
 
 
 def npc_cast_tick(state, args, now):
@@ -911,6 +916,8 @@ def npc_cast_tick(state, args, now):
         npc.casting = None
         if c["rid"] is not None and state.get("reactions", {}).pop(c["rid"], None) is not None:
             send(reactions.close_reaction(c["rid"]))
+        if c.get("row"):
+            send(reactions.row_in_flight_done(npc.entity_id, c["fid"]))
         if not npc.alive or player.health <= 0:
             send(reactions.clear_in_flight())
             continue

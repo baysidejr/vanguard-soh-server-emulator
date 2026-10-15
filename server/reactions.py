@@ -138,6 +138,17 @@ def in_flight(name, icon, seconds):
                        + struct.pack("<f", seconds))
 
 
+def row_in_flight(caster_eid, fid, name, icon):
+    """0x3bc {eid64, i32 id, i32 icon, wstr name} (FUN_004b1d50): the cast icon on an encounter
+    row (0x3b5) of an attacker that is not the player's target; ignored without such a row."""
+    return _event(0x3BC, struct.pack("<Qii", caster_eid, fid, icon) + (name + "\0").encode("utf-16-le"))
+
+
+def row_in_flight_done(caster_eid, fid):
+    """0x3bf {eid64, i32 id} (FUN_004ad740): takes that icon off the row again."""
+    return _event(0x3BF, struct.pack("<Qi", caster_eid, fid))
+
+
 def in_flight_result(fid, code, value=0):
     """0x3a7 {i32 id, i32 result, i32 value, i32 flag, bool8}: removes the icon."""
     return _event(0x3A7, struct.pack("<iiiiB", fid, code, value, 0, 0))

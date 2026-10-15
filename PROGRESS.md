@@ -56,6 +56,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (99; the big grou
 
 ## Done
 
+- 2026-10-15: Casts by NPCs that are not your target go on their encounter row (0x3bc, removed with 0x3bf); the client accepts them (winbreak) but draws no row icon. The target's own cast icon (0x3a5) shows fine.
 - 2026-10-15: Fixed the empty "Other Factions" list on the Diplomacy - Factions tab: 0x35b only stores a row, and 0x35c publishes both faction lists. Now sent after the login rows and on UI load; all four factions show with their bars (seen live).
 - 2026-10-15: Prestige factions: factions.json `prestige` hides a faction until the first standing gain, which announces it (0x35d) and lists it under Prestige Factions on the Diplomacy - Factions tab (seen live). Unit test PrestigeFactionTests.
 - 2026-10-15: Fireworks items (items.json `fireworks`: the client's ITEM_ABILITIES 60002-60022 played with 0x3d1) are wired up and used up on right-click, but the effect does not show yet (docs/ABILITY_VISUALS.md "Fireworks").
