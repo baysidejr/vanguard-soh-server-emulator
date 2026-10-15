@@ -145,6 +145,19 @@ def terrain_png(chunk, size=512, box=None):
     return png(size, size, rows), {"extent": list(ex), "box": [x0, y0, x1, y1], "z_min": lo, "z_max": hi}
 
 
+def races(doc=os.path.join(ROOT, "docs", "CREATURES.md")):
+    """[{id, name, models}] from the race table in docs/CREATURES.md (player races and creatures)."""
+    out = []
+    if not os.path.exists(doc):
+        return out
+    for line in open(doc, encoding="utf-8"):
+        m = re.match(r"\| (\d+) \| 0x[0-9a-fA-F]+ \| ([^|]+)\|[^|]*\|[^|]*\| ([^|]*)\|", line)
+        if m:
+            models = sorted({int(n) for n in re.findall(r"(\d+)", " ".join(re.findall(r"\[([^\]]*)\]", m.group(3))))})
+            out.append({"id": int(m.group(1)), "name": m.group(2).strip(), "models": models})
+    return out
+
+
 def chunks():
     return sorted(f[:-4] for f in os.listdir(MAPS) if f.startswith("chunk_") and f.endswith(".vgr")) \
         if os.path.isdir(MAPS) else []
@@ -178,6 +191,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if u.path == "/api/file":
                 with open(safe_path(self.directory, q.get("name")), encoding="utf-8") as f:
                     return self.reply(200, {"name": q["name"], "text": f.read()})
+            if u.path == "/api/races":
+                return self.reply(200, races())
             if u.path == "/api/chunks":
                 return self.reply(200, chunks())
             if u.path == "/api/terrain.png":

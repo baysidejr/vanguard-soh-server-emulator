@@ -26,6 +26,14 @@
   #mapwrap { flex: 1; overflow: auto; position: relative; }
   canvas { display: block; cursor: crosshair; }
   #side { width: 280px; padding: 10px; border-left: 1px solid #3a352e; overflow-y: auto; }
+  #mobview { flex: 1; display: none; min-height: 0; }
+  #mobList { width: 240px; overflow-y: auto; border-right: 1px solid #3a352e; }
+  #mobList div { padding: 4px 10px; cursor: pointer; } #mobList div:hover { background: #332f29; } #mobList div.sel { background: #4a3f2c; }
+  #mobForm { flex: 1; overflow-y: auto; padding: 10px 16px; }
+  #mobForm .grid { display: grid; grid-template-columns: repeat(3, minmax(160px, 1fr)); gap: 4px 14px; }
+  #mobForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #mobForm input, #mobForm select { width: 100%; box-sizing: border-box; }
+  #mobForm textarea { width: 100%; height: 140px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: 12px Consolas, monospace; }
   #side label { display: block; margin: 8px 0 2px; color: #b9ae9b; font-size: 12px; }
   #side input, #side select { width: 100%; box-sizing: border-box; }
   .hint { color: #8f8574; font-size: 12px; }
@@ -34,7 +42,7 @@
 <body>
 <nav>
   <h1>Content editor</h1>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -45,6 +53,36 @@
     <button id="saveBtn" class="primary">Save</button>
   </div>
   <textarea id="editor" spellcheck="false" disabled></textarea>
+  <div id="mobview">
+    <div id="mobList"></div>
+    <div id="mobForm">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="mobKey">Pick a mob</strong><span style="flex:1"></span>
+        <button id="newMobBtn">New</button><button id="dupMobBtn">Duplicate</button><button id="delMobBtn">Delete</button>
+        <button id="saveMobs" class="primary">Save mobs.json</button>
+      </div>
+      <div class="grid">
+        <div><label>Name</label><input id="mName"></div>
+        <div><label>Title (under the name)</label><input id="mTitle"></div>
+        <div><label>Pawn class</label><select id="mPawn"><option>SGONPCPawn</option><option>SGOPCPawn</option></select></div>
+        <div><label>Race / creature</label><select id="mRace"></select></div>
+        <div><label>Model variant</label><input id="mModel" type="number"></div>
+        <div><label>Gender (0 male, 1 female)</label><input id="mGender" type="number"></div>
+        <div><label>Level</label><input id="mLevel" type="number"></div>
+        <div><label>Health</label><input id="mHealth" type="number"></div>
+        <div><label>Damage min - max</label><div style="display:flex;gap:4px"><input id="mDmg0" type="number"><input id="mDmg1" type="number"></div></div>
+        <div><label>Aggro radius (0 = only when attacked)</label><input id="mAggro" type="number"></div>
+        <div><label>Faction</label><select id="mFaction"></select></div>
+        <div><label>Loot table</label><select id="mLoot"></select></div>
+        <div><label>Merchant list</label><select id="mMerchant"></select></div>
+        <div><label>Scale</label><input id="mScale" type="number" step="0.1"></div>
+      </div>
+      <label>Roles</label>
+      <div id="mFlags" style="display:flex;flex-wrap:wrap;gap:4px 14px"></div>
+      <label>Other fields (JSON: gear, abilities, spells, harvest, parley...)</label>
+      <textarea id="mOther" spellcheck="false"></textarea>
+    </div>
+  </div>
   <div id="spawnview">
     <div id="mapwrap"><canvas id="map"></canvas></div>
     <div id="side">
@@ -122,11 +160,96 @@ function setMode(m) {
   $("fileBar").style.display = m === "files" ? "" : "none";
   $("files").style.display = m === "files" ? "" : "none";
   $("spawnview").style.display = m === "spawns" ? "flex" : "none";
+  $("mobview").style.display = m === "mobs" ? "flex" : "none";
+  if (m === "mobs" && !mobDoc) initMobs();
   $("problems").innerHTML = "";
   if (m === "spawns" && !$("chunk").options.length) initSpawns();
 }
 $("tabFiles").onclick = () => setMode("files");
 $("tabSpawns").onclick = () => setMode("spawns");
+$("tabMobs").onclick = () => setMode("mobs");
+
+// ---- mobs ----
+let mobDoc = null, mobSel = null;
+const FLAGS = ["trainer", "banker", "repair", "station", "task_master", "mailbox", "altar", "assembly_station", "prop"];
+const SIMPLE = { name: "mName", title: "mTitle", pawn_class: "mPawn", race: "mRace", model: "mModel", gender: "mGender",
+  level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", scale: "mScale" };
+const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_radius", "scale", "faction"]);
+async function initMobs() {
+  mobDoc = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
+  const races = (await api("/api/races")).body;
+  $("mRace").innerHTML = races.map(r => `<option value="${r.id}">${r.id} ${r.name}</option>`).join("");
+  const opts = async (file, label) => {
+    const d = JSON.parse((await api("/api/file?name=" + file)).body.text);
+    return '<option value="">(none)</option>' + Object.keys(d).filter(k => !k.startsWith("_"))
+      .map(k => `<option value="${k}">${k}${label ? " " + (d[k][label] || "") : ""}</option>`).join("");
+  };
+  $("mFaction").innerHTML = await opts("factions.json", "name");
+  $("mLoot").innerHTML = await opts("loot.json");
+  $("mMerchant").innerHTML = await opts("merchants.json");
+  $("mFlags").innerHTML = FLAGS.map(f => `<label style="margin:0;color:#e8e2d6"><input type="checkbox" id="f_${f}" style="width:auto"> ${f}</label>`).join("");
+  listMobs();
+  if (pendingMob) { mobSel = pendingMob; listMobs(); showMob(); }
+}
+function listMobs() {
+  $("mobList").innerHTML = "";
+  for (const k of Object.keys(mobDoc).filter(k => !k.startsWith("_")).sort()) {
+    const d = document.createElement("div");
+    d.textContent = `${k} - ${mobDoc[k].name || ""}`;
+    if (k === mobSel) d.classList.add("sel");
+    d.onclick = () => { if (!storeMob()) return; mobSel = k; listMobs(); showMob(); };
+    $("mobList").appendChild(d);
+  }
+}
+function showMob() {
+  const m = mobDoc[mobSel]; if (!m) return;
+  $("mobKey").textContent = mobSel;
+  for (const [k, id] of Object.entries(SIMPLE)) $(id).value = m[k] ?? "";
+  $("mDmg0").value = (m.damage || [])[0] ?? ""; $("mDmg1").value = (m.damage || [])[1] ?? "";
+  for (const f of FLAGS) $("f_" + f).checked = !!m[f];
+  const other = {};
+  for (const [k, v] of Object.entries(m)) if (!(k in SIMPLE) && k !== "damage" && !FLAGS.includes(k)) other[k] = v;
+  $("mOther").value = JSON.stringify(other, null, 2);
+}
+function storeMob() {                                  // the form back into mobDoc
+  if (!mobSel || !mobDoc[mobSel]) return true;
+  let other;
+  try { other = JSON.parse($("mOther").value || "{}"); }
+  catch (e) { showProblems([`${mobSel}: other fields are not valid JSON: ${e.message}`]); return false; }
+  const old = mobDoc[mobSel], m = {};
+  for (const [k, id] of Object.entries(SIMPLE)) {
+    const v = $(id).value;
+    if (v === "") continue;
+    m[k] = NUMERIC.has(k) && !isNaN(Number(v)) ? Number(v) : v;
+  }
+  if ($("mDmg0").value !== "") m.damage = [Number($("mDmg0").value), Number($("mDmg1").value || $("mDmg0").value)];
+  for (const f of FLAGS) if ($("f_" + f).checked) m[f] = old[f] !== undefined && old[f] !== false ? old[f] : true;
+  mobDoc[mobSel] = Object.assign(m, other);
+  return true;
+}
+$("newMobBtn").onclick = () => {
+  if (!storeMob()) return;
+  const k = prompt("Key for the new mob (letters, digits, _):"); if (!k || mobDoc[k]) return;
+  mobDoc[k] = { name: "New Mob", pawn_class: "SGONPCPawn", race: 119, level: 1, health: 100, damage: [1, 3] };
+  mobSel = k; listMobs(); showMob();
+};
+$("dupMobBtn").onclick = () => {
+  if (!mobSel || !storeMob()) return;
+  const k = prompt("Key for the copy:", mobSel + "_2"); if (!k || mobDoc[k]) return;
+  mobDoc[k] = JSON.parse(JSON.stringify(mobDoc[mobSel])); mobSel = k; listMobs(); showMob();
+};
+$("delMobBtn").onclick = () => {
+  if (mobSel && confirm("Delete " + mobSel + "? (Saving fails while spawns still use it.)")) {
+    delete mobDoc[mobSel]; mobSel = null; listMobs(); $("mobKey").textContent = "Pick a mob";
+  }
+};
+$("saveMobs").onclick = async () => {
+  if (!storeMob()) return;
+  const r = await api("/api/file?name=mobs.json", { method: "PUT", body: JSON.stringify(mobDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved mobs.json.");
+};
+let pendingMob = null;
 
 async function initSpawns() {
   const m = await api("/api/file?name=mobs.json");
@@ -255,6 +378,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash.startsWith("#mobs")) { pendingMob = location.hash.split("=")[1] || null; setMode("mobs"); }
 </script>
 </body>
 </html>
