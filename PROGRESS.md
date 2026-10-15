@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 server, 0x851/0x852/0x85a-0x85c client). Then implement the AA window with placeholder content (points from AA experience, training). Other candidates: remaining optional client messages in docs/UNSENT_MESSAGES.md; re-run tools/check_all.py --client after big handler changes.
+The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty primary/secondary skills; an agent is decoding what fills it (strHarLevelRaceClass, PCHarPrimary*, 0x2e0). Then fill it. Other candidates: the pet ability examine popup (0x42b), the DefTargetLevel shield on the defensive target panel.
 
 ## Last test results
 
