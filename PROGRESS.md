@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details and progressive combat forms; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Needs a person: flight descent, the feel of the numbers. Content: the real game data. The editor now has a form for every main content file and drafts mobs, items, quests and loot tables from the archive; next is filling the camp and forest with archive data (mobs, quests, loot) through it, which is a content decision for the user (placeholders stay until then).
 
 ## Last test results
 
