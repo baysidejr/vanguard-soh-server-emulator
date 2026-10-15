@@ -843,6 +843,16 @@ class BuilderTests(unittest.TestCase):
             self.assertEqual(w.npcs, {})
 
 
+class BuilderAccessTests(unittest.TestCase):
+    def test_gms_may_build_without_dev_commands(self):
+        args = mock.Mock(dev_commands=False)
+        gm, player = mock.Mock(access_level=1), mock.Mock(access_level=0)
+        self.assertTrue(login_stub.dev_allowed(args, gm, "!spawn wastes_bear"))
+        self.assertFalse(login_stub.dev_allowed(args, gm, "!kill"))
+        self.assertFalse(login_stub.dev_allowed(args, player, "!spawn wastes_bear"))
+        self.assertTrue(login_stub.dev_allowed(mock.Mock(dev_commands=True), player, "!kill"))
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

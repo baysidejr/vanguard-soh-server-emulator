@@ -3396,6 +3396,21 @@ def build_despawn(state, args):
     print(f"  builder: {player.name} removed {npc.template_id} spawn {match}")
 
 
+# Builder commands without --dev-commands: characters with access_level >= BUILDER_LEVEL
+# (`python storage.py set <character> access_level N`, docs/HOSTING.md) may use the in-game
+# builder and the lookups it needs on any server; every other ! command still needs
+# --dev-commands.
+BUILDER_COMMANDS = {"spawn", "despawn", "wander", "respawn", "path", "undo", "npclist", "tp", "target"}
+BUILDER_LEVEL = 1
+
+
+def dev_allowed(args, player, text):
+    if getattr(args, "dev_commands", False):
+        return True
+    word = text[1:].split(" ", 1)[0].lower()
+    return word in BUILDER_COMMANDS and getattr(player, "access_level", 0) >= BUILDER_LEVEL
+
+
 def wounds_message(player):
     return zone.zone_event(WOUNDS, bytes(getattr(player, "wounds", None) or [0] * 5))
 
@@ -10079,7 +10094,7 @@ def handle_message(sock, server, addr, state, payload, args):
             w = state.get("world")
             if w is not None and not text.startswith("!"):
                 w.broadcast(lambda s: build_chat_line(speaker, text, CHAT_SAY), exclude=state)
-            if text.startswith("!") and args.dev_commands:
+            if text.startswith("!") and dev_allowed(args, state.get("player"), text):
                 for m in dev_command(text, state.get("player")):
                     if isinstance(m, tuple) and m[0] == "npc_update":
                         if state.get("world"):

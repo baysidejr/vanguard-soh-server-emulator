@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Builder mode: place props and service NPCs too, and a GM-only guard for hosted servers. Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fireworks and quest-node particles still invisible.
+Builder mode: place props and service NPCs too. Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fireworks and quest-node particles still invisible.
 
 ## Last test results
 
@@ -58,6 +58,7 @@ Builder mode: place props and service NPCs too, and a GM-only guard for hosted s
 
 ## Done
 
+- 2026-10-15: Builder commands work for characters with access_level >= 1 on any server (other ! commands still need --dev-commands); unit test BuilderAccessTests.
 - 2026-10-15: CPU question settled: the 2026-10-14 server uses the same CPU under the same load (9.6 vs 9.7 s per 30 s), so nothing regressed. tools/loadtest.py now passes --data-dir to its child processes (they ignored it with --procs > 1).
 - 2026-10-15: Builder `!undo` (last 20 changes: file text and live NPC) and an obstacle warning on `!spawn`; seen live (spawn, despawn, undo, undo left the file unchanged).
 - 2026-10-15: Builder edits on the targeted spawned NPC: `!wander`, `!respawn`, `!path add` / `!path clear`, saved and applied live (Bram walked a two-point patrol).
