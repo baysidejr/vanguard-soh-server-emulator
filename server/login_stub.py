@@ -1232,7 +1232,10 @@ def gear_changed(state, args, player):
 def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     """Mount (mount_id) or dismount (None): an m_AttachmentGroups entry plus m_MountType,
     for everyone in the chunk."""
+    if getattr(player, "flying", False) and (mount_id is None or kind != zone.MOUNT_FLYING):
+        set_flying(state, args, player, False)      # dismounting in the air: fall
     player.mount = mount_id
+    player.mount_kind = kind if mount_id else 0
     values = {"m_AttachmentGroups": zone.gear_attachments(player), "m_MountType": kind if mount_id else 0}
     state["send"](zone.player_pawn_update(state, args, values))
     w = state.get("world")
@@ -1244,6 +1247,50 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     if kind == zone.MOUNT_FLYING and mount_id:
         values["AirSpeed"] = speed                 # flying mounts move with AirSpeed in PHYS_Flying
     state["send"](zone.player_pawn_update(state, args, values))
+
+
+# Flight (verified live 2026-10-14 with tools/winbreak.py): on a flying mount (m_MountType 3) Jump
+# sends client event 0x5b standing (FUN_00baf7e0 -> GameClient vfunc 0x174) or 0x5a while falling
+# (vfunc 0x170). The server answers with the PlayerController RPC ClientAdjustPosition(newPhysics
+# 4 = PHYS_Flying, NewState 'PlayerFlying'): the pawn then keeps its height over the ground and
+# flies where the view points. The same events while flying land it (PHYS_Falling, PlayerWalking).
+TAKE_OFF_AIR, TAKE_OFF_STANDING = 0x5A, 0x5B
+PHYS_FALLING, PHYS_FLYING = 2, 4
+
+
+def set_flying(state, args, player, on):
+    loc = state.get("position") or player.live_position or player.spawned_at
+    if loc is None:
+        return
+    player.flying = on
+    player.flying_since = time.time()
+    lift = 150.0 if on else 0.0
+    state["send"](zone.client_adjust_position(state, args, (loc[0], loc[1], loc[2] + lift),
+                                              PHYS_FLYING if on else PHYS_FALLING,
+                                              "PlayerFlying" if on else "PlayerWalking"))
+    print(f"  {player.name} {'takes off' if on else 'lands'}")
+
+
+LAND_HEIGHT = 80.0               # a flying pawn this close above the ground lands (a rider stands ~52 above it)
+
+
+def flight_check(state, loc):
+    """Flying low over the ground (after the take-off settles) lands: Jump does nothing in the
+    air, so this is how a flight ends besides dismounting."""
+    player = state["player"]
+    if not getattr(player, "flying", False) or time.time() - getattr(player, "flying_since", 0) < 3.0:
+        return
+    gz = ARGS.content.ground_z(player.level, loc[0], loc[1], ARGS.client_dir)
+    if gz is not None and loc[2] - gz < LAND_HEIGHT:
+        set_flying(state, ARGS, player, False)
+
+
+def take_off_event(state, args):
+    """0x5a / 0x5b: Jump on a flying mount toggles flight."""
+    player = state["player"]
+    if not getattr(player, "mount", None) or getattr(player, "mount_kind", 0) != zone.MOUNT_FLYING:
+        return
+    set_flying(state, args, player, not getattr(player, "flying", False))
 
 
 BASE_GROUND_SPEED = 337.889       # the client's own value for player races (pawn +0x7f0, read live)
@@ -4180,6 +4227,7 @@ def on_move(state, loc):
     if player is None:
         return
     service_range_check(state, player)
+    flight_check(state, loc)
     ms = state.setdefault("move_check", {})
     warning = movement_warning(ms, loc, time.time())
     if not warning:
@@ -8782,6 +8830,10 @@ def dev_command(text, player=None):
         print(f"  <- dev: system text channel {words[1]}")
         return [zone.zone_event(0x192, (text + chr(0)).encode("utf-16-le")
                                 + struct.pack("<i", int(words[1], 0)))]
+    if words[0] == "adjust" and len(words) >= 2 and player:
+        # !adjust <physics> [state]: RPC ClientAdjustPosition at the current position with that
+        # physics (1 walking, 2 falling, 4 flying...) and controller state (testing flight).
+        return [("adjust", int(words[1], 0), words[2] if len(words) > 2 else None)]
     if words[0] == "gotostate" and len(words) >= 2 and player:
         # !gotostate <state>: RPC ClientGotoState on the player controller (testing).
         return [("gotostate", words[1])]
@@ -9077,6 +9129,12 @@ def handle_message(sock, server, addr, state, payload, args):
                             state["world"].broadcast(
                                 lambda s, m=m: zone.npc_update(s, args, m[1], m[2]))
                         continue
+                    elif isinstance(m, tuple) and m[0] == "adjust":
+                        loc = state.get("position") or state["player"].live_position
+                        if loc is not None:
+                            send_message(sock, addr, state, zone.client_adjust_position(
+                                state, args, (loc[0], loc[1], loc[2] + 50.0), m[1], m[2]))
+                        continue
                     elif isinstance(m, tuple) and m[0] == "gotostate":
                         send_message(sock, addr, state, zone.client_goto_state(state, args, m[1]))
                         continue
@@ -9264,6 +9322,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 set_pawn_pref(state, prop, value)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == CYCLE_WIELD and state.get("player"):
             set_pawn_pref(state, "m_WieldPreference", next_wield_preference(state["player"]))
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in (TAKE_OFF_AIR, TAKE_OFF_STANDING) and state.get("player"):
+            take_off_event(state, args)
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == MOVE_MODE and state.get("player") and len(payload) >= 11:
             p = state["player"]
             p.movement_mode = 1 if payload[10] == 1 else 2

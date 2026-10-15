@@ -32,13 +32,13 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 ## Blocked (needs the user or data)
 
 - Client-side furniture placement: dragging furniture onto the cottage floor gives the client's delete prompt, because FUN_004771d0 finds no house-interior zone (type byte +0x388 == 3, linked at +0xa8 to the house object) at the drop point. Needs a runtime look at the cottage prefab's zones. Right-click placement still works.
-- Griffon flight take-off: the take-off request (client event 0x5a) never reaches the server even with a scripted running double jump; chain documented in docs/MOUNTS.md. Needs a runtime breakpoint (or a person to try by hand).
 - Psionic points, civic stats display: no window in the shipped UI (`/citystatus` lists civic stats in chat).
 - Real formulas and content: waiting on crowdsourced data. Do not invent more.
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
 
+- 2026-10-14: Flying works: a breakpoint logger on the live client (tools/winbreak.py) showed a standing mounted Jump sends event 0x5b (it was arriving, unhandled). The server answers with ClientAdjustPosition(PHYS_Flying, PlayerFlying) (enum byte in 5 bits); verified: level flight over rising ground, climbing to 8500 units, landing when low, dismount drops the rider. Open: descending by view pitch with real mouse input.
 - 2026-10-14: tools/check_all.py runs every automated check in one go (unit, content, 8 multiplayer scenarios, 20-bot load test, fuzzing): 6 of 6 passed.
 - 2026-10-14: Quest icons over NPCs (0x560/0x563): available, in progress, ready to hand in, low; verified live (gold star over Orin, blue dots after accepting).
 - 2026-10-14: 35 more client handlers decoded (agent, static): quest icons over NPCs (0x560-0x563), loot sparkle (0x564), Auto Defensive Target Me option (0x11b), item cooldown groups (0x1e5), duel pet lists (0x406/0x407), screenshot-upload ids (0x62b/c/e) and more. Undecoded: 38 -> 3.

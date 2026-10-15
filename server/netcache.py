@@ -64,6 +64,22 @@ def function_params(p, func_index):
     return [info[i][:4] for i in order if info[i][2] & CPF_PARM and not info[i][2] & CPF_RETURN]
 
 
+def param_enum_size(net_cache, package_name, extra):
+    """Number of values of a function parameter's byte enum: the parameter's extra bytes are a
+    compact reference to the Enum export in its package (e.g. newPhysics -> EPhysics). 0 = none."""
+    if not extra:
+        return 0
+    ref, _ = _compact(extra, 0)
+    p = next((pk for name, pk in net_cache.packages if name.lower() == package_name.lower()), None)
+    if p is None or ref <= 0 or ref > len(p.exports):
+        return 0
+    e = p.exports[ref - 1]
+    raw = p.raw[e["offset"]:e["offset"] + e["size"]]
+    _, _, epos = _field_header(raw)
+    count, _ = _compact(raw, epos)
+    return count
+
+
 def byte_enum_size(p, extra):
     """Number of values of a ByteProperty's enum (0 = plain byte). extra starts
     at the property's Category; net properties then have a u16 RepOffset and

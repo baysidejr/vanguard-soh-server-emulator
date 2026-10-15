@@ -502,6 +502,8 @@ def log_client_rpc(state, b, args, player):
         print(f"  >>> UNREAL RPC undecodable ({e}): {b.data.hex(' ')}")
         return
     loc = params.get("ClientLoc")
+    if params.get("TimeStamp") is not None:
+        state["move_ts"] = params["TimeStamp"]
     if loc is not None:
         moved = state.get("position") != loc
         state["position"] = loc
@@ -1525,6 +1527,43 @@ def client_goto_state(state, args, new_state, label=None):
             w.serialize_int(index, count + 1)
         else:
             w.bit(0)
+    data, nbits = w.packed()
+    return unreal_message(ue.build([ue.actor_bunch(PC_CHANNEL, data, nbits)]))
+
+
+def client_adjust_position(state, args, location, physics, new_state=None, velocity=(0.0, 0.0, 0.0)):
+    """RPC PlayerController.ClientAdjustPosition(TimeStamp, NewState, newPhysics, NewLocX..Z,
+    NewVelX..Z, NewBase): UE2's correction of the client's own movement, which also sets the
+    pawn's physics (and controller state). TimeStamp = the newest ServerMove TimeStamp, since the
+    client ignores corrections older than its last acknowledged move."""
+    import struct as _s
+    ue, player = state["ue"], state["player"]
+    pm = package_map(args, player.level)
+    nc = pm.net_cache
+    pc_cls = args.spawn_class.split(".", 1)[1]
+    cache = nc.class_cache(pc_cls)
+    w = ue2net.BitWriter()
+    w.serialize_int(nc.field(pc_cls, "ClientAdjustPosition").index, cache["max"])
+
+    def flt(v):
+        w.bit(1)
+        w.bits(_s.unpack("<I", _s.pack("<f", float(v)))[0], 32)
+    flt(state.get("move_ts", 0.0))
+    if new_state:
+        w.bit(1)
+        index, count = nc.name_index(new_state)
+        w.serialize_int(index, count + 1)
+    else:
+        w.bit(0)
+    # newPhysics is an EPhysics byte: an enum byte goes in ceil(log2(count)) bits, not 8.
+    import netcache as _nc
+    extra = next(p[3] for p in nc.field(pc_cls, "ClientAdjustPosition").params if p[0] == "newPhysics")
+    count = _nc.param_enum_size(nc, args.spawn_class.split(".", 1)[0], extra)
+    w.bit(1)
+    w.bits(physics, max(1, (count - 1).bit_length()) if count else 8)
+    for v in tuple(location) + tuple(velocity):
+        flt(v)
+    w.bit(0)                                           # NewBase: none
     data, nbits = w.packed()
     return unreal_message(ue.build([ue.actor_bunch(PC_CHANNEL, data, nbits)]))
 
