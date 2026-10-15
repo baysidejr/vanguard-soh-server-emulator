@@ -853,6 +853,22 @@ class BuilderAccessTests(unittest.TestCase):
         self.assertTrue(login_stub.dev_allowed(mock.Mock(dev_commands=True), player, "!kill"))
 
 
+class SpawnReloadTests(unittest.TestCase):
+    def test_refresh_replaces_spawned_npcs_only(self):
+        base = login_stub.zone.SPAWN_EID_BASE
+        tomb = mock.Mock()
+        w = mock.Mock(level="chunk_n19_12", npcs={base: mock.Mock(), base + 1: mock.Mock(), 0x3000001: tomb})
+        args = mock.Mock()
+        args.content.directory = "nowhere"
+
+        def populate(w_, a):
+            w_.npcs[base] = mock.Mock()
+        with mock.patch.object(login_stub.zone, "populate_world", side_effect=populate):
+            login_stub.refresh_world_spawns(w, args)
+        self.assertEqual(sorted(w.npcs), [base, 0x3000001])
+        self.assertIs(w.npcs[0x3000001], tomb)          # tombstones and pets stay
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False
