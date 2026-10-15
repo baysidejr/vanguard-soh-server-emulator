@@ -117,6 +117,9 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `/forcecombatstance on` keeps the combat pose; as a Psionicist, pick a mindset, `/applyformondeath on`, `!die`, release: the mindset comes back
 - [ ] Kill a mob, XP bar rises, level up heals you and raises attributes
 - [ ] Die, release, recover the tombstone, bind at the altar
+- [ ] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House
+- [ ] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded
+- [ ] A lootable corpse sparkles; spell effects show (Blade of Winter tints the target)
 - [ ] ✦ Duel to 1 HP; a challenge times out after 30 s
 
 **Items**
@@ -127,9 +130,17 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Jewelry tooltip says "Required Level: 1 Adventuring"; Copper Ore says "Crafting Resource"
 - [ ] Bank items and coins; mail a letter with an item; list and buy on the broker
 - [ ] ✦ Trade an item; group loot with Need/Greed/Pass; master looter `/giveplayerlootitem`
+- [ ] Fill the bags, `!give` an item: "waiting for you in escrow"; Hollis Grent's escrow option hands it over
+- [ ] Right-click 4+ Copper Ore: the Conversion window turns them into a Copper Ingot
+- [ ] Salvage Kit: right-click, click a Rusted Dagger, Resource gives a Copper Ingot
+- [ ] Brass Spyglass zooms the camera in and out
 
 **Quests and NPCs**
 - [ ] Wanderer Trouble: offer, tracker, kill counts, pick a reward
+- [ ] Click the chosen reward again: Complete hides; choose again and complete
+- [ ] NPCs talk now and then (Thestran Guard, Garret Holm); Orin's greeting voice plays
+- [ ] With a tombstone out, Veyla's "I'd like to summon my earthly remains." brings it to you
+- [ ] Character window, Diplomacy - Factions tab: the factions under Other Factions; `!faction 1005 250` unlocks a prestige faction
 - [ ] Wildgrowth Forest (`!tp -223200 29400 3500`): Elara's two quests, the Forester's Cloak
 - [ ] Conversation trees, faction colors on name plates, `/showfactions`
 - [ ] Win and lose a parley; a parley win unlocks the Thestran Guard's new line
@@ -138,6 +149,8 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 **Crafting and gathering**
 - [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades; Table Setup's Auto Setup Table box ticks, Back returns to the recipe list
 - [ ] A work order from Garret Holm; an assembly at the Assembly Bench
+- [ ] Buy Copper Wire from Brenna: "New action acquired: ..." lines; a multi-stage recipe shows the orange stage banner
+- [ ] Using a station while sitting: "You cannot do that while resting."
 - [ ] Fish on the beach (`!tp -43000 -49500 200 49152`), a combo, the Achievements tab
 
 **Social**
