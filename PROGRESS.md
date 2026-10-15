@@ -47,6 +47,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Content editor Shops tab: merchant lists with icons, prices and which NPC sells each list.
 - 2026-10-15: Content editor patrol paths: drawn on the Spawns map, shift-click adds waypoints, pause and clear in the form, and the patrol moves with its spawn.
 - 2026-10-15: Content editor Talk tab for NPC conversations: nodes, replies with links, actions and flags; rename keeps order and links. Checked in headless Edge.
 - 2026-10-15: The content editor shows item icons, decoded from the client's icon sheets (iconsTK.xml plus TGA/BMP), with a picker grid of all 2,063 icons on the Items tab and icons on the loot rows. Unit test IconTests.

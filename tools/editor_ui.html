@@ -51,7 +51,7 @@
 <body>
 <nav>
   <h1>Content editor</h1>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabQuests">Quests</button><button id="tabDialogs">Talk</button><button id="tabArchive">Archive</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabDialogs">Talk</button><button id="tabArchive">Archive</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -204,6 +204,18 @@
       <div id="dlgNodes"></div>
     </div>
   </div>
+  <div id="shopview" style="flex:1;display:none;min-height:0">
+    <div id="shopList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
+    <div style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="shopKey">Pick a merchant list</strong><span style="flex:1"></span>
+        <button id="newShop">New list</button><button id="addWare">Add item</button>
+        <button id="saveShops" class="primary">Save merchants.json</button>
+      </div>
+      <table id="shopTable" style="border-collapse:collapse;width:100%"></table>
+      <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
+    </div>
+  </div>
   <div id="iconPicker" style="display:none;position:fixed;inset:40px 60px;background:#1d1b18;border:1px solid #6b5526;z-index:10;flex-direction:column">
     <div class="bar"><strong>Pick an icon</strong><input id="iconFilter" placeholder="number" style="width:120px"><span style="flex:1"></span><button id="closeIcons">Close</button></div>
     <div id="iconGrid" style="overflow-y:auto;flex:1;padding:8px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start"></div>
@@ -299,6 +311,8 @@ function setMode(m) {
   if (m === "items" && !itemsReady) initItems();
   $("archview").style.display = m === "archive" ? "flex" : "none";
   $("dialogview").style.display = m === "dialogs" ? "flex" : "none";
+  $("shopview").style.display = m === "shops" ? "flex" : "none";
+  if (m === "shops" && !shopDoc) initShops();
   if (m === "dialogs" && !dialogDoc) initDialogs();
   $("problems").innerHTML = "";
   if (m === "spawns" && !$("chunk").options.length) initSpawns();
@@ -394,6 +408,54 @@ $("saveMobs").onclick = async () => {
   showProblems(r.body.problems, "Saved mobs.json.");
 };
 let pendingMob = null;
+
+// ---- merchant lists ----
+let shopDoc = null, shopSel = null, shopMobs = {};
+$("tabShops").onclick = () => setMode("shops");
+async function initShops() {
+  shopDoc = JSON.parse((await api("/api/file?name=merchants.json")).body.text);
+  shopMobs = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
+  if (!Object.keys(itemDoc).length) itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
+  $("itemNames").innerHTML = Object.keys(itemDoc).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${esc(k)}">`).join("");
+  listShops();
+}
+function listShops() {
+  $("shopList").innerHTML = "";
+  for (const k of Object.keys(shopDoc).filter(k => !k.startsWith("_")).sort()) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer" + (k === shopSel ? ";background:#4a3f2c" : "");
+    d.textContent = `${k} (${shopDoc[k].length})`;
+    d.onclick = () => { shopSel = k; listShops(); showShop(); };
+    $("shopList").appendChild(d);
+  }
+}
+function showShop() {
+  $("shopKey").textContent = shopSel;
+  const users = Object.entries(shopMobs).filter(([k, m]) => m && m.merchant === shopSel).map(([k, m]) => m.name || k);
+  $("shopUsers").textContent = users.length ? "Sold by: " + users.join(", ") + "." : "No NPC sells this list yet.";
+  const rows = shopDoc[shopSel], t = $("shopTable");
+  t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th></th><th>Item</th><th>Price (copper)</th><th></th><th></th></tr>";
+  rows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    const icon = (itemDoc[r.item] || {}).icon;
+    tr.innerHTML = `<td><img src="${icon != null ? "/api/icon.png?n=" + icon : ""}" width="24" height="24" style="background:#000"></td>
+      <td><input list="itemNames" value="${esc(r.item || "")}" style="width:100%"></td>
+      <td><input type="number" min="0" value="${r.price ?? 0}" style="width:110px"></td>
+      <td class="hint">${itemDoc[r.item] ? "" : "not in items.json"}</td><td><button>Remove</button></td>`;
+    const [nameIn, priceIn] = tr.querySelectorAll("input");
+    nameIn.onchange = () => { r.item = nameIn.value; showShop(); };
+    priceIn.oninput = () => { r.price = Number(priceIn.value); };
+    tr.querySelector("button").onclick = () => { rows.splice(i, 1); showShop(); listShops(); };
+    t.appendChild(tr);
+  });
+}
+$("addWare").onclick = () => { if (!shopSel) return; shopDoc[shopSel].push({ item: "", price: 100 }); showShop(); listShops(); };
+$("newShop").onclick = () => { const k = prompt("Key for the new merchant list:"); if (!k || shopDoc[k]) return; shopDoc[k] = []; shopSel = k; listShops(); showShop(); };
+$("saveShops").onclick = async () => {
+  const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved merchants.json.");
+};
 
 // ---- conversations ----
 let dialogDoc = null, dialogSel = null, dialogMobs = {};
@@ -954,6 +1016,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash.startsWith("#shops")) { setMode("shops"); setTimeout(() => { shopSel = location.hash.split("=")[1]; if (shopSel) { listShops(); showShop(); } }, 800); }
 if (location.hash === "#spawns-guard") { setMode("spawns"); setTimeout(() => { sel = spawns.findIndex(s => s.path); form(); draw(); }, 2500); }
 if (location.hash.startsWith("#talk")) { setMode("dialogs"); setTimeout(() => { dialogSel = location.hash.split("=")[1]; if (dialogSel) { listDialogs(); showDialog(); } }, 800); }
 if (location.hash === "#iconpicker") { setMode("items"); setTimeout(() => $("pickIcon").onclick(), 800); }
