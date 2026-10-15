@@ -354,6 +354,22 @@ class LoadPathTests(unittest.TestCase):
         world.flush_bunches(lambda pkt: pkt)
         self.assertEqual(len(sent), 2)                # nothing left queued
 
+    def test_movement_grid(self):
+        import world
+        w = world.World("chunk_test")
+        a, b, c = {}, {}, {}
+        world.grid_move(w, a, (0.0, 0.0, 0.0))
+        world.grid_move(w, b, (world.GRID_CELL * 1.5, 0.0, 0.0))     # the next cell
+        world.grid_move(w, c, (world.GRID_CELL * 5, 0.0, 0.0))       # far away
+        near = list(world.near_members(w, (100.0, 100.0, 0.0)))
+        self.assertTrue(any(s is a for s in near) and any(s is b for s in near))
+        self.assertFalse(any(s is c for s in near))
+        world.grid_move(w, c, (50.0, 0.0, 0.0))                      # c walks over
+        self.assertTrue(any(s is c for s in world.near_members(w, (0.0, 0.0, 0.0))))
+        world.grid_remove(c)
+        self.assertFalse(any(s is c for s in world.near_members(w, (0.0, 0.0, 0.0))))
+        self.assertEqual(sum(len(v) for v in w.grid.values()), 2)
+
     @unittest.skipUnless(os.path.isdir(os.path.join("..", "UnrealScript")), "needs the game client's files")
     def test_object_index_cached(self):
         import types
