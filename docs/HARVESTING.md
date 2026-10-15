@@ -142,7 +142,7 @@ The client-side harvesting state object is `DAT_0146397c`:
 | **0x2dc** | MsgDisplayHarvestingUI / `FUN_004f4850` (schema `FUN_004f1980`) | `u64 nodeEntityId, f32 unused, u8 quantity, u8 skillStatId` | Clears the reward list. Sets quantity (+0x18), skill (+0xc), SI cur = max = 18.0, node eid. Sets `HarvestingActionName` from the skill: **0x0f "Mining"**, 0x32 "Quarrying", 0x4b "Lumberjacking", 0x59 "Reaping", 0x76 "Skinning", 0x79 "Gathering", else "Harvesting". Updates the `bHarvesting` gamevar from +0 and the bars (`FUN_004f3f00`: HarvestingQuantity bar max 6.0, HarvestingTargetSI bar = cur/max) |
 | **0x2dd** | none / `FUN_004f1c30` | — | +0 = 1. Chat "Harvesting has begun.". `bHarvesting = 1`, `IsHarvestingDone = 0`, rare flag cleared, HarvestingRewards and HarvestingRareItemList emptied |
 | **0x2df** | MsgHarvestingInfoToClient / `FUN_004f47a0` | `f32 quantity, f32 siCurrent, f32 siMax` | Progress. siCurrent is clamped to ≥ 0. Redraws the bars |
-| **0x2e0** | MsgTwoInts / `FUN_004f27e0` | `i32 primarySkillId, i32 secondarySkillId` | Character window `_harvesting_primary_skill` / `_secondary_skill` tooltips (`Har<Skill>Tooltip`). Optional |
+| **0x2e0** | MsgTwoInts / `FUN_004f27e0` | `i32 primarySkillId, i32 secondarySkillId` | Character window `_harvesting_primary_skill` / `_secondary_skill` (which skills the rows show, and their tooltips). Sent; see "Harvesting tab" below |
 | **0x2e1** | MsgHarvestingRewardItems / `FUN_004f52d0` → `FUN_004f4ca0` per record | `i32 count, count × {i32 itemId, i32 quantity, u8 rare}` | Adds or updates reward entries. rare ≠ 0 sets the "rare present" flag and puts the item on HarvestingRareItemList; rare 0 goes to HarvestingRewards. Entries missing from the list are marked removed. Then calls `FUN_004f4ef0` (refresh) |
 | **0x2e2** | MsgSingleItemInfo / `FUN_004f2d30` | the standard item record (same as 0x197) | Parses the item (`FUN_00516610(...,1,-1)`) and attaches it to the reward entry whose id == **item field 1 (server item id)**. Sets the shown quantity. Does **not** redraw |
 | **0x2e3** | none / `FUN_004f4ef0` | — | Refresh the reward lists. Ids without an item record → client sends `0x10b` |
@@ -241,3 +241,13 @@ Related events:
 - `FUN_00bd7650` (static-mesh races)
 - `/endharvesting` 0x5fcdb0, `/harveststats` 0x5fcda0 → 0x4f1bd0
 - harvest state object `DAT_0146397c`
+
+
+## Harvesting tab of the character window (verified live 2026-10-15)
+
+The tab (the wheat icon on the character window's left edge) showed "Skill 0 - Dark Elf Unknown Class" with empty rows, because it only reads **category-3** stat records and the server sent the harvesting skills as category 0. What fills it (decoded by a research agent, FUN_005e8260 / FUN_00573070):
+- **0x2d5 records with category 3** (kind 2) for the harvesting skills (Mining 0x0f, Quarrying 0x32, Lumberjacking 0x4b, Reaping 0x59, Skinning 0x76, Gathering 0x79) and overall **Harvesting 0xc4**. They need instance ids of their own (the server uses 0x1000 + stat id), because the category-0 copies stay for the Skills tab.
+- **"Skill N - <race> <class>"** and the bar (max 500): N is 0xc4's base value, read only when MsgScore arrives, so MsgScore is sent again after the stat records. The class name is MsgScore field 23: **8 Harvester** (29 Foreman, 30 Reaper, 31 Prospector, 32 Gleaner also have names).
+- **0x2e0** `{i32 primary stat id, i32 secondary stat id}` picks which skills the two rows name. The server picks the best two harvesting skills. There is no client request to choose.
+- **0x2d4 per category-3 stat**, after 0x2e0: field 0 = the **instance id** (the client finds the stat by it), field 1 = 3, field 12 = the **stat id** (written to stat +0x5c; putting the instance id there renamed the stat and the rows stayed 0). The add path alone never sets the row values.
+- A harvesting skill-up resends 0x2e0, the 0x2d4s and MsgScore. Seen: Ranger's tab reads "Skill 1 - Dark Elf Harvester", "Mining 1", "Harvesting 1".

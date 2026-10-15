@@ -29,7 +29,7 @@ The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty 
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 589 of 720 sent or not needed (81%); open: 131 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 590 of 720 sent or not needed (82%); open: 130 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.
@@ -44,6 +44,7 @@ The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty 
 
 ## Done
 
+- 2026-10-15: The character window's Harvesting tab is filled: category-3 skill records, MsgScore field 23 = 8 (Harvester), 0x2e0 primary/secondary, and 0x2d4 updates (field 0 = instance id, field 12 = stat id). It shows "Skill 1 - Dark Elf Harvester", Mining 1, Harvesting 1 (seen live). Unit test HarvestTabTests.
 - 2026-10-15: The Stats tab's Melee Critical Chance / Damage now show the server's real values (MsgScore 80 / 81: 5% + 0.1% per Dexterity above 30, +50% damage). Seen live: 8.00% / 50.00%. Ranged and spell crits stay 0 because the server has none.
 - 2026-10-15: Player pawns replicate m_GameplayLevel from spawn and after level ups, so the defensive target panel shows the right level (13 instead of 1). Seen live.
 - 2026-10-15: Defensive target panel. 0x3e2 {eid64, u8 0-255} fills the health bar of the panel under the portrait, which had stayed empty. It is sent whenever the defensive target or its health changes. Seen live; unit test DefTargetPanelTests.

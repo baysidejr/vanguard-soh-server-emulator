@@ -6792,6 +6792,10 @@ def skill_up(state, stat_id, name, ceiling):
     send(zone.zone_event(0x2D4, vgmsg.stat_update(stat_id, value + 1, maximum=zone.SKILL_CAP)))
     send(build_system_text(f"Your {name} skill has increased to {value + 1}.", SYSTEM_TEXT_WHITE))
     save_character_field(player.name, "skills", {str(sid): v for sid, v, _ in player.skills})
+    if stat_id in zone.HARVEST_SKILL_IDS:
+        for m in zone.harvest_updates(player):       # the character window's Harvesting tab
+            send(m)
+        send(zone.score_message(player))              # "Skill N" is read with MsgScore
 
 
 def harvest_tick(state, now):

@@ -1339,3 +1339,15 @@ class CraftAttributeTests(unittest.TestCase):
         msgs = zone.gain_sphere_xp(p, zone.CRAFTING, 20)
         self.assertEqual([payload(m)[0] for m in msgs], [0x713, 0x2DA, 0x2DB])
         self.assertEqual(payload(msgs[1])[1], struct.pack("<ii", 2, 1))
+
+
+class HarvestTabTests(unittest.TestCase):
+    def test_category3_records_and_updates(self):
+        p = types.SimpleNamespace(skills=[(0x0F, 7, 0x15), (0x4B, 3, 0x15), (0x16, 25, 0)])
+        self.assertEqual(zone.harvest_skills(p), {0x0F: 7, 0x4B: 3, zone.HARVESTING_STAT: 7})
+        msgs = zone.harvest_updates(p)
+        self.assertEqual(payload(msgs[0]), (0x2E0, struct.pack("<ii", 0x0F, 0x4B)))
+        eid, data = payload(msgs[1])
+        self.assertEqual(eid, 0x2D4)
+        self.assertEqual(struct.unpack_from("<iB", data), (zone.HARVEST_INSTANCE + 0x0F, 3))   # instance, category
+        self.assertEqual(len(zone.harvest_records(p)), 3)

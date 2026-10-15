@@ -101,6 +101,7 @@ def handle_unreal(send, state, payload, args):
         print("  <- ZONE event 0x3de (MsgScore)")
         for m in stat_messages(player):
             send(m)
+        send(score_message(player))      # again: the Harvesting tab reads its skill (0xc4) with it
         import attributes
         send(attributes.set_pool(attributes.pool(player.level_number, getattr(player, "attr_alloc", {}))))
         send(attributes.set_pool(attributes.pool(sphere(player, CRAFTING)[0], getattr(player, "craft_alloc", {})),
@@ -418,6 +419,7 @@ def score_message(player, probe=False):
         adv_exp_frac=player.xp / xp_for_level(player.level_number),
         adv_exp_debt_frac=min(1.0, getattr(player, "xp_debt", 0) / xp_for_level(player.level_number)),
         armor_class=getattr(player, "armor_class", 0), craft_level=sphere(player, CRAFTING)[0], harvest_level=1,
+        harvest_class=HARVESTER_CLASS,
         dip_level=sphere(player, DIPLOMACY)[0],
         craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,
         dip_exp=sphere(player, DIPLOMACY)[1], dip_exp_frac=sphere(player, DIPLOMACY)[1] / SPHERE_XP_PER_LEVEL,
@@ -838,11 +840,52 @@ def stat_messages(player):
     import attributes
     craft_alloc = getattr(player, "craft_alloc", None) or {}
     recs += attributes.craft_records(craft_alloc)
+    recs += harvest_records(player)
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
         out.append(attribute_update(player, name))
     for name in attributes.CRAFT_STATS:
         out.append(attributes.craft_update(name, craft_alloc))
+    out += harvest_updates(player)
+    return out
+
+
+# The character window's Harvesting tab (verified live 2026-10-15) reads category-3 stat
+# records only: the harvesting skills (Mining 0x0f, Quarrying 0x32, Lumberjacking 0x4b, Reaping
+# 0x59, Skinning 0x76, Gathering 0x79) and overall Harvesting 0xc4. "Skill N" (and the bar) is
+# 0xc4's base value, read when MsgScore arrives; the class name is MsgScore field 23 (8 =
+# Harvester). The primary / secondary rows show the skills 0x2e0 {i32 primary, i32 secondary}
+# names, filled by the following 0x2d4 updates (FUN_00573070).
+HARVEST_CATEGORY, HARVESTING_STAT, HARVESTER_CLASS = 3, 0xC4, 8
+HARVEST_INSTANCE = 0x1000          # category-3 copies need instance ids of their own
+HARVEST_SKILL_IDS = (0x0F, 0x32, 0x4B, 0x59, 0x76, 0x79)
+HARVEST_PRIMARY_SECONDARY = 0x2E0
+
+
+def harvest_skills(player):
+    """{stat id: value} of the harvesting skills the player has, plus overall Harvesting (the
+    best of them)."""
+    have = {sid: v for sid, v, _sub in getattr(player, "skills", []) if sid in HARVEST_SKILL_IDS}
+    have[HARVESTING_STAT] = max(have.values(), default=0)
+    return have
+
+
+def harvest_records(player):
+    return [vgmsg.stat_info(sid, v, category=HARVEST_CATEGORY, kind=2, maximum=SKILL_CAP,
+                            raw={1: HARVEST_INSTANCE + sid})
+            for sid, v in harvest_skills(player).items()]
+
+
+def harvest_updates(player):
+    """0x2e0 (best two skills as primary / secondary), then a 0x2d4 per harvesting stat."""
+    have = harvest_skills(player)
+    ranked = sorted((sid for sid in have if sid != HARVESTING_STAT), key=lambda s: -have[s])
+    primary, secondary = (ranked + [0, 0])[:2]
+    out = [zone_event(HARVEST_PRIMARY_SECONDARY, struct.pack("<ii", primary, secondary))]
+    for sid, v in have.items():
+        # field 0 finds the stat by instance id; field 12 is the stat id (stat +0x5c) it keeps
+        out.append(zone_event(0x2D4, vgmsg.stat_update(HARVEST_INSTANCE + sid, v, category=HARVEST_CATEGORY,
+                                                       maximum=SKILL_CAP, raw={12: sid})))
     return out
 
 
