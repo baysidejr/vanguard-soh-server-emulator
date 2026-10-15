@@ -110,6 +110,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Work orders in the editor:** the Work orders tab edits workorders.json: id, name, icon, task master, recipe (flagging NPCs that are not task masters and recipes that are not work-order only), difficulty, skill, supplies, deliveries and the reward (coin, crafting XP, faction standing).
 
+**AA and housing plots in the editor:** the AA tab edits aa.json (one row per AA ability: list, title, description, ranks, cost per rank, level, stats, requirements, classes) and the Housing plots tab edits plots.json (each plot's name, chunk, location, cost and upkeep, and its buildings: type, name, prefab, fixtures, chests, construction materials and NPCs). Both are in the page selftest. With these every content file has a form; the Files tab still edits any file as JSON.
+
 **Reactions in the editor:** the Reactions tab edits chains.json (opener, steps, finisher, window per class) and counters.json / rescues.json (ability names per class) and saves all three; in the page selftest.
 
 **Titles, hints and outposts in the editor:** the "Titles, hints, outposts" tab edits those three small files as tables (a column per field; checkboxes for true/false, comma lists for positions). All three are in the page selftest.
