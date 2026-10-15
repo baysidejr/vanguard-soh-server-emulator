@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server hardening is in good shape (database, resends, in-order delivery, load test, fuzzer, authorization audit). Next candidates: remaining optional client messages in docs/UNSENT_MESSAGES.md (escrow merchant 0x28d / 0x294-0x296, group member entity change 0x690); a faster encoder or one process per chunk if more than ~200 players per zone are ever needed; re-run tools/fuzz.py --world --contexts after big handler changes.
+Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 server, 0x851/0x852/0x85a-0x85c client). Then implement the AA window with placeholder content (points from AA experience, training). Other candidates: remaining optional client messages in docs/UNSENT_MESSAGES.md; re-run tools/check_all.py --client after big handler changes.
 
 ## Last test results
 
