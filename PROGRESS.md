@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: four regions (Khal, Ahgram, New Targonor, Tanvu) hold 193 NPCs imported from the archive with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 75 regions hold 1,152 NPCs imported from the archive (four of them, Khal, Ahgram, New Targonor and Tanvu, reachable by riftway from the camp; the rest with !chunk) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
@@ -82,6 +82,8 @@ Content: four regions (Khal, Ahgram, New Targonor, Tanvu) hold 193 NPCs imported
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Bulk archive import: 71 more zones, 959 NPCs (941 templates), all zones with positioned NPCs except the two placeholder-camp zones; 1,152 archive NPCs in 75 regions in all. Spot-checked live in Bordinar's Cleft (surface camp and an underground hall). Races are continent placeholders.
 
 - 2026-10-15: Ahgram (33 NPCs), New Targonor (52) and Tanvu (49) imported from the archive and their riftway hubs opened with braziers; with Khal (59) the server has 193 archive NPCs in four regions reachable by riftway from the camp.
 
