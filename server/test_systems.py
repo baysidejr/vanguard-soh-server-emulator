@@ -1486,3 +1486,15 @@ class IconTests(unittest.TestCase):
         self.assertTrue(data.startswith(b"\x89PNG"))
         self.assertEqual(struct.unpack(">II", data[16:24]), (40, 40))
         self.assertIsNone(editor.icon_png(999999999))
+
+
+@unittest.skipUnless(os.path.isdir(os.path.join("..", "Assets", "Characters", "Meshes")), "needs the client's item meshes")
+class MeshListTests(unittest.TestCase):
+    def test_existing_gear_models_are_listed(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        mobs = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content", "mobs.json"), encoding="utf-8"))
+        for key, m in mobs.items():
+            for t, n, _slot in (m.get("gear") or []) if isinstance(m, dict) else []:
+                self.assertIn(n, editor.mesh_numbers(t), f"{key}: gear ({t}, {n}) not in the client")

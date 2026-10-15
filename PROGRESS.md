@@ -47,6 +47,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Content editor gear rows on the Mobs tab: mesh type, number and slot, with model numbers read from the client's <TYPE>_ITEMS.uem packages and unknown numbers flagged. Unit test MeshListTests checks every existing mob's gear against the client.
 - 2026-10-15: Content editor Shops tab: merchant lists with icons, prices and which NPC sells each list.
 - 2026-10-15: Content editor patrol paths: drawn on the Spawns map, shift-click adds waypoints, pause and clear in the form, and the patrol moves with its spawn.
 - 2026-10-15: Content editor Talk tab for NPC conversations: nodes, replies with links, actions and flags; rename keeps order and links. Checked in headless Edge.

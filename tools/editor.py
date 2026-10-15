@@ -39,6 +39,7 @@ BACKUPS = os.path.join(ROOT, "server", "backups", "content")
 MAPS = os.path.join(ROOT, "Assets", "Maps")
 ARCHIVE = os.path.join(ROOT, "crowdsourced", "raw")
 ICONS = os.path.join(ROOT, "VGUIAssets", "Global", "Icons")
+MESHES = os.path.join(ROOT, "Assets", "Characters", "Meshes")
 UI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "editor_ui.html")
 NAME = re.compile(r"^(spawns/)?[A-Za-z0-9_\-]+\.json$")
 
@@ -234,7 +235,8 @@ def schema():
     return {"item_types": sorted(zone.ITEM_TYPE_IDS), "slots": sorted(vgmsg.EQUIP_SLOTS),
             "flags": list(zone.ITEM_FLAGS), "rarities": list(grouploot.RARITY_NAMES),
             "stats": sorted(k for k in vgmsg.STAT_IDS if k in vgmsg.ATTRIBUTES or k.startswith("res_")),
-            "mods": sorted(vgmsg.MOD_TYPES)}
+            "mods": sorted(vgmsg.MOD_TYPES), "slot_ids": vgmsg.EQUIP_SLOTS,
+            "gear_types": {str(k): v for k, v in GEAR_TYPES.items()}}
 
 
 _ARCHIVE = []
@@ -315,6 +317,33 @@ def draft(kind, name):
     return {"error": f"no draft for {kind} records yet"}
 
 
+# Gear mesh types (docs/GEAR.md "PackageIndex"): type -> name (the <NAME>_ITEMS.uem package)
+GEAR_TYPES = {7: "ARM", 8: "BACK", 9: "CHEST", 11: "FACE", 12: "FEET", 13: "FINGER", 14: "HAND", 15: "HEAD",
+              16: "LEG", 17: "NECK", 18: "SHOULDER", 19: "WAIST", 20: "WRIST", 21: "TOOL", 22: "AXE", 23: "BOW",
+              24: "CLUB", 25: "CROSSBOW", 26: "DAGGER", 27: "FLAIL", 28: "HAMMER", 29: "MACE", 30: "POLEARM",
+              31: "STAFF", 32: "THROWN", 33: "SWORD", 34: "SHIELD", 35: "SPEAR", 36: "FIST", 37: "SPADE",
+              38: "KNIFE", 39: "MARTIALFIST", 40: "MARTIALSWORD", 41: "MARTIALSTAFF", 42: "FOCUS", 43: "BARD",
+              601: "FULLSUIT"}
+_MESHES = {}
+
+
+def mesh_numbers(gear_type):
+    """Mesh numbers that exist in the client's <TYPE>_ITEMS.uem for a gear type (sorted)."""
+    name = GEAR_TYPES.get(int(gear_type))
+    if name is None:
+        return []
+    if name not in _MESHES:
+        path = os.path.join(MESHES, name + "_ITEMS.uem")
+        nums = set()
+        if os.path.exists(path):
+            with open(path, "rb") as f:
+                data = f.read()
+            pat = re.compile(rb"(?<![A-Z])(?:M_|F_|[A-Z]+_M_|[A-Z]+_F_)?" + name.encode() + rb"_(\d+)")
+            nums = {int(n) for n in pat.findall(data)}
+        _MESHES[name] = sorted(nums)
+    return _MESHES[name]
+
+
 def chunks():
     return sorted(f[:-4] for f in os.listdir(MAPS) if f.startswith("chunk_") and f.endswith(".vgr")) \
         if os.path.isdir(MAPS) else []
@@ -358,6 +387,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.reply(200, data, "image/png") if data else self.reply(404, {"error": "no such icon"})
             if u.path == "/api/icons":
                 return self.reply(200, sorted(icon_index()))
+            if u.path == "/api/meshes":
+                return self.reply(200, mesh_numbers(q.get("type", "0")))
             if u.path == "/api/schema":
                 return self.reply(200, schema())
             if u.path == "/api/races":

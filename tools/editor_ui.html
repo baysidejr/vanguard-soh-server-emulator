@@ -89,7 +89,9 @@
       </div>
       <label>Roles</label>
       <div id="mFlags" style="display:flex;flex-wrap:wrap;gap:4px 14px"></div>
-      <label>Other fields (JSON: gear, abilities, spells, harvest, parley...)</label>
+      <h4 style="margin-bottom:4px">Gear (worn models, humanoid races) <button id="addGear">Add</button></h4>
+      <table id="gearTable" style="border-collapse:collapse"></table>
+      <label>Other fields (JSON: abilities, spells, harvest, parley...)</label>
       <textarea id="mOther" spellcheck="false"></textarea>
     </div>
   </div>
@@ -339,6 +341,7 @@ async function initMobs() {
   $("mFaction").innerHTML = await opts("factions.json", "name");
   $("mLoot").innerHTML = await opts("loot.json");
   $("mMerchant").innerHTML = await opts("merchants.json");
+  if (!schema) schema = (await api("/api/schema")).body;
   $("mFlags").innerHTML = FLAGS.map(f => `<label style="margin:0;color:#e8e2d6"><input type="checkbox" id="f_${f}" style="width:auto"> ${f}</label>`).join("");
   listMobs();
   if (pendingMob) { mobSel = pendingMob; listMobs(); showMob(); }
@@ -365,10 +368,41 @@ function showMob() {
   }
   $("mDmg0").value = (m.damage || [])[0] ?? ""; $("mDmg1").value = (m.damage || [])[1] ?? "";
   for (const f of FLAGS) $("f_" + f).checked = !!m[f];
+  gearRows = (m.gear || []).map(g => g.slice());
+  drawGear();
   const other = {};
-  for (const [k, v] of Object.entries(m)) if (!(k in SIMPLE) && k !== "damage" && !FLAGS.includes(k)) other[k] = v;
+  for (const [k, v] of Object.entries(m)) if (!(k in SIMPLE) && k !== "damage" && k !== "gear" && !FLAGS.includes(k)) other[k] = v;
   $("mOther").value = JSON.stringify(other, null, 2);
 }
+let gearRows = [];
+const meshCache = {};
+async function meshes(type) { if (!meshCache[type]) meshCache[type] = (await api("/api/meshes?type=" + type)).body; return meshCache[type]; }
+function drawGear() {
+  const t = $("gearTable"); t.innerHTML = "";
+  if (!schema) return;
+  const slots = Object.entries(schema.slot_ids).sort((a, b) => a[1] - b[1]);
+  gearRows.forEach((g, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><select data-k="type">${Object.entries(schema.gear_types).map(([id, n]) => `<option value="${id}" ${Number(id) === g[0] ? "selected" : ""}>${id} ${n}</option>`).join("")}${schema.gear_types[g[0]] ? "" : `<option selected value="${g[0]}">${g[0]} ?</option>`}</select></td>
+      <td><input data-k="num" type="number" value="${g[1]}" list="meshList${i}" style="width:110px"><datalist id="meshList${i}"></datalist></td>
+      <td><select data-k="slot">${slots.map(([n, id]) => `<option value="${id}" ${id === g[2] ? "selected" : ""}>${id} ${n}</option>`).join("")}${slots.some(([, id]) => id === g[2]) ? "" : `<option selected value="${g[2]}">${g[2]} ?</option>`}</select></td>
+      <td class="hint" data-k="note"></td><td><button>Remove</button></td>`;
+    const note = tr.querySelector("[data-k=note]"), list = tr.querySelector("datalist");
+    const refresh = async () => {
+      const nums = await meshes(g[0]);
+      list.innerHTML = nums.slice(0, 400).map(n => `<option value="${n}">`).join("");
+      note.textContent = nums.length ? (nums.includes(g[1]) ? `${nums.length} models of this type` : "no such model in the client") : "";
+      note.style.color = nums.length && !nums.includes(g[1]) ? "#ff8f7a" : "";
+    };
+    tr.querySelector("[data-k=type]").onchange = e => { g[0] = Number(e.target.value); refresh(); };
+    tr.querySelector("[data-k=num]").oninput = e => { g[1] = Number(e.target.value); refresh(); };
+    tr.querySelector("[data-k=slot]").onchange = e => { g[2] = Number(e.target.value); };
+    tr.querySelector("button").onclick = () => { gearRows.splice(i, 1); drawGear(); };
+    refresh();
+    t.appendChild(tr);
+  });
+}
+$("addGear").onclick = () => { if (mobSel) { gearRows.push([9, 111001, 6]); drawGear(); } };
 function storeMob() {                                  // the form back into mobDoc
   if (!mobSel || !mobDoc[mobSel]) return true;
   let other;
@@ -382,6 +416,7 @@ function storeMob() {                                  // the form back into mob
   }
   if ($("mDmg0").value !== "") m.damage = [Number($("mDmg0").value), Number($("mDmg1").value || $("mDmg0").value)];
   for (const f of FLAGS) if ($("f_" + f).checked) m[f] = old[f] !== undefined && old[f] !== false ? old[f] : true;
+  if (gearRows.length) m.gear = gearRows.map(g => g.slice());
   mobDoc[mobSel] = Object.assign(m, other);
   return true;
 }
