@@ -66,7 +66,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabWork">Work orders</button><button id="tabRift">Riftways</button><button id="tabClassSets">Forms &amp; songs</button><button id="tabFlat">Titles, hints, outposts</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabRecipes">Recipes</button><button id="tabFactions">Factions</button><button id="tabWork">Work orders</button><button id="tabRift">Riftways</button><button id="tabClassSets">Forms &amp; songs</button><button id="tabFlat">Titles, hints, outposts</button><button id="tabReact">Reactions</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -239,6 +239,17 @@
       <table id="shopTable" style="border-collapse:collapse;width:100%"></table>
       <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
     </div>
+  </div>
+  <div id="reactview" style="flex:1;display:none;min-height:0;flex-direction:column;overflow-y:auto;padding:10px 16px">
+    <div class="bar" style="padding:0 0 8px;border:0">
+      <strong>Chains, counters and rescues</strong><span style="flex:1"></span>
+      <button id="newChain">New chain</button><button id="saveReact" class="primary">Save all three</button>
+    </div>
+    <h4 style="margin:6px 0">Chains (chains.json)</h4>
+    <table id="chainTable" style="border-collapse:collapse;width:100%"></table>
+    <h4 style="margin:12px 0 6px">Counters (counters.json) and rescues (rescues.json): ability names per class, comma separated</h4>
+    <table id="counterTable" style="border-collapse:collapse"></table>
+    <p class="hint">A chain: landing the opener opens a reaction window (seconds) for the next step, and the last step for the finisher; steps and the finisher can only be used through the window. Counters are usable only while an enemy casts at the player; rescues when an NPC hits a groupmate. Ability names are display names ("Brutal Strike I"). Class names as in races_classes.</p>
   </div>
   <div id="flatview" style="flex:1;display:none;min-height:0;flex-direction:column;overflow-y:auto;padding:10px 16px">
     <div class="bar" style="padding:0 0 8px;border:0">
@@ -477,6 +488,8 @@ function setMode(m) {
   $("riftview").style.display = m === "rift" ? "flex" : "none";
   $("csview").style.display = m === "classsets" ? "flex" : "none";
   $("flatview").style.display = m === "flat" ? "flex" : "none";
+  $("reactview").style.display = m === "react" ? "flex" : "none";
+  if (m === "react" && !chainDoc) initReact();
   if (m === "flat" && !flatDoc) initFlat();
   if (m === "classsets" && !csDoc) initClassSets();
   if (m === "rift" && !riftDoc) initRift();
@@ -806,6 +819,68 @@ $("saveShops").onclick = async () => {
   const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
   showProblems(r.body.problems, "Saved merchants.json.");
+};
+
+// ---- chains, counters, rescues ----
+let chainDoc = null, counterDoc = null, rescueDoc = null;
+$("tabReact").onclick = () => setMode("react");
+async function initReact() {
+  const get = async f => JSON.parse((await api("/api/file?name=" + f)).body.text);
+  [chainDoc, counterDoc, rescueDoc] = [await get("chains.json"), await get("counters.json"), await get("rescues.json")];
+  showReact();
+}
+const names = v => v.split(",").map(s => s.trim()).filter(Boolean);
+function showReact() {
+  const t = $("chainTable");
+  t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Class</th><th>Opener</th><th>Steps (comma separated)</th><th>Finisher</th><th>Window (s)</th><th></th></tr>";
+  for (const cls of Object.keys(chainDoc).filter(k => !k.startsWith("_"))) {
+    chainDoc[cls].forEach((ch, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${esc(cls)}</td><td><input data-k="opener" value="${esc(ch.opener || "")}" style="width:160px"></td>
+        <td><input data-k="steps" value="${esc((ch.steps || []).join(", "))}" style="width:260px"></td>
+        <td><input data-k="finisher" value="${esc(ch.finisher || "")}" style="width:160px"></td>
+        <td><input data-k="window" type="number" value="${ch.window ?? ""}" style="width:70px"></td><td><button>Remove</button></td>`;
+      tr.querySelectorAll("input").forEach(inp => inp.onchange = () => {
+        const g = k => tr.querySelector(`[data-k=${k}]`).value;
+        const n = {};
+        for (const [k, v] of Object.entries(ch)) n[k] = v;
+        n.opener = g("opener"); n.steps = names(g("steps")); n.finisher = g("finisher");
+        if (g("window") === "") delete n.window; else n.window = Number(g("window"));
+        chainDoc[cls][i] = n;
+      });
+      tr.querySelector("button").onclick = () => { chainDoc[cls].splice(i, 1); if (!chainDoc[cls].length) delete chainDoc[cls]; showReact(); };
+      t.appendChild(tr);
+    });
+  }
+  const c = $("counterTable");
+  c.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Class</th><th>Counters</th><th>Rescues</th></tr>";
+  const classes = [...new Set(Object.keys(counterDoc).concat(Object.keys(rescueDoc)))].filter(k => !k.startsWith("_")).sort();
+  for (const cls of classes) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${esc(cls)}</td><td><input data-d="c" value="${esc((counterDoc[cls] || []).join(", "))}" style="width:260px"></td>
+      <td><input data-d="r" value="${esc((rescueDoc[cls] || []).join(", "))}" style="width:260px"></td>`;
+    tr.querySelectorAll("input").forEach(inp => inp.onchange = () => {
+      const doc = inp.dataset.d === "c" ? counterDoc : rescueDoc, v = names(inp.value);
+      if (v.length) doc[cls] = v; else delete doc[cls];
+    });
+    c.appendChild(tr);
+  }
+}
+$("newChain").onclick = () => {
+  const cls = prompt("Class (as in races_classes, e.g. Warrior):"); if (!cls) return;
+  chainDoc[cls] = chainDoc[cls] || [];
+  chainDoc[cls].push({ opener: "", steps: [], finisher: "", window: 6 });
+  showReact();
+};
+$("saveReact").onclick = async () => {
+  const msgs = [];
+  for (const [f, d] of [["chains.json", chainDoc], ["counters.json", counterDoc], ["rescues.json", rescueDoc]]) {
+    const r = await api("/api/file?name=" + f, { method: "PUT", body: JSON.stringify(d, null, 2) + "\n" });
+    if (r.body.error) return showProblems([r.body.error]);
+    if (r.body.problems && r.body.problems.length) return showProblems(r.body.problems);
+    msgs.push(f);
+  }
+  showProblems([], "Saved " + msgs.join(", ") + ".");
 };
 
 // ---- titles, hints, outposts: {key: {fields}} ----
@@ -1984,6 +2059,7 @@ if (location.hash === "#spawns") setMode("spawns");
 if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
 if (location.hash.startsWith("#factions")) setMode("factions");
 if (location.hash.startsWith("#rift")) setMode("rift");
+if (location.hash.startsWith("#react")) setMode("react");
 if (location.hash.startsWith("#flat")) { if (location.hash.includes("=")) $("flatFile").value = location.hash.split("=")[1]; setMode("flat"); }
 if (location.hash.startsWith("#classsets")) { if (location.hash.includes("=")) $("csFile").value = location.hash.split("=")[1]; setMode("classsets"); }
 if (location.hash.startsWith("#work")) { woSel = location.hash.split("=")[1] || null; setMode("work"); }
@@ -2040,6 +2116,9 @@ if (location.hash === "#selftest") (async () => {
   await doc("factions", () => facDoc);
   { const before = sorted(facDoc); showFactions(); poke("facTable");
     if (sorted(facDoc) !== before) out.push(`factions: ${before} -> ${sorted(facDoc)}`); }
+  await doc("react", () => chainDoc);
+  { const before = sorted([chainDoc, counterDoc, rescueDoc]); showReact(); poke("reactview");
+    if (sorted([chainDoc, counterDoc, rescueDoc]) !== before) out.push(`reactions: ${before} -> ${sorted([chainDoc, counterDoc, rescueDoc])}`); }
   for (const f of ["titles.json", "hints.json", "outposts.json"]) {
     setMode("flat"); $("flatFile").value = f; flatDoc = null; await initFlat();
     const before = sorted(flatDoc); poke("flatTable");

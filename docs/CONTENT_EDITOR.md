@@ -110,6 +110,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Work orders in the editor:** the Work orders tab edits workorders.json: id, name, icon, task master, recipe (flagging NPCs that are not task masters and recipes that are not work-order only), difficulty, skill, supplies, deliveries and the reward (coin, crafting XP, faction standing).
 
+**Reactions in the editor:** the Reactions tab edits chains.json (opener, steps, finisher, window per class) and counters.json / rescues.json (ability names per class) and saves all three; in the page selftest.
+
 **Titles, hints and outposts in the editor:** the "Titles, hints, outposts" tab edits those three small files as tables (a column per field; checkboxes for true/false, comma lists for positions). All three are in the page selftest.
 
 **Forms and songs in the editor:** the "Forms & songs" tab edits forms.json (combat forms / mindsets) and songs.json (bard song parts) as one table per file: class, name and a column for every field the file uses (numbers stay numbers, lists are comma separated). A field no entry has yet (for example a form's `abilities`) is added in the Files tab. Both files are in the page selftest.
