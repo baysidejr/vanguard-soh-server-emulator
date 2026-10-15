@@ -103,6 +103,24 @@ def missing_steps(r, have, stage=None):
     return out
 
 
+# Journal recipe view (verified live 2026-10-15): selecting a recipe in the journal's crafting
+# pages sends 0x108 {i32 recipe id} (FUN_005aa990); 0x309 {i32 count, count x i32 step id}
+# (FUN_005ac490) fills JournalRefRecipeMissingItems / JournalFinRecipeMissingItems with
+# "Steps missing items:  <step>, <step>" for the recipe on show.
+JOURNAL_RECIPE = 0x108
+JOURNAL_MISSING = 0x309
+
+
+def journal_recipe(r):
+    """0x2f2 (same layout as the recipe add, FUN_005ac180): the recipe's details for the journal
+    pane, which it waits for after 0x108 (name, icon, description, steps)."""
+    return _event(0x2F2, recipe_record(r))
+
+
+def journal_missing(step_ids):
+    return _event(JOURNAL_MISSING, struct.pack("<i", len(step_ids)) + b"".join(struct.pack("<i", s) for s in step_ids))
+
+
 def step_flag(step, on=True):
     """0x30b / 0x30c {i32 step id}: set or clear the "needs an item" flag on a step's entry in the
     crafting window (FUN_005bcdd0 / FUN_005bcfa0; only the current stage's steps)."""

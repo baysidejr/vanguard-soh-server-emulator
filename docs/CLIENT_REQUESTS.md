@@ -19,7 +19,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x17d` | `/fallthroughattacktoggle` | | no payload; a server-side combat option whose effect is not known |
 | `0x104` | `/craftingselectstep` | `0x5b7dc6` `0x5b82d6` | no payload; sent whenever the crafting action-family list is shown (ui `crafting_select_action_family`). A notice; no reply needed (docs/CRAFTING.md) |
 | `0x105` |  | `0x5b03eb` | no payload; the recipe type filter (ui `setup_cra_ref_select_type` / `setup_cra_fin_select_type`). A notice; no reply needed |
-| `0x108` |  | `0x5aa9f4` | {i32 recipe id}: journal recipe info (ui 0xf7 / 0xf8, `journal_cra_*_select_recipe`). The client shows the recipe from its own data; not needed (docs/CRAFTING.md) |
 | `0x120` |  | `0x451fc7` | {i32 bag item handle, i32 pending value}: an item dropped while the assembly manager (DAT_014639a8) is in cursor mode 1 (UI 0x8a, FUN_00693980). Purpose unclear (docs/ASSEMBLY.md) |
 | `0x126` | `/parleyassess` | `0x54ac25` | a debug request, only during a parley ("You can only request debug information during a parley session."); the answer format is not known |
 | `0x127` |  | `0x4c0b55` `0x4c7985` | no payload; an ack the client sends after building an NPC dialog (and from `farewell_confirm_yes`). No reply needed (docs/MERCHANTS.md, QUESTS.md) |

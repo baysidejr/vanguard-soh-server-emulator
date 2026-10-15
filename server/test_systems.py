@@ -1591,3 +1591,14 @@ class AbilityArchiveTests(unittest.TestCase):
             editor._ARCHIVE[:] = saved_a
             editor._ICON_INDEX.clear()
             editor._ICON_INDEX.update(saved_i)
+
+
+class JournalRecipeTests(unittest.TestCase):
+    def test_details_and_missing_steps(self):
+        import craft
+        r = {"id": 5001, "name": "Test", "stages": [{"name": "S", "steps": [{"name": "A", "tool": "Tongs"}, {"name": "B"}]}]}
+        eid, data = payload(craft.journal_recipe(r))
+        self.assertEqual(eid, 0x2F2)
+        self.assertEqual(payload(craft.journal_missing([7, 9])), (0x309, struct.pack("<iii", 2, 7, 9)))
+        self.assertEqual(len(craft.missing_steps(r, set())), 1)
+        self.assertEqual(craft.missing_steps(r, {"Tongs"}), [])

@@ -55,7 +55,7 @@ Server -> client dispatchers: `FUN_005bad40` handles session/window events 0x2e9
 | **0xfc** | none | `FUN_005af890` ← UI `FUN_0068a130` (`refining_setup_finish`). Needs state 1 and a selected recipe (+4 != -1), otherwise prints "You need to finish setting up..." | Begin crafting |
 | 0xff | MsgTwoInts `{i32 itemHandle(+0x650), i32 dropSlot}` | `FUN_005b2910` ← `FUN_0068a300` (drag into the crafting inventory), `/refineadditem`. Only in state 1 | Optional: add an ingredient |
 | 0x100 / 0x101 | `{i32 handle}` | `FUN_005b2840` / `FUN_005b29e0` (state 1) | Optional: add or remove an ingredient |
-| 0xf9 / 0x108 | `{i32 recipeId}` | `FUN_005aa990` (journal recipe info) | Not needed |
+| 0xf9 / 0x108 | `{i32 recipeId}` | `FUN_005aa990` (journal recipe info) | Answered (see "Journal recipe page") |
 
 The UI-event-name to handler mapping is [I], because the handler functions sit next to each other in the 0x68a1xx table. The function-to-event-id part is [O].
 
@@ -289,3 +289,7 @@ When a station is used (client 0xfa) the server sends **0x304 `{i32 n, n × i32 
 In `mobs.json`, `station: true` is a refining station and `station: "finishing"` a finishing station; the server sends the book recipes of that kind (`zone.book_recipes`) and refuses a recipe that isn't in the player's book. Test: the Finishing Table at the Ranger camp (`!tp -30750 -5300 g 0`, `!give Copper Ingot`) makes a Copper Buckle (Miscellaneous Recipes).
 
 The recipe window's "Recipe Skill" is the recipe's `skill` stat id (`stat_names.py`): the buckle uses 0x46 Smithing. Which skill each real finishing recipe used is server data (the client's per-craft lists are `PCCraft<Craft>FinishingSkillList`).
+
+## Journal recipe page (verified live 2026-10-15)
+
+The crafting journal's recipe page (Abilities window, Crafting tab: Refining / Finishing) stayed blank. Selecting a recipe sends **0x108** `{i32 recipe id}` and shows nothing until the server answers (FUN_005aa990 only sends while the recipe's "details pending" byte, +4, is set). The answer is **0x2f2**, the full recipe in the same layout as the 0x2ee add (FUN_005ac180 updates the recipe and redraws the page). The client then shows the name, icon, "Recipe Skill" and description. **0x309** `{i32 count, count x i32 step id}` adds the red "Steps missing items: <step>, ..." line for steps whose tool or utility the player doesn't carry (`craft.missing_steps`). Seen: Copper Ingot "Steps missing items: Pour Ingot", and Copper Buckle (finishing) with nothing missing. Only recipes in the player's book are answered.

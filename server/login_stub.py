@@ -9922,6 +9922,13 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == craft.JOURNAL_RECIPE and len(payload) >= 14:
+            if state.get("player"):
+                r = recipe_by_id(struct.unpack_from("<i", payload, 10)[0])
+                if r is not None and r in zone.book_recipes(ARGS, state["player"]):
+                    send_message(sock, addr, state, craft.journal_recipe(r))
+                    send_message(sock, addr, state, craft.journal_missing(
+                        craft.missing_steps(r, {i[1] for i in state["player"].items})))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == attributes.SET_DIRECTION:
             if state.get("player"):
                 handle_skill_direction(state, payload[10:])
