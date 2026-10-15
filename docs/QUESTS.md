@@ -112,7 +112,7 @@ The same layout is used by **0x2cb** (section 2). Wire order:
 | 24-26 | i32 ×3 | +0xec..+0xf4 | +0xf4..+0xfc | location x, y, z, converted to floats [O] |
 | 27 | i32 | +0xf8 | +0x108 | **N = number of trailing records** [O] |
 | 28 | i32 | +0xfc | +0x10c | start-location id (Travel Journal). -1 = none [O] |
-| 29 | i32 | +0x100 | +0x110 | completion-location id. -1 = none [O] |
+| 29 | i32 | +0x100 | +0x110 | completion-location id. -1 = none [O]. Tried 2026-10-15: sending the travel-journal id of Orin's location (a known entry in the Locations tab) in 28 and 29 adds a "Locations" heading to the quest details, but the list under it stays empty, so the server keeps -1 (how the list is filled is open; perhaps the trailing records) |
 | 30 | 30 × {i32 itemId, i32 b, i32 rewardGroup, bool8 d} | +0x104.. | reward groups (+0x11c) | **item rewards**. itemId -1 means an empty slot. Records are interleaved, 13 bytes each, 390 bytes total [O registrar loop] |
 
 After that come N × MsgTwoInts `{i32 locationId, i32 sortOrder}`, the quest's Travel-Journal locations [O loop; I meaning]. Send N=0.
