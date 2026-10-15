@@ -91,7 +91,11 @@
         <div><label>Loot table</label><select id="mLoot"></select></div>
         <div><label>Merchant list</label><select id="mMerchant"></select></div>
         <div><label>Scale</label><input id="mScale" type="number" step="0.1"></div>
+        <div><label>Chatter every (seconds, default 120)</label><input id="mChatterEvery" type="number"></div>
+        <div><label>Says when it attacks ({player} = their name)</label><input id="mAggroSay"></div>
       </div>
+      <label>Says now and then (one line each, to players nearby)</label>
+      <textarea id="mChatter" spellcheck="true" style="height:60px"></textarea>
       <label>Roles</label>
       <div id="mFlags" style="display:flex;flex-wrap:wrap;gap:4px 14px"></div>
       <h4 style="margin-bottom:4px">Gear (worn models, humanoid races) <button id="addGear">Add</button></h4>
@@ -396,8 +400,9 @@ $("tabMobs").onclick = () => setMode("mobs");
 let mobDoc = null, mobSel = null, raceModels = {}, modelHint = () => {};
 const FLAGS = ["trainer", "banker", "repair", "station", "task_master", "mailbox", "altar", "assembly_station", "prop"];
 const SIMPLE = { name: "mName", title: "mTitle", pawn_class: "mPawn", race: "mRace", model: "mModel", gender: "mGender",
-  level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", scale: "mScale" };
-const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_radius", "scale", "faction"]);
+  level: "mLevel", health: "mHealth", aggro_radius: "mAggro", faction: "mFaction", loot: "mLoot", merchant: "mMerchant", scale: "mScale",
+  chatter_every: "mChatterEvery", aggro_say: "mAggroSay" };
+const NUMERIC = new Set(["race", "model", "gender", "level", "health", "aggro_radius", "scale", "faction", "chatter_every"]);
 async function initMobs() {
   mobDoc = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
   const races = (await api("/api/races")).body;
@@ -444,11 +449,12 @@ function showMob() {
   }
   $("mDmg0").value = (m.damage || [])[0] ?? ""; $("mDmg1").value = (m.damage || [])[1] ?? "";
   for (const f of FLAGS) $("f_" + f).checked = !!m[f];
+  $("mChatter").value = (m.chatter || []).join("\n");
   modelHint();
   gearRows = (m.gear || []).map(g => g.slice());
   drawGear();
   const other = {};
-  for (const [k, v] of Object.entries(m)) if (!(k in SIMPLE) && k !== "damage" && k !== "gear" && !FLAGS.includes(k)) other[k] = v;
+  for (const [k, v] of Object.entries(m)) if (!(k in SIMPLE) && k !== "damage" && k !== "gear" && k !== "chatter" && !FLAGS.includes(k)) other[k] = v;
   $("mOther").value = JSON.stringify(other, null, 2);
 }
 let gearRows = [];
@@ -494,6 +500,8 @@ function storeMob() {                                  // the form back into mob
   if ($("mDmg0").value !== "") m.damage = [Number($("mDmg0").value), Number($("mDmg1").value || $("mDmg0").value)];
   for (const f of FLAGS) if ($("f_" + f).checked) m[f] = old[f] !== undefined && old[f] !== false ? old[f] : true;
   if (gearRows.length) m.gear = gearRows.map(g => g.slice());
+  const lines = $("mChatter").value.split("\n").map(s => s.trim()).filter(Boolean);
+  if (lines.length) m.chatter = lines;
   mobDoc[mobSel] = Object.assign(m, other);
   return true;
 }
