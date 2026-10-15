@@ -26,6 +26,7 @@ import vgmsg
 import class_abilities
 import chat
 import combat
+import aa
 import group
 import grouploot
 import encounter
@@ -1743,6 +1744,90 @@ def gm_command(state, args, event, data):
         send(build_system_text("You are now hidden." if hidden else "You are now visible.", SYSTEM_TEXT_WHITE))
 
 
+def save_aa(player):
+    save_character_field(player.name, "aa_ranks", {str(k): v for k, v in player.aa_ranks.items()})
+    save_character_field(player.name, "aa_points", player.aa_points)
+    save_character_field(player.name, "aa_spent", player.aa_spent)
+
+
+def aa_changed(state, before):
+    """After ranks changed: the attributes they raise, the points (MsgScore) and abilities
+    whose prerequisites flipped (0x861)."""
+    player, send = state["player"], state["send"]
+    for name in zone.apply_gear_stats(player):
+        if name in vgmsg.ATTRIBUTES:
+            send(zone.attribute_update(player, name))
+    send(zone.score_message(player))
+    for a in zone.aa_abilities(player):
+        ok = aa.eligible(a, player.aa_ranks)
+        if ok != aa.eligible(a, before):
+            send(aa.eligible_update(a, ok))
+
+
+def handle_aa_event(state, args, event, data):
+    """Alternate advancement (aa.py): train (0x85a / /aatrain), /aalist, and the GM /aaclear
+    and /aaadd."""
+    player, send = state["player"], state["send"]
+    abilities = zone.aa_abilities(player)
+    if event == aa.LIST:
+        for m in aa.list_messages(abilities, player.aa_ranks):
+            send(m)
+        return
+    if event in (aa.TRAIN, aa.TRAIN_NAME):
+        if event == aa.TRAIN and len(data) >= 4:
+            aid = struct.unpack_from("<i", data)[0]
+            a = next((x for x in abilities if x["id"] == aid), None)
+        else:
+            name = data.decode("utf-16-le", "replace").split(chr(0))[0].strip().lower()
+            a = next((x for x in abilities if x["title"].lower() == name), None)
+        if a is None:
+            send(build_system_text("There is no such alternate advancement ability.", SYSTEM_TEXT_ERROR))
+            return
+        rank = player.aa_ranks.get(a["id"], 0)
+        why = aa.train_error(a, rank, player.aa_ranks, player.aa_points, player.aa_spent, player.level_number)
+        if why:
+            send(build_system_text(why, SYSTEM_TEXT_ERROR))
+            return
+        before = dict(player.aa_ranks)
+        price = aa.cost(a, rank)
+        player.aa_points -= price
+        player.aa_spent += price
+        player.aa_ranks[a["id"]] = rank + 1
+        save_aa(player)
+        send(aa.trained(a, rank + 1))
+        aa_changed(state, before)
+        send(build_system_text(f"You have trained {a['title']} to rank {rank + 1}.", SYSTEM_TEXT_WHITE))
+        print(f"  {player.name} trains AA {a['title']} rank {rank + 1} ({player.aa_points} points left)")
+        return
+    # /aaclear and /aaadd are GM tools
+    if not (getattr(args, "dev_commands", False) or getattr(player, "access_level", 0) > 0):
+        send(build_system_text("You are not a GM on this server.", SYSTEM_TEXT_ERROR))
+        return
+    if event == aa.CLEAR:
+        before = dict(player.aa_ranks)
+        player.aa_points += player.aa_spent
+        player.aa_spent = 0
+        player.aa_ranks = {}
+        save_aa(player)
+        for m in aa.list_messages(abilities, player.aa_ranks):
+            send(m)
+        aa_changed(state, before)
+        send(build_system_text("Your alternate advancement abilities have been cleared and the points refunded.",
+                               SYSTEM_TEXT_WHITE))
+    elif event == aa.GRANT and len(data) >= 12:
+        target_id, n = struct.unpack_from("<Qi", data)
+        ts = next((s for s in ONLINE.values() if s.get("player") is not None
+                   and s["player"].char_id == target_id), None)
+        if ts is None:
+            send(build_system_text("Your defensive target is not a player who is online.", SYSTEM_TEXT_ERROR))
+            return
+        p = ts["player"]
+        p.aa_points = max(0, getattr(p, "aa_points", 0) + n)
+        save_character_field(p.name, "aa_points", p.aa_points)
+        ts["send"](zone.score_message(p))
+        send(build_system_text(f"{p.name} now has {p.aa_points} AA points.", SYSTEM_TEXT_WHITE))
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -1756,6 +1841,15 @@ def award_xp(player, amount, source, grouped=False):
         if player.xp_debt == 0:
             out.append(build_system_text("You have paid off your experience debt.", SYSTEM_TEXT_WHITE))
     player.xp += amount
+    player.aa_xp, player.aa_points, aa_got = aa.gain(player.xp, getattr(player, "aa_xp", 0),
+                                                     getattr(player, "aa_points", 0), amount,
+                                                     player.level_number)
+    if aa_got:
+        out.append(build_system_text(f"You have gained {aa_got} alternate advancement point"
+                                     f"{'s' if aa_got > 1 else ''}!", SYSTEM_TEXT_WHITE))
+        save_character_field(player.name, "aa_points", player.aa_points)
+    if player.level_number >= aa.MIN_LEVEL:
+        save_character_field(player.name, "aa_xp", player.aa_xp)
     leveled = False
     while player.xp >= zone.xp_for_level(player.level_number) and player.level_number < zone.LEVEL_CAP:
         player.xp -= zone.xp_for_level(player.level_number)
@@ -8828,6 +8922,10 @@ def player_from_character(char, name, args):
     player.apply_form_on_death = char.get("apply_form_on_death", False)
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
+    player.aa_ranks = {int(k): int(v) for k, v in (char.get("aa_ranks") or {}).items()}
+    player.aa_points = int(char.get("aa_points", 0))
+    player.aa_spent = int(char.get("aa_spent", 0))
+    player.aa_xp = int(char.get("aa_xp", 0))
     player.item_cooldowns = {int(g): tuple(v) for g, v in (char.get("item_cooldowns") or {}).items()}
     known = {prop for prop, _, _ in PAWN_PREFS.values()}
     player.pawn_prefs = {k: int(v) for k, v in char.get("pawn_prefs", {}).items() if k in known}
@@ -9540,6 +9638,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in aa.CLIENT_EVENTS:
+            if state.get("player"):
+                handle_aa_event(state, args, struct.unpack_from("<I", payload, 2)[0], payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in group.CLIENT_EVENTS:
             if state.get("player"):
                 handle_group_event(state, struct.unpack_from("<I", payload, 2)[0], payload)

@@ -47,6 +47,8 @@ class Content:
         self.rescues = _load(os.path.join(directory, "rescues.json"))
         self.songs = _load(os.path.join(directory, "songs.json"))
         self.forms = _load(os.path.join(directory, "forms.json"))
+        aa_path = os.path.join(directory, "aa.json")
+        self.aa = _load(aa_path) if os.path.exists(aa_path) else {}
         self._terrain = {}
 
     def spawns(self, level, client_dir=None):
@@ -122,6 +124,20 @@ def validate(directory=CONTENT_DIR):
             problems.append(f"item {name}: use must be {{heal, energy, endurance: n}}")
         if "cooldown" in it and not (isinstance(it["cooldown"], (int, float)) and it["cooldown"] >= 0):
             problems.append(f"item {name}: cooldown must be seconds")
+    import aa as aa_rules
+    import vgmsg as vg
+    aa_ids = [a.get("id") for a in c.aa.get("abilities", [])]
+    if len(aa_ids) != len(set(aa_ids)):
+        problems.append("aa: ability ids must be unique (0x85a train sends only the id)")
+    for a in c.aa.get("abilities", []):
+        if a.get("list") not in aa_rules.LISTS:
+            problems.append(f"aa {a.get('id')}: unknown list {a.get('list')!r}")
+        for k in (a.get("stats") or {}):
+            if k not in vg.STAT_IDS:
+                problems.append(f"aa {a.get('id')}: unknown attribute {k!r}")
+        for r in (a.get("requires") or {}):
+            if int(r) not in aa_ids:
+                problems.append(f"aa {a.get('id')}: requires unknown ability {r}")
     for lid, entries in c.merchants.items():
         for e in entries:
             if e.get("item") not in c.items:

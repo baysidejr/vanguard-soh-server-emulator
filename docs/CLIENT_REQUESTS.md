@@ -71,11 +71,6 @@ Many are GM or debug commands (chunk travel, set hour, character flags, "defensi
 | `0x81f` |  | `0x4ba7ac` | No available work orders. / ----- Available work orders ----- **Unreachable:** nothing calls or points to the sending function. |
 | `0x82c` |  | `0x624a51` | the client's answer to a server query handled in FUN_00622350: it sends the pawn's location values and a byte. Only sent when the server asks, which this server never does |
 | `0x82f` |  | `0x476404` | Avatar Inspect {objType, objId} (FUN_004763b0, same layout as 0x460). The housing click menu has the option (table 0x13e5f38, key 14) but no m_BuildingType offers it (docs/HOUSING.md). |
-| `0x851` | `/aaclear` | `0x5de4a5` | no payload; alternate advancement (server content, see 0x85c) |
-| `0x852` | `/aaadd` | `0x5e2965` | alternate advancement (server content) |
-| `0x85a` |  | `0x44a9fe` | AlternateAdvancementClassList / AlternateAdvancementSpecialList |
-| `0x85b` | `/aatrain` | `0x5ebdee` | alternate advancement (server content) |
-| `0x85c` | `/aalist` | `0x5de495` | nWoundsLeg / Your groupmate failed to call you because at least one of you is not in the right area. There are sp |
 
 ## Appearance and movement (verified live 2026-10-14)
 

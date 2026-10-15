@@ -84,7 +84,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 
 **Deconstruction:** what each item broke down into (components, the level needed) was server data. Every item answers "can not be deconstructed" until that exists (docs/CLIENT_REQUESTS.md, Deconstruction).
 
-**Alternate advancement:** the AA abilities (general, archetype, class and special lists), their costs, ranks and effects were server data, sent as MsgAlternateAdvancementAbilitiesAdd. `/aalist` (0x85c) and the AA window get no answer until that data exists.
+**Alternate advancement:** the AA abilities (general, archetype, class and special lists), their costs, ranks and effects were server data, sent as MsgAlternateAdvancementAbilitiesAdd. `/aalist` (0x85c) and the AA window get no answer until that data exists. Placeholders now: `server/content/aa.json` (9 abilities over the four lists, attribute bonuses per rank) and the AA experience rate in `server/aa.py`.
 
 **Summoned pets:** what each class summon (Awaken Abomination, Summon Attendant of Hayatet/Rakurr/Tuurgin, Ritual Animatus) creates, its race, model, level, health and abilities were server data; abilities.json has placeholders.
 

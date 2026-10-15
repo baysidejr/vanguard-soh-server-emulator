@@ -1260,3 +1260,36 @@ class StorageTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class AATests(unittest.TestCase):
+    A = {"id": 1001, "list": "general", "title": "Hardiness", "max_rank": 2, "cost": [1, 3], "level": 10,
+         "stats": {"constitution": 2}}
+    B = {"id": 1005, "list": "archetype", "title": "Next", "max_rank": 1, "cost": 2, "level": 10,
+         "requires": {"1001": 2}}
+
+    def test_add_layout(self):
+        import aa
+        eid, data = payload(aa.ability_add(self.A, 1, {1001: 1}, {1001: self.A}))
+        self.assertEqual(eid, 0x85F)
+        self.assertEqual(struct.unpack_from("<ii", data), (1001, 0))
+        rest = data[8 + len("Hardiness\0".encode("utf-16-le")) + 2:]
+        self.assertEqual(struct.unpack_from("<iiiifB", rest), (1, 2, 3, 10, 0.0, 1))
+        msgs = aa.list_messages([self.A], {})
+        self.assertEqual([payload(m)[0] for m in msgs], [0x85D, 0x85F, 0x85E])
+
+    def test_training_rules(self):
+        import aa
+        self.assertIsNone(aa.train_error(self.A, 0, {}, 1, 0, 10))
+        self.assertIn("level 10", aa.train_error(self.A, 0, {}, 1, 0, 9))
+        self.assertIn("enough AA points", aa.train_error(self.A, 1, {1001: 1}, 2, 1, 10))
+        self.assertIn("highest rank", aa.train_error(self.A, 2, {1001: 2}, 9, 4, 10))
+        self.assertIn("spend 100", aa.train_error(self.B, 0, {1001: 2}, 9, 4, 10))
+        self.assertIn("requirements", aa.train_error(self.B, 0, {1001: 1}, 9, 100, 10))
+        self.assertEqual(aa.cost(self.A, 2), -1)
+        self.assertEqual(aa.stat_bonus([self.A], {1001: 2}), {"constitution": 4})
+
+    def test_gain(self):
+        import aa
+        self.assertEqual(aa.gain(0, 0, 0, 1000, aa.MIN_LEVEL - 1), (0, 0, 0))
+        self.assertEqual(aa.gain(0, 900, 2, 1000, aa.MIN_LEVEL), (150, 3, 1))

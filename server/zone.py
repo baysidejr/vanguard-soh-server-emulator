@@ -115,6 +115,9 @@ def handle_unreal(send, state, payload, args):
         for m in ability_messages(player):
             send(m)
         print("  <- ZONE events 0x21b/0x215/0x21d (abilities)")
+        import aa
+        for m in aa.list_messages(aa_abilities(player), getattr(player, "aa_ranks", {})):
+            send(m)
         # Recipe book and crafting actions (silent adds).
         for r in book_recipes(args, player):
             send(craft.learn_recipe(r))
@@ -410,6 +413,8 @@ def score_message(player, probe=False):
         craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,
         dip_exp=sphere(player, DIPLOMACY)[1], dip_exp_frac=sphere(player, DIPLOMACY)[1] / SPHERE_XP_PER_LEVEL,
         movement_mode=getattr(player, "movement_mode", 2), move_speed=1.0, craft_trade=0xFF,
+        aa_points=getattr(player, "aa_points", 0), aa_spent=getattr(player, "aa_spent", 0),
+        aa_exp=getattr(player, "aa_xp", 0), aa_exp_frac=getattr(player, "aa_xp", 0) / 1000.0,
         attack=-float(combat.auto_attack_damage(player)[0]), attack_max=-float(combat.auto_attack_damage(player)[1]),
         ranged=-25.0, spell_attack=-10.0,
         defense_input=6.0, melee_mitigation=1.0 - combat.mitigate(1000, getattr(player, "armor_class", 0)) / 1000.0,
@@ -706,6 +711,20 @@ RACE_ATTRIBUTES = {
 }
 
 
+def aa_abilities(player):
+    """The alternate advancement abilities this character can see (content/aa.json)."""
+    import aa
+    import races_classes
+    return aa.abilities(ITEM_CONTENT.aa, races_classes.class_name(getattr(player, "klass", 0)))
+
+
+def aa_bonus(player):
+    """{attribute: bonus} from trained alternate advancement ranks."""
+    import aa
+    ranks = getattr(player, "aa_ranks", None)
+    return aa.stat_bonus(aa_abilities(player), ranks) if ranks else {}
+
+
 def innate_bonus(player):
     """{attribute: bonus} from the race, class and level (counted as the character's base)."""
     out = dict(RACE_ATTRIBUTES.get(getattr(player, "race", None), {}))
@@ -737,7 +756,7 @@ def apply_gear_stats(player):
                           + gear_mod_total(player, "Armor Class"))
     player.regen_bonus = gear_mod_total(player, "Health Regeneration")
     changed = []
-    for attr, fn in (("innate_bonus", innate_bonus), ("gear_bonus", gear_bonus)):
+    for attr, fn in (("innate_bonus", innate_bonus), ("gear_bonus", gear_bonus), ("aa_bonus", aa_bonus)):
         new, old = fn(player), player.__dict__.get(attr, {})
         for k in set(new) | set(old):
             delta = new.get(k, 0) - old.get(k, 0)

@@ -1,0 +1,14 @@
+{
+  "_comment": "Alternate advancement abilities (placeholders; the real AA lists were server data, docs/AA.md). list: general, archetype, class (with classes), special. cost: points per rank (one number or one per rank). stats: attribute bonus per rank. requires: {ability id: rank}.",
+  "abilities": [
+    {"id": 1001, "list": "general", "title": "Hardiness", "description": "Raises your Constitution by 2 per rank.", "max_rank": 5, "cost": 1, "level": 10, "stats": {"constitution": 2}},
+    {"id": 1002, "list": "general", "title": "Fleetness", "description": "Raises your Dexterity by 2 per rank.", "max_rank": 5, "cost": 1, "level": 10, "stats": {"dexterity": 2}},
+    {"id": 1003, "list": "general", "title": "Might", "description": "Raises your Strength by 2 per rank.", "max_rank": 5, "cost": 1, "level": 10, "stats": {"strength": 2}},
+    {"id": 1004, "list": "general", "title": "Insight", "description": "Raises your Wisdom and Intelligence by 1 per rank.", "max_rank": 5, "cost": [1, 1, 2, 2, 3], "level": 12, "stats": {"wisdom": 1, "intelligence": 1}},
+    {"id": 1005, "list": "general", "title": "Endurance Training", "description": "Raises your Vitality by 3 per rank. Requires Hardiness rank 2.", "max_rank": 3, "cost": 2, "level": 15, "stats": {"vitality": 3}, "requires": {"1001": 2}},
+    {"id": 2001, "list": "archetype", "title": "Battle Readiness", "description": "Raises your Strength and Constitution by 3 per rank.", "max_rank": 3, "cost": 5, "level": 20, "stats": {"strength": 3, "constitution": 3}},
+    {"id": 3001, "list": "class", "classes": ["Ranger"], "title": "Keen Eye", "description": "Raises your Dexterity by 3 per rank.", "max_rank": 3, "cost": 5, "level": 20, "stats": {"dexterity": 3}},
+    {"id": 3002, "list": "class", "classes": ["Warrior"], "title": "Iron Hide", "description": "Raises your Constitution by 3 per rank.", "max_rank": 3, "cost": 5, "level": 20, "stats": {"constitution": 3}},
+    {"id": 4001, "list": "special", "title": "Veteran's Resolve", "description": "Raises every attribute by 1 per rank.", "max_rank": 2, "cost": 10, "level": 30, "stats": {"strength": 1, "dexterity": 1, "constitution": 1, "intelligence": 1, "wisdom": 1, "vitality": 1}}
+  ]
+}
