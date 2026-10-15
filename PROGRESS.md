@@ -58,6 +58,7 @@ Builder mode: `!undo` and a spawn-placement check against obstacles (the web edi
 
 ## Done
 
+- 2026-10-15: Builder `!undo` (last 20 changes: file text and live NPC) and an obstacle warning on `!spawn`; seen live (spawn, despawn, undo, undo left the file unchanged).
 - 2026-10-15: Builder edits on the targeted spawned NPC: `!wander`, `!respawn`, `!path add` / `!path clear`, saved and applied live (Bram walked a two-point patrol).
 - 2026-10-15: In-game builder: `!spawn <mob> [wander]` places a mob at your feet and saves it to the chunk's spawn file; `!despawn` removes the targeted one (seen live; unit test BuilderTests).
 - 2026-10-15: Second housing plot (102 Canyon Overlook, placeholder); the building preview (0x474) is seen live there for the first time.

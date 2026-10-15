@@ -88,7 +88,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 1. **In-game builder mode.** GM chat commands on our server, with the real client as the 3D editor:
    - `!spawn <template>` places a mob at your feet. **Done (2026-10-15, dev commands):** `!spawn <mob key> [wander radius]` appends the spawn to `content/spawns/<chunk>.json` and opens the NPC for everyone in the chunk at once; `!despawn` removes the targeted spawned NPC from the file and the world (seen live with a Thornback Bear; the file came back byte-for-byte).
    - `!path add`, `!wander <radius>` and `!respawn <seconds>` set movement and respawns. **Done (2026-10-15):** on the targeted spawned NPC, saved to its spawn entry and applied at once; `!path clear` removes the patrol (seen live: Bram Oakhollow walked a two-point patrol set with `!path add`).
-   - `!camp`, `!delete`, `!undo` and `!save` manage what you've placed.
+   - `!camp`, `!delete`, `!undo` and `!save` manage what you've placed. **Done (2026-10-15):** `!despawn` deletes and every change is saved at once, so there is no `!save`; `!undo` takes back the last builder change (up to 20: the file's previous text and the live NPC), seen live with a spawn, a despawn and two undos. `!spawn` warns when the spot is inside an obstacle.
 2. **Web forms** for mob templates, loot tables, items, quests and dialog, plus a chunk map drawn from the heightmap with spawns plotted on it.
 3. **Shared JSON in a git repository.** For example `content/spawns/<chunk>.json`, `content/mobs/*.json` and `content/quests/*.json`.
    - Contributions arrive as pull requests, checked by a validation script (model ids exist, positions are on terrain, levels are sane).

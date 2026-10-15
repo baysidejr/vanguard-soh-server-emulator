@@ -3257,7 +3257,8 @@ def build_spawn(state, args, key, wander=0):
     if w is None or pos is None:
         return
     path = spawn_file(args, player.level)
-    doc = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {"spawns": []}
+    old_text = read_text(path)
+    doc = json.loads(old_text) if old_text else {"spawns": []}
     entry = {"mob": key, "x": int(pos[0]), "y": int(pos[1]), "yaw": int(getattr(player, "yaw", 0)) & 0xFFFF,
              "respawn": 60}
     if wander:
@@ -3271,7 +3272,45 @@ def build_spawn(state, args, key, wander=0):
     w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
     send(build_system_text(f"Spawned {template.get('name', key)} (spawn {n}) and saved it to {os.path.basename(path)}.",
                            SYSTEM_TEXT_WHITE))
+    if zone.npc_blocked(player.level, entry["x"], entry["y"], spawn["z"] + 50):
+        send(build_system_text("Warning: that spot is inside an obstacle (rock or wall); the mob may get stuck. "
+                               "!undo takes it back.", SYSTEM_TEXT_ERROR))
+
+    def undo(npc=npc):
+        w.npcs.pop(npc.entity_id, None)
+        w.broadcast(lambda s, eid=npc.entity_id: zone.close_actor(s, eid))
+    push_undo(state, path, old_text, undo, f"spawn of {template.get('name', key)}")
     print(f"  builder: {player.name} spawned {key} at {entry['x']}, {entry['y']} (spawn {n})")
+
+
+BUILD_UNDO_DEPTH = 20
+
+
+def read_text(path):
+    return open(path, encoding="utf-8", newline="").read() if os.path.exists(path) else ""
+
+
+def push_undo(state, path, old_text, live_undo, label):
+    """Remember how to take back one builder change: the file's previous text and a function
+    that reverses the live change (!undo)."""
+    stack = state.setdefault("build_undo", [])
+    stack.append((path, old_text, live_undo, label))
+    del stack[:-BUILD_UNDO_DEPTH]
+
+
+def build_undo(state):
+    stack = state.get("build_undo") or []
+    if not stack:
+        state["send"](build_system_text("Nothing to undo.", SYSTEM_TEXT_ERROR))
+        return
+    path, old_text, live_undo, label = stack.pop()
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="") as f:
+        f.write(old_text)
+    os.replace(tmp, path)
+    live_undo()
+    state["send"](build_system_text(f"Undid the {label}.", SYSTEM_TEXT_WHITE))
+    print(f"  builder: {state['player'].name} undid the {label}")
 
 
 def targeted_spawn(state, args):
@@ -3302,6 +3341,8 @@ def build_edit(state, args, what, value=None):
         return
     npc, path, doc, i = found
     entry, send = doc["spawns"][i], state["send"]
+    old_text = read_text(path)
+    before = (npc.wander, npc.respawn, list(npc.path))
     if what == "wander":
         entry["wander"] = int(value)
         npc.wander = float(value)
@@ -3324,6 +3365,10 @@ def build_edit(state, args, what, value=None):
     write_spawn_file(path, doc)
     send(build_system_text(text + f" (spawn {i}, saved)", SYSTEM_TEXT_WHITE))
 
+    def undo(npc=npc, before=before):
+        npc.wander, npc.respawn, npc.path = before
+    push_undo(state, path, old_text, undo, f"{what} on {npc.name}")
+
 
 def build_despawn(state, args):
     player, send = state["player"], state["send"]
@@ -3332,11 +3377,22 @@ def build_despawn(state, args):
     if found is None:
         return
     npc, path, doc, match = found
-    doc["spawns"].pop(match)
+    old_text = read_text(path)
+    removed = doc["spawns"].pop(match)
     write_spawn_file(path, doc)
     del w.npcs[npc.entity_id]
     w.broadcast(lambda s, eid=npc.entity_id: zone.close_actor(s, eid))
     send(build_system_text(f"Removed {npc.name} (spawn {match}) from {os.path.basename(path)}.", SYSTEM_TEXT_WHITE))
+
+    def undo(eid=npc.entity_id, entry=removed, n=match, level=player.level):
+        template = args.content.mobs.get(entry["mob"])
+        if template is None:
+            return
+        spawn = dict(entry, z=entry.get("z") or args.content.ground_z(level, entry["x"], entry["y"], args.client_dir))
+        back = zone.npc_from_template(w, args, eid, spawn, template, n)
+        w.npcs[eid] = back
+        w.broadcast(lambda s, back=back: zone.open_npc(s, args, back))
+    push_undo(state, path, old_text, undo, f"removal of {npc.name}")
     print(f"  builder: {player.name} removed {npc.template_id} spawn {match}")
 
 
@@ -9577,6 +9633,9 @@ def dev_command(text, player=None):
     if words[0] == "path" and len(words) >= 2 and words[1] in ("add", "clear") and player:
         # !path add (your position as the next waypoint) / !path clear: builder mode.
         return [("build_edit", "path " + words[1], None)]
+    if words[0] == "undo" and player:
+        # !undo: builder mode, take back your last !spawn / !despawn / !wander / !respawn / !path.
+        return [("build_undo",)]
     if words[0] == "despawn" and player:
         # !despawn: builder mode, remove the targeted spawned NPC from the world and the file.
         return [("build_despawn",)]
@@ -10135,6 +10194,9 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "build_spawn":
                         build_spawn(state, args, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "build_undo":
+                        build_undo(state)
                         continue
                     elif isinstance(m, tuple) and m[0] == "build_edit":
                         build_edit(state, args, m[1], m[2])

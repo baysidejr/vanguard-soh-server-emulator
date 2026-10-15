@@ -820,7 +820,7 @@ class BuilderTests(unittest.TestCase):
             player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
             sent = []
             state = {"player": player, "send": sent.append, "world": w, "position": (-30500.0, -6000.0, 450.0)}
-            npc = mock.Mock(template_id="forest_bear", home=(-30500.0, -6000.0, 450.0))
+            npc = mock.Mock(template_id="forest_bear", home=(-30500.0, -6000.0, 450.0), wander=0.0, respawn=60, path=[])
             npc.name = "Thornback Bear"
             with mock.patch.object(login_stub.zone, "npc_from_template", side_effect=lambda w_, a, eid, *r: setattr(npc, "entity_id", eid) or npc):
                 login_stub.build_spawn(state, args, "forest_bear")
@@ -832,6 +832,14 @@ class BuilderTests(unittest.TestCase):
             self.assertEqual((entry["wander"], entry["path"]), (250, [[-30500, -6000]]))
             login_stub.build_despawn(state, args)
             self.assertEqual(json.loads(open(path, encoding="utf-8").read()), json.loads(before))
+            self.assertEqual(w.npcs, {})
+            with mock.patch.object(login_stub.zone, "npc_from_template", side_effect=lambda w_, a, eid, *r: npc):
+                login_stub.build_undo(state)              # the removal comes back
+            self.assertIn(npc.entity_id, w.npcs)
+            self.assertIn('"forest_bear"', open(path, encoding="utf-8").read())
+            for _ in range(3):
+                login_stub.build_undo(state)              # path add, wander, then the spawn itself
+            self.assertEqual(open(path, encoding="utf-8").read(), before)
             self.assertEqual(w.npcs, {})
 
 
