@@ -10,6 +10,7 @@ Content: 75 regions hold 1,152 NPCs imported from the archive (36 riftway destin
 
 ## Last test results
 
+- 2026-10-15 (after the bulk import and riftway landings): tools/check_all.py --client 7 of 7 passed (unit 250, load p95 10.9 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the archive imports and cross-region riftways): tools/check_all.py --client 7 of 7 passed (unit 249, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after full content validation and the remaining editor tabs): tools/check_all.py --client 7 of 7 passed (unit 244, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (15-minute soak, 50 bots): memory flat at 223 MB, p95 11.3 ms, no lost packets, no errors (docs/TESTING.md).
