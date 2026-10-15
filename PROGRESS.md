@@ -85,6 +85,8 @@ Content: 75 regions hold 1,256 NPCs imported from the archive (36 riftway destin
 
 ## Done
 
+- 2026-10-15: Altars of Binding at the archive's zone bind spots (20 in 15 regions); releasing to a bind in another region travels there (seen live: camp death -> Khal altar). Ranger restored from the run's backup afterwards (camp bind, old tombstone).
+
 - 2026-10-15: /con difficulty sentence decoded (0 slightly easier ... 5 extremely difficult); mobs.json difficulty, imported from the archive's dots for 609 NPCs and creatures.
 
 - 2026-10-15: 37 drop items imported from the archive's item records (the other 489 drops have no item page in the archive yet).

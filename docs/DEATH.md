@@ -148,3 +148,7 @@ There is no client code that parses an altar-specific window. An altar is a pawn
 ## Summoning your tombstone (verified live 2026-10-15)
 
 An NPC with mobs.json `"corpse_summoner": true` (Veyla Brightsteel) adds the client's dialog option 0x2b9 while you have a tombstone: "I'd like to summon my earthly remains." Choosing it sends **0x167** (no payload); the tombstone moves to your feet ("Veyla Brightsteel summons your tombstone to you.", `login_stub.summon_corpse`). Other players see the tombstone move (seen with a second client 2026-10-15: "Ranger's corpse" by Veyla). Free and in the same chunk; who offers it and what it costs is content.
+
+## Binding in other regions (verified live 2026-10-15)
+
+Altars of Binding stand at the archive's zone bind spots (20 altars in 15 regions, e.g. Khal at -844, -43892), from the zone records' "bind_spots". A spirit released to bind in another region travels there with a chunk change (`login_stub` release path calls `travel_to_chunk`); Recall already did. Seen: bound in Khal, `!die` at the camp, Release to Bind: Ranger arrived by the Khal altar ("Location discovered: Altar of Binding").

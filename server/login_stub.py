@@ -10517,13 +10517,18 @@ def handle_message(sock, server, addr, state, payload, args):
                 if any(getattr(player, "wounds", None) or []):
                     set_wounds(state, [0] * 5)          # a released spirit comes back whole
                 bind = getattr(player, "bind", None)
-                spot = bind["loc"] if bind and bind["level"] == player.level else player.spawned_at
+                elsewhere = bool(bind) and bind["level"] != player.level
+                spot = bind["loc"] if bind and not elsewhere else player.spawned_at
                 for m in (combat.death_popup(0, True),
                           zone.player_pawn_update(state, args, {"Health": 100, "m_bIsDead": 0}),
-                          zone.health_update(player),
-                          zone.player_teleport(tuple(spot))):
+                          zone.health_update(player)) + (() if elsewhere else (zone.player_teleport(tuple(spot)),)):
                     send_message(sock, addr, state, m)
                 restore_form_after_death(state, player)
+                if elsewhere:
+                    # Bound at an altar in another region: the spirit returns there (a chunk change).
+                    cx, cy = level_chunk(bind["level"])
+                    travel_to_chunk(state, args, cx, cy, float(bind["loc"][0]), float(bind["loc"][1]),
+                                    float(bind["loc"][2]))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x2B0 and state.get("player"):
             # Interact with an "other" entity (altars): {eid64 target, bool8}.
             eid = struct.unpack_from("<Q", payload, 10)[0]
