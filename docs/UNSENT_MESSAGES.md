@@ -6,15 +6,15 @@ The client handles 720 zone messages; the server code mentions 448 of them (62%)
 
 | Category | Count |
 |---|---|
-| optional | 137 |
-| unknown | 38 |
-| content | 35 |
-| variant | 34 |
-| no-op | 12 |
+| optional | 150 |
+| variant | 45 |
+| content | 40 |
+| no-op | 18 |
 | debug | 8 |
 | blocked | 8 |
+| unknown | 3 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%). Still open: 137 optional features and 38 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 567 of 720 (78%). Still open: 150 optional features and 3 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 33
 
@@ -44,15 +44,15 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x1dd | MsgItemMod | i32, i32, i32, i32, i32, bool8, i32, i32, i32, i32, wstr, wstr | content | item mod (MsgItemMod); item modifications are content |
 | 0x1de | MsgItemAttachSlot | i32, i32, i32, i32, i32, bool8, wstr, wstr, wstr, wstr, wstr | content | item attachment slot (MsgItemAttachSlot); attachments are content |
 | 0x1df | MsgStringAndInt | wstr, i32 | optional | container label update {wstr, i32} (InventoryContainerID_) |
-| 0x1e0 | MsgStringAndInt | wstr, i32 | unknown | wstr, i32; handler not decoded |
+| 0x1e0 | MsgStringAndInt | wstr, i32 | variant | {wstr, i32 handle}: replaces item field 69 (extra tooltip text); the server resends the item instead (FUN_00509800) [decoded 2026-10-14] |
 | 0x1e1 | MsgSingleInt | i32 | content | vehicle name field (_inventory_name_vehicle); vehicles (boats) are content |
 | 0x1e2 | MsgSendSingleSGOString | wstr | content | "Your vehicle is now called %s." |
-| 0x1e5 | MsgLongAndTwoInts | eid64, i32, i32 | unknown | eid64, i32, i32; handler not decoded |
-| 0x58d | MsgSingleInt | i32 | unknown | i32; handler not decoded |
+| 0x1e5 | MsgLongAndTwoInts | eid64, i32, i32 | optional | {i64 time base, i32 group, i32}: starts a timer on every item whose field 107 = group (inferred: item reuse cooldown) (FUN_0050f910) [decoded 2026-10-14] |
+| 0x58d | MsgSingleInt | i32 | content | {i32 handle}: picks the item to deconstruct and the confirm popup, which sends 0x58e; what items break into is server data (FUN_004f9d50) [decoded 2026-10-14] |
 | 0x5ae | MsgTwoInts | i32, i32 | optional | inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*) |
-| 0x5af | MsgSingleInt | i32 | unknown | i32 remove-from-container; handler not decoded |
+| 0x5af | MsgSingleInt | i32 | variant | {i32 handle}: takes an item off the hidden attached list that 0x5ae fills (FUN_004ff330) [decoded 2026-10-14] |
 | 0x5e6 | MsgSingleInt | i32 | blocked | Gold Membership unlock; this server has no membership locks |
-| 0x82e | MsgSingleItemAvatarInfo | i32, wstr | unknown | item avatar info {i32, wstr}; handler not decoded |
+| 0x82e | MsgSingleItemAvatarInfo | i32, wstr | no-op | {i32 handle, wstr}: sets item field 5; nothing reads it but item copies (inferred) (FUN_00506230) [decoded 2026-10-14] |
 
 ## FUN_005ef9e0 (player and misc): 33
 
@@ -60,8 +60,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 |---|---|---|---|---|
 | 0x118 | MsgThreeInts | i32, i32, i32 | optional | class display flags {3 x i32} (ClassShowsSpellDamage / HealingBonus) for the character sheet |
 | 0x119 | MsgThreeInts | i32, i32, i32 | optional | adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...); levels reach the client through MsgScore today |
-| 0x11a | MsgSingleBool | bool8 | unknown | bUse250System {bool8}; meaning unknown |
-| 0x11b | MsgSingleBool | bool8 | unknown | bool8; handler not decoded |
+| 0x11a | MsgSingleBool | bool8 | optional | bUse250System {bool8}: switches the weapon tooltip and character-sheet haste / dual-wield figures to an alternate formula (FUN_005e1510) [decoded 2026-10-14] |
+| 0x11b | MsgSingleBool | bool8 | optional | {bool8}: the Auto Defensive Target Me option (client sends 0x117 when it changes) (FUN_005e15d0) [decoded 2026-10-14] |
 | 0x272 | MsgStringAndInt | wstr, i32 | content | raid lockout share offer (Accept / Decline -> /lockoutaccept 0x273); no raid lockouts here |
 | 0x274 | - |  | no-op | the dispatcher returns at once |
 | 0x31b | MsgSendSingleSGOString | wstr | optional | strDiplomatRankSelf {wstr}: the diplomat rank title on the character sheet |
@@ -72,25 +72,25 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x44b | MsgWoundsUpdate | 5 x [u8] | optional | wounds {5 x u8} (bIsWounded per body part); no wound system yet |
 | 0x508 | MsgStringAndInt | wstr, i32 | optional | petition submit window {wstr, i32}; petitions go to the GM queue in the original |
 | 0x50a | MsgSingleBool | bool8 | optional | bHasPetition {bool8} |
-| 0x544 | (none) |  | unknown | no-payload signal |
+| 0x544 | (none) |  | content | no payload: the local pawn enters feign death; getting up sends 0x18a. Needs a feign-death ability (FUN_005de0e0) [decoded 2026-10-14] |
 | 0x545 | MsgSingleBool | bool8 | optional | DialogActive {bool8}: server-side dialog state flag |
 | 0x552 | MsgSingleBool | bool8 | optional | bInOutpost {bool8}: outpost flag (the camp is an outpost); what it unlocks is not known |
 | 0x553 | MsgStringAndThreeFloats | wstr, f32, f32, f32 | optional | spawn a client-side actor by class name at x, y, z {wstr, 3 x f32} (world FUN_00b77ee0: "Failed to spawn actor"); for scripted effects |
 | 0x5b0 | MsgThreeStringsAndInt | wstr, wstr, wstr, i32 | debug | /.g1 /.g2 GM output {3 x wstr, i32} |
-| 0x5c7 | MsgThreeFloats | f32, f32, f32 | unknown | 3 floats; handler not decoded |
+| 0x5c7 | MsgThreeFloats | f32, f32, f32 | unknown | {f32 a, f32 b, f32 secs}: fades two PlayerController floats (+0x58c/+0x590) from a to b; no native reader, probably UnrealScript (FUN_005e1080) [decoded 2026-10-14] |
 | 0x5e2 | (raw) |  | blocked | character customization / slot item purchased (store); this server has no store |
-| 0x62a | MsgSingleEntityId | eid64 | unknown | eid64; handler not decoded |
-| 0x62b | MsgSingleInt | i32 | unknown | i32; handler not decoded |
-| 0x62c | MsgSingleLong | i64 | unknown | i64; handler not decoded |
-| 0x62d | MsgSendSingleSGOString | wstr | unknown | wstr; handler not decoded |
-| 0x62e | MsgSingleInt | i32 | unknown | i32; handler not decoded |
-| 0x689 | MsgSendSingleSGOString | wstr | unknown | wstr; handler not decoded |
+| 0x62a | MsgSingleEntityId | eid64 | variant | {eid64}: sets the local player's entity id; the client already has it from the zone-in (inferred) (FUN_005e1140) [decoded 2026-10-14] |
+| 0x62b | MsgSingleInt | i32 | no-op | {i32} CharacterId, only for the vgplayers.com screenshot upload XML (FUN_005e11e0) [decoded 2026-10-14] |
+| 0x62c | MsgSingleLong | i64 | no-op | {i64} CharacterGUID for the screenshot upload XML (FUN_005e12e0) [decoded 2026-10-14] |
+| 0x62d | MsgSendSingleSGOString | wstr | no-op | {wstr}: stored in the player state, never read (FUN_005e6c00) [decoded 2026-10-14] |
+| 0x62e | MsgSingleInt | i32 | no-op | {i32} ServerId for the screenshot upload XML (FUN_005e1260) [decoded 2026-10-14] |
+| 0x689 | MsgSendSingleSGOString | wstr | variant | {wstr}: raw text as chat type 0x39 (the client's own system line); 0x192 covers it (FUN_005e4f90) [decoded 2026-10-14] |
 | 0x6e2 | - |  | no-op | the dispatcher returns at once |
 | 0x723 | MsgTwoInts | i32, i32 | optional | "You lost a level, your %s level is now %d." {sphere, level}; this server never takes levels away |
 | 0x726 | (raw) |  | blocked | trial-account feature popup (mail, housing...); never send |
 | 0x727 | MsgTwoEntityIdsAndTwoStrings | eid64, eid64, wstr, wstr | optional | group invite referral popup (Accept / Decline -> /groupinvitereferral*) |
-| 0x728 | MsgTwoFloats | f32, f32 | unknown | 2 floats; handler not decoded |
-| 0x75d | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | unknown | MsgSingleItemInfo in the player dispatcher; purpose not decoded |
+| 0x728 | MsgTwoFloats | f32, f32 | unknown | {f32, f32}: sets the same two PlayerController floats as 0x5c7 directly; meaning not found (FUN_005e0fe0) [decoded 2026-10-14] |
+| 0x75d | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo: updates an existing item in place without a UI refresh; the server resends 0x197 (FUN_005e4ed0) [decoded 2026-10-14] |
 
 ## FUN_004b4210 (combat groups / encounters): 22
 
@@ -147,7 +147,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x1c8 | MsgSingleByte | u8 | unknown | u8; handler not decoded |
+| 0x1c8 | MsgSingleByte | u8 | content | {u8}: the player's requirement state that ability field 37 must match (0xff none) (FUN_005f4340) [decoded 2026-10-14] |
 | 0x25a | MsgSingleFloat | f32 | optional | casting progress {f32}; the server shows casts with 0x25c / 0x260 |
 | 0x25d | MsgSingleFloat | f32 | optional | casting progress {f32}; the server shows casts with 0x25c / 0x260 |
 | 0x25e | MsgStringAndFloat | wstr, f32 | variant | cast bar {wstr, f32}, like 0x25c which the server sends |
@@ -175,7 +175,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x27d | MsgStringAndInt | wstr, i32 | optional | ability text lines {wstr, i32}; not decoded further |
 | 0x27e | MsgStringAndInt | wstr, i32 | content | "Your %s distributes %i" (spread heals or damage); needs such abilities |
 | 0x27f | MsgStringAndInt | wstr, i32 | content | "Your %s distributes %i" (spread heals or damage); needs such abilities |
-| 0x281 | MsgSingleEntityId | eid64 | unknown | eid64; handler not decoded |
+| 0x281 | MsgSingleEntityId | eid64 | content | {eid64}: sets EntityTypes bit 0x10000 on a pawn, the daze idle animation; needs daze abilities (FUN_00433930) [decoded 2026-10-14] |
 | 0x282 | (none) |  | content | charm breaking warning; needs charm abilities |
 | 0x3d2 | MsgDisplayAbilityEndPhaseEarly | eid64, u8, i32 | optional | ability phase ended early {eid64, u8, i32} |
 | 0x3d3 | MsgDisplayAbility | eid64, eid64, i32, i32, i32, i32, u8, u8, bool8, u8, i32, i32, u8, u8, u8, bool8, u8, f32, i32 | variant | MsgDisplayAbility, same layout as 0x3d1 which the server sends |
@@ -186,14 +186,14 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x216 | MsgSingleInt | i32 | unknown | ability book message; handler not decoded |
+| 0x216 | MsgSingleInt | i32 | variant | {i32 n, n x {id, ranges, cast time, recast, costs}} (not MsgSingleInt): refreshes stats of known abilities (FUN_004287f0) [decoded 2026-10-14] |
 | 0x219 | MsgSingleInt | i32 | debug | "Debug: VGClientAbilityBook::HandleAbilityRemoveFromTome() in" |
 | 0x21e | ? |  | content | song melody list refresh (SongMelodyList); songs use 0x-song messages already (docs/SONGS.md) |
 | 0x221 | MsgResearchAbilityInfo | wstr, wstr, i32, i32, u8, i32 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x222 | MsgTwoInts | i32, i32 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x223 | MsgIntAndByte | i32, u8 | content | ability research ("You have started learning", "Your study of %s is finished"); research is content |
 | 0x255 | MsgIntAndBool | i32, bool8 | optional | ability book list refresh (General / Adventuring / Counter / Rescue ability lists) |
-| 0x269 | MsgSingleInt | i32 | unknown | ability book message; handler not decoded |
+| 0x269 | MsgSingleInt | i32 | unknown | {i32 id}: deletes ability-book records of an unidentified list and marks the book dirty (FUN_00428060) [decoded 2026-10-14] |
 | 0x275 | MsgTwoInts | i32, i32 | optional | "Select an attack" prompt {i32, i32} |
 | 0x276 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |
 | 0x277 | (none) |  | content | "Warping" / "Warp failed" (teleport abilities) |
@@ -208,7 +208,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x28d | (none) |  | optional | escrow merchant (consignment) window: state, item list, items |
 | 0x28e | - |  | no-op | the dispatcher returns at once |
 | 0x290 | MsgSingleByte | u8 | optional | merchant error codes {u8} ("not interested", "out of range"); the client range-checks before asking |
-| 0x293 | (none) |  | unknown | no-payload merchant signal |
+| 0x293 | (none) |  | variant | no payload: same handler as 0x28b (sent), clears the merchant lists (FUN_00545460) [decoded 2026-10-14] |
 | 0x294 | (none) |  | optional | escrow merchant (consignment) window: state, item list, items |
 | 0x295 | MsgClientMerchantItem | i32, i32, wstr, wstr, wstr, i32, i32, i32, f32, u8, u8, u8, i32, i32, i32, i32, i32, 2 x [wstr], i32, i32, i32, i32, i32, i32, i32, i32, wstr, i32, i32, i32, wstr, wstr | optional | escrow merchant (consignment) window: state, item list, items |
 | 0x296 | MsgSingleInt | i32 | optional | escrow merchant (consignment) window: state, item list, items |
@@ -218,14 +218,14 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x68a | MsgSendSingleSGOString | wstr | unknown | wstr; group handler not decoded |
+| 0x68a | MsgSendSingleSGOString | wstr | variant | {wstr}: text in group chat colour (channel 8) (FUN_004d7dd0) [decoded 2026-10-14] |
 | 0x68e | MsgEntityIDAndByte | eid64, u8 | optional | group member list flag {eid64, u8} (GroupMemberList) |
 | 0x690 | MsgGroupMemberNewEntityId | eid64, eid64 | no-op | group member's entity id changed {old eid64, new eid64}; player entity ids are stable across chunks here |
-| 0x69f | MsgSingleEntityId | eid64 | unknown | eid64; group handler not decoded |
+| 0x69f | MsgSingleEntityId | eid64 | variant | {eid64}: sets the group id only, nothing visible; 0x6b2 / 0x6d7 already set it (FUN_004d4940) [decoded 2026-10-14] |
 | 0x6a0 | (none) |  | variant | YouJoinedGroup signal; the server joins the player through 0x6bb rows |
 | 0x6aa | (none) |  | no-op | "You lost connection with your group. Re-forming your group..." banner: for a group-server outage; this server keeps groups in the zone process, so it never happens |
 | 0x6b1 | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
-| 0x6b4 | MsgSendSingleSGOString | wstr | unknown | wstr; group handler not decoded |
+| 0x6b4 | MsgSendSingleSGOString | wstr | no-op | {wstr}: read and ignored (FUN_004d7be0) [decoded 2026-10-14] |
 | 0x6c9 | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
 | 0x6ca | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
 
@@ -236,7 +236,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x217 | MsgAbilityParlayCard | i32, wstr, i32, i32, i32, i32, u8, u8, u8, u8, i32 x8, u8, u8, u8, wstr, i32, i32, i32, bool8, 3 x [i32] | variant | diplomacy card info (MsgAbilityParlayCard); the server sends cards with its own messages (docs/DIPLOMACY.md) |
 | 0x21a | MsgSingleInt | i32 | optional | diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy) |
 | 0x220 | MsgIntAndBool | i32, bool8 | optional | diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy) |
-| 0x238 | MsgTwoInts | i32, i32 | unknown | diplomacy card dispatcher; not decoded |
+| 0x238 | MsgTwoInts | i32, i32 | variant | {i32, i32}: same as 0x237 without a UI refresh (FUN_00555cb0) [decoded 2026-10-14] |
 | 0x321 | MsgEntityIDAndInt | eid64, i32 | optional | parley expressions list {eid64, i32 + records} (Entertain, Reason, Inspire images) |
 | 0x329 | MsgSendSingleSGOString | wstr | debug | parley debug info text |
 | 0x340 | MsgThreeInts | i32, i32, i32 | blocked | civic diplomacy stats (CivicDiplomacyStats, bDisplayCivicStats); no UI file binds them, so /citystatus lists them in chat |
@@ -269,12 +269,12 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x560 | MsgEntityIDAndByte | eid64, u8 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
-| 0x561 | MsgEntityIDAndByte | eid64, u8 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
-| 0x562 | (none) |  | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
-| 0x563 | MsgSingleEntityId | eid64 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x560 | MsgEntityIDAndByte | eid64, u8 | optional | {eid64, u8 type}: quest icon over an NPC; types 0-14 = Soon / Available / In progress / Done / Low x Adventure, Crafting, Diplomacy; 0xff none (FUN_0058e430) [decoded 2026-10-14] |
+| 0x561 | MsgEntityIDAndByte | eid64, u8 | optional | {eid64, u8}: removes that NPC's quest icon if the type matches (FUN_0058d8e0) [decoded 2026-10-14] |
+| 0x562 | (none) |  | optional | no payload: removes all quest icons (FUN_0058dbd0) [decoded 2026-10-14] |
+| 0x563 | MsgSingleEntityId | eid64 | optional | {eid64}: removes the quest icon from one entity (FUN_0058d9a0) [decoded 2026-10-14] |
 | 0x56a | MsgSingleEntityId | eid64 | optional | mystical particle effect on an entity (FXmystical_IOParticle001fx) |
-| 0x56b | MsgSingleEntityId | eid64 | unknown | dispatcher FUN_0058e580 (entity id + byte messages); not decoded |
+| 0x56b | MsgSingleEntityId | eid64 | optional | {eid64}: stops the mystical particle effect that 0x56a starts (FUN_0058da80) [decoded 2026-10-14] |
 
 ## FUN_005a6770 (quests): 6
 
@@ -285,7 +285,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 | 0x2c9 | MsgQuestInitClient | i32 questId, wstr, i32, u8, i32, f32, i64, i32, i32, i32 | variant | quest journal init list (MsgQuestInitClient); the server sends quest pages individually |
 | 0x2ce | MsgQuestConditionsMet | eid64, i32, bool8 | variant | quest conditions met {eid64, i32 quest, bool8}: marks the journal entry ready (record +0x9c) and redraws it; the server sends the quest page in its ready state instead |
 | 0x2d0 | MsgTwoInts | i32, i32 | optional | reward choice de-selected ("De-selecting %s") |
-| 0x2d1 | MsgIntAndFloat | i32, f32 | unknown | i32, f32; quest handler not decoded |
+| 0x2d1 | MsgIntAndFloat | i32, f32 | content | {i32 quest id, f32 seconds left}: quest timer; needs timed quests (FUN_00592b70) [decoded 2026-10-14] |
 
 ## FUN_005ac760 (crafting recipes): 6
 
@@ -325,7 +325,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 |---|---|---|---|---|
 | 0x2a2 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages |
 | 0x2a3 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages |
-| 0x2a6 | MsgSingleInt | i32 | unknown | quest journal i32; not decoded |
+| 0x2a6 | MsgSingleInt | i32 | variant | {i32 id}: removes a quest from the journal lists (FUN_0061bc70) [decoded 2026-10-14] |
 | 0x2a7 | MsgThreeInts | i32, i32, i32 | optional | quest journal text lines {3 x i32} |
 | 0x2a8 | MsgThreeInts | i32, i32, i32 | optional | quest journal text lines {3 x i32} |
 
@@ -342,9 +342,9 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2e4 | (none) |  | unknown | crafting action signal; not decoded |
+| 0x2e4 | (none) |  | optional | no payload: clears all known crafting actions (FUN_004b6810) [decoded 2026-10-14] |
 | 0x2e5 | MsgCraftingActionAdd | i32, wstr, wstr, i32, i32, i32 | optional | "New action acquired: %s" (announced crafting action); the server adds actions silently with 0x2e8 |
-| 0x2e6 | MsgSingleInt | i32 | unknown | crafting action i32; not decoded |
+| 0x2e6 | MsgSingleInt | i32 | optional | {i32 id}: removes one crafting action (FUN_004b66b0) [decoded 2026-10-14] |
 | 0x2e7 | MsgCraftingActionAdd | i32, wstr, wstr, i32, i32, i32 | variant | crafting action add, like 0x2e8 |
 
 ## FUN_004c9170 (NPC dialog): 4
@@ -409,8 +409,8 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x406 | MsgSingleEntityId | eid64 | unknown | eid64; dispatcher FUN_004ca200 not decoded |
-| 0x407 | MsgSingleEntityId | eid64 | unknown | eid64; dispatcher FUN_004ca200 not decoded |
+| 0x406 | MsgSingleEntityId | eid64 | optional | {i32 n, n x eid64}: the list of pets / charmed pawns that may be attacked in a duel (FUN_004ca180) [decoded 2026-10-14] |
+| 0x407 | MsgSingleEntityId | eid64 | optional | {eid64}: adds one entity to the duel list (FUN_004ca0f0) [decoded 2026-10-14] |
 
 ## FUN_004ccc50 (factions): 2
 
@@ -459,7 +459,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 545 of 720 (75%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x564 | MsgSingleEntityId | eid64 | unknown | eid64; not decoded |
+| 0x564 | MsgSingleEntityId | eid64 | optional | {eid64}: the loot sparkle effect on an entity (lootable corpse, inferred), once per entity (FUN_00524920) [decoded 2026-10-14] |
 
 ## FUN_0054a8e0: 1
 

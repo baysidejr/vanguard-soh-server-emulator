@@ -123,8 +123,8 @@
       "container label update {wstr, i32} (InventoryContainerID_)"
     ],
     "0x1e0": [
-      "unknown",
-      "wstr, i32; handler not decoded"
+      "variant",
+      "{wstr, i32 handle}: replaces item field 69 (extra tooltip text); the server resends the item instead (FUN_00509800) [decoded 2026-10-14]"
     ],
     "0x1e1": [
       "content",
@@ -143,20 +143,20 @@
       "item operation results; the server sends codes 2 (no room) and 28 (cannot equip); Unique items are not enforced yet (code 0)"
     ],
     "0x1e5": [
-      "unknown",
-      "eid64, i32, i32; handler not decoded"
+      "optional",
+      "{i64 time base, i32 group, i32}: starts a timer on every item whose field 107 = group (inferred: item reuse cooldown) (FUN_0050f910) [decoded 2026-10-14]"
     ],
     "0x58d": [
-      "unknown",
-      "i32; handler not decoded"
+      "content",
+      "{i32 handle}: picks the item to deconstruct and the confirm popup, which sends 0x58e; what items break into is server data (FUN_004f9d50) [decoded 2026-10-14]"
     ],
     "0x5ae": [
       "optional",
       "inventory / assembly ingredient list refreshes (InventoryList, AsmRecipeIngredient*)"
     ],
     "0x5af": [
-      "unknown",
-      "i32 remove-from-container; handler not decoded"
+      "variant",
+      "{i32 handle}: takes an item off the hidden attached list that 0x5ae fills (FUN_004ff330) [decoded 2026-10-14]"
     ],
     "0x5e4": [
       "done",
@@ -167,8 +167,8 @@
       "Gold Membership unlock; this server has no membership locks"
     ],
     "0x82e": [
-      "unknown",
-      "item avatar info {i32, wstr}; handler not decoded"
+      "no-op",
+      "{i32 handle, wstr}: sets item field 5; nothing reads it but item copies (inferred) (FUN_00506230) [decoded 2026-10-14]"
     ],
     "0x118": [
       "optional",
@@ -179,12 +179,12 @@
       "adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...); levels reach the client through MsgScore today"
     ],
     "0x11a": [
-      "unknown",
-      "bUse250System {bool8}; meaning unknown"
+      "optional",
+      "bUse250System {bool8}: switches the weapon tooltip and character-sheet haste / dual-wield figures to an alternate formula (FUN_005e1510) [decoded 2026-10-14]"
     ],
     "0x11b": [
-      "unknown",
-      "bool8; handler not decoded"
+      "optional",
+      "{bool8}: the Auto Defensive Target Me option (client sends 0x117 when it changes) (FUN_005e15d0) [decoded 2026-10-14]"
     ],
     "0x272": [
       "content",
@@ -219,8 +219,8 @@
       "bHasPetition {bool8}"
     ],
     "0x544": [
-      "unknown",
-      "no-payload signal"
+      "content",
+      "no payload: the local pawn enters feign death; getting up sends 0x18a. Needs a feign-death ability (FUN_005de0e0) [decoded 2026-10-14]"
     ],
     "0x545": [
       "optional",
@@ -240,35 +240,35 @@
     ],
     "0x5c7": [
       "unknown",
-      "3 floats; handler not decoded"
+      "{f32 a, f32 b, f32 secs}: fades two PlayerController floats (+0x58c/+0x590) from a to b; no native reader, probably UnrealScript (FUN_005e1080) [decoded 2026-10-14]"
     ],
     "0x5e2": [
       "blocked",
       "character customization / slot item purchased (store); this server has no store"
     ],
     "0x62a": [
-      "unknown",
-      "eid64; handler not decoded"
+      "variant",
+      "{eid64}: sets the local player's entity id; the client already has it from the zone-in (inferred) (FUN_005e1140) [decoded 2026-10-14]"
     ],
     "0x62b": [
-      "unknown",
-      "i32; handler not decoded"
+      "no-op",
+      "{i32} CharacterId, only for the vgplayers.com screenshot upload XML (FUN_005e11e0) [decoded 2026-10-14]"
     ],
     "0x62c": [
-      "unknown",
-      "i64; handler not decoded"
+      "no-op",
+      "{i64} CharacterGUID for the screenshot upload XML (FUN_005e12e0) [decoded 2026-10-14]"
     ],
     "0x62d": [
-      "unknown",
-      "wstr; handler not decoded"
+      "no-op",
+      "{wstr}: stored in the player state, never read (FUN_005e6c00) [decoded 2026-10-14]"
     ],
     "0x62e": [
-      "unknown",
-      "i32; handler not decoded"
+      "no-op",
+      "{i32} ServerId for the screenshot upload XML (FUN_005e1260) [decoded 2026-10-14]"
     ],
     "0x689": [
-      "unknown",
-      "wstr; handler not decoded"
+      "variant",
+      "{wstr}: raw text as chat type 0x39 (the client's own system line); 0x192 covers it (FUN_005e4f90) [decoded 2026-10-14]"
     ],
     "0x723": [
       "optional",
@@ -284,11 +284,11 @@
     ],
     "0x728": [
       "unknown",
-      "2 floats; handler not decoded"
+      "{f32, f32}: sets the same two PlayerController floats as 0x5c7 directly; meaning not found (FUN_005e0fe0) [decoded 2026-10-14]"
     ],
     "0x75d": [
-      "unknown",
-      "MsgSingleItemInfo in the player dispatcher; purpose not decoded"
+      "variant",
+      "MsgSingleItemInfo: updates an existing item in place without a UI refresh; the server resends 0x197 (FUN_005e4ed0) [decoded 2026-10-14]"
     ],
     "0x253": [
       "content",
@@ -451,8 +451,8 @@
       "ability memorization (disciplines / masteries, memory slots, \"You must be resting to memorize\"); this server gives abilities straight from the ability book"
     ],
     "0x1c8": [
-      "unknown",
-      "u8; handler not decoded"
+      "content",
+      "{u8}: the player's requirement state that ability field 37 must match (0xff none) (FUN_005f4340) [decoded 2026-10-14]"
     ],
     "0x25a": [
       "optional",
@@ -543,8 +543,8 @@
       "\"Your %s distributes %i\" (spread heals or damage); needs such abilities"
     ],
     "0x281": [
-      "unknown",
-      "eid64; handler not decoded"
+      "content",
+      "{eid64}: sets EntityTypes bit 0x10000 on a pawn, the daze idle animation; needs daze abilities (FUN_00433930) [decoded 2026-10-14]"
     ],
     "0x282": [
       "content",
@@ -563,12 +563,12 @@
       "\"You need more open space around you to do that.\""
     ],
     "0x68a": [
-      "unknown",
-      "wstr; group handler not decoded"
+      "variant",
+      "{wstr}: text in group chat colour (channel 8) (FUN_004d7dd0) [decoded 2026-10-14]"
     ],
     "0x6b4": [
-      "unknown",
-      "wstr; group handler not decoded"
+      "no-op",
+      "{wstr}: read and ignored (FUN_004d7be0) [decoded 2026-10-14]"
     ],
     "0x68e": [
       "optional",
@@ -579,8 +579,8 @@
       "group member's entity id changed {old eid64, new eid64}; player entity ids are stable across chunks here"
     ],
     "0x69f": [
-      "unknown",
-      "eid64; group handler not decoded"
+      "variant",
+      "{eid64}: sets the group id only, nothing visible; 0x6b2 / 0x6d7 already set it (FUN_004d4940) [decoded 2026-10-14]"
     ],
     "0x6a0": [
       "variant",
@@ -603,8 +603,8 @@
       "group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot)"
     ],
     "0x216": [
-      "unknown",
-      "ability book message; handler not decoded"
+      "variant",
+      "{i32 n, n x {id, ranges, cast time, recast, costs}} (not MsgSingleInt): refreshes stats of known abilities (FUN_004287f0) [decoded 2026-10-14]"
     ],
     "0x255": [
       "optional",
@@ -612,7 +612,7 @@
     ],
     "0x269": [
       "unknown",
-      "ability book message; handler not decoded"
+      "{i32 id}: deletes ability-book records of an unidentified list and marks the book dirty (FUN_00428060) [decoded 2026-10-14]"
     ],
     "0x21e": [
       "content",
@@ -671,8 +671,8 @@
       "merchant error codes {u8} (\"not interested\", \"out of range\"); the client range-checks before asking"
     ],
     "0x293": [
-      "unknown",
-      "no-payload merchant signal"
+      "variant",
+      "no payload: same handler as 0x28b (sent), clears the merchant lists (FUN_00545460) [decoded 2026-10-14]"
     ],
     "0x217": [
       "variant",
@@ -687,8 +687,8 @@
       "diplomacy repertoire / strategy refresh (DiplomacyRepertoire, DiplomacyStrategy)"
     ],
     "0x238": [
-      "unknown",
-      "diplomacy card dispatcher; not decoded"
+      "variant",
+      "{i32, i32}: same as 0x237 without a UI refresh (FUN_00555cb0) [decoded 2026-10-14]"
     ],
     "0x321": [
       "optional",
@@ -783,28 +783,28 @@
       "\"CorpseUnlockedToYou\" {wstr, wstr}"
     ],
     "0x560": [
-      "unknown",
-      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+      "optional",
+      "{eid64, u8 type}: quest icon over an NPC; types 0-14 = Soon / Available / In progress / Done / Low x Adventure, Crafting, Diplomacy; 0xff none (FUN_0058e430) [decoded 2026-10-14]"
     ],
     "0x561": [
-      "unknown",
-      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+      "optional",
+      "{eid64, u8}: removes that NPC's quest icon if the type matches (FUN_0058d8e0) [decoded 2026-10-14]"
     ],
     "0x562": [
-      "unknown",
-      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+      "optional",
+      "no payload: removes all quest icons (FUN_0058dbd0) [decoded 2026-10-14]"
     ],
     "0x563": [
-      "unknown",
-      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+      "optional",
+      "{eid64}: removes the quest icon from one entity (FUN_0058d9a0) [decoded 2026-10-14]"
     ],
     "0x56a": [
       "optional",
       "mystical particle effect on an entity (FXmystical_IOParticle001fx)"
     ],
     "0x56b": [
-      "unknown",
-      "dispatcher FUN_0058e580 (entity id + byte messages); not decoded"
+      "optional",
+      "{eid64}: stops the mystical particle effect that 0x56a starts (FUN_0058da80) [decoded 2026-10-14]"
     ],
     "0x2a9": [
       "optional",
@@ -827,8 +827,8 @@
       "reward choice de-selected (\"De-selecting %s\")"
     ],
     "0x2d1": [
-      "unknown",
-      "i32, f32; quest handler not decoded"
+      "content",
+      "{i32 quest id, f32 seconds left}: quest timer; needs timed quests (FUN_00592b70) [decoded 2026-10-14]"
     ],
     "0x11c": [
       "optional",
@@ -883,8 +883,8 @@
       "quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages"
     ],
     "0x2a6": [
-      "unknown",
-      "quest journal i32; not decoded"
+      "variant",
+      "{i32 id}: removes a quest from the journal lists (FUN_0061bc70) [decoded 2026-10-14]"
     ],
     "0x2a7": [
       "optional",
@@ -911,16 +911,16 @@
       "house chest item put / move messages; the server redraws the chest instead (docs/HOUSING.md)"
     ],
     "0x2e4": [
-      "unknown",
-      "crafting action signal; not decoded"
+      "optional",
+      "no payload: clears all known crafting actions (FUN_004b6810) [decoded 2026-10-14]"
     ],
     "0x2e5": [
       "optional",
       "\"New action acquired: %s\" (announced crafting action); the server adds actions silently with 0x2e8"
     ],
     "0x2e6": [
-      "unknown",
-      "crafting action i32; not decoded"
+      "optional",
+      "{i32 id}: removes one crafting action (FUN_004b66b0) [decoded 2026-10-14]"
     ],
     "0x2e7": [
       "variant",
@@ -1019,12 +1019,12 @@
       "one fixture removed; the server resends the whole list"
     ],
     "0x406": [
-      "unknown",
-      "eid64; dispatcher FUN_004ca200 not decoded"
+      "optional",
+      "{i32 n, n x eid64}: the list of pets / charmed pawns that may be attacked in a duel (FUN_004ca180) [decoded 2026-10-14]"
     ],
     "0x407": [
-      "unknown",
-      "eid64; dispatcher FUN_004ca200 not decoded"
+      "optional",
+      "{eid64}: adds one entity to the duel list (FUN_004ca0f0) [decoded 2026-10-14]"
     ],
     "0x35c": [
       "optional",
@@ -1055,8 +1055,8 @@
       "login rename rejected (\"That name was not accepted\"); renames go through the service item"
     ],
     "0x564": [
-      "unknown",
-      "eid64; not decoded"
+      "optional",
+      "{eid64}: the loot sparkle effect on an entity (lootable corpse, inferred), once per entity (FUN_00524920) [decoded 2026-10-14]"
     ],
     "0x567": [
       "unknown",
