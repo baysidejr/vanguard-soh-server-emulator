@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vanguard emulator content editor</title>
+<style>
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #1d1b18; color: #e8e2d6; display: flex; height: 100vh; }
+  nav { width: 230px; background: #26231f; border-right: 1px solid #3a352e; display: flex; flex-direction: column; }
+  nav h1 { font-size: 15px; margin: 12px; color: #d8b56a; }
+  .tabs { display: flex; margin: 0 8px 8px; gap: 4px; }
+  .tabs button { flex: 1; }
+  #files { overflow-y: auto; flex: 1; }
+  #files div { padding: 4px 12px; cursor: pointer; }
+  #files div:hover { background: #332f29; }
+  #files div.sel { background: #4a3f2c; color: #fff; }
+  main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .bar { padding: 8px; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid #3a352e; }
+  button, select, input { background: #34302a; color: #e8e2d6; border: 1px solid #4d463c; border-radius: 4px; padding: 4px 9px; font: inherit; }
+  button:hover { background: #423c33; }
+  button.primary { background: #6b5526; border-color: #8a6f33; }
+  textarea { flex: 1; margin: 0; border: 0; resize: none; background: #15130f; color: #e8e2d6; font: 13px/1.4 Consolas, monospace; padding: 10px; }
+  #problems { max-height: 30%; overflow-y: auto; font: 13px Consolas, monospace; }
+  #problems div { padding: 3px 10px; }
+  .bad { color: #ff8f7a; } .good { color: #9fd38b; }
+  #spawnview { flex: 1; display: none; min-height: 0; }
+  #mapwrap { flex: 1; overflow: auto; position: relative; }
+  canvas { display: block; cursor: crosshair; }
+  #side { width: 280px; padding: 10px; border-left: 1px solid #3a352e; overflow-y: auto; }
+  #side label { display: block; margin: 8px 0 2px; color: #b9ae9b; font-size: 12px; }
+  #side input, #side select { width: 100%; box-sizing: border-box; }
+  .hint { color: #8f8574; font-size: 12px; }
+</style>
+</head>
+<body>
+<nav>
+  <h1>Content editor</h1>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabSpawns">Spawns</button></div>
+  <div id="files"></div>
+</nav>
+<main>
+  <div class="bar" id="fileBar">
+    <strong id="fileName">Pick a file</strong>
+    <span style="flex:1"></span>
+    <button id="checkBtn">Check</button>
+    <button id="saveBtn" class="primary">Save</button>
+  </div>
+  <textarea id="editor" spellcheck="false" disabled></textarea>
+  <div id="spawnview">
+    <div id="mapwrap"><canvas id="map"></canvas></div>
+    <div id="side">
+      <div class="bar" style="padding:0;border:0">
+        <select id="chunk"></select>
+        <select id="zoom"><option value="1">1x</option><option value="4">4x</option><option value="16">16x</option><option value="64">64x</option></select>
+      </div>
+      <p class="hint">Click a spawn to edit it, drag it to move it, click empty ground to add one of the mob below. Delete removes the selected spawn.</p>
+      <label>New spawns use mob</label><select id="newMob"></select>
+      <div id="spawnForm" style="display:none">
+        <h3 id="spawnTitle"></h3>
+        <label>Mob</label><select id="sMob"></select>
+        <label>X</label><input id="sX" type="number">
+        <label>Y</label><input id="sY" type="number">
+        <label>Yaw (0-65535)</label><input id="sYaw" type="number">
+        <label>Respawn seconds</label><input id="sRespawn" type="number">
+        <label>Wander radius (blank = stand)</label><input id="sWander" type="number">
+        <p><button id="delSpawn">Delete spawn</button></p>
+      </div>
+      <p><button id="saveSpawns" class="primary">Save spawns</button></p>
+      <p class="hint" id="mapInfo"></p>
+    </div>
+  </div>
+  <div id="problems"></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let current = null, mode = "files";
+let mobs = {}, spawnFile = null, spawns = [], sel = -1, info = null, img = new Image(), drag = false;
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  const body = r.headers.get("Content-Type").includes("json") ? await r.json() : null;
+  return { ok: r.ok, status: r.status, body };
+}
+function showProblems(list, okText) {
+  $("problems").innerHTML = "";
+  if (!list.length) { $("problems").innerHTML = `<div class="good">${okText}</div>`; return; }
+  for (const p of list) { const d = document.createElement("div"); d.className = "bad"; d.textContent = p; $("problems").appendChild(d); }
+}
+
+async function loadFiles() {
+  const r = await api("/api/files");
+  $("files").innerHTML = "";
+  for (const name of r.body) {
+    const d = document.createElement("div");
+    d.textContent = name;
+    d.onclick = () => openFile(name, d);
+    $("files").appendChild(d);
+  }
+}
+async function openFile(name, el) {
+  document.querySelectorAll("#files div").forEach(x => x.classList.remove("sel"));
+  if (el) el.classList.add("sel");
+  const r = await api("/api/file?name=" + encodeURIComponent(name));
+  current = name;
+  $("fileName").textContent = name;
+  $("editor").value = r.body.text;
+  $("editor").disabled = false;
+  $("problems").innerHTML = "";
+}
+async function send(path) {
+  if (!current) return;
+  const r = await api(path + "?name=" + encodeURIComponent(current), { method: "PUT", body: $("editor").value });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, r.body.saved ? `Saved ${current}.` : "No problems found.");
+}
+$("checkBtn").onclick = () => send("/api/check");
+$("saveBtn").onclick = () => send("/api/file");
+
+// ---- spawns ----
+function setMode(m) {
+  mode = m;
+  $("editor").style.display = m === "files" ? "" : "none";
+  $("fileBar").style.display = m === "files" ? "" : "none";
+  $("files").style.display = m === "files" ? "" : "none";
+  $("spawnview").style.display = m === "spawns" ? "flex" : "none";
+  $("problems").innerHTML = "";
+  if (m === "spawns" && !$("chunk").options.length) initSpawns();
+}
+$("tabFiles").onclick = () => setMode("files");
+$("tabSpawns").onclick = () => setMode("spawns");
+
+async function initSpawns() {
+  const m = await api("/api/file?name=mobs.json");
+  mobs = JSON.parse(m.body.text);
+  const keys = Object.keys(mobs).filter(k => !k.startsWith("_")).sort();
+  for (const sel of [$("newMob"), $("sMob")]) {
+    sel.innerHTML = keys.map(k => `<option value="${k}">${k} (${mobs[k].name || ""})</option>`).join("");
+  }
+  const files = (await api("/api/files")).body.filter(f => f.startsWith("spawns/")).map(f => f.slice(7, -5));
+  const all = (await api("/api/chunks")).body;
+  const order = files.concat(all.filter(c => !files.includes(c)));
+  $("chunk").innerHTML = order.map(c => `<option value="${c}">${c}${files.includes(c) ? " *" : ""}</option>`).join("");
+  $("chunk").onchange = () => loadChunk($("chunk").value);
+  loadChunk(order[0]);
+}
+async function loadChunk(chunk) {
+  spawnFile = "spawns/" + chunk + ".json";
+  const f = await api("/api/file?name=" + encodeURIComponent(spawnFile));
+  const data = f.ok ? JSON.parse(f.body.text) : { _comment: "Spawns for " + chunk + " (content editor).", spawns: [] };
+  spawnDoc = data;
+  spawns = data.spawns || [];
+  sel = -1; form();
+  const t = await api("/api/terrain?chunk=" + chunk);
+  info = t.ok ? t.body : null;
+  $("mapInfo").textContent = info ? `Extent x ${info.extent[0].toFixed(0)}..${info.extent[2].toFixed(0)}, y ${info.extent[1].toFixed(0)}..${info.extent[3].toFixed(0)}; ${spawns.length} spawns.` : "No terrain for this chunk.";
+  zoom = 1;
+  if (info && spawns.length) {                       // zoom in on the spawns
+    const xs = spawns.map(s => s.x), ys = spawns.map(s => s.y), e = info.extent;
+    const span = Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys), 2000);
+    zoom = [64, 16, 4, 1].find(z => span * z < (e[2] - e[0]) * 0.8) || 1;
+  }
+  $("zoom").value = zoom; SIZE = 768 * zoom;
+  img = new Image();
+  img.onload = () => { draw(); centre(); detail(); };
+  img.src = "/api/terrain.png?chunk=" + chunk;
+}
+let spawnDoc = null;
+let SIZE = 768, zoom = 1;
+function toPx(x, y) { const e = info.extent; return [(x - e[0]) / (e[2] - e[0]) * SIZE, (y - e[1]) / (e[3] - e[1]) * SIZE]; }
+function toWorld(px, py) { const e = info.extent; return [e[0] + px / SIZE * (e[2] - e[0]), e[1] + py / SIZE * (e[3] - e[1])]; }
+function draw() {
+  const c = $("map"); c.width = SIZE; c.height = SIZE;
+  const g = c.getContext("2d");
+  g.drawImage(img, 0, 0, SIZE, SIZE);
+  if (hi && hiBox && zoom > 1) { const [px, py] = toPx(hiBox[0], hiBox[1]), [qx, qy] = toPx(hiBox[2], hiBox[3]); g.drawImage(hi, px, py, qx - px, qy - py); }
+  if (!info) return;
+  g.font = "11px system-ui";
+  spawns.forEach((s, i) => {
+    const [px, py] = toPx(s.x, s.y);
+    const m = mobs[s.mob] || {};
+    g.fillStyle = i === sel ? "#ffd75e" : (m.merchant || m.trainer || m.banker ? "#7fc7ff" : (m.aggro_radius ? "#ff6b5a" : "#9be37d"));
+    g.beginPath(); g.arc(px, py, i === sel ? 6 : 4, 0, 7); g.fill();
+    if (s.wander) { g.strokeStyle = "rgba(255,255,255,.35)"; g.beginPath(); g.arc(px, py, s.wander / (info.extent[2] - info.extent[0]) * SIZE, 0, 7); g.stroke(); }
+    if (i === sel || zoom >= 4 || spawns.length < 60) { g.fillStyle = "#fff"; g.fillText(m.name || s.mob, px + 7, py + 4); }
+  });
+}
+let hi = null, hiBox = null;
+function detail() {                                   // a sharper image of the area on screen
+  if (!info || zoom === 1) { hi = null; draw(); return; }
+  const w = $("mapwrap"), [ax, ay] = toWorld(w.scrollLeft, w.scrollTop);
+  const [bx, by] = toWorld(w.scrollLeft + w.clientWidth, w.scrollTop + w.clientHeight);
+  const side = Math.max(bx - ax, by - ay), cx = (ax + bx) / 2, cy = (ay + by) / 2;
+  const box = [cx - side / 2, cy - side / 2, cx + side / 2, cy + side / 2];
+  const im = new Image();
+  im.onload = () => { hi = im; hiBox = box; draw(); };
+  im.src = `/api/terrain.png?chunk=${$("chunk").value}&x0=${box[0]}&y0=${box[1]}&x1=${box[2]}&y1=${box[3]}`;
+}
+let detailTimer = null;
+$("mapwrap").onscroll = () => { clearTimeout(detailTimer); detailTimer = setTimeout(detail, 300); };
+function centre() {
+  if (!info || !spawns.length) return;
+  const cx = spawns.reduce((a, s) => a + s.x, 0) / spawns.length, cy = spawns.reduce((a, s) => a + s.y, 0) / spawns.length;
+  const [px, py] = toPx(cx, cy), w = $("mapwrap");
+  w.scrollLeft = px - w.clientWidth / 2; w.scrollTop = py - w.clientHeight / 2;
+}
+$("zoom").onchange = () => { zoom = Number($("zoom").value); SIZE = 768 * zoom; hi = null; draw(); centre(); detail(); };
+function hit(px, py) {
+  let best = -1, bd = 10;
+  spawns.forEach((s, i) => { const [x, y] = toPx(s.x, s.y); const d = Math.hypot(x - px, y - py); if (d < bd) { bd = d; best = i; } });
+  return best;
+}
+$("map").onmousedown = e => {
+  if (!info) return;
+  const i = hit(e.offsetX, e.offsetY);
+  if (i >= 0) { sel = i; drag = true; }
+  else {
+    const [x, y] = toWorld(e.offsetX, e.offsetY);
+    spawns.push({ mob: $("newMob").value, x: Math.round(x), y: Math.round(y), yaw: 0, respawn: 60 });
+    sel = spawns.length - 1;
+  }
+  form(); draw();
+};
+$("map").onmousemove = e => {
+  if (!drag || sel < 0) return;
+  const [x, y] = toWorld(e.offsetX, e.offsetY);
+  spawns[sel].x = Math.round(x); spawns[sel].y = Math.round(y); delete spawns[sel].z;
+  form(); draw();
+};
+window.onmouseup = () => { drag = false; };
+window.onkeydown = e => { if (mode === "spawns" && e.key === "Delete" && sel >= 0 && document.activeElement.tagName !== "INPUT") { spawns.splice(sel, 1); sel = -1; form(); draw(); } };
+function form() {
+  $("spawnForm").style.display = sel >= 0 ? "" : "none";
+  if (sel < 0) return;
+  const s = spawns[sel];
+  $("spawnTitle").textContent = `Spawn ${sel + 1}`;
+  $("sMob").value = s.mob; $("sX").value = s.x; $("sY").value = s.y;
+  $("sYaw").value = s.yaw ?? 0; $("sRespawn").value = s.respawn ?? 60; $("sWander").value = s.wander ?? "";
+}
+for (const [id, key, num] of [["sMob", "mob", false], ["sX", "x", true], ["sY", "y", true], ["sYaw", "yaw", true], ["sRespawn", "respawn", true], ["sWander", "wander", true]]) {
+  $(id).oninput = () => {
+    if (sel < 0) return;
+    const v = $(id).value;
+    if (key === "wander" && v === "") delete spawns[sel].wander;
+    else spawns[sel][key] = num ? Number(v) : v;
+    if (key === "x" || key === "y") delete spawns[sel].z;
+    draw();
+  };
+}
+$("delSpawn").onclick = () => { if (sel >= 0) { spawns.splice(sel, 1); sel = -1; form(); draw(); } };
+$("saveSpawns").onclick = async () => {
+  spawnDoc.spawns = spawns;
+  const r = await api("/api/file?name=" + encodeURIComponent(spawnFile), { method: "PUT", body: JSON.stringify(spawnDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, `Saved ${spawnFile} (${spawns.length} spawns).`);
+};
+
+loadFiles();
+if (location.hash === "#spawns") setMode("spawns");
+</script>
+</body>
+</html>

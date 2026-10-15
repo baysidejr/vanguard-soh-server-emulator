@@ -46,6 +46,7 @@ Look for more character-window values the server knows but leaves empty (Stats t
 
 ## Done
 
+- 2026-10-15: First content editor: tools/editor.py (local web page). It edits every content file as JSON, validates before saving (on a copy), keeps backups, and has a Spawns tab with the chunk terrain where you click, drag or add spawns. The server reloads changed content by itself every 5 s when it validates. Tested: a bad spawn was refused; a hints.json save was picked up live ("content reloaded"); screenshots of both tabs via headless Edge. Unit test EditorTests.
 - 2026-10-15: The crafting skills' - / lock / + buttons. 0xe3 is decoded and the server saves the choice and lights the button with 0x2d4 field 9. The full stat record field map is in docs/MSGSCORE.md. Seen live, including after a relog. Unit test SkillDirectionTests.
 - 2026-10-15: Crafting trade and crafting Skills tab. The camp trainer's conversation sets Blacksmith, Outfitter or Artificer (saved; MsgScore field 43; 0x311). The trade's skill lists are filled from category-1 skill records, with the subtype per list and stat ids decoded, and the headers come from 0x2d6 fields 6-9. Seen live, including after a relog. Unit test CraftSkillTabTests.
 - 2026-10-15: Skills tab group headers. 0x2d6 skill pool caps (field order decoded) make the headers show room left (65, 60, 38, 10) instead of negative numbers. Seen live; unit test SkillPoolTests.

@@ -1382,3 +1382,25 @@ class SkillDirectionTests(unittest.TestCase):
         self.assertIn(bytes([1]), data)
         recs = at.craft_skill_records(2, {40: 2})
         self.assertEqual(len(recs), len(at.CRAFT_SKILLS))
+
+
+class EditorTests(unittest.TestCase):
+    def test_check_and_save(self):
+        import shutil, sys, tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        with tempfile.TemporaryDirectory() as d:
+            c = os.path.join(d, "content")
+            shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content"), c)
+            self.assertIn("spawns/chunk_n19_12.json", editor.content_files(c))
+            self.assertTrue(editor.check(c, "mobs.json", "{bad"))
+            with self.assertRaises(ValueError):
+                editor.safe_path(c, "../x.json")
+            name = "spawns/chunk_n19_12.json"
+            doc = json.load(open(os.path.join(c, "spawns", "chunk_n19_12.json"), encoding="utf-8"))
+            doc["spawns"].append({"mob": "no_such_mob", "x": 0, "y": 0})
+            self.assertTrue(editor.save(c, name, json.dumps(doc), os.path.join(d, "bk")))   # refused
+            doc["spawns"][-1]["mob"] = doc["spawns"][0]["mob"]
+            self.assertEqual(editor.save(c, name, json.dumps(doc), os.path.join(d, "bk")), [])
+            self.assertEqual(len(os.listdir(os.path.join(d, "bk"))), 1)                      # backup kept
+            self.assertTrue(editor.png(2, 1, [[0, 255]]).startswith(b"\x89PNG"))

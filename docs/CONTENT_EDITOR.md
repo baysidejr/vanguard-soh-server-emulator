@@ -2,7 +2,11 @@
 
 Vanguard's world content lived in SOE's database, not in the client. This file tracks every piece of server-only data we find, so a hosted, crowdsourced **encounter editor** can be built at the end of the project. People will use it to place spawns, draw patrol routes, build encounters and write quests. Everything is saved as shared JSON that anyone can reuse.
 
-Status: the editor is planned for the end of the project. Until then, the server is built data-driven so the editor can write the same files.
+Status: a first, local editor exists (2026-10-15): **`python tools/editor.py`**, then open http://127.0.0.1:8099.
+- **Files tab:** every content file (`server/content/*.json`, `spawns/<chunk>.json`) edited as JSON. Check runs the validator; Save writes only when the JSON parses and `content.validate()` finds no problem with the change applied (tested on a copy of the folder). The old version goes to `server/backups/content/`.
+- **Spawns tab:** a chunk's terrain from the client's map (shaded heightmap, sharper when zoomed in) with its spawns (red = aggressive, blue = merchants, trainers and bankers, green = others; circles = wander radius). Click a spawn to edit its mob, position, facing, respawn and wander radius, drag it to move it, click empty ground to add one, press Delete to remove it, then Save spawns.
+- **Live reload:** a running server checks the content files every 5 s and reloads them when they change and still validate. Spawn changes apply to chunks loaded afterwards.
+- It listens on 127.0.0.1 only and has no logins. The hosted, crowdsourced editor (accounts, review of submissions, sources) is still to come; this local tool writes the same files.
 
 Content already loaded from JSON (`server/content.py`; run `python content.py` to validate): `content/mobs.json`, `content/loot.json` and `content/spawns/<chunk>.json`. A spawn's z is optional and comes from the terrain heightmap.
 

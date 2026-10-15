@@ -386,6 +386,43 @@ def start_console():
         print("Console: who, announce <text>, kick <name>, backup, stop (or help)")
 
 
+# Content reload (for tools/editor.py): every few seconds the server looks at the content files'
+# modification times; when one changed and the whole folder still validates, it reloads them.
+# Templates, items, dialogs, quests and the rest apply at once; changed spawns apply to chunks
+# loaded after the reload (a running chunk keeps its NPCs).
+CONTENT_CHECK_SECONDS = 5.0
+CONTENT_STAMP = [None, 0.0]
+
+
+def content_stamp(directory=content.CONTENT_DIR):
+    stamp = 0.0
+    for base, _dirs, files in os.walk(directory):
+        for f in files:
+            if f.endswith(".json"):
+                stamp = max(stamp, os.path.getmtime(os.path.join(base, f)))
+    return stamp
+
+
+def content_reload_tick(args, now):
+    if now < CONTENT_STAMP[1]:
+        return
+    CONTENT_STAMP[1] = now + CONTENT_CHECK_SECONDS
+    stamp = content_stamp()
+    if CONTENT_STAMP[0] is None:
+        CONTENT_STAMP[0] = stamp
+        return
+    if stamp == CONTENT_STAMP[0]:
+        return
+    CONTENT_STAMP[0] = stamp
+    problems = content.validate()
+    if problems:
+        print(f"  !!! content changed but has {len(problems)} problem(s); keeping the old content: {problems[0]}")
+        return
+    args.content = content.Content()
+    zone.ITEM_CONTENT = args.content
+    print("  content reloaded (changed files)")
+
+
 def console_lines():
     while True:
         try:
@@ -4645,6 +4682,8 @@ def world_tick(zone_sock, clients, args):
             except Exception as e:                      # a full disk must not stop the game
                 print(f"  !!! database backup failed: {e}")
     group_tick()
+    if isinstance(getattr(args, "content", None), content.Content):
+        content_reload_tick(args, now)
     housing_tick(now)
     duel_tick(now)
     for s in list(ONLINE.values()):
