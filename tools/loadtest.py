@@ -358,6 +358,9 @@ class Bot(threading.Thread):
                 z.send(struct.pack("<HQ", 9, stamp))
                 next_ping = now + 1.0
             for m in z.poll():
+                if a.auto_accept and len(m) >= 14 and struct.unpack_from("<HI", m, 0) == (2, 0x6C5):
+                    # Ready check (0x6c5 {initiator row}): answer 0xa9 {row, 1 ready}.
+                    z.send(event(0xA9, struct.pack("<ii", struct.unpack_from("<i", m, 10)[0], 1)))
                 if len(m) == 10 and struct.unpack_from("<H", m, 0)[0] == 9:
                     sent = pings.pop(struct.unpack_from("<Q", m, 2)[0], None)
                     if sent is not None:
@@ -377,7 +380,7 @@ def main(argv=None):
     ap.add_argument("--spread", type=float, default=400.0, help="bots walk within this many units of "
                     "the camp (400: a crowd; 40000: spread over the chunk)")
     ap.add_argument("--stagger", type=float, default=0.2, help="seconds between bot logins")
-    ap.add_argument("--auto-accept", action="store_true", help="bots accept group and raid invites")
+    ap.add_argument("--auto-accept", action="store_true", help="bots accept group and raid invites and answer ready checks")
     ap.add_argument("--drop", type=float, default=0.0, help="ignore this share of the server's "
                     "reliable packets (simulated loss: the server has to resend them)")
     ap.add_argument("--procs", type=int, default=1, help="bot processes (one Python process tops out "
