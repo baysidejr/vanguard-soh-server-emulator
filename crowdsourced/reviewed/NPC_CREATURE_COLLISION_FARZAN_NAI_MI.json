@@ -1,0 +1,147 @@
+{
+  "batch": "raw/2026-10-14-233146-258876-archive-bulk",
+  "output_key": "farzan_nai_mi",
+  "status": "unresolved; all colliding records withheld from conversion",
+  "records": [
+    {
+      "name": "Farzan Nai'mi",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/farzan-naimi",
+          "title": "Farzan Nai'mi · Vanguard Archive",
+          "date": null
+        }
+      ],
+      "confidence": "low",
+      "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+      "parser_version": 31,
+      "collected_at": "2026-10-15T03:33:14+00:00",
+      "archive_fields": {
+        "zone": [
+          "Khal"
+        ],
+        "difficulty": [
+          "5 dots"
+        ],
+        "continent": [
+          "Qalia"
+        ]
+      },
+      "referenced_entities": [],
+      "type": "creature",
+      "level": 40,
+      "zone": "Khal",
+      "health": null,
+      "damage": null,
+      "creature_kind": null,
+      "difficulty": "5 dots",
+      "spawn_areas": [],
+      "aggressive": null,
+      "aggro_range": null,
+      "respawn_time": null,
+      "zones_recorded": [
+        "Khal"
+      ],
+      "original_source_urls": []
+    },
+    {
+      "name": "Farzan Mai'mi",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/farzan-mai-mi",
+          "title": "Farzan Mai'mi · Vanguard Archive",
+          "date": null
+        }
+      ],
+      "confidence": "medium",
+      "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+      "parser_version": 31,
+      "collected_at": "2026-10-15T03:33:04+00:00",
+      "archive_fields": {
+        "zone": [
+          "Khal"
+        ],
+        "role": [
+          "Expert Horse Vendor"
+        ],
+        "continent": [
+          "Qalia"
+        ]
+      },
+      "referenced_entities": [
+        {
+          "name": "Khal",
+          "url": "https://vgsoharchive.com/zones/khal"
+        }
+      ],
+      "type": "npc",
+      "level": null,
+      "zone": "Khal",
+      "health": null,
+      "damage": null,
+      "race": null,
+      "title": null,
+      "services": [
+        "merchant"
+      ],
+      "quests_given": [],
+      "chunk": null,
+      "location": null,
+      "zones_recorded": [
+        "Khal"
+      ],
+      "continent": "Qalia",
+      "locations_seen_recorded": null,
+      "difficulty_recorded": null,
+      "original_source_urls": []
+    },
+    {
+      "name": "Farzan Nai´mi",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/farzan-nai-mi",
+          "title": "Farzan Nai´mi · Vanguard Archive",
+          "date": null
+        }
+      ],
+      "confidence": "medium",
+      "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+      "parser_version": 31,
+      "collected_at": "2026-10-15T03:33:09+00:00",
+      "archive_fields": {
+        "zone": [
+          "Khal"
+        ],
+        "role": [
+          "Expert Horse Vendor"
+        ],
+        "continent": [
+          "Qalia"
+        ]
+      },
+      "referenced_entities": [],
+      "type": "npc",
+      "level": null,
+      "zone": "Khal",
+      "health": null,
+      "damage": null,
+      "race": null,
+      "title": null,
+      "services": [
+        "merchant"
+      ],
+      "quests_given": [],
+      "chunk": null,
+      "location": null,
+      "zones_recorded": [
+        "Khal"
+      ],
+      "continent": "Qalia",
+      "locations_seen_recorded": null,
+      "difficulty_recorded": null,
+      "original_source_urls": []
+    }
+  ],
+  "decision": "Preserve source transcriptions. Name normalization alone does not establish shared identity; do not merge or invent identifiers.",
+  "coverage": "This batch has one validation issue and is published as research, excluded from zero-issue published coverage."
+}
