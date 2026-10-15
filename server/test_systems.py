@@ -237,6 +237,17 @@ class SteerTests(unittest.TestCase):
 
 
 class ReactionTests(unittest.TestCase):
+    def test_activate_on_dead_enemy(self):
+        import login_stub, time
+        sent = []
+        npc = types.SimpleNamespace(alive=False)
+        state = {"player": types.SimpleNamespace(abilities=[]), "send": sent.append,
+                 "reactions": {7: {"ends": time.time() + 5, "target": npc, "ability": 1}}}
+        login_stub.activate_reaction(state, None, 7)
+        self.assertEqual(sent[0], reactions.result(reactions.TARGET_DEAD))
+        self.assertEqual(sent[1], reactions.close_reaction(7))
+        self.assertEqual(state["reactions"], {})
+
     CHAINS = {"Warrior": [{"opener": "A", "steps": ["B"], "finisher": "C", "window": 5}]}
     ABILITIES = [(1, 101, "A"), (2, 102, "B"), (3, 103, "C"), (4, 104, "D")]
 
