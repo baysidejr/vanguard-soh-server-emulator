@@ -1686,6 +1686,16 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual(spawns, [{"mob": "arch_wadj_peheb", "x": 33289, "y": -95029, "z": 2936, "yaw": 0}])
         self.assertEqual((mobs["arch_wadj_peheb"]["level"], mobs["arch_wadj_peheb"]["race"]), (5, 13))
 
+    def test_quest_giver_not_doubled(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        npcs = {"Ardalan Awji": {"name": "Ardalan Awji", "zone": "Khal", "location": {"raw": "100, 200, 300"}}}
+        quests = {"Q": {"name": "Q", "zone": "Khal", "giver": "Ardalan",
+                        "archive_fields": {"location": ["110, 190, 300 in Khal (-13, -9)"]}}}
+        level, mobs, spawns = import_zone.plan("Khal", npcs, {"Khal": (-13, -9)}, quests, "Qalia")
+        self.assertEqual([s["mob"] for s in spawns], ["arch_ardalan_awji"])      # "Ardalan" is the same person
+
     def test_located_creatures(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
