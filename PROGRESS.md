@@ -54,6 +54,7 @@ Effects: now that the FX packages load, find how ability and spell visuals are p
 
 ## Done
 
+- 2026-10-15: Ability effects: with the FX packages announced, the FX_ actions of 0x3d1 ability displays now play (Blade of Winter tints the Canyon Widow red, then blue; seen live). Fixed the chatter tick crashing on tombstones (it also skipped respawns that second).
 - 2026-10-15: With the FX packages announced, the loot sparkle is visible live (white glints on a dead Canyon Widow).
 - 2026-10-15: The package map now announces the client's FX* ServerPackages (38, after the defaults). Quest nodes also set m_bShowIOParticle, the client's gate for the particles (found with winbreak); the attach call now runs, though the particles are still not visible in screenshots.
 - 2026-10-15: Quest harvest nodes: harvest nodes whose item a current quest step still needs get 0x56a (mystical particles), and 0x56b when the bags hold enough or the node is depleted. The client handlers run (winbreak), but the particles were not visible, as with the loot sparkle. Unit test QuestNodeTests.

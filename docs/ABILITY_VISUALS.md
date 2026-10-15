@@ -2,6 +2,8 @@
 
 > **Verified live (2026-10-12):** sending `0x3d1` with ability 570015 (WAR SHOUT_FURY_I) plays the shout animation on the player; 570001 plays the strike and the target reacts. Implemented in `server/combat.py` (`display_ability`).
 
+> **Particle and material effects (verified live 2026-10-15):** the FX_ Actions in the lists (FX_IMPACT_BODY_..., FX_RIGHT_WIELD_...) only play since the server announces the client's FX* packages in the package map (docs/PROTOCOL.md); before that only the animations showed. Ranger Blade of Winter on a Canyon Widow now tints the spider red, then frost blue.
+
 
 [O] = observed in code/data, [I] = inferred.
 
