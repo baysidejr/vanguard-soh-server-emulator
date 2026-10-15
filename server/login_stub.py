@@ -1268,6 +1268,14 @@ def set_flying(state, args, player, on):
     state["send"](zone.client_adjust_position(state, args, (loc[0], loc[1], loc[2] + lift),
                                               PHYS_FLYING if on else PHYS_FALLING,
                                               "PlayerFlying" if on else "PlayerWalking"))
+    # Other players simulate this pawn too: flying physics there as well, or their copy falls back
+    # to the ground between position updates.
+    up = (loc[0], loc[1], loc[2] + lift)
+    values = {"Physics": PHYS_FLYING if on else PHYS_FALLING, "bSimulateGravity": not on,
+              "Location": up, "Velocity": (0.0, 0.0, 0.0), "PawnPosition": (up, (0, 0, 0), (0.0, 0.0, 0.0))}
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: zone.remote_player_update(s, args, player, values), exclude=state)
     print(f"  {player.name} {'takes off' if on else 'lands'}")
 
 

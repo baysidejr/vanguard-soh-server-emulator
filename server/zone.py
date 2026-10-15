@@ -511,6 +511,14 @@ def log_client_rpc(state, b, args, player):
         if getattr(args, "on_move", None):
             args.on_move(state, loc)                   # every report: landing = no change
         if moved:
+            state.pop("fly_stopped", None)
+            broadcast_movement(state, args, player, loc, params.get("View"))
+        elif getattr(player, "flying", False) and not state.get("fly_stopped"):
+            # A flier that stops: others simulate it without gravity and would keep drifting
+            # along its last velocity, so tell them it is hovering.
+            state["fly_stopped"] = True
+            state["move_sent"] = 0
+            state["move_prev"] = (loc, time.time())
             broadcast_movement(state, args, player, loc, params.get("View"))
         if moved and not getattr(args, "quiet_packets", False):
             extra = ""
