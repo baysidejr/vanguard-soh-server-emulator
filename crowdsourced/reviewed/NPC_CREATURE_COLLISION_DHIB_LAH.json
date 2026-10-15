@@ -1,0 +1,108 @@
+{
+  "batch": "raw/2026-10-14-215140-916170-archive-bulk",
+  "output_key": "dhib_lah",
+  "status": "unresolved; all colliding records withheld from conversion",
+  "records": [
+    {
+      "name": "Dhib´Lah",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/dhib-lah-2",
+          "title": "Dhib´Lah · Vanguard Archive",
+          "date": null
+        }
+      ],
+      "confidence": "low",
+      "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+      "parser_version": 31,
+      "collected_at": "2026-10-15T01:56:18+00:00",
+      "archive_fields": {
+        "zone": [
+          "River Palace"
+        ],
+        "continent": [
+          "Qalia"
+        ]
+      },
+      "referenced_entities": [],
+      "type": "creature",
+      "level": null,
+      "zone": "River Palace",
+      "health": null,
+      "damage": null,
+      "creature_kind": null,
+      "difficulty": null,
+      "spawn_areas": [],
+      "aggressive": null,
+      "aggro_range": null,
+      "respawn_time": null,
+      "zones_recorded": [
+        "River Palace"
+      ],
+      "original_source_urls": []
+    },
+    {
+      "name": "Dhib'lah",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/dhib-lah",
+          "title": "Dhib'lah · Vanguard Archive",
+          "date": null
+        }
+      ],
+      "confidence": "medium",
+      "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+      "parser_version": 31,
+      "collected_at": "2026-10-15T01:56:13+00:00",
+      "archive_fields": {
+        "zone": [
+          "River Palace"
+        ],
+        "difficulty": [
+          "3 dots"
+        ],
+        "type": [
+          "Quest NPC"
+        ],
+        "continent": [
+          "Qalia"
+        ]
+      },
+      "referenced_entities": [
+        {
+          "name": "An Enterprising Entrepreneur",
+          "url": "https://vgsoharchive.com/quests/an-enterprising-entrepreneur"
+        },
+        {
+          "name": "Dhib'lah's Famous Pies",
+          "url": "https://vgsoharchive.com/quests/dhib-lah-s-famous-pies"
+        }
+      ],
+      "type": "npc",
+      "level": 45,
+      "zone": "River Palace",
+      "health": null,
+      "damage": null,
+      "race": null,
+      "title": null,
+      "services": [
+        "quest giver"
+      ],
+      "quests_given": [
+        "An Enterprising Entrepreneur",
+        "Dhib'lah's Famous Pies"
+      ],
+      "chunk": null,
+      "location": null,
+      "zones_recorded": [
+        "River Palace"
+      ],
+      "continent": "Qalia",
+      "locations_seen_recorded": null,
+      "difficulty_recorded": "3 dots",
+      "original_source_urls": []
+    }
+  ],
+  "decision": "Preserve both source transcriptions. Name normalization alone does not establish shared identity; do not merge or invent identifiers.",
+  "coverage": "This batch has one validation issue and is published as research, excluded from zero-issue published coverage."
+}
