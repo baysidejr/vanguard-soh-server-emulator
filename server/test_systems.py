@@ -1670,6 +1670,20 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual(spawns, [{"mob": "arch_wadj_peheb", "x": 33289, "y": -95029, "z": 2936, "yaw": 0}])
         self.assertEqual((mobs["arch_wadj_peheb"]["level"], mobs["arch_wadj_peheb"]["race"]), (5, 13))
 
+    def test_located_creatures(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        cr = {"Blackheart": {"name": "Blackheart", "zone": "Lomshir", "level": 9,
+                             "archive_fields": {"location": ["39719, -61690, -2349"], "behaviour": ["Aggressive"],
+                                                "difficulty": ["4 dots"], "respawn": ["20"]}},
+              "A Crate": {"name": "A Crate", "zone": "Lomshir", "archive_fields": {"location": ["1, 2, 3"], "type": ["Object"]}},
+              "Elsewhere": {"name": "Elsewhere", "zone": "Lomshir", "archive_fields": {"location": ["1, 2, 3 in X (5, 5)"]}}}
+        level, mobs, spawns = import_zone.plan("Lomshir", {}, {"Lomshir": (-15, -9)}, {}, "Qalia", cr)
+        self.assertEqual(spawns, [{"mob": "arch_blackheart", "x": 39719, "y": -61690, "z": -2349, "yaw": 0, "respawn": 1200}])
+        t = mobs["arch_blackheart"]
+        self.assertEqual((t["level"], t["aggro_radius"], t["health"]), (9, 600, (100 + 40 * 9) * 4 // 2))
+
     def test_parley_types(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

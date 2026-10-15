@@ -179,7 +179,60 @@ def quest_giver_spots(zone, quests, chunk):
     return out
 
 
-def plan(zone, recs, chunks, quests=None, continent=None):
+_RACES = []
+
+
+def creature_race(rec, continent):
+    """A client race for a creature from its archive type ("Farie", "Blob") via the converter's
+    race table; else the continent's placeholder."""
+    if not _RACES:
+        sys.path.insert(0, os.path.join(ROOT, "crowdsourced"))
+        import convert
+        _RACES.append((convert, convert.creature_races()))
+    convert, races = _RACES[0]
+    for kind in [rec.get("creature_kind")] + list((rec.get("archive_fields") or {}).get("type") or []):
+        if kind:
+            race = convert.find_race(races, kind)
+            if race is not None:
+                return race
+    return CONTINENT_RACE.get(continent, DEFAULT_RACE)
+
+
+def creature_template(rec, continent):
+    """A hostile mob from an archive creature record: level, aggression and difficulty from the
+    archive; health and damage are placeholders scaled by level and the difficulty dots."""
+    af = rec.get("archive_fields") or {}
+    level = int(rec.get("level") or 10)
+    dots = next((int(d[0]) for d in af.get("difficulty") or [] if d[:1].isdigit()), 2)
+    t = {"name": rec["name"], "pawn_class": "SGONPCPawn", "race": creature_race(rec, continent), "level": level,
+         "health": (100 + 40 * level) * dots // 2, "damage": [max(1, level), max(2, 3 * level * dots // 3)]}
+    if "Aggressive" in (af.get("behaviour") or []):
+        t["aggro_radius"] = 600
+    src = (rec.get("sources") or [{}])[0].get("url")
+    if src:
+        t["_source"] = src
+    return t
+
+
+def creature_spot(rec, chunk):
+    """(x, y, z) of a creature's archive "location" in that chunk, or None."""
+    af = rec.get("archive_fields") or {}
+    for loc in af.get("location") or []:
+        m = QUEST_LOC.search(str(loc))
+        if m and (m.group(4) is None or (int(m.group(4)), int(m.group(5))) == chunk):
+            return tuple(float(m.group(i)) for i in (1, 2, 3))
+    return None
+
+
+def respawn_seconds(rec):
+    """The archive's respawn in minutes ("20") as seconds, or None."""
+    for v in (rec.get("archive_fields") or {}).get("respawn") or []:
+        if str(v).strip().isdigit():
+            return int(v) * 60
+    return None
+
+
+def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
     """(level, {key: template}, [spawn]) for a zone's NPCs that have a position, then the quest
     givers the NPC records don't place, at their quests' start locations."""
     if zone not in chunks:
@@ -202,6 +255,18 @@ def plan(zone, recs, chunks, quests=None, continent=None):
         rec.setdefault("continent", continent)          # the zone's, for the placeholder race
         mobs[key] = template(rec)
         spawns.append({"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0})
+    for rec in sorted((creatures or {}).values(), key=lambda r: r["name"]):
+        if rec.get("zone") != zone or is_object(rec):
+            continue
+        pos = creature_spot(rec, chunks[zone])
+        key = key_for(rec["name"])
+        if pos is None or key in mobs:
+            continue
+        mobs[key] = creature_template(rec, continent)
+        sp = {"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0}
+        if respawn_seconds(rec):
+            sp["respawn"] = respawn_seconds(rec)
+        spawns.append(sp)
     return level, mobs, spawns
 
 
@@ -270,7 +335,7 @@ def main(argv=None):
     EXTRA_RAW.extend(a.raw)
     zone_rec = archive_npcs(kind="zone").get(a.zone) or {}
     level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks(), archive_npcs(kind="quest"),
-                               zone_rec.get("continent"))
+                               zone_rec.get("continent"), archive_npcs(kind="creature"))
     print(f"{a.zone}: {level}, {len(spawns)} NPCs with a position in the archive (NPC records and quest start locations)")
     if not a.apply:
         out = os.path.join(DRAFTS, re.sub(r"[^A-Za-z0-9]+", "_", a.zone))
