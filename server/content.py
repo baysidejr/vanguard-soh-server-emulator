@@ -120,6 +120,13 @@ def validate(directory=CONTENT_DIR):
         for g in m.get("gear", []):
             if len(g) != 3:
                 problems.append(f"mob {mid}: gear entry {g} needs [type, mesh, slot]")
+        ch = m.get("chatter")
+        if ch is not None and not (isinstance(ch, list) and all(isinstance(x, str) and x.strip() for x in ch)):
+            problems.append(f"mob {mid}: chatter must be a list of lines")
+        if "chatter_every" in m and not (isinstance(m["chatter_every"], (int, float)) and m["chatter_every"] >= 10):
+            problems.append(f"mob {mid}: chatter_every must be at least 10 seconds")
+        if "aggro_say" in m and not isinstance(m["aggro_say"], str):
+            problems.append(f"mob {mid}: aggro_say must be a line of text")
     import zone as zone_rules
     import vgmsg as vg
     import grouploot as loot_rules
