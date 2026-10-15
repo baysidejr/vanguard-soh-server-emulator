@@ -240,7 +240,7 @@
     ],
     "0x5c7": [
       "optional",
-      "{f32 from, f32 to, f32 seconds}: fades the camera field of view from one value to the other (seen live: 85 -> 20 over 3 s zooms in smoothly); 0x728 sets it back [decoded 2026-10-14]"
+      "{f32 from, f32 to, f32 seconds}: fades the camera field of view (seen live: 90 -> 20 over 1 s zooms in smoothly); sent by the spyglass item (items.json spyglass) [sent 2026-10-15]"
     ],
     "0x5e2": [
       "blocked",
@@ -284,7 +284,7 @@
     ],
     "0x728": [
       "optional",
-      "{f32, f32}: the camera field of view in degrees (seen live: 0.5 magnifies hugely, 500 is an extreme wide angle, 85 is normal); a zoom for scripted moments or a spyglass [decoded 2026-10-14]"
+      "{f32, f32}: sets the camera field of view in degrees at once (seen live: 0.5 magnifies hugely, 500 is an extreme wide angle; the default view is about 90, 85 is slightly zoomed in)"
     ],
     "0x75d": [
       "variant",

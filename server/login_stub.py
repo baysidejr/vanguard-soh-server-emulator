@@ -7164,6 +7164,21 @@ def handle_deconstruct(state, event, data):
     quest_items_changed(state)
 
 
+# Spyglass (verified live 2026-10-15): items.json "spyglass": {"fov": 20, "seconds": 1} toggles a
+# zoom. 0x5c7 {f32 from, f32 to, f32 seconds} (FUN_005e1080) fades the camera field of view
+# (90 is the normal view); right-clicking again fades back.
+CAMERA_FOV_FADE = 0x5C7
+NORMAL_FOV = 90.0                  # the client's default (compared live with 0x728 at 85, 90 and 100)
+
+
+def use_spyglass(state, spec):
+    fov, secs = float(spec.get("fov", 20)), float(spec.get("seconds", 1))
+    zoomed = not state.get("spyglass")
+    state["spyglass"] = zoomed
+    a, b = (NORMAL_FOV, fov) if zoomed else (fov, NORMAL_FOV)
+    state["send"](zone.zone_event(CAMERA_FOV_FADE, struct.pack("<fff", a, b, secs)))
+
+
 def take_items(state, name, need):
     """Remove `need` of an item from the bags (whole stacks first come first)."""
     player, send = state["player"], state["send"]
@@ -10275,6 +10290,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 use_barding(state, args, item)
             elif item and args.content.item(item[1]).get("convert"):
                 offer_conversion(state, item)
+            elif item and args.content.item(item[1]).get("spyglass"):
+                use_spyglass(state, args.content.item(item[1])["spyglass"])
             elif item and args.content.item(item[1]).get("salvage_kit"):
                 state["send"](zone.zone_event(DECONSTRUCT_TARGET, struct.pack("<i", item[0])))
             elif item and args.content.item(item[1]).get("use"):

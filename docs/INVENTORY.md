@@ -224,3 +224,7 @@ Right-clicking an items.json `"salvage_kit": true` item (the placeholder "Salvag
 - Resource sends **0x58e**, Dust **0x58f**, both `{i32 target, i32 kit}` (FUN_004fbc40 / FUN_004fbda0).
 - The server removes the target and one kit charge, then gives items.json `"salvage": [[item, qty], ...]` (default 1 Copper Ingot) or 1 Shimmering Dust: "You deconstruct Rusted Dagger into 1 Copper Ingot." (`login_stub.handle_deconstruct`). Refusals use **0x590** `{i32 handle, i32 code}` (FUN_00506ee0): -2 "You are not high enough level to deconstruct %s.", else "%s can not be deconstructed."
 - The kit, the dust and the salvage lists are placeholders.
+
+## Spyglass (verified live 2026-10-15)
+
+items.json `"spyglass": {"fov": 20, "seconds": 1}` (placeholder "Brass Spyglass"): right-clicking sends **0x5c7** `{f32 from, f32 to, f32 seconds}` (FUN_005e1080), a smooth camera field-of-view fade from the normal 90 to 20; right-clicking again fades back (`login_stub.use_spyglass`). The client's default view is about 90 degrees (compared live with 0x728 at 85, 90 and 100).
