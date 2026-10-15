@@ -11165,12 +11165,21 @@ CLIENT_NOTICES = {0x6C, 0x71, 0x104, 0x105, 0x10E, 0x127, 0x137, 0x17E, 0x183, 0
                   0x18A, 0x3A0}
 
 
+HARD_LANDING = 0x4A          # client: {f32 landing speed, f32 safe speed 1500, f32 10000} (docs/MOVEMENT.md)
+
+
 def print_client_log(payload):
     # Event envelope u16 2 | u32 eventId | u32 len | data. Event 0x6f is a client
     # log line: u16 0x0c, string file, string text (u32 length-prefixed).
     try:
         _, event_id, _ = struct.unpack_from("<HII", payload, 0)
         if event_id in CLIENT_NOTICES:
+            return
+        if event_id == HARD_LANDING and len(payload) >= 22:
+            # The client's own hard-landing report; fall damage comes from the reported heights
+            # instead (check_fall), so this is only logged.
+            speed, safe, limit = struct.unpack_from("<fff", payload, 10)
+            print(f"  >>> client reports a hard landing: speed {speed:.0f} (safe {safe:.0f}, limit {limit:.0f})")
             return
         if event_id != 0x6F:
             print(f"  >>> client event 0x{event_id:x} ({len(payload)} bytes): {payload[10:].hex(' ')}")
