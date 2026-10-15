@@ -632,6 +632,12 @@ def use_ability(state, args, player, ability):
         send(effects.ability_failed(effects.NOT_REFRESHED))
         return
     spec = effects.classify(name, args.content.abilities)
+    allowed = forms.allowed_forms(getattr(player, "forms", []), name)
+    if allowed and getattr(player, "form", -1) not in allowed:
+        # The client switches forms itself first (0x13e) when it can; this catches the rest.
+        names = [n for fid, n, _s in player.forms if fid in allowed]
+        send(build_system_text(f"{name} can only be used in {' or '.join(names)}.", SYSTEM_TEXT_ERROR))
+        return
     if stunned(player):
         send(effects.ability_failed(effects.STUNNED))
         return
@@ -9661,7 +9667,7 @@ def dev_command(text, player=None):
     if words[0] == "forms" and player:
         # !forms [class]: the combat forms of a class (default Psionicist) whatever your class (testing).
         player.forms = forms.class_forms(ARGS.content.forms.get(" ".join(words[1:]) or "Psionicist", {}))
-        return forms.form_list(player.forms) + [forms.current(-1)]
+        return forms.form_list(player.forms) + [forms.current(-1)] + zone.ability_messages(player)
     if words[0] == "fishcatch" and player and len(words) > 1:
         # !fishcatch <fish>: count a catch as if landed with the rod (testing the Fishing achievements).
         return [("fishcatch", " ".join(words[1:]))]

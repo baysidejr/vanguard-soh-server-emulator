@@ -1140,8 +1140,11 @@ def ability_messages(player):
     out = [zone_event(0x21B)]
     for handle, ability_id, name, icon, desc, refresh in player.abilities:
         general = bool((ITEM_CONTENT.abilities.get(name) or {}).get("general"))
+        import forms as forms_mod
+        raw = dict({33: 1} if general else {},
+                   **forms_mod.form_fields(forms_mod.allowed_forms(getattr(player, "forms", []), name)))
         out.append(zone_event(0x215, vgmsg.ability_info(handle, ability_id, name, icon, desc,
-                                                       refresh=refresh, raw={33: 1} if general else None,
+                                                       refresh=refresh, raw=raw or None,
                                                        flags=reactions.flags(chains, ability_id),
                                                        counter=ability_id in getattr(player, "counters", ()),
                                                        rescue=ability_id in getattr(player, "rescues", ()))))

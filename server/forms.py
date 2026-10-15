@@ -31,6 +31,20 @@ def class_forms(table):
     return [(ID_BASE + n, name, spec) for n, (name, spec) in enumerate(table.items())]
 
 
+def allowed_forms(forms, ability_name):
+    """Form ids whose forms.json "abilities" list names this ability; [] = usable in any form."""
+    return [fid for fid, _name, spec in forms if ability_name in spec.get("abilities", [])]
+
+
+def form_fields(ids):
+    """MsgAbilityInfo #61-68 for allowed form ids. All -1 skips the client's form check; the
+    list is padded with its first id (not -1, which is also "no form")."""
+    if not ids:
+        return {}
+    ids = (list(ids) * 8)[:8]
+    return {61 + n: fid for n, fid in enumerate(ids)}
+
+
 def describe(spec):
     return spec.get("description") or f"Increases {spec['stat'].capitalize()} by {spec['bonus']}."
 

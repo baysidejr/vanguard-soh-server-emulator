@@ -38,7 +38,7 @@ Read in the client [O], not implemented: the shipped UI files (VGUIAssets) conta
 
 **Recovery bar:** 0x140 `{i32 0, f32 fraction}` (FUN_005f4630) sets the gamevar AdvCannotChangeFormStatus to fraction x 100; VGUIMainBar.xml draws it as a DOWN_TO_UP StatusBar (graphic VgrdFormRefresh) over each form icon. The server sends 1.0 on a change and counts it down once a second to 0 over the 5 s cooldown (`login_stub.form_bar_tick`). Not confirmed on screen: the blue rings seen on the inactive forms stayed after the countdown, so they are something else.
 
-Not done: per-form ability restrictions. The real forms were server data; see CONTENT_EDITOR.md.
+**Per-form ability restrictions (verified live 2026-10-15):** forms.json `"abilities": [ability names]` on a form makes those abilities usable only in that form: their records carry the allowed form ids in #61-68 (padded with the first id, since -1 also means "no form"), and the server refuses a use outside them ("Blade Winter I can only be used in Mindset of Clarity."). After choosing Mindset of Clarity the same key passed the check. The client did not switch forms by itself in that test. No placeholder restrictions ship (which abilities each form allows is content; CONTENT_EDITOR.md).
 
 ## Forms and death (verified live 2026-10-13)
 

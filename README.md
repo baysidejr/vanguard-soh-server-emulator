@@ -90,7 +90,7 @@ The unmodified client, talking only to this emulator:
 - [ ] Doors: none exist in the shipped maps or our cottage (checked; see HOUSING.md). The protocol to open one is worked out for when a building with a door is used
 - [ ] Descending while flying needs a person to try (take-off, flight and climbing work: Jump on a griffon, docs/MOUNTS.md)
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
-- [ ] Combat-form ability restrictions (which abilities each form allows is server data; every ability works in every form)
+- [x] Combat-form ability restrictions: forms.json `abilities` per form (the real lists are content)
 - [ ] The civic stats window (none in the shipped UI; `/citystatus` lists the stats in chat instead)
 - [ ] Real game data: every item, mob, quest, ability number and reward here is a placeholder until the content editor (docs/CONTENT_EDITOR.md)
 

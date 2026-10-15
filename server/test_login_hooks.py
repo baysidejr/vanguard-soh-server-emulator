@@ -869,6 +869,24 @@ class SpawnReloadTests(unittest.TestCase):
         self.assertIs(w.npcs[0x3000001], tomb)          # tombstones and pets stay
 
 
+class FormRestrictionTests(unittest.TestCase):
+    def test_fields_and_refusal(self):
+        import forms
+        fl = [(1, "Mindset of Clarity", {"abilities": ["Mind Blast"]}), (2, "Mindset of Focus", {})]
+        self.assertEqual(forms.allowed_forms(fl, "Mind Blast"), [1])
+        self.assertEqual(forms.form_fields([1]), {61 + n: 1 for n in range(8)})
+        self.assertEqual(forms.form_fields([]), {})
+        sent = []
+        player = zone.Player(name="T", char_id=1, level="c")
+        player.forms, player.form, player.cooldowns = fl, 2, {}
+        args = mock.Mock()
+        args.content.abilities = {}
+        with mock.patch.object(login_stub, "stunned", side_effect=AssertionError("not reached")):
+            login_stub.use_ability({"player": player, "send": sent.append}, args, player,
+                                   (5, 1234, "Mind Blast", 443, "", 0.0))
+        self.assertIn("can only be used in Mindset of Clarity".encode("utf-16-le"), sent[0])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False
