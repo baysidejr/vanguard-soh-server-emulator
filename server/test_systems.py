@@ -541,6 +541,23 @@ class DialogFlagTests(unittest.TestCase):
         self.assertEqual([r["text"] for r in login_stub.visible_responses(p, node)], ["a", "b", "c"])
 
 
+class OpenSpaceTests(unittest.TestCase):
+    def test_inside_a_built_house(self):
+        import login_stub
+        plots = {"101": {"chunk": "c", "loc": [1000.0, 1000.0, 0.0]}}
+        args = types.SimpleNamespace(content=types.SimpleNamespace(plots=plots))
+        p = types.SimpleNamespace(live_position=(1100.0, 1000.0, 0.0), spawned_at=None, level="c")
+        with unittest.mock.patch.object(login_stub, "ARGS", args), \
+                unittest.mock.patch.object(login_stub, "load_housing", return_value={"101": {"building": 3}}):
+            self.assertTrue(login_stub.inside_a_house(p))
+            p.live_position = (5000.0, 1000.0, 0.0)
+            self.assertFalse(login_stub.inside_a_house(p))
+        with unittest.mock.patch.object(login_stub, "ARGS", args), \
+                unittest.mock.patch.object(login_stub, "load_housing", return_value={"101": {}}):
+            p.live_position = (1100.0, 1000.0, 0.0)
+            self.assertFalse(login_stub.inside_a_house(p))        # an empty plot is open ground
+
+
 class DialogQuestTests(unittest.TestCase):
     def test_offer_progress_done(self):
         import login_stub

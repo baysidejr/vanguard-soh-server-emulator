@@ -2485,6 +2485,21 @@ def my_house_here(player):
     return None, None
 
 
+NEED_OPEN_SPACE = 0x714      # no payload: "You need more open space around you to do that."
+
+
+def inside_a_house(player):
+    """True when the player stands inside any built house (within housing.HOUSE_RADIUS of a
+    built plot's centre in their chunk), whoever owns it."""
+    db = load_housing()
+    pos = player.live_position or player.spawned_at
+    if pos is None:
+        return False
+    return any(db.get(pid, {}).get("building") and p["chunk"] == player.level
+               and math.hypot(pos[0] - p["loc"][0], pos[1] - p["loc"][1]) <= housing.HOUSE_RADIUS
+               for pid, p in ARGS.content.plots.items())
+
+
 def broadcast_object(state, obj, close=False):
     w = state.get("world")
     if w is None:
@@ -10695,6 +10710,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 if getattr(player, "mount", None):
                     set_mount(state, args, player, None)
                     send_message(sock, addr, state, zone.zone_event(0x0E, struct.pack("<h", 0xAC)))
+                elif inside_a_house(player):
+                    send_message(sock, addr, state, zone.zone_event(NEED_OPEN_SPACE))
                 else:
                     set_mount(state, args, player, mount["id"], mount.get("type", zone.MOUNT_GROUND))
                     send_message(sock, addr, state, build_system_text(f"You summon your {item[1]}.", SYSTEM_TEXT_WHITE))

@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 44 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 43 messages open in docs/UNSENT_MESSAGES.md (encounter details and combat forms need decoding; memorization is blocked (no Memory window); petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 
@@ -74,6 +74,8 @@ Server: 44 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: No mounts indoors: a mount item used inside a built house gets 0x714 "You need more open space around you to do that." (seen live inside Ranger's house; outside the horse summons). Unit test OpenSpaceTests. 677/720 (94%).
 
 - 2026-10-15: Conversations can offer quests: dialogs.json reply action `quest:<key>` opens the offer (Accept allowed from that NPC) or progress page; content check validates the key; the guard's "dangers" node offers Wanderer Trouble. Live: offer and Accept from the guard (tested with Wolves at the Edge, then Ranger's quests restored). Unit test DialogQuestTests. Also: editor mob fields for crit / flee_at.
 - 2026-10-15: Memorization reviewed: the Memory window is not in the shipped Index.xml and nothing else can start memorizing, so its 18 messages are blocked (676/720, 93%). Tried live: 0x230 {handle, i32, seconds} shows the "Memorizing <name>" popup, 0x226 {handle} "You have memorized <name>." closes it (docs/ABILITIES.md).
