@@ -1404,3 +1404,26 @@ class EditorTests(unittest.TestCase):
             self.assertEqual(editor.save(c, name, json.dumps(doc), os.path.join(d, "bk")), [])
             self.assertEqual(len(os.listdir(os.path.join(d, "bk"))), 1)                      # backup kept
             self.assertTrue(editor.png(2, 1, [[0, 255]]).startswith(b"\x89PNG"))
+
+
+EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+
+
+@unittest.skipUnless(os.path.exists(EDGE), "needs Microsoft Edge for a headless page check")
+class EditorPageTests(unittest.TestCase):
+    def test_forms_round_trip(self):
+        """The editor page's #selftest: every quest and mob goes through its form unchanged."""
+        import subprocess, sys, tempfile, threading
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        httpd = editor.http.server.ThreadingHTTPServer(("127.0.0.1", 0), editor.Handler)
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        try:
+            with tempfile.TemporaryDirectory() as prof:
+                dom = subprocess.run([EDGE, "--headless=new", "--disable-gpu", f"--user-data-dir={prof}",
+                                      "--virtual-time-budget=8000", "--dump-dom",
+                                      f"http://127.0.0.1:{httpd.server_address[1]}/#selftest"],
+                                     capture_output=True, text=True, timeout=90).stdout
+        finally:
+            httpd.shutdown()
+        self.assertIn("SELFTEST OK", dom, dom[dom.find("SELFTEST"):][:2000])

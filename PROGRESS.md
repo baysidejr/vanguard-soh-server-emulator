@@ -46,6 +46,7 @@ Look for more character-window values the server knows but leaves empty (Stats t
 
 ## Done
 
+- 2026-10-15: Content editor Quests tab (giver and turn-in, steps as rows, rewards). Added a #selftest round trip of every quest and mob through the forms, run by EditorPageTests in headless Edge; it found and fixed the race picker dropping prop race ids.
 - 2026-10-15: Content editor Loot tab (rows of item / chance / quantity / icon), plus loot validation in content.validate.
 - 2026-10-15: Content editor Mobs tab: a form per mob with pick lists for race and creature (from CREATURES.md), faction, loot and merchant, role check boxes, the rest as JSON, and New / Duplicate / Delete. Screenshot checked in headless Edge.
 - 2026-10-15: First content editor: tools/editor.py (local web page). It edits every content file as JSON, validates before saving (on a copy), keeps backups, and has a Spawns tab with the chunk terrain where you click, drag or add spawns. The server reloads changed content by itself every 5 s when it validates. Tested: a bad spawn was refused; a hints.json save was picked up live ("content reloaded"); screenshots of both tabs via headless Edge. Unit test EditorTests.

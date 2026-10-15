@@ -35,6 +35,10 @@
   #mobForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
   #mobForm input, #mobForm select { width: 100%; box-sizing: border-box; }
   #mobForm textarea { width: 100%; height: 140px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: 12px Consolas, monospace; }
+  #questForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #questForm input, #questForm select { width: 100%; box-sizing: border-box; }
+  #questForm textarea.small { width: 100%; height: 48px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: inherit; }
+  .qgrid { display: grid; grid-template-columns: repeat(3, minmax(160px, 1fr)); gap: 4px 14px; }
   #side label { display: block; margin: 8px 0 2px; color: #b9ae9b; font-size: 12px; }
   #side input, #side select { width: 100%; box-sizing: border-box; }
   .hint { color: #8f8574; font-size: 12px; }
@@ -43,7 +47,7 @@
 <body>
 <nav>
   <h1>Content editor</h1>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabLoot">Loot</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabLoot">Loot</button><button id="tabQuests">Quests</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -95,6 +99,39 @@
       <table id="lootTable" style="border-collapse:collapse;width:100%"></table>
       <p class="hint">Chance is per kill (each row rolls on its own). Icons come from items.json when the item is there. Mobs pick a table on the Mobs tab.</p>
       <datalist id="itemNames"></datalist>
+    </div>
+  </div>
+  <div id="questview" style="flex:1;display:none;min-height:0">
+    <div id="questList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
+    <div id="questForm" style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="questKey">Pick a quest</strong><span style="flex:1"></span>
+        <button id="newQuest">New</button><button id="delQuest">Delete</button>
+        <button id="saveQuests" class="primary">Save quests.json</button>
+      </div>
+      <div class="qgrid">
+        <div><label>Name</label><input id="qName"></div>
+        <div><label>Id (number)</label><input id="qId" type="number"></div>
+        <div><label>Level</label><input id="qLevel" type="number"></div>
+        <div><label>Giver</label><select id="qGiver" class="mobsel"></select></div>
+        <div><label>Turn in to (blank = giver)</label><select id="qTurnIn" class="mobsel"></select></div>
+        <div><label>Requires quests (keys, comma separated)</label><input id="qRequires"></div>
+      </div>
+      <label>Greeting (the giver's line before accepting)</label><textarea id="qGreeting" class="small"></textarea>
+      <label>Description (journal)</label><textarea id="qDescription" class="small"></textarea>
+      <label>Summary</label><input id="qSummary">
+      <label>Accept text</label><input id="qAccept">
+      <h4>Steps <button id="addStep">Add step</button></h4>
+      <table id="stepTable" style="border-collapse:collapse;width:100%"></table>
+      <h4>Reward</h4>
+      <div class="qgrid">
+        <div><label>Experience</label><input id="rXp" type="number"></div>
+        <div><label>Coin (copper)</label><input id="rCoin" type="number"></div>
+        <div><label>Title id</label><input id="rTitle" type="number"></div>
+        <div><label>Items always given (comma separated)</label><input id="rItems" list="itemNames"></div>
+        <div><label>Choice of one (comma separated)</label><input id="rChoice"></div>
+        <div><label>Faction (id:amount, comma separated)</label><input id="rFaction"></div>
+      </div>
     </div>
   </div>
   <div id="spawnview">
@@ -178,6 +215,8 @@ function setMode(m) {
   if (m === "mobs" && !mobDoc) initMobs();
   $("lootview").style.display = m === "loot" ? "flex" : "none";
   if (m === "loot" && !lootDoc) initLoot();
+  $("questview").style.display = m === "quests" ? "flex" : "none";
+  if (m === "quests" && !questDoc) initQuests();
   $("problems").innerHTML = "";
   if (m === "spawns" && !$("chunk").options.length) initSpawns();
 }
@@ -220,7 +259,13 @@ function listMobs() {
 function showMob() {
   const m = mobDoc[mobSel]; if (!m) return;
   $("mobKey").textContent = mobSel;
-  for (const [k, id] of Object.entries(SIMPLE)) $(id).value = m[k] ?? "";
+  for (const [k, id] of Object.entries(SIMPLE)) {
+    const el = $(id), v = m[k] ?? "";
+    if (el.tagName === "SELECT" && v !== "" && ![...el.options].some(o => o.value === String(v))) {
+      el.add(new Option(`${v} (not in the list)`, v));   // e.g. prop meshes, ids from elsewhere
+    }
+    el.value = v;
+  }
   $("mDmg0").value = (m.damage || [])[0] ?? ""; $("mDmg1").value = (m.damage || [])[1] ?? "";
   for (const f of FLAGS) $("f_" + f).checked = !!m[f];
   const other = {};
@@ -266,6 +311,116 @@ $("saveMobs").onclick = async () => {
   showProblems(r.body.problems, "Saved mobs.json.");
 };
 let pendingMob = null;
+
+// ---- quests ----
+let questDoc = null, questSel = null, questMobs = {};
+$("tabQuests").onclick = () => setMode("quests");
+const csv = v => v.split(",").map(x => x.trim()).filter(Boolean);
+async function initQuests() {
+  questDoc = JSON.parse((await api("/api/file?name=quests.json")).body.text);
+  questMobs = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
+  if (!Object.keys(itemDoc).length) itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
+  $("itemNames").innerHTML = Object.keys(itemDoc).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k.replace(/"/g, "&quot;")}">`).join("");
+  const mobOpts = Object.keys(questMobs).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k}">${k} (${questMobs[k].name || ""})</option>`).join("");
+  document.querySelectorAll(".mobsel").forEach(s => s.innerHTML = '<option value="">(none)</option>' + mobOpts);
+  listQuests();
+}
+function listQuests() {
+  $("questList").innerHTML = "";
+  for (const k of Object.keys(questDoc).filter(k => !k.startsWith("_"))) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer" + (k === questSel ? ";background:#4a3f2c" : "");
+    d.textContent = `${questDoc[k].id ?? ""} ${questDoc[k].name || k}`;
+    d.onclick = () => { if (!storeQuest()) return; questSel = k; listQuests(); showQuest(); };
+    $("questList").appendChild(d);
+  }
+}
+let steps = [];
+function showQuest() {
+  const q = questDoc[questSel]; if (!q) return;
+  $("questKey").textContent = questSel;
+  $("qName").value = q.name ?? ""; $("qId").value = q.id ?? ""; $("qLevel").value = q.level ?? "";
+  $("qGiver").value = q.giver ?? ""; $("qTurnIn").value = q.turn_in ?? "";
+  $("qRequires").value = (q.requires || []).join(", ");
+  $("qGreeting").value = q.greeting ?? ""; $("qDescription").value = q.description ?? "";
+  $("qSummary").value = q.summary ?? ""; $("qAccept").value = q.accept_text ?? "";
+  steps = q.steps ? JSON.parse(JSON.stringify(q.steps)) : (q.kill ? [{ objective: q.objective || "", kill: q.kill }] : []);
+  const r = q.reward || {};
+  $("rXp").value = r.xp ?? ""; $("rCoin").value = r.coin ?? ""; $("rTitle").value = r.title ?? "";
+  $("rItems").value = (r.items || []).join(", "); $("rChoice").value = (r.choice || []).join(", ");
+  $("rFaction").value = Object.entries(r.faction || {}).map(([k, v]) => `${k}:${v}`).join(", ");
+  drawSteps();
+}
+function stepKind(s) { return s.kill ? "kill" : s.collect ? "collect" : "talk"; }
+function drawSteps() {
+  const t = $("stepTable");
+  t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Kind</th><th>Target</th><th>Count</th><th>Objective (tracker)</th><th>Says (talk)</th><th></th></tr>";
+  steps.forEach((s, i) => {
+    const kind = stepKind(s);
+    const target = kind === "talk" ? s.talk : Object.keys(s[kind] || {})[0] || "";
+    const count = kind === "talk" ? "" : Object.values(s[kind] || {})[0] || 1;
+    const mobOpts = Object.keys(questMobs).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k}" ${k === target ? "selected" : ""}>${k}</option>`).join("");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><select data-k="kind">${["kill", "collect", "talk"].map(k => `<option ${k === kind ? "selected" : ""}>${k}</option>`).join("")}</select></td>
+      <td>${kind === "collect" ? `<input data-k="target" list="itemNames" value="${target.replace(/"/g, "&quot;")}">` : `<select data-k="target">${mobOpts}</select>`}</td>
+      <td><input data-k="count" type="number" min="1" value="${count}" ${kind === "talk" ? "disabled" : ""} style="width:70px"></td>
+      <td><input data-k="objective" value="${(s.objective || "").replace(/"/g, "&quot;")}"></td>
+      <td><input data-k="say" value="${(s.say || "").replace(/"/g, "&quot;")}" ${kind === "talk" ? "" : "disabled"}></td>
+      <td><button data-del="1">Remove</button></td>`;
+    const read = () => {
+      const k = tr.querySelector("[data-k=kind]").value, tg = tr.querySelector("[data-k=target]").value;
+      const n = Number(tr.querySelector("[data-k=count]").value) || 1;
+      const ns = { objective: tr.querySelector("[data-k=objective]").value };
+      if (k === "talk") { ns.talk = tg; const say = tr.querySelector("[data-k=say]").value; if (say) ns.say = say; }
+      else ns[k] = { [tg]: n };
+      steps[i] = ns;
+      if (k !== kind) drawSteps();
+    };
+    tr.querySelectorAll("input,select").forEach(x => x.onchange = read);
+    tr.querySelector("[data-del]").onclick = () => { steps.splice(i, 1); drawSteps(); };
+    t.appendChild(tr);
+  });
+}
+$("addStep").onclick = () => { steps.push({ objective: "", kill: { [Object.keys(questMobs).find(k => !k.startsWith("_"))]: 1 } }); drawSteps(); };
+function storeQuest() {
+  if (!questSel || !questDoc[questSel]) return true;
+  const old = questDoc[questSel], q = {};
+  const set = (k, v) => { if (v !== "" && v !== undefined && !(Array.isArray(v) && !v.length)) q[k] = v; };
+  set("id", $("qId").value === "" ? old.id : Number($("qId").value));
+  set("name", $("qName").value); set("level", $("qLevel").value === "" ? "" : Number($("qLevel").value));
+  set("giver", $("qGiver").value); set("turn_in", $("qTurnIn").value); set("requires", csv($("qRequires").value));
+  set("greeting", $("qGreeting").value); set("description", $("qDescription").value);
+  set("summary", $("qSummary").value); set("accept_text", $("qAccept").value);
+  if (steps.length === 1 && steps[0].kill && !old.steps) { q.kill = steps[0].kill; if (steps[0].objective) q.objective = steps[0].objective; }
+  else set("steps", steps);
+  const r = {};
+  if ($("rXp").value !== "") r.xp = Number($("rXp").value);
+  if ($("rCoin").value !== "") r.coin = Number($("rCoin").value);
+  if ($("rTitle").value !== "") r.title = Number($("rTitle").value);
+  if (csv($("rItems").value).length) r.items = csv($("rItems").value);
+  if (csv($("rChoice").value).length) r.choice = csv($("rChoice").value);
+  const fac = {};
+  for (const p of csv($("rFaction").value)) { const [k, v] = p.split(":"); if (k && v !== undefined) fac[k.trim()] = Number(v); }
+  if (Object.keys(fac).length) r.faction = fac;
+  q.reward = r;
+  for (const [k, v] of Object.entries(old)) if (!(k in q) && !["steps", "kill", "objective", "requires", "turn_in", "reward"].includes(k)) q[k] = v;
+  questDoc[questSel] = q;
+  return true;
+}
+$("newQuest").onclick = () => {
+  storeQuest();
+  const k = prompt("Key for the new quest (letters, digits, _):"); if (!k || questDoc[k]) return;
+  const ids = Object.values(questDoc).filter(v => v && v.id).map(v => v.id);
+  questDoc[k] = { id: Math.max(5000, ...ids) + 1, name: "New Quest", level: 1, giver: "", reward: { xp: 100 }, steps: [] };
+  questSel = k; listQuests(); showQuest();
+};
+$("delQuest").onclick = () => { if (questSel && confirm("Delete " + questSel + "?")) { delete questDoc[questSel]; questSel = null; listQuests(); } };
+$("saveQuests").onclick = async () => {
+  storeQuest();
+  const r = await api("/api/file?name=quests.json", { method: "PUT", body: JSON.stringify(questDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved quests.json.");
+};
 
 // ---- loot ----
 let lootDoc = null, lootSel = null, itemDoc = {};
@@ -446,6 +601,25 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+// #selftest: every quest and mob goes through its form and back unchanged (for headless checks)
+if (location.hash === "#selftest") (async () => {
+  const sorted = o => JSON.stringify(o, (k, v) => v && typeof v === "object" && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort()) : v);
+  const out = [];
+  setMode("quests"); while (!questDoc) await new Promise(r => setTimeout(r, 50));
+  for (const k of Object.keys(questDoc).filter(k => !k.startsWith("_"))) {
+    const before = sorted(questDoc[k]); questSel = k; showQuest(); storeQuest();
+    if (sorted(questDoc[k]) !== before) out.push(`quest ${k}: ${before} -> ${sorted(questDoc[k])}`);
+  }
+  setMode("mobs"); while (!mobDoc || !$("mFlags").innerHTML) await new Promise(r => setTimeout(r, 50));
+  for (const k of Object.keys(mobDoc).filter(k => !k.startsWith("_"))) {
+    const before = sorted(mobDoc[k]); mobSel = k; showMob(); storeMob();
+    if (sorted(mobDoc[k]) !== before) out.push(`mob ${k}: ${before} -> ${sorted(mobDoc[k])}`);
+  }
+  const pre = document.createElement("pre"); pre.id = "selftest";
+  pre.textContent = "SELFTEST " + (out.length ? "FAIL\n" + out.join("\n") : "OK");
+  document.body.appendChild(pre);
+})();
+if (location.hash.startsWith("#quests")) { setMode("quests"); setTimeout(() => { questSel = location.hash.split("=")[1]; if (questSel) { listQuests(); showQuest(); } }, 800); }
 if (location.hash.startsWith("#loot")) { setMode("loot"); setTimeout(() => { lootSel = location.hash.split("=")[1]; if (lootSel) { listLoot(); showLoot(); } }, 800); }
 if (location.hash.startsWith("#mobs")) { pendingMob = location.hash.split("=")[1] || null; setMode("mobs"); }
 </script>
