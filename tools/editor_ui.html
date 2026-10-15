@@ -33,6 +33,9 @@
   #mobForm { flex: 1; overflow-y: auto; padding: 10px 16px; }
   #mobForm .grid { display: grid; grid-template-columns: repeat(3, minmax(160px, 1fr)); gap: 4px 14px; }
   #mobForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #dipview .grid2 { display: grid; grid-template-columns: repeat(2, minmax(160px, 1fr)); gap: 4px 14px; }
+  #dipview label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #dipview .grid2 input, #dipview .grid2 select { width: 100%; box-sizing: border-box; }
   #mobForm input, #mobForm select { width: 100%; box-sizing: border-box; }
   #mobForm textarea { width: 100%; height: 140px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: 12px Consolas, monospace; }
   #itemForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
@@ -56,7 +59,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabDiplomacy">Parley</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -229,6 +232,18 @@
       <p class="hint">Prices are in copper (100 copper = 1 silver). A merchant NPC sells one list: set it on the Mobs tab (Merchant list). <span id="shopUsers"></span></p>
     </div>
   </div>
+  <div id="dipview" style="flex:1;display:none;min-height:0">
+    <div id="dipList" style="width:240px;overflow-y:auto;border-right:1px solid #3a352e"></div>
+    <div style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="dipKey">Pick cards, the deck or a parley</strong><span style="flex:1"></span>
+        <button id="newCard">New card</button><button id="newParley">New parley</button>
+        <button id="saveDip" class="primary">Save diplomacy.json</button>
+      </div>
+      <div id="dipBody"></div>
+      <p class="hint">Cards are the diplomacy strategies. Each has an expression, a push (bar points toward whoever plays it), a cost and a gain in expression points, and a refresh in rounds. The parley window shows no Demand pool, so cards should use Reason, Inspire or Flattery. A parley belongs to the NPCs whose Mobs tab "parley" names it. The bar runs from 0 to 21 and starts at 11.</p>
+    </div>
+  </div>
   <div id="propview" style="flex:1;display:none;min-height:0">
     <div id="propList" style="width:320px;overflow-y:auto;border-right:1px solid #3a352e"></div>
     <div style="flex:1;overflow-y:auto;padding:10px 16px">
@@ -389,6 +404,8 @@ function setMode(m) {
   if (m === "abilities" && !abDoc) initAbilities();
   if (m === "proposals") listProposals();
   $("shopview").style.display = m === "shops" ? "flex" : "none";
+  $("dipview").style.display = m === "diplomacy" ? "flex" : "none";
+  if (m === "diplomacy" && !dipDoc) initDiplomacy();
   if (m === "shops" && !shopDoc) initShops();
   if (m === "dialogs" && !dialogDoc) initDialogs();
   $("problems").innerHTML = "";
@@ -707,6 +724,138 @@ $("saveShops").onclick = async () => {
   const r = await api("/api/file?name=merchants.json", { method: "PUT", body: JSON.stringify(shopDoc, null, 2) + "\n" });
   if (r.body.error) return showProblems([r.body.error]);
   showProblems(r.body.problems, "Saved merchants.json.");
+};
+
+// ---- diplomacy (parleys) ----
+let dipDoc = null, dipSel = "cards", dipMobs = {};
+const EXPR = ["reason", "inspire", "flatter", "demand"];
+const PTYPES = ["entertain", "convince", "interview", "gossip", "incite"];
+$("tabDiplomacy").onclick = () => setMode("diplomacy");
+async function initDiplomacy() {
+  dipDoc = JSON.parse((await api("/api/file?name=diplomacy.json")).body.text);
+  dipMobs = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
+  for (const k of ["cards", "parleys"]) dipDoc[k] = dipDoc[k] || {};
+  dipDoc.deck = dipDoc.deck || []; dipDoc.slots = dipDoc.slots ?? 3;
+  listDip(); showDip();
+}
+function listDip() {
+  const el = $("dipList"); el.innerHTML = "";
+  const entries = [["cards", `Cards (${Object.keys(dipDoc.cards).length})`], ["deck", "Starting deck and slots"]]
+    .concat(Object.keys(dipDoc.parleys).sort().map(k => ["p:" + k, "Parley: " + k]));
+  for (const [k, label] of entries) {
+    const d = document.createElement("div");
+    d.style.cssText = "padding:4px 10px;cursor:pointer" + (k === dipSel ? ";background:#4a3f2c" : "");
+    d.textContent = label;
+    d.onclick = () => { dipSel = k; listDip(); showDip(); };
+    el.appendChild(d);
+  }
+}
+function cardName(id) { return (dipDoc.cards[id] || {}).name || "?"; }
+function cardChecks(chosen, onChange) {             // a checkbox per card
+  const box = document.createElement("div");
+  box.style.cssText = "display:flex;flex-wrap:wrap;gap:4px 14px";
+  for (const id of Object.keys(dipDoc.cards).sort()) {
+    const l = document.createElement("label");
+    l.style.cssText = "margin:0;color:#e8e2d6";
+    l.innerHTML = `<input type="checkbox" style="width:auto" ${chosen.map(String).includes(id) ? "checked" : ""}> ${id} ${esc(cardName(id))}`;
+    l.querySelector("input").onchange = e => onChange(Number(id), e.target.checked);
+    box.appendChild(l);
+  }
+  return box;
+}
+function exprInputs(obj, set) {                     // four small number boxes: reason, inspire, flatter, demand
+  return EXPR.map(x => `<input type="number" min="0" data-x="${x}" data-set="${set}" value="${(obj || {})[x] ?? ""}" title="${x}" style="width:40px;min-width:0;padding:2px">`).join("");
+}
+function readExpr(tr, set) {
+  const out = {};
+  tr.querySelectorAll(`input[data-set="${set}"]`).forEach(i => { if (i.value !== "" && Number(i.value)) out[i.dataset.x] = Number(i.value); });
+  return Object.keys(out).length ? out : undefined;
+}
+function showDip() {
+  const body = $("dipBody"); body.innerHTML = "";
+  if (dipSel === "cards") {
+    $("dipKey").textContent = "Cards";
+    const t = document.createElement("table");
+    t.style.cssText = "border-collapse:collapse;width:100%";
+    t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Id</th><th>Name</th><th>Expression</th><th>Push</th><th>Cost (R I F D)</th><th>Gain (R I F D)</th><th>Refresh</th><th></th></tr>";
+    for (const id of Object.keys(dipDoc.cards).sort()) {
+      const c = dipDoc.cards[id], tr = document.createElement("tr");
+      tr.innerHTML = `<td>${id}</td><td><input data-k="name" value="${esc(c.name || "")}" style="width:100%"></td>
+        <td><select data-k="expression">${EXPR.map(x => `<option ${x === c.expression ? "selected" : ""}>${x}</option>`).join("")}</select></td>
+        <td><input data-k="push" type="number" value="${c.push ?? 0}" style="width:54px"></td>
+        <td style="white-space:nowrap">${exprInputs(c.cost, "cost")}</td><td style="white-space:nowrap">${exprInputs(c.gain, "gain")}</td>
+        <td><input data-k="refresh" type="number" min="0" value="${c.refresh ?? ""}" style="width:54px"></td><td><button>Remove</button></td>`;
+      const store = () => {
+        const n = { name: tr.querySelector("[data-k=name]").value, expression: tr.querySelector("[data-k=expression]").value,
+                    push: Number(tr.querySelector("[data-k=push]").value || 0) };
+        const cost = readExpr(tr, "cost"), gain = readExpr(tr, "gain"), rf = tr.querySelector("[data-k=refresh]").value;
+        if (cost) n.cost = cost;
+        if (gain) n.gain = gain;
+        if (rf !== "" && Number(rf)) n.refresh = Number(rf);
+        dipDoc.cards[id] = n;
+      };
+      tr.querySelectorAll("input,select").forEach(i => i.onchange = store);
+      tr.querySelector("button").onclick = () => { delete dipDoc.cards[id]; showDip(); listDip(); };
+      t.appendChild(tr);
+    }
+    body.appendChild(t);
+  } else if (dipSel === "deck") {
+    $("dipKey").textContent = "Starting deck and slots";
+    body.innerHTML = `<label>Strategy bar slots</label><input id="dipSlots" type="number" min="1" max="10" value="${dipDoc.slots}" style="width:80px">
+      <label style="margin-top:10px">Cards a new character starts with</label>`;
+    $("dipSlots").oninput = e => { dipDoc.slots = Number(e.target.value); };
+    body.appendChild(cardChecks(dipDoc.deck, (id, on) => {
+      dipDoc.deck = dipDoc.deck.filter(x => x !== id); if (on) dipDoc.deck.push(id);
+    }));
+  } else {
+    const key = dipSel.slice(2), p = dipDoc.parleys[key];
+    if (!p) return;
+    $("dipKey").textContent = "Parley: " + key;
+    const users = Object.entries(dipMobs).filter(([k, m]) => m && m.parley === key).map(([k, m]) => m.name || k);
+    body.innerHTML = `<p class="hint">${users.length ? "Used by: " + esc(users.join(", ")) : "No NPC uses this parley yet (Mobs tab, other fields: \"parley\": \"" + esc(key) + "\")."}</p>
+      <div class="grid2">
+        <div><label>Option text</label><input id="pOffer" value="${esc(p.offer || "")}" placeholder="Let's talk business."></div>
+        <div><label>Type</label><select id="pType">${PTYPES.map(x => `<option ${x === (p.type || "entertain") ? "selected" : ""}>${x}</option>`).join("")}</select></div>
+        <div><label>Presence (shown after the type)</label><input id="pPresence" type="number" min="0" value="${p.presence ?? ""}"></div>
+        <div><label>Win at / lose at (bar 0-21, starts at 11)</label><div style="display:flex;gap:4px"><input id="pWin" type="number" value="${p.win_at ?? ""}"><input id="pLose" type="number" value="${p.lose_at ?? ""}"></div></div>
+      </div>
+      <label>NPC's starting expression points (R I F D)</label><div id="pPools">${exprInputs(p.npc_pools, "pools")}</div>
+      <label style="margin-top:8px">NPC's cards</label><div id="pCards"></div>
+      <label style="margin-top:8px">NPC's replies (one per round, one per line)</label><textarea id="pLines" rows="5" style="width:100%;box-sizing:border-box">${esc((p.lines || []).join("\n"))}</textarea>
+      <label>Reward (JSON: xp, coin, card, faction, item, civic, flag, flag_text)</label><textarea id="pReward" rows="8" style="width:100%;box-sizing:border-box;font-family:monospace">${esc(JSON.stringify(p.reward || {}, null, 2))}</textarea>
+      <button id="pRemove" style="margin-top:8px">Remove this parley</button>`;
+    const num = (id, k) => { const v = $(id).value; if (v === "") delete p[k]; else p[k] = Number(v); };
+    $("pOffer").oninput = e => { if (e.target.value) p.offer = e.target.value; else delete p.offer; };
+    $("pType").onchange = e => { p.type = e.target.value; };
+    $("pPresence").oninput = () => num("pPresence", "presence");
+    $("pWin").oninput = () => num("pWin", "win_at");
+    $("pLose").oninput = () => num("pLose", "lose_at");
+    $("pPools").querySelectorAll("input").forEach(i => i.oninput = () => { const v = readExpr($("pPools"), "pools"); if (v) p.npc_pools = v; else delete p.npc_pools; });
+    $("pCards").appendChild(cardChecks(p.npc_cards || [], (id, on) => {
+      p.npc_cards = (p.npc_cards || []).filter(x => x !== id); if (on) p.npc_cards.push(id);
+    }));
+    $("pLines").oninput = e => { p.lines = e.target.value.split("\n").map(s => s.trim()).filter(Boolean); };
+    $("pReward").onchange = e => {
+      try { p.reward = JSON.parse(e.target.value || "{}"); showProblems([]); }
+      catch (err) { showProblems([`${key}: reward is not valid JSON: ${err.message}`]); }
+    };
+    $("pRemove").onclick = () => { delete dipDoc.parleys[key]; dipSel = "cards"; listDip(); showDip(); };
+  }
+}
+$("newCard").onclick = () => {
+  const ids = Object.keys(dipDoc.cards).map(Number), id = String((ids.length ? Math.max(...ids) : 40000) + 1);
+  dipDoc.cards[id] = { name: "New Strategy", expression: "reason", push: 1 };
+  dipSel = "cards"; listDip(); showDip();
+};
+$("newParley").onclick = () => {
+  const k = prompt("Key for the new parley (letters, digits, _):"); if (!k || dipDoc.parleys[k]) return;
+  dipDoc.parleys[k] = { type: "entertain", npc_cards: [], lines: [], win_at: 17, lose_at: 5, reward: { xp: 50 } };
+  dipSel = "p:" + k; listDip(); showDip();
+};
+$("saveDip").onclick = async () => {
+  const r = await api("/api/file?name=diplomacy.json", { method: "PUT", body: JSON.stringify(dipDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved diplomacy.json.");
 };
 
 // ---- conversations ----
@@ -1285,6 +1434,7 @@ $("saveSpawns").onclick = async () => {
 whoAmI().then(ok => { if (ok) loadFiles(); });
 if (location.hash === "#spawns") setMode("spawns");
 if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
+if (location.hash.startsWith("#diplomacy")) { if (location.hash.includes("=")) dipSel = decodeURIComponent(location.hash.split("=")[1]); setMode("diplomacy"); }
 if (location.hash.startsWith("#shops")) { setMode("shops"); setTimeout(() => { shopSel = location.hash.split("=")[1]; if (shopSel) { listShops(); showShop(); } }, 800); }
 if (location.hash === "#spawns-guard") { setMode("spawns"); setTimeout(() => { sel = spawns.findIndex(s => s.path); form(); draw(); }, 2500); }
 if (location.hash.startsWith("#talk")) { setMode("dialogs"); setTimeout(() => { dialogSel = location.hash.split("=")[1]; if (dialogSel) { listDialogs(); showDialog(); } }, 800); }
