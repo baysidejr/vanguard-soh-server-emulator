@@ -91,7 +91,8 @@ def main():
         loadtest.setup(2, "Ranger")
         storage.update_character(CHARACTERS, loadtest.bot_name(1), {"coins": 500})
         storage.update_character(CHARACTERS, loadtest.bot_name(0),
-                                 {"aa_points": 3, "aa_spent": 0, "aa_ranks": {}})
+                                 {"aa_points": 3, "aa_spent": 0, "aa_ranks": {},
+                                  "quests": {"active": {}, "done": []}})     # the bots copy Ranger's quests
         return 0
     import zone
     pm = zone.package_map(types.SimpleNamespace(client_dir=ROOT, package_maps={}), "chunk_n19_12")
@@ -224,6 +225,25 @@ def main():
     ok = (bool(trained) and struct.unpack_from("<iiii", trained[0])[:3] == (1001, 0, 1)
           and saved.get("aa_ranks", {}).get("1001") == 1 and saved.get("aa_spent") == 1)
     fails += check("aa", ok, f"0x860={bool(trained)}, ranks={saved.get('aa_ranks')}, spent={saved.get('aa_spent')}")
+    # Quest from a conversation reply: target the Thestran Guard (0x5d {u64 eid}; spawned NPCs are
+    # SPAWN_EID_BASE + their index in the chunk's spawns), choose the "dangers" node's quest reply
+    # (0x15b {i32 node index, u8 reply}): a new character gets Wanderer Trouble's offer page (0x2c0).
+    import content
+    c = content.Content()
+    guard = next(n for n, (sp, _t) in enumerate(c.spawns("chunk_n19_12", ROOT)) if sp["mob"] == "wastes_thestran_guard")
+    dl = c.dialogs["wastes_thestran_guard"]
+    node = list(dl["nodes"]).index("dangers")
+    reply = next(i for i, r in enumerate(dl["nodes"]["dangers"]["responses"]) if r.get("action", "").startswith("quest:"))
+    a.got.clear()
+    a.send(0x5D, struct.pack("<Q", zone.SPAWN_EID_BASE + guard))
+    a.pump(0.5)
+    a.send(0x15B, struct.pack("<iB", node, reply))
+    offer = a.wait_for(0x2C0)
+    qid = struct.unpack_from("<i", offer[0], 8)[0] if offer else None
+    got_ids = sorted({hex(struct.unpack_from("<I", m, 2)[0]) for m in a.got if len(m) >= 6 and m[:2] == b"\x02\x00"})
+    fails += check("quest reply", qid == c.quests["wanderer_trouble"]["id"],
+                   f"offer page for quest {qid}" + ("" if offer else f"; events received: {', '.join(got_ids)}"))
+
     # Ignore: B ignores A (world social 0x4f8 {wstr name, bool8 on}); A's trade request (0xc0) is
     # refused with "<B> is ignoring you." and B gets no invite. B stops ignoring A afterwards.
     b.world.send(struct.pack("<HII", 5, 0x4F8, len(wstr(a.name)) + 1) + wstr(a.name) + bytes([1]))

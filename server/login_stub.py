@@ -6924,6 +6924,8 @@ def handle_dialog_response(state, data):
     player, send = state["player"], state["send"]
     npc = player.npcs.get(player.target) if player.target else None
     dl = getattr(npc, "dialog", None) if npc else None
+    print(f"  >>> ZONE dialog reply {data[:5].hex(' ')} to {getattr(npc, 'name', None)}"
+          + ("" if dl else " (no conversation)"))
     if not dl or len(data) < 5:
         return
     idx, ri = struct.unpack_from("<iB", data)
