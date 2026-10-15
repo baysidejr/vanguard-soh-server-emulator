@@ -4,6 +4,12 @@
 
 **Opening the window:** the shipped UI has no button or default key for it. The client command `SGOUI toggle "Alternate Advancement"` (quotes needed; a keybinding alias in bin\User.ini) toggles it; for the test an alias was pointed at it temporarily.
 
+To give yourself a key, edit an alias in `bin\User.ini` while the client is closed. For example, this turns the Torch key (K) into the AA window:
+
+```
+Aliases[91]=(DisplayCommand=,Command="SGOUI toggle \"Alternate Advancement\"",Alias="Torch")
+```
+
 **Server** (`server/aa.py`, `login_stub.handle_aa_event`, content `server/content/aa.json`):
 - The lists go out at spawn (0x85d, one 0x85f per ability, 0x85e), because the client never asks for them; `/aalist` (0x85c) sends them again.
 - Training (0x85a from the window, or `/aatrain <title>` 0x85b) is checked again on the server: rank below the maximum, adventuring level, 100 points spent per list index before Archetype / Class / Special (the client's own rule, inferred), prerequisites (`requires`), and points. Refusals are chat lines (the client has no AA error strings). A success sends 0x860, MsgScore (fields 25 available / 26 spent), the changed attributes, and 0x861 for abilities whose prerequisites flipped.
