@@ -927,8 +927,8 @@
       "crafting action add, like 0x2e8"
     ],
     "0x2b4": [
-      "optional",
-      "NPC dialog events without payload (range 0x2b1-0x2ba)"
+      "variant",
+      "dialog option type 4 \"work\" (FUN_004c4640 case 4 -> FUN_004b76c0); the task master offers work orders as its own option (0x2bf, workorder.OPTION_ID)"
     ],
     "0x2b6": [
       "optional",

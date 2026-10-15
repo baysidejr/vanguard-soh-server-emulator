@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 499 of them (69%)
 
 | Category | Count |
 |---|---|
-| optional | 101 |
-| variant | 49 |
+| optional | 100 |
+| variant | 50 |
 | content | 29 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 619 of 720 (85%). Still open: 101 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 620 of 720 (86%). Still open: 100 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -373,7 +373,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 619 of 720 (85%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2b4 | - |  | optional | NPC dialog events without payload (range 0x2b1-0x2ba) |
+| 0x2b4 | - |  | variant | dialog option type 4 "work" (FUN_004c4640 case 4 -> FUN_004b76c0); the task master offers work orders as its own option (0x2bf, workorder.OPTION_ID) |
 
 ## FUN_00519920: 1
 
