@@ -235,6 +235,7 @@ def npc_from_template(w, args, eid, spawn, template, n=0):
     npc.harvest = template.get("harvest")
     npc.station = template.get("station") or False   # true (refining) or "finishing"
     npc.coin = template.get("coin")
+    npc.crit = template.get("crit")              # critical chance 0-1 (None: the formula)
     npc.spells = template.get("spells", [])
     npc.prop = bool(template.get("prop"))
     npc.trainer = bool(template.get("trainer"))

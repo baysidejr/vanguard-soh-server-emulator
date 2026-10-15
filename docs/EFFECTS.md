@@ -129,4 +129,4 @@ The server's rules are placeholders:
 - Releasing after death clears all wounds.
 - Wounds are saved (`wounds`) and sent at login. They have no effect on stats yet.
 
-`!wound <part 0-4> <severity 0-4>` sets one for testing. Seen live: "Right Arm - Mid", then Minor and Unwounded after sitting.
+Seen live from real hits 2026-10-15 (an Ashen Wolf with mobs.json `"crit": 1.0`): "You have been wounded!" / "Legs - Major", "Head - Incapacitated". `!wound <part 0-4> <severity 0-4>` sets one for testing. Seen live: "Right Arm - Mid", then Minor and Unwounded after sitting.

@@ -948,6 +948,14 @@ class ConsoleReloadTests(unittest.TestCase):
         self.assertIs(args.content, fresh)
 
 
+class MobCritTests(unittest.TestCase):
+    def test_crit_overrides_the_formula(self):
+        rng = mock.Mock(random=mock.Mock(return_value=0.99))
+        self.assertEqual(login_stub.combat.roll_outcome(rng, 10, 10, crit=1.0), login_stub.effects.CRIT)
+        rng.random.return_value = 0.0001
+        self.assertNotEqual(login_stub.combat.roll_outcome(rng, 10, 10, crit=0.0), login_stub.effects.CRIT)
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

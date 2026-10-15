@@ -253,15 +253,16 @@ def crit_chance(dex):
 
 
 def roll_outcome(rng, attacker_level, defender_level, defender_dex=30, attacker_dex=30,
-                 can_parry=False, can_block=False):
-    """One swing's outcome: effects.MISS / DODGE / PARRY / BLOCK / CRIT / HIT."""
+                 can_parry=False, can_block=False, crit=None):
+    """One swing's outcome: effects.MISS / DODGE / PARRY / BLOCK / CRIT / HIT. crit overrides the
+    critical chance (mobs.json "crit", 0-1)."""
     r = rng.random()
     for outcome, chance in (
             (effects.MISS, BASE_MISS + MISS_PER_LEVEL * max(0, defender_level - attacker_level)),
             (effects.DODGE, BASE_DODGE + DODGE_PER_DEX * max(0, defender_dex - 30)),
             (effects.PARRY, BASE_PARRY if can_parry else 0.0),
             (effects.BLOCK, BASE_BLOCK if can_block else 0.0),
-            (effects.CRIT, crit_chance(attacker_dex))):
+            (effects.CRIT, crit_chance(attacker_dex) if crit is None else float(crit))):
         if r < chance:
             return outcome
         r -= chance
@@ -520,7 +521,8 @@ def npc_attacks(player, npc, rng=random):
     shield = any(zone.ITEM_CONTENT.item(e[1]).get("type") == "shield" for e in getattr(player, "equipment", []))
     outcome = roll_outcome(rng, getattr(npc, "level", 1), getattr(player, "level_number", 1),
                            defender_dex=getattr(player, "stats", {}).get("dexterity", 30),
-                           can_parry=bool(gear & {28, 36}), can_block=shield)
+                           can_parry=bool(gear & {28, 36}), can_block=shield,
+                           crit=getattr(npc, "crit", None))
     dmg = mitigate(rng.randint(*npc.damage), getattr(player, "armor_class", 0))
     if outcome == effects.CRIT:
         dmg = int(dmg * CRIT_MULT)

@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memorization, combat forms need decoding; petitions left alone on purpose). Not seen live yet: a wound from a real critical hit (crits are rare), the pet default-attack toggle button (tested via !cev). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memorization, combat forms need decoding; petitions left alone on purpose). Not seen live yet: the pet default-attack toggle button (tested via !cev). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 
@@ -69,6 +69,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Done
 
+- 2026-10-15: mobs.json `crit` (NPC critical chance); with it, wounds from real critical hits were seen live. Unit test MobCritTests.
 - 2026-10-15: Bug found with two clients: the group member's corpse-unlock line read "Canyon Widow has unlocked the Ranger to you." 0x685 sends the corpse first; fixed and seen live ("Ranger has unlocked the Canyon Widow to you.").
 - 2026-10-15: Builder `!reload` applies changed content now and names the first problem if it does not validate (seen live).
 - 2026-10-15: Console `reload` (unit-tested; the console only reads a real terminal, so a piped test is not possible). Unit tests for spyglass, fireworks, corpse summoning, skill direction, stage banner.

@@ -77,6 +77,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Item conversion | which items convert into what (Convert window, up to 3 choices, count needed) | items.json `convert` on Copper Ore (placeholder: 4 into 1 Copper Ingot or 2 Copper Wire) |
 | Deconstruction | what each item breaks down into (resources or dust), the kit item and its charges, level limits | items.json `salvage_kit` (Salvage Kit), `salvage` on Rusted Dagger and Hunter's Shortsword, Shimmering Dust; default 1 Copper Ingot |
 | Corpse summoning | which NPCs summon tombstones, cost, range | mobs.json `corpse_summoner` on Veyla Brightsteel (free) |
+| NPC critical chance | how often each NPC lands critical hits | mobs.json `crit` (0-1) overrides the formula (none set) |
 | Wounds | what causes wounds and how badly, what each severity does to stats, how they heal (rest, abilities, healers) | crits wound a random part 50% of the time, rest heals one level per 20 s, release clears; no stat effect |
 | Prestige factions | which factions are prestige factions and what unlocks them | factions.json `prestige` on 1005 Order of the Riftwatch, unlocked by the Supplies for the Forge reward |
 | NPC speech | what each NPC says now and then and when it attacks (and whether real NPCs did either) | mobs.json `chatter` / `chatter_every` / `aggro_say` placeholders on the Thestran Guard, Garret Holm, the Robed Wanderer and the Dwarf Scout |
