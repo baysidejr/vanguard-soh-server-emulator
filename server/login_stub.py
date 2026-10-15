@@ -6808,6 +6808,44 @@ def refresh_quest_icons(state):
         else:
             shown[npc.entity_id] = kind
             state["send"](quest.show_icon(npc.entity_id, kind))
+    refresh_quest_nodes(state, have)
+
+
+# Quest harvest nodes (FUN_0058e580): 0x56a {eid64} starts the "mystical" interactive-object
+# particles (FXmystical_IOParticle001fx) on an entity, 0x56b {eid64} stops them. The server
+# puts them on the harvest nodes whose item a current quest step still collects.
+QUEST_NODE_ON, QUEST_NODE_OFF = 0x56A, 0x56B
+
+
+def quest_wanted_items(player, have):
+    """Item names the current steps of the player's quests still need."""
+    out = set()
+    for key, prog in getattr(getattr(player, "quests", None), "active", {}).items():
+        q = ARGS.content.quests.get(key)
+        st = quest.steps(q) if q else []
+        if prog["step"] < len(st):
+            for name, n in st[prog["step"]].get("collect", {}).items():
+                if have(name) < n:
+                    out.add(name)
+    return out
+
+
+def refresh_quest_nodes(state, have):
+    player = state["player"]
+    wanted = quest_wanted_items(player, have)
+    lit = state.setdefault("quest_nodes", set())
+    lit &= set(player.npcs)               # out of range: the actor (and its effect) is gone
+    now = time.time()
+    for npc in list(player.npcs.values()):
+        on = bool(npc.harvest) and npc.harvest.get("item") in wanted and \
+            getattr(npc, "depleted_until", 0) <= now
+        if on and npc.entity_id not in lit:
+            lit.add(npc.entity_id)
+            print(f"  <- quest node: {npc.name} ({npc.entity_id:#x}) for {player.name}")
+            state["send"](zone.zone_event(QUEST_NODE_ON, struct.pack("<Q", npc.entity_id)))
+        elif not on and npc.entity_id in lit:
+            lit.discard(npc.entity_id)
+            state["send"](zone.zone_event(QUEST_NODE_OFF, struct.pack("<Q", npc.entity_id)))
 
 
 def quest_items_changed(state):

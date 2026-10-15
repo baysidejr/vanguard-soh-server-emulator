@@ -248,3 +248,7 @@ NPCs with an entry in `server/content/dialogs.json` talk in conversation trees. 
 ## Quest icons over NPCs (verified live 2026-10-14)
 
 0x560 `{eid64 npc, u8 type}` puts a quest icon over an NPC; 0x561 `{eid64, u8}` removes it if the type matches, 0x562 removes all, 0x563 `{eid64}` removes one NPC's. type = sphere x 5 + state: states 0 Soon, 1 Available, 2 In progress, 3 Done, 4 Low; spheres 0 adventure, 1 crafting, 2 diplomacy (the client's FX table, FUN_0058df90: `FXspells_QuestIcon<State>[Craft|Diplo]001fx`). The server picks one icon per NPC (Done > Available > In progress > Low; Soon for a quest with a `min_level` the player has not reached; Low = 10 levels below, a placeholder) and refreshes them once a second (`refresh_quest_icons`). Seen: a gold star shield over Orin for Forge Supplies, a blue "..." shield once it was accepted.
+
+## Quest harvest nodes (2026-10-15)
+
+While a quest's current step still collects an item, the harvest nodes that give it are marked: 0x56a `{eid64}` (dispatcher FUN_0058e580, handler FUN_0058e4c0) starts the "mystical" interactive-object particles (`FXmystical_IOParticle001fx`), and 0x56b `{eid64}` (FUN_0058da80) stops them once the bags hold enough (`login_stub.refresh_quest_nodes`, run with the quest icons). Checked with tools/winbreak.py: 0x56b runs FUN_0058da80, and 0x56a reaches the spawn call FUN_0058ddf0 with the Copper Ore Vein's id. The particles themselves were not visible in screenshots, the same as the loot sparkle (docs/LOOT.md); the effect's package may need loading first.

@@ -705,6 +705,22 @@ class ChatterTests(unittest.TestCase):
         self.assertEqual(far, [])
 
 
+class QuestNodeTests(unittest.TestCase):
+    def test_nodes_light_up_while_the_quest_needs_their_item(self):
+        node = mock.Mock(harvest={"item": "Copper Ore"}, entity_id=0x1234, depleted_until=0)
+        player = mock.Mock(npcs={0x1234: node})
+        player.quests.active = {"forge_supplies": {"step": 1}}
+        args = mock.Mock()
+        args.content.quests = {"forge_supplies": {"steps": [{"kill": {"w": 1}}, {"collect": {"Copper Ore": 2}}]}}
+        sent = []
+        state = {"player": player, "send": sent.append}
+        with mock.patch.object(login_stub, "ARGS", args, create=True):
+            login_stub.refresh_quest_nodes(state, lambda name: 0)
+            login_stub.refresh_quest_nodes(state, lambda name: 0)
+            login_stub.refresh_quest_nodes(state, lambda name: 2)
+        self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in sent], [0x56A, 0x56B])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

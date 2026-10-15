@@ -53,6 +53,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Quest harvest nodes: harvest nodes whose item a current quest step still needs get 0x56a (mystical particles), and 0x56b when the bags hold enough or the node is depleted. The client handlers run (winbreak), but the particles were not visible, as with the loot sparkle. Unit test QuestNodeTests.
 - 2026-10-15: NPC speech: mobs.json `chatter` lines are said now and then to players within 1500 units ("Thestran Guard says, Another quiet watch...", seen live), and `aggro_say` when an NPC notices a player. Placeholder lines on four NPCs. Unit test ChatterTests.
 - 2026-10-15: NPC greeting voices: every NPC dialog sends 0x581 with the greeting kind (quester, quest progress, trainer, merchant, general); the client plays the NPC voice set's line. Handler checked with winbreak (Orin: MerchantGreet). Unit test GreetTests.
 - 2026-10-15: Crafting actions learned during play (trainer recipe, work order) are announced with 0x2e5 ("New action acquired: Heat Ingot"), seen live buying Copper Wire from Brenna. tools/loadtest.py setup gives each bot at most 30 bag items (the bots copy Ranger, whose bags were full, which made the scenarios trade fail).
