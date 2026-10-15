@@ -1,0 +1,139 @@
+{
+  "batch": "raw/2026-10-15-140417-751321-archive-bulk",
+  "status": "unresolved; all colliding records withheld from conversion",
+  "collision_groups": {
+    "perl_falyre": [
+      {
+        "kind": "creature",
+        "record": {
+          "name": "Perl Falyre",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/perl-falyre-2",
+              "title": "Perl Falyre · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T18:21:45+00:00",
+          "archive_fields": {
+            "zone": [
+              "Veskal's Exchange"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [],
+          "type": "creature",
+          "level": null,
+          "zone": "Veskal's Exchange",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Veskal's Exchange"
+          ],
+          "original_source_urls": []
+        }
+      },
+      {
+        "kind": "npc",
+        "record": {
+          "name": "Perl-Falyre",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/perl-falyre",
+              "title": "Perl-Falyre · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T18:21:30+00:00",
+          "archive_fields": {
+            "zone": [
+              "Veskal's Exchange"
+            ],
+            "role": [
+              "General NPC"
+            ],
+            "location": [
+              "-29298, -14107, 51690"
+            ],
+            "chunk": [
+              "Veskal's Exchange"
+            ],
+            "continent": [
+              "Thestra"
+            ],
+            "locations seen": [
+              "Veskal's Exchange"
+            ],
+            "parley types": [
+              ", ,"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Flowers For The Dead",
+              "url": "https://vgsoharchive.com/quests/flowers-for-the-dead"
+            },
+            {
+              "name": "Who is this Band?",
+              "url": "https://vgsoharchive.com/quests/who-is-this-band"
+            },
+            {
+              "name": "Who Is This Band?",
+              "url": "https://vgsoharchive.com/quests/who-is-this-band"
+            },
+            {
+              "name": "Wanderers Pants",
+              "url": "https://vgsoharchive.com/items/wanderers-pants"
+            },
+            {
+              "name": "Perl Falyre's Flowers",
+              "url": "https://vgsoharchive.com/items/perl-falyre-s-flowers"
+            }
+          ],
+          "type": "npc",
+          "level": null,
+          "zone": "Veskal's Exchange",
+          "health": null,
+          "damage": null,
+          "race": null,
+          "title": null,
+          "services": [
+            "quest giver"
+          ],
+          "quests_given": [
+            "Who Is This Band?",
+            "Flowers For The Dead"
+          ],
+          "chunk": "Veskal's Exchange",
+          "location": {
+            "raw": "-29298, -14107, 51690",
+            "format": "source coordinates; axis order unspecified",
+            "chunk": "Veskal's Exchange"
+          },
+          "zones_recorded": [
+            "Veskal's Exchange"
+          ],
+          "continent": "Thestra",
+          "locations_seen_recorded": "Veskal's Exchange",
+          "difficulty_recorded": null,
+          "original_source_urls": []
+        }
+      }
+    ]
+  },
+  "assessment": "Creature and NPC pages normalize to the same output key. Preserve both complete records; no shared identity, entity kind, ID or merged attributes are inferred from similar names."
+}
