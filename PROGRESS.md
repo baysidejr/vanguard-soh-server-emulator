@@ -10,6 +10,7 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Last test results
 
+- 2026-10-15 (15-minute soak, 50 bots): memory flat at 223 MB, p95 11.3 ms, no lost packets, no errors (docs/TESTING.md).
 - 2026-10-15 (after the archive quest and loot drafts): tools/check_all.py --client 7 of 7 passed (unit 242, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the give-up loop fix, ignore refusals, work-order tab): tools/check_all.py --client 7 of 7 passed (unit 240, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the editor tabs and key-order fix): tools/check_all.py --client 7 of 7 passed (unit 238, load p95 11.2 ms, fuzz clean, smoke PASS).

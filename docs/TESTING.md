@@ -59,6 +59,10 @@ The same 50 bots (`soak.sh 50 300`: `--procs 2 --spread 4000 --stagger 0.1`) aft
 
 The same 50 bots (`soak.sh 50 300`) after the evening's changes (NPC give-up and evade, fleeing, parley offer line, quests from conversations). Memory stayed flat at 222 MB, CPU was about 9.5 s per 30 s as in the earlier run, and all 50 bots joined. Over 14,554 steady-state pings the median was 10.6 ms and p95 11.3 ms (42.6 ms max). The bots saw no lost packets and the server log had no errors.
 
+## Soak test, 15 minutes (2026-10-15)
+
+50 bots for 900 s (`soak.sh 50 900`) after the day's changes. Memory stayed at 223 MB from the first sample to the last (no growth over 15 minutes), the server used about 8.7 s of CPU per 30 s, all 50 bots joined, and over 44,398 steady-state pings the median was 10.6 ms and p95 11.3 ms (171 ms max). The bots saw no lost packets and the server log had no errors.
+
 ## Content editor (2026-10-15)
 
 - Unit tests (test_systems): saving checks the content first and keeps a backup (EditorTests), saves keep the file's key order, archive search and drafts for mobs, items, quests and loot (ArchiveDraftTests), accounts and proposals (EditorAccountsTests).
