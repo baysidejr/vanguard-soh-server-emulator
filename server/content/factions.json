@@ -1,5 +1,5 @@
 {
-  "_comment": "Factions (docs/FACTIONS.md). id: {name, start (a new character's standing, -20000..20000), kill (standing change for killing one of its members, default -50), allies: ids that change the same way as this one when its members die (and enemies the other way)}. A mob joins a faction with \"faction\": id in mobs.json. Quests and parleys can reward {\"faction\": {id: amount}}. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "Factions (docs/FACTIONS.md). id: {name, start (a new character's standing, -20000..20000), kill (standing change for killing one of its members, default -50), allies: ids that change the same way as this one when its members die (and enemies the other way)}. A mob joins a faction with \"faction\": id in mobs.json. Quests and parleys can reward {\"faction\": {id: amount}}. Placeholder data (docs/CONTENT_EDITOR.md). prestige: true hides the faction until the first standing change, which announces it (\"You've unlocked a new prestige faction\") and lists it under Prestige Factions.",
   "1001": {
     "name": "Thestran Wastes Camp",
     "start": 0,
@@ -28,5 +28,11 @@
     "enemies": [
       1002
     ]
+  },
+  "1005": {
+    "name": "Order of the Riftwatch",
+    "start": 0,
+    "kill": -100,
+    "prestige": true
   }
 }

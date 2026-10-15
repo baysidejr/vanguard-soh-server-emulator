@@ -787,6 +787,24 @@ class WoundTests(unittest.TestCase):
         self.assertEqual([m[10:] for m in sent], [bytes([2, 0, 0, 0, 0]), bytes([1, 0, 0, 0, 0])])
 
 
+class PrestigeFactionTests(unittest.TestCase):
+    def test_first_gain_unlocks(self):
+        sent = []
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        player.factions = {}
+        state = {"player": player, "send": sent.append}
+        args = mock.Mock()
+        args.content = content.Content()
+        with mock.patch.object(login_stub, "ARGS", args, create=True), \
+                mock.patch.object(login_stub, "save_character_field"):
+            login_stub.faction_login(state)
+            self.assertFalse(any("Riftwatch".encode("utf-16-le") in m for m in sent))
+            sent.clear()
+            login_stub.adjust_faction(state, 1005, 250)
+        self.assertEqual(struct.unpack_from("<I", sent[0], 2)[0], 0x35D)
+        self.assertEqual(player.factions["1005"], 250)
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

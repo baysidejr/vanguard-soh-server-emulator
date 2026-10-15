@@ -58,3 +58,7 @@ The cursor check for attacking (`EntityTypes 0x10000000`, see HARVESTING.md) als
 - Dev command: `!faction <id> <amount>`.
 
 The real faction list (ids, names, starting values per race) lived in the server database and is listed as a gap in CONTENT_EDITOR.md.
+
+## Prestige factions (verified live 2026-10-15)
+
+factions.json `"prestige": true` (placeholder: 1005 Order of the Riftwatch, rewarded by Supplies for the Forge) keeps a faction out of the lists until the character first gains standing with it. That change sends **0x35d** instead of 0x358: "You've unlocked a new prestige faction: Order of the Riftwatch!" and the row goes to the Character window's Diplomacy - Factions tab under "Prestige Factions:" with its standing bar (seen live with `!faction 1005 250`). At login unlocked prestige factions are sent with 0x35b prestige = 1.

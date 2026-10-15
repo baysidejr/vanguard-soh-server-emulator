@@ -46,6 +46,11 @@ def info(fid, name, value, prestige=False):
     return _event(0x35B, _w(name) + struct.pack("<iiB", fid, value, int(prestige)))
 
 
+def unlocked(fid, name, value):
+    """0x35d (FUN_004cc820): "You've unlocked a new prestige faction: %s!" and the row."""
+    return _event(0x35D, _w(name) + struct.pack("<iiB", fid, value, 1))
+
+
 def change(fid, value):
     return _event(0x358, struct.pack("<ii", fid, value))
 

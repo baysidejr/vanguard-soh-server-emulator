@@ -7320,14 +7320,17 @@ def faction_login(state):
     standing other than neutral."""
     player = state["player"]
     for fid, f in sorted(ARGS.content.factions.items(), key=lambda kv: kv[1]["name"]):
-        state["send"](faction.info(int(fid), f["name"], faction_value(player, fid)))
+        if f.get("prestige") and str(fid) not in getattr(player, "factions", {}):
+            continue                     # a prestige faction shows once it is unlocked
+        state["send"](faction.info(int(fid), f["name"], faction_value(player, fid), bool(f.get("prestige"))))
 
 
 def faction_info_request(state, fid):
     """0x35e: the client met a faction id it has no row for; answer 0x35b if it exists."""
     f = ARGS.content.factions.get(str(fid))
-    if f is not None:
-        state["send"](faction.info(int(fid), f["name"], faction_value(state["player"], str(fid))))
+    if f is not None and not (f.get("prestige") and str(fid) not in getattr(state["player"], "factions", {})):
+        state["send"](faction.info(int(fid), f["name"], faction_value(state["player"], str(fid)),
+                                   bool(f.get("prestige"))))
 
 
 def adjust_faction(state, fid, delta, quiet=False):
@@ -7337,10 +7340,16 @@ def adjust_faction(state, fid, delta, quiet=False):
         return
     old = faction_value(player, fid)
     new = faction.clamp(old + delta)
-    if new == old:
+    first = f.get("prestige") and str(fid) not in getattr(player, "factions", {})
+    if new == old and not first:
         return
     player.factions = dict(getattr(player, "factions", {}), **{str(fid): new})
     save_character_field(player.name, "factions", player.factions)
+    if first:
+        # Prestige factions (factions.json "prestige": true) stay hidden until the first
+        # standing change: 0x35d announces it and adds it to the Prestige Factions list.
+        state["send"](faction.unlocked(int(fid), f["name"], new))
+        return
     state["send"](faction.change(int(fid), new))
     if not quiet:
         word = "improved" if new > old else "worsened"
