@@ -6887,6 +6887,16 @@ def refresh_quest_icons(state):
     shown = state.setdefault("quest_icons", {})
     have = have_items(player)
     quests = ARGS.content.quests
+    # The icons only change with the quest log, the bags, the level, the content or the NPCs in
+    # view; skip the per-NPC work (most of this tick's cost with many players) when none did.
+    log = player.quests
+    sig = (id(ARGS.content), player.level_number, repr(sorted(log.active.items())), len(log.done),
+           tuple(sorted((i[1], i[3]) for i in player.items)),
+           tuple((e, n.alive) for e, n in player.npcs.items()))
+    if state.get("quest_icons_sig") == sig:
+        refresh_quest_nodes(state, have)
+        return
+    state["quest_icons_sig"] = sig
     for npc in list(player.npcs.values()):
         if not npc.alive or not getattr(npc, "template_id", None):
             continue

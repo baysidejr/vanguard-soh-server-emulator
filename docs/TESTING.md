@@ -51,6 +51,10 @@ So one zone process holds about 200 moving players spread over a chunk, or about
 
 50 bots spread over 4000 units ran for 10 minutes against one server (`loadtest.py --bots 50 --seconds 600 --procs 2 --spread 4000`), with the server's memory sampled every 30 s. The working set stayed at 205 MB from the first sample to the last (no growth), and the server used about 5 s of CPU per 30 s (17% of one core). Over 29,850 pings the median round trip was 10.5 ms and p95 11.1 ms, with a 56 ms maximum. All 50 bots joined and none lost a packet. The server log had no errors.
 
+## Soak test (2026-10-15)
+
+The same 50 bots (`soak.sh 50 300`: `--procs 2 --spread 4000 --stagger 0.1`) after the day's features (FX packages in the package map, NPC chatter, wounds, quest nodes). Memory stayed flat at 220 MB (the bigger package map accounts for the extra 15 MB), pings were unchanged (14,558 steady-state pings: median 10.6 ms, p95 11.5 ms) and the log had no errors. CPU was about 10 s per 30 s (34% of one core), twice the 2026-10-14 figure. An A/B run without the FX packages used about 9 s, so they are not the cause. A profile shows movement broadcasting (`zone.broadcast_movement`) as the main cost, as before. Skipping the per-NPC quest-icon pass when nothing changed (`refresh_quest_icons`) did not change the total. Where the rest of the increase came from is not known yet.
+
 ## Fuzzing (2026-10-14)
 
 `python tools/fuzz.py` logs a load-test bot into the zone and sends every client event id from 1 to 0x900 with random payloads of awkward sizes (empty, 1-3 bytes, small ints, 600 bytes), then rounds of random UE2 packets, unknown message types and raw datagrams that skip the reliable layer. After each id a ping checks the server still answers; a silent server gets a fresh login to tell a closed connection from a hang. Run it against a server with its own `--data-dir` (see the script's help), since random events change saved data.
