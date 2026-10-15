@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 505 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 81 |
-| variant | 61 |
+| optional | 80 |
+| variant | 62 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 639 of 720 (88%). Still open: 81 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 640 of 720 (88%). Still open: 80 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -194,7 +194,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 639 of 720 (88%).
 | 0x69f | MsgSingleEntityId | eid64 | variant | {eid64}: sets the group id only, nothing visible; 0x6b2 / 0x6d7 already set it (FUN_004d4940) [decoded 2026-10-14] |
 | 0x6a0 | (none) |  | variant | YouJoinedGroup signal; the server joins the player through 0x6bb rows |
 | 0x6aa | (none) |  | no-op | "You lost connection with your group. Re-forming your group..." banner: for a group-server outage; this server keeps groups in the zone process, so it never happens |
-| 0x6b1 | MsgSingleBool | bool8 | optional | group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot) |
+| 0x6b1 | MsgSingleBool | bool8 | variant | {bool8}: GroupLootShowRandomForLootNeedButton, the Need button on the loot roll popup (VGUIRandomLootInvitation.xml); the roll popup 0x6ab/0x6ad carries its own need-allowed flag, which the server sets |
 | 0x6b4 | MsgSendSingleSGOString | wstr | no-op | {wstr}: read and ignored (FUN_004d7be0) [decoded 2026-10-14] |
 
 ## FUN_00556560 (diplomacy cards): 8

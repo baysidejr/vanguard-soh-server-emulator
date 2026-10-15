@@ -583,8 +583,8 @@
       "\"You lost connection with your group. Re-forming your group...\" banner: for a group-server outage; this server keeps groups in the zone process, so it never happens"
     ],
     "0x6b1": [
-      "optional",
-      "group loot window button toggles (Random For Loot Need, Start Randoming, Allow Group To Loot)"
+      "variant",
+      "{bool8}: GroupLootShowRandomForLootNeedButton, the Need button on the loot roll popup (VGUIRandomLootInvitation.xml); the roll popup 0x6ab/0x6ad carries its own need-allowed flag, which the server sets"
     ],
     "0x6c9": [
       "optional",
