@@ -75,6 +75,8 @@ Server: 43 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Re-checked quest sharing with two clients: `/sharequest <name>` (no journal selection) offered Wolves at the Edge to Justins, who accepted it away from the giver. QUESTS.md's stale "not yet tried" line fixed. Both characters' quests restored afterwards.
+
 - 2026-10-15: No mounts indoors: a mount item used inside a built house gets 0x714 "You need more open space around you to do that." (seen live inside Ranger's house; outside the horse summons). Unit test OpenSpaceTests. 677/720 (94%).
 
 - 2026-10-15: Conversations can offer quests: dialogs.json reply action `quest:<key>` opens the offer (Accept allowed from that NPC) or progress page; content check validates the key; the guard's "dangers" node offers Wanderer Trouble. Live: offer and Accept from the guard (tested with Wolves at the Edge, then Ranger's quests restored). Unit test DialogQuestTests. Also: editor mob fields for crit / flee_at.
