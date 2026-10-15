@@ -80,6 +80,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter-window details an
 
 ## Done
 
+- 2026-10-15: Editor "Titles, hints, outposts" tab (in the selftest). Every content file now has a form except the small reaction tables (chains, counters, rescues), aa.json and plots.json, which stay in the Files tab.
+
 - 2026-10-15: content.py now validates every content file: abilities (kinds, numbers, [min, max]), titles, chains/counters/rescues class names, outposts, hints, plots (materials, NPCs) and assembly recipes (items, at most 5 ingredients), besides forms and riftways. The editor checks every save with it.
 
 - 2026-10-15: content.py validates forms.json (class, stat, bonus, abilities) and riftways.json (color, x/y for open destinations, mob riftway keys) so the new editor tabs cannot save broken files. Unit test ContentFormsRiftwaysTests.
