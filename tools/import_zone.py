@@ -255,6 +255,8 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
         key = key_for(giver)
         if key in mobs:
             continue
+        if any(abs(s["x"] - pos[0]) < 50 and abs(s["y"] - pos[1]) < 50 and abs(s["z"] - pos[2]) < 100 for s in spawns):
+            continue          # someone already stands there: the same person under another spelling
         rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level")})
         rec.setdefault("sources", q.get("sources"))
         rec.setdefault("continent", continent)          # the zone's, for the placeholder race
