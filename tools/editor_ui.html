@@ -39,6 +39,10 @@
   #itemForm input, #itemForm select { width: 100%; box-sizing: border-box; }
   #itemForm textarea.small { width: 100%; height: 48px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: inherit; }
   #itemList div { padding: 4px 10px; cursor: pointer; } #itemList div:hover { background: #332f29; }
+  #abForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
+  #abForm input, #abForm select { width: 100%; box-sizing: border-box; }
+  #abForm textarea.small { width: 100%; height: 60px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: inherit; }
+  #abList div { padding: 3px 10px; cursor: pointer; } #abList div:hover { background: #332f29; }
   #questForm label { display: block; margin-top: 6px; color: #b9ae9b; font-size: 12px; }
   #questForm input, #questForm select { width: 100%; box-sizing: border-box; }
   #questForm textarea.small { width: 100%; height: 48px; box-sizing: border-box; background: #15130f; color: #e8e2d6; border: 1px solid #4d463c; font: inherit; }
@@ -52,7 +56,7 @@
 <nav>
   <h1>Content editor</h1>
   <div id="whoami" class="hint" style="margin:-6px 12px 8px"></div>
-  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabDialogs">Talk</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
+  <div class="tabs"><button id="tabFiles">Files</button><button id="tabMobs">Mobs</button><button id="tabItems">Items</button><button id="tabLoot">Loot</button><button id="tabShops">Shops</button><button id="tabQuests">Quests</button><button id="tabAbilities">Abilities</button><button id="tabDialogs">Talk</button><button id="tabArchive">Archive</button><button id="tabProposals">Proposals</button><button id="tabSpawns">Spawns</button></div>
   <div id="files"></div>
 </nav>
 <main>
@@ -235,6 +239,36 @@
       <p id="loginErr" class="bad"></p>
     </div>
   </div>
+  <div id="abilview" style="flex:1;display:none;min-height:0">
+    <div style="width:280px;display:flex;flex-direction:column;border-right:1px solid #3a352e">
+      <div style="display:flex;gap:4px;margin:6px"><select id="abClass" style="flex:1"></select><input id="abFilter" placeholder="Filter" style="width:90px"></div>
+      <div id="abList" style="overflow-y:auto;flex:1"></div>
+    </div>
+    <div id="abForm" style="flex:1;overflow-y:auto;padding:10px 16px">
+      <div class="bar" style="padding:0 0 8px;border:0">
+        <strong id="abKey">Pick an ability</strong><span style="flex:1"></span>
+        <button id="abFillAll">Fill all from the archive</button>
+        <button id="abFillOne">Fill this one</button><button id="abClear">Remove entry</button>
+        <button id="saveAbilities" class="primary">Save abilities.json</button>
+      </div>
+      <p class="hint">The client only knows each ability's name and animation; what it does is set here (abilities.json). Without an entry the server guesses from the name. Icon, description and refresh also change the ability book and trainer list.</p>
+      <div class="qgrid">
+        <div><label>Kind (blank = guess from the name)</label><select id="abKind"><option value=""></option><option>strike</option><option>dot</option><option>heal</option><option>buff</option><option>pet</option></select></div>
+        <div><label>Icon</label><div style="display:flex;gap:6px;align-items:center"><img id="abIconImg" width="40" height="40" style="background:#000;border:1px solid #4d463c"><input id="abIcon" type="number"><button id="abPick">Pick</button></div></div>
+        <div><label>Cast time (s, 0 = instant)</label><input id="abCast" type="number" step="0.1"></div>
+        <div><label>Refresh (s)</label><input id="abRefresh" type="number" step="0.1"></div>
+        <div><label>Damage min - max (strike, dot per tick)</label><div style="display:flex;gap:4px"><input id="abDmg0" type="number"><input id="abDmg1" type="number"></div></div>
+        <div><label>Heal min - max</label><div style="display:flex;gap:4px"><input id="abAmt0" type="number"><input id="abAmt1" type="number"></div></div>
+        <div><label>Ticks / interval (dot)</label><div style="display:flex;gap:4px"><input id="abTicks" type="number"><input id="abInterval" type="number" step="0.5"></div></div>
+        <div><label>Buff: attribute</label><select id="abStat"></select></div>
+        <div><label>Buff: bonus / duration (s)</label><div style="display:flex;gap:4px"><input id="abBonus" type="number"><input id="abDuration" type="number"></div></div>
+      </div>
+      <label style="color:#e8e2d6"><input type="checkbox" id="abStance" style="width:auto"> Maintained stance (no timer, one at a time)</label>
+      <label>Description (tooltip)</label><textarea id="abDesc" class="small"></textarea>
+      <label>Other fields (JSON)</label>
+      <textarea id="abOther" spellcheck="false" style="width:100%;height:90px;box-sizing:border-box;background:#15130f;color:#e8e2d6;border:1px solid #4d463c;font:12px Consolas,monospace"></textarea>
+    </div>
+  </div>
   <div id="iconPicker" style="display:none;position:fixed;inset:40px 60px;background:#1d1b18;border:1px solid #6b5526;z-index:10;flex-direction:column">
     <div class="bar"><strong>Pick an icon</strong><input id="iconFilter" placeholder="number" style="width:120px"><span style="flex:1"></span><button id="closeIcons">Close</button></div>
     <div id="iconGrid" style="overflow-y:auto;flex:1;padding:8px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start"></div>
@@ -345,6 +379,8 @@ function setMode(m) {
   $("archview").style.display = m === "archive" ? "flex" : "none";
   $("dialogview").style.display = m === "dialogs" ? "flex" : "none";
   $("propview").style.display = m === "proposals" ? "flex" : "none";
+  $("abilview").style.display = m === "abilities" ? "flex" : "none";
+  if (m === "abilities" && !abDoc) initAbilities();
   if (m === "proposals") listProposals();
   $("shopview").style.display = m === "shops" ? "flex" : "none";
   if (m === "shops" && !shopDoc) initShops();
@@ -484,6 +520,91 @@ $("saveMobs").onclick = async () => {
   showProblems(r.body.problems, "Saved mobs.json.");
 };
 let pendingMob = null;
+
+// ---- abilities ----
+let abDoc = null, abSel = null, abAll = [];
+$("tabAbilities").onclick = () => setMode("abilities");
+const ABFIELDS = ["kind", "icon", "cast", "refresh", "damage", "amount", "ticks", "interval", "stat", "bonus", "duration", "stance", "description"];
+async function initAbilities() {
+  abDoc = JSON.parse((await api("/api/file?name=abilities.json")).body.text);
+  abAll = (await api("/api/class_abilities")).body;
+  if (!schema) schema = (await api("/api/schema")).body;
+  $("abStat").innerHTML = '<option value=""></option>' + schema.stats.map(s => `<option>${s}</option>`).join("");
+  const classes = [...new Set(abAll.map(a => a.class))].sort();
+  $("abClass").innerHTML = '<option value="">all classes</option><option value="*">with an entry</option>' + classes.map(c => `<option>${c}</option>`).join("");
+  listAbilities();
+}
+$("abClass").onchange = $("abFilter").oninput = () => listAbilities();
+function listAbilities() {
+  const c = $("abClass").value, f = $("abFilter").value.toLowerCase();
+  const names = new Map();
+  for (const a of abAll) if (!c || c === a.class || (c === "*" && abDoc[a.name])) names.set(a.name, a.class);
+  for (const k of Object.keys(abDoc).filter(k => !k.startsWith("_"))) if (!c || c === "*") if (!names.has(k)) names.set(k, "");
+  $("abList").innerHTML = "";
+  for (const [n, cls] of [...names].filter(([n]) => n.toLowerCase().includes(f)).sort()) {
+    const d = document.createElement("div");
+    const e = abDoc[n];
+    d.innerHTML = `${e && e.icon != null ? `<img src="/api/icon.png?n=${e.icon}" width="18" height="18" style="vertical-align:middle">` : '<span style="display:inline-block;width:18px"></span>'} ${esc(n)} <span class="hint">${esc(cls)}${e ? "" : " · no entry"}</span>`;
+    if (n === abSel) d.style.background = "#4a3f2c";
+    d.onclick = () => { if (!storeAbility()) return; abSel = n; listAbilities(); showAbility(); };
+    $("abList").appendChild(d);
+  }
+}
+function showAbility() {
+  const e = abDoc[abSel] || {};
+  $("abKey").textContent = abSel + (abDoc[abSel] ? "" : " (no entry yet)");
+  if (e.kind && ![...$("abKind").options].some(o => o.value === e.kind)) $("abKind").add(new Option(e.kind, e.kind));
+  $("abKind").value = e.kind ?? ""; $("abIcon").value = e.icon ?? ""; $("abCast").value = e.cast ?? ""; $("abRefresh").value = e.refresh ?? "";
+  $("abDmg0").value = (e.damage || [])[0] ?? ""; $("abDmg1").value = (e.damage || [])[1] ?? "";
+  $("abAmt0").value = (e.amount || [])[0] ?? ""; $("abAmt1").value = (e.amount || [])[1] ?? "";
+  $("abTicks").value = e.ticks ?? ""; $("abInterval").value = e.interval ?? "";
+  $("abStat").value = e.stat ?? ""; $("abBonus").value = e.bonus ?? ""; $("abDuration").value = e.duration ?? "";
+  $("abStance").checked = !!e.stance; $("abDesc").value = e.description ?? "";
+  const other = {}; for (const [k, v] of Object.entries(e)) if (!ABFIELDS.includes(k)) other[k] = v;
+  $("abOther").value = JSON.stringify(other, null, 2);
+  $("abIcon").oninput();
+}
+$("abIcon").oninput = () => { $("abIconImg").src = $("abIcon").value ? `/api/icon.png?n=${$("abIcon").value}` : ""; };
+$("abPick").onclick = () => openIconPicker("abIcon");
+function storeAbility() {
+  if (!abSel) return true;
+  let other;
+  try { other = JSON.parse($("abOther").value || "{}"); } catch (err) { showProblems([`${abSel}: other fields are not valid JSON: ${err.message}`]); return false; }
+  const e = {}, num = id => $(id).value === "" ? undefined : Number($(id).value);
+  if ($("abKind").value) e.kind = $("abKind").value;
+  for (const [k, id] of [["icon", "abIcon"], ["cast", "abCast"], ["refresh", "abRefresh"], ["ticks", "abTicks"], ["interval", "abInterval"], ["bonus", "abBonus"], ["duration", "abDuration"]]) if (num(id) !== undefined) e[k] = num(id);
+  if (num("abDmg0") !== undefined) e.damage = [num("abDmg0"), num("abDmg1") ?? num("abDmg0")];
+  if (num("abAmt0") !== undefined) e.amount = [num("abAmt0"), num("abAmt1") ?? num("abAmt0")];
+  if ($("abStat").value) e.stat = $("abStat").value;
+  if ($("abStance").checked) e.stance = true;
+  if ($("abDesc").value) e.description = $("abDesc").value;
+  Object.assign(e, other);
+  if (Object.keys(e).length) abDoc[abSel] = e; else delete abDoc[abSel];
+  return true;
+}
+$("abClear").onclick = () => { if (abSel) { delete abDoc[abSel]; showAbility(); listAbilities(); } };
+$("abFillOne").onclick = async () => {
+  if (!abSel || !storeAbility()) return;
+  const fill = (await api("/api/ability_fill")).body[abSel];
+  if (!fill) return showProblems([`The archive adds nothing new for ${abSel}.`]);
+  abDoc[abSel] = Object.assign({}, fill, abDoc[abSel] || {}); showAbility(); listAbilities();
+  showProblems([], `Filled ${Object.keys(fill).filter(k => k !== "_source").join(", ")} for ${abSel} from the archive; review and save.`);
+};
+$("abFillAll").onclick = async () => {
+  if (!storeAbility()) return;
+  const fill = (await api("/api/ability_fill")).body, names = Object.keys(fill);
+  if (!names.length) return showProblems([], "The archive has nothing new to add.");
+  if (!confirm(`Add archive icons, descriptions, cast and refresh times to ${names.length} abilities? Fields already set are kept.`)) return;
+  for (const n of names) abDoc[n] = Object.assign({}, fill[n], abDoc[n] || {});
+  listAbilities(); if (abSel) showAbility();
+  showProblems([], `Filled ${names.length} abilities from the archive (not saved yet): review, then Save abilities.json.`);
+};
+$("saveAbilities").onclick = async () => {
+  if (!storeAbility()) return;
+  const r = await api("/api/file?name=abilities.json", { method: "PUT", body: JSON.stringify(abDoc, null, 2) + "\n" });
+  if (r.body.error) return showProblems([r.body.error]);
+  showProblems(r.body.problems, "Saved abilities.json.");
+};
 
 // ---- logins and proposals ----
 $("tabProposals").onclick = () => setMode("proposals");
@@ -776,7 +897,14 @@ function drawStats() {
 const iconUrl = n => `/api/icon.png?n=${n}`;
 $("iIcon").oninput = () => { $("iIconImg").src = $("iIcon").value ? iconUrl($("iIcon").value) : ""; };
 let iconList = null;
+let iconTarget = "iIcon";
+async function openIconPicker(target) {
+  iconTarget = target;
+  if (!iconList) iconList = (await api("/api/icons")).body;
+  $("iconPicker").style.display = "flex"; drawIcons();
+}
 $("pickIcon").onclick = async () => {
+  iconTarget = "iIcon";
   if (!iconList) iconList = (await api("/api/icons")).body;
   $("iconPicker").style.display = "flex"; drawIcons();
 };
@@ -789,7 +917,7 @@ function drawIcons() {
     const im = document.createElement("img");
     im.loading = "lazy"; im.width = im.height = 40; im.src = iconUrl(n); im.title = n;
     im.style.cssText = "cursor:pointer;border:1px solid #2c2823;background:#000";
-    im.onclick = () => { $("iIcon").value = n; $("iIcon").oninput(); $("iconPicker").style.display = "none"; };
+    im.onclick = () => { $(iconTarget).value = n; $(iconTarget).oninput(); $("iconPicker").style.display = "none"; };
     $("iconGrid").appendChild(im);
   }
 }
@@ -1146,6 +1274,7 @@ $("saveSpawns").onclick = async () => {
 
 whoAmI().then(ok => { if (ok) loadFiles(); });
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash.startsWith("#abilities")) { setMode("abilities"); setTimeout(() => { $("abClass").value = "Warrior"; listAbilities(); abSel = decodeURIComponent((location.hash.split("=")[1] || "").split("&")[0]); if (abSel) { showAbility(); } if (location.hash.includes("fill")) $("abFillOne").onclick(); }, 2500); }
 if (location.hash.startsWith("#shops")) { setMode("shops"); setTimeout(() => { shopSel = location.hash.split("=")[1]; if (shopSel) { listShops(); showShop(); } }, 800); }
 if (location.hash === "#spawns-guard") { setMode("spawns"); setTimeout(() => { sel = spawns.findIndex(s => s.path); form(); draw(); }, 2500); }
 if (location.hash.startsWith("#talk")) { setMode("dialogs"); setTimeout(() => { dialogSel = location.hash.split("=")[1]; if (dialogSel) { listDialogs(); showDialog(); } }, 800); }
@@ -1172,6 +1301,12 @@ if (location.hash === "#selftest") (async () => {
     const before = sorted(itemDoc[k]); itemSel = k; showItem(); storeItem();
     if (sorted(itemDoc[k]) !== before) out.push(`item ${k}: ${before} -> ${sorted(itemDoc[k])}`);
   }
+  setMode("abilities"); while (!abDoc || !schema || !$("abStat").innerHTML) await new Promise(r => setTimeout(r, 50));
+  for (const k of Object.keys(abDoc).filter(k => !k.startsWith("_"))) {
+    const before = sorted(abDoc[k]); abSel = k; showAbility(); storeAbility();
+    if (sorted(abDoc[k]) !== before) out.push(`ability ${k}: ${before} -> ${sorted(abDoc[k])}`);
+  }
+  abSel = null;
   const pre = document.createElement("pre"); pre.id = "selftest";
   pre.textContent = "SELFTEST " + (out.length ? "FAIL\n" + out.join("\n") : "OK");
   document.body.appendChild(pre);

@@ -47,6 +47,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Content editor Abilities tab with all 808 class abilities, and archive fill of icon, description, cast and refresh (355 have data). The archive's IconNNN numbers match the client's icons. The server now applies abilities.json icon, description and refresh to the ability book and the trainer offers. Unit tests AbilityContentTests and AbilityArchiveTests; the self-test round trip covers abilities (it caught "pet" kinds being dropped).
 - 2026-10-15: Content editor login mode (--accounts) for crowdsourcing. Game accounts log in. Contributors submit proposals (validated, with a note), admins (accounts.py editor <name> admin) save directly and approve or reject proposals from a diff view. Throttled logins, HttpOnly/SameSite session cookies, an X-Editor header against cross-site requests, a refusal to listen publicly without logins, and optional HTTPS. Unit test EditorAccountsTests runs the whole flow over HTTP.
 - 2026-10-15: Content editor: the model variant field lists the race's variants and turns red for an unknown one.
 - 2026-10-15: Content editor obstacle overlay on the Spawns map, plus save-time warnings for spawns inside obstacles and patrol legs crossing them (server/obstacles.py). Unit test SpawnWarningTests; the real camps are clean.

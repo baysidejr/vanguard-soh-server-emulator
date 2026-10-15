@@ -1570,3 +1570,24 @@ class EditorAccountsTests(unittest.TestCase):
             finally:
                 httpd.shutdown()
                 accounts.ACCOUNTS_FILE = saved_file
+
+
+class AbilityArchiveTests(unittest.TestCase):
+    def test_ability_from_archive(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        rec = {"type": "ability", "name": "Kick I", "icon_name": "Icon516.png", "tooltip": "Kicks.",
+               "cast_time_seconds": None, "refresh_seconds": 12, "sources": [{"url": "https://example.org/kick"}]}
+        saved_a, saved_i = list(editor._ARCHIVE), dict(editor._ICON_INDEX)
+        editor._ARCHIVE[:] = [{("ability", "Kick I"): rec}]
+        editor._ICON_INDEX.clear()
+        editor._ICON_INDEX[516] = ("x.tga", 0, 0, 40, 40)
+        try:
+            self.assertEqual(editor.ability_from_archive("Kick I"),
+                             {"icon": 516, "description": "Kicks.", "refresh": 12.0, "_source": "https://example.org/kick"})
+            self.assertEqual(editor.ability_from_archive("Nope"), {})
+        finally:
+            editor._ARCHIVE[:] = saved_a
+            editor._ICON_INDEX.clear()
+            editor._ICON_INDEX.update(saved_i)

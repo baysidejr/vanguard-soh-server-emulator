@@ -7847,6 +7847,17 @@ def handle_bank_event(state, event, data):
         save_bank(player)
 
 
+def ability_content(ability, overrides):
+    """An ability tuple (handle, id, name, icon, description, refresh) with abilities.json's
+    "icon", "description" and "refresh" for that name, where given (the class package only has
+    the name; placeholders fill the rest)."""
+    spec = (overrides or {}).get(ability[2]) or {}
+    if not spec:
+        return ability
+    return (ability[0], ability[1], ability[2], int(spec.get("icon", ability[3])),
+            spec.get("description", ability[4]), float(spec.get("refresh", ability[5]))) + tuple(ability[6:])
+
+
 def learn_ability(state, n, aid, tag):
     """Add a class ability to the book (0x215) and save it."""
     player, send = state["player"], state["send"]
@@ -7854,7 +7865,7 @@ def learn_ability(state, n, aid, tag):
     if aid not in learned:
         learned.append(aid)
     player.learned = learned
-    ability = class_abilities.ability_tuple(n, aid, tag)
+    ability = ability_content(class_abilities.ability_tuple(n, aid, tag), ARGS.content.abilities)
     ability = (max([a[0] for a in player.abilities] + [0]) + 1,) + ability[1:]
     player.abilities.append(ability)
     send(zone.zone_event(0x215, vgmsg.ability_info(ability[0], aid, ability[2], ability[3],
@@ -7877,9 +7888,9 @@ def handle_trainer_event(state, event, data):
         if state.get("training"):
             send(trainer.end())         # 0x493 appends: clear the earlier list
         state["training"] = True
-        for m in trainer.begin([(aid, class_abilities.display_name(tag), f"{class_abilities.display_name(tag)}.",
-                                 class_abilities._ICONS[n % len(class_abilities._ICONS)], cost)
-                                for n, aid, tag, cost in offers]):
+        shown = [ability_content(class_abilities.ability_tuple(n, aid, tag), ARGS.content.abilities) + (cost,)
+                 for n, aid, tag, cost in offers]
+        for m in trainer.begin([(a[1], a[2], a[4], a[3], a[-1]) for a in shown]):
             send(m)
     elif event == trainer.TRAIN:
         aid = struct.unpack_from("<i", data, 0)[0]
@@ -9205,9 +9216,10 @@ def player_from_character(char, name, args):
                    + list(args.content.rescues.get(cname, [])))
     chain_ids = [aid for aid, tag in class_abilities.class_ability_list(args.client_dir, player.klass)
                  if class_abilities.display_name(tag) in chain_names]
-    player.abilities = (class_abilities.starting_abilities(args.client_dir, player.klass,
-                                                           learned=player.learned + chain_ids)
-                        or player.abilities)
+    player.abilities = [ability_content(a, args.content.abilities) for a in
+                        (class_abilities.starting_abilities(args.client_dir, player.klass,
+                                                            learned=player.learned + chain_ids)
+                         or player.abilities)]
     player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
     player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
     player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)

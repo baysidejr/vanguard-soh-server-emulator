@@ -394,6 +394,52 @@ def mesh_numbers(gear_type):
     return _MESHES[name]
 
 
+def class_abilities_list():
+    """[{class, name, id}] of every class's rank-I abilities in the client's .aby packages."""
+    import class_abilities
+    import races_classes
+    out = []
+    for klass in class_abilities.CLASS_PREFIX:
+        for aid, tag in class_abilities.class_ability_list(ROOT, klass):
+            out.append({"class": races_classes.class_name(klass), "name": class_abilities.display_name(tag), "id": aid})
+    return out
+
+
+def ability_from_archive(name):
+    """abilities.json fields the archive record for this ability name has: icon (the archive's
+    icon file number is the client's icon number), description (the tooltip), cast, refresh."""
+    rec = archive_index().get(("ability", name))
+    if rec is None:
+        return {}
+    out = {}
+    digits = "".join(c for c in str(rec.get("icon_name") or "") if c.isdigit())
+    if digits and int(digits) in icon_index():
+        out["icon"] = int(digits)
+    if rec.get("tooltip"):
+        out["description"] = rec["tooltip"]
+    if isinstance(rec.get("cast_time_seconds"), (int, float)) and rec["cast_time_seconds"] > 0:
+        out["cast"] = float(rec["cast_time_seconds"])
+    if isinstance(rec.get("refresh_seconds"), (int, float)) and rec["refresh_seconds"] >= 0:
+        out["refresh"] = float(rec["refresh_seconds"])
+    if out:
+        out["_source"] = (rec.get("sources") or [{}])[0].get("url")
+    return out
+
+
+def ability_fill(directory):
+    """{ability name: fields} the archive can add to abilities.json for the class abilities: only
+    fields an entry doesn't have yet (nothing already set is replaced)."""
+    with open(os.path.join(directory, "abilities.json"), encoding="utf-8") as f:
+        current = json.load(f)
+    out = {}
+    for a in class_abilities_list():
+        have = current.get(a["name"]) or {}
+        new = {k: v for k, v in ability_from_archive(a["name"]).items() if k not in have}
+        if any(k != "_source" for k in new):
+            out[a["name"]] = new
+    return out
+
+
 def chunks():
     return sorted(f[:-4] for f in os.listdir(MAPS) if f.startswith("chunk_") and f.endswith(".vgr")) \
         if os.path.isdir(MAPS) else []
@@ -546,6 +592,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if u.path == "/api/obstacles":
                 import obstacles as obstacles_mod
                 return self.reply(200, [[round(o[0]), round(o[1]), round(o[2])] for o in obstacles_mod.obstacles(q.get("chunk", ""))])
+            if u.path == "/api/class_abilities":
+                return self.reply(200, class_abilities_list())
+            if u.path == "/api/ability_fill":
+                return self.reply(200, ability_fill(self.directory))
             if u.path == "/api/meshes":
                 return self.reply(200, mesh_numbers(q.get("type", "0")))
             if u.path == "/api/schema":

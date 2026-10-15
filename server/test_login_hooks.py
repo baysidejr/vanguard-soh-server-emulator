@@ -748,3 +748,11 @@ class DefTargetPanelTests(unittest.TestCase):
         login_stub.def_target_sync(state)
         self.assertEqual(sent, [zone.zone_event(0x3E2, struct.pack("<QB", 9, 128)),
                                 zone.zone_event(0x3E2, struct.pack("<QB", 9, 0))])
+
+
+class AbilityContentTests(unittest.TestCase):
+    def test_overrides_icon_description_refresh(self):
+        a = (3, 570001, "Brutal Strike I", 553, "Brutal Strike I.", 5.0)
+        self.assertEqual(login_stub.ability_content(a, {}), a)
+        b = login_stub.ability_content(a, {"Brutal Strike I": {"icon": 516, "description": "A powerful attack.", "refresh": 0}})
+        self.assertEqual(b, (3, 570001, "Brutal Strike I", 516, "A powerful attack.", 0.0))
