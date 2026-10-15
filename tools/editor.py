@@ -13,11 +13,20 @@ What it does:
     edit it, drag it to move it, click empty ground to add one, Delete to remove it.
 A running server picks the changes up by itself (it reloads the content when the files change).
 
-Listens on 127.0.0.1 only; it is a tool for the person running the server, with no logins.
+By default it listens on 127.0.0.1 with no logins: a tool for the person running the server.
+--accounts turns on logins with the game server's accounts (server/accounts.py), so others can
+help: "contributor" accounts (the default) submit a change as a proposal, which an "admin"
+(`python server/accounts.py editor <name> admin`) reviews as a diff and approves or rejects in the
+Proposals tab; only admins save directly. Use --host 0.0.0.0 to let others reach it and
+--cert / --key for HTTPS (passwords travel in the clear without it).
 Uses only the Python standard library.
 """
 import argparse
+import difflib
+import hashlib
 import http.server
+import secrets
+import ssl
 import json
 import os
 import re
@@ -40,6 +49,8 @@ MAPS = os.path.join(ROOT, "Assets", "Maps")
 ARCHIVE = os.path.join(ROOT, "crowdsourced", "raw")
 ICONS = os.path.join(ROOT, "VGUIAssets", "Global", "Icons")
 MESHES = os.path.join(ROOT, "Assets", "Characters", "Meshes")
+PROPOSALS = os.path.join(ROOT, "server", "proposals")
+SESSION_SECONDS = 12 * 3600
 UI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "editor_ui.html")
 NAME = re.compile(r"^(spawns/)?[A-Za-z0-9_\-]+\.json$")
 
@@ -126,7 +137,10 @@ def save(directory, name, text, backups=BACKUPS):
         stamp = time.strftime("%Y%m%d-%H%M%S")
         shutil.copy2(path, os.path.join(backups, name.replace("/", "_") + "." + stamp))
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    nl = "\r\n" if os.path.exists(path) and b"\r\n" in open(path, "rb").read() else "\n"
+    nl = "\n"
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            nl = "\r\n" if b"\r\n" in f.read() else "\n"
     with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(text.replace("\r\n", "\n").replace("\n", nl))
     return []
@@ -385,8 +399,102 @@ def chunks():
         if os.path.isdir(MAPS) else []
 
 
+def file_hash(directory, name):
+    path = safe_path(directory, name)
+    if not os.path.exists(path):
+        return None
+    with open(path, "rb") as f:
+        return hashlib.sha256(f.read().replace(b"\r\n", b"\n")).hexdigest()
+
+
+def proposal_path(pid, folder=PROPOSALS):
+    if not re.match(r"^[0-9a-f]{16}$", pid or ""):
+        raise ValueError("bad proposal id")
+    return os.path.join(folder, pid + ".json")
+
+
+def propose(directory, user, name, text, note="", folder=PROPOSALS):
+    """Store a change for review (after the same checks a save gets): (proposal id, problems)."""
+    problems = check(directory, name, text)
+    if problems:
+        return None, problems
+    os.makedirs(folder, exist_ok=True)
+    pid = secrets.token_hex(8)
+    doc = {"id": pid, "user": user, "name": name, "note": note[:500], "created": int(time.time()),
+           "status": "open", "base": file_hash(directory, name), "text": text}
+    with open(proposal_path(pid, folder), "w", encoding="utf-8") as f:
+        json.dump(doc, f)
+    return pid, []
+
+
+def proposals(user=None, folder=PROPOSALS):
+    """Proposal summaries, newest first (only user's own when user is given)."""
+    out = []
+    for f in os.listdir(folder) if os.path.isdir(folder) else []:
+        if f.endswith(".json"):
+            with open(os.path.join(folder, f), encoding="utf-8") as fh:
+                d = json.load(fh)
+            if user is None or d["user"] == user:
+                out.append({k: v for k, v in d.items() if k != "text"})
+    return sorted(out, key=lambda d: -d["created"])
+
+
+def proposal_diff(directory, pid, folder=PROPOSALS):
+    with open(proposal_path(pid, folder), encoding="utf-8") as f:
+        d = json.load(f)
+    path = safe_path(directory, d["name"])
+    old = open(path, encoding="utf-8").read().replace("\r\n", "\n") if os.path.exists(path) else ""
+    diff = "".join(difflib.unified_diff(old.splitlines(True), d["text"].replace("\r\n", "\n").splitlines(True),
+                                        "current/" + d["name"], "proposed/" + d["name"], n=3))
+    stale = d.get("base") != file_hash(directory, d["name"])
+    return dict({k: v for k, v in d.items() if k != "text"}, diff=diff, stale=stale)
+
+
+def review(directory, pid, action, reviewer, folder=PROPOSALS, backups=BACKUPS):
+    """approve (save it, after the checks) or reject a proposal: the problems (empty = done)."""
+    path = proposal_path(pid, folder)
+    with open(path, encoding="utf-8") as f:
+        d = json.load(f)
+    if d["status"] != "open":
+        return [f"proposal {pid} is already {d['status']}"]
+    if action == "approve":
+        problems = save(directory, d["name"], d["text"], backups)
+        if problems:
+            return problems
+        d["status"] = "approved"
+    elif action == "reject":
+        d["status"] = "rejected"
+    else:
+        return [f"unknown action {action!r}"]
+    d["reviewed_by"], d["reviewed"] = reviewer, int(time.time())
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(d, f)
+    return []
+
+
 class Handler(http.server.BaseHTTPRequestHandler):
     directory = CONTENT
+    login_required = False
+    secure = False
+    proposals_dir = PROPOSALS
+    backups_dir = BACKUPS
+    sessions = {}                  # cookie token -> (account, role, expiry)
+
+    def account(self):
+        """(account, role) of the request, or (None, None). Without --accounts everyone is admin."""
+        if not self.login_required:
+            return "local", "admin"
+        for part in (self.headers.get("Cookie") or "").split(";"):
+            k, _, v = part.strip().partition("=")
+            if k == "vgsession" and v in self.sessions:
+                user, role, expiry = self.sessions[v]
+                if expiry > time.time():
+                    return user, role
+                self.sessions.pop(v, None)
+        return None, None
+
+    def body(self):
+        return self.rfile.read(min(int(self.headers.get("Content-Length", 0)), 20_000_000)).decode("utf-8")
 
     def log_message(self, fmt, *a):
         pass
@@ -404,10 +512,22 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         u = urllib.parse.urlparse(self.path)
         q = dict(urllib.parse.parse_qsl(u.query))
+        user, role = self.account()
         try:
             if u.path == "/":
                 with open(UI, "rb") as f:
                     return self.reply(200, f.read(), "text/html; charset=utf-8")
+            if u.path == "/api/me":
+                return self.reply(200, {"user": user, "role": role, "login_required": self.login_required})
+            if user is None:
+                return self.reply(401, {"error": "log in first"})
+            if u.path == "/api/proposals":
+                return self.reply(200, proposals(None if role == "admin" else user, self.proposals_dir))
+            if u.path == "/api/proposal":
+                d = proposal_diff(self.directory, q.get("id"), self.proposals_dir)
+                if role != "admin" and d["user"] != user:
+                    return self.reply(403, {"error": "not your proposal"})
+                return self.reply(200, d)
             if u.path == "/api/files":
                 return self.reply(200, content_files(self.directory))
             if u.path == "/api/file":
@@ -445,16 +565,83 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self.reply(400, {"error": str(e)})
         self.reply(404, {"error": "not found"})
 
+    def guard(self):
+        """(account, role) for a change request, or None after replying with the refusal. In login
+        mode a change needs the X-Editor header, which a page from another site cannot send."""
+        user, role = self.account()
+        if user is None:
+            self.reply(401, {"error": "log in first"})
+            return None
+        if self.login_required and self.headers.get("X-Editor") != "1":
+            self.reply(403, {"error": "missing X-Editor header"})
+            return None
+        return user, role
+
+    def do_POST(self):
+        u = urllib.parse.urlparse(self.path)
+        q = dict(urllib.parse.parse_qsl(u.query))
+        if u.path == "/api/login":
+            import accounts
+            ip = self.client_address[0]
+            if accounts.throttled(ip):
+                return self.reply(429, {"error": "Too many failed logins; wait a few minutes."})
+            try:
+                d = json.loads(self.body())
+            except ValueError:
+                return self.reply(400, {"error": "bad request"})
+            name = accounts.check_password(d.get("username"), d.get("password"))
+            if name is None or accounts.is_suspended(name):
+                accounts.record_failure(ip)
+                return self.reply(403, {"error": "Wrong username or password."})
+            token = secrets.token_urlsafe(24)
+            self.sessions[token] = (name, accounts.editor_role(name), time.time() + SESSION_SECONDS)
+            body = json.dumps({"user": name, "role": accounts.editor_role(name)}).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Set-Cookie", f"vgsession={token}; HttpOnly; SameSite=Strict; Path=/"
+                                           + ("; Secure" if self.secure else ""))
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            return self.wfile.write(body)
+        g = self.guard()
+        if g is None:
+            return
+        user, role = g
+        if u.path == "/api/logout":
+            for part in (self.headers.get("Cookie") or "").split(";"):
+                k, _, v = part.strip().partition("=")
+                if k == "vgsession":
+                    self.sessions.pop(v, None)
+            return self.reply(200, {"ok": True})
+        if u.path == "/api/review":
+            if role != "admin":
+                return self.reply(403, {"error": "only admins review proposals"})
+            try:
+                problems = review(self.directory, q.get("id"), q.get("action"), user, self.proposals_dir, self.backups_dir)
+            except (ValueError, OSError) as e:
+                return self.reply(400, {"error": str(e)})
+            return self.reply(200 if not problems else 422, {"problems": problems})
+        self.reply(404, {"error": "not found"})
+
     def do_PUT(self):
         u = urllib.parse.urlparse(self.path)
         q = dict(urllib.parse.parse_qsl(u.query))
-        if u.path not in ("/api/file", "/api/check"):
+        if u.path not in ("/api/file", "/api/check", "/api/propose"):
             return self.reply(404, {"error": "not found"})
-        text = self.rfile.read(int(self.headers.get("Content-Length", 0))).decode("utf-8")
+        g = self.guard()
+        if g is None:
+            return
+        user, role = g
+        text = self.body()
         try:
             name = q.get("name")
             safe_path(self.directory, name)
-            problems = check(self.directory, name, text) if u.path == "/api/check" else save(self.directory, name, text)
+            if u.path == "/api/propose":
+                pid, problems = propose(self.directory, user, name, text, q.get("note", ""), self.proposals_dir)
+                return self.reply(200 if pid else 422, {"proposal": pid, "problems": problems})
+            if u.path == "/api/file" and role != "admin":
+                return self.reply(403, {"error": "contributors submit proposals; an admin approves them"})
+            problems = check(self.directory, name, text) if u.path == "/api/check" else save(self.directory, name, text, self.backups_dir)
             warnings = [] if problems else spawn_warnings(self.directory, name, text)
         except ValueError as e:
             return self.reply(400, {"error": str(e)})
@@ -466,10 +653,30 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--port", type=int, default=8099)
     ap.add_argument("--content", default=CONTENT)
+    ap.add_argument("--host", default="127.0.0.1", help="0.0.0.0 lets other machines reach it (use with --accounts)")
+    ap.add_argument("--accounts", action="store_true", help="log in with the game server's accounts")
+    ap.add_argument("--data-dir", help="the server's --data-dir, for its accounts")
+    ap.add_argument("--cert", help="HTTPS certificate (with --key)")
+    ap.add_argument("--key")
     a = ap.parse_args()
     Handler.directory = os.path.abspath(a.content)
-    httpd = http.server.ThreadingHTTPServer(("127.0.0.1", a.port), Handler)
-    print(f"Content editor on http://127.0.0.1:{a.port}  (editing {Handler.directory}; Ctrl+C stops)")
+    Handler.login_required = a.accounts
+    if a.host not in ("127.0.0.1", "localhost", "::1") and not a.accounts:
+        sys.exit("Refusing to listen beyond this machine without --accounts (anyone could edit the content).")
+    if a.data_dir:
+        import accounts
+        accounts.ACCOUNTS_FILE = os.path.join(os.path.abspath(a.data_dir), "accounts.json")
+    httpd = http.server.ThreadingHTTPServer((a.host, a.port), Handler)
+    scheme = "http"
+    if a.cert:
+        ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        ctx.load_cert_chain(a.cert, a.key)
+        httpd.socket = ctx.wrap_socket(httpd.socket, server_side=True)
+        Handler.secure, scheme = True, "https"
+    elif a.accounts and a.host not in ("127.0.0.1", "localhost", "::1"):
+        print("Warning: without --cert/--key, passwords cross the network unencrypted.")
+    print(f"Content editor on {scheme}://{a.host}:{a.port}  (editing {Handler.directory}"
+          f"{'; logins with game accounts' if a.accounts else ''}; Ctrl+C stops)")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

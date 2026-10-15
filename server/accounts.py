@@ -21,6 +21,7 @@ Command line (run from server/):
     python accounts.py token <username> <launcher token>
     python accounts.py untoken <launcher token>  (e.g. the dev test tokens, on a public server)
     python accounts.py suspend <username>      (and unsuspend <username>)
+    python accounts.py editor <username> admin|contributor   (content editor role, tools/editor.py --accounts)
     python accounts.py list
 """
 import hashlib
@@ -115,6 +116,28 @@ def set_suspended(username, flag, data=None):
     acc["suspended"] = bool(flag)
     save(data)
     return None
+
+
+EDITOR_ROLES = ("admin", "contributor")
+
+
+def set_editor_role(username, role, data=None):
+    """The account's role in the content editor's login mode (tools/editor.py --accounts):
+    "admin" saves and approves changes, "contributor" (the default) submits proposals."""
+    data = data if data is not None else load()
+    acc = data["accounts"].get((username or "").lower())
+    if acc is None:
+        return "No such account."
+    if role not in EDITOR_ROLES:
+        return f"Roles: {', '.join(EDITOR_ROLES)}."
+    acc["editor_role"] = role
+    save(data)
+    return None
+
+
+def editor_role(username, data=None):
+    data = data if data is not None else load()
+    return data["accounts"].get((username or "").lower(), {}).get("editor_role", "contributor")
 
 
 def is_suspended(username, data=None):
@@ -271,6 +294,8 @@ def main(argv):
         err = None if data["launcher_tokens"].pop(argv[1], None) else "No such launcher token."
         if err is None:
             save(data)
+    elif len(argv) >= 3 and argv[0] == "editor":
+        err = set_editor_role(argv[1], argv[2])
     elif len(argv) >= 2 and argv[0] in ("suspend", "unsuspend"):
         err = set_suspended(argv[1], argv[0] == "suspend")
     elif argv[:1] == ["list"]:
@@ -279,7 +304,8 @@ def main(argv):
         for t, u in data["launcher_tokens"].items():
             tokens.setdefault(u, []).append(t)
         for key, acc in sorted(data["accounts"].items()):
-            print(f"{acc['name']}{' (suspended)' if acc.get('suspended') else ''}: launcher tokens {tokens.get(key, [])}")
+            print(f"{acc['name']}{' (suspended)' if acc.get('suspended') else ''}: launcher tokens {tokens.get(key, [])}"
+                  f"{', editor admin' if acc.get('editor_role') == 'admin' else ''}")
         return 0
     else:
         print(__doc__)

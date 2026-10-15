@@ -47,6 +47,7 @@ Content editor (tools/editor.py): next candidates are a merchants tab, gear edit
 
 ## Done
 
+- 2026-10-15: Content editor login mode (--accounts) for crowdsourcing. Game accounts log in. Contributors submit proposals (validated, with a note), admins (accounts.py editor <name> admin) save directly and approve or reject proposals from a diff view. Throttled logins, HttpOnly/SameSite session cookies, an X-Editor header against cross-site requests, a refusal to listen publicly without logins, and optional HTTPS. Unit test EditorAccountsTests runs the whole flow over HTTP.
 - 2026-10-15: Content editor: the model variant field lists the race's variants and turns red for an unknown one.
 - 2026-10-15: Content editor obstacle overlay on the Spawns map, plus save-time warnings for spawns inside obstacles and patrol legs crossing them (server/obstacles.py). Unit test SpawnWarningTests; the real camps are clean.
 - 2026-10-15: Content editor gear rows on the Mobs tab: mesh type, number and slot, with model numbers read from the client's <TYPE>_ITEMS.uem packages and unknown numbers flagged. Unit test MeshListTests checks every existing mob's gear against the client.

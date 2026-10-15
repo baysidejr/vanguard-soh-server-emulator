@@ -1515,3 +1515,58 @@ class SpawnWarningTests(unittest.TestCase):
         doc["spawns"].append({"mob": "wastes_wolf", "x": round(rock[0]), "y": round(rock[1])})
         warn = editor.spawn_warnings(editor.CONTENT, name, json.dumps(doc))
         self.assertTrue(any("inside an obstacle" in w for w in warn), warn)
+
+
+class EditorAccountsTests(unittest.TestCase):
+    def test_contributor_proposes_admin_approves(self):
+        import http.client, shutil, sys, tempfile, threading
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import accounts
+        import editor
+        with tempfile.TemporaryDirectory() as d:
+            content = os.path.join(d, "content")
+            shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content"), content)
+            saved_file = accounts.ACCOUNTS_FILE
+            accounts.ACCOUNTS_FILE = os.path.join(d, "accounts.json")
+            accounts.FAILURES.clear()
+            handler = type("H", (editor.Handler,), {"directory": content, "login_required": True,
+                                                    "proposals_dir": os.path.join(d, "proposals"),
+                                                    "backups_dir": os.path.join(d, "bk"), "sessions": {}})
+            httpd = editor.http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+            threading.Thread(target=httpd.serve_forever, daemon=True).start()
+            port = httpd.server_address[1]
+
+            def call(method, path, body=None, cookie=None, editor_header=True):
+                c = http.client.HTTPConnection("127.0.0.1", port, timeout=30)
+                h = {"X-Editor": "1"} if editor_header else {}
+                if cookie:
+                    h["Cookie"] = cookie
+                c.request(method, path, body=body, headers=h)
+                r = c.getresponse()
+                out = (r.status, json.loads(r.read() or b"{}"), r.getheader("Set-Cookie"))
+                c.close()
+                return out
+            try:
+                self.assertIsNone(accounts.create("helper", "secret1"))
+                self.assertIsNone(accounts.create("boss", "secret2"))
+                self.assertIsNone(accounts.set_editor_role("boss", "admin"))
+                self.assertEqual(call("GET", "/api/files")[0], 401)                        # must log in
+                self.assertEqual(call("POST", "/api/login", json.dumps({"username": "helper", "password": "bad"}))[0], 403)
+                st, body, cookie = call("POST", "/api/login", json.dumps({"username": "helper", "password": "secret1"}))
+                self.assertEqual((st, body["role"]), (200, "contributor"))
+                helper = cookie.split(";")[0]
+                text = open(os.path.join(content, "hints.json"), encoding="utf-8").read().replace("Welcome to Telon", "Welcome!")
+                self.assertEqual(call("PUT", "/api/file?name=hints.json", text, helper)[0], 403)   # can't save directly
+                self.assertEqual(call("PUT", "/api/propose?name=hints.json", text, helper, editor_header=False)[0], 403)
+                st, body, _ = call("PUT", "/api/propose?name=hints.json&note=nicer", text, helper)
+                pid = body["proposal"]
+                self.assertEqual(call("POST", f"/api/review?id={pid}&action=approve", None, helper)[0], 403)
+                boss = call("POST", "/api/login", json.dumps({"username": "boss", "password": "secret2"}))[2].split(";")[0]
+                st, diff, _ = call("GET", f"/api/proposal?id={pid}", None, boss)
+                self.assertIn("+", diff["diff"])
+                self.assertEqual(call("POST", f"/api/review?id={pid}&action=approve", None, boss)[0], 200)
+                self.assertIn("Welcome!", open(os.path.join(content, "hints.json"), encoding="utf-8").read())
+                self.assertEqual(call("GET", "/api/proposals", None, helper)[1][0]["status"], "approved")
+            finally:
+                httpd.shutdown()
+                accounts.ACCOUNTS_FILE = saved_file
