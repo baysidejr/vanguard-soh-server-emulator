@@ -8,9 +8,16 @@ The archive's [robots.txt](https://vgsoharchive.com/robots.txt) permits crawling
 
 ## What gets saved
 
+The initial detail-route count above describes the original collector. Current route support and download coverage are recorded in `reviewed/COVERAGE_AUDIT.json`: effects and supplemental pages are now recognized too. Supplemental pages currently supply source metadata rather than complete typed game facts. Coverage distinguishes zero-issue published batches, published research in batches with unresolved validation issues, cached-only pages, and pages not downloaded. None of these states proves historical game accuracy or complete mechanics.
+
+Parser versions 19–23 add explicit quest repeatability, reject unresolved template chain links, retain level-qualified XP separately from unconditional rewards, recover inline objective counters, match explicit Slay/Kill trackers to exactly linked mob names, and recognize additional exact item-type labels. Earlier immutable batches retain their earlier parser versions. `reviewed/EXTRACTION_V*.json` identifies each targeted cache replay and its checks; replays overlap downloaded pages and must not be counted as new downloads.
+
+Pending items were prioritized after repeated timeouts on distinct mob pages while an item page succeeded. Every pending URL was retained; this changes collection order, not scope. See `reviewed/QUEUE_PRIORITY_ITEM_RECOVERY.json` for the recorded queue change. Failure records and queue checkpoints preserve pages still needing download.
+
 - New immutable `raw/<timestamp>-archive-*/` batches with singular-type JSONL files, source URLs, confidence, notes, `gaps.jsonl` and `REPORT.md`.
 - `archive_fields`, `archive_stats`, `archive_conflicts`, `map_places`, rank and card-pool fields preserve labelled facts beyond the current server converter's coverage.
 - `manifest.json` records exact fetched-page coverage. `queue.json` lists uncollected pages. `VALIDATION.json` lists structural/review issues in subsequent automated batches.
+- New manifests distinguish successful network responses during the batch from attempted requests, including failed requests. Cache hits contribute neither. Older manifests used a process-wide successful-response count; do not sum their request counts as batch totals.
 - Complete-page caches and working checkpoints stay in ignored `.cache/`; dependency packages stay in ignored `.tools-current/` (with `.tools/` retained for older installs). Neither is server content or a committed data batch.
 - `reviewed/COLLECTION_STATUS.json` updates when a batch is published. Background stdout logs each processed page.
 

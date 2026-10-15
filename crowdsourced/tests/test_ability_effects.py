@@ -10,6 +10,45 @@ from test_archive import page
 
 
 class AbilityEffectTests(unittest.TestCase):
+    def test_signed_effect_stat_modifiers_preserve_labels_and_scope(self):
+        facts=effect_facts('+8 Arcane Spell Damage -3 Spiritual Absorption +8% Health')
+        self.assertEqual([f['values'] for f in facts],[[8],[-3]])
+        self.assertEqual([f['stat_recorded'] for f in facts],['Arcane Spell Damage','Spiritual Absorption'])
+        self.assertTrue(all(f['conditions_unparsed'] for f in facts))
+
+    def test_item_chance_observations_do_not_invent_healing_or_percentage_basis(self):
+        fact=effect_facts('15% chance on attack to heal wearer +8 Health')[0]
+        self.assertEqual(fact['chance_percent'],15)
+        self.assertIsNone(fact['healing_amount'])
+        self.assertEqual(effect_facts('150% chance on attack to heal wearer'),[])
+        fact=effect_facts('Attacks have a 5% greater chance of scoring a critical hit.')[0]
+        self.assertEqual(fact['values'],[5])
+        self.assertTrue(fact['basis_unresolved'])
+        self.assertTrue(fact['conditions_unparsed'])
+
+    def test_explicit_effect_duration_converts_only_labelled_units(self):
+        for raw, expected in [('1 hour',3600),('2 minutes',120),('25 sec',25)]:
+            fact=effect_facts('This effect will stay on the user for '+raw+'.')[0]
+            self.assertEqual(fact['kind'],'effect_duration')
+            self.assertEqual(fact['duration_seconds'],expected)
+            self.assertTrue(fact['conditions_unparsed'])
+        self.assertEqual(effect_facts('This effect will stay on the user for 25.'),[])
+
+    def test_explicit_attribute_increase_is_not_a_percentage(self):
+        fact=effect_facts('The words increase the users strength by 35 when spoken aloud.')[0]
+        self.assertEqual(fact['attribute'],'strength')
+        self.assertEqual(fact['values'],[35])
+        self.assertTrue(fact['conditions_unparsed'])
+        self.assertEqual(effect_facts('Increases your strength by 35%.'),[])
+        self.assertEqual(effect_facts('Increases your strength by 35 %.'),[])
+
+    def test_explicit_sleep_duration_requires_units(self):
+        fact=effect_facts('This poison puts the target into a deep sleep for 25 sec.')[0]
+        self.assertEqual(fact['effect'],'sleep')
+        self.assertEqual(fact['duration_seconds'],25)
+        self.assertTrue(fact['conditions_unparsed'])
+        self.assertEqual(effect_facts('Puts the target into a deep sleep for 25.'),[])
+
     def test_healing_amount_and_explicit_duration_are_preserved(self):
         fact=effect_facts('Heals your defensive target for 704 over 18 sec.')[0]
         self.assertEqual(fact['values'],[704])

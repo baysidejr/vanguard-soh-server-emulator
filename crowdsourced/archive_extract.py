@@ -45,6 +45,36 @@ def effect_facts(value):
     for match in re.finditer(periodic,value,re.I):
         facts.append(dict(kind='periodic_resource_restoration',values=[numeric(match.group(1))],
             resource=match.group(2).lower(),interval_seconds=numeric(match.group(3)),conditions_unparsed=True))
+    attribute = rf"\b(?:increases?|increasing)\s+(?:your|the users|the user's)\s+(strength|dexterity|intelligence|wisdom|constitution|vitality)\s+by\s+{num}(?!\d|%|\.\d|\s+%)"
+    for match in re.finditer(attribute, value, re.I):
+        facts.append(dict(kind='attribute_increase', attribute=match.group(1).lower(),
+            values=[numeric(match.group(2))], conditions_unparsed=True))
+    sleep = rf'\bputs the target into a deep sleep for\s+{num}\s+(?:sec|seconds?)\b'
+    for match in re.finditer(sleep, value, re.I):
+        facts.append(dict(kind='crowd_control_duration', effect='sleep',
+            duration_seconds=numeric(match.group(1)), conditions_unparsed=True))
+    effect_duration = rf'\bthis effect will stay on the user for\s+{num}\s+(hours?|minutes?|seconds?|sec)\b'
+    for match in re.finditer(effect_duration, value, re.I):
+        amount = numeric(match.group(1))
+        unit = match.group(2).lower()
+        multiplier = 3600 if unit.startswith('hour') else 60 if unit.startswith('minute') else 1
+        facts.append(dict(kind='effect_duration', duration_seconds=amount * multiplier,
+            conditions_unparsed=True))
+    proc = rf'\b{num}% chance on attack to heal wearer\b'
+    for match in re.finditer(proc, value, re.I):
+        chance = numeric(match.group(1))
+        if 0 <= chance <= 100:
+            facts.append(dict(kind='trigger_chance_observation', chance_percent=chance,
+                trigger_recorded='attack', action_recorded='heal wearer',
+                healing_amount=None, conditions_unparsed=True))
+    critical = rf'\battacks have a\s+{num}% greater chance of scoring a critical hit\b'
+    for match in re.finditer(critical, value, re.I):
+        facts.append(dict(kind='critical_chance_increase_observation', values=[numeric(match.group(1))],
+            unit='percent', basis_unresolved=True, conditions_unparsed=True))
+    modifier = r'([+-]\d+(?:\.\d+)?)\s+(Arcane Spell Damage|Spiritual Spell Damage|Health|Arcane Absorption|Spiritual Absorption)\b'
+    for match in re.finditer(modifier, value, re.I):
+        facts.append(dict(kind='effect_stat_modifier_observation', stat_recorded=match.group(2),
+            values=[numeric(match.group(1))], conditions_unparsed=True))
     return facts
 
 
@@ -156,6 +186,20 @@ def enrich_item(record, main):
             flags.append(content)
     if flags:
         record['flags_recorded'] = list(dict.fromkeys(flags))
+    effects = []
+    for node in section_nodes(main, 'Effects'):
+        paragraphs = [node] if node.name == 'p' else node.find_all('p')
+        for paragraph in paragraphs:
+            name = paragraph.find('strong')
+            if not text(name):
+                continue
+            description = paragraph.select_one('span.muted')
+            effects.append(dict(name=text(name),
+                activation_labels=list(dict.fromkeys(text(pill) for pill in paragraph.select('.pill'))),
+                observations=effect_facts(text(description)) or None))
+    if effects:
+        record['archive_item_effects'] = effects
+        notes.append('Explicit item-effect names and activation labels recorded. Numeric observations retain unresolved conditions; unknown or malformed effect mechanics are not inferred.')
     return notes
 
 
@@ -176,6 +220,11 @@ def enrich_quest(record, main):
         for line in node.get_text('\n', strip=True).splitlines():
             coin = denominations(line)
             xp = re.fullmatch(r'([\d,]+)\s*(?:XP|experience)', line, re.I)
+            scoped_xp = re.fullmatch(r'([\d,]+)\s*(?:XP|experience)\s+at\s+(?:Lvl|Level)\s+(\d+)', line, re.I)
+            if scoped_xp:
+                record.setdefault('archive_level_reward_observations', []).append(dict(
+                    kind='xp', value=int(scoped_xp.group(1).replace(',', '')),
+                    player_level=int(scoped_xp.group(2)), raw=line))
             if coin is not None:
                 reward_values.append(dict(kind='coin_copper', value=coin))
             if xp:
@@ -206,8 +255,9 @@ def enrich_quest(record, main):
     objective_nodes = section_nodes(main, 'Objectives')
     objective_text = '\n'.join(node.get_text('\n', strip=True) for node in objective_nodes)
     counters = []
-    for match in re.finditer(r'(?m)(?:^|(?<=\n)|(?<=\)))\s*([^\n()]{1,100}?)\s*\((?:\d+\s*/\s*)?(\d+)\)', objective_text):
-        label, count = match.group(1).strip(), int(match.group(2))
+    for match in re.finditer(r'(?m)(?:^|(?<=\n)|(?<=\))|(?<= - )|(?<=\. ))\s*([^\n().!?]{1,100}?)\s*\((?:\d+\s*/\s*)?(\d+)\)', objective_text):
+        label = re.sub(r'^-\s+', '', match.group(1).strip())
+        count = int(match.group(2))
         if not label or re.search(r'[.!?]', label):
             continue
         # This is an explicit tracker counter, not a deduction from a walkthrough.
@@ -219,7 +269,12 @@ def enrich_quest(record, main):
         for counter in counters:
             label, count = counter['label'], counter['count']
             kind, target = None, None
-            if label.lower().endswith(' slain'):
+            kill_prefix = re.fullmatch(r'(?:slay|kill)\s+(.+)', label, re.I)
+            if kill_prefix:
+                kind = 'kill'
+                candidate = kill_prefix.group(1).strip()
+                target = candidate if candidate in entity_names else None
+            elif label.lower().endswith(' slain'):
                 kind = 'kill'
                 candidate = label[:-6].strip()
                 target = candidate if candidate in entity_names else None

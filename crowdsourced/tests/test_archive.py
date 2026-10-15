@@ -19,6 +19,40 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_item_tool_and_material_tags_are_kept_as_metadata(self):
+        for label in ('tool','material'):
+            html=page('Fixture Item <span class="tag-'+label+'">'+label+'</span> <span class="tag-crafted">crafted</span>','')
+            records,_=collector.parse_page(ORIGIN+'/items/fixture',html)
+            self.assertEqual(records[0]['name'],'Fixture Item')
+            self.assertEqual(records[0]['archive_name_labels'],[label,'crafted'])
+
+    def test_crafted_display_tag_is_not_part_of_item_name(self):
+        html = page('Fixture Sword <span class="tag-crafted">crafted</span>', '<dl class="kv"><div><dt>Origin</dt><dd>Player-crafted</dd></div></dl>')
+        records, _ = collector.parse_page(ORIGIN+'/items/fixture-sword',html)
+        self.assertEqual(records[0]['name'],'Fixture Sword')
+        self.assertEqual(records[0]['archive_display_name'],'Fixture Sword crafted')
+        self.assertEqual(records[0]['archive_name_labels'],['crafted'])
+        self.assertEqual(records[0]['archive_fields']['origin'],['Player-crafted'])
+
+    def test_explicit_weapon_category_retains_subtype(self):
+        for raw, expected in [('Weapon — Hammer', 'weapon'), ('Weapon — Bladed Staff Weapon', 'weapon'),
+                              ('Unknown — Weapon', None), ('Weaponized Clothing', None), ('Weapon — ', None)]:
+            html = page('Fixture', '<dl class="kv"><div><dt>Type</dt><dd>' + raw + '</dd></div></dl>')
+            records, _ = collector.parse_page(ORIGIN + '/items/fixture', html)
+            self.assertEqual(records[0]['item_type'], expected)
+            if expected:
+                self.assertEqual(records[0]['weapon_type_recorded'], raw.partition(' — ')[2])
+
+    def test_exact_archive_item_type_labels(self):
+        for raw, expected in [('Quest', 'quest'), ('Quest — Miscellaneous', 'quest'),
+                              ('Weapon — Greataxe', 'weapon'), ('Cloak Armor', 'armor'),
+                              ('Crafting Tool', 'tool'), ('Crafting Material', 'resource'),
+                              ('Quest — Unknown Classification', None)]:
+            html = page('Fixture', '<dl class="kv"><div><dt>Type</dt><dd>' + raw + '</dd></div></dl>')
+            records, _ = collector.parse_page(ORIGIN + '/items/fixture', html)
+            self.assertEqual(records[0]['item_type'], expected)
+            self.assertEqual(records[0]['archive_fields']['type'], [raw])
+
     def test_required_level_is_not_item_level(self):
         html = page("Fixture Gloves", '''<h2>Properties</h2><dl class="kv">
             <div><dt>Item level</dt><dd>16</dd></div><div><dt>Requires</dt><dd>level 6 Adventuring</dd></div>
@@ -75,6 +109,24 @@ class ArchiveParsingTests(unittest.TestCase):
         self.assertIsNone(r['rewards']['coin_copper'])
         self.assertIn(ORIGIN + '/mobs/fixture', links)
         self.assertEqual(record_errors(r), [])
+
+    def test_quest_repeatability_and_template_chain(self):
+        for value, expected in (('Yes', True), ('No', False), ('Unknown', None)):
+            html = page('Fixture Quest', '<dl class="kv"><div><dt>Repeatable</dt><dd>' + value +
+                '</dd></div><div><dt>Previous</dt><dd>{{{previous}}}</dd></div>' +
+                '<div><dt>Next</dt><dd>Next Quest</dd></div></dl>')
+            records, _ = collector.parse_page(ORIGIN + '/quests/fixture', html)
+            self.assertIs(records[0]['repeatable'], expected)
+            self.assertIsNone(records[0]['chain_previous'])
+            self.assertEqual(records[0]['chain_next'], 'Next Quest')
+            self.assertEqual(records[0]['archive_fields']['previous'], ['{{{previous}}}'])
+
+    def test_level_scoped_xp_is_not_unconditional_reward(self):
+        html = page('Fixture Quest', '<h2>Quest Rewards</h2><p>6,000 XP at Lvl 22</p>')
+        records, _ = collector.parse_page(ORIGIN + '/quests/fixture', html)
+        self.assertIsNone(records[0]['rewards']['xp'])
+        self.assertEqual(records[0]['archive_level_reward_observations'][0]['value'], 6000)
+        self.assertEqual(records[0]['archive_level_reward_observations'][0]['player_level'], 22)
 
     def test_npc_role_and_quest_relationship_are_explicit(self):
         html = page('Fixture NPC', '''<h2>Details</h2><dl class="kv"><div><dt>Role</dt><dd>General NPC</dd></div>
@@ -165,6 +217,25 @@ class ArchiveParsingTests(unittest.TestCase):
 
 
 class ArchivePublicationTests(unittest.TestCase):
+    def test_batch_network_counts_exclude_prior_requests_and_include_failed_attempt(self):
+        class Client:
+            network_requests = 7
+            network_request_attempts = 9
+            def get(self, url):
+                self.network_request_attempts += 1
+                if url.endswith('/failed'):
+                    raise TimeoutError('fixture timeout')
+                self.network_requests += 1
+                return page('Fixture Item', '<h2>Properties</h2>')
+        state = self.root / 'state'
+        destination = self.root / 'raw' / 'batch'
+        with patch.object(collector, 'STATE', state), patch.object(collector, 'batch_path', return_value=destination):
+            _, fatal, _ = collector.collect(Client(), [ORIGIN + '/items/fixture', ORIGIN + '/items/failed'], 2, 'fixture')
+        manifest = json.loads((destination / 'manifest.json').read_text())
+        self.assertTrue(fatal)
+        self.assertEqual(manifest['network_requests'], 1)
+        self.assertEqual(manifest['network_request_attempts'], 2)
+
     def setUp(self):
         self.scratch = tempfile.TemporaryDirectory(prefix='archive-test-', dir=HERE / 'tests')
         self.addCleanup(self.scratch.cleanup)

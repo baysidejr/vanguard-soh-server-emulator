@@ -24,7 +24,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 18
+PARSER_VERSION = 31
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -275,7 +275,9 @@ def parse_page(url, html):
     elif path.startswith("/items/"):
         types = {"jewelry": "jewelry", "medium armor": "armor", "heavy armor": "armor", "light armor": "armor",
                  "armor": "armor", "weapon": "weapon", "shield": "shield", "container": "container",
-                 "food": "food", "drink": "drink", "quest item": "quest", "misc": "misc"}
+                 "food": "food", "drink": "drink", "quest item": "quest", "misc": "misc",
+                 "quest": "quest", "quest — miscellaneous": "quest", "weapon — greataxe": "weapon",
+                 "cloak armor": "armor", "crafting tool": "tool", "crafting material": "resource"}
         slots = {"head":"head", "chest":"chest", "legs":"legs", "hands":"hands", "feet":"feet",
                  "waist":"waist", "cloak":"cloak", "shoulders":"shoulders", "wrists":"wrists",
                  "neck":"neck", "earleft":"ear", "earright":"ear", "fingerleft":"finger",
@@ -285,6 +287,19 @@ def parse_page(url, html):
                       slot=slots.get((get("slot") or "").lower()), rarity=None, level_required=None,
                       armor=number(get("armor class") or ""), stats={}, class_restrictions=None,
                       race_restrictions=None, bind=None, value_copper=None, item_level=number(get("item level") or ""))
+        item_heading = BeautifulSoup(str(main.find('h1')), 'html.parser').find('h1')
+        name_labels = [plain(label) for label in item_heading.select('.tag-crafted, .tag-tool, .tag-material')]
+        if name_labels:
+            for label in item_heading.select('.tag-crafted, .tag-tool, .tag-material'):
+                label.decompose()
+            record['archive_display_name'] = name
+            record['archive_name_labels'] = name_labels
+            record['name'] = plain(item_heading)
+            notes.append('Item display tags retained separately from the item name.')
+        category, separator, subtype = (get('type') or '').partition(' — ')
+        if separator and category.lower() == 'weapon' and subtype.strip():
+            record['item_type'] = 'weapon'
+            record['weapon_type_recorded'] = subtype.strip()
         rarity = (get("rarity") or "").lower()
         if rarity in ("mundane", "common", "uncommon", "rare", "heroic", "fabled", "legendary"):
             record["rarity"] = rarity
@@ -357,8 +372,13 @@ def parse_page(url, html):
                       rewards=dict(xp=None, coin_copper=None, items=None, choice=None))
         if record["zone"] is None and canonical_zones:
             record["zone"] = canonical_zones[0]
-        record["chain_previous"] = get("previous")
-        record["chain_next"] = get("next")
+        record['repeatable'] = {'yes': True, 'no': False}.get((get('repeatable') or '').strip().lower())
+        for field, label in (('chain_previous', 'previous'), ('chain_next', 'next')):
+            value = get(label)
+            if value and ('{{' in value or '}}' in value):
+                notes.append(f'Unresolved {label} template retained in archive_fields; chain link unknown.')
+                value = None
+            record[field] = value
         record["rewards"]["coin_copper"] = explicit_money(get("coin reward") or "")
         notes.append("Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.")
     elif path.startswith("/abilities/"):
@@ -494,6 +514,8 @@ def unique_json(values):
 
 
 def collect(client, urls, limit, topic, follow_links=False, publish_status=True):
+    requests_at_start = client.network_requests
+    attempts_at_start = getattr(client, 'network_request_attempts', None)
     batch = batch_path(topic)
     done_path = STATE / "done.json"
     done = set(json.loads(done_path.read_text(encoding="utf-8"))) if done_path.exists() else set()
@@ -597,7 +619,11 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
     write_json(batch / "queue.json", list(queue))
     counts = Counter(r["type"] for r in records.values())
     manifest = dict(started_at=started, finished_at=timestamp(), pages=len(fetched), counts=dict(counts),
-                    fetched_urls=fetched, pending=len(queue), stopped_on_error=fatal, network_requests=client.network_requests)
+                    fetched_urls=fetched, pending=len(queue), stopped_on_error=fatal,
+                    network_requests=client.network_requests - requests_at_start)
+    manifest['network_requests_definition'] = 'Successful network responses during this batch; excludes cache hits and requests before batch start.'
+    manifest['network_request_attempts'] = (client.network_request_attempts - attempts_at_start
+        if attempts_at_start is not None else (0 if getattr(client, 'cache_only', False) else None))
     manifest['stop_requested'] = (STATE / 'stop.request').exists()
     write_json(batch / "manifest.json", manifest)
     (batch / "REPORT.md").write_text("# Archive facts collection\n\n"

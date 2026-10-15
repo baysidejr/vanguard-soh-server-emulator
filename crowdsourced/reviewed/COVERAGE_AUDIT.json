@@ -1,13 +1,14 @@
 {
-  "parser_version": 18,
+  "parser_version": 31,
   "inventory_urls": 104855,
   "counts": {
-    "not_downloaded": 98285,
+    "not_downloaded": 86927,
     "unsupported": 24,
     "source_only": 1565,
     "supported": 104831,
-    "published": 6008,
-    "cached_only": 562
+    "published": 17253,
+    "published_with_issues": 672,
+    "cached_only": 3
   },
   "routes": {
     "/": {
@@ -92,10 +93,10 @@
     },
     "/items": {
       "inventory": 75067,
-      "not_downloaded": 75046,
+      "not_downloaded": 70721,
       "unsupported": 1,
-      "supported": 75066,
-      "published": 21
+      "published": 4346,
+      "supported": 75066
     },
     "/lore": {
       "inventory": 115,
@@ -106,10 +107,12 @@
     },
     "/mobs": {
       "inventory": 15419,
-      "not_downloaded": 15181,
+      "not_downloaded": 10160,
       "unsupported": 1,
+      "published": 4956,
       "supported": 15418,
-      "published": 238
+      "published_with_issues": 300,
+      "cached_only": 3
     },
     "/mounts": {
       "inventory": 4,
@@ -120,12 +123,12 @@
     },
     "/quests": {
       "inventory": 4782,
-      "not_downloaded": 2018,
+      "not_downloaded": 6,
       "unsupported": 1,
       "supported": 4781,
       "source_only": 5,
-      "published": 2202,
-      "cached_only": 562
+      "published": 4404,
+      "published_with_issues": 372
     },
     "/races": {
       "inventory": 20,
@@ -320,5 +323,5 @@
     "https://vgsoharchive.com/classes/sorcerer/trainers",
     "https://vgsoharchive.com/classes/warrior/trainers"
   ],
-  "notes": "Published means a delivered, structurally validated extraction batch reviewed the URL, not complete game mechanics. Unsupported includes index/navigation and guide pages as well as unimplemented entity routes. Cache presence alone is not extraction completion."
+  "notes": "Published means a delivered extraction batch with zero validation issues reviewed the URL, not complete game mechanics. Published_with_issues means delivered research exists but its batch has unresolved validation issues; it is not validated coverage. A zero-issue batch takes precedence when both exist. Cached_only means no delivered batch with a validation report reviewed the URL. Unsupported includes index/navigation pages and unimplemented routes. Cache presence alone is not extraction completion."
 }

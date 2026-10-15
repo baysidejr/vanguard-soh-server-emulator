@@ -47,6 +47,17 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(records[0]['turn_in'],'Fixture NPC')
         self.assertIsNone(records[0]['steps'])
 
+    def test_item_effect_names_and_activation_are_preserved_without_guessing(self):
+        html = page('Fixture Item', '<h2>Effects</h2><p><a href="/items?effect=1"><strong>Fixture Effect</strong></a><span class="pill">activated</span><span class="muted">Deals 20 to 30 damage.</span></p><p><strong>Broken Effect</strong><span class="pill">worn</span><span class="muted">dealing #30#326-346# damage</span></p>')
+        records, _ = collector.parse_page(collector.ORIGIN+'/items/fixture',html)
+        effects = records[0]['archive_item_effects']
+        self.assertEqual(effects[0]['name'],'Fixture Effect')
+        self.assertEqual(effects[0]['activation_labels'],['activated'])
+        self.assertEqual(effects[0]['observations'][0]['values'],[20,30])
+        self.assertTrue(effects[0]['observations'][0]['conditions_unparsed'])
+        self.assertEqual(effects[1]['activation_labels'],['worn'])
+        self.assertIsNone(effects[1]['observations'])
+
     def test_reward_xp_money_and_explicit_choice_are_extracted(self):
         html = page('Fixture Quest', '''<h2>Quest Rewards</h2><p>1 Silver, 40 Copper<br>5474 XP<br>Choose one of:</p>
             <table><tr><td>1 x</td><td></td><td>Jewelry</td><td>Neck</td><td>[Clvl 13]</td><td>[Ilvl 23]</td><td>Fixture Pendant</td></tr></table>''','Level 14')
@@ -90,6 +101,26 @@ class ExtractionTests(unittest.TestCase):
         records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
         self.assertEqual([c['count'] for c in records[0]['archive_objective_counters']],[6,3])
         self.assertIsNone(records[0]['steps'])
+
+    def test_inline_tracker_after_prose_is_a_partial_candidate(self):
+        for separator in (' - ', ' '):
+            html = page('Fixture Quest', '<h2>Objectives</h2><div>Return to the giver.' + separator + 'Dockworkers Roused (0/4)</div>')
+            records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
+            self.assertEqual(records[0]['archive_objective_counters'][0]['label'],'Dockworkers Roused')
+            self.assertEqual(records[0]['candidate_steps'][0]['count'],4)
+            self.assertIsNone(records[0]['steps'])
+            self.assertIsNone(records[0]['candidate_steps'][0]['kind'])
+
+    def test_kill_prefix_requires_exact_linked_target(self):
+        for verb in ('Slay', 'Kill'):
+            html = page('Fixture Quest', '<h2>Objectives</h2><div>' + verb + ' Fixture Creature (0/2)</div><h2>Related</h2><a href="/mobs/fixture-creature">Fixture Creature</a>')
+            records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
+            self.assertEqual(records[0]['steps'][0]['kind'],'kill')
+            self.assertEqual(records[0]['steps'][0]['target'],'Fixture Creature')
+            html = page('Fixture Quest', '<h2>Objectives</h2><div>' + verb + ' Fixture Creatures (0/2)</div><h2>Related</h2><a href="/mobs/fixture-creature">Fixture Creature</a>')
+            records, _ = collector.parse_page(collector.ORIGIN+'/quests/fixture',html)
+            self.assertIsNone(records[0]['steps'])
+            self.assertIsNone(records[0]['candidate_steps'][0]['target'])
 
     def test_timing_units_are_converted_only_when_explicit(self):
         html = page('Fixture Ability','''<dl class="kv"><div><dt>Cast time</dt><dd>10.0</dd></div>
