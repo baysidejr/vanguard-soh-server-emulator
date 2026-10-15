@@ -44,6 +44,8 @@ The server enforces the limits (the client has none): a name, a melody, name up 
 
 **Group (verified live with two clients):** every 6 seconds a playing song gives groupmates within 2500 units its buff for 12 seconds ("Ranger's War Song fills you with strength." the first time). The buff fades about 12 seconds after the song stops (`song_pulse`).
 
+**Crowd control:** a stun or fear from an NPC stops a playing song ("Your song is interrupted."), and starting a song while feared or stunned is refused (`login_stub.apply_crowd_control`, `play_song`; unit test SongCrowdControlTests).
+
 ## Not done
-- Interruption by fear or flying.
+- Whether flying should stop a song (unknown; it does not).
 - Real song data (CONTENT_EDITOR.md).
