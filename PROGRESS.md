@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 75 regions hold 1,152 NPCs imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 75 regions hold 1,144 NPCs imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
@@ -83,6 +83,8 @@ Content: 75 regions hold 1,152 NPCs imported from the archive (36 riftway destin
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Archive import refined and regenerated (no template had been edited): titles from the archive role ("Light Armor Vendor"), quest objects (type Object) skipped; 1,124 templates, 1,144 NPCs.
 
 - 2026-10-15: NPCs can offer several parleys (mobs.json parley list; option id per parley). The archive's parley types and presence are imported: 77 NPCs offer their real parley types (generic setups per type); seen live with Afshin Budjiri (Gossip / Convince / Interview).
 

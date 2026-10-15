@@ -102,6 +102,11 @@ def parley_setup(ptype, presence):
             "win_at": 17, "lose_at": 5, "reward": {"xp": 100}, "_archive_placeholder": True}
 
 
+def is_object(rec):
+    """Quest objects (archive type "Object": a censer, a crate) are not people; not imported."""
+    return "Object" in ((rec.get("archive_fields") or {}).get("type") or [])
+
+
 def key_for(name):
     return "arch_" + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
 
@@ -114,6 +119,10 @@ def template(rec):
     services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]
     if services:
         t["title"] = ", ".join(s.title() for s in services)[:40]
+    role = next((r for r in (rec.get("archive_fields") or {}).get("role") or []
+                 if r and r != "General NPC" and not r.startswith("Class Trainer")), None)
+    if role:
+        t["title"] = role[:40]            # "Light Armor Vendor" says more than "Merchant"
     # Services the server can run from what the archive says. Merchants get the shared placeholder
     # stock "general_goods" (the archive has no wares); task masters keep only the title.
     if "merchant" in services:
@@ -170,7 +179,7 @@ def plan(zone, recs, chunks, quests=None, continent=None):
     mobs, spawns = {}, []
     for rec in sorted(recs.values(), key=lambda r: r["name"]):
         pos = position(rec)
-        if rec.get("zone") != zone or pos is None:
+        if rec.get("zone") != zone or pos is None or is_object(rec):
             continue
         key = key_for(rec["name"])
         mobs[key] = template(rec)
