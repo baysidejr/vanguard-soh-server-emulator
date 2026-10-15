@@ -899,7 +899,7 @@ function showFactions() {
     const f = facDoc[id], tr = document.createElement("tr");
     const members = Object.values(facMobs).filter(m => m && String(m.faction) === id).length;
     tr.innerHTML = `<td>${id}</td><td><input data-k="name" value="${esc(f.name || "")}" style="width:100%"></td>
-      <td><input data-k="start" type="number" min="-20000" max="20000" value="${f.start ?? 0}" style="width:90px"></td>
+      <td><input data-k="start" type="number" min="-20000" max="20000" value="${f.start ?? ""}" placeholder="0" style="width:90px"></td>
       <td><input data-k="kill" type="number" value="${f.kill ?? ""}" placeholder="-50" style="width:80px"></td>
       <td><input data-k="allies" value="${(f.allies || []).join(", ")}" style="width:120px"></td>
       <td><input data-k="enemies" value="${(f.enemies || []).join(", ")}" style="width:120px"></td>
@@ -907,7 +907,8 @@ function showFactions() {
       <td class="hint">${members}</td><td><button>Remove</button></td>`;
     tr.querySelectorAll("input").forEach(i => i.onchange = () => {
       const g = k => tr.querySelector(`[data-k=${k}]`);
-      const n = { name: g("name").value, start: Number(g("start").value || 0) };
+      const n = { name: g("name").value };
+      if (g("start").value !== "") n.start = Number(g("start").value);
       if (g("kill").value !== "") n.kill = Number(g("kill").value);
       const al = idList(g("allies").value), en = idList(g("enemies").value);
       if (al.length) n.allies = al;
@@ -1779,7 +1780,9 @@ if (location.hash === "#iconpicker") { setMode("items"); setTimeout(() => $("pic
 if (location.hash.startsWith("#draft=")) { const [t, ...n] = decodeURIComponent(location.hash.slice(7)).split(":"); startDraft({ type: t, name: n.join(":") }); }
 if (location.hash.startsWith("#archive")) { const p = decodeURIComponent(location.hash.split("=")[1] || ""); lookUp(p, ""); setTimeout(() => { const f = $("archList").firstChild; if (f && f.onclick) f.onclick(); }, 1500); }
 if (location.hash.startsWith("#items")) { setMode("items"); setTimeout(() => { itemSel = decodeURIComponent(location.hash.split("=")[1] || ""); if (itemSel) { listItems(); showItem(); } }, 800); }
-// #selftest: every quest and mob goes through its form and back unchanged (for headless checks)
+// #selftest: every quest, mob, item and ability goes through its form and back unchanged.
+// The recipe, parley, faction and work-order forms store as they are edited, so for those every
+// field gets a change and an input event with its value untouched, and the file must not change.
 if (location.hash === "#selftest") (async () => {
   const sorted = o => JSON.stringify(o, (k, v) => v && typeof v === "object" && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort()) : v);
   const out = [];
@@ -1804,6 +1807,28 @@ if (location.hash === "#selftest") (async () => {
     if (sorted(abDoc[k]) !== before) out.push(`ability ${k}: ${before} -> ${sorted(abDoc[k])}`);
   }
   abSel = null;
+  const poke = root => [...$(root).querySelectorAll("input,select,textarea")].forEach(el => {
+    for (const ev of ["change", "input"]) el.dispatchEvent(new Event(ev));
+  });
+  const doc = async (mode, ready) => { setMode(mode); while (!ready()) await new Promise(r => setTimeout(r, 50)); };
+  await doc("recipes", () => recDoc);
+  for (const k of Object.keys(recDoc).filter(k => !k.startsWith("_"))) {
+    const before = sorted(recDoc[k]); recSel = k; showRecipe(); poke("recBody");
+    if (sorted(recDoc[k]) !== before) out.push(`recipe ${k}: ${before} -> ${sorted(recDoc[k])}`);
+  }
+  await doc("diplomacy", () => dipDoc);
+  for (const sel of ["cards", "deck"].concat(Object.keys(dipDoc.parleys).map(k => "p:" + k))) {
+    const before = sorted(dipDoc); dipSel = sel; showDip(); poke("dipBody");
+    if (sorted(dipDoc) !== before) out.push(`diplomacy ${sel}: ${before} -> ${sorted(dipDoc)}`);
+  }
+  await doc("factions", () => facDoc);
+  { const before = sorted(facDoc); showFactions(); poke("facTable");
+    if (sorted(facDoc) !== before) out.push(`factions: ${before} -> ${sorted(facDoc)}`); }
+  await doc("work", () => woDoc);
+  for (const k of Object.keys(woDoc).filter(k => !k.startsWith("_"))) {
+    const before = sorted(woDoc[k]); woSel = k; showWork(); poke("woBody");
+    if (sorted(woDoc[k]) !== before) out.push(`work order ${k}: ${before} -> ${sorted(woDoc[k])}`);
+  }
   const pre = document.createElement("pre"); pre.id = "selftest";
   pre.textContent = "SELFTEST " + (out.length ? "FAIL\n" + out.join("\n") : "OK");
   document.body.appendChild(pre);

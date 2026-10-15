@@ -78,6 +78,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Editor #selftest (EditorPageTests, headless Edge) now also round-trips the Recipes, Parley, Factions and Work orders forms: every field gets change/input events with its value untouched and the file must not change. It caught the Factions form adding "start": 0 to a faction without one (fixed).
+
 - 2026-10-15: Editor Work orders tab; saved end to end through headless Edge (cdp.mjs) against a content copy: only the edited reward, faction and delivery count changed.
 
 - 2026-10-15: Editor saves keep the file's key order (the browser moved integer-like keys and "_comment"), so a save changes only the edited lines. Checked end to end: headless Edge driven over the DevTools protocol (vgemu_work/cdp.mjs) edited and saved the Factions, Recipes and Parley tabs against a copy of the content folder; the diffs held just the edits. Unit test EditorTests.test_save_keeps_key_order.
