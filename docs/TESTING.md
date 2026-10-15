@@ -4,6 +4,7 @@ How each feature has been tested, and what still needs a person at the keyboard.
 
 - **Unit tests:** `cd server && python -m unittest discover -p "test_*.py"` (about 150 tests, all must pass before a commit), plus `python content.py` (checks every content JSON file links up: "content OK").
 - **In game:** every feature in the README checklist was tried in the real client while it was built, by scripted key presses and clicks, often with two clients at once.
+- **Everything at once:** `python tools/check_all.py` runs the unit tests, the content check, the multiplayer scenarios, a 20-bot load test and a short fuzz run (on scratch data), and prints one summary; `--client` adds the smoke test with the game client. Last run (2026-10-14): 6 of 6 passed.
 - **Smoke test:** `python tools/smoke_test.py` (Windows) starts the server and client, enters the world with the character selected on the select screen, types about 40 chat commands and fails on any server traceback, dropped message or client "unhandled message" line. Run it after changes; it takes about two minutes.
 
 Legend: ✅ seen working in the client · 🧪 unit tests only · 👤 needs a person (scripted input can't do it, or the result can't be checked by a screenshot) · ⛔ blocked (no UI in the shipped client, or no data)

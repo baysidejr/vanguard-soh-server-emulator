@@ -10,6 +10,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Last test results
 
+- 2026-10-14 (check_all): unit 171 OK, content OK, scenarios 8/8, load test 20 bots p95 11 ms, fuzz clean; smoke test PASS earlier today.
 - 2026-10-14 (CI): GitHub Actions passes on ac4f08d (169 tests, 2 skipped without the client); locally 169 OK, smoke test PASS.
 - 2026-10-14 (capacity round 2): unit tests OK (166), content OK, smoke test PASS; load test steady state: 100 crowd 10.5 ms / 11.4 ms, 150 spread 10.6 / 11.2 ms, 200 spread 10.6 ms / 1.4 s.
 - 2026-10-14 (fuzzing): unit tests OK (166), content OK, smoke test PASS, fuzz 0x900 events x 20 + 200 raw rounds: no errors, no hang; load test 20 bots OK.
@@ -38,6 +39,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: tools/check_all.py runs every automated check in one go (unit, content, 8 multiplayer scenarios, 20-bot load test, fuzzing): 6 of 6 passed.
 - 2026-10-14: Quest icons over NPCs (0x560/0x563): available, in progress, ready to hand in, low; verified live (gold star over Orin, blue dots after accepting).
 - 2026-10-14: 35 more client handlers decoded (agent, static): quest icons over NPCs (0x560-0x563), loot sparkle (0x564), Auto Defensive Target Me option (0x11b), item cooldown groups (0x1e5), duel pet lists (0x406/0x407), screenshot-upload ids (0x62b/c/e) and more. Undecoded: 38 -> 3.
 - 2026-10-14: tools/scenarios.py: two headless players check chat, group invite and a full trade (item for coins, verified in the database). All PASS.
