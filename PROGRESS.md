@@ -72,6 +72,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Done
 
+- 2026-10-15: An NPC that was fighting a pet turns on the owner (or gives up) once the pet is gone, instead of standing idle at its damaged health even without an aggro radius. Live: after /pet dismiss the Canyon Widow attacked Ranger (widows also attack on sight, so not a clean proof).
 - 2026-10-15: An NPC whose attacker logs out (or drops) with nobody else on its hate list also walks home and heals; seen live after closing the client mid-fight (the server drops a silent connection after up to 180 s).
 - 2026-10-15: An NPC whose last attacker died now walks home and heals (it used to stand over the corpse at its damaged health); seen live (Canyon Widow after killing Ranger). The intermittent unit failure was caught: EditorAccountsTests read a reset connection after a 403 refusal. The editor now reads off an unread request body before replying (Windows sends a reset when a socket closes with unread data). Not reproducible on demand afterwards (0 of 6 full runs with either version), so the fix is the likely cause, not proven.
 - 2026-10-15: An NPC that stops fighting now also resets the target frame's target-of-target line and red name (0x3ba and 0x491 before 0x3a2, which alone left them). Seen live: white name, 100%, target "--".
