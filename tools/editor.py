@@ -540,12 +540,21 @@ class Handler(http.server.BaseHTTPRequestHandler):
         return None, None
 
     def body(self):
+        self._body_read = True
         return self.rfile.read(min(int(self.headers.get("Content-Length", 0)), 20_000_000)).decode("utf-8")
 
     def log_message(self, fmt, *a):
         pass
 
     def reply(self, code, body, kind="application/json"):
+        if not getattr(self, "_body_read", False):
+            # A refusal sent before the request body was read: read it off first. Closing a
+            # socket with unread data makes Windows send a reset, which can reach the client
+            # before the reply does (the intermittent unit-test failure of 2026-10-15).
+            n = int(self.headers.get("Content-Length", 0) or 0)
+            if 0 < n <= 20_000_000:
+                self.rfile.read(n)
+            self._body_read = True
         if not isinstance(body, bytes):
             body = json.dumps(body).encode("utf-8")
         self.send_response(code)

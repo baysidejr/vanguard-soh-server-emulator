@@ -603,6 +603,15 @@ WANDER_PAUSE = (4.0, 12.0)   # seconds standing between strolls
 LEASH = 1500.0               # an NPC chasing further than this from home gives up
 
 
+def give_up(npc):
+    """Evade: leashed, or its last target died. It forgets who it was fighting, walks home and
+    heals when it gets there (chase_step)."""
+    npc.aggro, npc.aggro_on, npc.wander_goal = False, None, npc.home
+    npc.hate.clear()
+    npc.evading = True
+    print(f"  {npc.name} gives up the chase and returns home")
+
+
 def chase_step(npc, target, dt, rng=random, now=None):
     """One movement step for an NPC: chase its attacker (target = x, y, z), walk
     home after losing it, or wander around home within npc.wander. Returns the
@@ -618,11 +627,7 @@ def chase_step(npc, target, dt, rng=random, now=None):
         return move_toward(npc, away, dt, NPC_SPEED * FLEE_SPEED, 1.0)
     if npc.aggro and target is not None:
         if math.hypot(npc.location[0] - npc.home[0], npc.location[1] - npc.home[1]) > LEASH:
-            # Leashed (evading): it forgets who it was fighting and heals when it gets home.
-            npc.aggro, npc.aggro_on, npc.wander_goal = False, None, npc.home
-            npc.hate.clear()
-            npc.evading = True
-            print(f"  {npc.name} gives up the chase and returns home")
+            give_up(npc)
         else:
             return move_toward(npc, target, dt, NPC_SPEED, MELEE_RANGE)
     if npc.wander_goal is not None:

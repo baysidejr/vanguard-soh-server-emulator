@@ -994,6 +994,17 @@ class PetDefaultTests(unittest.TestCase):
         self.assertEqual((login_stub.pets.DEFAULT_ON, login_stub.pets.DEFAULT_OFF), (0x86, 0x87))
 
 
+class GiveUpTests(unittest.TestCase):
+    def test_give_up_forgets_and_heads_home(self):
+        c = login_stub.combat
+        npc = c.Npc(1, "Canyon Widow", None, "x", location=(50.0, 0.0, 0.0))
+        npc.home = (0.0, 0.0, 0.0)
+        npc.aggro, npc.aggro_on, npc.hate = True, mock.Mock(), {5: (None, 3)}
+        c.give_up(npc)
+        self.assertEqual((npc.aggro, npc.aggro_on, npc.hate, npc.wander_goal, npc.evading),
+                         (False, None, {}, (0.0, 0.0, 0.0), True))
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

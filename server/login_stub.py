@@ -630,6 +630,8 @@ def movement_tick(zone_sock, clients, args):
                 nxt = combat.next_target(npc)
                 if nxt is not None:
                     npc.aggro_on = nxt
+                else:
+                    combat.give_up(npc)      # nobody left: walk home and heal, as after a leash
             target = npc.aggro_on.live_position if npc.aggro_on else None
             values = combat.chase_step(npc, target, MOVE_TICK)
             if values:

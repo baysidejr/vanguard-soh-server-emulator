@@ -70,6 +70,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Done
 
+- 2026-10-15: An NPC whose last attacker died now walks home and heals (it used to stand over the corpse at its damaged health); seen live (Canyon Widow after killing Ranger). The intermittent unit failure was caught: EditorAccountsTests read a reset connection after a 403 refusal. The editor now reads off an unread request body before replying (Windows sends a reset when a socket closes with unread data). Not reproducible on demand afterwards (0 of 6 full runs with either version), so the fix is the likely cause, not proven.
 - 2026-10-15: An NPC that stops fighting now also resets the target frame's target-of-target line and red name (0x3ba and 0x491 before 0x3a2, which alone left them). Seen live: white name, 100%, target "--".
 - 2026-10-15: An NPC healed after evading also refreshes the target frame of players targeting it (combat.target_health). Seen live: the target frame went from 79% to 100% when the wolf got home (a 2200-unit teleport keeps the target; a longer one, or Esc, drops it).
 - 2026-10-15: Leashed NPCs now clear their hate list and heal to full when back home (no more kiting a wounded NPC past its leash and re-pulling it). Seen live in the server log; unit test LeashTests.
