@@ -308,7 +308,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 641 of 720 (89%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x42b | MsgSingleInt | i32 | optional | ability examine window {i32} |
+| 0x42b | MsgSingleInt | i32 | optional | pet ability examine {i32} (FUN_0057acf0, _ability_examine); tried 2026-10-15 with Ashfang's Savage Bite id 990000: nothing opened |
 | 0x42e | MsgIntAndFloat | i32, f32 | variant | {i32 ability id, f32 frac} (FUN_00578ec0): sets the pet ability's +0x128/+0x12c to frac x 100; the server shows pet cooldowns with 0x42c (verified live) |
 | 0x434 | MsgSingleInt | i32 | content | pet graft slots allowed (PetNumGraftsAllowed, docs/PETS.md) |
 
