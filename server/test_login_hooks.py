@@ -933,6 +933,20 @@ class SmallFeatureTests(unittest.TestCase):
         self.assertIn("Next: Smelting".encode("utf-16-le"), b)
 
 
+class ConsoleReloadTests(unittest.TestCase):
+    def test_reload_forces_a_content_reload(self):
+        args = mock.Mock()
+        fresh = mock.Mock(directory="d")
+        with mock.patch.object(login_stub.content, "validate", return_value=[]), \
+                mock.patch.object(login_stub.content, "Content", return_value=fresh) as make, \
+                mock.patch.object(login_stub.zone, "ITEM_CONTENT", login_stub.zone.ITEM_CONTENT), \
+                mock.patch.object(login_stub.world, "all_worlds", return_value=[]), \
+                mock.patch.object(login_stub, "npc_files_stamp", return_value=1.0):
+            login_stub.console_command("reload", {}, args)
+        make.assert_called_once()
+        self.assertIs(args.content, fresh)
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

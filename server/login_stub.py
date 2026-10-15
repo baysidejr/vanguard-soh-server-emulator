@@ -383,7 +383,7 @@ def start_console():
             pass
     if sys.stdin is not None and sys.stdin.isatty():
         threading.Thread(target=read, daemon=True).start()
-        print("Console: who, announce <text>, kick <name>, backup, stop (or help)")
+        print("Console: who, announce <text>, kick <name>, backup, reload, stop (or help)")
 
 
 # Content reload (for tools/editor.py): every few seconds the server looks at the content files'
@@ -495,8 +495,12 @@ def console_command(line, clients, args):
             print(f"kicked {rest}")
     elif word == "backup":
         print(f"database backup: {storage.backup(os.path.dirname(CHARACTERS_FILE))}")
+    elif word == "reload":
+        # Apply changed content now instead of at the next 5-second check.
+        CONTENT_STAMP[0], CONTENT_STAMP[1] = -1.0, 0.0
+        content_reload_tick(args, time.time())
     elif word:
-        print("commands: who, announce <text>, kick <name>, backup, stop")
+        print("commands: who, announce <text>, kick <name>, backup, reload, stop")
     return None
 
 

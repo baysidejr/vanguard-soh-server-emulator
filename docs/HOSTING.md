@@ -73,7 +73,7 @@ Each player needs their own Vanguard client (version 1.324.1.139565) with this r
 
 ## While it runs
 
-- Type `who`, `announce <text>`, `kick <name>`, `backup` or `stop` in the server's window.
+- Type `who`, `announce <text>`, `kick <name>`, `backup`, `reload` (apply changed content files now, after validating them) or `stop` in the server's window.
 - The database is copied to `<data folder>/backups/` at start and every 6 hours
   (`--backup-hours`), keeping the last 10. `python server/storage.py export` writes everything out
   as JSON.
