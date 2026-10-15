@@ -1308,3 +1308,20 @@ class LootButtonTests(unittest.TestCase):
         grouploot.settings(g)["mode"] = grouploot.MASTER_LOOTER
         self.assertEqual(payload(grouploot.loot_buttons(g, npc)[0]), (0x6CA, b"\0"))
         self.assertEqual(payload(grouploot.loot_buttons(None, npc)[0]), (0x6CA, b"\0"))
+
+
+class AttributePointTests(unittest.TestCase):
+    def test_pool_cap_and_codes(self):
+        import attributes as at
+        alloc = {}
+        self.assertEqual(at.pool(1, alloc), 0)
+        self.assertEqual(at.allocate("strength", at.ONE, 1, alloc), (0, at.NO_POINTS))
+        self.assertEqual(at.pool(5, alloc), 8)
+        self.assertEqual(at.allocate("strength", at.ONE, 5, alloc), (1, 0))
+        self.assertEqual(at.allocate("wisdom", at.MAX, 5, alloc), (5, 4))         # capped at level 5
+        self.assertEqual(at.allocate("wisdom", at.ONE, 5, alloc), (0, 6 + 4))     # can't raise wisdom
+        self.assertEqual(at.pool(5, alloc), 2)
+        self.assertEqual(at.allocate("hit_points", at.ONE, 5, alloc), (0, at.NOT_ALLOWED))
+        eid, data = payload(at.result(0, 3, 51, 2))
+        self.assertEqual((eid, struct.unpack("<iiiii", data)), (0x2D9, (0, 3, 0, 51, 2)))
+        self.assertEqual(payload(at.set_pool(7)), (0x2DA, struct.pack("<ii", 7, 0)))

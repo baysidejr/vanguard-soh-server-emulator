@@ -193,3 +193,27 @@ These variables are set but no XML file links to them: strBindLocationSelf, strR
 ## Crafting and diplomacy levels (verified live 2026-10-13)
 
 Crafting XP (recipes, work orders) and diplomacy XP (parleys) now accumulate per sphere (`zone.gain_sphere_xp`, saved as the character's `spheres`): 1000 XP a level, up to 50. A level-up sends **0x713** `{i32 level, i32 sphere}` (sphere 0 adventuring, 1 crafting, 2 diplomacy; FUN_005e68f0), which prints "Your Crafting level is now 2." (0x723, same layout, prints "You lost a level, your %s level is now %d."). MsgScore then carries craft_level / craft_exp / craft_exp_frac and dip_level / dip_exp / dip_exp_frac. `!spherexp <1|2> <amount>` grants sphere XP for testing.
+
+## Attribute points (verified live 2026-10-15)
+
+The Attributes tab of the character window shows "Allocation Points" and a **+** and a **Max** button per attribute. They are enabled only while `bCanSpendAdvAllocPoints` is true.
+
+- **0x2da** `{i32 points, i32 pool}` (pool 0 adventuring, 1 crafting, 2 diplomacy; FUN_0055dda0) sets the number and enables the buttons when points > 0. The server sends it at spawn and on every level up, together with **0x2db** `{u8 0}` ("You have gained new adventuring attribute points!" and a gold banner).
+- **+ / Max** send **0xe4** `{i32 stat instance id, i32 mode, i32 category}`: mode 1 is one point, mode 3 is as many as allowed; category 0 is adventuring, 1 crafting (FUN_0056eeb0). The instance id is the stat record's field 1, which this server sets to the stat id.
+- **0x2d9** `{i32 result, i32 stat instance id, i32 category, i32 new base, i32 points left}` (FUN_00575100) prints the result and updates the pool. The shown value only changes with a following 0x2d4. Result codes:
+
+| Code | Meaning |
+|---|---|
+| 0-5 | raised Strength, Constitution, Dexterity, Vitality, Wisdom, Intelligence |
+| 6-11 | "can not raise ... any more" (same order) |
+| 12-23 | lowered / can't lower |
+| 28-35 | crafting attributes raised / can't raise |
+| 36 | "You may not increase or decrease that attribute." |
+| 37 | "You have no points in your allocation pool." |
+| 38-39 | refund pool messages |
+| 255 | unknown failure |
+
+- The shipped UI has no undo, reset or refund buttons; the `PCRefundPool*` game vars are never set. Diplomacy has a pool variable but no buttons.
+- **Server** (`server/attributes.py`, `login_stub.handle_allocate`): 2 points per level after the first, and at most 1 point per level into one attribute (placeholders). Only the spent points are saved (`attr_alloc`); the pool is points earned minus points spent, so existing characters get their points back. Allocated points are added to the attributes like the gear and race bonuses, so health and the pools follow them.
+- Seen live with Ranger (level 13, 24 points): + on Strength 50 → 51, then Max on Vitality 30 → 43 (capped at 13), 10 points left, "You successfully add to your strength.". Another + on Vitality: "You can not raise your vitality any more.". The values and the pool were kept after a relog.
+- Crafting attributes (Problem Solving 42, Reasoning 151, Ingenuity 234, Finesse 239, category 1) work the same way in the client; the server doesn't grant crafting points yet.

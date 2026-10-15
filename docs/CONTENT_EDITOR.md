@@ -27,6 +27,7 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Patrol and wander paths | waypoints per mob or group, wander radius, speed | spawns can have `wander` (radius) or `path` (patrol waypoints, `pause` seconds at each); the Thestran Guard patrols (verified live) |
 | Mob templates | name, race or creature model, level, health, damage, aggro radius, abilities, gear (`m_AttachmentGroups`), faction | `server/content/mobs.json`: 4 placeholder templates (no abilities, faction or creature models yet) |
 | Loot tables | items, chances, quantities, coin per mob template | `server/content/loot.json`: one placeholder table |
+| Attribute points | points earned per level (adventuring and crafting), the cap per attribute | `server/attributes.py`: 2 per level, at most 1 per level into one attribute; no crafting points |
 | Outposts | which areas are outposts and what being in one unlocks (0x552 bInOutpost) | `server/content/outposts.json`: circles around the two camps |
 | Hints | the hint and tutorial texts and when each one shows | `server/content/hints.json`: 5 placeholder hints (welcome, kill, loot, level, death) |
 | Items | stats, item type, icon, mesh number for the model, slot, flags, flags (No Trade, Bind On Equip, Quest, No Sell, Unique...), what usable items (food, drink, potions) restore and their reuse times and shared reuse groups | a handful of starter items in `zone.py` |

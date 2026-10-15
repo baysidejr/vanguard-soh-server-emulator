@@ -101,6 +101,8 @@ def handle_unreal(send, state, payload, args):
         print("  <- ZONE event 0x3de (MsgScore)")
         for m in stat_messages(player):
             send(m)
+        import attributes
+        send(attributes.set_pool(attributes.pool(player.level_number, getattr(player, "attr_alloc", {}))))
         print("  <- ZONE events 0x2d5/0x2d4 (stats)")
         for m in inventory_messages(player):
             send(m)
@@ -756,7 +758,8 @@ def apply_gear_stats(player):
                           + gear_mod_total(player, "Armor Class"))
     player.regen_bonus = gear_mod_total(player, "Health Regeneration")
     changed = []
-    for attr, fn in (("innate_bonus", innate_bonus), ("gear_bonus", gear_bonus), ("aa_bonus", aa_bonus)):
+    for attr, fn in (("innate_bonus", innate_bonus), ("gear_bonus", gear_bonus), ("aa_bonus", aa_bonus),
+                     ("alloc_bonus", lambda p: dict(getattr(p, "attr_alloc", None) or {}))):
         new, old = fn(player), player.__dict__.get(attr, {})
         for k in set(new) | set(old):
             delta = new.get(k, 0) - old.get(k, 0)

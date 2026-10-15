@@ -27,6 +27,7 @@ import class_abilities
 import chat
 import combat
 import aa
+import attributes
 import hints
 import group
 import grouploot
@@ -1862,6 +1863,31 @@ def handle_hint_event(state, event):
     save_character_field(player.name, "hints_off", player.hints_off)
 
 
+def handle_allocate(state, data):
+    """0xe4 from the Attributes tab's + / Max buttons (attributes.py)."""
+    player, send = state["player"], state["send"]
+    if len(data) < 12:
+        return
+    stat_id, mode, category = struct.unpack_from("<iii", data)
+    name = next((n for n, sid in vgmsg.STAT_IDS.items() if sid == stat_id), None)
+    alloc = player.__dict__.setdefault("attr_alloc", {})
+    if category != attributes.ADVENTURING:
+        n, code = 0, attributes.NOT_ALLOWED
+    else:
+        n, code = attributes.allocate(name, mode, player.level_number, alloc)
+    if n:
+        save_character_field(player.name, "attr_alloc", alloc)
+        zone.apply_gear_stats(player)
+    left = attributes.pool(player.level_number, alloc)
+    base = zone.stat_base(player, name) if name in player.stats else 0
+    send(attributes.result(code, stat_id, base, left))
+    if n:
+        send(zone.attribute_update(player, name))
+        if name in ("constitution", "vitality", "intelligence", "wisdom"):
+            send(zone.score_message(player))         # pools and health follow the attributes
+        print(f"  {player.name} puts {n} point(s) into {name} ({left} left)")
+
+
 def award_xp(player, amount, source, grouped=False):
     """Experience for one player (0x3d5, level ups, XP bar via MsgScore); saved.
     While the player has experience debt, half of what they earn pays it off."""
@@ -1893,6 +1919,8 @@ def award_xp(player, amount, source, grouped=False):
         leveled = True
     out.append(zone.score_message(player))           # recomputes maximum health for the new level
     if leveled:
+        out.append(attributes.set_pool(attributes.pool(player.level_number, getattr(player, "attr_alloc", {}))))
+        out.append(attributes.gained())
         m = hint(player, "level")
         if m:
             out.append(m)
@@ -9022,6 +9050,7 @@ def player_from_character(char, name, args):
     player.apply_form_on_death = char.get("apply_form_on_death", False)
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
+    player.attr_alloc = {k: int(v) for k, v in (char.get("attr_alloc") or {}).items() if k in attributes.ORDER}
     player.hints_seen = list(char.get("hints_seen") or [])
     player.hints_off = bool(char.get("hints_off", False))
     player.aa_ranks = {int(k): int(v) for k, v in (char.get("aa_ranks") or {}).items()}
@@ -9743,6 +9772,9 @@ def handle_message(sock, server, addr, state, payload, args):
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in trade.CLIENT_EVENTS:
             if state.get("player"):
                 handle_trade_event(state, struct.unpack_from("<I", payload, 2)[0], payload, args)
+        elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == attributes.ALLOCATE:
+            if state.get("player"):
+                handle_allocate(state, payload[10:])
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] in hints.CLIENT_EVENTS:
             if state.get("player"):
                 handle_hint_event(state, struct.unpack_from("<I", payload, 2)[0])
