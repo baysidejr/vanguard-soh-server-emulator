@@ -582,6 +582,25 @@ class OpenSpaceTests(unittest.TestCase):
             self.assertFalse(login_stub.inside_a_house(p))        # an empty plot is open ground
 
 
+class ChunkArrivalTests(unittest.TestCase):
+    def test_label_before_centre(self):
+        import login_stub, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "bin", "Resources", "Texts"))
+            with open(os.path.join(d, "bin", "Resources", "Texts", "PoINames.txt"), "w", encoding="latin-1") as f:
+                f.write('PoIName="Lomshir [10-20]" ChunkX=-15 ChunkY=-9 X=1 Y=2 Z=3 PoIRank=1\n'
+                        'PoIName="Lomshir" ChunkX=-15 ChunkY=-9 X=19045 Y=-14894 Z=7428 PoIRank=1\n')
+            saved = dict(login_stub._ARRIVALS)
+            login_stub._ARRIVALS.clear()
+            try:
+                with unittest.mock.patch.object(login_stub, "ARGS", types.SimpleNamespace(client_dir=d)):
+                    self.assertEqual(login_stub.chunk_arrival(-15, -9), (19045.0, -14894.0))   # the town label
+                    self.assertEqual(login_stub.chunk_arrival(5, 5), (0.0, 0.0))
+            finally:
+                login_stub._ARRIVALS.clear()
+                login_stub._ARRIVALS.update(saved)
+
+
 class QuestWhereTests(unittest.TestCase):
     def test_turn_in_npc_place(self):
         import login_stub, tempfile

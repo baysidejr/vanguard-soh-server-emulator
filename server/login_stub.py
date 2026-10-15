@@ -8,6 +8,7 @@ import argparse
 import json
 import math
 import os
+import re
 import random
 import select
 import socket
@@ -1836,7 +1837,7 @@ def gm_command(state, args, event, data):
         cx, cy = struct.unpack_from("<ii", data)
         # The client's /chunk already sent the ordinary chunk change (0x9) before this.
         if (cx, cy) != tuple(getattr(player, "chunk", None) or DEFAULT_CHUNK) and not state.get("handoff"):
-            travel_to_chunk(state, args, cx, cy, 0.0, 0.0)
+            travel_to_chunk(state, args, cx, cy, *chunk_arrival(cx, cy))
     elif event in (GM_GOTO, GM_SUMMON, GM_SUMMON_GROUP):
         name = social.read_name(data).strip()
         other = ONLINE.get(name.lower())
@@ -6568,8 +6569,30 @@ def chunk_handoff(state, payload, args):
     x = max(-edge, min(edge, loc[0] - dx * CHUNK_SIZE))
     y = max(-edge, min(edge, loc[1] + dy * CHUNK_SIZE))
     if abs(dx) > 1 or abs(dy) > 1:
-        x = y = 0.0                 # not a walk across an edge (a GM /chunk jump): the centre
+        x, y = chunk_arrival(cx, cy)    # not a walk across an edge (a GM /chunk jump)
     travel_to_chunk(state, args, cx, cy, x, y)
+
+
+_ARRIVALS = {}
+
+
+def chunk_arrival(cx, cy):
+    """Where a jump into a chunk lands: the chunk's map label from the client's PoINames.txt (a
+    plain town label before a "[levels]" one), else the centre (which can be off the terrain)."""
+    if not _ARRIVALS:
+        path = os.path.join(ARGS.client_dir if ARGS else "", "bin", "Resources", "Texts", "PoINames.txt")
+        try:
+            data = open(path, "rb").read()
+            text = data.decode("utf-16") if data[:2] in (b"\xff\xfe", b"\xfe\xff") else data.decode("latin-1")
+        except OSError:
+            text = ""
+        for m in re.finditer(r'PoIName="([^"]*)" ChunkX=(-?\d+) ChunkY=(-?\d+) X=(-?\d+) Y=(-?\d+)', text):
+            key = (int(m.group(2)), int(m.group(3)))
+            plain = "[" not in m.group(1)
+            if key not in _ARRIVALS or (plain and not _ARRIVALS[key][0]):
+                _ARRIVALS[key] = (plain, (float(m.group(4)), float(m.group(5))))
+        _ARRIVALS.setdefault(None, (False, (0.0, 0.0)))
+    return _ARRIVALS.get((cx, cy), (False, (0.0, 0.0)))[1]
 
 
 def travel_to_chunk(state, args, cx, cy, x, y, z=None):

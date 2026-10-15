@@ -83,6 +83,8 @@ Content: 75 regions hold 1,152 NPCs imported from the archive (36 riftway destin
 
 ## Done
 
+- 2026-10-15: GM chunk jumps (!chunk, /chunk) land at the chunk's map label instead of its centre (which can be off the terrain: the camp chunk centre gave z -20320). Unit test ChunkArrivalTests.
+
 - 2026-10-15: 31 more riftway destinations opened at their zone map labels (36 of 39 open), each with a brazier; Wildgrowth Forest lands at our outpost. Seen live: camp -> Wildgrowth -> Lomshir -> camp.
 
 - 2026-10-15: Imported merchants (41 placed) sell the placeholder stock general_goods, since the archive has no wares.
