@@ -206,6 +206,7 @@ Start the server with `python login_stub.py --dev-commands`, then type these in 
 | `!spawn <mob key> [wander]`, `!despawn` | Builder mode: place a mob at your feet and save it to the chunk's spawn file; remove the targeted one |
 | `!wander <radius>`, `!respawn <seconds>`, `!path add` / `!path clear` | Builder mode: change the targeted spawned NPC (saved) |
 | `!undo` | Builder mode: take back your last builder change |
+| `!mobs [filter]` | Builder mode: list mobs.json keys and names for `!spawn` (props and service NPCs too) |
 | `!wound <part 0-4> <severity 0-4>` | Set a wound (0 head, 1 torso, 2 left arm, 3 right arm, 4 legs) |
 | `!guildcreate`, `!bankput`/`!bankget`, `!wear [n]`, `!ctext` | Guild, bank, durability and combat-text tests |
 | `!item`, `!stat`, `!upd`, `!event`, `!chat`, `!sys`, `!exec` | Send raw messages (see `dev_command` in `login_stub.py`) |

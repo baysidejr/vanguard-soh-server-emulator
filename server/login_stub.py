@@ -3400,7 +3400,7 @@ def build_despawn(state, args):
 # (`python storage.py set <character> access_level N`, docs/HOSTING.md) may use the in-game
 # builder and the lookups it needs on any server; every other ! command still needs
 # --dev-commands.
-BUILDER_COMMANDS = {"spawn", "despawn", "wander", "respawn", "path", "undo", "npclist", "tp", "target"}
+BUILDER_COMMANDS = {"spawn", "despawn", "wander", "respawn", "path", "undo", "mobs", "npclist", "tp", "target"}
 BUILDER_LEVEL = 1
 
 
@@ -9648,6 +9648,17 @@ def dev_command(text, player=None):
     if words[0] == "path" and len(words) >= 2 and words[1] in ("add", "clear") and player:
         # !path add (your position as the next waypoint) / !path clear: builder mode.
         return [("build_edit", "path " + words[1], None)]
+    if words[0] == "mobs" and player:
+        # !mobs [filter]: builder mode, list mobs.json keys (and names) to use with !spawn.
+        want = " ".join(words[1:]).lower()
+        rows = [f"{k} ({m.get('name', k)})" for k, m in sorted(ARGS.content.mobs.items())
+                if isinstance(m, dict) and (want in k.lower() or want in str(m.get("name", "")).lower())]
+        shown = rows[:30]
+        lines = [build_system_text(f"{len(rows)} mob template(s){' matching ' + repr(want) if want else ''}:", SYSTEM_TEXT_WHITE)]
+        lines += [build_system_text("  " + r, SYSTEM_TEXT_WHITE) for r in shown]
+        if len(rows) > len(shown):
+            lines.append(build_system_text(f"  ... and {len(rows) - len(shown)} more; add a filter.", SYSTEM_TEXT_WHITE))
+        return lines
     if words[0] == "undo" and player:
         # !undo: builder mode, take back your last !spawn / !despawn / !wander / !respawn / !path.
         return [("build_undo",)]
