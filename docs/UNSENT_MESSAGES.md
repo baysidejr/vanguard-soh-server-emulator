@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 496 of them (68%)
 
 | Category | Count |
 |---|---|
-| optional | 112 |
-| variant | 48 |
+| optional | 107 |
+| variant | 49 |
 | content | 29 |
-| no-op | 19 |
+| no-op | 21 |
+| blocked | 10 |
 | debug | 8 |
-| blocked | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%). Still open: 112 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 613 of 720 (85%). Still open: 107 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -53,7 +53,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x118 | MsgThreeInts | i32, i32, i32 | optional | class display flags {3 x i32} (ClassShowsSpellDamage / HealingBonus) for the character sheet |
+| 0x118 | MsgThreeInts | i32, i32, i32 | no-op | class display flags {3 x i32} (ClassShowsSpellDamage / ClassShowsHealingBonus): no shipped UI file reads these game vars (searched VGUIAssets, 2026-10-15) |
 | 0x119 | MsgThreeInts | i32, i32, i32 | optional | adventuring / crafting / diplomacy levels {3 x i32} (nAdvLevelSelf...); levels reach the client through MsgScore today |
 | 0x11a | MsgSingleBool | bool8 | optional | bUse250System {bool8}: switches the weapon tooltip and character-sheet haste / dual-wield figures to an alternate formula (FUN_005e1510) [decoded 2026-10-14] |
 | 0x272 | MsgStringAndInt | wstr, i32 | content | raid lockout share offer (Accept / Decline -> /lockoutaccept 0x273); no raid lockouts here |
@@ -78,7 +78,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%).
 | 0x62e | MsgSingleInt | i32 | no-op | {i32} ServerId for the screenshot upload XML (FUN_005e1260) [decoded 2026-10-14] |
 | 0x689 | MsgSendSingleSGOString | wstr | variant | {wstr}: raw text as chat type 0x39 (the client's own system line); 0x192 covers it (FUN_005e4f90) [decoded 2026-10-14] |
 | 0x6e2 | - |  | no-op | the dispatcher returns at once |
-| 0x723 | MsgTwoInts | i32, i32 | optional | "You lost a level, your %s level is now %d." {sphere, level}; this server never takes levels away |
+| 0x723 | MsgTwoInts | i32, i32 | blocked | "You lost a level, your %s level is now %d." {sphere, level}; this server never takes levels away |
 | 0x726 | (raw) |  | blocked | trial-account feature popup (mail, housing...); never send |
 | 0x728 | MsgTwoFloats | f32, f32 | optional | {f32, f32}: the camera field of view in degrees (seen live: 0.5 magnifies hugely, 500 is an extreme wide angle, 85 is normal); a zoom for scripted moments or a spyglass [decoded 2026-10-14] |
 | 0x75d | MsgSingleItemInfo | bool8, i32, wstr, wstr, wstr, wstr, i32, i32, i32, 2 x [i32], 2 x [i32], i32, i32, i32, i32, i32, 4 x [i32], 4 x [wstr], 2 x [wstr], wstr, wstr, wstr, wstr, wstr, i32, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, wstr, i32, i32, i32, i32, i32, i32, i32, u8, i32, i32, f32, f32, i32, i32, i32, i32, i32, i32, f32, f32, u8, u8, u8, u8, i32, i32, i32, i32, u8, u8, u8, u8, u8, u8, i32, i32, i32, i32, i32, i32, f32, bool8, bool8, bool8, 3 x [wstr], i32 | variant | MsgSingleItemInfo: updates an existing item in place without a UI refresh; the server resends 0x197 (FUN_005e4ed0) [decoded 2026-10-14] |
@@ -287,7 +287,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x11c | MsgSingleInt | i32 | optional | crafting trade for the journal (nJournalAssemblyTrade, strCraftingTradeSelf) |
+| 0x11c | MsgSingleInt | i32 | no-op | {i32 trade}: sets nJournalAssemblyTrade / strCraftingTradeSelf and refreshes the recipe trees (FUN_005a8f50); no shipped UI file reads those game vars (searched 2026-10-15) |
 | 0x2f0 | MsgLearnedCraftingRecipe | wstr, i32, i32, i32 | variant | learned refining recipe line ("Refining recipe added:"); the server uses 0x2ef |
 | 0x2f1 | (none) |  | optional | recipe tree refresh signal (RefiningRecipeTree, FinishingRecipeTree) |
 | 0x2f3 | MsgAddCraftingRecipe | wstr, wstr, i32 x9, bool8, bool8, i32, 4 x [wstr]  (followed by N x MsgCraftingRecipeAction, N = field@0x50) | variant | full recipe definition (MsgAddCraftingRecipe + actions); the server sends recipes with 0x2ee / 0x2ef |
@@ -299,7 +299,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%).
 | 0x301 | - |  | no-op | the dispatcher returns at once |
 | 0x305 | MsgTwoInts | i32, i32 | optional | crafting inventory slots used {i32, i32}; this server has no crafting inventory step |
 | 0x306 | (none) |  | content | "You have mastered this recipe." (recipe mastery) |
-| 0x312 | (none) |  | optional | "Primary / Secondary crafting trade set." (crafting trade choice) |
+| 0x312 | (none) |  | blocked | "Secondary crafting trade set.": this server has one crafting trade per character (0x311 primary) |
 
 ## FUN_005d8ef0 (travel journal): 4
 
@@ -382,7 +382,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 608 of 720 (84%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x389 | MsgSingleByte | u8 | optional | login rename rejected ("That name was not accepted"); renames go through the service item |
+| 0x389 | MsgSingleByte | u8 | variant | login rename rejected ("That name was not accepted"); renames go through the Character Rename service item (0x5d4) |
 
 ## FUN_0058b870: 1
 

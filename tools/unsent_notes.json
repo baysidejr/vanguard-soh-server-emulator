@@ -171,8 +171,8 @@
       "{i32 handle, wstr}: sets item field 5; nothing reads it but item copies (inferred) (FUN_00506230) [decoded 2026-10-14]"
     ],
     "0x118": [
-      "optional",
-      "class display flags {3 x i32} (ClassShowsSpellDamage / HealingBonus) for the character sheet"
+      "no-op",
+      "class display flags {3 x i32} (ClassShowsSpellDamage / ClassShowsHealingBonus): no shipped UI file reads these game vars (searched VGUIAssets, 2026-10-15)"
     ],
     "0x119": [
       "optional",
@@ -271,7 +271,7 @@
       "{wstr}: raw text as chat type 0x39 (the client's own system line); 0x192 covers it (FUN_005e4f90) [decoded 2026-10-14]"
     ],
     "0x723": [
-      "optional",
+      "blocked",
       "\"You lost a level, your %s level is now %d.\" {sphere, level}; this server never takes levels away"
     ],
     "0x726": [
@@ -759,8 +759,8 @@
       "\"Primary / Secondary crafting trade set.\" (crafting trade choice)"
     ],
     "0x312": [
-      "optional",
-      "\"Primary / Secondary crafting trade set.\" (crafting trade choice)"
+      "blocked",
+      "\"Secondary crafting trade set.\": this server has one crafting trade per character (0x311 primary)"
     ],
     "0x1ea": [
       "variant",
@@ -831,8 +831,8 @@
       "{i32 quest id, f32 seconds left}: quest timer; needs timed quests (FUN_00592b70) [decoded 2026-10-14]"
     ],
     "0x11c": [
-      "optional",
-      "crafting trade for the journal (nJournalAssemblyTrade, strCraftingTradeSelf)"
+      "no-op",
+      "{i32 trade}: sets nJournalAssemblyTrade / strCraftingTradeSelf and refreshes the recipe trees (FUN_005a8f50); no shipped UI file reads those game vars (searched 2026-10-15)"
     ],
     "0x2f0": [
       "variant",
@@ -1051,8 +1051,8 @@
       "harvesting skill tooltip data for the character window {i32, i32}"
     ],
     "0x389": [
-      "optional",
-      "login rename rejected (\"That name was not accepted\"); renames go through the service item"
+      "variant",
+      "login rename rejected (\"That name was not accepted\"); renames go through the Character Rename service item (0x5d4)"
     ],
     "0x564": [
       "optional",
