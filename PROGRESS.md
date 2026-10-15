@@ -10,6 +10,7 @@ Look for more character-window values the server knows but leaves empty (Stats t
 
 ## Last test results
 
+- 2026-10-15 (after crafting trade, skills tab, skill buttons): tools/check_all.py --client 7 of 7 passed (unit 189, scenarios, load p95 11.6 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after harvesting tab, crits, def-target panel): tools/check_all.py --client 7 of 7 passed (unit 186, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after attribute points, outposts, loot buttons, group casts): tools/check_all.py --client 7 of 7 passed (unit 183, scenarios 9/9, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-14 (soak): 50 bots for 10 minutes: memory flat at 205 MB, 17% of a core, ping p95 11.1 ms, no errors (docs/TESTING.md).
