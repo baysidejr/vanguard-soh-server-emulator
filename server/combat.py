@@ -618,7 +618,11 @@ def chase_step(npc, target, dt, rng=random, now=None):
         return move_toward(npc, away, dt, NPC_SPEED * FLEE_SPEED, 1.0)
     if npc.aggro and target is not None:
         if math.hypot(npc.location[0] - npc.home[0], npc.location[1] - npc.home[1]) > LEASH:
+            # Leashed (evading): it forgets who it was fighting and heals when it gets home.
             npc.aggro, npc.aggro_on, npc.wander_goal = False, None, npc.home
+            npc.hate.clear()
+            npc.evading = True
+            print(f"  {npc.name} gives up the chase and returns home")
         else:
             return move_toward(npc, target, dt, NPC_SPEED, MELEE_RANGE)
     if npc.wander_goal is not None:
@@ -627,6 +631,11 @@ def chase_step(npc, target, dt, rng=random, now=None):
         if not npc.moving:
             pause = npc.path_pause if npc.path else rng.uniform(*WANDER_PAUSE)
             npc.wander_goal, npc.next_wander = None, now + pause
+            if getattr(npc, "evading", False):
+                npc.evading = False
+                npc.health = npc.max_health
+                values = dict(values or {}, Health=npc.max_health)
+                print(f"  {npc.name} is back home at full health")
         return values
     if npc.path and now >= npc.next_wander:
         npc.wander_goal = tuple(npc.path[npc.path_index])

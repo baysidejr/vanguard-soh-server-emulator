@@ -969,6 +969,24 @@ class LeashTests(unittest.TestCase):
         p.live_position = (100.0, 0.0, 0.0)
         self.assertIs(c.proximity_aggro(npc, [p]), p)
 
+    def test_leash_forgets_and_heals_at_home(self):
+        c = login_stub.combat
+        npc = c.Npc(1, "Ashen Wolf", None, "x", max_health=100, location=(0.0, 0.0, 0.0))
+        npc.blocked = None
+        p = mock.Mock(char_id=5, health=10)
+        npc.health, npc.aggro, npc.aggro_on = 40, True, p
+        npc.hate = {5: (p, 30)}
+        npc.location = (c.LEASH + 10.0, 0.0, 0.0)
+        c.chase_step(npc, (c.LEASH + 400.0, 0.0, 0.0), 0.5)
+        self.assertEqual((npc.aggro, npc.hate), (False, {}))
+        out = None
+        for _ in range(100):
+            out = c.chase_step(npc, None, 0.5) or out
+            if npc.health == 100:
+                break
+        self.assertEqual(npc.health, 100)
+        self.assertEqual(out.get("Health"), 100)
+
 
 class PetDefaultTests(unittest.TestCase):
     def test_toggle_ids(self):
