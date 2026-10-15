@@ -77,6 +77,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Run-together class ability names: tools/ability_names.py adds a word-split pass (vocabulary from VGClient.int and the archive, pieces of 3+ letters seen 20+ times) for tags the archive does not spell: 115 more names re-spaced (386 in all), marked "word split".
+
 - 2026-10-15: Parley offer line 0x321 decoded and sent: the parley option shows the text over "<Type> <expression icons> : <number>" (Orin: "Let's talk business." / "Entertain ... : 10"; diplomacy.json `offer`, `presence`); clicking still starts the parley (seen live). Unit test ParleyTests.test_offer_record. Also traced 0x11d (blocked), 0x27c/0x27d (damage distribution, content), 0x2c6 (variant).
 
 - 2026-10-15: Re-checked quest sharing with two clients: `/sharequest <name>` (no journal selection) offered Wolves at the Edge to Justins, who accepted it away from the giver. QUESTS.md's stale "not yet tried" line fixed. Both characters' quests restored afterwards.
