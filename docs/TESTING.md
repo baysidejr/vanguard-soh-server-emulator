@@ -132,6 +132,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Die to a Canyon Widow: it walks home and heals instead of standing over the corpse
 - [ ] Summon Ashfang (Wolf Whistle): it uses Savage Bite on its own; right-click the bite on the pet bar: the green "+" goes away ("will no longer"), right-click again brings it back
 - [ ] ✦ Duel to 1 HP; a challenge times out after 30 s
+- [ ] Hit an Ashen Wolf below 20% health: "Ashen Wolf turns to flee!", it runs for a few seconds and comes back
 
 **Items**
 - [ ] Loot a corpse; buy and sell from Orin; buyback tab; repair
@@ -145,6 +146,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Right-click 4+ Copper Ore: the Conversion window turns them into a Copper Ingot
 - [ ] Salvage Kit: right-click, click a Rusted Dagger, Resource gives a Copper Ingot
 - [ ] Brass Spyglass zooms the camera in and out
+- [ ] Right-click the Thestran Riding Horse inside your house: "You need more open space around you to do that."; outside it summons
 
 **Quests and NPCs**
 - [ ] Wanderer Trouble: offer, tracker, kill counts, pick a reward
@@ -154,7 +156,9 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Character window, Diplomacy - Factions tab: the factions under Other Factions; `!faction 1005 250` unlocks a prestige faction
 - [ ] Wildgrowth Forest (`!tp -223200 29400 3500`): Elara's two quests, the Forester's Cloak
 - [ ] Conversation trees, faction colors on name plates, `/showfactions`
+- [ ] Thestran Guard, "Any dangers I should know about?", then the quest reply: the Wanderer Trouble page (offer for a new character, progress if taken)
 - [ ] Win and lose a parley; a parley win unlocks the Thestran Guard's new line
+- [ ] Orin's parley option reads "Let's talk business." over "Entertain [icons] : 10"
 - [ ] `/decksave 1`, `/deckclear`, `/deckload 1` re-slot the strategy bar
 
 **Crafting and gathering**
