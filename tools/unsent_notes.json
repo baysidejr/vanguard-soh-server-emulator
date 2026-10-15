@@ -119,8 +119,8 @@
       "item attachment slot (MsgItemAttachSlot); attachments are content"
     ],
     "0x1df": [
-      "optional",
-      "container label update {wstr, i32} (InventoryContainerID_)"
+      "variant",
+      "{wstr name, i32 handle} (FUN_00509660): renames an item in place (seen live 2026-10-15: the Brass Spyglass's tooltip read \"Old Captain's Glass\"); the server resends the item record instead"
     ],
     "0x1e0": [
       "variant",

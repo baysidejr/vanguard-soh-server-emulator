@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 504 of them (70%)
 
 | Category | Count |
 |---|---|
-| optional | 91 |
-| variant | 52 |
+| optional | 90 |
+| variant | 53 |
 | content | 31 |
 | no-op | 24 |
 | blocked | 10 |
 | debug | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 629 of 720 (87%). Still open: 91 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 630 of 720 (87%). Still open: 90 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 29
 
@@ -40,7 +40,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 629 of 720 (87%).
 | 0x1dc | MsgInvItemBaseDataUpdate | i32, i32, i32, i32, i32, u8, f32, f32, i32, i32, i32, u8, bool8, wstr, i32, i32, 3 x [wstr, wstr, wstr, i32], i32, i32, 3 x [wstr, wstr, wstr], i32, 3 x [wstr, wstr, wstr], wstr, i32, i32, i32, 3 x [i32] | variant | item base data update (damage, AC, level); the server resends the record |
 | 0x1dd | MsgItemMod | i32, i32, i32, i32, i32, bool8, i32, i32, i32, i32, wstr, wstr | content | item mod (MsgItemMod); item modifications are content |
 | 0x1de | MsgItemAttachSlot | i32, i32, i32, i32, i32, bool8, wstr, wstr, wstr, wstr, wstr | content | item attachment slot (MsgItemAttachSlot); attachments are content |
-| 0x1df | MsgStringAndInt | wstr, i32 | optional | container label update {wstr, i32} (InventoryContainerID_) |
+| 0x1df | MsgStringAndInt | wstr, i32 | variant | {wstr name, i32 handle} (FUN_00509660): renames an item in place (seen live 2026-10-15: the Brass Spyglass's tooltip read "Old Captain's Glass"); the server resends the item record instead |
 | 0x1e0 | MsgStringAndInt | wstr, i32 | variant | {wstr, i32 handle}: replaces item field 69 (extra tooltip text); the server resends the item instead (FUN_00509800) [decoded 2026-10-14] |
 | 0x1e1 | MsgSingleInt | i32 | content | vehicle name field (_inventory_name_vehicle); vehicles (boats) are content |
 | 0x1e2 | MsgSendSingleSGOString | wstr | content | "Your vehicle is now called %s." |
