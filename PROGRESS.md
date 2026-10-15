@@ -28,7 +28,7 @@ Alternate advancement (AA): an agent is decoding the protocol (0x85d-0x861 serve
 ## Remaining work
 
 1. **Crowdsourced import:** blocked on data (IMPORT_READINESS.md: 16 items and 13 quests convert cleanly out of ~10,000 records). Possible code work: an ability converter; offering candidate quest steps as reviewable proposals.
-2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 584 of 720 sent or not needed (81%); open: 136 optional features, no undecoded handlers left.
+2. **Server messages:** done sorting (docs/UNSENT_MESSAGES.md): 585 of 720 sent or not needed (81%); open: 135 optional features, no undecoded handlers left.
 3. **Race and class pass:** done (docs/TESTING.md): all 19 races and 15 classes enter the world; first abilities work. Ability names re-spaced from the archive (271 of them, tools/ability_names.py); 8 with conflicting archive spellings left as they were.
 4. **Bags and items in game:** done: move, stack, split, destroy, equip and bags verified live (docs/INVENTORY.md); the shipped inventory window has no sort.
 5. **Production readiness:** database done (SQLite); load test done (tools/loadtest.py: 100 players moving in one spot at 62% of a core, docs/TESTING.md). Reliable resends: done. Capacity: ~200 moving players per zone spread out, ~150 in one spot (docs/TESTING.md). TLS for the launcher: done.

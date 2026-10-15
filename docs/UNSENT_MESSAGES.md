@@ -6,14 +6,14 @@ The client handles 720 zone messages; the server code mentions 468 of them (65%)
 
 | Category | Count |
 |---|---|
-| optional | 136 |
+| optional | 135 |
 | variant | 48 |
 | content | 34 |
-| no-op | 18 |
+| no-op | 19 |
 | debug | 8 |
 | blocked | 8 |
 
-Sent, or not needed (variant, no-op, debug, blocked, content): 584 of 720 (81%). Still open: 136 optional features and 0 undecoded handlers (0 not reviewed).
+Sent, or not needed (variant, no-op, debug, blocked, content): 585 of 720 (81%). Still open: 135 optional features and 0 undecoded handlers (0 not reviewed).
 
 ## FUN_00513250 (inventory): 31
 
@@ -213,7 +213,7 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 584 of 720 (81%).
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
 | 0x68a | MsgSendSingleSGOString | wstr | variant | {wstr}: text in group chat colour (channel 8) (FUN_004d7dd0) [decoded 2026-10-14] |
-| 0x68e | MsgEntityIDAndByte | eid64, u8 | optional | group member list flag {eid64, u8} (GroupMemberList) |
+| 0x68e | MsgEntityIDAndByte | eid64, u8 | no-op | group member phy_sta {eid64, u8} (row +0x5c): seen live 2026-10-14, sending 40 changed nothing in the shipped group window |
 | 0x690 | MsgGroupMemberNewEntityId | eid64, eid64 | no-op | group member's entity id changed {old eid64, new eid64}; player entity ids are stable across chunks here |
 | 0x69f | MsgSingleEntityId | eid64 | variant | {eid64}: sets the group id only, nothing visible; 0x6b2 / 0x6d7 already set it (FUN_004d4940) [decoded 2026-10-14] |
 | 0x6a0 | (none) |  | variant | YouJoinedGroup signal; the server joins the player through 0x6bb rows |
