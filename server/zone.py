@@ -423,7 +423,7 @@ def score_message(player, probe=False):
         dip_level=sphere(player, DIPLOMACY)[0],
         craft_exp=sphere(player, CRAFTING)[1], craft_exp_frac=sphere(player, CRAFTING)[1] / SPHERE_XP_PER_LEVEL,
         dip_exp=sphere(player, DIPLOMACY)[1], dip_exp_frac=sphere(player, DIPLOMACY)[1] / SPHERE_XP_PER_LEVEL,
-        movement_mode=getattr(player, "movement_mode", 2), move_speed=1.0, craft_trade=0xFF,
+        movement_mode=getattr(player, "movement_mode", 2), move_speed=1.0, craft_trade=getattr(player, "craft_trade", 0xFF),
         aa_points=getattr(player, "aa_points", 0), aa_spent=getattr(player, "aa_spent", 0),
         aa_exp=getattr(player, "aa_xp", 0), aa_exp_frac=getattr(player, "aa_xp", 0) / 1000.0,
         attack=-float(combat.auto_attack_damage(player)[0]), attack_max=-float(combat.auto_attack_damage(player)[1]),
@@ -840,6 +840,7 @@ def stat_messages(player):
     import attributes
     craft_alloc = getattr(player, "craft_alloc", None) or {}
     recs += attributes.craft_records(craft_alloc)
+    recs += attributes.craft_skill_records(sphere(player, CRAFTING)[0])
     recs += harvest_records(player)
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
@@ -915,10 +916,13 @@ SKILL_CAP = 50
 # minus the skill points spent in the group (PCPoolAdv<Group> = max - spent, FUN_0056b8xx);
 # without 0x2d6 the maximum is 0 and the headers read -85, -90, ... 0x2d6 MsgSkillPoolCaps
 # {12 x i32} (FUN_0056e500): 0 weapon types, 1 spell schools, 2 combat, 3 perception, 4 general,
-# 5 weapon specialization, 6-7 harvesting, 8-11 crafting. The maximum here is SKILL_CAP for every
-# skill in the group (placeholder), so a header shows how much the group can still grow.
+# 5 weapon specialization; for the chosen crafting trade 6 finishing, 7 specializations,
+# 8 refining, 9 general refining; 10-11 harvesting (inferred). The maximum here is SKILL_CAP for
+# every skill in the group (placeholder), so a header shows how much the group can still grow.
 SKILL_POOL_CAPS = 0x2D6
 POOL_OF_SUBTYPE = {0: 0, 9: 1, 4: 2, 7: 3, 0x1E: 4, 2: 5}
+# crafting skill subtypes per trade: (general refining, refining, specialization, finishing)
+TRADE_SUBTYPES = {0: (0x05, 0x0A, 0x06, 0x0B), 2: (0x18, 0x0E, 0x19, 0x0F), 4: (0x1C, 0x12, 0x1D, 0x13)}
 
 
 def skill_pool_caps(player):
@@ -927,6 +931,12 @@ def skill_pool_caps(player):
         pool = POOL_OF_SUBTYPE.get(subtype)
         if pool is not None:
             caps[pool] += SKILL_CAP
+    import attributes
+    general, refining, special, finishing = TRADE_SUBTYPES.get(getattr(player, "craft_trade", 0xFF), (None,) * 4)
+    for _sid, sub in attributes.CRAFT_SKILLS:
+        for field, want in ((9, general), (8, refining), (7, special), (6, finishing)):
+            if sub == want:
+                caps[field] += SKILL_CAP
     return zone_event(SKILL_POOL_CAPS, struct.pack("<12i", *caps))
 
 # Starter inventory: (item id, name, icon, quantity). Icons are the numbered

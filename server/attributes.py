@@ -80,6 +80,28 @@ def allocate(name, mode, level, alloc, category=ADVENTURING):
     return n, raised + order.index(name)
 
 
+# Crafting skills on the crafting Skills tab (verified live 2026-10-15): category 1, kind 2 stat
+# records; the subtype (wire field 12, stat +0x48) picks the list (FUN_005570d0 jump table at
+# 0x557898), the stat id the name (FUN_00573070, category 1 table at 0x574560).
+# (stat id, subtype): blacksmith refining parent 5 / skills 0xa, finishing parent 6 / skills 0xb;
+# artificer 0x18 / 0xe, 0x19 / 0xf; outfitter 0x1c / 0x12, 0x1d / 0x13.
+CRAFT_SKILLS = (
+    (231, 0x05), (40, 0x0A), (123, 0x0A), (135, 0x0A), (252, 0x0A), (228, 0x0A), (105, 0x0A),
+    (148, 0x06), (180, 0x0B), (64, 0x0B),
+    (120, 0x18), (100, 0x0E), (87, 0x0E), (177, 0x0E), (150, 0x0E), (35, 0x0E), (171, 0x0E), (4, 0x0E),
+    (113, 0x19), (108, 0x0F),
+    (126, 0x1C), (200, 0x12), (101, 0x12), (95, 0x12), (179, 0x12), (62, 0x12), (235, 0x12),
+    (39, 0x1D), (26, 0x13), (130, 0x13),
+)
+CRAFT_SKILL_PER_LEVEL = 5          # placeholder: crafting skills follow the crafting level
+
+
+def craft_skill_records(level):
+    import vgmsg
+    v = CRAFT_SKILL_PER_LEVEL * max(1, level)
+    return [vgmsg.stat_info(sid, v, category=CRAFTING, kind=2, subtype=sub, maximum=v) for sid, sub in CRAFT_SKILLS]
+
+
 def craft_records(alloc):
     """0x2d5 stat records (category 1, attribute) of the crafting attributes."""
     import vgmsg

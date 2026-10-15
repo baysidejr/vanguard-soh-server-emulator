@@ -1,5 +1,5 @@
 {
-  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item>}] (at most 5)}}}. A response with neither goto nor action ends the conversation. \"requires_flag\": a flag the player must have earned (a parley reward \"flag\") before the response shows. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
+  "_comment": "NPC conversations (docs/QUESTS.md 'Conversations'). mob template id: {start: node, nodes: {node: {text, responses: [{text, goto: node} or {text, action: end | wares | faction:<id>:<amount> | give:<item> | trade:blacksmith|outfitter|artificer (sets the crafting trade)}] (at most 5)}}}. A response with neither goto nor action ends the conversation. \"requires_flag\": a flag the player must have earned (a parley reward \"flag\") before the response shows. faction and give rewards are paid once per character. Placeholder data (docs/CONTENT_EDITOR.md).",
   "wastes_thestran_guard": {
     "start": "hello",
     "nodes": {
@@ -61,6 +61,70 @@
           },
           {
             "text": "Back to my questions.",
+            "goto": "hello"
+          }
+        ]
+      }
+    }
+  },
+  "camp_recipe_trainer": {
+    "start": "hello",
+    "nodes": {
+      "hello": {
+        "text": "Every crafter in this camp started at my forge. Have you settled on a trade yet?",
+        "responses": [
+          {
+            "text": "I'll work metal. (Blacksmith)",
+            "goto": "blacksmith"
+          },
+          {
+            "text": "I'll work cloth and leather. (Outfitter)",
+            "goto": "outfitter"
+          },
+          {
+            "text": "I'll work wood and stone. (Artificer)",
+            "goto": "artificer"
+          },
+          {
+            "text": "Not yet."
+          }
+        ]
+      },
+      "blacksmith": {
+        "text": "Armor and weapons, then. The forge will teach you patience.",
+        "responses": [
+          {
+            "text": "I'm sure. (Become a Blacksmith)",
+            "action": "trade:blacksmith"
+          },
+          {
+            "text": "Let me think again.",
+            "goto": "hello"
+          }
+        ]
+      },
+      "outfitter": {
+        "text": "Tailors and leatherworkers keep this camp clothed.",
+        "responses": [
+          {
+            "text": "I'm sure. (Become an Outfitter)",
+            "action": "trade:outfitter"
+          },
+          {
+            "text": "Let me think again.",
+            "goto": "hello"
+          }
+        ]
+      },
+      "artificer": {
+        "text": "Carpentry and stonework. Someone has to build the camp.",
+        "responses": [
+          {
+            "text": "I'm sure. (Become an Artificer)",
+            "action": "trade:artificer"
+          },
+          {
+            "text": "Let me think again.",
             "goto": "hello"
           }
         ]

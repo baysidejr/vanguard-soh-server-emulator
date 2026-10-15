@@ -220,4 +220,20 @@ The Attributes tab of the character window shows "Allocation Points" and a **+**
 
 ## Skill group headers (verified live 2026-10-15)
 
-On the Skills tab each group header (Weapon Types, Combat, Perception and Concealment, General...) shows `PCPoolAdv<Group>` = the pool's maximum minus the points in that group's skills. Without **0x2d6** MsgSkillPoolCaps the maximum is 0, so the headers showed negative numbers (-85, -90, -12). 0x2d6 is `{12 x i32}` (FUN_0056e500): 0 weapon types, 1 spell schools, 2 combat, 3 perception, 4 general, 5 weapon specialization, 6-7 harvesting, 8-11 crafting [O for 0-5, I for the rest]. The server sends the skill cap (50) for every skill in the group (`zone.skill_pool_caps`; a placeholder for the real pool rules). Seen: Weapon Types 65, Combat 60, Perception and Concealment 38, General 10, and a General header appeared that wasn't shown before.
+On the Skills tab each group header (Weapon Types, Combat, Perception and Concealment, General...) shows `PCPoolAdv<Group>` = the pool's maximum minus the points in that group's skills. Without **0x2d6** MsgSkillPoolCaps the maximum is 0, so the headers showed negative numbers (-85, -90, -12). 0x2d6 is `{12 x i32}` (FUN_0056e500): 0 weapon types, 1 spell schools, 2 combat, 3 perception, 4 general, 5 weapon specialization; for the chosen crafting trade 6 finishing, 7 specializations, 8 refining, 9 general refining; 10-11 harvesting [O for 0-9, I for 10-11]. The server sends the skill cap (50) for every skill in the group (`zone.skill_pool_caps`; a placeholder for the real pool rules). Seen: Weapon Types 65, Combat 60, Perception and Concealment 38, General 10, and a General header appeared that wasn't shown before.
+
+## Crafting trade and the crafting Skills tab (verified live 2026-10-15)
+
+The crafting Skills tab was empty. It shows the lists of the chosen trade only (visibility game vars CraTradeBlacksmith / Artificer / Outfitter = MsgScore field 43 == 0 / 2 / 4; 0xff = none), so a character with no trade sees nothing.
+- **Trade choice:** the camp's Smelting Trainer (Brenna Ashford) now asks "Have you settled on a trade yet?" (dialogs.json action `trade:blacksmith|outfitter|artificer`). Choosing one saves `craft_trade` and sends MsgScore and 0x2d6, then 0x311 ("Primary crafting trade set.") and "You are now a Blacksmith.". The header then reads "Level 2 - Dark Elf Blacksmith".
+- **Skills:** category 1, kind 2 stat records. The **subtype** (wire field 12) picks the list (FUN_005570d0, jump table 0x557898):
+
+| | General refining (parent) | Refining | Specializations (finishing parent) | Finishing |
+|---|---|---|---|---|
+| Blacksmith | 0x05 | 0x0a | 0x06 | 0x0b |
+| Artificer | 0x18 | 0x0e | 0x19 | 0x0f |
+| Outfitter | 0x1c | 0x12 | 0x1d | 0x13 |
+| (also) | 0x16/0x17 alchemist, 0x1a/0x1b gemworker parents; 0x0c/0x0d alchemist, 0x10/0x11 gemworker | | | |
+
+- **Stat ids** (names from FUN_00573070, category-1 table at 0x574560): Metallurgy 231, Smelting 40, Smelting Tools 123, Smelting Utilities 135, Forging 252, Forging Tools 228, Forging Utilities 105, Blacksmithing 148, Armor Smithing 180, Weapon Smithing 64; Mineralogy 120, Forming 100, Shaping 87, Shaping Tools 177, Shaping Utilities 150, Sculpting 35, Sculpting Tools 171, Sculpting Utilities 4, Artificing 113, Carpentry 108; Material Preparation 126, Material Processing 200, Material Processing Tools 101, Material Processing Utilities 95, Stitching 179, Stitching Tools 62, Stitching Utilities 235, Outfitting 39, Tailoring 26, Leatherworking 130. Crafting attributes: Problem Solving 42, Reasoning 151, Ingenuity 234, Finesse 239.
+- The server sends all three trades' skills at 5 per crafting level (placeholder; they don't affect crafting yet). The group headers use 0x2d6 fields 6-9 of the chosen trade. Seen: Ranger as Blacksmith, General Metal Refining 40 / Metallurgy 10, Metal Refining 240 / six skills at 10, Metal Specializations 40 / Blacksmithing 10. The -, lock and + buttons next to the skills aren't handled yet.

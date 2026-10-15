@@ -1359,3 +1359,15 @@ class SkillPoolTests(unittest.TestCase):
         eid, data = payload(zone.skill_pool_caps(p))
         caps = struct.unpack("<12i", data)
         self.assertEqual((eid, caps[0], caps[2], sum(caps)), (0x2D6, 100, 50, 150))
+
+
+class CraftSkillTabTests(unittest.TestCase):
+    def test_records_and_trade_caps(self):
+        import attributes as at
+        recs = at.craft_skill_records(2)
+        self.assertEqual(len(recs), len(at.CRAFT_SKILLS))
+        p = types.SimpleNamespace(skills=[], craft_trade=0)                  # blacksmith
+        caps = struct.unpack("<12i", payload(zone.skill_pool_caps(p))[1])
+        self.assertEqual(caps[6:10], (2 * 50, 1 * 50, 6 * 50, 1 * 50))       # finishing, special, refining, general
+        p.craft_trade = 0xFF
+        self.assertEqual(struct.unpack("<12i", payload(zone.skill_pool_caps(p))[1])[6:10], (0, 0, 0, 0))

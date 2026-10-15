@@ -6329,6 +6329,26 @@ def visible_responses(player, node):
     return [r for r in node.get("responses", []) if r.get("requires_flag") in (None, *flags)]
 
 
+# Crafting trade (verified live 2026-10-15): MsgScore field 43 (0 Blacksmith, 2 Artificer,
+# 4 Outfitter, 0xff none) shows that trade's skill lists on the crafting Skills tab
+# (CraTradeBlacksmith / Artificer / Outfitter). 0x311 (no payload) prints "Primary crafting trade
+# set.". Chosen in a crafting trainer's conversation (dialogs.json action "trade:<name>").
+CRAFT_TRADES = {"blacksmith": 0, "artificer": 2, "outfitter": 4}
+PRIMARY_TRADE_SET = 0x311
+
+
+def set_craft_trade(state, name):
+    player = state["player"]
+    if name not in CRAFT_TRADES:
+        return
+    player.craft_trade = CRAFT_TRADES[name]
+    save_character_field(player.name, "craft_trade", player.craft_trade)
+    state["send"](zone.score_message(player))
+    state["send"](zone.skill_pool_caps(player))          # the trade's group headers
+    state["send"](zone.zone_event(PRIMARY_TRADE_SET))
+    state["send"](build_system_text(f"You are now a {name.capitalize()}.", SYSTEM_TEXT_WHITE))
+
+
 def handle_dialog_response(state, data):
     """0x15b {i32 dialog index (= node position), u8 response}: follow a conversation."""
     player, send = state["player"], state["send"]
@@ -6359,6 +6379,8 @@ def handle_dialog_response(state, data):
         adjust_faction(state, fid, int(amount))
     elif action.startswith("give:"):
         give_item(state, action.split(":", 1)[1])
+    elif action.startswith("trade:"):
+        set_craft_trade(state, action.split(":", 1)[1])
     elif action == "wares" and npc.merchant:
         send(zone.zone_event(merchant.DIALOG_WARES))
     if "goto" in r:
@@ -9109,6 +9131,7 @@ def player_from_character(char, name, args):
     player.apply_form_on_death = char.get("apply_form_on_death", False)
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
     player.barding_item = char.get("barding")
+    player.craft_trade = int(char.get("craft_trade", 0xFF))
     player.attr_alloc = {k: int(v) for k, v in (char.get("attr_alloc") or {}).items() if k in attributes.ORDER}
     player.craft_alloc = {k: int(v) for k, v in (char.get("craft_alloc") or {}).items()
                           if k in attributes.CRAFT_STATS}
