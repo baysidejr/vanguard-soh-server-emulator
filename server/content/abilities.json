@@ -1,5 +1,5 @@
 {
-  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number; cast: cast time in seconds (moving interrupts). Real numbers were server data (docs/CONTENT_EDITOR.md). stance: true makes a buff a maintained stance (no timer, one stance at a time, shown in the Effects Maintained window; right-click there cancels it).",
+  "_comment": "Ability effects by ability name (overrides the keyword guess in effects.py). kind: strike (direct damage), dot {damage [min,max], ticks, interval}, heal {amount [min,max]}, buff {stat, bonus, duration}; icon: iconsTK.xml number; cast: cast time in seconds (moving interrupts). Real numbers were server data (docs/CONTENT_EDITOR.md). stance: true makes a buff a maintained stance (no timer, one stance at a time, shown in the Effects Maintained window; right-click there cancels it). general: true (with an \"id\") gives every character the ability on the ability book's General page; kinds sprint {speed, duration}, recall (to the bind point), recall_house.",
   "Adamant Foeman I": {
     "description": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
     "refresh": 30.0,
@@ -1896,5 +1896,36 @@
   "Regeneration I": {
     "description": "Increases you and your allies health regeneration.",
     "_source": "https://vgsoharchive.com/abilities/regeneration-i"
+  },
+  "Sprint": {
+    "kind": "sprint",
+    "general": true,
+    "id": 900001,
+    "speed": 1.25,
+    "duration": 45,
+    "refresh": 300,
+    "icon": 644,
+    "description": "Increases movement speed by 25% for 45 seconds",
+    "_source": "https://vgsoharchive.com/abilities/sprint"
+  },
+  "Recall": {
+    "kind": "recall",
+    "general": true,
+    "id": 900002,
+    "cast": 10,
+    "refresh": 900,
+    "icon": 595,
+    "description": "This ability returns you to your bind location.",
+    "_source": "https://vgsoharchive.com/abilities/recall"
+  },
+  "Recall to House": {
+    "kind": "recall_house",
+    "general": true,
+    "id": 900003,
+    "cast": 10,
+    "refresh": 900,
+    "icon": 595,
+    "description": "Recalls you to your House",
+    "_source": "https://vgsoharchive.com/abilities/recall-to-house"
   }
 }

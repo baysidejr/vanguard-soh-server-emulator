@@ -227,3 +227,13 @@ A heal (abilities.json `kind: heal`) lands on the targeted player if they are al
 ## Resists (2026-10-13)
 
 A harmful NPC effect (Venom Bite) is resisted 15% of the time (`effects.RESIST_CHANCE_PLAYER`) and a player's damage over time 10% (`RESIST_CHANCE_NPC`). The server sends MsgPCResistedAbilityEffect `{eid64 other, wstr ability, wstr effect}`: **0x278** when you resisted ("YouResistedAbilityEffect"), **0x279** when your target did ("EnemyResistedAbilityEffect"), and the effect isn't applied. Verified live in the Combat chat tab: "You resist the Rending Bite effect from Ashen Wolf's Rending Bite!" (the client fills a localized string; channel 0x1f).
+
+## General abilities (verified live 2026-10-15)
+
+The client's packages have no general abilities (Sprint, Recall and so on), so the server defines them in `server/content/abilities.json` as entries with `"general": true` and an `"id"` of its own (900001+). Every character gets them (`login_stub.general_abilities`), and their ability record carries wire #34 = 1, which puts them on the ability book's **General** page (rule 1 above). Kinds:
+
+- `sprint` `{speed, duration}`: GroundSpeed times `speed` (1.25) for `duration` seconds ("You start to sprint." / "You stop sprinting."), like /walk and riding.
+- `recall`: teleports to the bind point ("You return to your bind point."); 10 s cast.
+- `recall_house`: teleports beside the character's own built house, if any.
+
+Icons, descriptions and refresh times come from the VG archive (`_source` in each entry).

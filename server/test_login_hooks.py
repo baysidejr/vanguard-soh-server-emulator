@@ -596,6 +596,29 @@ class MovementCheckTests(unittest.TestCase):
         self.assertEqual(self.run_moves([(10, 0), (10.5, 100), (11.0, 9000)], teleport_at=9.0), [])
 
 
+class GeneralAbilityTests(unittest.TestCase):
+    def test_general_page_abilities(self):
+        names = [a[2] for a in login_stub.general_abilities(content.Content())]
+        self.assertEqual(names, ["Sprint", "Recall", "Recall to House"])
+
+    def test_sprint_speeds_up_then_ends(self):
+        sent = []
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        state = {"player": player, "send": sent.append}
+        spec = content.Content().abilities["Sprint"]
+        with mock.patch.object(login_stub.zone, "player_pawn_update", return_value=b"u"):
+            self.assertTrue(login_stub.general_ability(state, mock.Mock(), player, spec))
+            self.assertAlmostEqual(login_stub.ground_speed(player), login_stub.BASE_GROUND_SPEED * 1.25)
+            login_stub.sprint_tick(state, mock.Mock(), player.sprint_until + 1)
+        self.assertEqual(login_stub.ground_speed(player), login_stub.BASE_GROUND_SPEED)
+
+    def test_recall_needs_a_bind_point(self):
+        player = zone.Player(name="Tester", char_id=1, level="chunk_n19_12")
+        player.bind = None
+        state = {"player": player, "send": [].append}
+        self.assertFalse(login_stub.general_ability(state, mock.Mock(), player, {"kind": "recall"}))
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

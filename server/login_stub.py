@@ -605,6 +605,14 @@ def use_ability(state, args, player, ability):
         send(build_system_text(f"You begin to cast {name}.", SYSTEM_TEXT_COMBAT))
         return
     was_alive, attacking = player.health > 0, player.auto_attack
+    if spec["kind"] in GENERAL_KINDS:
+        if player.health <= 0:
+            send(client_notice(NOT_WHILE_DEAD))
+            return
+        if general_ability(state, args, player, spec) and refresh > 0:
+            cooldowns[handle] = now + refresh
+            send(effects.cooldown(ability[1], refresh))
+        return
     if spec["kind"] == "pet":
         # A summoning ability (abilities.json "kind": "pet", "pet": {name, race, model, level,
         # health, damage, abilities}): the same companion as a pet item; casting it again
@@ -1395,6 +1403,8 @@ def ground_speed(player):
         return BASE_GROUND_SPEED * MOUNT_SPEED
     if getattr(player, "movement_mode", 2) == 1:
         return WALK_GROUND_SPEED
+    if getattr(player, "sprint_until", 0) > time.time():
+        return BASE_GROUND_SPEED * getattr(player, "sprint_speed", 1.25)
     return BASE_GROUND_SPEED
 MOUNT_SPEED = 1.6                 # mounts run 60% faster
 
@@ -4682,6 +4692,9 @@ def world_tick(zone_sock, clients, args):
             except Exception as e:                      # a full disk must not stop the game
                 print(f"  !!! database backup failed: {e}")
     group_tick()
+    for s in list(ONLINE.values()):
+        if s.get("player") is not None and getattr(s["player"], "sprint_until", 0):
+            sprint_tick(s, args, now)
     if isinstance(getattr(args, "content", None), content.Content):
         content_reload_tick(args, now)
     housing_tick(now)
@@ -7847,6 +7860,77 @@ def handle_bank_event(state, event, data):
         save_bank(player)
 
 
+# General abilities (the ability book's General page, verified live 2026-10-15): every
+# character has abilities.json entries with "general": true and an "id" (the client's packages
+# have no such abilities, so the ids are the server's own). Their record carries wire #34 = 1,
+# which puts them on the General page (FUN_00431be0). Kinds: sprint {speed, duration} runs faster
+# for a while; recall goes to the bind point; recall_house goes to the character's house.
+GENERAL_KINDS = ("sprint", "recall", "recall_house")
+GENERAL_HANDLE_BASE = 0x6000
+
+
+def general_abilities(content):
+    """Ability tuples for the general abilities in abilities.json (sorted by id)."""
+    out = []
+    for name, spec in sorted(content.abilities.items(), key=lambda kv: str(kv[1].get("id", ""))):
+        if isinstance(spec, dict) and spec.get("general") and spec.get("id"):
+            out.append((GENERAL_HANDLE_BASE + len(out), int(spec["id"]), name, int(spec.get("icon", 443)),
+                        spec.get("description", name), float(spec.get("refresh", 0))))
+    return out
+
+
+def house_spot(player):
+    """(loc, chunk) by the character's own built house, or None."""
+    db = load_housing()
+    for pid, st in db.items():
+        plot = ARGS.content.plots.get(pid)
+        if plot and (st.get("owner") or "").lower() == player.name.lower() and st.get("building") is not None:
+            x, y = plot["loc"][0], plot["loc"][1] + 300
+            z = ARGS.content.ground_z(plot["chunk"], x, y, ARGS.client_dir) + 50
+            return (x, y, z), level_chunk(plot["chunk"])
+    return None
+
+
+def general_ability(state, args, player, spec):
+    """Use a general ability; True when it went off (so its refresh starts)."""
+    send = state["send"]
+    kind = spec["kind"]
+    if kind == "sprint":
+        player.sprint_until = time.time() + float(spec.get("duration", 45))
+        player.sprint_speed = float(spec.get("speed", 1.25))
+        state["send"](zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(player)}))
+        send(build_system_text("You start to sprint.", SYSTEM_TEXT_WHITE))
+        return True
+    if kind == "recall":
+        bind = getattr(player, "bind", None)
+        if not bind:
+            send(build_system_text("You have no bind point. Bind yourself at an altar first.", SYSTEM_TEXT_ERROR))
+            return False
+        place_player(state, args, (float(bind["loc"][0]), float(bind["loc"][1]), float(bind["loc"][2]) + 50.0),
+                     level_chunk(bind["level"]))
+        send(build_system_text("You return to your bind point.", SYSTEM_TEXT_WHITE))
+        return True
+    if kind == "recall_house":
+        spot = house_spot(player)
+        if spot is None:
+            send(build_system_text("You don't have a house to return to.", SYSTEM_TEXT_ERROR))
+            return False
+        place_player(state, args, spot[0], spot[1])
+        send(build_system_text("You return to your house.", SYSTEM_TEXT_WHITE))
+        return True
+    return False
+
+
+def sprint_tick(state, args, now):
+    player = state.get("player")
+    until = getattr(player, "sprint_until", 0) if player is not None else 0
+    if until and now >= until:
+        player.sprint_until = 0
+        if "ue" in state:
+            state["send"](zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(player)}))
+        state["send"](build_system_text("You stop sprinting.", SYSTEM_TEXT_WHITE))
+
+
 def ability_content(ability, overrides):
     """An ability tuple (handle, id, name, icon, description, refresh) with abilities.json's
     "icon", "description" and "refresh" for that name, where given (the class package only has
@@ -9219,7 +9303,7 @@ def player_from_character(char, name, args):
     player.abilities = [ability_content(a, args.content.abilities) for a in
                         (class_abilities.starting_abilities(args.client_dir, player.klass,
                                                             learned=player.learned + chain_ids)
-                         or player.abilities)]
+                         or player.abilities)] + general_abilities(args.content)
     player.chains = reactions.class_chains(args.content.chains, cname, player.abilities)
     player.counters = reactions.class_counters(args.content.counters, cname, player.abilities)
     player.rescues = reactions.class_counters(args.content.rescues, cname, player.abilities)
