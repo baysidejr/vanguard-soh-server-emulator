@@ -69,6 +69,9 @@ def is_bot_account(name):
     return name.startswith("lbot_") or name == ACCOUNT
 
 
+BOT_MAX_ITEMS = 30                # bag items copied to each bot (the bags hold 50)
+
+
 def setup(n, template_name):
     chars = storage.read_characters(CHARACTERS_FILE)
     template = next((c for c in chars + storage.read_characters(MAIN_CHARACTERS_FILE)
@@ -85,6 +88,8 @@ def setup(n, template_name):
     keep = [c for c in chars if not is_bot_account(c.get("account") or "")]
     for i in range(n):
         c = {k: v for k, v in template.items() if k not in ("id", "guild", "brotherhood", "bound", "house")}
+        # Room in the bags whatever the template carries (trades and loot need free slots).
+        c["items"] = list(template.get("items", []))[:BOT_MAX_ITEMS]
         ang = 2 * 3.14159 * i / max(n, 1)
         c.update(first=bot_name(i), last="", account=bot_account(i),
                  position=[CAMP[0] + 300 * math.cos(ang), CAMP[1] + 300 * math.sin(ang), CAMP[2]])

@@ -666,6 +666,16 @@ class EscrowTests(unittest.TestCase):
         self.assertEqual([i[1] for i in player.items][-1:], ["Tattered Cloth"])
 
 
+class LearnActionTests(unittest.TestCase):
+    def test_only_new_actions_are_announced(self):
+        r = {"id": 5, "name": "Test", "stages": [["Prep", [{"action": 11, "name": "Hammer"}, {"action": 12, "name": "Cut"}]]]}
+        sent = []
+        with mock.patch.object(login_stub.craft, "stages", return_value=r["stages"]):
+            login_stub.learn_recipe_actions(sent.append, r, {11})
+        ids = [struct.unpack_from("<I", m, 2)[0] for m in sent]
+        self.assertEqual(ids, [0x2E8, 0x2E5])
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

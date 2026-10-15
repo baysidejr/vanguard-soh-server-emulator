@@ -110,7 +110,7 @@ N x MsgCraftingRecipeAction (a recipe *step*, registration FUN_005bb080):
 ### Known crafting actions (the "abilities" the player clicks)
 **MsgCraftingActionAdd** (registration `FUN_004b5560`) `{i32 actionId, wstr name, wstr description, i32 icon, i32 family, i32 apCost}` [O].
 - **0x2e8** adds silently.
-- **0x2e5** adds and prints "<color=yellow>New action acquired: %s".
+- **0x2e5** adds and prints "<color=yellow>New action acquired: %s". The server uses it for actions learned during play (a recipe bought from a trainer, a work order's recipe) that no recipe in the book already had; seen live 2026-10-15 ("New action acquired: Heat Ingot" ... for Copper Wire). Login uses 0x2e8.
 - 0x2e7 bulk-adds `{i32 count, count × record}`.
 - 0x2e6 `{i32 id}` removes one; 0x2e4 clears all.
 

@@ -7554,16 +7554,14 @@ def handle_workorder_event(state, event, data):
                                    SYSTEM_TEXT_ERROR))
             send(workorder.select_result(wid, workorder.FAILED))
         else:
+            known = known_action_ids(player)
             set_work_order(state, key)
             send(workorder.select_result(wid, workorder.OK))
             send(workorder.active(wo_record(player, w)))
             send(workorder.needed(w))
             r = ARGS.content.recipes[w["recipe"]]
             send(craft.learn_recipe(r))
-            for n in range(len(craft.all_steps(r))):
-                send(craft.learn_action(r, n))
-            for c in r.get("complications", []):
-                send(craft.learn_counter(c))
+            learn_recipe_actions(send, r, known)
             for name, n in w.get("supplies", {}).items():
                 give_item(state, name, n)
             send(workorder.available(wo_available(player, npc) if npc else []))
@@ -8107,13 +8105,11 @@ def handle_recipe_trainer_event(state, event, data):
             player.coins -= r["trainer_cost"]
             send(merchant.coins(player.coins))
             save_character_field(player.name, "coins", player.coins)
+            known = known_action_ids(player)
             player.known_recipes = list(getattr(player, "known_recipes", [])) + [key]
             save_character_field(player.name, "known_recipes", player.known_recipes)
             send(craft.learn_recipe(r))
-            for n in range(len(craft.all_steps(r))):
-                send(craft.learn_action(r, n))
-            for c in r.get("complications", []):
-                send(craft.learn_counter(c))
+            learn_recipe_actions(send, r, known)
             send(trainer.recipe_result(rid, trainer.OK))
             send(build_system_text(f"You have learned the recipe {r['name']}.", SYSTEM_TEXT_WHITE))
     elif event == trainer.RECIPE_STOP:
@@ -8210,6 +8206,21 @@ def finish_parley(state, p, result):
         if give_item(state, name, qty):
             quest_items_changed(state)
     print(f"  {player.name} won a parley with {p.npc.name}")
+
+
+def known_action_ids(player):
+    """Crafting action ids the player already has from the recipes in their book."""
+    return {st["action"] for r in zone.book_recipes(ARGS, player) for _, _, st in craft.all_steps(r)}
+
+
+def learn_recipe_actions(send, r, known):
+    """A recipe learned during play: its actions, announcing the ones that are new
+    ("New action acquired: Hammer"), then its complication counters."""
+    for n, (_, _, st) in enumerate(craft.all_steps(r)):
+        send(craft.learn_action(r, n, announce=st["action"] not in known))
+        known.add(st["action"])
+    for c in r.get("complications", []):
+        send(craft.learn_counter(c))
 
 
 def recipe_by_id(rid):

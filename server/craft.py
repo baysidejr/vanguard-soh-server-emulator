@@ -141,11 +141,15 @@ def forget_action(action_id):
     return _event(0x2E6, struct.pack("<i", action_id))
 
 
-def learn_action(r, n):
+LEARN_ACTION, LEARN_ACTION_ANNOUNCED = 0x2E8, 0x2E5
+
+
+def learn_action(r, n, announce=False):
     """0x2e8 {i32 action, wstr name, wstr desc, i32 icon, i32 family, i32 ap}: the
-    window offers actions whose family equals the clicked step's id."""
+    window offers actions whose family equals the clicked step's id. 0x2e5 (same record,
+    FUN_004b70f0) also prints "New action acquired: <name>" (seen live 2026-10-15)."""
     st = all_steps(r)[n][2]
-    return _event(0x2E8, struct.pack("<i", st["action"]) + _w(st["name"]) + _w(st.get("description", ""))
+    return _event(LEARN_ACTION_ANNOUNCED if announce else LEARN_ACTION, struct.pack("<i", st["action"]) + _w(st["name"]) + _w(st.get("description", ""))
                   + struct.pack("<iii", r.get("icon", 443), step_id(r, n), st.get("ap", 20)))
 
 
