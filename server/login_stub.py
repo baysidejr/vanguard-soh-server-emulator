@@ -1580,6 +1580,7 @@ HOTKEYS_REQUEST = 0x54D
 # Options window "Auto Defensive Target Me" (setter FUN_00657530, registered by FUN_006671f0):
 # 0x117 {u8 on} whenever it changes (FUN_005e2c70 keeps it at manager +0x33c). Saved per character.
 AUTO_DEF_TARGET_ME = 0x117
+AUTO_DEF_TARGET_ME_SET = 0x11B   # server -> client {bool8}: sets the option (FUN_005e15d0)
 YOU_HAVE_BEEN_SUMMONED = 45
 
 
@@ -9049,6 +9050,9 @@ def handle_message(sock, server, addr, state, payload, args):
                 forms_login(state)
                 house_npcs_login(state)
                 combat_sheet_login(state)
+                # The saved Auto Defensive Target Me option back into the client (0x11b {bool8}).
+                send_message(sock, addr, state, zone.zone_event(
+                    AUTO_DEF_TARGET_ME_SET, bytes([bool(getattr(state["player"], "auto_def_target_me", False))])))
                 world_send(state, titles.game_clock())
             print("  <- sent ZONE PacketLoginReply(success=1)")
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == 0x74:
