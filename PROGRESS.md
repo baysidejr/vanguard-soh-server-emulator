@@ -55,6 +55,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (99; the big grou
 
 ## Done
 
+- 2026-10-15: Fireworks items (items.json `fireworks`: the client's ITEM_ABILITIES 60002-60022 played with 0x3d1) are wired up and used up on right-click, but the effect does not show yet (docs/ABILITY_VISUALS.md "Fireworks").
 - 2026-10-15: Spyglass: items.json `spyglass` toggles a smooth camera zoom (0x5c7 fade 90 -> 20 and back); seen live. The default field of view is about 90, not 85.
 - 2026-10-15: Wounds: 0x44b {5 x severity}; NPC crits wound a random body part, resting heals one level per 20 s, release clears; saved. Seen live with !wound 2 2 (Right Arm - Mid -> Minor -> Unwounded while sitting). Unit test WoundTests.
 - 2026-10-15: Corpse summoning: Veyla offers "I'd like to summon my earthly remains." (0x2b9) while you have a tombstone; 0x167 moves it to you (seen live).

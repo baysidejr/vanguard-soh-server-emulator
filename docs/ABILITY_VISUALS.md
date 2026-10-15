@@ -114,3 +114,7 @@ Payload size is 2x8 + 4x4 + 4x1 + 2x4 + 5x1 + 4 + 4 = **57 bytes**.
   wstr, bool8, bool8}: client-side generated ability text. Not analyzed.
 - 0x248 {eid64}: "You begin to cast …" / "%s begins to cast a spell." (FUN_004350b0), chat only.
 - No separate floating-combat-text event was identified in this pass.
+
+## Fireworks (2026-10-15, not visible yet)
+
+The client ships fireworks as item abilities ITEM_ABILITIES_60002-60022 (FIREWORKS_ROCKET_BLUE, FIREWORKS_FOUNTAIN_YELLOW, FIREWORKS_SPARKLER_RED, ...). Every phase holds one caster Action from ITEM_ACTIONS.acn (FIREWORK_ROCKET_BLUE_60002), which uses FXspells_FireworksCast..._P001fx / FXfire_Fireworks001fx emitters and Firework1-3 sounds. items.json `"fireworks": <ability id>` (Blue Rocket, Yellow Fountain, Red Sparkler) plays it with 0x3d1 for the chunk and uses one up. The client resolves the ability (FUN_007f3640 hit with 60002) and starts the display (FUN_0080dbf0), but nothing showed in screenshots with the hit phase or a 3 s duration. The FX packages are announced, so the item Actions may need ITEM_ACTIONS loaded some other way, or a cast phase. Spawning `FXfire.FXfire_Fireworks001fx` directly with 0x553 creates the actor but also shows nothing.

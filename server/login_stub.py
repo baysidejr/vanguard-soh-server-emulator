@@ -7171,6 +7171,20 @@ CAMERA_FOV_FADE = 0x5C7
 NORMAL_FOV = 90.0                  # the client's default (compared live against fixed views of 85, 90 and 100)
 
 
+# Fireworks (items.json "fireworks": an ITEM_ABILITIES id, 60002-60022: FIREWORKS_ROCKET_BLUE,
+# FIREWORKS_FOUNTAIN_YELLOW, FIREWORKS_SPARKLER_RED ...): right-clicking plays that ability's
+# display (0x3d1, docs/ABILITY_VISUALS.md) on the player for everyone in the chunk and uses one up.
+def set_off_fireworks(state, item, ability_id):
+    player = state["player"]
+    msg = combat.display_ability(player.char_id, combat.NO_ENTITY, int(ability_id))
+    w = state.get("world")
+    if w is not None:
+        w.broadcast(lambda s: msg)
+    else:
+        state["send"](msg)
+    take_items(state, item[1], 1)
+
+
 def use_spyglass(state, spec):
     fov, secs = float(spec.get("fov", 20)), float(spec.get("seconds", 1))
     zoomed = not state.get("spyglass")
@@ -10290,6 +10304,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 use_barding(state, args, item)
             elif item and args.content.item(item[1]).get("convert"):
                 offer_conversion(state, item)
+            elif item and args.content.item(item[1]).get("fireworks"):
+                set_off_fireworks(state, item, args.content.item(item[1])["fireworks"])
             elif item and args.content.item(item[1]).get("spyglass"):
                 use_spyglass(state, args.content.item(item[1])["spyglass"])
             elif item and args.content.item(item[1]).get("salvage_kit"):
