@@ -140,10 +140,10 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 658 of 720 (91%).
 | 0x263 | MsgSingleInt | i32 | debug | cast response debug print {i32} |
 | 0x264 | (none) |  | variant | ability book list refresh; the General / Adventuring / Diplomacy pages fill from 0x215 records (verified live) |
 | 0x38b | MsgTwoInts | i32, i32 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
-| 0x38c | MsgIntAndByte | i32, u8 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
+| 0x38c | MsgIntAndByte | i32, u8 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them; tried 2026-10-15 with forms set ({1, 1}): no chat line or visible change |
 | 0x38f | MsgTwoInts | i32, i32 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
 | 0x390 | MsgCombatProgressiveFormInfo | f32, f32, f32, f32 | optional | progressive form info (MsgCombatProgressiveFormInfo, 4 floats) |
-| 0x393 | MsgSingleInt | i32 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
+| 0x393 | MsgSingleInt | i32 | optional | combat form / progressive form state (docs/FORMS.md); forms work without them; tried 2026-10-15 with forms set ({2}): no chat line or visible change |
 | 0x394 | (none) |  | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
 | 0x395 | (none) |  | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
 | 0x397 | (none) |  | optional | combat form / progressive form state (docs/FORMS.md); forms work without them |
