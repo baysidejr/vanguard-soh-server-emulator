@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memorization, combat forms need decoding; petitions left alone on purpose). Not seen live yet: the pet default-attack toggle button (tested via !cev). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
+Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memorization, combat forms need decoding; petitions left alone on purpose). Effects: fireworks and quest-node particles still invisible. Content: the real game data via the content editor.
 
 ## Last test results
 
+- 2026-10-15 (after the leash and pet-toggle fixes, mob crit): tools/check_all.py --client 7 of 7 passed (unit 229, smoke PASS).
 - 2026-10-15 (after live re-checks of skill buttons and the resting refusal): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the 0x685 fix and two-client checks): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.5 ms, fuzz clean, smoke PASS). Two clients: chatter, loot sparkle, builder spawn and undo all reach the other player.
 - 2026-10-15 (after !reload): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.1 ms, fuzz clean, smoke PASS).
@@ -69,6 +70,7 @@ Server: 62 messages open in docs/UNSENT_MESSAGES.md (encounter details, memoriza
 
 ## Done
 
+- 2026-10-15: Two bugs found live: (1) a leashed NPC walking home re-aggroed every tick ("Ashen Wolf notices you!" flood) - leashed NPCs no longer proximity-aggro until back in range; (2) the pet default-attack toggle could never turn off - 0x86/0x87 were swapped (the client flips first, then sends 0x86 = on). Both fixed and seen live (badge off/on). Unit tests LeashTests, PetDefaultTests.
 - 2026-10-15: mobs.json `crit` (NPC critical chance); with it, wounds from real critical hits were seen live. Unit test MobCritTests.
 - 2026-10-15: Bug found with two clients: the group member's corpse-unlock line read "Canyon Widow has unlocked the Ranger to you." 0x685 sends the corpse first; fixed and seen live ("Ranger has unlocked the Canyon Widow to you.").
 - 2026-10-15: Builder `!reload` applies changed content now and names the first problem if it does not validate (seen live).

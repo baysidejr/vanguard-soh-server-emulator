@@ -45,11 +45,11 @@ def ability(n, a):
 
 
 # Default (auto) attack (FUN_0057b920 / FUN_0057bdb0): 0x435 {i32 ability id} marks a pet ability
-# as the default attack (pet types 8 / 0xb). The pet bar's toggle sends 0x86 {id} when it is the
-# default (turn it off) and 0x87 {id} when not (turn it on). The pet then uses it whenever it is
-# ready while fighting.
+# as the default attack (pet types 8 / 0xb). Right-clicking the slot (FUN_0057bdb0) flips the
+# client's own flag first, then sends 0x86 {id} if it is now the default and 0x87 {id} if not
+# (verified with winbreak 2026-10-15). The pet then uses it whenever it is ready while fighting.
 DEFAULT_ATTACK = 0x435
-DEFAULT_OFF, DEFAULT_ON = 0x86, 0x87
+DEFAULT_ON, DEFAULT_OFF = 0x86, 0x87
 
 
 def default_attack(aid):

@@ -956,6 +956,26 @@ class MobCritTests(unittest.TestCase):
         self.assertNotEqual(login_stub.combat.roll_outcome(rng, 10, 10, crit=0.0), login_stub.effects.CRIT)
 
 
+class LeashTests(unittest.TestCase):
+    def test_leashed_npc_does_not_reaggro(self):
+        c = login_stub.combat
+        npc = c.Npc(1, "Ashen Wolf", None, "x", location=(0.0, 0.0, 0.0))
+        npc.aggro_radius = 800
+        p = mock.Mock(live_position=(100.0, 0.0, 0.0), spawned_at=None, health=10, char_id=5)
+        npc.location = (c.LEASH + 500.0, 0.0, 0.0)
+        p.live_position = (c.LEASH + 600.0, 0.0, 0.0)
+        self.assertIsNone(c.proximity_aggro(npc, [p]))
+        npc.location = (0.0, 0.0, 0.0)
+        p.live_position = (100.0, 0.0, 0.0)
+        self.assertIs(c.proximity_aggro(npc, [p]), p)
+
+
+class PetDefaultTests(unittest.TestCase):
+    def test_toggle_ids(self):
+        # The client flips its flag before sending: 0x86 = now the default, 0x87 = not (winbreak).
+        self.assertEqual((login_stub.pets.DEFAULT_ON, login_stub.pets.DEFAULT_OFF), (0x86, 0x87))
+
+
 class BreathTests(unittest.TestCase):
     def test_runs_out_then_drowns(self):
         b, drowning = zone.BREATH_MAX, False

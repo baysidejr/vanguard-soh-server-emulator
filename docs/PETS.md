@@ -75,7 +75,7 @@ Anything else prints "Invalid pet command.". There is no 0x78 sender.
 
 Pet ability bar [O]:
 - **0x88** `i32 handle`: activate a pet ability (`FUN_00579710` sends the list entry's +0x70 handle, not the +0x10c ability id; the server sends handle = id so either works). It is suppressed client-side while that ability's cooldown is > 0.
-- **0x86** / **0x87** `i32 abilityId` (the +0x10c id): toggle the pet default/auto attack on or off (`_pet_default_attack`, `FUN_0057bd??`, around 0x57bdb0). The client flips +0x17a locally.
+- **0x86** / **0x87** `i32 abilityId` (the +0x10c id): the pet default attack is now on / off (`_pet_default_attack` on right-click, `FUN_0057bdb0`). The client flips +0x17a before sending.
 
 ## Replicated pawn properties (SGONPCPawn, own NetFields 118-123)
 
@@ -106,4 +106,4 @@ Pet ability bar [O]:
 
 ## Default attack (verified live 2026-10-15)
 
-A pet ability with `"default": true` (Ashfang's Savage Bite) is marked with **0x435** `{i32 ability id}` on summon. While the pet fights, the server uses it whenever it is ready ("Ashfang uses Savage Bite!" each refresh, seen live against a Canyon Widow). The pet bar's default-attack toggle sends **0x86** `{id}` (it was the default: turn it off) or **0x87** `{id}` (turn it on); the server answers with a line ("Ashfang will no longer use Savage Bite on its own.") and, when turning it on, 0x435.
+A pet ability with `"default": true` (Ashfang's Savage Bite) is marked with **0x435** `{i32 ability id}` on summon. While the pet fights, the server uses it whenever it is ready ("Ashfang uses Savage Bite!" each refresh, seen live against a Canyon Widow). Right-clicking the slot on the pet abilities bar (green "+" badge = default) toggles it. The client flips its own flag first, then sends **0x86** `{id}` if it is now the default and **0x87** `{id}` if not (FUN_0057bdb0, checked with winbreak); the server answers with a line ("Ashfang will no longer use Savage Bite on its own."). An earlier version had the two swapped and re-sent 0x435, so the toggle could never turn off.

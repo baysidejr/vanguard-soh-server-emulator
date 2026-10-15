@@ -10476,9 +10476,7 @@ def handle_message(sock, server, addr, state, payload, args):
             aid = struct.unpack_from("<i", payload, 10)[0]
             a = getattr(pet, "pet_abilities", {}).get(aid) if pet else None
             if a is not None:
-                a["auto"] = struct.unpack_from("<I", payload, 2)[0] == pets.DEFAULT_ON
-                if a["auto"]:
-                    send_message(sock, addr, state, pets.default_attack(aid))
+                a["auto"] = struct.unpack_from("<I", payload, 2)[0] == pets.DEFAULT_ON   # the client flipped it already
                 send_message(sock, addr, state, build_system_text(
                     f"{pet.name} will {'now' if a['auto'] else 'no longer'} use {a['name']} on its own.", SYSTEM_TEXT_WHITE))
         elif msg_type == 2 and struct.unpack_from("<I", payload, 2)[0] == pets.USE_ABILITY and state.get("player") and len(payload) >= 14:
