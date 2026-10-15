@@ -215,7 +215,7 @@
         <select id="chunk"></select>
         <select id="zoom"><option value="1">1x</option><option value="4">4x</option><option value="16">16x</option><option value="64">64x</option></select>
       </div>
-      <p class="hint">Click a spawn to edit it, drag it to move it, click empty ground to add one of the mob below. Delete removes the selected spawn.</p>
+      <p class="hint">Click a spawn to edit it, drag it to move it (its patrol moves along), click empty ground to add one of the mob below, shift-click to add a patrol waypoint to the selected spawn. Delete removes the selected spawn.</p>
       <label>New spawns use mob</label><select id="newMob"></select>
       <div id="spawnForm" style="display:none">
         <h3 id="spawnTitle"></h3>
@@ -225,6 +225,10 @@
         <label>Yaw (0-65535)</label><input id="sYaw" type="number">
         <label>Respawn seconds</label><input id="sRespawn" type="number">
         <label>Wander radius (blank = stand)</label><input id="sWander" type="number">
+        <label>Patrol (shift-click the map to add waypoints)</label>
+        <div id="sPathInfo" class="hint"></div>
+        <label>Pause at each waypoint (seconds)</label><input id="sPause" type="number">
+        <p><button id="clearPath">Clear patrol</button></p>
         <p><button id="delSpawn">Delete spawn</button></p>
       </div>
       <p><button id="saveSpawns" class="primary">Save spawns</button></p>
@@ -855,6 +859,13 @@ function draw() {
     const m = mobs[s.mob] || {};
     g.fillStyle = i === sel ? "#ffd75e" : (m.merchant || m.trainer || m.banker ? "#7fc7ff" : (m.aggro_radius ? "#ff6b5a" : "#9be37d"));
     g.beginPath(); g.arc(px, py, i === sel ? 6 : 4, 0, 7); g.fill();
+    if (s.path && s.path.length) {                     // patrol loop
+      g.strokeStyle = i === sel ? "rgba(255,215,94,.9)" : "rgba(127,199,255,.6)"; g.lineWidth = i === sel ? 2 : 1;
+      g.beginPath();
+      s.path.forEach(([x, y], k) => { const [qx, qy] = toPx(x, y); k ? g.lineTo(qx, qy) : g.moveTo(qx, qy); });
+      g.closePath(); g.stroke(); g.lineWidth = 1;
+      if (i === sel) s.path.forEach(([x, y]) => { const [qx, qy] = toPx(x, y); g.fillStyle = "#ffd75e"; g.fillRect(qx - 3, qy - 3, 6, 6); });
+    }
     if (s.wander) { g.strokeStyle = "rgba(255,255,255,.35)"; g.beginPath(); g.arc(px, py, s.wander / (info.extent[2] - info.extent[0]) * SIZE, 0, 7); g.stroke(); }
     if (i === sel || zoom >= 4 || spawns.length < 60) { g.fillStyle = "#fff"; g.fillText(m.name || s.mob, px + 7, py + 4); }
   });
@@ -886,6 +897,13 @@ function hit(px, py) {
 }
 $("map").onmousedown = e => {
   if (!info) return;
+  if (e.shiftKey && sel >= 0) {                        // shift-click: add a patrol waypoint
+    const s = spawns[sel], [x, y] = toWorld(e.offsetX, e.offsetY);
+    if (!s.path || !s.path.length) s.path = [[s.x, s.y]];
+    s.path.push([Math.round(x), Math.round(y)]);
+    delete s.wander;
+    form(); draw(); return;
+  }
   const i = hit(e.offsetX, e.offsetY);
   if (i >= 0) { sel = i; drag = true; }
   else {
@@ -898,7 +916,9 @@ $("map").onmousedown = e => {
 $("map").onmousemove = e => {
   if (!drag || sel < 0) return;
   const [x, y] = toWorld(e.offsetX, e.offsetY);
-  spawns[sel].x = Math.round(x); spawns[sel].y = Math.round(y); delete spawns[sel].z;
+  const s = spawns[sel], dx = Math.round(x) - s.x, dy = Math.round(y) - s.y;
+  s.x += dx; s.y += dy; delete s.z;
+  if (s.path) s.path = s.path.map(([px, py]) => [px + dx, py + dy]);   // the patrol moves with it
   form(); draw();
 };
 window.onmouseup = () => { drag = false; };
@@ -910,12 +930,15 @@ function form() {
   $("spawnTitle").textContent = `Spawn ${sel + 1}`;
   $("sMob").value = s.mob; $("sX").value = s.x; $("sY").value = s.y;
   $("sYaw").value = s.yaw ?? 0; $("sRespawn").value = s.respawn ?? 60; $("sWander").value = s.wander ?? "";
+  $("sPathInfo").textContent = s.path && s.path.length ? `${s.path.length} waypoints (loop)` : "none";
+  $("sPause").value = s.pause ?? "";
 }
-for (const [id, key, num] of [["sMob", "mob", false], ["sX", "x", true], ["sY", "y", true], ["sYaw", "yaw", true], ["sRespawn", "respawn", true], ["sWander", "wander", true]]) {
+$("clearPath").onclick = () => { if (sel >= 0) { delete spawns[sel].path; delete spawns[sel].pause; form(); draw(); } };
+for (const [id, key, num] of [["sMob", "mob", false], ["sX", "x", true], ["sY", "y", true], ["sYaw", "yaw", true], ["sRespawn", "respawn", true], ["sWander", "wander", true], ["sPause", "pause", true]]) {
   $(id).oninput = () => {
     if (sel < 0) return;
     const v = $(id).value;
-    if (key === "wander" && v === "") delete spawns[sel].wander;
+    if ((key === "wander" || key === "pause") && v === "") delete spawns[sel][key];
     else spawns[sel][key] = num ? Number(v) : v;
     if (key === "x" || key === "y") delete spawns[sel].z;
     draw();
@@ -931,6 +954,7 @@ $("saveSpawns").onclick = async () => {
 
 loadFiles();
 if (location.hash === "#spawns") setMode("spawns");
+if (location.hash === "#spawns-guard") { setMode("spawns"); setTimeout(() => { sel = spawns.findIndex(s => s.path); form(); draw(); }, 2500); }
 if (location.hash.startsWith("#talk")) { setMode("dialogs"); setTimeout(() => { dialogSel = location.hash.split("=")[1]; if (dialogSel) { listDialogs(); showDialog(); } }, 800); }
 if (location.hash === "#iconpicker") { setMode("items"); setTimeout(() => $("pickIcon").onclick(), 800); }
 if (location.hash.startsWith("#draft=")) { const [t, ...n] = decodeURIComponent(location.hash.slice(7)).split(":"); startDraft({ type: t, name: n.join(":") }); }
