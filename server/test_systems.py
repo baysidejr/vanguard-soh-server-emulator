@@ -1526,6 +1526,20 @@ class ArchiveSearchTests(unittest.TestCase):
 
 
 class ArchiveDraftTests(unittest.TestCase):
+    def test_loot_draft(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        rec = {"name": "X", "source": "Grim Thing", "drops": [
+            {"item": "Copper Ore", "chance": "33.3%", "quantity": None, "observed_sample": "33.3% 1/3"},
+            {"item": "Mystery Thing", "chance": None}]}
+        d = editor.loot_draft(rec, "u", lambda n: n.lower().replace(" ", "_"))
+        self.assertEqual(d["key"], "grim_thing_drops")
+        self.assertEqual(d["value"][0]["chance"], 0.333)
+        self.assertIn("icon", d["value"][0])                       # Copper Ore is in items.json
+        self.assertNotIn("chance", d["value"][1])
+        self.assertEqual(len(d["needs"]), 3)                       # small sample, unknown item, no chance
+
     def test_quest_draft_maps_known_names(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

@@ -407,7 +407,47 @@ def draft(kind, name):
         return {"file": "items.json", "key": rec["name"], "value": it}
     if kind == "quest":
         return quest_draft(rec, src, convert.slug)
+    if kind == "loot":
+        return loot_draft(rec, src, convert.slug)
     return {"error": f"no draft for {kind} records yet"}
+
+
+def loot_draft(rec, src, slug, content_dir=None):
+    """A loot.json table from an archive loot record: one row per drop with its chance (the
+    archive's percentage / 100) and the item's icon from items.json when we have the item. Loot
+    tables are lists, so what to check goes in "needs" beside the rows. Chances observed over a
+    few kills ("33.3% 1/3") are flagged."""
+    try:
+        with open(os.path.join(content_dir or CONTENT, "items.json"), encoding="utf-8") as f:
+            items = json.load(f)
+    except (OSError, ValueError):
+        items = {}
+    rows, needs = [], []
+    for d in rec.get("drops") or []:
+        name = d.get("item")
+        if not name:
+            continue
+        row = {"name": name}
+        icon = (items.get(name) or {}).get("icon") if isinstance(items.get(name), dict) else None
+        if icon is not None:
+            row["icon"] = icon
+        else:
+            needs.append(f"{name}: not in items.json yet (add the item, or it drops with a placeholder icon)")
+        q = d.get("quantity")
+        row["quantity"] = [int(q), int(q)] if isinstance(q, (int, float)) and q >= 1 else [1, 1]
+        m = re.match(r"\s*([\d.]+)\s*%", str(d.get("chance") or ""))
+        if m:
+            row["chance"] = round(min(float(m.group(1)) / 100.0, 1.0), 3)
+        else:
+            needs.append(f"{name}: chance (the archive has none)")
+        sample = re.search(r"(\d+)\s*/\s*(\d+)", str(d.get("observed_sample") or ""))
+        if sample and int(sample.group(2)) < 20:
+            needs.append(f"{name}: the chance comes from only {sample.group(2)} kills ({d.get('observed_sample')})")
+        rows.append(row)
+    if not rows:
+        return {"error": "the archive record lists no drops"}
+    return {"file": "loot.json", "key": slug(rec.get("source") or rec["name"]) + "_drops", "value": rows,
+            "needs": needs, "source": src}
 
 
 def quest_draft(rec, src, slug, content_dir=None):

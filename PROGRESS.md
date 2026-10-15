@@ -79,6 +79,8 @@ Server: 38 messages open in docs/UNSENT_MESSAGES.md (encounter details and comba
 
 ## Done
 
+- 2026-10-15: Archive loot drafts (loot.json table per creature; unknown items, missing chances and small samples flagged). Unit test ArchiveDraftTests.test_loot_draft; UI path in headless Edge.
+
 - 2026-10-15: Archive quest drafts: the editor turns an archive quest record into a quests.json draft (known names mapped to our mob / quest keys, the rest listed to fill in). Unit test ArchiveDraftTests.test_quest_draft_maps_known_names; UI path checked in headless Edge. Also: client event 0x4a decoded (hard-landing report, logged only).
 
 - 2026-10-15: Bug fixed: an NPC that gave up re-aggroed one step inside the leash and gave up again in a loop ("Ashen Wolf notices you!" flood after a griffon flight over the wolves). proximity_aggro now skips evading NPCs until they are home. Live: two wolves left behind at the leash gave up once each and walked home. Unit test LeashTests.test_evading_npc_inside_the_leash_does_not_reaggro. Flight descent tried by script (mouse-look down + forward): it barely moved, still needs a person.
