@@ -285,6 +285,32 @@ def write(path, doc):
         f.write("\n")
 
 
+def attach_loot(mobs, loot_recs, content=CONTENT):
+    """Give imported creatures the archive's drops: a loot.json table per creature that has a loot
+    record (editor.loot_draft: chance from the archive's percentage, icon from items.json),
+    created once, and the template's "loot". Returns the number of tables added."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import editor
+    path = os.path.join(content, "loot.json")
+    loot = load(path, {})
+    added = 0
+    for key, t in mobs.items():
+        rec = loot_recs.get(t.get("name"))
+        if rec is None or not t.get("aggro_radius") and "damage" not in t:
+            continue
+        d = editor.loot_draft(rec, (rec.get("sources") or [{}])[0].get("url"), lambda n: key, content)
+        if "error" in d:
+            continue
+        table = key + "_drops"
+        if table not in loot:
+            loot[table] = d["value"]
+            added += 1
+        t.setdefault("loot", table)
+    if added:
+        write(path, loot)
+    return added
+
+
 def apply(level, mobs, spawns, content=CONTENT):
     """Add the templates and spawns that are not there yet; a template that is already there only
     gains the fields it lacks (a builder's edits are never changed). Returns (templates added,
@@ -343,6 +369,7 @@ def main(argv=None):
         write(os.path.join(out, "spawns", level + ".json"), {"spawns": spawns})
         print(f"drafts written to {os.path.relpath(out, ROOT)} (run again with --apply to add them)")
         return 0
+    attach_loot(mobs, archive_npcs(kind="loot"))
     added_mobs, added_spawns = apply(level, mobs, spawns)
     print(f"added {added_mobs} templates to mobs.json and {added_spawns} spawns to spawns/{level}.json")
     if added_mobs or added_spawns:
