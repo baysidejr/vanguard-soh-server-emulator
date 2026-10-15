@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (99; the big grou
 
 ## Last test results
 
+- 2026-10-15 (after spyglass, fireworks items, dev-tool fix): tools/check_all.py --client 7 of 7 passed (unit 216, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after conversion, deconstruction, wounds, corpse summoning, reward de-select): tools/check_all.py --client 7 of 7 passed (unit 216, scenarios, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (FX packages in the package map): tools/check_all.py --client 7 of 7 passed (unit 211, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after escrow, loot sparkle, unlock lines, action announcements): tools/check_all.py --client 7 of 7 passed (unit 208, scenarios, load p95 11.2 ms, fuzz clean, smoke PASS). A first run failed the trade scenario: bot bags full (fixed in loadtest setup).
