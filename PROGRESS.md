@@ -10,6 +10,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Last test results
 
+- 2026-10-15 (after console reload, more unit tests): tools/check_all.py --client 7 of 7 passed (unit 226, load p95 11.2 ms, fuzz clean, smoke 49 commands PASS).
 - 2026-10-15 (after form restrictions): tools/check_all.py --client 7 of 7 passed (unit 221, load p95 10.9 ms, fuzz clean, smoke 49 commands PASS).
 - 2026-10-15 (after the NPC-file reload): tools/check_all.py --client 7 of 7 passed (unit 220, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after live mobs.json reload): tools/check_all.py --client 7 of 7 passed (unit 220, load p95 11.1 ms, fuzz clean, smoke PASS).
@@ -65,6 +66,7 @@ Server: remaining optional messages in docs/UNSENT_MESSAGES.md (92). Effects: fi
 
 ## Done
 
+- 2026-10-15: Console `reload` (unit-tested; the console only reads a real terminal, so a piped test is not possible). Unit tests for spyglass, fireworks, corpse summoning, skill direction, stage banner.
 - 2026-10-15: Combat-form ability restrictions (forms.json `abilities`, ability record #61-68, server refusal); seen live. `!forms` resends the ability book. Unit test FormRestrictionTests.
 - 2026-10-15: Message review: 11 more reclassified (crafting-inventory step not used, cast progress, recipe tree, assembly slots, tracking, assembly recipe removal, phase-end); 658/720 (91%). Left: encounter details, memorization, combat forms, petitions (not touched on purpose), a few effects.
 - 2026-10-15: Crafting stage banner seen during a real craft (driven with !cev). The game-client smoke test now also runs a crafting session, wounds, !mobs, Sprint and the Character window (49 commands, PASS).
