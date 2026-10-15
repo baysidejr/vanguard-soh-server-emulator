@@ -1554,6 +1554,8 @@ def player_pawn_values(player, location, yaw=0):
         "EntityTypes": 0x20,
         "Health": 100,
         "m_PlayerDisplayName": player.name,
+        # The level on the defensive target panel's shield and /con (mentoring lowers it).
+        "m_GameplayLevel": getattr(player, "mentor_level", None) or getattr(player, "level_number", 1),
         **getattr(player, "title_values", {}),
         # Guild tag over the head (name from zone event 0x40). m_bIsAfk = 1 made the
         # pawn disappear on every client (live test), so AFK/LFG stay in /who only.

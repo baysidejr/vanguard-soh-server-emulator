@@ -5971,6 +5971,18 @@ def def_target_sync(state):
         state["send"](zone.zone_event(DEF_TARGET_HEALTH, struct.pack("<QB", tid, hp)))
 
 
+def pawn_level_sync(state):
+    """The pawn's m_GameplayLevel (the defensive target panel's level shield and /con) follows
+    level ups; it is set at spawn and by mentoring."""
+    player = state["player"]
+    if "ue" not in state:
+        return
+    shown = getattr(player, "mentor_level", None) or player.level_number
+    if state.setdefault("pawn_level", shown) != shown:
+        state["pawn_level"] = shown
+        show_pawn_values(state, {"m_GameplayLevel": shown})
+
+
 def group_tick():
     """Once a second: members' positions and vitals to the rest of the group;
     group loot rolls that ran out of time; group invitations that expired (0x6b7)."""
@@ -5999,6 +6011,7 @@ def group_tick():
         if p is not None and s.get("send") and ARGS is not None:
             outpost_sync(s)
             def_target_sync(s)
+            pawn_level_sync(s)
     for g in {id(s["player"].group): s["player"].group for s in ONLINE.values()
               if getattr(s.get("player"), "group", None)}.values():
         lot = getattr(g, "lottery", None)

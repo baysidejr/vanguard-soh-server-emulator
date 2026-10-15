@@ -44,6 +44,7 @@ The character window's Harvesting tab shows "Skill 0 - Unknown Class" and empty 
 
 ## Done
 
+- 2026-10-15: Player pawns replicate m_GameplayLevel from spawn and after level ups, so the defensive target panel shows the right level (13 instead of 1). Seen live.
 - 2026-10-15: Defensive target panel. 0x3e2 {eid64, u8 0-255} fills the health bar of the panel under the portrait, which had stayed empty. It is sent whenever the defensive target or its health changes. Seen live; unit test DefTargetPanelTests.
 - 2026-10-15: Crafting attribute points. Problem Solving, Reasoning, Ingenuity and Finesse are now on the crafting tab with their own pool (2 points per crafting level, granted on crafting level up). Seen live; unit test CraftAttributeTests.
 - 2026-10-15: Attribute points. An agent decoded 0x2da (pool), 0xe4 (+ / Max), 0x2d9 (result) and 0x2db (gained). The Attributes tab now shows the points (2 per level), and + / Max raise attributes up to the cap with the client's own messages. Saved and verified live, including after a relog. Unit test AttributePointTests; docs/MSGSCORE.md.
