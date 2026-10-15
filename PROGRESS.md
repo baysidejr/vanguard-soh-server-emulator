@@ -39,6 +39,7 @@ Server hardening is in good shape (database, resends, in-order delivery, load te
 
 ## Done
 
+- 2026-10-14: Mount barding: the element (500, index, 45) dresses a modular mount (0xx blanket, 1xx cloth caparison, 2xx plate). Barding items (Green Caparison, Plate Barding at the camp merchant) are put on or off by right-click, saved, and shown whenever you ride. Verified live; unit test BardingTests.
 - 2026-10-14: Guild invites expire after 60 s. The invited player gets 0x4e8 (closes the popup, "Your guild invite to <guild> has expired."), and the inviter gets a line too. Verified live with a bot as the invitee; unit test GuildInviteTimeoutTests.
 - 2026-10-14: Group invite referral (0x727): when a member who is not the leader uses /invite, the leader gets the client's "Invite Referral" popup, and Accept sends an ordinary invite. Verified live with two clients and a bot (the bot joined the group). Unit test GroupReferralTests.
 - 2026-10-14: Decoded the last unknown server message, 0x269: {i32 finisher ability id} forgets that combat chain. The client keys chain definitions (0x268) on the finisher, per its deserializer FUN_004203b0 and FUN_00432260 / FUN_00428060. Not needed by the server, which resends every chain. Every client handler is now decoded.

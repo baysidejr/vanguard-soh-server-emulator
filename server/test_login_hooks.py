@@ -639,3 +639,20 @@ class GuildInviteTimeoutTests(unittest.TestCase):
         self.assertNotIn("guild_invite", b)
         self.assertIn(zone.zone_event(0x4E8, "Night Watch\0".encode("utf-16-le") + bytes(4)), sent["b"])
         self.assertTrue(any("invitation to B has expired".encode("utf-16-le") in m for m in sent["a"]))
+
+
+class BardingTests(unittest.TestCase):
+    def test_barding_only_on_modular_mounts_while_owned(self):
+        args = mock.Mock()
+        args.content.item = lambda name: {"Plate Barding": {"barding": 205}}.get(name, {})
+        p = zone.Player(name="R", char_id=1, level="c1")
+        p.items = [(7, "Plate Barding", 1225, 1, 0)]
+        p.barding_item = "Plate Barding"
+        p.mount = 1000
+        self.assertEqual(login_stub.mount_barding(args, p), 205)
+        p.barding = 205
+        self.assertIn((500, 205, 45), zone.gear_attachments(p))
+        p.mount = 5001                                      # a full-mesh mount takes no barding
+        self.assertIsNone(login_stub.mount_barding(args, p))
+        p.mount, p.items = 1000, []                         # the item is gone
+        self.assertIsNone(login_stub.mount_barding(args, p))

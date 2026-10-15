@@ -126,6 +126,12 @@ From the Engine.u script text, Pawn block `reliable if (bNetDirty && Role==ROLE_
 
 None of this has been tested live yet.
 
+## Barding (verified live 2026-10-14)
+
+A second m_AttachmentGroups element, **(500, barding index, 45 MOUNTBARDING)**, next to the mount element dresses a modular mount (ids under 4000; FUN_00bc46a0) in `MOD_MOUNT_ARMOR_<size><index>`. MOUNT_ITEMS.uem has three sizes with indices 000-019, 100-120 and 200-238. Seen on the horse (1000): **0xx** is a saddle blanket (5 shows little more than the saddle), **1xx** a cloth caparison (105 green), and **2xx** plate (205). It shows when it is sent together with the mount or added while riding. Swapping one index for another while riding works too.
+
+Server: a barding item (items.json `"barding": index`; the camp merchant sells the Green Caparison 105 and Plate Barding 205) is put on or taken off by right-clicking it in the bags ("You put the Plate Barding on your mount."). The choice is saved per character (`barding`) and shown whenever you ride a modular mount while the item is still in your bags (`login_stub.mount_barding`, `use_barding`, `zone.gear_attachments`). Dev: `!mount 1000 b205` tries an index directly.
+
 ## Flying (verified live 2026-10-14)
 
 **Take-off works.** With a breakpoint logger on the running client (`tools/winbreak.py`, breakpoints on Jump FUN_00baf7e0, the GameClient callback FUN_00b713d0 and the event sender FUN_006eb1b0), a standing Jump on the griffon calls the sender with event **0x5b**, and the server log shows `client event 0x5b`: it had arrived all along and was simply unhandled (the earlier tests never made a standing mounted jump, or missed the log line). A jump while falling sends **0x5a** the same way.

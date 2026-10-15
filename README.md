@@ -61,7 +61,7 @@ The unmodified client, talking only to this emulator:
 - [x] Broker: list items for sale, search, buy (delivered by mail, seller paid by mail), cancel
 - [x] Death penalty: experience debt, a tombstone at the death spot, recovering it wins back half the debt; altars bind you and summon your tombstone; resurrection offers (Accept/Decline)
 - [x] NPC conversation trees (data-driven replies with faction and item rewards)
-- [x] Mounts: summon a horse from an item, ride, /dismount; fly a griffon (Jump to take off, climb, land by flying low)
+- [x] Mounts: summon a horse from an item, ride, /dismount; fly a griffon (Jump to take off, climb, land by flying low); mount barding (cloth or plate armor on the horse)
 - [x] Titles (prefix/suffix, /titleset, quest rewards, shown over the head), the game clock (/time), /played
 - [x] Duels: /duel challenge popup, countdown, auto-attack fight to 1 HP; caravans (invite, member list, remove, log in at the caravan after 3 hours offline)
 - [x] Pets: summon a wolf from an item; it follows and attacks on /pet attack
@@ -88,7 +88,7 @@ The unmodified client, talking only to this emulator:
 
 ### Not done yet
 - [ ] Doors: none exist in the shipped maps or our cottage (checked; see HOUSING.md). The protocol to open one is worked out for when a building with a door is used
-- [ ] Mount barding; descending while flying needs a person to try (take-off, flight and climbing work: Jump on a griffon, docs/MOUNTS.md)
+- [ ] Descending while flying needs a person to try (take-off, flight and climbing work: Jump on a griffon, docs/MOUNTS.md)
 - [ ] Psionicist psionic points (messages known; the shipped UI has no window for them)
 - [ ] Combat-form ability restrictions (which abilities each form allows is server data; every ability works in every form)
 - [ ] The civic stats window (none in the shipped UI; `/citystatus` lists the stats in chat instead)

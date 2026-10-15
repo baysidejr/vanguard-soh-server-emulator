@@ -1182,6 +1182,7 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
         set_flying(state, args, player, False)      # dismounting in the air: fall
     player.mount = mount_id
     player.mount_kind = kind if mount_id else 0
+    player.barding = mount_barding(args, player) if mount_id else None
     values = {"m_AttachmentGroups": zone.gear_attachments(player), "m_MountType": kind if mount_id else 0}
     state["send"](zone.player_pawn_update(state, args, values))
     w = state.get("world")
@@ -1193,6 +1194,40 @@ def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     if kind == zone.MOUNT_FLYING and mount_id:
         values["AirSpeed"] = speed                 # flying mounts move with AirSpeed in PHYS_Flying
     state["send"](zone.player_pawn_update(state, args, values))
+
+
+# Mount barding (verified live 2026-10-14): an m_AttachmentGroups element (500, barding index,
+# slot 45 MOUNTBARDING) next to the mount dresses a modular mount (ids under 4000) in
+# MOD_MOUNT_ARMOR_<size><index>: 0xx a saddle blanket, 1xx a cloth caparison, 2xx plate. It shows
+# when sent with the mount or added while riding. A barding item (items.json "barding": index) is
+# put on or taken off by right-clicking it; the choice is saved and shown whenever you ride.
+MODULAR_MOUNT_LIMIT = 4000
+
+
+def mount_barding(args, player):
+    test = getattr(player, "barding_test", None)
+    if test is not None:
+        return test
+    name = getattr(player, "barding_item", None)
+    if not name or not player.mount or player.mount >= MODULAR_MOUNT_LIMIT:
+        return None
+    if not any(i[1] == name for i in player.items):
+        return None                                  # sold, traded or destroyed since
+    return args.content.item(name).get("barding")
+
+
+def use_barding(state, args, item):
+    player = state["player"]
+    if getattr(player, "barding_item", None) == item[1]:
+        player.barding_item = None
+        text = f"You take the {item[1]} off your mount."
+    else:
+        player.barding_item = item[1]
+        text = f"You put the {item[1]} on your mount."
+    save_character_field(player.name, "barding", player.barding_item)
+    state["send"](build_system_text(text, SYSTEM_TEXT_WHITE))
+    if getattr(player, "mount", None):
+        set_mount(state, args, player, player.mount, player.mount_kind)
 
 
 # Flight (verified live 2026-10-14 with tools/winbreak.py): on a flying mount (m_MountType 3) Jump
@@ -8382,7 +8417,10 @@ def dev_command(text, player=None):
         return [("house", prefab, kind)]
     if words[0] == "mount" and player:
         # !mount [id] [fly]: ride mount id (default 1000); !mount 0 dismounts (testing).
+        # !mount 1000 b5: with barding 5 (testing).
         mid = int(words[1]) if len(words) > 1 else 1000
+        barding = next((int(w[1:]) for w in words[2:] if w[:1] == "b" and w[1:].isdigit()), None)
+        player.barding_test = barding
         return [("mount", mid or None, zone.MOUNT_FLYING if "fly" in words else zone.MOUNT_GROUND)]
     if words[0] == "cc" and player and len(words) > 1 and words[1] in ("stun", "root", "fear"):
         # !cc stun|root|fear [seconds]: be stunned, rooted or feared (by your target) as if by an NPC (testing).
@@ -8732,6 +8770,7 @@ def player_from_character(char, name, args):
     player.deck_presets = char.get("deck_presets")
     player.apply_form_on_death = char.get("apply_form_on_death", False)
     player.app_gear_visible = bool(char.get("app_gear_visible", False))
+    player.barding_item = char.get("barding")
     known = {prop for prop, _, _ in PAWN_PREFS.values()}
     player.pawn_prefs = {k: int(v) for k, v in char.get("pawn_prefs", {}).items() if k in known}
     player.access_level = int(char.get("access_level", 0))
@@ -9310,6 +9349,8 @@ def handle_message(sock, server, addr, state, payload, args):
                 pass
             elif item and args.content.item(item[1]).get("fixture"):
                 place_fixture(state, item)
+            elif item and args.content.item(item[1]).get("barding") is not None:
+                use_barding(state, args, item)
             elif item and args.content.item(item[1]).get("pet"):
                 if getattr(player, "pet", None) is not None:
                     dismiss_pet(state)
