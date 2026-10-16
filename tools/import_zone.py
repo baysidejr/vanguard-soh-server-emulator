@@ -75,6 +75,16 @@ def archive_npcs(raw=None, kind="npc"):
                     continue
                 if r.get("name"):
                     recs[r["name"]] = r
+    # The archive capitalises some zone names differently ("Wardship Of The Sleeping Moon"):
+    # use ChunkNames.txt's spelling so they match the zone's chunk.
+    try:
+        canon = {k.lower(): k for k in zone_chunks()}
+    except OSError:
+        canon = {}
+    for r in recs.values():
+        zn = r.get("zone")
+        if isinstance(zn, str) and zn.lower() in canon:
+            r["zone"] = canon[zn.lower()]
     return recs
 
 
@@ -115,8 +125,13 @@ def parley_setup(ptype, presence):
 
 
 def is_object(rec):
-    """Quest objects (archive type "Object": a censer, a crate) are not people; not imported."""
-    return "Object" in ((rec.get("archive_fields") or {}).get("type") or [])
+    """Quest objects (archive type "Object": a censer, a crate) are not people; not imported.
+    Records typed "Object" that have services or a role (merchants such as Almari Jal in Khal)
+    are mislabelled people and count as NPCs."""
+    af = rec.get("archive_fields") or {}
+    if rec.get("services") or af.get("role"):
+        return False
+    return "Object" in (af.get("type") or [])
 
 
 def key_for(name):

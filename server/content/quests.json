@@ -682,5 +682,30 @@
     "description": "Inquisitor Nalstom has asked you to help: gather 1 Otherworldly Gem.",
     "summary": "Gather 1 Otherworldly Gem for Inquisitor Nalstom.",
     "accept_text": "You agree to help Inquisitor Nalstom."
+  },
+  "arch_betrayal_at_the_top": {
+    "id": 5121,
+    "name": "Betrayal At The Top",
+    "level": 39,
+    "giver": "arch_garan_dovus",
+    "steps": [
+      {
+        "objective": "Mayor Tresan's Severed Head",
+        "collect": {
+          "Mayor Tresan's Severed Head": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/betrayal-at-the-top",
+    "greeting": "I could use some help. (Betrayal At The Top: the archive has no dialogue yet.)",
+    "description": "Garan Dovus has asked you to help: gather 1 Mayor Tresan's Severed Head.",
+    "summary": "Gather 1 Mayor Tresan's Severed Head for Garan Dovus.",
+    "accept_text": "You agree to help Garan Dovus.",
+    "reward": {
+      "xp": 3900
+    }
   }
 }

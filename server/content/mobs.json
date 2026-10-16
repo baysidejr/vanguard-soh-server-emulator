@@ -8672,7 +8672,8 @@
     "race": 20,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/mobs/nerail-tharazen"
+    "_source": "https://vgsoharchive.com/mobs/nerail-tharazen",
+    "model": 0
   },
   "arch_adaenyl": {
     "name": "Adaenyl",
@@ -9978,7 +9979,8 @@
     "level": 50,
     "health": 2100,
     "difficulty": 0,
-    "_source": "https://vgsoharchive.com/mobs/civic-diplomacy-base"
+    "_source": "https://vgsoharchive.com/mobs/civic-diplomacy-base",
+    "model": 3
   },
   "arch_brergre_oralodov": {
     "name": "Brergre Oralodov",
@@ -24234,5 +24236,2121 @@
     "difficulty": 2,
     "model": 0,
     "_source": "https://vgsoharchive.com/mobs/malirian-syrell"
+  },
+  "arch_malakan_jehale": {
+    "name": "Malakan Jehale",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/malakan-jehale"
+  },
+  "arch_isoroka": {
+    "name": "Isoroka",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 25,
+    "health": 1100,
+    "difficulty": 4,
+    "model": 3,
+    "title": "Rogue Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Rogue"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/isoroka"
+  },
+  "arch_kalli_yan": {
+    "name": "Kalli Yan",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 25,
+    "health": 1100,
+    "difficulty": 4,
+    "model": 1,
+    "title": "Sorcerer Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Sorcerer"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kalli-yan"
+  },
+  "arch_brendaleen_warlance": {
+    "name": "Brendaleen Warlance",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 89,
+    "health": 9150,
+    "damage": [
+      89,
+      445
+    ],
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/brendaleen-warlance"
+  },
+  "arch_hagir_silvereye": {
+    "name": "Hagir Silvereye",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 89,
+    "health": 3660,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Crafting Utility Supply",
+    "_source": "https://vgsoharchive.com/mobs/hagir-silvereye"
+  },
+  "arch_kromnar_gravelstone": {
+    "name": "Kromnar Gravelstone",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/kromnar-gravelstone"
+  },
+  "arch_lessayn_erral": {
+    "name": "Lessayn Erral",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Outfitter Instructor",
+    "_source": "https://vgsoharchive.com/mobs/lessayn-erral"
+  },
+  "arch_moren": {
+    "name": "Moren",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/moren"
+  },
+  "arch_farjad_alam": {
+    "name": "Farjad Alam",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/farjad-alam"
+  },
+  "arch_nouri_habibi": {
+    "name": "Nouri Habibi",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 2,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/nouri-habibi"
+  },
+  "arch_djau_hashqo": {
+    "name": "Djau Hashqo",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "difficulty": 2,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/djau-hashqo"
+  },
+  "arch_azaran_ettehadieh": {
+    "name": "Azaran Ettehadieh",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "difficulty": 2,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/azaran-ettehadieh"
+  },
+  "arch_parisa_nirumand": {
+    "name": "Parisa Nirumand",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "difficulty": 2,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/parisa-nirumand"
+  },
+  "arch_atoosa_madari": {
+    "name": "Atoosa Madari",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/atoosa-madari"
+  },
+  "arch_deli_jahanpur": {
+    "name": "Deli Jahanpur",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "difficulty": 2,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/deli-jahanpur"
+  },
+  "arch_nimat_sekamqu": {
+    "name": "Nimat Sekamqu",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Weapons Vendor",
+    "merchant": "archive_weapons",
+    "_source": "https://vgsoharchive.com/mobs/nimat-sekamqu"
+  },
+  "arch_hasi_bhi": {
+    "name": "Hasi Bhi",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/undermine-the-port-authority"
+  },
+  "arch_alker_krot": {
+    "name": "Alker Krot",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 60,
+    "health": 2500,
+    "difficulty": 4,
+    "model": 2,
+    "title": "Trainer - Artificer",
+    "_source": "https://vgsoharchive.com/mobs/alker-krot"
+  },
+  "arch_dien_hatelt": {
+    "name": "Dien Hatelt",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 82,
+    "health": 3380,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Trainer - Outfitter",
+    "_source": "https://vgsoharchive.com/mobs/dien-hatelt"
+  },
+  "arch_drengra_tarnok": {
+    "name": "Drengra Tarnok",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 98,
+    "health": 4020,
+    "difficulty": 4,
+    "model": 2,
+    "title": "Trainer - Blacksmith",
+    "_source": "https://vgsoharchive.com/mobs/drengra-tarnok"
+  },
+  "arch_magok_baltosh": {
+    "name": "Magok Baltosh",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 59,
+    "health": 2460,
+    "difficulty": 4,
+    "model": 3,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/magok-baltosh"
+  },
+  "arch_nahgen_maltok": {
+    "name": "Nahgen Maltok",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 22,
+    "health": 980,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Merchant - Crafting Equipment",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/nahgen-maltok"
+  },
+  "arch_olranna_grandor": {
+    "name": "Olranna Grandor",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "title": "Behind The Halls of Crafting",
+    "_source": "https://vgsoharchive.com/mobs/olranna-grandor"
+  },
+  "arch_nighthunter_deshkan": {
+    "name": "Nighthunter Deshkan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 3,
+    "health": 220,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/nighthunter-deshkan"
+  },
+  "arch_nighthunter_lilren": {
+    "name": "Nighthunter Lilren",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/nighthunter-lilren"
+  },
+  "arch_eralis_noldar": {
+    "name": "Eralis Noldar",
+    "pawn_class": "SGONPCPawn",
+    "race": 3,
+    "level": 20,
+    "health": 900,
+    "title": "Artificer Instructor",
+    "_source": "https://vgsoharchive.com/mobs/eralis-noldar"
+  },
+  "arch_erkane_landeral": {
+    "name": "Erkane Landeral",
+    "pawn_class": "SGONPCPawn",
+    "race": 3,
+    "level": 28,
+    "health": 1220,
+    "difficulty": 2,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/erkane-landeral"
+  },
+  "arch_klayden_anvis": {
+    "name": "Klayden Anvis",
+    "pawn_class": "SGONPCPawn",
+    "race": 3,
+    "level": 20,
+    "health": 900,
+    "title": "Blacksmith Instructor",
+    "_source": "https://vgsoharchive.com/mobs/klayden-anvis"
+  },
+  "arch_lost_soul": {
+    "name": "Lost Soul",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 30,
+    "health": 3250,
+    "damage": [
+      30,
+      150
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/lost-soul",
+    "loot": "arch_lost_soul_drops"
+  },
+  "arch_almari_jal": {
+    "name": "Almari Jal",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 2,
+    "health": 180,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Merchant - Crafting Equipment",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/almari-jal"
+  },
+  "arch_baasa_kanuma": {
+    "name": "Baasa Kanuma",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 43,
+    "health": 1820,
+    "difficulty": 4,
+    "model": 2,
+    "title": "Refining Taskmaster",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/baasa-kanuma"
+  },
+  "arch_javed_sabir": {
+    "name": "Javed Sabir",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 70,
+    "health": 2900,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Merchant - Crafting Supplies",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/javed-sabir"
+  },
+  "arch_jebet_suru": {
+    "name": "Jebet Suru",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 38,
+    "health": 1620,
+    "difficulty": 4,
+    "model": 3,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/jebet-suru"
+  },
+  "arch_kadet_asandar": {
+    "name": "Kadet Asandar",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 22,
+    "health": 980,
+    "difficulty": 4,
+    "model": 1,
+    "title": "Trainer - Blacksmith",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kadet-asandar"
+  },
+  "arch_kandesh_miarshan": {
+    "name": "Kandesh Miarshan",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 67,
+    "health": 2780,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Exotic Goods Vendor",
+    "merchant": "general_goods",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kandesh-miarshan"
+  },
+  "arch_kiarvan_beshandi": {
+    "name": "Kiarvan Beshandi",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "difficulty": 2,
+    "model": 0,
+    "title": "Finishing Taskmaster",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/kiarvan-beshandi"
+  },
+  "arch_rai_aned": {
+    "name": "Rai Aned",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 52,
+    "health": 2180,
+    "difficulty": 4,
+    "model": 0,
+    "title": "Trainer - Outfitter",
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/rai-aned"
+  },
+  "arch_ariave_lenelore": {
+    "name": "Ariave Lenelore",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "title": "Artificer Instructor",
+    "_source": "https://vgsoharchive.com/mobs/ariave-lenelore"
+  },
+  "arch_elorian_glaerowyn": {
+    "name": "Elorian Glaerowyn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "difficulty": 2,
+    "model": 2,
+    "title": "Blacksmith Instructor",
+    "_source": "https://vgsoharchive.com/mobs/elorian-glaerowyn"
+  },
+  "arch_leyale_ovasen": {
+    "name": "Leyale Ovasen",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/leyale-ovasen"
+  },
+  "arch_jojan_reesh": {
+    "name": "Jojan Reesh",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 20,
+    "health": 900,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Artificer Instructor",
+    "_source": "https://vgsoharchive.com/mobs/jojan-reesh"
+  },
+  "arch_betsy_gallow": {
+    "name": "Betsy Gallow",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 42,
+    "health": 1780,
+    "difficulty": 4,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/betsy-gallow"
+  },
+  "arch_chelsa_garno": {
+    "name": "Chelsa Garno",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/chelsa-garno"
+  },
+  "arch_fara_gallow": {
+    "name": "Fara Gallow",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/fara-gallow"
+  },
+  "arch_garan_dovus": {
+    "name": "Garan Dovus",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/garan-dovus"
+  },
+  "arch_jonas_garno": {
+    "name": "Jonas Garno",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/jonas-garno"
+  },
+  "arch_julian_dravek": {
+    "name": "Julian Dravek",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 44,
+    "health": 1860,
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/julian-dravek"
+  },
+  "arch_karas_garno": {
+    "name": "Karas Garno",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 44,
+    "health": 1860,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/karas-garno"
+  },
+  "arch_karsan_farrow": {
+    "name": "Karsan Farrow",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/karsan-farrow"
+  },
+  "arch_miranda_gallow": {
+    "name": "Miranda Gallow",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/miranda-gallow"
+  },
+  "arch_mattanien_jent": {
+    "name": "Mattanien Jent",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/mattanien-jent"
+  },
+  "arch_forsaken_town_crier": {
+    "name": "Forsaken Town Crier",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 3400,
+    "damage": [
+      40,
+      160
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/forsaken-town-crier",
+    "loot": "arch_forsaken_town_crier_drops"
+  },
+  "arch_mayor_tresan": {
+    "name": "Mayor Tresan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 4250,
+    "damage": [
+      40,
+      200
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/mayor-tresan",
+    "loot": "arch_mayor_tresan_drops"
+  },
+  "arch_odius_henson": {
+    "name": "Odius Henson",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 43,
+    "health": 1820,
+    "damage": [
+      43,
+      86
+    ],
+    "_source": "https://vgsoharchive.com/mobs/odius-henson"
+  },
+  "arch_daesyril": {
+    "name": "Daesyril",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/daesyril"
+  },
+  "arch_captain_morrond": {
+    "name": "Captain Morrond",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/captain-morrond"
+  },
+  "arch_guard_irulan": {
+    "name": "Guard Irulan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "difficulty": 2,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/guard-irulan"
+  },
+  "arch_lieutenant_ararond": {
+    "name": "Lieutenant Ararond",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 3,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/lieutenant-ararond"
+  },
+  "arch_squire_amathir": {
+    "name": "Squire Amathir",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 24,
+    "health": 1060,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/ebonwings-ebonwords"
+  },
+  "arch_dunia_merinthorn": {
+    "name": "Dunia Merinthorn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 25,
+    "health": 1100,
+    "difficulty": 3,
+    "model": 3,
+    "title": "Alchemist and General Goods Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/dunia-merinthorn"
+  },
+  "arch_revenant_toridra": {
+    "name": "Revenant Toridra",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 29,
+    "health": 1260,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/quests/nishek-s-summoning"
+  },
+  "arch_sage_maenor": {
+    "name": "Sage Maenor",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 22,
+    "health": 980,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/quests/the-legend-of-trengal-keep-part-2"
+  },
+  "arch_d_karrkrojrolak": {
+    "name": "D'karrkrojrolak",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 28,
+    "health": 3050,
+    "damage": [
+      28,
+      140
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/d-karrkrojrolak",
+    "loot": "arch_d_karrkrojrolak_drops"
+  },
+  "arch_grakkar_the_strategist": {
+    "name": "Grakkar the Strategist",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 30,
+    "health": 3250,
+    "damage": [
+      30,
+      150
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/grakkar-the-strategist",
+    "loot": "arch_grakkar_the_strategist_drops"
+  },
+  "arch_nishek": {
+    "name": "NISHEK",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 32,
+    "health": 3450,
+    "damage": [
+      32,
+      160
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/nishek",
+    "loot": "arch_nishek_drops"
+  },
+  "arch_kambiz_shahy": {
+    "name": "Kambiz Shahy",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/kambiz-shahy"
+  },
+  "arch_an_imprisoned_djinn": {
+    "name": "An Imprisoned Djinn",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_interview_200"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/an-imprisoned-djinn"
+  },
+  "arch_telordaen": {
+    "name": "Telordaen",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 26,
+    "health": 1140,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/an-insult-to-masaras"
+  },
+  "arch_lady_feressa": {
+    "name": "Lady Feressa",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 32,
+    "health": 1380,
+    "gender": 1,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/lady-feressa"
+  },
+  "arch_quartermaster_grinn": {
+    "name": "Quartermaster Grinn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 25,
+    "health": 1100,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/quartermaster-grinn"
+  },
+  "arch_nathan_silver": {
+    "name": "Nathan Silver",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 25,
+    "health": 1100,
+    "difficulty": 2,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/nathan-silver"
+  },
+  "arch_quatermaster_grinn": {
+    "name": "Quatermaster Grinn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/quatermaster-grinn"
+  },
+  "arch_private_jorak": {
+    "name": "Private Jorak",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 25,
+    "health": 1100,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/private-jorak"
+  },
+  "arch_aller_kashers": {
+    "name": "Aller Kashers",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 35,
+    "health": 1500,
+    "model": 1,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/aller-kashers"
+  },
+  "arch_gisella_anvilstone": {
+    "name": "Gisella Anvilstone",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 750,
+    "damage": [
+      10,
+      30
+    ],
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/gisella-anvilstone"
+  },
+  "arch_avatar_of_sihari": {
+    "name": "Avatar Of Sihari",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 60,
+    "health": 2500,
+    "difficulty": 4,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/avatar-of-sihari"
+  },
+  "arch_farmouka_velmesh": {
+    "name": "Farmouka Velmesh",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/farmouka-velmesh"
+  },
+  "arch_medratheda": {
+    "name": "Medratheda",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 45,
+    "health": 1900,
+    "difficulty": 2,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/medratheda"
+  },
+  "arch_qatouk_markon": {
+    "name": "Qatouk Markon",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/qatouk-markon"
+  },
+  "arch_beastmaster_nerik_ssez": {
+    "name": "Beastmaster Nerik'ssez",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 24,
+    "health": 2120,
+    "damage": [
+      24,
+      96
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/beastmaster-nerik-ssez",
+    "loot": "arch_beastmaster_nerik_ssez_drops"
+  },
+  "arch_high_archon_nez_riss": {
+    "name": "High Archon Nez'riss",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 27,
+    "health": 2950,
+    "damage": [
+      27,
+      135
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/high-archon-nez-riss",
+    "loot": "arch_high_archon_nez_riss_drops"
+  },
+  "arch_primalist_zez_iss": {
+    "name": "Primalist Zez'iss",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 24,
+    "health": 1060,
+    "damage": [
+      24,
+      48
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/primalist-zez-iss"
+  },
+  "arch_aru_grayfish": {
+    "name": "Aru Grayfish",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/aru-grayfish"
+  },
+  "arch_mikosa_nineblade": {
+    "name": "Mikosa Nineblade",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Artificer Instructor",
+    "_source": "https://vgsoharchive.com/mobs/mikosa-nineblade"
+  },
+  "arch_bartan_lendowl": {
+    "name": "Bartan Lendowl",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "title": "Crafting Instructor",
+    "_source": "https://vgsoharchive.com/mobs/bartan-lendowl"
+  },
+  "arch_amratin": {
+    "name": "Amratin",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 4200,
+    "damage": [
+      50,
+      200
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/amratin",
+    "loot": "arch_amratin_drops"
+  },
+  "arch_barake": {
+    "name": "Barake",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 49,
+    "health": 4120,
+    "damage": [
+      49,
+      196
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/barake",
+    "loot": "arch_barake_drops"
+  },
+  "arch_cuppis": {
+    "name": "Cuppis",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 49,
+    "health": 4120,
+    "damage": [
+      49,
+      196
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/cuppis",
+    "loot": "arch_cuppis_drops"
+  },
+  "arch_ifset": {
+    "name": "Ifset",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 49,
+    "health": 4120,
+    "damage": [
+      49,
+      196
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/ifset",
+    "loot": "arch_ifset_drops"
+  },
+  "arch_keshda": {
+    "name": "Keshda",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 4200,
+    "damage": [
+      50,
+      200
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/keshda",
+    "loot": "arch_keshda_drops"
+  },
+  "arch_netiferti": {
+    "name": "Netiferti",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 49,
+    "health": 4120,
+    "damage": [
+      49,
+      196
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/netiferti",
+    "loot": "arch_netiferti_drops"
+  },
+  "arch_ameen_farvir": {
+    "name": "Ameen Farvir",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 2,
+    "title": "Apprentice of Hafeez",
+    "_source": "https://vgsoharchive.com/mobs/ameen-farvir"
+  },
+  "arch_archaeologist_palpe_rengoa": {
+    "name": "Archaeologist Palpe Rengoa",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 15,
+    "health": 700,
+    "difficulty": 2,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/archaeologist-palpe-rengoa"
+  },
+  "arch_bahdor_adesh": {
+    "name": "Bahdor Adesh",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "difficulty": 1,
+    "model": 2,
+    "title": "Merchant - Special",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/bahdor-adesh"
+  },
+  "arch_bhadran_atiasa": {
+    "name": "Bhadran Atiasa",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 1,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/bhadran-atiasa"
+  },
+  "arch_faylen_sours": {
+    "name": "Faylen Sours",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 14,
+    "health": 660,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/faylen-sours"
+  },
+  "arch_guard_kezrak": {
+    "name": "Guard Kezrak",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/guard-kezrak"
+  },
+  "arch_kalian_frumar": {
+    "name": "Kalian Frumar",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 14,
+    "health": 660,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/kalian-frumar"
+  },
+  "arch_namog_nanaba": {
+    "name": "Namog Nanaba",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 15,
+    "health": 700,
+    "model": 3,
+    "title": "Beacon Researcher",
+    "_source": "https://vgsoharchive.com/mobs/namog-nanaba"
+  },
+  "arch_nouro_favah": {
+    "name": "Nouro Favah",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "difficulty": 1,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/nouro-favah"
+  },
+  "arch_vexhen_zharien": {
+    "name": "Vexhen Zharien",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 13,
+    "health": 620,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/cleansing-the-wretched"
+  },
+  "arch_paranda_nikil": {
+    "name": "Paranda Nikil",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "difficulty": 1,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/paranda-nikil"
+  },
+  "arch_kavarou_mangred": {
+    "name": "Kavarou Mangred",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/kavarou-mangred"
+  },
+  "arch_ara_mandeen": {
+    "name": "Ara Mandeen",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/ara-mandeen"
+  },
+  "arch_guard_forjourna": {
+    "name": "Guard Forjourna",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 11,
+    "health": 540,
+    "difficulty": 2,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/guard-forjourna"
+  },
+  "arch_hafeez_al_azzimat": {
+    "name": "Hafeez Al'Azzimat",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "difficulty": 2,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/hafeez-al-azzimat"
+  },
+  "arch_beisselwurn": {
+    "name": "Beisselwurn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 13,
+    "health": 930,
+    "damage": [
+      13,
+      39
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/beisselwurn",
+    "loot": "arch_beisselwurn_drops"
+  },
+  "arch_dailuk": {
+    "name": "Dailuk",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 21,
+    "health": 2350,
+    "damage": [
+      21,
+      105
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/dailuk",
+    "loot": "arch_dailuk_drops"
+  },
+  "arch_jixril": {
+    "name": "Jixril",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 23,
+    "health": 1530,
+    "damage": [
+      23,
+      69
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/jixril"
+  },
+  "arch_kraelix": {
+    "name": "Kraelix",
+    "pawn_class": "SGONPCPawn",
+    "race": 282,
+    "level": 18,
+    "health": 2050,
+    "damage": [
+      18,
+      90
+    ],
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/kraelix",
+    "loot": "arch_kraelix_drops"
+  },
+  "arch_motash": {
+    "name": "Motash",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 1050,
+    "damage": [
+      15,
+      45
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/motash",
+    "loot": "arch_motash_drops"
+  },
+  "arch_nocubia": {
+    "name": "Nocubia",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 17,
+    "health": 1560,
+    "damage": [
+      17,
+      68
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/nocubia",
+    "loot": "arch_nocubia_drops"
+  },
+  "arch_laran_bahahn": {
+    "name": "Laran Bahahn",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "title": "Merchant - Weapons Vendor",
+    "merchant": "archive_weapons",
+    "_source": "https://vgsoharchive.com/mobs/laran-bahahn"
+  },
+  "arch_bautali": {
+    "name": "Bautali",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 25,
+    "health": 1100,
+    "model": 1,
+    "title": "Order of the Lotus Fist",
+    "_source": "https://vgsoharchive.com/mobs/bautali"
+  },
+  "arch_hai_tang": {
+    "name": "Hai Tang",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 25,
+    "health": 1100,
+    "model": 2,
+    "title": "Order of the Lotus Fist",
+    "_source": "https://vgsoharchive.com/mobs/hai-tang"
+  },
+  "arch_ju_ming": {
+    "name": "Ju Ming",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 25,
+    "health": 1100,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/ju-ming"
+  },
+  "arch_master_danoshi": {
+    "name": "Master Danoshi",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 25,
+    "health": 1100,
+    "model": 0,
+    "title": "Jin Historian",
+    "_source": "https://vgsoharchive.com/mobs/master-danoshi"
+  },
+  "arch_nao_tak": {
+    "name": "Nao Tak",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 25,
+    "health": 1100,
+    "difficulty": 0,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/nao-tak"
+  },
+  "arch_tao_fan": {
+    "name": "Tao Fan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 14,
+    "health": 660,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/a-light-in-dark-places"
+  },
+  "arch_various": {
+    "name": "various",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/quests/artisan-s-saga-scryed"
+  },
+  "arch_shaku_rainsky": {
+    "name": "Shaku Rainsky",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/diplomat-s-saga-warlord-s-suprise"
+  },
+  "arch_skaku_rainsky": {
+    "name": "Skaku Rainsky",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/quests/diplomat-s-saga-new-targonor-threat"
+  },
+  "arch_ikara": {
+    "name": "Ikara",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 22,
+    "health": 980,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/ikara"
+  },
+  "arch_villager_karu": {
+    "name": "Villager Karu",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 13,
+    "health": 620,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/quests/martok-cleanser"
+  },
+  "arch_da_lar": {
+    "name": "Da'lar",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 22,
+    "health": 980,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/da-lar"
+  },
+  "arch_andruzius": {
+    "name": "Andruzius",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 14,
+    "health": 1320,
+    "damage": [
+      14,
+      56
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/andruzius"
+  },
+  "arch_dread_lord_rax_taroj": {
+    "name": "Dread Lord Rax'Taroj",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 23,
+    "health": 2550,
+    "damage": [
+      23,
+      115
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/dread-lord-rax-taroj",
+    "loot": "arch_dread_lord_rax_taroj_drops"
+  },
+  "arch_dreadbringer_gratok": {
+    "name": "Dreadbringer Gratok",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 14,
+    "health": 990,
+    "damage": [
+      14,
+      42
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/dreadbringer-gratok"
+  },
+  "arch_executive_engineer_kolran": {
+    "name": "Executive Engineer Kolran",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 21,
+    "health": 1880,
+    "damage": [
+      21,
+      84
+    ],
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/executive-engineer-kolran",
+    "loot": "arch_executive_engineer_kolran_drops"
+  },
+  "arch_grunt_kraal": {
+    "name": "Grunt Kraal",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 14,
+    "health": 1320,
+    "damage": [
+      14,
+      56
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/grunt-kraal"
+  },
+  "arch_grytor_the_ripper": {
+    "name": "Grytor The Ripper",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 1800,
+    "damage": [
+      20,
+      80
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/grytor-the-ripper",
+    "loot": "arch_grytor_the_ripper_drops"
+  },
+  "arch_jan_ra_jin": {
+    "name": "Jan Ra'Jin",
+    "pawn_class": "SGONPCPawn",
+    "race": 233,
+    "level": 23,
+    "health": 2550,
+    "damage": [
+      23,
+      115
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/jan-ra-jin",
+    "loot": "arch_jan_ra_jin_drops"
+  },
+  "arch_gregan_blacque": {
+    "name": "Gregan Blacque",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/mobs/gregan-blacque"
+  },
+  "arch_miron_oakvale": {
+    "name": "Miron Oakvale",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Outside Inn",
+    "_source": "https://vgsoharchive.com/mobs/miron-oakvale"
+  },
+  "arch_arla_bast": {
+    "name": "Arla Bast",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "title": "Outside",
+    "_source": "https://vgsoharchive.com/mobs/arla-bast",
+    "banker": true
+  },
+  "arch_goroza_the_ancient": {
+    "name": "Goroza the Ancient",
+    "pawn_class": "SGONPCPawn",
+    "race": 18,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "title": "Shaman",
+    "_source": "https://vgsoharchive.com/mobs/goroza-the-ancient"
+  },
+  "arch_kojomash_morokai": {
+    "name": "Kojomash Morokai",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "difficulty": 3,
+    "model": 1,
+    "title": "Southern edge of village",
+    "_source": "https://vgsoharchive.com/mobs/kojomash-morokai"
+  },
+  "arch_okhnom": {
+    "name": "Okhnom",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "difficulty": 3,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/okhnom"
+  },
+  "arch_colemar_konthari": {
+    "name": "Colemar Konthari",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "difficulty": 3,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/colemar-konthari"
+  },
+  "arch_servant_niklithas": {
+    "name": "Servant Niklithas",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 12,
+    "health": 580,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/quests/destruction-of-spite"
+  },
+  "arch_hashard_ikarm": {
+    "name": "Hashard Ikarm",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "difficulty": 3,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/mobs/hashard-ikarm"
+  },
+  "arch_shield_bearer_loganthon": {
+    "name": "Shield Bearer Loganthon",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 11,
+    "health": 540,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/quests/easing-the-sorrow"
+  },
+  "arch_sage_marin": {
+    "name": "Sage Marin",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 11,
+    "health": 540,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/quests/find-elise"
+  },
+  "arch_servant_kringlint": {
+    "name": "Servant Kringlint",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 12,
+    "health": 580,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/quests/intervention"
+  },
+  "arch_boatman_bodgrieg": {
+    "name": "Boatman Bodgrieg",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 700,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/boatman-bodgrieg"
+  },
+  "arch_marjok": {
+    "name": "Marjok",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "difficulty": 3,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/marjok"
+  },
+  "arch_water_carrier_garolth": {
+    "name": "Water Carrier Garolth",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "model": 2,
+    "_source": "https://vgsoharchive.com/quests/wonderous-creatures"
+  },
+  "arch_attendant_rogan": {
+    "name": "Attendant Rogan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 13,
+    "health": 1240,
+    "damage": [
+      13,
+      52
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/attendant-rogan",
+    "loot": "arch_attendant_rogan_drops"
+  },
+  "arch_broken_fang_elder": {
+    "name": "Broken Fang Elder",
+    "pawn_class": "SGONPCPawn",
+    "race": 80,
+    "level": 13,
+    "health": 1240,
+    "damage": [
+      13,
+      52
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/broken-fang-elder",
+    "loot": "arch_broken_fang_elder_drops"
+  },
+  "arch_foreman_snarlback": {
+    "name": "FOREMAN SNARLBACK",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 11,
+    "health": 1080,
+    "damage": [
+      11,
+      44
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/foreman-snarlback",
+    "loot": "arch_foreman_snarlback_drops"
+  },
+  "arch_gnasher": {
+    "name": "Gnasher",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 15,
+    "health": 700,
+    "damage": [
+      15,
+      30
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/gnasher"
+  },
+  "arch_herklesh_rolgar": {
+    "name": "Herklesh Rolgar",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 14,
+    "health": 1320,
+    "damage": [
+      14,
+      56
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/herklesh-rolgar",
+    "loot": "arch_herklesh_rolgar_drops"
+  },
+  "arch_hurrkrul_the_wracking": {
+    "name": "Hurrkrul the Wracking",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 1000,
+    "damage": [
+      10,
+      40
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/hurrkrul-the-wracking",
+    "loot": "arch_hurrkrul_the_wracking_drops"
+  },
+  "arch_overlord_grirr": {
+    "name": "Overlord Grirr",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 11,
+    "health": 540,
+    "damage": [
+      11,
+      22
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/overlord-grirr"
+  },
+  "arch_overseer_grimal": {
+    "name": "Overseer Grimal",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "damage": [
+      10,
+      20
+    ],
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/overseer-grimal"
+  },
+  "arch_abbie_malnor": {
+    "name": "Abbie Malnor",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 2,
+    "title": "Rogue Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Rogue"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/abbie-malnor"
+  },
+  "arch_ainsley_heath": {
+    "name": "Ainsley Heath",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Celestine Ward Paladin",
+    "_source": "https://vgsoharchive.com/mobs/ainsley-heath"
+  },
+  "arch_aluris_lerr": {
+    "name": "Aluris Lerr",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "title": "Psionicist Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Psionicist"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/aluris-lerr"
+  },
+  "arch_aren_tessar": {
+    "name": "Aren Tessar",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 30,
+    "health": 1300,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Refining Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/aren-tessar"
+  },
+  "arch_enorian_andowyn": {
+    "name": "Enorian Andowyn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Cleric Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Cleric"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/enorian-andowyn"
+  },
+  "arch_ewanil_maruthel": {
+    "name": "Ewanil Maruthel",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Ranger Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Ranger"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/ewanil-maruthel"
+  },
+  "arch_fenrith_talorn": {
+    "name": "Fenrith Talorn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Bard Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Bard"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/fenrith-talorn"
+  },
+  "arch_fenton_orde": {
+    "name": "Fenton Orde",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/fenton-orde"
+  },
+  "arch_franklin_steen": {
+    "name": "Franklin Steen",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "title": "Necromancer Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Necromancer"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/franklin-steen"
+  },
+  "arch_gilreth_inesir": {
+    "name": "Gilreth Inesir",
+    "pawn_class": "SGONPCPawn",
+    "race": 4,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "title": "Celestine Ward",
+    "_source": "https://vgsoharchive.com/mobs/gilreth-inesir"
+  },
+  "arch_jaymes_ellery": {
+    "name": "Jaymes Ellery",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Druid Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Druid"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/jaymes-ellery"
+  },
+  "arch_kailean_roentine": {
+    "name": "Kailean Roentine",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "title": "Banker",
+    "banker": true,
+    "_source": "https://vgsoharchive.com/mobs/kailean-roentine"
+  },
+  "arch_lantra_wendar": {
+    "name": "Lantra Wendar",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 71,
+    "health": 2940,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/lantra-wendar"
+  },
+  "arch_ledenor_falithian": {
+    "name": "Ledenor Falithian",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 2,
+    "title": "Blood Mage Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Blood Mage"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/ledenor-falithian"
+  },
+  "arch_lirias_enian": {
+    "name": "Lirias Enian",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Paladin Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Paladin"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/lirias-enian"
+  },
+  "arch_llyn_serile": {
+    "name": "Llyn Serile",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 1,
+    "title": "Merchant - Ranged Weapons",
+    "merchant": "archive_ranged",
+    "_source": "https://vgsoharchive.com/mobs/llyn-serile"
+  },
+  "arch_nial_parwen": {
+    "name": "Nial Parwen",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 12,
+    "health": 580,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Crafting Instructor",
+    "_source": "https://vgsoharchive.com/mobs/nial-parwen"
+  },
+  "arch_paget_brack": {
+    "name": "Paget Brack",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "model": 3,
+    "title": "Disciple Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Disciple"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/paget-brack"
+  },
+  "arch_royce_hagan": {
+    "name": "Royce Hagan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 0,
+    "title": "Dread Knight Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Dread Knight"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/royce-hagan"
+  },
+  "arch_silan_maenian": {
+    "name": "Silan Maenian",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 0,
+    "title": "Sorcerer Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Sorcerer"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/silan-maenian"
+  },
+  "arch_swiftfang_eygor": {
+    "name": "Swiftfang Eygor",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 0,
+    "title": "Shaman Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Shaman"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/swiftfang-eygor"
+  },
+  "arch_tam_heath": {
+    "name": "Tam Heath",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 0,
+    "title": "Warrior Trainer",
+    "trainer": true,
+    "trainer_classes": [
+      "Warrior"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/tam-heath"
+  },
+  "arch_lennea": {
+    "name": "Lennea",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 38,
+    "health": 1620,
+    "model": 3,
+    "_source": "https://vgsoharchive.com/quests/drakes-of-the-order-of-the-true-blood"
+  },
+  "arch_silvermane_alopek": {
+    "name": "Silvermane Alopek",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 29,
+    "health": 1260,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/quests/enemies-of-ghalnn"
+  },
+  "arch_celestine_guard_captain": {
+    "name": "Celestine Guard Captain",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/celestine-guard-captain"
+  },
+  "arch_jolenie_farsani": {
+    "name": "Jolenie Farsani",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 3150,
+    "damage": [
+      50,
+      150
+    ],
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/jolenie-farsani"
   }
 }

@@ -1791,6 +1791,20 @@ class ImportZoneTests(unittest.TestCase):
         finally:
             import_zone.ZONE_RACE.pop("Mekalia")
 
+    def test_mislabelled_objects_and_zone_case(self):
+        import sys, tempfile, json as _json
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        self.assertTrue(import_zone.is_object({"archive_fields": {"type": ["Object"]}}))
+        self.assertFalse(import_zone.is_object({"archive_fields": {"type": ["Object"], "role": ["Merchant - Crafting Equipment"]}}))
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "b1"))
+            with open(os.path.join(d, "b1", "npc.jsonl"), "w", encoding="utf-8") as f:
+                f.write(_json.dumps({"name": "Fenton Orde", "zone": "Wardship Of The Sleeping Moon"}) + "\n")
+            with unittest.mock.patch.object(import_zone, "zone_chunks", return_value={"Wardship of the Sleeping Moon": (-23, 27)}):
+                recs = import_zone.archive_npcs(d)
+        self.assertEqual(recs["Fenton Orde"]["zone"], "Wardship of the Sleeping Moon")
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

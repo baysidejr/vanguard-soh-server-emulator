@@ -648,7 +648,7 @@ function storeMob() {                                  // the form back into mob
     m[k] = NUMERIC.has(k) && !isNaN(Number(v)) ? Number(v) : v;
   }
   if (m.parley === "true") m.parley = true;             // true: the first parley
-  else if (typeof m.parley === "string" && m.parley.includes(",")) m.parley = m.parley.split(",");   // several
+  else if (typeof m.parley === "string" && (m.parley.includes(",") || Array.isArray(old.parley))) m.parley = m.parley.split(",");   // several (a list stays a list)
   if ($("mDmg0").value !== "") m.damage = [Number($("mDmg0").value), Number($("mDmg1").value || $("mDmg0").value)];
   for (const f of FLAGS) if ($("f_" + f).checked) m[f] = old[f] !== undefined && old[f] !== false ? old[f] : true;
   if (gearRows.length) m.gear = gearRows.map(g => g.slice());
