@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants real wares (role placeholders now) and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (17 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants real wares (role placeholders now) and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (21 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
+- 2026-10-15 (after quest readiness, archive races, role stocks and icons): tools/check_all.py --client 7 of 7 passed (unit 261, load p95 11.0 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after cross-region binding and tombstones): tools/check_all.py --client 7 of 7 passed (unit 254, load p95 11.5 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the creature, loot and item imports): tools/check_all.py --client 7 of 7 passed (unit 253, load p95 11.2 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the bulk import and riftway landings): tools/check_all.py --client 7 of 7 passed (unit 250, load p95 10.9 ms, fuzz clean, smoke PASS).
@@ -85,6 +86,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Creature camps from the zone pages' maps (import_zone.camps): plural place names that match a creature of the zone ("Hill Cats") get three of them around the map point, z from the terrain. 24 camps, 72 spawns; 4 more archive quests became playable (21 in all, 2 kill quests). Seen live: Ksaravi Foragers in Khal.
 
 - 2026-10-15: Role stocks for imported merchants (import_zone.stock_merchants): weapons, ranged, heavy/medium/light armor vendors sell up to 12 archive items of that kind (35 merchants, 58 items; the archive has no wares, so placeholders). Archive items get slot icons instead of 443, which is a red "prohibited" sign; loot rows without an icon fall back to the item's icon, then a sack. Seen live: Ciraddahi Dhuhin's weapons in Khal.
 

@@ -1705,6 +1705,19 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual([race(r) for r in ("Dwarf", "Kojani Human", "Half-Elf", "Gnome *")], [2, 12, 8, 6])
         self.assertEqual([race(r) for r in ("Human", "Jharru", None)], [13, 13, 13])   # the continent's
 
+    def test_camps_from_zone_map(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        zone = {"map_places": [{"name": "Hill Cats", "location": {"raw": "6515, -40766"}},
+                               {"name": "Hillshadow", "location": {"raw": "7730, -59516"}},      # one name: may be a person
+                               {"name": "Injured Soldiers", "location": {"raw": "1, 2"}},
+                               {"name": "Bank", "location": {"raw": "3, 4"}}]}
+        cr = {n: {"name": n, "zone": "Halgarad", "level": 1} for n in ("Hill Cat", "Hillshadow", "Injured Soldier")}
+        out = import_zone.camps("Halgarad", zone, cr, "Thestra")
+        self.assertEqual([(k, len(c)) for k, _, c in out], [("arch_hill_cat", 3)])
+        self.assertTrue(all("z" not in s and abs(s["x"] - 6515) <= 250 for s in out[0][2]))   # the server finds the ground
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

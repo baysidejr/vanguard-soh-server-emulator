@@ -518,8 +518,113 @@
       "xp": 3600
     }
   },
-  "arch_the_missing_shards": {
+  "arch_crawler_leaves": {
     "id": 5115,
+    "name": "Crawler Leaves",
+    "level": 1,
+    "giver": "arch_celuma_brightwind",
+    "turn_in": "arch_celuma_brightwind",
+    "steps": [
+      {
+        "objective": "Crawler Leaf",
+        "collect": {
+          "Crawler Leaf": 7
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '10' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/crawler-leaves",
+    "greeting": "I could use some help. (Crawler Leaves: the archive has no dialogue yet.)",
+    "description": "Celuma Brightwind has asked you to help: gather 7 Crawler Leaf.",
+    "summary": "Gather 7 Crawler Leaf for Celuma Brightwind.",
+    "accept_text": "You agree to help Celuma Brightwind.",
+    "reward": {
+      "xp": 100
+    }
+  },
+  "arch_foraging_from_the_sand": {
+    "id": 5116,
+    "name": "Foraging from the Sand",
+    "level": 5,
+    "giver": "arch_kooshin_vahdaat",
+    "turn_in": "arch_kooshin_vahdaat",
+    "steps": [
+      {
+        "objective": "Ksaravi Foragers Slain",
+        "kill": {
+          "arch_ksaravi_forager": 7
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '50' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/foraging-from-the-sand",
+    "greeting": "I could use some help. (Foraging from the Sand: the archive has no dialogue yet.)",
+    "description": "Kooshin Vahdaat has asked you to help: slay 7 Ksaravi Foragers.",
+    "summary": "Slay 7 Ksaravi Foragers for Kooshin Vahdaat.",
+    "accept_text": "You agree to help Kooshin Vahdaat.",
+    "reward": {
+      "xp": 500
+    }
+  },
+  "arch_ethereal_study": {
+    "id": 5117,
+    "name": "Ethereal Study",
+    "level": 1,
+    "giver": "arch_priestess_aludan",
+    "turn_in": "arch_priestess_aludan",
+    "steps": [
+      {
+        "objective": "Ethereal Globe",
+        "collect": {
+          "Ethereal Globe": 6
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/ethereal-study",
+    "greeting": "I could use some help. (Ethereal Study: the archive has no dialogue yet.)",
+    "description": "Priestess Aludan has asked you to help: gather 6 Ethereal Globe.",
+    "summary": "Gather 6 Ethereal Globe for Priestess Aludan.",
+    "accept_text": "You agree to help Priestess Aludan.",
+    "reward": {
+      "xp": 100
+    }
+  },
+  "arch_the_discord_of_kaon": {
+    "id": 5118,
+    "name": "The Discord Of Kaon",
+    "level": 1,
+    "giver": "arch_priestess_aludan",
+    "steps": [
+      {
+        "objective": "Kaon Wretches Slain",
+        "kill": {
+          "arch_kaon_wretch": 6
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-discord-of-kaon",
+    "greeting": "I could use some help. (The Discord Of Kaon: the archive has no dialogue yet.)",
+    "description": "Priestess Aludan has asked you to help: slay 6 Kaon Wretches.",
+    "summary": "Slay 6 Kaon Wretches for Priestess Aludan.",
+    "accept_text": "You agree to help Priestess Aludan.",
+    "reward": {
+      "xp": 100
+    }
+  },
+  "arch_the_missing_shards": {
+    "id": 5119,
     "name": "The Missing Shards",
     "level": 48,
     "giver": "arch_lord_neferset",
@@ -552,7 +657,7 @@
     }
   },
   "arch_rift_gem": {
-    "id": 5116,
+    "id": 5120,
     "name": "Rift Gem",
     "level": 10,
     "giver": "arch_inquisitor_nalstom",

@@ -280,9 +280,10 @@ def face(spawns, near=800.0):
     return spawns
 
 
-def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
+def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_rec=None):
     """(level, {key: template}, [spawn]) for a zone's NPCs that have a position, then the quest
-    givers the NPC records don't place, at their quests' start locations."""
+    givers the NPC records don't place, at their quests' start locations, the creatures with a
+    location, and creature camps from the zone page's map (camps())."""
     if zone not in chunks:
         raise SystemExit(f"{zone!r} is not in ChunkNames.txt")
     level = level_name(*chunks[zone])
@@ -319,7 +320,56 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None):
         if respawn_seconds(rec):
             sp["respawn"] = respawn_seconds(rec)
         spawns.append(sp)
+    for key, t, camp in camps(zone, zone_rec, creatures or {}, continent):
+        if key in mobs:
+            continue
+        mobs[key] = t
+        spawns.extend(camp)
     return level, mobs, face(spawns)
+
+
+CAMP_RADIUS = 250
+NOT_HOSTILE = re.compile(r"(injured|wounded|captive|lost|trapped|friendly) |defender|guard|sentr|soldier|citizen|villager", re.I)
+
+
+def camps(zone, zone_rec, creatures, continent):
+    """[(key, template, [spawn])]: the zone page's map places named after a creature of that zone
+    ("Gwartak Grunts" at "-55454, 55971") become camps there. The map points are the chunk's own
+    x, y (checked against NPCs the same places list: within about 100 units), with no height, so
+    the spawns leave z out and the server puts them on the ground. A plural name is a camp of three
+    around the point; a singular name is skipped (the archive files some people under creatures, and
+    nothing in the records tells them apart). They wander a little."""
+    by_name = {n.lower(): r for n, r in creatures.items()}
+    out, seen = [], set()
+    for mp in (zone_rec or {}).get("map_places") or []:
+        m = re.match(r"\s*(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)", str((mp.get("location") or {}).get("raw") or ""))
+        name = (mp.get("name") or "").strip().lower()
+        if not m or not name:
+            continue
+        head, _, last = name.rpartition(" ")
+        forms = [name] + [(head + " " if head else "") + last[: -len(p)] + s
+                          for p, s in (("ies", "y"), ("ves", "f"), ("men", "man"), ("es", ""), ("s", "")) if last.endswith(p)]
+        rec = next((by_name[f] for f in forms if f in by_name), None)
+        if rec is None or rec.get("zone") != zone or is_object(rec) or not rec.get("level"):
+            continue
+        key = key_for(rec["name"])
+        if key in seen:
+            continue
+        seen.add(key)
+        x, y = float(m.group(1)), float(m.group(2))
+        if forms[0] == rec["name"].lower() or NOT_HOSTILE.search(name):
+            continue          # one name ("Chi Ake Threecranes") may be a person; "Injured ..." needs help
+        n = 3
+        camp = []
+        for i in range(n):
+            a = 2 * math.pi * i / n
+            r = CAMP_RADIUS if n > 1 else 0
+            sp = {"mob": key, "x": round(x + r * math.cos(a)), "y": round(y + r * math.sin(a)), "yaw": 0, "wander": 200}
+            if respawn_seconds(rec):
+                sp["respawn"] = respawn_seconds(rec)
+            camp.append(sp)
+        out.append((key, creature_template(rec, continent), camp))
+    return out
 
 
 def load(path, default):
@@ -571,7 +621,8 @@ def import_all(do_apply, skip):
     for name in sorted(chunks):
         if name in skip:
             continue
-        level, mobs, spawns = plan(name, npcs, chunks, quests, (zones.get(name) or {}).get("continent"), creatures)
+        level, mobs, spawns = plan(name, npcs, chunks, quests, (zones.get(name) or {}).get("continent"), creatures,
+                                   zones.get(name))
         if not spawns:
             continue
         totals[0] += 1
@@ -616,7 +667,7 @@ def main(argv=None):
         ap.error("give a zone name or --all")
     zone_rec = archive_npcs(kind="zone").get(a.zone) or {}
     level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks(), archive_npcs(kind="quest"),
-                               zone_rec.get("continent"), archive_npcs(kind="creature"))
+                               zone_rec.get("continent"), archive_npcs(kind="creature"), zone_rec)
     print(f"{a.zone}: {level}, {len(spawns)} NPCs with a position in the archive (NPC records and quest start locations)")
     if not a.apply:
         out = os.path.join(DRAFTS, re.sub(r"[^A-Za-z0-9]+", "_", a.zone))
