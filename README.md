@@ -85,6 +85,7 @@ The unmodified client, talking only to this emulator:
 
 - [x] NPCs that walk home and heal when they give up (leash, attacker dead or gone, pet dismissed), NPCs that flee at low health (mobs.json `flee_at`), quests offered from conversation replies, the parley option line with its type and expression icons, no mounts indoors, ignore refusing invites, trades and duels
 - [x] Real NPCs from the crowdsourced archive at their recorded positions: 1,200 NPCs and 179 creatures in 75 regions (`tools/import_zone.py`), with banks, brokers, merchants (placeholder stock) and class trainers; riftways travel between regions, 36 of 39 destinations open
+- [x] Archive quests that can be done with what is placed (`tools/quest_readiness.py --apply`): 17 so far, the rest wait on the scrape (1,196 have their giver placed but not every objective's creature or item)
 - [x] Accounts with salted password hashes, a launcher (`tools/play.py`, HTTPS with a certificate), one-time session tokens, characters per account, suspensions; one connection per character
 - [x] Server side: SQLite database (`server/vanguard.db`), reliable-packet resends and in-order delivery (long client messages arrive), a load test (`tools/loadtest.py`: 100 players moving in one spot at 62% of a core) and a protocol fuzzer (`tools/fuzz.py`) with the bugs it found fixed (docs/TESTING.md)
 

@@ -86,7 +86,7 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 
 ## Done
 
-- 2026-10-15: tools/quest_readiness.py: counts archive quests whose giver is placed and every objective doable in its zone (kill target placed, collect item in a placed creature's loot); --apply adds them to quests.json (ids 5100+, placeholder text and xp, coin only when the archive gives a unit). Added 17 (Afrit, Beranid Hills, Nusibe Necropolis, Tursh Village) and 4 quest items. Removed a bogus "Unknown" NPC the importer had placed for quests with no known giver (3 spawns), and the importer now skips those.
+- 2026-10-15: tools/quest_readiness.py: counts archive quests whose giver is placed and every objective doable in its zone (kill target placed, collect item in a placed creature's loot); --apply adds them to quests.json (ids 5100+, placeholder text and xp, coin only when the archive gives a unit). Added 17 (Afrit, Beranid Hills, Nusibe Necropolis, Tursh Village) and 4 quest items. Seen live: Inquisitor Nalstom (Tursh Village) offers Rift Gem with its objective and reward. Removed a bogus "Unknown" NPC the importer had placed for quests with no known giver (3 spawns), and the importer now skips those.
 
 - 2026-10-15: Checked live: a character saved in another region logs in there (Ranger saved at the Khal hub came back at -6747, -25611, 1442 in Khal); restored to the camp afterwards.
 

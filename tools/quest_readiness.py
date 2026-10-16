@@ -115,9 +115,12 @@ def to_quest(rec, steps, quest_id, content=z.CONTENT):
     q["steps"] = steps
     q["_needs"] = [n for n in q.get("_needs", []) if not n.startswith(("the mob to kill", "step ", "steps", "turn_in"))]
     giver_name = rec.get("giver")
+    tasks = [(f"Gather {n} {name}" if "collect" in s else f"Slay {n} {s['objective']}")
+             for s in steps for name, n in (s.get("collect") or s.get("kill")).items()]
     q.setdefault("greeting", f"I could use some help. ({rec['name']}: the archive has no dialogue yet.)")
-    q.setdefault("description", f"{giver_name} needs help: " + "; ".join(s["objective"] for s in steps) + ".")
-    q.setdefault("summary", "; ".join(s["objective"] for s in steps) + ".")
+    q.setdefault("description", f"{giver_name} has asked you to help: " + ", then ".join(
+        t[0].lower() + t[1:] for t in tasks) + ".")
+    q.setdefault("summary", "; ".join(tasks) + f" for {giver_name}.")
     q.setdefault("accept_text", f"You agree to help {giver_name}.")
     if (rec.get("turn_in") or "").strip().lower() == "unknown":
         q.pop("turn_in", None)
