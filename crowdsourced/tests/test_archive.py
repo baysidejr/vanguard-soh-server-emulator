@@ -19,6 +19,22 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_creature_geography_labels_remain_observations(self):
+        from archive_extract import enrich_record
+        record = dict(type='creature', archive_fields={
+            'continent': ['Thestra'], 'difficulty': ['3 dots'],
+            'locations seen': ['2']})
+        enrich_record(record, None)
+        self.assertEqual(record['continent'], 'Thestra')
+        self.assertEqual(record['difficulty_recorded'], '3 dots')
+        self.assertEqual(record['locations_seen_recorded'], '2')
+        self.assertNotIn('spawn_areas', record)
+        record['archive_fields'] = {'continent': ['Thestra', 'Qalia']}
+        enrich_record(record, None)
+        self.assertIsNone(record['continent'])
+        self.assertIsNone(record['difficulty_recorded'])
+        self.assertIsNone(record['locations_seen_recorded'])
+
     def test_item_tool_and_material_tags_are_kept_as_metadata(self):
         for label in ('tool','material'):
             html=page('Fixture Item <span class="tag-'+label+'">'+label+'</span> <span class="tag-crafted">crafted</span>','')

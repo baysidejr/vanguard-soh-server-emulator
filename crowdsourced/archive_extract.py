@@ -454,6 +454,13 @@ def enrich_recipe(record, main):
 
 
 def enrich_record(record, main):
+    if record['type'] == 'creature':
+        for target, label in [('continent', 'continent'),
+                              ('locations_seen_recorded', 'locations seen'),
+                              ('difficulty_recorded', 'difficulty')]:
+            values = record.get('archive_fields', {}).get(label, [])
+            record[target] = values[0] if len(values) == 1 else None
+        return []
     if record['type'] == 'item':
         return enrich_item(record, main)
     if record['type'] == 'quest':

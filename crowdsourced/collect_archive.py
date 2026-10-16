@@ -27,7 +27,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 31
+PARSER_VERSION = 32
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
