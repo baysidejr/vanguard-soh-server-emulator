@@ -6,10 +6,11 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 90 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (22 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
+Content: 93 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (22 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
 
 ## Last test results
 
+- 2026-10-16 (after the zone-name matching fixes, 93 zones): tools/check_all.py --client 7 of 7 passed (unit 271, load p95 11.3 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after the obstacle worker process, !visit, refresh_archive): tools/check_all.py --client 7 of 7 passed (unit 268, load p95 11.2 ms, fuzz clean, smoke PASS); no python processes left behind.
 - 2026-10-15 (after fireworks sparklers, the Archive quests tab and background obstacle builds): tools/check_all.py --client 7 of 7 passed (unit 266, load p95 11.2 ms, fuzz clean, smoke PASS). 50 bots 300 s in Bordinar's Cleft: memory flat at 239 MB, worst ping 437 ms.
 - 2026-10-15 (after camps, zone-map NPCs, altars and mailboxes): tools/check_all.py --client 7 of 7 passed (unit 264, load p95 11.4 ms, fuzz clean, smoke PASS).
