@@ -85,6 +85,18 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Experience | XP per kill or quest, level curve | 150 XP per kill, ±15% per level of difference, none from mobs 6+ levels below (`combat.KILL_XP`); level N needs 1000 × 1.12^(N−1) (`zone.xp_for_level`), cap 50 |
 | Tutorial popups | when each tutorial shows (first death, first level, ...) and its title and text: MsgTutorialDisplayEvent carries two server strings (ctor FUN_005d9a00); the client only remembers "do not show again" (0x183 for the death penalty tutorial) | none |
 
+## What the archive scrape could add next (2026-10-15)
+
+Measured with `tools/quest_readiness.py --branch` and the importer after the zone-map imports. In order of what each would unlock:
+
+1. **Quest objective targets** (1,722 objectives): a quest page's objective names something ("Okami Organs", "Tiberian Wildwood Shadowhounds") with no creature or item page yet. Creature and item pages for those names, with a location or a dropper, would make most of the 1,270 quests whose giver is already placed playable.
+2. **Creature locations** (175 objectives): the creature page exists but gives no location and no zone-map place names it. A location line ("x, y, z in Zone (cx, cy)") or a map place is enough.
+3. **Who drops an item** (92 objectives): the item page exists but no placed creature's loot lists it.
+4. **Quest givers with no position** (2,100 quests): neither the NPC page nor the quest page ("location") places the giver.
+5. **NPC race and gender** (98% of NPCs): racial cities show the continent's human race.
+6. **Merchant wares**: no page lists what a merchant sells; role stocks stand in.
+7. **Aggression**: few creature pages say "Aggressive", so most imported creatures don't attack first.
+
 ## Planned editor (end of project)
 
 1. **In-game builder mode.** GM chat commands on our server, with the real client as the 3D editor:
