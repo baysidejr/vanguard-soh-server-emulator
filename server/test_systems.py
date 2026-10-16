@@ -2001,3 +2001,35 @@ class QuestReadinessTests(unittest.TestCase):
                                            self.world, self.chunks), "no giver")
         # The giver as the objective ("read the book") is an interaction we can't do.
         self.assertEqual(self.qr.readiness(self.quest(("Ranger Shyath (1/1)", None, 1)), self.world, self.chunks), "giver")
+
+
+class ArchiveMerchantTests(unittest.TestCase):
+    """Role stocks for imported merchants and placeholder icons (tools/import_zone.py)."""
+
+    def setUp(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        self.z = import_zone
+
+    def test_role_stock(self):
+        self.assertEqual(self.z.role_stock_key("Merchant - Heavy Armor Vendor"), "archive_heavy_armor")
+        self.assertEqual(self.z.role_stock_key("Ranged Weapon Vendor"), "archive_ranged")
+        self.assertIsNone(self.z.role_stock_key("Merchant - General Goods"))
+        rec = lambda name, lvl, rarity="common": {"name": name, "level_required": lvl, "rarity": rarity, "slot": "chest",
+                                                  "archive_fields": {"type": ["Heavy Armor"]}}
+        recs = {r["name"]: r for r in (rec("Plate Vest", 5), rec("Iron Helm", 1), rec("Steel Greaves", 10),
+                                       rec("Basnaret's Robe", 50), rec("Glowing Mail", 20, "rare"))}
+        stock = self.z.build_role_stock("heavy_armor", recs)
+        self.assertEqual([(r["name"], p) for r, p in stock], [("Iron Helm", 25), ("Plate Vest", 125), ("Steel Greaves", 250)])
+        del recs["Steel Greaves"]
+        self.assertEqual(self.z.build_role_stock("heavy_armor", recs), [])     # too few: keep general goods
+
+    def test_icons(self):
+        self.assertEqual(self.z.slot_icon({}, "CHEST"), 436)
+        self.assertEqual(self.z.slot_icon({}, "TWOHANDS", "Ardent Greatmaul"), 425)
+        self.assertEqual(self.z.slot_icon({}, None), 442)
+        import content
+        c = content.Content.__new__(content.Content)
+        c.loot, c.items = {"t": [{"name": "Known"}, {"name": "Unknown"}, {"name": "Set", "icon": 7}]}, {"Known": {"icon": 436}}
+        self.assertEqual([icon for _, icon, _ in c.roll_loot("t")], [436, 442, 7])

@@ -784,7 +784,7 @@ LOOT_TAKE_ALL = 0xBD         # C->S i32 -1 ("Take All")
 LOOT_CLOSE = 0xBE            # C->S no payload
 
 # Placeholder loot: (item id = handle, name, icon, quantity).
-LOOT_TABLE = [(5001, "Tattered Cloth", 442, 2), (5002, "Rough Stone", 443, 1),
+LOOT_TABLE = [(5001, "Tattered Cloth", 442, 2), (5002, "Rough Stone", 477, 1),
               (5003, "Copper Ring", 472, 1)]
 
 

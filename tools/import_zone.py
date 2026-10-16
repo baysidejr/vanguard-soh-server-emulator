@@ -18,6 +18,7 @@ have (appearance, gear, services' wares, dialogue) is left for the content edito
 Uses only the Python standard library.
 """
 import argparse
+import collections
 import datetime
 import glob
 import json
@@ -402,6 +403,154 @@ def apply(level, mobs, spawns, content=CONTENT):
     return len(new_mobs), len(new_spawns)
 
 
+# Merchant roles (the archive's title) -> what a role stock holds: a test on an archive item record.
+# The archive records no vendor wares, so these stocks are placeholders built from archive items of
+# the right kind (mundane or common, not player-crafted), spread over the levels.
+def _atype(r):
+    return " ".join((r.get("archive_fields") or {}).get("type") or [])
+
+
+def _ranged(r):
+    return "Ranged" in _atype(r) or "bow" in ((r.get("weapon_type_recorded") or "") + r["name"]).lower()
+
+
+ROLE_STOCKS = {                  # first match wins: "Ranged Weapon Vendor" before "Weapon Vendor"
+    "ranged": (("Ranged Weapon",), _ranged),
+    "weapons": (("Weapons Vendor", "Weapon Vendor"),
+                lambda r: r.get("item_type") == "weapon" and not _ranged(r)),
+    "heavy_armor": (("Heavy Armor",), lambda r: _atype(r) == "Heavy Armor"),
+    "medium_armor": (("Medium Armor",), lambda r: _atype(r) == "Medium Armor"),
+    "light_armor": (("Light Armor",), lambda r: _atype(r) == "Light Armor"),
+    "crafting": (("Crafting Equipment",), lambda r: _atype(r) == "Crafting Tool"),
+    "clothing": (("Clothing",), lambda r: _atype(r) == "Clothing"),
+}
+STOCK_SIZE = 12
+STOCK_MIN = 3                    # fewer than this and the merchant keeps general_goods
+NAMED_ITEM = re.compile(r"(?<!adventurer)(?<!apprentice)(?<!initiate)(?<!apostle)'s(?![a-z])| of | tool$", re.I)  # "Basnaret's Robe", "Bow of Fighting": loot, not stock
+
+
+def role_stock_key(title):
+    """The role stock for a merchant title ("Merchant - Heavy Armor Vendor" -> "archive_heavy_armor")."""
+    for role, (words, _) in ROLE_STOCKS.items():
+        if any(w in (title or "") for w in words):
+            return "archive_" + role
+    return None
+
+
+def item_level(r):
+    for v in (r.get("level_required"), r.get("item_level")):
+        try:
+            return int(v)
+        except (TypeError, ValueError):
+            pass
+    return 0
+
+
+def build_role_stock(role, items_recs):
+    """[(archive record, price)]: up to STOCK_SIZE items for a role, evenly over the levels. The
+    archive has no prices: 25 copper per item level (required level, else item level; a placeholder)."""
+    test = ROLE_STOCKS[role][1]
+    pool = [r for r in items_recs.values()
+            if r.get("rarity") in ("mundane", "common") and r.get("slot") and "." not in r["name"]
+            and not NAMED_ITEM.search(r["name"])
+            and (r.get("archive_fields") or {}).get("origin") != ["Player-crafted"] and test(r)]
+    pool.sort(key=lambda r: (item_level(r), r["name"]))
+    if len(pool) > STOCK_SIZE:
+        pool = [pool[i * (len(pool) - 1) // (STOCK_SIZE - 1)] for i in range(STOCK_SIZE)]
+    if len(pool) < STOCK_MIN:
+        return []
+    return [(r, 25 * max(1, item_level(r))) for r in pool]
+
+
+# Placeholder icons by equipment slot (iconsTK.xml numbers, picked by eye): the archive has no icons.
+# 443 is a red "prohibited" sign, so it is no placeholder.
+SLOT_ICONS = {"HEAD": 437, "CHEST": 436, "HANDS": 434, "WRISTS": 432, "LEGS": 430, "FEET": 431,
+              "SHOULDERS": 435, "WAIST": 473, "CLOAK": 474, "BACK": 474, "NECK": 445, "LEFTEAR": 444,
+              "RIGHTEAR": 444, "LEFTFINGER": 444, "RIGHTFINGER": 444, "SECONDARYHAND": 517}
+WEAPON_ICONS = ((re.compile(r"staff|rod|wand", re.I), 483), (re.compile(r"mace|hammer|club|maul", re.I), 425),
+                (re.compile(r"dagger|knife|shiv|kris", re.I), 427))
+NO_ICON = 442                    # a sack: anything without a slot
+
+
+def slot_icon(items, slot, name=""):
+    """A placeholder icon for an archive item: by slot (SLOT_ICONS), a weapon by its name, else the
+    commonest icon of the hand-made items for that slot, else a sack."""
+    if slot in SLOT_ICONS:
+        return SLOT_ICONS[slot]
+    if slot in ("PRIMARYHAND", "TWOHANDS"):
+        hit = next((icon for pat, icon in WEAPON_ICONS if pat.search(name)), None)
+        if hit:
+            return hit
+    icons = collections.Counter(it["icon"] for it in items.values() if isinstance(it, dict)
+                                and slot and it.get("slot") == slot and it.get("icon") not in (None, 443)
+                                and not it.get("_source"))
+    return icons.most_common(1)[0][0] if icons else NO_ICON
+
+
+def fix_placeholder_icons(content=CONTENT):
+    """Archive items still on the old placeholder 443 get slot_icon. Returns how many changed."""
+    path = os.path.join(content, "items.json")
+    items = load(path, {})
+    n = 0
+    for name, it in items.items():
+        if isinstance(it, dict) and it.get("_source") and it.get("icon") == 443:
+            it["icon"] = slot_icon(items, it.get("slot"), name)
+            n += 1
+    if n:
+        write(path, items)
+    return n
+
+
+def stock_merchants(content=CONTENT):
+    """Give imported merchants on the shared "general_goods" (or on another role stock) the role
+    stock matching their title, creating the stock (merchants.json) and its items (items.json, via
+    the converter) once. Merchants a builder gave other wares are left alone.
+    Returns (merchants changed, items added)."""
+    sys.path.insert(0, os.path.join(ROOT, "crowdsourced"))
+    import convert
+    import tempfile
+    mobs_path, merch_path, items_path = (os.path.join(content, n) for n in ("mobs.json", "merchants.json", "items.json"))
+    mobs, merchants, items = load(mobs_path, {}), load(merch_path, {}), load(items_path, {})
+    recs = archive_npcs(kind="item")
+    changed = added = 0
+    for key, t in mobs.items():
+        if not key.startswith("arch_") or not isinstance(t, dict) or not (
+                t.get("merchant") == "general_goods" or str(t.get("merchant")).startswith("archive_")):
+            continue
+        stock = role_stock_key(t.get("title"))
+        if stock is None or stock == t["merchant"]:
+            continue
+        if stock not in merchants:
+            chosen = build_role_stock(stock[len("archive_"):], recs)
+            with tempfile.TemporaryDirectory() as d:
+                with open(os.path.join(d, "all.jsonl"), "w", encoding="utf-8") as f:
+                    for r, _ in chosen:
+                        f.write(json.dumps(dict(r, notes=r.get("notes") or "", confidence=r.get("confidence") or "low")) + "\n")
+                out = convert.convert(convert.Batch(d, include_low=True), convert.creature_races())["items.json"]
+            rows = []
+            for r, price in chosen:
+                it = out.get(r["name"])
+                if it is None:
+                    continue
+                if r["name"] not in items:
+                    if it.get("icon") in (None, 443):        # the converter's placeholder
+                        it["icon"] = slot_icon(items, it.get("slot"), r["name"])
+                    items[r["name"]] = it
+                    added += 1
+                rows.append({"item": r["name"], "price": price})
+            if not rows:
+                continue
+            merchants[stock] = rows
+        t["merchant"] = stock
+        changed += 1
+    if changed:
+        write(merch_path, merchants)
+        write(mobs_path, mobs)
+    if added:
+        write(items_path, items)
+    return changed, added
+
+
 def branch_raw(ref):
     """The raw batches of a git ref (the scrape publishes to its own branch), extracted with git
     archive into a temporary folder; the branch is not merged. Returns the raw folder."""
@@ -435,6 +584,8 @@ def import_all(do_apply, skip):
         print(f"{totals[0]} zones have something to place (run with --apply to add it)")
         return 0
     print(f"{totals[0]} zones: added {totals[1]} templates and {totals[2]} spawns")
+    print("role stocks: %d merchants, %d items added" % stock_merchants())
+    print("placeholder icons replaced: %d" % fix_placeholder_icons())
     if totals[1] or totals[2]:
         with open(os.path.join(ROOT, "crowdsourced", "imported.md"), "a", encoding="utf-8") as f:
             f.write(f"| {datetime.date.today()} | raw batches{' + ' + ', '.join(SOURCES) if SOURCES else ''} "

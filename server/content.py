@@ -85,12 +85,14 @@ class Content:
         return self.items.get(name, {})
 
     def roll_loot(self, table_id, rng=random):
-        """[(name, icon, quantity)] dropped from a loot table."""
+        """[(name, icon, quantity)] dropped from a loot table. The icon: the row's, else the item's
+        in items.json, else a sack (442; the old default 443 is a red "prohibited" sign)."""
         drops = []
         for entry in self.loot.get(table_id, []):
             if rng.random() <= entry.get("chance", 1.0):
                 lo, hi = entry.get("quantity", [1, 1])
-                drops.append((entry["name"], entry.get("icon", 443), rng.randint(lo, hi)))
+                icon = entry.get("icon", self.items.get(entry["name"], {}).get("icon", 442))
+                drops.append((entry["name"], icon, rng.randint(lo, hi)))
         return drops
 
 

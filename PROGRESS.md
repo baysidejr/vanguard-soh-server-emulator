@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (17 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants real wares (role placeholders now) and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (17 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
@@ -85,6 +85,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Role stocks for imported merchants (import_zone.stock_merchants): weapons, ranged, heavy/medium/light armor vendors sell up to 12 archive items of that kind (35 merchants, 58 items; the archive has no wares, so placeholders). Archive items get slot icons instead of 443, which is a red "prohibited" sign; loot rows without an icon fall back to the item's icon, then a sack. Seen live: Ciraddahi Dhuhin's weapons in Khal.
 
 - 2026-10-15: Imported NPCs use the archive's race where it records one (import_zone.npc_race: "Kojani Human", "Half-Elf", ... through the converter's race table); 28 templates updated. Seen live: Ciraddahi Dhuhin in Khal is a Kurashasa. Also counted what blocks the 1,196 quests with a placed giver: 1,722 objectives name things the archive has no page for yet.
 
