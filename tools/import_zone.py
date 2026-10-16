@@ -325,11 +325,14 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
             continue
         mobs[key] = t
         spawns.extend(camp)
+    people = []
     for key, t, sp in map_people(zone, zone_rec, recs, continent, spawns, creatures):
         if key in mobs:
             continue
         mobs[key] = t
-        spawns.append(sp)
+        people.append(sp)
+    off_terrain_heights(level, spawns, people)
+    spawns.extend(people)
     spawns.extend(service_props(zone_rec, spawns, existing_spawns(level)))
     return level, mobs, face(spawns)
 
@@ -340,6 +343,33 @@ SERVICE_PLACES = ((re.compile(r"bind|altar|alter\b|resur+ection", re.I), "camp_a
 
 
 SHARED_PROPS = {mob for _, mob, _ in SERVICE_PLACES}
+
+
+OFF_TERRAIN = 400                # a city whose NPCs stand this far from the terrain (median)
+OFF_TERRAIN_REACH = 6000         # and only near the city: farther out the terrain is the better guess
+
+
+def off_terrain_heights(level, placed, people, ground=None):
+    """In a chunk whose positioned NPCs mostly stand well above or below the terrain (a city carved
+    into a mountain like Bordinar's Cleft, or built in the trees like Tawar Galan), people with no
+    height take the nearest positioned NPC's within OFF_TERRAIN_REACH: the terrain would put them on
+    the surface. ground(x, y) is the terrain height (default: the server's, from the client's map)."""
+    known = [s for s in placed if s.get("z") is not None and s["mob"].startswith("arch_")]
+    todo = [s for s in people if s.get("z") is None]
+    if len(known) < 5 or not todo:
+        return
+    if ground is None:
+        sys.path.insert(0, os.path.join(ROOT, "server"))
+        import content as server_content
+        c = server_content.Content(CONTENT)
+        ground = lambda x, y: c.ground_z(level, x, y, ROOT)
+    diffs = sorted(s["z"] - ground(s["x"], s["y"]) for s in known)
+    if abs(diffs[len(diffs) // 2]) < OFF_TERRAIN:
+        return
+    for s in todo:
+        k = min(known, key=lambda k: math.hypot(k["x"] - s["x"], k["y"] - s["y"]))
+        if math.hypot(k["x"] - s["x"], k["y"] - s["y"]) < OFF_TERRAIN_REACH:
+            s["z"] = k["z"]
 
 
 def existing_spawns(level, content=CONTENT):

@@ -1746,6 +1746,18 @@ class ImportZoneTests(unittest.TestCase):
         out = import_zone.service_props(zone, [{"mob": "a", "x": 0, "y": 0, "z": 77}], existing)
         self.assertEqual([(s["mob"], s["x"], s.get("z")) for s in out], [("camp_altar", 100, 77), ("camp_mailbox", 5, 77)])
 
+    def test_off_terrain_city_heights(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        city = [{"mob": f"arch_{i}", "x": i * 100, "y": 0, "z": 87000} for i in range(6)]     # below the mountain
+        near, far = {"mob": "arch_p", "x": 700, "y": 0}, {"mob": "arch_q", "x": 50000, "y": 0}
+        import_zone.off_terrain_heights("chunk_x", city, [near, far], ground=lambda x, y: 95000)
+        self.assertEqual((near.get("z"), far.get("z")), (87000, None))
+        on_ground = {"mob": "arch_r", "x": 700, "y": 0}
+        import_zone.off_terrain_heights("chunk_x", city, [on_ground], ground=lambda x, y: 87050)
+        self.assertNotIn("z", on_ground)                         # the city stands on the terrain: keep it
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
