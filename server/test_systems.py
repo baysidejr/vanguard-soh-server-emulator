@@ -2148,6 +2148,17 @@ class QuestReadinessTests(unittest.TestCase):
         (key, t, camp), = camps["chunk_n25_26"]
         self.assertEqual((key, len(camp), t["level"]), ("arch_bear", 3, 5))
         self.assertTrue(all(sp["x"] <= 0 and sp["_placeholder"] and "z" not in sp for sp in camp))
+        import tempfile, json as _json
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "quests.json"), "w", encoding="utf-8") as f:
+                _json.dump({"arch_a": {"name": "A"}, "arch_b": {"name": "B"}, "arch_c": {"name": "C", "requires": ["arch_b"]}}, f)
+            archive = {"A": {"chain_previous": None}, "B": {"chain_previous": "C"}, "C": {"chain_previous": "A"}}
+            # B follows C, but C already requires B: no loop; A has no previous quest.
+            self.assertEqual(self.qr.link_chains(archive, d), 0)
+            archive["B"]["chain_previous"] = "A"
+            self.assertEqual(self.qr.link_chains(archive, d), 1)
+            with open(os.path.join(d, "quests.json"), encoding="utf-8") as f:
+                self.assertEqual(_json.load(f)["arch_b"]["requires"], ["arch_a"])
         # The giver as the objective ("read the book") is an interaction we can't do.
         self.assertEqual(self.qr.readiness(self.quest(("Ranger Shyath (1/1)", None, 1)), self.world, self.chunks), "giver")
 

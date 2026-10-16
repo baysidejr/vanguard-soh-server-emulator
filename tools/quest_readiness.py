@@ -216,6 +216,34 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
     return added_q, added_i
 
 
+def link_chains(archive_quests, content=z.CONTENT):
+    """Archive quests that follow another quest in quests.json ("previous" on the archive page)
+    require it (quests added in the same refresh missed the link). Never closes a loop. Returns
+    the number of links added."""
+    path = os.path.join(content, "quests.json")
+    quests = z.load(path, {})
+    by_name = {q["name"].lower(): k for k, q in quests.items() if isinstance(q, dict) and "name" in q}
+
+    def needs(key, target, seen=()):
+        """True when `key` (directly or further back) requires `target`."""
+        for r in quests.get(key, {}).get("requires", []):
+            if r == target or (r not in seen and needs(r, target, seen + (r,))):
+                return True
+        return False
+    added = 0
+    for key, q in quests.items():
+        if not key.startswith("arch_") or not isinstance(q, dict) or q.get("requires"):
+            continue
+        prev = (archive_quests.get(q.get("name")) or {}).get("chain_previous")
+        pkey = by_name.get((prev or "").lower())
+        if pkey and pkey != key and not needs(pkey, key):
+            q["requires"] = [pkey]
+            added += 1
+    if added:
+        z.write(path, quests)
+    return added
+
+
 def delivery_plan(quests, world, chunks, content=z.CONTENT):
     """{quest name: steps} for quests whose giver is placed, whose archive page records no
     objectives, and whose hand-in NPC is someone else who is placed: played as "speak with the

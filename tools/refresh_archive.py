@@ -55,6 +55,7 @@ def main(argv=None):
     if a.apply:
         print("added %d quests and %d items" % quest_readiness.apply(ready, world, chunks))
         print("added %d delivery quests (%d items)" % quest_readiness.apply(deliveries, world, chunks, steps_for=steps_for))
+        print("linked %d quests to the quest before them in their chain" % quest_readiness.link_chains(quests))
         print("== check ==")
         r = subprocess.run([sys.executable, "content.py"], cwd=os.path.join(ROOT, "server"))
         return r.returncode
