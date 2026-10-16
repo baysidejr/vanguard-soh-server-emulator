@@ -1305,4 +1305,5 @@ class ParleyLevelTests(unittest.TestCase):
             login_stub.finish_parley({"player": player, "send": sent.append}, mock.Mock(npc=npc, config={"reward": {}}), "won")
         self.assertEqual(player.presence["noble"], 30 + login_stub.PRESENCE_GAIN)
         save.assert_any_call("T", "presence", player.presence)
-        self.assertTrue(any(struct.unpack_from("<I", m, 2)[0] == 0x2D4 for m in sent))
+        ids = [struct.unpack_from("<I", m, 2)[0] for m in sent]
+        self.assertLess(ids.index(0x2D3), ids.index(0x2D4))      # re-create the stat, then update it

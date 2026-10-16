@@ -8978,8 +8978,13 @@ def finish_parley(state, p, result):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
+    send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
+    sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     station = (ARGS.content.mobs.get(p.npc.template_id) or {}).get("presence_station")
     if station in zone.PRESENCE_STATS:
+        # After a parley the client no longer finds the presence stat for a 0x2d4 (verified live:
+        # an update alone left the row unchanged), so 0x2d3 (MsgSingleStatInfo) creates it again
+        # with the new value first, then the 0x2d4 refreshes the row.
         # A won parley raises presence with the NPC's station (mobs.json "presence_station", from the
         # archive); PRESENCE_GAIN is a placeholder.
         presence = dict(getattr(player, "presence", None) or {})
@@ -8987,11 +8992,12 @@ def finish_parley(state, p, result):
         player.presence = presence
         save_character_field(player.name, "presence", presence)
         sid = zone.PRESENCE_STATS[station]
+        send(zone.zone_event(0x2D3, vgmsg.stat_info(sid, presence[station], category=zone.DIPLOMACY_CATEGORY, kind=2,
+                                                    maximum=zone.PRESENCE_MAX,
+                                                    raw={1: zone.PRESENCE_INSTANCE + sid})))
         send(zone.zone_event(0x2D4, vgmsg.stat_update(zone.PRESENCE_INSTANCE + sid, presence[station],
                                                       category=zone.DIPLOMACY_CATEGORY,
                                                       maximum=zone.PRESENCE_MAX, raw={12: sid})))
-    send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
-    sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     faction_reward(state, reward)
     if reward.get("flag") and reward["flag"] not in getattr(player, "flags", []):
         # Unlocks dialogue: responses with "requires_flag" equal to this flag now show.
