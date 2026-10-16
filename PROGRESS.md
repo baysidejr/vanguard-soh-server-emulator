@@ -91,6 +91,8 @@ Content: 93 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-16: Archive heights beyond 150,000 (typos such as Nirrin at 223,739, Worker Grath at 310,907) are dropped so the server puts those NPCs on the terrain; other high spots (Jalen's Crossing, the tree cities near 64,000) are real.
+
 - 2026-10-16: Sub-area zone pages (Graystone, Oathbreaker Caves, ...) name their parent zone in "chunk"; records in those sub-areas now count for the parent (punctuation ignored: "Bordinars Cleft"). 12 more spawns.
 
 - 2026-10-16: Archive zone aliases (Vursog Moor = Vsurog Moor, Infineum Plateau = The Infineum Plateaus, Skrillien Point = Skrilien Point) and zone names that are a client map label ("Tursh", "Karibasa") map to their zone: 8 more spawns, 93 zones.

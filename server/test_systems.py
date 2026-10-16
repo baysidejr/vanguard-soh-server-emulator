@@ -1831,6 +1831,15 @@ class ImportZoneTests(unittest.TestCase):
                 recs = import_zone.archive_npcs(d)
         self.assertEqual(recs["Cave Man"]["zone"], "Bordinar's Cleft")    # a sub-area page's parent
 
+    def test_absurd_heights_dropped(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        npcs = {"Nirrin": {"name": "Nirrin", "zone": "Z", "location": {"raw": "-1483, -1717, 223739"}}}
+        with unittest.mock.patch.object(import_zone, "existing_spawns", return_value=[]):
+            level, mobs, spawns = import_zone.plan("Z", npcs, {"Z": (-11, -10)})
+        self.assertEqual([("z" in sp, sp["x"]) for sp in spawns], [(False, -1483)])
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

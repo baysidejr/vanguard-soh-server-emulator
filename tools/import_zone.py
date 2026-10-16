@@ -417,7 +417,13 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
         mobs[key] = t
         spawns.append(sp)
     spawns.extend(service_props(zone_rec, spawns, existing_spawns(level)))
+    for sp in spawns:
+        if sp.get("z") is not None and abs(sp["z"]) > MAX_Z:
+            del sp["z"]                   # "223739": a typo on the archive; the server finds the ground
     return level, mobs, face(spawns)
+
+
+MAX_Z = 150000                   # no map goes this high or low (the tree cities stand near 64000)
 
 
 # Map places that are a service object: the camp's templates (Altar of Binding, Mailbox) stand there.
