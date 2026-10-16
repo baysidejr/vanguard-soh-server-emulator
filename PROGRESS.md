@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/import_zone.py --all --branch --apply --skip "Sundering Wastelands" --skip "Wildgrowth Forest"` then `python tools/quest_readiness.py --branch --apply` (21 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
+Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (21 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
 
 ## Last test results
 
@@ -88,6 +88,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: tools/refresh_archive.py: one command for the zone import, the archive quests and the content check (report-only without --apply; keeps the two camp zones unless --all-zones).
 
 - 2026-10-15: Dev command `!visit <NPC name>`: travel beside the first spawn of an NPC with that name, changing chunk if needed (seen live: camp to Ghobad Houri in Ahgram).
 
