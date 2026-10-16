@@ -10,6 +10,7 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Last test results
 
+- 2026-10-16 (15-minute soak, 50 bots in Khal): memory flat at 149.6 MB, p95 11.1 ms, worst steady-state ping 41.9 ms, no errors (docs/TESTING.md).
 - 2026-10-16 (after 368 archive quests, flight descent fix, presence after parleys): tools/check_all.py --client 7 of 7 passed (unit 277, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-16 (after presence stats, parley levels, archive quest play test): tools/check_all.py --client 7 of 7 passed (unit 275, load p95 11.2 ms, fuzz clean, smoke PASS: the client logs in with the presence records).
 - 2026-10-16 (after the zone-name matching fixes, 93 zones): tools/check_all.py --client 7 of 7 passed (unit 271, load p95 11.3 ms, fuzz clean, smoke PASS).
