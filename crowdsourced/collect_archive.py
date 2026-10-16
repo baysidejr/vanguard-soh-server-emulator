@@ -4,6 +4,7 @@ The collector never requests query URLs, follows external domains, or modifies s
 Run with -B. Install requirements into crowdsourced/.tools-current before use.
 """
 import argparse
+import errno
 from collections import Counter, deque
 from datetime import datetime, timezone
 from http.client import RemoteDisconnected
@@ -664,6 +665,10 @@ def transient_connection_error(error):
         return False
     if isinstance(error, URLError):
         error = error.reason
+    if isinstance(error, OSError) and (
+            error.errno in (errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN)
+            or getattr(error, 'winerror', None) in (10050, 10051, 10065)):
+        return True
     return isinstance(error, (TimeoutError, RemoteDisconnected, ConnectionResetError,
                               ConnectionAbortedError, BrokenPipeError))
 

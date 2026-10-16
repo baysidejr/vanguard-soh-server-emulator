@@ -329,6 +329,17 @@ class ArchivePublicationTests(unittest.TestCase):
         self.assertFalse(collector.transient_connection_error(ValueError('parser drift')))
         self.assertFalse(collector.transient_connection_error(URLError('DNS failure')))
 
+    def test_network_unreachable_recovery_excludes_other_os_errors(self):
+        import errno
+        from urllib.error import URLError
+        for code in (errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN):
+            self.assertTrue(collector.transient_connection_error(URLError(OSError(code, str(code)))))
+        windows_error = OSError(0, 'network unreachable')
+        windows_error.winerror = 10051
+        self.assertTrue(collector.transient_connection_error(URLError(windows_error)))
+        self.assertFalse(collector.transient_connection_error(URLError(PermissionError(errno.EACCES, 'denied'))))
+        self.assertFalse(collector.transient_connection_error(OSError(errno.ENOSPC, 'disk full')))
+
     def test_timeout_publishes_partial_batch_and_keeps_failed_url_pending(self):
         class Client:
             network_requests = 0
