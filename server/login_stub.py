@@ -8953,6 +8953,11 @@ def finish_parley(state, p, result):
         return
     send(diplomacy.won())
     reward = dict(p.config.get("reward", {}))
+    level = (ARGS.content.mobs.get(p.npc.template_id) or {}).get("parley_level")
+    if p.config.get("_archive_placeholder") and level:
+        # The archive's generic parleys pay for a level-10 NPC; mobs.json "parley_level" (the
+        # archive's) scales that (a level-40 parley pays four times as much).
+        reward["xp"] = round(reward.get("xp", 0) * int(level) / 10)
     won = getattr(player, "parleys_won", [])
     if p.npc.template_id in won:
         reward.pop("coin", None)             # coin only for the first win per NPC

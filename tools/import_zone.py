@@ -246,6 +246,9 @@ def template(rec):
     if types:
         presence = next((int(p) for p in (rec.get("archive_fields") or {}).get("presence") or [] if str(p).isdigit()), 0)
         t["parley"] = [parley_key(pt, presence) for pt in types]
+        plevel = next((int(v) for v in (rec.get("archive_fields") or {}).get("parley level") or [] if str(v).isdigit()), None)
+        if plevel:
+            t["parley_level"] = plevel        # scales the generic parley's XP (login_stub.finish_parley)
     if "trainer" in services and rec.get("training_classes_recorded"):
         t["trainer"] = True
         t["trainer_classes"] = sorted(set(rec["training_classes_recorded"]))

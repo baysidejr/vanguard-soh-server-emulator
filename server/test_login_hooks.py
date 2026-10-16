@@ -1271,3 +1271,24 @@ class ArchiveQuestPlayTests(unittest.TestCase):
                     login_stub.finish_quest(state, key, q)
                 self.assertIn(key, player.quests.done)
                 self.assertFalse(any(i[1] in {nm for s in quest.steps(q) for nm in s.get("collect", {})} for i in player.items))
+
+
+class ParleyLevelTests(unittest.TestCase):
+    def test_archive_parley_xp_scales_with_level(self):
+        sent, xp = [], []
+        player = zone.Player(name="T", char_id=7, level="c")
+        player.parleys_won = ["arch_x"]
+        args = mock.Mock()
+        args.content.mobs = {"arch_x": {"parley_level": 40}, "orin": {"parley_level": 40}}
+        state = {"player": player, "send": sent.append}
+        npc = mock.Mock(template_id="arch_x", entity_id=5)
+        npc.name = "X"
+        generic = mock.Mock(npc=npc, config={"reward": {"xp": 100}, "_archive_placeholder": True})
+        with mock.patch.object(login_stub, "ARGS", args, create=True), \
+                mock.patch.object(login_stub, "sphere_xp", lambda s, sphere, n: xp.append(n)), \
+                mock.patch.object(login_stub, "faction_reward"):
+            login_stub.finish_parley(state, generic, "won")
+            npc.template_id = "orin"
+            player.parleys_won = ["orin"]
+            login_stub.finish_parley(state, mock.Mock(npc=npc, config={"reward": {"xp": 150}}), "won")
+        self.assertEqual(xp, [400, 150])          # hand-made parleys keep their reward

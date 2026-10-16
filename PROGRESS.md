@@ -91,6 +91,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: Archive parley levels: mobs.json parley_level (163 NPCs) scales the generic archive parleys' XP reward (level 10 = the placeholder 100 XP). Unit test ParleyLevelTests.
+
 - 2026-10-16: Test ArchiveQuestPlayTests plays every archive quest in quests.json through quest_kill / quest_advance / finish_quest with the real content (22 pass): catches imported quests whose steps the server can't complete.
 
 - 2026-10-16: Archive heights beyond 150,000 (typos such as Nirrin at 223,739, Worker Grath at 310,907) are dropped so the server puts those NPCs on the terrain; other high spots (Jalen's Crossing, the tree cities near 64,000) are real.
