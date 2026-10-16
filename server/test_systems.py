@@ -1718,6 +1718,22 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual([(k, len(c)) for k, _, c in out], [("arch_hill_cat", 3)])
         self.assertTrue(all("z" not in s and abs(s["x"] - 6515) <= 250 for s in out[0][2]))   # the server finds the ground
 
+    def test_people_from_zone_map(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        zone = {"map_places": [{"name": "Sorcerer Instructor", "location": {"raw": "-34897, -20831"}, "entities": ["Fila Azadi"]},
+                               {"name": "Heavyfighter Instructor", "location": {"raw": "100, 100"}, "entities": ["A B", "C D"]},
+                               {"name": "Camp", "location": {"raw": "5000, 5000"}, "entities": ["Boiling Cauldrons"]},
+                               {"name": "Dock", "location": {"raw": "-10000, -24000"}, "entities": ["Ju Mai"]}]}
+        placed = [{"mob": "arch_x", "x": -34143, "y": -19537, "z": 1820}]
+        out = {k: (t, sp) for k, t, sp in import_zone.map_people("Ahgram", zone, {}, "Qalia", placed)}
+        self.assertEqual(sorted(out), ["arch_a_b", "arch_c_d", "arch_fila_azadi"])     # no objects, no round guesses
+        t, sp = out["arch_fila_azadi"]
+        self.assertEqual((t["title"], t["trainer_classes"], sp["z"]), ("Sorcerer Instructor", ["Sorcerer"], 1820))
+        self.assertEqual(out["arch_a_b"][0]["trainer_classes"], ["Warrior", "Paladin", "Dread Knight"])
+        self.assertNotIn("z", out["arch_a_b"][1])                                       # no neighbour: the terrain
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants real wares (role placeholders now) and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (21 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 82 regions hold about 1,950 NPCs, 179 creatures and 24 creature camps imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants real wares (role placeholders now) and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (21 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
@@ -86,6 +86,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: People from the zone pages' maps (import_zone.map_people): 734 NPCs without a recorded position placed at their map place, with titles and services from role names (merchants, bankers, class and archetype trainers), height from a nearby positioned NPC or the terrain. Seen live: Ghobad Houri at a market stall in Ahgram.
 
 - 2026-10-15: Creature camps from the zone pages' maps (import_zone.camps): plural place names that match a creature of the zone ("Hill Cats") get three of them around the map point, z from the terrain. 24 camps, 72 spawns; 4 more archive quests became playable (21 in all, 2 kill quests). Seen live: Ksaravi Foragers in Khal.
 

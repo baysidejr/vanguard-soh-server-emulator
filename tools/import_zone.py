@@ -325,7 +325,93 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
             continue
         mobs[key] = t
         spawns.extend(camp)
+    for key, t, sp in map_people(zone, zone_rec, recs, continent, spawns, creatures):
+        if key in mobs:
+            continue
+        mobs[key] = t
+        spawns.append(sp)
     return level, mobs, face(spawns)
+
+
+# Map place names that are a role ("Sorcerer Instructor", "Horseshoe Vendor", "Bankers"): the
+# title of the people listed there, and the services the server can run.
+ROLE_WORDS = re.compile(r"vendor|trader|merchant|outfitter|instructor|trainer|banker|bank|broker|registrar|"
+                        r"alchemist|smith|tailor|crafter|keeper|guard|captain|priest", re.I)
+# The starting areas' archetype instructors ("Heavyfighter Instructor") teach a group of classes.
+ARCHETYPES = {"heavyfighter": ("Warrior", "Paladin", "Dread Knight"),
+              "lightfighter": ("Rogue", "Monk", "Ranger", "Bard"),
+              "spellcaster": ("Sorcerer", "Necromancer", "Psionicist", "Druid"),
+              "healer": ("Cleric", "Shaman", "Blood Mage", "Disciple")}
+OBJECT_WORDS = re.compile(r"cauldron|chest|crate|barrel|box|altar|stone|mailbox|pile|node|cart|banner|"
+                          r"brazier|statue|totem|portal|lever|book|scroll|sign", re.I)
+NEIGHBOUR_Z = 1500               # take the height of a positioned NPC this close (same floor of a city)
+CROWD_RADIUS = 150               # several people at one map point stand around it
+
+
+def place_services(t, place):
+    """Services from a role place name, on a template that doesn't have them yet."""
+    sys.path.insert(0, os.path.join(ROOT, "server"))
+    import races_classes
+    low = place.lower()
+    if re.search(r"instructor|trainer", low):
+        cls = [c for c in races_classes.ADVENTURING_CLASSES.values() if c.lower() in low]
+        squashed = low.replace(" ", "")
+        for word, classes in ARCHETYPES.items():
+            if not cls and word in squashed:
+                cls = list(classes)
+        if cls:
+            t.setdefault("trainer", True)
+            t.setdefault("trainer_classes", cls)
+    if re.search(r"\bbank", low):
+        t.setdefault("banker", True)
+    if "broker" in low:
+        t.setdefault("broker", "Local Market")
+    if re.search(r"vendor|trader|merchant|outfitter", low):
+        t.setdefault("merchant", role_stock_key(place) or "general_goods")
+
+
+def map_people(zone, zone_rec, npcs, continent, placed, creatures=None):
+    """[(key, template, spawn)]: people a zone page's map lists at a place ("Sorcerer Instructor"
+    at "-34897, -20831": Fila Azadi) who have no recorded position. They stand at the map point,
+    spread around it when several share it; the height is a positioned NPC's within NEIGHBOUR_Z
+    (cities have floors above and below the terrain), else left to the server (the terrain). A
+    role place name becomes their title and services (place_services). Round points such as
+    "-10000, -24000" are skipped as guesses."""
+    out, seen = [], {s["mob"] for s in placed}
+    for mp in (zone_rec or {}).get("map_places") or []:
+        m = re.match(r"\s*(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)", str((mp.get("location") or {}).get("raw") or ""))
+        people = [e for e in mp.get("entities") or [] if e and key_for(e) not in seen]
+        if not m or not people:
+            continue
+        x, y = float(m.group(1)), float(m.group(2))
+        if x % 1000 == 0 and y % 1000 == 0:
+            continue
+        near = [s for s in placed if s.get("z") is not None and math.hypot(s["x"] - x, s["y"] - y) < NEIGHBOUR_Z]
+        z = min(near, key=lambda s: math.hypot(s["x"] - x, s["y"] - y))["z"] if near else None
+        place = (mp.get("name") or "").strip()
+        for i, name in enumerate(people):
+            rec = npcs.get(name)
+            if rec is not None and (is_object(rec) or rec.get("zone") not in (None, zone)):
+                continue
+            if rec is None and (OBJECT_WORDS.search(name) or name in (creatures or {})):
+                continue          # "Boiling Cauldrons"; a creature page (named mobs are left out)
+            rec = dict(rec or {"name": name})
+            rec.setdefault("continent", continent)
+            t = template(rec)
+            if ROLE_WORDS.search(place) and place.lower() != name.lower() and "title" not in t:
+                t["title"] = place[:40]
+            if ROLE_WORDS.search(place):
+                place_services(t, place)
+            if "_source" not in t and zone_rec.get("sources"):
+                t["_source"] = zone_rec["sources"][0].get("url")
+            a = 2 * math.pi * i / len(people)
+            r = CROWD_RADIUS if len(people) > 1 else 0
+            sp = {"mob": key_for(name), "x": round(x + r * math.cos(a)), "y": round(y + r * math.sin(a)), "yaw": 0}
+            if z is not None:
+                sp["z"] = z
+            seen.add(key_for(name))
+            out.append((key_for(name), t, sp))
+    return out
 
 
 CAMP_RADIUS = 250

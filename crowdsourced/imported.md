@@ -19,3 +19,4 @@ One line per import into `server/content/`: date, batch folder, records imported
 | 2026-10-15 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 5 spawns, 5 templates | server/content via tools/import_zone.py --all |
 | 2026-10-15 | raw batches + branch origin/crowdsourced/archive-collection, quest.jsonl | 17 quests whose giver and objectives are all placed, 4 quest items | server/content/quests.json, items.json via tools/quest_readiness.py --apply |
 | 2026-10-15 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 72 spawns, 24 templates | server/content via tools/import_zone.py --all |
+| 2026-10-15 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 734 spawns, 732 templates | server/content via tools/import_zone.py --all |
