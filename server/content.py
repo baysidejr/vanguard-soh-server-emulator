@@ -211,6 +211,11 @@ def validate(directory=CONTENT_DIR):
         for key in ("name", "pawn_class", "race", "health"):
             if key not in m:
                 problems.append(f"mob {mid}: missing {key}")
+        if m.get("station") not in (None, False, True, "finishing"):
+            problems.append(f"mob {mid}: station must be true (refining) or \"finishing\" (a crafting station)")
+        if m.get("presence_station") not in (None, "domestic", "soldier", "crafter", "clergy", "merchant",
+                                              "noble", "academic", "outsider"):
+            problems.append(f"mob {mid}: presence_station {m['presence_station']!r} is not a station")
         if m.get("merchant") and m["merchant"] not in c.merchants:
             problems.append(f"mob {mid}: unknown merchant list {m['merchant']}")
         if "faction" in m and str(m["faction"]) not in c.factions:

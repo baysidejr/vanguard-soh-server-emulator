@@ -8978,9 +8978,9 @@ def finish_parley(state, p, result):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
-    station = (ARGS.content.mobs.get(p.npc.template_id) or {}).get("station")
+    station = (ARGS.content.mobs.get(p.npc.template_id) or {}).get("presence_station")
     if station in zone.PRESENCE_STATS:
-        # A won parley raises presence with the NPC's station (mobs.json "station", from the
+        # A won parley raises presence with the NPC's station (mobs.json "presence_station", from the
         # archive); PRESENCE_GAIN is a placeholder.
         presence = dict(getattr(player, "presence", None) or {})
         presence[station] = min(zone.PRESENCE_MAX, presence.get(station, zone.PRESENCE_START) + PRESENCE_GAIN)

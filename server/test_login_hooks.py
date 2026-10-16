@@ -1298,7 +1298,7 @@ class ParleyLevelTests(unittest.TestCase):
         player = zone.Player(name="T", char_id=7, level="c")
         player.parleys_won, player.presence = ["n"], {"noble": 30}
         args = mock.Mock()
-        args.content.mobs = {"n": {"station": "noble"}}
+        args.content.mobs = {"n": {"presence_station": "noble"}}
         npc = mock.Mock(template_id="n", entity_id=5)
         npc.name = "N"
         with mock.patch.object(login_stub, "ARGS", args, create=True),                 mock.patch.object(login_stub, "save_character_field") as save,                 mock.patch.object(login_stub, "sphere_xp"), mock.patch.object(login_stub, "faction_reward"):

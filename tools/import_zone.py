@@ -254,7 +254,7 @@ def template(rec):
             t["parley_level"] = plevel        # scales the generic parley's XP (login_stub.finish_parley)
     station = next(iter((rec.get("archive_fields") or {}).get("station") or []), "").strip().lower()
     if station in STATIONS:
-        t["station"] = station                # a won parley raises presence with it (finish_parley)
+        t["presence_station"] = station       # a won parley raises presence with it (finish_parley); not "station", the crafting-station flag
     if "trainer" in services and rec.get("training_classes_recorded"):
         t["trainer"] = True
         t["trainer_classes"] = sorted(set(rec["training_classes_recorded"]))

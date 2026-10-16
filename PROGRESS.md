@@ -92,7 +92,9 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
-- 2026-10-16: A won parley raises presence with the NPC's station (mobs.json "station" from the archive, 215 NPCs; +10 placeholder), saved and sent as a 0x2d4 update. Not gated yet.
+- 2026-10-16: Fixed: the archive station had been stored as mobs.json "station", which already means "crafting station", so 215 NPCs counted as crafting stations (entity type, travel journal) for about an hour; renamed to "presence_station", and content.py now rejects any other "station" value.
+
+- 2026-10-16: A won parley raises presence with the NPC's station (mobs.json "presence_station" from the archive, 215 NPCs; +10 placeholder), saved and sent as a 0x2d4 update. Not gated yet.
 
 - 2026-10-16: Diplomacy presence decoded: eight station stats (category 2, kind 2) fill the character window's Diplomacy - Presence list; sent at login from characters.json "presence" (default 0). Unit test PresenceTests; not seen live yet (the game window renders white).
 
