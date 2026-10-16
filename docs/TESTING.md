@@ -174,6 +174,14 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Orin's parley option reads "Let's talk business." over "Entertain [icons] : 10"
 - [ ] `/decksave 1`, `/deckclear`, `/deckload 1` re-slot the strategy bar
 
+**Regions and archive content**
+- [ ] At the camp brazier, `/rift KHAL`: Ranger arrives at the caravan stop outside Khal (free, purple); `/rift SUNDERINGWASTELANDS` at the Khal brazier brings you back. Try a paid one (`/rift LOMSHIR`, 50 copper)
+- [ ] In Khal, Afshin Budjiri (Warrior Trainer) stands in a hall with weapon racks; as a Ranger he offers no training, Telqu Daejieh (Ranger Trainer) does
+- [ ] Hail Afshin: three parley options (Gossip, Convince, Interview); Convince opens "Parley - Convince"
+- [ ] `/con` an imported NPC or creature: the difficulty sentence matches its archive dots (e.g. "much more difficult")
+- [ ] Right-click the Khal Altar of Binding (-844, -43892), die elsewhere, Release to Bind: you return to Khal
+- [ ] Blackheart under Lomshir (39719, -61690, -2349) notices you and fights; its loot comes from the archive
+
 **Crafting and gathering**
 - [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades; Table Setup's Auto Setup Table box ticks, Back returns to the recipe list
 - [ ] A work order from Garret Holm; an assembly at the Assembly Bench
