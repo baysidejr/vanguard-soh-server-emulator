@@ -10231,6 +10231,7 @@ def player_from_character(char, name, args):
     player.aa_points = int(char.get("aa_points", 0))
     player.aa_spent = int(char.get("aa_spent", 0))
     player.aa_xp = int(char.get("aa_xp", 0))
+    player.presence = {k: int(v) for k, v in (char.get("presence") or {}).items() if k in zone.PRESENCE_STATS}
     player.item_cooldowns = {int(g): tuple(v) for g, v in (char.get("item_cooldowns") or {}).items()}
     known = {prop for prop, _, _ in PAWN_PREFS.values()}
     player.pawn_prefs = {k: int(v) for k, v in char.get("pawn_prefs", {}).items() if k in known}

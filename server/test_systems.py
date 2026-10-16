@@ -2195,3 +2195,15 @@ class ObstacleLoadTests(unittest.TestCase):
                 time.sleep(0.02)
             self.assertTrue(zone.npc_blocked("chunk_test", 0, 0, 0))
         zone._obstacles.pop("chunk_test", None)
+
+
+class PresenceTests(unittest.TestCase):
+    def test_presence_rows(self):
+        p = types.SimpleNamespace(presence={"noble": 120})
+        recs = zone.presence_records(p)
+        self.assertEqual(len(recs), 8)
+        ups = zone.presence_updates(p)
+        noble = [u for u in ups if struct.unpack_from("<i", u, len(u) - 4)[0] == 0x22][0]
+        self.assertEqual(struct.unpack_from("<I", noble, 2)[0], 0x2D4)
+        self.assertEqual(struct.unpack_from("<ib", noble, 10), (zone.PRESENCE_INSTANCE + 0x22, zone.DIPLOMACY_CATEGORY))
+        self.assertEqual(zone.presence_values(types.SimpleNamespace())[0x25], zone.PRESENCE_START)

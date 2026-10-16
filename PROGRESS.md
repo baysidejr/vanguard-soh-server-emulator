@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (22 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Pending live checks (the game window rendered white for every chunk and even character select from about 00:30 on 2026-10-16, while the desktop drew normally; probably the display asleep): a sub-area NPC (`!visit Mannok the Armorer`, Vault of Heroes 5,300 below the terrain) and the Vault of Heroes chunk itself. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
+Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (22 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Pending live checks (the game window rendered white for every chunk and even character select from about 00:30 on 2026-10-16, while the desktop drew normally; probably the display asleep): a sub-area NPC (`!visit Mannok the Armorer`, Vault of Heroes 5,300 below the terrain) and the Vault of Heroes chunk itself, and the Diplomacy - Presence list in the character window. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
 
 ## Last test results
 
@@ -90,6 +90,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-16: Diplomacy presence decoded: eight station stats (category 2, kind 2) fill the character window's Diplomacy - Presence list; sent at login from characters.json "presence" (default 0). Unit test PresenceTests; not seen live yet (the game window renders white).
 
 - 2026-10-16: Archive parley levels: mobs.json parley_level (163 NPCs) scales the generic archive parleys' XP reward (level 10 = the placeholder 100 XP). Unit test ParleyLevelTests.
 

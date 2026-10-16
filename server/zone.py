@@ -858,12 +858,14 @@ def stat_messages(player):
     recs += attributes.craft_records(craft_alloc)
     recs += attributes.craft_skill_records(sphere(player, CRAFTING)[0], getattr(player, "skill_dirs", None))
     recs += harvest_records(player)
+    recs += presence_records(player)
     out = [zone_event(0x2D5, vgmsg.stat_list(recs))]
     for name in vgmsg.ATTRIBUTES:
         out.append(attribute_update(player, name))
     for name in attributes.CRAFT_STATS:
         out.append(attributes.craft_update(name, craft_alloc))
     out += harvest_updates(player)
+    out += presence_updates(player)
     out.append(skill_pool_caps(player))
     return out
 
@@ -905,6 +907,36 @@ def harvest_updates(player):
         out.append(zone_event(0x2D4, vgmsg.stat_update(HARVEST_INSTANCE + sid, v, category=HARVEST_CATEGORY,
                                                        maximum=SKILL_CAP, raw={12: sid})))
     return out
+
+
+# Diplomacy presence (decoded 2026-10-16): the character window's Diplomacy - Presence list
+# (gamevar PCDiplomacyPresenceList) takes category-2 stat records of kind 2 whose stat id is one
+# of the eight stations (FUN_0056b5e0: category 2 -> the diplomacy lists; kind 2 + FUN_00557910
+# -> presence, else parley skills). The client turns the value into a rank ("Newcomer" below 75,
+# FUN_005762c0) and the station name (FUN_00575b10). Values: characters.json "presence"
+# {station: n}, else PRESENCE_START (a placeholder; the original's starting values are unknown).
+DIPLOMACY_CATEGORY = 2
+PRESENCE_INSTANCE = 0x2000
+PRESENCE_STATS = {"domestic": 0x02, "soldier": 0x06, "crafter": 0x17, "clergy": 0x1F,
+                  "merchant": 0x21, "noble": 0x22, "academic": 0x25, "outsider": 0x31}
+PRESENCE_START, PRESENCE_MAX = 0, 1000
+
+
+def presence_values(player):
+    have = getattr(player, "presence", None) or {}
+    return {sid: int(have.get(name, PRESENCE_START)) for name, sid in PRESENCE_STATS.items()}
+
+
+def presence_records(player):
+    return [vgmsg.stat_info(sid, v, category=DIPLOMACY_CATEGORY, kind=2, maximum=PRESENCE_MAX,
+                            raw={1: PRESENCE_INSTANCE + sid})
+            for sid, v in presence_values(player).items()]
+
+
+def presence_updates(player):
+    return [zone_event(0x2D4, vgmsg.stat_update(PRESENCE_INSTANCE + sid, v, category=DIPLOMACY_CATEGORY,
+                                                maximum=PRESENCE_MAX, raw={12: sid}))
+            for sid, v in presence_values(player).items()]
 
 
 # Skills: (stat id, value, list subtype). Subtypes pick the character window
