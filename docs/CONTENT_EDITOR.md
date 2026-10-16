@@ -95,7 +95,7 @@ Measured with `tools/quest_readiness.py --branch` and the importer after the zon
 4. **Quest givers with no position** (2,100 quests): neither the NPC page nor the quest page ("location") places the giver.
 5. **NPC race and gender** (98% of NPCs): racial cities show the continent's human race.
 6. **Merchant wares**: no page lists what a merchant sells; role stocks stand in.
-7. **Aggression**: few creature pages say "Aggressive", so most imported creatures don't attack first.
+7. **Aggression**: only about 10% of creature pages say "Aggressive" or "Passive". Of the 207 creatures placed so far, 137 are marked Aggressive (and attack first), 8 Passive, 62 unknown (treated as passive).
 
 ## Planned editor (end of project)
 
