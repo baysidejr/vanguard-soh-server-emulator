@@ -5348,7 +5348,8 @@
     "level": 8,
     "health": 420,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/bloodhowler-invasion"
+    "_source": "https://vgsoharchive.com/quests/bloodhowler-invasion",
+    "difficulty": 4
   },
   "arch_shaman_krat": {
     "name": "Shaman Krat",
@@ -5460,7 +5461,8 @@
     "level": 8,
     "health": 420,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/isolation"
+    "_source": "https://vgsoharchive.com/quests/isolation",
+    "difficulty": 4
   },
   "arch_elgen_krot": {
     "name": "Elgen Krot",
@@ -5480,7 +5482,8 @@
     "level": 9,
     "health": 460,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/necromantics"
+    "_source": "https://vgsoharchive.com/quests/necromantics",
+    "difficulty": 4
   },
   "arch_armol_furth": {
     "name": "Armol Furth",
@@ -5498,7 +5501,8 @@
     "level": 3,
     "health": 220,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/passage-to-kortella"
+    "_source": "https://vgsoharchive.com/quests/passage-to-kortella",
+    "difficulty": 1
   },
   "arch_telorshed_the_keeper": {
     "name": "Telorshed The Keeper",
@@ -6392,7 +6396,8 @@
     "level": 11,
     "health": 540,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/ancient-summoning"
+    "_source": "https://vgsoharchive.com/quests/ancient-summoning",
+    "difficulty": 1
   },
   "arch_magistrate_fredyr": {
     "name": "Magistrate Fredyr",
@@ -24552,7 +24557,10 @@
     "level": 20,
     "health": 900,
     "model": 0,
-    "_source": "https://vgsoharchive.com/zones/tursh-village"
+    "_source": "https://vgsoharchive.com/zones/tursh-village",
+    "title": "General Goods Vendor",
+    "merchant": "general_goods",
+    "presence_station": "merchant"
   },
   "arch_donner_blackhelt": {
     "name": "Donner Blackhelt",
@@ -26356,7 +26364,8 @@
     "level": 11,
     "health": 540,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/easing-the-sorrow"
+    "_source": "https://vgsoharchive.com/quests/easing-the-sorrow",
+    "difficulty": 2
   },
   "arch_sage_marin": {
     "name": "Sage Marin",
@@ -27721,5 +27730,20 @@
     "difficulty": 3,
     "_source": "https://vgsoharchive.com/mobs/saill",
     "loot": "arch_saill_drops"
+  },
+  "arch_shellback_bill": {
+    "name": "Shellback Bill",
+    "pawn_class": "SGONPCPawn",
+    "race": 233,
+    "level": 17,
+    "health": 1170,
+    "damage": [
+      17,
+      51
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/shellback-bill",
+    "loot": "arch_shellback_bill_drops"
   }
 }
