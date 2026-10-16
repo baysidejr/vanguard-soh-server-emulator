@@ -16,6 +16,23 @@ converter = conversions.converter
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_map_observations_preserve_multiple_points_and_unknowns(self):
+        html=page('Fixture', '''<h2>Where they stood</h2><ul>
+            <li>Spot <strong>32</strong>, Inn, <a href="/zones/tursh-village">Tursh Village</a>
+            <span>— 61226, -35395</span></li><li>Spot 7, unknown coordinates</li></ul>
+            <h2>Other</h2><ul><li>Unrelated</li></ul>''', 'Level 20')
+        r=collector.parse_page(collector.ORIGIN+'/mobs/fixture',html)[0][0]
+        points=r['map_location_observations']
+        self.assertEqual(len(points),2)
+        self.assertEqual(points[0]['coordinates_raw'],'61226, -35395')
+        self.assertEqual(points[0]['zone_links'][0]['url'],collector.ORIGIN+'/zones/tursh-village')
+        self.assertIsNone(points[0]['coordinate_format'])
+        self.assertIsNone(points[0]['spawn_certainty'])
+        self.assertIsNone(points[1]['coordinates_raw'])
+        self.assertIsNone(r.get('location'))
+        absent=collector.parse_page(collector.ORIGIN+'/mobs/fixture',page('Fixture','', 'Level 20'))[0][0]
+        self.assertIsNone(absent['map_location_observations'])
+
     def test_explicit_class_trainer_role_and_region_labels(self):
         html=page('Fixture Trainer','<dl class="kv"><div><dt>Role</dt><dd>Class Trainer - Blood Mage</dd></div><div><dt>Continent</dt><dd>Qalia</dd></div><div><dt>Locations seen</dt><dd>Fixture Landing</dd></div></dl>','Level 50')
         r=collector.parse_page(collector.ORIGIN+'/mobs/fixture',html)[0][0]

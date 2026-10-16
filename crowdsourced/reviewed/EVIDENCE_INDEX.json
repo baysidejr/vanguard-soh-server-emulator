@@ -1,14 +1,14 @@
 {
   "summary": {
-    "batches": 356,
-    "research_rows": 57394,
+    "batches": 357,
+    "research_rows": 57397,
     "normalized_name_groups": 28606,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 11374,
+      "creature": 11376,
       "item": 5504,
       "loot": 1982,
-      "npc": 3508,
+      "npc": 3509,
       "quest": 11633,
       "zone": 1334,
       "ability": 21615,
@@ -2899,6 +2899,14 @@
       "counts": {
         "creature": 404,
         "loot": 99
+      }
+    },
+    {
+      "batch": "raw\\2026-10-16-192019-277928-archive-map-observations-v33",
+      "records": 3,
+      "counts": {
+        "creature": 2,
+        "npc": 1
       }
     }
   ],
@@ -911178,6 +911186,51 @@
         "https://vgsoharchive.com/mobs/starving-volaran"
       ],
       "zones": []
+    },
+    {
+      "id": 57394,
+      "type": "creature",
+      "name": "Sten Barlays",
+      "file": "raw\\2026-10-16-192019-277928-archive-map-observations-v33\\creature.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 33,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/sten-barlays"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
+    },
+    {
+      "id": 57395,
+      "type": "creature",
+      "name": "Stern Landes",
+      "file": "raw\\2026-10-16-192019-277928-archive-map-observations-v33\\creature.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 33,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/stern-landes"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
+    },
+    {
+      "id": 57396,
+      "type": "npc",
+      "name": "Stevvan Remniol",
+      "file": "raw\\2026-10-16-192019-277928-archive-map-observations-v33\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 33,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/stevvan-remniol"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
     }
   ],
   "by_name": {
@@ -1025377,7 +1025430,8 @@
       56753
     ],
     "creature:sten barlays": [
-      56754
+      56754,
+      57394
     ],
     "creature:sten barleys": [
       56755
@@ -1025392,7 +1025446,8 @@
       56758
     ],
     "creature:stern landes": [
-      56759
+      56759,
+      57395
     ],
     "creature:steth": [
       56760
@@ -1025770,7 +1025825,8 @@
       56884
     ],
     "npc:stevvan remniol": [
-      56885
+      56885,
+      57396
     ],
     "npc:stewan remniol": [
       56886
@@ -1037163,7 +1037219,9 @@
       57291,
       57292,
       57293,
-      57294
+      57294,
+      57394,
+      57395
     ],
     "item": [
       13,
@@ -1048163,7 +1048221,8 @@
       56887,
       56888,
       56889,
-      56890
+      56890,
+      57396
     ],
     "quest": [
       45,
@@ -1098858,7 +1098917,10 @@
       56885,
       56886,
       56932,
-      57282
+      57282,
+      57394,
+      57395,
+      57396
     ],
     "Veskal's Exchange": [
       14036,

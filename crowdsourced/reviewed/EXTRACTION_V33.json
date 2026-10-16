@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-10-16T23:20:19+00:00",
+  "batch": "raw\\2026-10-16-192019-277928-archive-map-observations-v33",
+  "parser_version": 33,
+  "pages": 3,
+  "network_requests": 0,
+  "issues": [],
+  "checks": [
+    {
+      "source_url": "https://vgsoharchive.com/mobs/stevvan-remniol",
+      "cache_sha256": "62c8e41b7480755cd34957fb4eec1ff0b75033725764241800e41a04735bcfd6",
+      "observations": [
+        {
+          "source_text": "Spot 37 ,\n            Feron's General Goods, Tursh Village — 53561, -29031",
+          "zone_links": [
+            {
+              "name": "Tursh Village",
+              "url": "https://vgsoharchive.com/zones/tursh-village"
+            }
+          ],
+          "coordinates_raw": "53561, -29031",
+          "coordinate_format": null,
+          "spawn_certainty": null
+        }
+      ]
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/sten-barlays",
+      "cache_sha256": "ea5c69c5a68c2de40e5691b7daa619cd1d0fd696e31f01f4a262bd80174ab030",
+      "observations": [
+        {
+          "source_text": "Spot 32 ,\n            Barley Harvest Inn, Tursh Village — 61226, -35395",
+          "zone_links": [
+            {
+              "name": "Tursh Village",
+              "url": "https://vgsoharchive.com/zones/tursh-village"
+            }
+          ],
+          "coordinates_raw": "61226, -35395",
+          "coordinate_format": null,
+          "spawn_certainty": null
+        }
+      ]
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/stern-landes",
+      "cache_sha256": "be8e5c805d15b94221bc4fde46b0e43bed51f30e125ca1d474126b6ff28ac7ea",
+      "observations": [
+        {
+          "source_text": "Spot 32 ,\n            Barley Harvest Inn, Tursh Village — 61226, -35395",
+          "zone_links": [
+            {
+              "name": "Tursh Village",
+              "url": "https://vgsoharchive.com/zones/tursh-village"
+            }
+          ],
+          "coordinates_raw": "61226, -35395",
+          "coordinate_format": null,
+          "spawn_certainty": null
+        }
+      ]
+    }
+  ],
+  "checkpoint": {
+    "done": 25998,
+    "pending": 78850,
+    "supported_inventory": 104831,
+    "missing_supported": 0,
+    "overlap": 0,
+    "pending_duplicates": 0
+  },
+  "limitations": "Map observations are not verified spawns. Coordinate formats and spawn certainty remain null. Earlier raw batches unchanged. Remaining collection, metadata-only extraction and collision review pending."
+}
