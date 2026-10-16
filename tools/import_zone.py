@@ -88,6 +88,15 @@ def archive_npcs(raw=None, kind="npc"):
         canon_chunks = {}
     canon = {k.lower(): k for k in canon_chunks}
     by_chunk = {v: k for k, v in canon_chunks.items()} if canon else {}
+    squash = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
+    if kind != "zone" and canon:
+        # Sub-area zone pages name their parent in "chunk" (Graystone: "Beranid Hills",
+        # Oathbreaker Caves: "Bordinars Cleft", without the apostrophe).
+        by_squash = {squash(k): v for k, v in canon.items()}
+        for zname, zr in archive_npcs(raw, kind="zone").items():
+            parent = next(iter((zr.get("archive_fields") or {}).get("chunk") or []), "")
+            if parent and squash(parent) in by_squash:
+                canon.setdefault(zname.lower(), by_squash[squash(parent)])
     for name, ch in ZONE_ALIASES.items():                # the archive's spelling -> the client's
         if ch.lower() in canon:
             canon.setdefault(name.lower(), canon[ch.lower()])

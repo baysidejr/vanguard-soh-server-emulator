@@ -26553,5 +26553,169 @@
     "difficulty": 1,
     "model": 1,
     "_source": "https://vgsoharchive.com/mobs/emissary-geisel"
+  },
+  "arch_kipcel": {
+    "name": "Kipcel",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/kipcel"
+  },
+  "arch_professor_telpon": {
+    "name": "Professor Telpon",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_incite_2000",
+      "archive_entertain_2000",
+      "archive_convince_2000",
+      "archive_interview_2000"
+    ],
+    "_source": "https://vgsoharchive.com/mobs/professor-telpon"
+  },
+  "arch_professor_karqu": {
+    "name": "Professor Karqu",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "_source": "https://vgsoharchive.com/mobs/professor-karqu"
+  },
+  "arch_deadeye": {
+    "name": "Deadeye",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 500,
+    "damage": [
+      10,
+      20
+    ],
+    "_source": "https://vgsoharchive.com/mobs/deadeye"
+  },
+  "arch_exalted_x_99": {
+    "name": "EXALTED X-99",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 53,
+    "health": 6660,
+    "damage": [
+      53,
+      318
+    ],
+    "aggro_radius": 600,
+    "difficulty": 5,
+    "_source": "https://vgsoharchive.com/mobs/exalted-x-99"
+  },
+  "arch_i_99_shiver": {
+    "name": "I-99 SHIVER",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 53,
+    "health": 6660,
+    "damage": [
+      53,
+      318
+    ],
+    "aggro_radius": 600,
+    "difficulty": 5,
+    "_source": "https://vgsoharchive.com/mobs/i-99-shiver",
+    "loot": "arch_i_99_shiver_drops"
+  },
+  "arch_kotasoth": {
+    "name": "Kotasoth",
+    "pawn_class": "SGONPCPawn",
+    "race": 325,
+    "level": 53,
+    "health": 6660,
+    "damage": [
+      53,
+      318
+    ],
+    "aggro_radius": 600,
+    "difficulty": 5,
+    "_source": "https://vgsoharchive.com/mobs/kotasoth",
+    "loot": "arch_kotasoth_drops"
+  },
+  "arch_malfunctioning_x_77": {
+    "name": "MALFUNCTIONING X-77",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 53,
+    "health": 6660,
+    "damage": [
+      53,
+      318
+    ],
+    "aggro_radius": 600,
+    "difficulty": 5,
+    "_source": "https://vgsoharchive.com/mobs/malfunctioning-x-77",
+    "loot": "arch_malfunctioning_x_77_drops"
+  },
+  "arch_azebaj_princess": {
+    "name": "Azebaj Princess",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 11,
+    "health": 1080,
+    "damage": [
+      11,
+      44
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/azebaj-princess",
+    "loot": "arch_azebaj_princess_drops"
+  },
+  "arch_gorjum_the_bonecaller": {
+    "name": "Gorjum The Bonecaller",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 8,
+    "health": 420,
+    "damage": [
+      8,
+      16
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/gorjum-the-bonecaller",
+    "loot": "arch_gorjum_the_bonecaller_drops"
+  },
+  "arch_professor_strape": {
+    "name": "Professor Strape",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 750,
+    "damage": [
+      10,
+      30
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/professor-strape",
+    "loot": "arch_professor_strape_drops"
+  },
+  "arch_mannok_the_armorer": {
+    "name": "Mannok The Armorer",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 1000,
+    "damage": [
+      10,
+      40
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/mannok-the-armorer",
+    "loot": "arch_mannok_the_armorer_drops"
   }
 }

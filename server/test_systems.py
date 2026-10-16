@@ -1820,6 +1820,16 @@ class ImportZoneTests(unittest.TestCase):
                     unittest.mock.patch.object(import_zone, "poi_labels", return_value={}):
                 recs = import_zone.archive_npcs(d)
         self.assertEqual(recs["Moor Man"]["zone"], "Vsurog Moor")         # ZONE_ALIASES
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "b1"))
+            with open(os.path.join(d, "b1", "npc.jsonl"), "w", encoding="utf-8") as f:
+                f.write(_json.dumps({"name": "Cave Man", "zone": "Oathbreaker Caves"}) + "\n")
+            with open(os.path.join(d, "b1", "zone.jsonl"), "w", encoding="utf-8") as f:
+                f.write(_json.dumps({"name": "Oathbreaker Caves", "archive_fields": {"chunk": ["Bordinars Cleft"]}}) + "\n")
+            with unittest.mock.patch.object(import_zone, "zone_chunks", return_value={"Bordinar's Cleft": (-28, 26)}), \
+                    unittest.mock.patch.object(import_zone, "poi_labels", return_value={}):
+                recs = import_zone.archive_npcs(d)
+        self.assertEqual(recs["Cave Man"]["zone"], "Bordinar's Cleft")    # a sub-area page's parent
 
     def test_quest_giver_not_doubled(self):
         import sys

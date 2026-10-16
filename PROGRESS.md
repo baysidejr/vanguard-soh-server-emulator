@@ -91,6 +91,8 @@ Content: 93 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-16: Sub-area zone pages (Graystone, Oathbreaker Caves, ...) name their parent zone in "chunk"; records in those sub-areas now count for the parent (punctuation ignored: "Bordinars Cleft"). 12 more spawns.
+
 - 2026-10-16: Archive zone aliases (Vursog Moor = Vsurog Moor, Infineum Plateau = The Infineum Plateaus, Skrillien Point = Skrilien Point) and zone names that are a client map label ("Tursh", "Karibasa") map to their zone: 8 more spawns, 93 zones.
 
 - 2026-10-16: Archive records whose zone field names a sub-area or a person but whose location gives the chunk ("... in Lomshir (-15, -9)") now count for that chunk's zone (68 quests); 12 more NPCs placed. Fixed the editor's Mobs form turning a one-entry parley list into a string (the selftest caught it on the new NPCs).
