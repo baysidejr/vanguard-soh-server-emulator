@@ -7601,14 +7601,26 @@ NORMAL_FOV = 90.0                  # the client's default (compared live against
 # Fireworks (items.json "fireworks": an ITEM_ABILITIES id, 60002-60022: FIREWORKS_ROCKET_BLUE,
 # FIREWORKS_FOUNTAIN_YELLOW, FIREWORKS_SPARKLER_RED ...): right-clicking plays that ability's
 # display (0x3d1, docs/ABILITY_VISUALS.md) on the player for everyone in the chunk and uses one up.
-def set_off_fireworks(state, item, ability_id):
+# The ability's own Action spawns no emitter in our client (docs/ABILITY_VISUALS.md "Fireworks"),
+# so items.json "fireworks_fx" names an emitter class that 0x553 spawns at the player's feet;
+# the sparklers (FXspells.FXspells_FireworksCastSparkler..._P001fx) show and keep burning there
+# until the chunk is reloaded (no message removes a client-spawned actor).
+SPAWN_CLIENT_ACTOR = 0x553
+
+
+def set_off_fireworks(state, item, ability_id, fx=None):
     player = state["player"]
-    msg = combat.display_ability(player.char_id, combat.NO_ENTITY, int(ability_id))
+    msgs = [combat.display_ability(player.char_id, combat.NO_ENTITY, int(ability_id))]
+    if fx:
+        x, y, z = state.get("position") or player.live_position or player.spawned_at
+        msgs.append(zone.zone_event(SPAWN_CLIENT_ACTOR, (fx + "\0").encode("utf-16-le")
+                                    + struct.pack("<fff", float(x), float(y), float(z) - 60.0)))
     w = state.get("world")
-    if w is not None:
-        w.broadcast(lambda s: msg)
-    else:
-        state["send"](msg)
+    for msg in msgs:
+        if w is not None:
+            w.broadcast(lambda s, m=msg: m)
+        else:
+            state["send"](msg)
     take_items(state, item[1], 1)
 
 
@@ -10815,7 +10827,8 @@ def handle_message(sock, server, addr, state, payload, args):
             elif item and args.content.item(item[1]).get("convert"):
                 offer_conversion(state, item)
             elif item and args.content.item(item[1]).get("fireworks"):
-                set_off_fireworks(state, item, args.content.item(item[1])["fireworks"])
+                set_off_fireworks(state, item, args.content.item(item[1])["fireworks"],
+                                  args.content.item(item[1]).get("fireworks_fx"))
             elif item and args.content.item(item[1]).get("spyglass"):
                 use_spyglass(state, args.content.item(item[1])["spyglass"])
             elif item and args.content.item(item[1]).get("salvage_kit"):

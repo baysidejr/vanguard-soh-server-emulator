@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/import_zone.py --all --branch --apply --skip "Sundering Wastelands" --skip "Wildgrowth Forest"` then `python tools/quest_readiness.py --branch --apply` (21 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/import_zone.py --all --branch --apply --skip "Sundering Wastelands" --skip "Wildgrowth Forest"` then `python tools/quest_readiness.py --branch --apply` (21 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
 
 ## Last test results
 
@@ -87,6 +87,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: Fireworks show: runtime-spawned emitters do render (0x553 bonfire and sparklers seen); the item's ability Action just spawns none. items.json fireworks_fx makes set_off_fireworks spawn a sparkler at the player for the chunk. Seen live: blue sparks from the Blue Rocket.
 
 - 2026-10-15: loadtest.py --at=CX,CY,X,Y,Z puts the bots in another chunk. 20 bots in Khal (147 spawns, the busiest chunk): p95 11.3 ms, no errors (docs/TESTING.md).
 

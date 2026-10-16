@@ -1,5 +1,5 @@
 {
-  "_comment": "Item templates by name. icon: iconsTK.xml number. slot: vgmsg.EQUIP_SLOTS name the item equips to (omit for non-equipment). mesh: [mesh type, mesh number] shown on the character (docs/GEAR.md); omit for no model. Placeholder data (docs/CONTENT_EDITOR.md). type: weapon/shield/armor/ranged/jewelry. damage: [min, max], delay: seconds, skill: weapon skill stat id (198 one-handed slashing, 227 longsword, 109 one-handed blunt, 43 short sword), armor: armor class, level: required level, rarity: name colour 0..11. Harvesting tools: type harvest_tool, slot HARVESTTOOL (0x35), harvest: the resource kind it works on (mining, lumberjacking, ...). rarity: mundane (default, white name), common (green), uncommon (blue), rare (yellow), heroic (orange), fabled (purple), legendary (red); group loot rolls items at or above the group's threshold.",
+  "_comment": "Item templates by name. icon: iconsTK.xml number. slot: vgmsg.EQUIP_SLOTS name the item equips to (omit for non-equipment). mesh: [mesh type, mesh number] shown on the character (docs/GEAR.md); omit for no model. Placeholder data (docs/CONTENT_EDITOR.md). type: weapon/shield/armor/ranged/jewelry. damage: [min, max], delay: seconds, skill: weapon skill stat id (198 one-handed slashing, 227 longsword, 109 one-handed blunt, 43 short sword), armor: armor class, level: required level, rarity: name colour 0..11. Harvesting tools: type harvest_tool, slot HARVESTTOOL (0x35), harvest: the resource kind it works on (mining, lumberjacking, ...). rarity: mundane (default, white name), common (green), uncommon (blue), rare (yellow), heroic (orange), fabled (purple), legendary (red); group loot rolls items at or above the group's threshold. fireworks: an ITEM_ABILITIES id played on use; fireworks_fx: the emitter class spawned at the player (docs/ABILITY_VISUALS.md \"Fireworks\").",
   "Militia Longsword": {
     "icon": 423,
     "slot": "PRIMARYHAND",
@@ -596,19 +596,22 @@
     "type": "misc",
     "icon": 444,
     "fireworks": 60002,
-    "description": "Right-click to launch."
+    "description": "Right-click to launch.",
+    "fireworks_fx": "FXspells.FXspells_FireworksCastSparklerABlue_P001fx"
   },
   "Yellow Fountain": {
     "type": "misc",
     "icon": 444,
     "fireworks": 60004,
-    "description": "Right-click to light."
+    "description": "Right-click to light.",
+    "fireworks_fx": "FXspells.FXspells_FireworksCastSparklerBYellow_P001fx"
   },
   "Red Sparkler": {
     "type": "misc",
     "icon": 444,
     "fireworks": 60022,
-    "description": "Right-click to light."
+    "description": "Right-click to light.",
+    "fireworks_fx": "FXspells.FXspells_FireworksCastSparklerARed_P001fx"
   },
   "Admix Mask of War": {
     "type": "jewelry",

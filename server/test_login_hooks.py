@@ -910,6 +910,12 @@ class SmallFeatureTests(unittest.TestCase):
         self.assertEqual(struct.unpack_from("<I", sent[0], 2)[0], login_stub.combat.DISPLAY_EVENT)
         self.assertEqual(struct.unpack_from("<i", sent[0], 10 + 16)[0], 60002)
         self.assertEqual(player.items[0][3], 1)
+        sent.clear()
+        state["position"] = (10.0, 20.0, 500.0)
+        with mock.patch.object(login_stub, "save_character_field"):
+            login_stub.set_off_fireworks(state, player.items[0], 60022, "FXspells.FXspells_FireworksCastSparklerARed_P001fx")
+        self.assertEqual(struct.unpack_from("<I", sent[1], 2)[0], login_stub.SPAWN_CLIENT_ACTOR)
+        self.assertEqual(struct.unpack_from("<fff", sent[1], len(sent[1]) - 12), (10.0, 20.0, 440.0))
 
     def test_corpse_summon_moves_the_tombstone(self):
         sent = []
