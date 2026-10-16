@@ -199,6 +199,9 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
             quests[key]["turn_in"] = steps[0]["talk"]
             quests[key]["_placeholder_steps"] = ("the archive records no objectives; played as a delivery to "
                                                  "the hand-in NPC")
+            reward = quests[key].setdefault("reward", {})
+            if reward.get("xp") == 100 * int(rec.get("level") or 1):     # the placeholder, not the archive's
+                reward["xp"] = 25 * int(rec.get("level") or 1)              # one conversation: a quarter
         next_id += 1
         added_q += 1
         level = z.level_name(*chunks[rec["zone"]])
