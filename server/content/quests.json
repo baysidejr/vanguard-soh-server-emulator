@@ -707,5 +707,1337 @@
     "reward": {
       "xp": 3900
     }
+  },
+  "arch_blasphemy_of_nature": {
+    "id": 5122,
+    "name": "Blasphemy Of Nature",
+    "level": 33,
+    "giver": "arch_kale_uon",
+    "turn_in": "arch_kale_uon",
+    "steps": [
+      {
+        "objective": "Resurrected Druid Servants",
+        "kill": {
+          "arch_resurrected_druid_servant": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/blasphemy-of-nature",
+    "greeting": "I could use some help. (Blasphemy Of Nature: the archive has no dialogue yet.)",
+    "description": "Kale Uon has asked you to help: slay 10 Resurrected Druid Servants.",
+    "summary": "Slay 10 Resurrected Druid Servants for Kale Uon.",
+    "accept_text": "You agree to help Kale Uon.",
+    "reward": {
+      "xp": 3300
+    }
+  },
+  "arch_ulvari_corruption_ra_jin_ravager": {
+    "id": 5123,
+    "name": "Ulvari Corruption: Ra'Jin Ravager",
+    "level": 13,
+    "giver": "arch_guard_na_cho",
+    "steps": [
+      {
+        "objective": "Ra'Jin Ravagers",
+        "kill": {
+          "arch_ra_jin_ravager": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '20' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/ulvari-corruption-ra-jin-ravager",
+    "greeting": "I could use some help. (Ulvari Corruption: Ra'Jin Ravager: the archive has no dialogue yet.)",
+    "description": "Guard Na Cho has asked you to help: slay 10 Ra'Jin Ravagers.",
+    "summary": "Slay 10 Ra'Jin Ravagers for Guard Na Cho.",
+    "accept_text": "You agree to help Guard Na Cho.",
+    "reward": {
+      "xp": 1300
+    }
+  },
+  "arch_flames_of_the_past_part_4": {
+    "id": 5124,
+    "name": "Flames of the Past - Part 4",
+    "level": 7,
+    "giver": "arch_beulgrin_copperbrow",
+    "turn_in": "arch_beulgrin_copperbrow",
+    "steps": [
+      {
+        "objective": "Burning Gwartak Spirits Slain",
+        "kill": {
+          "arch_burning_gwartak_spirit": 8
+        }
+      },
+      {
+        "objective": "Gwartak Spirit Summoners Slain",
+        "kill": {
+          "arch_gwartak_spirit_summoner": 8
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/flames-of-the-past-part-4",
+    "greeting": "I could use some help. (Flames of the Past - Part 4: the archive has no dialogue yet.)",
+    "description": "Beulgrin Copperbrow has asked you to help: slay 8 Burning Gwartak Spirits, then slay 8 Gwartak Spirit Summoners.",
+    "summary": "Slay 8 Burning Gwartak Spirits; Slay 8 Gwartak Spirit Summoners for Beulgrin Copperbrow.",
+    "accept_text": "You agree to help Beulgrin Copperbrow.",
+    "reward": {
+      "xp": 700
+    }
+  },
+  "arch_harbingers_of_the_undead": {
+    "id": 5125,
+    "name": "Harbingers of the Undead",
+    "level": 9,
+    "giver": "arch_captain_zaelmia_mountainheart",
+    "steps": [
+      {
+        "objective": "Harrowing Strixes Slain",
+        "kill": {
+          "arch_harrowing_strix": 12
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/harbingers-of-the-undead",
+    "greeting": "I could use some help. (Harbingers of the Undead: the archive has no dialogue yet.)",
+    "description": "Captain Zaelmia Mountainheart has asked you to help: slay 12 Harrowing Strixes.",
+    "summary": "Slay 12 Harrowing Strixes for Captain Zaelmia Mountainheart.",
+    "accept_text": "You agree to help Captain Zaelmia Mountainheart.",
+    "reward": {
+      "xp": 900
+    }
+  },
+  "arch_remove_the_head_and_the_body_dies": {
+    "id": 5126,
+    "name": "Remove The Head, And The Body Dies",
+    "level": 7,
+    "giver": "arch_gramkin_blackshield",
+    "steps": [
+      {
+        "objective": "Head of Clan Master Gwartak",
+        "collect": {
+          "Head Of Clan Master Gwartak": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/remove-the-head-and-the-body-dies",
+    "greeting": "I could use some help. (Remove The Head, And The Body Dies: the archive has no dialogue yet.)",
+    "description": "Gramkin Blackshield has asked you to help: gather 1 Head Of Clan Master Gwartak.",
+    "summary": "Gather 1 Head Of Clan Master Gwartak for Gramkin Blackshield.",
+    "accept_text": "You agree to help Gramkin Blackshield.",
+    "reward": {
+      "xp": 700
+    }
+  },
+  "arch_under_the_bridge": {
+    "id": 5127,
+    "name": "Under The Bridge",
+    "level": 11,
+    "giver": "arch_frightened_mountain_fae",
+    "turn_in": "arch_frightened_mountain_fae",
+    "steps": [
+      {
+        "objective": "Ground Tunnelers Slain",
+        "kill": {
+          "arch_ground_tunneler": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '1' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/under-the-bridge",
+    "greeting": "I could use some help. (Under The Bridge: the archive has no dialogue yet.)",
+    "description": "Frightened Mountain Fae has asked you to help: slay 15 Ground Tunnelers.",
+    "summary": "Slay 15 Ground Tunnelers for Frightened Mountain Fae.",
+    "accept_text": "You agree to help Frightened Mountain Fae.",
+    "reward": {
+      "xp": 1100
+    }
+  },
+  "arch_leafsaw_crawlers": {
+    "id": 5128,
+    "name": "Leafsaw Crawlers",
+    "level": 1,
+    "giver": "arch_parisa_nirumand",
+    "turn_in": "arch_parisa_nirumand",
+    "steps": [
+      {
+        "objective": "Leafsaw Crawlers Slain",
+        "kill": {
+          "arch_leafsaw_crawler": 8
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '5' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/leafsaw-crawlers",
+    "greeting": "I could use some help. (Leafsaw Crawlers: the archive has no dialogue yet.)",
+    "description": "Parisa Nirumand has asked you to help: slay 8 Leafsaw Crawlers.",
+    "summary": "Slay 8 Leafsaw Crawlers for Parisa Nirumand.",
+    "accept_text": "You agree to help Parisa Nirumand.",
+    "reward": {
+      "xp": 100
+    }
+  },
+  "arch_calming_the_craze": {
+    "id": 5129,
+    "name": "Calming The Craze",
+    "level": 34,
+    "giver": "arch_mercenary_ahsani",
+    "turn_in": "arch_mercenary_ahsani",
+    "steps": [
+      {
+        "objective": "Crazed Basilisks Killed",
+        "kill": {
+          "arch_crazed_basilisk": 16
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/calming-the-craze",
+    "greeting": "I could use some help. (Calming The Craze: the archive has no dialogue yet.)",
+    "description": "Mercenary Ahsani has asked you to help: slay 16 Crazed Basilisks.",
+    "summary": "Slay 16 Crazed Basilisks for Mercenary Ahsani.",
+    "accept_text": "You agree to help Mercenary Ahsani.",
+    "reward": {
+      "xp": 3400
+    }
+  },
+  "arch_flower_power": {
+    "id": 5130,
+    "name": "Flower Power",
+    "level": 30,
+    "giver": "arch_irton_coldforge",
+    "turn_in": "arch_irton_coldforge",
+    "steps": [
+      {
+        "objective": "Deep Water Rose",
+        "collect": {
+          "Deep Water Rose": 7
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/flower-power",
+    "greeting": "I could use some help. (Flower Power: the archive has no dialogue yet.)",
+    "description": "Irton Coldforge has asked you to help: gather 7 Deep Water Rose.",
+    "summary": "Gather 7 Deep Water Rose for Irton Coldforge.",
+    "accept_text": "You agree to help Irton Coldforge.",
+    "reward": {
+      "xp": 3000
+    }
+  },
+  "arch_teclisen_s_demand": {
+    "id": 5131,
+    "name": "Teclisen's Demand",
+    "level": 32,
+    "giver": "arch_nolir_elmulae",
+    "turn_in": "arch_nolir_elmulae",
+    "steps": [
+      {
+        "objective": "Fierce Griffon Egg",
+        "collect": {
+          "Fierce Griffon Egg": 4
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/teclisen-s-demand",
+    "greeting": "I could use some help. (Teclisen's Demand: the archive has no dialogue yet.)",
+    "description": "Nolir Elmulae has asked you to help: gather 4 Fierce Griffon Egg.",
+    "summary": "Gather 4 Fierce Griffon Egg for Nolir Elmulae.",
+    "accept_text": "You agree to help Nolir Elmulae.",
+    "reward": {
+      "xp": 3200
+    }
+  },
+  "arch_brute_force_halgarad": {
+    "id": 5132,
+    "name": "Brute Force (Halgarad)",
+    "level": 8,
+    "giver": "arch_thane_kin_ukaras",
+    "steps": [
+      {
+        "objective": "Broken Fang Juggernauts Slain",
+        "kill": {
+          "arch_broken_fang_juggernaut": 2
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '80' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/brute-force-halgarad",
+    "greeting": "I could use some help. (Brute Force (Halgarad): the archive has no dialogue yet.)",
+    "description": "Thane Kin Ukaras has asked you to help: slay 2 Broken Fang Juggernauts.",
+    "summary": "Slay 2 Broken Fang Juggernauts for Thane Kin Ukaras.",
+    "accept_text": "You agree to help Thane Kin Ukaras.",
+    "reward": {
+      "xp": 800
+    }
+  },
+  "arch_task_stop_the_warders": {
+    "id": 5133,
+    "name": "TASK: Stop The Warders",
+    "level": 17,
+    "giver": "arch_missive_board",
+    "steps": [
+      {
+        "objective": "Kaon Warders",
+        "kill": {
+          "arch_kaon_warder": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '17' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/task-stop-the-warders",
+    "greeting": "I could use some help. (TASK: Stop The Warders: the archive has no dialogue yet.)",
+    "description": "Missive Board has asked you to help: slay 15 Kaon Warders.",
+    "summary": "Slay 15 Kaon Warders for Missive Board.",
+    "accept_text": "You agree to help Missive Board.",
+    "reward": {
+      "xp": 1700
+    }
+  },
+  "arch_task_tiny_trouble": {
+    "id": 5134,
+    "name": "TASK: Tiny Trouble",
+    "level": 17,
+    "giver": "arch_missive_board",
+    "steps": [
+      {
+        "objective": "Redcap Renders",
+        "kill": {
+          "arch_redcap_render": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '17' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/task-tiny-trouble",
+    "greeting": "I could use some help. (TASK: Tiny Trouble: the archive has no dialogue yet.)",
+    "description": "Missive Board has asked you to help: slay 15 Redcap Renders.",
+    "summary": "Slay 15 Redcap Renders for Missive Board.",
+    "accept_text": "You agree to help Missive Board.",
+    "reward": {
+      "xp": 1700
+    }
+  },
+  "arch_clawbeast_eggs": {
+    "id": 5135,
+    "name": "Clawbeast Eggs",
+    "level": 30,
+    "giver": "arch_fhaela_jhael",
+    "steps": [
+      {
+        "objective": "Clawbeast Egg",
+        "collect": {
+          "Clawbeast Egg": 6
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '14' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/clawbeast-eggs",
+    "greeting": "I could use some help. (Clawbeast Eggs: the archive has no dialogue yet.)",
+    "description": "Fhaela Jhael has asked you to help: gather 6 Clawbeast Egg.",
+    "summary": "Gather 6 Clawbeast Egg for Fhaela Jhael.",
+    "accept_text": "You agree to help Fhaela Jhael.",
+    "reward": {
+      "xp": 3000
+    }
+  },
+  "arch_the_relic_of_disease": {
+    "id": 5136,
+    "name": "The Relic of Disease",
+    "level": 7,
+    "giver": "arch_amshta_daedi",
+    "turn_in": "arch_amshta_daedi",
+    "steps": [
+      {
+        "objective": "Relic of Disease",
+        "kill": {
+          "arch_relic_of_disease": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '70' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-relic-of-disease",
+    "greeting": "I could use some help. (The Relic of Disease: the archive has no dialogue yet.)",
+    "description": "Amshta Daedi has asked you to help: slay 1 Relic of Disease.",
+    "summary": "Slay 1 Relic of Disease for Amshta Daedi.",
+    "accept_text": "You agree to help Amshta Daedi.",
+    "reward": {
+      "xp": 700
+    }
+  },
+  "arch_endless_clatter": {
+    "id": 5137,
+    "name": "Endless Clatter",
+    "level": 3,
+    "giver": "arch_ritualist_radwian",
+    "steps": [
+      {
+        "objective": "Klacking Scuttlers Slain",
+        "kill": {
+          "arch_klacking_scuttler": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/endless-clatter",
+    "greeting": "I could use some help. (Endless Clatter: the archive has no dialogue yet.)",
+    "description": "Ritualist Radwian has asked you to help: slay 10 Klacking Scuttlers.",
+    "summary": "Slay 10 Klacking Scuttlers for Ritualist Radwian.",
+    "accept_text": "You agree to help Ritualist Radwian.",
+    "reward": {
+      "xp": 300
+    }
+  },
+  "arch_the_kaon_have_come": {
+    "id": 5138,
+    "name": "The Kaon Have Come",
+    "level": 1,
+    "giver": "arch_ritualist_radwian",
+    "steps": [
+      {
+        "objective": "Kaon Fae Slain",
+        "kill": {
+          "arch_kaon_fae": 6
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '10' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-kaon-have-come",
+    "greeting": "I could use some help. (The Kaon Have Come: the archive has no dialogue yet.)",
+    "description": "Ritualist Radwian has asked you to help: slay 6 Kaon Fae.",
+    "summary": "Slay 6 Kaon Fae for Ritualist Radwian.",
+    "accept_text": "You agree to help Ritualist Radwian.",
+    "reward": {
+      "xp": 100
+    }
+  },
+  "arch_fir_is_murder": {
+    "id": 5139,
+    "name": "Fir Is Murder",
+    "level": 13,
+    "giver": "arch_ulo_mossbeard",
+    "turn_in": "arch_ulo_mossbeard",
+    "steps": [
+      {
+        "objective": "Devoured Guardians Slain",
+        "kill": {
+          "arch_devoured_guardian": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/fir-is-murder",
+    "greeting": "I could use some help. (Fir Is Murder: the archive has no dialogue yet.)",
+    "description": "Ulo Mossbeard has asked you to help: slay 5 Devoured Guardians.",
+    "summary": "Slay 5 Devoured Guardians for Ulo Mossbeard.",
+    "accept_text": "You agree to help Ulo Mossbeard.",
+    "reward": {
+      "xp": 1300
+    }
+  },
+  "arch_nomad_threat": {
+    "id": 5140,
+    "name": "Nomad Threat",
+    "level": 10,
+    "giver": "arch_haj_kru",
+    "steps": [
+      {
+        "objective": "Hired Nomads",
+        "kill": {
+          "arch_hired_nomad": 6
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/nomad-threat",
+    "greeting": "I could use some help. (Nomad Threat: the archive has no dialogue yet.)",
+    "description": "Haj Kru has asked you to help: slay 6 Hired Nomads.",
+    "summary": "Slay 6 Hired Nomads for Haj Kru.",
+    "accept_text": "You agree to help Haj Kru.",
+    "reward": {
+      "xp": 1000
+    }
+  },
+  "arch_out_of_my_head": {
+    "id": 5141,
+    "name": "Out Of My Head",
+    "level": 40,
+    "giver": "arch_herne_rensh",
+    "turn_in": "arch_herne_rensh",
+    "steps": [
+      {
+        "objective": "Reshnok Thoughtseekers",
+        "kill": {
+          "arch_reshnok_thoughtseeker": 13
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/out-of-my-head",
+    "greeting": "I could use some help. (Out Of My Head: the archive has no dialogue yet.)",
+    "description": "Herne Rensh has asked you to help: slay 13 Reshnok Thoughtseekers.",
+    "summary": "Slay 13 Reshnok Thoughtseekers for Herne Rensh.",
+    "accept_text": "You agree to help Herne Rensh.",
+    "reward": {
+      "xp": 4000
+    }
+  },
+  "arch_soul_shifting": {
+    "id": 5142,
+    "name": "Soul Shifting",
+    "level": 42,
+    "giver": "arch_spirit_warden_cabiri",
+    "turn_in": "arch_spirit_warden_cabiri",
+    "steps": [
+      {
+        "objective": "Reshnok Soulshifters",
+        "kill": {
+          "arch_reshnok_soulshifter": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/soul-shifting",
+    "greeting": "I could use some help. (Soul Shifting: the archive has no dialogue yet.)",
+    "description": "Spirit Warden Cabiri has asked you to help: slay 15 Reshnok Soulshifters.",
+    "summary": "Slay 15 Reshnok Soulshifters for Spirit Warden Cabiri.",
+    "accept_text": "You agree to help Spirit Warden Cabiri.",
+    "reward": {
+      "xp": 4200
+    }
+  },
+  "arch_keeping_the_curse": {
+    "id": 5143,
+    "name": "Keeping The Curse",
+    "level": 21,
+    "giver": "arch_darrius_elkentrophe",
+    "turn_in": "arch_darrius_elkentrophe",
+    "steps": [
+      {
+        "objective": "Cured Villagers Slain",
+        "kill": {
+          "arch_cured_villager": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/keeping-the-curse",
+    "greeting": "I could use some help. (Keeping The Curse: the archive has no dialogue yet.)",
+    "description": "Darrius Elkentrophe has asked you to help: slay 10 Cured Villagers.",
+    "summary": "Slay 10 Cured Villagers for Darrius Elkentrophe.",
+    "accept_text": "You agree to help Darrius Elkentrophe.",
+    "reward": {
+      "xp": 2100
+    }
+  },
+  "arch_safe_travels_fierce_plains_tarantulas": {
+    "id": 5144,
+    "name": "Safe Travels: Fierce Plains Tarantulas",
+    "level": 15,
+    "giver": "arch_finneus_paledren",
+    "steps": [
+      {
+        "objective": "Fierce Plains Tarantulas",
+        "kill": {
+          "arch_fierce_plains_tarantula": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '80' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/safe-travels-fierce-plains-tarantulas",
+    "greeting": "I could use some help. (Safe Travels: Fierce Plains Tarantulas: the archive has no dialogue yet.)",
+    "description": "Finneus Paledren has asked you to help: slay 15 Fierce Plains Tarantulas.",
+    "summary": "Slay 15 Fierce Plains Tarantulas for Finneus Paledren.",
+    "accept_text": "You agree to help Finneus Paledren.",
+    "reward": {
+      "xp": 1500
+    }
+  },
+  "arch_red_sparrow_assault": {
+    "id": 5145,
+    "name": "Red Sparrow Assault",
+    "level": 23,
+    "giver": "arch_sergeant_fisher",
+    "turn_in": "arch_sergeant_fisher",
+    "steps": [
+      {
+        "objective": "Red Sparrow Slashers Slain",
+        "kill": {
+          "arch_red_sparrow_slasher": 8
+        }
+      },
+      {
+        "objective": "Red Sparrow Firebrands Slain",
+        "kill": {
+          "arch_red_sparrow_firebrand": 8
+        }
+      },
+      {
+        "objective": "Red Sparrow Sentry Slain",
+        "kill": {
+          "arch_red_sparrow_sentry": 2
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '2' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/red-sparrow-assault",
+    "greeting": "I could use some help. (Red Sparrow Assault: the archive has no dialogue yet.)",
+    "description": "Sergeant Fisher has asked you to help: slay 8 Red Sparrow Slashers, then slay 8 Red Sparrow Firebrands, then slay 2 Red Sparrow Sentry.",
+    "summary": "Slay 8 Red Sparrow Slashers; Slay 8 Red Sparrow Firebrands; Slay 2 Red Sparrow Sentry for Sergeant Fisher.",
+    "accept_text": "You agree to help Sergeant Fisher.",
+    "reward": {
+      "xp": 2300
+    }
+  },
+  "arch_cartheon_lieutenants": {
+    "id": 5146,
+    "name": "Cartheon Lieutenants",
+    "level": 42,
+    "giver": "arch_karsan_farrow",
+    "turn_in": "arch_karsan_farrow",
+    "steps": [
+      {
+        "objective": "Cartheon Lieutenants",
+        "kill": {
+          "arch_cartheon_lieutenant": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/cartheon-lieutenants",
+    "greeting": "I could use some help. (Cartheon Lieutenants: the archive has no dialogue yet.)",
+    "description": "Karsan Farrow has asked you to help: slay 10 Cartheon Lieutenants.",
+    "summary": "Slay 10 Cartheon Lieutenants for Karsan Farrow.",
+    "accept_text": "You agree to help Karsan Farrow.",
+    "reward": {
+      "xp": 4200
+    }
+  },
+  "arch_curse_at_drathael": {
+    "id": 5147,
+    "name": "Curse at Drathael",
+    "level": 40,
+    "giver": "arch_jonas_garno",
+    "turn_in": "arch_jonas_garno",
+    "steps": [
+      {
+        "objective": "Forsaken Villagers Slain",
+        "kill": {
+          "arch_forsaken_villager": 20
+        }
+      },
+      {
+        "objective": "Forsaken Farmers Slain",
+        "kill": {
+          "arch_forsaken_farmer": 20
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/curse-at-drathael",
+    "greeting": "I could use some help. (Curse at Drathael: the archive has no dialogue yet.)",
+    "description": "Jonas Garno has asked you to help: slay 20 Forsaken Villagers, then slay 20 Forsaken Farmers.",
+    "summary": "Slay 20 Forsaken Villagers; Slay 20 Forsaken Farmers for Jonas Garno.",
+    "accept_text": "You agree to help Jonas Garno.",
+    "reward": {
+      "xp": 4000
+    }
+  },
+  "arch_forsaken_knights": {
+    "id": 5148,
+    "name": "Forsaken Knights",
+    "level": 40,
+    "giver": "arch_jonas_garno",
+    "turn_in": "arch_jonas_garno",
+    "steps": [
+      {
+        "objective": "Forsaken Knights Slain",
+        "kill": {
+          "arch_forsaken_knight": 20
+        }
+      },
+      {
+        "objective": "Forsaken Steeds Slain",
+        "kill": {
+          "arch_forsaken_steed": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/forsaken-knights",
+    "greeting": "I could use some help. (Forsaken Knights: the archive has no dialogue yet.)",
+    "description": "Jonas Garno has asked you to help: slay 20 Forsaken Knights, then slay 5 Forsaken Steeds.",
+    "summary": "Slay 20 Forsaken Knights; Slay 5 Forsaken Steeds for Jonas Garno.",
+    "accept_text": "You agree to help Jonas Garno.",
+    "reward": {
+      "xp": 4000
+    }
+  },
+  "arch_aukfruit_lure": {
+    "id": 5149,
+    "name": "Aukfruit Lure",
+    "level": 11,
+    "giver": "arch_iradun_earp",
+    "turn_in": "arch_iradun_earp",
+    "steps": [
+      {
+        "objective": "Aukfruit Picker",
+        "kill": {
+          "arch_aukfruit_picker": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '20' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/aukfruit-lure",
+    "greeting": "I could use some help. (Aukfruit Lure: the archive has no dialogue yet.)",
+    "description": "Iradun Earp has asked you to help: slay 1 Aukfruit Picker.",
+    "summary": "Slay 1 Aukfruit Picker for Iradun Earp.",
+    "accept_text": "You agree to help Iradun Earp.",
+    "reward": {
+      "xp": 1100
+    }
+  },
+  "arch_rock_fragments": {
+    "id": 5150,
+    "name": "Rock Fragments",
+    "level": 12,
+    "giver": "arch_gokin_qualtha",
+    "turn_in": "arch_gokin_qualtha",
+    "steps": [
+      {
+        "objective": "Crystalized Rock",
+        "collect": {
+          "Crystalized Rock": 8
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/rock-fragments",
+    "greeting": "I could use some help. (Rock Fragments: the archive has no dialogue yet.)",
+    "description": "Gokin Qualtha has asked you to help: gather 8 Crystalized Rock.",
+    "summary": "Gather 8 Crystalized Rock for Gokin Qualtha.",
+    "accept_text": "You agree to help Gokin Qualtha.",
+    "reward": {
+      "xp": 1200
+    }
+  },
+  "arch_husker_do": {
+    "id": 5151,
+    "name": "Husker Do",
+    "level": 44,
+    "giver": "arch_celrit_amneliak",
+    "turn_in": "arch_celrit_amneliak",
+    "steps": [
+      {
+        "objective": "Animated Husks Slain",
+        "kill": {
+          "arch_animated_husk": 14
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/husker-do",
+    "greeting": "I could use some help. (Husker Do: the archive has no dialogue yet.)",
+    "description": "Celrit Amneliak has asked you to help: slay 14 Animated Husks.",
+    "summary": "Slay 14 Animated Husks for Celrit Amneliak.",
+    "accept_text": "You agree to help Celrit Amneliak.",
+    "reward": {
+      "coin": 1300,
+      "xp": 4400
+    }
+  },
+  "arch_mosquito_problem": {
+    "id": 5152,
+    "name": "Mosquito Problem",
+    "level": 29,
+    "giver": "arch_kharos",
+    "steps": [
+      {
+        "objective": "Fleshgorgers Slain",
+        "kill": {
+          "arch_fleshgorger": 18
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/mosquito-problem",
+    "greeting": "I could use some help. (Mosquito Problem: the archive has no dialogue yet.)",
+    "description": "Kharos has asked you to help: slay 18 Fleshgorgers.",
+    "summary": "Slay 18 Fleshgorgers for Kharos.",
+    "accept_text": "You agree to help Kharos.",
+    "reward": {
+      "xp": 2900
+    }
+  },
+  "arch_infusium_core": {
+    "id": 5153,
+    "name": "Infusium Core",
+    "level": 41,
+    "giver": "arch_varesh_vol_inara",
+    "turn_in": "arch_varesh_vol_inara",
+    "steps": [
+      {
+        "objective": "Infusium Core",
+        "collect": {
+          "Infusium Core": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '17' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/infusium-core",
+    "greeting": "I could use some help. (Infusium Core: the archive has no dialogue yet.)",
+    "description": "Varesh Vol'Inara has asked you to help: gather 1 Infusium Core.",
+    "summary": "Gather 1 Infusium Core for Varesh Vol'Inara.",
+    "accept_text": "You agree to help Varesh Vol'Inara.",
+    "reward": {
+      "xp": 4100
+    }
+  },
+  "arch_bounty_hunt_dread_waylayer": {
+    "id": 5154,
+    "name": "Bounty Hunt: Dread Waylayer",
+    "level": 30,
+    "giver": "arch_gifan_amir",
+    "steps": [
+      {
+        "objective": "Dread Waylayer Killed",
+        "kill": {
+          "arch_dread_waylayer": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/bounty-hunt-dread-waylayer",
+    "greeting": "I could use some help. (Bounty Hunt: Dread Waylayer: the archive has no dialogue yet.)",
+    "description": "Gifan Amir has asked you to help: slay 1 Dread Waylayer.",
+    "summary": "Slay 1 Dread Waylayer for Gifan Amir.",
+    "accept_text": "You agree to help Gifan Amir.",
+    "reward": {
+      "xp": 3000
+    }
+  },
+  "arch_trolls_on_the_rise": {
+    "id": 5155,
+    "name": "Trolls on the Rise",
+    "level": 22,
+    "giver": "arch_private_jorak",
+    "turn_in": "arch_private_jorak",
+    "steps": [
+      {
+        "objective": "Cliffwalker Trolls slain",
+        "kill": {
+          "arch_cliffwalker_troll": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/trolls-on-the-rise",
+    "greeting": "I could use some help. (Trolls on the Rise: the archive has no dialogue yet.)",
+    "description": "Private Jorak has asked you to help: slay 15 Cliffwalker Trolls.",
+    "summary": "Slay 15 Cliffwalker Trolls for Private Jorak.",
+    "accept_text": "You agree to help Private Jorak.",
+    "reward": {
+      "xp": 2200
+    }
+  },
+  "arch_the_dark_witch": {
+    "id": 5156,
+    "name": "The Dark Witch",
+    "level": 19,
+    "giver": "arch_master_vallerex",
+    "turn_in": "arch_master_vallerex",
+    "steps": [
+      {
+        "objective": "Kalendra the Dark Witch Slain",
+        "kill": {
+          "arch_kalendra_the_dark_witch": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-dark-witch",
+    "greeting": "I could use some help. (The Dark Witch: the archive has no dialogue yet.)",
+    "description": "Master Vallerex has asked you to help: slay 1 Kalendra the Dark Witch.",
+    "summary": "Slay 1 Kalendra the Dark Witch for Master Vallerex.",
+    "accept_text": "You agree to help Master Vallerex.",
+    "reward": {
+      "xp": 1900
+    }
+  },
+  "arch_etched_in_stone_part_5": {
+    "id": 5157,
+    "name": "Etched in Stone (Part 5)",
+    "level": 34,
+    "giver": "arch_champion_boden_misthollow",
+    "turn_in": "arch_champion_boden_misthollow",
+    "steps": [
+      {
+        "objective": "Decayed Behemoths slain",
+        "kill": {
+          "arch_decayed_behemoth": 2
+        }
+      },
+      {
+        "objective": "Behemoth Handlers slain",
+        "kill": {
+          "arch_behemoth_handler": 2
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/etched-in-stone-part-5",
+    "greeting": "I could use some help. (Etched in Stone (Part 5): the archive has no dialogue yet.)",
+    "description": "Champion Boden Misthollow has asked you to help: slay 2 Decayed Behemoths, then slay 2 Behemoth Handlers.",
+    "summary": "Slay 2 Decayed Behemoths; Slay 2 Behemoth Handlers for Champion Boden Misthollow.",
+    "accept_text": "You agree to help Champion Boden Misthollow.",
+    "reward": {
+      "xp": 3400
+    }
+  },
+  "arch_lover_s_quarrel_7": {
+    "id": 5158,
+    "name": "Lover's Quarrel (7)",
+    "level": 35,
+    "giver": "arch_rylandia_venine",
+    "turn_in": "arch_rylandia_venine",
+    "steps": [
+      {
+        "objective": "Decayed Soulblighters Slain",
+        "kill": {
+          "arch_decayed_soulblighter": 4
+        }
+      },
+      {
+        "objective": "Decayed Darkguards Slain",
+        "kill": {
+          "arch_decayed_darkguard": 6
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/lover-s-quarrel-7",
+    "greeting": "I could use some help. (Lover's Quarrel (7): the archive has no dialogue yet.)",
+    "description": "Rylandia Venine has asked you to help: slay 4 Decayed Soulblighters, then slay 6 Decayed Darkguards.",
+    "summary": "Slay 4 Decayed Soulblighters; Slay 6 Decayed Darkguards for Rylandia Venine.",
+    "accept_text": "You agree to help Rylandia Venine.",
+    "reward": {
+      "xp": 3500
+    }
+  },
+  "arch_push_back": {
+    "id": 5159,
+    "name": "Push Back",
+    "level": 26,
+    "giver": "arch_purifier_restfield",
+    "turn_in": "arch_purifier_restfield",
+    "steps": [
+      {
+        "objective": "Corpse Eaters",
+        "kill": {
+          "arch_corpse_eater": 11
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/push-back",
+    "greeting": "I could use some help. (Push Back: the archive has no dialogue yet.)",
+    "description": "Purifier Restfield has asked you to help: slay 11 Corpse Eaters.",
+    "summary": "Slay 11 Corpse Eaters for Purifier Restfield.",
+    "accept_text": "You agree to help Purifier Restfield.",
+    "reward": {
+      "xp": 2600
+    }
+  },
+  "arch_kreshnikara_the_weaver_of_storms": {
+    "id": 5160,
+    "name": "Kreshnikara, The Weaver Of Storms",
+    "level": 29,
+    "giver": "arch_avatar_of_sihari",
+    "turn_in": "arch_avatar_of_sihari",
+    "steps": [
+      {
+        "objective": "Kreshnikara, The Weaver Of Storms Slain",
+        "kill": {
+          "arch_kreshnikara_the_weaver_of_storms": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/kreshnikara-the-weaver-of-storms",
+    "greeting": "I could use some help. (Kreshnikara, The Weaver Of Storms: the archive has no dialogue yet.)",
+    "description": "Avatar Of Sihari has asked you to help: slay 1 Kreshnikara, The Weaver Of Storms.",
+    "summary": "Slay 1 Kreshnikara, The Weaver Of Storms for Avatar Of Sihari.",
+    "accept_text": "You agree to help Avatar Of Sihari.",
+    "reward": {
+      "xp": 2900
+    }
+  },
+  "arch_sell_raw_starspark_salt": {
+    "id": 5161,
+    "name": "Sell Raw Starspark Salt",
+    "level": 35,
+    "giver": "arch_daake_heaba",
+    "turn_in": "arch_daake_heaba",
+    "steps": [
+      {
+        "objective": "Raw Starspark Salt",
+        "kill": {
+          "arch_raw_starspark_salt": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '20' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/sell-raw-starspark-salt",
+    "greeting": "I could use some help. (Sell Raw Starspark Salt: the archive has no dialogue yet.)",
+    "description": "Daake Heaba has asked you to help: slay 1 Raw Starspark Salt.",
+    "summary": "Slay 1 Raw Starspark Salt for Daake Heaba.",
+    "accept_text": "You agree to help Daake Heaba.",
+    "reward": {
+      "xp": 3500
+    }
+  },
+  "arch_ikara_jin_ka_warden": {
+    "id": 5162,
+    "name": "Ikara, Jin'Ka Warden",
+    "level": 17,
+    "giver": "arch_ikara",
+    "turn_in": "arch_ikara",
+    "steps": [
+      {
+        "objective": "Jin'Ka Vinebeasts Slain",
+        "kill": {
+          "arch_jin_ka_vinebeast": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '80' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/ikara-jin-ka-warden",
+    "greeting": "I could use some help. (Ikara, Jin'Ka Warden: the archive has no dialogue yet.)",
+    "description": "Ikara has asked you to help: slay 10 Jin'Ka Vinebeasts.",
+    "summary": "Slay 10 Jin'Ka Vinebeasts for Ikara.",
+    "accept_text": "You agree to help Ikara.",
+    "reward": {
+      "xp": 1700
+    }
+  },
+  "arch_strike_first_strike_hardest": {
+    "id": 5163,
+    "name": "Strike First, Strike Hardest",
+    "level": 14,
+    "giver": "arch_bautali",
+    "turn_in": "arch_bautali",
+    "steps": [
+      {
+        "objective": "Gataro Tidebringers Slain",
+        "kill": {
+          "arch_gataro_tidebringer": 7
+        }
+      },
+      {
+        "objective": "Gataro Deepwardens Slain",
+        "kill": {
+          "arch_gataro_deepwarden": 7
+        }
+      },
+      {
+        "objective": "Gataro Silt Hunters Slain",
+        "kill": {
+          "arch_gataro_silt_hunter": 7
+        }
+      },
+      {
+        "objective": "Gataro Skullsplitters Slain",
+        "kill": {
+          "arch_gataro_skullsplitter": 7
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/strike-first-strike-hardest",
+    "greeting": "I could use some help. (Strike First, Strike Hardest: the archive has no dialogue yet.)",
+    "description": "Bautali has asked you to help: slay 7 Gataro Tidebringers, then slay 7 Gataro Deepwardens, then slay 7 Gataro Silt Hunters, then slay 7 Gataro Skullsplitters.",
+    "summary": "Slay 7 Gataro Tidebringers; Slay 7 Gataro Deepwardens; Slay 7 Gataro Silt Hunters; Slay 7 Gataro Skullsplitters for Bautali.",
+    "accept_text": "You agree to help Bautali.",
+    "reward": {
+      "xp": 1400
+    }
+  },
+  "arch_the_gremlin_menace": {
+    "id": 5164,
+    "name": "The Gremlin Menace",
+    "level": 11,
+    "giver": "arch_ju_ming",
+    "turn_in": "arch_ju_ming",
+    "steps": [
+      {
+        "objective": "Kojuko Despoilers Slain",
+        "kill": {
+          "arch_kojuko_despoiler": 10
+        }
+      },
+      {
+        "objective": "Kojuko Ravagers",
+        "kill": {
+          "arch_kojuko_ravager": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '10' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-gremlin-menace",
+    "greeting": "I could use some help. (The Gremlin Menace: the archive has no dialogue yet.)",
+    "description": "Ju Ming has asked you to help: slay 10 Kojuko Despoilers, then slay 10 Kojuko Ravagers.",
+    "summary": "Slay 10 Kojuko Despoilers; Slay 10 Kojuko Ravagers for Ju Ming.",
+    "accept_text": "You agree to help Ju Ming.",
+    "reward": {
+      "xp": 1100
+    }
+  },
+  "arch_task_for_three_rivers_fallen_star_fragments": {
+    "id": 5165,
+    "name": "Task For Three Rivers: Fallen Star Fragments",
+    "level": 10,
+    "giver": "arch_missive_postings",
+    "steps": [
+      {
+        "objective": "Fallen Star Shards Destroyed",
+        "kill": {
+          "arch_fallen_star_shard": 10
+        }
+      }
+    ],
+    "reward": {
+      "coin": 50,
+      "xp": 1000
+    },
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/task-for-three-rivers-fallen-star-fragments",
+    "greeting": "I could use some help. (Task For Three Rivers: Fallen Star Fragments: the archive has no dialogue yet.)",
+    "description": "Missive Postings has asked you to help: slay 10 Fallen Star Shards.",
+    "summary": "Slay 10 Fallen Star Shards for Missive Postings.",
+    "accept_text": "You agree to help Missive Postings."
+  },
+  "arch_unconventional_materials": {
+    "id": 5166,
+    "name": "Unconventional Materials",
+    "level": 8,
+    "giver": "arch_guard_rakner",
+    "turn_in": "arch_guard_rakner",
+    "steps": [
+      {
+        "objective": "Abandoned Brick",
+        "collect": {
+          "Abandoned Brick": 4
+        }
+      },
+      {
+        "objective": "Treant Maple Wood",
+        "collect": {
+          "Treant Maple Wood": 3
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '80' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/unconventional-materials",
+    "greeting": "I could use some help. (Unconventional Materials: the archive has no dialogue yet.)",
+    "description": "Guard Rakner has asked you to help: gather 4 Abandoned Brick, then gather 3 Treant Maple Wood.",
+    "summary": "Gather 4 Abandoned Brick; Gather 3 Treant Maple Wood for Guard Rakner.",
+    "accept_text": "You agree to help Guard Rakner.",
+    "reward": {
+      "xp": 800
+    }
+  },
+  "arch_don_t_eat_the_fish": {
+    "id": 5167,
+    "name": "Don't Eat The Fish",
+    "level": 11,
+    "giver": "arch_hashard_ikarm",
+    "steps": [
+      {
+        "objective": "Jar of Poison",
+        "collect": {
+          "Jar of Poison": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/don-t-eat-the-fish",
+    "greeting": "I could use some help. (Don't Eat The Fish: the archive has no dialogue yet.)",
+    "description": "Hashard Ikarm has asked you to help: gather 5 Jar of Poison.",
+    "summary": "Gather 5 Jar of Poison for Hashard Ikarm.",
+    "accept_text": "You agree to help Hashard Ikarm.",
+    "reward": {
+      "xp": 1100
+    }
+  },
+  "arch_easing_the_sorrow": {
+    "id": 5168,
+    "name": "Easing The Sorrow",
+    "level": 11,
+    "giver": "arch_shield_bearer_loganthon",
+    "turn_in": "arch_shield_bearer_loganthon",
+    "steps": [
+      {
+        "objective": "Earth Sorrows Slain",
+        "kill": {
+          "arch_earth_sorrow": 8
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '50' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/easing-the-sorrow",
+    "greeting": "I could use some help. (Easing The Sorrow: the archive has no dialogue yet.)",
+    "description": "Shield Bearer Loganthon has asked you to help: slay 8 Earth Sorrows.",
+    "summary": "Slay 8 Earth Sorrows for Shield Bearer Loganthon.",
+    "accept_text": "You agree to help Shield Bearer Loganthon.",
+    "reward": {
+      "xp": 1100
+    }
+  },
+  "arch_the_bigger_threat": {
+    "id": 5169,
+    "name": "The Bigger Threat",
+    "level": 13,
+    "giver": "arch_sentinel_riari",
+    "turn_in": "arch_sentinel_riari",
+    "steps": [
+      {
+        "objective": "Kaon Archwidows",
+        "kill": {
+          "arch_kaon_archwidow": 5
+        }
+      },
+      {
+        "objective": "Large Mutated Crawlers",
+        "kill": {
+          "arch_large_mutated_crawler": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-bigger-threat",
+    "greeting": "I could use some help. (The Bigger Threat: the archive has no dialogue yet.)",
+    "description": "Sentinel Riari has asked you to help: slay 5 Kaon Archwidows, then slay 5 Large Mutated Crawlers.",
+    "summary": "Slay 5 Kaon Archwidows; Slay 5 Large Mutated Crawlers for Sentinel Riari.",
+    "accept_text": "You agree to help Sentinel Riari.",
+    "reward": {
+      "coin": 130,
+      "xp": 1300
+    }
   }
 }

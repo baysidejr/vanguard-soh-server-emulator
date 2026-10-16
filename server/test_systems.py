@@ -2138,6 +2138,16 @@ class QuestReadinessTests(unittest.TestCase):
                            self.world, self.chunks)
         self.assertEqual(r["totals"], {"ready": 1, "giver": 1})
         self.assertEqual(r["zones"][0]["blocked"][0]["objectives"], [["Bear Claws (0/2)", "no placed creature in the zone drops it"]])
+        # A kill target the archive knows but doesn't locate gets an invented camp near the giver,
+        # marked _placeholder, on dry ground.
+        creatures = {"Bear": {"name": "Bear", "zone": "Leth Nurae", "level": 5}}
+        q = {"bear": self.quest(("Bears Slain (3)", "kill", 3))}
+        with unittest.mock.patch.object(self.qr.z, "existing_spawns",
+                                        return_value=[{"mob": "arch_ranger_shyath", "x": 0, "y": 0, "z": 100}]),                 unittest.mock.patch.object(self.qr, "_wet", side_effect=lambda lvl, x, y, h=None: x > 0),                 unittest.mock.patch.object(self.qr, "_ground", return_value=90):
+            camps = self.qr.placeholder_camps(q, self.world, self.chunks, creatures)
+        (key, t, camp), = camps["chunk_n25_26"]
+        self.assertEqual((key, len(camp), t["level"]), ("arch_bear", 3, 5))
+        self.assertTrue(all(sp["x"] <= 0 and sp["_placeholder"] and "z" not in sp for sp in camp))
         # The giver as the objective ("read the book") is an interaction we can't do.
         self.assertEqual(self.qr.readiness(self.quest(("Ranger Shyath (1/1)", None, 1)), self.world, self.chunks), "giver")
 

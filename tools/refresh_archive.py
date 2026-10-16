@@ -34,9 +34,19 @@ def main(argv=None):
     import_zone.SOURCES.append(f"branch {a.branch}")
     print("== zones ==")
     import_zone.import_all(a.apply, set() if a.all_zones else set(KEEP))
-    print("== quests ==")
+    print("== quest targets ==")
     quests, world, chunks = (import_zone.archive_npcs(kind="quest"), quest_readiness.zone_world(),
                              import_zone.zone_chunks())
+    camps = quest_readiness.placeholder_camps(quests, world, chunks, import_zone.archive_npcs(kind="creature"))
+    print(f"{sum(len(v) for v in camps.values())} kill targets without a location get a placeholder camp near the giver")
+    if a.apply:
+        loot = import_zone.archive_npcs(kind="loot")
+        for level, entries in camps.items():
+            mobs = {k: t for k, t, _ in entries}
+            import_zone.attach_loot(mobs, loot)
+            import_zone.apply(level, mobs, [sp for _, _, camp in entries for sp in camp])
+        world = quest_readiness.zone_world()
+    print("== quests ==")
     ready = sorted((q for q in quests.values() if quest_readiness.readiness(q, world, chunks) == "ready"),
                    key=lambda q: (q.get("zone") or "", q["name"]))
     print(f"{len(ready)} archive quests are playable with what is placed")

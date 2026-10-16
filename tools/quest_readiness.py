@@ -207,6 +207,97 @@ def apply(ready, world, chunks, content=z.CONTENT):
     return added_q, added_i
 
 
+PLACEHOLDER_DISTANCE = 1500     # how far from the quest giver an invented camp stands
+_WATER, _GROUND = {}, []
+
+
+def _wet(level, x, y, height=None):
+    """True when the ground at (x, y) lies inside one of the chunk's WaterVolumes (server/water.py;
+    no water known = dry). The ground, not `height`: a neighbour's height can hang over the sea
+    (Seawatch Coast's whole sea is one volume below z 1)."""
+    sys.path.insert(0, os.path.join(z_root(), "server"))
+    if level not in _WATER:
+        try:
+            import water
+            _WATER[level] = water.water_boxes(level, os.path.join(z_root(), "Assets", "Maps"))
+        except Exception:
+            _WATER[level] = []
+    if not _WATER[level]:
+        return False
+    if True:                    # the ground decides: a height from a neighbour can hang in the air over the sea
+        if not _GROUND:
+            import content as server_content
+            _GROUND.append(server_content.Content(z.CONTENT))
+        height = _GROUND[0].ground_z(level, x, y, z_root())
+    return any(lo[0] <= x <= hi[0] and lo[1] <= y <= hi[1] and lo[2] <= height + 20 <= hi[2] for _n, lo, hi in _WATER[level])
+
+
+def _ground(level, x, y):
+    if not _GROUND:
+        import content as server_content
+        _GROUND.append(server_content.Content(z.CONTENT))
+    return _GROUND[0].ground_z(level, x, y, z_root())
+
+
+def z_root():
+    return z.ROOT
+
+
+def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
+    """For quests whose giver is placed and whose only missing objectives are kills of creatures the
+    archive knows (same zone, a level) but doesn't locate: a camp of three of each such creature
+    PLACEHOLDER_DISTANCE from the giver, on the terrain (the giver's height in a city off the
+    terrain). Every spawn is marked "_placeholder": the position is invented, for the content
+    editor to correct. Returns {level: [(template key, template, [spawns])]}."""
+    import hashlib
+    import math
+    by_name = {n.lower(): r for n, r in creatures.items()}
+    out, done = {}, set()
+    for q in quests.values():
+        if readiness(q, world, chunks) != "giver":
+            continue
+        targets = []
+        for objective, _why in blockers(q, world, chunks):
+            t = objective_target(objective)
+            rec = next((by_name[s] for s in singulars(t) if s in by_name), None)
+            if rec is None or rec.get("zone") != q.get("zone") or not rec.get("level") or z.is_object(rec):
+                targets = []
+                break
+            targets.append(rec)
+        if not targets:
+            continue
+        level = z.level_name(*chunks[q["zone"]])
+        giver = next((s for s in z.existing_spawns(level, content)
+                      if s["mob"] == world[level][0].get((q.get("giver") or "").lower())), None)
+        if giver is None:
+            continue
+        for rec in targets:
+            key = z.key_for(rec["name"])
+            if key in done:
+                continue
+            done.add(key)
+            a0 = int(hashlib.md5(rec["name"].encode()).hexdigest(), 16) % 360 * math.pi / 180
+            camp = None
+            for k in range(8):                            # the first direction whose camp is not under water
+                a = a0 + k * math.pi / 4
+                cx, cy = giver["x"] + PLACEHOLDER_DISTANCE * math.cos(a), giver["y"] + PLACEHOLDER_DISTANCE * math.sin(a)
+                trial = []
+                for i in range(3):
+                    b = 2 * math.pi * i / 3
+                    trial.append({"mob": key, "x": round(cx + 250 * math.cos(b)), "y": round(cy + 250 * math.sin(b)),
+                                  "yaw": 0, "wander": 200, "_placeholder": f"position invented for the quest {q['name']}"})
+                if giver.get("z") is not None and abs(giver["z"] - _ground(level, giver["x"], giver["y"])) > 400:
+                    for sp in trial:              # the giver is in a city or underground: its floor
+                        sp["z"] = giver["z"]
+                if not any(_wet(level, sp["x"], sp["y"], sp.get("z")) for sp in trial):
+                    camp = trial
+                    break
+            if camp is None:
+                continue
+            out.setdefault(level, []).append((key, z.creature_template(rec, None), camp))
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--branch", nargs="?", const="origin/crowdsourced/archive-collection",

@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (22 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
+Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (70 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); flight descent needs a person.
 
 ## Last test results
 
@@ -91,6 +91,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-16: Placeholder camps for quest kill targets the archive knows but doesn't locate (marked "_placeholder", near the giver, never in water): playable archive quests 22 -> 70 (48 added, 9 quest items). Seen live: Dread Waylayers on Seawatch Coast's beach. Merged the scrape branch again (up to 2ed0b4b).
 
 - 2026-10-16: Presence after a parley: the client drops the presence stat during a parley, so the won-parley update was ignored; the server now re-creates it with 0x2d3 before the 0x2d4 (seen live: Soldiers 70 -> 80 reads "Known" after winning Afshin Budjiri's parley). Rank thresholds decoded (75 Known, 225 next; 300 shows Respected).
 
