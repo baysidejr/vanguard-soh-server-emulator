@@ -139,6 +139,11 @@ def npc_race(rec):
     return fallback if race is None else race
 
 
+FEMALE = re.compile(r"(?<![a-z])(priestess|lady|madam|madame|sister|mother|matron|queen|duchess|baroness|countess|"
+                    r"huntress|seamstress|mistress|empress|princess|grandmother|aunt|widow|wife|daughter|maiden|"
+                    r"sorceress|enchantress|abbess|dame|woman|matriarch)(?![a-z])", re.I)
+
+
 def template(rec):
     level = int(rec.get("level") or 20)
     t = {"name": rec["name"], "pawn_class": "SGONPCPawn", "race": npc_race(rec),
@@ -146,6 +151,8 @@ def template(rec):
     dots = next((int(d[0]) for d in (rec.get("archive_fields") or {}).get("difficulty") or [] if d[:1].isdigit()), None)
     if dots:
         t["difficulty"] = max(0, min(5, dots - 1))
+    if FEMALE.search(rec["name"]) or FEMALE.search(" ".join((rec.get("archive_fields") or {}).get("role") or [])):
+        t["gender"] = 1                   # "Priestess Aludan", "Duchess ...": the archive records no gender
     if t["race"] in (12, 13, 14):         # the human races have model variants 0-3: vary the look by name
         t["model"] = zlib.crc32(rec["name"].encode("utf-8")) % 4
     services = [s for s in (rec.get("services") or []) if s and s != "quest giver"]

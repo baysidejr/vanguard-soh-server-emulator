@@ -1768,6 +1768,14 @@ class ImportZoneTests(unittest.TestCase):
         out = import_zone.poi_people("Khal", (-13, -9), npcs, "Qalia", [], labels)
         self.assertEqual([(k, sp["x"], sp["z"]) for k, _, sp in out], [("arch_arena_enforcer", 100, 300)])  # not the hub
 
+    def test_female_titles(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        self.assertEqual(import_zone.template({"name": "Priestess Aludan"}).get("gender"), 1)
+        self.assertIsNone(import_zone.template({"name": "Ladyslayer Brom"}).get("gender"))   # whole words only
+        self.assertIsNone(import_zone.template({"name": "Kooshin Vahdaat"}).get("gender"))
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
