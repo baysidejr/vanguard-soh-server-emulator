@@ -92,6 +92,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: Checked live: a won archive parley (Afshin Budjiri, level 37) paid 370 diplomacy XP and raised Soldier presence 70 -> 80, filling the Soldiers bar. Ranger's presence and parleys_won restored afterwards.
+
 - 2026-10-16: Display back (the white window overnight was the display, not the server). Checked live: the Diplomacy - Presence list shows the eight stations at "Newcomer"; the Vault of Heroes chunk renders (an underground mine) and Mannok the Armorer stands in it and attacks, so sub-area placement is right. Ranger restored.
 
 - 2026-10-16: Merged crowdsourced/archive-collection into main (up to 766e184, 950 new pages; crowdsourced/ only, 567 MB, tests pass), then refreshed: +35 templates, 43 spawns, 4 merchants on role stock. Most new pages are creatures without locations; 22 quests playable. Note: the refresh still reads the branch too, so later scrape pushes are picked up before they are merged.
