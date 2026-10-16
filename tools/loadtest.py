@@ -44,6 +44,7 @@ ACK_INTERVAL = 0.1          # seconds between a bot's acknowledgements
 GAPS = [0]                  # server packets that arrived after a missing one
 DROP = 0.0                  # share of incoming reliable packets ignored (--drop)
 CAMP = (-31000.0, -5500.0, 460.0)
+CHUNK = None                     # --at: another chunk [x, y] for the bots (default: where the template is)
 
 
 def bot_name(i):
@@ -93,6 +94,8 @@ def setup(n, template_name):
         ang = 2 * 3.14159 * i / max(n, 1)
         c.update(first=bot_name(i), last="", account=bot_account(i),
                  position=[CAMP[0] + 300 * math.cos(ang), CAMP[1] + 300 * math.sin(ang), CAMP[2]])
+        if CHUNK:
+            c.update(chunk=list(CHUNK), position_chunk=list(CHUNK))
         keep.append(c)
     storage.write_characters(CHARACTERS_FILE, keep)
     print(f"{n} bot accounts (lbot_...) with one character each; launcher tokens {bot_token(0)}...")
@@ -394,10 +397,17 @@ def main(argv=None):
     ap.add_argument("--first", type=int, default=0, help=argparse.SUPPRESS)
     ap.add_argument("--child", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--data-dir", help="the server's --data-dir, if it uses one (for --setup / --cleanup)")
+    ap.add_argument("--at", metavar="CX,CY,X,Y,Z",
+                    help="put the bots (--setup) and their walk in another chunk, e.g. a crowded city: "
+                         "--at=-13,-9,-3276,-45175,1545 (Khal; with = since it starts with -)")
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--login-port", type=int, default=10101)
     ap.add_argument("--world-port", type=int, default=10100)
     a = ap.parse_args(argv)
+    if a.at:
+        global CAMP, CHUNK
+        cx, cy, x, y, z = (float(v) for v in a.at.split(","))
+        CHUNK, CAMP = (int(cx), int(cy)), (x, y, z)
     if a.data_dir:
         global CHARACTERS_FILE
         os.makedirs(a.data_dir, exist_ok=True)
@@ -446,6 +456,7 @@ def run_processes(a):
                "--spread", str(a.spread)] + (["--auto-accept"] if a.auto_accept else []) + [
                "--stagger", str(a.stagger * a.procs), "--host", a.host,
                "--login-port", str(a.login_port), "--world-port", str(a.world_port)] + (
+               ["--at", a.at] if a.at else []) + (
                ["--data-dir", a.data_dir] if a.data_dir else [])
         procs.append(subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True))
         first += n

@@ -88,6 +88,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-15: loadtest.py --at=CX,CY,X,Y,Z puts the bots in another chunk. 20 bots in Khal (147 spawns, the busiest chunk): p95 11.3 ms, no errors (docs/TESTING.md).
+
 - 2026-10-15: Heights for map-placed people in cities off the terrain (import_zone.off_terrain_heights): 108 NPCs in Bordinar's Cleft, Ahgram, Khal, Ca'ial Brael and Mekalia now take a nearby positioned NPC's height. Seen live: Rhantik Surelock inside a Bordinar's Cleft hall.
 
 - 2026-10-15: Altars of Binding and mailboxes at the zone maps' Bindstone / Altar / Mailbox places (import_zone.service_props): 39 more, spaced from the existing ones.

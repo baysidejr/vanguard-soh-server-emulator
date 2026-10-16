@@ -201,3 +201,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Plot window: Admin > Make Guild Headquarters (as the guild leader: confirm popup, "Your guild has a new guild headquarters."), then Relinquish; Buildings > Building Inventory lists the fixtures ("Chests: (1 of 3)"), Move Fixture to me, Manage NPCs lists the banker
 - [ ] Summon Ashfang and use Savage Bite; a Necromancer abomination; Bone Charm minions
 - [ ] Swim, dive, the breath bar, drowning
+
+## Crowded city load (2026-10-15)
+
+`python tools/loadtest.py --setup 20 --at=-13,-9,-3276,-45175,1545`, then `--bots 20 --seconds 60` with the same `--at`: 20 bots walking in Khal (chunk -13, -9, 147 spawns after the archive imports, the busiest chunk). All 20 entered chunk_n13_n9; steady-state ping median 10.6 ms, p95 11.3 ms, max 13.3 ms, no server errors, the same as the camp. `--cleanup` removes the bots.
