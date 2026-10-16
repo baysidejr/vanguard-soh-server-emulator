@@ -196,7 +196,7 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
             status, steps = plan_steps(rec, world, chunks)
         quests[key] = to_quest(rec, steps, next_id, content)
         if steps_for and rec["name"] in steps_for:
-            quests[key]["turn_in"] = steps[0]["talk"]
+            quests[key]["turn_in"] = steps[-1]["talk"]
             quests[key]["_placeholder_steps"] = ("the archive records no objectives; played as a delivery to "
                                                  "the hand-in NPC")
             reward = quests[key].setdefault("reward", {})
@@ -264,7 +264,14 @@ def delivery_plan(quests, world, chunks, content=z.CONTENT):
         key = z.key_for(turn_in)
         if key in placed:
             recs.append(q)
-            steps_for[q["name"]] = [{"objective": f"Speak with {turn_in}", "talk": key}]
+            steps = [{"objective": f"Speak with {turn_in}", "talk": key}]
+            # "items needed" that drop in the quest's zone: gather them first (closer to the quest)
+            chunk = chunks.get(q.get("zone"))
+            drops = world.get(z.level_name(*chunk), ({}, {}))[1] if chunk else {}
+            need = [i.strip() for i in (q.get("archive_fields") or {}).get("items needed") or [] if i.strip()]
+            if need and all(i.lower() in drops for i in need):
+                steps = [{"objective": drops[i.lower()][0], "collect": {drops[i.lower()][0]: 1}} for i in need] + steps
+            steps_for[q["name"]] = steps
     return recs, steps_for
 
 

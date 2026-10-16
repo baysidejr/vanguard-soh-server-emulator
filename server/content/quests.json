@@ -7271,31 +7271,6 @@
     },
     "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC"
   },
-  "arch_seeking_the_traitor": {
-    "id": 5375,
-    "name": "Seeking The Traitor",
-    "level": 5,
-    "giver": "arch_priori_brihnira",
-    "turn_in": "arch_centurion_zautyl",
-    "_needs": [
-      "description"
-    ],
-    "_source": "https://vgsoharchive.com/quests/seeking-the-traitor",
-    "steps": [
-      {
-        "objective": "Speak with Centurion Zautyl",
-        "talk": "arch_centurion_zautyl"
-      }
-    ],
-    "greeting": "I could use some help. (Seeking The Traitor: the archive has no dialogue yet.)",
-    "description": "Priori Brihnira has asked you to help: speak with Centurion Zautyl.",
-    "summary": "Speak with Centurion Zautyl for Priori Brihnira.",
-    "accept_text": "You agree to help Priori Brihnira.",
-    "reward": {
-      "xp": 125
-    },
-    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC"
-  },
   "arch_seeking_out_ulla": {
     "id": 5376,
     "name": "Seeking out Ulla",
@@ -9649,6 +9624,37 @@
     "accept_text": "You agree to help Armantel Danawan.",
     "reward": {
       "xp": 300
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC"
+  },
+  "arch_seeking_the_traitor": {
+    "id": 5468,
+    "name": "Seeking The Traitor",
+    "level": 5,
+    "giver": "arch_priori_brihnira",
+    "turn_in": "arch_centurion_zautyl",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/seeking-the-traitor",
+    "steps": [
+      {
+        "objective": "Krihvin Sanvain's Head",
+        "collect": {
+          "Krihvin Sanvain's Head": 1
+        }
+      },
+      {
+        "objective": "Speak with Centurion Zautyl",
+        "talk": "arch_centurion_zautyl"
+      }
+    ],
+    "greeting": "I could use some help. (Seeking The Traitor: the archive has no dialogue yet.)",
+    "description": "Priori Brihnira has asked you to help: gather 1 Krihvin Sanvain's Head, then speak with Centurion Zautyl.",
+    "summary": "Gather 1 Krihvin Sanvain's Head; Speak with Centurion Zautyl for Priori Brihnira.",
+    "accept_text": "You agree to help Priori Brihnira.",
+    "reward": {
+      "xp": 125
     },
     "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC"
   }
