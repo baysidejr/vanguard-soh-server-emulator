@@ -927,6 +927,8 @@ class SmallFeatureTests(unittest.TestCase):
             self.assertEqual(login_stub.find_npc_spawn(content, "ghob"), ("chunk_n14_n11", "Ghob", 4.0, 5.0, None))
             self.assertEqual(login_stub.find_npc_spawn(content, "houri")[1], "Ghobad Houri")
             self.assertIsNone(login_stub.find_npc_spawn(content, "nobody"))
+            content.mobs["b"]["name"] = "Hive-King Ghob"
+            self.assertEqual(login_stub.find_npc_spawn(content, "hive king")[1], "Hive-King Ghob")   # punctuation ignored
 
     def test_corpse_summon_moves_the_tombstone(self):
         sent = []

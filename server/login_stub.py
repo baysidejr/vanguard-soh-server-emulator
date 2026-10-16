@@ -6617,7 +6617,8 @@ def chunk_arrival(cx, cy):
 def find_npc_spawn(content, name):
     """(level, NPC name, x, y, z or None) of the first spawn whose template is named `name`
     (exact, else the start of a name, else anywhere in it; any case), or None."""
-    want = name.strip().lower()
+    norm = lambda t: " ".join(re.sub(r"[^a-z0-9]+", " ", t.lower()).split())   # "Hive-King" = "hive king"
+    want = norm(name)
     folder = os.path.join(content.directory, "spawns")
     found = {}
     for fn in sorted(os.listdir(folder)) if os.path.isdir(folder) else []:
@@ -6627,7 +6628,7 @@ def find_npc_spawn(content, name):
             spawns = json.load(f).get("spawns", [])
         for sp in spawns:
             n = (content.mobs.get(sp.get("mob")) or {}).get("name", "")
-            low = n.lower()
+            low = norm(n)
             rank = 0 if low == want else 1 if low.startswith(want) else 2 if want in low else None
             if rank is not None and rank not in found:
                 found[rank] = (fn[:-5], n, float(sp["x"]), float(sp["y"]), sp.get("z"))
