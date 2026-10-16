@@ -917,6 +917,17 @@ class SmallFeatureTests(unittest.TestCase):
         self.assertEqual(struct.unpack_from("<I", sent[1], 2)[0], login_stub.SPAWN_CLIENT_ACTOR)
         self.assertEqual(struct.unpack_from("<fff", sent[1], len(sent[1]) - 12), (10.0, 20.0, 440.0))
 
+    def test_visit_finds_an_npc_spawn(self):
+        import tempfile, json as _json
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "spawns"))
+            with open(os.path.join(d, "spawns", "chunk_n14_n11.json"), "w", encoding="utf-8") as f:
+                _json.dump({"spawns": [{"mob": "a", "x": 1, "y": 2, "z": 3}, {"mob": "b", "x": 4, "y": 5}]}, f)
+            content = mock.Mock(directory=d, mobs={"a": {"name": "Ghobad Houri"}, "b": {"name": "Ghob"}})
+            self.assertEqual(login_stub.find_npc_spawn(content, "ghob"), ("chunk_n14_n11", "Ghob", 4.0, 5.0, None))
+            self.assertEqual(login_stub.find_npc_spawn(content, "houri")[1], "Ghobad Houri")
+            self.assertIsNone(login_stub.find_npc_spawn(content, "nobody"))
+
     def test_corpse_summon_moves_the_tombstone(self):
         sent = []
         player = zone.Player(name="T", char_id=7, level="c")

@@ -6614,6 +6614,26 @@ def chunk_arrival(cx, cy):
     return _ARRIVALS.get((cx, cy), (False, (0.0, 0.0)))[1]
 
 
+def find_npc_spawn(content, name):
+    """(level, NPC name, x, y, z or None) of the first spawn whose template is named `name`
+    (exact, else the start of a name, else anywhere in it; any case), or None."""
+    want = name.strip().lower()
+    folder = os.path.join(content.directory, "spawns")
+    found = {}
+    for fn in sorted(os.listdir(folder)) if os.path.isdir(folder) else []:
+        if not fn.endswith(".json"):
+            continue
+        with open(os.path.join(folder, fn), encoding="utf-8") as f:
+            spawns = json.load(f).get("spawns", [])
+        for sp in spawns:
+            n = (content.mobs.get(sp.get("mob")) or {}).get("name", "")
+            low = n.lower()
+            rank = 0 if low == want else 1 if low.startswith(want) else 2 if want in low else None
+            if rank is not None and rank not in found:
+                found[rank] = (fn[:-5], n, float(sp["x"]), float(sp["y"]), sp.get("z"))
+    return found[min(found)] if found else None
+
+
 def travel_to_chunk(state, args, cx, cy, x, y, z=None):
     """Move the player to (x, y) in chunk (cx, cy) with a full zone re-connect (as a walk
     across a chunk edge). z defaults to the ground there."""
@@ -9819,6 +9839,10 @@ def dev_command(text, player=None):
     if words[0] in ("goto", "summon") and len(words) >= 2 and player:
         # !goto <name> / !summon <name>: the server side of /gotoplayer and /summonplayer.
         return [("gm", GM_GOTO if words[0] == "goto" else GM_SUMMON, (words[1] + "\0").encode("utf-16-le"))]
+    if words[0] == "visit" and len(words) >= 2 and player:
+        # !visit <NPC name>: travel next to the first spawn of an NPC with that name, in any
+        # chunk (testing and GMs: e.g. !visit Ghobad Houri).
+        return [("visit", " ".join(words[1:]))]
     if words[0] == "chunk" and len(words) >= 3 and player:
         # !chunk x y: travel to that chunk's centre (the server side of /chunk).
         return [("gm", GM_CHUNK, struct.pack("<ii", int(words[1]), int(words[2])))]
@@ -10501,6 +10525,16 @@ def handle_message(sock, server, addr, state, payload, args):
                         continue
                     elif isinstance(m, tuple) and m[0] == "bank":
                         handle_bank_event(state, m[1], m[2])
+                        continue
+                    elif isinstance(m, tuple) and m[0] == "visit":
+                        spot = find_npc_spawn(args.content, m[1])
+                        if spot is None:
+                            send_message(sock, addr, state, build_system_text(f"No NPC named {m[1]!r} is placed.", SYSTEM_TEXT_ERROR))
+                        else:
+                            level, name, x, y, z = spot
+                            send_message(sock, addr, state, build_system_text(f"Travelling to {name} in {chunk_display_name(level)}.", SYSTEM_TEXT_WHITE))
+                            cx, cy = level_chunk(level)
+                            travel_to_chunk(state, args, cx, cy, x + 150.0, y, z)
                         continue
                     elif isinstance(m, tuple) and m[0] == "give":
                         if give_item(state, m[1], m[2]):
