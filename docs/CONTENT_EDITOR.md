@@ -85,14 +85,15 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Experience | XP per kill or quest, level curve | 150 XP per kill, ±15% per level of difference, none from mobs 6+ levels below (`combat.KILL_XP`); level N needs 1000 × 1.12^(N−1) (`zone.xp_for_level`), cap 50 |
 | Tutorial popups | when each tutorial shows (first death, first level, ...) and its title and text: MsgTutorialDisplayEvent carries two server strings (ctor FUN_005d9a00); the client only remembers "do not show again" (0x183 for the death penalty tutorial) | none |
 
-## What the archive scrape could add next (2026-10-15)
+## What the archive scrape could add next (2026-10-15, numbers updated 2026-10-16)
 
 Measured with `tools/quest_readiness.py --branch` and the importer after the zone-map imports. In order of what each would unlock:
 
 1. **Quest objective targets** (1,722 objectives): a quest page's objective names something ("Okami Organs", "Tiberian Wildwood Shadowhounds") with no creature or item page yet. Creature and item pages for those names, with a location or a dropper, would make most of the 1,270 quests whose giver is already placed playable.
-2. **Creature locations** (175 objectives): the creature page exists but gives no location and no zone-map place names it. A location line ("x, y, z in Zone (cx, cy)") or a map place is enough.
+2. **Creature locations**: the creature page exists but gives no location and no zone-map place names it. A location line ("x, y, z in Zone (cx, cy)") or a map place is enough. Since 2026-10-16 such kill targets get an invented placeholder camp near the giver (61 camps, marked `_placeholder`); real locations would replace them.
 3. **Who drops an item** (92 objectives): the item page exists but no placed creature's loot lists it.
-4. **Quest givers with no position** (2,100 quests): neither the NPC page nor the quest page ("location") places the giver.
+4. **Quest givers with no position** (1,786 quests): neither the NPC page nor the quest page ("location") places the giver.
+4b. **Quest objectives** (1,520 quests with a placed giver record none): 298 of them are played as deliveries to their hand-in NPC (`_placeholder_steps`); the real objectives would replace that.
 5. **NPC race and gender** (98% of NPCs): racial cities show the continent's human race.
 6. **Merchant wares**: no page lists what a merchant sells; role stocks stand in.
 9. **Quest item sources**: the playable archive collect quests get their items only from named bosses (the only creatures with recorded locations): Powerful Var Earring wants 60 Bags of Searing Stones from the Greatwing Phoenix or Rahluz in Afrit, one per kill. Ordinary creature placements (spawn areas) with their loot would make these quests sensible.
