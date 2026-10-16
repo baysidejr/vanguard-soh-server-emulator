@@ -1776,6 +1776,21 @@ class ImportZoneTests(unittest.TestCase):
         self.assertIsNone(import_zone.template({"name": "Ladyslayer Brom"}).get("gender"))   # whole words only
         self.assertIsNone(import_zone.template({"name": "Kooshin Vahdaat"}).get("gender"))
 
+    def test_zone_race(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        recs = {n: {"name": n, "zone": "Mekalia", "archive_fields": {"race": [r]}}
+                for n, r in (("a", "Gnome"), ("b", "Gnome"), ("c", "Gnome *"), ("d", "Qaliathari"))}
+        self.assertIsNone(import_zone.zone_race("Mekalia", recs))          # 3 of 4 is not enough
+        del recs["d"]
+        self.assertEqual(import_zone.zone_race("Mekalia", recs), 6)
+        import_zone.ZONE_RACE["Mekalia"] = 6
+        try:
+            self.assertEqual(import_zone.npc_race({"zone": "Mekalia", "continent": "Qalia"}), 6)
+        finally:
+            import_zone.ZONE_RACE.pop("Mekalia")
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

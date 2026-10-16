@@ -123,11 +123,33 @@ def key_for(name):
     return "arch_" + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
 
 
+ZONE_RACE = {}                   # zone -> the race most of its race-recorded NPCs have (zone_race)
+
+
+def zone_race(zone, recs, least=3, share=0.8):
+    """The race of a zone's people when at least `least` of its NPC pages record a race and
+    `share` of those agree (Mekalia: Gnome, Hathor Zhi: Dark Elf), else None: the default for
+    the zone's NPCs whose own page records none."""
+    import collections
+    races = collections.Counter()
+    for r in recs.values():
+        if r.get("zone") == zone and (r.get("archive_fields") or {}).get("race"):
+            race = npc_race({"archive_fields": r["archive_fields"], "continent": None, "zone": None})
+            if race != DEFAULT_RACE or "thestran" in str(r["archive_fields"]["race"]).lower():
+                races[race] += 1
+    total = sum(races.values())
+    if total >= least:
+        race, n = races.most_common(1)[0]
+        if n >= share * total:
+            return race
+    return None
+
+
 def npc_race(rec):
     """The client race for an NPC: the archive's recorded race ("Dwarf", "Kojani Human",
     "Half-Elf"; about 2% of NPC pages have one) through the converter's race table, else the
     continent's human race (also for a bare "Human")."""
-    fallback = CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE)
+    fallback = ZONE_RACE.get(rec.get("zone")) or CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE)
     name = next(iter((rec.get("archive_fields") or {}).get("race") or []), "")
     name = re.sub(r"\s*\*$|\s+Human$", "", name.strip()).replace("Half-Elf", "Half Elf")
     if not name or name == "Human":
@@ -294,6 +316,7 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
     if zone not in chunks:
         raise SystemExit(f"{zone!r} is not in ChunkNames.txt")
     level = level_name(*chunks[zone])
+    ZONE_RACE[zone] = zone_race(zone, recs)
     mobs, spawns = {}, []
     for rec in sorted(recs.values(), key=lambda r: r["name"]):
         pos = position(rec)
@@ -308,7 +331,7 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
             continue
         if any(abs(s["x"] - pos[0]) < 50 and abs(s["y"] - pos[1]) < 50 and abs(s["z"] - pos[2]) < 100 for s in spawns):
             continue          # someone already stands there: the same person under another spelling
-        rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level")})
+        rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level"), "zone": zone})
         rec.setdefault("sources", q.get("sources"))
         rec.setdefault("continent", continent)          # the zone's, for the placeholder race
         mobs[key] = template(rec)
@@ -525,6 +548,7 @@ def map_people(zone, zone_rec, npcs, continent, placed, creatures=None):
                 continue          # "Boiling Cauldrons"; a creature page (named mobs are left out)
             rec = dict(rec or {"name": name})
             rec.setdefault("continent", continent)
+            rec.setdefault("zone", zone)
             t = template(rec)
             if ROLE_WORDS.search(place) and place.lower() != name.lower() and "title" not in t:
                 t["title"] = place[:40]

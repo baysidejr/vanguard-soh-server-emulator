@@ -90,6 +90,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-15: Zone default races: where 3+ of a zone's NPC pages record a race and 80% agree (Mekalia Gnome, Hathor Zhi Dark Elf, Lomshir Varanthari, Magi Hold and Tanvu Kojani), the zone's other NPCs take it; 177 NPCs. Seen live: Constable Captori in Mekalia.
+
 - 2026-10-15: Imported NPCs with a female title in their name or role (Priestess, Lady, Duchess, Huntress, ...) get the female model; 12 so far. Seen live: Priestess Aludan.
 
 - 2026-10-15: Obstacle maps now build in a worker process: 50 bots in Bordinar's Cleft, steady-state worst ping 21.9 ms (was 437 ms with a thread, 2.1 s in the loop), memory flat at 145 MB.
