@@ -93,6 +93,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: NPC titles from archive roles drop location notes ("Light Armor Vendor (east city walls ...)" -> "Light Armor Vendor") and skip directions longer than a title; 22 titles fixed. Dry run for the two camp zones (still the user's call): Sundering Wastelands +4 NPCs, Wildgrowth Forest +19 (quest givers such as Tracker Nok); drafts in crowdsourced/drafts.
+
 - 2026-10-16: Quest pages: the turn-in NPC's location comes from a spawn index built once per content load (login_stub.first_spawns) instead of reading every spawn file per page, and uses the spawn's own height (city NPCs above or below the terrain).
 
 - 2026-10-16: Quest icons: quests indexed by giver / turn-in NPC (quest.quests_of), so working out the icons for Khal's 157 NPCs takes 0.1 ms instead of 6 ms with 372 quests (and stays flat as the scrape adds quests).

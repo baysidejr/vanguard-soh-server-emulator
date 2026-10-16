@@ -217,6 +217,17 @@ FEMALE = re.compile(r"(?<![a-z])(priestess|lady|madam|madame|sister|mother|matro
                     r"sorceress|enchantress|abbess|dame|woman|matriarch)(?![a-z])", re.I)
 
 
+def clean_role(role):
+    """An archive role as a title: without a location note ("Light Armor Vendor (east city walls
+    outside Tavern)" -> "Light Armor Vendor"), and None when still longer than a title fits (40)
+    or empty ("Up on the wall - to the north from stairs" is a direction, not a role)."""
+    if not role:
+        return None
+    if not role.startswith("("):              # "(Peacebearer of Gloriann)" is the whole title
+        role = re.sub(r"\s*\(.*$", "", role).strip()
+    return role if role and len(role) <= 40 else None
+
+
 def template(rec):
     level = int(rec.get("level") or 20)
     t = {"name": rec["name"], "pawn_class": "SGONPCPawn", "race": npc_race(rec),
@@ -233,8 +244,9 @@ def template(rec):
         t["title"] = ", ".join(s.title() for s in services)[:40]
     role = next((r for r in (rec.get("archive_fields") or {}).get("role") or []
                  if r and r != "General NPC" and not r.startswith("Class Trainer")), None)
+    role = clean_role(role)
     if role:
-        t["title"] = role[:40]            # "Light Armor Vendor" says more than "Merchant"
+        t["title"] = role                 # "Light Armor Vendor" says more than "Merchant"
     # Services the server can run from what the archive says. Merchants get the shared placeholder
     # stock "general_goods" (the archive has no wares); task masters keep only the title.
     if "merchant" in services:

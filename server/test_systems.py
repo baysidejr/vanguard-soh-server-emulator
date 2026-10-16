@@ -1840,6 +1840,14 @@ class ImportZoneTests(unittest.TestCase):
             level, mobs, spawns = import_zone.plan("Z", npcs, {"Z": (-11, -10)})
         self.assertEqual([("z" in sp, sp["x"]) for sp in spawns], [(False, -1483)])
 
+    def test_role_titles_cleaned(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        self.assertEqual(import_zone.clean_role("Light Armor Vendor (east city walls outside Tavern)"), "Light Armor Vendor")
+        self.assertEqual(import_zone.clean_role("(Peacebearer of Gloriann)"), "(Peacebearer of Gloriann)")
+        self.assertIsNone(import_zone.clean_role("Up on the wall - to the north from stairs"))
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
