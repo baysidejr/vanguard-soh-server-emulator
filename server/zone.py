@@ -5,6 +5,7 @@ and spawns the player's pawn and PlayerController on actor channels. See
 docs/PROTOCOL.md, ue2net.py, packagemap.py and netcache.py.
 """
 
+import os
 import re
 import struct
 import time
@@ -1198,6 +1199,26 @@ _LOADING = object()
 _POOL = []
 
 
+def _exit_with_parent(parent_pid):
+    """Worker initializer: end the worker when the server process goes away (a force-killed
+    server otherwise left the obstacle worker running)."""
+    import threading
+
+    def watch():
+        if os.name == "nt":
+            import ctypes
+            k32 = ctypes.windll.kernel32
+            handle = k32.OpenProcess(0x00100000, False, parent_pid)     # SYNCHRONIZE
+            if handle:
+                k32.WaitForSingleObject(handle, 0xFFFFFFFF)
+        else:
+            import time
+            while os.getppid() == parent_pid:
+                time.sleep(2)
+        os._exit(0)
+    threading.Thread(target=watch, daemon=True).start()
+
+
 def _load_obstacles(level):
     """Build a chunk's obstacles in a worker process (a thread still held the interpreter lock
     long enough for a 437 ms ping; the process also keeps the build's memory peak out of the
@@ -1207,7 +1228,8 @@ def _load_obstacles(level):
         try:
             if not _POOL:
                 import concurrent.futures
-                _POOL.append(concurrent.futures.ProcessPoolExecutor(max_workers=1))
+                _POOL.append(concurrent.futures.ProcessPoolExecutor(max_workers=1, initializer=_exit_with_parent,
+                                                                    initargs=(os.getpid(),)))
             _obstacles[level] = _POOL[0].submit(obstacles.obstacles, level).result(timeout=120)
         except Exception as e:                       # no worker process: build in this thread
             print(f"  obstacles for {level}: worker unavailable ({e}), building here")
