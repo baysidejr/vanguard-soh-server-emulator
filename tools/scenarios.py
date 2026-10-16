@@ -89,7 +89,8 @@ def trade_seq(p):
 def main():
     if sys.argv[1:] == ["--setup"]:
         loadtest.setup(2, "Ranger")
-        storage.update_character(CHARACTERS, loadtest.bot_name(1), {"coins": 500})
+        # B stands by the camp's Riftseeker Brazier (the riftway scenario).
+        storage.update_character(CHARACTERS, loadtest.bot_name(1), {"coins": 500, "position": [-30700.0, -5250.0, 460.0]})
         storage.update_character(CHARACTERS, loadtest.bot_name(0),
                                  {"aa_points": 3, "aa_spent": 0, "aa_ranks": {},
                                   "quests": {"active": {}, "done": []}})     # the bots copy Ranger's quests
@@ -278,6 +279,16 @@ def main():
     fails += check("ignore", refused and not b.events(0x208), f"refused={refused}, invite reached B={bool(b.events(0x208))}")
     b.world.send(struct.pack("<HII", 5, 0x4F8, len(wstr(a.name)) + 1) + wstr(a.name) + bytes([0]))
     b.pump(0.5)
+    # Riftway to another region (last: B leaves the chunk): /rift KHAL (0x597 {wstr}) at the camp
+    # brazier makes the server send world event 8, "connect to zone", for Khal's chunk.
+    b.send(0x597, wstr("KHAL"))
+    end = time.time() + 5
+    moved = False
+    while time.time() < end and not moved:
+        moved = any(len(m) > 10 and struct.unpack_from("<HI", m, 0) == (2, 8) and "chunk_n13_n9".encode("utf-16-le") in m
+                    for m in b.world.poll())
+        b.pump(0.2)
+    fails += check("riftway", moved, "world event 8 to chunk_n13_n9" if moved else "no zone connect for Khal")
     a.zone.close()
     b.zone.close()
     print(f"{fails} failed")
