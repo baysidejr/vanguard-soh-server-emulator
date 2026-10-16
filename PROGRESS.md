@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and import quests once their objectives and kill targets are in the archive. Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
+Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive (36 riftway destinations open, so most are reachable from the camp brazier) with tools/import_zone.py, reachable by riftway from the camp. Next: import more zones as the scrape grows (re-run is safe), give imported merchants wares and NPCs their real looks, and re-run tools/quest_readiness.py --branch --apply after each refresh (17 archive quests are playable today; 1,196 more have their giver placed but an objective's creature or item not yet in the zone). Server: 38 optional messages; fireworks and quest-node particles invisible; flight descent needs a person.
 
 ## Last test results
 
@@ -85,6 +85,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-15: tools/quest_readiness.py: counts archive quests whose giver is placed and every objective doable in its zone (kill target placed, collect item in a placed creature's loot); --apply adds them to quests.json (ids 5100+, placeholder text and xp, coin only when the archive gives a unit). Added 17 (Afrit, Beranid Hills, Nusibe Necropolis, Tursh Village) and 4 quest items. Removed a bogus "Unknown" NPC the importer had placed for quests with no known giver (3 spawns), and the importer now skips those.
 
 - 2026-10-15: Checked live: a character saved in another region logs in there (Ranger saved at the Khal hub came back at -6747, -25611, 1442 in Khal); restored to the camp afterwards.
 

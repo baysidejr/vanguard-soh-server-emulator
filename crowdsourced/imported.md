@@ -17,3 +17,4 @@ One line per import into `server/content/`: date, batch folder, records imported
 | 2026-10-15 | collection branch raw batches (0c411dc), creature.jsonl | 179 located creatures as hostile mobs (placeholder health and damage) | server/content via tools/import_zone.py --raw |
 | 2026-10-15 | archive item.jsonl | 37 items that imported creatures drop (crowdsourced/convert.py mapping via the editor's item draft; placeholder icon 443 where none) | server/content/items.json |
 | 2026-10-15 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 5 spawns, 5 templates | server/content via tools/import_zone.py --all |
+| 2026-10-15 | raw batches + branch origin/crowdsourced/archive-collection, quest.jsonl | 17 quests whose giver and objectives are all placed, 4 quest items | server/content/quests.json, items.json via tools/quest_readiness.py --apply |

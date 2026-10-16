@@ -175,6 +175,8 @@ def quest_giver_spots(zone, quests, chunk):
     for q in sorted(quests.values(), key=lambda r: r["name"]):
         if q.get("zone") != zone or not q.get("giver") or "," in q["giver"]:
             continue                      # "Kurake , Kurake Wamani": several names, which one is unclear
+        if q["giver"].strip().lower() in ("unknown", "?", "n/a"):
+            continue                      # the archive didn't know who gives it
         for loc in (q.get("archive_fields") or {}).get("location") or []:
             m = QUEST_LOC.search(str(loc))
             if not m:

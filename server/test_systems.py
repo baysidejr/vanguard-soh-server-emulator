@@ -1959,3 +1959,37 @@ class JournalRecipeTests(unittest.TestCase):
         self.assertEqual(payload(craft.journal_missing([7, 9])), (0x309, struct.pack("<iii", 2, 7, 9)))
         self.assertEqual(len(craft.missing_steps(r, set())), 1)
         self.assertEqual(craft.missing_steps(r, {"Tongs"}), [])
+
+
+class QuestReadinessTests(unittest.TestCase):
+    """tools/quest_readiness.py: which archive quests can be done with what is placed."""
+
+    def setUp(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import quest_readiness
+        self.qr = quest_readiness
+        self.world = {"chunk_n25_26": ({"ranger shyath": "arch_ranger_shyath", "timber wolf": "arch_timber_wolf"},
+                                       {"wolf pelt": ("Wolf Pelt", 442)})}
+        self.chunks = {"Leth Nurae": (-25, 26)}
+
+    def quest(self, *objectives, giver="Ranger Shyath"):
+        return {"name": "Q", "zone": "Leth Nurae", "giver": giver,
+                "candidate_steps": [{"objective": o, "kind": k, "count": n} for o, k, n in objectives]}
+
+    def test_objective_names(self):
+        self.assertEqual(self.qr.objective_target("- Loamite Sludgemongers Slain (7/10)"), "loamite sludgemongers")
+        self.assertIn("timber wolf", self.qr.singulars("timber wolves"))
+        self.assertEqual([self.qr.coin_copper(t) for t in ("1s 40c", "55 c", "17", "0")], [140, 55, None, None])
+
+    def test_steps(self):
+        status, steps = self.qr.plan_steps(self.quest(("Timber Wolves Slain (12)", "kill", 12),
+                                                      ("Wolf Pelt (0/3)", None, 3)), self.world, self.chunks)
+        self.assertEqual(status, "ready")
+        self.assertEqual(steps, [{"objective": "Timber Wolves Slain", "kill": {"arch_timber_wolf": 12}},
+                                 {"objective": "Wolf Pelt", "collect": {"Wolf Pelt": 3}}])
+        self.assertEqual(self.qr.readiness(self.quest(("Bear Claws (0/2)", "collect", 2)), self.world, self.chunks), "giver")
+        self.assertEqual(self.qr.readiness(self.quest(("Wolf Pelt (1)", "collect", 1), giver="Nobody"),
+                                           self.world, self.chunks), "no giver")
+        # The giver as the objective ("read the book") is an interaction we can't do.
+        self.assertEqual(self.qr.readiness(self.quest(("Ranger Shyath (1/1)", None, 1)), self.world, self.chunks), "giver")
