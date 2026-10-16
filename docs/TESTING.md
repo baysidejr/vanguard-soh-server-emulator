@@ -121,7 +121,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] HUD, minimap, chat, message of the day; character window (C) shows attributes, health, armor class
 - [ ] Loot something, click the item link in the "You loot" line: the item tooltip pops up
 - [ ] `/report <name>` prints "Player report submitted", a second one within a minute "You must wait longer"; the report is in server/player_reports.json
-- [ ] `/reloadui`: the UI comes back with the hotbars filled
+- [x] `/reloadui`: the UI comes back with the hotbars filled (2026-10-16)
 - [ ] `/walk` slows the character, `/run` restores it; `/hidehood` / `/hidehelm` / `/hidecloak` toggle (✦ the other client sees it) and stay after relogging
 - [ ] Walk, run, jump, fall damage; cross a chunk edge; `/unstuck`; `/camp` back to character select
 - [ ] ✦ Group with the second player, `/targetgroupmember 2`, `/rope`: they get "Help on the way!"; Accept hauls them to you ("You grab the rope and are hauled to safety.")
