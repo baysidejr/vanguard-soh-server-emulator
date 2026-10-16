@@ -10,6 +10,7 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Last test results
 
+- 2026-10-15 (after fireworks sparklers, the Archive quests tab and background obstacle builds): tools/check_all.py --client 7 of 7 passed (unit 266, load p95 11.2 ms, fuzz clean, smoke PASS). 50 bots 300 s in Bordinar's Cleft: memory flat at 239 MB, worst ping 437 ms.
 - 2026-10-15 (after camps, zone-map NPCs, altars and mailboxes): tools/check_all.py --client 7 of 7 passed (unit 264, load p95 11.4 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after quest readiness, archive races, role stocks and icons): tools/check_all.py --client 7 of 7 passed (unit 261, load p95 11.0 ms, fuzz clean, smoke PASS).
 - 2026-10-15 (after cross-region binding and tombstones): tools/check_all.py --client 7 of 7 passed (unit 254, load p95 11.5 ms, fuzz clean, smoke PASS).
