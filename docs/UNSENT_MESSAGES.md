@@ -234,11 +234,11 @@ Sent, or not needed (variant, no-op, debug, blocked, content): 682 of 720 (94%).
 
 | Id | Class | Payload | Category | Notes |
 |---|---|---|---|---|
-| 0x2a2 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages |
+| 0x2a2 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | Adventure Journal quests section entry (FUN_0061c5e0): {wstr name, wstr description, i32 (entry +0x3c), i32 id, i32 (+0x40), i32 category id, two lists of 3 objectives {i32 id, i32 needed, wstr text, u8 count}}; dropped unless the category exists (0x2ab {wstr name, i32 id, i32 parent id}, FUN_0061be80). Not the quest log, which the server fills with its quest pages; no window shows this section in the shipped UI |
 | 0x2a3 | MsgQuestJournalAdd | wstr, wstr, i32, i32, i32, i32, 3 x [i32, i32, wstr, u8], 3 x [i32, i32, wstr, u8] | variant | quest journal entry (MsgQuestJournalAdd); the server fills the journal with its quest pages |
 | 0x2a6 | MsgSingleInt | i32 | variant | {i32 id}: removes a quest from the journal lists (FUN_0061bc70) [decoded 2026-10-14] |
-| 0x2a7 | MsgThreeInts | i32, i32, i32 | optional | quest journal text lines {3 x i32} |
-| 0x2a8 | MsgThreeInts | i32, i32, i32 | optional | quest journal text lines {3 x i32} |
+| 0x2a7 | MsgThreeInts | i32, i32, i32 | optional | Adventure Journal quests section: {i32 entry id, i32 objective id, i32 count} (FUN_0061a230): finds the entry in the section's lists, sets that objective's count byte (entry +0x124+i) and prints "<objective text> <count>/<needed>" in light brown. Tried 2026-10-15 after a 0x2ab category and a 0x2a2 entry: no line printed; the shipped Quests window has no tab for this section (Adventuring, Crafting, Diplomacy, Work Orders, Locations, Achievements), so it is left |
+| 0x2a8 | MsgThreeInts | i32, i32, i32 | optional | Adventure Journal quests section, the second objective list (FUN_0061a570, same shape as 0x2a7) |
 
 ## FUN_004733d0 (house chest): 4
 
