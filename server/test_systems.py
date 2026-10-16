@@ -1697,6 +1697,14 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual((a["yaw"], b["yaw"]), (0, 32768))           # a looks east at b, b west at a
         self.assertTrue(0 <= c["yaw"] < 65536)                        # alone: a fixed direction
 
+    def test_npc_race_from_archive(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        race = lambda r: import_zone.npc_race({"continent": "Qalia", "archive_fields": {"race": [r]} if r else {}})
+        self.assertEqual([race(r) for r in ("Dwarf", "Kojani Human", "Half-Elf", "Gnome *")], [2, 12, 8, 6])
+        self.assertEqual([race(r) for r in ("Human", "Jharru", None)], [13, 13, 13])   # the continent's
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

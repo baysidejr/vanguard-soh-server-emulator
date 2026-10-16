@@ -11,7 +11,7 @@ gives each zone's chunk.
                                                     # every zone, with the collection branch's newest pages
 
 Each NPC becomes a mobs.json template "arch_<name>" (name, level, its services as the title, a
-placeholder race from its continent and placeholder health) with "_source" (the archive page),
+race (the archive's when it records one, else a placeholder from its continent) and placeholder health) with "_source" (the archive page),
 and a spawn at its position in content/spawns/<chunk>.json. Existing templates and spawns of the
 same key are left alone, so it can be run again as the archive grows. What the archive doesn't
 have (appearance, gear, services' wares, dialogue) is left for the content editor.
@@ -122,10 +122,25 @@ def key_for(name):
     return "arch_" + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
 
 
+def npc_race(rec):
+    """The client race for an NPC: the archive's recorded race ("Dwarf", "Kojani Human",
+    "Half-Elf"; about 2% of NPC pages have one) through the converter's race table, else the
+    continent's human race (also for a bare "Human")."""
+    fallback = CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE)
+    name = next(iter((rec.get("archive_fields") or {}).get("race") or []), "")
+    name = re.sub(r"\s*\*$|\s+Human$", "", name.strip()).replace("Half-Elf", "Half Elf")
+    if not name or name == "Human":
+        return fallback
+    if not _RACES:
+        creature_race({}, None)                     # loads the converter's race table
+    convert, races = _RACES[0]
+    race = convert.find_race(races, name)
+    return fallback if race is None else race
+
+
 def template(rec):
     level = int(rec.get("level") or 20)
-    t = {"name": rec["name"], "pawn_class": "SGONPCPawn",
-         "race": CONTINENT_RACE.get(rec.get("continent"), DEFAULT_RACE),
+    t = {"name": rec["name"], "pawn_class": "SGONPCPawn", "race": npc_race(rec),
          "level": level, "health": 100 + 40 * level}
     dots = next((int(d[0]) for d in (rec.get("archive_fields") or {}).get("difficulty") or [] if d[:1].isdigit()), None)
     if dots:
