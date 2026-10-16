@@ -95,6 +95,7 @@ Measured with `tools/quest_readiness.py --branch` and the importer after the zon
 4. **Quest givers with no position** (2,100 quests): neither the NPC page nor the quest page ("location") places the giver.
 5. **NPC race and gender** (98% of NPCs): racial cities show the continent's human race.
 6. **Merchant wares**: no page lists what a merchant sells; role stocks stand in.
+9. **Quest item sources**: the playable archive collect quests get their items only from named bosses (the only creatures with recorded locations): Powerful Var Earring wants 60 Bags of Searing Stones from the Greatwing Phoenix or Rahluz in Afrit, one per kill. Ordinary creature placements (spawn areas) with their loot would make these quests sensible.
 8. **Unmatched zone names** (after case, alias, map-label and location-chunk matching): the biggest are Ancient Port Warehouse (127 records; an instance, chunk 3000/10000+ in ChunkNames.txt, and the client ships no instance maps, so it can't be hosted), Dead Glade (120), Graystone, Brennan's Stead, Gaxton Village, Qur'xa Temple, Oathbreaker Caves (sub-areas with no map label; their pages need a location with the chunk, "x, y, z in Zone (cx, cy)").
 7. **Aggression**: only about 10% of creature pages say "Aggressive" or "Passive". Of the 207 creatures placed so far, 137 are marked Aggressive (and attack first), 8 Passive, 62 unknown (treated as passive).
 
