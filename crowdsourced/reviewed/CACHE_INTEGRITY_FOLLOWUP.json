@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-15T10:06:19.937053+00:00",
+  "counts": {
+    "metadata_files": 21469,
+    "exact_byte_hash_matches": 1178,
+    "lf_normalized_hash_matches": 20291,
+    "missing_bodies": 0,
+    "hash_mismatches": 0,
+    "url_filename_mismatches": 0
+  },
+  "issues": [],
+  "scope": "Read-only local cache snapshot while network collector was stopped. Exact byte matches verify cached bytes against stored response SHA256 metadata. LF-normalized matches account for older Windows text-mode cache writes; they do not prove original byte preservation. Legacy entries without metadata are excluded and separately documented in CACHE_INTEGRITY_AUDIT.json. This does not establish historical fact accuracy or extraction completeness."
+}

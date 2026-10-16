@@ -1,0 +1,19 @@
+{
+  "audited_at": "2026-10-15T22:17:29.178774+00:00",
+  "inventory_urls": 104855,
+  "supported_inventory_urls": 104831,
+  "done_checkpoint_urls": 24180,
+  "pending_checkpoint_urls": 80668,
+  "done_pending_overlap": 0,
+  "supported_missing_from_checkpoints": [],
+  "published_partial_batch": "raw/2026-10-15-172852-775452-archive-bulk",
+  "partial_batch_pages": 25,
+  "partial_batch_validation_issues": 0,
+  "recovery": "Read/connect timeouts and closed/reset connections preserve partial batches and retry continuous runs with persisted 30/45/60-second intervals. HTTP errors remain terminal.",
+  "restart_interval_seconds": 30,
+  "notes": [
+    "Checkpoint membership is download/parse coverage, not proof of complete typed facts or historical accuracy. Supplemental metadata extraction remains pending.",
+    "One collector process verified before restart; PID 5744 fetched the previously failing reanimated-cartheon-soldier page.",
+    "The request interval was initialized to 30 seconds after the prior recorded timeout; future increases are automatic."
+  ]
+}

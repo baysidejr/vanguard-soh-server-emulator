@@ -6,6 +6,7 @@ Run with -B. Install requirements into crowdsourced/.tools-current before use.
 import argparse
 from collections import Counter, deque
 from datetime import datetime, timezone
+from http.client import RemoteDisconnected
 import hashlib
 import json
 import os
@@ -13,6 +14,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
@@ -526,6 +528,7 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
     metadata = []
     started = timestamp()
     fatal = False
+    client.transient_connection_failure = False
     for _ in range(limit):
         if (STATE / 'stop.request').exists():
             break
@@ -598,6 +601,7 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
             # Stop immediately on access/rate/server/parser failure instead of hammering the host.
             queue.appendleft(url)
             fatal = True
+            client.transient_connection_failure = transient_connection_error(e)
             print(gaps[-1]["notes"], flush=True)
             break
     queue = deque(u for u in queue if u not in done)
@@ -632,7 +636,7 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
         + f"\n\n{len(gaps)} gap records; {len(queue)} queued pages remain. This batch is immutable after this run.\n\n"
         + "Records use the crowdsourced common fields. archive_fields and map_places preserve explicit labels, coordinates and relationships; they are not server schemas. Unknown values remain null. Contradictions are low confidence. Loot frequencies are observations, not guaranteed probabilities, and quantities remain unknown. No exact spawns are inferred from map landmarks. No source guide prose, forum identities or client files are copied.\n\n"
         + "Quests are discovery records until objective/reward logic is manually checked; no quest steps are invented. Item type/slot mappings only use exact recognized labels. Archive model names and rebuild tooltips do not establish client race IDs or screenshots. External original-source links are not fetched or treated as independent verification.\n\n"
-        + "Crawl policy: https://vgsoharchive.com/robots.txt. Single process, cached canonical pages, minimum five seconds between network starts, no query URLs. source_inventory.json is separate URL metadata, not harvested data.\n\n"
+        + "Crawl policy: https://vgsoharchive.com/robots.txt. Single process, cached canonical pages, minimum 15 seconds between network starts (increased after closed connections), no query URLs. source_inventory.json is separate URL metadata, not harvested data.\n\n"
         + "See manifest.json for exact page coverage and queue.json for incomplete work. Run crowdsourced/validate.py on this batch before conversion. Nothing outside crowdsourced is modified.\n", encoding="utf-8")
     # Mark pages done only after the entire immutable batch has been published.
     # Interrupted fetches are replayed from cache rather than silently lost.
@@ -652,6 +656,30 @@ def collect(client, urls, limit, topic, follow_links=False, publish_status=True)
         publish(HERE)
     print(f"BATCH {batch}: {dict(counts)}, {len(queue)} pending", flush=True)
     return list(queue), fatal, batch
+
+
+def transient_connection_error(error):
+    """Retry only transport failures, never HTTP responses or parser failures."""
+    if isinstance(error, HTTPError):
+        return False
+    if isinstance(error, URLError):
+        error = error.reason
+    return isinstance(error, (TimeoutError, RemoteDisconnected, ConnectionResetError,
+                              ConnectionAbortedError, BrokenPipeError))
+
+
+def recover_closed_connection(client):
+    """Keep the failed URL pending and cool down; never reduce a longer robots delay."""
+    client.minimum_interval = min(60.0, max(15.0, client.minimum_interval) + 15.0)
+    client.delay = max(client.delay, client.minimum_interval)
+    write_json(client.interval_path, client.minimum_interval)
+    print(f"Transient connection failure: retrying saved queue after {client.delay:g}s; request interval {client.delay:g}s", flush=True)
+    deadline = time.monotonic() + client.delay
+    while time.monotonic() < deadline:
+        if (STATE / 'stop.request').exists():
+            return False
+        time.sleep(min(1.0, max(0, deadline - time.monotonic())))
+    return not (STATE / 'stop.request').exists()
 
 
 def main(argv=None):
@@ -699,6 +727,10 @@ def main(argv=None):
             ap.error("provide --seed, --queue, or use run after inventory")
         while urls:
             urls, fatal, batch = collect(client, urls, args.limit, args.topic, args.follow_links or args.action=='run')
+            if (fatal and args.action == "run" and getattr(client, "transient_connection_failure", False)
+                    and not (STATE / "stop.request").exists()):
+                if recover_closed_connection(client):
+                    continue
             if fatal or args.action != "run" or (STATE / 'stop.request').exists():
                 return 1 if fatal else 0
     finally:

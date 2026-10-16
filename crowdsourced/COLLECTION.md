@@ -4,7 +4,7 @@ The strategy is a whole-site canonical URL inventory followed by batches of link
 
 The initial sitemap inventory contains **104,855 distinct URLs**, including 100,666 supported detail pages: 75,066 items, 15,418 archive mob entries, 4,776 quests, 3,057 abilities, 401 zones, 1,582 recipes and 366 diplomacy cards. The collector also reads 27 canonical class/profession indexes, which can supply many ability rows per request. Remaining URLs include other indexes, effects, races, class subpages and guide/lore pages requiring additional extraction rules. The URL inventory is not a dump of all game records.
 
-The archive's [robots.txt](https://vgsoharchive.com/robots.txt) permits crawling, requests five seconds between requests, and disallows query URLs. The collector follows that policy and rejects redirects. Its inventory comes from [canonical sitemaps](https://vgsoharchive.com/sitemap.xml). No linked structured export was found on the homepage or sitemap-pages listing. At least five days are needed for the supported detail pass at this rate, before response time, interruptions and review. The computer must remain running; there is no scheduled restart after a reboot.
+The archive's [robots.txt](https://vgsoharchive.com/robots.txt) permits crawling, requests five seconds between requests, and disallows query URLs. The collector uses a user-requested minimum of **15 seconds between request starts** (four requests per minute), honors any longer robots crawl delay, and rejects redirects. Its inventory comes from [canonical sitemaps](https://vgsoharchive.com/sitemap.xml). No linked structured export was found on the homepage or sitemap-pages listing. At 15 seconds per request, the remaining 82,447 pages require at least 14.3 days, before interruptions and review. The computer must remain running; there is no scheduled restart after a reboot.
 
 ## What gets saved
 
@@ -75,3 +75,5 @@ python -B crowdsourced/validate.py raw/<batch-name>
 ```
 
 Tests use synthetic fixtures and temporary files inside `crowdsourced/tests/`; they make no network requests. Coverage includes source parsing, malformed rank tables, conflicting item values, card pools, safe URLs, crawl spacing, unknown values, and completion checkpoints after successful publication. A clean batch validation is not historical authentication or proof that the zone is fully covered.
+
+Transient connection recovery (read/connect timeouts and closed/reset connections) in continuous runs preserves the partial batch and failed URL, then increases the request interval from 15 to 30, 45 and 60 seconds. Further transient failures retain the 60-second interval; a longer robots delay always takes precedence. The interval is persisted across restarts and is not reset after success. Cooldown respects graceful stop requests. Other failures (including HTTP access/rate errors and parser errors) still stop for review.

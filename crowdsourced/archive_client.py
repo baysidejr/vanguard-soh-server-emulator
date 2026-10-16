@@ -12,6 +12,7 @@ from urllib.robotparser import RobotFileParser
 HERE = Path(__file__).resolve().parent
 ORIGIN = "https://vgsoharchive.com"
 USER_AGENT = "VanguardCrowdsourcedCollector/0.1"
+MIN_REQUEST_INTERVAL = 15.0
 
 
 class NoRedirect(HTTPRedirectHandler):
@@ -25,13 +26,15 @@ class ArchiveClient:
         self.cache = Path(cache) if cache else HERE / ".cache" / "archive"
         self.cache.mkdir(parents=True, exist_ok=True)
         self.clock = self.cache / "last-request.json"
-        self.delay = 5.0
+        self.interval_path = self.cache / "request-interval.json"
+        self.minimum_interval = max(MIN_REQUEST_INTERVAL, float(json.loads(self.interval_path.read_text(encoding="utf-8"))) if self.interval_path.exists() else MIN_REQUEST_INTERVAL)
+        self.delay = self.minimum_interval
         self.network_requests = 0
         self.network_request_attempts = 0
         robots = self.get(ORIGIN + "/robots.txt", policy_check=False)
         self.policy = RobotFileParser()
         self.policy.parse(robots.splitlines())
-        self.delay = max(5.0, self.policy.crawl_delay(USER_AGENT) or 0)
+        self.delay = max(self.minimum_interval, self.policy.crawl_delay(USER_AGENT) or 0)
         self.sitemaps = self.policy.site_maps() or []
         self.policy_checked_at = time.time()
 
@@ -42,7 +45,7 @@ class ArchiveClient:
         if policy_check and time.time() - self.policy_checked_at > 86400:
             robots = self.get(ORIGIN + "/robots.txt", policy_check=False)
             self.policy.parse(robots.splitlines())
-            self.delay = max(5.0, self.policy.crawl_delay(USER_AGENT) or 0)
+            self.delay = max(self.minimum_interval, self.policy.crawl_delay(USER_AGENT) or 0)
             self.policy_checked_at = time.time()
         if policy_check and not self.policy.can_fetch(USER_AGENT, url):
             raise ValueError(f"robots.txt disallows {url}")
@@ -65,7 +68,7 @@ class ArchiveClient:
             text = body.decode("utf-8")
         self.network_requests += 1
         temporary = path.with_suffix('.tmp')
-        temporary.write_text(text, encoding="utf-8")
+        temporary.write_bytes(body)
         temporary.replace(path)
         metadata=path.with_suffix('.meta.json')
         staged=metadata.with_suffix('.tmp')

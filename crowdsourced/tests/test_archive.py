@@ -312,7 +312,84 @@ class ArchivePublicationTests(unittest.TestCase):
             response.url = url
             response.read.return_value = b'<html>Fixture</html>'
             client.get(url)
-        sleep.assert_called_once_with(3)
+        sleep.assert_called_once_with(13)
+
+    def test_transient_transport_failures_exclude_http_and_parser_errors(self):
+        from http.client import RemoteDisconnected
+        from urllib.error import HTTPError, URLError
+        for error in (TimeoutError('read timed out'), RemoteDisconnected('closed'),
+                      ConnectionResetError('reset'), URLError(TimeoutError('connect timed out'))):
+            with self.subTest(error=error):
+                self.assertTrue(collector.transient_connection_error(error))
+        for error in (HTTPError(ORIGIN, code, 'denied', {}, None) for code in (401, 403, 429, 500)):
+            try:
+                self.assertFalse(collector.transient_connection_error(error))
+            finally:
+                error.close()
+        self.assertFalse(collector.transient_connection_error(ValueError('parser drift')))
+        self.assertFalse(collector.transient_connection_error(URLError('DNS failure')))
+
+    def test_timeout_publishes_partial_batch_and_keeps_failed_url_pending(self):
+        class Client:
+            network_requests = 0
+            def get(self, url):
+                if url.endswith('/failed'):
+                    raise TimeoutError('read timed out')
+                return '<main><h1>Fixture</h1></main>'
+        state = self.root / 'timeout-state'
+        destination = self.root / 'raw' / 'timeout-batch'
+        urls = [ORIGIN + '/items/success', ORIGIN + '/items/failed']
+        client = Client()
+        with patch.object(collector, 'STATE', state), patch.object(collector, 'batch_path', return_value=destination):
+            queue, fatal, _ = collector.collect(client, urls, 2, 'fixture')
+        self.assertTrue(fatal)
+        self.assertTrue(client.transient_connection_failure)
+        self.assertEqual(queue, urls[1:])
+        self.assertEqual(json.loads((state / 'done.json').read_text()), urls[:1])
+        self.assertEqual(json.loads((destination / 'manifest.json').read_text())['pages'], 1)
+        self.assertTrue((destination / 'VALIDATION.json').is_file())
+
+    def test_closed_connection_backoff_persists_steps_and_honors_stop(self):
+        from types import SimpleNamespace
+        state = self.root / 'retry-state'
+        state.mkdir()
+        client = SimpleNamespace(minimum_interval=15.0, delay=15.0,
+                                 interval_path=state / 'interval.json')
+        with patch.object(collector, 'STATE', state):
+            for expected in (30, 45, 60, 60):
+                with patch('collect_archive.time.monotonic', side_effect=[0, 100]):
+                    self.assertTrue(collector.recover_closed_connection(client))
+                self.assertEqual(client.delay, expected)
+                self.assertEqual(json.loads(client.interval_path.read_text()), expected)
+            (state / 'stop.request').write_text('stop')
+            with patch('collect_archive.time.monotonic', return_value=0), patch('collect_archive.time.sleep') as sleep:
+                self.assertFalse(collector.recover_closed_connection(client))
+                sleep.assert_not_called()
+
+    def test_client_restores_interval_and_honors_longer_robots_delay(self):
+        cache = self.root / 'saved-rate'
+        cache.mkdir()
+        (cache / 'request-interval.json').write_text('45')
+        with patch.object(ArchiveClient, 'get', return_value='User-agent: *\nCrawl-delay: 90\n'):
+            client = ArchiveClient(cache)
+        self.assertEqual(client.minimum_interval, 45)
+        self.assertEqual(client.delay, 90)
+
+    def test_download_cache_preserves_response_bytes_and_hash(self):
+        import hashlib
+        with patch.object(ArchiveClient, 'get', return_value='User-agent: *\nCrawl-delay: 5\n'):
+            client = ArchiveClient(self.root / 'cache')
+        url = ORIGIN + '/items/byte-fixture'
+        body = b'<html>line one\nline two\r\n</html>'
+        with patch('archive_client.time.sleep'), patch('archive_client.build_opener') as opener:
+            response = opener.return_value.open.return_value.__enter__.return_value
+            response.url = url
+            response.read.return_value = body
+            self.assertEqual(client.get(url), body.decode('utf-8'))
+        cached = client.cache / (hashlib.sha256(url.encode()).hexdigest() + '.txt')
+        self.assertEqual(cached.read_bytes(), body)
+        metadata = json.loads(cached.with_suffix('.meta.json').read_text(encoding='utf-8'))
+        self.assertEqual(metadata['sha256'], hashlib.sha256(cached.read_bytes()).hexdigest())
 
     def test_graceful_stop_publishes_pending_queue_without_fetching(self):
         class Client:
