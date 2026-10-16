@@ -1812,6 +1812,14 @@ class ImportZoneTests(unittest.TestCase):
             with unittest.mock.patch.object(import_zone, "zone_chunks", return_value={"Lomshir": (-15, -9)}):
                 recs = import_zone.archive_npcs(d, kind="quest")
         self.assertEqual(recs["Ceremony"]["zone"], "Lomshir")             # from the location's chunk
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "b1"))
+            with open(os.path.join(d, "b1", "npc.jsonl"), "w", encoding="utf-8") as f:
+                f.write(_json.dumps({"name": "Moor Man", "zone": "Vursog Moor"}) + "\n")
+            with unittest.mock.patch.object(import_zone, "zone_chunks", return_value={"Vsurog Moor": (-30, 24)}), \
+                    unittest.mock.patch.object(import_zone, "poi_labels", return_value={}):
+                recs = import_zone.archive_npcs(d)
+        self.assertEqual(recs["Moor Man"]["zone"], "Vsurog Moor")         # ZONE_ALIASES
 
     def test_quest_giver_not_doubled(self):
         import sys

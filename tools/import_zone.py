@@ -60,6 +60,11 @@ EXTRA_RAW = []     # more raw folders (--raw), e.g. the collection branch's, rea
 SOURCES = []       # how the extra folders are named in crowdsourced/imported.md
 
 
+# Zone names the archive spells differently from ChunkNames.txt (checked by hand).
+ZONE_ALIASES = {"Vursog Moor": "Vsurog Moor", "Infineum Plateau": "The Infineum Plateaus",
+                "Skrillien Point": "Skrilien Point"}
+
+
 def archive_npcs(raw=None, kind="npc"):
     """name -> newest record of that kind (each folder's batches are read in name order, later
     ones win; folders in order: raw, or RAW then EXTRA_RAW)."""
@@ -83,6 +88,15 @@ def archive_npcs(raw=None, kind="npc"):
         canon_chunks = {}
     canon = {k.lower(): k for k in canon_chunks}
     by_chunk = {v: k for k, v in canon_chunks.items()} if canon else {}
+    for name, ch in ZONE_ALIASES.items():                # the archive's spelling -> the client's
+        if ch.lower() in canon:
+            canon.setdefault(name.lower(), canon[ch.lower()])
+    if by_chunk:                                         # a map label in a zone ("Tursh", "Karibasa")
+        for ch, labels in poi_labels().items():
+            for label in labels:
+                if ch in by_chunk:
+                    canon.setdefault(label, by_chunk[ch])
+                    canon.setdefault(label + " village", by_chunk[ch])
     for r in recs.values():
         zn = r.get("zone")
         if isinstance(zn, str) and zn.lower() in canon:
