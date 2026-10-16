@@ -333,6 +333,11 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
         people.append(sp)
     off_terrain_heights(level, spawns, people)
     spawns.extend(people)
+    for key, t, sp in poi_people(zone, chunks[zone], recs, continent, spawns):
+        if key in mobs:
+            continue
+        mobs[key] = t
+        spawns.append(sp)
     spawns.extend(service_props(zone_rec, spawns, existing_spawns(level)))
     return level, mobs, face(spawns)
 
@@ -370,6 +375,54 @@ def off_terrain_heights(level, placed, people, ground=None):
         k = min(known, key=lambda k: math.hypot(k["x"] - s["x"], k["y"] - s["y"]))
         if math.hypot(k["x"] - s["x"], k["y"] - s["y"]) < OFF_TERRAIN_REACH:
             s["z"] = k["z"]
+
+
+POI_NAMES = os.path.join(ROOT, "bin", "Resources", "Texts", "PoINames.txt")
+_POIS = {}
+
+
+def poi_labels(path=POI_NAMES):
+    """{(chunk x, chunk y): {label lower case, without "[45-50]": (x, y, z)}} from the client's
+    map labels (PoINames.txt)."""
+    if path not in _POIS:
+        out = {}
+        try:
+            text = read_text(path)
+        except OSError:
+            text = ""
+        for m in re.finditer(r'PoIName="([^"]*)" ChunkX=(-?\d+) ChunkY=(-?\d+) X=(-?\d+) Y=(-?\d+) Z=(-?\d+)', text):
+            name = re.sub(r"\s*\[[^]]*\]", "", m.group(1)).strip().lower()
+            out.setdefault((int(m.group(2)), int(m.group(3))), {}).setdefault(
+                name, tuple(float(m.group(i)) for i in (4, 5, 6)))
+        _POIS[path] = out
+    return _POIS[path]
+
+
+def poi_people(zone, chunk, npcs, continent, placed, labels=None):
+    """[(key, template, spawn)]: NPCs of the zone with no position whose archive "locations seen"
+    names one of the chunk's map labels ("Zaraj Arena") stand at that label, spread around it."""
+    labels = (labels if labels is not None else poi_labels()).get(tuple(chunk), {})
+    seen = {s["mob"] for s in placed}
+    groups = {}
+    for rec in sorted(npcs.values(), key=lambda r: r["name"]):
+        if rec.get("zone") != zone or position(rec) is not None or is_object(rec) or key_for(rec["name"]) in seen:
+            continue
+        spot = next((labels[p.strip().lower()] for p in (rec.get("archive_fields") or {}).get("locations seen") or []
+                     if p.strip().lower() in labels and p.strip().lower() != zone.lower()), None)   # the zone name
+        # labels its hub: too vague to stand someone at
+        if spot is not None:
+            groups.setdefault(spot, []).append(rec)
+    out = []
+    for (x, y, z), recs in groups.items():
+        for i, rec in enumerate(recs):
+            a = 2 * math.pi * i / len(recs)
+            r = CROWD_RADIUS if len(recs) > 1 else 0
+            rec = dict(rec)
+            rec.setdefault("continent", continent)
+            out.append((key_for(rec["name"]), template(rec),
+                        {"mob": key_for(rec["name"]), "x": round(x + r * math.cos(a)), "y": round(y + r * math.sin(a)),
+                         "z": round(z), "yaw": 0}))
+    return out
 
 
 def existing_spawns(level, content=CONTENT):

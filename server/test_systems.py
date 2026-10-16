@@ -1758,6 +1758,16 @@ class ImportZoneTests(unittest.TestCase):
         import_zone.off_terrain_heights("chunk_x", city, [on_ground], ground=lambda x, y: 87050)
         self.assertNotIn("z", on_ground)                         # the city stands on the terrain: keep it
 
+    def test_people_at_map_labels(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        labels = {(-13, -9): {"zaraj arena": (100.0, 200.0, 300.0), "khal": (0.0, 0.0, 0.0)}}
+        npcs = {"Arena Enforcer": {"name": "Arena Enforcer", "zone": "Khal", "archive_fields": {"locations seen": ["Zaraj Arena"]}},
+                "A Beggar": {"name": "A Beggar", "zone": "Khal", "archive_fields": {"locations seen": ["Khal"]}}}
+        out = import_zone.poi_people("Khal", (-13, -9), npcs, "Qalia", [], labels)
+        self.assertEqual([(k, sp["x"], sp["z"]) for k, _, sp in out], [("arch_arena_enforcer", 100, 300)])  # not the hub
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
