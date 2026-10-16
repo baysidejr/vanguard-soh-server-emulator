@@ -1278,6 +1278,8 @@ class ArchiveQuestPlayTests(unittest.TestCase):
                             npc = mock.Mock(template_id=mob, entity_id=99)
                             for _ in range(need):
                                 login_stub.quest_kill(state, npc)
+                        if step.get("talk"):
+                            login_stub.quest_talk(state, mock.Mock(template_id=step["talk"], entity_id=98))
                         for name, need in step.get("collect", {}).items():
                             player.items.append((100 + n, name, 442, need, n))
                             login_stub.quest_advance(state, key, q, 0)

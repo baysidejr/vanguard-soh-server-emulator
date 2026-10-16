@@ -157,7 +157,8 @@ def to_quest(rec, steps, quest_id, content=z.CONTENT):
     giver_name = rec.get("giver")
     tasks = [(f"Gather {n} {name}" if "collect" in s else
               f"Slay {n} " + re.sub(r"\s+(slain|killed|defeated|destroyed)$", "", s["objective"], flags=re.I))
-             for s in steps for name, n in (s.get("collect") or s.get("kill")).items()]
+             for s in steps if "talk" not in s for name, n in (s.get("collect") or s.get("kill")).items()]
+    tasks += [s["objective"] for s in steps if "talk" in s]          # "Speak with ..." (delivery_plan)
     q.setdefault("greeting", f"I could use some help. ({rec['name']}: the archive has no dialogue yet.)")
     q.setdefault("description", f"{giver_name} has asked you to help: " + ", then ".join(
         t[0].lower() + t[1:] for t in tasks) + ".")
@@ -177,8 +178,9 @@ def to_quest(rec, steps, quest_id, content=z.CONTENT):
     return q
 
 
-def apply(ready, world, chunks, content=z.CONTENT):
-    """Add ready quests (and their collect items) to content. Returns (quests added, items added)."""
+def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
+    """Add ready quests (and their collect items) to content. steps_for: {quest name: steps}
+    to use instead of plan_steps (delivery_plan). Returns (quests added, items added)."""
     qpath, ipath = os.path.join(content, "quests.json"), os.path.join(content, "items.json")
     quests, items = z.load(qpath, {}), z.load(ipath, {})
     names = {q.get("name", "").lower() for q in quests.values() if isinstance(q, dict)}
@@ -188,8 +190,15 @@ def apply(ready, world, chunks, content=z.CONTENT):
         key = "arch_" + z.key_for(rec["name"])[5:]
         if key in quests or rec["name"].lower() in names:
             continue
-        status, steps = plan_steps(rec, world, chunks)
+        if steps_for and rec["name"] in steps_for:
+            steps = steps_for[rec["name"]]
+        else:
+            status, steps = plan_steps(rec, world, chunks)
         quests[key] = to_quest(rec, steps, next_id, content)
+        if steps_for and rec["name"] in steps_for:
+            quests[key]["turn_in"] = steps[0]["talk"]
+            quests[key]["_placeholder_steps"] = ("the archive records no objectives; played as a delivery to "
+                                                 "the hand-in NPC")
         next_id += 1
         added_q += 1
         level = z.level_name(*chunks[rec["zone"]])
@@ -205,6 +214,27 @@ def apply(ready, world, chunks, content=z.CONTENT):
     if added_i:
         z.write(ipath, items)
     return added_q, added_i
+
+
+def delivery_plan(quests, world, chunks, content=z.CONTENT):
+    """{quest name: steps} for quests whose giver is placed, whose archive page records no
+    objectives, and whose hand-in NPC is someone else who is placed: played as "speak with the
+    hand-in NPC" (a placeholder; some are real deliveries, others had objectives the archive did
+    not record). Returns also the records, as (records, steps_for)."""
+    placed = {s["mob"] for fn in glob.glob(os.path.join(content, "spawns", "*.json"))
+              for s in z.load(fn, {}).get("spawns", [])}
+    recs, steps_for = [], {}
+    for q in quests.values():
+        if readiness(q, world, chunks) != "no steps":
+            continue
+        turn_in = (q.get("turn_in") or "").strip()
+        if not turn_in or turn_in.lower() in ((q.get("giver") or "").lower(), "unknown"):
+            continue
+        key = z.key_for(turn_in)
+        if key in placed:
+            recs.append(q)
+            steps_for[q["name"]] = [{"objective": f"Speak with {turn_in}", "talk": key}]
+    return recs, steps_for
 
 
 PLACEHOLDER_DISTANCE = 1500     # how far from the quest giver an invented camp stands

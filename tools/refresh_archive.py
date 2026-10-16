@@ -50,8 +50,11 @@ def main(argv=None):
     ready = sorted((q for q in quests.values() if quest_readiness.readiness(q, world, chunks) == "ready"),
                    key=lambda q: (q.get("zone") or "", q["name"]))
     print(f"{len(ready)} archive quests are playable with what is placed")
+    deliveries, steps_for = quest_readiness.delivery_plan(quests, world, chunks)
+    print(f"{len(deliveries)} more have no recorded objectives but a placed hand-in NPC: played as deliveries")
     if a.apply:
         print("added %d quests and %d items" % quest_readiness.apply(ready, world, chunks))
+        print("added %d delivery quests (%d items)" % quest_readiness.apply(deliveries, world, chunks, steps_for=steps_for))
         print("== check ==")
         r = subprocess.run([sys.executable, "content.py"], cwd=os.path.join(ROOT, "server"))
         return r.returncode

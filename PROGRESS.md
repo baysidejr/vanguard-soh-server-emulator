@@ -6,7 +6,7 @@ line. Newest first in each section. The README checklist and docs/TESTING.md are
 
 ## Next action
 
-Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (70 archive quests playable; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); 
+Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altars/mailboxes imported from the archive with tools/import_zone.py (NPC pages, quest start locations, creature locations, and the zone pages' maps), reachable by riftway from the camp (36 destinations open). Next: after each scrape refresh run `python tools/refresh_archive.py --apply` (zones, quests and the content check in one go) (368 archive quests playable, 298 of them delivery placeholders; 1,270 have their giver placed but an objective's creature or item not yet in the zone). Still placeholders: merchant wares (role stocks), NPC looks (race only where the archive says), most heights from neighbours or terrain. Server: 38 optional messages; quest-node and loot-sparkle particles invisible (fireworks now show as sparklers); 
 
 ## Last test results
 
@@ -91,6 +91,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-16: 298 delivery placeholders: archive quests with no recorded objectives but a placed hand-in NPC become "Speak with <NPC>" (marked _placeholder_steps). 368 archive quests in all, every one passes ArchiveQuestPlayTests (now with talk steps). Seen live end to end: A Grave Brownie Threat (Tursh Village). Ranger's quest log and XP restored.
 
 - 2026-10-16: Flight descent verified live (first person: the view sets the flier's pitch) and fixed: a flying descent counted as a fall and killed the rider; fall tracking now pauses while flying. Landing at the camp: "Ranger lands", no damage. Unit test FallTests.test_flying_descent_is_not_a_fall.
 
