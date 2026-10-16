@@ -7054,13 +7054,17 @@ def handle_dialog_response(state, data):
         send(zone.zone_event(quest.END_CONVERSATION))
 
 
-def quest_where(q):
-    """(chunk x, chunk y, x, y, z) of the NPC a quest is turned in to: its first spawn in the
-    spawn files (quest page fields 22-26, the completion zone and location), or None."""
-    mob = quest.turn_in(q)
-    if not mob:
-        return None
-    directory = os.path.join(ARGS.content.directory, "spawns")
+_FIRST_SPAWN = {}
+
+
+def first_spawns(content):
+    """{mob template: (level, spawn)} of each template's first spawn in the spawn files (sorted by
+    file name), built once per content load."""
+    cached = _FIRST_SPAWN.get("index")
+    if cached is not None and cached[0] is content:
+        return cached[1]
+    index = {}
+    directory = os.path.join(content.directory, "spawns")
     for fn in sorted(os.listdir(directory)) if os.path.isdir(directory) else []:
         if not fn.endswith(".json"):
             continue
@@ -7069,13 +7073,26 @@ def quest_where(q):
                 spawns = json.load(f).get("spawns", [])
         except (OSError, ValueError):
             continue
-        sp = next((s for s in spawns if s.get("mob") == mob), None)
-        if sp is not None:
-            level = fn[:-5]
-            cx, cy = level_chunk(level)
-            z = ARGS.content.ground_z(level, sp["x"], sp["y"], ARGS.client_dir) or 0
-            return cx, cy, int(sp["x"]), int(sp["y"]), int(z)
-    return None
+        for sp in spawns:
+            index.setdefault(sp.get("mob"), (fn[:-5], sp))
+    _FIRST_SPAWN["index"] = (content, index)
+    return index
+
+
+def quest_where(q):
+    """(chunk x, chunk y, x, y, z) of the NPC a quest is turned in to: its first spawn in the
+    spawn files (quest page fields 22-26, the completion zone and location), or None. The
+    spawn's own height when it has one (cities above or below the terrain), else the ground."""
+    mob = quest.turn_in(q)
+    found = first_spawns(ARGS.content).get(mob) if mob else None
+    if found is None:
+        return None
+    level, sp = found
+    cx, cy = level_chunk(level)
+    z = sp.get("z")
+    if z is None:
+        z = ARGS.content.ground_z(level, sp["x"], sp["y"], ARGS.client_dir) or 0
+    return cx, cy, int(sp["x"]), int(sp["y"]), int(z)
 
 
 def dialog_quest(state, key, npc_eid):

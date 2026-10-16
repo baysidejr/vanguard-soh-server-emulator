@@ -93,6 +93,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: Quest pages: the turn-in NPC's location comes from a spawn index built once per content load (login_stub.first_spawns) instead of reading every spawn file per page, and uses the spawn's own height (city NPCs above or below the terrain).
+
 - 2026-10-16: Quest icons: quests indexed by giver / turn-in NPC (quest.quests_of), so working out the icons for Khal's 157 NPCs takes 0.1 ms instead of 6 ms with 372 quests (and stays flat as the scrape adds quests).
 
 - 2026-10-16: Delivery placeholder quests pay 25 XP per level instead of 100 (296 quests; the two whose archive gives XP keep it).
