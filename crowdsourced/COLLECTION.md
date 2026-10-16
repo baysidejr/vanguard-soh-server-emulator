@@ -31,6 +31,8 @@ Version 5 adds class-trainer pages. Fifteen trainer indexes were discovered thro
 
 Facts are collected automatically. Conversion proposals still require review, and no server imports happen automatically. Earlier hand-reviewed batches remain unchanged and can contain stronger evidence, such as direct VGOPlayers item records.
 
+The converter explicitly withholds loot tables containing `observed_sample` values, including blank samples, even when confidence or quantity fields are later supplied. Printed sample percentages remain research observations rather than operative drop probabilities. `reviewed/LOOT_CONVERSION_SAFEGUARD_20261016T2334.json` records a 41-record counterfactual check with quantities supplied only in memory; immutable source records remain unchanged.
+
 ## Setup and operation
 
 From the repository root:

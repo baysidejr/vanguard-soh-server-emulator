@@ -52,6 +52,15 @@ class ConversionTests(unittest.TestCase):
         self.assertFalse(result["loot.json"].get("fixture"))
         self.assertTrue(batch.issues)
 
+    def test_observed_loot_samples_stay_withheld_even_with_known_quantities(self):
+        for sample in ("33.3% 1/3", ""):
+            with self.subTest(sample=sample):
+                batch = self.batch([record("loot", "Fixture", drops=[
+                    dict(item="Fixture Item", chance="33.3%", quantity=[1, 1],
+                         observed_sample=sample)])])
+                self.assertEqual(converter.convert(batch, {})["loot.json"], {})
+                self.assertTrue(any("not developer probabilities" in issue for issue in batch.issues))
+
     def test_unsupported_quest_is_not_exported_partially(self):
         batch = self.batch([record("quest", "Fixture Quest", level=1, giver="Fixture NPC",
             steps=[dict(kind="talk", target="Fixture NPC", objective="Talk"),
