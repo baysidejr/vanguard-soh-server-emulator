@@ -1195,10 +1195,23 @@ _obstacles = {}
 _LOADING = object()
 
 
+_POOL = []
+
+
 def _load_obstacles(level):
+    """Build a chunk's obstacles in a worker process (a thread still held the interpreter lock
+    long enough for a 437 ms ping; the process also keeps the build's memory peak out of the
+    server); the thread only waits for the result. Falls back to building here."""
     try:
         import obstacles
-        _obstacles[level] = obstacles.obstacles(level)
+        try:
+            if not _POOL:
+                import concurrent.futures
+                _POOL.append(concurrent.futures.ProcessPoolExecutor(max_workers=1))
+            _obstacles[level] = _POOL[0].submit(obstacles.obstacles, level).result(timeout=120)
+        except Exception as e:                       # no worker process: build in this thread
+            print(f"  obstacles for {level}: worker unavailable ({e}), building here")
+            _obstacles[level] = obstacles.obstacles(level)
     except Exception as e:                           # missing or unreadable files
         print(f"  obstacles for {level} unavailable: {e}")
         _obstacles[level] = None

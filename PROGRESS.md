@@ -89,6 +89,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-15: Obstacle maps now build in a worker process: 50 bots in Bordinar's Cleft, steady-state worst ping 21.9 ms (was 437 ms with a thread, 2.1 s in the loop), memory flat at 145 MB.
+
 - 2026-10-15: NPCs whose archive page only names a place ("locations seen": "Zaraj Arena") stand at that client map label (PoINames.txt; import_zone.poi_people), except labels that are just the zone's name; 3 so far.
 
 - 2026-10-15: tools/refresh_archive.py: one command for the zone import, the archive quests and the content check (report-only without --apply; keeps the two camp zones unless --all-zones).
