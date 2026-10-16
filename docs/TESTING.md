@@ -87,7 +87,7 @@ Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, n
 
 | Feature | Status | How to test |
 |---|---|---|
-| Griffon flight | 👤 | Buy a Griffon Whistle (5000c) from Orin, summon it, jump, then press jump again while falling. Expect to take off. Scripted double presses never triggered it. |
+| Griffon flight | ✅ | 2026-10-16 with scripted keys: `!mount 5001 fly`, Jump takes off; in first person (zoom fully in) PageUp/PageDown pitch the flight, W climbs or dives; near the ground the server lands it ("Ranger lands") with no fall damage. In the third-person camera the mouse moves only the camera, so the flight keeps its pitch. |
 | Combat-form recovery bar | ✅ | Seen 2026-10-13 on a Psionicist: choosing a mindset darkens all three form icons for a moment and rings the chosen one in blue. |
 | Caster energy | ✅ | Seen 2026-10-13: a Sorcerer casting See Invisibility I drains the blue energy bar; endurance stays full. |
 | Raid of 24 | ✅ (bots) | 2026-10-14: the real client (Ranger) invited 23 load-test bots (`tools/loadtest.py --auto-accept`) and made a raid: "Raid of 24 led by Ranger; raid groups: 1: 6, 2: 6, 3: 6, 4: 6" (`!groupinfo`), every join shown in chat, the group window filled, `/readycheck` answered "You have requested a raid ready check." and, with the bots answering the popup (0xa9 status 1), the leader saw "LbotXX is ready!" for each member. Still for people: what the other members see, and raid loot. |
@@ -189,6 +189,11 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Using a station while sitting: "You cannot do that while resting."
 - [ ] Fish on the beach (`!tp -43000 -49500 200 49152`), a combo, the Achievements tab
 
+**Archive content**
+- [ ] An archive quest giver offers its quest (`!visit Inquisitor Nalstom`, Rift Gem); a delivery placeholder plays end to end (`!visit Acolyte Terlan`, A Grave Brownie Threat, then hail Acolyte Weylan)
+- [ ] A placeholder camp stands on dry ground near its quest giver (`!visit Dread Waylayer`, Seawatch Coast)
+- [ ] Win an archive parley (`!visit Afshin Budjiri`, a parley, `!parleywin`): diplomacy XP scaled by its level, the Soldiers row in Character > Diplomacy > Presence rises
+
 **Social**
 - [ ] ✦ Group invite and group window bars; Find tab Request to Join
 - [ ] ✦ Guild create, invite, ranks, guild chat; brotherhood invite and XP bonus
@@ -201,6 +206,8 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Plot window: Admin > Make Guild Headquarters (as the guild leader: confirm popup, "Your guild has a new guild headquarters."), then Relinquish; Buildings > Building Inventory lists the fixtures ("Chests: (1 of 3)"), Move Fixture to me, Manage NPCs lists the banker
 - [ ] Summon Ashfang and use Savage Bite; a Necromancer abomination; Bone Charm minions
 - [ ] Swim, dive, the breath bar, drowning
+- [ ] Fly the griffon in first person: climb, dive to the ground, land without fall damage
+- [ ] `!visit <NPC name>` travels to any placed NPC (e.g. `!visit Ghobad Houri`, Ahgram)
 
 ## Crowded city load (2026-10-15)
 
