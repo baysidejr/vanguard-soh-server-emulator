@@ -88,6 +88,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-15: Editor tab "Archive quests": per zone, the playable archive quests and, for each blocked one, which objectives can't be done yet and why (quest_readiness.report). Checked with a headless Edge screenshot (Khal: 1 ready, 65 blocked).
+
 - 2026-10-15: Fireworks show: runtime-spawned emitters do render (0x553 bonfire and sparklers seen); the item's ability Action just spawns none. items.json fireworks_fx makes set_off_fireworks spawn a sparkler at the player for the chunk. Seen live: blue sparks from the Blue Rocket.
 
 - 2026-10-15: loadtest.py --at=CX,CY,X,Y,Z puts the bots in another chunk. 20 bots in Khal (147 spawns, the busiest chunk): p95 11.3 ms, no errors (docs/TESTING.md).

@@ -98,6 +98,46 @@ def readiness(quest, world, chunks):
     return plan_steps(quest, world, chunks)[0]
 
 
+def blockers(quest, world, chunks):
+    """The objectives of a quest whose giver is placed that can't be done yet: [(objective, why)]."""
+    chunk = chunks.get(quest.get("zone"))
+    names, drops = world.get(z.level_name(*chunk), ({}, {})) if chunk else ({}, {})
+    out = []
+    for s in quest.get("candidate_steps") or []:
+        t = objective_target(s.get("objective") or "")
+        if s.get("kind") != "kill" and t in drops:
+            continue
+        if s.get("kind") != "collect" and any(n in names for n in singulars(t)):
+            continue
+        why = {"kill": "no such creature placed in the zone",
+               "collect": "no placed creature in the zone drops it"}.get(s.get("kind"), "nothing placed matches it")
+        out.append((s.get("objective") or "", why))
+    return out
+
+
+def report(quests, world, chunks):
+    """For the editor: {"totals": {status: n}, "zones": [{"zone", counts, "ready": [names],
+    "blocked": [{"quest", "giver", "objectives": [[objective, why]]}]}]} sorted by zone."""
+    totals, zones = collections.Counter(), {}
+    for q in quests.values():
+        status = readiness(q, world, chunks)
+        totals[status] += 1
+        zinfo = zones.setdefault(q.get("zone") or "?", {"zone": q.get("zone") or "?", "counts": collections.Counter(),
+                                                         "ready": [], "blocked": []})
+        zinfo["counts"][status] += 1
+        if status == "ready":
+            zinfo["ready"].append(q["name"])
+        elif status == "giver":
+            zinfo["blocked"].append({"quest": q["name"], "giver": q.get("giver"),
+                                     "objectives": [list(b) for b in blockers(q, world, chunks)]})
+    out = sorted(zones.values(), key=lambda zi: zi["zone"])
+    for zi in out:
+        zi["counts"] = dict(zi["counts"])
+        zi["ready"].sort()
+        zi["blocked"].sort(key=lambda b: b["quest"])
+    return {"totals": dict(totals), "zones": out}
+
+
 def coin_copper(text):
     """'1s 40c' -> 140, '55 c' -> 55, '2g' -> 20000; None when there is no unit ('17')."""
     parts = re.findall(r"(\d+)\s*([pgsc])(?![a-z])", str(text or "").lower())

@@ -412,6 +412,22 @@ def draft(kind, name):
     return {"error": f"no draft for {kind} records yet"}
 
 
+_READINESS = {}
+
+
+def readiness(content_dir):
+    """Which archive quests could be played with what the content places, and what blocks the
+    rest (tools/quest_readiness.py report), computed once per content folder."""
+    if content_dir not in _READINESS:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import import_zone
+        import quest_readiness
+        _READINESS[content_dir] = quest_readiness.report(import_zone.archive_npcs(kind="quest"),
+                                                         quest_readiness.zone_world(content_dir),
+                                                         import_zone.zone_chunks())
+    return _READINESS[content_dir]
+
+
 def loot_draft(rec, src, slug, content_dir=None):
     """A loot.json table from an archive loot record: one row per drop with its chance (the
     archive's percentage / 100) and the item's icon from items.json when we have the item. Loot
@@ -744,6 +760,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     return self.reply(200, {"name": q["name"], "text": f.read()})
             if u.path == "/api/archive":
                 return self.reply(200, archive_search(q.get("q"), q.get("type")))
+            if u.path == "/api/readiness":
+                return self.reply(200, readiness(self.directory))
             if u.path == "/api/draft":
                 d = draft(q.get("type"), q.get("name"))
                 return self.reply(200, d) if d else self.reply(404, {"error": "no such record"})

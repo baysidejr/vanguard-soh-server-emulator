@@ -2052,6 +2052,10 @@ class QuestReadinessTests(unittest.TestCase):
         self.assertEqual(self.qr.readiness(self.quest(("Bear Claws (0/2)", "collect", 2)), self.world, self.chunks), "giver")
         self.assertEqual(self.qr.readiness(self.quest(("Wolf Pelt (1)", "collect", 1), giver="Nobody"),
                                            self.world, self.chunks), "no giver")
+        r = self.qr.report({"a": self.quest(("Wolf Pelt (1)", "collect", 1)), "b": self.quest(("Bear Claws (0/2)", "collect", 2))},
+                           self.world, self.chunks)
+        self.assertEqual(r["totals"], {"ready": 1, "giver": 1})
+        self.assertEqual(r["zones"][0]["blocked"][0]["objectives"], [["Bear Claws (0/2)", "no placed creature in the zone drops it"]])
         # The giver as the objective ("read the book") is an interaction we can't do.
         self.assertEqual(self.qr.readiness(self.quest(("Ranger Shyath (1/1)", None, 1)), self.world, self.chunks), "giver")
 
