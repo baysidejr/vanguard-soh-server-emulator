@@ -919,7 +919,7 @@ DIPLOMACY_CATEGORY = 2
 PRESENCE_INSTANCE = 0x2000
 PRESENCE_STATS = {"domestic": 0x02, "soldier": 0x06, "crafter": 0x17, "clergy": 0x1F,
                   "merchant": 0x21, "noble": 0x22, "academic": 0x25, "outsider": 0x31}
-PRESENCE_START, PRESENCE_MAX = 0, 1000
+PRESENCE_START, PRESENCE_MAX = 0, 5000     # the client ranks up to Famous at 4500 (FUN_005762c0)
 
 
 def presence_values(player):
