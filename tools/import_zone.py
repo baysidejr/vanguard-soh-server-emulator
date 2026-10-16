@@ -209,6 +209,9 @@ def npc_race(rec):
     return fallback if race is None else race
 
 
+STATIONS = ("domestic", "soldier", "crafter", "clergy", "merchant", "noble", "academic", "outsider")
+
+
 FEMALE = re.compile(r"(?<![a-z])(priestess|lady|madam|madame|sister|mother|matron|queen|duchess|baroness|countess|"
                     r"huntress|seamstress|mistress|empress|princess|grandmother|aunt|widow|wife|daughter|maiden|"
                     r"sorceress|enchantress|abbess|dame|woman|matriarch)(?![a-z])", re.I)
@@ -249,6 +252,9 @@ def template(rec):
         plevel = next((int(v) for v in (rec.get("archive_fields") or {}).get("parley level") or [] if str(v).isdigit()), None)
         if plevel:
             t["parley_level"] = plevel        # scales the generic parley's XP (login_stub.finish_parley)
+    station = next(iter((rec.get("archive_fields") or {}).get("station") or []), "").strip().lower()
+    if station in STATIONS:
+        t["station"] = station                # a won parley raises presence with it (finish_parley)
     if "trainer" in services and rec.get("training_classes_recorded"):
         t["trainer"] = True
         t["trainer_classes"] = sorted(set(rec["training_classes_recorded"]))

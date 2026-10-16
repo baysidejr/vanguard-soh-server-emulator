@@ -1292,3 +1292,17 @@ class ParleyLevelTests(unittest.TestCase):
             player.parleys_won = ["orin"]
             login_stub.finish_parley(state, mock.Mock(npc=npc, config={"reward": {"xp": 150}}), "won")
         self.assertEqual(xp, [400, 150])          # hand-made parleys keep their reward
+
+    def test_won_parley_raises_presence(self):
+        sent = []
+        player = zone.Player(name="T", char_id=7, level="c")
+        player.parleys_won, player.presence = ["n"], {"noble": 30}
+        args = mock.Mock()
+        args.content.mobs = {"n": {"station": "noble"}}
+        npc = mock.Mock(template_id="n", entity_id=5)
+        npc.name = "N"
+        with mock.patch.object(login_stub, "ARGS", args, create=True),                 mock.patch.object(login_stub, "save_character_field") as save,                 mock.patch.object(login_stub, "sphere_xp"), mock.patch.object(login_stub, "faction_reward"):
+            login_stub.finish_parley({"player": player, "send": sent.append}, mock.Mock(npc=npc, config={"reward": {}}), "won")
+        self.assertEqual(player.presence["noble"], 30 + login_stub.PRESENCE_GAIN)
+        save.assert_any_call("T", "presence", player.presence)
+        self.assertTrue(any(struct.unpack_from("<I", m, 2)[0] == 0x2D4 for m in sent))

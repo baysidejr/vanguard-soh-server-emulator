@@ -8943,6 +8943,9 @@ def city_status(state):
         state["send"](build_system_text(f"{stat}: {value}", SYSTEM_TEXT_WHITE))
 
 
+PRESENCE_GAIN = 10                 # presence a won parley adds with the NPC's station (placeholder)
+
+
 def finish_parley(state, p, result):
     player, send = state["player"], state["send"]
     state.pop("parley", None)
@@ -8975,6 +8978,18 @@ def finish_parley(state, p, result):
         player.coins += reward["coin"]
         send(merchant.coins(player.coins))
         save_character_field(player.name, "coins", player.coins)
+    station = (ARGS.content.mobs.get(p.npc.template_id) or {}).get("station")
+    if station in zone.PRESENCE_STATS:
+        # A won parley raises presence with the NPC's station (mobs.json "station", from the
+        # archive); PRESENCE_GAIN is a placeholder.
+        presence = dict(getattr(player, "presence", None) or {})
+        presence[station] = min(zone.PRESENCE_MAX, presence.get(station, zone.PRESENCE_START) + PRESENCE_GAIN)
+        player.presence = presence
+        save_character_field(player.name, "presence", presence)
+        sid = zone.PRESENCE_STATS[station]
+        send(zone.zone_event(0x2D4, vgmsg.stat_update(zone.PRESENCE_INSTANCE + sid, presence[station],
+                                                      category=zone.DIPLOMACY_CATEGORY,
+                                                      maximum=zone.PRESENCE_MAX, raw={12: sid})))
     send(combat.experience_reward(reward.get("xp", 0), p.npc.entity_id, kind=2))
     sphere_xp(state, zone.DIPLOMACY, reward.get("xp", 0))
     faction_reward(state, reward)
