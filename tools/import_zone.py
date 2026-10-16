@@ -78,13 +78,23 @@ def archive_npcs(raw=None, kind="npc"):
     # The archive capitalises some zone names differently ("Wardship Of The Sleeping Moon"):
     # use ChunkNames.txt's spelling so they match the zone's chunk.
     try:
-        canon = {k.lower(): k for k in zone_chunks()}
+        canon_chunks = zone_chunks()
     except OSError:
-        canon = {}
+        canon_chunks = {}
+    canon = {k.lower(): k for k in canon_chunks}
+    by_chunk = {v: k for k, v in canon_chunks.items()} if canon else {}
     for r in recs.values():
         zn = r.get("zone")
         if isinstance(zn, str) and zn.lower() in canon:
             r["zone"] = canon[zn.lower()]
+        elif by_chunk:
+            # A zone field naming a sub-area or a person ("Nerail Tharazen"), but a location
+            # that says which chunk ("-80422, 84409, 17146 in Lomshir (-15, -9)"): use that.
+            for loc in (r.get("archive_fields") or {}).get("location") or []:
+                m = QUEST_LOC.search(str(loc))
+                if m and m.group(4) is not None and (int(m.group(4)), int(m.group(5))) in by_chunk:
+                    r["zone"] = by_chunk[(int(m.group(4)), int(m.group(5)))]
+                    break
     return recs
 
 

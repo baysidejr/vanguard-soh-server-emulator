@@ -1804,6 +1804,14 @@ class ImportZoneTests(unittest.TestCase):
             with unittest.mock.patch.object(import_zone, "zone_chunks", return_value={"Wardship of the Sleeping Moon": (-23, 27)}):
                 recs = import_zone.archive_npcs(d)
         self.assertEqual(recs["Fenton Orde"]["zone"], "Wardship of the Sleeping Moon")
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "b1"))
+            with open(os.path.join(d, "b1", "quest.jsonl"), "w", encoding="utf-8") as f:
+                f.write(_json.dumps({"name": "Ceremony", "zone": "Nerail Tharazen",
+                                     "archive_fields": {"location": ["-80422, 84409, 17146 in Lomshir (-15, -9)"]}}) + "\n")
+            with unittest.mock.patch.object(import_zone, "zone_chunks", return_value={"Lomshir": (-15, -9)}):
+                recs = import_zone.archive_npcs(d, kind="quest")
+        self.assertEqual(recs["Ceremony"]["zone"], "Lomshir")             # from the location's chunk
 
     def test_quest_giver_not_doubled(self):
         import sys

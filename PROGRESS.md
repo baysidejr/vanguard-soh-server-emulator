@@ -90,6 +90,8 @@ Content: 90 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-16: Archive records whose zone field names a sub-area or a person but whose location gives the chunk ("... in Lomshir (-15, -9)") now count for that chunk's zone (68 quests); 12 more NPCs placed. Fixed the editor's Mobs form turning a one-entry parley list into a string (the selftest caught it on the new NPCs).
+
 - 2026-10-15: Import fixes: archive zone names now match ChunkNames.txt regardless of capitalisation, and mislabelled "Object" records with a role (merchants) are imported: +181 templates, 186 spawns, 8 more zones (90), 22 playable quests. Seen live: Almari Jal at a stall in Khal.
 
 - 2026-10-15: Zone default races: where 3+ of a zone's NPC pages record a race and 80% agree (Mekalia Gnome, Hathor Zhi Dark Elf, Lomshir Varanthari, Magi Hold and Tanvu Kojani), the zone's other NPCs take it; 177 NPCs. Seen live: Constable Captori in Mekalia.
