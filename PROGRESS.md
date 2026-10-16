@@ -86,6 +86,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 
 ## Done
 
+- 2026-10-15: Checked live: a character saved in another region logs in there (Ranger saved at the Khal hub came back at -6747, -25611, 1442 in Khal); restored to the camp afterwards.
+
 - 2026-10-15: import_zone --all and --branch (reads the collection branch via git archive): one command refreshes every zone from the newest scraped pages (first run: 5 more NPCs).
 
 - 2026-10-15: Scenario "riftway": a bot at the camp brazier sends /rift KHAL and gets the zone connect (world event 8) for Khal's chunk. 14 scenarios.
