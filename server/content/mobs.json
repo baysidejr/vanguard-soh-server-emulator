@@ -3960,7 +3960,8 @@
     "level": 22,
     "health": 980,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/spectral-ingredients"
+    "_source": "https://vgsoharchive.com/quests/spectral-ingredients",
+    "difficulty": 2
   },
   "arch_aviera_haron": {
     "name": "Aviera Haron",
@@ -4157,7 +4158,8 @@
     "level": 22,
     "health": 980,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/vengence"
+    "_source": "https://vgsoharchive.com/quests/vengence",
+    "difficulty": 1
   },
   "arch_ahkrabi_hemorah": {
     "name": "Ahkrabi Hemorah",
@@ -4343,7 +4345,8 @@
     "level": 30,
     "health": 1300,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/danger-in-youth"
+    "_source": "https://vgsoharchive.com/quests/danger-in-youth",
+    "difficulty": 2
   },
   "arch_mercenary_coulgar": {
     "name": "Mercenary Coulgar",
@@ -4946,7 +4949,8 @@
     "level": 32,
     "health": 1380,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/illegible-schematics"
+    "_source": "https://vgsoharchive.com/quests/illegible-schematics",
+    "difficulty": 2
   },
   "arch_brock_stonefist": {
     "name": "Brock Stonefist",
@@ -16587,5 +16591,76 @@
     "health": 1300,
     "model": 2,
     "_source": "https://vgsoharchive.com/quests/the-jharru-of-zossyr"
+  },
+  "arch_recruiter_trevorak": {
+    "name": "Recruiter Trevorak",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 26,
+    "health": 2280,
+    "damage": [
+      26,
+      104
+    ],
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/recruiter-trevorak",
+    "loot": "arch_recruiter_trevorak_drops"
+  },
+  "arch_relsom_serile": {
+    "name": "Relsom Serile",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 3,
+    "title": "Merchant - Ranged Weapons",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/relsom-serile"
+  },
+  "arch_red_sparrow_chef": {
+    "name": "Red Sparrow Chef",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 31,
+    "health": 2680,
+    "damage": [
+      31,
+      124
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/red-sparrow-chef",
+    "loot": "arch_red_sparrow_chef_drops"
+  },
+  "arch_reijin_gihen": {
+    "name": "Reijin Gihen",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 9,
+    "health": 460,
+    "damage": [
+      9,
+      18
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/reijin-gihen",
+    "loot": "arch_reijin_gihen_drops"
+  },
+  "arch_resalsh_the_revolting": {
+    "name": "Resalsh The Revolting",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 3,
+    "health": 220,
+    "damage": [
+      3,
+      6
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/resalsh-the-revolting",
+    "loot": "arch_resalsh_the_revolting_drops"
   }
 }

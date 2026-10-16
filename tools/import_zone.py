@@ -7,6 +7,8 @@ gives each zone's chunk.
 
     python tools/import_zone.py "Khal"              # report; drafts in crowdsourced/drafts/<zone>/
     python tools/import_zone.py "Khal" --apply      # add to server/content (never overwrites)
+    python tools/import_zone.py --all --branch --apply --skip "Sundering Wastelands" --skip "Wildgrowth Forest"
+                                                    # every zone, with the collection branch's newest pages
 
 Each NPC becomes a mobs.json template "arch_<name>" (name, level, its services as the title, a
 placeholder race from its continent and placeholder health) with "_source" (the archive page),
@@ -54,6 +56,7 @@ def level_name(x, y):
 
 
 EXTRA_RAW = []     # more raw folders (--raw), e.g. the collection branch's, read after RAW
+SOURCES = []       # how the extra folders are named in crowdsourced/imported.md
 
 
 def archive_npcs(raw=None, kind="npc"):
@@ -382,14 +385,67 @@ def apply(level, mobs, spawns, content=CONTENT):
     return len(new_mobs), len(new_spawns)
 
 
+def branch_raw(ref):
+    """The raw batches of a git ref (the scrape publishes to its own branch), extracted with git
+    archive into a temporary folder; the branch is not merged. Returns the raw folder."""
+    import subprocess, tarfile, tempfile, io
+    subprocess.run(["git", "fetch", "-q", "origin"], cwd=ROOT, check=False)
+    data = subprocess.run(["git", "archive", ref, "crowdsourced/raw"], cwd=ROOT, capture_output=True, check=True).stdout
+    out = tempfile.mkdtemp(prefix="vgemu-raw-")
+    with tarfile.open(fileobj=io.BytesIO(data)) as tar:
+        tar.extractall(out, filter="data")
+    return os.path.join(out, "crowdsourced", "raw")
+
+
+def import_all(do_apply, skip):
+    """Every zone with something to place (NPCs, quest givers, creatures), with loot."""
+    chunks, npcs, quests = zone_chunks(), archive_npcs(), archive_npcs(kind="quest")
+    zones, creatures, loot = archive_npcs(kind="zone"), archive_npcs(kind="creature"), archive_npcs(kind="loot")
+    totals = [0, 0, 0]
+    for name in sorted(chunks):
+        if name in skip:
+            continue
+        level, mobs, spawns = plan(name, npcs, chunks, quests, (zones.get(name) or {}).get("continent"), creatures)
+        if not spawns:
+            continue
+        totals[0] += 1
+        if do_apply:
+            attach_loot(mobs, loot)
+            added = apply(level, mobs, spawns)
+            totals[1] += added[0]
+            totals[2] += added[1]
+    if not do_apply:
+        print(f"{totals[0]} zones have something to place (run with --apply to add it)")
+        return 0
+    print(f"{totals[0]} zones: added {totals[1]} templates and {totals[2]} spawns")
+    if totals[1] or totals[2]:
+        with open(os.path.join(ROOT, "crowdsourced", "imported.md"), "a", encoding="utf-8") as f:
+            f.write(f"| {datetime.date.today()} | raw batches{' + ' + ', '.join(SOURCES) if SOURCES else ''} "
+                    f"(all zones, skipping {', '.join(sorted(skip)) or 'none'}) | {totals[2]} spawns, {totals[1]} "
+                    f"templates | server/content via tools/import_zone.py --all |\n")
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("zone", help='the zone name as in ChunkNames.txt, e.g. "Khal"')
+    ap.add_argument("zone", nargs="?", help='the zone name as in ChunkNames.txt, e.g. "Khal"')
+    ap.add_argument("--all", action="store_true", help="every zone in ChunkNames.txt with something to place")
+    ap.add_argument("--skip", action="append", default=[], help="a zone to leave out (with --all)")
+    ap.add_argument("--branch", nargs="?", const="origin/crowdsourced/archive-collection",
+                    help="also read the raw batches of this git branch (default: the collection branch)")
     ap.add_argument("--apply", action="store_true", help="add to server/content instead of writing drafts")
     ap.add_argument("--raw", action="append", default=[],
                     help="another folder of raw batches to read as well (e.g. one taken from the collection branch)")
     a = ap.parse_args(argv)
     EXTRA_RAW.extend(a.raw)
+    SOURCES.extend(a.raw)
+    if a.branch:
+        EXTRA_RAW.append(branch_raw(a.branch))
+        SOURCES.append(f"branch {a.branch}")
+    if a.all:
+        return import_all(a.apply, set(a.skip))
+    if not a.zone:
+        ap.error("give a zone name or --all")
     zone_rec = archive_npcs(kind="zone").get(a.zone) or {}
     level, mobs, spawns = plan(a.zone, archive_npcs(), zone_chunks(), archive_npcs(kind="quest"),
                                zone_rec.get("continent"), archive_npcs(kind="creature"))

@@ -86,6 +86,8 @@ Content: 75 regions hold 1,200 NPCs and 179 creatures imported from the archive 
 
 ## Done
 
+- 2026-10-15: import_zone --all and --branch (reads the collection branch via git archive): one command refreshes every zone from the newest scraped pages (first run: 5 more NPCs).
+
 - 2026-10-15: Scenario "riftway": a bot at the camp brazier sends /rift KHAL and gets the zone connect (world event 8) for Khal's chunk. 14 scenarios.
 
 - 2026-10-15: Imported NPCs face their nearest neighbour within 800 units (else a direction fixed by their key) instead of all facing east (the archive has no headings). Unit test ImportZoneTests.test_npcs_face_their_neighbour; seen live: Kivan Zahed and Qeedimani Sumech face each other in a Khal library.
