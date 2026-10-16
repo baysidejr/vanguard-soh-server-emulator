@@ -186,12 +186,30 @@ def icon_type(state, sphere="adventure"):
     return SPHERES.get(sphere, 0) * 5 + state
 
 
+_BY_NPC = {}
+
+
+def quests_of(quests, tpl):
+    """[(key, quest)] in which the NPC template tpl is the giver or the turn-in NPC: an index
+    built once per quest table (icons are worked out for every NPC in view)."""
+    index = _BY_NPC.get(id(quests))
+    if index is None or index[0] is not quests or index[1] != len(quests):
+        by = {}
+        for key, q in quests.items():
+            if isinstance(q, dict):
+                for t in {q.get("giver"), turn_in(q)}:
+                    by.setdefault(t, []).append((key, q))
+        _BY_NPC.clear()
+        index = _BY_NPC[id(quests)] = (quests, len(quests), by)
+    return index[2].get(tpl, [])
+
+
 def npc_icon(quests, tpl, log, have, level):
     """The icon over the NPC with template tpl for a player (quest log, item counts, level), or
     None: something to hand in here beats a new quest, beats one in progress, beats a low one."""
     best = None
     rank = {ICON_DONE: 4, ICON_AVAILABLE: 3, ICON_IN_PROGRESS: 2, ICON_LOW: 1, ICON_SOON: 0}
-    for key, q in quests.items():
+    for key, q in quests_of(quests, tpl):
         if key in log.done:
             continue
         state = None

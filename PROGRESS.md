@@ -93,6 +93,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: Quest icons: quests indexed by giver / turn-in NPC (quest.quests_of), so working out the icons for Khal's 157 NPCs takes 0.1 ms instead of 6 ms with 372 quests (and stays flat as the scrape adds quests).
+
 - 2026-10-16: Delivery placeholder quests pay 25 XP per level instead of 100 (296 quests; the two whose archive gives XP keep it).
 
 - 2026-10-16: Editor: "Placeholders to review" in the Archive quests tab lists the invented camp spawns and the delivery quests (headless Edge checked). Single-kill targets (named foes) are now placed alone instead of in camps of three: 167 invented spawns.
