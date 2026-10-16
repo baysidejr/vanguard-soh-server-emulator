@@ -576,6 +576,21 @@ class FallTests(unittest.TestCase):
     def test_teleport_disarms(self):
         self.assertEqual(self.run_fall([100, 100, 3000, 2800, 2000, 1500, 1500]), [])
 
+    def test_flying_descent_is_not_a_fall(self):
+        sent = []
+        player = zone.Player(name="T", char_id=7, level="c")
+        player.health, player.flying = 500, True
+        player.stats = dict(player.stats, hit_points=500)
+        state = {"player": player, "send": sent.append}
+        with mock.patch.object(login_stub, "in_water", return_value=False),                 mock.patch.object(login_stub, "build_system_text", lambda t, c=0: t):
+            for z in (3000, 3000, 2600, 2000, 1400, 800):
+                login_stub.check_fall(state, (0.0, 0.0, float(z)))
+            player.flying = False                        # landed: walking from here
+            for z in (800, 800):
+                login_stub.check_fall(state, (0.0, 0.0, float(z)))
+        self.assertEqual(player.health, 500)
+        self.assertFalse(any("fall" in str(m) for m in sent))
+
 
 class MovementCheckTests(unittest.TestCase):
     def run_moves(self, moves, teleport_at=None):

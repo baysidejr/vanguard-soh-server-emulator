@@ -4912,6 +4912,12 @@ def check_fall(state, loc):
     if player is None or player.health <= 0:
         fs.clear()
         return
+    if getattr(player, "flying", False):
+        # A flier coming down is not falling (verified live: a griffon descent from 6600 units
+        # killed the rider with "You fall and take 585 damage"); start fresh from the landing.
+        fs.clear()
+        fs["last"] = loc
+        return
     drop = fall_drop(fs, loc)
     if drop is None or drop <= SAFE_FALL or in_water(player.level, loc):
         return
