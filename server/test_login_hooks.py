@@ -1232,3 +1232,42 @@ class AbilityContentTests(unittest.TestCase):
         self.assertEqual(login_stub.ability_content(a, {}), a)
         b = login_stub.ability_content(a, {"Brutal Strike I": {"icon": 516, "description": "A powerful attack.", "refresh": 0}})
         self.assertEqual(b, (3, 570001, "Brutal Strike I", 516, "A powerful attack.", 0.0))
+
+
+class ArchiveQuestPlayTests(unittest.TestCase):
+    """Every archive quest in quests.json (arch_*, added by tools/quest_readiness.py) can be played
+    through the server's own quest code: its kills count, its items are handed over, and turning
+    it in pays out and closes it."""
+
+    def test_archive_quests_play_through(self):
+        import content
+        import quest
+        c = content.Content()
+        keys = [k for k in c.quests if k.startswith("arch_")]
+        self.assertTrue(keys)
+        args = mock.Mock(content=c, quest_feedback=False)
+        for key in keys:
+            q = c.quests[key]
+            with self.subTest(quest=key):
+                sent = []
+                player = zone.Player(name="T", char_id=7, level="c")
+                player.items, player.coins = [], 0
+                player.quests.active[key] = {"step": 0, "count": 0}
+                state = {"player": player, "send": sent.append}
+                with mock.patch.object(login_stub, "ARGS", args, create=True), \
+                        mock.patch.object(login_stub, "save_character_field"), \
+                        mock.patch.object(login_stub, "award_xp", return_value=[]), \
+                        mock.patch.object(login_stub, "give_item"):
+                    for n, step in enumerate(quest.steps(q)):
+                        for mob, need in step.get("kill", {}).items():
+                            npc = mock.Mock(template_id=mob, entity_id=99)
+                            for _ in range(need):
+                                login_stub.quest_kill(state, npc)
+                        for name, need in step.get("collect", {}).items():
+                            player.items.append((100 + n, name, 442, need, n))
+                            login_stub.quest_advance(state, key, q, 0)
+                    have = login_stub.have_items(player)
+                    self.assertTrue(quest.ready(q, player.quests.active[key], have), player.quests.active[key])
+                    login_stub.finish_quest(state, key, q)
+                self.assertIn(key, player.quests.done)
+                self.assertFalse(any(i[1] in {nm for s in quest.steps(q) for nm in s.get("collect", {})} for i in player.items))
