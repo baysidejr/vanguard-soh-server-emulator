@@ -1727,6 +1727,16 @@ async function initReady() {
   $("readyTotals").textContent = `${t.ready || 0} ready, ${t.giver || 0} blocked, ${t["no giver"] || 0} without a placed giver, ${t["no steps"] || 0} without objectives`;
   const list = $("readyList");
   list.innerHTML = "";
+  const ph = await (await fetch("/api/placeholders")).json();
+  const phRow = document.createElement("div");
+  phRow.textContent = `Placeholders to review (${ph.spawns.length} spawns, ${ph.quests.length} quests)`;
+  phRow.onclick = () => {
+    document.querySelectorAll("#readyList div").forEach(e => e.classList.toggle("sel", e === phRow));
+    const sp = ph.spawns.map(s => `<li>${esc(s.mob)} <span class="hint">${esc(s.chunk)} (${s.x}, ${s.y}): ${esc(s.note)}</span></li>`).join("");
+    const qs = ph.quests.map(q => `<li><b>${esc(q.name)}</b> <span class="hint">${esc(q.steps.join("; "))}</span></li>`).join("");
+    $("readyDetail").innerHTML = `<h3>Placeholders</h3><p class="hint">Invented by the archive tools so these quests can be played: move the spawns (Spawns tab) or give the quests their real objectives (Quests tab), then remove the "_placeholder" / "_placeholder_steps" marks.</p><h4>Invented camp spawns</h4><ul>${sp || "<li class='hint'>none</li>"}</ul><h4>Quests played as deliveries</h4><ul>${qs || "<li class='hint'>none</li>"}</ul>`;
+  };
+  list.appendChild(phRow);
   for (const z of readyDoc.zones.filter(z => (z.counts.ready || 0) + (z.counts.giver || 0) > 0)) {
     const d = document.createElement("div");
     d.className = "item";
@@ -2248,7 +2258,7 @@ if (location.hash.startsWith("#ready")) {
   const want = decodeURIComponent(location.hash.split("=")[1] || "");
   if (want) setTimeout(() => { const z = readyDoc && readyDoc.zones.find(z => z.zone === want);
     const row = [...document.querySelectorAll("#readyList div")].find(d => d.textContent.startsWith(want + " ("));
-    if (z) showReady(z, row); }, 2000);
+    if (z) showReady(z, row); else if (row) row.click(); }, 2000);
 }
 if (location.hash.startsWith("#react")) setMode("react");
 if (location.hash.startsWith("#aa")) setMode("aa");

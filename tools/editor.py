@@ -428,6 +428,31 @@ def readiness(content_dir):
     return _READINESS[content_dir]
 
 
+def placeholders(content_dir):
+    """What the archive tools invented, for a builder to review: spawns marked "_placeholder"
+    (camps placed near a quest giver) and quests marked "_placeholder_steps" (deliveries)."""
+    out = {"spawns": [], "quests": []}
+    folder = os.path.join(content_dir, "spawns")
+    for fn in sorted(os.listdir(folder)) if os.path.isdir(folder) else []:
+        if not fn.endswith(".json"):
+            continue
+        with open(os.path.join(folder, fn), encoding="utf-8") as f:
+            for s in json.load(f).get("spawns", []):
+                if s.get("_placeholder"):
+                    out["spawns"].append({"chunk": fn[:-5], "mob": s["mob"], "x": s["x"], "y": s["y"],
+                                          "note": s["_placeholder"]})
+    try:
+        with open(os.path.join(content_dir, "quests.json"), encoding="utf-8") as f:
+            quests = json.load(f)
+    except (OSError, ValueError):
+        quests = {}
+    for key, q in quests.items():
+        if isinstance(q, dict) and q.get("_placeholder_steps"):
+            out["quests"].append({"key": key, "name": q.get("name"), "note": q["_placeholder_steps"],
+                                  "steps": [s.get("objective") for s in q.get("steps", [])]})
+    return out
+
+
 def loot_draft(rec, src, slug, content_dir=None):
     """A loot.json table from an archive loot record: one row per drop with its chance (the
     archive's percentage / 100) and the item's icon from items.json when we have the item. Loot
@@ -760,6 +785,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     return self.reply(200, {"name": q["name"], "text": f.read()})
             if u.path == "/api/archive":
                 return self.reply(200, archive_search(q.get("q"), q.get("type")))
+            if u.path == "/api/placeholders":
+                return self.reply(200, placeholders(self.directory))
             if u.path == "/api/readiness":
                 return self.reply(200, readiness(self.directory))
             if u.path == "/api/draft":

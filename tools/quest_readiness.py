@@ -321,7 +321,9 @@ def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
             if rec is None or rec.get("zone") != q.get("zone") or not rec.get("level") or z.is_object(rec):
                 targets = []
                 break
-            targets.append(rec)
+            need = next((int(st.get("count") or 1) for st in q.get("candidate_steps") or []
+                         if st.get("objective") == objective), 1)
+            targets.append((rec, 3 if need > 1 else 1))        # one named foe, or a camp of three
         if not targets:
             continue
         level = z.level_name(*chunks[q["zone"]])
@@ -329,7 +331,7 @@ def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
                       if s["mob"] == world[level][0].get((q.get("giver") or "").lower())), None)
         if giver is None:
             continue
-        for rec in targets:
+        for rec, size in targets:
             key = z.key_for(rec["name"])
             if key in done:
                 continue
@@ -340,9 +342,10 @@ def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
                 a = a0 + k * math.pi / 4
                 cx, cy = giver["x"] + PLACEHOLDER_DISTANCE * math.cos(a), giver["y"] + PLACEHOLDER_DISTANCE * math.sin(a)
                 trial = []
-                for i in range(3):
+                for i in range(size):
                     b = 2 * math.pi * i / 3
-                    trial.append({"mob": key, "x": round(cx + 250 * math.cos(b)), "y": round(cy + 250 * math.sin(b)),
+                    r = 250 if size > 1 else 0
+                    trial.append({"mob": key, "x": round(cx + r * math.cos(b)), "y": round(cy + r * math.sin(b)),
                                   "yaw": 0, "wander": 200, "_placeholder": f"position invented for the quest {q['name']}"})
                 if giver.get("z") is not None and abs(giver["z"] - _ground(level, giver["x"], giver["y"])) > 400:
                     for sp in trial:              # the giver is in a city or underground: its floor

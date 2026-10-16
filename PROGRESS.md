@@ -93,6 +93,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: Editor: "Placeholders to review" in the Archive quests tab lists the invented camp spawns and the delivery quests (headless Edge checked). Single-kill targets (named foes) are now placed alone instead of in camps of three: 167 invented spawns.
+
 - 2026-10-16: Archive quest chains: quests whose archive "previous" quest is in quests.json now require it (quest_readiness.link_chains, run by refresh_archive; never closes a loop): 24 links.
 
 - 2026-10-16: 298 delivery placeholders: archive quests with no recorded objectives but a placed hand-in NPC become "Speak with <NPC>" (marked _placeholder_steps). 368 archive quests in all, every one passes ArchiveQuestPlayTests (now with talk steps). Seen live end to end: A Grave Brownie Threat (Tursh Village). Ranger's quest log and XP restored.
