@@ -92,6 +92,8 @@ Content: 93 regions hold about 2,100 NPCs, 300 creatures (24 camps) and 59 altar
 
 ## Done
 
+- 2026-10-16: Merged crowdsourced/archive-collection into main (up to 766e184, 950 new pages; crowdsourced/ only, 567 MB, tests pass), then refreshed: +35 templates, 43 spawns, 4 merchants on role stock. Most new pages are creatures without locations; 22 quests playable. Note: the refresh still reads the branch too, so later scrape pushes are picked up before they are merged.
+
 - 2026-10-16: Fixed: the archive station had been stored as mobs.json "station", which already means "crafting station", so 215 NPCs counted as crafting stations (entity type, travel journal) for about an hour; renamed to "presence_station", and content.py now rejects any other "station" value.
 
 - 2026-10-16: A won parley raises presence with the NPC's station (mobs.json "presence_station" from the archive, 215 NPCs; +10 placeholder), saved and sent as a 0x2d4 update. Not gated yet.

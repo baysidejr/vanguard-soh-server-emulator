@@ -2211,7 +2211,8 @@
     "level": 5,
     "health": 300,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/learning-qalian-style-artificer"
+    "_source": "https://vgsoharchive.com/quests/learning-qalian-style-artificer",
+    "title": "Artificer Instructor"
   },
   "arch_goshi_masape": {
     "name": "Goshi Masape",
@@ -3475,7 +3476,12 @@
     "level": 11,
     "health": 540,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/matters-of-the-hearth"
+    "_source": "https://vgsoharchive.com/quests/matters-of-the-hearth",
+    "parley": [
+      "archive_interview_1"
+    ],
+    "parley_level": 50,
+    "presence_station": "noble"
   },
   "arch_sergeant_vungarn_grimgred": {
     "name": "Sergeant Vungarn Grimgred",
@@ -3484,7 +3490,15 @@
     "level": 10,
     "health": 500,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/meet-your-instructor-sorceror"
+    "_source": "https://vgsoharchive.com/quests/meet-your-instructor-sorceror",
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "parley_level": 25,
+    "presence_station": "soldier"
   },
   "arch_mory_blacque": {
     "name": "Mory Blacque",
@@ -4068,7 +4082,8 @@
     "level": 20,
     "health": 900,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/seeking-the-legend-of-trengal-keep"
+    "_source": "https://vgsoharchive.com/quests/seeking-the-legend-of-trengal-keep",
+    "difficulty": 1
   },
   "arch_renil_haron": {
     "name": "Renil Haron",
@@ -4238,7 +4253,8 @@
     "level": 29,
     "health": 1260,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/infineum-immunity"
+    "_source": "https://vgsoharchive.com/quests/infineum-immunity",
+    "difficulty": 4
   },
   "arch_naijit_ettler": {
     "name": "Naijit Ettler",
@@ -4433,7 +4449,8 @@
     "level": 30,
     "health": 1300,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/big-dumb-brutes"
+    "_source": "https://vgsoharchive.com/quests/big-dumb-brutes",
+    "difficulty": 4
   },
   "arch_askiva_dasahigish": {
     "name": "Askiva Dasahigish",
@@ -4511,7 +4528,8 @@
     "level": 34,
     "health": 1460,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/pricey-rocks"
+    "_source": "https://vgsoharchive.com/quests/pricey-rocks",
+    "difficulty": 2
   },
   "arch_mercenary_sakiva": {
     "name": "Mercenary Sakiva",
@@ -4529,7 +4547,9 @@
     "level": 34,
     "health": 1460,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/shoe-in"
+    "_source": "https://vgsoharchive.com/quests/shoe-in",
+    "difficulty": 2,
+    "title": "Treasure Hunter"
   },
   "arch_brekal": {
     "name": "Brekal",
@@ -5251,7 +5271,8 @@
     "level": 1,
     "health": 140,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/loosen-the-gulgrethor-grasp"
+    "_source": "https://vgsoharchive.com/quests/loosen-the-gulgrethor-grasp",
+    "difficulty": 1
   },
   "arch_jinjaxe": {
     "name": "Jinjaxe",
@@ -5307,7 +5328,8 @@
     "level": 5,
     "health": 300,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/a-ceremony-of-old"
+    "_source": "https://vgsoharchive.com/quests/a-ceremony-of-old",
+    "difficulty": 4
   },
   "arch_bjorn_rolgar": {
     "name": "Bjorn Rolgar",
@@ -5335,7 +5357,8 @@
     "level": 9,
     "health": 460,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/bone-samples"
+    "_source": "https://vgsoharchive.com/quests/bone-samples",
+    "difficulty": 4
   },
   "arch_thane_kan_ukaras": {
     "name": "Thane Kan Ukaras",
@@ -5408,7 +5431,8 @@
     "level": 8,
     "health": 420,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/halgar-s-sword"
+    "_source": "https://vgsoharchive.com/quests/halgar-s-sword",
+    "difficulty": 4
   },
   "arch_derogar": {
     "name": "Derogar",
@@ -5665,7 +5689,8 @@
     "race": 3,
     "level": 5,
     "health": 300,
-    "_source": "https://vgsoharchive.com/quests/recruiting-the-youth"
+    "_source": "https://vgsoharchive.com/quests/recruiting-the-youth",
+    "difficulty": 1
   },
   "arch_legionnaire_kolkor": {
     "name": "Legionnaire Kolkor",
@@ -7980,7 +8005,8 @@
     "level": 8,
     "health": 420,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/missing-magic"
+    "_source": "https://vgsoharchive.com/quests/missing-magic",
+    "difficulty": 2
   },
   "arch_nolnoc": {
     "name": "Nolnoc",
@@ -8451,7 +8477,9 @@
     "level": 16,
     "health": 740,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/cowardly-couriers"
+    "_source": "https://vgsoharchive.com/quests/cowardly-couriers",
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods"
   },
   "arch_venir_ishtir": {
     "name": "Venir Ishtir",
@@ -8603,7 +8631,8 @@
     "level": 8,
     "health": 420,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/bear-population"
+    "_source": "https://vgsoharchive.com/quests/bear-population",
+    "title": "Royal Emissary"
   },
   "arch_ranger_shyath": {
     "name": "Ranger Shyath",
@@ -9456,7 +9485,8 @@
     "level": 10,
     "health": 500,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/snakes-on-the-plain"
+    "_source": "https://vgsoharchive.com/quests/snakes-on-the-plain",
+    "title": "Groundskeeper"
   },
   "arch_administrator_knellos": {
     "name": "Administrator Knellos",
@@ -9880,7 +9910,8 @@
     "level": 8,
     "health": 420,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/notification-of-your-arrival"
+    "_source": "https://vgsoharchive.com/quests/notification-of-your-arrival",
+    "presence_station": "soldier"
   },
   "arch_hidgerin_wertpus": {
     "name": "Hidgerin Wertpus",
@@ -11103,7 +11134,8 @@
     "level": 23,
     "health": 1020,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/red-sparrow-assault"
+    "_source": "https://vgsoharchive.com/quests/red-sparrow-assault",
+    "difficulty": 2
   },
   "arch_sentinel_stalter": {
     "name": "Sentinel Stalter",
@@ -11112,7 +11144,9 @@
     "level": 23,
     "health": 1020,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/stealing-from-thieves"
+    "_source": "https://vgsoharchive.com/quests/stealing-from-thieves",
+    "difficulty": 2,
+    "title": "Telon Global Exchange"
   },
   "arch_mistress_melia": {
     "name": "Mistress Melia",
@@ -12094,7 +12128,8 @@
     "level": 28,
     "health": 1220,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/from-the-source"
+    "_source": "https://vgsoharchive.com/quests/from-the-source",
+    "difficulty": 3
   },
   "arch_hheju": {
     "name": "Hheju",
@@ -12652,7 +12687,8 @@
     "level": 23,
     "health": 1020,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/krenkel-s-trap"
+    "_source": "https://vgsoharchive.com/quests/krenkel-s-trap",
+    "difficulty": 1
   },
   "arch_ghost_of_sir_finneous_drallite": {
     "name": "Ghost Of Sir Finneous Drallite",
@@ -12771,7 +12807,8 @@
     "level": 23,
     "health": 1020,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/the-final-test"
+    "_source": "https://vgsoharchive.com/quests/the-final-test",
+    "difficulty": 4
   },
   "arch_lokke_the_destroyer": {
     "name": "Lokke the Destroyer",
@@ -13381,7 +13418,8 @@
     "level": 42,
     "health": 1780,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/ages-hence"
+    "_source": "https://vgsoharchive.com/quests/ages-hence",
+    "difficulty": 3
   },
   "arch_destroyer_karajat": {
     "name": "Destroyer Karajat",
@@ -13856,7 +13894,8 @@
     "level": 7,
     "health": 380,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/a-parting-gift"
+    "_source": "https://vgsoharchive.com/quests/a-parting-gift",
+    "difficulty": 1
   },
   "arch_disciple_akomi": {
     "name": "Disciple Akomi",
@@ -15640,7 +15679,8 @@
     "level": 15,
     "health": 700,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/leechsnake-venomsacs"
+    "_source": "https://vgsoharchive.com/quests/leechsnake-venomsacs",
+    "difficulty": 2
   },
   "arch_apprentice_rildar_blackstone": {
     "name": "Apprentice Rildar Blackstone",
@@ -16732,7 +16772,16 @@
     "level": 11,
     "health": 540,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/caravan-remains"
+    "_source": "https://vgsoharchive.com/quests/caravan-remains",
+    "parley": [
+      "archive_gossip_70",
+      "archive_incite_70",
+      "archive_entertain_70",
+      "archive_convince_70",
+      "archive_interview_70"
+    ],
+    "parley_level": 10,
+    "presence_station": "soldier"
   },
   "arch_riker_avin": {
     "name": "Riker Avin",
@@ -16741,7 +16790,8 @@
     "level": 11,
     "health": 540,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/cloth-collecting"
+    "_source": "https://vgsoharchive.com/quests/cloth-collecting",
+    "difficulty": 2
   },
   "arch_vesrilu_osea": {
     "name": "Vesrilu Osea",
@@ -16759,7 +16809,17 @@
     "level": 13,
     "health": 620,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/recycling"
+    "_source": "https://vgsoharchive.com/quests/recycling",
+    "difficulty": 2,
+    "parley": [
+      "archive_gossip_70",
+      "archive_incite_70",
+      "archive_entertain_70",
+      "archive_convince_70",
+      "archive_interview_70"
+    ],
+    "parley_level": 15,
+    "presence_station": "soldier"
   },
   "arch_sentinel_cuwri": {
     "name": "Sentinel Cuwri",
@@ -16768,7 +16828,8 @@
     "level": 12,
     "health": 580,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/talk-to-veskal"
+    "_source": "https://vgsoharchive.com/quests/talk-to-veskal",
+    "presence_station": "soldier"
   },
   "arch_atearna_siyvandyl": {
     "name": "Atearna Siyvandyl",
@@ -17272,7 +17333,8 @@
     "model": 1,
     "title": "Master Outfitter",
     "merchant": "general_goods",
-    "_source": "https://vgsoharchive.com/zones/ahgram"
+    "_source": "https://vgsoharchive.com/zones/ahgram",
+    "difficulty": 2
   },
   "arch_ferdous_kazai": {
     "name": "Ferdous Kazai",
@@ -18131,7 +18193,16 @@
     "level": 20,
     "health": 900,
     "model": 1,
-    "_source": "https://vgsoharchive.com/zones/bordinar-s-cleft"
+    "_source": "https://vgsoharchive.com/zones/bordinar-s-cleft",
+    "difficulty": 2,
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "parley_level": 40,
+    "presence_station": "domestic"
   },
   "arch_reya_heartforger": {
     "name": "Reya Heartforger",
@@ -18270,7 +18341,9 @@
     "level": 20,
     "health": 900,
     "model": 3,
-    "_source": "https://vgsoharchive.com/zones/bordinar-s-cleft"
+    "_source": "https://vgsoharchive.com/zones/bordinar-s-cleft",
+    "title": "Light Armor Vendor",
+    "merchant": "archive_light_armor"
   },
   "arch_crelda_silverbeard": {
     "name": "Crelda Silverbeard",
@@ -18518,7 +18591,8 @@
     "level": 20,
     "health": 900,
     "model": 1,
-    "_source": "https://vgsoharchive.com/zones/ca-ial-brael"
+    "_source": "https://vgsoharchive.com/zones/ca-ial-brael",
+    "title": "Healer Instructor"
   },
   "arch_vaelwyn_message": {
     "name": "Vaelwyn Message",
@@ -19944,7 +20018,9 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "title": "Regular Horse Vendor (outside Fort - eas",
+    "merchant": "general_goods"
   },
   "arch_shurik": {
     "name": "Shurik",
@@ -19969,7 +20045,8 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "difficulty": 3
   },
   "arch_valgan_malakade": {
     "name": "Valgan Malakade",
@@ -20056,7 +20133,9 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "title": "Medium Armor Vendor",
+    "merchant": "archive_medium_armor"
   },
   "arch_vinkav_iserdry": {
     "name": "Vinkav Iserdry",
@@ -20135,7 +20214,8 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "title": "Dread Knight Instructor"
   },
   "arch_shriyrr_olodril": {
     "name": "Shriyrr Olodril",
@@ -20224,7 +20304,9 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "title": "Banker",
+    "banker": true
   },
   "arch_t_rissithra_do_ep": {
     "name": "T'rissithra Do'ep",
@@ -20258,7 +20340,9 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "difficulty": 2,
+    "model": 2
   },
   "arch_serin_talah": {
     "name": "Serin Talah",
@@ -20266,7 +20350,9 @@
     "race": 3,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/hathor-zhi"
+    "_source": "https://vgsoharchive.com/zones/hathor-zhi",
+    "difficulty": 2,
+    "title": "Master Artificer"
   },
   "arch_astiradda_noquerv": {
     "name": "Astiradda Noquerv",
@@ -20441,7 +20527,9 @@
     "level": 20,
     "health": 900,
     "model": 2,
-    "_source": "https://vgsoharchive.com/zones/khal"
+    "_source": "https://vgsoharchive.com/zones/khal",
+    "title": "Food and Drink Vendor",
+    "merchant": "general_goods"
   },
   "arch_sherra_rohadyeh": {
     "name": "Sherra Rohadyeh",
@@ -20745,7 +20833,9 @@
     "health": 900,
     "model": 3,
     "title": "Crafters Forum",
-    "_source": "https://vgsoharchive.com/zones/khal"
+    "_source": "https://vgsoharchive.com/zones/khal",
+    "difficulty": 4,
+    "presence_station": "crafter"
   },
   "arch_shaliz_talhani": {
     "name": "Shaliz Talhani",
@@ -20755,7 +20845,15 @@
     "health": 900,
     "model": 0,
     "title": "Crafters Forum",
-    "_source": "https://vgsoharchive.com/zones/khal"
+    "_source": "https://vgsoharchive.com/zones/khal",
+    "difficulty": 2,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "parley_level": 37,
+    "presence_station": "crafter"
   },
   "arch_zhaleh_rajani": {
     "name": "Zhaleh Rajani",
@@ -20896,7 +20994,9 @@
     "level": 20,
     "health": 900,
     "model": 3,
-    "_source": "https://vgsoharchive.com/zones/ksaravi-gulch"
+    "_source": "https://vgsoharchive.com/zones/ksaravi-gulch",
+    "title": "Spirits Vendor",
+    "merchant": "general_goods"
   },
   "arch_verrsin_khadim": {
     "name": "Verrsin Khadim",
@@ -21058,7 +21158,9 @@
     "level": 20,
     "health": 900,
     "model": 3,
-    "_source": "https://vgsoharchive.com/zones/leth-nurae"
+    "_source": "https://vgsoharchive.com/zones/leth-nurae",
+    "difficulty": 2,
+    "title": "Light Fighter Instructor"
   },
   "arch_vayla_thaelin": {
     "name": "Vayla Thaelin",
@@ -21085,7 +21187,9 @@
     "level": 20,
     "health": 900,
     "model": 2,
-    "_source": "https://vgsoharchive.com/zones/leth-nurae"
+    "_source": "https://vgsoharchive.com/zones/leth-nurae",
+    "title": "General Goods Vendor",
+    "merchant": "general_goods"
   },
   "arch_seraphic_sister": {
     "name": "Seraphic Sister",
@@ -21429,7 +21533,8 @@
     "race": 20,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/lomshir"
+    "_source": "https://vgsoharchive.com/zones/lomshir",
+    "title": "Heavy Fighter Instructor"
   },
   "arch_shudjo_quelour": {
     "name": "Shudjo Quelour",
@@ -21897,7 +22002,9 @@
     "race": 20,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/lomshir"
+    "_source": "https://vgsoharchive.com/zones/lomshir",
+    "title": "Weapon Vendor",
+    "merchant": "archive_weapons"
   },
   "arch_sulaan_otajin": {
     "name": "Sulaan Otajin",
@@ -21952,7 +22059,9 @@
     "race": 20,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/lomshir"
+    "_source": "https://vgsoharchive.com/zones/lomshir",
+    "difficulty": 4,
+    "title": "Refining Taskmaster"
   },
   "arch_branjit_callahn": {
     "name": "Branjit Callahn",
@@ -22004,7 +22113,9 @@
     "race": 20,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/lomshir"
+    "_source": "https://vgsoharchive.com/zones/lomshir",
+    "difficulty": 1,
+    "title": "Warrior Instructor"
   },
   "arch_jarkour_kerrouk": {
     "name": "Jarkour Kerrouk",
@@ -22478,7 +22589,9 @@
     "level": 20,
     "health": 900,
     "model": 2,
-    "_source": "https://vgsoharchive.com/zones/martok"
+    "_source": "https://vgsoharchive.com/zones/martok",
+    "title": "General Goods Vendor",
+    "merchant": "general_goods"
   },
   "arch_rothum": {
     "name": "Rothum",
@@ -22978,7 +23091,8 @@
     "race": 6,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/mekalia"
+    "_source": "https://vgsoharchive.com/zones/mekalia",
+    "title": "Blacksmith Instructor"
   },
   "arch_silaskun_lojay": {
     "name": "Silaskun Lojay",
@@ -24350,7 +24464,8 @@
     "level": 20,
     "health": 900,
     "model": 0,
-    "_source": "https://vgsoharchive.com/zones/tursh-village"
+    "_source": "https://vgsoharchive.com/zones/tursh-village",
+    "title": "Black Diamond Captain"
   },
   "arch_sabre": {
     "name": "Sabre",
@@ -24524,7 +24639,8 @@
     "level": 20,
     "health": 900,
     "model": 1,
-    "_source": "https://vgsoharchive.com/zones/tursh-village"
+    "_source": "https://vgsoharchive.com/zones/tursh-village",
+    "title": "You need to talk to this NPC (and agree "
   },
   "arch_marshal_rusten": {
     "name": "Marshal Rusten",
@@ -24543,7 +24659,15 @@
     "level": 20,
     "health": 900,
     "model": 1,
-    "_source": "https://vgsoharchive.com/zones/tursh-village"
+    "_source": "https://vgsoharchive.com/zones/tursh-village",
+    "parley": [
+      "archive_gossip_1",
+      "archive_incite_1",
+      "archive_entertain_1",
+      "archive_interview_1"
+    ],
+    "parley_level": 12,
+    "presence_station": "domestic"
   },
   "arch_sentinel_ashtor": {
     "name": "Sentinel Ashtor",
@@ -25312,7 +25436,8 @@
     "level": 22,
     "health": 980,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/the-legend-of-trengal-keep-part-2"
+    "_source": "https://vgsoharchive.com/quests/the-legend-of-trengal-keep-part-2",
+    "difficulty": 1
   },
   "arch_d_karrkrojrolak": {
     "name": "D'karrkrojrolak",
@@ -26211,7 +26336,8 @@
     "level": 12,
     "health": 580,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/destruction-of-spite"
+    "_source": "https://vgsoharchive.com/quests/destruction-of-spite",
+    "difficulty": 2
   },
   "arch_hashard_ikarm": {
     "name": "Hashard Ikarm",
@@ -26248,7 +26374,8 @@
     "level": 12,
     "health": 580,
     "model": 1,
-    "_source": "https://vgsoharchive.com/quests/intervention"
+    "_source": "https://vgsoharchive.com/quests/intervention",
+    "difficulty": 2
   },
   "arch_boatman_bodgrieg": {
     "name": "Boatman Bodgrieg",
@@ -27095,5 +27222,504 @@
     "difficulty": 3,
     "_source": "https://vgsoharchive.com/mobs/mannok-the-armorer",
     "loot": "arch_mannok_the_armorer_drops"
+  },
+  "arch_rezo_xylorn": {
+    "name": "Rezo Xylorn",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "parley_level": 47,
+    "presence_station": "outsider",
+    "_source": "https://vgsoharchive.com/mobs/rezo-xylorn"
+  },
+  "arch_saiid_ghurani": {
+    "name": "Saiid Ghurani",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_700",
+      "archive_incite_700",
+      "archive_interview_700"
+    ],
+    "parley_level": 45,
+    "presence_station": "outsider",
+    "_source": "https://vgsoharchive.com/mobs/saiid-ghurani"
+  },
+  "arch_ryo_of_the_ra_jin": {
+    "name": "Ryo of the Ra'Jin",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 17,
+    "health": 1170,
+    "damage": [
+      17,
+      51
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/ryo-of-the-ra-jin",
+    "loot": "arch_ryo_of_the_ra_jin_drops"
+  },
+  "arch_rykarn_bloodstone": {
+    "name": "Rykarn Bloodstone",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 50,
+    "health": 2100,
+    "difficulty": 2,
+    "model": 1,
+    "title": "Light Fighter Instructor (upstairs)",
+    "_source": "https://vgsoharchive.com/mobs/rykarn-bloodstone"
+  },
+  "arch_sentry_baghan": {
+    "name": "Sentry Baghan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 8,
+    "health": 420,
+    "damage": [
+      8,
+      16
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/sentry-baghan",
+    "loot": "arch_sentry_baghan_drops"
+  },
+  "arch_rotten_skeleton": {
+    "name": "Rotten Skeleton",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 7,
+    "health": 380,
+    "damage": [
+      7,
+      14
+    ],
+    "_source": "https://vgsoharchive.com/mobs/rotten-skeleton"
+  },
+  "arch_rotan": {
+    "name": "Rotan",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 7,
+    "health": 380,
+    "damage": [
+      7,
+      14
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/rotan"
+  },
+  "arch_rumblein": {
+    "name": "Rumblein",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 5,
+    "health": 300,
+    "damage": [
+      5,
+      10
+    ],
+    "aggro_radius": 600,
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/rumblein",
+    "loot": "arch_rumblein_drops"
+  },
+  "arch_sarom_the_mighty": {
+    "name": "Sarom the Mighty",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 42,
+    "health": 3560,
+    "damage": [
+      42,
+      168
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/sarom-the-mighty",
+    "loot": "arch_sarom_the_mighty_drops"
+  },
+  "arch_scerenarth": {
+    "name": "Scerenarth",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 32,
+    "health": 2760,
+    "damage": [
+      32,
+      128
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/scerenarth",
+    "loot": "arch_scerenarth_drops"
+  },
+  "arch_shavang": {
+    "name": "Shavang",
+    "pawn_class": "SGONPCPawn",
+    "race": 4,
+    "level": 32,
+    "health": 2760,
+    "damage": [
+      32,
+      128
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/shavang",
+    "loot": "arch_shavang_drops"
+  },
+  "arch_shebtigo_wedjejeh": {
+    "name": "Shebtigo Wedjejeh",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_1",
+      "archive_convince_1",
+      "archive_interview_1"
+    ],
+    "parley_level": 32,
+    "presence_station": "academic",
+    "_source": "https://vgsoharchive.com/mobs/shebtigo-wedjejeh"
+  },
+  "arch_river_hopper": {
+    "name": "River Hopper",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 2,
+    "health": 180,
+    "damage": [
+      2,
+      4
+    ],
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/river-hopper"
+  },
+  "arch_scour": {
+    "name": "Scour",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 34,
+    "health": 2190,
+    "damage": [
+      34,
+      102
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/scour"
+  },
+  "arch_ruquasa": {
+    "name": "Ruquasa",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 13,
+    "health": 930,
+    "damage": [
+      13,
+      39
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/ruquasa"
+  },
+  "arch_royal_guardian_xylys": {
+    "name": "Royal Guardian Xylys",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 24,
+    "health": 2650,
+    "damage": [
+      24,
+      120
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/royal-guardian-xylys",
+    "loot": "arch_royal_guardian_xylys_drops"
+  },
+  "arch_sakrav_grauma": {
+    "name": "Sakrav Grauma",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 1,
+    "title": "Merchant - Light Armor Vendor",
+    "merchant": "archive_light_armor",
+    "_source": "https://vgsoharchive.com/mobs/sakrav-grauma"
+  },
+  "arch_shadan_telair": {
+    "name": "Shadan Telair",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "title": "Finishing Taskmaster",
+    "_source": "https://vgsoharchive.com/mobs/shadan-telair"
+  },
+  "arch_rozan": {
+    "name": "Rozan",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 33,
+    "health": 3550,
+    "damage": [
+      33,
+      165
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/rozan"
+  },
+  "arch_rotblood_messenger": {
+    "name": "Rotblood Messenger",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 38,
+    "health": 4050,
+    "damage": [
+      38,
+      190
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/rotblood-messenger",
+    "loot": "arch_rotblood_messenger_drops"
+  },
+  "arch_shang_monk": {
+    "name": "Shang Monk",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 2,
+    "health": 180,
+    "damage": [
+      2,
+      4
+    ],
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/shang-monk"
+  },
+  "arch_rul_alouk_the_soulscorcher": {
+    "name": "RUL'ALOUK THE SOULSCORCHER",
+    "pawn_class": "SGONPCPawn",
+    "race": 282,
+    "level": 24,
+    "health": 2650,
+    "damage": [
+      24,
+      120
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/rul-alouk-the-soulscorcher",
+    "loot": "arch_rul_alouk_the_soulscorcher_drops"
+  },
+  "arch_saermin_halganon": {
+    "name": "Saermin Halganon",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 1700,
+    "model": 2,
+    "title": "Mount Vendor",
+    "merchant": "general_goods",
+    "_source": "https://vgsoharchive.com/mobs/saermin-halganon"
+  },
+  "arch_riptooth": {
+    "name": "Riptooth",
+    "pawn_class": "SGONPCPawn",
+    "race": 80,
+    "level": 37,
+    "health": 3160,
+    "damage": [
+      37,
+      148
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/riptooth",
+    "loot": "arch_riptooth_drops"
+  },
+  "arch_sadantel_seniaqo": {
+    "name": "Sadantel Seniaqo",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 49,
+    "health": 2060,
+    "difficulty": 4,
+    "model": 3,
+    "title": "High Justice of the Lucent Circle",
+    "_source": "https://vgsoharchive.com/mobs/sadantel-seniaqo"
+  },
+  "arch_shabaqen_haashqo": {
+    "name": "Shabaqen Haashqo",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 49,
+    "health": 2060,
+    "difficulty": 4,
+    "model": 1,
+    "title": "High Justice of the Lucent Circle",
+    "_source": "https://vgsoharchive.com/mobs/shabaqen-haashqo"
+  },
+  "arch_rubicun": {
+    "name": "RUBICUN",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 21,
+    "health": 2350,
+    "damage": [
+      21,
+      105
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/rubicun",
+    "loot": "arch_rubicun_drops"
+  },
+  "arch_rift_guardian_balnor": {
+    "name": "Rift Guardian Balnor",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 11,
+    "health": 810,
+    "damage": [
+      11,
+      33
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/rift-guardian-balnor",
+    "loot": "arch_rift_guardian_balnor_drops"
+  },
+  "arch_riftseeker_dissector": {
+    "name": "Riftseeker Dissector",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 10,
+    "health": 750,
+    "damage": [
+      10,
+      30
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/riftseeker-dissector",
+    "loot": "arch_riftseeker_dissector_drops"
+  },
+  "arch_risen_farmer": {
+    "name": "Risen Farmer",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 1,
+    "health": 140,
+    "damage": [
+      1,
+      2
+    ],
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/risen-farmer",
+    "loot": "arch_risen_farmer_drops"
+  },
+  "arch_sentinel_brewyn": {
+    "name": "Sentinel Brewyn",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 0,
+    "parley": [
+      "archive_gossip_70",
+      "archive_incite_70",
+      "archive_entertain_70",
+      "archive_convince_70",
+      "archive_interview_70"
+    ],
+    "parley_level": 12,
+    "presence_station": "soldier",
+    "_source": "https://vgsoharchive.com/mobs/sentinel-brewyn"
+  },
+  "arch_sentinel_inamor": {
+    "name": "Sentinel Inamor",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 20,
+    "health": 900,
+    "model": 1,
+    "parley": [
+      "archive_gossip_70",
+      "archive_incite_70",
+      "archive_entertain_70",
+      "archive_convince_70",
+      "archive_interview_70"
+    ],
+    "parley_level": 17,
+    "presence_station": "soldier",
+    "_source": "https://vgsoharchive.com/mobs/sentinel-inamor"
+  },
+  "arch_sentinel_lothnara": {
+    "name": "Sentinel Lothnara",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 35,
+    "health": 1500,
+    "difficulty": 2,
+    "model": 2,
+    "parley": [
+      "archive_gossip_70",
+      "archive_incite_70",
+      "archive_entertain_70",
+      "archive_convince_70",
+      "archive_interview_70"
+    ],
+    "parley_level": 20,
+    "presence_station": "soldier",
+    "_source": "https://vgsoharchive.com/mobs/sentinel-lothnara"
+  },
+  "arch_saphson": {
+    "name": "Saphson",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 48,
+    "health": 4040,
+    "damage": [
+      48,
+      192
+    ],
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/saphson",
+    "loot": "arch_saphson_drops"
+  },
+  "arch_saill": {
+    "name": "Saill",
+    "pawn_class": "SGONPCPawn",
+    "race": 86,
+    "level": 32,
+    "health": 2760,
+    "damage": [
+      32,
+      128
+    ],
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/saill",
+    "loot": "arch_saill_drops"
   }
 }
