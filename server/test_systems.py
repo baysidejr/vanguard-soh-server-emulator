@@ -1734,6 +1734,18 @@ class ImportZoneTests(unittest.TestCase):
         self.assertEqual(out["arch_a_b"][0]["trainer_classes"], ["Warrior", "Paladin", "Dread Knight"])
         self.assertNotIn("z", out["arch_a_b"][1])                                       # no neighbour: the terrain
 
+    def test_altars_and_mailboxes_from_zone_map(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        zone = {"map_places": [{"name": "Bindstone", "location": {"raw": "100, 100"}},
+                               {"name": "Resurection Altar", "location": {"raw": "1100, 100"}},    # too close to the first
+                               {"name": "Altar", "location": {"raw": "-9000, 100"}},
+                               {"name": "Mailbox", "location": {"raw": "5, 5"}}]}
+        existing = [{"mob": "camp_altar", "x": -9500, "y": 0}]
+        out = import_zone.service_props(zone, [{"mob": "a", "x": 0, "y": 0, "z": 77}], existing)
+        self.assertEqual([(s["mob"], s["x"], s.get("z")) for s in out], [("camp_altar", 100, 77), ("camp_mailbox", 5, 77)])
+
     def test_quest_giver_not_doubled(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

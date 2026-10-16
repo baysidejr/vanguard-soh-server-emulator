@@ -330,7 +330,45 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
             continue
         mobs[key] = t
         spawns.append(sp)
+    spawns.extend(service_props(zone_rec, spawns, existing_spawns(level)))
     return level, mobs, face(spawns)
+
+
+# Map places that are a service object: the camp's templates (Altar of Binding, Mailbox) stand there.
+SERVICE_PLACES = ((re.compile(r"bind|altar|alter\b|resur+ection", re.I), "camp_altar", 3000),
+                  (re.compile(r"^mailbox$", re.I), "camp_mailbox", 1000))
+
+
+SHARED_PROPS = {mob for _, mob, _ in SERVICE_PLACES}
+
+
+def existing_spawns(level, content=CONTENT):
+    return load(os.path.join(content, "spawns", level + ".json"), {}).get("spawns", [])
+
+
+def service_props(zone_rec, placed, existing=()):
+    """[spawn]: Altars of Binding at the zone map's "Bindstone" / "Altar" / "Resurection Altar"
+    places and mailboxes at its "Mailbox" places, unless one already stands within its spacing
+    (3000 units for altars, 1000 for mailboxes). Height as for map_people."""
+    out = []
+    for mp in (zone_rec or {}).get("map_places") or []:
+        m = re.match(r"\s*(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)", str((mp.get("location") or {}).get("raw") or ""))
+        if not m:
+            continue
+        x, y = float(m.group(1)), float(m.group(2))
+        for pattern, mob, spacing in SERVICE_PLACES:
+            if not pattern.search(mp.get("name") or ""):
+                continue
+            others = [s for s in list(existing) + out if s.get("mob") == mob]
+            if any(math.hypot(s["x"] - x, s["y"] - y) < spacing for s in others):
+                break
+            near = [s for s in placed if s.get("z") is not None and math.hypot(s["x"] - x, s["y"] - y) < NEIGHBOUR_Z]
+            sp = {"mob": mob, "x": round(x), "y": round(y), "yaw": 0}
+            if near:
+                sp["z"] = min(near, key=lambda s: math.hypot(s["x"] - x, s["y"] - y))["z"]
+            out.append(sp)
+            break
+    return out
 
 
 # Map place names that are a role ("Sorcerer Instructor", "Horseshoe Vendor", "Bankers"): the
@@ -516,7 +554,10 @@ def apply(level, mobs, spawns, content=CONTENT):
     spawn_path = os.path.join(content, "spawns", level + ".json")
     doc = load(spawn_path, {"spawns": []})
     have = {s.get("mob") for s in doc.get("spawns", [])}
-    new_spawns = [s for s in spawns if s["mob"] not in have]
+    # Service props (altars, mailboxes) are shared templates: service_props already checked the
+    # spacing against the file, so they're added even when the chunk has one of that kind.
+    new_spawns = [s for s in spawns if s["mob"] not in have or (s["mob"] in SHARED_PROPS and not any(
+        o.get("mob") == s["mob"] and o.get("x") == s["x"] and o.get("y") == s["y"] for o in doc.get("spawns", [])))]
     if new_mobs or grew:
         existing.update(new_mobs)
         write(mobs_path, existing)

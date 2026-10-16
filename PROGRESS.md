@@ -87,6 +87,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures and 24 creature camps i
 
 ## Done
 
+- 2026-10-15: Altars of Binding and mailboxes at the zone maps' Bindstone / Altar / Mailbox places (import_zone.service_props): 39 more, spaced from the existing ones.
+
 - 2026-10-15: People from the zone pages' maps (import_zone.map_people): 734 NPCs without a recorded position placed at their map place, with titles and services from role names (merchants, bankers, class and archetype trainers), height from a nearby positioned NPC or the terrain. Seen live: Ghobad Houri at a market stall in Ahgram.
 
 - 2026-10-15: Creature camps from the zone pages' maps (import_zone.camps): plural place names that match a creature of the zone ("Hill Cats") get three of them around the map point, z from the terrain. 24 camps, 72 spawns; 4 more archive quests became playable (21 in all, 2 kill quests). Seen live: Ksaravi Foragers in Khal.
