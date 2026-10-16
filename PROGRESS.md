@@ -88,6 +88,8 @@ Content: 82 regions hold about 1,950 NPCs, 179 creatures, 24 creature camps and 
 
 ## Done
 
+- 2026-10-15: NPC obstacle maps are built on a background thread: the first NPC move in a big city chunk stalled the server 2.1 s (50 bots in Bordinar's Cleft); now the worst ping is 437 ms, memory flat at 239 MB (docs/TESTING.md).
+
 - 2026-10-15: Editor tab "Archive quests": per zone, the playable archive quests and, for each blocked one, which objectives can't be done yet and why (quest_readiness.report). Checked with a headless Edge screenshot (Khal: 1 ready, 65 blocked).
 
 - 2026-10-15: Fireworks show: runtime-spawned emitters do render (0x553 bonfire and sparklers seen); the item's ability Action just spawns none. items.json fireworks_fx makes set_off_fireworks spawn a sparkler at the player for the chunk. Seen live: blue sparks from the Blue Rocket.

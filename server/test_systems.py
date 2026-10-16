@@ -2090,3 +2090,26 @@ class ArchiveMerchantTests(unittest.TestCase):
         c = content.Content.__new__(content.Content)
         c.loot, c.items = {"t": [{"name": "Known"}, {"name": "Unknown"}, {"name": "Set", "icon": 7}]}, {"Known": {"icon": 436}}
         self.assertEqual([icon for _, icon, _ in c.roll_loot("t")], [436, 442, 7])
+
+
+class ObstacleLoadTests(unittest.TestCase):
+    def test_obstacles_build_in_the_background(self):
+        import threading
+        gate = threading.Event()
+        def slow(level):
+            gate.wait(5)
+            return ["obs"]
+        import obstacles
+        import time
+        with unittest.mock.patch.object(obstacles, "obstacles", side_effect=slow), \
+                unittest.mock.patch.object(zone, "obstacles_blocked", return_value=True):
+            zone._obstacles.pop("chunk_test", None)
+            self.assertFalse(zone.npc_blocked("chunk_test", 0, 0, 0))     # loading: not blocked, no wait
+            self.assertFalse(zone.npc_blocked("chunk_test", 0, 0, 0))
+            gate.set()
+            for _ in range(50):
+                if zone._obstacles.get("chunk_test") == ["obs"]:
+                    break
+                time.sleep(0.02)
+            self.assertTrue(zone.npc_blocked("chunk_test", 0, 0, 0))
+        zone._obstacles.pop("chunk_test", None)

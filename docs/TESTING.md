@@ -205,3 +205,5 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 ## Crowded city load (2026-10-15)
 
 `python tools/loadtest.py --setup 20 --at=-13,-9,-3276,-45175,1545`, then `--bots 20 --seconds 60` with the same `--at`: 20 bots walking in Khal (chunk -13, -9, 147 spawns after the archive imports, the busiest chunk). All 20 entered chunk_n13_n9; steady-state ping median 10.6 ms, p95 11.3 ms, max 13.3 ms, no server errors, the same as the camp. `--cleanup` removes the bots.
+
+50 bots for 300 s in Bordinar's Cleft (`--at=-28,26,226,-76150,86990`, 128 spawns): memory settles at 239 MB (a one-off peak of about 720 MB about a minute in, while the chunk's obstacle map is built). The first run showed a 2.1 s ping: NPC obstacles were built in the server loop the first time an NPC moved (`zone.npc_blocked`; 0.7 s for this map alone, longer under load). They are now built on a background thread (nothing counts as blocked meanwhile); the re-run's worst ping was 437 ms, p95 11.3 ms, no errors.

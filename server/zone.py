@@ -1192,18 +1192,31 @@ def grouploot_rarity_wire(name):
 _obstacles = {}
 
 
+_LOADING = object()
+
+
+def _load_obstacles(level):
+    try:
+        import obstacles
+        _obstacles[level] = obstacles.obstacles(level)
+    except Exception as e:                           # missing or unreadable files
+        print(f"  obstacles for {level} unavailable: {e}")
+        _obstacles[level] = None
+
+
 def npc_blocked(level, x, y, z):
-    """True when (x, y, z) is inside one of the chunk's obstacles (obstacles.py; loaded
-    once per chunk; no obstacles if the client files can't be read)."""
-    if level not in _obstacles:
-        try:
-            import obstacles
-            _obstacles[level] = obstacles.obstacles(level)
-        except Exception as e:                       # missing or unreadable files
-            print(f"  obstacles for {level} unavailable: {e}")
-            _obstacles[level] = None
-    obs = _obstacles[level]
-    return obs is not None and obstacles_blocked(obs, x, y, z)
+    """True when (x, y, z) is inside one of the chunk's obstacles (obstacles.py; no obstacles if
+    the client files can't be read). The first call for a chunk starts building its obstacles on
+    a background thread (a city map takes most of a second, which stalled every player when it
+    ran in the server loop: a 2 s ping in a 50-bot run in Bordinar's Cleft); until it is done
+    nothing counts as blocked."""
+    obs = _obstacles.get(level)
+    if obs is None and level not in _obstacles:
+        import threading
+        _obstacles[level] = _LOADING
+        threading.Thread(target=_load_obstacles, args=(level,), daemon=True).start()
+        return False
+    return obs is not None and obs is not _LOADING and obstacles_blocked(obs, x, y, z)
 
 
 def obstacles_blocked(obs, x, y, z):
