@@ -33,11 +33,18 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next action:** re-check `GetForegroundWindow` at the start of each session.
 
 ## B-004 Intermittent load-test latency spike
-- **Priority:** P2 · **Category:** stability · **State:** NOT_STARTED
+- **Priority:** P2 · **Category:** stability · **State:** VERIFIED (not reproduced)
 - **Evidence:** 2026-10-16 first `check_all.py` run after B-001: load test p95 43.7 ms, max 3092 ms (214 pings instead of 254); the next run p95 11.0 ms, max 11.8 ms. Earlier runs were all ~11 ms.
 - **Paths:** `tools/loadtest.py`, `server/zone.py` (obstacle worker), `server/login_stub.py` main loop
 - **Done when:** the spike is reproduced and explained (e.g. first obstacle-worker start, scratch DB not kept open) or 5 consecutive runs show none.
-- **Next action:** run the load test 5 times on a fresh scratch copy and log per-second ping maxima with the server's tick timing.
+- **Result 2026-10-16:** the check_all sequence (fresh scratch copy, server, 19 scenarios, 20 bots for 20 s) run 5 times in a row: steady-state p95 10.9 to 11.2 ms, max 11.3 to 21.3 ms, 253 to 254 steady pings every run; overall max 53 to 64 ms (the login burst); no server errors. The one 3 s stall did not recur; most likely the PC was busy at that moment (the game client and other jobs were running then). Real DB fingerprint unchanged.
+- **Next action:** reopen if check_all reports a steady-state max over 100 ms again (then keep the server log and per-second ping times).
+
+## B-014 Leaked temp folders from scrape-branch reads
+- **Priority:** P3 · **Category:** stability (disk) · **State:** VERIFIED
+- **Evidence:** 111 `vgemu-raw-*` folders in %TEMP% (2026-10-15 21:00 onward): `import_zone.branch_raw` (used by `--branch` in import_zone, quest_readiness, refresh_archive) extracted the scrape branch with `git archive` and never removed it.
+- **Fix:** the folder is removed at exit (`atexit`). Old folders (copies of git content) deleted.
+- **Last validation:** `quest_readiness.py --branch origin/crowdsourced/archive-collection` leaves the count unchanged.
 
 ## B-005 Automated coverage: reconnects, repeated logins, zone transitions, malformed packets
 - **Priority:** P2 · **Category:** stability · **State:** VERIFIED (a, b, c); edge walk open

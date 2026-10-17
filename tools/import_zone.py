@@ -919,11 +919,13 @@ def stock_merchants(content=CONTENT):
 
 def branch_raw(ref):
     """The raw batches of a git ref (the scrape publishes to its own branch), extracted with git
-    archive into a temporary folder; the branch is not merged. Returns the raw folder."""
-    import subprocess, tarfile, tempfile, io
+    archive into a temporary folder (removed when the program exits); the branch is not merged.
+    Returns the raw folder."""
+    import atexit, shutil, subprocess, tarfile, tempfile, io
     subprocess.run(["git", "fetch", "-q", "origin"], cwd=ROOT, check=False)
     data = subprocess.run(["git", "archive", ref, "crowdsourced/raw"], cwd=ROOT, capture_output=True, check=True).stdout
     out = tempfile.mkdtemp(prefix="vgemu-raw-")
+    atexit.register(shutil.rmtree, out, True)
     with tarfile.open(fileobj=io.BytesIO(data)) as tar:
         tar.extractall(out, filter="data")
     return os.path.join(out, "crowdsourced", "raw")

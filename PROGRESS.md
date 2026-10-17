@@ -94,6 +94,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: tools/provenance.py (B-011): per content file, records citing an archive page, marked placeholders, and unmarked hand-made ones. Load spike (B-004) not reproduced in 5 check runs (steady p95 ~11 ms). `--branch` reads no longer leave a temp copy of the scrape branch behind (B-014).
+
 - 2026-10-16: Scenario "second login" (B-005a): a second connection for an online character terminates the old one and plays. Editor fix (B-013): the quest form could drop turn_in when used before its NPC lists loaded (the source of the intermittent test_forms_round_trip failure).
 
 - 2026-10-16: Test isolation (backlog B-001): check_all.py and smoke_test.py now run every phase on a read-only scratch copy of server/vanguard.db (storage.scratch_copy; scenarios.py --data-dir); a full run leaves the real database byte-for-byte identical (row fingerprint checked). Added docs/MASTER_BACKLOG.md and docs/AGENT_CHECKPOINT.md.
