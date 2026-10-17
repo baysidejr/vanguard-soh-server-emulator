@@ -280,6 +280,16 @@ In order of what each would unlock (numbers from 2026-10-16):
 - Quest-node particles explained (B-006): the client places them at twice the pawn's collision height above its base (Ghidra), an ore vein's is 50 (winbreak), so they sit inside the boulder; on an NPC they show. Client data.
 - Fixed: the editor's quest form could drop turn_in (B-013); `--branch` reads leaked temp folders (B-014).
 
+**2026-10-17, after the owner's decisions (VANGUARD_CLAUDE_CONTINUE.md)**
+- New characters start in the real starting areas: the client's create screen offers the Isle of Dawn or the race's home town (Tursh Village, Shang Village, Karibasa Village), and the server now honours it (`--camp-start` keeps the old camp for testing). Verified with a character made through the client's own create screen.
+- Delivery placeholders: 17 kept where the archive title names a delivery or report, 294 switched off (reversible); the importer applies the same rule to new quests.
+- The scrape branch merged three times (reviewed each time); 7 more archive quests with real objectives (77 playable).
+- Content fixes found by new audits: 40 NPCs in chunks their archive pages mislabelled (`tools/chunk_audit.py`), NPCs named "Varies" / "Then" removed (parsing leftovers), one person placed twice (Naji), Tracker Nok moved from the sea to the Tracker Camp, copied archive coordinates flagged.
+- `tools/quest_check.py`: all 99 quests a player can be offered can be finished with what is placed (guarded by a test).
+- Dead characters can no longer hail NPCs, bind at altars, loot, craft, trade, harvest, use mail or the broker ("You cannot do that while dead.").
+- `tools/client_ui.py` drives the real client on a scratch save; with it: two archive quests played end to end, riftways, altar bind + death + release, Recall, stun/root/fear, a level-up, `/con`, parleys, tombstone summon, friends/ignore, create/delete checked (docs/TESTING.md).
+- 50 bots in Khal for 2 minutes after all of it: p95 11.4 ms, no errors.
+
 ---
 
 ## 8. Where things live
