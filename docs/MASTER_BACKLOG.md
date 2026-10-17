@@ -84,7 +84,7 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Done 2026-10-17:** `tools/import_zone.py "Sundering Wastelands" --apply` and `"Wildgrowth Forest" --apply` (current main data, not the old drafts): 23 templates (4 + 19, each with its archive `_source`; race and health still placeholders), 23 spawns at their recorded archive positions, their archive drop tables in loot.json. No key or name collisions; the hand-made camp NPCs are untouched.
 - **Uncertain locations flagged:** 11 spawns whose archive z is 900-15,500 above the terrain heightmap carry `_uncertain` (probably on mesh surfaces: the three Agents sit over the terrain pit B-002 found east of the camp). The editor's "inside an obstacle" hint fires for two of them (Agent Nuraga, Muerden); SpawnWarningTests now only requires the hand-made camp to be clean.
 - **Tests:** content OK, unit 288 OK. Not yet seen in the client.
-- **Next:** look at the flagged ones in the client (scratch save, `!visit`); correct only with evidence.
+- **Live 2026-10-17 (scratch save, `!visit`):** Agent Jargo stands on his stone platform with Agent Nuraga beside him; Muerden and Administrator Bazad are inside buildings; Tracker Nok was underwater because his page's chunk label was wrong: moved to Martok by B-020 and checked again. The rest of the flagged ones match a mesh top within 400 (obstacle data).
 
 ## B-009 Merge newer scrape-branch commits
 - **Priority:** P2 · **Category:** content · **State:** IN_PROGRESS (owner decision 2026-10-17: review and merge verified, non-destructive work regularly)

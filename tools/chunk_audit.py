@@ -1,6 +1,6 @@
 """Archive spawns that are probably in the wrong chunk.
 
-Archive positions are chunk-local (docs/ARCHIVE_COORDINATES... see memory notes), and the chunk
+Archive positions are chunk-local (tools/import_zone.py places them in the chunk named by the page), and the chunk
 comes from the page's zone label, which is sometimes wrong: Tracker Nok's quest pages give
 "-22572, 88588, 553 in Wildgrowth Forest (-20,12)", where that point is open sea 5,383 units
 below him, while one page puts the same coordinates "in Martok (-20,13)", where the terrain there
