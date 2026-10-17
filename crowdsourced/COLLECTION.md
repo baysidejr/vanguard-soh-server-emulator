@@ -119,3 +119,31 @@ other permitted emulator pages still require implementation. Alternate observati
 batches require source-specific review and are not server conversion inputs.
 
 Alternate robots retrieval returned HTTP 404 at the first unified restart (PID 2264). Iteration 150 preserves the traceback and all 50 pending article URLs in a policy-review batch. The alternate scheduler now suspends intake after a missing robots response until policy review; archive collection continues in the sole runner. Article 404/410 responses are recorded as unavailable research, never extracted coverage; 401/403/429 remain fatal without retry. No missing robots policy is bypassed.
+
+## Suspension and offline review (iteration 154)
+
+Collection remains stopped with the graceful-stop signal preserved. Alternate
+intake retains the robots HTTP 404 review checkpoint for vgoplayers.com and all
+50 pending articles. Although missing-robots handling was corrected in commit
+032f157, automatic approval review rejected the combined suspension-reset,
+push and restart action with reason `blocked by policy`. That rejection remains
+in effect: this phase does not reset the checkpoint or restart network access.
+Resumption requires resolution of that rejection and an explicitly recorded
+policy disposition. Then inspect `collection.ps1 Status`, the actual process and
+lock, and resume only through `collection.ps1 Start`, with exactly one collector,
+existing archive and alternate queues, and the persisted 60-second interval.
+HTTP 401/403/429 and robots restrictions remain stop conditions.
+
+`reviewed/COLLISION_LEDGER_ITERATION154.json` consolidates 40 collision
+occurrences across 24 revalidated immutable batches, representing 28 output keys
+and 80 full source-record occurrences. Replays are retained as separate evidence,
+not independent corroboration. Every record was checked against its source-file
+hash and line; all reported collision issues still reproduce. All colliding
+outputs remain withheld. This review neither resolves identities nor counts as
+new downloads or additional game facts.
+
+At this review, the archive checkpoint retains 26,918 completed pages and 77,954
+pending URLs against 104,855 supported inventory URLs (including off-inventory
+discoveries in checkpoint counts). Publication coverage remains 25,102 zero-issue
+URLs and 1,806 URLs in research batches with issues; 77,947 inventory URLs remain
+undownloaded. Metadata-only pages and extraction review remain separate work.
