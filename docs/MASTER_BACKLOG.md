@@ -88,6 +88,7 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next action:** at each session, `git fetch` and report new commits; merge only when asked.
 - **2026-10-16 (later):** 29 new commits on the branch (cbbe68c: mob pages, loot-table and merchant-role reviews). `quest_readiness.py --branch` gives the same result as main (4,774 archive quests, 70 ready), so no delivery placeholder can be replaced from them yet. Not merged.
 - **2026-10-17 01:40:** 58 commits ahead now (5355281: mob geography and loot audits, cached mob page replays); quest readiness with the branch still 70 ready of 4,774. Not merged.
+- **2026-10-17 (later):** 84 commits ahead (85c99e5: 100 more archive pages / 115 sourced records, loot and inventory audits); quest readiness with the branch still 70 ready of 4,774. Not merged.
 
 ## B-010 Presence requirements for parleys
 - **Priority:** P3 · **Category:** fidelity · **State:** BLOCKED (user decision; gain rates unknown)
