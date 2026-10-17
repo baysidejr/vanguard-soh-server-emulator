@@ -224,4 +224,5 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Priority:** P3 · **Category:** verification · **State:** COMPLETE (no defect)
 - **So far (live 2026-10-17):** buffs live on the server-side player object, so the server keeps them; the client's display is the question. A 45 s buff (Adamant Foeman I) showed its icon with 34 s left, but the riftway took about as long, so its absence afterwards proves nothing; a stance (Offensive Style I) shows no icon in that area even before the riftway.
 - **Quest progress too (live 2026-10-17):** accepted Leafsaw Crawlers in Karibasa, `!visit` to Khal and back, killed a crawler: the tracker updated to "Leafsaw Crawlers Slain (1/8)".
+- **Groups too (scenario, 2026-10-17):** "group survives a chunk change": A and B group, B takes the riftway to Khal, B's group chat (gsay) still reaches A. Fails as expected when B leaves the group first (negative control).
 - **Settled (live 2026-10-17):** a 10-minute effect sent with `!event 0x23a` (effects.effect_add) showed "9m" before the riftway and still "9m" in Khal after it: the client keeps effect icons across a hand-off. No change needed.

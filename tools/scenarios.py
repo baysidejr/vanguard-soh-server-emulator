@@ -432,6 +432,23 @@ def main():
             bot.pump(0.2)
         return None
 
+    # Group across a chunk change: A and B group up (again; earlier scenarios replaced A's connection),
+    # then B takes the riftway; group chat (world type 6 "gsay") from B in Khal must still reach A.
+    a.send(0xB0, wstr(b.name))
+    b.pump(0.5)
+    b.send(0xB1)
+    a.pump(1.0)
+    b.pump(0.5)
+
+    def gsay_heard(speaker, listener, text):
+        speaker.world.send(struct.pack("<HII", 6, 0x14, len(wstr("gsay " + text))) + wstr("gsay " + text))
+        end = time.time() + 5
+        while time.time() < end:
+            if any(text.encode("utf-16-le") in m for m in listener.world.poll()):
+                return True
+            listener.pump(0.2)
+        return False
+
     port = rift(b, "KHAL", "chunk_n13_n9")
     fails += check("riftway", port is not None, "world event 8 to chunk_n13_n9" if port else "no zone connect for Khal")
     # Chunk hand-off and return (B-005c): follow event 8 as the client does (close the zone connection,
@@ -444,6 +461,9 @@ def main():
             b.zone, _u, there = b.join_zone(port)
             b.got = []
             b.pump(1.0)
+            heard_in_group = gsay_heard(b, a, "group from Khal")
+            fails += check("group survives a chunk change", heard_in_group,
+                           "A heard B's group chat from Khal" if heard_in_group else "no group line reached A")
             port2 = rift(b, "SUNDERINGWASTELANDS", "chunk_n19_12")
             if port2 is not None:
                 b.zone.close()
