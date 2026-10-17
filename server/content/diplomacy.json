@@ -992,6 +992,31 @@
         "xp": 100
       },
       "_archive_placeholder": true
+    },
+    "archive_interview_10": {
+      "offer": "May I ask you a few questions?",
+      "presence": 10,
+      "type": "interview",
+      "npc_cards": [
+        40100,
+        40101,
+        40102
+      ],
+      "npc_pools": {
+        "reason": 1
+      },
+      "lines": [
+        "Go on.",
+        "I'm not convinced.",
+        "That's a fair point.",
+        "Hmm, interesting."
+      ],
+      "win_at": 17,
+      "lose_at": 5,
+      "reward": {
+        "xp": 100
+      },
+      "_archive_placeholder": true
     }
   },
   "slots": 4

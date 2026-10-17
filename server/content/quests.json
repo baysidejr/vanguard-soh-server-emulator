@@ -10236,5 +10236,579 @@
     "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
     "disabled": true,
     "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_ra_jin_outpost_cripple_the_guards": {
+    "id": 5469,
+    "name": "Ra'Jin Outpost: Cripple The Guards",
+    "level": 13,
+    "giver": "arch_guard_eba",
+    "steps": [
+      {
+        "objective": "Tenebrous Guardians",
+        "kill": {
+          "arch_tenebrous_guardian": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '20' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/ra-jin-outpost-cripple-the-guards",
+    "greeting": "I could use some help. (Ra'Jin Outpost: Cripple The Guards: the archive has no dialogue yet.)",
+    "description": "Guard Eba has asked you to help: slay 10 Tenebrous Guardians.",
+    "summary": "Slay 10 Tenebrous Guardians for Guard Eba.",
+    "accept_text": "You agree to help Guard Eba.",
+    "reward": {
+      "xp": 1300
+    }
+  },
+  "arch_ulvari_corruption_ulvari_devourers": {
+    "id": 5470,
+    "name": "Ulvari Corruption: Ulvari Devourers",
+    "level": 13,
+    "giver": "arch_guard_na_cho",
+    "steps": [
+      {
+        "objective": "Ulvari Devourers",
+        "kill": {
+          "arch_ulvari_devourer": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '60' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/ulvari-corruption-ulvari-devourers",
+    "greeting": "I could use some help. (Ulvari Corruption: Ulvari Devourers: the archive has no dialogue yet.)",
+    "description": "Guard Na Cho has asked you to help: slay 10 Ulvari Devourers.",
+    "summary": "Slay 10 Ulvari Devourers for Guard Na Cho.",
+    "accept_text": "You agree to help Guard Na Cho.",
+    "reward": {
+      "xp": 1300
+    }
+  },
+  "arch_border_threat": {
+    "id": 5471,
+    "name": "Border Threat",
+    "level": 38,
+    "giver": "arch_ellda_crensh",
+    "turn_in": "arch_ellda_crensh",
+    "steps": [
+      {
+        "objective": "Sithar Goreswipes",
+        "kill": {
+          "arch_sithar_goreswipe": 12
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '11' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/border-threat",
+    "greeting": "I could use some help. (Border Threat: the archive has no dialogue yet.)",
+    "description": "Ellda Crensh has asked you to help: slay 12 Sithar Goreswipes.",
+    "summary": "Slay 12 Sithar Goreswipes for Ellda Crensh.",
+    "accept_text": "You agree to help Ellda Crensh.",
+    "reward": {
+      "xp": 3800
+    }
+  },
+  "arch_a_direct_approach": {
+    "id": 5472,
+    "name": "A Direct Approach",
+    "level": 20,
+    "giver": "arch_dijok_hokon",
+    "turn_in": "arch_dijok_hokon",
+    "steps": [
+      {
+        "objective": "Ulabenian Captains Slain",
+        "kill": {
+          "arch_ulabenian_captain": 3
+        }
+      },
+      {
+        "objective": "Ulabenian Suppliers Slain",
+        "kill": {
+          "arch_ulabenian_supplier": 5
+        }
+      },
+      {
+        "objective": "Ulabenian Sharpshooters Slain",
+        "kill": {
+          "arch_ulabenian_sharpshooter": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '80' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/a-direct-approach",
+    "greeting": "I could use some help. (A Direct Approach: the archive has no dialogue yet.)",
+    "description": "Dijok Hokon has asked you to help: slay 3 Ulabenian Captains, then slay 5 Ulabenian Suppliers, then slay 5 Ulabenian Sharpshooters.",
+    "summary": "Slay 3 Ulabenian Captains; Slay 5 Ulabenian Suppliers; Slay 5 Ulabenian Sharpshooters for Dijok Hokon.",
+    "accept_text": "You agree to help Dijok Hokon.",
+    "reward": {
+      "xp": 2000
+    }
+  },
+  "arch_recover_the_goods": {
+    "id": 5473,
+    "name": "Recover The Goods",
+    "level": 34,
+    "giver": "arch_narim_kinom",
+    "steps": [
+      {
+        "objective": "Stolen goods",
+        "kill": {
+          "arch_stolen_goods": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/recover-the-goods",
+    "greeting": "I could use some help. (Recover The Goods: the archive has no dialogue yet.)",
+    "description": "Narim Kinom has asked you to help: slay 5 Stolen goods.",
+    "summary": "Slay 5 Stolen goods for Narim Kinom.",
+    "accept_text": "You agree to help Narim Kinom.",
+    "reward": {
+      "xp": 3400
+    }
+  },
+  "arch_the_head_of_the_beast": {
+    "id": 5474,
+    "name": "The Head of the Beast",
+    "level": 13,
+    "giver": "arch_ju_ming",
+    "turn_in": "arch_ju_ming",
+    "steps": [
+      {
+        "objective": "Squinkmar the Destroyer Slain",
+        "kill": {
+          "arch_squinkmar_the_destroyer": 1
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '30' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-head-of-the-beast",
+    "greeting": "I could use some help. (The Head of the Beast: the archive has no dialogue yet.)",
+    "description": "Ju Ming has asked you to help: slay 1 Squinkmar the Destroyer.",
+    "summary": "Slay 1 Squinkmar the Destroyer for Ju Ming.",
+    "accept_text": "You agree to help Ju Ming.",
+    "reward": {
+      "xp": 1300
+    }
+  },
+  "arch_task_for_three_rivers_stonesmasher_gamehunters": {
+    "id": 5475,
+    "name": "Task for Three Rivers: Stonesmasher Gamehunters",
+    "level": 15,
+    "giver": "arch_missive_postings",
+    "steps": [
+      {
+        "objective": "Stonesmasher Gamehunters Slain",
+        "kill": {
+          "arch_stonesmasher_gamehunter": 9
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/task-for-three-rivers-stonesmasher-gamehunters",
+    "greeting": "I could use some help. (Task for Three Rivers: Stonesmasher Gamehunters: the archive has no dialogue yet.)",
+    "description": "Missive Postings has asked you to help: slay 9 Stonesmasher Gamehunters.",
+    "summary": "Slay 9 Stonesmasher Gamehunters for Missive Postings.",
+    "accept_text": "You agree to help Missive Postings.",
+    "reward": {
+      "xp": 1500
+    }
+  },
+  "arch_a_friend_in_the_forest": {
+    "id": 5476,
+    "name": "A Friend in the Forest",
+    "level": 10,
+    "giver": "arch_advisor_neethax",
+    "turn_in": "arch_tracker_nok",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/a-friend-in-the-forest",
+    "steps": [
+      {
+        "objective": "Speak with Tracker Nok",
+        "talk": "arch_tracker_nok"
+      }
+    ],
+    "greeting": "I could use some help. (A Friend in the Forest: the archive has no dialogue yet.)",
+    "description": "Advisor Neethax has asked you to help: speak with Tracker Nok.",
+    "summary": "Speak with Tracker Nok for Advisor Neethax.",
+    "accept_text": "You agree to help Advisor Neethax.",
+    "reward": {
+      "xp": 250
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_beasts_of_ghalnn_s_realm": {
+    "id": 5477,
+    "name": "Beasts Of Ghalnn's Realm",
+    "level": 23,
+    "giver": "arch_muerden",
+    "turn_in": "arch_nerail_tharazen",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/beasts-of-ghalnn-s-realm",
+    "steps": [
+      {
+        "objective": "Speak with Nerail Tharazen",
+        "talk": "arch_nerail_tharazen"
+      }
+    ],
+    "greeting": "I could use some help. (Beasts Of Ghalnn's Realm: the archive has no dialogue yet.)",
+    "description": "Muerden has asked you to help: speak with Nerail Tharazen.",
+    "summary": "Speak with Nerail Tharazen for Muerden.",
+    "accept_text": "You agree to help Muerden.",
+    "reward": {
+      "xp": 575
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_missing_agents": {
+    "id": 5478,
+    "name": "Missing Agents",
+    "level": 20,
+    "giver": "arch_general_zowt",
+    "turn_in": "arch_agent_nuraga",
+    "reward": {
+      "xp": 3618,
+      "coin": 150
+    },
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/missing-agents",
+    "steps": [
+      {
+        "objective": "Speak with Agent Nuraga",
+        "talk": "arch_agent_nuraga"
+      }
+    ],
+    "greeting": "I could use some help. (Missing Agents: the archive has no dialogue yet.)",
+    "description": "General Zowt has asked you to help: speak with Agent Nuraga.",
+    "summary": "Speak with Agent Nuraga for General Zowt.",
+    "accept_text": "You agree to help General Zowt.",
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_word_to_warseer_gulkar": {
+    "id": 5479,
+    "name": "Word To Warseer Gulkar",
+    "level": 12,
+    "giver": "arch_fazin",
+    "turn_in": "arch_warseer_gulkar",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/word-to-warseer-gulkar",
+    "steps": [
+      {
+        "objective": "Speak with Warseer Gulkar",
+        "talk": "arch_warseer_gulkar"
+      }
+    ],
+    "greeting": "I could use some help. (Word To Warseer Gulkar: the archive has no dialogue yet.)",
+    "description": "Fazin has asked you to help: speak with Warseer Gulkar.",
+    "summary": "Speak with Warseer Gulkar for Fazin.",
+    "accept_text": "You agree to help Fazin.",
+    "reward": {
+      "xp": 300
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "_delivery_evidence": "the archive's quest title names a delivery or a report to the hand-in NPC (inferred from the title; the archive records no objectives)"
+  },
+  "arch_a_visit_to_the_house_of_wrath": {
+    "id": 5480,
+    "name": "A Visit To the House Of Wrath",
+    "level": 10,
+    "giver": "arch_taskmaster_zow",
+    "turn_in": "arch_administrator_bazad",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/a-visit-to-the-house-of-wrath",
+    "steps": [
+      {
+        "objective": "Speak with Administrator Bazad",
+        "talk": "arch_administrator_bazad"
+      }
+    ],
+    "greeting": "I could use some help. (A Visit To the House Of Wrath: the archive has no dialogue yet.)",
+    "description": "Taskmaster Zow has asked you to help: speak with Administrator Bazad.",
+    "summary": "Speak with Administrator Bazad for Taskmaster Zow.",
+    "accept_text": "You agree to help Taskmaster Zow.",
+    "reward": {
+      "xp": 250
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_the_crafty_one": {
+    "id": 5481,
+    "name": "The Crafty One",
+    "level": 14,
+    "giver": "arch_loamite_doma",
+    "turn_in": "arch_fazin",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-crafty-one",
+    "steps": [
+      {
+        "objective": "Speak with Fazin",
+        "talk": "arch_fazin"
+      }
+    ],
+    "greeting": "I could use some help. (The Crafty One: the archive has no dialogue yet.)",
+    "description": "Loamite Doma has asked you to help: speak with Fazin.",
+    "summary": "Speak with Fazin for Loamite Doma.",
+    "accept_text": "You agree to help Loamite Doma.",
+    "reward": {
+      "xp": 350
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_the_loamite_story": {
+    "id": 5482,
+    "name": "The Loamite Story",
+    "level": 14,
+    "giver": "arch_loamite_doma",
+    "turn_in": "arch_loremaster_parn",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-loamite-story",
+    "steps": [
+      {
+        "objective": "Speak with Loremaster Parn",
+        "talk": "arch_loremaster_parn"
+      }
+    ],
+    "greeting": "I could use some help. (The Loamite Story: the archive has no dialogue yet.)",
+    "description": "Loamite Doma has asked you to help: speak with Loremaster Parn.",
+    "summary": "Speak with Loremaster Parn for Loamite Doma.",
+    "accept_text": "You agree to help Loamite Doma.",
+    "reward": {
+      "xp": 350
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_acolyte_rank": {
+    "id": 5483,
+    "name": "Acolyte Rank",
+    "level": 41,
+    "giver": "arch_sadantel_seniaqo",
+    "turn_in": "arch_silko_guikosha",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/acolyte-rank",
+    "steps": [
+      {
+        "objective": "Speak with Silko Guikosha",
+        "talk": "arch_silko_guikosha"
+      }
+    ],
+    "greeting": "I could use some help. (Acolyte Rank: the archive has no dialogue yet.)",
+    "description": "Sadantel Seniaqo has asked you to help: speak with Silko Guikosha.",
+    "summary": "Speak with Silko Guikosha for Sadantel Seniaqo.",
+    "accept_text": "You agree to help Sadantel Seniaqo.",
+    "reward": {
+      "xp": 1025
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_apprentice_rank": {
+    "id": 5484,
+    "name": "Apprentice Rank",
+    "level": 46,
+    "giver": "arch_sadantel_seniaqo",
+    "turn_in": "arch_silko_guikosha",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/apprentice-rank",
+    "steps": [
+      {
+        "objective": "Speak with Silko Guikosha",
+        "talk": "arch_silko_guikosha"
+      }
+    ],
+    "greeting": "I could use some help. (Apprentice Rank: the archive has no dialogue yet.)",
+    "description": "Sadantel Seniaqo has asked you to help: speak with Silko Guikosha.",
+    "summary": "Speak with Silko Guikosha for Sadantel Seniaqo.",
+    "accept_text": "You agree to help Sadantel Seniaqo.",
+    "reward": {
+      "xp": 1150
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_high_justice_rank": {
+    "id": 5485,
+    "name": "High Justice Rank",
+    "level": 50,
+    "giver": "arch_sadantel_seniaqo",
+    "turn_in": "arch_silko_guikosha",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/high-justice-rank",
+    "steps": [
+      {
+        "objective": "Speak with Silko Guikosha",
+        "talk": "arch_silko_guikosha"
+      }
+    ],
+    "greeting": "I could use some help. (High Justice Rank: the archive has no dialogue yet.)",
+    "description": "Sadantel Seniaqo has asked you to help: speak with Silko Guikosha.",
+    "summary": "Speak with Silko Guikosha for Sadantel Seniaqo.",
+    "accept_text": "You agree to help Sadantel Seniaqo.",
+    "reward": {
+      "xp": 1250
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_justice_rank": {
+    "id": 5486,
+    "name": "Justice Rank",
+    "level": 50,
+    "giver": "arch_sadantel_seniaqo",
+    "turn_in": "arch_silko_guikosha",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/justice-rank",
+    "steps": [
+      {
+        "objective": "Speak with Silko Guikosha",
+        "talk": "arch_silko_guikosha"
+      }
+    ],
+    "greeting": "I could use some help. (Justice Rank: the archive has no dialogue yet.)",
+    "description": "Sadantel Seniaqo has asked you to help: speak with Silko Guikosha.",
+    "summary": "Speak with Silko Guikosha for Sadantel Seniaqo.",
+    "accept_text": "You agree to help Sadantel Seniaqo.",
+    "reward": {
+      "xp": 1250
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_templar_rank": {
+    "id": 5487,
+    "name": "Templar Rank",
+    "level": 48,
+    "giver": "arch_sadantel_seniaqo",
+    "turn_in": "arch_silko_guikosha",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/templar-rank",
+    "steps": [
+      {
+        "objective": "Speak with Silko Guikosha",
+        "talk": "arch_silko_guikosha"
+      }
+    ],
+    "greeting": "I could use some help. (Templar Rank: the archive has no dialogue yet.)",
+    "description": "Sadantel Seniaqo has asked you to help: speak with Silko Guikosha.",
+    "summary": "Speak with Silko Guikosha for Sadantel Seniaqo.",
+    "accept_text": "You agree to help Sadantel Seniaqo.",
+    "reward": {
+      "xp": 1200
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_the_ichtakhta_emissary": {
+    "id": 5488,
+    "name": "The Ichtakhta Emissary",
+    "level": 45,
+    "giver": "arch_warder_mendent",
+    "turn_in": "arch_karoz_of_the_ichtakhta",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-ichtakhta-emissary",
+    "steps": [
+      {
+        "objective": "Speak with Karoz of the Ichtakhta",
+        "talk": "arch_karoz_of_the_ichtakhta"
+      }
+    ],
+    "greeting": "I could use some help. (The Ichtakhta Emissary: the archive has no dialogue yet.)",
+    "description": "Warder Mendent has asked you to help: speak with Karoz of the Ichtakhta.",
+    "summary": "Speak with Karoz of the Ichtakhta for Warder Mendent.",
+    "accept_text": "You agree to help Warder Mendent.",
+    "reward": {
+      "xp": 1125
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_warrior_rank": {
+    "id": 5489,
+    "name": "Warrior Rank",
+    "level": 48,
+    "giver": "arch_sadantel_seniaqo",
+    "turn_in": "arch_silko_guikosha",
+    "_needs": [
+      "description",
+      "coin reward (the archive says '8' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/warrior-rank",
+    "steps": [
+      {
+        "objective": "Speak with Silko Guikosha",
+        "talk": "arch_silko_guikosha"
+      }
+    ],
+    "greeting": "I could use some help. (Warrior Rank: the archive has no dialogue yet.)",
+    "description": "Sadantel Seniaqo has asked you to help: speak with Silko Guikosha.",
+    "summary": "Speak with Silko Guikosha for Sadantel Seniaqo.",
+    "accept_text": "You agree to help Sadantel Seniaqo.",
+    "reward": {
+      "xp": 1200
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
   }
 }

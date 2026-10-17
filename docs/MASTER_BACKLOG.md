@@ -87,12 +87,10 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next:** look at the flagged ones in the client (scratch save, `!visit`); correct only with evidence.
 
 ## B-009 Merge newer scrape-branch commits
-- **Priority:** P3 · **Category:** content · **State:** BLOCKED (user authorization per merge)
-- **Evidence:** `origin/crowdsourced/archive-collection` at 2ed0b4b, merged into main 2026-10-16 with the user's go-ahead. Mission: do not merge the active scrape branch without explicit authorization.
-- **Next action:** at each session, `git fetch` and report new commits; merge only when asked.
-- **2026-10-16 (later):** 29 new commits on the branch (cbbe68c: mob pages, loot-table and merchant-role reviews). `quest_readiness.py --branch` gives the same result as main (4,774 archive quests, 70 ready), so no delivery placeholder can be replaced from them yet. Not merged.
-- **2026-10-17 01:40:** 58 commits ahead now (5355281: mob geography and loot audits, cached mob page replays); quest readiness with the branch still 70 ready of 4,774. Not merged.
-- **2026-10-17 (later):** 84 commits ahead (85c99e5: 100 more archive pages / 115 sourced records, loot and inventory audits); quest readiness with the branch still 70 ready of 4,774. Not merged.
+- **Priority:** P2 · **Category:** content · **State:** IN_PROGRESS (owner decision 2026-10-17: review and merge verified, non-destructive work regularly)
+- **Merged 2026-10-17 (0f14182):** 102 commits up to 4cb59d5. Reviewed first: every change under crowdsourced/ (raw batches, reviewed indexes, extractors and their tests); no files deleted; removed lines only in regenerated index/audit files; no conflicts (`git merge-tree`). Merged tree: crowdsourced tests 168 OK, server unit OK, content OK.
+- **Promoted into server/content (`tools/refresh_archive.py --apply`, diff reviewed):** 7 quests with real archive objectives (playable 70 -> 77: "Border Threat", "A Direct Approach", "Recover The Goods", "The Head of the Beast", ...); 51 NPC/creature templates and 54 spawns; added fields on existing archive templates (difficulty 66, title 56, merchant role 11, parley 6); 14 new delivery placeholders handled by the B-007 rule (1 kept: "Word To Warseer Gulkar"; 13 disabled); 24 invented camp spawns (`_placeholder`), all for kill targets of the 7 new real quests whose locations the archive lacks. Nothing existing overwritten. check_all 6/6, unit 291, content OK.
+- **Next action:** each session `git fetch`; when the branch has new commits, repeat: review (paths, deletions, conflicts, branch tests), merge, `refresh_archive.py` report then `--apply`, review the diff, keep questionable records out.
 
 ## B-010 Presence requirements for parleys
 - **Priority:** P3 · **Category:** fidelity · **State:** DEFERRED (owner decision A: unrestricted until evidence)
