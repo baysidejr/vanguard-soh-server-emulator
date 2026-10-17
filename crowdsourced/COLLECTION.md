@@ -118,3 +118,5 @@ whereas HTTP/policy/parser failures stop for review without retry. This schedule
 currently covers wiki articles; quest detail discovery, item search intake and
 other permitted emulator pages still require implementation. Alternate observation
 batches require source-specific review and are not server conversion inputs.
+
+Alternate robots retrieval returned HTTP 404 at the first unified restart (PID 2264). Iteration 150 preserves the traceback and all 50 pending article URLs in a policy-review batch. The alternate scheduler now suspends intake after a missing robots response until policy review; archive collection continues in the sole runner. Article 404/410 responses are recorded as unavailable research, never extracted coverage; 401/403/429 remain fatal without retry. No missing robots policy is bypassed.

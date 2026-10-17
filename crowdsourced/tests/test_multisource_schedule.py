@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+from urllib.error import HTTPError
 
 from multisource_schedule import save, step
 
@@ -51,3 +52,31 @@ class ScheduleTests(unittest.TestCase):
             with self.assertRaises(InterruptedError):
                 step(self.root)
             get.assert_not_called()
+
+    def test_missing_robots_suspends_alternate_intake_without_losing_queue(self):
+        error = HTTPError('https://vgoplayers.com/robots.txt', 404, 'Not Found', {}, None)
+        with patch('multisource_schedule.MultiSourceClient.get', side_effect=error):
+            batch = step(self.root)
+        state = json.loads(self.queue.read_text())
+        self.assertEqual(state['pending'], [self.url])
+        self.assertEqual(state['done'], [])
+        self.assertEqual(state['policy_review_required']['http_status'], 404)
+        self.assertTrue((batch / 'manifest.json').exists())
+        with patch('multisource_schedule.MultiSourceClient.get') as get:
+            self.assertIsNone(step(self.root))
+            get.assert_not_called()
+
+    def test_missing_article_is_withheld_and_access_errors_remain_fatal(self):
+        with patch('multisource_schedule.MultiSourceClient.get', side_effect=HTTPError(self.url, 404, 'Not Found', {}, None)):
+            step(self.root)
+        state = json.loads(self.queue.read_text())
+        self.assertEqual(state['done'], [])
+        self.assertEqual(state['pending'], [])
+        self.assertEqual(state['unavailable'][0]['url'], self.url)
+        save(self.queue, {'pending': [self.url], 'done': []})
+        before = self.queue.read_bytes()
+        for code in (401, 403, 429):
+            with patch('multisource_schedule.MultiSourceClient.get', side_effect=HTTPError(self.url, code, 'Denied', {}, None)):
+                with self.assertRaises(HTTPError):
+                    step(self.root)
+            self.assertEqual(self.queue.read_bytes(), before)
