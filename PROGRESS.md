@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Starting areas checked live (scratch saves): a character at each computed start loads into Isle of Dawn, Tursh Village, Shang Village and Karibasa (Cliffs of Ghelgad) on solid ground; Isle of Dawn's spot is inside a house.
+
 - 2026-10-17: Starting areas (B-017): the create request carries the chosen starting chunk; race intros in the client name Tursh, Shang Village and Karibasa; Isle of Dawn is the trial island. `--start-areas` (off by default) starts new characters there beside the area's anchor NPC. StartAreaTests; checked end to end on a scratch server.
 
 - 2026-10-17: B-006 closed: the client puts the quest-node sparkles at twice the pawn's collision height above its base (Ghidra FUN_00bbb740); an ore vein's is 50 (winbreak), so they sit inside the boulder. Client data, not a server bug.

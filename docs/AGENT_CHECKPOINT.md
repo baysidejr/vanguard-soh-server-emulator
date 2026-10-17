@@ -30,7 +30,7 @@ B-016 (packet logger on short packets, found by a deep fuzz with logging on) fix
 - B-008: import archive NPCs into Sundering Wastelands / Wildgrowth Forest.
 - B-009: merge newer scrape-branch commits (only on request); 31 new as of 2026-10-16 evening.
 - B-010: gate parleys on presence with placeholder gain rates, or keep them open.
-- B-017: implemented behind `--start-areas` (off by default); turning it on by default moves new characters from the camp to the client's chosen start (Isle of Dawn / racial villages). Needs the user's yes and a live create check.
+- B-017: implemented behind `--start-areas` (off by default); turning it on by default moves new characters from the camp to the client's chosen start (Isle of Dawn / racial villages). Verified live on scratch saves (all four starts load on solid ground). Needs the user's yes to make it the default.
 
 ## Data-integrity notes
 - Never run tests on `server/vanguard.db`; use `--data-dir` with `storage.scratch_copy`.
