@@ -9,10 +9,13 @@ town, the race's own starting area [I: two choices matched to the two values see
 that area: Tursh Village in Thestra, Shang Village near Tanvu in Kojan, or Karibasa Village on
 the Cliffs of Ghelgad near Khal in Qalia.
 
-Where in the chunk: the maps' PlayerStart actors are not real spawn points (zone.spawn_location),
-so a character stands next to the NPC its intro tells it to report to when there is one (Master
-Rahlsu in Shang Village), else at the densest cluster of the area's archive NPCs, i.e. the
-village [I: an approximation; the original spawn spots were server data].
+Where in the chunk, in this order:
+1. beside the NPC its intro tells it to report to (Master Rahlsu in Shang Village);
+2. the map's own PlayerStart when it looks placed for players: just above the ground and near
+   NPCs (Isle of Dawn 192 units up / 889 from an NPC, Tursh 155 / 162). Many maps' PlayerStarts
+   are leftovers (the camp's hang 24,000 units over a canyon and the sea; zone.spawn_location);
+3. the densest cluster of the area's peaceful archive NPCs, i.e. the village [I].
+The original spawn spots were server data, so 2 and 3 are approximations.
 
 Off unless the server runs with --start-areas.
 """
@@ -32,6 +35,8 @@ RACE_START = {
 # The NPC an area's intro text names ("report to Master Rahlsu").
 NAMED_NPC = {SHANG: "Master Rahlsu"}
 CLUSTER_RADIUS = 3000.0
+START_MAX_ABOVE_GROUND = 400.0  # a PlayerStart higher than this over the terrain is a leftover
+START_MAX_FROM_NPC = 2000.0     # ... and so is one this far from every NPC
 BESIDE = 120.0                  # stand this far from the anchor, not inside it
 
 
@@ -70,13 +75,47 @@ def anchor(spawns, chunk):
     return max(people, key=lambda p: sum((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 <= r2 for q in people))
 
 
-def start_position(content, chunk, level, client_dir, lift):
-    """Saved-position triple (pawn centre, as the client reports it) beside the anchor, or None."""
-    a = anchor(content.spawns(level, client_dir), chunk)
-    if a is None:
-        return None
-    x, y = a[0] + BESIDE, a[1]
-    z = content.ground_z(level, x, y, client_dir)
+def usable_player_start(starts, spawns, ground_z):
+    """(x, y) of the first PlayerStart that stands just above the ground near an NPC, else None.
+    ground_z(x, y) -> terrain height or None."""
+    for st in starts:
+        if not st:
+            continue
+        x, y, z = st
+        g = ground_z(x, y)
+        if g is None or not 0 <= z - g <= START_MAX_ABOVE_GROUND:
+            continue
+        if any((s["x"] - x) ** 2 + (s["y"] - y) ** 2 <= START_MAX_FROM_NPC ** 2 for s, _t in spawns):
+            return x, y
+    return None
+
+
+def map_player_starts(client_dir, level):
+    import os
+    import upackage
+    try:
+        return upackage.Package(os.path.join(client_dir, "Assets", "Maps", level + ".vgr")).player_starts()
+    except (OSError, ValueError, KeyError, IndexError):
+        return []
+
+
+def start_position(content, chunk, level, client_dir, lift, starts=None):
+    """Saved-position triple (pawn centre, as the client reports it) for a new character, or None.
+    starts: the map's PlayerStart locations (read from the map when None)."""
+    spawns = content.spawns(level, client_dir)
+    ground = lambda x, y: content.ground_z(level, x, y, client_dir)
+    spot = None
+    name = NAMED_NPC.get(tuple(chunk))
+    if not (name and any(t.get("name") == name for _s, t in spawns)):
+        spot = usable_player_start(map_player_starts(client_dir, level) if starts is None else starts,
+                                   spawns, ground)
+    if spot is None:
+        a = anchor(spawns, chunk)
+        if a is None:
+            return None
+        spot = (a[0] + BESIDE, a[1])
+    x, y = spot
+    z = ground(x, y)
     if z is None:
         return None
     return [x, y, z + lift]

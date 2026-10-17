@@ -2303,3 +2303,33 @@ class StartAreaTests(unittest.TestCase):
         with mock.patch.object(login_stub, "ARGS", args):
             login_stub.place_new_character(other, self.raw(14, 5, 5))
         self.assertNotIn("chunk", other)                               # stays at the camp
+
+
+class StartSpotTests(unittest.TestCase):
+    """B-017: a map's PlayerStart is used only when it looks placed for players."""
+
+    def test_player_start_rule(self):
+        import start_areas as sa
+        npcs = [({"x": 0, "y": 0}, {"name": "Elder"})]
+        flat = lambda x, y: 100.0
+        self.assertEqual(sa.usable_player_start([(500, 0, 290)], npcs, flat), (500, 0))      # 190 up, near
+        self.assertIsNone(sa.usable_player_start([(500, 0, 24000)], npcs, flat))           # hangs in the air
+        self.assertIsNone(sa.usable_player_start([(50000, 0, 290)], npcs, flat))           # far from everyone
+        self.assertIsNone(sa.usable_player_start([None, (500, 0, 50)], npcs, flat))        # below the ground
+
+    def test_start_position_order(self):
+        import start_areas as sa
+        from unittest import mock
+        content = mock.Mock()
+        content.ground_z.return_value = 100.0
+        content.spawns.return_value = [({"x": 0, "y": 0}, {"name": "Elder"})]
+        # a usable PlayerStart wins over the village cluster
+        self.assertEqual(sa.start_position(content, sa.ISLE_OF_DAWN, "x", None, 90, starts=[(500, 0, 290)]),
+                         [500, 0, 190.0])
+        # no usable one: beside the cluster
+        self.assertEqual(sa.start_position(content, sa.ISLE_OF_DAWN, "x", None, 90, starts=[]),
+                         [sa.BESIDE, 0, 190.0])
+        # the NPC the intro names wins over the PlayerStart
+        content.spawns.return_value = [({"x": 7, "y": 7}, {"name": "Master Rahlsu"})]
+        self.assertEqual(sa.start_position(content, sa.SHANG, "x", None, 90, starts=[(10, 7, 290)]),
+                         [7 + sa.BESIDE, 7, 190.0])
