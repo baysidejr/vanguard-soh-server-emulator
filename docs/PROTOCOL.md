@@ -94,7 +94,7 @@ After the login reply, the login server sends the world list, the account's char
 | S→C | 1, 2 | Login-side text / failure | 2 = "Invalid LoginServer login, result = %d" |
 | C→S | `0x6f` | Client log line | u16 0x0c, string file, string text |
 
-**Create request bytes after the names:** 4 zero bytes; 5 bytes with race at +7 and class at +8; i32 x, i32 y of the **chosen starting chunk** (+9, +13); 64 appearance slider bytes. (−26, 1) is the Isle of Dawn in ChunkNames.txt and is what 6 of the 7 saved characters sent; one sent (−65535, −65535), probably "no island, use the race's area" [I]. The login UI has a starting-city selector (`starting_city_select`, `strCharacterCreateStartingArea`, `bShowTrialIslandTab`). The server ignores the field so far (backlog B-017).
+**Create request bytes after the names:** 4 zero bytes; 5 bytes with race at +7 and class at +8; i32 x, i32 y of the **chosen starting chunk** (+9, +13); 64 appearance slider bytes. (−26, 1) is the Isle of Dawn in ChunkNames.txt and is what 6 of the 7 saved characters sent; one sent (−65535, −65535). The create screen's StartingCitySelect window has exactly two buttons, `character_create_choose_trial_island` and `character_create_choose_home_town`, so (−65535, −65535) is "home town" (the race's area) [I: two choices, two values]. The login UI has a starting-city selector (`starting_city_select`, `strCharacterCreateStartingArea`, `bShowTrialIslandTab`). The server uses it with `--start-areas` (start_areas.py, backlog B-017).
 
 **Create result codes:** 0 success, 1 first name taken, 2/3/4 invalid class/race/gender, 5 no starting location, 7 already in game, 8–0x0e name errors, 0x0f bad race/class combo, 0x10 no free slot.
 
