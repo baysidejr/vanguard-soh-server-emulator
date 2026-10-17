@@ -1,0 +1,160 @@
+{
+  "reviewed_at": "2026-10-17T13:22:30+00:00",
+  "disposition": "Unresolved normalized-name creature/NPC collision; all colliding mobs outputs withheld. Distinct source URLs and differently punctuated names do not establish identity or historical role. No values merged or guessed.",
+  "validation": {
+    "issues": [
+      "output key collision ('mobs', 'tsal_k_lor'): [('creature', 'Tsal K´lor'), ('npc', \"Tsal K'lor\")]; all withheld"
+    ],
+    "count": 1
+  },
+  "full_source_records": [
+    {
+      "source_file": "raw/2026-10-17-081319-159314-archive-bulk/creature.jsonl",
+      "line": 8,
+      "record": {
+        "name": "Tsal K´lor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tsal-k-lor-2",
+            "title": "Tsal K´lor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T12:20:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Lomshir Plain"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "creature",
+        "level": null,
+        "zone": "Lomshir Plain",
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": null,
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Lomshir Plain"
+        ],
+        "map_location_observations": null,
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "source_file": "raw/2026-10-17-081319-159314-archive-bulk/npc.jsonl",
+      "line": 1,
+      "record": {
+        "name": "Tsal K'lor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tsal-k-lor",
+            "title": "Tsal K'lor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T12:19:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Lomshir Plain"
+          ],
+          "role": [
+            "General NPC"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "location": [
+            "-58520, 20635, 11335"
+          ],
+          "chunk": [
+            "Lomshir Plain"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Dark Horse Track"
+          ],
+          "parley types": [
+            ", ,"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Lomshir Plain",
+            "url": "https://vgsoharchive.com/zones/lomshir-plain"
+          },
+          {
+            "name": "Essence of the Risen",
+            "url": "https://vgsoharchive.com/quests/essence-of-the-risen"
+          },
+          {
+            "name": "Essence Of The Risen",
+            "url": "https://vgsoharchive.com/quests/essence-of-the-risen"
+          },
+          {
+            "name": "Selling Souls",
+            "url": "https://vgsoharchive.com/quests/selling-souls"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Lomshir Plain",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Essence Of The Risen"
+        ],
+        "chunk": "Lomshir Plain",
+        "location": {
+          "raw": "-58520, 20635, 11335",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Lomshir Plain"
+        },
+        "zones_recorded": [
+          "Lomshir Plain"
+        ],
+        "map_location_observations": [
+          {
+            "source_text": "Spot 2 ,\n            The Dark Horse Tavern, Lomshir Plain — -57950, 20675",
+            "zone_links": [
+              {
+                "name": "Lomshir Plain",
+                "url": "https://vgsoharchive.com/zones/lomshir-plain"
+              }
+            ],
+            "coordinates_raw": "-57950, 20675",
+            "coordinate_format": null,
+            "spawn_certainty": null
+          }
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Dark Horse Track",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    }
+  ]
+}
