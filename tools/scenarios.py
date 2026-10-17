@@ -359,6 +359,16 @@ def main():
         reports, encoding="utf-8").read()
     fails += check("player report", codes == [149, 148] and kept, f"answers {codes}, saved={kept}")
 
+    # Appearance settings: /hidehelm 0x114 {u8 1}, /setwearpreference 0x110 {i32 2}; saved as pawn_prefs
+    # (shown to others as SGOPCPawn properties, restored at the next login).
+    a.send(0x114, b"\x01")
+    a.send(0x110, struct.pack("<i", 2))
+    a.pump(0.5)
+    prefs = (storage.read_character(CHARACTERS, a.name) or {}).get("pawn_prefs", {})
+    fails += check("appearance settings saved", prefs.get("m_bHideHelm") == 1 and prefs.get("m_WearPreference") == 2,
+                   f"pawn_prefs {prefs}")
+    a.send(0x114, b"\x00")
+
     # Rescue rope: B targets A (0x5c) and throws (/rope, 0x190); A gets the offer 0x58a {wstr B},
     # accepts (/ropeaccept, 0x191) and is hauled next to B: notice 465 "You grab the rope...".
     # (B throws so that B stays at the brazier for the riftway below.)

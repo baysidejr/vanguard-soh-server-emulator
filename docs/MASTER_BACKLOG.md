@@ -108,4 +108,5 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Evidence:** docs/TESTING.md hand-run items are all unchecked; some depend only on server answers and can run in `scenarios.py` while the client is blocked (B-003).
 - **Progress:** 2026-10-16 scenario "player report": /report (0x4ac) answers 149 "Player report submitted", a second within a minute 148 (wait longer), the report lands in the data folder's player_reports.json (scratch copy, not server/). 21 scenarios; check_all 6/6; real DB fingerprint unchanged. The client's display of the line stays a hand-run check.
 - 2026-10-16 scenario "rescue rope": B targets A and throws (/rope 0x190); A gets 0x58a naming B, accepts (0x191) and gets notice 465 (hauled). B throws so B stays at the brazier for the riftway. 22 scenarios; check_all 6/6.
+- 2026-10-16 scenario "appearance settings saved": /hidehelm 0x114 and /setwearpreference 0x110 are saved in pawn_prefs. 23 scenarios; check_all 6/6.
 - **Next action:** `!call` and escrow need dev commands (the check server runs without them); look for other non-dev server answers.

@@ -95,6 +95,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: Scenario "appearance settings saved" (B-015): /hidehelm and /setwearpreference reach the saved character.
+
 - 2026-10-16: Scenario "rescue rope" (B-015): /rope offer reaches the target, /ropeaccept hauls them (notice 465).
 
 - 2026-10-16: Scenario "player report" (B-015): /report is acknowledged, a second one within a minute is refused, and the report is saved in the data folder.
