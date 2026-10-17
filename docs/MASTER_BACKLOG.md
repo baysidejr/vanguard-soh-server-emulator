@@ -79,8 +79,11 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next action:** after each scrape update, re-run `tools/quest_readiness.py --branch` and replace placeholders whose real objectives/locations appeared.
 
 ## B-008 Import archive NPCs into the two original camp zones
-- **Priority:** P3 · **Category:** content · **State:** BLOCKED (user decision)
-- **Evidence:** dry run 2026-10-16: Sundering Wastelands +4, Wildgrowth Forest +19 (drafts in `crowdsourced/drafts/`).
+- **Priority:** P3 · **Category:** content · **State:** VERIFIED (owner decision 2026-10-17: yes)
+- **Done 2026-10-17:** `tools/import_zone.py "Sundering Wastelands" --apply` and `"Wildgrowth Forest" --apply` (current main data, not the old drafts): 23 templates (4 + 19, each with its archive `_source`; race and health still placeholders), 23 spawns at their recorded archive positions, their archive drop tables in loot.json. No key or name collisions; the hand-made camp NPCs are untouched.
+- **Uncertain locations flagged:** 11 spawns whose archive z is 900-15,500 above the terrain heightmap carry `_uncertain` (probably on mesh surfaces: the three Agents sit over the terrain pit B-002 found east of the camp). The editor's "inside an obstacle" hint fires for two of them (Agent Nuraga, Muerden); SpawnWarningTests now only requires the hand-made camp to be clean.
+- **Tests:** content OK, unit 288 OK. Not yet seen in the client.
+- **Next:** look at the flagged ones in the client (scratch save, `!visit`); correct only with evidence.
 
 ## B-009 Merge newer scrape-branch commits
 - **Priority:** P3 · **Category:** content · **State:** BLOCKED (user authorization per merge)

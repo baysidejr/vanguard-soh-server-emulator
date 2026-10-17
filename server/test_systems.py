@@ -2017,7 +2017,12 @@ class SpawnWarningTests(unittest.TestCase):
         import obstacles
         name = "spawns/chunk_n19_12.json"
         text = open(os.path.join(editor.CONTENT, "spawns", "chunk_n19_12.json"), encoding="utf-8").read()
-        self.assertEqual(editor.spawn_warnings(editor.CONTENT, name, text), [])        # the real camp is clean
+        # The hand-made camp is clean; archive NPCs whose recorded height puts them on a mesh are
+        # flagged _uncertain in the file (B-008) and may still draw the hint.
+        uncertain = {m["name"] for s in json.loads(text)["spawns"] if s.get("_uncertain")
+                     for m in [json.load(open(os.path.join(editor.CONTENT, "mobs.json"), encoding="utf-8"))[s["mob"]]]}
+        warns = editor.spawn_warnings(editor.CONTENT, name, text)
+        self.assertEqual([w for w in warns if not any(f"({n})" in w for n in uncertain)], [])
         rock = next(o for o in obstacles.obstacles("chunk_n19_12") if o[2] > 200)
         doc = json.loads(text)
         doc["spawns"].append({"mob": "wastes_wolf", "x": round(rock[0]), "y": round(rock[1])})

@@ -28,3 +28,5 @@ One line per import into `server/content/`: date, batch folder, records imported
 | 2026-10-16 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 12 spawns, 12 templates | server/content via tools/import_zone.py --all |
 | 2026-10-16 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 43 spawns, 35 templates | server/content via tools/import_zone.py --all |
 | 2026-10-16 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 1 spawns, 1 templates | server/content via tools/import_zone.py --all |
+| 2026-10-17 | all raw batches, npc.jsonl (Sundering Wastelands) | 4 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n19_12.json via tools/import_zone.py |
+| 2026-10-17 | all raw batches, npc.jsonl (Wildgrowth Forest) | 19 NPCs at their recorded positions (placeholder race and health) | server/content/mobs.json, spawns/chunk_n20_12.json via tools/import_zone.py |
