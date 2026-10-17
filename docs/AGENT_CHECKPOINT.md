@@ -7,7 +7,7 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-2026-10-17 (evening): **B-024 fixed** (bags looked empty after every chunk change: re-sent inventory now removes items first with 0x1a5; verified live after a riftway, ability book and journal also intact). Before that: B-023 dead characters can't deal with the world; B-022 placeholder giver names; B-020 Tracker Nok and copied coordinates; scrape merged four times today (latest 9abb5a5). Hand-run items ticked with tools/client_ui.py: merchant buy/sell/buyback/repair, equip, Veyla tombstone summon, friends/ignore/bug window, stun/root/fear, level-up, /con, parley, riftways, altar/death/release, Recall.
+2026-10-17 (late): chunk hand-off audit in the real client: B-024 empty bags, B-026 riders/walkers lost their speed, B-027 pets lost and minions stranded (also after logouts) - all fixed and verified live; B-028 buff icons inconclusive. Also B-025 full bags, B-023 dead characters. Hand-run items ticked: Sprint/Recall/Recall to House, mining, conversion, mail, market window, bank deposit, escrow, equip, merchant. Scrape merged five times today (latest 7697232).
 
 ## In progress / next action
 - B-019 (Isle of Dawn has no quests): BLOCKED: OWNER DECISION, options in the backlog.

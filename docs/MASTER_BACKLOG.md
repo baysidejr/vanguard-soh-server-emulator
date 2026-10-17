@@ -219,3 +219,8 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Fix:** on a hand-off the pet's spec is kept (`player.pet_resummon`, from `npc.pet_spec`) and `remount_after_zone_in` summons it again in the new chunk; a logout still dismisses it. Live (scratch save): `!pet Wolf Whistle` at the camp, riftway to Khal: "Ashfang answers your call." again, pet bar and pet health bar back, Ashfang's actor opened. PetHandoffTests (2), check_all 6/6.
 - **Minions too (2026-10-17):** they were never removed when their owner left: after a logout they stayed in the world as stray NPCs for good (their expiry only runs while the owner is connected), and after a chunk change they stayed in the old chunk. `leave_world` now takes them out on any disconnect and, on a hand-off, summons them again in the new chunk with the time they have left (quietly). Live: Bone Charm's two Bone Servants, riftway to Khal: they come along. MinionHandoffTests (2).
 - **Not covered:** the pet's and minions' current health (they return at full health).
+
+## B-028 Do buff icons survive a chunk change?
+- **Priority:** P3 · **Category:** verification · **State:** IN_PROGRESS (inconclusive)
+- **So far (live 2026-10-17):** buffs live on the server-side player object, so the server keeps them; the client's display is the question. A 45 s buff (Adamant Foeman I) showed its icon with 34 s left, but the riftway took about as long, so its absence afterwards proves nothing; a stance (Offensive Style I) shows no icon in that area even before the riftway.
+- **Next:** a buff of a few minutes (or a winbreak on the client's effect list) before and after a riftway; if the icon is lost, re-send `effects.effect_add` for each active effect in `remount_after_zone_in`.
