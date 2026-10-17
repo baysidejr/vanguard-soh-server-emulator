@@ -1,0 +1,858 @@
+{
+  "audit_kind": "cached_quest_label_anomaly_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal labelled observations from two cached archive pages; no verified identity or prerequisite resolution",
+  "input": {
+    "path": "reviewed/CROSS_SOURCE_QUEST_IDENTITY_ITERATION199.json",
+    "sha256": "d1b5b43c78c41455cfa67ef6a38270d3d4310965e761ce250b742f911c18c20f"
+  },
+  "reviews": [
+    {
+      "normalized_name": "scouting the keep",
+      "url": "https://vgsoharchive.com/quests/scouting-the-keep",
+      "cache_path": ".cache/archive/2167b07f8bcc02dbd8c9c97b13150cf8666127bc7f34e2cac7293d791398394a.txt",
+      "cache_sha256": "12623e8a4518b4aa00f79d2f55bacf9bd7107d11e1d8c979a127b32ef1a28f6d",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": "Captain Morrond",
+          "html": "<dd><a href=\"/mobs/captain-morrond\">Captain Morrond</a>\n</dd>",
+          "links": [
+            {
+              "text": "Captain Morrond",
+              "href": "/mobs/captain-morrond"
+            }
+          ]
+        },
+        {
+          "label": "Starts in",
+          "text": "Ruins Of Trengal Keep",
+          "html": "<dd><a href=\"/zones/ruins-of-trengal-keep\">Ruins Of Trengal Keep</a>\n</dd>",
+          "links": [
+            {
+              "text": "Ruins Of Trengal Keep",
+              "href": "/zones/ruins-of-trengal-keep"
+            }
+          ]
+        },
+        {
+          "label": "Location",
+          "text": "56960, -12036, 42320",
+          "html": "<dd>56960, -12036, 42320</dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "Trengal Keep",
+          "html": "<dd>Trengal Keep</dd>",
+          "links": []
+        },
+        {
+          "label": "Hand in to",
+          "text": "Captain Morrond",
+          "html": "<dd><a href=\"/mobs/captain-morrond\">Captain Morrond</a>\n</dd>",
+          "links": [
+            {
+              "text": "Captain Morrond",
+              "href": "/mobs/captain-morrond"
+            }
+          ]
+        },
+        {
+          "label": "Also involved",
+          "text": "Lieutenant Ararond",
+          "html": "<dd><a href=\"/mobs/lieutenant-ararond\">Lieutenant Ararond</a>\n</dd>",
+          "links": [
+            {
+              "text": "Lieutenant Ararond",
+              "href": "/mobs/lieutenant-ararond"
+            }
+          ]
+        },
+        {
+          "label": "Previous",
+          "text": "Scouting The Keep",
+          "html": "<dd><a href=\"/quests/scouting-the-keep\">Scouting The Keep</a>\n</dd>",
+          "links": [
+            {
+              "text": "Scouting The Keep",
+              "href": "/quests/scouting-the-keep"
+            }
+          ]
+        },
+        {
+          "label": "Next",
+          "text": "Scouting the Keep - Part 2",
+          "html": "<dd><a href=\"/quests/scouting-the-keep\">Scouting the Keep - Part 2</a>\n</dd>",
+          "links": [
+            {
+              "text": "Scouting the Keep - Part 2",
+              "href": "/quests/scouting-the-keep"
+            }
+          ]
+        },
+        {
+          "label": "Rating",
+          "text": "7.0",
+          "html": "<dd>7.0</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-073613-485486-archive-bulk/quest.jsonl",
+          "line": 75,
+          "record": {
+            "name": "Scouting The Keep",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep",
+                "title": "Scouting The Keep · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:42:26+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Captain Morrond"
+              ],
+              "starts in": [
+                "Ruins Of Trengal Keep"
+              ],
+              "location": [
+                "56960, -12036, 42320"
+              ],
+              "series": [
+                "Trengal Keep"
+              ],
+              "hand in to": [
+                "Captain Morrond"
+              ],
+              "also involved": [
+                "Lieutenant Ararond"
+              ],
+              "previous": [
+                "Scouting The Keep"
+              ],
+              "next": [
+                "Scouting the Keep - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ruins Of Trengal Keep",
+                "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+              },
+              {
+                "name": "Captain Morrond",
+                "url": "https://vgsoharchive.com/mobs/captain-morrond"
+              },
+              {
+                "name": "Lieutenant Ararond",
+                "url": "https://vgsoharchive.com/mobs/lieutenant-ararond"
+              },
+              {
+                "name": "Scouting The Keep",
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep"
+              },
+              {
+                "name": "Scouting the Keep - Part 2",
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep"
+              },
+              {
+                "name": "Meteor Shard Scale Breastplate",
+                "url": "https://vgsoharchive.com/items/meteor-shard-scale-breastplate"
+              },
+              {
+                "name": "Meteorloft Cloth Tunic",
+                "url": "https://vgsoharchive.com/items/meteorloft-cloth-tunic"
+              },
+              {
+                "name": "Trengal Kingsweave Chain Tunic",
+                "url": "https://vgsoharchive.com/items/trengal-kingsweave-chain-tunic"
+              },
+              {
+                "name": "Trengal Plate Breastplate",
+                "url": "https://vgsoharchive.com/items/trengal-plate-breastplate"
+              }
+            ],
+            "type": "quest",
+            "level": 24,
+            "zone": "Ruins Of Trengal Keep",
+            "giver": "Captain Morrond",
+            "turn_in": "Captain Morrond",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Scouting The Keep",
+            "chain_next": "Scouting the Keep - Part 2",
+            "quest_chain": {
+              "name": "Trengal Keep",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "- Ararond's Notes",
+                "count": 1,
+                "objective": "- Ararond's Notes (0/1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "- Ararond's Notes (0/1)",
+                "kind": "collect",
+                "target": "- Ararond's Notes",
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3257,
+          "record": {
+            "name": "Scouting The Keep",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep",
+                "title": "Scouting The Keep · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:49+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Captain Morrond"
+              ],
+              "starts in": [
+                "Ruins Of Trengal Keep"
+              ],
+              "location": [
+                "56960, -12036, 42320"
+              ],
+              "series": [
+                "Trengal Keep"
+              ],
+              "hand in to": [
+                "Captain Morrond"
+              ],
+              "also involved": [
+                "Lieutenant Ararond"
+              ],
+              "previous": [
+                "Scouting The Keep"
+              ],
+              "next": [
+                "Scouting the Keep - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ruins Of Trengal Keep",
+                "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+              },
+              {
+                "name": "Captain Morrond",
+                "url": "https://vgsoharchive.com/mobs/captain-morrond"
+              },
+              {
+                "name": "Lieutenant Ararond",
+                "url": "https://vgsoharchive.com/mobs/lieutenant-ararond"
+              },
+              {
+                "name": "Scouting The Keep",
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep"
+              },
+              {
+                "name": "Scouting the Keep - Part 2",
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep"
+              },
+              {
+                "name": "Meteor Shard Scale Breastplate",
+                "url": "https://vgsoharchive.com/items/meteor-shard-scale-breastplate"
+              },
+              {
+                "name": "Meteorloft Cloth Tunic",
+                "url": "https://vgsoharchive.com/items/meteorloft-cloth-tunic"
+              },
+              {
+                "name": "Trengal Kingsweave Chain Tunic",
+                "url": "https://vgsoharchive.com/items/trengal-kingsweave-chain-tunic"
+              },
+              {
+                "name": "Trengal Plate Breastplate",
+                "url": "https://vgsoharchive.com/items/trengal-plate-breastplate"
+              }
+            ],
+            "type": "quest",
+            "level": 24,
+            "zone": "Ruins Of Trengal Keep",
+            "giver": "Captain Morrond",
+            "turn_in": "Captain Morrond",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Scouting The Keep",
+            "chain_next": "Scouting the Keep - Part 2",
+            "quest_chain": {
+              "name": "Trengal Keep",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "- Ararond's Notes",
+                "count": 1,
+                "objective": "- Ararond's Notes (0/1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "- Ararond's Notes (0/1)",
+                "kind": "collect",
+                "target": "- Ararond's Notes",
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-110506-005713-archive-quest-additional-trackers-v21/quest.jsonl",
+          "line": 994,
+          "record": {
+            "name": "Scouting The Keep",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep",
+                "title": "Scouting The Keep · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 21,
+            "collected_at": "2026-10-14T15:05:10+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Captain Morrond"
+              ],
+              "starts in": [
+                "Ruins Of Trengal Keep"
+              ],
+              "location": [
+                "56960, -12036, 42320"
+              ],
+              "series": [
+                "Trengal Keep"
+              ],
+              "hand in to": [
+                "Captain Morrond"
+              ],
+              "also involved": [
+                "Lieutenant Ararond"
+              ],
+              "previous": [
+                "Scouting The Keep"
+              ],
+              "next": [
+                "Scouting the Keep - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ruins Of Trengal Keep",
+                "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+              },
+              {
+                "name": "Captain Morrond",
+                "url": "https://vgsoharchive.com/mobs/captain-morrond"
+              },
+              {
+                "name": "Lieutenant Ararond",
+                "url": "https://vgsoharchive.com/mobs/lieutenant-ararond"
+              },
+              {
+                "name": "Scouting The Keep",
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep"
+              },
+              {
+                "name": "Scouting the Keep - Part 2",
+                "url": "https://vgsoharchive.com/quests/scouting-the-keep"
+              },
+              {
+                "name": "Meteor Shard Scale Breastplate",
+                "url": "https://vgsoharchive.com/items/meteor-shard-scale-breastplate"
+              },
+              {
+                "name": "Meteorloft Cloth Tunic",
+                "url": "https://vgsoharchive.com/items/meteorloft-cloth-tunic"
+              },
+              {
+                "name": "Trengal Kingsweave Chain Tunic",
+                "url": "https://vgsoharchive.com/items/trengal-kingsweave-chain-tunic"
+              },
+              {
+                "name": "Trengal Plate Breastplate",
+                "url": "https://vgsoharchive.com/items/trengal-plate-breastplate"
+              }
+            ],
+            "type": "quest",
+            "level": 24,
+            "zone": "Ruins Of Trengal Keep",
+            "giver": "Captain Morrond",
+            "turn_in": "Captain Morrond",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Scouting The Keep",
+            "chain_next": "Scouting the Keep - Part 2",
+            "quest_chain": {
+              "name": "Trengal Keep",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Ararond's Notes",
+                "count": 1,
+                "objective": "- Ararond's Notes (0/1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "- Ararond's Notes (0/1)",
+                "kind": "collect",
+                "target": "Ararond's Notes",
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 533,
+          "name": "Scouting the Keep",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 535,
+          "name": "Scouting the Keep",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Literal chain labels retained, including self-named entries. A repeated title does not establish a self prerequisite, a quest cycle, or a canonical identity. Part-qualified labels remain distinct. Required chain semantics and historical applicability remain unknown.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null,
+      "extracted_source_observations": [
+        {
+          "label": "Previous",
+          "raw_value": "Scouting The Keep",
+          "source_links": [
+            {
+              "text": "Scouting The Keep",
+              "href": "/quests/scouting-the-keep"
+            }
+          ],
+          "required_previous_quest": null,
+          "required_next_quest": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_value": "Scouting the Keep - Part 2",
+          "source_links": [
+            {
+              "text": "Scouting the Keep - Part 2",
+              "href": "/quests/scouting-the-keep"
+            }
+          ],
+          "required_previous_quest": null,
+          "required_next_quest": null,
+          "canonical_client_id": null
+        }
+      ],
+      "input_review": {
+        "path": "reviewed/CROSS_SOURCE_QUEST_IDENTITY_ITERATION199.json",
+        "sha256": "d1b5b43c78c41455cfa67ef6a38270d3d4310965e761ce250b742f911c18c20f"
+      }
+    },
+    {
+      "normalized_name": "the offering",
+      "url": "https://vgsoharchive.com/quests/the-offering",
+      "cache_path": ".cache/archive/2f5886500c8d265f07ed107720bb4ea9e1eb0c57f8f17515252f6b008a79dede.txt",
+      "cache_sha256": "f9e9b7fc2f7c7915aa49ac411027eb1849e336325595750c7474ecba4ad99f62",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": "Master Ghostclaw Javius",
+          "html": "<dd><a href=\"/mobs/master-ghostclaw-javius\">Master Ghostclaw Javius</a>\n</dd>",
+          "links": [
+            {
+              "text": "Master Ghostclaw Javius",
+              "href": "/mobs/master-ghostclaw-javius"
+            }
+          ]
+        },
+        {
+          "label": "Starts in",
+          "text": "Dahknarg Village · Dahknarg",
+          "html": "<dd><a href=\"/zones/dahknarg-village\">Dahknarg Village</a> · <a href=\"/zones/dahknarg\">Dahknarg</a>\n</dd>",
+          "links": [
+            {
+              "text": "Dahknarg Village",
+              "href": "/zones/dahknarg-village"
+            },
+            {
+              "text": "Dahknarg",
+              "href": "/zones/dahknarg"
+            }
+          ]
+        },
+        {
+          "label": "Location",
+          "text": "-28714, -29126, 19428 in Dahknarg (-22, 25)",
+          "html": "<dd>-28714, -29126, 19428 in Dahknarg (-22, 25)</dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "Dahknarg",
+          "html": "<dd>Dahknarg</dd>",
+          "links": []
+        },
+        {
+          "label": "Previous",
+          "text": "Proving Your Strength",
+          "html": "<dd><a href=\"/quests/proving-your-strength\">Proving Your Strength</a>\n</dd>",
+          "links": [
+            {
+              "text": "Proving Your Strength",
+              "href": "/quests/proving-your-strength"
+            }
+          ]
+        },
+        {
+          "label": "Next",
+          "text": "The Offering",
+          "html": "<dd><a href=\"/quests/the-offering\">The Offering</a>\n</dd>",
+          "links": [
+            {
+              "text": "The Offering",
+              "href": "/quests/the-offering"
+            }
+          ]
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+          "line": 19,
+          "record": {
+            "name": "The Offering",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-offering",
+                "title": "The Offering · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:52:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Ghostclaw Javius"
+              ],
+              "starts in": [
+                "Dahknarg Village · Dahknarg"
+              ],
+              "location": [
+                "-28714, -29126, 19428 in Dahknarg (-22, 25)"
+              ],
+              "series": [
+                "Dahknarg"
+              ],
+              "previous": [
+                "Proving Your Strength"
+              ],
+              "next": [
+                "The Offering"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Dahknarg",
+                "url": "https://vgsoharchive.com/zones/dahknarg"
+              },
+              {
+                "name": "Master Ghostclaw Javius",
+                "url": "https://vgsoharchive.com/mobs/master-ghostclaw-javius"
+              },
+              {
+                "name": "Dahknarg Village",
+                "url": "https://vgsoharchive.com/zones/dahknarg-village"
+              },
+              {
+                "name": "Proving Your Strength",
+                "url": "https://vgsoharchive.com/quests/proving-your-strength"
+              },
+              {
+                "name": "The Offering",
+                "url": "https://vgsoharchive.com/quests/the-offering"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Dahknarg Village · Dahknarg",
+            "giver": "Master Ghostclaw Javius",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Proving Your Strength",
+            "chain_next": "The Offering",
+            "quest_chain": {
+              "name": "Dahknarg",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4109,
+          "record": {
+            "name": "The Offering",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-offering",
+                "title": "The Offering · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Ghostclaw Javius"
+              ],
+              "starts in": [
+                "Dahknarg Village · Dahknarg"
+              ],
+              "location": [
+                "-28714, -29126, 19428 in Dahknarg (-22, 25)"
+              ],
+              "series": [
+                "Dahknarg"
+              ],
+              "previous": [
+                "Proving Your Strength"
+              ],
+              "next": [
+                "The Offering"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Dahknarg",
+                "url": "https://vgsoharchive.com/zones/dahknarg"
+              },
+              {
+                "name": "Master Ghostclaw Javius",
+                "url": "https://vgsoharchive.com/mobs/master-ghostclaw-javius"
+              },
+              {
+                "name": "Dahknarg Village",
+                "url": "https://vgsoharchive.com/zones/dahknarg-village"
+              },
+              {
+                "name": "Proving Your Strength",
+                "url": "https://vgsoharchive.com/quests/proving-your-strength"
+              },
+              {
+                "name": "The Offering",
+                "url": "https://vgsoharchive.com/quests/the-offering"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Dahknarg Village · Dahknarg",
+            "giver": "Master Ghostclaw Javius",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Proving Your Strength",
+            "chain_next": "The Offering",
+            "quest_chain": {
+              "name": "Dahknarg",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 2255,
+          "name": "The Offering",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 9054,
+          "name": "The Offering",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 9056,
+          "name": "The Offering",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 9060,
+          "name": "The Offering",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Literal chain labels retained, including self-named entries. A repeated title does not establish a self prerequisite, a quest cycle, or a canonical identity. Part-qualified labels remain distinct. Required chain semantics and historical applicability remain unknown.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null,
+      "extracted_source_observations": [
+        {
+          "label": "Previous",
+          "raw_value": "Proving Your Strength",
+          "source_links": [
+            {
+              "text": "Proving Your Strength",
+              "href": "/quests/proving-your-strength"
+            }
+          ],
+          "required_previous_quest": null,
+          "required_next_quest": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_value": "The Offering",
+          "source_links": [
+            {
+              "text": "The Offering",
+              "href": "/quests/the-offering"
+            }
+          ],
+          "required_previous_quest": null,
+          "required_next_quest": null,
+          "canonical_client_id": null
+        }
+      ],
+      "input_review": {
+        "path": "reviewed/CROSS_SOURCE_QUEST_IDENTITY_ITERATION200.json",
+        "sha256": "dc56721081b39e64859f0d969f88ab5998a3a806d7692e579a2afffa66088c74"
+      }
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "request_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cache_hashes_verified": 2,
+    "full_archive_records_verified": 5,
+    "unknown_assignments_withheld": true
+  }
+}
