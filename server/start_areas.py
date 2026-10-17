@@ -5,7 +5,7 @@ i32 y at raw +9 / +13 after the three names (docs/PROTOCOL.md). Six of seven sav
 sent (-26, 1), the Isle of Dawn in ChunkNames.txt; one sent (-65535, -65535). The create screen's
 StartingCitySelect window (VGUICharacterCreationWnd.xml) has exactly two buttons,
 character_create_choose_trial_island and character_create_choose_home_town, so -65535 is the home
-town, the race's own starting area [I: two choices matched to the two values seen]. Each race's intro text in bin/VGClient.int (RI<race>) names
+town, the race's own starting area (confirmed 2026-10-17: Choose Home Town sent it). Each race's intro text in bin/VGClient.int (RI<race>) names
 that area: Tursh Village in Thestra, Shang Village near Tanvu in Kojan, or Karibasa Village on
 the Cliffs of Ghelgad near Khal in Qalia.
 
@@ -25,7 +25,7 @@ import struct
 ISLE_OF_DAWN, TURSH, SHANG, KARIBASA = (-26, 1), (-27, 27), (-19, 7), (-13, -8)
 STARTS = {ISLE_OF_DAWN: "Isle of Dawn", TURSH: "Tursh Village", SHANG: "Shang Village",
           KARIBASA: "Karibasa Village"}
-RACIAL = -65535                 # the create request's "home town" choice [I]
+RACIAL = -65535                 # the create request's "home town" choice (Choose Home Town)
 
 # Race id (races_classes.RACES) -> starting area, from each race's intro text (RI<race>).
 RACE_START = {
