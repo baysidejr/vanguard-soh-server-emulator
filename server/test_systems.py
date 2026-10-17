@@ -2556,3 +2556,20 @@ class InventoryResendTests(unittest.TestCase):
         self.assertEqual(ids(again)[:3], [0x1A5, 0x1A5, 0x195])           # each item and equipped piece, then reset
         removed = {struct.unpack_from("<i", m, 10)[0] for m in again if struct.unpack_from("<I", m, 2)[0] == 0x1A5}
         self.assertEqual(removed, {10001, 2001})
+
+    def test_equipped_items_created_in_their_equip_slot(self):
+        """B-025: equipped pieces are created with field 7 = their equip slot, not parked in a bag
+        slot first (with full bags, six bag items vanished from view)."""
+        import zone
+        import vgmsg
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n19_12")
+        player.items = []
+        player.equipment = [[2001, "Rusty Sword", 422, 28]]
+        msg = [m for m in zone.inventory_messages(player) if m[2:6] == (0x197).to_bytes(4, "little")][0]
+        kw = zone.item_equip_fields("Rusty Sword", 100, False)
+        want = zone.zone_event(0x197, vgmsg.inventory_item(2001, "Rusty Sword", 49, zone.item_icon("Rusty Sword", 422),
+                                                           equip_slot=28, **kw))
+        parked = zone.zone_event(0x197, vgmsg.inventory_item(2001, "Rusty Sword", 49, zone.item_icon("Rusty Sword", 422),
+                                                             **kw))
+        self.assertNotEqual(want, parked)
+        self.assertEqual(msg, want)

@@ -1432,6 +1432,7 @@ def inventory_messages(player, resend=False):
     # u8 lookup kind, u8 equip slot) moves them to the paper doll.
     for n, (item_id, name, icon, equip_slot) in enumerate(player.equipment):
         out.append(zone_event(0x197, vgmsg.inventory_item(item_id, name, 49 - n, item_icon(name, icon),
+                                                          equip_slot=equip_slot,
                                                           **item_equip_fields(name, dur.get(str(item_id), 100),
                                                                               item_id in bound))))
         out.append(zone_event(0x1A7, struct.pack("<iBB", item_id, 0, equip_slot)))

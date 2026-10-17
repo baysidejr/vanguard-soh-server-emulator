@@ -201,3 +201,9 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Fix:** `zone.inventory_messages(player, resend=True)` first removes each item and equipped piece with 0x1a5 {i32 id, bool8 0} (INVENTORY.md), then sends 0x195 and the items; the zone login uses it once the player object (kept across hand-offs) has had its inventory sent (`player.inventory_sent`). Dev `!reinv` re-sends the same way.
 - **Other lists checked after the same riftway:** the ability book (same 9 adventuring abilities) and the Quests journal (Wanderer Trouble, objectives, rewards) are intact, so they don't need the same treatment.
 - **Verified live:** riftway to Khal, then Inventory: all 16 items; Character window: equipped sword, shield and armour on the paper doll, stats unchanged. InventoryResendTests; check_all 6/6 (unit 299).
+
+## B-025 With full bags, six bag items vanished from view at login
+- **Priority:** P1 · **Category:** player-facing defect (inventory) · **State:** VERIFIED
+- **Evidence (live 2026-10-17, scratch save with 50 bag items):** the Inventory window showed 44: equipped pieces were created in bag slots 49, 48, ... (then moved to the paper doll with 0x1a7), on top of the bag items there, which stayed hidden. Only the client's view; the save was correct.
+- **Fix:** equipped pieces are created with field 7 = their equip slot (the client's FUN_00512430 puts an item in a container only when field 7 is -1); the 0x1a7 stays. Live: all 50 bag items shown and the paper doll intact at login and after a riftway; right-click equipping still works (Attack 6.00 -> 9.00). InventoryResendTests.test_equipped_items_created_in_their_equip_slot fails without the fix.
+- **Also checked live with full bags:** `!give` -> "Your bags are full: Copper Ore is waiting for you in escrow. Any banker can hand it over."; Hollis Grent's escrow option opens the Escrow Merchant window listing it.

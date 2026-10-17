@@ -154,7 +154,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Jewelry tooltip says "Required Level: 1 Adventuring"; Copper Ore says "Crafting Resource"
 - [ ] Bank items and coins; mail a letter with an item; list and buy on the broker (2026-10-17: Hollis Grent's "I need to do some banking" opens the Bank (40 slots, a stored Waterskin and 1 silver); dragging the Militia Longsword from the bags put it in the bank (0x14e); coins, mail and the broker not checked in the client yet)
 - [ ] ✦ Trade an item; group loot with Need/Greed/Pass; master looter `/giveplayerlootitem`
-- [ ] Fill the bags, `!give` an item: "waiting for you in escrow"; Hollis Grent's escrow option hands it over
+- [x] Fill the bags, `!give` an item: "waiting for you in escrow"; Hollis Grent's escrow option hands it over (2026-10-17: the message and the Escrow Merchant window listing the Copper Ore seen; this check found B-025)
 - [ ] Right-click 4+ Copper Ore: the Conversion window turns them into a Copper Ingot
 - [ ] Salvage Kit: right-click, click a Rusted Dagger, Resource gives a Copper Ingot
 - [ ] Brass Spyglass zooms the camera in and out

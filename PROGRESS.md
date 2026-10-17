@@ -97,6 +97,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Fixed: with full bags six items vanished from view at login (equipped pieces were created in bag slots first); now created in their equip slot. Escrow checked live (B-025).
+
 - 2026-10-17: Fixed: after any chunk change (riftway, walking into the next chunk, death release elsewhere) the bags looked empty in the client although nothing was lost. The server now removes and re-creates the items on a hand-off; verified live (B-024).
 
 - 2026-10-17: Dead characters can no longer hail NPCs or bind at altars ("You cannot do that while dead."), found and checked in the client (B-023). Tracker Nok placed at the Tracker Camp from his own record; copied archive coordinates flagged; import skips placeholder giver names (Varies, Then) and same-spot duplicates (B-020, B-022).
