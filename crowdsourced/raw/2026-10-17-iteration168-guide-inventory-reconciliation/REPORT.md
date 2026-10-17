@@ -1,0 +1,9 @@
+# Guide inventory reconciliation
+
+All 132 cached class guide links were compared by exact URL against the original canonical sitemap inventory, the identical current collector inventory, active queue, completion checkpoint and all 385 published manifest fetched-URL lists. Fifteen parent cache body hashes were reverified. Twenty-nine guide URLs are already pending; 103 are absent from the sitemap inventory and both checkpoints. No guide body is cached and no manifest lists these URLs as fetched. Absence from a sitemap does not establish that a linked page is invalid or irrelevant.
+
+The full prior link records and matching inventory rows remain in reconciliation.json. The separate reviewed/GUIDE_DISCOVERY_PENDING_20261017.json preserves all 103 supplemental discoveries for resumable future intake. This is metadata, not downloaded game facts or a live queue. Canonical IDs and historical era remain unknown. No name matching, fact merging, or historical corroboration is inferred. Manifest coverage alone does not prove complete extraction of any other published record.
+
+Status inspection found no running collector or Python process and no run.lock. The archive retains 26,918 completions, 77,954 pending URLs and a persisted 60-second interval. No network requests or checkpoint changes occurred. Suspension remains because automatic approval review rejected reset/restart with reason `blocked by policy`; this phase does not retry that action. Network resumption requires resolution and recorded policy disposition, followed by actual process/lock inspection and collection.ps1 control. Preserve both queues and shared pacing.
+
+Next: independently audit cached supplemental class pages for remaining unextracted explicit game observations while network suspension remains in effect. Collection and extraction are incomplete.
