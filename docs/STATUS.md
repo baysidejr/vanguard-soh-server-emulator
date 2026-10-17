@@ -210,6 +210,7 @@ These work in the game but use invented values, because the archive (or the clie
 The owner's decisions on all five questions (2026-10-17) are carried out: see docs/MASTER_BACKLOG.md B-007, B-008, B-009, B-010, B-017.
 
 ### 6.2 Waiting on the scrape (data the archive does not have yet)
+**Scrape status (its own report, 2026-10-17):** collection is suspended after an automatic approval was rejected ("blocked by policy"); it resumes only after that policy question is resolved and recorded in crowdsourced/COLLECTION.md (the scraper's process, not the emulator's). Checkpoint: 26,918 archive pages collected, 77,954 pending. Its merged work through aceaefc is in main.
 In order of what each would unlock (numbers from 2026-10-16):
 1. **Quest objective targets:** 1,722 objectives name a creature or item with no archive page yet. These are most of the ~1,400 quests whose giver is placed but which can't be done.
 2. **Creature locations:** known creatures with no location (currently replaced by invented camps).

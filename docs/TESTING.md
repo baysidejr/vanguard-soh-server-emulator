@@ -116,7 +116,7 @@ Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, n
 A full pass to check nothing old has broken. Start with `run_test.sh --dev-commands` (or `python login_stub.py --dev-commands`), and a second client for the ✦ items.
 
 **Login and world**
-- [ ] Log in, see "Stub World", create a character, delete one, enter the world
+- [x] Log in, see "Stub World", create a character, delete one, enter the world (2026-10-17, scratch save: created a Dark Elf through the create screen with Choose Home Town, entered the world in Karibasa; deleted a character with Confirm Delete)
 - [ ] A female character shows as female on the select screen and in the world
 - [ ] HUD, minimap, chat, message of the day; character window (C) shows attributes, health, armor class
 - [ ] Loot something, click the item link in the "You loot" line: the item tooltip pops up
