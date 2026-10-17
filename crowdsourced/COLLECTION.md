@@ -9,6 +9,14 @@ checked against source URL and SHA-256 metadata. This module is not yet wired in
 the live archive runner: alternate-source queue scheduling, transient recovery and
 article extraction remain required before live alternate-source collection.
 
+`multisource_extract.py` now parses explicitly labelled wiki infobox observations
+without merging repeated labels or assigning canonical IDs or historical eras.
+Missing article regions fail closed. Pages without infobox observations remain
+metadata only; other article tables and prose still require extraction review.
+The immutable iteration148 cache review verifies the cached main-page hash and
+retains 50 pending article links. This parser is not yet scheduled by the live
+runner; the alternate-source resumable queue and scheduling remain required.
+
 The strategy is a whole-site canonical URL inventory followed by batches of linked game records. Sundering Wastelands and Wildgrowth Forest come first. Zone maps supply useful entity/quest relationships, but their links do not enumerate every record associated with a zone. The subsequent site-wide pass collects pages that would otherwise be missed, including items whose zone is unknown.
 
 The initial sitemap inventory contains **104,855 distinct URLs**, including 100,666 supported detail pages: 75,066 items, 15,418 archive mob entries, 4,776 quests, 3,057 abilities, 401 zones, 1,582 recipes and 366 diplomacy cards. The collector also reads 27 canonical class/profession indexes, which can supply many ability rows per request. Remaining URLs include other indexes, effects, races, class subpages and guide/lore pages requiring additional extraction rules. The URL inventory is not a dump of all game records.
