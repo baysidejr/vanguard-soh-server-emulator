@@ -347,6 +347,10 @@ def main():
     def rift(bot, key, chunk):
         """/rift <key> at a brazier; returns the zone port from world event 8 for that chunk, or None."""
         bot.send(0x597, wstr(key))
+        return zone_connect(bot, chunk)
+
+    def zone_connect(bot, chunk):
+        """The zone port of world event 8 ("connect to zone") naming chunk, or None after 5 s."""
         end = time.time() + 5
         while time.time() < end:
             for m in bot.world.poll():
@@ -376,6 +380,22 @@ def main():
             print(f"  hand-off failed: {e}")
     fails += check("chunk hand-off and return", (there, back) == ("chunk_n13_n9", "chunk_n19_12"),
                    f"arrived in {there}, came back to {back}")
+    # Walking across a chunk edge (B-005): the client sends zone event 0x9 {i32 chunk x, i32 chunk y, u8}
+    # when the player crosses into the next chunk; the server answers with world event 8 for it.
+    over = None
+    if back == "chunk_n19_12":
+        try:
+            b.send(0x9, struct.pack("<iiB", -18, 12, 0))
+            port3 = zone_connect(b, "chunk_n18_12")
+            if port3 is not None:
+                b.zone.close()
+                b.zone, _u, over = b.join_zone(port3)
+                b.pump(0.5)
+        except RuntimeError as e:
+            print(f"  edge walk failed: {e}")
+    saved = (storage.read_character(CHARACTERS, b.name) or {}).get("chunk")
+    fails += check("walk across a chunk edge", over == "chunk_n18_12" and saved == [-18, 12],
+                   f"arrived in {over}, saved chunk {saved}")
     a.zone.close()
     b.zone.close()
     print(f"{fails} failed")

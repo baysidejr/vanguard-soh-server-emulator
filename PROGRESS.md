@@ -10,6 +10,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Last test results
 
+- 2026-10-16 (after the edge-walk scenario, provenance report): tools/check_all.py 6 of 6 passed (unit 279, 20 scenarios, steady p95 11.1 ms, fuzz clean); --client not run (B-003 focus); real save database unchanged (row fingerprint).
 - 2026-10-16 (15-minute soak, 50 bots in Khal): memory flat at 149.6 MB, p95 11.1 ms, worst steady-state ping 41.9 ms, no errors (docs/TESTING.md).
 - 2026-10-16 (after 368 archive quests, flight descent fix, presence after parleys): tools/check_all.py --client 7 of 7 passed (unit 277, load p95 11.1 ms, fuzz clean, smoke PASS).
 - 2026-10-16 (after presence stats, parley levels, archive quest play test): tools/check_all.py --client 7 of 7 passed (unit 275, load p95 11.2 ms, fuzz clean, smoke PASS: the client logs in with the presence records).
@@ -93,6 +94,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 - Class abilities without an abilities.json entry act as plain damage spells (a Sorcerer's See Invisibility I "hits"). The client has only their visuals; what each does needs real data.
 
 ## Done
+
+- 2026-10-16: Scenario "walk across a chunk edge" (B-005): zone event 0x9 into chunk_n18_12, reconnect, WELCOME there, chunk saved. tools/stop_servers.ps1 stops every login_stub.py server and its worker processes.
 
 - 2026-10-16: tools/provenance.py (B-011): per content file, records citing an archive page, marked placeholders, and unmarked hand-made ones. Load spike (B-004) not reproduced in 5 check runs (steady p95 ~11 ms). `--branch` reads no longer leave a temp copy of the scrape branch behind (B-014).
 

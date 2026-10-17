@@ -47,14 +47,15 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Last validation:** `quest_readiness.py --branch origin/crowdsourced/archive-collection` leaves the count unchanged.
 
 ## B-005 Automated coverage: reconnects, repeated logins, zone transitions, malformed packets
-- **Priority:** P2 · **Category:** stability · **State:** VERIFIED (a, b, c); edge walk open
+- **Priority:** P2 · **Category:** stability · **State:** VERIFIED (a, b, c, edge walk)
 - **Evidence:** scenarios cover chat, group, trade, tell, friend, guild, brotherhood, duel, AA, quest reply, parley line, ignore, riftway; none log the same character in twice, reconnect after a dropped connection, or cross a chunk edge and come back. The fuzzer covers malformed event payloads.
 - **Paths:** `tools/scenarios.py`, `tools/loadtest.py`
 - **Done when:** scenarios cover (a) a second login of an online character (old session closed cleanly), (b) reconnect after an abrupt drop (character saved, NPC state reset), (c) chunk change and return; all pass in `check_all.py`.
 - **Progress:** (a) done 2026-10-16: scenario "second login" (a second connection for the same character; the old one gets UdpLibrary Terminate via `kick_other_session`, the new one plays and its chat reaches the other bot). The test bot now records Terminate (`loadtest` `terminated`). Passes on a scratch copy; real DB fingerprint unchanged.
 - (b) done 2026-10-16: scenario "reconnect after a drop" (the socket closes without Terminate, as in a crash; a new login works at once and coins, items, level, quests are unchanged). 18 scenarios, 0 failed on a scratch copy; no server tracebacks; real DB fingerprint unchanged.
 - (c) done 2026-10-16: `loadtest.Bot.join_zone` (zone login + UE2 handshake, returns the WELCOME level) lets bots follow a chunk hand-off; scenario "chunk hand-off and return": /rift KHAL, reconnect, WELCOME chunk_n13_n9; /rift SUNDERINGWASTELANDS at the Khal brazier, reconnect, WELCOME chunk_n19_12. check_all 6/6 (load test p95 11.0 ms), real DB fingerprint unchanged.
-- **Remaining idea:** walking across a chunk edge (not riftway) and an NPC/entity cleanup check after leaving (the old chunk's actors closed). Malformed packets are covered by the fuzzer.
+- Edge walk done 2026-10-16: scenario "walk across a chunk edge": zone event 0x9 {i32 -18, i32 12, u8} from the camp chunk; world event 8 names chunk_n18_12, the bot reconnects, WELCOME chunk_n18_12, saved chunk [-18, 12]. 20 scenarios pass twice in a row on a scratch copy; check_all 6/6; real DB fingerprint unchanged.
+- **Remaining idea:** a check that the other players' clients close the leaving actor's channel (needs UE bunch parsing in the test bot). Malformed packets are covered by the fuzzer.
 
 ## B-006 Invisible runtime particle effects (quest-node glow, loot sparkle)
 - **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED

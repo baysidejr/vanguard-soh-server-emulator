@@ -11,14 +11,14 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 This session also: B-001 (checks on a scratch DB copy), B-002 (flight landing gap documented), B-005 (a) second login and (b) reconnect after a drop, B-013 (editor quest form dropped turn_in).
 
 ## In progress / next action
-B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. Next: **B-005 edge walk** (walk across a chunk edge, not a riftway), then B-012 messages that unlock behaviour.
+B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. B-005 edge walk done (20 scenarios). Next: review B-012 (optional unsent messages) for ones that unlock behaviour; B-010 needs evidence first.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
 - `AGENT_MISSION.md`: user-provided, ignored by `.gitignore` (`/*`), intentionally not committed.
 
 ## Tests
-- Passed (latest `check_all.py`): unit tests (278), content check, scenarios (19), load test (p95 11.0 ms), server-log scan, fuzzing.
+- Passed (latest `check_all.py`): unit tests (279), content check, scenarios (20), load test (steady p95 11.1 ms), server-log scan, fuzzing.
 - Not run: `check_all.py --client` smoke test, because the game client cannot take keyboard focus (B-003).
 
 ## Blockers and user decisions
@@ -29,4 +29,4 @@ B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-fol
 
 ## Data-integrity notes
 - Never run tests on `server/vanguard.db`; use `--data-dir` with `storage.scratch_copy`.
-- A server started by `run_test.sh` may still be running on the real data (`login_stub.py --dev-commands`); stop it with `kill_all.ps1` before checks (check_all refuses to start if port 10101 is busy).
+- A server started by `run_test.sh` may still be running on the real data (`login_stub.py --dev-commands`); stop it with `powershell -File tools/stop_servers.ps1` before checks (check_all refuses to start if port 10101 is busy).
