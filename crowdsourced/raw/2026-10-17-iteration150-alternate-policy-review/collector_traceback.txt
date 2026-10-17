@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "C:\dev\vanguard-soh-server-emulator\crowdsourced\collect_archive.py", line 781, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\dev\vanguard-soh-server-emulator\crowdsourced\collect_archive.py", line 759, in main
+    step(HERE)
+    ~~~~^^^^^^
+  File "C:\dev\vanguard-soh-server-emulator\crowdsourced\multisource_schedule.py", line 46, in step
+    article, links = parse_wiki(url, client.get(url))
+                                     ~~~~~~~~~~^^^^^
+  File "C:\dev\vanguard-soh-server-emulator\crowdsourced\multisource_client.py", line 88, in get
+    robots = self.download('https://' + parts.netloc + '/robots.txt', minimum, ttl=86400)
+  File "C:\dev\vanguard-soh-server-emulator\crowdsourced\multisource_client.py", line 62, in download
+    with build_opener(NoRedirect()).open(Request(url, headers={'User-Agent': USER_AGENT}), timeout=30) as response:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python315\Lib\urllib\request.py", line 495, in open
+    response = meth(req, response)
+  File "C:\Python315\Lib\urllib\request.py", line 604, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "C:\Python315\Lib\urllib\request.py", line 533, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Python315\Lib\urllib\request.py", line 466, in _call_chain
+    result = func(*args)
+  File "C:\Python315\Lib\urllib\request.py", line 613, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found

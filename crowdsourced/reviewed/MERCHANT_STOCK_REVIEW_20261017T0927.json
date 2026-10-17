@@ -1,0 +1,68 @@
+{
+  "reviewed_at": "2026-10-17T09:26:30+00:00",
+  "scope": "Independent offline Sells-section canonical item-link comparison for every merchant in latest closed batch; no network or parser helper.",
+  "checkpoint": {
+    "supported_inventory_urls": 104855,
+    "done": 26595,
+    "pending_at_batch_start": 78277,
+    "missing": 0,
+    "overlap": 0,
+    "queue_duplicates": 0,
+    "off_inventory_discoveries": 17
+  },
+  "records_reviewed": 1,
+  "stock_links": 0,
+  "issues": [],
+  "checks": [
+    {
+      "record_file": "raw/2026-10-17-031318-950652-archive-bulk/merchant.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/theawyn-loamskin",
+      "cache_sha256": "e910ecb50239bcdc43a57d24f38cfd77f72f32fb889c783f2bd4e002d86f753b",
+      "sells_headings": [],
+      "source_stock": [],
+      "matches": true,
+      "unknown_stock": true,
+      "full_source_record": {
+        "name": "Theawyn Loamskin",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/theawyn-loamskin",
+            "title": "Theawyn Loamskin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:10:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ca'ial Brael"
+          ],
+          "role": [
+            "Light Armor Vendor"
+          ],
+          "difficulty": [
+            "1 dot"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ca'ial Brael",
+            "url": "https://vgsoharchive.com/zones/ca-ial-brael"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Theawyn Loamskin",
+        "zone": "Ca'ial Brael",
+        "sells": null,
+        "buys": null
+      }
+    }
+  ],
+  "limitations": "Absent stock stays null, not an empty inventory. Unknown prices remain null; no tooltip values inferred as purchase prices. Collection, historical accuracy, typed metadata extraction and identity review remain incomplete."
+}

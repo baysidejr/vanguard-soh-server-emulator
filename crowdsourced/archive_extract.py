@@ -454,6 +454,24 @@ def enrich_recipe(record, main):
 
 
 def enrich_record(record, main):
+    if record['type'] in ('creature', 'npc'):
+        observations = []
+        for node in section_nodes(main, 'Where they stood') if main is not None else []:
+            for row in node.find_all('li'):
+                zones = [dict(name=text(a), url='https://vgsoharchive.com'+a['href'])
+                         for a in row.find_all('a', href=re.compile(r'^/zones/[^/?#]+$'))]
+                coordinates = re.search(r'—\s*([+-]?\d+(?:\.\d+)?\s*,\s*[+-]?\d+(?:\.\d+)?)(?:\s|$)', text(row))
+                observations.append(dict(source_text=text(row), zone_links=zones,
+                    coordinates_raw=coordinates.group(1) if coordinates else None,
+                    coordinate_format=None, spawn_certainty=None))
+        record['map_location_observations'] = observations or None
+    if record['type'] == 'creature':
+        for target, label in [('continent', 'continent'),
+                              ('locations_seen_recorded', 'locations seen'),
+                              ('difficulty_recorded', 'difficulty')]:
+            values = record.get('archive_fields', {}).get(label, [])
+            record[target] = values[0] if len(values) == 1 else None
+        return []
     if record['type'] == 'item':
         return enrich_item(record, main)
     if record['type'] == 'quest':

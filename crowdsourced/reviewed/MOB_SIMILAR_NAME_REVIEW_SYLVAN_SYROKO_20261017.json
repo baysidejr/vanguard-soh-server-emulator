@@ -1,0 +1,1322 @@
+{
+  "reviewed_at": "2026-10-17T04:21:26.117040+00:00",
+  "method": "Offline independent cached DOM checks; no network requests. Similar spellings are candidate relationships, not established shared identities.",
+  "cases": [
+    {
+      "urls": [
+        "https://vgsoharchive.com/mobs/sylvan-seductress",
+        "https://vgsoharchive.com/mobs/sylvan-seductrress"
+      ],
+      "disposition": "Identity unresolved; preserve separate source records. Do not merge names, roles, zones or statistics.",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/sylvan-seductress",
+          "cache_sha256": "3ddef637b88692dd741392c4c757c540781417c5cf3eb5e530c99bf58a61a973",
+          "cached_heading": "Sylvan Seductress",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Sylvan Seductress",
+              "cached_h1": "Sylvan Seductress",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "respawn_time",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/creature.jsonl",
+              "line": 5,
+              "record": {
+                "name": "Sylvan Seductress",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/sylvan-seductress",
+                    "title": "Sylvan Seductress · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T02:22:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "River Valley"
+                  ],
+                  "difficulty": [
+                    "3 dots"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Dragon Eye",
+                    "url": "https://vgsoharchive.com/items/dragon-eye"
+                  },
+                  {
+                    "name": "Empowered Arcane Brazier",
+                    "url": "https://vgsoharchive.com/items/empowered-arcane-brazier"
+                  },
+                  {
+                    "name": "Etching of Swords",
+                    "url": "https://vgsoharchive.com/items/etching-of-swords"
+                  },
+                  {
+                    "name": "Faded Quartz Mask",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-mask"
+                  },
+                  {
+                    "name": "Medium Ice Sphere",
+                    "url": "https://vgsoharchive.com/items/medium-ice-sphere"
+                  },
+                  {
+                    "name": "Strong Mind Crystal",
+                    "url": "https://vgsoharchive.com/items/strong-mind-crystal"
+                  },
+                  {
+                    "name": "Studded Pounded Leather Cap",
+                    "url": "https://vgsoharchive.com/items/studded-pounded-leather-cap"
+                  },
+                  {
+                    "name": "Faded Quartz Pendant",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-pendant"
+                  },
+                  {
+                    "name": "Faded Amber Mask",
+                    "url": "https://vgsoharchive.com/items/faded-amber-mask"
+                  },
+                  {
+                    "name": "Faded Bloodstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-bloodstone-ring"
+                  },
+                  {
+                    "name": "Faded Citrine Ring",
+                    "url": "https://vgsoharchive.com/items/faded-citrine-ring"
+                  },
+                  {
+                    "name": "Faded Jasper Earring",
+                    "url": "https://vgsoharchive.com/items/faded-jasper-earring"
+                  },
+                  {
+                    "name": "Faded Moonstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-moonstone-ring"
+                  },
+                  {
+                    "name": "Foul Dagger",
+                    "url": "https://vgsoharchive.com/items/foul-dagger"
+                  },
+                  {
+                    "name": "Foul Lance",
+                    "url": "https://vgsoharchive.com/items/foul-lance"
+                  },
+                  {
+                    "name": "Foul Longblade",
+                    "url": "https://vgsoharchive.com/items/foul-longblade"
+                  },
+                  {
+                    "name": "Foul Mace",
+                    "url": "https://vgsoharchive.com/items/foul-mace"
+                  },
+                  {
+                    "name": "Shining Garnet",
+                    "url": "https://vgsoharchive.com/items/shining-garnet"
+                  },
+                  {
+                    "name": "Shiny Jasper Ring",
+                    "url": "https://vgsoharchive.com/items/shiny-jasper-ring"
+                  },
+                  {
+                    "name": "Studded Fired Leather Boots",
+                    "url": "https://vgsoharchive.com/items/studded-fired-leather-boots"
+                  },
+                  {
+                    "name": "Studded Gila Leather Bracers",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-bracers"
+                  },
+                  {
+                    "name": "Studded Gila Leather Pauldrons",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-pauldrons"
+                  },
+                  {
+                    "name": "Studded Gila Leather Vest",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-vest"
+                  },
+                  {
+                    "name": "Blue Siren Flesh",
+                    "url": "https://vgsoharchive.com/items/blue-siren-flesh"
+                  },
+                  {
+                    "name": "Colorful Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/colorful-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Colorful Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/colorful-siren-tongue"
+                  },
+                  {
+                    "name": "Flecked Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/flecked-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Flecked Siren Heart",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-heart"
+                  },
+                  {
+                    "name": "Flecked Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-tongue"
+                  }
+                ],
+                "type": "creature",
+                "level": 31,
+                "zone": "River Valley",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": "3 dots",
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "River Valley"
+                ],
+                "loot_ref": "Sylvan Seductress",
+                "original_source_urls": []
+              }
+            },
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/loot.jsonl",
+              "line": 1,
+              "record": {
+                "name": "Sylvan Seductress",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/sylvan-seductress",
+                    "title": "Sylvan Seductress · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T02:22:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "River Valley"
+                  ],
+                  "difficulty": [
+                    "3 dots"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Dragon Eye",
+                    "url": "https://vgsoharchive.com/items/dragon-eye"
+                  },
+                  {
+                    "name": "Empowered Arcane Brazier",
+                    "url": "https://vgsoharchive.com/items/empowered-arcane-brazier"
+                  },
+                  {
+                    "name": "Etching of Swords",
+                    "url": "https://vgsoharchive.com/items/etching-of-swords"
+                  },
+                  {
+                    "name": "Faded Quartz Mask",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-mask"
+                  },
+                  {
+                    "name": "Medium Ice Sphere",
+                    "url": "https://vgsoharchive.com/items/medium-ice-sphere"
+                  },
+                  {
+                    "name": "Strong Mind Crystal",
+                    "url": "https://vgsoharchive.com/items/strong-mind-crystal"
+                  },
+                  {
+                    "name": "Studded Pounded Leather Cap",
+                    "url": "https://vgsoharchive.com/items/studded-pounded-leather-cap"
+                  },
+                  {
+                    "name": "Faded Quartz Pendant",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-pendant"
+                  },
+                  {
+                    "name": "Faded Amber Mask",
+                    "url": "https://vgsoharchive.com/items/faded-amber-mask"
+                  },
+                  {
+                    "name": "Faded Bloodstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-bloodstone-ring"
+                  },
+                  {
+                    "name": "Faded Citrine Ring",
+                    "url": "https://vgsoharchive.com/items/faded-citrine-ring"
+                  },
+                  {
+                    "name": "Faded Jasper Earring",
+                    "url": "https://vgsoharchive.com/items/faded-jasper-earring"
+                  },
+                  {
+                    "name": "Faded Moonstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-moonstone-ring"
+                  },
+                  {
+                    "name": "Foul Dagger",
+                    "url": "https://vgsoharchive.com/items/foul-dagger"
+                  },
+                  {
+                    "name": "Foul Lance",
+                    "url": "https://vgsoharchive.com/items/foul-lance"
+                  },
+                  {
+                    "name": "Foul Longblade",
+                    "url": "https://vgsoharchive.com/items/foul-longblade"
+                  },
+                  {
+                    "name": "Foul Mace",
+                    "url": "https://vgsoharchive.com/items/foul-mace"
+                  },
+                  {
+                    "name": "Shining Garnet",
+                    "url": "https://vgsoharchive.com/items/shining-garnet"
+                  },
+                  {
+                    "name": "Shiny Jasper Ring",
+                    "url": "https://vgsoharchive.com/items/shiny-jasper-ring"
+                  },
+                  {
+                    "name": "Studded Fired Leather Boots",
+                    "url": "https://vgsoharchive.com/items/studded-fired-leather-boots"
+                  },
+                  {
+                    "name": "Studded Gila Leather Bracers",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-bracers"
+                  },
+                  {
+                    "name": "Studded Gila Leather Pauldrons",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-pauldrons"
+                  },
+                  {
+                    "name": "Studded Gila Leather Vest",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-vest"
+                  },
+                  {
+                    "name": "Blue Siren Flesh",
+                    "url": "https://vgsoharchive.com/items/blue-siren-flesh"
+                  },
+                  {
+                    "name": "Colorful Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/colorful-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Colorful Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/colorful-siren-tongue"
+                  },
+                  {
+                    "name": "Flecked Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/flecked-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Flecked Siren Heart",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-heart"
+                  },
+                  {
+                    "name": "Flecked Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-tongue"
+                  }
+                ],
+                "type": "loot",
+                "source": "Sylvan Seductress",
+                "drops": [
+                  {
+                    "item": "Dragon Eye",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/dragon-eye"
+                  },
+                  {
+                    "item": "Empowered Arcane Brazier",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/empowered-arcane-brazier"
+                  },
+                  {
+                    "item": "Etching of Swords",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/etching-of-swords"
+                  },
+                  {
+                    "item": "Faded Quartz Mask",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-mask"
+                  },
+                  {
+                    "item": "Medium Ice Sphere",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/medium-ice-sphere"
+                  },
+                  {
+                    "item": "Strong Mind Crystal",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 2/1029",
+                    "url": "https://vgsoharchive.com/items/strong-mind-crystal"
+                  },
+                  {
+                    "item": "Studded Pounded Leather Cap",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-pounded-leather-cap"
+                  },
+                  {
+                    "item": "Faded Quartz Pendant",
+                    "chance": null,
+                    "quantity": null,
+                    "observed_sample": "",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-pendant"
+                  },
+                  {
+                    "item": "Faded Amber Mask",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-amber-mask"
+                  },
+                  {
+                    "item": "Faded Bloodstone Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-bloodstone-ring"
+                  },
+                  {
+                    "item": "Faded Citrine Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-citrine-ring"
+                  },
+                  {
+                    "item": "Faded Jasper Earring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-jasper-earring"
+                  },
+                  {
+                    "item": "Faded Moonstone Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-moonstone-ring"
+                  },
+                  {
+                    "item": "Foul Dagger",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-dagger"
+                  },
+                  {
+                    "item": "Foul Lance",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-lance"
+                  },
+                  {
+                    "item": "Foul Longblade",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-longblade"
+                  },
+                  {
+                    "item": "Foul Mace",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-mace"
+                  },
+                  {
+                    "item": "Shining Garnet",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/shining-garnet"
+                  },
+                  {
+                    "item": "Shiny Jasper Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/shiny-jasper-ring"
+                  },
+                  {
+                    "item": "Studded Fired Leather Boots",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-fired-leather-boots"
+                  },
+                  {
+                    "item": "Studded Gila Leather Bracers",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-bracers"
+                  },
+                  {
+                    "item": "Studded Gila Leather Pauldrons",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-pauldrons"
+                  },
+                  {
+                    "item": "Studded Gila Leather Vest",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-vest"
+                  },
+                  {
+                    "item": "Blue Siren Flesh",
+                    "chance": "17.0%",
+                    "quantity": null,
+                    "observed_sample": "17.0% 182/1029",
+                    "url": "https://vgsoharchive.com/items/blue-siren-flesh"
+                  },
+                  {
+                    "item": "Colorful Lock of Siren Hair",
+                    "chance": "14.0%",
+                    "quantity": null,
+                    "observed_sample": "14.0% 145/1029",
+                    "url": "https://vgsoharchive.com/items/colorful-lock-of-siren-hair"
+                  },
+                  {
+                    "item": "Colorful Siren Tongue",
+                    "chance": "2.0%",
+                    "quantity": null,
+                    "observed_sample": "2.0% 27/1029",
+                    "url": "https://vgsoharchive.com/items/colorful-siren-tongue"
+                  },
+                  {
+                    "item": "Flecked Lock of Siren Hair",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 3/1029",
+                    "url": "https://vgsoharchive.com/items/flecked-lock-of-siren-hair"
+                  },
+                  {
+                    "item": "Flecked Siren Heart",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 8/1029",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-heart"
+                  },
+                  {
+                    "item": "Flecked Siren Tongue",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-tongue"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/sylvan-seductrress",
+          "cache_sha256": "912f561a3a780343ed739f7b5996d7a91fcefd4fea50325a551a35decf4ea799",
+          "cached_heading": "Sylvan Seductrress",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Sylvan Seductrress",
+              "cached_h1": "Sylvan Seductrress",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "respawn_time",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/creature.jsonl",
+              "line": 6,
+              "record": {
+                "name": "Sylvan Seductrress",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/sylvan-seductrress",
+                    "title": "Sylvan Seductrress · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T02:23:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "River Valley"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ],
+                  "can swim": [
+                    "Yes"
+                  ],
+                  "can fly": [
+                    "No"
+                  ],
+                  "wall crawl": [
+                    "No"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Dragon Eye",
+                    "url": "https://vgsoharchive.com/items/dragon-eye"
+                  },
+                  {
+                    "name": "Empowered Arcane Brazier",
+                    "url": "https://vgsoharchive.com/items/empowered-arcane-brazier"
+                  },
+                  {
+                    "name": "Etching of Swords",
+                    "url": "https://vgsoharchive.com/items/etching-of-swords"
+                  },
+                  {
+                    "name": "Faded Quartz Mask",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-mask"
+                  },
+                  {
+                    "name": "Medium Ice Sphere",
+                    "url": "https://vgsoharchive.com/items/medium-ice-sphere"
+                  },
+                  {
+                    "name": "Strong Mind Crystal",
+                    "url": "https://vgsoharchive.com/items/strong-mind-crystal"
+                  },
+                  {
+                    "name": "Studded Pounded Leather Cap",
+                    "url": "https://vgsoharchive.com/items/studded-pounded-leather-cap"
+                  },
+                  {
+                    "name": "Faded Amber Mask",
+                    "url": "https://vgsoharchive.com/items/faded-amber-mask"
+                  },
+                  {
+                    "name": "Faded Bloodstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-bloodstone-ring"
+                  },
+                  {
+                    "name": "Faded Citrine Ring",
+                    "url": "https://vgsoharchive.com/items/faded-citrine-ring"
+                  },
+                  {
+                    "name": "Faded Jasper Earring",
+                    "url": "https://vgsoharchive.com/items/faded-jasper-earring"
+                  },
+                  {
+                    "name": "Faded Moonstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-moonstone-ring"
+                  },
+                  {
+                    "name": "Foul Dagger",
+                    "url": "https://vgsoharchive.com/items/foul-dagger"
+                  },
+                  {
+                    "name": "Foul Lance",
+                    "url": "https://vgsoharchive.com/items/foul-lance"
+                  },
+                  {
+                    "name": "Foul Longblade",
+                    "url": "https://vgsoharchive.com/items/foul-longblade"
+                  },
+                  {
+                    "name": "Foul Mace",
+                    "url": "https://vgsoharchive.com/items/foul-mace"
+                  },
+                  {
+                    "name": "Shining Garnet",
+                    "url": "https://vgsoharchive.com/items/shining-garnet"
+                  },
+                  {
+                    "name": "Shiny Jasper Ring",
+                    "url": "https://vgsoharchive.com/items/shiny-jasper-ring"
+                  },
+                  {
+                    "name": "Studded Fired Leather Boots",
+                    "url": "https://vgsoharchive.com/items/studded-fired-leather-boots"
+                  },
+                  {
+                    "name": "Studded Gila Leather Bracers",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-bracers"
+                  },
+                  {
+                    "name": "Studded Gila Leather Pauldrons",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-pauldrons"
+                  },
+                  {
+                    "name": "Studded Gila Leather Vest",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-vest"
+                  },
+                  {
+                    "name": "Blue Siren Flesh",
+                    "url": "https://vgsoharchive.com/items/blue-siren-flesh"
+                  },
+                  {
+                    "name": "Colorful Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/colorful-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Colorful Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/colorful-siren-tongue"
+                  },
+                  {
+                    "name": "Flecked Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/flecked-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Flecked Siren Heart",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-heart"
+                  },
+                  {
+                    "name": "Flecked Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-tongue"
+                  }
+                ],
+                "type": "creature",
+                "level": 27,
+                "zone": "River Valley",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": null,
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "River Valley"
+                ],
+                "loot_ref": "Sylvan Seductrress",
+                "original_source_urls": []
+              }
+            },
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/loot.jsonl",
+              "line": 2,
+              "record": {
+                "name": "Sylvan Seductrress",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/sylvan-seductrress",
+                    "title": "Sylvan Seductrress · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T02:23:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "River Valley"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ],
+                  "can swim": [
+                    "Yes"
+                  ],
+                  "can fly": [
+                    "No"
+                  ],
+                  "wall crawl": [
+                    "No"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Dragon Eye",
+                    "url": "https://vgsoharchive.com/items/dragon-eye"
+                  },
+                  {
+                    "name": "Empowered Arcane Brazier",
+                    "url": "https://vgsoharchive.com/items/empowered-arcane-brazier"
+                  },
+                  {
+                    "name": "Etching of Swords",
+                    "url": "https://vgsoharchive.com/items/etching-of-swords"
+                  },
+                  {
+                    "name": "Faded Quartz Mask",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-mask"
+                  },
+                  {
+                    "name": "Medium Ice Sphere",
+                    "url": "https://vgsoharchive.com/items/medium-ice-sphere"
+                  },
+                  {
+                    "name": "Strong Mind Crystal",
+                    "url": "https://vgsoharchive.com/items/strong-mind-crystal"
+                  },
+                  {
+                    "name": "Studded Pounded Leather Cap",
+                    "url": "https://vgsoharchive.com/items/studded-pounded-leather-cap"
+                  },
+                  {
+                    "name": "Faded Amber Mask",
+                    "url": "https://vgsoharchive.com/items/faded-amber-mask"
+                  },
+                  {
+                    "name": "Faded Bloodstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-bloodstone-ring"
+                  },
+                  {
+                    "name": "Faded Citrine Ring",
+                    "url": "https://vgsoharchive.com/items/faded-citrine-ring"
+                  },
+                  {
+                    "name": "Faded Jasper Earring",
+                    "url": "https://vgsoharchive.com/items/faded-jasper-earring"
+                  },
+                  {
+                    "name": "Faded Moonstone Ring",
+                    "url": "https://vgsoharchive.com/items/faded-moonstone-ring"
+                  },
+                  {
+                    "name": "Foul Dagger",
+                    "url": "https://vgsoharchive.com/items/foul-dagger"
+                  },
+                  {
+                    "name": "Foul Lance",
+                    "url": "https://vgsoharchive.com/items/foul-lance"
+                  },
+                  {
+                    "name": "Foul Longblade",
+                    "url": "https://vgsoharchive.com/items/foul-longblade"
+                  },
+                  {
+                    "name": "Foul Mace",
+                    "url": "https://vgsoharchive.com/items/foul-mace"
+                  },
+                  {
+                    "name": "Shining Garnet",
+                    "url": "https://vgsoharchive.com/items/shining-garnet"
+                  },
+                  {
+                    "name": "Shiny Jasper Ring",
+                    "url": "https://vgsoharchive.com/items/shiny-jasper-ring"
+                  },
+                  {
+                    "name": "Studded Fired Leather Boots",
+                    "url": "https://vgsoharchive.com/items/studded-fired-leather-boots"
+                  },
+                  {
+                    "name": "Studded Gila Leather Bracers",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-bracers"
+                  },
+                  {
+                    "name": "Studded Gila Leather Pauldrons",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-pauldrons"
+                  },
+                  {
+                    "name": "Studded Gila Leather Vest",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-vest"
+                  },
+                  {
+                    "name": "Blue Siren Flesh",
+                    "url": "https://vgsoharchive.com/items/blue-siren-flesh"
+                  },
+                  {
+                    "name": "Colorful Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/colorful-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Colorful Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/colorful-siren-tongue"
+                  },
+                  {
+                    "name": "Flecked Lock of Siren Hair",
+                    "url": "https://vgsoharchive.com/items/flecked-lock-of-siren-hair"
+                  },
+                  {
+                    "name": "Flecked Siren Heart",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-heart"
+                  },
+                  {
+                    "name": "Flecked Siren Tongue",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-tongue"
+                  }
+                ],
+                "type": "loot",
+                "source": "Sylvan Seductrress",
+                "drops": [
+                  {
+                    "item": "Dragon Eye",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/dragon-eye"
+                  },
+                  {
+                    "item": "Empowered Arcane Brazier",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/empowered-arcane-brazier"
+                  },
+                  {
+                    "item": "Etching of Swords",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/etching-of-swords"
+                  },
+                  {
+                    "item": "Faded Quartz Mask",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-quartz-mask"
+                  },
+                  {
+                    "item": "Medium Ice Sphere",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/medium-ice-sphere"
+                  },
+                  {
+                    "item": "Strong Mind Crystal",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 2/1029",
+                    "url": "https://vgsoharchive.com/items/strong-mind-crystal"
+                  },
+                  {
+                    "item": "Studded Pounded Leather Cap",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-pounded-leather-cap"
+                  },
+                  {
+                    "item": "Faded Amber Mask",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-amber-mask"
+                  },
+                  {
+                    "item": "Faded Bloodstone Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-bloodstone-ring"
+                  },
+                  {
+                    "item": "Faded Citrine Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-citrine-ring"
+                  },
+                  {
+                    "item": "Faded Jasper Earring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-jasper-earring"
+                  },
+                  {
+                    "item": "Faded Moonstone Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/faded-moonstone-ring"
+                  },
+                  {
+                    "item": "Foul Dagger",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-dagger"
+                  },
+                  {
+                    "item": "Foul Lance",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-lance"
+                  },
+                  {
+                    "item": "Foul Longblade",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-longblade"
+                  },
+                  {
+                    "item": "Foul Mace",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/foul-mace"
+                  },
+                  {
+                    "item": "Shining Garnet",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/shining-garnet"
+                  },
+                  {
+                    "item": "Shiny Jasper Ring",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/shiny-jasper-ring"
+                  },
+                  {
+                    "item": "Studded Fired Leather Boots",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-fired-leather-boots"
+                  },
+                  {
+                    "item": "Studded Gila Leather Bracers",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-bracers"
+                  },
+                  {
+                    "item": "Studded Gila Leather Pauldrons",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-pauldrons"
+                  },
+                  {
+                    "item": "Studded Gila Leather Vest",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/studded-gila-leather-vest"
+                  },
+                  {
+                    "item": "Blue Siren Flesh",
+                    "chance": "17.0%",
+                    "quantity": null,
+                    "observed_sample": "17.0% 182/1029",
+                    "url": "https://vgsoharchive.com/items/blue-siren-flesh"
+                  },
+                  {
+                    "item": "Colorful Lock of Siren Hair",
+                    "chance": "14.0%",
+                    "quantity": null,
+                    "observed_sample": "14.0% 145/1029",
+                    "url": "https://vgsoharchive.com/items/colorful-lock-of-siren-hair"
+                  },
+                  {
+                    "item": "Colorful Siren Tongue",
+                    "chance": "2.0%",
+                    "quantity": null,
+                    "observed_sample": "2.0% 27/1029",
+                    "url": "https://vgsoharchive.com/items/colorful-siren-tongue"
+                  },
+                  {
+                    "item": "Flecked Lock of Siren Hair",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 3/1029",
+                    "url": "https://vgsoharchive.com/items/flecked-lock-of-siren-hair"
+                  },
+                  {
+                    "item": "Flecked Siren Heart",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 8/1029",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-heart"
+                  },
+                  {
+                    "item": "Flecked Siren Tongue",
+                    "chance": "0.0%",
+                    "quantity": null,
+                    "observed_sample": "0.0% 1/1029",
+                    "url": "https://vgsoharchive.com/items/flecked-siren-tongue"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urls": [
+        "https://vgsoharchive.com/mobs/syroko",
+        "https://vgsoharchive.com/mobs/syroko-osaito"
+      ],
+      "disposition": "Identity unresolved; preserve separate source records. Do not merge names, roles, zones or statistics.",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/syroko",
+          "cache_sha256": "ebcd5f35b1dfd1bbf8e0786f9e2c1e347361f0de98886dfaac08ee2c1ec47cde",
+          "cached_heading": "Syroko",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Syroko",
+              "cached_h1": "Syroko",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "respawn_time",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/creature.jsonl",
+              "line": 8,
+              "record": {
+                "name": "Syroko",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/syroko",
+                    "title": "Syroko · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T02:26:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Bordinar's Cleft"
+                  ],
+                  "difficulty": [
+                    "3 dots"
+                  ],
+                  "chunk": [
+                    "Bordinar's Cleft"
+                  ],
+                  "continent": [
+                    "Thestra"
+                  ]
+                },
+                "referenced_entities": [],
+                "type": "creature",
+                "level": 50,
+                "zone": "Bordinar's Cleft",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": "3 dots",
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "Bordinar's Cleft"
+                ],
+                "original_source_urls": []
+              }
+            }
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/syroko-osaito",
+          "cache_sha256": "74dd8431d61bce054a0479de3acd5e7147173c0c626256348ce2abbc8f57ef65",
+          "cached_heading": "Syroko Osaito",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Syroko Osaito",
+              "cached_h1": "Syroko Osaito",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/npc.jsonl",
+              "line": 3,
+              "record": {
+                "name": "Syroko Osaito",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/syroko-osaito",
+                    "title": "Syroko Osaito · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T02:27:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Ksaravi Gulch"
+                  ],
+                  "role": [
+                    "Master of the Drunken Style"
+                  ],
+                  "type": [
+                    "Quest NPC"
+                  ],
+                  "location": [
+                    "-53605, 70936, 11782"
+                  ],
+                  "chunk": [
+                    "Bordinar's Cleft"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ],
+                  "locations seen": [
+                    "An old ruined tower near Ksaravi Gulch, east of Khal"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Ksaravi Gulch",
+                    "url": "https://vgsoharchive.com/zones/ksaravi-gulch"
+                  },
+                  {
+                    "name": "A Measure Of Trust",
+                    "url": "https://vgsoharchive.com/quests/a-measure-of-trust"
+                  },
+                  {
+                    "name": "The Way Of The Sway",
+                    "url": "https://vgsoharchive.com/quests/the-way-of-the-sway"
+                  },
+                  {
+                    "name": "The Way Of The Sway, Part 2",
+                    "url": "https://vgsoharchive.com/quests/the-way-of-the-sway-part-2"
+                  },
+                  {
+                    "name": "Choose Your Path",
+                    "url": "https://vgsoharchive.com/quests/choose-your-path-drunken"
+                  }
+                ],
+                "type": "npc",
+                "level": 50,
+                "zone": "Ksaravi Gulch",
+                "health": null,
+                "damage": null,
+                "race": null,
+                "title": null,
+                "services": [
+                  "quest giver"
+                ],
+                "quests_given": [
+                  "A Measure Of Trust",
+                  "The Way Of The Sway",
+                  "The Way Of The Sway, Part 2"
+                ],
+                "chunk": "Bordinar's Cleft",
+                "location": {
+                  "raw": "-53605, 70936, 11782",
+                  "format": "source coordinates; axis order unspecified",
+                  "chunk": "Bordinar's Cleft"
+                },
+                "zones_recorded": [
+                  "Ksaravi Gulch"
+                ],
+                "continent": "Qalia",
+                "locations_seen_recorded": "An old ruined tower near Ksaravi Gulch, east of Khal",
+                "difficulty_recorded": null,
+                "original_source_urls": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "check_count": 15,
+  "remaining_work": "Candidate identity relationships remain unresolved. Pending downloads, metadata-only typed extraction and collision review remain incomplete."
+}

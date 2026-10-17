@@ -1,0 +1,1286 @@
+{
+  "reviewed_at": "2026-10-17T03:39:58.993090+00:00",
+  "scope": "Cache-only audit of four previously undocumented normalized-name collisions; no network requests.",
+  "cases": [
+    {
+      "output_key": "ka_taol",
+      "status": "unresolved_distinct_url_identity",
+      "decision": "Withhold identity merge and operative conversion. Similar punctuation and matching observations do not establish one historical entity.",
+      "page_evidence": [
+        {
+          "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+          "cache_sha256": "3f7aa4d0d84ffe1a474a16ac2e514090b084ca070f7aab176d6b19b9863edce0",
+          "heading": "Psionicist Class Trainers (15)",
+          "linked_zones": [
+            "/zones/magi-hold",
+            "/zones/renton-keep",
+            "/zones/tanvu"
+          ],
+          "linked_items": []
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/ka-taol",
+          "cache_sha256": "eac12a4e4f842ac3af208e6cdfaa433c5d734d0451b8bafee13f405249cf61c7",
+          "heading": "Ka'taol",
+          "linked_zones": [
+            "/zones/tanvu"
+          ],
+          "linked_items": []
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/ka-taol-2",
+          "cache_sha256": "f421e2d8e631e929de08b25815aac354b1e33187314d631fa43c2eab556853e9",
+          "heading": "Ka´Taol",
+          "linked_zones": [],
+          "linked_items": []
+        }
+      ],
+      "full_source_records": [
+        {
+          "record_file": "raw\\2026-10-13-222730-041229-archive-bulk\\npc.jsonl",
+          "line": 103,
+          "record": {
+            "name": "Ka'taol",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+                "title": "Psionicist Class Trainers · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/mobs/ka-taol",
+                "title": "Ka'taol · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Explicit class-trainer listing. Race, level and health unknown. Unlinked region labels are preserved without guessing a zone or chunk. Textual /loc labels are not numeric spawn coordinates. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:28:15+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Ka'taol",
+                "url": "https://vgsoharchive.com/mobs/ka-taol"
+              }
+            ],
+            "type": "npc",
+            "level": null,
+            "race": null,
+            "health": null,
+            "damage": null,
+            "zone": "Tanvu",
+            "chunk": null,
+            "location": {
+              "raw": "/loc Training Center",
+              "format": "descriptive source /loc label",
+              "chunk": null
+            },
+            "services": [
+              "trainer"
+            ],
+            "trainer_of": "Psionicist",
+            "region_labels": [],
+            "continent": "Kojan",
+            "npc_ref_url": "https://vgsoharchive.com/mobs/ka-taol",
+            "archive_variants": [
+              {
+                "name": "Ka'taol",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/ka-taol",
+                    "title": "Ka'taol · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:34:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Tanvu"
+                  ],
+                  "role": [
+                    "Class Trainer - Psionicist"
+                  ],
+                  "location": [
+                    "Training Center"
+                  ],
+                  "continent": [
+                    "Kojan"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Tanvu",
+                    "url": "https://vgsoharchive.com/zones/tanvu"
+                  }
+                ],
+                "type": "npc",
+                "level": 15,
+                "zone": "Tanvu",
+                "health": null,
+                "damage": null,
+                "race": null,
+                "title": null,
+                "services": [
+                  "trainer"
+                ],
+                "quests_given": [],
+                "chunk": null,
+                "location": {
+                  "raw": "Training Center",
+                  "format": "source coordinates; axis order unspecified",
+                  "chunk": "Tanvu"
+                },
+                "zones_recorded": [
+                  "Tanvu"
+                ],
+                "original_source_urls": []
+              }
+            ]
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-13-222934-851050-archive-enriched-v5\\npc.jsonl",
+          "line": 103,
+          "record": {
+            "name": "Ka'taol",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+                "title": "Psionicist Class Trainers · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-trainer listing. Race, level and health unknown. Unlinked region labels are preserved without guessing a zone or chunk. Textual /loc labels are not numeric spawn coordinates.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:29:35+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Ka'taol",
+                "url": "https://vgsoharchive.com/mobs/ka-taol"
+              }
+            ],
+            "type": "npc",
+            "level": null,
+            "race": null,
+            "health": null,
+            "damage": null,
+            "zone": "Tanvu",
+            "chunk": null,
+            "location": {
+              "raw": "/loc Training Center",
+              "format": "descriptive source /loc label",
+              "chunk": null
+            },
+            "services": [
+              "trainer"
+            ],
+            "trainer_of": "Psionicist",
+            "region_labels": [],
+            "continent": "Kojan",
+            "npc_ref_url": "https://vgsoharchive.com/mobs/ka-taol"
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-13-223857-981144-archive-enriched-v6\\npc.jsonl",
+          "line": 115,
+          "record": {
+            "name": "Ka'taol",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/ka-taol",
+                "title": "Ka'taol · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+                "title": "Psionicist Class Trainers · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:58+00:00",
+            "archive_fields": {
+              "zone": [
+                "Tanvu"
+              ],
+              "role": [
+                "Class Trainer - Psionicist"
+              ],
+              "location": [
+                "Training Center"
+              ],
+              "continent": [
+                "Kojan"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              }
+            ],
+            "type": "npc",
+            "level": 15,
+            "zone": "Tanvu",
+            "health": null,
+            "damage": null,
+            "race": null,
+            "title": null,
+            "services": [
+              "trainer"
+            ],
+            "quests_given": [],
+            "chunk": null,
+            "location": {
+              "raw": "Training Center",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Tanvu"
+            },
+            "zones_recorded": [
+              "Tanvu"
+            ],
+            "original_source_urls": [],
+            "training_classes_recorded": [
+              "Psionicist"
+            ],
+            "trainer_of": "Psionicist",
+            "archive_variants": [
+              {
+                "name": "Ka'taol",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+                    "title": "Psionicist Class Trainers · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-trainer listing. Race, level and health unknown. Unlinked region labels are preserved without guessing a zone or chunk. Textual /loc labels are not numeric spawn coordinates.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:06+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Ka'taol",
+                    "url": "https://vgsoharchive.com/mobs/ka-taol"
+                  }
+                ],
+                "type": "npc",
+                "level": null,
+                "race": null,
+                "health": null,
+                "damage": null,
+                "zone": "Tanvu",
+                "chunk": null,
+                "location": {
+                  "raw": "/loc Training Center",
+                  "format": "descriptive source /loc label",
+                  "chunk": null
+                },
+                "services": [
+                  "trainer"
+                ],
+                "trainer_of": "Psionicist",
+                "region_labels": [],
+                "continent": "Kojan",
+                "npc_ref_url": "https://vgsoharchive.com/mobs/ka-taol"
+              }
+            ]
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-13-224056-514671-archive-enriched-v7\\npc.jsonl",
+          "line": 115,
+          "record": {
+            "name": "Ka'taol",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/ka-taol",
+                "title": "Ka'taol · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+                "title": "Psionicist Class Trainers · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:57+00:00",
+            "archive_fields": {
+              "zone": [
+                "Tanvu"
+              ],
+              "role": [
+                "Class Trainer - Psionicist"
+              ],
+              "location": [
+                "Training Center"
+              ],
+              "continent": [
+                "Kojan"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              }
+            ],
+            "type": "npc",
+            "level": 15,
+            "zone": "Tanvu",
+            "health": null,
+            "damage": null,
+            "race": null,
+            "title": null,
+            "services": [
+              "trainer"
+            ],
+            "quests_given": [],
+            "chunk": null,
+            "location": {
+              "raw": "Training Center",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Tanvu"
+            },
+            "zones_recorded": [
+              "Tanvu"
+            ],
+            "original_source_urls": [],
+            "training_classes_recorded": [
+              "Psionicist"
+            ],
+            "trainer_of": "Psionicist",
+            "archive_variants": [
+              {
+                "name": "Ka'taol",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist/trainers",
+                    "title": "Psionicist Class Trainers · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-trainer listing. Race, level and health unknown. Unlinked region labels are preserved without guessing a zone or chunk. Textual /loc labels are not numeric spawn coordinates.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Ka'taol",
+                    "url": "https://vgsoharchive.com/mobs/ka-taol"
+                  }
+                ],
+                "type": "npc",
+                "level": null,
+                "race": null,
+                "health": null,
+                "damage": null,
+                "zone": "Tanvu",
+                "chunk": null,
+                "location": {
+                  "raw": "/loc Training Center",
+                  "format": "descriptive source /loc label",
+                  "chunk": null
+                },
+                "services": [
+                  "trainer"
+                ],
+                "trainer_of": "Psionicist",
+                "region_labels": [],
+                "continent": "Kojan",
+                "npc_ref_url": "https://vgsoharchive.com/mobs/ka-taol"
+              }
+            ]
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-13-230720-560621-archive-trainer-roles-v15\\npc.jsonl",
+          "line": 103,
+          "record": {
+            "name": "Ka'taol",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/ka-taol",
+                "title": "Ka'taol · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 15,
+            "collected_at": "2026-10-14T03:07:20+00:00",
+            "archive_fields": {
+              "zone": [
+                "Tanvu"
+              ],
+              "role": [
+                "Class Trainer - Psionicist"
+              ],
+              "location": [
+                "Training Center"
+              ],
+              "continent": [
+                "Kojan"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              }
+            ],
+            "type": "npc",
+            "level": 15,
+            "zone": "Tanvu",
+            "health": null,
+            "damage": null,
+            "race": null,
+            "title": null,
+            "services": [
+              "trainer"
+            ],
+            "quests_given": [],
+            "chunk": null,
+            "location": {
+              "raw": "Training Center",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Tanvu"
+            },
+            "zones_recorded": [
+              "Tanvu"
+            ],
+            "trainer_of": "Psionicist",
+            "training_classes_recorded": [
+              "Psionicist"
+            ],
+            "continent": "Kojan",
+            "locations_seen_recorded": null,
+            "difficulty_recorded": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-15-033353-488406-archive-bulk\\npc.jsonl",
+          "line": 39,
+          "record": {
+            "name": "Ka´Taol",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/ka-taol-2",
+                "title": "Ka´Taol · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-15T07:35:36+00:00",
+            "archive_fields": {
+              "zone": [
+                "Tanvu"
+              ],
+              "role": [
+                "Psionicist Instructor"
+              ],
+              "continent": [
+                "Kojan"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "npc",
+            "level": null,
+            "zone": "Tanvu",
+            "health": null,
+            "damage": null,
+            "race": null,
+            "title": null,
+            "services": [
+              "trainer"
+            ],
+            "quests_given": [],
+            "chunk": null,
+            "location": null,
+            "zones_recorded": [
+              "Tanvu"
+            ],
+            "continent": "Kojan",
+            "locations_seen_recorded": null,
+            "difficulty_recorded": null,
+            "original_source_urls": []
+          }
+        }
+      ],
+      "source_records_modified": false,
+      "unknown_fields_retained": [
+        "health",
+        "damage",
+        "creature_kind",
+        "respawn_time"
+      ]
+    },
+    {
+      "output_key": "sa_id_modabi",
+      "status": "unresolved_distinct_url_identity",
+      "decision": "Withhold identity merge and operative conversion. Similar punctuation and matching observations do not establish one historical entity.",
+      "page_evidence": [
+        {
+          "url": "https://vgsoharchive.com/mobs/sa-id-modabi",
+          "cache_sha256": "2638f91bbd127af7c0fc12006caeed9f11eb6ffe81dad16d1b7369ca1a409bcc",
+          "heading": "Sa'id Modabi",
+          "linked_zones": [],
+          "linked_items": [
+            "/items/card-of-blanket-accusation-9",
+            "/items/card-of-forceful-demand-2",
+            "/items/card-of-good-point-2",
+            "/items/elegantly-carved-pipe-11",
+            "/items/flawed-cut-sapphire-3",
+            "/items/half-shaped-ruby-5",
+            "/items/raw-moonstone-2",
+            "/items/watchmans-pants"
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/sa-id-modabi-2",
+          "cache_sha256": "b1efb8534aee0b8d062bb44c897e452f59ed96433c55636bced2538187d8b9e0",
+          "heading": "Sa´id Modabi",
+          "linked_zones": [],
+          "linked_items": []
+        }
+      ],
+      "full_source_records": [
+        {
+          "record_file": "raw\\2026-10-15-221134-538203-archive-bulk\\npc.jsonl",
+          "line": 9,
+          "record": {
+            "name": "Sa'id Modabi",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/sa-id-modabi",
+                "title": "Sa'id Modabi · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T02:28:32+00:00",
+            "archive_fields": {
+              "zone": [
+                "Khal"
+              ],
+              "difficulty": [
+                "3 dots"
+              ],
+              "type": [
+                "Quest NPC"
+              ],
+              "location": [
+                "Outer Khal, West"
+              ],
+              "chunk": [
+                "Khal"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "station": [
+                "Domestic"
+              ],
+              "parley level": [
+                "40"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Join In The Attack",
+                "url": "https://vgsoharchive.com/quests/join-in-the-attack"
+              },
+              {
+                "name": "Finding Turncoats",
+                "url": "https://vgsoharchive.com/quests/finding-turncoats"
+              },
+              {
+                "name": "Finalize The Contract",
+                "url": "https://vgsoharchive.com/quests/finalize-the-contract"
+              },
+              {
+                "name": "Uncovering The Port's Attack Plans",
+                "url": "https://vgsoharchive.com/quests/uncovering-the-port-s-attack-plans"
+              },
+              {
+                "name": "Infiltrate The Ksaravi",
+                "url": "https://vgsoharchive.com/quests/infiltrate-the-ksaravi"
+              },
+              {
+                "name": "Meet The Professors",
+                "url": "https://vgsoharchive.com/quests/meet-the-professors"
+              },
+              {
+                "name": "Meet The Resistance",
+                "url": "https://vgsoharchive.com/quests/meet-the-resistance"
+              },
+              {
+                "name": "Card Of Blanket Accusation",
+                "url": "https://vgsoharchive.com/items/card-of-blanket-accusation-9"
+              },
+              {
+                "name": "Card Of Forceful Demand",
+                "url": "https://vgsoharchive.com/items/card-of-forceful-demand-2"
+              },
+              {
+                "name": "Card Of Good Point",
+                "url": "https://vgsoharchive.com/items/card-of-good-point-2"
+              },
+              {
+                "name": "Elegantly Carved Pipe",
+                "url": "https://vgsoharchive.com/items/elegantly-carved-pipe-11"
+              },
+              {
+                "name": "Flawed Cut Sapphire",
+                "url": "https://vgsoharchive.com/items/flawed-cut-sapphire-3"
+              },
+              {
+                "name": "Half-shaped Ruby",
+                "url": "https://vgsoharchive.com/items/half-shaped-ruby-5"
+              },
+              {
+                "name": "Raw Moonstone",
+                "url": "https://vgsoharchive.com/items/raw-moonstone-2"
+              },
+              {
+                "name": "Watchmans Pants",
+                "url": "https://vgsoharchive.com/items/watchmans-pants"
+              }
+            ],
+            "type": "npc",
+            "level": 50,
+            "zone": "Khal",
+            "health": null,
+            "damage": null,
+            "race": null,
+            "title": null,
+            "services": [
+              "quest giver"
+            ],
+            "quests_given": [
+              "Join In The Attack",
+              "Finding Turncoats",
+              "Finalize The Contract",
+              "Uncovering The Port's Attack Plans",
+              "Infiltrate The Ksaravi",
+              "Meet The Professors"
+            ],
+            "chunk": "Khal",
+            "location": {
+              "raw": "Outer Khal, West",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Khal"
+            },
+            "zones_recorded": [
+              "Khal"
+            ],
+            "continent": "Qalia",
+            "locations_seen_recorded": null,
+            "difficulty_recorded": "3 dots",
+            "original_source_urls": []
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-15-221134-538203-archive-bulk\\creature.jsonl",
+          "line": 79,
+          "record": {
+            "name": "Sa´id Modabi",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/sa-id-modabi-2",
+                "title": "Sa´id Modabi · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T02:29:02+00:00",
+            "archive_fields": {
+              "zone": [
+                "Khal"
+              ],
+              "continent": [
+                "Qalia"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "creature",
+            "level": null,
+            "zone": "Khal",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Khal"
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "source_records_modified": false,
+      "unknown_fields_retained": [
+        "health",
+        "damage",
+        "creature_kind",
+        "respawn_time"
+      ]
+    },
+    {
+      "output_key": "smith_of_barba",
+      "status": "unresolved_distinct_url_identity",
+      "decision": "Withhold identity merge and operative conversion. Similar punctuation and matching observations do not establish one historical entity.",
+      "page_evidence": [
+        {
+          "url": "https://vgsoharchive.com/mobs/smith-of-barba",
+          "cache_sha256": "c828bdbd459eed49b04bddc2f8d2cd0dc0b09e5133eb9e259f9c60c0de58cd40",
+          "heading": "Smith Of'Barba",
+          "linked_zones": [],
+          "linked_items": [
+            "/items/blessed-infineum-plate-boots",
+            "/items/errytl-mace-of-the-ages",
+            "/items/gazra-greataxe-of-the-ages",
+            "/items/nusin-longsword-of-ages",
+            "/items/strong-ale",
+            "/items/yanvil-greatstaff-of-the-ages",
+            "/items/zank-bladestaff-of-the-ages"
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/smith-of-barba-2",
+          "cache_sha256": "344e56d3c6f78caad704a0d6da92c37ef0e02bc0a22c598612710d263c45926f",
+          "heading": "Smith Of´Barba",
+          "linked_zones": [],
+          "linked_items": []
+        }
+      ],
+      "full_source_records": [
+        {
+          "record_file": "raw\\2026-10-16-103554-141302-archive-bulk\\npc.jsonl",
+          "line": 7,
+          "record": {
+            "name": "Smith Of'Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba",
+                "title": "Smith Of'Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T16:11:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Merchant - Special"
+              ],
+              "difficulty": [
+                "3 dots"
+              ],
+              "location": [
+                "-33188, -25397, 19670"
+              ],
+              "chunk": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "race": [
+                "Qaliathari"
+              ],
+              "locations seen": [
+                "Shidreth Mining Company"
+              ],
+              "parley types": [
+                "none , none , none , none , none"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Forged Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/forged-infineum-armor"
+              },
+              {
+                "name": "Rewrought Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/rewrought-infineum-armor"
+              },
+              {
+                "name": "The Ageless One",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one"
+              },
+              {
+                "name": "Strong Ale",
+                "url": "https://vgsoharchive.com/items/strong-ale"
+              },
+              {
+                "name": "The Ageless One (quest)",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one-quest"
+              },
+              {
+                "name": "Weapon Exchange",
+                "url": "https://vgsoharchive.com/quests/weapon-exchange"
+              },
+              {
+                "name": "Society Writ of Membership",
+                "url": "https://vgsoharchive.com/quests/society-writ-of-membership"
+              },
+              {
+                "name": "Blessed Infineum Plate Boots",
+                "url": "https://vgsoharchive.com/items/blessed-infineum-plate-boots"
+              },
+              {
+                "name": "Errytl, Mace of the Ages",
+                "url": "https://vgsoharchive.com/items/errytl-mace-of-the-ages"
+              },
+              {
+                "name": "Gazra, Greataxe Of The Ages",
+                "url": "https://vgsoharchive.com/items/gazra-greataxe-of-the-ages"
+              },
+              {
+                "name": "Nusin Longsword Of Ages",
+                "url": "https://vgsoharchive.com/items/nusin-longsword-of-ages"
+              },
+              {
+                "name": "Yanvil, Greatstaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/yanvil-greatstaff-of-the-ages"
+              },
+              {
+                "name": "Zank, Bladestaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/zank-bladestaff-of-the-ages"
+              }
+            ],
+            "type": "npc",
+            "level": 30,
+            "zone": "Coterie Infineum Sanctuary",
+            "health": null,
+            "damage": null,
+            "race": "Qaliathari",
+            "title": null,
+            "services": [
+              "quest giver",
+              "merchant"
+            ],
+            "quests_given": [
+              "The Ageless One (quest)",
+              "Forged Infineum Armor",
+              "Rewrought Infineum Armor",
+              "The Ageless One",
+              "Weapon Exchange"
+            ],
+            "chunk": "Coterie Infineum Sanctuary",
+            "location": {
+              "raw": "-33188, -25397, 19670",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Coterie Infineum Sanctuary"
+            },
+            "zones_recorded": [
+              "Coterie Infineum Sanctuary"
+            ],
+            "continent": "Qalia",
+            "locations_seen_recorded": "Shidreth Mining Company",
+            "difficulty_recorded": "3 dots",
+            "original_source_urls": []
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-16-230405-497700-archive-enriched-v34-merchants-expanded-4\\npc.jsonl",
+          "line": 98,
+          "record": {
+            "name": "Smith Of'Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba",
+                "title": "Smith Of'Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 34,
+            "collected_at": "2026-10-17T03:04:06+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Merchant - Special"
+              ],
+              "difficulty": [
+                "3 dots"
+              ],
+              "location": [
+                "-33188, -25397, 19670"
+              ],
+              "chunk": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "race": [
+                "Qaliathari"
+              ],
+              "locations seen": [
+                "Shidreth Mining Company"
+              ],
+              "parley types": [
+                "none , none , none , none , none"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Forged Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/forged-infineum-armor"
+              },
+              {
+                "name": "Rewrought Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/rewrought-infineum-armor"
+              },
+              {
+                "name": "The Ageless One",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one"
+              },
+              {
+                "name": "Strong Ale",
+                "url": "https://vgsoharchive.com/items/strong-ale"
+              },
+              {
+                "name": "The Ageless One (quest)",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one-quest"
+              },
+              {
+                "name": "Weapon Exchange",
+                "url": "https://vgsoharchive.com/quests/weapon-exchange"
+              },
+              {
+                "name": "Society Writ of Membership",
+                "url": "https://vgsoharchive.com/quests/society-writ-of-membership"
+              },
+              {
+                "name": "Blessed Infineum Plate Boots",
+                "url": "https://vgsoharchive.com/items/blessed-infineum-plate-boots"
+              },
+              {
+                "name": "Errytl, Mace of the Ages",
+                "url": "https://vgsoharchive.com/items/errytl-mace-of-the-ages"
+              },
+              {
+                "name": "Gazra, Greataxe Of The Ages",
+                "url": "https://vgsoharchive.com/items/gazra-greataxe-of-the-ages"
+              },
+              {
+                "name": "Nusin Longsword Of Ages",
+                "url": "https://vgsoharchive.com/items/nusin-longsword-of-ages"
+              },
+              {
+                "name": "Yanvil, Greatstaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/yanvil-greatstaff-of-the-ages"
+              },
+              {
+                "name": "Zank, Bladestaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/zank-bladestaff-of-the-ages"
+              }
+            ],
+            "type": "npc",
+            "level": 30,
+            "zone": "Coterie Infineum Sanctuary",
+            "health": null,
+            "damage": null,
+            "race": "Qaliathari",
+            "title": null,
+            "services": [
+              "quest giver",
+              "merchant"
+            ],
+            "quests_given": [
+              "The Ageless One (quest)",
+              "Forged Infineum Armor",
+              "Rewrought Infineum Armor",
+              "The Ageless One",
+              "Weapon Exchange"
+            ],
+            "chunk": "Coterie Infineum Sanctuary",
+            "location": {
+              "raw": "-33188, -25397, 19670",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Coterie Infineum Sanctuary"
+            },
+            "zones_recorded": [
+              "Coterie Infineum Sanctuary"
+            ],
+            "map_location_observations": null,
+            "continent": "Qalia",
+            "locations_seen_recorded": "Shidreth Mining Company",
+            "difficulty_recorded": "3 dots",
+            "original_source_urls": []
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-16-103554-141302-archive-bulk\\creature.jsonl",
+          "line": 90,
+          "record": {
+            "name": "Smith Of´Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba-2",
+                "title": "Smith Of´Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T16:12:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Ahgram Archaelogy Society"
+              ],
+              "continent": [
+                "Qalia"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "creature",
+            "level": null,
+            "zone": "Coterie Infineum Sanctuary",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Coterie Infineum Sanctuary"
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-16-182722-921369-archive-creature-geography-v32\\creature.jsonl",
+          "line": 243,
+          "record": {
+            "name": "Smith Of´Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba-2",
+                "title": "Smith Of´Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 32,
+            "collected_at": "2026-10-16T22:27:23+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Ahgram Archaelogy Society"
+              ],
+              "continent": [
+                "Qalia"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "creature",
+            "level": null,
+            "zone": "Coterie Infineum Sanctuary",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Coterie Infineum Sanctuary"
+            ],
+            "continent": "Qalia",
+            "locations_seen_recorded": null,
+            "difficulty_recorded": null,
+            "original_source_urls": []
+          }
+        }
+      ],
+      "source_records_modified": false,
+      "unknown_fields_retained": [
+        "health",
+        "damage",
+        "creature_kind",
+        "respawn_time"
+      ]
+    },
+    {
+      "output_key": "shadjejeh_mu_ini",
+      "status": "unresolved_distinct_url_identity",
+      "decision": "Withhold identity merge and operative conversion. Similar punctuation and matching observations do not establish one historical entity.",
+      "page_evidence": [
+        {
+          "url": "https://vgsoharchive.com/mobs/shadjejeh-mu-ini",
+          "cache_sha256": "eb0a3516c1622c124310b54786e85bf46bf0bedd13e1011f798e02c631487d54",
+          "heading": "Shadjejeh Mu'ini",
+          "linked_zones": [
+            "/zones/khal"
+          ],
+          "linked_items": []
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/shadjejeh-mu-ini-2",
+          "cache_sha256": "752cc9e71e99837c2cedd2c287c73cc5f522ab06305e22186536b815e3c223e3",
+          "heading": "Shadjejeh Mu´ini",
+          "linked_zones": [],
+          "linked_items": []
+        }
+      ],
+      "full_source_records": [
+        {
+          "record_file": "raw\\2026-10-16-035553-678603-archive-bulk\\creature.jsonl",
+          "line": 2,
+          "record": {
+            "name": "Shadjejeh Mu'ini",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/shadjejeh-mu-ini",
+                "title": "Shadjejeh Mu'ini · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T07:57:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Khal"
+              ],
+              "location": [
+                "Bank of Khal"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "station": [
+                "Domestic"
+              ],
+              "parley level": [
+                "12.5"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Khal",
+                "url": "https://vgsoharchive.com/zones/khal"
+              }
+            ],
+            "type": "creature",
+            "level": null,
+            "zone": "Khal",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Khal"
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "record_file": "raw\\2026-10-16-035553-678603-archive-bulk\\creature.jsonl",
+          "line": 3,
+          "record": {
+            "name": "Shadjejeh Mu´ini",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/shadjejeh-mu-ini-2",
+                "title": "Shadjejeh Mu´ini · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T07:58:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Khal"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "station": [
+                "Domestic"
+              ],
+              "parley level": [
+                "12"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "creature",
+            "level": null,
+            "zone": "Khal",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Khal"
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "source_records_modified": false,
+      "unknown_fields_retained": [
+        "health",
+        "damage",
+        "creature_kind",
+        "respawn_time"
+      ]
+    }
+  ],
+  "remaining_work": "All four identity collisions remain unresolved and withheld. Pending collection, metadata extraction and semantic review remain."
+}

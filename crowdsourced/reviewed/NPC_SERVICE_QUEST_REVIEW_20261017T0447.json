@@ -1,0 +1,2345 @@
+{
+  "reviewed_at": "2026-10-17T04:45:36.410566+00:00",
+  "scope": "Independent cached DOM review of all NPC service and Quests given relationships in latest published network batch. No network requests, no extraction helpers, no immutable record changes. Quest rewards and general diplomacy links are excluded from giver evidence.",
+  "records_reviewed": 24,
+  "checks_passed": 72,
+  "issues": [],
+  "records": [
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/sydon-blaze",
+      "cache_sha256": "4567a184106871c23bde96bea1c530799dba47d7b6c48bf9f63b03115182577b",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Joining The Dawn's Sign",
+          "url": "https://vgsoharchive.com/quests/joining-the-dawn-s-sign"
+        },
+        {
+          "name": "Necessary Investigation",
+          "url": "https://vgsoharchive.com/quests/necessary-investigation"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Sydon Blaze",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/sydon-blaze",
+            "title": "Sydon Blaze · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:19:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Joining The Dawn's Sign",
+            "url": "https://vgsoharchive.com/quests/joining-the-dawn-s-sign"
+          },
+          {
+            "name": "Necessary Investigation",
+            "url": "https://vgsoharchive.com/quests/necessary-investigation"
+          },
+          {
+            "name": "Dawn's Sign Apron",
+            "url": "https://vgsoharchive.com/items/dawn-s-sign-apron"
+          },
+          {
+            "name": "Dawn's Sign Gloves",
+            "url": "https://vgsoharchive.com/items/dawn-s-sign-gloves"
+          },
+          {
+            "name": "Dawn's Sign Ring",
+            "url": "https://vgsoharchive.com/items/dawn-s-sign-ring"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Joining The Dawn's Sign",
+          "Necessary Investigation"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "url": "https://vgsoharchive.com/mobs/syrila-beastborn",
+      "cache_sha256": "e8856d2d9313e825acb6e8bc79984007647ad4c6e4721d092d5928be19328290",
+      "source_roles": [
+        "Shaman Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Syrila Beastborn",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/syrila-beastborn",
+            "title": "Syrila Beastborn · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:25:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ca'ial Brael"
+          ],
+          "role": [
+            "Shaman Instructor"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ca'ial Brael",
+            "url": "https://vgsoharchive.com/zones/ca-ial-brael"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Ca'ial Brael",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Ca'ial Brael"
+        ],
+        "continent": "Kojan",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "url": "https://vgsoharchive.com/mobs/syroko-osaito",
+      "cache_sha256": "74dd8431d61bce054a0479de3acd5e7147173c0c626256348ce2abbc8f57ef65",
+      "source_roles": [
+        "Master of the Drunken Style"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "A Measure Of Trust",
+          "url": "https://vgsoharchive.com/quests/a-measure-of-trust"
+        },
+        {
+          "name": "The Way Of The Sway",
+          "url": "https://vgsoharchive.com/quests/the-way-of-the-sway"
+        },
+        {
+          "name": "The Way Of The Sway, Part 2",
+          "url": "https://vgsoharchive.com/quests/the-way-of-the-sway-part-2"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Syroko Osaito",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/syroko-osaito",
+            "title": "Syroko Osaito · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:27:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ksaravi Gulch"
+          ],
+          "role": [
+            "Master of the Drunken Style"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "location": [
+            "-53605, 70936, 11782"
+          ],
+          "chunk": [
+            "Bordinar's Cleft"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "An old ruined tower near Ksaravi Gulch, east of Khal"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ksaravi Gulch",
+            "url": "https://vgsoharchive.com/zones/ksaravi-gulch"
+          },
+          {
+            "name": "A Measure Of Trust",
+            "url": "https://vgsoharchive.com/quests/a-measure-of-trust"
+          },
+          {
+            "name": "The Way Of The Sway",
+            "url": "https://vgsoharchive.com/quests/the-way-of-the-sway"
+          },
+          {
+            "name": "The Way Of The Sway, Part 2",
+            "url": "https://vgsoharchive.com/quests/the-way-of-the-sway-part-2"
+          },
+          {
+            "name": "Choose Your Path",
+            "url": "https://vgsoharchive.com/quests/choose-your-path-drunken"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "Ksaravi Gulch",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "A Measure Of Trust",
+          "The Way Of The Sway",
+          "The Way Of The Sway, Part 2"
+        ],
+        "chunk": "Bordinar's Cleft",
+        "location": {
+          "raw": "-53605, 70936, 11782",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Bordinar's Cleft"
+        },
+        "zones_recorded": [
+          "Ksaravi Gulch"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "An old ruined tower near Ksaravi Gulch, east of Khal",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "url": "https://vgsoharchive.com/mobs/szoroyn-freafin",
+      "cache_sha256": "20f6a0acf8c439b8a39a7d45ea55c3e97ca626c68a250563497bd1157d3f95b2",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Szoroyn Freafin",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/szoroyn-freafin",
+            "title": "Szoroyn Freafin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:28:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Coterie Infineum Sanctuary"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Coterie Infineum Sanctuary",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Coterie Infineum Sanctuary"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "url": "https://vgsoharchive.com/mobs/t-amin-k-ader",
+      "cache_sha256": "a79904933b044ae6af64e65d5eea9a3ceb9d27d592af31476a24ee7871ee4eb5",
+      "source_roles": [
+        "General NPC"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "A Short Road to Freedom",
+          "url": "https://vgsoharchive.com/quests/a-short-road-to-freedom"
+        },
+        {
+          "name": "Clearing the Portal",
+          "url": "https://vgsoharchive.com/quests/clearing-the-portal"
+        },
+        {
+          "name": "The Enemy of my Enemy",
+          "url": "https://vgsoharchive.com/quests/the-enemy-of-my-enemy"
+        },
+        {
+          "name": "Two Halves of the End",
+          "url": "https://vgsoharchive.com/quests/two-halves-of-the-end"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "T'amin K'Ader",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/t-amin-k-ader",
+            "title": "T'amin K'Ader · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:29:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Sands Of Sorrow"
+          ],
+          "role": [
+            "General NPC"
+          ],
+          "chunk": [
+            "Sands of Sorrow"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "parley types": [
+            ", ,"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "A Short Road to Freedom",
+            "url": "https://vgsoharchive.com/quests/a-short-road-to-freedom"
+          },
+          {
+            "name": "Clearing the Portal",
+            "url": "https://vgsoharchive.com/quests/clearing-the-portal"
+          },
+          {
+            "name": "The Enemy of my Enemy",
+            "url": "https://vgsoharchive.com/quests/the-enemy-of-my-enemy"
+          },
+          {
+            "name": "Two Halves of the End",
+            "url": "https://vgsoharchive.com/quests/two-halves-of-the-end"
+          },
+          {
+            "name": "Carved Ivory Hoop",
+            "url": "https://vgsoharchive.com/items/carved-ivory-hoop"
+          },
+          {
+            "name": "Engraved Brass Hoop",
+            "url": "https://vgsoharchive.com/items/engraved-brass-hoop"
+          },
+          {
+            "name": "Etched Copper Earring",
+            "url": "https://vgsoharchive.com/items/etched-copper-earring"
+          },
+          {
+            "name": "Gem of the Risen Sun",
+            "url": "https://vgsoharchive.com/items/gem-of-the-risen-sun"
+          },
+          {
+            "name": "Gem of the Setting Sun",
+            "url": "https://vgsoharchive.com/items/gem-of-the-setting-sun"
+          },
+          {
+            "name": "Hammered Bronze Earring",
+            "url": "https://vgsoharchive.com/items/hammered-bronze-earring"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Sands Of Sorrow",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "A Short Road to Freedom",
+          "Clearing the Portal",
+          "The Enemy of my Enemy",
+          "Two Halves of the End"
+        ],
+        "chunk": "Sands of Sorrow",
+        "location": null,
+        "zones_recorded": [
+          "Sands Of Sorrow"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "url": "https://vgsoharchive.com/mobs/ta-im-the-spirit-hunter",
+      "cache_sha256": "e8daf6754cc4e811dd422c0824d0d49e17af39ef655d7646a862129ada81d868",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Hunter's Blade",
+          "url": "https://vgsoharchive.com/quests/hunter-s-blade"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Ta Im the Spirit Hunter",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/ta-im-the-spirit-hunter",
+            "title": "Ta Im the Spirit Hunter · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:33:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Hunter's Blade",
+            "url": "https://vgsoharchive.com/quests/hunter-s-blade"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Hunter's Blade"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "url": "https://vgsoharchive.com/mobs/taash",
+      "cache_sha256": "56ddbc556f0a53f21be5275e2eb4fe853183944a6ede287c9ac461f3919463a3",
+      "source_roles": [
+        "Spellcaster Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Taash",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/taash",
+            "title": "Taash · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:35:15+00:00",
+        "archive_fields": {
+          "role": [
+            "Spellcaster Instructor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "location": [
+            "-42874, -40705, 626"
+          ],
+          "chunk": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ],
+          "locations seen": [
+            "Dallerjuba Village"
+          ],
+          "parley types": [
+            "none , none , none , none , none"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Tanvu",
+            "url": "https://vgsoharchive.com/zones/tanvu"
+          }
+        ],
+        "type": "npc",
+        "level": 10,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": "Tanvu",
+        "location": {
+          "raw": "-42874, -40705, 626",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Tanvu"
+        },
+        "zones_recorded": [
+          "Tanvu"
+        ],
+        "continent": "Kojan",
+        "locations_seen_recorded": "Dallerjuba Village",
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "url": "https://vgsoharchive.com/mobs/tabar-wapashta",
+      "cache_sha256": "67520e91a7315048410c6281f186f48579490a456b67210de4e0167f4510b8ad",
+      "source_roles": [
+        "General NPC"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Matu-Makas (Quest)",
+          "url": "https://vgsoharchive.com/quests/matu-makas-quest"
+        },
+        {
+          "name": "Agates For Adventurers",
+          "url": "https://vgsoharchive.com/quests/agates-for-adventurers"
+        },
+        {
+          "name": "Brownie Marauders",
+          "url": "https://vgsoharchive.com/quests/brownie-marauders"
+        },
+        {
+          "name": "Seabird Rescue",
+          "url": "https://vgsoharchive.com/quests/seabird-rescue"
+        },
+        {
+          "name": "Matu-Makas",
+          "url": "https://vgsoharchive.com/quests/matu-makas"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Tabar Wapashta",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tabar-wapashta",
+            "title": "Tabar Wapashta · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:37:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Jharru Flats"
+          ],
+          "role": [
+            "General NPC"
+          ],
+          "location": [
+            "33844, -95577, 2874"
+          ],
+          "chunk": [
+            "Khal"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Bayside Outpost"
+          ],
+          "parley types": [
+            "none , none , none , none , none"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Khal",
+            "url": "https://vgsoharchive.com/zones/khal"
+          },
+          {
+            "name": "Agates for Adventurers",
+            "url": "https://vgsoharchive.com/quests/agates-for-adventurers"
+          },
+          {
+            "name": "Matu-Makas",
+            "url": "https://vgsoharchive.com/quests/matu-makas"
+          },
+          {
+            "name": "Seabird Rescue",
+            "url": "https://vgsoharchive.com/quests/seabird-rescue"
+          },
+          {
+            "name": "Matu-Makas (Quest)",
+            "url": "https://vgsoharchive.com/quests/matu-makas-quest"
+          },
+          {
+            "name": "Agates For Adventurers",
+            "url": "https://vgsoharchive.com/quests/agates-for-adventurers"
+          },
+          {
+            "name": "Brownie Marauders",
+            "url": "https://vgsoharchive.com/quests/brownie-marauders"
+          },
+          {
+            "name": "Agate Chain",
+            "url": "https://vgsoharchive.com/items/agate-chain"
+          },
+          {
+            "name": "Agate Choker",
+            "url": "https://vgsoharchive.com/items/agate-choker"
+          },
+          {
+            "name": "Agate Locket",
+            "url": "https://vgsoharchive.com/items/agate-locket"
+          },
+          {
+            "name": "Agate Pendant",
+            "url": "https://vgsoharchive.com/items/agate-pendant"
+          },
+          {
+            "name": "Gull Boots of the Chevalier",
+            "url": "https://vgsoharchive.com/items/gull-boots-of-the-chevalier"
+          },
+          {
+            "name": "Gull Feather Boots of the Channeler",
+            "url": "https://vgsoharchive.com/items/gull-feather-boots-of-the-channeler"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Jharru Flats",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Matu-Makas (Quest)",
+          "Agates For Adventurers",
+          "Brownie Marauders",
+          "Seabird Rescue",
+          "Matu-Makas"
+        ],
+        "chunk": "Khal",
+        "location": {
+          "raw": "33844, -95577, 2874",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Khal"
+        },
+        "zones_recorded": [
+          "Jharru Flats",
+          "Khal"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Bayside Outpost",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "url": "https://vgsoharchive.com/mobs/tadriel-allurn",
+      "cache_sha256": "791dd5b818e200a5e7291a2c3a3add248822063b7c90636d474e939eb7b66302",
+      "source_roles": [
+        "Finishing Taskmaster"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Learning Flordiel Recipes",
+          "url": "https://vgsoharchive.com/quests/learning-flordiel-recipes"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Tadriel Allurn",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tadriel-allurn",
+            "title": "Tadriel Allurn · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:48:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ruin Falls"
+          ],
+          "role": [
+            "Finishing Taskmaster"
+          ],
+          "location": [
+            "-20605, 71985, 8922"
+          ],
+          "chunk": [
+            "Ruin Falls"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "locations seen": [
+            "Elani"
+          ],
+          "parley types": [
+            ", ,"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Learning Flordiel Recipes",
+            "url": "https://vgsoharchive.com/quests/learning-flordiel-recipes"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Ruin Falls",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver",
+          "task master"
+        ],
+        "quests_given": [
+          "Learning Flordiel Recipes"
+        ],
+        "chunk": "Ruin Falls",
+        "location": {
+          "raw": "-20605, 71985, 8922",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Ruin Falls"
+        },
+        "zones_recorded": [
+          "Ruin Falls"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": "Elani",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "url": "https://vgsoharchive.com/mobs/taejin",
+      "cache_sha256": "17e67073df3935a098f72b03197ecaabb84a4b199b916b88910baa40545a0e5a",
+      "source_roles": [
+        "General NPC"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Sun Village Supplies",
+          "url": "https://vgsoharchive.com/quests/sun-village-supplies"
+        },
+        {
+          "name": "Diplomat's Saga: Reclaimer",
+          "url": "https://vgsoharchive.com/quests/diplomat-s-saga-reclaimer"
+        },
+        {
+          "name": "Diplomat's Saga: Bad Timing",
+          "url": "https://vgsoharchive.com/quests/diplomat-s-saga-bad-timing"
+        },
+        {
+          "name": "Diplomat's Saga: General Truce",
+          "url": "https://vgsoharchive.com/quests/diplomat-s-saga-general-truce"
+        },
+        {
+          "name": "Diplomat's Saga: Hunter of Peace",
+          "url": "https://vgsoharchive.com/quests/diplomat-s-saga-hunter-of-peace"
+        },
+        {
+          "name": "Diplomat's Saga: The House of Shining Waves",
+          "url": "https://vgsoharchive.com/quests/diplomat-s-saga-the-house-of-shining-waves-2"
+        },
+        {
+          "name": "Infiltration, No Box Required",
+          "url": "https://vgsoharchive.com/quests/infiltration-no-box-required"
+        },
+        {
+          "name": "Lend Me a Soldier",
+          "url": "https://vgsoharchive.com/quests/lend-me-a-soldier"
+        },
+        {
+          "name": "Warn The Priests",
+          "url": "https://vgsoharchive.com/quests/warn-the-priests"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Taejin",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/taejin",
+            "title": "Taejin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:51:15+00:00",
+        "archive_fields": {
+          "role": [
+            "General NPC"
+          ],
+          "type": [
+            "Humanoid"
+          ],
+          "location": [
+            "-7329, -29077, 260"
+          ],
+          "chunk": [
+            "Isle of Dawn"
+          ],
+          "continent": [
+            "Isle of Dawn"
+          ],
+          "race": [
+            "Kojani Human"
+          ],
+          "locations seen": [
+            "Magistrate's House"
+          ],
+          "station": [
+            "Soldier"
+          ],
+          "presence": [
+            "10"
+          ],
+          "parley level": [
+            "8"
+          ],
+          "parley types": [
+            "none , none , none , none , Interview"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Infiltration, No Box Required",
+            "url": "https://vgsoharchive.com/quests/infiltration-no-box-required"
+          },
+          {
+            "name": "Warn The Priests",
+            "url": "https://vgsoharchive.com/quests/warn-the-priests"
+          },
+          {
+            "name": "Diplomat's Saga - Bad Timing",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-bad-timing"
+          },
+          {
+            "name": "Diplomat's Saga - General Truce",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-general-truce"
+          },
+          {
+            "name": "Diplomat's Saga - Hunter Of Peace",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-hunter-of-peace"
+          },
+          {
+            "name": "Diplomat's Saga - Reclaimer",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-reclaimer"
+          },
+          {
+            "name": "Sun Village Supplies",
+            "url": "https://vgsoharchive.com/quests/sun-village-supplies"
+          },
+          {
+            "name": "Diplomat's Saga: Reclaimer",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-reclaimer"
+          },
+          {
+            "name": "Diplomat's Saga: Bad Timing",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-bad-timing"
+          },
+          {
+            "name": "Diplomat's Saga: General Truce",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-general-truce"
+          },
+          {
+            "name": "Diplomat's Saga: Hunter of Peace",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-hunter-of-peace"
+          },
+          {
+            "name": "Diplomat's Saga: The House of Shining Waves",
+            "url": "https://vgsoharchive.com/quests/diplomat-s-saga-the-house-of-shining-waves-2"
+          },
+          {
+            "name": "Lend Me a Soldier",
+            "url": "https://vgsoharchive.com/quests/lend-me-a-soldier"
+          },
+          {
+            "name": "Gather Solid Evidence",
+            "url": "https://vgsoharchive.com/quests/gather-solid-evidence"
+          },
+          {
+            "name": "Inform The Magistrate",
+            "url": "https://vgsoharchive.com/quests/inform-the-magistrate"
+          },
+          {
+            "name": "Apostle's Helm",
+            "url": "https://vgsoharchive.com/items/apostle-s-helm"
+          },
+          {
+            "name": "Assistant's Band",
+            "url": "https://vgsoharchive.com/items/assistant-s-band"
+          },
+          {
+            "name": "Blazing Sun Headband",
+            "url": "https://vgsoharchive.com/items/blazing-sun-headband"
+          },
+          {
+            "name": "Channeler's Hood",
+            "url": "https://vgsoharchive.com/items/channeler-s-hood"
+          },
+          {
+            "name": "Disciple Helm",
+            "url": "https://vgsoharchive.com/items/disciple-helm"
+          },
+          {
+            "name": "Disciple's Helm",
+            "url": "https://vgsoharchive.com/items/disciple-s-helm"
+          },
+          {
+            "name": "Isle of Dawn Statuette",
+            "url": "https://vgsoharchive.com/items/isle-of-dawn-statuette"
+          },
+          {
+            "name": "Occultist's Hood",
+            "url": "https://vgsoharchive.com/items/occultist-s-hood"
+          },
+          {
+            "name": "Rake's Helm",
+            "url": "https://vgsoharchive.com/items/rake-s-helm"
+          },
+          {
+            "name": "Revenant's Helm",
+            "url": "https://vgsoharchive.com/items/revenant-s-helm"
+          },
+          {
+            "name": "Scout's Headgear",
+            "url": "https://vgsoharchive.com/items/scout-s-headgear"
+          },
+          {
+            "name": "Soldier's Tailored Boots",
+            "url": "https://vgsoharchive.com/items/soldier-s-tailored-boots"
+          },
+          {
+            "name": "Soldier's Tailored Gloves",
+            "url": "https://vgsoharchive.com/items/soldier-s-tailored-gloves"
+          },
+          {
+            "name": "Sunrise Sash",
+            "url": "https://vgsoharchive.com/items/sunrise-sash"
+          },
+          {
+            "name": "Vicar's Helm",
+            "url": "https://vgsoharchive.com/items/vicar-s-helm"
+          },
+          {
+            "name": "Vindicator's Helm",
+            "url": "https://vgsoharchive.com/items/vindicator-s-helm"
+          }
+        ],
+        "type": "npc",
+        "level": 7,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": "Kojani Human",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Sun Village Supplies",
+          "Diplomat's Saga: Reclaimer",
+          "Diplomat's Saga: Bad Timing",
+          "Diplomat's Saga: General Truce",
+          "Diplomat's Saga: Hunter of Peace",
+          "Diplomat's Saga: The House of Shining Waves",
+          "Infiltration, No Box Required",
+          "Lend Me a Soldier",
+          "Warn The Priests"
+        ],
+        "chunk": "Isle of Dawn",
+        "location": {
+          "raw": "-7329, -29077, 260",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Isle of Dawn"
+        },
+        "zones_recorded": [],
+        "continent": "Isle of Dawn",
+        "locations_seen_recorded": "Magistrate's House",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "url": "https://vgsoharchive.com/mobs/tagosbetar-lobifrog",
+      "cache_sha256": "5101e6a61dd2d1a432d2957834539476beb340faa1b4d295080ef9a9dd5e88d1",
+      "source_roles": [
+        "Weapon Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Tagosbetar Lobifrog",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tagosbetar-lobifrog",
+            "title": "Tagosbetar Lobifrog · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:53:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Mekalia"
+          ],
+          "role": [
+            "Weapon Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Mekalia",
+            "url": "https://vgsoharchive.com/zones/mekalia"
+          }
+        ],
+        "type": "npc",
+        "level": 40,
+        "zone": "Mekalia",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Mekalia"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "url": "https://vgsoharchive.com/mobs/taien",
+      "cache_sha256": "f500701cdafec5eea6b1ba024aecc92ccae2ec95611db5d4b437a87832e90045",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Blessing Of Balance",
+          "url": "https://vgsoharchive.com/quests/blessing-of-balance"
+        },
+        {
+          "name": "The Life Of Amiran",
+          "url": "https://vgsoharchive.com/quests/the-life-of-amiran"
+        },
+        {
+          "name": "Jin Devourers",
+          "url": "https://vgsoharchive.com/quests/jin-devourers"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Taien",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/taien",
+            "title": "Taien · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:56:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ],
+          "race": [
+            "Raki"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blessing Of Balance",
+            "url": "https://vgsoharchive.com/quests/blessing-of-balance"
+          },
+          {
+            "name": "The Life Of Amiran",
+            "url": "https://vgsoharchive.com/quests/the-life-of-amiran"
+          },
+          {
+            "name": "Jin Devourers",
+            "url": "https://vgsoharchive.com/quests/jin-devourers"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Tanvu",
+        "health": null,
+        "damage": null,
+        "race": "Raki",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Blessing Of Balance",
+          "The Life Of Amiran",
+          "Jin Devourers"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Tanvu"
+        ],
+        "continent": "Kojan",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "url": "https://vgsoharchive.com/mobs/takniv-kyn-lal",
+      "cache_sha256": "c3b81b83c0073860e6a7bc7694f3174dab280b427ce9bf5c14045dc285d911b7",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Goods For Evendusk",
+          "url": "https://vgsoharchive.com/quests/goods-for-evendusk"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Takniv Kyn'lal",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/takniv-kyn-lal",
+            "title": "Takniv Kyn'lal · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:11:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Jharru Flats"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "race": [
+            "Dark Elf"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Goods For Evendusk",
+            "url": "https://vgsoharchive.com/quests/goods-for-evendusk"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Jharru Flats",
+        "health": null,
+        "damage": null,
+        "race": "Dark Elf",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Goods For Evendusk"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Jharru Flats"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "url": "https://vgsoharchive.com/mobs/takuni",
+      "cache_sha256": "32f1b86f7b783ca39edc72be3aeb73d50a2d9d1886c665c0da85c635c32c2e1c",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Asylum Corruption",
+          "url": "https://vgsoharchive.com/quests/asylum-corruption"
+        },
+        {
+          "name": "Interrogate Mejo the Mad",
+          "url": "https://vgsoharchive.com/quests/interrogate-mejo-the-mad"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Takuni",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/takuni",
+            "title": "Takuni · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:13:15+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "2 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Asylum Corruption",
+            "url": "https://vgsoharchive.com/quests/asylum-corruption"
+          },
+          {
+            "name": "Interrogate Mejo the Mad",
+            "url": "https://vgsoharchive.com/quests/interrogate-mejo-the-mad"
+          }
+        ],
+        "type": "npc",
+        "level": 10,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Asylum Corruption",
+          "Interrogate Mejo the Mad"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "2 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 15,
+      "url": "https://vgsoharchive.com/mobs/talayah-kahdem",
+      "cache_sha256": "55a20fadbb258ab290b29ce749fc2f1111add37fa3eff8fc09c66df3fb3f25a8",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talayah Kahdem",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talayah-kahdem",
+            "title": "Talayah Kahdem · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:16:15+00:00",
+        "archive_fields": {
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 16,
+      "url": "https://vgsoharchive.com/mobs/talfox-kolzan",
+      "cache_sha256": "623161ce20f5edad24482eba28cc4d148f0e58058f6e8ca66e8d87b95762a65b",
+      "source_roles": [
+        "General NPC"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Mummy Bandages",
+          "url": "https://vgsoharchive.com/quests/mummy-bandages"
+        },
+        {
+          "name": "Skeletal Remains",
+          "url": "https://vgsoharchive.com/quests/skeletal-remains"
+        },
+        {
+          "name": "Spirit Trouble",
+          "url": "https://vgsoharchive.com/quests/spirit-trouble"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talfox Kolzan",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talfox-kolzan",
+            "title": "Talfox Kolzan · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:22:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tar Janashir"
+          ],
+          "role": [
+            "General NPC"
+          ],
+          "location": [
+            "-15460, -40305, 13320"
+          ],
+          "chunk": [
+            "Tar Janashir"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Tar Janashir"
+          ],
+          "parley types": [
+            ", ,"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Mummy Bandages",
+            "url": "https://vgsoharchive.com/quests/mummy-bandages"
+          },
+          {
+            "name": "Sealed Away",
+            "url": "https://vgsoharchive.com/quests/sealed-away"
+          },
+          {
+            "name": "Skeletal Remains",
+            "url": "https://vgsoharchive.com/quests/skeletal-remains"
+          },
+          {
+            "name": "Spirit Trouble",
+            "url": "https://vgsoharchive.com/quests/spirit-trouble"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Tar Janashir",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Mummy Bandages",
+          "Skeletal Remains",
+          "Spirit Trouble"
+        ],
+        "chunk": "Tar Janashir",
+        "location": {
+          "raw": "-15460, -40305, 13320",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Tar Janashir"
+        },
+        "zones_recorded": [
+          "Tar Janashir"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Tar Janashir",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 17,
+      "url": "https://vgsoharchive.com/mobs/talfoz-kolzan",
+      "cache_sha256": "cf0df0ea95e0552005a3dd4b2d3605ce5b6e6422d437d452dcaa9ec65aaa5ae8",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Sealed Away",
+          "url": "https://vgsoharchive.com/quests/sealed-away"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talfoz Kolzan",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talfoz-kolzan",
+            "title": "Talfoz Kolzan · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:24:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Sealed Away",
+            "url": "https://vgsoharchive.com/quests/sealed-away"
+          },
+          {
+            "name": "Skeletal Remains",
+            "url": "https://vgsoharchive.com/quests/skeletal-remains"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Sealed Away"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 18,
+      "url": "https://vgsoharchive.com/mobs/talharqa-baabekhy",
+      "cache_sha256": "c8529d9d9a634fa469ac51dcd9883b6adc6d87894d885114b72b055ae11647d8",
+      "source_roles": [
+        "General NPC"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Blankets For Banan",
+          "url": "https://vgsoharchive.com/quests/blankets-for-banan"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talharqa Baabekhy",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talharqa-baabekhy",
+            "title": "Talharqa Baabekhy · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:26:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Khal"
+          ],
+          "role": [
+            "General NPC"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "location": [
+            "-42617, -56840, 1596"
+          ],
+          "chunk": [
+            "Khal"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Khal"
+          ],
+          "station": [
+            "Domestic"
+          ],
+          "presence": [
+            "1"
+          ],
+          "parley level": [
+            "5"
+          ],
+          "parley types": [
+            "[[[ Gossip ]]], , , [[[ Convice ]]], [[[ Interview ]]]"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Khal",
+            "url": "https://vgsoharchive.com/zones/khal"
+          },
+          {
+            "name": "Blankets for Banan",
+            "url": "https://vgsoharchive.com/quests/blankets-for-banan"
+          },
+          {
+            "name": "Blankets For Banan",
+            "url": "https://vgsoharchive.com/quests/blankets-for-banan"
+          }
+        ],
+        "type": "npc",
+        "level": 10,
+        "zone": "Khal",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Blankets For Banan"
+        ],
+        "chunk": "Khal",
+        "location": {
+          "raw": "-42617, -56840, 1596",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Khal"
+        },
+        "zones_recorded": [
+          "Khal"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Khal",
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 19,
+      "url": "https://vgsoharchive.com/mobs/talia-falien",
+      "cache_sha256": "b81edc4a5548b4daacf58ea9e544a74d3590ce6cbb15d0c8f59d839b9e772d41",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Stormwynd Ruins",
+          "url": "https://vgsoharchive.com/quests/stormwynd-ruins"
+        },
+        {
+          "name": "Stormwynd Beacon",
+          "url": "https://vgsoharchive.com/quests/stormwynd-beacon"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talia Falien",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talia-falien",
+            "title": "Talia Falien · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:28:15+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "2 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Stormwynd Ruins",
+            "url": "https://vgsoharchive.com/quests/stormwynd-ruins"
+          },
+          {
+            "name": "Stormwynd Beacon",
+            "url": "https://vgsoharchive.com/quests/stormwynd-beacon"
+          }
+        ],
+        "type": "npc",
+        "level": 17,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Stormwynd Ruins",
+          "Stormwynd Beacon"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "2 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 20,
+      "url": "https://vgsoharchive.com/mobs/taljin-skydance",
+      "cache_sha256": "2ff9753e01253c0712574160b7846fc201ae7c88f152709ee5770e2d620808e2",
+      "source_roles": [
+        "Thatcher"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Learning Apprentice Thatch - Kojani",
+          "url": "https://vgsoharchive.com/quests/learning-apprentice-thatch-kojani"
+        },
+        {
+          "name": "Learning Apprentice Window Coverings - Kojani",
+          "url": "https://vgsoharchive.com/quests/learning-apprentice-window-coverings-kojani"
+        },
+        {
+          "name": "Learning Apprentice Window Coverings",
+          "url": "https://vgsoharchive.com/quests/learning-apprentice-window-coverings"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Taljin Skydance",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/taljin-skydance",
+            "title": "Taljin Skydance · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:32:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tanvu"
+          ],
+          "role": [
+            "Thatcher"
+          ],
+          "location": [
+            "28382, -34883, 3378"
+          ],
+          "chunk": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ],
+          "locations seen": [
+            "Tanvu"
+          ],
+          "station": [
+            "Crafter"
+          ],
+          "presence": [
+            "1"
+          ],
+          "parley level": [
+            "25"
+          ],
+          "parley types": [
+            ", [[[ Entertain ]]], [[[ Convice ]]], [[[ Interview ]]]"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Tanvu",
+            "url": "https://vgsoharchive.com/zones/tanvu"
+          },
+          {
+            "name": "Learning Apprentice Thatch - Kojani",
+            "url": "https://vgsoharchive.com/quests/learning-apprentice-thatch-kojani"
+          },
+          {
+            "name": "Learning Apprentice Window Coverings - Kojani",
+            "url": "https://vgsoharchive.com/quests/learning-apprentice-window-coverings-kojani"
+          },
+          {
+            "name": "Learning Apprentice Window Coverings",
+            "url": "https://vgsoharchive.com/quests/learning-apprentice-window-coverings"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "Tanvu",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Learning Apprentice Thatch - Kojani",
+          "Learning Apprentice Window Coverings - Kojani",
+          "Learning Apprentice Window Coverings"
+        ],
+        "chunk": "Tanvu",
+        "location": {
+          "raw": "28382, -34883, 3378",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Tanvu"
+        },
+        "zones_recorded": [
+          "Tanvu"
+        ],
+        "continent": "Kojan",
+        "locations_seen_recorded": "Tanvu",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 21,
+      "url": "https://vgsoharchive.com/mobs/talriia-arkenar",
+      "cache_sha256": "703eabf7cd372cd7853709d555aad5c20b186a35bb8549e8e787d6f3c4da9dd4",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "A New Mistress",
+          "url": "https://vgsoharchive.com/quests/a-new-mistress"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talriia Arkenar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talriia-arkenar",
+            "title": "Talriia Arkenar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:41:15+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "3 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "A New Mistress",
+            "url": "https://vgsoharchive.com/quests/a-new-mistress"
+          }
+        ],
+        "type": "npc",
+        "level": 10,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "A New Mistress"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 22,
+      "url": "https://vgsoharchive.com/mobs/talvur",
+      "cache_sha256": "f832957dc8d1e51625cb74549768a423b7ea960aaa7faf939b0de4882177f5e2",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Evoker's Gloves",
+          "url": "https://vgsoharchive.com/quests/evoker-s-gloves"
+        },
+        {
+          "name": "Evoker's Headguard",
+          "url": "https://vgsoharchive.com/quests/evoker-s-headguard"
+        },
+        {
+          "name": "Evoker's Reinforcements",
+          "url": "https://vgsoharchive.com/quests/evoker-s-reinforcements"
+        },
+        {
+          "name": "Evoker's Sash",
+          "url": "https://vgsoharchive.com/quests/evoker-s-sash"
+        },
+        {
+          "name": "Evoker's Shoes",
+          "url": "https://vgsoharchive.com/quests/evoker-s-shoes"
+        },
+        {
+          "name": "Evoker's Shoulderguards",
+          "url": "https://vgsoharchive.com/quests/evoker-s-shoulderguards"
+        },
+        {
+          "name": "Evoker's Trousers",
+          "url": "https://vgsoharchive.com/quests/evoker-s-trousers"
+        },
+        {
+          "name": "Evoker's Tunic",
+          "url": "https://vgsoharchive.com/quests/evoker-s-tunic"
+        },
+        {
+          "name": "Evoker's Wristguards",
+          "url": "https://vgsoharchive.com/quests/evoker-s-wristguards"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Talvur",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/talvur",
+            "title": "Talvur · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:42:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Seawatch Coast"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Evoker's Gloves",
+            "url": "https://vgsoharchive.com/quests/evoker-s-gloves"
+          },
+          {
+            "name": "Evoker's Headguard",
+            "url": "https://vgsoharchive.com/quests/evoker-s-headguard"
+          },
+          {
+            "name": "Evoker's Reinforcements",
+            "url": "https://vgsoharchive.com/quests/evoker-s-reinforcements"
+          },
+          {
+            "name": "Evoker's Sash",
+            "url": "https://vgsoharchive.com/quests/evoker-s-sash"
+          },
+          {
+            "name": "Evoker's Shoes",
+            "url": "https://vgsoharchive.com/quests/evoker-s-shoes"
+          },
+          {
+            "name": "Evoker's Shoulderguards",
+            "url": "https://vgsoharchive.com/quests/evoker-s-shoulderguards"
+          },
+          {
+            "name": "Evoker's Trousers",
+            "url": "https://vgsoharchive.com/quests/evoker-s-trousers"
+          },
+          {
+            "name": "Evoker's Tunic",
+            "url": "https://vgsoharchive.com/quests/evoker-s-tunic"
+          },
+          {
+            "name": "Evoker's Wristguards",
+            "url": "https://vgsoharchive.com/quests/evoker-s-wristguards"
+          },
+          {
+            "name": "Evoker's Gloves",
+            "url": "https://vgsoharchive.com/items/evoker-s-gloves"
+          },
+          {
+            "name": "Evoker's Reinforcements",
+            "url": "https://vgsoharchive.com/items/evoker-s-reinforcements"
+          },
+          {
+            "name": "Evoker's Sash",
+            "url": "https://vgsoharchive.com/items/evoker-s-sash"
+          },
+          {
+            "name": "Evoker's Shoes",
+            "url": "https://vgsoharchive.com/items/evoker-s-shoes"
+          },
+          {
+            "name": "Evoker's Shoulderguards",
+            "url": "https://vgsoharchive.com/items/evoker-s-shoulderguards"
+          },
+          {
+            "name": "Evoker's Trousers",
+            "url": "https://vgsoharchive.com/items/evoker-s-trousers"
+          },
+          {
+            "name": "Evoker's Tunic",
+            "url": "https://vgsoharchive.com/items/evoker-s-tunic"
+          },
+          {
+            "name": "Evoker's Wristguards",
+            "url": "https://vgsoharchive.com/items/evoker-s-wristguards"
+          }
+        ],
+        "type": "npc",
+        "level": 35,
+        "zone": "Seawatch Coast",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Evoker's Gloves",
+          "Evoker's Headguard",
+          "Evoker's Reinforcements",
+          "Evoker's Sash",
+          "Evoker's Shoes",
+          "Evoker's Shoulderguards",
+          "Evoker's Trousers",
+          "Evoker's Tunic",
+          "Evoker's Wristguards"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Seawatch Coast"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 23,
+      "url": "https://vgsoharchive.com/mobs/tam-unbar",
+      "cache_sha256": "dc21d2eb1504a9d0b2fc71061ddb5ffe0c5e16ec677dd2e2473446dc16913f2a",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Armor To Armor",
+          "url": "https://vgsoharchive.com/quests/armor-to-armor"
+        },
+        {
+          "name": "Degassification",
+          "url": "https://vgsoharchive.com/quests/degassification"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Tam Unbar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tam-unbar",
+            "title": "Tam Unbar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:46:15+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ],
+          "race": [
+            "Gnome"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Armor To Armor",
+            "url": "https://vgsoharchive.com/quests/armor-to-armor"
+          },
+          {
+            "name": "Degassification",
+            "url": "https://vgsoharchive.com/quests/degassification"
+          },
+          {
+            "name": "Degassification (Part 2)",
+            "url": "https://vgsoharchive.com/quests/degassification-part-2"
+          },
+          {
+            "name": "Hyena Hide Reinforcement",
+            "url": "https://vgsoharchive.com/items/hyena-hide-reinforcement"
+          },
+          {
+            "name": "Lined Jute Reinforcement",
+            "url": "https://vgsoharchive.com/items/lined-jute-reinforcement"
+          },
+          {
+            "name": "Scarab Shell Reinforcement",
+            "url": "https://vgsoharchive.com/items/scarab-shell-reinforcement"
+          }
+        ],
+        "type": "npc",
+        "level": 40,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": "Gnome",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Armor To Armor",
+          "Degassification"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "4 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 24,
+      "url": "https://vgsoharchive.com/mobs/tam-welken",
+      "cache_sha256": "00a289416dd6c178064ef37952d5e051c6f78f6bc9cc0010d0b81f39ac350203",
+      "source_roles": [
+        "Exchange Broker"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Tam Welken",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tam-welken",
+            "title": "Tam Welken · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:47:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ahgram"
+          ],
+          "role": [
+            "Exchange Broker"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "chunk": [
+            "Ahgram"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ahgram",
+            "url": "https://vgsoharchive.com/zones/ahgram"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "Ahgram",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "broker"
+        ],
+        "quests_given": [],
+        "chunk": "Ahgram",
+        "location": null,
+        "zones_recorded": [
+          "Ahgram"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    }
+  ],
+  "limitations": [
+    "Printed giver links do not establish prerequisites, rewards or historical accuracy.",
+    "Distinct source spellings remain separate observations; no identity merging.",
+    "Absent quest lists do not establish that the NPC never offered quests.",
+    "Collection, metadata-only extraction, semantic review and unresolved collisions remain incomplete."
+  ]
+}

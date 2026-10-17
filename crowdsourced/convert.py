@@ -445,6 +445,9 @@ def convert(batch, races):
         out["items.json"][r["name"]] = it
 
     for r in batch.of("loot"):
+        if any(d.get("observed_sample") is not None for d in r.get("drops") or []):
+            issue(f"loot {r['name']}: observed sample frequencies are not developer probabilities; entire table withheld")
+            continue
         drops = []
         incomplete = False
         for d in r.get("drops") or []:

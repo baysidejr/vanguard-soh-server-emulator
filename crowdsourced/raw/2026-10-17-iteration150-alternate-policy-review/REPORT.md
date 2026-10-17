@@ -1,0 +1,1 @@
+Robots retrieval failed with HTTP 404. Offline review of existing collector traceback; no network retry. No game facts extracted. All 50 pending wiki URLs retained. Archive queue unaffected. Alternate policy review remains required.

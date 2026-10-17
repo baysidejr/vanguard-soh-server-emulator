@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-17T13:34:12.025291+00:00",
+  "policies": [
+    {
+      "origin": "https://vgoemulator.net",
+      "robots_url": "https://vgoemulator.net/robots.txt",
+      "robots_text": "User-agent: *\nDisallow: /index.php/\nDisallow: /app.php/\nDisallow: /phpBB3/search.php\nDisallow: /phpBB3/download/\nDisallow: /phpBB3/memberlist.php\nDisallow: /phpBB3/feed.php",
+      "minimum_interval_seconds": 15
+    }
+  ],
+  "source_pages": [],
+  "gaps": [
+    {
+      "origin": "https://vgoplayers.com",
+      "url": "https://vgoplayers.com/robots.txt",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "status": "policy fetch failed; no content fetched"
+    },
+    {
+      "origin": "https://vanguard.fandom.com",
+      "url": "https://vanguard.fandom.com/robots.txt",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "status": "policy fetch failed; no content fetched"
+    },
+    {
+      "url": "https://vgoemulator.net/archive/Telonica/vanguard.wikia.com/wiki/Harvesting_the_Parts.html",
+      "error": "HTTPError: HTTP Error 401: Unauthorized",
+      "status": "fetch failed; retained for later review"
+    }
+  ],
+  "scope": "Sequential policy-aware bootstrap. Bodies cached locally; inventory is discovery metadata, not complete game records. Extraction and further discovery remain pending. Mirrored Telonica content is not independent corroboration."
+}

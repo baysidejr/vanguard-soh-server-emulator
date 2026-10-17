@@ -1,0 +1,3022 @@
+{
+  "reviewed_at": "2026-10-17T10:55:04.919570+00:00",
+  "scope": "Cache-only independent DOM audit of every loot record in the latest closed batch. Compare complete item-name/URL/sample multisets in both directions, verify displayed percentages and null quantities. No network or parser section helpers used.",
+  "records_reviewed": 17,
+  "drops_reviewed": 133,
+  "issues": [],
+  "checkpoint": {
+    "supported_inventory": 104855,
+    "done": 26695,
+    "pending_at_batch_start": 78177,
+    "missing": 0,
+    "overlap": 0,
+    "duplicates": 0
+  },
+  "checks": [
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 1,
+      "record": {
+        "name": "TISHRA",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tishra",
+            "title": "TISHRA · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:46:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Vursog Moor"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "harvestable": [
+            "Skinning"
+          ],
+          "chunk": [
+            "Vursog Moor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Stiletto of Sacrifice",
+            "url": "https://vgsoharchive.com/items/stiletto-of-sacrifice-2"
+          },
+          {
+            "name": "Rod of the Blood Ritual",
+            "url": "https://vgsoharchive.com/items/rod-of-the-blood-ritual"
+          },
+          {
+            "name": "Gorgalok Linen Pantaloons",
+            "url": "https://vgsoharchive.com/items/gorgalok-linen-pantaloons"
+          },
+          {
+            "name": "Solid Bone Breastplate",
+            "url": "https://vgsoharchive.com/items/solid-bone-breastplate"
+          },
+          {
+            "name": "Swamphibian Hide Leggings",
+            "url": "https://vgsoharchive.com/items/swamphibian-hide-leggings"
+          },
+          {
+            "name": "Bloodruned Robe",
+            "url": "https://vgsoharchive.com/items/bloodruned-robe"
+          },
+          {
+            "name": "Gorgalok Linen Robe",
+            "url": "https://vgsoharchive.com/items/gorgalok-linen-robe"
+          },
+          {
+            "name": "Gorgalok Patchwork Leggings",
+            "url": "https://vgsoharchive.com/items/gorgalok-patchwork-leggings"
+          },
+          {
+            "name": "Gorgalok Patchwork Tunic",
+            "url": "https://vgsoharchive.com/items/gorgalok-patchwork-tunic"
+          },
+          {
+            "name": "Solid Bone Greaves",
+            "url": "https://vgsoharchive.com/items/solid-bone-greaves"
+          },
+          {
+            "name": "Swamphibian Hide Tunic",
+            "url": "https://vgsoharchive.com/items/swamphibian-hide-tunic"
+          },
+          {
+            "name": "Earthstar Healer's Belt",
+            "url": "https://vgsoharchive.com/items/earthstar-healer-s-belt"
+          },
+          {
+            "name": "Reliable Necklace of the Arcane",
+            "url": "https://vgsoharchive.com/items/reliable-necklace-of-the-arcane"
+          },
+          {
+            "name": "Reliable Stud of the Defender",
+            "url": "https://vgsoharchive.com/items/reliable-stud-of-the-defender"
+          },
+          {
+            "name": "Gorgalok Thamaturge Charm",
+            "url": "https://vgsoharchive.com/items/gorgalok-thamaturge-charm"
+          },
+          {
+            "name": "Lambent Malachite",
+            "url": "https://vgsoharchive.com/items/lambent-malachite"
+          },
+          {
+            "name": "Mucid Rubbery Skin",
+            "url": "https://vgsoharchive.com/items/mucid-rubbery-skin"
+          },
+          {
+            "name": "Mucid Rubbery Tongue",
+            "url": "https://vgsoharchive.com/items/mucid-rubbery-tongue"
+          },
+          {
+            "name": "Residual Chaos Energy",
+            "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+          },
+          {
+            "name": "Torn Gorgalok Hide",
+            "url": "https://vgsoharchive.com/items/torn-gorgalok-hide"
+          },
+          {
+            "name": "Staff of the Bloodmoon",
+            "url": "https://vgsoharchive.com/items/staff-of-the-bloodmoon"
+          }
+        ],
+        "type": "loot",
+        "source": "TISHRA",
+        "drops": [
+          {
+            "item": "Stiletto of Sacrifice",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/stiletto-of-sacrifice-2"
+          },
+          {
+            "item": "Rod of the Blood Ritual",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/rod-of-the-blood-ritual"
+          },
+          {
+            "item": "Gorgalok Linen Pantaloons",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gorgalok-linen-pantaloons"
+          },
+          {
+            "item": "Solid Bone Breastplate",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/solid-bone-breastplate"
+          },
+          {
+            "item": "Swamphibian Hide Leggings",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/swamphibian-hide-leggings"
+          },
+          {
+            "item": "Bloodruned Robe",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/bloodruned-robe"
+          },
+          {
+            "item": "Gorgalok Linen Robe",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gorgalok-linen-robe"
+          },
+          {
+            "item": "Gorgalok Patchwork Leggings",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gorgalok-patchwork-leggings"
+          },
+          {
+            "item": "Gorgalok Patchwork Tunic",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gorgalok-patchwork-tunic"
+          },
+          {
+            "item": "Solid Bone Greaves",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/solid-bone-greaves"
+          },
+          {
+            "item": "Swamphibian Hide Tunic",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/swamphibian-hide-tunic"
+          },
+          {
+            "item": "Earthstar Healer's Belt",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/earthstar-healer-s-belt"
+          },
+          {
+            "item": "Reliable Necklace of the Arcane",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/reliable-necklace-of-the-arcane"
+          },
+          {
+            "item": "Reliable Stud of the Defender",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/reliable-stud-of-the-defender"
+          },
+          {
+            "item": "Gorgalok Thamaturge Charm",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gorgalok-thamaturge-charm"
+          },
+          {
+            "item": "Lambent Malachite",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/lambent-malachite"
+          },
+          {
+            "item": "Mucid Rubbery Skin",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mucid-rubbery-skin"
+          },
+          {
+            "item": "Mucid Rubbery Tongue",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mucid-rubbery-tongue"
+          },
+          {
+            "item": "Residual Chaos Energy",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+          },
+          {
+            "item": "Torn Gorgalok Hide",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/torn-gorgalok-hide"
+          },
+          {
+            "item": "Staff of the Bloodmoon",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/staff-of-the-bloodmoon"
+          }
+        ]
+      },
+      "cache_sha256": "e62d126ecd77074dbce28a4af53aad3e415591fecdbdc0e7d06f82221fcac31f",
+      "source_rows": [
+        [
+          "Stiletto of Sacrifice",
+          "https://vgsoharchive.com/items/stiletto-of-sacrifice-2",
+          ""
+        ],
+        [
+          "Rod of the Blood Ritual",
+          "https://vgsoharchive.com/items/rod-of-the-blood-ritual",
+          ""
+        ],
+        [
+          "Gorgalok Linen Pantaloons",
+          "https://vgsoharchive.com/items/gorgalok-linen-pantaloons",
+          ""
+        ],
+        [
+          "Solid Bone Breastplate",
+          "https://vgsoharchive.com/items/solid-bone-breastplate",
+          ""
+        ],
+        [
+          "Swamphibian Hide Leggings",
+          "https://vgsoharchive.com/items/swamphibian-hide-leggings",
+          ""
+        ],
+        [
+          "Bloodruned Robe",
+          "https://vgsoharchive.com/items/bloodruned-robe",
+          ""
+        ],
+        [
+          "Gorgalok Linen Robe",
+          "https://vgsoharchive.com/items/gorgalok-linen-robe",
+          ""
+        ],
+        [
+          "Gorgalok Patchwork Leggings",
+          "https://vgsoharchive.com/items/gorgalok-patchwork-leggings",
+          ""
+        ],
+        [
+          "Gorgalok Patchwork Tunic",
+          "https://vgsoharchive.com/items/gorgalok-patchwork-tunic",
+          ""
+        ],
+        [
+          "Solid Bone Greaves",
+          "https://vgsoharchive.com/items/solid-bone-greaves",
+          ""
+        ],
+        [
+          "Swamphibian Hide Tunic",
+          "https://vgsoharchive.com/items/swamphibian-hide-tunic",
+          ""
+        ],
+        [
+          "Earthstar Healer's Belt",
+          "https://vgsoharchive.com/items/earthstar-healer-s-belt",
+          ""
+        ],
+        [
+          "Reliable Necklace of the Arcane",
+          "https://vgsoharchive.com/items/reliable-necklace-of-the-arcane",
+          ""
+        ],
+        [
+          "Reliable Stud of the Defender",
+          "https://vgsoharchive.com/items/reliable-stud-of-the-defender",
+          ""
+        ],
+        [
+          "Gorgalok Thamaturge Charm",
+          "https://vgsoharchive.com/items/gorgalok-thamaturge-charm",
+          ""
+        ],
+        [
+          "Lambent Malachite",
+          "https://vgsoharchive.com/items/lambent-malachite",
+          ""
+        ],
+        [
+          "Mucid Rubbery Skin",
+          "https://vgsoharchive.com/items/mucid-rubbery-skin",
+          ""
+        ],
+        [
+          "Mucid Rubbery Tongue",
+          "https://vgsoharchive.com/items/mucid-rubbery-tongue",
+          ""
+        ],
+        [
+          "Residual Chaos Energy",
+          "https://vgsoharchive.com/items/residual-chaos-energy",
+          ""
+        ],
+        [
+          "Torn Gorgalok Hide",
+          "https://vgsoharchive.com/items/torn-gorgalok-hide",
+          ""
+        ],
+        [
+          "Staff of the Bloodmoon",
+          "https://vgsoharchive.com/items/staff-of-the-bloodmoon",
+          ""
+        ]
+      ],
+      "source_row_count": 21,
+      "record_drop_count": 21,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 2,
+      "record": {
+        "name": "Thrallisar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thrallisar",
+            "title": "Thrallisar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:59:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Islands Of Madness"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "can swim": [
+            "Yes"
+          ],
+          "can fly": [
+            "No"
+          ],
+          "wall crawl": [
+            "No"
+          ],
+          "kills sampled": [
+            "25"
+          ],
+          "locations seen": [
+            "2"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Stitched Xennskin Gloves",
+            "url": "https://vgsoharchive.com/items/stitched-xennskin-gloves"
+          },
+          {
+            "name": "Thickened Xennskin Greaves",
+            "url": "https://vgsoharchive.com/items/thickened-xennskin-greaves"
+          },
+          {
+            "name": "Thrallishar's Boots",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-boots"
+          },
+          {
+            "name": "Glowing Orange Energy Sphere",
+            "url": "https://vgsoharchive.com/items/glowing-orange-energy-sphere"
+          },
+          {
+            "name": "Glowing Red Energy Sphere",
+            "url": "https://vgsoharchive.com/items/glowing-red-energy-sphere"
+          },
+          {
+            "name": "Thrallishar's Belt",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-belt"
+          },
+          {
+            "name": "Hardended Xennskin Gloves",
+            "url": "https://vgsoharchive.com/items/hardended-xennskin-gloves"
+          },
+          {
+            "name": "Glowing Green Energy Sphere",
+            "url": "https://vgsoharchive.com/items/glowing-green-energy-sphere"
+          },
+          {
+            "name": "Thrallishar's Ring",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-ring"
+          },
+          {
+            "name": "Gooey Rubbery Tongue",
+            "url": "https://vgsoharchive.com/items/gooey-rubbery-tongue"
+          },
+          {
+            "name": "Xennu Energy Shard",
+            "url": "https://vgsoharchive.com/items/xennu-energy-shard"
+          },
+          {
+            "name": "Xenn Tech: Cloaking Device Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-cloaking-device-schematics"
+          },
+          {
+            "name": "Xenn Tech: Composite Shield Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-composite-shield-schematics"
+          },
+          {
+            "name": "Xenn Tech: Shield Belt Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-shield-belt-schematics"
+          },
+          {
+            "name": "Xenn Tech: Ultra-Light Cape Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-ultra-light-cape-schematics"
+          }
+        ],
+        "type": "loot",
+        "source": "Thrallisar",
+        "drops": [
+          {
+            "item": "Stitched Xennskin Gloves",
+            "chance": "16.0%",
+            "quantity": null,
+            "observed_sample": "16.0% 4/25",
+            "url": "https://vgsoharchive.com/items/stitched-xennskin-gloves"
+          },
+          {
+            "item": "Thickened Xennskin Greaves",
+            "chance": "8.0%",
+            "quantity": null,
+            "observed_sample": "8.0% 2/25",
+            "url": "https://vgsoharchive.com/items/thickened-xennskin-greaves"
+          },
+          {
+            "item": "Thrallishar's Boots",
+            "chance": "4.0%",
+            "quantity": null,
+            "observed_sample": "4.0% 1/25",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-boots"
+          },
+          {
+            "item": "Glowing Orange Energy Sphere",
+            "chance": "36.0%",
+            "quantity": null,
+            "observed_sample": "36.0% 9/25",
+            "url": "https://vgsoharchive.com/items/glowing-orange-energy-sphere"
+          },
+          {
+            "item": "Glowing Red Energy Sphere",
+            "chance": "28.0%",
+            "quantity": null,
+            "observed_sample": "28.0% 7/25",
+            "url": "https://vgsoharchive.com/items/glowing-red-energy-sphere"
+          },
+          {
+            "item": "Thrallishar's Belt",
+            "chance": "28.0%",
+            "quantity": null,
+            "observed_sample": "28.0% 7/25",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-belt"
+          },
+          {
+            "item": "Hardended Xennskin Gloves",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0% 5/25",
+            "url": "https://vgsoharchive.com/items/hardended-xennskin-gloves"
+          },
+          {
+            "item": "Glowing Green Energy Sphere",
+            "chance": "16.0%",
+            "quantity": null,
+            "observed_sample": "16.0% 4/25",
+            "url": "https://vgsoharchive.com/items/glowing-green-energy-sphere"
+          },
+          {
+            "item": "Thrallishar's Ring",
+            "chance": "12.0%",
+            "quantity": null,
+            "observed_sample": "12.0% 3/25",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-ring"
+          },
+          {
+            "item": "Gooey Rubbery Tongue",
+            "chance": "24.0%",
+            "quantity": null,
+            "observed_sample": "24.0% 6/25",
+            "url": "https://vgsoharchive.com/items/gooey-rubbery-tongue"
+          },
+          {
+            "item": "Xennu Energy Shard",
+            "chance": "4.0%",
+            "quantity": null,
+            "observed_sample": "4.0% 1/25",
+            "url": "https://vgsoharchive.com/items/xennu-energy-shard"
+          },
+          {
+            "item": "Xenn Tech: Cloaking Device Schematics",
+            "chance": "4.0%",
+            "quantity": null,
+            "observed_sample": "4.0% 1/25",
+            "url": "https://vgsoharchive.com/items/xenn-tech-cloaking-device-schematics"
+          },
+          {
+            "item": "Xenn Tech: Composite Shield Schematics",
+            "chance": "4.0%",
+            "quantity": null,
+            "observed_sample": "4.0% 1/25",
+            "url": "https://vgsoharchive.com/items/xenn-tech-composite-shield-schematics"
+          },
+          {
+            "item": "Xenn Tech: Shield Belt Schematics",
+            "chance": "4.0%",
+            "quantity": null,
+            "observed_sample": "4.0% 1/25",
+            "url": "https://vgsoharchive.com/items/xenn-tech-shield-belt-schematics"
+          },
+          {
+            "item": "Xenn Tech: Ultra-Light Cape Schematics",
+            "chance": "4.0%",
+            "quantity": null,
+            "observed_sample": "4.0% 1/25",
+            "url": "https://vgsoharchive.com/items/xenn-tech-ultra-light-cape-schematics"
+          }
+        ]
+      },
+      "cache_sha256": "923d99689957e72a27c7eb03c653d66ff87b5f06c1bd8a7ccf93a36535d2a8bd",
+      "source_rows": [
+        [
+          "Stitched Xennskin Gloves",
+          "https://vgsoharchive.com/items/stitched-xennskin-gloves",
+          "16.0% 4/25"
+        ],
+        [
+          "Thickened Xennskin Greaves",
+          "https://vgsoharchive.com/items/thickened-xennskin-greaves",
+          "8.0% 2/25"
+        ],
+        [
+          "Thrallishar's Boots",
+          "https://vgsoharchive.com/items/thrallishar-s-boots",
+          "4.0% 1/25"
+        ],
+        [
+          "Glowing Orange Energy Sphere",
+          "https://vgsoharchive.com/items/glowing-orange-energy-sphere",
+          "36.0% 9/25"
+        ],
+        [
+          "Glowing Red Energy Sphere",
+          "https://vgsoharchive.com/items/glowing-red-energy-sphere",
+          "28.0% 7/25"
+        ],
+        [
+          "Thrallishar's Belt",
+          "https://vgsoharchive.com/items/thrallishar-s-belt",
+          "28.0% 7/25"
+        ],
+        [
+          "Hardended Xennskin Gloves",
+          "https://vgsoharchive.com/items/hardended-xennskin-gloves",
+          "20.0% 5/25"
+        ],
+        [
+          "Glowing Green Energy Sphere",
+          "https://vgsoharchive.com/items/glowing-green-energy-sphere",
+          "16.0% 4/25"
+        ],
+        [
+          "Thrallishar's Ring",
+          "https://vgsoharchive.com/items/thrallishar-s-ring",
+          "12.0% 3/25"
+        ],
+        [
+          "Gooey Rubbery Tongue",
+          "https://vgsoharchive.com/items/gooey-rubbery-tongue",
+          "24.0% 6/25"
+        ],
+        [
+          "Xennu Energy Shard",
+          "https://vgsoharchive.com/items/xennu-energy-shard",
+          "4.0% 1/25"
+        ],
+        [
+          "Xenn Tech: Cloaking Device Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-cloaking-device-schematics",
+          "4.0% 1/25"
+        ],
+        [
+          "Xenn Tech: Composite Shield Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-composite-shield-schematics",
+          "4.0% 1/25"
+        ],
+        [
+          "Xenn Tech: Shield Belt Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-shield-belt-schematics",
+          "4.0% 1/25"
+        ],
+        [
+          "Xenn Tech: Ultra-Light Cape Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-ultra-light-cape-schematics",
+          "4.0% 1/25"
+        ]
+      ],
+      "source_row_count": 15,
+      "record_drop_count": 15,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Thrallishar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thrallishar",
+            "title": "Thrallishar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:00:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Islands Of Madness"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "chunk": [
+            "Isle of Madness Dungeon:"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Stitched Xennskin Gloves",
+            "url": "https://vgsoharchive.com/items/stitched-xennskin-gloves"
+          },
+          {
+            "name": "Thrallishar's Boots",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-boots"
+          },
+          {
+            "name": "Thickened Xennskin Greaves",
+            "url": "https://vgsoharchive.com/items/thickened-xennskin-greaves"
+          },
+          {
+            "name": "Hardended Xennskin Gloves",
+            "url": "https://vgsoharchive.com/items/hardended-xennskin-gloves"
+          },
+          {
+            "name": "Glowing Red Energy Sphere",
+            "url": "https://vgsoharchive.com/items/glowing-red-energy-sphere"
+          },
+          {
+            "name": "Glowing Green Energy Sphere",
+            "url": "https://vgsoharchive.com/items/glowing-green-energy-sphere"
+          },
+          {
+            "name": "Glowing Orange Energy Sphere",
+            "url": "https://vgsoharchive.com/items/glowing-orange-energy-sphere"
+          },
+          {
+            "name": "Thrallishar's Belt",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-belt"
+          },
+          {
+            "name": "Thrallishar's Ring",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-ring"
+          },
+          {
+            "name": "Fine Mask of the Arcane",
+            "url": "https://vgsoharchive.com/items/fine-mask-of-the-arcane"
+          },
+          {
+            "name": "Thin Dune Fold Reinforcement",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-reinforcement"
+          },
+          {
+            "name": "Gooey Rubbery Tongue",
+            "url": "https://vgsoharchive.com/items/gooey-rubbery-tongue"
+          },
+          {
+            "name": "Xennu Energy Shard",
+            "url": "https://vgsoharchive.com/items/xennu-energy-shard"
+          },
+          {
+            "name": "Xenn Tech: Cloaking Device Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-cloaking-device-schematics"
+          },
+          {
+            "name": "Xenn Tech: Composite Shield Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-composite-shield-schematics"
+          },
+          {
+            "name": "Xenn Tech: Shield Belt Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-shield-belt-schematics"
+          },
+          {
+            "name": "Xenn Tech: Ultra-Light Cape Schematics",
+            "url": "https://vgsoharchive.com/items/xenn-tech-ultra-light-cape-schematics"
+          },
+          {
+            "name": "Gooey Rubbery Skin",
+            "url": "https://vgsoharchive.com/items/gooey-rubbery-skin"
+          },
+          {
+            "name": "Untapped Xennu Shard",
+            "url": "https://vgsoharchive.com/items/untapped-xennu-shard"
+          }
+        ],
+        "type": "loot",
+        "source": "Thrallishar",
+        "drops": [
+          {
+            "item": "Stitched Xennskin Gloves",
+            "chance": "26.7%",
+            "quantity": null,
+            "observed_sample": "26.7% 4/15",
+            "url": "https://vgsoharchive.com/items/stitched-xennskin-gloves"
+          },
+          {
+            "item": "Thrallishar's Boots",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0%",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-boots"
+          },
+          {
+            "item": "Thickened Xennskin Greaves",
+            "chance": "13.3%",
+            "quantity": null,
+            "observed_sample": "13.3% 2/15",
+            "url": "https://vgsoharchive.com/items/thickened-xennskin-greaves"
+          },
+          {
+            "item": "Hardended Xennskin Gloves",
+            "chance": "33.3%",
+            "quantity": null,
+            "observed_sample": "33.3% 5/15",
+            "url": "https://vgsoharchive.com/items/hardended-xennskin-gloves"
+          },
+          {
+            "item": "Glowing Red Energy Sphere",
+            "chance": "26.7%",
+            "quantity": null,
+            "observed_sample": "26.7% 4/15",
+            "url": "https://vgsoharchive.com/items/glowing-red-energy-sphere"
+          },
+          {
+            "item": "Glowing Green Energy Sphere",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0% 3/15",
+            "url": "https://vgsoharchive.com/items/glowing-green-energy-sphere"
+          },
+          {
+            "item": "Glowing Orange Energy Sphere",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0% 3/15",
+            "url": "https://vgsoharchive.com/items/glowing-orange-energy-sphere"
+          },
+          {
+            "item": "Thrallishar's Belt",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0%",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-belt"
+          },
+          {
+            "item": "Thrallishar's Ring",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0%",
+            "url": "https://vgsoharchive.com/items/thrallishar-s-ring"
+          },
+          {
+            "item": "Fine Mask of the Arcane",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fine-mask-of-the-arcane"
+          },
+          {
+            "item": "Thin Dune Fold Reinforcement",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-reinforcement"
+          },
+          {
+            "item": "Gooey Rubbery Tongue",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0%",
+            "url": "https://vgsoharchive.com/items/gooey-rubbery-tongue"
+          },
+          {
+            "item": "Xennu Energy Shard",
+            "chance": "20.0%",
+            "quantity": null,
+            "observed_sample": "20.0%",
+            "url": "https://vgsoharchive.com/items/xennu-energy-shard"
+          },
+          {
+            "item": "Xenn Tech: Cloaking Device Schematics",
+            "chance": "6.7%",
+            "quantity": null,
+            "observed_sample": "6.7% 1/15",
+            "url": "https://vgsoharchive.com/items/xenn-tech-cloaking-device-schematics"
+          },
+          {
+            "item": "Xenn Tech: Composite Shield Schematics",
+            "chance": "6.7%",
+            "quantity": null,
+            "observed_sample": "6.7% 1/15",
+            "url": "https://vgsoharchive.com/items/xenn-tech-composite-shield-schematics"
+          },
+          {
+            "item": "Xenn Tech: Shield Belt Schematics",
+            "chance": "6.7%",
+            "quantity": null,
+            "observed_sample": "6.7% 1/15",
+            "url": "https://vgsoharchive.com/items/xenn-tech-shield-belt-schematics"
+          },
+          {
+            "item": "Xenn Tech: Ultra-Light Cape Schematics",
+            "chance": "6.7%",
+            "quantity": null,
+            "observed_sample": "6.7% 1/15",
+            "url": "https://vgsoharchive.com/items/xenn-tech-ultra-light-cape-schematics"
+          },
+          {
+            "item": "Gooey Rubbery Skin",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gooey-rubbery-skin"
+          },
+          {
+            "item": "Untapped Xennu Shard",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/untapped-xennu-shard"
+          }
+        ]
+      },
+      "cache_sha256": "efc3ea7c89a73bcd52bffa67aa9e55edd2c7cd876aeb83a864a1c4a1f620c482",
+      "source_rows": [
+        [
+          "Stitched Xennskin Gloves",
+          "https://vgsoharchive.com/items/stitched-xennskin-gloves",
+          "26.7% 4/15"
+        ],
+        [
+          "Thrallishar's Boots",
+          "https://vgsoharchive.com/items/thrallishar-s-boots",
+          "20.0%"
+        ],
+        [
+          "Thickened Xennskin Greaves",
+          "https://vgsoharchive.com/items/thickened-xennskin-greaves",
+          "13.3% 2/15"
+        ],
+        [
+          "Hardended Xennskin Gloves",
+          "https://vgsoharchive.com/items/hardended-xennskin-gloves",
+          "33.3% 5/15"
+        ],
+        [
+          "Glowing Red Energy Sphere",
+          "https://vgsoharchive.com/items/glowing-red-energy-sphere",
+          "26.7% 4/15"
+        ],
+        [
+          "Glowing Green Energy Sphere",
+          "https://vgsoharchive.com/items/glowing-green-energy-sphere",
+          "20.0% 3/15"
+        ],
+        [
+          "Glowing Orange Energy Sphere",
+          "https://vgsoharchive.com/items/glowing-orange-energy-sphere",
+          "20.0% 3/15"
+        ],
+        [
+          "Thrallishar's Belt",
+          "https://vgsoharchive.com/items/thrallishar-s-belt",
+          "20.0%"
+        ],
+        [
+          "Thrallishar's Ring",
+          "https://vgsoharchive.com/items/thrallishar-s-ring",
+          "20.0%"
+        ],
+        [
+          "Fine Mask of the Arcane",
+          "https://vgsoharchive.com/items/fine-mask-of-the-arcane",
+          ""
+        ],
+        [
+          "Thin Dune Fold Reinforcement",
+          "https://vgsoharchive.com/items/thin-dune-fold-reinforcement",
+          ""
+        ],
+        [
+          "Gooey Rubbery Tongue",
+          "https://vgsoharchive.com/items/gooey-rubbery-tongue",
+          "20.0%"
+        ],
+        [
+          "Xennu Energy Shard",
+          "https://vgsoharchive.com/items/xennu-energy-shard",
+          "20.0%"
+        ],
+        [
+          "Xenn Tech: Cloaking Device Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-cloaking-device-schematics",
+          "6.7% 1/15"
+        ],
+        [
+          "Xenn Tech: Composite Shield Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-composite-shield-schematics",
+          "6.7% 1/15"
+        ],
+        [
+          "Xenn Tech: Shield Belt Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-shield-belt-schematics",
+          "6.7% 1/15"
+        ],
+        [
+          "Xenn Tech: Ultra-Light Cape Schematics",
+          "https://vgsoharchive.com/items/xenn-tech-ultra-light-cape-schematics",
+          "6.7% 1/15"
+        ],
+        [
+          "Gooey Rubbery Skin",
+          "https://vgsoharchive.com/items/gooey-rubbery-skin",
+          ""
+        ],
+        [
+          "Untapped Xennu Shard",
+          "https://vgsoharchive.com/items/untapped-xennu-shard",
+          ""
+        ]
+      ],
+      "source_row_count": 19,
+      "record_drop_count": 19,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 4,
+      "record": {
+        "name": "Threx",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/threx",
+            "title": "Threx · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:07:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Veskal's Exchange"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Feature Monster"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "chunk": [
+            "Veskal's Exchange"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Etched Spider Shield",
+            "url": "https://vgsoharchive.com/items/etched-spider-shield"
+          },
+          {
+            "name": "Web hilted Parrying Dagger",
+            "url": "https://vgsoharchive.com/items/web-hilted-parrying-dagger"
+          },
+          {
+            "name": "Sapphire Mask of the Spider",
+            "url": "https://vgsoharchive.com/items/sapphire-mask-of-the-spider"
+          }
+        ],
+        "type": "loot",
+        "source": "Threx",
+        "drops": [
+          {
+            "item": "Etched Spider Shield",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/etched-spider-shield"
+          },
+          {
+            "item": "Web hilted Parrying Dagger",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/web-hilted-parrying-dagger"
+          },
+          {
+            "item": "Sapphire Mask of the Spider",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/sapphire-mask-of-the-spider"
+          }
+        ]
+      },
+      "cache_sha256": "30ee28bff6bbab242138f2b189b65b7fbc3a7ddc0a4ac1d6fdfb8d2f87c30eeb",
+      "source_rows": [
+        [
+          "Etched Spider Shield",
+          "https://vgsoharchive.com/items/etched-spider-shield",
+          ""
+        ],
+        [
+          "Web hilted Parrying Dagger",
+          "https://vgsoharchive.com/items/web-hilted-parrying-dagger",
+          ""
+        ],
+        [
+          "Sapphire Mask of the Spider",
+          "https://vgsoharchive.com/items/sapphire-mask-of-the-spider",
+          ""
+        ]
+      ],
+      "source_row_count": 3,
+      "record_drop_count": 3,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 5,
+      "record": {
+        "name": "Thunderhorn",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thunderhorn",
+            "title": "Thunderhorn · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:10:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Halgarad"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "type": [
+            "Monster"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Broken Ram Horn",
+            "url": "https://vgsoharchive.com/items/broken-ram-horn-2"
+          },
+          {
+            "name": "Cracked Ram Hoof",
+            "url": "https://vgsoharchive.com/items/cracked-ram-hoof-2"
+          },
+          {
+            "name": "Thunderhorn Horn",
+            "url": "https://vgsoharchive.com/items/thunderhorn-horn-2"
+          },
+          {
+            "name": "Worn Shortsword",
+            "url": "https://vgsoharchive.com/items/worn-shortsword-2"
+          }
+        ],
+        "type": "loot",
+        "source": "Thunderhorn",
+        "drops": [
+          {
+            "item": "Broken Ram Horn",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/broken-ram-horn-2"
+          },
+          {
+            "item": "Cracked Ram Hoof",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/cracked-ram-hoof-2"
+          },
+          {
+            "item": "Thunderhorn Horn",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thunderhorn-horn-2"
+          },
+          {
+            "item": "Worn Shortsword",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/worn-shortsword-2"
+          }
+        ]
+      },
+      "cache_sha256": "24772f2f875f730a6ba768bd87d73fa767e66522fc96fd85e92fda4c359017bc",
+      "source_rows": [
+        [
+          "Broken Ram Horn",
+          "https://vgsoharchive.com/items/broken-ram-horn-2",
+          ""
+        ],
+        [
+          "Cracked Ram Hoof",
+          "https://vgsoharchive.com/items/cracked-ram-hoof-2",
+          ""
+        ],
+        [
+          "Thunderhorn Horn",
+          "https://vgsoharchive.com/items/thunderhorn-horn-2",
+          ""
+        ],
+        [
+          "Worn Shortsword",
+          "https://vgsoharchive.com/items/worn-shortsword-2",
+          ""
+        ]
+      ],
+      "source_row_count": 4,
+      "record_drop_count": 4,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 6,
+      "record": {
+        "name": "Tiger",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tiger",
+            "title": "Tiger · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:23:16+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "1 dot"
+          ],
+          "type": [
+            "Monster"
+          ],
+          "chunk": [
+            "Ca'ial Brael, Jalen's Crossing, Martok"
+          ],
+          "race": [
+            "Animal"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bent Shortsword",
+            "url": "https://vgsoharchive.com/items/bent-shortsword-3"
+          },
+          {
+            "name": "Chipped Bleached Scale Leggings",
+            "url": "https://vgsoharchive.com/items/chipped-bleached-scale-leggings"
+          },
+          {
+            "name": "Chipped Bleached Scale Underlay",
+            "url": "https://vgsoharchive.com/items/chipped-bleached-scale-underlay"
+          },
+          {
+            "name": "Dirty Tuft of Fur",
+            "url": "https://vgsoharchive.com/items/dirty-tuft-of-fur-2"
+          },
+          {
+            "name": "Disposed Oiled Skin Straps",
+            "url": "https://vgsoharchive.com/items/disposed-oiled-skin-straps-4"
+          },
+          {
+            "name": "Disposed Oiled Skin Vest",
+            "url": "https://vgsoharchive.com/items/disposed-oiled-skin-vest"
+          },
+          {
+            "name": "Layered Cotton Cuffs",
+            "url": "https://vgsoharchive.com/items/layered-cotton-cuffs-3"
+          },
+          {
+            "name": "Layered Cotton Gloves",
+            "url": "https://vgsoharchive.com/items/layered-cotton-gloves-2"
+          },
+          {
+            "name": "Mangled Strip",
+            "url": "https://vgsoharchive.com/items/mangled-strip"
+          },
+          {
+            "name": "Tiger Pelt",
+            "url": "https://vgsoharchive.com/items/tiger-pelt-5"
+          },
+          {
+            "name": "Bloodied Tuft of Fur",
+            "url": "https://vgsoharchive.com/items/bloodied-tuft-of-fur-4"
+          },
+          {
+            "name": "Dirty Pelt",
+            "url": "https://vgsoharchive.com/items/dirty-pelt"
+          },
+          {
+            "name": "Tattered Pelt",
+            "url": "https://vgsoharchive.com/items/tattered-pelt"
+          },
+          {
+            "name": "Broken Eye",
+            "url": "https://vgsoharchive.com/items/broken-eye"
+          }
+        ],
+        "type": "loot",
+        "source": "Tiger",
+        "drops": [
+          {
+            "item": "Bent Shortsword",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/bent-shortsword-3"
+          },
+          {
+            "item": "Chipped Bleached Scale Leggings",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/chipped-bleached-scale-leggings"
+          },
+          {
+            "item": "Chipped Bleached Scale Underlay",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/chipped-bleached-scale-underlay"
+          },
+          {
+            "item": "Dirty Tuft of Fur",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/dirty-tuft-of-fur-2"
+          },
+          {
+            "item": "Disposed Oiled Skin Straps",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/disposed-oiled-skin-straps-4"
+          },
+          {
+            "item": "Disposed Oiled Skin Vest",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/disposed-oiled-skin-vest"
+          },
+          {
+            "item": "Layered Cotton Cuffs",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/layered-cotton-cuffs-3"
+          },
+          {
+            "item": "Layered Cotton Gloves",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/layered-cotton-gloves-2"
+          },
+          {
+            "item": "Mangled Strip",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mangled-strip"
+          },
+          {
+            "item": "Tiger Pelt",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tiger-pelt-5"
+          },
+          {
+            "item": "Bloodied Tuft of Fur",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/bloodied-tuft-of-fur-4"
+          },
+          {
+            "item": "Dirty Pelt",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/dirty-pelt"
+          },
+          {
+            "item": "Tattered Pelt",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tattered-pelt"
+          },
+          {
+            "item": "Broken Eye",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/broken-eye"
+          }
+        ]
+      },
+      "cache_sha256": "88c6b2caf315b9fa59df1aa84449088ab23b751cffb4b3e52573f55b795e11d2",
+      "source_rows": [
+        [
+          "Bent Shortsword",
+          "https://vgsoharchive.com/items/bent-shortsword-3",
+          ""
+        ],
+        [
+          "Chipped Bleached Scale Leggings",
+          "https://vgsoharchive.com/items/chipped-bleached-scale-leggings",
+          ""
+        ],
+        [
+          "Chipped Bleached Scale Underlay",
+          "https://vgsoharchive.com/items/chipped-bleached-scale-underlay",
+          ""
+        ],
+        [
+          "Dirty Tuft of Fur",
+          "https://vgsoharchive.com/items/dirty-tuft-of-fur-2",
+          ""
+        ],
+        [
+          "Disposed Oiled Skin Straps",
+          "https://vgsoharchive.com/items/disposed-oiled-skin-straps-4",
+          ""
+        ],
+        [
+          "Disposed Oiled Skin Vest",
+          "https://vgsoharchive.com/items/disposed-oiled-skin-vest",
+          ""
+        ],
+        [
+          "Layered Cotton Cuffs",
+          "https://vgsoharchive.com/items/layered-cotton-cuffs-3",
+          ""
+        ],
+        [
+          "Layered Cotton Gloves",
+          "https://vgsoharchive.com/items/layered-cotton-gloves-2",
+          ""
+        ],
+        [
+          "Mangled Strip",
+          "https://vgsoharchive.com/items/mangled-strip",
+          ""
+        ],
+        [
+          "Tiger Pelt",
+          "https://vgsoharchive.com/items/tiger-pelt-5",
+          ""
+        ],
+        [
+          "Bloodied Tuft of Fur",
+          "https://vgsoharchive.com/items/bloodied-tuft-of-fur-4",
+          ""
+        ],
+        [
+          "Dirty Pelt",
+          "https://vgsoharchive.com/items/dirty-pelt",
+          ""
+        ],
+        [
+          "Tattered Pelt",
+          "https://vgsoharchive.com/items/tattered-pelt",
+          ""
+        ],
+        [
+          "Broken Eye",
+          "https://vgsoharchive.com/items/broken-eye",
+          ""
+        ]
+      ],
+      "source_row_count": 14,
+      "record_drop_count": 14,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 7,
+      "record": {
+        "name": "Timeless Eidolon",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/timeless-eidolon",
+            "title": "Timeless Eidolon · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:30:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Coterie Infineum Sanctuary"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Coterie Guardian's Cudgel",
+            "url": "https://vgsoharchive.com/items/coterie-guardian-s-cudgel"
+          },
+          {
+            "name": "Studded Burned Leather Reinforcement",
+            "url": "https://vgsoharchive.com/items/studded-burned-leather-reinforcement"
+          }
+        ],
+        "type": "loot",
+        "source": "Timeless Eidolon",
+        "drops": [
+          {
+            "item": "Coterie Guardian's Cudgel",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/coterie-guardian-s-cudgel"
+          },
+          {
+            "item": "Studded Burned Leather Reinforcement",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/studded-burned-leather-reinforcement"
+          }
+        ]
+      },
+      "cache_sha256": "1ac22cd0865fed7f78cf658a4c8f9fa68423a5258b3e6fabe7381956368ccb5c",
+      "source_rows": [
+        [
+          "Coterie Guardian's Cudgel",
+          "https://vgsoharchive.com/items/coterie-guardian-s-cudgel",
+          ""
+        ],
+        [
+          "Studded Burned Leather Reinforcement",
+          "https://vgsoharchive.com/items/studded-burned-leather-reinforcement",
+          ""
+        ]
+      ],
+      "source_row_count": 2,
+      "record_drop_count": 2,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 8,
+      "record": {
+        "name": "Tiny Bones",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tiny-bones",
+            "title": "Tiny Bones · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:37:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tursh Village"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "race": [
+            "Undead"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Storehouse Plate Boots",
+            "url": "https://vgsoharchive.com/items/storehouse-plate-boots"
+          }
+        ],
+        "type": "loot",
+        "source": "Tiny Bones",
+        "drops": [
+          {
+            "item": "Storehouse Plate Boots",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/storehouse-plate-boots"
+          }
+        ]
+      },
+      "cache_sha256": "7e7690574edf882acd7ddc03a74e914ec057a9b8c3fa99064e9a2ea1236f2fab",
+      "source_rows": [
+        [
+          "Storehouse Plate Boots",
+          "https://vgsoharchive.com/items/storehouse-plate-boots",
+          ""
+        ]
+      ],
+      "source_row_count": 1,
+      "record_drop_count": 1,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 9,
+      "record": {
+        "name": "Titanon the Immovable",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/titanon-the-immovable",
+            "title": "Titanon the Immovable · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:48:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Strand Of The Ancients"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Creature"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "respawn": [
+            "Random"
+          ],
+          "chunk": [
+            "Strand of the Ancients"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Band of the Immovable",
+            "url": "https://vgsoharchive.com/items/band-of-the-immovable"
+          },
+          {
+            "name": "Underlay Of Titanon",
+            "url": "https://vgsoharchive.com/items/underlay-of-titanon"
+          },
+          {
+            "name": "Face Breaker",
+            "url": "https://vgsoharchive.com/items/face-breaker"
+          },
+          {
+            "name": "Thickened Mesh",
+            "url": "https://vgsoharchive.com/items/thickened-mesh"
+          },
+          {
+            "name": "Thickened Undergarment",
+            "url": "https://vgsoharchive.com/items/thickened-undergarment"
+          },
+          {
+            "name": "Thickened Underlay",
+            "url": "https://vgsoharchive.com/items/thickened-underlay"
+          }
+        ],
+        "type": "loot",
+        "source": "Titanon the Immovable",
+        "drops": [
+          {
+            "item": "Face Breaker",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/face-breaker"
+          },
+          {
+            "item": "Thickened Mesh",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thickened-mesh"
+          },
+          {
+            "item": "Thickened Underlay",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thickened-underlay"
+          },
+          {
+            "item": "Thickened Undergarment",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thickened-undergarment"
+          }
+        ]
+      },
+      "cache_sha256": "8663989e026a0148b448acf03940f3628742274e71a42b8b3653ee6e575720e9",
+      "source_rows": [
+        [
+          "Face Breaker",
+          "https://vgsoharchive.com/items/face-breaker",
+          ""
+        ],
+        [
+          "Thickened Mesh",
+          "https://vgsoharchive.com/items/thickened-mesh",
+          ""
+        ],
+        [
+          "Thickened Underlay",
+          "https://vgsoharchive.com/items/thickened-underlay",
+          ""
+        ],
+        [
+          "Thickened Undergarment",
+          "https://vgsoharchive.com/items/thickened-undergarment",
+          ""
+        ]
+      ],
+      "source_row_count": 4,
+      "record_drop_count": 4,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 10,
+      "record": {
+        "name": "Tolaklaw",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tolaklaw",
+            "title": "Tolaklaw · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T09:56:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ancient Port Warehouse"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "respawn": [
+            "lockout 7"
+          ],
+          "chunk": [
+            "Ancient Port Warehouse (10000, 10000)"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blackened Spore Earring",
+            "url": "https://vgsoharchive.com/items/blackened-spore-earring"
+          },
+          {
+            "name": "Longsword of Spores",
+            "url": "https://vgsoharchive.com/items/longsword-of-spores"
+          }
+        ],
+        "type": "loot",
+        "source": "Tolaklaw",
+        "drops": [
+          {
+            "item": "Longsword of Spores",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/longsword-of-spores"
+          },
+          {
+            "item": "Blackened Spore Earring",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/blackened-spore-earring"
+          }
+        ]
+      },
+      "cache_sha256": "db0e183837f950bb34b82706c9b65403a4e120c498d8ff265f69b5d0fa8ae018",
+      "source_rows": [
+        [
+          "Longsword of Spores",
+          "https://vgsoharchive.com/items/longsword-of-spores",
+          ""
+        ],
+        [
+          "Blackened Spore Earring",
+          "https://vgsoharchive.com/items/blackened-spore-earring",
+          ""
+        ]
+      ],
+      "source_row_count": 2,
+      "record_drop_count": 2,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 11,
+      "record": {
+        "name": "Tomb Pincer",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tomb-pincer",
+            "title": "Tomb Pincer · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:00:16+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Shandrel's Ancient Simulacrum",
+            "url": "https://vgsoharchive.com/items/shandrel-s-ancient-simulacrum"
+          },
+          {
+            "name": "Mummy Dust",
+            "url": "https://vgsoharchive.com/items/mummy-dust"
+          }
+        ],
+        "type": "loot",
+        "source": "Tomb Pincer",
+        "drops": [
+          {
+            "item": "Shandrel's Ancient Simulacrum",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/shandrel-s-ancient-simulacrum"
+          },
+          {
+            "item": "Mummy Dust",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mummy-dust"
+          }
+        ]
+      },
+      "cache_sha256": "ac2846934fdd052b359a2518a44dd2c67aaacb1c7eb5cdd188275c661ebab0bf",
+      "source_rows": [
+        [
+          "Shandrel's Ancient Simulacrum",
+          "https://vgsoharchive.com/items/shandrel-s-ancient-simulacrum",
+          ""
+        ],
+        [
+          "Mummy Dust",
+          "https://vgsoharchive.com/items/mummy-dust",
+          ""
+        ]
+      ],
+      "source_row_count": 2,
+      "record_drop_count": 2,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 12,
+      "record": {
+        "name": "Tombwalker Scorpion",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tombwalker-scorpion",
+            "title": "Tombwalker Scorpion · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:04:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Nusibe Necropolis"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "chunk": [
+            "Nusibe Necropolis"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Liquid Metal",
+            "url": "https://vgsoharchive.com/items/liquid-metal"
+          },
+          {
+            "name": "Maker's Essence of Ingenuity",
+            "url": "https://vgsoharchive.com/items/maker-s-essence-of-ingenuity"
+          },
+          {
+            "name": "Fragment of Arazmus",
+            "url": "https://vgsoharchive.com/items/fragment-of-arazmus"
+          },
+          {
+            "name": "Shard of Arazmus",
+            "url": "https://vgsoharchive.com/items/shard-of-arazmus"
+          },
+          {
+            "name": "Embodiment of Force",
+            "url": "https://vgsoharchive.com/items/embodiment-of-force"
+          },
+          {
+            "name": "Etching of Laceration",
+            "url": "https://vgsoharchive.com/items/etching-of-laceration"
+          },
+          {
+            "name": "Mummy Dust",
+            "url": "https://vgsoharchive.com/items/mummy-dust"
+          },
+          {
+            "name": "Rune of Slaying",
+            "url": "https://vgsoharchive.com/items/rune-of-slaying"
+          },
+          {
+            "name": "Thin Dune Fold Shoulders",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-shoulders"
+          },
+          {
+            "name": "Runed Desertlink Chain Bracers",
+            "url": "https://vgsoharchive.com/items/runed-desertlink-chain-bracers"
+          },
+          {
+            "name": "Fine Necklace of the Defender",
+            "url": "https://vgsoharchive.com/items/fine-necklace-of-the-defender"
+          },
+          {
+            "name": "Fine Ring of the Defender",
+            "url": "https://vgsoharchive.com/items/fine-ring-of-the-defender"
+          },
+          {
+            "name": "Fine Ring of the Lightfoot",
+            "url": "https://vgsoharchive.com/items/fine-ring-of-the-lightfoot"
+          },
+          {
+            "name": "Blazing Greatspear",
+            "url": "https://vgsoharchive.com/items/blazing-greatspear"
+          },
+          {
+            "name": "Dented Sandforged Breastplate",
+            "url": "https://vgsoharchive.com/items/dented-sandforged-breastplate"
+          },
+          {
+            "name": "Sandblasted Sapphire Ring",
+            "url": "https://vgsoharchive.com/items/sandblasted-sapphire-ring"
+          },
+          {
+            "name": "Thin Dune Fold Cap",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-cap"
+          },
+          {
+            "name": "Thin Dune Fold Reinforcement",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-reinforcement"
+          },
+          {
+            "name": "Worn Desertlink Chain Breastplate",
+            "url": "https://vgsoharchive.com/items/worn-desertlink-chain-breastplate"
+          },
+          {
+            "name": "Fine Necklace of the Arcane",
+            "url": "https://vgsoharchive.com/items/fine-necklace-of-the-arcane"
+          },
+          {
+            "name": "Fine Stud of the Arcane",
+            "url": "https://vgsoharchive.com/items/fine-stud-of-the-arcane"
+          },
+          {
+            "name": "Sandstar Cotton Healer's Amice",
+            "url": "https://vgsoharchive.com/items/sandstar-cotton-healer-s-amice"
+          },
+          {
+            "name": "Sandstar Ringmail Cap",
+            "url": "https://vgsoharchive.com/items/sandstar-ringmail-cap"
+          },
+          {
+            "name": "Scratched Shadelink Chain Belt",
+            "url": "https://vgsoharchive.com/items/scratched-shadelink-chain-belt"
+          },
+          {
+            "name": "Light Shell Fragment",
+            "url": "https://vgsoharchive.com/items/light-shell-fragment-2"
+          },
+          {
+            "name": "Soggy Organ",
+            "url": "https://vgsoharchive.com/items/soggy-organ"
+          }
+        ],
+        "type": "loot",
+        "source": "Tombwalker Scorpion",
+        "drops": [
+          {
+            "item": "Liquid Metal",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/liquid-metal"
+          },
+          {
+            "item": "Maker's Essence of Ingenuity",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/maker-s-essence-of-ingenuity"
+          },
+          {
+            "item": "Fragment of Arazmus",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fragment-of-arazmus"
+          },
+          {
+            "item": "Shard of Arazmus",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/shard-of-arazmus"
+          },
+          {
+            "item": "Embodiment of Force",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/embodiment-of-force"
+          },
+          {
+            "item": "Etching of Laceration",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/etching-of-laceration"
+          },
+          {
+            "item": "Mummy Dust",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mummy-dust"
+          },
+          {
+            "item": "Rune of Slaying",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/rune-of-slaying"
+          },
+          {
+            "item": "Thin Dune Fold Shoulders",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-shoulders"
+          },
+          {
+            "item": "Runed Desertlink Chain Bracers",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/runed-desertlink-chain-bracers"
+          },
+          {
+            "item": "Fine Necklace of the Defender",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fine-necklace-of-the-defender"
+          },
+          {
+            "item": "Fine Ring of the Defender",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fine-ring-of-the-defender"
+          },
+          {
+            "item": "Fine Ring of the Lightfoot",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fine-ring-of-the-lightfoot"
+          },
+          {
+            "item": "Blazing Greatspear",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/blazing-greatspear"
+          },
+          {
+            "item": "Dented Sandforged Breastplate",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/dented-sandforged-breastplate"
+          },
+          {
+            "item": "Sandblasted Sapphire Ring",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/sandblasted-sapphire-ring"
+          },
+          {
+            "item": "Thin Dune Fold Cap",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-cap"
+          },
+          {
+            "item": "Thin Dune Fold Reinforcement",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thin-dune-fold-reinforcement"
+          },
+          {
+            "item": "Worn Desertlink Chain Breastplate",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/worn-desertlink-chain-breastplate"
+          },
+          {
+            "item": "Fine Necklace of the Arcane",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fine-necklace-of-the-arcane"
+          },
+          {
+            "item": "Fine Stud of the Arcane",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/fine-stud-of-the-arcane"
+          },
+          {
+            "item": "Sandstar Cotton Healer's Amice",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/sandstar-cotton-healer-s-amice"
+          },
+          {
+            "item": "Sandstar Ringmail Cap",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/sandstar-ringmail-cap"
+          },
+          {
+            "item": "Scratched Shadelink Chain Belt",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/scratched-shadelink-chain-belt"
+          },
+          {
+            "item": "Light Shell Fragment",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/light-shell-fragment-2"
+          },
+          {
+            "item": "Soggy Organ",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/soggy-organ"
+          }
+        ]
+      },
+      "cache_sha256": "9ec488e9280abde2d61a3121b72b19c79d776e6fca84e1154b725326a6b72677",
+      "source_rows": [
+        [
+          "Liquid Metal",
+          "https://vgsoharchive.com/items/liquid-metal",
+          ""
+        ],
+        [
+          "Maker's Essence of Ingenuity",
+          "https://vgsoharchive.com/items/maker-s-essence-of-ingenuity",
+          ""
+        ],
+        [
+          "Fragment of Arazmus",
+          "https://vgsoharchive.com/items/fragment-of-arazmus",
+          ""
+        ],
+        [
+          "Shard of Arazmus",
+          "https://vgsoharchive.com/items/shard-of-arazmus",
+          ""
+        ],
+        [
+          "Embodiment of Force",
+          "https://vgsoharchive.com/items/embodiment-of-force",
+          ""
+        ],
+        [
+          "Etching of Laceration",
+          "https://vgsoharchive.com/items/etching-of-laceration",
+          ""
+        ],
+        [
+          "Mummy Dust",
+          "https://vgsoharchive.com/items/mummy-dust",
+          ""
+        ],
+        [
+          "Rune of Slaying",
+          "https://vgsoharchive.com/items/rune-of-slaying",
+          ""
+        ],
+        [
+          "Thin Dune Fold Shoulders",
+          "https://vgsoharchive.com/items/thin-dune-fold-shoulders",
+          ""
+        ],
+        [
+          "Runed Desertlink Chain Bracers",
+          "https://vgsoharchive.com/items/runed-desertlink-chain-bracers",
+          ""
+        ],
+        [
+          "Fine Necklace of the Defender",
+          "https://vgsoharchive.com/items/fine-necklace-of-the-defender",
+          ""
+        ],
+        [
+          "Fine Ring of the Defender",
+          "https://vgsoharchive.com/items/fine-ring-of-the-defender",
+          ""
+        ],
+        [
+          "Fine Ring of the Lightfoot",
+          "https://vgsoharchive.com/items/fine-ring-of-the-lightfoot",
+          ""
+        ],
+        [
+          "Blazing Greatspear",
+          "https://vgsoharchive.com/items/blazing-greatspear",
+          ""
+        ],
+        [
+          "Dented Sandforged Breastplate",
+          "https://vgsoharchive.com/items/dented-sandforged-breastplate",
+          ""
+        ],
+        [
+          "Sandblasted Sapphire Ring",
+          "https://vgsoharchive.com/items/sandblasted-sapphire-ring",
+          ""
+        ],
+        [
+          "Thin Dune Fold Cap",
+          "https://vgsoharchive.com/items/thin-dune-fold-cap",
+          ""
+        ],
+        [
+          "Thin Dune Fold Reinforcement",
+          "https://vgsoharchive.com/items/thin-dune-fold-reinforcement",
+          ""
+        ],
+        [
+          "Worn Desertlink Chain Breastplate",
+          "https://vgsoharchive.com/items/worn-desertlink-chain-breastplate",
+          ""
+        ],
+        [
+          "Fine Necklace of the Arcane",
+          "https://vgsoharchive.com/items/fine-necklace-of-the-arcane",
+          ""
+        ],
+        [
+          "Fine Stud of the Arcane",
+          "https://vgsoharchive.com/items/fine-stud-of-the-arcane",
+          ""
+        ],
+        [
+          "Sandstar Cotton Healer's Amice",
+          "https://vgsoharchive.com/items/sandstar-cotton-healer-s-amice",
+          ""
+        ],
+        [
+          "Sandstar Ringmail Cap",
+          "https://vgsoharchive.com/items/sandstar-ringmail-cap",
+          ""
+        ],
+        [
+          "Scratched Shadelink Chain Belt",
+          "https://vgsoharchive.com/items/scratched-shadelink-chain-belt",
+          ""
+        ],
+        [
+          "Light Shell Fragment",
+          "https://vgsoharchive.com/items/light-shell-fragment-2",
+          ""
+        ],
+        [
+          "Soggy Organ",
+          "https://vgsoharchive.com/items/soggy-organ",
+          ""
+        ]
+      ],
+      "source_row_count": 26,
+      "record_drop_count": 26,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 13,
+      "record": {
+        "name": "Toral'Kun",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/toral-kun",
+            "title": "Toral'Kun · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:15:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Karrus Hakrel"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Giant"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "chunk": [
+            "Karrus Hakrel"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Toral s Leggings of Alacrity",
+            "url": "https://vgsoharchive.com/items/toral-s-leggings-of-alacrity"
+          },
+          {
+            "name": "Dalkain s Cap",
+            "url": "https://vgsoharchive.com/items/dalkain-s-cap"
+          },
+          {
+            "name": "Surging Sea Grips",
+            "url": "https://vgsoharchive.com/items/surging-sea-grips"
+          }
+        ],
+        "type": "loot",
+        "source": "Toral'Kun",
+        "drops": [
+          {
+            "item": "Toral s Leggings of Alacrity",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/toral-s-leggings-of-alacrity"
+          },
+          {
+            "item": "Dalkain s Cap",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/dalkain-s-cap"
+          },
+          {
+            "item": "Surging Sea Grips",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/surging-sea-grips"
+          }
+        ]
+      },
+      "cache_sha256": "3d02f5089ae01510f43edb011b52ddd669168ee94a67e0ba4d571a7ce5554880",
+      "source_rows": [
+        [
+          "Toral s Leggings of Alacrity",
+          "https://vgsoharchive.com/items/toral-s-leggings-of-alacrity",
+          ""
+        ],
+        [
+          "Dalkain s Cap",
+          "https://vgsoharchive.com/items/dalkain-s-cap",
+          ""
+        ],
+        [
+          "Surging Sea Grips",
+          "https://vgsoharchive.com/items/surging-sea-grips",
+          ""
+        ]
+      ],
+      "source_row_count": 3,
+      "record_drop_count": 3,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 14,
+      "record": {
+        "name": "Toriam El Dianobis",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/toriam-el-dianobis",
+            "title": "Toriam El Dianobis · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:20:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "City of Brass"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Animal"
+          ],
+          "spawn": [
+            "triggered"
+          ],
+          "respawn": [
+            "Minutes"
+          ],
+          "harvestable": [
+            "No"
+          ],
+          "chunk": [
+            "Sands of Sorrow"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Lifecleave, Sword of Light and Darkness",
+            "url": "https://vgsoharchive.com/items/lifecleave-sword-of-light-and-darkness"
+          },
+          {
+            "name": "Mask of Channeled Chaos",
+            "url": "https://vgsoharchive.com/items/mask-of-channeled-chaos"
+          },
+          {
+            "name": "Si'Gabri's Bracer of Chaos",
+            "url": "https://vgsoharchive.com/items/si-gabri-s-bracer-of-chaos"
+          },
+          {
+            "name": "Signet of Channeled Chaos",
+            "url": "https://vgsoharchive.com/items/signet-of-channeled-chaos"
+          },
+          {
+            "name": "Toriam's Belt of Protection",
+            "url": "https://vgsoharchive.com/items/toriam-s-belt-of-protection"
+          },
+          {
+            "name": "Oran's Bracers of Purity",
+            "url": "https://vgsoharchive.com/items/oran-s-bracers-of-purity"
+          },
+          {
+            "name": "Toriam's Belt of Order",
+            "url": "https://vgsoharchive.com/items/toriam-s-belt-of-order"
+          },
+          {
+            "name": "Toriam s Wrap of Shadows",
+            "url": "https://vgsoharchive.com/items/toriam-s-wrap-of-shadows"
+          }
+        ],
+        "type": "loot",
+        "source": "Toriam El Dianobis",
+        "drops": [
+          {
+            "item": "Mask of Channeled Chaos",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mask-of-channeled-chaos"
+          },
+          {
+            "item": "Signet of Channeled Chaos",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/signet-of-channeled-chaos"
+          },
+          {
+            "item": "Lifecleave, Sword of Light and Darkness",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/lifecleave-sword-of-light-and-darkness"
+          },
+          {
+            "item": "Oran's Bracers of Purity",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/oran-s-bracers-of-purity"
+          },
+          {
+            "item": "Toriam's Belt of Order",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/toriam-s-belt-of-order"
+          },
+          {
+            "item": "Toriam s Wrap of Shadows",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/toriam-s-wrap-of-shadows"
+          },
+          {
+            "item": "Si'Gabri's Bracer of Chaos",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/si-gabri-s-bracer-of-chaos"
+          },
+          {
+            "item": "Toriam's Belt of Protection",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/toriam-s-belt-of-protection"
+          }
+        ]
+      },
+      "cache_sha256": "4006061cb152005ad04e458e65ac55fee1cb0c4e2cff6439b086232c8e92fd02",
+      "source_rows": [
+        [
+          "Mask of Channeled Chaos",
+          "https://vgsoharchive.com/items/mask-of-channeled-chaos",
+          ""
+        ],
+        [
+          "Signet of Channeled Chaos",
+          "https://vgsoharchive.com/items/signet-of-channeled-chaos",
+          ""
+        ],
+        [
+          "Lifecleave, Sword of Light and Darkness",
+          "https://vgsoharchive.com/items/lifecleave-sword-of-light-and-darkness",
+          ""
+        ],
+        [
+          "Oran's Bracers of Purity",
+          "https://vgsoharchive.com/items/oran-s-bracers-of-purity",
+          ""
+        ],
+        [
+          "Toriam's Belt of Order",
+          "https://vgsoharchive.com/items/toriam-s-belt-of-order",
+          ""
+        ],
+        [
+          "Toriam s Wrap of Shadows",
+          "https://vgsoharchive.com/items/toriam-s-wrap-of-shadows",
+          ""
+        ],
+        [
+          "Si'Gabri's Bracer of Chaos",
+          "https://vgsoharchive.com/items/si-gabri-s-bracer-of-chaos",
+          ""
+        ],
+        [
+          "Toriam's Belt of Protection",
+          "https://vgsoharchive.com/items/toriam-s-belt-of-protection",
+          ""
+        ]
+      ],
+      "source_row_count": 8,
+      "record_drop_count": 8,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 15,
+      "record": {
+        "name": "Torjor The Watcher",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/torjor-the-watcher",
+            "title": "Torjor The Watcher · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:22:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Beranid Hills"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Gargoyle"
+          ],
+          "spawn": [
+            "triggered"
+          ],
+          "harvestable": [
+            "No"
+          ],
+          "chunk": [
+            "Beranid Hills"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Subtle Facemask",
+            "url": "https://vgsoharchive.com/items/subtle-facemask"
+          },
+          {
+            "name": "Sherpherd s Belt",
+            "url": "https://vgsoharchive.com/items/sherpherd-s-belt"
+          },
+          {
+            "name": "Ring of Vanquish",
+            "url": "https://vgsoharchive.com/items/ring-of-vanquish"
+          },
+          {
+            "name": "Ring of the Valiant",
+            "url": "https://vgsoharchive.com/items/ring-of-the-valiant"
+          }
+        ],
+        "type": "loot",
+        "source": "Torjor The Watcher",
+        "drops": [
+          {
+            "item": "Sherpherd s Belt",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/sherpherd-s-belt"
+          },
+          {
+            "item": "Ring of Vanquish",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/ring-of-vanquish"
+          },
+          {
+            "item": "Ring of the Valiant",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/ring-of-the-valiant"
+          }
+        ]
+      },
+      "cache_sha256": "32408be6e4be6d0edbf03e2a9132f2c2a80e7017375633addda00eb646ea61c7",
+      "source_rows": [
+        [
+          "Sherpherd s Belt",
+          "https://vgsoharchive.com/items/sherpherd-s-belt",
+          ""
+        ],
+        [
+          "Ring of Vanquish",
+          "https://vgsoharchive.com/items/ring-of-vanquish",
+          ""
+        ],
+        [
+          "Ring of the Valiant",
+          "https://vgsoharchive.com/items/ring-of-the-valiant",
+          ""
+        ]
+      ],
+      "source_row_count": 3,
+      "record_drop_count": 3,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 16,
+      "record": {
+        "name": "Torlaxis",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/torlaxis",
+            "title": "Torlaxis · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:29:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Rahz Inkur"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Animal"
+          ],
+          "spawn": [
+            "triggered"
+          ],
+          "harvestable": [
+            "No"
+          ],
+          "chunk": [
+            "Rahz Inkur"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "can swim": [
+            "Yes"
+          ],
+          "can fly": [
+            "No"
+          ],
+          "wall crawl": [
+            "No"
+          ],
+          "kills sampled": [
+            "2"
+          ],
+          "locations seen": [
+            "2"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Mark of Chaos Undivided",
+            "url": "https://vgsoharchive.com/items/mark-of-chaos-undivided"
+          },
+          {
+            "name": "Shifting Rune Spaulders",
+            "url": "https://vgsoharchive.com/items/shifting-rune-spaulders"
+          },
+          {
+            "name": "Totem of the Greathound",
+            "url": "https://vgsoharchive.com/items/totem-of-the-greathound"
+          },
+          {
+            "name": "Mark of Unity Divided",
+            "url": "https://vgsoharchive.com/items/mark-of-unity-divided"
+          },
+          {
+            "name": "Kall Raa Greaves",
+            "url": "https://vgsoharchive.com/items/kall-raa-greaves"
+          }
+        ],
+        "type": "loot",
+        "source": "Torlaxis",
+        "drops": [
+          {
+            "item": "Mark of Chaos Undivided",
+            "chance": "50.0%",
+            "quantity": null,
+            "observed_sample": "50.0% 1/2",
+            "url": "https://vgsoharchive.com/items/mark-of-chaos-undivided"
+          },
+          {
+            "item": "Shifting Rune Spaulders",
+            "chance": "50.0%",
+            "quantity": null,
+            "observed_sample": "50.0% 1/2",
+            "url": "https://vgsoharchive.com/items/shifting-rune-spaulders"
+          },
+          {
+            "item": "Totem of the Greathound",
+            "chance": "50.0%",
+            "quantity": null,
+            "observed_sample": "50.0% 1/2",
+            "url": "https://vgsoharchive.com/items/totem-of-the-greathound"
+          },
+          {
+            "item": "Mark of Unity Divided",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mark-of-unity-divided"
+          },
+          {
+            "item": "Kall Raa Greaves",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/kall-raa-greaves"
+          }
+        ]
+      },
+      "cache_sha256": "d85cbb149f462d16a17aac2c5971fce8fb2682137595d8e5111fcc3e004e514b",
+      "source_rows": [
+        [
+          "Mark of Chaos Undivided",
+          "https://vgsoharchive.com/items/mark-of-chaos-undivided",
+          "50.0% 1/2"
+        ],
+        [
+          "Shifting Rune Spaulders",
+          "https://vgsoharchive.com/items/shifting-rune-spaulders",
+          "50.0% 1/2"
+        ],
+        [
+          "Totem of the Greathound",
+          "https://vgsoharchive.com/items/totem-of-the-greathound",
+          "50.0% 1/2"
+        ],
+        [
+          "Mark of Unity Divided",
+          "https://vgsoharchive.com/items/mark-of-unity-divided",
+          ""
+        ],
+        [
+          "Kall Raa Greaves",
+          "https://vgsoharchive.com/items/kall-raa-greaves",
+          ""
+        ]
+      ],
+      "source_row_count": 5,
+      "record_drop_count": 5,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    },
+    {
+      "record_file": "raw/2026-10-17-045318-770062-archive-bulk/loot.jsonl",
+      "line": 17,
+      "record": {
+        "name": "Torn Ksaravi Banner",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/torn-ksaravi-banner",
+            "title": "Torn Ksaravi Banner · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T10:33:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ksaravi Gulch"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Ksaravi Gulch"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Torn Ksaravi Banner",
+            "url": "https://vgsoharchive.com/items/torn-ksaravi-banner"
+          }
+        ],
+        "type": "loot",
+        "source": "Torn Ksaravi Banner",
+        "drops": [
+          {
+            "item": "Torn Ksaravi Banner",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/torn-ksaravi-banner"
+          }
+        ]
+      },
+      "cache_sha256": "88e2d54273fc74d89d3c171641ea90300b6b36a6e3d4be91845a8f20114de7fa",
+      "source_rows": [
+        [
+          "Torn Ksaravi Banner",
+          "https://vgsoharchive.com/items/torn-ksaravi-banner",
+          ""
+        ]
+      ],
+      "source_row_count": 1,
+      "record_drop_count": 1,
+      "exact_multiset_match": true,
+      "chance_or_quantity_mismatches": []
+    }
+  ],
+  "limitations": [
+    "Sample frequencies are observations, not developer probabilities. Unknown quantities remain null and loot conversion remains withheld.",
+    "Full source records and cache hashes preserved; immutable batches unchanged.",
+    "Pending downloads, metadata-only extraction and semantic/collision review remain incomplete."
+  ]
+}

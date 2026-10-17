@@ -1,0 +1,800 @@
+{
+  "source_url": "https://vgoplayers.com/items.php",
+  "method": "POST",
+  "action": "https://vgoplayers.com/items.php?format=wide&query=true",
+  "controls": [
+    {
+      "name": "name",
+      "kind": "input",
+      "input_type": "text",
+      "default_value": ""
+    },
+    {
+      "name": "itemClassId",
+      "kind": "select",
+      "input_type": null,
+      "default_value": null,
+      "options": [
+        {
+          "source_value": "",
+          "label": "-- Select Class --"
+        },
+        {
+          "source_value": "1",
+          "label": "Adventurer"
+        },
+        {
+          "source_value": "1002",
+          "label": "Artificer"
+        },
+        {
+          "source_value": "2",
+          "label": "Bard"
+        },
+        {
+          "source_value": "46",
+          "label": "Berserker"
+        },
+        {
+          "source_value": "1000",
+          "label": "Blacksmith"
+        },
+        {
+          "source_value": "44",
+          "label": "Blood Mage"
+        },
+        {
+          "source_value": "5",
+          "label": "Cleric"
+        },
+        {
+          "source_value": "1050",
+          "label": "Crafter"
+        },
+        {
+          "source_value": "27",
+          "label": "Disciple"
+        },
+        {
+          "source_value": "20",
+          "label": "Dread Knight"
+        },
+        {
+          "source_value": "7",
+          "label": "Druid"
+        },
+        {
+          "source_value": "10",
+          "label": "Inquisitor"
+        },
+        {
+          "source_value": "15",
+          "label": "Monk"
+        },
+        {
+          "source_value": "45",
+          "label": "Necromancer"
+        },
+        {
+          "source_value": "1004",
+          "label": "Outfitter"
+        },
+        {
+          "source_value": "4",
+          "label": "Paladin"
+        },
+        {
+          "source_value": "14",
+          "label": "Psionicist"
+        },
+        {
+          "source_value": "19",
+          "label": "Ranger"
+        },
+        {
+          "source_value": "21",
+          "label": "Rogue"
+        },
+        {
+          "source_value": "22",
+          "label": "Shaman"
+        },
+        {
+          "source_value": "25",
+          "label": "Sorcerer"
+        },
+        {
+          "source_value": "28",
+          "label": "Warrior"
+        }
+      ]
+    },
+    {
+      "name": "itemSlotId",
+      "kind": "select",
+      "input_type": null,
+      "default_value": null,
+      "options": [
+        {
+          "source_value": "",
+          "label": "-- Select Slot --"
+        },
+        {
+          "source_value": "43",
+          "label": "Ammo"
+        },
+        {
+          "source_value": "44",
+          "label": "Aquatic Mount"
+        },
+        {
+          "source_value": "10",
+          "label": "ArmLeft"
+        },
+        {
+          "source_value": "11",
+          "label": "ArmRight"
+        },
+        {
+          "source_value": "37",
+          "label": "Arms"
+        },
+        {
+          "source_value": "45",
+          "label": "Barding"
+        },
+        {
+          "source_value": "30",
+          "label": "BurlapSack"
+        },
+        {
+          "source_value": "6",
+          "label": "Chest"
+        },
+        {
+          "source_value": "7",
+          "label": "Cloak"
+        },
+        {
+          "source_value": "23",
+          "label": "CoifLong"
+        },
+        {
+          "source_value": "24",
+          "label": "CoifShort"
+        },
+        {
+          "source_value": "27",
+          "label": "Container"
+        },
+        {
+          "source_value": "12",
+          "label": "Container"
+        },
+        {
+          "source_value": "38",
+          "label": "Container"
+        },
+        {
+          "source_value": "56",
+          "label": "Crafting Apron"
+        },
+        {
+          "source_value": "57",
+          "label": "Crafting Chest"
+        },
+        {
+          "source_value": "65",
+          "label": "Crafting Container"
+        },
+        {
+          "source_value": "60",
+          "label": "Crafting Feet"
+        },
+        {
+          "source_value": "59",
+          "label": "Crafting Hands"
+        },
+        {
+          "source_value": "55",
+          "label": "Crafting Head"
+        },
+        {
+          "source_value": "63",
+          "label": "Crafting Left Ear"
+        },
+        {
+          "source_value": "61",
+          "label": "Crafting Left Finger"
+        },
+        {
+          "source_value": "58",
+          "label": "Crafting Legs"
+        },
+        {
+          "source_value": "64",
+          "label": "Crafting Right Ear"
+        },
+        {
+          "source_value": "62",
+          "label": "Crafting Right Finger"
+        },
+        {
+          "source_value": "66",
+          "label": "Crafting Tool"
+        },
+        {
+          "source_value": "67",
+          "label": "Crafting Waist 1"
+        },
+        {
+          "source_value": "68",
+          "label": "Crafting Waist 2"
+        },
+        {
+          "source_value": "69",
+          "label": "Crafting Waist 3"
+        },
+        {
+          "source_value": "71",
+          "label": "Diplomacy Chest"
+        },
+        {
+          "source_value": "75",
+          "label": "Diplomacy Cloak"
+        },
+        {
+          "source_value": "85",
+          "label": "Diplomacy Container"
+        },
+        {
+          "source_value": "86",
+          "label": "Diplomacy Container 2"
+        },
+        {
+          "source_value": "87",
+          "label": "Diplomacy Container 3"
+        },
+        {
+          "source_value": "73",
+          "label": "Diplomacy Feet"
+        },
+        {
+          "source_value": "74",
+          "label": "Diplomacy Hands"
+        },
+        {
+          "source_value": "70",
+          "label": "Diplomacy Head"
+        },
+        {
+          "source_value": "83",
+          "label": "Diplomacy Held Item"
+        },
+        {
+          "source_value": "80",
+          "label": "Diplomacy Left Ear"
+        },
+        {
+          "source_value": "78",
+          "label": "Diplomacy Left Finger"
+        },
+        {
+          "source_value": "72",
+          "label": "Diplomacy Legs"
+        },
+        {
+          "source_value": "82",
+          "label": "Diplomacy Neck"
+        },
+        {
+          "source_value": "81",
+          "label": "Diplomacy Right Ear"
+        },
+        {
+          "source_value": "79",
+          "label": "Diplomacy Right Finger"
+        },
+        {
+          "source_value": "84",
+          "label": "Diplomacy Shoulders"
+        },
+        {
+          "source_value": "76",
+          "label": "Diplomacy Waist"
+        },
+        {
+          "source_value": "77",
+          "label": "Diplomacy Wrists"
+        },
+        {
+          "source_value": "4",
+          "label": "EarLeft"
+        },
+        {
+          "source_value": "5",
+          "label": "EarRight"
+        },
+        {
+          "source_value": "1",
+          "label": "Eyes"
+        },
+        {
+          "source_value": "2",
+          "label": "Face"
+        },
+        {
+          "source_value": "26",
+          "label": "Feet"
+        },
+        {
+          "source_value": "19",
+          "label": "FingerLeft"
+        },
+        {
+          "source_value": "20",
+          "label": "FingerRight"
+        },
+        {
+          "source_value": "40",
+          "label": "Flying Mount"
+        },
+        {
+          "source_value": "33",
+          "label": "Hands"
+        },
+        {
+          "source_value": "49",
+          "label": "Harvesting Chest"
+        },
+        {
+          "source_value": "52",
+          "label": "Harvesting Feet"
+        },
+        {
+          "source_value": "51",
+          "label": "Harvesting Hands"
+        },
+        {
+          "source_value": "48",
+          "label": "Harvesting Head"
+        },
+        {
+          "source_value": "50",
+          "label": "Harvesting Legs"
+        },
+        {
+          "source_value": "41",
+          "label": "Harvesting Pack"
+        },
+        {
+          "source_value": "53",
+          "label": "Harvesting Tool"
+        },
+        {
+          "source_value": "54",
+          "label": "Harvesting Waist"
+        },
+        {
+          "source_value": "0",
+          "label": "Head"
+        },
+        {
+          "source_value": "28",
+          "label": "HeldPrimary"
+        },
+        {
+          "source_value": "29",
+          "label": "HeldSecondary"
+        },
+        {
+          "source_value": "22",
+          "label": "HelmetVisored"
+        },
+        {
+          "source_value": "47",
+          "label": "Horseshoes"
+        },
+        {
+          "source_value": "32",
+          "label": "Legs"
+        },
+        {
+          "source_value": "25",
+          "label": "LowerBody"
+        },
+        {
+          "source_value": "39",
+          "label": "Mount"
+        },
+        {
+          "source_value": "3",
+          "label": "Neck"
+        },
+        {
+          "source_value": "255",
+          "label": "None"
+        },
+        {
+          "source_value": "42",
+          "label": "Ranged"
+        },
+        {
+          "source_value": "46",
+          "label": "Saddlebags"
+        },
+        {
+          "source_value": "14",
+          "label": "ShirtLongSleeved"
+        },
+        {
+          "source_value": "18",
+          "label": "ShirtLongSleevedShouldered"
+        },
+        {
+          "source_value": "13",
+          "label": "ShirtShortSleeved"
+        },
+        {
+          "source_value": "17",
+          "label": "ShirtShortSleevedShouldered"
+        },
+        {
+          "source_value": "8",
+          "label": "ShoulderLeft"
+        },
+        {
+          "source_value": "9",
+          "label": "ShoulderRight"
+        },
+        {
+          "source_value": "35",
+          "label": "Shoulders"
+        },
+        {
+          "source_value": "31",
+          "label": "SuitNoHead"
+        },
+        {
+          "source_value": "36",
+          "label": "TwoHands"
+        },
+        {
+          "source_value": "21",
+          "label": "Waist"
+        },
+        {
+          "source_value": "15",
+          "label": "WristLeft"
+        },
+        {
+          "source_value": "16",
+          "label": "WristRight"
+        },
+        {
+          "source_value": "34",
+          "label": "Wrists"
+        }
+      ]
+    },
+    {
+      "name": "itemRaceId",
+      "kind": "select",
+      "input_type": null,
+      "default_value": null,
+      "options": [
+        {
+          "source_value": "",
+          "label": "-- Select Race --"
+        },
+        {
+          "source_value": "2",
+          "label": "Dwarf"
+        },
+        {
+          "source_value": "3",
+          "label": "Dark Elf"
+        },
+        {
+          "source_value": "4",
+          "label": "High Elf"
+        },
+        {
+          "source_value": "5",
+          "label": "Wood Elf"
+        },
+        {
+          "source_value": "6",
+          "label": "Gnome"
+        },
+        {
+          "source_value": "7",
+          "label": "Goblin"
+        },
+        {
+          "source_value": "8",
+          "label": "Half Elf"
+        },
+        {
+          "source_value": "9",
+          "label": "Lesser Giant"
+        },
+        {
+          "source_value": "10",
+          "label": "Halfling"
+        },
+        {
+          "source_value": "12",
+          "label": "Kojani"
+        },
+        {
+          "source_value": "13",
+          "label": "Qaliathari Human"
+        },
+        {
+          "source_value": "14",
+          "label": "Thestran Human"
+        },
+        {
+          "source_value": "15",
+          "label": "Mordebi"
+        },
+        {
+          "source_value": "16",
+          "label": "Orc"
+        },
+        {
+          "source_value": "17",
+          "label": "Raki"
+        },
+        {
+          "source_value": "18",
+          "label": "Vulmane"
+        },
+        {
+          "source_value": "20",
+          "label": "Human Varanthari"
+        },
+        {
+          "source_value": "21",
+          "label": "Varanjar"
+        },
+        {
+          "source_value": "22",
+          "label": "Kurashasa"
+        }
+      ]
+    },
+    {
+      "name": "itemTierId",
+      "kind": "select",
+      "input_type": null,
+      "default_value": null,
+      "options": [
+        {
+          "source_value": "",
+          "label": "-- Select Tier --"
+        },
+        {
+          "source_value": "9",
+          "label": "Artifact"
+        },
+        {
+          "source_value": "7",
+          "label": "Common"
+        },
+        {
+          "source_value": "2",
+          "label": "Heroic"
+        },
+        {
+          "source_value": "1",
+          "label": "Legendary"
+        },
+        {
+          "source_value": "8",
+          "label": "Mundane"
+        },
+        {
+          "source_value": "255",
+          "label": "None"
+        },
+        {
+          "source_value": "4",
+          "label": "Rare"
+        },
+        {
+          "source_value": "0",
+          "label": "Relic"
+        },
+        {
+          "source_value": "6",
+          "label": "Uncommon"
+        },
+        {
+          "source_value": "3",
+          "label": "Unused Greater Magic"
+        },
+        {
+          "source_value": "5",
+          "label": "Unused Magic"
+        }
+      ]
+    },
+    {
+      "name": "itemTypeId",
+      "kind": "select",
+      "input_type": null,
+      "default_value": null,
+      "options": [
+        {
+          "source_value": "-1",
+          "label": "-- Select Type --"
+        },
+        {
+          "source_value": null,
+          "label": "0"
+        },
+        {
+          "source_value": null,
+          "label": "1"
+        },
+        {
+          "source_value": null,
+          "label": "2"
+        },
+        {
+          "source_value": null,
+          "label": "3"
+        },
+        {
+          "source_value": null,
+          "label": "4"
+        },
+        {
+          "source_value": null,
+          "label": "5"
+        },
+        {
+          "source_value": null,
+          "label": "6"
+        },
+        {
+          "source_value": null,
+          "label": "7"
+        },
+        {
+          "source_value": null,
+          "label": "8"
+        },
+        {
+          "source_value": null,
+          "label": "9"
+        },
+        {
+          "source_value": null,
+          "label": "10"
+        },
+        {
+          "source_value": null,
+          "label": "11"
+        },
+        {
+          "source_value": null,
+          "label": "12"
+        },
+        {
+          "source_value": null,
+          "label": "13"
+        },
+        {
+          "source_value": null,
+          "label": "14"
+        },
+        {
+          "source_value": null,
+          "label": "15"
+        },
+        {
+          "source_value": null,
+          "label": "16"
+        },
+        {
+          "source_value": null,
+          "label": "17"
+        },
+        {
+          "source_value": null,
+          "label": "18"
+        },
+        {
+          "source_value": null,
+          "label": "19"
+        },
+        {
+          "source_value": null,
+          "label": "20"
+        },
+        {
+          "source_value": null,
+          "label": "21"
+        },
+        {
+          "source_value": null,
+          "label": "22"
+        },
+        {
+          "source_value": null,
+          "label": "23"
+        },
+        {
+          "source_value": null,
+          "label": "24"
+        },
+        {
+          "source_value": null,
+          "label": "25"
+        },
+        {
+          "source_value": null,
+          "label": "26"
+        },
+        {
+          "source_value": null,
+          "label": "27"
+        }
+      ]
+    },
+    {
+      "name": "itemMinLevel",
+      "kind": "input",
+      "input_type": "text",
+      "default_value": "0"
+    },
+    {
+      "name": "itemMaxLevel",
+      "kind": "input",
+      "input_type": "text",
+      "default_value": "55"
+    },
+    {
+      "name": "noDrop",
+      "kind": "input",
+      "input_type": "checkbox",
+      "default_value": "1"
+    },
+    {
+      "name": "isUnique",
+      "kind": "input",
+      "input_type": "checkbox",
+      "default_value": "1"
+    },
+    {
+      "name": "noSell",
+      "kind": "input",
+      "input_type": "checkbox",
+      "default_value": "1"
+    },
+    {
+      "name": "quest",
+      "kind": "input",
+      "input_type": "checkbox",
+      "default_value": "1"
+    },
+    {
+      "name": "itemSearch",
+      "kind": "input",
+      "input_type": "hidden",
+      "default_value": "1"
+    }
+  ],
+  "classification": "Search interface metadata; not item facts",
+  "canonical_id_mapping": null,
+  "source_era": null,
+  "policy_status": "Requires current per-host robots evaluation before submission",
+  "source_response": {
+    "url": "https://vgoplayers.com/items.php",
+    "downloaded_at": "2026-10-17T13:34:56.208729+00:00",
+    "sha256": "6218f4f6d650b95324180a27a7cc4b1bc91bf041452df8933e50dde30bbc03da"
+  }
+}

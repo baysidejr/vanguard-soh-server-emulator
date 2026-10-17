@@ -1,0 +1,152 @@
+{
+  "checked_at": "2026-10-16T22:33:53+00:00",
+  "parser_version": 32,
+  "inventory_urls": 104855,
+  "supported_inventory_urls": 104831,
+  "checkpoint_done": 25898,
+  "pending_at_batch_start": 78950,
+  "missing_supported_urls": [],
+  "done_pending_overlap": [],
+  "pending_duplicates": 0,
+  "done_outside_supported_inventory": [
+    "https://vgsoharchive.com/classes/bard/trainers",
+    "https://vgsoharchive.com/classes/blood-mage/trainers",
+    "https://vgsoharchive.com/classes/cleric/trainers",
+    "https://vgsoharchive.com/classes/disciple/trainers",
+    "https://vgsoharchive.com/classes/dread-knight/trainers",
+    "https://vgsoharchive.com/classes/druid/trainers",
+    "https://vgsoharchive.com/classes/monk/trainers",
+    "https://vgsoharchive.com/classes/necromancer/trainers",
+    "https://vgsoharchive.com/classes/paladin/trainers",
+    "https://vgsoharchive.com/classes/psionicist/trainers",
+    "https://vgsoharchive.com/classes/ranger/trainers",
+    "https://vgsoharchive.com/classes/rogue/trainers",
+    "https://vgsoharchive.com/classes/shaman/trainers",
+    "https://vgsoharchive.com/classes/sorcerer/trainers",
+    "https://vgsoharchive.com/classes/warrior/trainers"
+  ],
+  "routes": {
+    "/abilities": {
+      "supported_inventory": 3057,
+      "checkpoint_done": 3057
+    },
+    "/angry-goblins": {
+      "supported_inventory": 41,
+      "pending_at_batch_start": 41,
+      "metadata_only_route": 41,
+      "metadata_only_pending": 41
+    },
+    "/classes": {
+      "supported_inventory": 83,
+      "checkpoint_done": 83,
+      "metadata_only_route": 56,
+      "metadata_only_done": 56
+    },
+    "/crafting": {
+      "supported_inventory": 1996,
+      "pending_at_batch_start": 1996,
+      "metadata_only_route": 414,
+      "metadata_only_pending": 414
+    },
+    "/diplomacy": {
+      "supported_inventory": 545,
+      "pending_at_batch_start": 545,
+      "metadata_only_route": 179,
+      "metadata_only_pending": 179
+    },
+    "/effects": {
+      "supported_inventory": 2573,
+      "pending_at_batch_start": 2573
+    },
+    "/guides": {
+      "supported_inventory": 159,
+      "pending_at_batch_start": 159,
+      "metadata_only_route": 159,
+      "metadata_only_pending": 159
+    },
+    "/harvesting": {
+      "supported_inventory": 12,
+      "pending_at_batch_start": 12,
+      "metadata_only_route": 12,
+      "metadata_only_pending": 12
+    },
+    "/items": {
+      "supported_inventory": 75066,
+      "checkpoint_done": 4346,
+      "pending_at_batch_start": 70720
+    },
+    "/lore": {
+      "supported_inventory": 114,
+      "pending_at_batch_start": 114,
+      "metadata_only_route": 114,
+      "metadata_only_pending": 114
+    },
+    "/mobs": {
+      "supported_inventory": 15418,
+      "checkpoint_done": 13219,
+      "pending_at_batch_start": 2199
+    },
+    "/mounts": {
+      "supported_inventory": 3,
+      "pending_at_batch_start": 3,
+      "metadata_only_route": 3,
+      "metadata_only_pending": 3
+    },
+    "/quests": {
+      "supported_inventory": 4781,
+      "checkpoint_done": 4776,
+      "pending_at_batch_start": 5,
+      "metadata_only_route": 5,
+      "metadata_only_pending": 5
+    },
+    "/races": {
+      "supported_inventory": 19,
+      "pending_at_batch_start": 19,
+      "metadata_only_route": 19,
+      "metadata_only_pending": 19
+    },
+    "/ten-ton-hammer": {
+      "supported_inventory": 97,
+      "pending_at_batch_start": 97,
+      "metadata_only_route": 97,
+      "metadata_only_pending": 97
+    },
+    "/vgoemulator": {
+      "supported_inventory": 3,
+      "pending_at_batch_start": 3,
+      "metadata_only_route": 3,
+      "metadata_only_pending": 3
+    },
+    "/walkthroughs": {
+      "supported_inventory": 48,
+      "pending_at_batch_start": 48,
+      "metadata_only_route": 48,
+      "metadata_only_pending": 48
+    },
+    "/world": {
+      "supported_inventory": 415,
+      "pending_at_batch_start": 414,
+      "metadata_only_route": 415,
+      "metadata_only_pending": 414,
+      "checkpoint_done": 1,
+      "metadata_only_done": 1
+    },
+    "/zones": {
+      "supported_inventory": 401,
+      "checkpoint_done": 401
+    }
+  },
+  "checkpoint_sha256": {
+    "inventory.json": "5be501f7563058bc383ea97bd519eb0887a1d167f928d4330831cf7a6ded93b9",
+    "done.json": "7b2f916c26a55c899854d1da103421f92504b93f312bdf0639205c86c2b783d9",
+    "active_queue.json": "ac6ca6d028e0e8153525014743fc2764be44b7b8dca0245a7b16fb2e24f54759"
+  },
+  "request_interval_seconds": 60.0,
+  "limitations": [
+    "Checkpoints advance at batch publication, so pending includes pages already fetched in the open batch.",
+    "Done means collected, not semantically reviewed or conversion-ready.",
+    "Metadata-only routes retain full typed extraction work; unknown facts remain null.",
+    "Unresolved validation and entity collisions remain research; this reconciliation does not resolve them.",
+    "COLLECTION_STATUS is the last closed batch snapshot, not current process health."
+  ]
+}

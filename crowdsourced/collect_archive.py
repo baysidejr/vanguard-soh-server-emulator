@@ -4,6 +4,7 @@ The collector never requests query URLs, follows external domains, or modifies s
 Run with -B. Install requirements into crowdsourced/.tools-current before use.
 """
 import argparse
+import errno
 from collections import Counter, deque
 from datetime import datetime, timezone
 from http.client import RemoteDisconnected
@@ -26,7 +27,12 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 31
+PARSER_VERSION = 35
+CANONICAL_ROOT_PATHS = frozenset(('/', '/items', '/quests', '/mobs', '/zones',
+    '/classes', '/races', '/abilities', '/effects', '/stats', '/skills', '/gameplay',
+    '/diplomacy', '/diplomacy/cards', '/crafting', '/harvesting', '/crafting/recipes',
+    '/lore', '/world', '/mounts', '/walkthroughs', '/angry-goblins',
+    '/ten-ton-hammer', '/vgoemulator'))
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -66,6 +72,10 @@ def detail_url(url):
 def source_only_url(url):
     if not safe_url(url):
         return False
+    # Canonical sitemap landing pages remain research until typed extraction is
+    # reviewed. Do not turn index headings into synthetic game entities.
+    if urlsplit(url).path in CANONICAL_ROOT_PATHS:
+        return True
     parts=urlsplit(url).path.strip('/').split('/')
     if parts in (['abilities','as-it-was'],['abilities','not-in-the-emulator']):
         return True
@@ -447,8 +457,21 @@ def parse_page(url, html):
     notes.extend(enrich_record(record, main))
     record["notes"] = " ".join(notes)
     if record['type'] == 'npc' and 'merchant' in record.get('services', []):
+        stock = []
+        for node in section(main, 'Sells'):
+            for a in node.find_all('a', href=True):
+                item_url = urljoin(ORIGIN, a['href'])
+                if (urlsplit(item_url).path.startswith('/items/') and
+                        detail_url(item_url) and plain(a)):
+                    sale = dict(item=plain(a), item_url=item_url, price_copper=None)
+                    if sale not in stock:
+                        stock.append(sale)
         merchant = dict(common, type='merchant', npc=name, zone=record.get('zone'), sells=None, buys=None,
                         notes='Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.')
+        if stock:
+            merchant['sells'] = stock
+            merchant['notes'] = ('Items explicitly linked in the Sells section; completeness, quantities and purchase prices unknown. '
+                                 'Tooltip item values are not merchant prices. Unknown prices withhold conversion.')
         records.append(merchant)
     record["original_source_urls"] = unique(a["href"] for heading in ("Source", "Sources")
         for node in section(main, heading) for a in node.find_all('a', href=True)
@@ -664,6 +687,10 @@ def transient_connection_error(error):
         return False
     if isinstance(error, URLError):
         error = error.reason
+    if isinstance(error, OSError) and (
+            error.errno in (errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN)
+            or getattr(error, 'winerror', None) in (10050, 10051, 10065)):
+        return True
     return isinstance(error, (TimeoutError, RemoteDisconnected, ConnectionResetError,
                               ConnectionAbortedError, BrokenPipeError))
 
@@ -726,6 +753,18 @@ def main(argv=None):
         if not urls:
             ap.error("provide --seed, --queue, or use run after inventory")
         while urls:
+            if args.action == 'run' and (HERE / '.cache/multisource-bootstrap.done').exists():
+                from multisource_schedule import step
+                try:
+                    step(HERE)
+                except InterruptedError:
+                    return 0
+                except Exception as error:
+                    if transient_connection_error(error):
+                        if recover_closed_connection(client):
+                            continue
+                        return 0
+                    raise
             urls, fatal, batch = collect(client, urls, args.limit, args.topic, args.follow_links or args.action=='run')
             if (fatal and args.action == "run" and getattr(client, "transient_connection_failure", False)
                     and not (STATE / "stop.request").exists()):

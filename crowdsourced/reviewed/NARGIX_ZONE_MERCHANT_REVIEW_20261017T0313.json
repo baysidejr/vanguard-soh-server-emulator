@@ -1,0 +1,422 @@
+{
+  "reviewed_at": "2026-10-17T03:13:17+00:00",
+  "scope": "Zone-sourced Entrepreneur Nargix merchant-role and stock-gap review",
+  "network_requests": 0,
+  "prior_gap": {
+    "url": "https://vgsoharchive.com/zones/wildgrowth-forest",
+    "full_prior_source_record": {
+      "file": "raw/2026-10-13-wildgrowth-forest/merchant.jsonl",
+      "line": 1,
+      "record": {
+        "type": "merchant",
+        "name": "Entrepreneur Nargix",
+        "npc": "Entrepreneur Nargix",
+        "zone": "Wildgrowth Forest",
+        "sells": null,
+        "buys": null,
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest",
+            "title": "Wildgrowth Forest · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "General goods vendor role documented. Items, prices and buying restrictions are unknown; null inventory must not become an empty in-game inventory."
+      }
+    },
+    "cache_exists": true,
+    "cache_sha256": "27851d7f145931c0389c3aea1f2d69fb2afb11de67d84ee52119e547223b3e8a",
+    "current_record_types": [
+      "zone"
+    ],
+    "reason": "Historical hand-reviewed merchant cites a zone page; current zone parser emits zone records, not merchant stock. This is a source-route extraction gap, not evidence of conflicting identity. Prior merchant retained; stock and prices remain unknown."
+  },
+  "evidence": [
+    {
+      "url": "https://vgsoharchive.com/zones/wildgrowth-forest",
+      "cache_sha256": "27851d7f145931c0389c3aea1f2d69fb2afb11de67d84ee52119e547223b3e8a",
+      "evidence_html": "<td><a href=\"/mobs/entrepreneur-nargix\">Entrepreneur Nargix</a> <span class=\"muted\">— General Goods Vendor</span><br/><a href=\"/mobs/tracker-lorhu\">Tracker Lorhu</a><br/><a href=\"/mobs/tracker-nok\">Tracker Nok</a></td>",
+      "page_text": null
+    },
+    {
+      "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+      "cache_sha256": "cde3ca7473cecc74997810f2236b3a938a2522d2599f0d864665226921852f1a",
+      "evidence_html": null,
+      "page_text": "Entrepreneur Nargix · Vanguard Archive Vanguard Saga of Heroes Archive Search Items Quests Creatures Classes Abilities Zones Diplomacy Crafting Gameplay Guides Play Entrepreneur Nargix Level 20 Details Difficulty 4 dots Where they stood Spot 1 ,\r\n            Tracker Camp, Wildgrowth Forest — -6681, -66470 Loot (0) No loot recorded. ← Back to creatures 75,066 items ·\r\n    4,776 quests ·\r\n    15,418 creatures ·\r\n    18,050 loot entries ·\r\n    401 zones A preservation archive of fan documentation for Vanguard: Saga of Heroes ,\r\n    which closed in 2014. Nothing here is our own work — it was written by\r\n    the community over many years and is reproduced so it does not disappear. With thanks to VGOPlayers ,\r\n    Vanguard Item Database, the VGO Emulator team , The Telon Project ,\r\n    The Steel Warrior,\r\n    Vanguard Crafters,\r\n    MMODB,\r\n    Curse, Silky Venom ,\r\n    the IGN Vanguard Vault,\r\n    Monkly Business, gamepressure ,\r\n    Vanguard Shaman,\r\n    DungeonGuru, Ten Ton Hammer ,\r\n    Vanguard Fighters,\r\n    Lost Company,\r\n    the Station forums, the Vanguard Wiki ,\r\n    The Safe House,\r\n    VG Rangers,\r\n    Xanadu,\r\n    Vanguard Guide,\r\n    VG Walkthroughs,\r\n    Vanguard Spheres,\r\n    Gonzwerks,\r\n    vgtact,\r\n    Covenant of the Phoenix,\r\n    Aradrin,\r\n    Angry Goblins\r\n    and ZAM. Built 2026-10-10."
+    }
+  ],
+  "full_related_source_records": [
+    {
+      "file": "raw/2026-10-13-211022-482347-archive-priority-zones/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "collected_at": "2026-10-14T01:11:47+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-213223-406049-archive-enriched-v2/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 2,
+        "collected_at": "2026-10-14T01:32:23+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Wildgrowth Forest",
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest"
+          }
+        ],
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-214748-908906-archive-enriched-v3/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 3,
+        "collected_at": "2026-10-14T01:47:49+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Wildgrowth Forest",
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest"
+          }
+        ],
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-221434-123320-archive-enriched-v4/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 4,
+        "collected_at": "2026-10-14T02:14:34+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Wildgrowth Forest",
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest"
+          }
+        ],
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-222728-325817-archive-enriched-v5/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 5,
+        "collected_at": "2026-10-14T02:27:28+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Wildgrowth Forest",
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest"
+          }
+        ],
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-223857-981144-archive-enriched-v6/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 6,
+        "collected_at": "2026-10-14T02:38:58+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Wildgrowth Forest",
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest"
+          }
+        ],
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-224056-514671-archive-enriched-v7/creature.jsonl",
+      "line": 3,
+      "record": {
+        "name": "Entrepreneur Nargix",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 7,
+        "collected_at": "2026-10-14T02:40:56+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "4 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Wildgrowth Forest",
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest"
+          }
+        ],
+        "type": "creature",
+        "level": 20,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": "4 dots",
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Wildgrowth Forest"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "file": "raw/2026-10-13-wildgrowth-forest/merchant.jsonl",
+      "line": 1,
+      "record": {
+        "type": "merchant",
+        "name": "Entrepreneur Nargix",
+        "npc": "Entrepreneur Nargix",
+        "zone": "Wildgrowth Forest",
+        "sells": null,
+        "buys": null,
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest",
+            "title": "Wildgrowth Forest · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "General goods vendor role documented. Items, prices and buying restrictions are unknown; null inventory must not become an empty in-game inventory."
+      }
+    },
+    {
+      "file": "raw/2026-10-13-wildgrowth-forest/npc.jsonl",
+      "line": 3,
+      "record": {
+        "type": "npc",
+        "name": "Entrepreneur Nargix",
+        "level": 20,
+        "race": null,
+        "title": null,
+        "zone": "Wildgrowth Forest",
+        "chunk": "Wildgrowth Forest",
+        "location": {
+          "raw": "-6681, -66470",
+          "format": "Tracker Camp map point; axis order unspecified",
+          "chunk": "Wildgrowth Forest"
+        },
+        "services": [
+          "merchant"
+        ],
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/entrepreneur-nargix",
+            "title": "Entrepreneur Nargix · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/zones/wildgrowth-forest",
+            "title": "Wildgrowth Forest · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Zone page labels general goods vendor; not assumed to be an exact in-game title. Difficulty 4 dots. Race, combat values and exact spawn unknown; stock not recorded in inspected pages."
+      }
+    }
+  ],
+  "findings": {
+    "vendor_role": "Explicit General Goods Vendor annotation on canonical linked zone row supports retained merchant role.",
+    "detail_route": "Cached mob detail lacks a Sells section; its creature classification does not establish a contradictory merchant identity. Do not blend unrelated stats by name.",
+    "sells": null,
+    "buys": null,
+    "prices": null,
+    "gap_disposition": "Reviewed evidence limitation: zone role is explicit; stock and prices are absent from both cited cached routes. No missing stock table can be extracted from these sources.",
+    "operative_inventory_withheld": true
+  },
+  "limitations": [
+    "Cached-source agreement is not independent historical authentication.",
+    "No empty inventory or inferred prices emitted.",
+    "Automatic zone-role extraction remains outside this narrow source review; collection and other semantic/collision review remain pending."
+  ]
+}

@@ -10,6 +10,21 @@ import collect_archive as c
 
 
 class SupplementalTests(unittest.TestCase):
+    def test_inventory_roots_are_research_and_preserve_discovery(self):
+        root=Path(__file__).resolve().parents[1]
+        review=json.loads((root/'reviewed/INVENTORY_ROOT_PAGE_GAP_REVIEW_20261017.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(review['excluded_urls']),24)
+        for entry in review['excluded_urls']:
+            url=entry['inventory_record']['url']
+            with self.subTest(url=url):
+                self.assertTrue(c.detail_url(url))
+                self.assertTrue(c.source_only_url(url))
+                rows,links=c.parse_page(url,'<main><h1>Index</h1><a href="/items/fixture">Item</a></main>')
+                self.assertEqual(rows,[])
+                self.assertEqual(links,[c.ORIGIN+'/items/fixture'])
+                self.assertFalse(c.detail_url(url+'?page=2'))
+        self.assertFalse(c.detail_url(c.ORIGIN+'/unknown-root'))
+
     def test_mirror_attribution_and_deep_headings_survive_guide_scoping(self):
         html='<main><h1>Stances</h1><p class="muted">Mirrored from <a href="http://example.org/original">Original</a>.</p><div class="guide-body"><h5>Sanguine Focus</h5><p><a href="/abilities/fixture">Ability</a></p><h6>Next Focus</h6></div><nav class="guide-nav"><p>Mirrored from <a href="https://example.org/sidebar">Sidebar</a></p></nav></main>'
         metadata=c.source_metadata(c.BeautifulSoup(html,'html.parser').find('main'),c.ORIGIN+'/classes/blood-mage/stances')

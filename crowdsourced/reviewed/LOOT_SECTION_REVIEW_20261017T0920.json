@@ -1,0 +1,3411 @@
+{
+  "reviewed_at": "2026-10-17T09:20:15.443624+00:00",
+  "scope": "Independent DOM audit: exact item name/URL must occur in a three-column Item/Rarity/Drop rate table immediately under a Loot heading; compare stored observed_sample to final source cell. No collector section helper used. Cached evidence only; no network requests.",
+  "records_reviewed": 26,
+  "drops_reviewed": 83,
+  "issues": [],
+  "checkpoint": {
+    "done": 26595,
+    "pending_at_batch_start": 78277,
+    "overlap": 0,
+    "queue_duplicates": 0,
+    "missing_supported_inventory": 0
+  },
+  "full_source_records": [
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "record": {
+        "name": "Tharridon The Mighty",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+            "title": "Tharridon The Mighty · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:17:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Renton Keep"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Monster"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "respawn": [
+            "Minutes"
+          ],
+          "harvestable": [
+            "No"
+          ],
+          "chunk": [
+            "Renton Keep"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ancient Breast Plate",
+            "url": "https://vgsoharchive.com/items/ancient-breast-plate"
+          },
+          {
+            "name": "Princess Freestone's Tiara",
+            "url": "https://vgsoharchive.com/items/princess-freestone-s-tiara"
+          },
+          {
+            "name": "Tharridon Hair Earring",
+            "url": "https://vgsoharchive.com/items/tharridon-hair-earring"
+          },
+          {
+            "name": "Tharridon's Memento",
+            "url": "https://vgsoharchive.com/items/tharridon-s-memento"
+          },
+          {
+            "name": "Tharridon's Mighty Maul",
+            "url": "https://vgsoharchive.com/items/tharridon-s-mighty-maul"
+          },
+          {
+            "name": "Tharridon's Rib Crossbow",
+            "url": "https://vgsoharchive.com/items/tharridon-s-rib-crossbow"
+          },
+          {
+            "name": "Tharridon's Ring",
+            "url": "https://vgsoharchive.com/items/tharridon-s-ring"
+          }
+        ],
+        "type": "loot",
+        "source": "Tharridon The Mighty",
+        "drops": [
+          {
+            "item": "Tharridon's Rib Crossbow",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tharridon-s-rib-crossbow"
+          },
+          {
+            "item": "Tharridon's Mighty Maul",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tharridon-s-mighty-maul"
+          },
+          {
+            "item": "Ancient Breast Plate",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/ancient-breast-plate"
+          },
+          {
+            "item": "Princess Freestone's Tiara",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/princess-freestone-s-tiara"
+          },
+          {
+            "item": "Tharridon's Ring",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tharridon-s-ring"
+          },
+          {
+            "item": "Tharridon's Memento",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tharridon-s-memento"
+          },
+          {
+            "item": "Tharridon Hair Earring",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tharridon-hair-earring"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "record": {
+        "name": "Thaumaturge Lass'revik",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thaumaturge-lass-revik",
+            "title": "Thaumaturge Lass'revik · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:21:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Strand Of The Ancients"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "location": [
+            "-18309, -16677, 3838"
+          ],
+          "chunk": [
+            "Strand of the Ancients"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Carved Bone Sabatons",
+            "url": "https://vgsoharchive.com/items/carved-bone-sabatons"
+          }
+        ],
+        "type": "loot",
+        "source": "Thaumaturge Lass'revik",
+        "drops": [
+          {
+            "item": "Carved Bone Sabatons",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/carved-bone-sabatons"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "record": {
+        "name": "The Armor of Karujin",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-armor-of-karujin",
+            "title": "The Armor of Karujin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:24:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ruins Of Trengal Keep"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ceremonial Gulgrethor Bracers",
+            "url": "https://vgsoharchive.com/items/ceremonial-gulgrethor-bracers"
+          }
+        ],
+        "type": "loot",
+        "source": "The Armor of Karujin",
+        "drops": [
+          {
+            "item": "Ceremonial Gulgrethor Bracers",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/ceremonial-gulgrethor-bracers"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "record": {
+        "name": "The Azebaj Hivequeen",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-azebaj-hivequeen",
+            "title": "The Azebaj Hivequeen · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:26:16+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Mask Of The Azebaj Queen",
+            "url": "https://vgsoharchive.com/items/mask-of-the-azebaj-queen"
+          }
+        ],
+        "type": "loot",
+        "source": "The Azebaj Hivequeen",
+        "drops": [
+          {
+            "item": "Mask Of The Azebaj Queen",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mask-of-the-azebaj-queen"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "record": {
+        "name": "The Azebaj Overseer",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-azebaj-overseer",
+            "title": "The Azebaj Overseer · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:27:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Qa Riverbank"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Insect"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "location": [
+            "2674, -40673, 1529"
+          ],
+          "chunk": [
+            "Qa Riverbank"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Overseer s Robe",
+            "url": "https://vgsoharchive.com/items/overseer-s-robe"
+          },
+          {
+            "name": "Overseer s Leggings",
+            "url": "https://vgsoharchive.com/items/overseer-s-leggings"
+          }
+        ],
+        "type": "loot",
+        "source": "The Azebaj Overseer",
+        "drops": [
+          {
+            "item": "Overseer s Robe",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/overseer-s-robe"
+          },
+          {
+            "item": "Overseer s Leggings",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/overseer-s-leggings"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "record": {
+        "name": "The Beast",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-beast",
+            "title": "The Beast · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:28:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Qa Riverbank"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "respawn": [
+            "??"
+          ],
+          "harvestable": [
+            "Skinning"
+          ],
+          "location": [
+            "-54742, 11006, 318"
+          ],
+          "chunk": [
+            "Qa Riverbank"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Battle Ring of the Beast",
+            "url": "https://vgsoharchive.com/items/battle-ring-of-the-beast"
+          }
+        ],
+        "type": "loot",
+        "source": "The Beast",
+        "drops": [
+          {
+            "item": "Battle Ring of the Beast",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/battle-ring-of-the-beast"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "record": {
+        "name": "The Bloodletter",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-bloodletter",
+            "title": "The Bloodletter · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:29:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Seawatch Coast"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "spawn": [
+            "random"
+          ],
+          "respawn": [
+            "Unknown"
+          ],
+          "chunk": [
+            "Dragons Backbone"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "can swim": [
+            "Yes"
+          ],
+          "can fly": [
+            "No"
+          ],
+          "wall crawl": [
+            "No"
+          ],
+          "kills sampled": [
+            "82"
+          ],
+          "locations seen": [
+            "273"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Boots of the Bloodletter",
+            "url": "https://vgsoharchive.com/items/boots-of-the-bloodletter"
+          },
+          {
+            "name": "The Bloodletter",
+            "url": "https://vgsoharchive.com/items/the-bloodletter"
+          },
+          {
+            "name": "Hide Belt of the Bloodletter",
+            "url": "https://vgsoharchive.com/items/hide-belt-of-the-bloodletter"
+          },
+          {
+            "name": "Bracers of the Bloodletter",
+            "url": "https://vgsoharchive.com/items/bracers-of-the-bloodletter"
+          },
+          {
+            "name": "Polished Bloodstone Pendant",
+            "url": "https://vgsoharchive.com/items/polished-bloodstone-pendant"
+          },
+          {
+            "name": "Clammy Rubbery Tongue",
+            "url": "https://vgsoharchive.com/items/clammy-rubbery-tongue"
+          },
+          {
+            "name": "Clammy Rubbery Skin",
+            "url": "https://vgsoharchive.com/items/clammy-rubbery-skin"
+          },
+          {
+            "name": "Glazed Rubbery Eye",
+            "url": "https://vgsoharchive.com/items/glazed-rubbery-eye"
+          }
+        ],
+        "type": "loot",
+        "source": "The Bloodletter",
+        "drops": [
+          {
+            "item": "Boots of the Bloodletter",
+            "chance": "13.4%",
+            "quantity": null,
+            "observed_sample": "13.4% 11/82",
+            "url": "https://vgsoharchive.com/items/boots-of-the-bloodletter"
+          },
+          {
+            "item": "The Bloodletter",
+            "chance": "1.2%",
+            "quantity": null,
+            "observed_sample": "1.2% 1/82",
+            "url": "https://vgsoharchive.com/items/the-bloodletter"
+          },
+          {
+            "item": "Hide Belt of the Bloodletter",
+            "chance": "42.7%",
+            "quantity": null,
+            "observed_sample": "42.7% 35/82",
+            "url": "https://vgsoharchive.com/items/hide-belt-of-the-bloodletter"
+          },
+          {
+            "item": "Bracers of the Bloodletter",
+            "chance": "42.7%",
+            "quantity": null,
+            "observed_sample": "42.7% 35/82",
+            "url": "https://vgsoharchive.com/items/bracers-of-the-bloodletter"
+          },
+          {
+            "item": "Polished Bloodstone Pendant",
+            "chance": "1.2%",
+            "quantity": null,
+            "observed_sample": "1.2% 1/82",
+            "url": "https://vgsoharchive.com/items/polished-bloodstone-pendant"
+          },
+          {
+            "item": "Clammy Rubbery Tongue",
+            "chance": "18.3%",
+            "quantity": null,
+            "observed_sample": "18.3% 15/82",
+            "url": "https://vgsoharchive.com/items/clammy-rubbery-tongue"
+          },
+          {
+            "item": "Clammy Rubbery Skin",
+            "chance": "6.1%",
+            "quantity": null,
+            "observed_sample": "6.1% 5/82",
+            "url": "https://vgsoharchive.com/items/clammy-rubbery-skin"
+          },
+          {
+            "item": "Glazed Rubbery Eye",
+            "chance": "2.4%",
+            "quantity": null,
+            "observed_sample": "2.4% 2/82",
+            "url": "https://vgsoharchive.com/items/glazed-rubbery-eye"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "record": {
+        "name": "The Bloody Keeper",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-bloody-keeper",
+            "title": "The Bloody Keeper · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:30:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Animal"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "harvestable": [
+            "No"
+          ],
+          "location": [
+            "71366, -78900, 27516"
+          ],
+          "chunk": [
+            "Dahknarg"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Mask of Onslaught",
+            "url": "https://vgsoharchive.com/items/mask-of-onslaught"
+          },
+          {
+            "name": "Sleeves of Onslaught",
+            "url": "https://vgsoharchive.com/items/sleeves-of-onslaught"
+          },
+          {
+            "name": "Mace of the Unforgiven",
+            "url": "https://vgsoharchive.com/items/mace-of-the-unforgiven"
+          },
+          {
+            "name": "Stewards Club",
+            "url": "https://vgsoharchive.com/items/stewards-club"
+          }
+        ],
+        "type": "loot",
+        "source": "The Bloody Keeper",
+        "drops": [
+          {
+            "item": "Mask of Onslaught",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mask-of-onslaught"
+          },
+          {
+            "item": "Sleeves of Onslaught",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/sleeves-of-onslaught"
+          },
+          {
+            "item": "Mace of the Unforgiven",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mace-of-the-unforgiven"
+          },
+          {
+            "item": "Stewards Club",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/stewards-club"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "record": {
+        "name": "The Breath of Kirgus",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-breath-of-kirgus",
+            "title": "The Breath of Kirgus · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:31:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ruins of Vol Tuniel"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Elemental"
+          ],
+          "spawn": [
+            "random"
+          ],
+          "chunk": [
+            "Ruins of Vol Tuniel"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Swarmlord Helmet",
+            "url": "https://vgsoharchive.com/items/swarmlord-helmet"
+          },
+          {
+            "name": "Gift of Kirgus",
+            "url": "https://vgsoharchive.com/items/gift-of-kirgus"
+          }
+        ],
+        "type": "loot",
+        "source": "The Breath of Kirgus",
+        "drops": [
+          {
+            "item": "Swarmlord Helmet",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/swarmlord-helmet"
+          },
+          {
+            "item": "Gift of Kirgus",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/gift-of-kirgus"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "record": {
+        "name": "The Eternal Watchman",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-eternal-watchman",
+            "title": "The Eternal Watchman · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:36:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "The Tomb Of Lord Tsang"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Elemental"
+          ],
+          "spawn": [
+            "random"
+          ],
+          "chunk": [
+            "The Tomb Of Lord Tsang"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Boots of the Squall",
+            "url": "https://vgsoharchive.com/items/boots-of-the-squall"
+          },
+          {
+            "name": "Mokrok's Crown",
+            "url": "https://vgsoharchive.com/items/mokrok-s-crown"
+          },
+          {
+            "name": "Item Mokrok s Crown",
+            "url": "https://vgsoharchive.com/items/item-mokrok-s-crown"
+          },
+          {
+            "name": "Girdle of Flame",
+            "url": "https://vgsoharchive.com/items/girdle-of-flame"
+          }
+        ],
+        "type": "loot",
+        "source": "The Eternal Watchman",
+        "drops": [
+          {
+            "item": "Boots of the Squall",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/boots-of-the-squall"
+          },
+          {
+            "item": "Mokrok's Crown",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mokrok-s-crown"
+          },
+          {
+            "item": "Item Mokrok s Crown",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/item-mokrok-s-crown"
+          },
+          {
+            "item": "Girdle of Flame",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/girdle-of-flame"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "record": {
+        "name": "The Great Guardian",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-great-guardian",
+            "title": "The Great Guardian · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:41:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dead Glade"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Brairthorn",
+            "url": "https://vgsoharchive.com/items/brairthorn-2"
+          }
+        ],
+        "type": "loot",
+        "source": "The Great Guardian",
+        "drops": [
+          {
+            "item": "Brairthorn",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/brairthorn-2"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "record": {
+        "name": "The Great Xel'Zaxris",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+            "title": "The Great Xel'Zaxris · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:42:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tursh Village"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Creature"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "location": [
+            "35202, 61543, -23138"
+          ],
+          "chunk": [
+            "Tursh Village"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Groundshaker",
+            "url": "https://vgsoharchive.com/items/groundshaker"
+          },
+          {
+            "name": "Great Greatmaul",
+            "url": "https://vgsoharchive.com/items/great-greatmaul"
+          },
+          {
+            "name": "Temporene Infused Greatspear",
+            "url": "https://vgsoharchive.com/items/temporene-infused-greatspear"
+          },
+          {
+            "name": "Parrying Dagger Of 'The Great'",
+            "url": "https://vgsoharchive.com/items/parrying-dagger-of-the-great"
+          },
+          {
+            "name": "Xel'Zaxris' Shell",
+            "url": "https://vgsoharchive.com/items/xel-zaxris-shell"
+          },
+          {
+            "name": "Earthen Warblade",
+            "url": "https://vgsoharchive.com/items/earthen-warblade"
+          }
+        ],
+        "type": "loot",
+        "source": "The Great Xel'Zaxris",
+        "drops": [
+          {
+            "item": "Groundshaker",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/groundshaker"
+          },
+          {
+            "item": "Great Greatmaul",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/great-greatmaul"
+          },
+          {
+            "item": "Temporene Infused Greatspear",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/temporene-infused-greatspear"
+          },
+          {
+            "item": "Parrying Dagger Of 'The Great'",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/parrying-dagger-of-the-great"
+          },
+          {
+            "item": "Xel'Zaxris' Shell",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/xel-zaxris-shell"
+          },
+          {
+            "item": "Earthen Warblade",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/earthen-warblade"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "record": {
+        "name": "The Hive Mind",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-hive-mind",
+            "title": "The Hive Mind · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:45:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Hive of the Zihurr"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Boots Of The Mind",
+            "url": "https://vgsoharchive.com/items/boots-of-the-mind"
+          },
+          {
+            "name": "Polished Shortsword",
+            "url": "https://vgsoharchive.com/items/polished-shortsword"
+          }
+        ],
+        "type": "loot",
+        "source": "The Hive Mind",
+        "drops": [
+          {
+            "item": "Boots Of The Mind",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/boots-of-the-mind"
+          },
+          {
+            "item": "Polished Shortsword",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/polished-shortsword"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "record": {
+        "name": "The Hollow Colossus",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-hollow-colossus",
+            "title": "The Hollow Colossus · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:46:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Mekalia"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "type": [
+            "Feature Monster"
+          ],
+          "spawn": [
+            "static"
+          ],
+          "respawn": [
+            "??"
+          ],
+          "harvestable": [
+            "No"
+          ],
+          "location": [
+            "-64226, 46565, 3399"
+          ],
+          "chunk": [
+            "Mekalia"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Hollow Shortsword",
+            "url": "https://vgsoharchive.com/items/hollow-shortsword"
+          },
+          {
+            "name": "Colossal Earring of the Hollow",
+            "url": "https://vgsoharchive.com/items/colossal-earring-of-the-hollow"
+          },
+          {
+            "name": "LOM Colossal Earring of the Hollow",
+            "url": "https://vgsoharchive.com/items/lom-colossal-earring-of-the-hollow"
+          },
+          {
+            "name": "Greatblade of the Colossus",
+            "url": "https://vgsoharchive.com/items/greatblade-of-the-colossus"
+          },
+          {
+            "name": "Earring of the Earless",
+            "url": "https://vgsoharchive.com/items/earring-of-the-earless"
+          }
+        ],
+        "type": "loot",
+        "source": "The Hollow Colossus",
+        "drops": [
+          {
+            "item": "Hollow Shortsword",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/hollow-shortsword"
+          },
+          {
+            "item": "Colossal Earring of the Hollow",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/colossal-earring-of-the-hollow"
+          },
+          {
+            "item": "LOM Colossal Earring of the Hollow",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/lom-colossal-earring-of-the-hollow"
+          },
+          {
+            "item": "Greatblade of the Colossus",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/greatblade-of-the-colossus"
+          },
+          {
+            "item": "Earring of the Earless",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/earring-of-the-earless"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "record": {
+        "name": "The Ironshell",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-ironshell",
+            "title": "The Ironshell · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T07:49:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ruins Of Trengal Keep"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "behaviour": [
+            "Aggressive"
+          ],
+          "spawn": [
+            "random"
+          ],
+          "chunk": [
+            "Ruins of Trengal Keep"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "can swim": [
+            "Yes"
+          ],
+          "can fly": [
+            "No"
+          ],
+          "wall crawl": [
+            "No"
+          ],
+          "kills sampled": [
+            "13"
+          ],
+          "locations seen": [
+            "127"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Braelok's Warband",
+            "url": "https://vgsoharchive.com/items/braelok-s-warband"
+          },
+          {
+            "name": "Ironshell Earring",
+            "url": "https://vgsoharchive.com/items/ironshell-earring"
+          },
+          {
+            "name": "Ironshell Ring",
+            "url": "https://vgsoharchive.com/items/ironshell-ring"
+          },
+          {
+            "name": "Ironshell Shield",
+            "url": "https://vgsoharchive.com/items/ironshell-shield"
+          },
+          {
+            "name": "Aspect of Force",
+            "url": "https://vgsoharchive.com/items/aspect-of-force"
+          },
+          {
+            "name": "Squished Organ",
+            "url": "https://vgsoharchive.com/items/squished-organ"
+          },
+          {
+            "name": "Shiny Shell Fragment",
+            "url": "https://vgsoharchive.com/items/shiny-shell-fragment"
+          },
+          {
+            "name": "Tinted Heart",
+            "url": "https://vgsoharchive.com/items/tinted-heart"
+          }
+        ],
+        "type": "loot",
+        "source": "The Ironshell",
+        "drops": [
+          {
+            "item": "Ironshell Shield",
+            "chance": "7.7%",
+            "quantity": null,
+            "observed_sample": "7.7% 1/13",
+            "url": "https://vgsoharchive.com/items/ironshell-shield"
+          },
+          {
+            "item": "Ironshell Ring",
+            "chance": "46.2%",
+            "quantity": null,
+            "observed_sample": "46.2% 6/13",
+            "url": "https://vgsoharchive.com/items/ironshell-ring"
+          },
+          {
+            "item": "Ironshell Earring",
+            "chance": "38.5%",
+            "quantity": null,
+            "observed_sample": "38.5% 5/13",
+            "url": "https://vgsoharchive.com/items/ironshell-earring"
+          },
+          {
+            "item": "Aspect of Force",
+            "chance": "7.7%",
+            "quantity": null,
+            "observed_sample": "7.7% 1/13",
+            "url": "https://vgsoharchive.com/items/aspect-of-force"
+          },
+          {
+            "item": "Squished Organ",
+            "chance": "53.8%",
+            "quantity": null,
+            "observed_sample": "53.8% 7/13",
+            "url": "https://vgsoharchive.com/items/squished-organ"
+          },
+          {
+            "item": "Shiny Shell Fragment",
+            "chance": "23.1%",
+            "quantity": null,
+            "observed_sample": "23.1% 3/13",
+            "url": "https://vgsoharchive.com/items/shiny-shell-fragment"
+          },
+          {
+            "item": "Tinted Heart",
+            "chance": "7.7%",
+            "quantity": null,
+            "observed_sample": "7.7% 1/13",
+            "url": "https://vgsoharchive.com/items/tinted-heart"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 16,
+      "record": {
+        "name": "The Wilter",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/the-wilter",
+            "title": "The Wilter · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:07:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Hathor Zhi"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Feature Monster"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "The Wilter's Maul",
+            "url": "https://vgsoharchive.com/items/the-wilter-s-maul"
+          },
+          {
+            "name": "Timber Helm",
+            "url": "https://vgsoharchive.com/items/timber-helm"
+          },
+          {
+            "name": "Arbor Pauldrons",
+            "url": "https://vgsoharchive.com/items/arbor-pauldrons"
+          }
+        ],
+        "type": "loot",
+        "source": "The Wilter",
+        "drops": [
+          {
+            "item": "The Wilter's Maul",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/the-wilter-s-maul"
+          },
+          {
+            "item": "Timber Helm",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/timber-helm"
+          },
+          {
+            "item": "Arbor Pauldrons",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/arbor-pauldrons"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 17,
+      "record": {
+        "name": "Theb",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/theb",
+            "title": "Theb · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:11:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Temple Of Tehatamani"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "chunk": [
+            "Temple of Tehatamani"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ancient Mummy's Bandage",
+            "url": "https://vgsoharchive.com/items/ancient-mummy-s-bandage"
+          }
+        ],
+        "type": "loot",
+        "source": "Theb",
+        "drops": [
+          {
+            "item": "Ancient Mummy's Bandage",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/ancient-mummy-s-bandage"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "record": {
+        "name": "Thieron",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thieron",
+            "title": "Thieron · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:18:16+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Theiron's Deadly Visage",
+            "url": "https://vgsoharchive.com/items/theiron-s-deadly-visage"
+          },
+          {
+            "name": "Thieron's Fist",
+            "url": "https://vgsoharchive.com/items/thieron-s-fist"
+          },
+          {
+            "name": "Thieron's Sparking Visage",
+            "url": "https://vgsoharchive.com/items/thieron-s-sparking-visage"
+          },
+          {
+            "name": "Core of Focus",
+            "url": "https://vgsoharchive.com/items/core-of-focus"
+          },
+          {
+            "name": "Thieron's Shining Visage",
+            "url": "https://vgsoharchive.com/items/thieron-s-shining-visage"
+          },
+          {
+            "name": "Thieron's Blessed Visage",
+            "url": "https://vgsoharchive.com/items/thieron-s-blessed-visage"
+          }
+        ],
+        "type": "loot",
+        "source": "Thieron",
+        "drops": [
+          {
+            "item": "Theiron's Deadly Visage",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/theiron-s-deadly-visage"
+          },
+          {
+            "item": "Thieron's Fist",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thieron-s-fist"
+          },
+          {
+            "item": "Thieron's Sparking Visage",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thieron-s-sparking-visage"
+          },
+          {
+            "item": "Core of Focus",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/core-of-focus"
+          },
+          {
+            "item": "Thieron's Shining Visage",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thieron-s-shining-visage"
+          },
+          {
+            "item": "Thieron's Blessed Visage",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thieron-s-blessed-visage"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 19,
+      "record": {
+        "name": "Thorn Amada Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-amada-tree",
+            "title": "Thorn Amada Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:34:16+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Martok, Martok Coast, Wildgrowth Forest"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Amada Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 20,
+      "record": {
+        "name": "Thorn Ash Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-ash-tree",
+            "title": "Thorn Ash Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:35:16+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Renton Keep, Ruins of Trengal Keep, Shrine of the Flame, Silverlake, Three Rivers Village, Tursh Village"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Ash Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 21,
+      "record": {
+        "name": "Thorn Aspen Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-aspen-tree",
+            "title": "Thorn Aspen Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:36:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Three Rivers Village"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Three Rivers Village"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Aspen Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 22,
+      "record": {
+        "name": "Thorn Oak Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-oak-tree",
+            "title": "Thorn Oak Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:37:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Shoreline Ruins"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Coastal Graveyard, Forest's Heart, Hathor Zhi, Jharru Flats, Kaon's Rush, Lomshir, Misthaven Crossing, Renton Keep, Ruins of Trengal Keep, Shoreline Ruins, Silverlake, Spider Bluffs, The Temple of Dailuk, Tursh Village, Vault of Heroes, Veskal's Exchange"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Oak Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 23,
+      "record": {
+        "name": "Thorn Palm Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-palm-tree",
+            "title": "Thorn Palm Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:38:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ahgram"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Ahgram, Cliffs of Ghelgad, Coterie Infineum Sanctuary, Hag's Coastline, Hathor Zhi, Jathred's Twist, Jharru Flats, Karrus Hakrel, Khal, Ksaravi Gulch, Lomshir Plain, Mekalia, Qa Riverbank, Skawlra Rock, Skrilien Point, Tauthien Delta, The Temple of Dailuk, Zossyr Hakrel"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "can swim": [
+            "Yes"
+          ],
+          "can fly": [
+            "No"
+          ],
+          "wall crawl": [
+            "No"
+          ],
+          "kills sampled": [
+            "34"
+          ],
+          "locations seen": [
+            "213"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          },
+          {
+            "name": "Tree Sap Solvent",
+            "url": "https://vgsoharchive.com/items/tree-sap-solvent"
+          },
+          {
+            "name": "Kindling Fuel",
+            "url": "https://vgsoharchive.com/items/kindling-fuel"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Palm Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": "94.1%",
+            "quantity": null,
+            "observed_sample": "94.1% 32/34",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": "61.8%",
+            "quantity": null,
+            "observed_sample": "61.8% 21/34",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          },
+          {
+            "item": "Tree Sap Solvent",
+            "chance": "2.9%",
+            "quantity": null,
+            "observed_sample": "2.9% 1/34",
+            "url": "https://vgsoharchive.com/items/tree-sap-solvent"
+          },
+          {
+            "item": "Kindling Fuel",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/kindling-fuel"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 24,
+      "record": {
+        "name": "Thorn Pine Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-pine-tree",
+            "title": "Thorn Pine Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:39:16+00:00",
+        "archive_fields": {
+          "zone": [
+            "Three Rivers Village"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Bordinar's Cleft, Dahknarg, Falgarholm, Halgarad, Misthaven Crossing, Northern Highlands, Ocean Watch, Ruins of Trengal Keep, Shrine of the Flame, Three Rivers Village, Vault of Heroes"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          },
+          {
+            "name": "Mithrilwood Oil",
+            "url": "https://vgsoharchive.com/items/mithrilwood-oil"
+          },
+          {
+            "name": "Tree Sap Solvent",
+            "url": "https://vgsoharchive.com/items/tree-sap-solvent"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Pine Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          },
+          {
+            "item": "Mithrilwood Oil",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/mithrilwood-oil"
+          },
+          {
+            "item": "Tree Sap Solvent",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/tree-sap-solvent"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 25,
+      "record": {
+        "name": "Thorn Root",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-root",
+            "title": "Thorn Root · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:41:16+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Blighted Lands, Bordinar's Cleft, Ksaravi Gulch, Lomshir, Lomshir Plain, Martok, Mekalia, Misthaven Crossing, Renton Keep, Shoreline Ruins, Skrilien Point, Sundering Wastelands, The Temple of Dailuk, The Tomb of Lord Tsang, Three Rivers Village, Vault of Heroes, Veskal's Exchange"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          },
+          {
+            "name": "Kindling Fuel",
+            "url": "https://vgsoharchive.com/items/kindling-fuel"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Root",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          },
+          {
+            "item": "Kindling Fuel",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/kindling-fuel"
+          }
+        ]
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 26,
+      "record": {
+        "name": "Thorn Tangleleaf Tree",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/thorn-tangleleaf-tree",
+            "title": "Thorn Tangleleaf Tree · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T08:42:16+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Blighted Lands, Jalen's Crossing, Magi Hold, Tanvu, The Tomb of Lord Tsang"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Thorn Log",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "name": "Thorn Timber",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ],
+        "type": "loot",
+        "source": "Thorn Tangleleaf Tree",
+        "drops": [
+          {
+            "item": "Thorn Log",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-log"
+          },
+          {
+            "item": "Thorn Timber",
+            "chance": null,
+            "quantity": null,
+            "observed_sample": "",
+            "url": "https://vgsoharchive.com/items/thorn-timber"
+          }
+        ]
+      }
+    }
+  ],
+  "chance_interpretation": "Numeric chance values retained in immutable research are sample frequencies, not verified developer probabilities. Converter observed_sample safeguard withholds these complete tables even if quantities become known.",
+  "numeric_sample_values": 18,
+  "checks": [
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Tharridon's Rib Crossbow",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Tharridon's Mighty Maul",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Ancient Breast Plate",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Princess Freestone's Tiara",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Tharridon's Ring",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Tharridon's Memento",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "source": "https://vgsoharchive.com/mobs/tharridon-the-mighty",
+      "cache_sha256": "a6bfbd0a373ccd7aa621b1498161e7b2e620ce17f68b8a3f23391fd92cace884",
+      "item": "Tharridon Hair Earring",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "source": "https://vgsoharchive.com/mobs/thaumaturge-lass-revik",
+      "cache_sha256": "04b30c79fb9b42379a01d2c0a46349391ae720a40c167844a7e0e26e9cf322a8",
+      "item": "Carved Bone Sabatons",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "source": "https://vgsoharchive.com/mobs/the-armor-of-karujin",
+      "cache_sha256": "ceff14c59f1cbac6c19966db9ca9490f89859aab4a3364f68225b65e3ad598e0",
+      "item": "Ceremonial Gulgrethor Bracers",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "source": "https://vgsoharchive.com/mobs/the-azebaj-hivequeen",
+      "cache_sha256": "4ed820e6e8e5b7f197ac3ce913fef011fb6c41cd84fa88586f94c9f983e28025",
+      "item": "Mask Of The Azebaj Queen",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "source": "https://vgsoharchive.com/mobs/the-azebaj-overseer",
+      "cache_sha256": "c43a7c71c868dc1562e074baa0a9a253675c7fd2a922088f0e42fbf79c624504",
+      "item": "Overseer s Robe",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "source": "https://vgsoharchive.com/mobs/the-azebaj-overseer",
+      "cache_sha256": "c43a7c71c868dc1562e074baa0a9a253675c7fd2a922088f0e42fbf79c624504",
+      "item": "Overseer s Leggings",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "source": "https://vgsoharchive.com/mobs/the-beast",
+      "cache_sha256": "1e09cbc8943617e55265ede7586aaa66097a8759b16f67c997fda33d7988472e",
+      "item": "Battle Ring of the Beast",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Boots of the Bloodletter",
+      "loot_table_matches": 1,
+      "observed_sample": "13.4% 11/82",
+      "source_drop_rate_cells": [
+        "13.4% 11/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "13.4%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "The Bloodletter",
+      "loot_table_matches": 1,
+      "observed_sample": "1.2% 1/82",
+      "source_drop_rate_cells": [
+        "1.2% 1/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "1.2%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Hide Belt of the Bloodletter",
+      "loot_table_matches": 1,
+      "observed_sample": "42.7% 35/82",
+      "source_drop_rate_cells": [
+        "42.7% 35/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "42.7%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Bracers of the Bloodletter",
+      "loot_table_matches": 1,
+      "observed_sample": "42.7% 35/82",
+      "source_drop_rate_cells": [
+        "42.7% 35/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "42.7%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Polished Bloodstone Pendant",
+      "loot_table_matches": 1,
+      "observed_sample": "1.2% 1/82",
+      "source_drop_rate_cells": [
+        "1.2% 1/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "1.2%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Clammy Rubbery Tongue",
+      "loot_table_matches": 1,
+      "observed_sample": "18.3% 15/82",
+      "source_drop_rate_cells": [
+        "18.3% 15/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "18.3%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Clammy Rubbery Skin",
+      "loot_table_matches": 1,
+      "observed_sample": "6.1% 5/82",
+      "source_drop_rate_cells": [
+        "6.1% 5/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "6.1%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "source": "https://vgsoharchive.com/mobs/the-bloodletter",
+      "cache_sha256": "b276f411a0dce89dc0937b0f60738e65d5eb171155d9b8ca468cf13098bf8dc7",
+      "item": "Glazed Rubbery Eye",
+      "loot_table_matches": 1,
+      "observed_sample": "2.4% 2/82",
+      "source_drop_rate_cells": [
+        "2.4% 2/82"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "2.4%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "source": "https://vgsoharchive.com/mobs/the-bloody-keeper",
+      "cache_sha256": "a3e1b008323c63d69fe76eeb6c27dbc706c5d44ac16703bd5c4de22aeb299fe9",
+      "item": "Mask of Onslaught",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "source": "https://vgsoharchive.com/mobs/the-bloody-keeper",
+      "cache_sha256": "a3e1b008323c63d69fe76eeb6c27dbc706c5d44ac16703bd5c4de22aeb299fe9",
+      "item": "Sleeves of Onslaught",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "source": "https://vgsoharchive.com/mobs/the-bloody-keeper",
+      "cache_sha256": "a3e1b008323c63d69fe76eeb6c27dbc706c5d44ac16703bd5c4de22aeb299fe9",
+      "item": "Mace of the Unforgiven",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "source": "https://vgsoharchive.com/mobs/the-bloody-keeper",
+      "cache_sha256": "a3e1b008323c63d69fe76eeb6c27dbc706c5d44ac16703bd5c4de22aeb299fe9",
+      "item": "Stewards Club",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "source": "https://vgsoharchive.com/mobs/the-breath-of-kirgus",
+      "cache_sha256": "c2aad9e4d7b6c3cc43d3647a8281b23eb3886c0b9f7e1f0e4ea8a3a49534f43c",
+      "item": "Swarmlord Helmet",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "source": "https://vgsoharchive.com/mobs/the-breath-of-kirgus",
+      "cache_sha256": "c2aad9e4d7b6c3cc43d3647a8281b23eb3886c0b9f7e1f0e4ea8a3a49534f43c",
+      "item": "Gift of Kirgus",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "source": "https://vgsoharchive.com/mobs/the-eternal-watchman",
+      "cache_sha256": "36be6f6381f66eba847b6146cb2caa9bfab51e368fe6b8ff1fc62086fb9a4337",
+      "item": "Boots of the Squall",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "source": "https://vgsoharchive.com/mobs/the-eternal-watchman",
+      "cache_sha256": "36be6f6381f66eba847b6146cb2caa9bfab51e368fe6b8ff1fc62086fb9a4337",
+      "item": "Mokrok's Crown",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "source": "https://vgsoharchive.com/mobs/the-eternal-watchman",
+      "cache_sha256": "36be6f6381f66eba847b6146cb2caa9bfab51e368fe6b8ff1fc62086fb9a4337",
+      "item": "Item Mokrok s Crown",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "source": "https://vgsoharchive.com/mobs/the-eternal-watchman",
+      "cache_sha256": "36be6f6381f66eba847b6146cb2caa9bfab51e368fe6b8ff1fc62086fb9a4337",
+      "item": "Girdle of Flame",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "source": "https://vgsoharchive.com/mobs/the-great-guardian",
+      "cache_sha256": "dbb41f1fa7dc8f48a83a16d485f85af66dec80a362b8870302ad8620bb7be0fb",
+      "item": "Brairthorn",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "source": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+      "cache_sha256": "17c2949c0e240114def9943975db9cfc66a00ea5096f4f8db464b3f693b7504f",
+      "item": "Groundshaker",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "source": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+      "cache_sha256": "17c2949c0e240114def9943975db9cfc66a00ea5096f4f8db464b3f693b7504f",
+      "item": "Great Greatmaul",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "source": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+      "cache_sha256": "17c2949c0e240114def9943975db9cfc66a00ea5096f4f8db464b3f693b7504f",
+      "item": "Temporene Infused Greatspear",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "source": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+      "cache_sha256": "17c2949c0e240114def9943975db9cfc66a00ea5096f4f8db464b3f693b7504f",
+      "item": "Parrying Dagger Of 'The Great'",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "source": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+      "cache_sha256": "17c2949c0e240114def9943975db9cfc66a00ea5096f4f8db464b3f693b7504f",
+      "item": "Xel'Zaxris' Shell",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "source": "https://vgsoharchive.com/mobs/the-great-xel-zaxris",
+      "cache_sha256": "17c2949c0e240114def9943975db9cfc66a00ea5096f4f8db464b3f693b7504f",
+      "item": "Earthen Warblade",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "source": "https://vgsoharchive.com/mobs/the-hive-mind",
+      "cache_sha256": "39a311eac7860b27d17fb9b79a4d2c32ef8344cb99550a8cd3c632dc3c1313ec",
+      "item": "Boots Of The Mind",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "source": "https://vgsoharchive.com/mobs/the-hive-mind",
+      "cache_sha256": "39a311eac7860b27d17fb9b79a4d2c32ef8344cb99550a8cd3c632dc3c1313ec",
+      "item": "Polished Shortsword",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "source": "https://vgsoharchive.com/mobs/the-hollow-colossus",
+      "cache_sha256": "2dc91f8ef2abb60f3523d9bb06d3fe454dbf768408ae760013d8271c900b0610",
+      "item": "Hollow Shortsword",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "source": "https://vgsoharchive.com/mobs/the-hollow-colossus",
+      "cache_sha256": "2dc91f8ef2abb60f3523d9bb06d3fe454dbf768408ae760013d8271c900b0610",
+      "item": "Colossal Earring of the Hollow",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "source": "https://vgsoharchive.com/mobs/the-hollow-colossus",
+      "cache_sha256": "2dc91f8ef2abb60f3523d9bb06d3fe454dbf768408ae760013d8271c900b0610",
+      "item": "LOM Colossal Earring of the Hollow",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "source": "https://vgsoharchive.com/mobs/the-hollow-colossus",
+      "cache_sha256": "2dc91f8ef2abb60f3523d9bb06d3fe454dbf768408ae760013d8271c900b0610",
+      "item": "Greatblade of the Colossus",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "source": "https://vgsoharchive.com/mobs/the-hollow-colossus",
+      "cache_sha256": "2dc91f8ef2abb60f3523d9bb06d3fe454dbf768408ae760013d8271c900b0610",
+      "item": "Earring of the Earless",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Ironshell Shield",
+      "loot_table_matches": 1,
+      "observed_sample": "7.7% 1/13",
+      "source_drop_rate_cells": [
+        "7.7% 1/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "7.7%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Ironshell Ring",
+      "loot_table_matches": 1,
+      "observed_sample": "46.2% 6/13",
+      "source_drop_rate_cells": [
+        "46.2% 6/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "46.2%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Ironshell Earring",
+      "loot_table_matches": 1,
+      "observed_sample": "38.5% 5/13",
+      "source_drop_rate_cells": [
+        "38.5% 5/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "38.5%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Aspect of Force",
+      "loot_table_matches": 1,
+      "observed_sample": "7.7% 1/13",
+      "source_drop_rate_cells": [
+        "7.7% 1/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "7.7%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Squished Organ",
+      "loot_table_matches": 1,
+      "observed_sample": "53.8% 7/13",
+      "source_drop_rate_cells": [
+        "53.8% 7/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "53.8%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Shiny Shell Fragment",
+      "loot_table_matches": 1,
+      "observed_sample": "23.1% 3/13",
+      "source_drop_rate_cells": [
+        "23.1% 3/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "23.1%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "source": "https://vgsoharchive.com/mobs/the-ironshell",
+      "cache_sha256": "78abcbc407ccc87052b2b3da6c66fbbe5c333baa479039429813fb13c99c79a3",
+      "item": "Tinted Heart",
+      "loot_table_matches": 1,
+      "observed_sample": "7.7% 1/13",
+      "source_drop_rate_cells": [
+        "7.7% 1/13"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "7.7%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 16,
+      "source": "https://vgsoharchive.com/mobs/the-wilter",
+      "cache_sha256": "a6c6447f0988a8bafc9e9b793ee62b5965850b25d2441c566d5aeb64debaf2c8",
+      "item": "The Wilter's Maul",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 16,
+      "source": "https://vgsoharchive.com/mobs/the-wilter",
+      "cache_sha256": "a6c6447f0988a8bafc9e9b793ee62b5965850b25d2441c566d5aeb64debaf2c8",
+      "item": "Timber Helm",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 16,
+      "source": "https://vgsoharchive.com/mobs/the-wilter",
+      "cache_sha256": "a6c6447f0988a8bafc9e9b793ee62b5965850b25d2441c566d5aeb64debaf2c8",
+      "item": "Arbor Pauldrons",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 17,
+      "source": "https://vgsoharchive.com/mobs/theb",
+      "cache_sha256": "4f947726934266e12232bbb2d77f56f9a8d006e67b258123567d9252ea815ac5",
+      "item": "Ancient Mummy's Bandage",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "source": "https://vgsoharchive.com/mobs/thieron",
+      "cache_sha256": "d95673611760f76a08708ec7ea985354525e68ebd7129300b1673654427f0a6f",
+      "item": "Theiron's Deadly Visage",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "source": "https://vgsoharchive.com/mobs/thieron",
+      "cache_sha256": "d95673611760f76a08708ec7ea985354525e68ebd7129300b1673654427f0a6f",
+      "item": "Thieron's Fist",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "source": "https://vgsoharchive.com/mobs/thieron",
+      "cache_sha256": "d95673611760f76a08708ec7ea985354525e68ebd7129300b1673654427f0a6f",
+      "item": "Thieron's Sparking Visage",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "source": "https://vgsoharchive.com/mobs/thieron",
+      "cache_sha256": "d95673611760f76a08708ec7ea985354525e68ebd7129300b1673654427f0a6f",
+      "item": "Core of Focus",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "source": "https://vgsoharchive.com/mobs/thieron",
+      "cache_sha256": "d95673611760f76a08708ec7ea985354525e68ebd7129300b1673654427f0a6f",
+      "item": "Thieron's Shining Visage",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "source": "https://vgsoharchive.com/mobs/thieron",
+      "cache_sha256": "d95673611760f76a08708ec7ea985354525e68ebd7129300b1673654427f0a6f",
+      "item": "Thieron's Blessed Visage",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 19,
+      "source": "https://vgsoharchive.com/mobs/thorn-amada-tree",
+      "cache_sha256": "5fd132a92146a3ab61ca231aecb1f8172af195a4294ff85c9ceaf0a92a40af15",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 19,
+      "source": "https://vgsoharchive.com/mobs/thorn-amada-tree",
+      "cache_sha256": "5fd132a92146a3ab61ca231aecb1f8172af195a4294ff85c9ceaf0a92a40af15",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 20,
+      "source": "https://vgsoharchive.com/mobs/thorn-ash-tree",
+      "cache_sha256": "c222ade052c69cea40780e09839e7ba31691f1183dcb98079f6fb9eb969e89c3",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 20,
+      "source": "https://vgsoharchive.com/mobs/thorn-ash-tree",
+      "cache_sha256": "c222ade052c69cea40780e09839e7ba31691f1183dcb98079f6fb9eb969e89c3",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 21,
+      "source": "https://vgsoharchive.com/mobs/thorn-aspen-tree",
+      "cache_sha256": "2731512286b0aad752932a28d3c3a7d1c1c80b7f91ae8f1eab7cbe5d65636c50",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 21,
+      "source": "https://vgsoharchive.com/mobs/thorn-aspen-tree",
+      "cache_sha256": "2731512286b0aad752932a28d3c3a7d1c1c80b7f91ae8f1eab7cbe5d65636c50",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 22,
+      "source": "https://vgsoharchive.com/mobs/thorn-oak-tree",
+      "cache_sha256": "faad7e93f816a8c82c5d7be72f1bc0a40a13f8c5eae04d9afd26e4f1d7559948",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 22,
+      "source": "https://vgsoharchive.com/mobs/thorn-oak-tree",
+      "cache_sha256": "faad7e93f816a8c82c5d7be72f1bc0a40a13f8c5eae04d9afd26e4f1d7559948",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 23,
+      "source": "https://vgsoharchive.com/mobs/thorn-palm-tree",
+      "cache_sha256": "3670f7953aa4d10b52c25f87ce1e6855f6ad8c9408829770e7498e9fc4e243b7",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "94.1% 32/34",
+      "source_drop_rate_cells": [
+        "94.1% 32/34"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "94.1%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 23,
+      "source": "https://vgsoharchive.com/mobs/thorn-palm-tree",
+      "cache_sha256": "3670f7953aa4d10b52c25f87ce1e6855f6ad8c9408829770e7498e9fc4e243b7",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "61.8% 21/34",
+      "source_drop_rate_cells": [
+        "61.8% 21/34"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "61.8%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 23,
+      "source": "https://vgsoharchive.com/mobs/thorn-palm-tree",
+      "cache_sha256": "3670f7953aa4d10b52c25f87ce1e6855f6ad8c9408829770e7498e9fc4e243b7",
+      "item": "Tree Sap Solvent",
+      "loot_table_matches": 1,
+      "observed_sample": "2.9% 1/34",
+      "source_drop_rate_cells": [
+        "2.9% 1/34"
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": "2.9%",
+      "chance_unknown": false
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 23,
+      "source": "https://vgsoharchive.com/mobs/thorn-palm-tree",
+      "cache_sha256": "3670f7953aa4d10b52c25f87ce1e6855f6ad8c9408829770e7498e9fc4e243b7",
+      "item": "Kindling Fuel",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 24,
+      "source": "https://vgsoharchive.com/mobs/thorn-pine-tree",
+      "cache_sha256": "e8aca5b4262134073a9134c9e62628d7e4b6b16cd4804466e1df823af98a3186",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 24,
+      "source": "https://vgsoharchive.com/mobs/thorn-pine-tree",
+      "cache_sha256": "e8aca5b4262134073a9134c9e62628d7e4b6b16cd4804466e1df823af98a3186",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 24,
+      "source": "https://vgsoharchive.com/mobs/thorn-pine-tree",
+      "cache_sha256": "e8aca5b4262134073a9134c9e62628d7e4b6b16cd4804466e1df823af98a3186",
+      "item": "Mithrilwood Oil",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 24,
+      "source": "https://vgsoharchive.com/mobs/thorn-pine-tree",
+      "cache_sha256": "e8aca5b4262134073a9134c9e62628d7e4b6b16cd4804466e1df823af98a3186",
+      "item": "Tree Sap Solvent",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 25,
+      "source": "https://vgsoharchive.com/mobs/thorn-root",
+      "cache_sha256": "307df92020a707c77270656bf1038d33d848343671d0d2059907dfc3ef533b09",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 25,
+      "source": "https://vgsoharchive.com/mobs/thorn-root",
+      "cache_sha256": "307df92020a707c77270656bf1038d33d848343671d0d2059907dfc3ef533b09",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 25,
+      "source": "https://vgsoharchive.com/mobs/thorn-root",
+      "cache_sha256": "307df92020a707c77270656bf1038d33d848343671d0d2059907dfc3ef533b09",
+      "item": "Kindling Fuel",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 26,
+      "source": "https://vgsoharchive.com/mobs/thorn-tangleleaf-tree",
+      "cache_sha256": "10a1c713237981cd27ec074d338cd5ceb11ef20f7d90678b0cc1068e81fb5a83",
+      "item": "Thorn Log",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    },
+    {
+      "record_file": "raw\\2026-10-17-031318-950652-archive-bulk\\loot.jsonl",
+      "line": 26,
+      "source": "https://vgsoharchive.com/mobs/thorn-tangleleaf-tree",
+      "cache_sha256": "10a1c713237981cd27ec074d338cd5ceb11ef20f7d90678b0cc1068e81fb5a83",
+      "item": "Thorn Timber",
+      "loot_table_matches": 1,
+      "observed_sample": "",
+      "source_drop_rate_cells": [
+        ""
+      ],
+      "sample_matches": true,
+      "quantity_unknown": true,
+      "stored_chance": null,
+      "chance_unknown": true
+    }
+  ],
+  "remaining_work": "Pending downloads and other semantic review remain. Observations do not establish developer probabilities or quantities; production loot conversion remains withheld. Existing collisions remain unresolved. No immutable raw records changed.",
+  "conversion_safeguard_check": {
+    "method": "Counterfactual quantities [1,1] supplied only to deep copies in memory; converter called with all 26 low-confidence loot records included. Immutable raw records unchanged.",
+    "tables_checked": 26,
+    "exported_tables": 0,
+    "withholding_reasons": [
+      "loot Tharridon The Mighty: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thaumaturge Lass'revik: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Armor of Karujin: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Azebaj Hivequeen: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Azebaj Overseer: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Beast: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Bloodletter: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Bloody Keeper: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Breath of Kirgus: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Eternal Watchman: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Great Guardian: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Great Xel'Zaxris: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Hive Mind: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Hollow Colossus: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Ironshell: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot The Wilter: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Theb: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thieron: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Amada Tree: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Ash Tree: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Aspen Tree: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Oak Tree: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Palm Tree: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Pine Tree: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Root: observed sample frequencies are not developer probabilities; entire table withheld",
+      "loot Thorn Tangleleaf Tree: observed sample frequencies are not developer probabilities; entire table withheld"
+    ]
+  }
+}

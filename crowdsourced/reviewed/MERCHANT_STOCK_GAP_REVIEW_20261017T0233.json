@@ -1,0 +1,1306 @@
+{
+  "reviewed_at": "2026-10-17T02:32:11+00:00",
+  "scope": "Cached DOM audit of all merchant records in latest network batch; zero network requests. Immutable records unchanged.",
+  "records_reviewed": 14,
+  "checks_passed": 56,
+  "discrepancies": [],
+  "records_with_unextracted_sells_links": 1,
+  "sells_item_link_observations": 54,
+  "required_followup": "Implement and test merchant Sells table extraction from cached DOM, preserving explicit prices only and null unknowns; replay affected cache without network. Links alone do not establish quantities or prices. Merchants remain withheld from conversion while stock/prices are unresolved. Pending collection and semantic/collision review remain incomplete.",
+  "records": [
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/suty-akabanas",
+      "cache_sha256": "6757fbbd906f62375ffccb1709ac7880d392d9cc30d48c2b36c534cb5ec638ff",
+      "source_labels": {
+        "zone": "Afrit",
+        "role": "Merchant - Ranged Weapons",
+        "location": "2252, -48306, 708",
+        "chunk": "Afrit",
+        "continent": "Qalia",
+        "locations seen": "Afrit",
+        "station": "Outsider",
+        "presence": "700",
+        "parley level": "45",
+        "parley types": "[[[ Gossip ]]], , , , [[[ Interview ]]]"
+      },
+      "section_headings": [
+        "Details",
+        "Civic Diplomacy",
+        "Civic parleys\n            (2)",
+        "Sells\n            (54)",
+        "Loot (0)",
+        "Guides covering this"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [
+        {
+          "name": "Basic Ammo Case",
+          "href": "/items/basic-ammo-case"
+        },
+        {
+          "name": "Basic Light Crossbow",
+          "href": "/items/basic-light-crossbow"
+        },
+        {
+          "name": "Basic Short Bow",
+          "href": "/items/basic-short-bow"
+        },
+        {
+          "name": "Crude Barbed Arrow",
+          "href": "/items/crude-barbed-arrow"
+        },
+        {
+          "name": "Crude Bodkin Bolt",
+          "href": "/items/crude-bodkin-bolt"
+        },
+        {
+          "name": "Crude Bolt",
+          "href": "/items/crude-bolt"
+        },
+        {
+          "name": "Crude Flight Arrow",
+          "href": "/items/crude-flight-arrow"
+        },
+        {
+          "name": "Crude Short Spear",
+          "href": "/items/crude-short-spear"
+        },
+        {
+          "name": "Crude Shuriken",
+          "href": "/items/crude-shuriken"
+        },
+        {
+          "name": "Crude Throwing Axe",
+          "href": "/items/crude-throwing-axe"
+        },
+        {
+          "name": "Crude Throwing Dagger",
+          "href": "/items/crude-throwing-dagger"
+        },
+        {
+          "name": "Crude Throwing Hammer",
+          "href": "/items/crude-throwing-hammer"
+        },
+        {
+          "name": "Honed Barbed Arrow",
+          "href": "/items/honed-barbed-arrow"
+        },
+        {
+          "name": "Honed Bodkin Bolt",
+          "href": "/items/honed-bodkin-bolt"
+        },
+        {
+          "name": "Honed Bolt",
+          "href": "/items/honed-bolt"
+        },
+        {
+          "name": "Honed Flight Arrow",
+          "href": "/items/honed-flight-arrow"
+        },
+        {
+          "name": "Plain Barbed Arrow",
+          "href": "/items/plain-barbed-arrow"
+        },
+        {
+          "name": "Plain Bodkin Bolt",
+          "href": "/items/plain-bodkin-bolt"
+        },
+        {
+          "name": "Plain Bolt",
+          "href": "/items/plain-bolt"
+        },
+        {
+          "name": "Plain Flight Arrow",
+          "href": "/items/plain-flight-arrow"
+        },
+        {
+          "name": "Polished Barbed Arrow",
+          "href": "/items/polished-barbed-arrow"
+        },
+        {
+          "name": "Polished Bodkin Bolt",
+          "href": "/items/polished-bodkin-bolt"
+        },
+        {
+          "name": "Polished Bolt",
+          "href": "/items/polished-bolt"
+        },
+        {
+          "name": "Polished Flight Arrow",
+          "href": "/items/polished-flight-arrow"
+        },
+        {
+          "name": "Polished Short Spear",
+          "href": "/items/polished-short-spear"
+        },
+        {
+          "name": "Polished Shuriken",
+          "href": "/items/polished-shuriken"
+        },
+        {
+          "name": "Polished Throwing Axe",
+          "href": "/items/polished-throwing-axe"
+        },
+        {
+          "name": "Polished Throwing Hammer",
+          "href": "/items/polished-throwing-hammer"
+        },
+        {
+          "name": "Precise Barbed Arrow",
+          "href": "/items/precise-barbed-arrow"
+        },
+        {
+          "name": "Precise Bodkin Bolt",
+          "href": "/items/precise-bodkin-bolt"
+        },
+        {
+          "name": "Precise Bolt",
+          "href": "/items/precise-bolt"
+        },
+        {
+          "name": "Precise Flight Arrow",
+          "href": "/items/precise-flight-arrow"
+        },
+        {
+          "name": "Precision Short Spear",
+          "href": "/items/precision-short-spear"
+        },
+        {
+          "name": "Precision Shuriken",
+          "href": "/items/precision-shuriken"
+        },
+        {
+          "name": "Precision Throwing Axe",
+          "href": "/items/precision-throwing-axe"
+        },
+        {
+          "name": "Precision Throwing Dagger",
+          "href": "/items/precision-throwing-dagger"
+        },
+        {
+          "name": "Precision Throwing Hammer",
+          "href": "/items/precision-throwing-hammer"
+        },
+        {
+          "name": "Short Spear",
+          "href": "/items/short-spear"
+        },
+        {
+          "name": "Shuriken",
+          "href": "/items/shuriken"
+        },
+        {
+          "name": "Splintered Light Crossbow",
+          "href": "/items/splintered-light-crossbow"
+        },
+        {
+          "name": "Splintered Short Bow",
+          "href": "/items/splintered-short-bow"
+        },
+        {
+          "name": "Throwing Axe",
+          "href": "/items/throwing-axe"
+        },
+        {
+          "name": "Throwing Dagger",
+          "href": "/items/throwing-dagger"
+        },
+        {
+          "name": "Thrown Hammer",
+          "href": "/items/thrown-hammer"
+        },
+        {
+          "name": "Weighted Short Spear",
+          "href": "/items/weighted-short-spear"
+        },
+        {
+          "name": "Weighted Shuriken",
+          "href": "/items/weighted-shuriken"
+        },
+        {
+          "name": "Weighted Throwing Axe",
+          "href": "/items/weighted-throwing-axe"
+        },
+        {
+          "name": "Weighted Throwing Dagger",
+          "href": "/items/weighted-throwing-dagger"
+        },
+        {
+          "name": "Weighted Throwing Hammer",
+          "href": "/items/weighted-throwing-hammer"
+        },
+        {
+          "name": "Well-Balanced Short Spear",
+          "href": "/items/well-balanced-short-spear"
+        },
+        {
+          "name": "Well-Balanced Shuriken",
+          "href": "/items/well-balanced-shuriken"
+        },
+        {
+          "name": "Well-Balanced Throwing Axe",
+          "href": "/items/well-balanced-throwing-axe"
+        },
+        {
+          "name": "Well-Balanced Throwing Dagger",
+          "href": "/items/well-balanced-throwing-dagger"
+        },
+        {
+          "name": "Well-Balanced Throwing Hammer",
+          "href": "/items/well-balanced-throwing-hammer"
+        }
+      ],
+      "full_source_record": {
+        "name": "Suty Akabanas",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suty-akabanas",
+            "title": "Suty Akabanas · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:41:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Afrit"
+          ],
+          "role": [
+            "Merchant - Ranged Weapons"
+          ],
+          "location": [
+            "2252, -48306, 708"
+          ],
+          "chunk": [
+            "Afrit"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Afrit"
+          ],
+          "station": [
+            "Outsider"
+          ],
+          "presence": [
+            "700"
+          ],
+          "parley level": [
+            "45"
+          ],
+          "parley types": [
+            "[[[ Gossip ]]], , , , [[[ Interview ]]]"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Basic Ammo Case",
+            "url": "https://vgsoharchive.com/items/basic-ammo-case"
+          },
+          {
+            "name": "Basic Light Crossbow",
+            "url": "https://vgsoharchive.com/items/basic-light-crossbow"
+          },
+          {
+            "name": "Basic Short Bow",
+            "url": "https://vgsoharchive.com/items/basic-short-bow"
+          },
+          {
+            "name": "Crude Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/crude-barbed-arrow"
+          },
+          {
+            "name": "Crude Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/crude-bodkin-bolt"
+          },
+          {
+            "name": "Crude Bolt",
+            "url": "https://vgsoharchive.com/items/crude-bolt"
+          },
+          {
+            "name": "Crude Flight Arrow",
+            "url": "https://vgsoharchive.com/items/crude-flight-arrow"
+          },
+          {
+            "name": "Crude Short Spear",
+            "url": "https://vgsoharchive.com/items/crude-short-spear"
+          },
+          {
+            "name": "Crude Shuriken",
+            "url": "https://vgsoharchive.com/items/crude-shuriken"
+          },
+          {
+            "name": "Crude Throwing Axe",
+            "url": "https://vgsoharchive.com/items/crude-throwing-axe"
+          },
+          {
+            "name": "Crude Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/crude-throwing-dagger"
+          },
+          {
+            "name": "Crude Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/crude-throwing-hammer"
+          },
+          {
+            "name": "Honed Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/honed-barbed-arrow"
+          },
+          {
+            "name": "Honed Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/honed-bodkin-bolt"
+          },
+          {
+            "name": "Honed Bolt",
+            "url": "https://vgsoharchive.com/items/honed-bolt"
+          },
+          {
+            "name": "Honed Flight Arrow",
+            "url": "https://vgsoharchive.com/items/honed-flight-arrow"
+          },
+          {
+            "name": "Plain Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/plain-barbed-arrow"
+          },
+          {
+            "name": "Plain Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/plain-bodkin-bolt"
+          },
+          {
+            "name": "Plain Bolt",
+            "url": "https://vgsoharchive.com/items/plain-bolt"
+          },
+          {
+            "name": "Plain Flight Arrow",
+            "url": "https://vgsoharchive.com/items/plain-flight-arrow"
+          },
+          {
+            "name": "Polished Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/polished-barbed-arrow"
+          },
+          {
+            "name": "Polished Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/polished-bodkin-bolt"
+          },
+          {
+            "name": "Polished Bolt",
+            "url": "https://vgsoharchive.com/items/polished-bolt"
+          },
+          {
+            "name": "Polished Flight Arrow",
+            "url": "https://vgsoharchive.com/items/polished-flight-arrow"
+          },
+          {
+            "name": "Polished Short Spear",
+            "url": "https://vgsoharchive.com/items/polished-short-spear"
+          },
+          {
+            "name": "Polished Shuriken",
+            "url": "https://vgsoharchive.com/items/polished-shuriken"
+          },
+          {
+            "name": "Polished Throwing Axe",
+            "url": "https://vgsoharchive.com/items/polished-throwing-axe"
+          },
+          {
+            "name": "Polished Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/polished-throwing-hammer"
+          },
+          {
+            "name": "Precise Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/precise-barbed-arrow"
+          },
+          {
+            "name": "Precise Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/precise-bodkin-bolt"
+          },
+          {
+            "name": "Precise Bolt",
+            "url": "https://vgsoharchive.com/items/precise-bolt"
+          },
+          {
+            "name": "Precise Flight Arrow",
+            "url": "https://vgsoharchive.com/items/precise-flight-arrow"
+          },
+          {
+            "name": "Precision Short Spear",
+            "url": "https://vgsoharchive.com/items/precision-short-spear"
+          },
+          {
+            "name": "Precision Shuriken",
+            "url": "https://vgsoharchive.com/items/precision-shuriken"
+          },
+          {
+            "name": "Precision Throwing Axe",
+            "url": "https://vgsoharchive.com/items/precision-throwing-axe"
+          },
+          {
+            "name": "Precision Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/precision-throwing-dagger"
+          },
+          {
+            "name": "Precision Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/precision-throwing-hammer"
+          },
+          {
+            "name": "Short Spear",
+            "url": "https://vgsoharchive.com/items/short-spear"
+          },
+          {
+            "name": "Shuriken",
+            "url": "https://vgsoharchive.com/items/shuriken"
+          },
+          {
+            "name": "Splintered Light Crossbow",
+            "url": "https://vgsoharchive.com/items/splintered-light-crossbow"
+          },
+          {
+            "name": "Splintered Short Bow",
+            "url": "https://vgsoharchive.com/items/splintered-short-bow"
+          },
+          {
+            "name": "Throwing Axe",
+            "url": "https://vgsoharchive.com/items/throwing-axe"
+          },
+          {
+            "name": "Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/throwing-dagger"
+          },
+          {
+            "name": "Thrown Hammer",
+            "url": "https://vgsoharchive.com/items/thrown-hammer"
+          },
+          {
+            "name": "Weighted Short Spear",
+            "url": "https://vgsoharchive.com/items/weighted-short-spear"
+          },
+          {
+            "name": "Weighted Shuriken",
+            "url": "https://vgsoharchive.com/items/weighted-shuriken"
+          },
+          {
+            "name": "Weighted Throwing Axe",
+            "url": "https://vgsoharchive.com/items/weighted-throwing-axe"
+          },
+          {
+            "name": "Weighted Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/weighted-throwing-dagger"
+          },
+          {
+            "name": "Weighted Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/weighted-throwing-hammer"
+          },
+          {
+            "name": "Well-Balanced Short Spear",
+            "url": "https://vgsoharchive.com/items/well-balanced-short-spear"
+          },
+          {
+            "name": "Well-Balanced Shuriken",
+            "url": "https://vgsoharchive.com/items/well-balanced-shuriken"
+          },
+          {
+            "name": "Well-Balanced Throwing Axe",
+            "url": "https://vgsoharchive.com/items/well-balanced-throwing-axe"
+          },
+          {
+            "name": "Well-Balanced Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/well-balanced-throwing-dagger"
+          },
+          {
+            "name": "Well-Balanced Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/well-balanced-throwing-hammer"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Suty Akabanas",
+        "zone": "Afrit",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 2,
+      "url": "https://vgsoharchive.com/mobs/suzou",
+      "cache_sha256": "99cee7ae5232fe7e637be2f3dc093b9fb6268d729068946b73a988f567ce9882",
+      "source_labels": {
+        "zone": "Tanvu",
+        "role": "Heavy Armor Vendor",
+        "difficulty": "3 dots",
+        "chunk": "Tanvu",
+        "continent": "Kojan"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Suzou",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suzou",
+            "title": "Suzou · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:44:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tanvu"
+          ],
+          "role": [
+            "Heavy Armor Vendor"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "chunk": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Suzou",
+        "zone": "Tanvu",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 3,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-carsor",
+      "cache_sha256": "dd5f55e24917701f3cb00dd682323cad9612201d9c94d91da02195db885a210c",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "General Goods Vendor",
+        "difficulty": "5 dots",
+        "chunk": "Dahknarg",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Carsor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-carsor",
+            "title": "Swiftfang Carsor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:16:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "chunk": [
+            "Dahknarg"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Carsor",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 4,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-gahrdor",
+      "cache_sha256": "2c43582b1df8766dd979c94894e074521970e9833ec72aae07cb36838596d792",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "Medium Armor Vendor",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Gahrdor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-gahrdor",
+            "title": "Swiftfang Gahrdor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:27:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Medium Armor Vendor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Swiftfang Gahrdor",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 5,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-gherron",
+      "cache_sha256": "6ca409fb3e6a5cd2ea3dec39a2df4c575fc2598b8d4ea69de71a601b87d3f724",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "General Goods Vendor",
+        "difficulty": "5 dots"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Gherron",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-gherron",
+            "title": "Swiftfang Gherron · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:28:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Gherron",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 6,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-hrolf",
+      "cache_sha256": "7bfae9f0e23888bbe16c99c39580c0f5c3946da47ddee16f1535fbb8df928ce8",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "Harvesting Supply Vendor",
+        "difficulty": "2 dots",
+        "type": "Quest NPC",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Quests handed in here (1)",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Hrolf",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-hrolf",
+            "title": "Swiftfang Hrolf · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:32:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Harvesting Supply Vendor"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "Harvest a Sapling Log",
+            "url": "https://vgsoharchive.com/quests/harvest-a-sapling-log"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Hrolf",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 7,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-jharu",
+      "cache_sha256": "2d0548f3295506d69585536b05e6cbe390d56508192ef5d1785a24c54cba7186",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "Weapon Vendor",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Jharu",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-jharu",
+            "title": "Swiftfang Jharu · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:33:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Weapon Vendor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Jharu",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 8,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-lanna",
+      "cache_sha256": "595ca04bf44c8ea3e3e72991ac0bdc3531ef023346bdb13f2bae7c0c9dbbdfcd",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "Light Armor Vendor",
+        "difficulty": "5 dots"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Lanna",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-lanna",
+            "title": "Swiftfang Lanna · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:38:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Light Armor Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Lanna",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 9,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-narmin",
+      "cache_sha256": "e26c4360e56d0ac5b11ceeae97f35b760e48329de318376c1668d7abe0488a66",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "General Goods Vendor",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Narmin",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-narmin",
+            "title": "Swiftfang Narmin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:44:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Narmin",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 10,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rakmer",
+      "cache_sha256": "fc2e857a89b35fd8660b658b5e387e067e488850d228daf7110d88283ef777f4",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "Clothing Merchant",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Rakmer",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rakmer",
+            "title": "Swiftfang Rakmer · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:50:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Clothing Merchant"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Swiftfang Rakmer",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 11,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-renaks",
+      "cache_sha256": "f49a75a1186cda26efce13e5b3aa87fa71d291a9e97c0a98341f27323882ddcd",
+      "source_labels": {
+        "role": "Weapons Vendor",
+        "difficulty": "2 dots"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Renaks",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-renaks",
+            "title": "Swiftfang Renaks · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:53:15+00:00",
+        "archive_fields": {
+          "role": [
+            "Weapons Vendor"
+          ],
+          "difficulty": [
+            "2 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Renaks",
+        "zone": null,
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 12,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rikor",
+      "cache_sha256": "bf187f4172b29d3177e015558c80d8f3f2b94c3052cfa350dab1bca9c5de98f9",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "General Goods Vendor",
+        "difficulty": "3 dots",
+        "type": "Quest NPC"
+      },
+      "section_headings": [
+        "Details",
+        "Where they stood",
+        "Quests given (1)",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Rikor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rikor",
+            "title": "Swiftfang Rikor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:54:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "Young Bear Pelts",
+            "url": "https://vgsoharchive.com/quests/young-bear-pelts"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Swiftfang Rikor",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 13,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rordan",
+      "cache_sha256": "a77f48b9a10a6164d02e3a02b6e934eac5f9721cb6656ad13391184865bdb416",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "Heavy Armor Vendor",
+        "difficulty": "5 dots",
+        "type": "NPC"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Rordan",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rordan",
+            "title": "Swiftfang Rordan · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:55:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Heavy Armor Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "NPC"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Swiftfang Rordan",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-203618-123810-archive-bulk/merchant.jsonl",
+      "line": 14,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-sarkhon",
+      "cache_sha256": "9706712382620f1c4ad9f57f026d54fa4b8705b34126afa8017e9a958c2de7e4",
+      "source_labels": {
+        "zone": "Dahknarg",
+        "role": "General Goods Vendor",
+        "difficulty": "5 dots"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "sells_item_link_observations": [],
+      "full_source_record": {
+        "name": "Swiftfang Sarkhon",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-sarkhon",
+            "title": "Swiftfang Sarkhon · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:56:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Swiftfang Sarkhon",
+        "zone": "Dahknarg",
+        "sells": null,
+        "buys": null
+      }
+    }
+  ]
+}

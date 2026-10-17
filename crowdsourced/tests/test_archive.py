@@ -19,6 +19,38 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_merchant_stock_is_section_scoped_and_prices_unknown(self):
+        html = page('Vendor', '<dl class="kv"><dt>Role</dt><dd>Merchant</dd></dl>'
+                    '<h2>Sells (3)</h2><ul><li><a href="/items/arrow">Arrow</a>'
+                    '<span>Value: 2 gold</span></li><li><a href="/items/arrow">Arrow</a></li>'
+                    '<li><a href="https://elsewhere.test/items/fake">Fake</a></li>'
+                    '<li><a href="/items/query?x=1">Query</a></li></ul>'
+                    '<h2>Loot</h2><a href="/items/loot">Loot</a>')
+        records, _ = collector.parse_page(ORIGIN + '/mobs/vendor', html)
+        merchant = next(r for r in records if r['type'] == 'merchant')
+        self.assertEqual(merchant['sells'], [dict(item='Arrow', item_url=ORIGIN + '/items/arrow', price_copper=None)])
+
+    def test_merchant_absent_sells_remains_unknown(self):
+        records, _ = collector.parse_page(ORIGIN + '/mobs/vendor', page(
+            'Vendor', '<dl class="kv"><dt>Role</dt><dd>Merchant</dd></dl><h2>Sells (0)</h2><ul></ul>'))
+        self.assertIsNone(next(r for r in records if r['type'] == 'merchant')['sells'])
+
+    def test_creature_geography_labels_remain_observations(self):
+        from archive_extract import enrich_record
+        record = dict(type='creature', archive_fields={
+            'continent': ['Thestra'], 'difficulty': ['3 dots'],
+            'locations seen': ['2']})
+        enrich_record(record, None)
+        self.assertEqual(record['continent'], 'Thestra')
+        self.assertEqual(record['difficulty_recorded'], '3 dots')
+        self.assertEqual(record['locations_seen_recorded'], '2')
+        self.assertNotIn('spawn_areas', record)
+        record['archive_fields'] = {'continent': ['Thestra', 'Qalia']}
+        enrich_record(record, None)
+        self.assertIsNone(record['continent'])
+        self.assertIsNone(record['difficulty_recorded'])
+        self.assertIsNone(record['locations_seen_recorded'])
+
     def test_item_tool_and_material_tags_are_kept_as_metadata(self):
         for label in ('tool','material'):
             html=page('Fixture Item <span class="tag-'+label+'">'+label+'</span> <span class="tag-crafted">crafted</span>','')
@@ -328,6 +360,17 @@ class ArchivePublicationTests(unittest.TestCase):
                 error.close()
         self.assertFalse(collector.transient_connection_error(ValueError('parser drift')))
         self.assertFalse(collector.transient_connection_error(URLError('DNS failure')))
+
+    def test_network_unreachable_recovery_excludes_other_os_errors(self):
+        import errno
+        from urllib.error import URLError
+        for code in (errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN):
+            self.assertTrue(collector.transient_connection_error(URLError(OSError(code, str(code)))))
+        windows_error = OSError(0, 'network unreachable')
+        windows_error.winerror = 10051
+        self.assertTrue(collector.transient_connection_error(URLError(windows_error)))
+        self.assertFalse(collector.transient_connection_error(URLError(PermissionError(errno.EACCES, 'denied'))))
+        self.assertFalse(collector.transient_connection_error(OSError(errno.ENOSPC, 'disk full')))
 
     def test_timeout_publishes_partial_batch_and_keeps_failed_url_pending(self):
         class Client:

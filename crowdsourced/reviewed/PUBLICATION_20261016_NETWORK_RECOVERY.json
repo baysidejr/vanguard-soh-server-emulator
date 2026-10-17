@@ -1,0 +1,357 @@
+{
+  "reviewed_at": "2026-10-16T21:16:27.047388+00:00",
+  "batches": [
+    {
+      "batch": "raw\\2026-10-16-071553-861523-archive-bulk",
+      "pages": 100,
+      "counts": {
+        "creature": 80,
+        "loot": 22,
+        "npc": 20,
+        "merchant": 5
+      },
+      "issues": [],
+      "collision_records": []
+    },
+    {
+      "batch": "raw\\2026-10-16-085554-004447-archive-bulk",
+      "pages": 100,
+      "counts": {
+        "creature": 97,
+        "loot": 17,
+        "npc": 3
+      },
+      "issues": [],
+      "collision_records": []
+    },
+    {
+      "batch": "raw\\2026-10-16-103554-141302-archive-bulk",
+      "pages": 100,
+      "counts": {
+        "creature": 93,
+        "npc": 7,
+        "loot": 31,
+        "merchant": 1
+      },
+      "issues": [
+        "output key collision ('mobs', 'smith_of_barba'): [('creature', 'Smith Of´Barba'), ('npc', \"Smith Of'Barba\")]; all withheld"
+      ],
+      "collision_records": [
+        {
+          "file": "raw\\2026-10-16-103554-141302-archive-bulk\\creature.jsonl",
+          "line": 90,
+          "record": {
+            "name": "Smith Of´Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba-2",
+                "title": "Smith Of´Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T16:12:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Ahgram Archaelogy Society"
+              ],
+              "continent": [
+                "Qalia"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "creature",
+            "level": null,
+            "zone": "Coterie Infineum Sanctuary",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Coterie Infineum Sanctuary"
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "file": "raw\\2026-10-16-103554-141302-archive-bulk\\merchant.jsonl",
+          "line": 1,
+          "record": {
+            "name": "Smith Of'Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba",
+                "title": "Smith Of'Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T16:11:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Merchant - Special"
+              ],
+              "difficulty": [
+                "3 dots"
+              ],
+              "location": [
+                "-33188, -25397, 19670"
+              ],
+              "chunk": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "race": [
+                "Qaliathari"
+              ],
+              "locations seen": [
+                "Shidreth Mining Company"
+              ],
+              "parley types": [
+                "none , none , none , none , none"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Forged Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/forged-infineum-armor"
+              },
+              {
+                "name": "Rewrought Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/rewrought-infineum-armor"
+              },
+              {
+                "name": "The Ageless One",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one"
+              },
+              {
+                "name": "Strong Ale",
+                "url": "https://vgsoharchive.com/items/strong-ale"
+              },
+              {
+                "name": "The Ageless One (quest)",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one-quest"
+              },
+              {
+                "name": "Weapon Exchange",
+                "url": "https://vgsoharchive.com/quests/weapon-exchange"
+              },
+              {
+                "name": "Society Writ of Membership",
+                "url": "https://vgsoharchive.com/quests/society-writ-of-membership"
+              },
+              {
+                "name": "Blessed Infineum Plate Boots",
+                "url": "https://vgsoharchive.com/items/blessed-infineum-plate-boots"
+              },
+              {
+                "name": "Errytl, Mace of the Ages",
+                "url": "https://vgsoharchive.com/items/errytl-mace-of-the-ages"
+              },
+              {
+                "name": "Gazra, Greataxe Of The Ages",
+                "url": "https://vgsoharchive.com/items/gazra-greataxe-of-the-ages"
+              },
+              {
+                "name": "Nusin Longsword Of Ages",
+                "url": "https://vgsoharchive.com/items/nusin-longsword-of-ages"
+              },
+              {
+                "name": "Yanvil, Greatstaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/yanvil-greatstaff-of-the-ages"
+              },
+              {
+                "name": "Zank, Bladestaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/zank-bladestaff-of-the-ages"
+              }
+            ],
+            "type": "merchant",
+            "npc": "Smith Of'Barba",
+            "zone": "Coterie Infineum Sanctuary",
+            "sells": null,
+            "buys": null
+          }
+        },
+        {
+          "file": "raw\\2026-10-16-103554-141302-archive-bulk\\npc.jsonl",
+          "line": 7,
+          "record": {
+            "name": "Smith Of'Barba",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/smith-of-barba",
+                "title": "Smith Of'Barba · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-16T16:11:51+00:00",
+            "archive_fields": {
+              "zone": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "role": [
+                "Merchant - Special"
+              ],
+              "difficulty": [
+                "3 dots"
+              ],
+              "location": [
+                "-33188, -25397, 19670"
+              ],
+              "chunk": [
+                "Coterie Infineum Sanctuary"
+              ],
+              "continent": [
+                "Qalia"
+              ],
+              "race": [
+                "Qaliathari"
+              ],
+              "locations seen": [
+                "Shidreth Mining Company"
+              ],
+              "parley types": [
+                "none , none , none , none , none"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Forged Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/forged-infineum-armor"
+              },
+              {
+                "name": "Rewrought Infineum Armor",
+                "url": "https://vgsoharchive.com/quests/rewrought-infineum-armor"
+              },
+              {
+                "name": "The Ageless One",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one"
+              },
+              {
+                "name": "Strong Ale",
+                "url": "https://vgsoharchive.com/items/strong-ale"
+              },
+              {
+                "name": "The Ageless One (quest)",
+                "url": "https://vgsoharchive.com/quests/the-ageless-one-quest"
+              },
+              {
+                "name": "Weapon Exchange",
+                "url": "https://vgsoharchive.com/quests/weapon-exchange"
+              },
+              {
+                "name": "Society Writ of Membership",
+                "url": "https://vgsoharchive.com/quests/society-writ-of-membership"
+              },
+              {
+                "name": "Blessed Infineum Plate Boots",
+                "url": "https://vgsoharchive.com/items/blessed-infineum-plate-boots"
+              },
+              {
+                "name": "Errytl, Mace of the Ages",
+                "url": "https://vgsoharchive.com/items/errytl-mace-of-the-ages"
+              },
+              {
+                "name": "Gazra, Greataxe Of The Ages",
+                "url": "https://vgsoharchive.com/items/gazra-greataxe-of-the-ages"
+              },
+              {
+                "name": "Nusin Longsword Of Ages",
+                "url": "https://vgsoharchive.com/items/nusin-longsword-of-ages"
+              },
+              {
+                "name": "Yanvil, Greatstaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/yanvil-greatstaff-of-the-ages"
+              },
+              {
+                "name": "Zank, Bladestaff Of The Ages",
+                "url": "https://vgsoharchive.com/items/zank-bladestaff-of-the-ages"
+              }
+            ],
+            "type": "npc",
+            "level": 30,
+            "zone": "Coterie Infineum Sanctuary",
+            "health": null,
+            "damage": null,
+            "race": "Qaliathari",
+            "title": null,
+            "services": [
+              "quest giver",
+              "merchant"
+            ],
+            "quests_given": [
+              "The Ageless One (quest)",
+              "Forged Infineum Armor",
+              "Rewrought Infineum Armor",
+              "The Ageless One",
+              "Weapon Exchange"
+            ],
+            "chunk": "Coterie Infineum Sanctuary",
+            "location": {
+              "raw": "-33188, -25397, 19670",
+              "format": "source coordinates; axis order unspecified",
+              "chunk": "Coterie Infineum Sanctuary"
+            },
+            "zones_recorded": [
+              "Coterie Infineum Sanctuary"
+            ],
+            "continent": "Qalia",
+            "locations_seen_recorded": "Shidreth Mining Company",
+            "difficulty_recorded": "3 dots",
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "batch": "raw\\2026-10-16-121554-306428-archive-bulk",
+      "pages": 100,
+      "counts": {
+        "creature": 88,
+        "loot": 16,
+        "npc": 12,
+        "merchant": 1
+      },
+      "issues": [],
+      "collision_records": []
+    },
+    {
+      "batch": "raw\\2026-10-16-135554-423881-archive-bulk",
+      "pages": 99,
+      "counts": {
+        "creature": 88,
+        "loot": 17,
+        "npc": 11
+      },
+      "issues": [],
+      "collision_records": []
+    }
+  ],
+  "limitations": "Structural validation only; entity-kind review and historical verification remain pending. Collision records are research and all conflicting outputs are withheld.",
+  "checkpoint": {
+    "done": 25898,
+    "pending": 78950,
+    "overlap": 0,
+    "queue_duplicates": 0,
+    "missing_supported_inventory": 0
+  }
+}

@@ -1,5 +1,21 @@
 # Archive collection
 
+Alternate-source transport groundwork is in `multisource_client.py`. It requires
+the calling process to own the existing collector lock, uses the archive's shared
+request clock and persisted minimum interval, and evaluates robots separately for
+each allowed host (including query URLs). Robots denial or HTTP errors propagate
+without retry; waits check graceful stop every 250 milliseconds. Cached bodies are
+checked against source URL and SHA-256 metadata. The live archive runner now schedules alternate wiki intake sequentially through
+this transport. A robots 404/410 now records missing-file evidence and permits conservative collection; 401/403/429 and other policy retrieval errors still stop access. Existing suspension checkpoints require an explicit recorded reset after this correction.
+
+`multisource_extract.py` now parses explicitly labelled wiki infobox observations
+without merging repeated labels or assigning canonical IDs or historical eras.
+Missing article regions fail closed. Pages without infobox observations remain
+metadata only; other article tables and prose still require extraction review.
+The immutable iteration148 cache review verifies the cached main-page hash and
+retains 50 pending article links. The live runner now schedules this parser with a separate resumable queue;
+its discovered articles remain pending until fetched and parsed.
+
 The strategy is a whole-site canonical URL inventory followed by batches of linked game records. Sundering Wastelands and Wildgrowth Forest come first. Zone maps supply useful entity/quest relationships, but their links do not enumerate every record associated with a zone. The subsequent site-wide pass collects pages that would otherwise be missed, including items whose zone is unknown.
 
 The initial sitemap inventory contains **104,855 distinct URLs**, including 100,666 supported detail pages: 75,066 items, 15,418 archive mob entries, 4,776 quests, 3,057 abilities, 401 zones, 1,582 recipes and 366 diplomacy cards. The collector also reads 27 canonical class/profession indexes, which can supply many ability rows per request. Remaining URLs include other indexes, effects, races, class subpages and guide/lore pages requiring additional extraction rules. The URL inventory is not a dump of all game records.
@@ -30,6 +46,8 @@ The converter maps archive stat codes such as `HIT_POINTS`, `ENERGY` and `SPELL_
 Version 5 adds class-trainer pages. Fifteen trainer indexes were discovered through cached class-page links even though they were absent from the sitemap inventory. Their NPC names, class relationships, continent labels, linked zones and source `/loc` strings are extracted. Descriptive directions are not treated as coordinates, and unlinked region labels are not guessed as chunks. The underlying NPC detail pages are promoted for additional evidence. Cache URL sidecars preserve discoveries outside the sitemap so later enrichment can replay them without making network requests.
 
 Facts are collected automatically. Conversion proposals still require review, and no server imports happen automatically. Earlier hand-reviewed batches remain unchanged and can contain stronger evidence, such as direct VGOPlayers item records.
+
+The converter explicitly withholds loot tables containing `observed_sample` values, including blank samples, even when confidence or quantity fields are later supplied. Printed sample percentages remain research observations rather than operative drop probabilities. `reviewed/LOOT_CONVERSION_SAFEGUARD_20261016T2334.json` records a 41-record counterfactual check with quantities supplied only in memory; immutable source records remain unchanged.
 
 ## Setup and operation
 
@@ -77,3 +95,55 @@ python -B crowdsourced/validate.py raw/<batch-name>
 Tests use synthetic fixtures and temporary files inside `crowdsourced/tests/`; they make no network requests. Coverage includes source parsing, malformed rank tables, conflicting item values, card pools, safe URLs, crawl spacing, unknown values, and completion checkpoints after successful publication. A clean batch validation is not historical authentication or proof that the zone is fully covered.
 
 Transient connection recovery (read/connect timeouts and closed/reset connections) in continuous runs preserves the partial batch and failed URL, then increases the request interval from 15 to 30, 45 and 60 seconds. Further transient failures retain the 60-second interval; a longer robots delay always takes precedence. The interval is persisted across restarts and is not reset after success. Cooldown respects graceful stop requests. Other failures (including HTTP access/rate errors and parser errors) still stop for review.
+
+Network-unreachable/down transport errors (including Windows 10051) use the same persisted cooldown recovery. Permission, disk and HTTP errors remain fatal for review.
+
+Parser version 32 exposes explicit creature continent, locations-seen and difficulty labels in dedicated observation fields, matching existing NPC coverage. Ambiguous or missing labels remain null. reviewed/EXTRACTION_V32.json records a zero-network targeted replay of 404 cached pages and 1,212 independent DOM field checks; these overlap prior downloads and do not resolve entity-kind or historical review. The already-running collector retains its loaded parser until a later normal restart.
+
+Parser version 33 preserves explicit mob-page Where they stood entries in map_location_observations, including exact linked zones and printed coordinate pairs. Coordinate format and spawn certainty remain null; these observations do not replace operative locations or establish spawns. reviewed/EXTRACTION_V33.json documents the three-page, zero-network targeted replay and source comparisons. Earlier batches remain unchanged; the live collector retains its loaded parser until a normal restart.
+
+Parser version 34 extracts canonical item links from merchant Sells sections, with unknown purchase prices retained as null. Tooltip values are not purchase prices; missing or empty sections retain unknown stock. reviewed/EXTRACTION_V34.json records a 14-page cache-only replay checked against the prior independent DOM audit: 54 stock links, zero network requests and zero structural validation issues. Earlier immutable batches remain unchanged; the running collector retains its loaded parser until a normal restart. Merchant conversion remains withheld where prices are unknown.
+
+Parser version 35 recognizes all 24 canonical sitemap landing/index routes identified in reviewed/INVENTORY_ROOT_PAGE_GAP_REVIEW_20261017.json, including /stats, /skills and /gameplay. These pages publish source metadata and explicit extraction gaps; they do not create guessed typed entities. Normal run startup merges the authoritative inventory into the saved queue, so a graceful stop/restart loads this support and adds the missing roots without manually editing checkpoints. Tests exercise every excluded inventory URL, linked-item discovery and query rejection. Typed extraction and historical review remain pending.
+
+The continuous runner now schedules one VGOPlayers wiki article before each archive
+batch, using the same process lock, request clock and persisted interval. Discovery
+seeds come from hash-verified cached wiki pages. Alternate checkpoints live in
+`.cache/collector/multisource_queue.json`; archive queues and completion records
+remain separate. Immutable `raw/*-alternate-wiki` batches retain response hashes,
+source URLs, metadata-only classification and extraction gaps. Article failures
+leave the URL pending; transient transport failures use the runner cooldown,
+whereas HTTP/policy/parser failures stop for review without retry. This scheduler
+currently covers wiki articles; quest detail discovery, item search intake and
+other permitted emulator pages still require implementation. Alternate observation
+batches require source-specific review and are not server conversion inputs.
+
+Alternate robots retrieval returned HTTP 404 at the first unified restart (PID 2264). Iteration 150 preserves the traceback and all 50 pending article URLs in a policy-review batch. The alternate scheduler now suspends intake after a missing robots response until policy review; archive collection continues in the sole runner. Article 404/410 responses are recorded as unavailable research, never extracted coverage; 401/403/429 remain fatal without retry. No missing robots policy is bypassed.
+
+## Suspension and offline review (iteration 154)
+
+Collection remains stopped with the graceful-stop signal preserved. Alternate
+intake retains the robots HTTP 404 review checkpoint for vgoplayers.com and all
+50 pending articles. Although missing-robots handling was corrected in commit
+032f157, automatic approval review rejected the combined suspension-reset,
+push and restart action with reason `blocked by policy`. That rejection remains
+in effect: this phase does not reset the checkpoint or restart network access.
+Resumption requires resolution of that rejection and an explicitly recorded
+policy disposition. Then inspect `collection.ps1 Status`, the actual process and
+lock, and resume only through `collection.ps1 Start`, with exactly one collector,
+existing archive and alternate queues, and the persisted 60-second interval.
+HTTP 401/403/429 and robots restrictions remain stop conditions.
+
+`reviewed/COLLISION_LEDGER_ITERATION154.json` consolidates 40 collision
+occurrences across 24 revalidated immutable batches, representing 28 output keys
+and 80 full source-record occurrences. Replays are retained as separate evidence,
+not independent corroboration. Every record was checked against its source-file
+hash and line; all reported collision issues still reproduce. All colliding
+outputs remain withheld. This review neither resolves identities nor counts as
+new downloads or additional game facts.
+
+At this review, the archive checkpoint retains 26,918 completed pages and 77,954
+pending URLs against 104,855 supported inventory URLs (including off-inventory
+discoveries in checkpoint counts). Publication coverage remains 25,102 zero-issue
+URLs and 1,806 URLs in research batches with issues; 77,947 inventory URLs remain
+undownloaded. Metadata-only pages and extraction review remain separate work.

@@ -1,0 +1,545 @@
+{
+  "reviewed_at": "2026-10-17T03:33:45.113385+00:00",
+  "scope": "Cache-only review of two previously undocumented same-name/multiple-URL creature records, including nested archive variants. Full source records preserved; no network requests.",
+  "cases": [
+    {
+      "name": "Glade Basiliks Destroyer",
+      "status": "unresolved_distinct_url_identity",
+      "decision": "Withhold identity merge and operative conversion. Matching names or observations do not prove a single historical entity.",
+      "page_evidence": [
+        {
+          "url": "https://vgsoharchive.com/mobs/glade-basiliks-destroyer",
+          "cache_sha256": "45187f9e29188ee7e9569750d345f361e3ebe5fabb631d54c483990b229b95de",
+          "heading": "Glade Basiliks Destroyer",
+          "linked_zones": [],
+          "linked_items": [
+            "/items/ancient-ritual-candle",
+            "/items/average-ring-of-the-arcane",
+            "/items/coarse-hide",
+            "/items/coarse-strip",
+            "/items/gold-jasper-pendant",
+            "/items/long-basilisk-leg-3",
+            "/items/sturdy-basilisk-spike-3",
+            "/items/vicious-basilisk-tooth-3"
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/glade-basiliks-destroyer-2",
+          "cache_sha256": "45187f9e29188ee7e9569750d345f361e3ebe5fabb631d54c483990b229b95de",
+          "heading": "Glade Basiliks Destroyer",
+          "linked_zones": [],
+          "linked_items": [
+            "/items/ancient-ritual-candle",
+            "/items/average-ring-of-the-arcane",
+            "/items/coarse-hide",
+            "/items/coarse-strip",
+            "/items/gold-jasper-pendant",
+            "/items/long-basilisk-leg-3",
+            "/items/sturdy-basilisk-spike-3",
+            "/items/vicious-basilisk-tooth-3"
+          ]
+        }
+      ],
+      "item_link_sets_equal": true,
+      "zone_link_sets_equal": true,
+      "full_source_records": [
+        {
+          "record_file": "raw\\2026-10-15-003852-641971-archive-bulk\\creature.jsonl",
+          "line": 76,
+          "record": {
+            "name": "Glade Basiliks Destroyer",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/glade-basiliks-destroyer",
+                "title": "Glade Basiliks Destroyer · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/mobs/glade-basiliks-destroyer-2",
+                "title": "Glade Basiliks Destroyer · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 31,
+            "collected_at": "2026-10-15T04:47:00+00:00",
+            "archive_fields": {
+              "zone": [
+                "Wardship Of The Sleeping Moon"
+              ],
+              "continent": [
+                "Thestra"
+              ],
+              "can swim": [
+                "Yes"
+              ],
+              "can fly": [
+                "No"
+              ],
+              "wall crawl": [
+                "No"
+              ],
+              "kills sampled": [
+                "40"
+              ],
+              "locations seen": [
+                "473"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ancient Ritual Candle",
+                "url": "https://vgsoharchive.com/items/ancient-ritual-candle"
+              },
+              {
+                "name": "Average Ring of the Arcane",
+                "url": "https://vgsoharchive.com/items/average-ring-of-the-arcane"
+              },
+              {
+                "name": "Gold Jasper Pendant",
+                "url": "https://vgsoharchive.com/items/gold-jasper-pendant"
+              },
+              {
+                "name": "Sturdy Basilisk Spike",
+                "url": "https://vgsoharchive.com/items/sturdy-basilisk-spike-3"
+              },
+              {
+                "name": "Vicious Basilisk Tooth",
+                "url": "https://vgsoharchive.com/items/vicious-basilisk-tooth-3"
+              },
+              {
+                "name": "Coarse Hide",
+                "url": "https://vgsoharchive.com/items/coarse-hide"
+              },
+              {
+                "name": "Coarse Strip",
+                "url": "https://vgsoharchive.com/items/coarse-strip"
+              },
+              {
+                "name": "Long Basilisk Leg",
+                "url": "https://vgsoharchive.com/items/long-basilisk-leg-3"
+              }
+            ],
+            "type": "creature",
+            "level": 32,
+            "zone": "Wardship Of The Sleeping Moon",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Wardship Of The Sleeping Moon"
+            ],
+            "loot_ref": "Glade Basiliks Destroyer",
+            "original_source_urls": [],
+            "archive_variants": [
+              {
+                "name": "Glade Basiliks Destroyer",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/glade-basiliks-destroyer-2",
+                    "title": "Glade Basiliks Destroyer · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-15T04:47:05+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Wardship Of The Sleeping Moon"
+                  ],
+                  "continent": [
+                    "Thestra"
+                  ],
+                  "can swim": [
+                    "Yes"
+                  ],
+                  "can fly": [
+                    "No"
+                  ],
+                  "wall crawl": [
+                    "No"
+                  ],
+                  "kills sampled": [
+                    "40"
+                  ],
+                  "locations seen": [
+                    "473"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Ancient Ritual Candle",
+                    "url": "https://vgsoharchive.com/items/ancient-ritual-candle"
+                  },
+                  {
+                    "name": "Average Ring of the Arcane",
+                    "url": "https://vgsoharchive.com/items/average-ring-of-the-arcane"
+                  },
+                  {
+                    "name": "Gold Jasper Pendant",
+                    "url": "https://vgsoharchive.com/items/gold-jasper-pendant"
+                  },
+                  {
+                    "name": "Sturdy Basilisk Spike",
+                    "url": "https://vgsoharchive.com/items/sturdy-basilisk-spike-3"
+                  },
+                  {
+                    "name": "Vicious Basilisk Tooth",
+                    "url": "https://vgsoharchive.com/items/vicious-basilisk-tooth-3"
+                  },
+                  {
+                    "name": "Coarse Hide",
+                    "url": "https://vgsoharchive.com/items/coarse-hide"
+                  },
+                  {
+                    "name": "Coarse Strip",
+                    "url": "https://vgsoharchive.com/items/coarse-strip"
+                  },
+                  {
+                    "name": "Long Basilisk Leg",
+                    "url": "https://vgsoharchive.com/items/long-basilisk-leg-3"
+                  }
+                ],
+                "type": "creature",
+                "level": 32,
+                "zone": "Wardship Of The Sleeping Moon",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": null,
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "Wardship Of The Sleeping Moon"
+                ],
+                "loot_ref": "Glade Basiliks Destroyer",
+                "original_source_urls": []
+              }
+            ]
+          }
+        }
+      ],
+      "unknown_fields_retained": [
+        "health",
+        "damage",
+        "creature_kind",
+        "respawn_time"
+      ],
+      "source_records_modified": false
+    },
+    {
+      "name": "Jiliwin the Branding",
+      "status": "unresolved_distinct_url_identity",
+      "decision": "Withhold identity merge and operative conversion. Matching names or observations do not prove a single historical entity.",
+      "page_evidence": [
+        {
+          "url": "https://vgsoharchive.com/mobs/jiliwin-the-branding",
+          "cache_sha256": "226fef435cb19617f715dc5764dbc4189c7063d20504817a16800fb29fb05b17",
+          "heading": "Jiliwin the Branding",
+          "linked_zones": [],
+          "linked_items": [
+            "/items/agate",
+            "/items/blotchy-brownie-belt",
+            "/items/bronze-garnet-mask",
+            "/items/bronze-jasper-pendant",
+            "/items/bronze-tourmaline-pendant-2",
+            "/items/claws-of-the-redcaps",
+            "/items/drum-of-the-redcaps",
+            "/items/dull-redcap-pendant",
+            "/items/fine-brownie-hoop",
+            "/items/heavy-leather-underlay-3",
+            "/items/scaled-redcap-gloves",
+            "/items/smoking-pile-of-brimstone",
+            "/items/tanned-hide-vest",
+            "/items/tasty-brownie-parts"
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/jiliwin-the-branding-2",
+          "cache_sha256": "457f17d6162c63c0fc0699321b57029f24860564f4bf8e57b7a778d1ef85952a",
+          "heading": "Jiliwin the Branding",
+          "linked_zones": [],
+          "linked_items": [
+            "/items/agate",
+            "/items/blotchy-brownie-belt",
+            "/items/bronze-garnet-mask",
+            "/items/bronze-jasper-pendant",
+            "/items/bronze-tourmaline-pendant-2",
+            "/items/claws-of-the-redcaps",
+            "/items/drum-of-the-redcaps",
+            "/items/dull-redcap-pendant",
+            "/items/fine-brownie-hoop",
+            "/items/heavy-leather-underlay-3",
+            "/items/scaled-redcap-gloves",
+            "/items/smoking-pile-of-brimstone",
+            "/items/tanned-hide-vest",
+            "/items/tasty-brownie-parts"
+          ]
+        }
+      ],
+      "item_link_sets_equal": true,
+      "zone_link_sets_equal": true,
+      "full_source_records": [
+        {
+          "record_file": "raw\\2026-10-15-032533-473811-archive-bulk\\creature.jsonl",
+          "line": 10,
+          "record": {
+            "name": "Jiliwin the Branding",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/jiliwin-the-branding",
+                "title": "Jiliwin the Branding · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/mobs/jiliwin-the-branding-2",
+                "title": "Jiliwin the Branding · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 31,
+            "collected_at": "2026-10-15T07:26:41+00:00",
+            "archive_fields": {
+              "zone": [
+                "Veskal's Exchange"
+              ],
+              "continent": [
+                "Thestra"
+              ],
+              "can swim": [
+                "Yes"
+              ],
+              "can fly": [
+                "No"
+              ],
+              "wall crawl": [
+                "No"
+              ],
+              "kills sampled": [
+                "96"
+              ],
+              "locations seen": [
+                "54"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Claws Of The Redcaps",
+                "url": "https://vgsoharchive.com/items/claws-of-the-redcaps"
+              },
+              {
+                "name": "Drum Of The Redcaps",
+                "url": "https://vgsoharchive.com/items/drum-of-the-redcaps"
+              },
+              {
+                "name": "Scaled Redcap Gloves",
+                "url": "https://vgsoharchive.com/items/scaled-redcap-gloves"
+              },
+              {
+                "name": "Dull Redcap Pendant",
+                "url": "https://vgsoharchive.com/items/dull-redcap-pendant"
+              },
+              {
+                "name": "Drum of the Redcaps",
+                "url": "https://vgsoharchive.com/items/drum-of-the-redcaps"
+              },
+              {
+                "name": "Claws of the Redcaps",
+                "url": "https://vgsoharchive.com/items/claws-of-the-redcaps"
+              },
+              {
+                "name": "Smoking Pile of Brimstone",
+                "url": "https://vgsoharchive.com/items/smoking-pile-of-brimstone"
+              },
+              {
+                "name": "Agate",
+                "url": "https://vgsoharchive.com/items/agate"
+              },
+              {
+                "name": "Bronze Garnet Mask",
+                "url": "https://vgsoharchive.com/items/bronze-garnet-mask"
+              },
+              {
+                "name": "Bronze Jasper Pendant",
+                "url": "https://vgsoharchive.com/items/bronze-jasper-pendant"
+              },
+              {
+                "name": "Bronze Tourmaline Pendant",
+                "url": "https://vgsoharchive.com/items/bronze-tourmaline-pendant-2"
+              },
+              {
+                "name": "Heavy Leather Underlay",
+                "url": "https://vgsoharchive.com/items/heavy-leather-underlay-3"
+              },
+              {
+                "name": "Tanned Hide Vest",
+                "url": "https://vgsoharchive.com/items/tanned-hide-vest"
+              },
+              {
+                "name": "Blotchy Brownie Belt",
+                "url": "https://vgsoharchive.com/items/blotchy-brownie-belt"
+              },
+              {
+                "name": "Fine Brownie Hoop",
+                "url": "https://vgsoharchive.com/items/fine-brownie-hoop"
+              },
+              {
+                "name": "Tasty Brownie Parts",
+                "url": "https://vgsoharchive.com/items/tasty-brownie-parts"
+              }
+            ],
+            "type": "creature",
+            "level": 16,
+            "zone": "Veskal's Exchange",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": null,
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Veskal's Exchange"
+            ],
+            "loot_ref": "Jiliwin the Branding",
+            "original_source_urls": [],
+            "archive_variants": [
+              {
+                "name": "Jiliwin the Branding",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/jiliwin-the-branding-2",
+                    "title": "Jiliwin the Branding · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-15T07:26:46+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Veskal's Exchange"
+                  ],
+                  "continent": [
+                    "Thestra"
+                  ],
+                  "can swim": [
+                    "Yes"
+                  ],
+                  "can fly": [
+                    "No"
+                  ],
+                  "wall crawl": [
+                    "No"
+                  ],
+                  "kills sampled": [
+                    "96"
+                  ],
+                  "locations seen": [
+                    "54"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Scaled Redcap Gloves",
+                    "url": "https://vgsoharchive.com/items/scaled-redcap-gloves"
+                  },
+                  {
+                    "name": "Dull Redcap Pendant",
+                    "url": "https://vgsoharchive.com/items/dull-redcap-pendant"
+                  },
+                  {
+                    "name": "Drum of the Redcaps",
+                    "url": "https://vgsoharchive.com/items/drum-of-the-redcaps"
+                  },
+                  {
+                    "name": "Claws of the Redcaps",
+                    "url": "https://vgsoharchive.com/items/claws-of-the-redcaps"
+                  },
+                  {
+                    "name": "Smoking Pile of Brimstone",
+                    "url": "https://vgsoharchive.com/items/smoking-pile-of-brimstone"
+                  },
+                  {
+                    "name": "Agate",
+                    "url": "https://vgsoharchive.com/items/agate"
+                  },
+                  {
+                    "name": "Bronze Garnet Mask",
+                    "url": "https://vgsoharchive.com/items/bronze-garnet-mask"
+                  },
+                  {
+                    "name": "Bronze Jasper Pendant",
+                    "url": "https://vgsoharchive.com/items/bronze-jasper-pendant"
+                  },
+                  {
+                    "name": "Bronze Tourmaline Pendant",
+                    "url": "https://vgsoharchive.com/items/bronze-tourmaline-pendant-2"
+                  },
+                  {
+                    "name": "Tanned Hide Vest",
+                    "url": "https://vgsoharchive.com/items/tanned-hide-vest"
+                  },
+                  {
+                    "name": "Heavy Leather Underlay",
+                    "url": "https://vgsoharchive.com/items/heavy-leather-underlay-3"
+                  },
+                  {
+                    "name": "Blotchy Brownie Belt",
+                    "url": "https://vgsoharchive.com/items/blotchy-brownie-belt"
+                  },
+                  {
+                    "name": "Fine Brownie Hoop",
+                    "url": "https://vgsoharchive.com/items/fine-brownie-hoop"
+                  },
+                  {
+                    "name": "Tasty Brownie Parts",
+                    "url": "https://vgsoharchive.com/items/tasty-brownie-parts"
+                  }
+                ],
+                "type": "creature",
+                "level": 16,
+                "zone": "Veskal's Exchange",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": null,
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "Veskal's Exchange"
+                ],
+                "loot_ref": "Jiliwin the Branding",
+                "original_source_urls": []
+              }
+            ]
+          }
+        }
+      ],
+      "unknown_fields_retained": [
+        "health",
+        "damage",
+        "creature_kind",
+        "respawn_time"
+      ],
+      "source_records_modified": false
+    }
+  ],
+  "remaining_work": "Identity remains unresolved for both cases. Collection, metadata extraction and other semantic/collision review remain pending."
+}

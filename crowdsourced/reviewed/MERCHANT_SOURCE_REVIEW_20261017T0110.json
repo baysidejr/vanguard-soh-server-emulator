@@ -1,0 +1,255 @@
+{
+  "reviewed_at": "2026-10-17T01:09:18.645155+00:00",
+  "scope": "Independent cached DOM review of all four merchant records in latest network batch; zero network requests; immutable records unchanged.",
+  "records_reviewed": 4,
+  "checks_passed": 16,
+  "discrepancies": [],
+  "records": [
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/strengun-orvihn",
+      "cache_sha256": "f61e96e9254466b242148788aaaad989ca159a54f287753ba734865aa5231368",
+      "source_labels": {
+        "zone": "The Temple Of Dailuk",
+        "role": "General Goods Vendor",
+        "continent": "Qalia"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "full_source_record": {
+        "name": "Strengun Orvihn",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/strengun-orvihn",
+            "title": "Strengun Orvihn · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:21:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "The Temple Of Dailuk"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Strengun Orvihn",
+        "zone": "The Temple Of Dailuk",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "url": "https://vgsoharchive.com/mobs/succen-dawi",
+      "cache_sha256": "547d5196cc87b3be61307fd53d6fabe146b68dca0047bdbb29952607128289c2",
+      "source_labels": {
+        "zone": "Ahgram",
+        "role": "Clothing Merchant",
+        "chunk": "Ahgram",
+        "continent": "Qalia"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "full_source_record": {
+        "name": "Succen Dawi",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/succen-dawi",
+            "title": "Succen Dawi · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:36:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ahgram"
+          ],
+          "role": [
+            "Clothing Merchant"
+          ],
+          "chunk": [
+            "Ahgram"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Succen Dawi",
+        "zone": "Ahgram",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\merchant.jsonl",
+      "line": 3,
+      "url": "https://vgsoharchive.com/mobs/suin-luken",
+      "cache_sha256": "495f095252af53b59f30e72f97665e49e401429d06d91cd31b1086c46487feae",
+      "source_labels": {
+        "zone": "Jharru Flats",
+        "role": "General Goods Vendor",
+        "continent": "Qalia"
+      },
+      "section_headings": [
+        "Details",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suin Luken",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suin-luken",
+            "title": "Suin Luken · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:39:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Jharru Flats"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Suin Luken",
+        "zone": "Jharru Flats",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\merchant.jsonl",
+      "line": 4,
+      "url": "https://vgsoharchive.com/mobs/supplier-anevka",
+      "cache_sha256": "d2408ce2f6c46d2ae5b529f9b28d562dc578036326cb52cea2d8b1505adcaae3",
+      "source_labels": {
+        "zone": "The Fallen Cove",
+        "role": "General Goods Vendor",
+        "difficulty": "4 dots",
+        "type": "Quest NPC",
+        "continent": "Thestra"
+      },
+      "section_headings": [
+        "Details",
+        "Quests given (2)",
+        "Quest rewards (1)",
+        "Items said to come from here (2)",
+        "Loot (0)"
+      ],
+      "checks": {
+        "heading_name": true,
+        "zone": true,
+        "role": true,
+        "unknown_stock_preserved": true
+      },
+      "full_source_record": {
+        "name": "Supplier Anevka",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/supplier-anevka",
+            "title": "Supplier Anevka · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:23:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "The Fallen Cove"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Smooth Wings",
+            "url": "https://vgsoharchive.com/quests/smooth-wings"
+          },
+          {
+            "name": "Torn Wings",
+            "url": "https://vgsoharchive.com/quests/torn-wings"
+          },
+          {
+            "name": "Anekva's Renewal",
+            "url": "https://vgsoharchive.com/items/anekva-s-renewal"
+          },
+          {
+            "name": "Anevka's Renewal",
+            "url": "https://vgsoharchive.com/items/anevka-s-renewal"
+          },
+          {
+            "name": "Rough Wing Cloak",
+            "url": "https://vgsoharchive.com/items/rough-wing-cloak"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Supplier Anevka",
+        "zone": "The Fallen Cove",
+        "sells": null,
+        "buys": null
+      }
+    }
+  ],
+  "interpretation": "Explicit merchant roles support service observations. No merchant inventory section or prices are present on these pages. Quest rewards, items said to come from here and loot sections do not establish vendor stock. Null sells/buys remain unknown, not empty inventories. Supplier Anevka has distinct Anekva and Anevka item spellings; preserve both URLs without merging identities.",
+  "remaining_work": "Stock, prices, item identity variants and historical accuracy remain unresolved; pending downloads and required extraction review remain incomplete."
+}
