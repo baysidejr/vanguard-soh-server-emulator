@@ -95,6 +95,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: Scenario "item link" (B-015): clicking an item link gets the item record back.
+
 - 2026-10-16: Scenario "appearance settings saved" (B-015): /hidehelm and /setwearpreference reach the saved character.
 
 - 2026-10-16: Scenario "rescue rope" (B-015): /rope offer reaches the target, /ropeaccept hauls them (notice 465).

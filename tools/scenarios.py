@@ -369,6 +369,14 @@ def main():
                    f"pawn_prefs {prefs}")
     a.send(0x114, b"\x00")
 
+    # Clicking an item link in chat: /itemlinkrequest 0x158 {wstr link}; the answer is 0x158 with the
+    # item's full record (opens the examine popup).
+    a.got.clear()
+    a.send(0x158, wstr("<item=1:1::0:0:0:0:0:x>Copper Ore</link>"))
+    record = a.wait_for(0x158)
+    fails += check("item link", bool(record) and "Copper Ore".encode("utf-16-le") in record[0],
+                   f"record={len(record[0]) if record else 0} bytes")
+
     # Rescue rope: B targets A (0x5c) and throws (/rope, 0x190); A gets the offer 0x58a {wstr B},
     # accepts (/ropeaccept, 0x191) and is hauled next to B: notice 465 "You grab the rope...".
     # (B throws so that B stays at the brazier for the riftway below.)
