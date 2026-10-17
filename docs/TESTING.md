@@ -136,7 +136,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `/forcecombatstance on` keeps the combat pose; as a Psionicist, pick a mindset, `/applyformondeath on`, `!die`, release: the mindset comes back
 - [ ] Kill a mob, XP bar rises, level up heals you and raises attributes
 - [ ] Die, release, recover the tombstone, bind at the altar
-- [ ] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House
+- [ ] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House (2026-10-17: Recall from Karibasa "You begin to cast Recall." and arrived at the Khal bind point; Sprint's speed and Recall to House not checked yet)
 - [x] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded (2026-10-17: "Right Arm - Mid", then "Some of your wounds have been cured! Right Arm - Minor", then "Right Arm - Unwounded")
 - [ ] A lootable corpse sparkles; spell effects show (Blade of Winter tints the target)
 - [ ] Wound an Ashen Wolf, run past its leash: it walks home, heals to 100%, the target frame turns white and its target line reads "--"; no "notices you!" flood
@@ -179,7 +179,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] In Khal, Afshin Budjiri (Warrior Trainer) stands in a hall with weapon racks; as a Ranger he offers no training, Telqu Daejieh (Ranger Trainer) does
 - [ ] Hail Afshin: three parley options (Gossip, Convince, Interview); Convince opens "Parley - Convince"
 - [ ] `/con` an imported NPC or creature: the difficulty sentence matches its archive dots (e.g. "much more difficult")
-- [ ] Right-click the Khal Altar of Binding (-844, -43892), die elsewhere, Release to Bind: you return to Khal
+- [x] Right-click the Khal Altar of Binding (-844, -43892), die elsewhere, Release to Bind: you return to Khal (2026-10-17, scratch save: "You have set your bind location."; `!die` in Karibasa showed the death popup (Release to Bind / Release to Altar), equipment damage and experience debt; Release to Bind arrived at the Khal altar)
 - [ ] Blackheart under Lomshir (39719, -61690, -2349) notices you and fights; its loot comes from the archive
 
 **Crafting and gathering**
