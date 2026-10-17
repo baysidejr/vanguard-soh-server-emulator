@@ -359,6 +359,21 @@ def main():
         reports, encoding="utf-8").read()
     fails += check("player report", codes == [149, 148] and kept, f"answers {codes}, saved={kept}")
 
+    # Rescue rope: B targets A (0x5c) and throws (/rope, 0x190); A gets the offer 0x58a {wstr B},
+    # accepts (/ropeaccept, 0x191) and is hauled next to B: notice 465 "You grab the rope...".
+    # (B throws so that B stays at the brazier for the riftway below.)
+    a_id = login_stub.character_id(dict(storage.read_character(CHARACTERS, a.name)))
+    a.got.clear()
+    b.send(0x5C, struct.pack("<Q", a_id))
+    b.send(0x190)
+    offer = a.wait_for(0x58A)
+    a.got.clear()
+    a.send(0x191)
+    a.pump(0.8)
+    hauled = 465 in [struct.unpack_from("<h", m, 0)[0] for m in a.events(0x0E) if len(m) >= 2]
+    fails += check("rescue rope", bool(offer) and wstr(b.name)[:-2] in offer[0] and hauled,
+                   f"offer={bool(offer)}, hauled={hauled}")
+
     # Riftway to another region (last: B leaves the chunk): /rift KHAL (0x597 {wstr}) at the camp
     # brazier makes the server send world event 8, "connect to zone", for Khal's chunk.
     def rift(bot, key, chunk):

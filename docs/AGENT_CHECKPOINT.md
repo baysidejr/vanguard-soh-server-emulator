@@ -11,14 +11,14 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 This session also: B-001 (checks on a scratch DB copy), B-002 (flight landing gap documented), B-005 (a) second login and (b) reconnect after a drop, B-013 (editor quest form dropped turn_in).
 
 ## In progress / next action
-B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. B-005 edge walk done (20 scenarios). B-012 reviewed (nothing unlocks gameplay; blocked on the live client). Scrape branch: 29 new commits, no newly playable quests, not merged (B-009). B-015 started: scenario "player report" (21 scenarios). Next: more server-only TESTING.md items as scenarios (`!call`, `/rope`, escrow).
+B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. B-005 edge walk done (20 scenarios). B-012 reviewed (nothing unlocks gameplay; blocked on the live client). Scrape branch: 29 new commits, no newly playable quests, not merged (B-009). B-015: scenarios "player report" and "rescue rope" (22 scenarios). Next: more non-dev server answers as scenarios.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
 - `AGENT_MISSION.md`: user-provided, ignored by `.gitignore` (`/*`), intentionally not committed.
 
 ## Tests
-- Passed (latest `check_all.py`): unit tests (279), content check, scenarios (21), load test (steady p95 11.1 ms), server-log scan, fuzzing.
+- Passed (latest `check_all.py`): unit tests (279), content check, scenarios (22), load test (steady p95 11.1 ms), server-log scan, fuzzing.
 - Not run: `check_all.py --client` smoke test, because the game client cannot take keyboard focus (B-003).
 
 ## Blockers and user decisions

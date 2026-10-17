@@ -95,6 +95,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: Scenario "rescue rope" (B-015): /rope offer reaches the target, /ropeaccept hauls them (notice 465).
+
 - 2026-10-16: Scenario "player report" (B-015): /report is acknowledged, a second one within a minute is refused, and the report is saved in the data folder.
 
 - 2026-10-16: Scenario "walk across a chunk edge" (B-005): zone event 0x9 into chunk_n18_12, reconnect, WELCOME there, chunk saved. tools/stop_servers.ps1 stops every login_stub.py server and its worker processes.
