@@ -11,7 +11,7 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 This session also: B-001 (checks on a scratch DB copy), B-002 (flight landing gap documented), B-005 (a) second login and (b) reconnect after a drop, B-013 (editor quest form dropped turn_in).
 
 ## In progress / next action
-Next candidates in priority order: **B-011** (content provenance report: count archive-sourced / placeholder / unflagged hand-made records per file), **B-004** (intermittent load-test spike: 5 repeated runs with tick timing).
+B-011 provenance report done (`tools/provenance.py`). Next: **B-004** (intermittent load-test spike: 5 repeated runs with tick timing).
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).

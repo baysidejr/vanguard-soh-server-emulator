@@ -76,10 +76,10 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Done when:** documentary or client evidence for how presence gates parleys and how it is earned; until then stays ungated (an approximation, labelled).
 
 ## B-011 Content provenance audit
-- **Priority:** P2 · **Category:** content accuracy · **State:** NOT_STARTED
+- **Priority:** P2 · **Category:** content accuracy · **State:** VERIFIED
 - **Evidence:** archive imports set `_source` on templates; placeholders are flagged; but hand-made camp content (Orin, Veyla...) and placeholder stats are not flagged per record.
 - **Done when:** `content.py` (or a report tool) lists, per content file, how many records are archive-sourced, flagged placeholder, or unflagged hand-made, so no placeholder can be mistaken for original data.
-- **Next action:** count `_source` / `_placeholder*` / neither per file; add a report command.
+- **Done 2026-10-16:** `python tools/provenance.py` prints, per content file, records citing an archive page, records marked invented, and unmarked ones (`--unmarked FILE` lists them); unit test ProvenanceTests. Current: mobs 2,438 sourced / 64 unmarked; quests 70 sourced / 298 placeholder / 4 unmarked; items 112 / 66 unmarked; spawns 2,452 sourced / 167 placeholder / 136 unmarked; riftways, factions, titles, hints, recipes, dialogs, plots all unmarked (hand-made). "Sourced" records still carry placeholder values the archive lacks (stats, prices).
 
 ## B-012 Optional unsent messages
 - **Priority:** P4 · **Category:** protocol · **State:** NOT_STARTED

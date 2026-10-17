@@ -85,6 +85,8 @@ Verified 2026-10-12 by scanning all 325 maps in `Assets/Maps`.
 | Experience | XP per kill or quest, level curve | 150 XP per kill, ±15% per level of difference, none from mobs 6+ levels below (`combat.KILL_XP`); level N needs 1000 × 1.12^(N−1) (`zone.xp_for_level`), cap 50 |
 | Tutorial popups | when each tutorial shows (first death, first level, ...) and its title and text: MsgTutorialDisplayEvent carries two server strings (ctor FUN_005d9a00); the client only remembers "do not show again" (0x183 for the death penalty tutorial) | none |
 
+**Provenance (2026-10-16):** `python tools/provenance.py` counts, per content file, records citing an archive page (`_source`), records marked invented (`_placeholder`, `_placeholder_steps`, `_archive_placeholder`) and unmarked ones (hand-made test content). Only records citing a source come from the original game's documentation, and even those carry placeholder values the archive lacks.
+
 ## What the archive scrape could add next (2026-10-15, numbers updated 2026-10-16)
 
 Measured with `tools/quest_readiness.py --branch` and the importer after the zone-map imports. In order of what each would unlock:

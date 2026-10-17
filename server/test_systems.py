@@ -2236,3 +2236,16 @@ class PresenceTests(unittest.TestCase):
         self.assertEqual(struct.unpack_from("<I", noble, 2)[0], 0x2D4)
         self.assertEqual(struct.unpack_from("<ib", noble, 10), (zone.PRESENCE_INSTANCE + 0x22, zone.DIPLOMACY_CATEGORY))
         self.assertEqual(zone.presence_values(types.SimpleNamespace())[0x25], zone.PRESENCE_START)
+
+
+class ProvenanceTests(unittest.TestCase):
+    def test_classify(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import provenance
+        self.assertEqual(provenance.classify({"_source": "https://x", "_placeholder_steps": "delivery"}), "placeholder")
+        self.assertEqual(provenance.classify({"_source": "https://x"}), "sourced")
+        self.assertEqual(provenance.classify({"name": "Orin"}), "unmarked")
+        rows = provenance.report()
+        self.assertGreater(rows["quests.json"]["placeholder"], 0)
+        self.assertGreater(rows["spawns/*.json"]["sourced"], 0)
