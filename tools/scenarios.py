@@ -342,6 +342,23 @@ def main():
         fails += check("reconnect after a drop", False, f"the login after a drop failed: {e}")
     a = a3
 
+    # /report <name> (0x4ac {i32 lines, wstr name, lines x {wstr, i32 channel, u16}}): answered with
+    # system message 0x0e 149 "Player report submitted", a second within a minute with 148 (wait
+    # longer); the report is kept in player_reports.json.
+    reports = os.path.join(DATA, "player_reports.json")
+    before_reports = os.path.getsize(reports) if os.path.exists(reports) else 0
+    line = "<pcname>" + b.name + "</pcname> says something rude"
+    report = struct.pack("<i", 1) + wstr(b.name) + wstr(line) + struct.pack("<iH", 4, 0)
+    codes = []
+    for _ in range(2):
+        a.got.clear()
+        a.send(0x4AC, report)
+        a.pump(0.8)
+        codes += [struct.unpack_from("<h", m, 0)[0] for m in a.events(0x0E) if len(m) >= 2]
+    kept = os.path.exists(reports) and os.path.getsize(reports) > before_reports and line in open(
+        reports, encoding="utf-8").read()
+    fails += check("player report", codes == [149, 148] and kept, f"answers {codes}, saved={kept}")
+
     # Riftway to another region (last: B leaves the chunk): /rift KHAL (0x597 {wstr}) at the camp
     # brazier makes the server send world event 8, "connect to zone", for Khal's chunk.
     def rift(bot, key, chunk):

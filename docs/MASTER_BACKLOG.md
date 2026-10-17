@@ -102,3 +102,9 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Paths:** `tools/editor_ui.html` (`initQuests`, `setMode`)
 - **Fix:** `questDoc` is assigned only after the selects are filled; a `questLoading` flag stops a second concurrent load.
 - **Last validation:** 2026-10-16: EditorPageTests 5/5 alone, full unit suite 3/3 OK.
+
+## B-015 Bot coverage for server-only hand-run checks
+- **Priority:** P3 · **Category:** stability · **State:** IN_PROGRESS
+- **Evidence:** docs/TESTING.md hand-run items are all unchecked; some depend only on server answers and can run in `scenarios.py` while the client is blocked (B-003).
+- **Progress:** 2026-10-16 scenario "player report": /report (0x4ac) answers 149 "Player report submitted", a second within a minute 148 (wait longer), the report lands in the data folder's player_reports.json (scratch copy, not server/). 21 scenarios; check_all 6/6; real DB fingerprint unchanged. The client's display of the line stays a hand-run check.
+- **Next action:** other server-only items (e.g. `!call` summon answer, `/rope` haul, escrow on full bags) as scenarios where the answer is a zone message.
