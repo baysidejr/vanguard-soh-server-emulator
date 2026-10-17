@@ -7,19 +7,20 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-Owner decisions 2026-10-17 applied (VANGUARD_CLAUDE_CONTINUE.md, gitignored): B-017 real starting areas by default (`--camp-start` override), B-010 deferred, B-008 23 camp-zone NPCs imported (11 heights flagged `_uncertain`), B-007 17+1 deliveries kept on title evidence / 294 disabled (reversible), B-009 scrape branch merged (0f14182) and promoted (77 quests with real objectives). B-018 quest_check: 99/99 offered quests finishable.
+2026-10-17: owner decisions applied (B-017 default + create screen verified live, B-010 deferred, B-008 imported, B-007 17+1 kept / 294 disabled, B-009 merged twice: 0f14182, 6c9ee94); B-018 quest_check 99/99; B-020 chunk_audit moved 40 mislabelled archive NPCs (Tracker Nok was in the sea), checked live; B-021 "Leafsaw Crawlers" and "Report To Officer Yu" played end to end in the client. TESTING.md: create/delete/enter, /report, wounds, archive quest + delivery, !visit ticked.
 
 ## In progress / next action
-- B-019 (Isle of Dawn has no quests) is BLOCKED: OWNER DECISION; options in the backlog.
-- Next unblocked: live look at the 11 `_uncertain` NPC heights (scratch save, PC idle); the client's own create screen with the default start (B-017 remainder); each session `git fetch` and repeat the B-009 merge cycle when the scrape branch moves.
-- Resume: `/ralph-loop:ralph-loop "Read VANGUARD_CLAUDE_CONTINUE.md. ..." --max-iterations 100` or read this file.
+- B-019 (Isle of Dawn has no quests): BLOCKED: OWNER DECISION, options in the backlog.
+- Scraper: suspended per its own report ("blocked by policy"); merge again when the branch moves (B-009 cycle).
+- Next unblocked: more TESTING.md hand-run items with the UI driver (scratch save, PC idle; recipe in memory harness-pitfalls); any defect found becomes a backlog item.
+- Resume: `/ralph-loop:ralph-loop "Read VANGUARD_CLAUDE_CONTINUE.md. ..." --max-iterations 100`, or read this file.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
 - `AGENT_MISSION.md`: user-provided, ignored by `.gitignore` (`/*`), intentionally not committed.
 
 ## Tests
-- Passed (latest `check_all.py`): unit tests (286), content check, scenarios (26), load test (steady p95 11.1 ms), server-log scan, fuzzing.
+- Passed (latest `check_all.py`, 2026-10-17): unit tests (295), content check, scenarios (26), load test, server-log scan, fuzzing; `--client` 7/7 earlier today.
 - `check_all.py --client` 7 of 7 on 2026-10-17 (smoke test with the game client).
 
 ## Blockers and user decisions
