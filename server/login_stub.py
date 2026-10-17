@@ -4236,6 +4236,8 @@ def equipped_kind(player, kind):
 
 
 def handle_fishing_event(state, event, data):
+    if event == fishing.CAST and dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     s = state.get("fishing")
     now = time.time()
@@ -6075,6 +6077,8 @@ def handle_mentor_event(state, event, data):
 
 def open_loot(state, npc):
     """Open a corpse's loot window (U or 0xbb), if the player has loot rights."""
+    if dead_refusal(state):
+        return []
     assign_loot_turn(npc)                 # Round Robin: whose corpse it is, before the check
     if not group_loot_allowed(state, npc):
         return []
@@ -6683,6 +6687,8 @@ def handle_trade_event(state, event, payload, args):
     """Player trade (trade.py)."""
     player, send = state["player"], state["send"]
     t = state.get("trade")
+    if event == trade.INVITE and dead_refusal(state):
+        return
     if event == trade.INVITE:
         name = payload[10:].decode("utf-16-le", "replace").split(chr(0))[0] if len(payload) > 10 else ""
         if not name and player.target:
@@ -6937,6 +6943,8 @@ def add_escrow(state, name, qty=1):
 
 def handle_escrow_event(state, event, data):
     """The Escrow Merchant window at a banker (merchant.escrow_window)."""
+    if dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     npc = player.npcs.get(player.target) if player.target else None
     if npc is None or not npc.banker:
@@ -7018,6 +7026,12 @@ def set_craft_trade(state, name):
 
 
 def handle_dialog_response(state, data):
+    if dead_refusal(state):
+        return
+    return _handle_dialog_response(state, data)
+
+
+def _handle_dialog_response(state, data):
     """0x15b {i32 dialog index (= node position), u8 response}: follow a conversation."""
     player, send = state["player"], state["send"]
     npc = player.npcs.get(player.target) if player.target else None
@@ -7141,6 +7155,8 @@ def handle_quest_event(state, event, payload):
     key, q = quest_by_id(qid)
     print(f"  >>> ZONE quest event {event:#x} quest {qid} ({key})")
     if q is None:
+        return
+    if event in (quest.CLICK_OPTION, quest.ACCEPT, quest.CONTINUE, quest.COMPLETE) and dead_refusal(state):
         return
     npc = player.npcs.get(player.target) if player.target else None
     npc_eid = npc.entity_id if npc else 0
@@ -7581,6 +7597,8 @@ def offer_conversion(state, item):
 
 
 def handle_conversion(state, data):
+    if dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     if len(data) < 8:
         return
@@ -7615,6 +7633,8 @@ SALVAGE_DEFAULT, SALVAGE_DUST = "Copper Ingot", "Shimmering Dust"
 
 
 def handle_deconstruct(state, event, data):
+    if dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     if len(data) < 8:
         return
@@ -7708,6 +7728,8 @@ def take_items(state, name, need):
 
 def handle_harvest_event(state, event):
     """0x109 begin harvesting the target node, 0x10a stop (harvest.py)."""
+    if event != harvest.STOP and dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     if event == harvest.STOP:
         if state.pop("harvest", None):
@@ -8012,6 +8034,8 @@ def mail_list(state, box):
 
 def handle_mail_event(state, event, data):
     """Mailboxes (mail.py): inbox, read, send with coin / an item / cash on delivery."""
+    if dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE mail event {event:#x}: {data[:16].hex(' ')}")
     db = load_mail()
@@ -8168,6 +8192,8 @@ def market_notice(code):
 
 def handle_market_event(state, event, data):
     """Broker (market.py): list items for sale, search, buy (the seller is paid by mail)."""
+    if dead_refusal(state):
+        return
     player, send = state["player"], state["send"]
     print(f"  >>> ZONE market event {event:#x}: {data[:24].hex(' ')}")
     db = load_market()
@@ -9079,6 +9105,16 @@ OBJECT_USE_ERROR = 0x3CA
 USE_BUSY, USE_TAKEN, USE_TOO_FAR, USE_RESTING, USE_FLYING = 1, 2, 3, 6, 7
 
 
+def dead_refusal(state):
+    """True (after the client's "You cannot do that while dead.", notice 112) if the player is dead:
+    a dead character can chat and use social windows, not deal with the world (B-023)."""
+    player = state.get("player")
+    if player is not None and player.health <= 0:
+        state["send"](client_notice(NOT_WHILE_DEAD))
+        return True
+    return False
+
+
 def object_use_refusal(state):
     """Why the player can't start using a station now (an 0x3ca code), or 0."""
     player = state["player"]
@@ -9108,6 +9144,8 @@ def handle_craft_event(state, event, data):
     session = state.get("craft")
     print(f"  >>> ZONE craft event {event:#x}: {data.hex(' ')}")
     if event == craft.USE_STATION:
+        if dead_refusal(state):
+            return
         if combat.in_combat(player):
             send(client_notice(FINISH_COMBAT_BEFORE_CRAFTING))
             return

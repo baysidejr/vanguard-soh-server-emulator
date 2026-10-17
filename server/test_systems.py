@@ -2511,3 +2511,27 @@ class DeadPlayerTests(unittest.TestCase):
             player.health = 50
             login_stub.handle_altar_use(state, altar)
             self.assertIn("bound", sent)
+
+    def test_world_actions_refused_while_dead(self):
+        import struct
+        import login_stub
+        import quest
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n13_n9")
+        player.health = 0
+        sent = []
+        state = {"player": player, "send": sent.append}
+        q = {"id": 4243, "name": "Q", "giver": "orin", "steps": [{"talk": "orin"}]}
+        args = mock.Mock()
+        args.content.quests = {"q": q}
+        notice = lambda m: isinstance(m, bytes) and struct.unpack_from("<h", m, 10)[0] == login_stub.NOT_WHILE_DEAD
+        with mock.patch.object(login_stub, "ARGS", args),                 mock.patch.object(login_stub, "save_character_field", lambda *a: None):
+            login_stub.handle_quest_event(state, quest.ACCEPT, struct.pack("<HIIi", 2, quest.ACCEPT, 4, 4243))
+            self.assertNotIn("q", player.quests.active)
+            self.assertTrue(any(notice(m) for m in sent))
+            self.assertEqual(login_stub.open_loot(state, mock.Mock()), [])          # no looting
+            sent.clear()
+            player.quests.active["q"] = quest.new_progress()
+            login_stub.handle_quest_event(state, quest.ABANDON, struct.pack("<HIIi", 2, quest.ABANDON, 4, 4243))
+            self.assertNotIn("q", player.quests.active)                           # abandoning still works
