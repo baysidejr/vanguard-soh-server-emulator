@@ -148,7 +148,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 
 **Items**
 - [x] Loot a corpse; buy and sell from Orin; buyback tab; repair (2026-10-17, scratch save: bought Travel Rations ("You lose 25 copper.", it appears in the bag panel), sold them back ("You receive 6 copper."), Buyback tab lists them at 6; Repair Merchant listed 6 damaged pieces at 2 silver each, Repair All: "... has been repaired." x6, "You lose 12 silver."; looting not redone here, the loot window was verified on 2026-10-15)
-- [ ] Equip gear: model changes, tooltip shows stats, attributes on the sheet change
+- [ ] Equip gear: model changes, tooltip shows stats, attributes on the sheet change (2026-10-17: right-click equipping the Militia Longsword swapped the Rusty Sword into the bag, the sheet's Attack went from 6.00 to 9.00, the Rusty Sword's tooltip shows its stats (4-7 damage, speed 2.40, durability); the model change not seen, first-person view)
 - [ ] Ctrl+click splits a stack; Small Pouch on the main bar holds 8 items
 - [ ] Service items (`!give` each): Experience Debt Clearance (refused with a tombstone out), Gender Change, Race Change, Character Rename (a taken name is refused), Unbinding Tool on a Bind On Equip item
 - [ ] Jewelry tooltip says "Required Level: 1 Adventuring"; Copper Ore says "Crafting Resource"
