@@ -1324,3 +1324,41 @@ class ParleyLevelTests(unittest.TestCase):
         save.assert_any_call("T", "presence", player.presence)
         ids = [struct.unpack_from("<I", m, 2)[0] for m in sent]
         self.assertLess(ids.index(0x2D3), ids.index(0x2D4))      # re-create the stat, then update it
+
+
+class LeaveWorldTests(unittest.TestCase):
+    """A player leaving a chunk (logout or hand-off) closes its pawn on everyone else's client and
+    frees the NPCs that were fighting it (B-005)."""
+
+    def setUp(self):
+        import world
+        self.w = world.World("chunk_n19_12")
+        self.sent_a, self.sent_b = [], []
+        self.a = {"player": zone.Player(name="Ann", char_id=1, level="chunk_n19_12"), "send": self.sent_a.append,
+                  "world": self.w}
+        self.b = {"player": zone.Player(name="Bob", char_id=2, level="chunk_n19_12"), "send": self.sent_b.append,
+                  "world": self.w, "handoff": True}
+        self.w.members.update({1: self.a, 2: self.b})
+
+    def leave(self, state):
+        with mock.patch.object(login_stub.zone, "close_actor", lambda s, eid: ("close", eid)):
+            login_stub.leave_world(state, mock.Mock())
+
+    def test_others_close_the_pawn_and_npcs_give_up(self):
+        npc = login_stub.combat.Npc(9, "Ashen Wolf", None, "x", location=(0.0, 0.0, 0.0))
+        npc.aggro, npc.aggro_on = True, self.b["player"]
+        npc.hate[2] = (50, self.b["player"])
+        self.w.npcs[9] = npc
+        self.leave(self.b)
+        self.assertNotIn(2, self.w.members)
+        self.assertIn(("close", 2), self.sent_a)
+        self.assertNotIn(("close", 2), self.sent_b)
+        self.assertIsNone(npc.aggro_on)
+        self.assertNotIn(2, npc.hate)
+
+    def test_a_replaced_connection_leaves_the_new_one(self):
+        newer = dict(self.b)
+        self.w.members[2] = newer               # a re-login took the slot first
+        self.leave(self.b)
+        self.assertIs(self.w.members[2], newer)
+        self.assertEqual(self.sent_a, [])

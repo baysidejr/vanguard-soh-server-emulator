@@ -95,6 +95,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: Unit tests for leaving a chunk (B-005): others get the actor close, NPCs fighting the leaver give up, a replaced connection is left alone.
+
 - 2026-10-16: Scenario "item link" (B-015): clicking an item link gets the item record back.
 
 - 2026-10-16: Scenario "appearance settings saved" (B-015): /hidehelm and /setwearpreference reach the saved character.
