@@ -1,0 +1,88 @@
+{
+  "audit_kind": "cached_quest_index_detail_discovery_review",
+  "metadata_only": true,
+  "network_requests": 0,
+  "source": {
+    "url": "https://vgoplayers.com/quests.php",
+    "downloaded_at": "2026-10-17T13:34:41.476426+00:00",
+    "sha256": "e242401df0f3454c2a21c84404b27533ac7ab81f3fb93184c5d85e78cda2cf53"
+  },
+  "cached_body": ".cache/multisource/a3233383e572919834a1daf87f7f19c31bdd27fe6809f292932701a20d680d17.html",
+  "active_links": [
+    {
+      "text": "Home",
+      "href": "/index.php?tab=current"
+    },
+    {
+      "text": "VgoPlayers Wiki",
+      "href": "http://vgoplayers.com/wiki/index.php/Main_Page"
+    },
+    {
+      "text": "Dev Forums",
+      "href": "http://vgoemulator.net/phpBB3/index.php"
+    },
+    {
+      "text": "Items",
+      "href": "/items.php"
+    },
+    {
+      "text": "Quests",
+      "href": "/quests.php"
+    },
+    {
+      "text": "Downloads",
+      "href": "/downloads.php"
+    },
+    {
+      "text": "Play VG:SOH!",
+      "href": "/playvg/index.htm"
+    },
+    {
+      "text": "Sony Online Entertainment",
+      "href": "https://www.soe.com/home"
+    },
+    {
+      "text": "Sony Online Entertainment",
+      "href": "https://www.soe.com/home"
+    },
+    {
+      "text": "VGOEmulator.net",
+      "href": "http://vgoemulator.net"
+    }
+  ],
+  "active_forms": [],
+  "active_scripts": [
+    {
+      "attributes": {
+        "language": "JavaScript"
+      },
+      "body": "\n\t\t\t\t\t\t\t\t\t\t\t\tfunction isAlphaKey(e) {\n\t\t\t\t\t\t\t\t\t\t\t\t\tvar k;\n\t\t\t\t\t\t\t\t\t\t\t\t\tdocument.all ? k = e.keyCode : k = e.which;\n\t\t\t\t\t\t\t\t\t\t\t\t\treturn (k == 8 || k == 32 || (k > 64 && k < 91) || (k > 96 && k < 123) || k == 39);\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tfunction extractAlpha(str) {\n\t\t\t\t\t\t\t\t\t\t\t\t\treturn str.replace(/[^a-z'\\s]/gi,\"\");\n\t\t\t\t\t\t\t\t\t\t\t\t}\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t"
+    }
+  ],
+  "inactive_commented_form_source": [
+    "<table height=\"123\" background=\"/images/quickSearch.jpg\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"169\">\n\t\t\t\t\t\t\t\t\t\t\t\t<form name=\"quickSearch\" id=\"quickSearchForm\" action=\"https://vgoplayers.com\" method=\"get\" onsubmit=\"common.globalSearchHandler('quickSearchForm'); return false;\">\n\t\t\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"2\" height=\"30\"><img style=\"margin-top:5px\" src=\"/images/quickSearch.gif\"></td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"2\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input style=\"margin-left:10px; width:140px;\" maxlength=\"25\" id=\"formText\" name=\"searchQueryText\" onkeypress=\"return isAlphaKey(event)\" onblur=\"this.value=extractAlpha(this.value)\" type=\"text\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td valign=\"top\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select style=\"margin-left:10px;\" name=\"typeOfSearch\" id=\"searchType\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option selected=\"selected\" value=\"charSearch\">Characters</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"itemSearch\">Items</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"guildsSearch\">Guilds</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td valign=\"top\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input src=\"/images/go.jpg\" onclick=\"common.globalSearchHandler('quickSearchForm'); return false;\" type=\"image\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t\t\t\t</table>"
+  ],
+  "validation": {
+    "cached_sha256_matches": true,
+    "active_links": 10,
+    "active_forms": 0,
+    "active_scripts": 1,
+    "inactive_commented_forms": 1,
+    "quest_detail_links_found": 0,
+    "issues": []
+  },
+  "findings": [
+    "Quest inventory entries are plain text separated by br elements, not detail anchors. Inventory identity validation remains in VGOPLAYERS_QUEST_INVENTORY_COLLISIONS_ITERATION183.json.",
+    "The sole active script contains input character filtering functions, without quest detail endpoints.",
+    "The quickSearch form and common.globalSearchHandler reference are inside an HTML comment and inactive.",
+    "No quest detail URL template is evidenced here; numeric source IDs must not be used to invent endpoints or canonical client IDs."
+  ],
+  "remaining_work": [
+    "Discover evidenced quest detail endpoints from other permitted public sources when intake is allowed; download and extract actual detail pages."
+  ],
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart with reason blocked by policy.",
+    "recovery_conditions": "Recorded policy disposition permitting resumption, then inspect actual process and lock and use collection.ps1 with retained checkpoints and persisted 60-second interval."
+  }
+}
