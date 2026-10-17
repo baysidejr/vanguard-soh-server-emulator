@@ -34,7 +34,19 @@ sys.path.insert(0, os.path.join(ROOT, "server"))
 import loadtest      # noqa: E402
 import storage       # noqa: E402
 
-CHARACTERS = os.path.join(ROOT, "server", "characters.json")
+DATA = os.path.join(ROOT, "server")          # --data-dir: the folder whose saved data the server uses
+CHARACTERS = os.path.join(DATA, "characters.json")
+
+
+def use_data_dir(folder):
+    """Point the scenarios (and loadtest's setup) at the server's --data-dir, e.g. the scratch
+    copy check_all.py makes, so the real server/vanguard.db is never touched."""
+    global DATA, CHARACTERS
+    import accounts
+    DATA = os.path.abspath(folder)
+    CHARACTERS = os.path.join(DATA, "characters.json")
+    loadtest.CHARACTERS_FILE = CHARACTERS
+    accounts.ACCOUNTS_FILE = os.path.join(DATA, os.path.basename(accounts.ACCOUNTS_FILE))
 
 
 class Player(loadtest.Bot):
@@ -87,6 +99,10 @@ def trade_seq(p):
 
 
 def main():
+    if "--data-dir" in sys.argv:
+        i = sys.argv.index("--data-dir")
+        use_data_dir(sys.argv[i + 1])
+        del sys.argv[i:i + 2]
     if sys.argv[1:] == ["--setup"]:
         loadtest.setup(2, "Ranger")
         # B stands by the camp's Riftseeker Brazier (the riftway scenario).
@@ -179,7 +195,7 @@ def main():
     invited = b.wait_for(0x4E9)
     b.send(0x4D6)
     b.pump(0.5)
-    guilds = storage.read_json(os.path.join(ROOT, "server", "guilds.json"), {})
+    guilds = storage.read_json(os.path.join(DATA, "guilds.json"), {})
     g = next((g for g in guilds.values() if g.get("name") == gname), None)
     members = sorted(g["members"]) if g else []
     fails += check("guild", bool(invited) and members == sorted([a.name, b.name]),
@@ -189,7 +205,7 @@ def main():
 
     # Brotherhood: A invites B (0x4bd {wstr}), B gets the popup (0x4bd) and accepts (0x4be);
     # the saved brotherhood lists both. B leaves (0x4c0): one member left, so it is dropped.
-    path = os.path.join(ROOT, "server", "brotherhoods.json")
+    path = os.path.join(DATA, "brotherhoods.json")
     a.send(0x4BD, wstr(b.name))
     popup = b.wait_for(0x4BD)
     b.send(0x4BE)

@@ -137,12 +137,22 @@ def kill_all():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--keep", action="store_true", help="leave the client and server running")
+    ap.add_argument("--data-dir", help="run the server on this saved-data folder (default: a scratch copy of "
+                                       "server/vanguard.db, so the real save is never changed)")
     opts = ap.parse_args()
     kill_all()
     time.sleep(1)
     client_log_start = os.path.getsize(CLIENT_LOG) if os.path.exists(CLIENT_LOG) else 0
     with open(LOG, "w", encoding="utf-8") as out:
-        server = subprocess.Popen([sys.executable, "-u", "login_stub.py", "--quiet-packets", "--dev-commands"], cwd=SERVER,
+        data = opts.data_dir
+        if not data:
+            import tempfile
+            sys.path.insert(0, SERVER)
+            import storage
+            data = tempfile.mkdtemp(prefix="vgemu-smoke-")
+            storage.scratch_copy(SERVER, data)
+        server = subprocess.Popen([sys.executable, "-u", "login_stub.py", "--quiet-packets", "--dev-commands",
+                                   "--data-dir", data], cwd=SERVER,
                                   stdout=out, stderr=subprocess.STDOUT)
     time.sleep(2)
     subprocess.Popen([os.path.join(BIN, "VGClient.exe"), "--sessionid=12345678"], cwd=BIN)

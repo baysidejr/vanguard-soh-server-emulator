@@ -3,9 +3,10 @@
     python tools/check_all.py            # unit tests, content, scenarios, load test, fuzzing
     python tools/check_all.py --client   # also the smoke test with the real game client
 
-Starts and stops its own servers (no server may be running on the default ports). The scenarios
-and the load test use the normal database and remove their bot characters afterwards; the fuzzer
-runs against a scratch copy of the data (a temporary --data-dir). Uses the standard library only.
+Starts and stops its own servers (no server may be running on the default ports). Every phase runs
+against a scratch copy of the saved data (a temporary --data-dir holding a read-only copy of
+server/vanguard.db), so the real database is never written: bot characters, guilds, mail and the
+smoke test's changes stay in the copy, which is deleted afterwards. Uses the standard library only.
 """
 import os
 import re
@@ -80,18 +81,21 @@ def main():
     code, out = run([PY, "content.py"], cwd=SERVER)
     note("content", out.strip().endswith("content OK"), out.strip().splitlines()[-1] if out.strip() else "")
 
-    srv = start_server()
+    sys.path.insert(0, SERVER)
+    import storage
+    scratch = tempfile.mkdtemp(prefix="vgemu-check-")
+    storage.scratch_copy(SERVER, scratch)
+    srv = start_server("--data-dir", scratch)
     try:
-        run([PY, "tools/scenarios.py", "--setup"])
-        code, out = run([PY, "tools/scenarios.py"], timeout=300)
+        run([PY, "tools/scenarios.py", "--data-dir", scratch, "--setup"])
+        code, out = run([PY, "tools/scenarios.py", "--data-dir", scratch], timeout=300)
         fails = re.search(r"(\d+) failed", out)
         note("scenarios", code == 0, fails.group(0) if fails else out[-300:])
-        run([PY, "tools/loadtest.py", "--setup", "20"])
-        code, out = run([PY, "tools/loadtest.py", "--bots", "20", "--seconds", "20"], timeout=300)
+        run([PY, "tools/loadtest.py", "--data-dir", scratch, "--setup", "20"])
+        code, out = run([PY, "tools/loadtest.py", "--data-dir", scratch, "--bots", "20", "--seconds", "20"], timeout=300)
         steady = re.search(r"steady state[^\n]*", out)
         note("load test (20 bots)", code == 0 and "20/20" in out, steady.group(0) if steady else out[-300:])
     finally:
-        run([PY, "tools/loadtest.py", "--cleanup"])
         stop_server(srv)
     errors = server_errors()
     note("server log (scenarios, load)", errors == 0, f"{errors} errors")
@@ -110,9 +114,11 @@ def main():
             time.sleep(1)
 
     if "--client" in sys.argv:
-        code, out = run([PY, "tools/smoke_test.py"], timeout=900)
+        code, out = run([PY, "tools/smoke_test.py", "--data-dir", scratch], timeout=900)
         note("smoke test (game client)", "PASS" in out, out.strip().splitlines()[-1] if out.strip() else "")
 
+    import shutil
+    shutil.rmtree(scratch, ignore_errors=True)
     failed = [r for r in results if not r[1]]
     print(f"\n{len(results) - len(failed)} of {len(results)} checks passed")
     return len(failed)

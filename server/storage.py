@@ -185,6 +185,25 @@ def update_character(path, name, fields):
         return _transaction(c, run)
 
 
+def scratch_copy(folder, target_dir):
+    """Copy folder's database into target_dir (a test's scratch --data-dir) without writing to the
+    original: opened read-only, copied with SQLite's online backup. Returns the copy's path, or
+    None when folder has no database yet."""
+    src = os.path.join(os.path.abspath(folder), DB_NAME)
+    if not os.path.exists(src):
+        return None
+    os.makedirs(target_dir, exist_ok=True)
+    target = os.path.join(target_dir, DB_NAME)
+    source = sqlite3.connect("file:" + src.replace("\\", "/") + "?mode=ro", uri=True)
+    dest = sqlite3.connect(target)
+    try:
+        source.backup(dest)
+    finally:
+        dest.close()
+        source.close()
+    return target
+
+
 def backup(folder, keep=10):
     """Copy folder's database to folder/backups/vanguard-<date>-<time>.db with SQLite's online
     backup (safe while the server is writing) and keep the newest `keep` copies. Returns the

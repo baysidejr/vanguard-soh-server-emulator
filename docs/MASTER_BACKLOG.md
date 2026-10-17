@@ -1,0 +1,82 @@
+# Master Backlog
+
+Actionable engineering backlog for the Vanguard server emulator (see `AGENT_MISSION.md`). Ordered by impact × confidence × feasibility; data integrity and gameplay defects first.
+
+States: `NOT_STARTED`, `IN_PROGRESS`, `BLOCKED`, `IMPLEMENTED_UNVERIFIED`, `VERIFIED`, `COMPLETE`.
+
+Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md): 278 unit tests pass; `content.py` OK; 372 quests (368 archive: 298 delivery placeholders `_placeholder_steps`); 2,755 spawns (167 invented `_placeholder`, 61 camps); 2,502 mob templates (2,438 archive).
+
+---
+
+## B-001 Automated checks must never write the real save database
+- **Priority:** P0 · **Category:** data integrity · **State:** VERIFIED
+- **Evidence:** `tools/check_all.py` ran the scenario and load-test phases against `server/vanguard.db` (bots written to the live save, guilds/brotherhoods/mail created there, cleanup by deletion); `tools/smoke_test.py` logged in as Ranger on the live save and typed ~49 commands. Only fuzzing used a scratch `--data-dir`.
+- **Paths:** `tools/check_all.py`, `tools/scenarios.py`, `tools/smoke_test.py`, `server/storage.py`
+- **Done when:** every phase of `check_all.py` (and `smoke_test.py` on its own) runs on a scratch copy; a fingerprint of every row of the real database is identical before and after a full run; the scratch folder is removed.
+- **Progress:** `storage.scratch_copy` (read-only SQLite online backup into a temp folder); `scenarios.py --data-dir`; `check_all.py` uses one scratch copy for server, scenarios, load test and smoke test, and deletes it; `smoke_test.py` defaults to its own scratch copy.
+- **Last validation:** 2026-10-16: `check_all.py` 6/6 twice; DB fingerprint `e53c48100b5e8a63` (7 characters) identical before and after both runs; no `vgemu-check-*` folder left. The `--client` smoke phase not run (B-003).
+- **Next action:** run `check_all.py --client` once B-003 clears, confirm the fingerprint again, then mark COMPLETE.
+
+## B-002 Flight landing where the terrain lookup has no height
+- **Priority:** P1 · **Category:** gameplay defect · **State:** NOT_STARTED
+- **Evidence:** live 2026-10-16: diving at (-12891, -4871) in chunk_n19_12 the client stopped at z 4093 while `content.ground_z` returned -12677; `flight_check` never landed the griffon (docs/MOUNTS.md "Descending").
+- **Paths:** `server/login_stub.py` (`flight_check`, `LAND_HEIGHT`), `server/terrain.py`, `server/content.py` (`ground_z`)
+- **Done when:** the cause of -12677 there is known (terrain hole, mesh above terrain, or a lookup bug) and either the lookup is fixed or landing also triggers from the client's own reports (e.g. no height change while moving down for N reports); a unit test covers it.
+- **Next action:** sample `terrain.Terrain` heights around (-12891, -4871) and compare with neighbouring points and the obstacle meshes there.
+
+## B-003 GameInput service window blocks client focus for automated tests
+- **Priority:** P1 · **Category:** test infrastructure · **State:** BLOCKED (system service / user action)
+- **Evidence:** 2026-10-16 ~10:00 onward: `GetForegroundWindow` returns an invisible `GameInputServiceWindow` (process GameInputSvc); scripted clicks reach the game window's coordinates but the game never gets focus. `AttachThreadInput` + `SetForegroundWindow` (focus.ps1) fails.
+- **Done when:** the client takes focus again and `check_all.py --client` passes.
+- **Blocker:** needs the user to click into the game window, restart "GameInput Service", or reboot. Not doing it from the agent (system service).
+- **Next action:** re-check `GetForegroundWindow` at the start of each session.
+
+## B-004 Intermittent load-test latency spike
+- **Priority:** P2 · **Category:** stability · **State:** NOT_STARTED
+- **Evidence:** 2026-10-16 first `check_all.py` run after B-001: load test p95 43.7 ms, max 3092 ms (214 pings instead of 254); the next run p95 11.0 ms, max 11.8 ms. Earlier runs were all ~11 ms.
+- **Paths:** `tools/loadtest.py`, `server/zone.py` (obstacle worker), `server/login_stub.py` main loop
+- **Done when:** the spike is reproduced and explained (e.g. first obstacle-worker start, scratch DB not kept open) or 5 consecutive runs show none.
+- **Next action:** run the load test 5 times on a fresh scratch copy and log per-second ping maxima with the server's tick timing.
+
+## B-005 Automated coverage: reconnects, repeated logins, zone transitions, malformed packets
+- **Priority:** P2 · **Category:** stability · **State:** NOT_STARTED
+- **Evidence:** scenarios cover chat, group, trade, tell, friend, guild, brotherhood, duel, AA, quest reply, parley line, ignore, riftway; none log the same character in twice, reconnect after a dropped connection, or cross a chunk edge and come back. The fuzzer covers malformed event payloads.
+- **Paths:** `tools/scenarios.py`, `tools/loadtest.py`
+- **Done when:** scenarios cover (a) a second login of an online character (old session closed cleanly), (b) reconnect after an abrupt drop (character saved, NPC state reset), (c) chunk change and return; all pass in `check_all.py`.
+- **Next action:** read how `login_stub` handles a second login of the same character; write scenario (a).
+
+## B-006 Invisible runtime particle effects (quest-node glow, loot sparkle)
+- **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED
+- **Evidence:** docs/QUESTS.md and docs/ABILITY_VISUALS.md: the client reaches the attach calls but nothing renders; `FXmystical_IOParticle001fx` shows nothing even spawned alone with 0x553, while other emitters do.
+- **Done when:** the emitter renders on a node or corpse in a screenshot, or the reason is documented with runtime evidence (winbreak).
+- **Blocker:** live client testing (B-003).
+
+## B-007 Placeholder content: delivery quests and invented camps
+- **Priority:** P2 · **Category:** content accuracy · **State:** BLOCKED (user decision + scrape data)
+- **Evidence:** 298 quests `_placeholder_steps`, 167 spawns `_placeholder`; listed in the editor's "Placeholders to review".
+- **Done when:** each is replaced by archive evidence or the user decides to keep/remove them. Removal of all delivery placeholders needs explicit authorization (mission).
+- **Next action:** after each scrape update, re-run `tools/quest_readiness.py --branch` and replace placeholders whose real objectives/locations appeared.
+
+## B-008 Import archive NPCs into the two original camp zones
+- **Priority:** P3 · **Category:** content · **State:** BLOCKED (user decision)
+- **Evidence:** dry run 2026-10-16: Sundering Wastelands +4, Wildgrowth Forest +19 (drafts in `crowdsourced/drafts/`).
+
+## B-009 Merge newer scrape-branch commits
+- **Priority:** P3 · **Category:** content · **State:** BLOCKED (user authorization per merge)
+- **Evidence:** `origin/crowdsourced/archive-collection` at 2ed0b4b, merged into main 2026-10-16 with the user's go-ahead. Mission: do not merge the active scrape branch without explicit authorization.
+- **Next action:** at each session, `git fetch` and report new commits; merge only when asked.
+
+## B-010 Presence requirements for parleys
+- **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED (needs evidence)
+- **Evidence:** archive NPC pages record a presence number (1, 200, 700...) shown on the parley option; the server does not gate on it and presence starts at 0. Real starting presence and gain rates are unknown.
+- **Done when:** documentary or client evidence for how presence gates parleys and how it is earned; until then stays ungated (an approximation, labelled).
+
+## B-011 Content provenance audit
+- **Priority:** P2 · **Category:** content accuracy · **State:** NOT_STARTED
+- **Evidence:** archive imports set `_source` on templates; placeholders are flagged; but hand-made camp content (Orin, Veyla...) and placeholder stats are not flagged per record.
+- **Done when:** `content.py` (or a report tool) lists, per content file, how many records are archive-sourced, flagged placeholder, or unflagged hand-made, so no placeholder can be mistaken for original data.
+- **Next action:** count `_source` / `_placeholder*` / neither per file; add a report command.
+
+## B-012 Optional unsent messages
+- **Priority:** P4 · **Category:** protocol · **State:** NOT_STARTED
+- **Evidence:** docs/UNSENT_MESSAGES.md: 38 optional. Only worth doing where they unlock behaviour.
