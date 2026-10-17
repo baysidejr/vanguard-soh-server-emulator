@@ -15,7 +15,7 @@ B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-fol
 
 B-016 (packet logger on short packets, found by a deep fuzz with logging on) fixed and verified.
 
-**Actionable queue is empty without the user or the live client** (2026-10-16 21:45): every open STATUS.md 6.4 item is blocked: optional messages and particles need the client (B-012, B-006), presence gating needs a user decision (B-010: refusal text exists in the client, gain rates do not), flight landing needs mesh collision (B-002), placeholders/camp imports/scrape merge need user decisions (B-007, B-008, B-009). Next session: (1) if the PC has been idle for 10+ minutes, run `python tools/check_all.py --client` and check the DB fingerprint, then close B-001 and B-003; (2) `git fetch` and report scrape-branch commits.
+**Actionable queue is empty without the user or the live client** (2026-10-16 21:45): every open STATUS.md 6.4 item is blocked: optional messages and particles need the client (B-012, B-006), presence gating needs a user decision (B-010: refusal text exists in the client, gain rates do not), flight landing needs mesh collision (B-002), placeholders/camp imports/scrape merge need user decisions (B-007, B-008, B-009). 2026-10-17 00:40: `check_all.py --client` 7 of 7 (unit 282, 26 scenarios, steady p95 11.2 ms, fuzz clean with packet log on, smoke PASS); DB fingerprint unchanged; B-001 and B-003 COMPLETE. Next session: `git fetch` and report scrape-branch commits; otherwise wait for user decisions.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
@@ -23,10 +23,9 @@ B-016 (packet logger on short packets, found by a deep fuzz with logging on) fix
 
 ## Tests
 - Passed (latest `check_all.py`): unit tests (282), content check, scenarios (26), load test (steady p95 11.1 ms), server-log scan, fuzzing.
-- Not run: `check_all.py --client` smoke test, because the game client cannot take keyboard focus (B-003).
+- `check_all.py --client` 7 of 7 on 2026-10-17 (smoke test with the game client).
 
 ## Blockers and user decisions
-- B-003: GameInput service window holds the foreground (user: click into the game, restart "GameInput Service", or reboot).
 - B-007: keep or remove the 298 delivery placeholders.
 - B-008: import archive NPCs into Sundering Wastelands / Wildgrowth Forest.
 - B-009: merge newer scrape-branch commits (only on request); 31 new as of 2026-10-16 evening.

@@ -9,13 +9,13 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 ---
 
 ## B-001 Automated checks must never write the real save database
-- **Priority:** P0 · **Category:** data integrity · **State:** VERIFIED
+- **Priority:** P0 · **Category:** data integrity · **State:** COMPLETE
 - **Evidence:** `tools/check_all.py` ran the scenario and load-test phases against `server/vanguard.db` (bots written to the live save, guilds/brotherhoods/mail created there, cleanup by deletion); `tools/smoke_test.py` logged in as Ranger on the live save and typed ~49 commands. Only fuzzing used a scratch `--data-dir`.
 - **Paths:** `tools/check_all.py`, `tools/scenarios.py`, `tools/smoke_test.py`, `server/storage.py`
 - **Done when:** every phase of `check_all.py` (and `smoke_test.py` on its own) runs on a scratch copy; a fingerprint of every row of the real database is identical before and after a full run; the scratch folder is removed.
 - **Progress:** `storage.scratch_copy` (read-only SQLite online backup into a temp folder); `scenarios.py --data-dir`; `check_all.py` uses one scratch copy for server, scenarios, load test and smoke test, and deletes it; `smoke_test.py` defaults to its own scratch copy.
 - **Last validation:** 2026-10-16: `check_all.py` 6/6 twice; DB fingerprint `e53c48100b5e8a63` (7 characters) identical before and after both runs; no `vgemu-check-*` folder left. The `--client` smoke phase not run (B-003).
-- **Next action:** run `check_all.py --client` once B-003 clears, confirm the fingerprint again, then mark COMPLETE.
+- **Closed 2026-10-17 00:40:** `check_all.py --client` 7 of 7 on a scratch copy (smoke test logged in, entered the world, ran 49 commands); real DB fingerprint `e53c48100b5e8a63` before and after; no scratch folder left.
 
 ## B-002 Flight landing where the terrain lookup has no height
 - **Priority:** P1 · **Category:** gameplay defect · **State:** COMPLETE (root cause documented; no safe server-side fix)
@@ -26,11 +26,12 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next action:** none (reopen if mesh collision is ever modelled).
 
 ## B-003 GameInput service window blocks client focus for automated tests
-- **Priority:** P1 · **Category:** test infrastructure · **State:** BLOCKED (system service / user action)
+- **Priority:** P1 · **Category:** test infrastructure · **State:** COMPLETE (cleared)
 - **Evidence:** 2026-10-16 ~10:00 onward: `GetForegroundWindow` returns an invisible `GameInputServiceWindow` (process GameInputSvc); scripted clicks reach the game window's coordinates but the game never gets focus. `AttachThreadInput` + `SetForegroundWindow` (focus.ps1) fails.
 - **Done when:** the client takes focus again and `check_all.py --client` passes.
 - **Blocker:** needs the user to click into the game window, restart "GameInput Service", or reboot. Not doing it from the agent (system service).
-- **Next action:** re-check `GetForegroundWindow` at the start of each session.
+- **Cleared:** by 2026-10-16 evening the foreground was an ordinary window again (no action by the agent). 2026-10-17 00:40, after waiting for 10 minutes without user input, `check_all.py --client` passed with the smoke test.
+- **Next action:** if it recurs, re-check `GetForegroundWindow`; run client tests only when the PC has been idle (GetLastInputInfo).
 
 ## B-004 Intermittent load-test latency spike
 - **Priority:** P2 · **Category:** stability · **State:** VERIFIED (not reproduced)
