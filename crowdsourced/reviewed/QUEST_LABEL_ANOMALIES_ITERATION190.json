@@ -1,0 +1,1860 @@
+{
+  "audit_kind": "cached_quest_label_anomaly_review",
+  "network_requests": 0,
+  "metadata_only": true,
+  "input": {
+    "path": "reviewed/CROSS_SOURCE_QUEST_IDENTITY_ITERATION189.json",
+    "sha256": "98143b321e48b21dd65200414fca0d3deaa0194762ca2d883e48348070b77b76"
+  },
+  "reviews": [
+    {
+      "normalized_name": "affinity removal",
+      "url": "https://vgsoharchive.com/quests/affinity-removal",
+      "cache_path": ".cache/archive/c451214674514973cf41711fe71f1d15f0200ef05151741323c121969cd72032.txt",
+      "cache_sha256": "de675626026946069c1184cd6cbe33a7b1d438f0b4c26d7627404c9512e86202",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": "Elandon Naeronum , Hana Pho , His Elegance, Raoul , Nehi Sekamqa , Tar'iia Tem'erae",
+          "html": "<dd><a href=\"/mobs/elandon-naeronum\">Elandon Naeronum</a>, <a href=\"/mobs/hana-pho\">Hana Pho</a>, <a href=\"/mobs/his-elegance-raoul\">His Elegance, Raoul</a>, <a href=\"/mobs/nehi-sekamqa\">Nehi Sekamqa</a>, <a href=\"/mobs/tar-iia-tem-erae\">Tar'iia Tem'erae</a>\n</dd>",
+          "links": [
+            {
+              "text": "Elandon Naeronum",
+              "href": "/mobs/elandon-naeronum"
+            },
+            {
+              "text": "Hana Pho",
+              "href": "/mobs/hana-pho"
+            },
+            {
+              "text": "His Elegance, Raoul",
+              "href": "/mobs/his-elegance-raoul"
+            },
+            {
+              "text": "Nehi Sekamqa",
+              "href": "/mobs/nehi-sekamqa"
+            },
+            {
+              "text": "Tar'iia Tem'erae",
+              "href": "/mobs/tar-iia-tem-erae"
+            }
+          ]
+        },
+        {
+          "label": "Starts in",
+          "text": "Hathor ZhiAhgram",
+          "html": "<dd>Hathor ZhiAhgram\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Hand in to",
+          "text": "Nehi Sekamqa",
+          "html": "<dd><a href=\"/mobs/nehi-sekamqa\">Nehi Sekamqa</a>\n</dd>",
+          "links": [
+            {
+              "text": "Nehi Sekamqa",
+              "href": "/mobs/nehi-sekamqa"
+            }
+          ]
+        },
+        {
+          "label": "Rating",
+          "text": "0.0",
+          "html": "<dd>0.0</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-032558-351880-archive-bulk/quest.jsonl",
+          "line": 65,
+          "record": {
+            "name": "Affinity Removal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/affinity-removal",
+                "title": "Affinity Removal · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:31:22+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Elandon Naeronum , Hana Pho , His Elegance, Raoul , Nehi Sekamqa , Tar'iia Tem'erae"
+              ],
+              "starts in": [
+                "Hathor ZhiAhgram"
+              ],
+              "hand in to": [
+                "Nehi Sekamqa"
+              ],
+              "rating": [
+                "0.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ahgram",
+                "url": "https://vgsoharchive.com/zones/ahgram"
+              },
+              {
+                "name": "Elandon Naeronum",
+                "url": "https://vgsoharchive.com/mobs/elandon-naeronum"
+              },
+              {
+                "name": "Hana Pho",
+                "url": "https://vgsoharchive.com/mobs/hana-pho"
+              },
+              {
+                "name": "His Elegance, Raoul",
+                "url": "https://vgsoharchive.com/mobs/his-elegance-raoul"
+              },
+              {
+                "name": "Nehi Sekamqa",
+                "url": "https://vgsoharchive.com/mobs/nehi-sekamqa"
+              },
+              {
+                "name": "Tar'iia Tem'erae",
+                "url": "https://vgsoharchive.com/mobs/tar-iia-tem-erae"
+              }
+            ],
+            "type": "quest",
+            "level": 22,
+            "zone": "Hathor ZhiAhgram",
+            "giver": "Elandon Naeronum , Hana Pho , His Elegance, Raoul , Nehi Sekamqa , Tar'iia Tem'erae",
+            "turn_in": "Nehi Sekamqa",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 218,
+          "record": {
+            "name": "Affinity Removal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/affinity-removal",
+                "title": "Affinity Removal · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Elandon Naeronum , Hana Pho , His Elegance, Raoul , Nehi Sekamqa , Tar'iia Tem'erae"
+              ],
+              "starts in": [
+                "Hathor ZhiAhgram"
+              ],
+              "hand in to": [
+                "Nehi Sekamqa"
+              ],
+              "rating": [
+                "0.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ahgram",
+                "url": "https://vgsoharchive.com/zones/ahgram"
+              },
+              {
+                "name": "Elandon Naeronum",
+                "url": "https://vgsoharchive.com/mobs/elandon-naeronum"
+              },
+              {
+                "name": "Hana Pho",
+                "url": "https://vgsoharchive.com/mobs/hana-pho"
+              },
+              {
+                "name": "His Elegance, Raoul",
+                "url": "https://vgsoharchive.com/mobs/his-elegance-raoul"
+              },
+              {
+                "name": "Nehi Sekamqa",
+                "url": "https://vgsoharchive.com/mobs/nehi-sekamqa"
+              },
+              {
+                "name": "Tar'iia Tem'erae",
+                "url": "https://vgsoharchive.com/mobs/tar-iia-tem-erae"
+              }
+            ],
+            "type": "quest",
+            "level": 22,
+            "zone": "Hathor ZhiAhgram",
+            "giver": "Elandon Naeronum , Hana Pho , His Elegance, Raoul , Nehi Sekamqa , Tar'iia Tem'erae",
+            "turn_in": "Nehi Sekamqa",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 6910,
+          "name": "Affinity Removal",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 6913,
+          "name": "Affinity Removal",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 6914,
+          "name": "Affinity Removal",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 6915,
+          "name": "Affinity Removal",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source itself prints concatenated unlinked Starts in value. No separate zones or canonical zone identity established.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (arms)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-arms",
+      "cache_path": ".cache/archive/c6147c59649fceb17a2d2504e1bc59c37df3a97cb8c1ac3f059988843d9e66d5.txt",
+      "cache_sha256": "d1960cefdd16ad317dad4d23d9071133fa20f04322ad596d5683c3fcc9610820",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 75,
+          "record": {
+            "name": "Armor of the People (Arms)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-arms",
+                "title": "Armor of the People (Arms) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:27+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 1,
+                "objective": "Basic Forged Armor Mold (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 328,
+          "record": {
+            "name": "Armor of the People (Arms)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-arms",
+                "title": "Armor of the People (Arms) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 1,
+                "objective": "Basic Forged Armor Mold (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8096,
+          "name": "Armor of the People (Arms)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8119,
+          "name": "Armor of the People (Arms)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (belt)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-belt",
+      "cache_path": ".cache/archive/f3f92d0555e168b1de111efabb36c659a8d6d59a07f0b009dac6d7b0cfd78096.txt",
+      "cache_sha256": "e524712facba19dd0b2fe575b03115619d21eb15166725fc512a76972f07e4c9",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 76,
+          "record": {
+            "name": "Armor of the People (Belt)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-belt",
+                "title": "Armor of the People (Belt) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:32+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 1,
+                "objective": "Basic Forged Armor Mold (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 329,
+          "record": {
+            "name": "Armor of the People (Belt)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-belt",
+                "title": "Armor of the People (Belt) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 1,
+                "objective": "Basic Forged Armor Mold (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8097,
+          "name": "Armor of the People (Belt)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8133,
+          "name": "Armor of the People (Belt)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (boots)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-boots",
+      "cache_path": ".cache/archive/556e981a3cc26f04b30a9d849610a6984ae0e112fdef4ade149f33b6850ba7e2.txt",
+      "cache_sha256": "8c8ae7fc023258f49cdc6a794df39fb41ab1f4a402ae4b8c2d6c5225599055ef",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 77,
+          "record": {
+            "name": "Armor of the People (Boots)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-boots",
+                "title": "Armor of the People (Boots) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 2,
+                "objective": "Basic Forged Armor Mold (2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 330,
+          "record": {
+            "name": "Armor of the People (Boots)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-boots",
+                "title": "Armor of the People (Boots) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 2,
+                "objective": "Basic Forged Armor Mold (2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8093,
+          "name": "Armor of the People (Boots)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8123,
+          "name": "Armor of the People (Boots)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (bracer)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-bracer",
+      "cache_path": ".cache/archive/c629cdd4bbc5ff91592d161c425a6cbfd4e0c54269fc08832eb05f923d4d4af0.txt",
+      "cache_sha256": "22293241dcb621c3260bcab985da215a681a9d7008f3cb5649d3d2a0892779df",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 78,
+          "record": {
+            "name": "Armor of the People (Bracer)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-bracer",
+                "title": "Armor of the People (Bracer) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:42+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 1,
+                "objective": "Basic Forged Armor Mold (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 331,
+          "record": {
+            "name": "Armor of the People (Bracer)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-bracer",
+                "title": "Armor of the People (Bracer) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 1,
+                "objective": "Basic Forged Armor Mold (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8098,
+          "name": "Armor of the People (Bracer)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8135,
+          "name": "Armor of the People (Bracer)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (chest)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-chest",
+      "cache_path": ".cache/archive/4be0d9c32024218243514bf078fe263e123da50ef1e1b6d471b9d35a316e2c56.txt",
+      "cache_sha256": "c890bc431de7552e377c489d8fa653ccf5ebfeb6a29f7163455096377bb70d78",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 79,
+          "record": {
+            "name": "Armor of the People (Chest)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-chest",
+                "title": "Armor of the People (Chest) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 4,
+                "objective": "Basic Forged Armor Mold (4)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (4)",
+                "kind": null,
+                "target": null,
+                "count": 4
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 332,
+          "record": {
+            "name": "Armor of the People (Chest)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-chest",
+                "title": "Armor of the People (Chest) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 4,
+                "objective": "Basic Forged Armor Mold (4)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (4)",
+                "kind": null,
+                "target": null,
+                "count": 4
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8094,
+          "name": "Armor of the People (Chest)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8121,
+          "name": "Armor of the People (Chest)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (gloves)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-gloves",
+      "cache_path": ".cache/archive/646a7b21ede69f4848bca664ebd14c76deb857e9f53dee5899bb8e03a1e3430f.txt",
+      "cache_sha256": "fbc95d163a7fec2a7b04be741096ac2f4b81368b4a275fb8c5e16985f697dd60",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 80,
+          "record": {
+            "name": "Armor of the People (Gloves)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-gloves",
+                "title": "Armor of the People (Gloves) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:52+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 2,
+                "objective": "Basic Forged Armor Mold (2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 333,
+          "record": {
+            "name": "Armor of the People (Gloves)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-gloves",
+                "title": "Armor of the People (Gloves) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 2,
+                "objective": "Basic Forged Armor Mold (2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8092,
+          "name": "Armor of the People (Gloves)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8125,
+          "name": "Armor of the People (Gloves)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (helmet)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-helmet",
+      "cache_path": ".cache/archive/cd80c9bc24a3318d7a78baa5a430f3e56bcc5796083b503ab48209c68dc2cb80.txt",
+      "cache_sha256": "c20ad5f73a1b6dc37c70a981c3c3f78e4815f11c4127eee327934c400bb8b5f6",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 81,
+          "record": {
+            "name": "Armor of the People (Helmet)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-helmet",
+                "title": "Armor of the People (Helmet) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:40:57+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 3,
+                "objective": "Basic Forged Armor Mold (3)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (3)",
+                "kind": null,
+                "target": null,
+                "count": 3
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 334,
+          "record": {
+            "name": "Armor of the People (Helmet)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-helmet",
+                "title": "Armor of the People (Helmet) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 3,
+                "objective": "Basic Forged Armor Mold (3)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (3)",
+                "kind": null,
+                "target": null,
+                "count": 3
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8090,
+          "name": "Armor of the People (Helmet)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8127,
+          "name": "Armor of the People (Helmet)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (legs)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-legs",
+      "cache_path": ".cache/archive/5d6fc7331b83c1d2c2d5de9f87f964011dac6b894d19a17c0a4ffb21278d9cb1.txt",
+      "cache_sha256": "5df7719282305000427ff3b8348ff6570ec74a0889362c6434bf4300adb1c084",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 82,
+          "record": {
+            "name": "Armor of the People (Legs)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-legs",
+                "title": "Armor of the People (Legs) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:41:02+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 4,
+                "objective": "Basic Forged Armor Mold (4)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (4)",
+                "kind": null,
+                "target": null,
+                "count": 4
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 335,
+          "record": {
+            "name": "Armor of the People (Legs)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-legs",
+                "title": "Armor of the People (Legs) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 4,
+                "objective": "Basic Forged Armor Mold (4)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (4)",
+                "kind": null,
+                "target": null,
+                "count": 4
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8095,
+          "name": "Armor of the People (Legs)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8129,
+          "name": "Armor of the People (Legs)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "armor of the people (pauldrons)",
+      "url": "https://vgsoharchive.com/quests/armor-of-the-people-pauldrons",
+      "cache_path": ".cache/archive/81f42cf9af015f8d93bfba2e40bea4b08cc401e0e8e6d91cfe284f42420719cc.txt",
+      "cache_sha256": "78a1f64e1932a0d5d514f0a332de50668947611ce9e4872c012b9f2ba33eb581",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": ":Category:City Armor Dealer, Category:City Armor Dealer",
+          "html": "<dd>:Category:City Armor Dealer, Category:City Armor Dealer\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "City Faction Armor",
+          "html": "<dd>City Faction Armor</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-033418-391762-archive-bulk/quest.jsonl",
+          "line": 83,
+          "record": {
+            "name": "Armor of the People (Pauldrons)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-pauldrons",
+                "title": "Armor of the People (Pauldrons) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:41:07+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 2,
+                "objective": "Basic Forged Armor Mold (2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 336,
+          "record": {
+            "name": "Armor of the People (Pauldrons)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/armor-of-the-people-pauldrons",
+                "title": "Armor of the People (Pauldrons) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                ":Category:City Armor Dealer, Category:City Armor Dealer"
+              ],
+              "series": [
+                "City Faction Armor"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "quest",
+            "level": 50,
+            "zone": null,
+            "giver": ":Category:City Armor Dealer, Category:City Armor Dealer",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "City Faction Armor",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Basic Forged Armor Mold",
+                "count": 2,
+                "objective": "Basic Forged Armor Mold (2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Basic Forged Armor Mold (2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8091,
+          "name": "Armor of the People (Pauldrons)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8131,
+          "name": "Armor of the People (Pauldrons)",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source giver labels contain category text. These labels do not establish an individual NPC identity. Withhold NPC assignment.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "request_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cache_hashes_verified": 10,
+    "full_archive_records_verified": 20,
+    "unknown_assignments_withheld": true
+  }
+}
