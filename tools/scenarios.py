@@ -318,6 +318,30 @@ def main():
         fails += check("second login", False, f"the second login failed: {e}")
     a = a2
 
+    # Reconnect after an abrupt drop (B-005b): A's socket just closes, as when a client crashes (no
+    # Terminate; the server still holds the session for up to CLIENT_IDLE_SECONDS). Logging in
+    # again must work at once and the saved character must survive.
+    before = storage.read_character(CHARACTERS, a.name) or {}
+    a.zone.sock.close()
+    a3 = Player(0, args, loadtest.bot_token(0), pm.net_cache, None)
+    try:
+        a3.play()
+        a3.pump(1.0)
+        b.got.clear()
+        a3.send(0x74, wstr("back after a crash"))
+        heard = False
+        end = time.time() + 5
+        while time.time() < end and not heard:
+            b.pump(0.3)
+            heard = any(wstr("back after a crash")[:-2] in d for d in b.events(0x0F))
+        after = storage.read_character(CHARACTERS, a.name) or {}
+        kept = all(after.get(k) == before.get(k) for k in ("coins", "items", "adventure_level", "quests"))
+        fails += check("reconnect after a drop", heard and kept and bool(after.get("position")),
+                       f"plays again={heard}, saved data kept={kept}")
+    except RuntimeError as e:
+        fails += check("reconnect after a drop", False, f"the login after a drop failed: {e}")
+    a = a3
+
     # Riftway to another region (last: B leaves the chunk): /rift KHAL (0x597 {wstr}) at the camp
     # brazier makes the server send world event 8, "connect to zone", for Khal's chunk.
     b.send(0x597, wstr("KHAL"))

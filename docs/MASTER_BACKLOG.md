@@ -45,7 +45,8 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Paths:** `tools/scenarios.py`, `tools/loadtest.py`
 - **Done when:** scenarios cover (a) a second login of an online character (old session closed cleanly), (b) reconnect after an abrupt drop (character saved, NPC state reset), (c) chunk change and return; all pass in `check_all.py`.
 - **Progress:** (a) done 2026-10-16: scenario "second login" (a second connection for the same character; the old one gets UdpLibrary Terminate via `kick_other_session`, the new one plays and its chat reaches the other bot). The test bot now records Terminate (`loadtest` `terminated`). Passes on a scratch copy; real DB fingerprint unchanged.
-- **Next action:** (b) reconnect after an abrupt drop (no Terminate from the client): the character is saved and can log back in; then (c) chunk change and return.
+- (b) done 2026-10-16: scenario "reconnect after a drop" (the socket closes without Terminate, as in a crash; a new login works at once and coins, items, level, quests are unchanged). 18 scenarios, 0 failed on a scratch copy; no server tracebacks; real DB fingerprint unchanged.
+- **Next action:** (c) chunk change and return. The riftway scenario only checks that the server sends the zone-connect event; the bot can't yet follow a chunk hand-off (a new zone login with the same session). Teach `loadtest.Bot` the hand-off, then cross into Khal and back.
 
 ## B-006 Invisible runtime particle effects (quest-node glow, loot sparkle)
 - **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED

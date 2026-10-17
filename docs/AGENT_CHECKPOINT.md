@@ -12,7 +12,7 @@ Also fixed: B-013, the editor's quest form could drop turn_in when used before i
 Earlier this session: B-001 (checks on a scratch DB copy, verified), B-002 (flight landing gap: root cause documented, no code change).
 
 ## In progress / next action
-**B-005 (b):** scenario for an abrupt drop (close the socket without Terminate), then log the same character in again; expect the server to accept it and the character's saved position to be intact.
+B-005 (a) second login and (b) reconnect after a drop are done and pass. **Next: B-005 (c)** chunk change and return: teach `tools/loadtest.py` Bot to follow world event 8 (connect to zone) with a new zone login on the same session, then add a scenario that crosses into Khal by riftway and back.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
