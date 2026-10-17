@@ -120,7 +120,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] A female character shows as female on the select screen and in the world
 - [ ] HUD, minimap, chat, message of the day; character window (C) shows attributes, health, armor class
 - [ ] Loot something, click the item link in the "You loot" line: the item tooltip pops up
-- [ ] `/report <name>` prints "Player report submitted", a second one within a minute "You must wait longer"; the report is in server/player_reports.json
+- [x] `/report <name>` prints "Player report submitted", a second one within a minute "You must wait longer"; the report is in server/player_reports.json (2026-10-17, scratch save: both lines seen; the report lands in the data folder's player_reports.json)
 - [x] `/reloadui`: the UI comes back with the hotbars filled (2026-10-16)
 - [ ] `/walk` slows the character, `/run` restores it; `/hidehood` / `/hidehelm` / `/hidecloak` toggle (✦ the other client sees it) and stay after relogging
 - [ ] Walk, run, jump, fall damage; cross a chunk edge; `/unstuck`; `/camp` back to character select
@@ -137,7 +137,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Kill a mob, XP bar rises, level up heals you and raises attributes
 - [ ] Die, release, recover the tombstone, bind at the altar
 - [ ] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House
-- [ ] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded
+- [x] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded (2026-10-17: "Right Arm - Mid", then "Some of your wounds have been cured! Right Arm - Minor", then "Right Arm - Unwounded")
 - [ ] A lootable corpse sparkles; spell effects show (Blade of Winter tints the target)
 - [ ] Wound an Ashen Wolf, run past its leash: it walks home, heals to 100%, the target frame turns white and its target line reads "--"; no "notices you!" flood
 - [ ] Let two Ashen Wolves notice you, then `!tp -28900 -9400 ~`: each gives up once at the leash and walks home; they do not notice you again on the way (no "gives up" loop)
