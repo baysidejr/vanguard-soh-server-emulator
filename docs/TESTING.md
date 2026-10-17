@@ -183,7 +183,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Blackheart under Lomshir (39719, -61690, -2349) notices you and fights; its loot comes from the archive
 
 **Crafting and gathering**
-- [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades; Table Setup's Auto Setup Table box ticks, Back returns to the recipe list
+- [ ] Mine a copper vein, smelt an ingot at the Camp Forge, quality grades; Table Setup's Auto Setup Table box ticks, Back returns to the recipe list (2026-10-17: mining checked: target the vein, U -> "Harvesting has begun. You harvest 1 Copper Ore. Your Mining skill has increased to 3. Harvesting has ended."; the forge steps not redone)
 - [ ] A work order from Garret Holm; an assembly at the Assembly Bench
 - [ ] Buy Copper Wire from Brenna: "New action acquired: ..." lines; a multi-stage recipe shows the orange stage banner
 - [ ] Using a station while sitting: "You cannot do that while resting." (2026-10-17: not completed in the client: the dev `!target` makes the client stand up, and the client refuses `/sit` ("You can't do that right now.") while the crafting window is open; the server rule is unit-tested, test_login_hooks USE_RESTING)
