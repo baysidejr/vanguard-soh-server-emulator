@@ -1,0 +1,175 @@
+{
+  "audit_kind": "cached_wiki_inventory_and_search_navigation_review",
+  "metadata_only": true,
+  "network_requests": 0,
+  "source": {
+    "url": "https://vgoplayers.com/wiki/index.php/Main_Page",
+    "downloaded_at": "2026-10-17T13:35:11.070841+00:00",
+    "sha256": "ea19e8c21288a65c8a41e3ce642c3011414c6a0eab7f94b8e94f0e0ebbb8ff36"
+  },
+  "cached_body": ".cache/multisource/66e02872d78620d453b7f70017d7826a627895fcd150fdfd7f8244003af1c01c.html",
+  "quest_category_routes": [
+    {
+      "text": "Quests",
+      "href": "/wiki/index.php/Category:Quests",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Category:Quests"
+    },
+    {
+      "text": "Adventure Quests",
+      "href": "/wiki/index.php/Category:Adventure_Quests_By_Chunk",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Category:Adventure_Quests_By_Chunk"
+    },
+    {
+      "text": "Crafting Quests",
+      "href": "/wiki/index.php/Category:Crafting_Quests_By_Chunk",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Category:Crafting_Quests_By_Chunk"
+    },
+    {
+      "text": "Diplomacy Quests",
+      "href": "/wiki/index.php/Category:Diplomacy_Quests_By_Chunk",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Category:Diplomacy_Quests_By_Chunk"
+    }
+  ],
+  "special_navigation_links": [
+    {
+      "text": "Recent Changes",
+      "href": "/wiki/index.php/Special:RecentChanges",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:RecentChanges"
+    },
+    {
+      "text": "New Pages",
+      "href": "/wiki/index.php/Special:NewPages",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:NewPages"
+    },
+    {
+      "text": "Missing Pages",
+      "href": "/wiki/index.php/Special:WantedPages",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:WantedPages"
+    },
+    {
+      "text": "815",
+      "href": "/wiki/index.php/Special:Statistics",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:Statistics"
+    },
+    {
+      "text": "articles",
+      "href": "/wiki/index.php/Special:AllPages",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:AllPages"
+    },
+    {
+      "text": "Log in",
+      "href": "/wiki/index.php?title=Special:UserLogin&returnto=Main+Page",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php?title=Special:UserLogin&returnto=Main+Page"
+    },
+    {
+      "text": "Recent changes",
+      "href": "/wiki/index.php/Special:RecentChanges",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:RecentChanges"
+    },
+    {
+      "text": "Random page",
+      "href": "/wiki/index.php/Special:Random",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:Random"
+    },
+    {
+      "text": "What links here",
+      "href": "/wiki/index.php/Special:WhatLinksHere/Main_Page",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:WhatLinksHere/Main_Page"
+    },
+    {
+      "text": "Related changes",
+      "href": "/wiki/index.php/Special:RecentChangesLinked/Main_Page",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:RecentChangesLinked/Main_Page"
+    },
+    {
+      "text": "Special pages",
+      "href": "/wiki/index.php/Special:SpecialPages",
+      "resolved_url": "https://vgoplayers.com/wiki/index.php/Special:SpecialPages"
+    }
+  ],
+  "advertised_discovery_descriptors": [
+    {
+      "rel": [
+        "search"
+      ],
+      "type": "application/opensearchdescription+xml",
+      "href": "/wiki/opensearch_desc.php",
+      "title": "Vanguard Wiki (en)"
+    },
+    {
+      "rel": [
+        "EditURI"
+      ],
+      "type": "application/rsd+xml",
+      "href": "http://vgoplayers.com/wiki/api.php?action=rsd"
+    }
+  ],
+  "search_form": {
+    "action": "/wiki/index.php",
+    "resolved_action": "https://vgoplayers.com/wiki/index.php",
+    "method": "GET",
+    "controls": [
+      {
+        "type": "search",
+        "name": "search",
+        "placeholder": "Search Vanguard Wiki",
+        "autocapitalize": "sentences",
+        "title": "Search Vanguard Wiki [f]",
+        "accesskey": [
+          "f"
+        ],
+        "id": "searchInput"
+      },
+      {
+        "type": "hidden",
+        "name": "title",
+        "value": "Special:Search"
+      },
+      {
+        "type": "submit",
+        "name": "fulltext",
+        "value": "Search",
+        "title": "Search the pages for this text",
+        "id": "mw-searchButton",
+        "class": [
+          "searchButton",
+          "mw-fallbackSearchButton"
+        ]
+      },
+      {
+        "type": "submit",
+        "name": "go",
+        "value": "Go",
+        "title": "Go to a page with this exact name if it exists",
+        "id": "searchButton",
+        "class": [
+          "searchButton"
+        ]
+      }
+    ]
+  },
+  "findings": [
+    "Quest links lead to category inventories, not downloaded quest details. Existing article queue already includes these four routes.",
+    "Special:AllPages is explicitly advertised and excluded by current article-only discovery; it is an inventory candidate requiring per-host policy evaluation before intake.",
+    "EditURI explicitly advertises an HTTP API RSD descriptor; no HTTPS rewrite, API response, export capability or query permission is inferred.",
+    "Search form uses GET with search/title and alternative submit controls fulltext/go; controls are evidence of interface only, not permission to issue a query.",
+    "Historical applicability, canonical IDs and individual quest mechanics remain unknown."
+  ],
+  "validation": {
+    "cache_sha256_matches": true,
+    "quest_routes": 4,
+    "special_navigation_links": 11,
+    "discovery_descriptors": 2,
+    "search_controls": 4,
+    "quest_routes_in_existing_article_discovery": true,
+    "issues": []
+  },
+  "remaining_work": [
+    "Evaluate evidenced inventory and descriptor routes against current per-host policy when suspension permits; fetch permitted category/detail pages and extract actual records."
+  ],
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart with reason blocked by policy.",
+    "recovery_conditions": "Recorded policy disposition permitting resumption, followed by actual process/lock inspection and collection.ps1 with preserved checkpoints and persisted 60-second pacing."
+  }
+}

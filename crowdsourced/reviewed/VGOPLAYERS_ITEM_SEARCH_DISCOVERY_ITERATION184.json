@@ -1,0 +1,1220 @@
+{
+  "audit_kind": "cached_vgoplayers_item_search_discovery",
+  "metadata_only": true,
+  "network_requests": 0,
+  "source": {
+    "url": "https://vgoplayers.com/items.php",
+    "downloaded_at": "2026-10-17T13:34:56.208729+00:00",
+    "sha256": "6218f4f6d650b95324180a27a7cc4b1bc91bf041452df8933e50dde30bbc03da"
+  },
+  "cached_body": ".cache/multisource/b36b8ec706fea89e2ceae410464616fd51fb3fd4de461cbc9d557d70d33a8759.html",
+  "forms": [
+    {
+      "id": "itemSearchForm",
+      "method": "post",
+      "action_literal": "items.php?format=wide&query=true#results",
+      "controls": [
+        {
+          "tag": "input",
+          "name": "name",
+          "type": null,
+          "value": "",
+          "id": null
+        },
+        {
+          "tag": "select",
+          "name": "itemClassId",
+          "type": null,
+          "value": null,
+          "id": null,
+          "options": [
+            {
+              "text": "-- Select Class --",
+              "explicit_value": "",
+              "effective_form_value": "",
+              "selected": false
+            },
+            {
+              "text": "Adventurer",
+              "explicit_value": "1",
+              "effective_form_value": "1",
+              "selected": false
+            },
+            {
+              "text": "Artificer",
+              "explicit_value": "1002",
+              "effective_form_value": "1002",
+              "selected": false
+            },
+            {
+              "text": "Bard",
+              "explicit_value": "2",
+              "effective_form_value": "2",
+              "selected": false
+            },
+            {
+              "text": "Berserker",
+              "explicit_value": "46",
+              "effective_form_value": "46",
+              "selected": false
+            },
+            {
+              "text": "Blacksmith",
+              "explicit_value": "1000",
+              "effective_form_value": "1000",
+              "selected": false
+            },
+            {
+              "text": "Blood Mage",
+              "explicit_value": "44",
+              "effective_form_value": "44",
+              "selected": false
+            },
+            {
+              "text": "Cleric",
+              "explicit_value": "5",
+              "effective_form_value": "5",
+              "selected": false
+            },
+            {
+              "text": "Crafter",
+              "explicit_value": "1050",
+              "effective_form_value": "1050",
+              "selected": false
+            },
+            {
+              "text": "Disciple",
+              "explicit_value": "27",
+              "effective_form_value": "27",
+              "selected": false
+            },
+            {
+              "text": "Dread Knight",
+              "explicit_value": "20",
+              "effective_form_value": "20",
+              "selected": false
+            },
+            {
+              "text": "Druid",
+              "explicit_value": "7",
+              "effective_form_value": "7",
+              "selected": false
+            },
+            {
+              "text": "Inquisitor",
+              "explicit_value": "10",
+              "effective_form_value": "10",
+              "selected": false
+            },
+            {
+              "text": "Monk",
+              "explicit_value": "15",
+              "effective_form_value": "15",
+              "selected": false
+            },
+            {
+              "text": "Necromancer",
+              "explicit_value": "45",
+              "effective_form_value": "45",
+              "selected": false
+            },
+            {
+              "text": "Outfitter",
+              "explicit_value": "1004",
+              "effective_form_value": "1004",
+              "selected": false
+            },
+            {
+              "text": "Paladin",
+              "explicit_value": "4",
+              "effective_form_value": "4",
+              "selected": false
+            },
+            {
+              "text": "Psionicist",
+              "explicit_value": "14",
+              "effective_form_value": "14",
+              "selected": false
+            },
+            {
+              "text": "Ranger",
+              "explicit_value": "19",
+              "effective_form_value": "19",
+              "selected": false
+            },
+            {
+              "text": "Rogue",
+              "explicit_value": "21",
+              "effective_form_value": "21",
+              "selected": false
+            },
+            {
+              "text": "Shaman",
+              "explicit_value": "22",
+              "effective_form_value": "22",
+              "selected": false
+            },
+            {
+              "text": "Sorcerer",
+              "explicit_value": "25",
+              "effective_form_value": "25",
+              "selected": false
+            },
+            {
+              "text": "Warrior",
+              "explicit_value": "28",
+              "effective_form_value": "28",
+              "selected": false
+            }
+          ]
+        },
+        {
+          "tag": "select",
+          "name": "itemSlotId",
+          "type": null,
+          "value": null,
+          "id": null,
+          "options": [
+            {
+              "text": "-- Select Slot --",
+              "explicit_value": "",
+              "effective_form_value": "",
+              "selected": false
+            },
+            {
+              "text": "Ammo",
+              "explicit_value": "43",
+              "effective_form_value": "43",
+              "selected": false
+            },
+            {
+              "text": "Aquatic Mount",
+              "explicit_value": "44",
+              "effective_form_value": "44",
+              "selected": false
+            },
+            {
+              "text": "ArmLeft",
+              "explicit_value": "10",
+              "effective_form_value": "10",
+              "selected": false
+            },
+            {
+              "text": "ArmRight",
+              "explicit_value": "11",
+              "effective_form_value": "11",
+              "selected": false
+            },
+            {
+              "text": "Arms",
+              "explicit_value": "37",
+              "effective_form_value": "37",
+              "selected": false
+            },
+            {
+              "text": "Barding",
+              "explicit_value": "45",
+              "effective_form_value": "45",
+              "selected": false
+            },
+            {
+              "text": "BurlapSack",
+              "explicit_value": "30",
+              "effective_form_value": "30",
+              "selected": false
+            },
+            {
+              "text": "Chest",
+              "explicit_value": "6",
+              "effective_form_value": "6",
+              "selected": false
+            },
+            {
+              "text": "Cloak",
+              "explicit_value": "7",
+              "effective_form_value": "7",
+              "selected": false
+            },
+            {
+              "text": "CoifLong",
+              "explicit_value": "23",
+              "effective_form_value": "23",
+              "selected": false
+            },
+            {
+              "text": "CoifShort",
+              "explicit_value": "24",
+              "effective_form_value": "24",
+              "selected": false
+            },
+            {
+              "text": "Container",
+              "explicit_value": "27",
+              "effective_form_value": "27",
+              "selected": false
+            },
+            {
+              "text": "Container",
+              "explicit_value": "12",
+              "effective_form_value": "12",
+              "selected": false
+            },
+            {
+              "text": "Container",
+              "explicit_value": "38",
+              "effective_form_value": "38",
+              "selected": false
+            },
+            {
+              "text": "Crafting Apron",
+              "explicit_value": "56",
+              "effective_form_value": "56",
+              "selected": false
+            },
+            {
+              "text": "Crafting Chest",
+              "explicit_value": "57",
+              "effective_form_value": "57",
+              "selected": false
+            },
+            {
+              "text": "Crafting Container",
+              "explicit_value": "65",
+              "effective_form_value": "65",
+              "selected": false
+            },
+            {
+              "text": "Crafting Feet",
+              "explicit_value": "60",
+              "effective_form_value": "60",
+              "selected": false
+            },
+            {
+              "text": "Crafting Hands",
+              "explicit_value": "59",
+              "effective_form_value": "59",
+              "selected": false
+            },
+            {
+              "text": "Crafting Head",
+              "explicit_value": "55",
+              "effective_form_value": "55",
+              "selected": false
+            },
+            {
+              "text": "Crafting Left Ear",
+              "explicit_value": "63",
+              "effective_form_value": "63",
+              "selected": false
+            },
+            {
+              "text": "Crafting Left Finger",
+              "explicit_value": "61",
+              "effective_form_value": "61",
+              "selected": false
+            },
+            {
+              "text": "Crafting Legs",
+              "explicit_value": "58",
+              "effective_form_value": "58",
+              "selected": false
+            },
+            {
+              "text": "Crafting Right Ear",
+              "explicit_value": "64",
+              "effective_form_value": "64",
+              "selected": false
+            },
+            {
+              "text": "Crafting Right Finger",
+              "explicit_value": "62",
+              "effective_form_value": "62",
+              "selected": false
+            },
+            {
+              "text": "Crafting Tool",
+              "explicit_value": "66",
+              "effective_form_value": "66",
+              "selected": false
+            },
+            {
+              "text": "Crafting Waist 1",
+              "explicit_value": "67",
+              "effective_form_value": "67",
+              "selected": false
+            },
+            {
+              "text": "Crafting Waist 2",
+              "explicit_value": "68",
+              "effective_form_value": "68",
+              "selected": false
+            },
+            {
+              "text": "Crafting Waist 3",
+              "explicit_value": "69",
+              "effective_form_value": "69",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Chest",
+              "explicit_value": "71",
+              "effective_form_value": "71",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Cloak",
+              "explicit_value": "75",
+              "effective_form_value": "75",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Container",
+              "explicit_value": "85",
+              "effective_form_value": "85",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Container 2",
+              "explicit_value": "86",
+              "effective_form_value": "86",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Container 3",
+              "explicit_value": "87",
+              "effective_form_value": "87",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Feet",
+              "explicit_value": "73",
+              "effective_form_value": "73",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Hands",
+              "explicit_value": "74",
+              "effective_form_value": "74",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Head",
+              "explicit_value": "70",
+              "effective_form_value": "70",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Held Item",
+              "explicit_value": "83",
+              "effective_form_value": "83",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Left Ear",
+              "explicit_value": "80",
+              "effective_form_value": "80",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Left Finger",
+              "explicit_value": "78",
+              "effective_form_value": "78",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Legs",
+              "explicit_value": "72",
+              "effective_form_value": "72",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Neck",
+              "explicit_value": "82",
+              "effective_form_value": "82",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Right Ear",
+              "explicit_value": "81",
+              "effective_form_value": "81",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Right Finger",
+              "explicit_value": "79",
+              "effective_form_value": "79",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Shoulders",
+              "explicit_value": "84",
+              "effective_form_value": "84",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Waist",
+              "explicit_value": "76",
+              "effective_form_value": "76",
+              "selected": false
+            },
+            {
+              "text": "Diplomacy Wrists",
+              "explicit_value": "77",
+              "effective_form_value": "77",
+              "selected": false
+            },
+            {
+              "text": "EarLeft",
+              "explicit_value": "4",
+              "effective_form_value": "4",
+              "selected": false
+            },
+            {
+              "text": "EarRight",
+              "explicit_value": "5",
+              "effective_form_value": "5",
+              "selected": false
+            },
+            {
+              "text": "Eyes",
+              "explicit_value": "1",
+              "effective_form_value": "1",
+              "selected": false
+            },
+            {
+              "text": "Face",
+              "explicit_value": "2",
+              "effective_form_value": "2",
+              "selected": false
+            },
+            {
+              "text": "Feet",
+              "explicit_value": "26",
+              "effective_form_value": "26",
+              "selected": false
+            },
+            {
+              "text": "FingerLeft",
+              "explicit_value": "19",
+              "effective_form_value": "19",
+              "selected": false
+            },
+            {
+              "text": "FingerRight",
+              "explicit_value": "20",
+              "effective_form_value": "20",
+              "selected": false
+            },
+            {
+              "text": "Flying Mount",
+              "explicit_value": "40",
+              "effective_form_value": "40",
+              "selected": false
+            },
+            {
+              "text": "Hands",
+              "explicit_value": "33",
+              "effective_form_value": "33",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Chest",
+              "explicit_value": "49",
+              "effective_form_value": "49",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Feet",
+              "explicit_value": "52",
+              "effective_form_value": "52",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Hands",
+              "explicit_value": "51",
+              "effective_form_value": "51",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Head",
+              "explicit_value": "48",
+              "effective_form_value": "48",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Legs",
+              "explicit_value": "50",
+              "effective_form_value": "50",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Pack",
+              "explicit_value": "41",
+              "effective_form_value": "41",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Tool",
+              "explicit_value": "53",
+              "effective_form_value": "53",
+              "selected": false
+            },
+            {
+              "text": "Harvesting Waist",
+              "explicit_value": "54",
+              "effective_form_value": "54",
+              "selected": false
+            },
+            {
+              "text": "Head",
+              "explicit_value": "0",
+              "effective_form_value": "0",
+              "selected": false
+            },
+            {
+              "text": "HeldPrimary",
+              "explicit_value": "28",
+              "effective_form_value": "28",
+              "selected": false
+            },
+            {
+              "text": "HeldSecondary",
+              "explicit_value": "29",
+              "effective_form_value": "29",
+              "selected": false
+            },
+            {
+              "text": "HelmetVisored",
+              "explicit_value": "22",
+              "effective_form_value": "22",
+              "selected": false
+            },
+            {
+              "text": "Horseshoes",
+              "explicit_value": "47",
+              "effective_form_value": "47",
+              "selected": false
+            },
+            {
+              "text": "Legs",
+              "explicit_value": "32",
+              "effective_form_value": "32",
+              "selected": false
+            },
+            {
+              "text": "LowerBody",
+              "explicit_value": "25",
+              "effective_form_value": "25",
+              "selected": false
+            },
+            {
+              "text": "Mount",
+              "explicit_value": "39",
+              "effective_form_value": "39",
+              "selected": false
+            },
+            {
+              "text": "Neck",
+              "explicit_value": "3",
+              "effective_form_value": "3",
+              "selected": false
+            },
+            {
+              "text": "None",
+              "explicit_value": "255",
+              "effective_form_value": "255",
+              "selected": false
+            },
+            {
+              "text": "Ranged",
+              "explicit_value": "42",
+              "effective_form_value": "42",
+              "selected": false
+            },
+            {
+              "text": "Saddlebags",
+              "explicit_value": "46",
+              "effective_form_value": "46",
+              "selected": false
+            },
+            {
+              "text": "ShirtLongSleeved",
+              "explicit_value": "14",
+              "effective_form_value": "14",
+              "selected": false
+            },
+            {
+              "text": "ShirtLongSleevedShouldered",
+              "explicit_value": "18",
+              "effective_form_value": "18",
+              "selected": false
+            },
+            {
+              "text": "ShirtShortSleeved",
+              "explicit_value": "13",
+              "effective_form_value": "13",
+              "selected": false
+            },
+            {
+              "text": "ShirtShortSleevedShouldered",
+              "explicit_value": "17",
+              "effective_form_value": "17",
+              "selected": false
+            },
+            {
+              "text": "ShoulderLeft",
+              "explicit_value": "8",
+              "effective_form_value": "8",
+              "selected": false
+            },
+            {
+              "text": "ShoulderRight",
+              "explicit_value": "9",
+              "effective_form_value": "9",
+              "selected": false
+            },
+            {
+              "text": "Shoulders",
+              "explicit_value": "35",
+              "effective_form_value": "35",
+              "selected": false
+            },
+            {
+              "text": "SuitNoHead",
+              "explicit_value": "31",
+              "effective_form_value": "31",
+              "selected": false
+            },
+            {
+              "text": "TwoHands",
+              "explicit_value": "36",
+              "effective_form_value": "36",
+              "selected": false
+            },
+            {
+              "text": "Waist",
+              "explicit_value": "21",
+              "effective_form_value": "21",
+              "selected": false
+            },
+            {
+              "text": "WristLeft",
+              "explicit_value": "15",
+              "effective_form_value": "15",
+              "selected": false
+            },
+            {
+              "text": "WristRight",
+              "explicit_value": "16",
+              "effective_form_value": "16",
+              "selected": false
+            },
+            {
+              "text": "Wrists",
+              "explicit_value": "34",
+              "effective_form_value": "34",
+              "selected": false
+            }
+          ]
+        },
+        {
+          "tag": "select",
+          "name": "itemRaceId",
+          "type": null,
+          "value": null,
+          "id": null,
+          "options": [
+            {
+              "text": "-- Select Race --",
+              "explicit_value": "",
+              "effective_form_value": "",
+              "selected": false
+            },
+            {
+              "text": "Dwarf",
+              "explicit_value": "2",
+              "effective_form_value": "2",
+              "selected": false
+            },
+            {
+              "text": "Dark Elf",
+              "explicit_value": "3",
+              "effective_form_value": "3",
+              "selected": false
+            },
+            {
+              "text": "High Elf",
+              "explicit_value": "4",
+              "effective_form_value": "4",
+              "selected": false
+            },
+            {
+              "text": "Wood Elf",
+              "explicit_value": "5",
+              "effective_form_value": "5",
+              "selected": false
+            },
+            {
+              "text": "Gnome",
+              "explicit_value": "6",
+              "effective_form_value": "6",
+              "selected": false
+            },
+            {
+              "text": "Goblin",
+              "explicit_value": "7",
+              "effective_form_value": "7",
+              "selected": false
+            },
+            {
+              "text": "Half Elf",
+              "explicit_value": "8",
+              "effective_form_value": "8",
+              "selected": false
+            },
+            {
+              "text": "Lesser Giant",
+              "explicit_value": "9",
+              "effective_form_value": "9",
+              "selected": false
+            },
+            {
+              "text": "Halfling",
+              "explicit_value": "10",
+              "effective_form_value": "10",
+              "selected": false
+            },
+            {
+              "text": "Kojani",
+              "explicit_value": "12",
+              "effective_form_value": "12",
+              "selected": false
+            },
+            {
+              "text": "Qaliathari Human",
+              "explicit_value": "13",
+              "effective_form_value": "13",
+              "selected": false
+            },
+            {
+              "text": "Thestran Human",
+              "explicit_value": "14",
+              "effective_form_value": "14",
+              "selected": false
+            },
+            {
+              "text": "Mordebi",
+              "explicit_value": "15",
+              "effective_form_value": "15",
+              "selected": false
+            },
+            {
+              "text": "Orc",
+              "explicit_value": "16",
+              "effective_form_value": "16",
+              "selected": false
+            },
+            {
+              "text": "Raki",
+              "explicit_value": "17",
+              "effective_form_value": "17",
+              "selected": false
+            },
+            {
+              "text": "Vulmane",
+              "explicit_value": "18",
+              "effective_form_value": "18",
+              "selected": false
+            },
+            {
+              "text": "Human Varanthari",
+              "explicit_value": "20",
+              "effective_form_value": "20",
+              "selected": false
+            },
+            {
+              "text": "Varanjar",
+              "explicit_value": "21",
+              "effective_form_value": "21",
+              "selected": false
+            },
+            {
+              "text": "Kurashasa",
+              "explicit_value": "22",
+              "effective_form_value": "22",
+              "selected": false
+            }
+          ]
+        },
+        {
+          "tag": "select",
+          "name": "itemTierId",
+          "type": null,
+          "value": null,
+          "id": null,
+          "options": [
+            {
+              "text": "-- Select Tier --",
+              "explicit_value": "",
+              "effective_form_value": "",
+              "selected": false
+            },
+            {
+              "text": "Artifact",
+              "explicit_value": "9",
+              "effective_form_value": "9",
+              "selected": false
+            },
+            {
+              "text": "Common",
+              "explicit_value": "7",
+              "effective_form_value": "7",
+              "selected": false
+            },
+            {
+              "text": "Heroic",
+              "explicit_value": "2",
+              "effective_form_value": "2",
+              "selected": false
+            },
+            {
+              "text": "Legendary",
+              "explicit_value": "1",
+              "effective_form_value": "1",
+              "selected": false
+            },
+            {
+              "text": "Mundane",
+              "explicit_value": "8",
+              "effective_form_value": "8",
+              "selected": false
+            },
+            {
+              "text": "None",
+              "explicit_value": "255",
+              "effective_form_value": "255",
+              "selected": false
+            },
+            {
+              "text": "Rare",
+              "explicit_value": "4",
+              "effective_form_value": "4",
+              "selected": false
+            },
+            {
+              "text": "Relic",
+              "explicit_value": "0",
+              "effective_form_value": "0",
+              "selected": false
+            },
+            {
+              "text": "Uncommon",
+              "explicit_value": "6",
+              "effective_form_value": "6",
+              "selected": false
+            },
+            {
+              "text": "Unused Greater Magic",
+              "explicit_value": "3",
+              "effective_form_value": "3",
+              "selected": false
+            },
+            {
+              "text": "Unused Magic",
+              "explicit_value": "5",
+              "effective_form_value": "5",
+              "selected": false
+            }
+          ]
+        },
+        {
+          "tag": "select",
+          "name": "itemTypeId",
+          "type": null,
+          "value": null,
+          "id": null,
+          "options": [
+            {
+              "text": "-- Select Type --",
+              "explicit_value": "-1",
+              "effective_form_value": "-1",
+              "selected": false
+            },
+            {
+              "text": "0",
+              "explicit_value": null,
+              "effective_form_value": "0",
+              "selected": false
+            },
+            {
+              "text": "1",
+              "explicit_value": null,
+              "effective_form_value": "1",
+              "selected": false
+            },
+            {
+              "text": "2",
+              "explicit_value": null,
+              "effective_form_value": "2",
+              "selected": false
+            },
+            {
+              "text": "3",
+              "explicit_value": null,
+              "effective_form_value": "3",
+              "selected": false
+            },
+            {
+              "text": "4",
+              "explicit_value": null,
+              "effective_form_value": "4",
+              "selected": false
+            },
+            {
+              "text": "5",
+              "explicit_value": null,
+              "effective_form_value": "5",
+              "selected": false
+            },
+            {
+              "text": "6",
+              "explicit_value": null,
+              "effective_form_value": "6",
+              "selected": false
+            },
+            {
+              "text": "7",
+              "explicit_value": null,
+              "effective_form_value": "7",
+              "selected": false
+            },
+            {
+              "text": "8",
+              "explicit_value": null,
+              "effective_form_value": "8",
+              "selected": false
+            },
+            {
+              "text": "9",
+              "explicit_value": null,
+              "effective_form_value": "9",
+              "selected": false
+            },
+            {
+              "text": "10",
+              "explicit_value": null,
+              "effective_form_value": "10",
+              "selected": false
+            },
+            {
+              "text": "11",
+              "explicit_value": null,
+              "effective_form_value": "11",
+              "selected": false
+            },
+            {
+              "text": "12",
+              "explicit_value": null,
+              "effective_form_value": "12",
+              "selected": false
+            },
+            {
+              "text": "13",
+              "explicit_value": null,
+              "effective_form_value": "13",
+              "selected": false
+            },
+            {
+              "text": "14",
+              "explicit_value": null,
+              "effective_form_value": "14",
+              "selected": false
+            },
+            {
+              "text": "15",
+              "explicit_value": null,
+              "effective_form_value": "15",
+              "selected": false
+            },
+            {
+              "text": "16",
+              "explicit_value": null,
+              "effective_form_value": "16",
+              "selected": false
+            },
+            {
+              "text": "17",
+              "explicit_value": null,
+              "effective_form_value": "17",
+              "selected": false
+            },
+            {
+              "text": "18",
+              "explicit_value": null,
+              "effective_form_value": "18",
+              "selected": false
+            },
+            {
+              "text": "19",
+              "explicit_value": null,
+              "effective_form_value": "19",
+              "selected": false
+            },
+            {
+              "text": "20",
+              "explicit_value": null,
+              "effective_form_value": "20",
+              "selected": false
+            },
+            {
+              "text": "21",
+              "explicit_value": null,
+              "effective_form_value": "21",
+              "selected": false
+            },
+            {
+              "text": "22",
+              "explicit_value": null,
+              "effective_form_value": "22",
+              "selected": false
+            },
+            {
+              "text": "23",
+              "explicit_value": null,
+              "effective_form_value": "23",
+              "selected": false
+            },
+            {
+              "text": "24",
+              "explicit_value": null,
+              "effective_form_value": "24",
+              "selected": false
+            },
+            {
+              "text": "25",
+              "explicit_value": null,
+              "effective_form_value": "25",
+              "selected": false
+            },
+            {
+              "text": "26",
+              "explicit_value": null,
+              "effective_form_value": "26",
+              "selected": false
+            },
+            {
+              "text": "27",
+              "explicit_value": null,
+              "effective_form_value": "27",
+              "selected": false
+            }
+          ]
+        },
+        {
+          "tag": "input",
+          "name": "itemMinLevel",
+          "type": "text",
+          "value": "0",
+          "id": null
+        },
+        {
+          "tag": "input",
+          "name": "itemMaxLevel",
+          "type": "text",
+          "value": "55",
+          "id": null
+        },
+        {
+          "tag": "input",
+          "name": "noDrop",
+          "type": "checkbox",
+          "value": "1",
+          "id": null
+        },
+        {
+          "tag": "input",
+          "name": "isUnique",
+          "type": "checkbox",
+          "value": "1",
+          "id": null
+        },
+        {
+          "tag": "input",
+          "name": "noSell",
+          "type": "checkbox",
+          "value": "1",
+          "id": null
+        },
+        {
+          "tag": "input",
+          "name": "quest",
+          "type": "checkbox",
+          "value": "1",
+          "id": null
+        },
+        {
+          "tag": "input",
+          "name": "itemSearch",
+          "type": "hidden",
+          "value": "1",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "duplicate_option_labels": [
+    {
+      "control_name": "itemSlotId",
+      "label": "Container",
+      "source_records": [
+        {
+          "option_index_1based": 13,
+          "source_record": {
+            "text": "Container",
+            "explicit_value": "27",
+            "effective_form_value": "27",
+            "selected": false
+          }
+        },
+        {
+          "option_index_1based": 14,
+          "source_record": {
+            "text": "Container",
+            "explicit_value": "12",
+            "effective_form_value": "12",
+            "selected": false
+          }
+        },
+        {
+          "option_index_1based": 15,
+          "source_record": {
+            "text": "Container",
+            "explicit_value": "38",
+            "effective_form_value": "38",
+            "selected": false
+          }
+        }
+      ],
+      "disposition": "Retain separate source filter values; do not infer canonical slot or entity IDs."
+    }
+  ],
+  "limitations": [
+    "Filter options are website UI metadata, not verified item mechanics or canonical client IDs.",
+    "No item result records or detail endpoints were evidenced by this seed page.",
+    "POST action contains a query; host-specific policy evaluation and transport support remain required before submission. Archive query restriction is not applied to other hosts.",
+    "PHP warnings occur in the live markup; commented-out controls are excluded. Default level range 0 to 55 is a form default, not proof of game bounds."
+  ],
+  "suspension": {
+    "reason": "Prior automatic approval review rejected suspension reset/restart with reason blocked by policy.",
+    "preserved": true,
+    "resume_condition": "Recorded policy disposition permitting resumption, then process/lock inspection through collection.ps1 with persisted pacing and checkpoints."
+  },
+  "validation": {
+    "body_sha256_matches": true,
+    "form_count": 1,
+    "named_control_count": 13,
+    "option_count": 174,
+    "duplicate_option_label_groups": 1
+  },
+  "next_step": "Review cached quest-index script and form behavior to establish evidenced detail-discovery requirements without requests."
+}

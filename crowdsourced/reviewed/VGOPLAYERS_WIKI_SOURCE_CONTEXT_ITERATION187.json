@@ -1,0 +1,68 @@
+{
+  "audit_kind": "cached_wiki_source_context_and_revision_review",
+  "metadata_only": true,
+  "network_requests": 0,
+  "source": {
+    "url": "https://vgoplayers.com/wiki/index.php/Main_Page",
+    "downloaded_at": "2026-10-17T13:35:11.070841+00:00",
+    "sha256": "ea19e8c21288a65c8a41e3ce642c3011414c6a0eab7f94b8e94f0e0ebbb8ff36"
+  },
+  "cached_body": ".cache/multisource/66e02872d78620d453b7f70017d7826a627895fcd150fdfd7f8244003af1c01c.html",
+  "source_context_text": "Welcome to the VGOEmulator Wiki Home for refugees of Vanguard: Saga of Heroes. Dev Note: Check the current state of the emulator Click Here!",
+  "context_links": [
+    {
+      "text": "Click Here!",
+      "href": "/wiki/index.php/State_of_the_Game"
+    },
+    {
+      "text": "Testing VGO!",
+      "href": "https://www.vgoemulator.net/phpBB3/viewtopic.php?f=5&t=3002#p21524"
+    },
+    {
+      "text": "Known Issues",
+      "href": "/wiki/index.php/Known_Issues"
+    },
+    {
+      "text": "Dev Wiki",
+      "href": "http://wiki.vgoemulator.net/Docs/Main_Page"
+    },
+    {
+      "text": "Developers",
+      "href": "http://vgoemulator.net/phpBB3/memberlist.php?mode=group&g=8"
+    },
+    {
+      "text": "Content Designers",
+      "href": "http://vgoemulator.net/phpBB3/memberlist.php?mode=group&g=17"
+    }
+  ],
+  "revision_link_as_printed": "http://vgoplayers.com/wiki/index.php?title=Main_Page&oldid=11780",
+  "last_edited_as_printed": "This page was last edited on 30 July 2022, at 11:13.",
+  "interpretation": {
+    "source_context": "Emulator community wiki; explicitly advertised current emulator state.",
+    "historical_applicability": null,
+    "canonical_client_ids": null,
+    "revision_timestamp_is_game_fact_date": false,
+    "revision_link_fetched": false,
+    "modern_emulator_observations_are_live_era_facts": false
+  },
+  "findings": [
+    "Main page explicitly identifies emulator context; individual article claims still require their own provenance review.",
+    "Printed oldid and edit date identify a wiki revision, not a live-era client version or date of mechanics.",
+    "External development links are preserved as evidence only; no redirects, query permissions or independent corroboration are inferred.",
+    "Main page navigation and context do not supply quest mechanics or typed game facts."
+  ],
+  "validation": {
+    "cache_sha256_matches": true,
+    "context_links_verified": 6,
+    "printed_revision_id": "11780",
+    "issues": []
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart with reason blocked by policy.",
+    "recovery_conditions": "Recorded policy disposition permitting resumption, then actual process/lock inspection and collection.ps1 with existing checkpoints and persisted 60-second pacing."
+  },
+  "remaining_work": [
+    "Fetch permitted article and inventory pages only after suspension permits, and review each article for historical applicability before using its observations."
+  ]
+}
