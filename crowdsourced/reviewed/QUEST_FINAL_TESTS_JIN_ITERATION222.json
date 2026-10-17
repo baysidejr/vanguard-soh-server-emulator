@@ -1,0 +1,753 @@
+{
+  "audit_kind": "cached_quest_objectives_rewards_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal cached objective, description, notes, source attribution and reward observations. Archive transcriptions and variants remain distinct; no historical mechanic verification or identity merge.",
+  "inputs": [
+    {
+      "path": ".cache/archive/8528116cd7c87eddd952ca660835fe64c2181318c6d19100e5896f2757437e8f.txt",
+      "sha256": "d54378a1fdcafa76d6a8d504b83b794c2fac1afb5d478f8e40829dacdeaef536"
+    },
+    {
+      "path": ".cache/archive/d44fc32211e4221f9b13b15befd9e4e03a8b6db6ccf83f1aae57a9b4aa742a8d.txt",
+      "sha256": "782a76c2084bfc13c57fce687e738418374b8083b90a83f62c525314ac99f1a0"
+    },
+    {
+      "path": "raw/2026-10-14-045738-770236-archive-bulk/quest.jsonl",
+      "sha256": "aa98502f4f272e9d8914728b257990590a6c62d1f88f3171061730ce2bfd8459"
+    },
+    {
+      "path": "raw/2026-10-14-083433-894890-archive-bulk/quest.jsonl",
+      "sha256": "01d81656f33a15ce88f37859ef2c9e21fc254b2bc5d651304b32508a88bb5d25"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+      "cache_path": ".cache/archive/8528116cd7c87eddd952ca660835fe64c2181318c6d19100e5896f2757437e8f.txt",
+      "cache_sha256": "d54378a1fdcafa76d6a8d504b83b794c2fac1afb5d478f8e40829dacdeaef536",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Slay 2 Kojuko Beholders, Slay 2 Kojuko Maneaters, Slay 2 Kojuko Slayers",
+          "html": "<div class=\"tooltip\">Slay 2 Kojuko Beholders, Slay 2 Kojuko Maneaters, Slay 2 Kojuko Slayers</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Lao'Jin Master Yaol in Tanvu.\n2) You must slay the following monsters in Tanvu:\n- 2 Kojuko Beholders\n- 2 Kojuko Maneaters\n- 2 Kojuko Slayers\n3) Return to Lao'Jin Master Yaol.",
+          "html": "<div class=\"tooltip\">1) Speak to Lao'Jin Master Yaol in Tanvu.\n2) You must slay the following monsters in Tanvu:\n- 2 Kojuko Beholders\n- 2 Kojuko Maneaters\n- 2 Kojuko Slayers\n3) Return to Lao'Jin Master Yaol.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "This quest returns to Master Kaol in Tanvu",
+          "html": "<p class=\"muted\">This quest returns to Master Kaol in Tanvu</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by photographed in game by the archive operator",
+          "text": "- Safety of the road to Tanvu (0/10)",
+          "html": "<div class=\"tooltip\">- Safety of the road to Tanvu (0/10)</div>",
+          "variant": true
+        },
+        {
+          "label": "Rewards",
+          "text": "None\nShang Mask of Hermits\nSoulbound\nJewelry\nFace\n+1 Conjuration\n+1 Evocation\n+1 Alteration\n+1 Intelligence\n+1 Wisdom\nRequired Level: 2 Adventuring\nItem Level: 7\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nKojuko Mask of Courage\nKojuko Mask of Courage\nSoulbound\nJewelry\n+1 Strength\n+3 One Handed Piercing\n+3 Hand to Hand\n+2 Dexterity\n+3 Tactic Recognition\nRequired Level: 6 Adventuring\nItem Level: 11\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nKojuko Mask of Dignity\nKojuko Mask of Dignity\nSoulbound\nJewelry\n+2 Strength\n+3 Combat Awareness\n+1 Constitution\n+3 Parry\n+3 Tactic Recognition\nRequired Level: 6 Adventuring\nItem Level: 11\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nKojuko Mask of Fear\nKojuko Mask of Fear\nSoulbound\nJewelry\n+3 Conjuration\n+3 Evocation\n+2 Vitality\n+3 Alteration\n+1 Wisdom\nRequired Level: 6 Adventuring\nItem Level: 11\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nKojuko Mask of Honor\nKojuko Mask of Honor\nSoulbound\nJewelry\n+3 Conjuration\n+3 Evocation\n+3 Alteration\n+2 Intelligence\n+1 Wisdom\nRequired Level: 6 Adventuring\nItem Level: 11\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+          "html": "<ul class=\"plain\">\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-hermits\">None</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line stat\">+1 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-courage\">Kojuko Mask of Courage</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Courage</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+3 One Handed Piercing</span>\n<span class=\"tt-line stat\">+3 Hand to Hand</span>\n<span class=\"tt-line stat\">+2 Dexterity</span>\n<span class=\"tt-line stat\">+3 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-dignity\">Kojuko Mask of Dignity</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Dignity</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+2 Strength</span>\n<span class=\"tt-line stat\">+3 Combat Awareness</span>\n<span class=\"tt-line stat\">+1 Constitution</span>\n<span class=\"tt-line stat\">+3 Parry</span>\n<span class=\"tt-line stat\">+3 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-fear\">Kojuko Mask of Fear</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Fear</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+3 Conjuration</span>\n<span class=\"tt-line stat\">+3 Evocation</span>\n<span class=\"tt-line stat\">+2 Vitality</span>\n<span class=\"tt-line stat\">+3 Alteration</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-honor\">Kojuko Mask of Honor</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Honor</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+3 Conjuration</span>\n<span class=\"tt-line stat\">+3 Evocation</span>\n<span class=\"tt-line stat\">+3 Alteration</span>\n<span class=\"tt-line stat\">+2 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n</ul>",
+          "variant": false
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/eye-of-the-beholder-328.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/eye-of-the-beholder-328.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Reported disagreements",
+          "text": "9 recorded\n    disagreements about this\n    quest — ends npc (gamepressure) , ends npc (wiki.silkyvenom.com:80) , ends npc (photographed in game by the archive operator) , ends npc (turn-in window in a gameplay video, read by the archive operator) , level (wiki.silkyvenom.com:80) , level (the Forgotten Horde wiki) , next quest (silkyvenom) , prev quest (dialogue in a gameplay video: Yaol ends Ra'Jin Assault with \"I have one final task for you\") , prev quest (silkyvenom) .",
+          "html": "<p class=\"muted\">\n    9 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(gamepressure)</span>, <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(photographed in game by the archive operator)</span>, <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(turn-in window in a gameplay video, read by the archive operator)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(the Forgotten Horde wiki)</span>, <a href=\"/disagreements?kind=quest&amp;field=next_quest\">next quest</a> <span class=\"muted\">(silkyvenom)</span>, <a href=\"/disagreements?kind=quest&amp;field=prev_quest\">prev quest</a> <span class=\"muted\">(dialogue in a gameplay video: Yaol ends Ra'Jin Assault with \"I have one final task for you\")</span>, <a href=\"/disagreements?kind=quest&amp;field=prev_quest\">prev quest</a> <span class=\"muted\">(silkyvenom)</span>.\n  </p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Lao'Jin Master Yaol",
+          "html": "<dd><a href=\"/mobs/lao-jin-master-yaol\">Lao'Jin Master Yaol</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "15170,-96190,818",
+          "html": "<dd>15170,-96190,818</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Master Kaol",
+          "html": "<dd><a href=\"/mobs/master-kaol\">Master Kaol</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Ra'Jin Assault",
+          "html": "<dd><a href=\"/quests/ra-jin-assault\">Ra'Jin Assault</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "The Final Tests Of Jin",
+          "html": "<dd><a href=\"/quests/the-final-tests-of-jin\">The Final Tests Of Jin</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "70",
+          "html": "<dd>70</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Lao'Jin Master Yaol\n\"Master Tallon sent you here to be tested and you shall be. But as I am a bit indisposed at the moment, my pupil, Master Kaol, will need to further you along.\"\n\n\"I sent Kaol, along with the first wave of students, into Tanvu. One of them returned to inform me that the Kojuko gremlins have destroyed one of the outlying magical barriers and currently occupy the route to the city.\"\n\n\"On your way to Kaol, clear the Kojuko from the path so that I may send more students safely through. Good luck.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Lao'Jin Master Yaol</strong><br/>\n          \"Master Tallon sent you here to be tested and you shall be. But as I am a bit indisposed at the moment, my pupil, Master Kaol, will need to further you along.\"\n\n\"I sent Kaol, along with the first wave of students, into Tanvu. One of them returned to inform me that the Kojuko gremlins have destroyed one of the outlying magical barriers and currently occupy the route to the city.\"\n\n\"On your way to Kaol, clear the Kojuko from the path so that I may send more students safely through. Good luck.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On finishing it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On finishing it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Master Kaol\n\"Speak carefully, the emperor's ears are poised and his blade ready.\"\n\n\"You have my thanks for clearing the roads. Our students can now flee the academy to the safety of these walls.\"\n\n\"Master Yaol has asked me to take over your training, but it seems you have little left to learn.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Master Kaol</strong><br/>\n          \"Speak carefully, the emperor's ears are poised and his blade ready.\"\n\n\"You have my thanks for clearing the roads. Our students can now flee the academy to the safety of these walls.\"\n\n\"Master Yaol has asked me to take over your training, but it seems you have little left to learn.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-045738-770236-archive-bulk/quest.jsonl",
+          "line": 60,
+          "record": {
+            "name": "Eye Of The Beholder",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+                "title": "Eye Of The Beholder · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T09:02:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Lao'Jin Master Yaol"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "15170,-96190,818"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Kaol"
+              ],
+              "previous": [
+                "Ra'Jin Assault"
+              ],
+              "next": [
+                "The Final Tests Of Jin"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "70"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Kaol",
+                "url": "https://vgsoharchive.com/mobs/master-kaol"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              },
+              {
+                "name": "None",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Kojuko Mask of Courage",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-courage"
+              },
+              {
+                "name": "Kojuko Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-dignity"
+              },
+              {
+                "name": "Kojuko Mask of Fear",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-fear"
+              },
+              {
+                "name": "Kojuko Mask of Honor",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-honor"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Lao'Jin Master Yaol",
+            "turn_in": "Master Kaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ra'Jin Assault",
+            "chain_next": "The Final Tests Of Jin",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1321,
+          "record": {
+            "name": "Eye Of The Beholder",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+                "title": "Eye Of The Beholder · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:42+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Lao'Jin Master Yaol"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "15170,-96190,818"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Kaol"
+              ],
+              "previous": [
+                "Ra'Jin Assault"
+              ],
+              "next": [
+                "The Final Tests Of Jin"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "70"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Kaol",
+                "url": "https://vgsoharchive.com/mobs/master-kaol"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              },
+              {
+                "name": "None",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Kojuko Mask of Courage",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-courage"
+              },
+              {
+                "name": "Kojuko Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-dignity"
+              },
+              {
+                "name": "Kojuko Mask of Fear",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-fear"
+              },
+              {
+                "name": "Kojuko Mask of Honor",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-honor"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Lao'Jin Master Yaol",
+            "turn_in": "Master Kaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ra'Jin Assault",
+            "chain_next": "The Final Tests Of Jin",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+      "cache_path": ".cache/archive/d44fc32211e4221f9b13b15befd9e4e03a8b6db6ccf83f1aae57a9b4aa742a8d.txt",
+      "cache_sha256": "782a76c2084bfc13c57fce687e738418374b8083b90a83f62c525314ac99f1a0",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Speak to Master Garu and Master Ashaine",
+          "html": "<div class=\"tooltip\">Speak to Master Garu and Master Ashaine</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Shaof in Tanvu.\n2) Speak to Master Ashaine and Master Garu to receive the blessings of faith and nature.\n3) Return to Shaof.",
+          "html": "<div class=\"tooltip\">1) Speak to Shaof in Tanvu.\n2) Speak to Master Ashaine and Master Garu to receive the blessings of faith and nature.\n3) Return to Shaof.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "Master Garu gives four followup quests:",
+          "html": "<p class=\"muted\">Master Garu gives four followup quests:</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Obtain the Blessing of Faith\nObtain the Nature of Jin\nFind Master Garu and receive his blessing of faith.\nFind Master Ashaine and receive her blessing of nature.",
+          "html": "<div class=\"tooltip\">Obtain the Blessing of Faith\nObtain the Nature of Jin\nFind Master Garu and receive his blessing of faith.\nFind Master Ashaine and receive her blessing of nature.</div>",
+          "variant": true
+        },
+        {
+          "label": "Objectives as recorded by photographed in game by the archive operator",
+          "text": "- Obtain the Blessing of Faith\n- Obtain the Nature of Jin",
+          "html": "<div class=\"tooltip\">- Obtain the Blessing of Faith\n- Obtain the Nature of Jin</div>",
+          "variant": true
+        },
+        {
+          "label": "Objectives as recorded by photographed in game, Steam community screenshot",
+          "text": "Obtain the Blessing of Faith\nObtain the Nature of Jin",
+          "html": "<div class=\"tooltip\">Obtain the Blessing of Faith\nObtain the Nature of Jin</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/the-final-tests-of-jin-332.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/the-final-tests-of-jin-332.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Reported disagreements",
+          "text": "5 recorded\n    disagreements about this\n    quest — ends npc (wiki.silkyvenom.com:80) , ends npc (quest steps) , level (wiki.silkyvenom.com:80) , level (photographed in game, Steam community screenshot) , level (the Forgotten Horde wiki) .",
+          "html": "<p class=\"muted\">\n    5 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(quest steps)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(photographed in game, Steam community screenshot)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(the Forgotten Horde wiki)</span>.\n  </p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Shaof",
+          "html": "<dd><a href=\"/mobs/shaof\">Shaof</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-3117, -10368, 5709 in Tanvu (-19, 6)",
+          "html": "<dd>-3117, -10368, 5709 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Master Garu",
+          "html": "<dd><a href=\"/mobs/master-garu\">Master Garu</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Eye Of The Beholder",
+          "html": "<dd><a href=\"/quests/eye-of-the-beholder\">Eye Of The Beholder</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "The Ra'Jin Grand Master",
+          "html": "<dd><a href=\"/quests/the-ra-jin-grand-master\">The Ra'Jin Grand Master</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Shaof\n\"Your path to understanding Jin is almost complete. Only two tests remain.\" \"In the hills to our east lie two Jin masters, waiting to give you your final tests. What you have been through up to this point will seem trivial. These masters will test every fiber of your being - pushing your strength, intelligence, wit and resolve to their breaking points.\" \"Master Garu will test your faith.\" \"Master Ashaine will show you the true nature of Jin.\" \"Return to me when both tests are complete.\" RSS Comments",
+          "html": "<div class=\"tooltip\">\n<strong>Shaof</strong><br/>\n          \"Your path to understanding Jin is almost complete. Only two tests remain.\" \"In the hills to our east lie two Jin masters, waiting to give you your final tests. What you have been through up to this point will seem trivial. These masters will test every fiber of your being - pushing your strength, intelligence, wit and resolve to their breaking points.\" \"Master Garu will test your faith.\" \"Master Ashaine will show you the true nature of Jin.\" \"Return to me when both tests are complete.\" RSS Comments\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by\nvg.curse.com\n.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/4031/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-083433-894890-archive-bulk/quest.jsonl",
+          "line": 77,
+          "record": {
+            "name": "The Final Tests Of Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+                "title": "The Final Tests Of Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:40:57+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Garu"
+              ],
+              "also involved": [
+                "Master Ashaine"
+              ],
+              "previous": [
+                "Eye Of The Beholder"
+              ],
+              "next": [
+                "The Ra'Jin Grand Master"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "Master Garu",
+                "url": "https://vgsoharchive.com/mobs/master-garu"
+              },
+              {
+                "name": "Master Ashaine",
+                "url": "https://vgsoharchive.com/mobs/master-ashaine"
+              },
+              {
+                "name": "Eye Of The Beholder",
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder"
+              },
+              {
+                "name": "The Ra'Jin Grand Master",
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master"
+              }
+            ],
+            "type": "quest",
+            "level": 9,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": "Master Garu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Eye Of The Beholder",
+            "chain_next": "The Ra'Jin Grand Master",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3964,
+          "record": {
+            "name": "The Final Tests Of Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+                "title": "The Final Tests Of Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:52+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Garu"
+              ],
+              "also involved": [
+                "Master Ashaine"
+              ],
+              "previous": [
+                "Eye Of The Beholder"
+              ],
+              "next": [
+                "The Ra'Jin Grand Master"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "Master Garu",
+                "url": "https://vgsoharchive.com/mobs/master-garu"
+              },
+              {
+                "name": "Master Ashaine",
+                "url": "https://vgsoharchive.com/mobs/master-ashaine"
+              },
+              {
+                "name": "Eye Of The Beholder",
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder"
+              },
+              {
+                "name": "The Ra'Jin Grand Master",
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master"
+              }
+            ],
+            "type": "quest",
+            "level": 9,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": "Master Garu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Eye Of The Beholder",
+            "chain_next": "The Ra'Jin Grand Master",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+      "observation": "Primary objective says speak to Master Garu and Master Ashaine. Fandom and two photographed-in-game attributions instead print Obtain the Blessing of Faith and Obtain the Nature of Jin. Accounts remain separate; screenshots were not inspected.",
+      "resolved_objective_mechanics": null,
+      "original_screenshot_verified": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+      "observation": "Description says return to Shaof, while Hand in to names Master Garu. Five attributed disagreements about ends npc and level are retained. Neither turn-in identity nor disputed level is resolved.",
+      "resolved_turn_in": null,
+      "resolved_level": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+      "observation": "Notes says Master Garu gives four followup quests, but provides no names in that section. Previous links Eye Of The Beholder reciprocally; Next links The Ra'Jin Grand Master. These do not establish enforced prerequisites or identify all four followups.",
+      "enforced_prerequisites": null,
+      "four_followup_identities": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+      "observation": "No Rewards heading or Coin reward detail occurs in the cached page. Absence of displayed rewards is not evidence of zero rewards. Source link is an archived MMODB mirror, not independent corroboration.",
+      "rewards": null,
+      "coin_copper": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "literal_observations_verified": 37,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 6
+  },
+  "remaining_review": {
+    "required_review_complete": false,
+    "collection_complete": false,
+    "next_actionable_batch": "Review cached The Ra Jin Grand Master objectives and navigation against The Final Tests Of Jin; preserve unresolved followup identities."
+  }
+}
