@@ -1,6 +1,6 @@
 # Vanguard Emulator: Status Review
 
-*Written 2026-10-16. Repository: https://github.com/baysidejr/vanguard-soh-server-emulator (branch `main`).*
+*Written 2026-10-16, updated 2026-10-17. Repository: https://github.com/baysidejr/vanguard-soh-server-emulator (branch `main`).*
 
 This document is for a full review: what the emulator does today, what is placeholder, what is left, what is blocked, and what needs a decision from you. Each section links to the detailed doc. The README's checklist and `PROGRESS.md` stay the running records; this is a snapshot of both, organised for reading.
 
@@ -14,7 +14,7 @@ This document is for a full review: what the emulator does today, what is placeh
 | **State** | The unmodified client logs in, creates characters, enters a 3D world and plays: combat, quests, crafting, harvesting, diplomacy, groups, guilds, raids, mail, the broker, housing, mounts, flight, pets, fishing, and more. |
 | **Content** | 93 regions populated from a crowdsourced archive scrape: ~2,100 NPCs, ~300 creatures, 368 playable archive quests. Most numbers (stats, prices, rewards) are placeholders. |
 | **Code** | 55 server modules (~27,000 lines of Python, standard library only), 15 tools. 1,069 commits since 2026-10-11. |
-| **Checks** | 277 unit tests, 14 multiplayer scenarios, a load test, a fuzzer and a client smoke test: `tools/check_all.py --client` passes 7 of 7 (last run 2026-10-16). GitHub CI runs the tests on every push (green). |
+| **Checks** | 282 unit tests, 26 multiplayer scenarios, a load test, a fuzzer (packet log on) and a client smoke test: `tools/check_all.py --client` passes 7 of 7 (last run 2026-10-17), on a scratch copy of the save, so the real database is never touched. GitHub CI runs the tests on every push (green). |
 | **Protocol coverage** | The client handles 720 zone messages; 682 (94%) are sent by the server or not needed. 38 optional ones remain. |
 | **Load** | 50 bots for 15 minutes in Khal (the busiest chunk): memory flat at 150 MB, ping p95 11 ms. |
 
@@ -243,7 +243,7 @@ In order of what each would unlock (numbers from 2026-10-16):
 
 ---
 
-## 7. Recent work (2026-10-15 and 2026-10-16)
+## 7. Recent work (2026-10-15 to 2026-10-17)
 
 **Archive content**
 - Bulk import of 93 regions; camps from zone maps; 734 NPCs placed from zone-map places; altars and mailboxes; NPCs at map labels; role stocks and slot icons for merchants; real races where recorded, zone default races, female titles.
@@ -264,6 +264,14 @@ In order of what each would unlock (numbers from 2026-10-16):
 **Fixes to my own mistakes this week**
 - 215 NPCs briefly became crafting stations (field-name clash); fixed and guarded by the content check.
 - A test character's XP was restored by hand arithmetic and was off; restored from a backup.
+
+**2026-10-16 evening to 2026-10-17 (the backlog loop; docs/MASTER_BACKLOG.md)**
+- Checks never write the real save: every phase of `check_all.py` and `smoke_test.py` runs on a read-only scratch copy (`storage.scratch_copy`); verified with a row fingerprint before and after (B-001).
+- New scenarios: second login, reconnect after a crash, chunk hand-off and return, walking across a chunk edge, /report, /bug, lockout commands, rescue rope, appearance settings, item links (B-005, B-015); unit tests for leaving a chunk.
+- Deep fuzzing found one bug: the packet logger failed on 2-3 byte reliable packets and dropped them (B-016, fixed); the fuzz phase now runs with logging on.
+- `tools/provenance.py` (sourced / placeholder / unmarked records per content file), `tools/fx_props.py` (effect emitter properties), `tools/stop_servers.ps1`, `fuzz.py --context`.
+- Quest-node particles explained (B-006): the client places them at twice the pawn's collision height above its base (Ghidra), an ore vein's is 50 (winbreak), so they sit inside the boulder; on an NPC they show. Client data.
+- Fixed: the editor's quest form could drop turn_in (B-013); `--branch` reads leaked temp folders (B-014).
 
 ---
 
