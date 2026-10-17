@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: tools/fx_props.py prints an effect class's emitter properties from the client package. The quest-node particles (FXmystical_IOParticle001fx) are coin-sized sparkles within 25 units of the pivot, not a skeletal-mesh effect (B-006, static evidence).
+
 - 2026-10-16: Deep fuzz (16 payloads per event, 7 contexts): no handler errors. With packet logging on, 2-3 byte reliable packets broke the logger and dropped the datagram; fixed (B-016), DescribeTests.
 
 - 2026-10-16: Scenarios "bug report" and "lockout commands" (B-015).

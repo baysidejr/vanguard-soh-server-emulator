@@ -60,10 +60,11 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **State:** all done-when parts covered.
 
 ## B-006 Invisible runtime particle effects (quest-node glow, loot sparkle)
-- **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED
+- **Priority:** P3 · **Category:** fidelity · **State:** IN_PROGRESS (static evidence; live check pending)
 - **Evidence:** docs/QUESTS.md and docs/ABILITY_VISUALS.md: the client reaches the attach calls but nothing renders; `FXmystical_IOParticle001fx` shows nothing even spawned alone with 0x553, while other emitters do.
 - **Done when:** the emitter renders on a node or corpse in a screenshot, or the reason is documented with runtime evidence (winbreak).
-- **Blocker:** live client testing (B-003).
+- **2026-10-17 (static, tools/fx_props.py):** FXmystical_IOParticle001fx's own emitters are two tiny sprite clusters (sizes 1-15 units, within ±25 units of the owner's pivot, no skeletal/mesh spawning), so "needs a skeletal owner" is not supported; most likely the sparkles are there but hidden in the node mesh or too small to see [I]. (A first dump looked up `SpriteEmitter0` by name and got another class's emitter; the tool now lists only the class's own sub-objects.)
+- **Next action:** live: camera close to a 0x553 spawn of the class on open ground, then at a marked node's pivot. The client works again (B-003 complete), but live runs log in as the real characters unless set up on a scratch copy; do it with the user's go-ahead.
 
 ## B-007 Placeholder content: delivery quests and invented camps
 - **Priority:** P2 · **Category:** content accuracy · **State:** BLOCKED (user decision + scrape data)
