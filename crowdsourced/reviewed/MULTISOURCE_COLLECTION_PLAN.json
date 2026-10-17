@@ -1,0 +1,41 @@
+{
+  "objective": "Collect complementary sourced game facts from all accessible relevant sources, alongside the Vanguard Archive. Preserve source provenance and historical-era uncertainty.",
+  "sources": [
+    {
+      "host": "vgoplayers.com",
+      "status": "Three seed pages downloaded; 5530 quest index entries saved. Full detail discovery and extraction pending.",
+      "batch": "raw/2026-10-17-133425-multisource-bootstrap",
+      "next": "Inspect cached quest index links and item search form; discover permitted detail endpoints and parse factual records. Never treat source quest IDs as canonical client IDs without evidence."
+    },
+    {
+      "host": "vgoplayers.com/wiki",
+      "status": "Main page downloaded; article discovery and extraction pending.",
+      "next": "Follow permitted relevant article links and evaluate MediaWiki API/export availability without inventing endpoints or bypassing policies."
+    },
+    {
+      "host": "vanguard.fandom.com",
+      "status": "robots request returned HTTP403; no automated content requests performed.",
+      "next": "Retain access gap. Use accessible Telonica mirrors where permitted; do not bypass block."
+    },
+    {
+      "host": "vgoemulator.net",
+      "status": "robots downloaded; archived Telonica sample returned HTTP401.",
+      "batch": "raw/2026-10-17-133326-multisource-bootstrap",
+      "next": "Retain access gap; evaluate other public permitted pages, no authentication bypass."
+    },
+    {
+      "host": "vgsoharchive.com",
+      "status": "Existing inventory and resumable queue retained; repeated timeouts.",
+      "next": "Continue through one unified network stream with respectful recovery."
+    }
+  ],
+  "invariants": [
+    "All project writes and loop state under crowdsourced/",
+    "Exactly one download stream; preserve per-source queues",
+    "15-second minimum per new source, raise to 30/45/60 after transient failures; honor longer site delay",
+    "No bypass of HTTP401/403/429 or robots",
+    "Telonica mirrors are shared provenance, not independent confirmation",
+    "Emulator-era behavior distinguished from live-era behavior",
+    "No completion while relevant pending discovery/extraction work remains"
+  ]
+}

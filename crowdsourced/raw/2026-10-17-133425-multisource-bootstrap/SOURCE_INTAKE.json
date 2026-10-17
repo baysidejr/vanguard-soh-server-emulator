@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-17T13:35:11.079041+00:00",
+  "policies": [
+    {
+      "origin": "https://vgoplayers.com",
+      "robots_url": "https://vgoplayers.com/robots.txt",
+      "interpreted_robots_rules": "User-agent: *\nAllow: /\n",
+      "minimum_interval_seconds": 15
+    }
+  ],
+  "source_pages": [
+    {
+      "url": "https://vgoplayers.com/quests.php",
+      "title": "Vanguard Players - Official Post-Sunset Community",
+      "cached_sha256": "e242401df0f3454c2a21c84404b27533ac7ab81f3fb93184c5d85e78cda2cf53",
+      "status": "downloaded; extraction pending",
+      "provenance_group": "vgoemulator-community",
+      "source_era": "mixed or unknown; verify per record"
+    },
+    {
+      "url": "https://vgoplayers.com/items.php",
+      "title": "Vanguard Players - Official Post-Sunset Community",
+      "cached_sha256": "6218f4f6d650b95324180a27a7cc4b1bc91bf041452df8933e50dde30bbc03da",
+      "status": "downloaded; extraction pending",
+      "provenance_group": "vgoemulator-community",
+      "source_era": "mixed or unknown; verify per record"
+    },
+    {
+      "url": "https://vgoplayers.com/wiki/index.php/Main_Page",
+      "title": "Vanguard Wiki",
+      "cached_sha256": "ea19e8c21288a65c8a41e3ce642c3011414c6a0eab7f94b8e94f0e0ebbb8ff36",
+      "status": "downloaded; extraction pending",
+      "provenance_group": "vgoemulator-community",
+      "source_era": "mixed or unknown; verify per record"
+    }
+  ],
+  "gaps": [
+    {
+      "url": "https://vgoplayers.com/robots.txt",
+      "http_status": 404,
+      "status": "No robots.txt published; conservative 15-second interval applied"
+    }
+  ],
+  "scope": "Sequential policy-aware bootstrap. Bodies cached locally; inventory is discovery metadata, not complete game records. Extraction and further discovery remain pending. Mirrored Telonica content is not independent corroboration."
+}
