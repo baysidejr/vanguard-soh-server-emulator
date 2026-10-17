@@ -62,6 +62,7 @@ import bugs
 import diplomacy
 import content
 import merchant
+import start_areas
 import world
 import zone
 
@@ -245,6 +246,9 @@ def main():
                         help="open the client's Quest Feedback window after each completed quest")
     parser.add_argument("--quiet-packets", action="store_true",
                         help="don't print every packet's hex dump and acks (for a long-running server)")
+    parser.add_argument("--start-areas", action="store_true",
+                        help="start new characters in the starting area the client asks for (Isle of Dawn, "
+                             "or the race's village) instead of the camp (start_areas.py, backlog B-017)")
     parser.add_argument("--dev-commands", action="store_true",
                         help="enable !stat / !event chat commands (see dev_command)")
     parser.add_argument("--test-npc", action="store_true",
@@ -9556,6 +9560,19 @@ def chunk_name(x, y):
     return f"chunk_{c(x)}_{c(y)}"
 
 
+def place_new_character(char, raw):
+    """--start-areas: put a new character in the starting chunk its create request asked for,
+    beside that area's anchor NPC (start_areas.py). Leaves it unset (the camp) otherwise."""
+    chunk = start_areas.start_chunk(raw)
+    if chunk is None or not chunk_exists(*chunk):
+        return
+    char["chunk"] = list(chunk)
+    spot = start_areas.start_position(ARGS.content, chunk, chunk_name(*chunk), ARGS.client_dir, zone.SPAWN_Z_LIFT)
+    if spot is not None:
+        char["position"], char["position_chunk"] = spot, list(chunk)
+    print(f"  >>> new character starts in {start_areas.STARTS[chunk]} {chunk_name(*chunk)} at {spot}")
+
+
 def character_chunk(char):
     """The saved chunk, or the default start if that chunk has no map (a bad save must not
     leave a character that can never log in again)."""
@@ -11312,8 +11329,11 @@ def handle_message(sock, server, addr, state, payload, args):
             result = 1  # "That first name is already taken." (also for names the rules refuse)
         else:
             result = 0
-            chars.append({"first": first, "last": last, "world": WORLD_NAME, "raw": data[pos:].hex(),
-                          "account": state["account"]})
+            new = {"first": first, "last": last, "world": WORLD_NAME, "raw": data[pos:].hex(),
+                   "account": state["account"]}
+            if getattr(ARGS, "start_areas", False):
+                place_new_character(new, data[pos:])
+            chars.append(new)
             save_characters(chars)
         world = WORLD_BY_SESSION.get(state.get("login_key"))
         if result == 0 and world:

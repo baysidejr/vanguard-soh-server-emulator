@@ -22,7 +22,7 @@ B-016 (packet logger on short packets, found by a deep fuzz with logging on) fix
 - `AGENT_MISSION.md`: user-provided, ignored by `.gitignore` (`/*`), intentionally not committed.
 
 ## Tests
-- Passed (latest `check_all.py`): unit tests (282), content check, scenarios (26), load test (steady p95 11.1 ms), server-log scan, fuzzing.
+- Passed (latest `check_all.py`): unit tests (286), content check, scenarios (26), load test (steady p95 11.1 ms), server-log scan, fuzzing.
 - `check_all.py --client` 7 of 7 on 2026-10-17 (smoke test with the game client).
 
 ## Blockers and user decisions
@@ -30,7 +30,7 @@ B-016 (packet logger on short packets, found by a deep fuzz with logging on) fix
 - B-008: import archive NPCs into Sundering Wastelands / Wildgrowth Forest.
 - B-009: merge newer scrape-branch commits (only on request); 31 new as of 2026-10-16 evening.
 - B-010: gate parleys on presence with placeholder gain rates, or keep them open.
-- B-017: start new characters at the client's chosen starting area (Isle of Dawn / racial villages, evidence in the backlog) instead of the camp.
+- B-017: implemented behind `--start-areas` (off by default); turning it on by default moves new characters from the camp to the client's chosen start (Isle of Dawn / racial villages). Needs the user's yes and a live create check.
 
 ## Data-integrity notes
 - Never run tests on `server/vanguard.db`; use `--data-dir` with `storage.scratch_copy`.

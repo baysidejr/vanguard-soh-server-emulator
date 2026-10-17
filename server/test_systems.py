@@ -2249,3 +2249,57 @@ class ProvenanceTests(unittest.TestCase):
         rows = provenance.report()
         self.assertGreater(rows["quests.json"]["placeholder"], 0)
         self.assertGreater(rows["spawns/*.json"]["sourced"], 0)
+
+
+class StartAreaTests(unittest.TestCase):
+    """B-017: new characters start where the create request asks (start_areas.py)."""
+
+    @staticmethod
+    def raw(race, x, y):
+        return bytes(7) + bytes([race, 0x1C]) + struct.pack("<ii", x, y) + bytes(64)
+
+    def test_requested_chunk_and_racial_value(self):
+        import start_areas as sa
+        self.assertEqual(sa.start_chunk(self.raw(14, -26, 1)), sa.ISLE_OF_DAWN)
+        self.assertEqual(sa.start_chunk(self.raw(14, -65535, -65535)), sa.TURSH)
+        self.assertEqual(sa.start_chunk(self.raw(12, -65535, -65535)), sa.SHANG)
+        self.assertEqual(sa.start_chunk(self.raw(13, -65535, -65535)), sa.KARIBASA)
+        self.assertIsNone(sa.start_chunk(self.raw(14, 5, 5)))          # not a starting area
+        self.assertIsNone(sa.start_chunk(bytes(10)))                 # too short
+
+    def test_every_race_has_a_starting_area(self):
+        import races_classes
+        import start_areas as sa
+        self.assertEqual(set(races_classes.RACES), set(sa.RACE_START))
+
+    def test_anchor_prefers_the_named_npc_then_the_village(self):
+        import start_areas as sa
+        far = [({"x": 90000, "y": 90000}, {"name": "Lone Wolf"})]
+        village = [({"x": 100 * i, "y": 0}, {"name": f"Villager {i}"}) for i in range(5)]
+        rahlsu = [({"x": -7545, "y": -2270}, {"name": "Master Rahlsu"})]
+        self.assertEqual(sa.anchor(far + village + rahlsu, sa.SHANG), (-7545, -2270))
+        self.assertIn(sa.anchor(far + village, sa.TURSH), [(100 * i, 0) for i in range(5)])
+        pack = [({"x": 50000 + i, "y": 0}, {"name": "Crawler", "damage": [1, 2]}) for i in range(9)]
+        self.assertIn(sa.anchor(pack + village, sa.TURSH), [(100 * i, 0) for i in range(5)])  # not by the pack
+        self.assertIsNone(sa.anchor(pack, sa.TURSH))
+        self.assertIsNone(sa.anchor([], sa.TURSH))
+
+    def test_new_character_placed_beside_the_anchor(self):
+        import login_stub
+        import start_areas as sa
+        from unittest import mock
+        content = mock.Mock()
+        content.spawns.return_value = [({"x": 1000, "y": 2000}, {"name": "Master Rahlsu"})]
+        content.ground_z.return_value = 500.0
+        args = mock.Mock(content=content, client_dir=None)
+        char = {"first": "Newbie"}
+        with mock.patch.object(login_stub, "ARGS", args), \
+                mock.patch.object(login_stub, "chunk_exists", lambda x, y: True):
+            login_stub.place_new_character(char, self.raw(12, -65535, -65535))
+        self.assertEqual(char["chunk"], list(sa.SHANG))
+        self.assertEqual(char["position_chunk"], list(sa.SHANG))
+        self.assertEqual(char["position"], [1000 + sa.BESIDE, 2000, 500.0 + login_stub.zone.SPAWN_Z_LIFT])
+        other = {"first": "Default"}
+        with mock.patch.object(login_stub, "ARGS", args):
+            login_stub.place_new_character(other, self.raw(14, 5, 5))
+        self.assertNotIn("chunk", other)                               # stays at the camp
