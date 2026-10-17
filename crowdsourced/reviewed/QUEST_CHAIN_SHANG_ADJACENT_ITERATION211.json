@@ -1,0 +1,995 @@
+{
+  "audit_kind": "shang_village_adjacent_literal_chain_comparison",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal A Humble New Beginning, Lost Fishing Supplies, Finding Oki and Oki’s Jewels chain labels; exact source navigation only, without identity resolution or enforced prerequisite inference.",
+  "inputs": [
+    {
+      "path": ".cache/archive/02a26a19196f530b46bdf6933daa4c4267ed91e0d269c5ff22ffac4b408ed549.txt",
+      "sha256": "dc9bd1908af07366697aea3381addb7500dd9580745faa86d1db4068d2d08f68"
+    },
+    {
+      "path": ".cache/archive/080577a4de4c2fd4d4a8fd4abe31b257c880eb0815dc368c6a701dc3528c9b78.txt",
+      "sha256": "ad1296c09c19bf530cae6724d5883ab5c508fdb1d3c38bf38e752820c35a1152"
+    },
+    {
+      "path": ".cache/archive/34529919cc7c4d079611186374bdeaf9d324d80ba5f1de65b6d9cf144ba10f6f.txt",
+      "sha256": "fabec1f1ad6117a7aa1959218770fefdeba12109b3ecd71f404b719c108bd508"
+    },
+    {
+      "path": ".cache/archive/d9d2a4e42a2d33d45b188c6d47bb5146a09aa4f113ad84caf1528fe9da7de143.txt",
+      "sha256": "8b1d368cd51559f4f9d1b4762f4ae98195df6fbee0d618d1828c3210c9d3a7fb"
+    },
+    {
+      "path": "raw/2026-10-14-031738-328684-archive-bulk/quest.jsonl",
+      "sha256": "926bd5055fb2b50fde3d7338869b0607c8cbbca701113aeed804022883cd4805"
+    },
+    {
+      "path": "raw/2026-10-14-050558-770206-archive-bulk/quest.jsonl",
+      "sha256": "6eed1d7cd18ca4625e6ca010ac1127e867122ee6633339c469fbf17a6d599d57"
+    },
+    {
+      "path": "raw/2026-10-14-062113-166719-archive-bulk/quest.jsonl",
+      "sha256": "72fd5d9cf700512f5c321308dc2e59f236c384add8d7cc3d6fcd94d203e9fa56"
+    },
+    {
+      "path": "raw/2026-10-14-065433-304673-archive-bulk/quest.jsonl",
+      "sha256": "24c1d63eaebd2fd5319d2e7f0063f3a7b1ffde96a2ab8713472c83e00e978b23"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_CHAIN_OKI_ADJACENT_ITERATION210.json",
+      "sha256": "9ec0c7a7da5a52c71f0d4de4051ea2ea6e13916418f5f1b0cff5950bccb5ccda"
+    }
+  ],
+  "reviews": [],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/a-humble-new-beginning",
+      "cache_path": ".cache/archive/080577a4de4c2fd4d4a8fd4abe31b257c880eb0815dc368c6a701dc3528c9b78.txt",
+      "cache_sha256": "ad1296c09c19bf530cae6724d5883ab5c508fdb1d3c38bf38e752820c35a1152",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Redemption",
+          "html": "<dd><a href=\"/quests/redemption\">Redemption</a>\n</dd>",
+          "links": [
+            {
+              "text": "Redemption",
+              "href": "/quests/redemption",
+              "absolute_url": "https://vgsoharchive.com/quests/redemption"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Finding Oki",
+          "html": "<dd><a href=\"/quests/finding-oki\">Finding Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Finding Oki",
+              "href": "/quests/finding-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/finding-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-031738-328684-archive-bulk/quest.jsonl",
+          "line": 41,
+          "record": {
+            "name": "A Humble New Beginning",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/a-humble-new-beginning",
+                "title": "A Humble New Beginning · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:21:01+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Old Man Kanjaro"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-38307, -45570, 1686"
+              ],
+              "series": [
+                "Tanvu"
+              ],
+              "hand in to": [
+                "Old Man Kanjaro"
+              ],
+              "previous": [
+                "Redemption"
+              ],
+              "next": [
+                "Finding Oki"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "60 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Old Man Kanjaro",
+                "url": "https://vgsoharchive.com/mobs/old-man-kanjaro"
+              },
+              {
+                "name": "Redemption",
+                "url": "https://vgsoharchive.com/quests/redemption"
+              },
+              {
+                "name": "Finding Oki",
+                "url": "https://vgsoharchive.com/quests/finding-oki"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Tanvu",
+            "giver": "Old Man Kanjaro",
+            "turn_in": "Old Man Kanjaro",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Redemption",
+            "chain_next": "Finding Oki",
+            "quest_chain": {
+              "name": "Tanvu",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 70,
+          "record": {
+            "name": "A Humble New Beginning",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/a-humble-new-beginning",
+                "title": "A Humble New Beginning · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:36+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Old Man Kanjaro"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-38307, -45570, 1686"
+              ],
+              "series": [
+                "Tanvu"
+              ],
+              "hand in to": [
+                "Old Man Kanjaro"
+              ],
+              "previous": [
+                "Redemption"
+              ],
+              "next": [
+                "Finding Oki"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "60 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Old Man Kanjaro",
+                "url": "https://vgsoharchive.com/mobs/old-man-kanjaro"
+              },
+              {
+                "name": "Redemption",
+                "url": "https://vgsoharchive.com/quests/redemption"
+              },
+              {
+                "name": "Finding Oki",
+                "url": "https://vgsoharchive.com/quests/finding-oki"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Tanvu",
+            "giver": "Old Man Kanjaro",
+            "turn_in": "Old Man Kanjaro",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Redemption",
+            "chain_next": "Finding Oki",
+            "quest_chain": {
+              "name": "Tanvu",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/finding-oki",
+      "cache_path": ".cache/archive/34529919cc7c4d079611186374bdeaf9d324d80ba5f1de65b6d9cf144ba10f6f.txt",
+      "cache_sha256": "fabec1f1ad6117a7aa1959218770fefdeba12109b3ecd71f404b719c108bd508",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "A Humble New Beginning",
+          "html": "<dd><a href=\"/quests/a-humble-new-beginning\">A Humble New Beginning</a>\n</dd>",
+          "links": [
+            {
+              "text": "A Humble New Beginning",
+              "href": "/quests/a-humble-new-beginning",
+              "absolute_url": "https://vgsoharchive.com/quests/a-humble-new-beginning"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Avenging Oki",
+          "html": "<dd><a href=\"/quests/avenging-oki\">Avenging Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Avenging Oki",
+              "href": "/quests/avenging-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/avenging-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-050558-770206-archive-bulk/quest.jsonl",
+          "line": 61,
+          "record": {
+            "name": "Finding Oki",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/finding-oki",
+                "title": "Finding Oki · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T09:11:02+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Old Man Kanjaro"
+              ],
+              "location": [
+                "-38307, -45570, 1686"
+              ],
+              "previous": [
+                "A Humble New Beginning"
+              ],
+              "next": [
+                "Avenging Oki"
+              ],
+              "repeatable": [
+                "No"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Old Man Kanjaro",
+                "url": "https://vgsoharchive.com/mobs/old-man-kanjaro"
+              },
+              {
+                "name": "A Humble New Beginning",
+                "url": "https://vgsoharchive.com/quests/a-humble-new-beginning"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Old Man Kanjaro",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "A Humble New Beginning",
+            "chain_next": "Avenging Oki",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1422,
+          "record": {
+            "name": "Finding Oki",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/finding-oki",
+                "title": "Finding Oki · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:42+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Old Man Kanjaro"
+              ],
+              "location": [
+                "-38307, -45570, 1686"
+              ],
+              "previous": [
+                "A Humble New Beginning"
+              ],
+              "next": [
+                "Avenging Oki"
+              ],
+              "repeatable": [
+                "No"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Old Man Kanjaro",
+                "url": "https://vgsoharchive.com/mobs/old-man-kanjaro"
+              },
+              {
+                "name": "A Humble New Beginning",
+                "url": "https://vgsoharchive.com/quests/a-humble-new-beginning"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Old Man Kanjaro",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "A Humble New Beginning",
+            "chain_next": "Avenging Oki",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/lost-fishing-supplies",
+      "cache_path": ".cache/archive/02a26a19196f530b46bdf6933daa4c4267ed91e0d269c5ff22ffac4b408ed549.txt",
+      "cache_sha256": "dc9bd1908af07366697aea3381addb7500dd9580745faa86d1db4068d2d08f68",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Avenging Oki",
+          "html": "<dd><a href=\"/quests/avenging-oki\">Avenging Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Avenging Oki",
+              "href": "/quests/avenging-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/avenging-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Juu (Quest)",
+          "html": "<dd><a href=\"/quests/juu-quest\">Juu (Quest)</a>\n</dd>",
+          "links": [
+            {
+              "text": "Juu (Quest)",
+              "href": "/quests/juu-quest",
+              "absolute_url": "https://vgsoharchive.com/quests/juu-quest"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-062113-166719-archive-bulk/quest.jsonl",
+          "line": 70,
+          "record": {
+            "name": "Lost Fishing Supplies",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/lost-fishing-supplies",
+                "title": "Lost Fishing Supplies · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:27:01+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Juu (Quest)"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Juu (Quest)",
+                "url": "https://vgsoharchive.com/quests/juu-quest"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Juu (Quest)",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Lost Fishing Supplies",
+                "count": 2,
+                "objective": "Lost Fishing Supplies (0/2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Lost Fishing Supplies (0/2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2343,
+          "record": {
+            "name": "Lost Fishing Supplies",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/lost-fishing-supplies",
+                "title": "Lost Fishing Supplies · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:46+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Juu (Quest)"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Juu (Quest)",
+                "url": "https://vgsoharchive.com/quests/juu-quest"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Juu (Quest)",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Lost Fishing Supplies",
+                "count": 2,
+                "objective": "Lost Fishing Supplies (0/2)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Lost Fishing Supplies (0/2)",
+                "kind": null,
+                "target": null,
+                "count": 2
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/oki-s-jewels",
+      "cache_path": ".cache/archive/d9d2a4e42a2d33d45b188c6d47bb5146a09aa4f113ad84caf1528fe9da7de143.txt",
+      "cache_sha256": "8b1d368cd51559f4f9d1b4762f4ae98195df6fbee0d618d1828c3210c9d3a7fb",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Avenging Oki",
+          "html": "<dd><a href=\"/quests/avenging-oki\">Avenging Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Avenging Oki",
+              "href": "/quests/avenging-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/avenging-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Lost Fishing Supplies",
+          "html": "<dd><a href=\"/quests/lost-fishing-supplies\">Lost Fishing Supplies</a>\n</dd>",
+          "links": [
+            {
+              "text": "Lost Fishing Supplies",
+              "href": "/quests/lost-fishing-supplies",
+              "absolute_url": "https://vgsoharchive.com/quests/lost-fishing-supplies"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-065433-304673-archive-bulk/quest.jsonl",
+          "line": 3,
+          "record": {
+            "name": "Oki's Jewels",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/oki-s-jewels",
+                "title": "Oki's Jewels · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:54:51+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Lost Fishing Supplies"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "40"
+              ],
+              "items needed": [
+                "Oki's Jewels"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Lost Fishing Supplies",
+                "url": "https://vgsoharchive.com/quests/lost-fishing-supplies"
+              },
+              {
+                "name": "Dusk Charm",
+                "url": "https://vgsoharchive.com/items/dusk-charm"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Lost Fishing Supplies",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2680,
+          "record": {
+            "name": "Oki's Jewels",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/oki-s-jewels",
+                "title": "Oki's Jewels · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Lost Fishing Supplies"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "40"
+              ],
+              "items needed": [
+                "Oki's Jewels"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Lost Fishing Supplies",
+                "url": "https://vgsoharchive.com/quests/lost-fishing-supplies"
+              },
+              {
+                "name": "Dusk Charm",
+                "url": "https://vgsoharchive.com/items/dusk-charm"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Lost Fishing Supplies",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 4,
+    "chain_observations": 8,
+    "full_archive_records_verified": 8,
+    "input_hashes_verified": 10,
+    "missing_cache_urls": [],
+    "exact_reciprocal_pairs_verified": 1
+  },
+  "findings": [
+    {
+      "observation": "A Humble New Beginning Next and Finding Oki Previous are exact reciprocal navigation links.",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "observation": "Oki’s Jewels Next links Lost Fishing Supplies, whose Previous instead links Avenging Oki. This is a literal nonreciprocal navigation observation, not evidence for skipping or enforcing a prerequisite.",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "observation": "A Humble New Beginning Previous links Redemption; Lost Fishing Supplies Next links Juu (Quest).",
+      "prerequisite_enforcement": null
+    }
+  ],
+  "remaining_review": {
+    "next_cached_targets": [
+      "https://vgsoharchive.com/quests/redemption",
+      "https://vgsoharchive.com/quests/juu-quest"
+    ],
+    "required_review_complete": false,
+    "collection_complete": false
+  }
+}
