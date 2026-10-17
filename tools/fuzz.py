@@ -180,6 +180,7 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--contexts", action="store_true", help="repeat the sweep after each setup in "
                     "CONTEXTS (target a station, merchant, banker, mob...); the server needs --dev-commands")
+    ap.add_argument("--context", type=int, metavar="N", help="only pass N of CONTEXTS (0 = no setup)")
     ap.add_argument("--world", action="store_true", help="sweep the world server's messages first")
     ap.add_argument("--raw", type=int, default=50, help="rounds of random UE2 packets / message types / datagrams")
     ap.add_argument("--log", help="the server's log, to list handler errors afterwards")
@@ -203,7 +204,7 @@ def main(argv=None):
     bot = login(lt, token, pm.net_cache)
     closed, hung = [], None
     start = time.time()
-    contexts = CONTEXTS if a.contexts else CONTEXTS[:1]
+    contexts = [CONTEXTS[a.context]] if a.context is not None else CONTEXTS if a.contexts else CONTEXTS[:1]
     ev = a.first_event
     for ci, context in enumerate(contexts):
         enter(bot, context)
