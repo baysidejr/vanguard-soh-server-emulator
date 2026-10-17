@@ -306,7 +306,18 @@ class Bot(threading.Thread):
             raise RuntimeError("no zone-connect event from the world server")
         zone_port = struct.unpack_from("<I", m, 10)[0]
         self.world = w            # kept: tells, shouts and other slash commands go through it
-        # Zone server: log in, then the UE2 handshake.
+        self.account, self.session = account, session
+        z, unreal, _level = self.join_zone(zone_port)
+        self.joined_at = time.time() - start
+        self.joined_wall = time.time()
+        if not self.walk(z, unreal):            # True: the caller keeps the connection
+            z.close()
+
+    def join_zone(self, zone_port):
+        """Zone server login and the UE2 handshake (HELLO, LOGIN, JOIN) with this bot's session,
+        as at Play and after a chunk hand-off (world event 8). Returns (connection, send-bunches
+        function, the level named in WELCOME)."""
+        a, account, session = self.args, self.account, self.session
         z = SoeConnection(a.host, zone_port)
         z.send(login_request(account, session))
         ue = {"pid": 0, "seq": 0}
@@ -335,13 +346,12 @@ class Bot(threading.Thread):
         if z.messages(lambda m: any(t.startswith("CHALLENGE") for t in control_text(m))) is None:
             raise RuntimeError("no CHALLENGE")
         control("LOGIN")
-        if z.messages(lambda m: any(t.startswith("WELCOME") for t in control_text(m))) is None:
+        welcome = z.messages(lambda m: any(t.startswith("WELCOME") for t in control_text(m)))
+        if welcome is None:
             raise RuntimeError("no WELCOME")
+        level = next((t.split("LEVEL=")[1].split()[0] for t in control_text(welcome) if "LEVEL=" in t), None)
         control("JOIN")
-        self.joined_at = time.time() - start
-        self.joined_wall = time.time()
-        if not self.walk(z, unreal):            # True: the caller keeps the connection
-            z.close()
+        return z, unreal, level
 
     def walk(self, z, unreal):
         a = self.args

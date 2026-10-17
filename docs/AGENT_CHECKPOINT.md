@@ -7,19 +7,18 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-**B-005 (a): "second login" scenario** (tools/scenarios.py): a second connection for an online character terminates the first; the new one plays. Passed on a scratch copy with all other scenarios (0 failed); real DB fingerprint `e53c48100b5e8a63` unchanged.
-Also fixed: B-013, the editor's quest form could drop turn_in when used before its NPC lists loaded (the intermittent test_forms_round_trip failure); full suite 3/3 OK after the fix.
-Earlier this session: B-001 (checks on a scratch DB copy, verified), B-002 (flight landing gap: root cause documented, no code change).
+**B-005 (c): chunk hand-off and return** scenario (bots follow world event 8 with `Bot.join_zone`; Khal and back). `check_all.py` 6/6; 19 scenarios, 0 failed; real DB fingerprint `e53c48100b5e8a63` unchanged.
+This session also: B-001 (checks on a scratch DB copy), B-002 (flight landing gap documented), B-005 (a) second login and (b) reconnect after a drop, B-013 (editor quest form dropped turn_in).
 
 ## In progress / next action
-B-005 (a) second login and (b) reconnect after a drop are done and pass. **Next: B-005 (c)** chunk change and return: teach `tools/loadtest.py` Bot to follow world event 8 (connect to zone) with a new zone login on the same session, then add a scenario that crosses into Khal by riftway and back.
+Next candidates in priority order: **B-011** (content provenance report: count archive-sourced / placeholder / unflagged hand-made records per file), **B-004** (intermittent load-test spike: 5 repeated runs with tick timing).
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
 - `AGENT_MISSION.md`: user-provided, ignored by `.gitignore` (`/*`), intentionally not committed.
 
 ## Tests
-- Passed: unit tests (278), content check, scenarios, load test, server-log scan, fuzzing.
+- Passed (latest `check_all.py`): unit tests (278), content check, scenarios (19), load test (p95 11.0 ms), server-log scan, fuzzing.
 - Not run: `check_all.py --client` smoke test, because the game client cannot take keyboard focus (B-003).
 
 ## Blockers and user decisions

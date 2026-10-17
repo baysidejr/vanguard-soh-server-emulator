@@ -344,14 +344,38 @@ def main():
 
     # Riftway to another region (last: B leaves the chunk): /rift KHAL (0x597 {wstr}) at the camp
     # brazier makes the server send world event 8, "connect to zone", for Khal's chunk.
-    b.send(0x597, wstr("KHAL"))
-    end = time.time() + 5
-    moved = False
-    while time.time() < end and not moved:
-        moved = any(len(m) > 10 and struct.unpack_from("<HI", m, 0) == (2, 8) and "chunk_n13_n9".encode("utf-16-le") in m
-                    for m in b.world.poll())
-        b.pump(0.2)
-    fails += check("riftway", moved, "world event 8 to chunk_n13_n9" if moved else "no zone connect for Khal")
+    def rift(bot, key, chunk):
+        """/rift <key> at a brazier; returns the zone port from world event 8 for that chunk, or None."""
+        bot.send(0x597, wstr(key))
+        end = time.time() + 5
+        while time.time() < end:
+            for m in bot.world.poll():
+                if len(m) > 14 and struct.unpack_from("<HI", m, 0) == (2, 8) and chunk.encode("utf-16-le") in m:
+                    return struct.unpack_from("<I", m, 10)[0]
+            bot.pump(0.2)
+        return None
+
+    port = rift(b, "KHAL", "chunk_n13_n9")
+    fails += check("riftway", port is not None, "world event 8 to chunk_n13_n9" if port else "no zone connect for Khal")
+    # Chunk hand-off and return (B-005c): follow event 8 as the client does (close the zone connection,
+    # log in to the zone again on the same session), arrive in Khal, take the Khal brazier back and
+    # arrive at the camp.
+    there = back = None
+    if port is not None:
+        try:
+            b.zone.close()
+            b.zone, _u, there = b.join_zone(port)
+            b.got = []
+            b.pump(1.0)
+            port2 = rift(b, "SUNDERINGWASTELANDS", "chunk_n19_12")
+            if port2 is not None:
+                b.zone.close()
+                b.zone, _u, back = b.join_zone(port2)
+                b.pump(1.0)
+        except RuntimeError as e:
+            print(f"  hand-off failed: {e}")
+    fails += check("chunk hand-off and return", (there, back) == ("chunk_n13_n9", "chunk_n19_12"),
+                   f"arrived in {there}, came back to {back}")
     a.zone.close()
     b.zone.close()
     print(f"{fails} failed")
