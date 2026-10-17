@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: B-006 closed: the client puts the quest-node sparkles at twice the pawn's collision height above its base (Ghidra FUN_00bbb740); an ore vein's is 50 (winbreak), so they sit inside the boulder. Client data, not a server bug.
+
 - 2026-10-17: B-006 narrowed live (scratch save): the quest-node particles render when attached to an NPC (gold sparkles around Orin); on the ore veins they stay hidden, so the cause is the harvest-node pawn, not the effect or the messages.
 
 - 2026-10-17: tools/fx_props.py prints an effect class's emitter properties from the client package. The quest-node particles (FXmystical_IOParticle001fx) are small sparkles at the pivot, not a skeletal-mesh effect; live on a scratch save they still showed nothing next to a visible sparkler, so size is not the cause (B-006 open).
