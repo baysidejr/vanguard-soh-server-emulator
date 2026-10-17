@@ -27,7 +27,12 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 34
+PARSER_VERSION = 35
+CANONICAL_ROOT_PATHS = frozenset(('/', '/items', '/quests', '/mobs', '/zones',
+    '/classes', '/races', '/abilities', '/effects', '/stats', '/skills', '/gameplay',
+    '/diplomacy', '/diplomacy/cards', '/crafting', '/harvesting', '/crafting/recipes',
+    '/lore', '/world', '/mounts', '/walkthroughs', '/angry-goblins',
+    '/ten-ton-hammer', '/vgoemulator'))
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -67,6 +72,10 @@ def detail_url(url):
 def source_only_url(url):
     if not safe_url(url):
         return False
+    # Canonical sitemap landing pages remain research until typed extraction is
+    # reviewed. Do not turn index headings into synthetic game entities.
+    if urlsplit(url).path in CANONICAL_ROOT_PATHS:
+        return True
     parts=urlsplit(url).path.strip('/').split('/')
     if parts in (['abilities','as-it-was'],['abilities','not-in-the-emulator']):
         return True

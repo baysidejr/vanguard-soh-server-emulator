@@ -1,0 +1,110 @@
+{
+  "disposition": "Unresolved normalized-name collision; all colliding creature/NPC outputs withheld. No identity or role guessed.",
+  "validation": {
+    "issues": [
+      "output key collision ('mobs', 'takniv_kyn_lal'): [('creature', 'Takniv Kyn´lal'), ('npc', \"Takniv Kyn'lal\")]; all withheld"
+    ],
+    "count": 1
+  },
+  "full_source_records": [
+    {
+      "source_file": "raw\\2026-10-16-221618-374862-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "record": {
+        "name": "Takniv Kyn´lal",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/takniv-kyn-lal-2",
+            "title": "Takniv Kyn´lal · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:12:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Jharru Flats"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "creature",
+        "level": null,
+        "zone": "Jharru Flats",
+        "health": null,
+        "damage": null,
+        "creature_kind": null,
+        "difficulty": null,
+        "spawn_areas": [],
+        "aggressive": null,
+        "aggro_range": null,
+        "respawn_time": null,
+        "zones_recorded": [
+          "Jharru Flats"
+        ],
+        "original_source_urls": []
+      }
+    },
+    {
+      "source_file": "raw\\2026-10-16-221618-374862-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "record": {
+        "name": "Takniv Kyn'lal",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/takniv-kyn-lal",
+            "title": "Takniv Kyn'lal · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T03:11:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Jharru Flats"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "race": [
+            "Dark Elf"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Goods For Evendusk",
+            "url": "https://vgsoharchive.com/quests/goods-for-evendusk"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Jharru Flats",
+        "health": null,
+        "damage": null,
+        "race": "Dark Elf",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Goods For Evendusk"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Jharru Flats"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    }
+  ]
+}
