@@ -281,6 +281,13 @@ def template(rec):
 QUEST_LOC = re.compile(r"(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)(?:.*\((-?\d+),\s*(-?\d+)\))?")
 
 
+def has_npc_page(q):
+    """Whether the quest record links its giver to an archive NPC page (/mobs/...)."""
+    g = (q.get("giver") or "").strip().lower()
+    return any((e.get("name") or "").strip().lower() == g and "/mobs/" in (e.get("url") or "")
+               for e in q.get("referenced_entities") or [])
+
+
 def quest_giver_spots(zone, quests, chunk):
     """giver name -> ((x, y, z), quest record) from the zone's quest records: a quest's archive
     "location" is where it starts, i.e. where its giver stands ("33289, -95029, 2936 in Khal
@@ -289,8 +296,8 @@ def quest_giver_spots(zone, quests, chunk):
     for q in sorted(quests.values(), key=lambda r: r["name"]):
         if q.get("zone") != zone or not q.get("giver") or "," in q["giver"]:
             continue                      # "Kurake , Kurake Wamani": several names, which one is unclear
-        if q["giver"].strip().lower() in ("unknown", "?", "n/a"):
-            continue                      # the archive didn't know who gives it
+        if q["giver"].strip().lower() in ("unknown", "?", "n/a", "varies", "various", "multiple", "none"):
+            continue                      # the archive didn't know (or name) who gives it: "Varies"
         for loc in (q.get("archive_fields") or {}).get("location") or []:
             m = QUEST_LOC.search(str(loc))
             if not m:
@@ -398,6 +405,8 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
         key = key_for(giver)
         if key in mobs:
             continue
+        if giver not in recs and not has_npc_page(q):
+            continue          # no NPC record and no NPC page: a parsing leftover such as "Then", not a person
         if any(abs(s["x"] - pos[0]) < 50 and abs(s["y"] - pos[1]) < 50 and abs(s["z"] - pos[2]) < 100 for s in spawns):
             continue          # someone already stands there: the same person under another spelling
         rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level"), "zone": zone})

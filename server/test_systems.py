@@ -1676,7 +1676,8 @@ class ImportZoneTests(unittest.TestCase):
         import import_zone
         quests = {
             "A": {"name": "A", "zone": "Khal", "giver": "Wadj Peheb", "level": 5,
-                  "archive_fields": {"location": ["33289, -95029, 2936 in Khal (-13, -9)"]}},
+                  "archive_fields": {"location": ["33289, -95029, 2936 in Khal (-13, -9)"]},
+                  "referenced_entities": [{"name": "Wadj Peheb", "url": "https://vgsoharchive.com/mobs/wadj-peheb"}]},
             "B": {"name": "B", "zone": "Khal", "giver": "Kurake , Kurake Wamani",
                   "archive_fields": {"location": ["1, 2, 3 in Khal (-13, -9)"]}},
             "C": {"name": "C", "zone": "Khal", "giver": "Far Away",
@@ -2464,3 +2465,20 @@ class MovedSpawnImportTests(unittest.TestCase):
             added = import_zone.apply("chunk_c", {"arch_new": {"name": "New"}},
                                       [{"mob": "arch_new", "x": 3, "y": 4}], content=d)
             self.assertEqual(added, (1, 1))                                  # others still import
+
+
+class QuestGiverNameTests(unittest.TestCase):
+    """Archive quest givers that are parsing leftovers ("Varies", "Then") are not placed as people."""
+
+    def test_rules(self):
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        page = {"giver": "Naji Sevenblade",
+                "referenced_entities": [{"name": "Naji Sevenblade", "url": "https://vgsoharchive.com/mobs/naji-sevenblade"}]}
+        word = {"giver": "Then", "referenced_entities": [{"name": "Khal", "url": "https://vgsoharchive.com/zones/khal"}]}
+        self.assertTrue(import_zone.has_npc_page(page))
+        self.assertFalse(import_zone.has_npc_page(word))
+        quests = {"a": {"name": "A", "zone": "Khal", "giver": "Varies",
+                        "archive_fields": {"location": ["1, 2, 3 in Khal (-13, -9)"]}}}
+        self.assertEqual(import_zone.quest_giver_spots("Khal", quests, (-13, -9)), {})

@@ -10810,5 +10810,119 @@
     "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
     "disabled": true,
     "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_magi_hold_epilogue": {
+    "id": 5490,
+    "name": "Magi Hold: Epilogue",
+    "level": 50,
+    "giver": "arch_naji",
+    "turn_in": "arch_naji_sevenblade",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/magi-hold-epilogue",
+    "steps": [
+      {
+        "objective": "Speak with Naji Sevenblade",
+        "talk": "arch_naji_sevenblade"
+      }
+    ],
+    "greeting": "I could use some help. (Magi Hold: Epilogue: the archive has no dialogue yet.)",
+    "description": "Naji has asked you to help: speak with Naji Sevenblade.",
+    "summary": "Speak with Naji Sevenblade for Naji.",
+    "accept_text": "You agree to help Naji.",
+    "reward": {
+      "xp": 1250
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_magi_hold_rekai_appears": {
+    "id": 5491,
+    "name": "Magi Hold: Rekai Appears!",
+    "level": 50,
+    "giver": "arch_naji_sevenblade",
+    "turn_in": "arch_shou_kai_skyfall",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/magi-hold-rekai-appears",
+    "steps": [
+      {
+        "objective": "Speak with Shou Kai Skyfall",
+        "talk": "arch_shou_kai_skyfall"
+      }
+    ],
+    "greeting": "I could use some help. (Magi Hold: Rekai Appears!: the archive has no dialogue yet.)",
+    "description": "Naji Sevenblade has asked you to help: speak with Shou Kai Skyfall.",
+    "summary": "Speak with Shou Kai Skyfall for Naji Sevenblade.",
+    "accept_text": "You agree to help Naji Sevenblade.",
+    "reward": {
+      "xp": 1250
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_magi_hold_tasting_the_deadly_rainbow": {
+    "id": 5492,
+    "name": "Magi Hold: Tasting the Deadly Rainbow",
+    "level": 55,
+    "giver": "arch_naji",
+    "turn_in": "arch_naji_sevenblade",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/magi-hold-tasting-the-deadly-rainbow",
+    "steps": [
+      {
+        "objective": "Speak with Naji Sevenblade",
+        "talk": "arch_naji_sevenblade"
+      }
+    ],
+    "greeting": "I could use some help. (Magi Hold: Tasting the Deadly Rainbow: the archive has no dialogue yet.)",
+    "description": "Naji has asked you to help: speak with Naji Sevenblade.",
+    "summary": "Speak with Naji Sevenblade for Naji.",
+    "accept_text": "You agree to help Naji.",
+    "reward": {
+      "xp": 1375
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again.",
+    "requires": [
+      "arch_magi_hold_the_ulvari_remains"
+    ]
+  },
+  "arch_magi_hold_the_ulvari_remains": {
+    "id": 5493,
+    "name": "Magi Hold: The Ulvari Remains",
+    "level": 55,
+    "giver": "arch_naji",
+    "turn_in": "arch_naji_sevenblade",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/magi-hold-the-ulvari-remains",
+    "steps": [
+      {
+        "objective": "Speak with Naji Sevenblade",
+        "talk": "arch_naji_sevenblade"
+      }
+    ],
+    "greeting": "I could use some help. (Magi Hold: The Ulvari Remains: the archive has no dialogue yet.)",
+    "description": "Naji has asked you to help: speak with Naji Sevenblade.",
+    "summary": "Speak with Naji Sevenblade for Naji.",
+    "accept_text": "You agree to help Naji.",
+    "reward": {
+      "xp": 1375
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again.",
+    "requires": [
+      "arch_magi_hold_epilogue"
+    ]
   }
 }
