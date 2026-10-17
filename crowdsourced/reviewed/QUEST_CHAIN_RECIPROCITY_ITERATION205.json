@@ -1,0 +1,4821 @@
+{
+  "audit_kind": "cached_quest_chain_reciprocal_link_extraction",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal target-page Previous/Next labels and exact reciprocal URL comparison; navigation does not establish enforced prerequisites or canonical identities. Missing reciprocal labels are not proof that a chain does not exist.",
+  "inputs": [
+    {
+      "path": ".cache/archive/01df45a83b9a139a87f3509eca94969f724b37bd2b4bfe31d070799811570ed8.txt",
+      "sha256": "2abf6a69160a93326332d33ce3cd91c29988dc6d398b09ca246a66a3f7a9ba13"
+    },
+    {
+      "path": ".cache/archive/0868e5769c8ad904c9a90895c41d403661df7ad8330e5849d23d011ab0bff122.txt",
+      "sha256": "ef30bafac26a72be9ce5ea0746821748699633b6a9e78de0745198d506341ad4"
+    },
+    {
+      "path": ".cache/archive/1703aed429ff673088b2a6f29dd81eaad2adc092f3ac817f154cbe996b3d4e50.txt",
+      "sha256": "b50c668f134cb34490ab3488385dbe9330a916a16c21fe4a8e3090f4378a6986"
+    },
+    {
+      "path": ".cache/archive/1d2a1aa26624f858cb7cb56eff0a9efaccd8e8da332018ff541c3e932bdb7d51.txt",
+      "sha256": "26e8e642338c885cf8908e7ecd4b33bd646d1209d785d35083066544cd0c2663"
+    },
+    {
+      "path": ".cache/archive/246fdffd5baa319d0ca23c0f8cdb4f69ec57e9a9f8640ab20f14f82117099918.txt",
+      "sha256": "8ca74101416425714610bf5d5f6f90edd67b3779960e87079a54a020ccba5ec0"
+    },
+    {
+      "path": ".cache/archive/2928b3b599bf5a8a172ba3cb02128eb60d440db0b793b0aa41521fff1a425ce8.txt",
+      "sha256": "264f3fccffedc05bc6b0cae8db9b9ae74ed32ec304231263238f0f239108bcf8"
+    },
+    {
+      "path": ".cache/archive/3511293ceb1c92812ab262b55b19d9899ae5bcf0ddc5a9565c5aa0745d8a2b22.txt",
+      "sha256": "634fd95a4dd0fdfda0bae6f0e37f17afaaedaf9e07cfbf432c1dac076418d33d"
+    },
+    {
+      "path": ".cache/archive/35becdc42f1120420469d5af522f55d0096a29d7473a46026ca3cd4a702dd62d.txt",
+      "sha256": "c1a2bb5404516051c86a3e7ad32924bccdda47316a1c4c9bac0cd6972913b79e"
+    },
+    {
+      "path": ".cache/archive/3807a29712bffe65cddcd8ddde440f6cd591ffeed4c9fc110c69a679c01ccfc1.txt",
+      "sha256": "b0043ef7a21e874007f8e10cf27620ffb8210e03cbf5dbb7c945d0a7da3563e2"
+    },
+    {
+      "path": ".cache/archive/48bec00d81549cfeb07df9d749b130a3c2540f835553746b2742cfd2bfeb4219.txt",
+      "sha256": "5b24777697f4f1b1ebc0b85b9e7511f47f7be5377fee276deb7f2d5d747d437d"
+    },
+    {
+      "path": ".cache/archive/5a6773dd6611130d63d24ef8a2063a28eb03e3d57dc0de8059fae55546216a9d.txt",
+      "sha256": "e365ffa7f90d05f88fe6e728d2bd0dabcc87b794c66107d578ab4523925d1320"
+    },
+    {
+      "path": ".cache/archive/657a03abf39721006311f0362247ff092826e97bc385cec67ba55b72e4f6aa33.txt",
+      "sha256": "af3eb7ae34b64cf5792c8a74028b872bfacdd6ee896ed7fdf6f7800e1635e821"
+    },
+    {
+      "path": ".cache/archive/6813abe847008efe107654f5baaf0090e8d6265d571203d57cb7e8875ee02caf.txt",
+      "sha256": "74bf3eba383f5196c0f282ef8044160268fc0ffcd0d20c6fb4f0a518d476286e"
+    },
+    {
+      "path": ".cache/archive/8cf0f5f6f4d216e0e23dd0021964a7da12ab66bddfd0a4c40d5e41a69b0a3d94.txt",
+      "sha256": "3893b921ce30bd9383b0d19873ab63ad1ac884102702ec9d51dcc8ef7953ce9a"
+    },
+    {
+      "path": ".cache/archive/a9ab18b2cff1c1aac71c95fdbb0f1f15df6418bd18ade2706faf804b88f65bcf.txt",
+      "sha256": "3c625bd3f8a7aad56ad68eb191d77ff1c0ad1eb88b2a3d1bb52e99be150f4fbc"
+    },
+    {
+      "path": ".cache/archive/abd1a07e86e5bdab696c16f3beffac421b7a51f66c157ad4b7aa32ff09bd324a.txt",
+      "sha256": "f96c07dfba3cb63bb3da025c8f364aa339b3f494e853310369837d8fd8a32844"
+    },
+    {
+      "path": ".cache/archive/ad298ce6a08a2a63904d165ce5d2ed4e1fa1ab5d5665d2d233be116053e014b2.txt",
+      "sha256": "5595b810355ce18efba5fad8e72018c275e88d9d45167b37cba79b63d36b44a8"
+    },
+    {
+      "path": ".cache/archive/bec840d0948304d884cfef48444fc087aa399e43b22d3b70e94cb65f2787b8c9.txt",
+      "sha256": "b424c54a18e29c74e1aeb7d734a4036b3b5c3104b9e00956cc91985d9e803313"
+    },
+    {
+      "path": ".cache/archive/def1b2539c2cccd3758181831c026c3ca2a1585d823162498878cc1ca1fe1b6b.txt",
+      "sha256": "9d6dd40b371aff76d9db491f3d63941d2bdd9a3841d03784d800232c9b3406c2"
+    },
+    {
+      "path": ".cache/archive/e1315f2578f894cf2604319af7034ac5a3222208636a6ac4f492e85dc8073588.txt",
+      "sha256": "0981bc5abe68d10746f07ae122e76febb0ffb5efd96a1ae1cb7ea0edf316cbb6"
+    },
+    {
+      "path": ".cache/archive/f3a05299f51fbad14a36ed61b91155dd04fa877d4f2e8ea5c135e5a186d1ab99.txt",
+      "sha256": "11183c91270ec7cb7a42b1e88e55398faf2e6dcbb45c2bf5771f44fc8f30a4a0"
+    },
+    {
+      "path": "raw/2026-10-14-032558-351880-archive-bulk/quest.jsonl",
+      "sha256": "f2c203ea44f56486ff39f328b17469151a2c357575399fb653805fc836967f06"
+    },
+    {
+      "path": "raw/2026-10-14-040738-545222-archive-bulk/quest.jsonl",
+      "sha256": "852f6b10419206455e1a1270ab377ab45c13e0ac74f4043f593b2b8eae22adcc"
+    },
+    {
+      "path": "raw/2026-10-14-043238-656762-archive-bulk/quest.jsonl",
+      "sha256": "5ff646aacf4f82987643117ee807a2e8c96bb1c2a324c7c648bc333a2697a239"
+    },
+    {
+      "path": "raw/2026-10-14-053932-985913-archive-bulk/quest.jsonl",
+      "sha256": "6a863b18953dfed464465f32525d9c71be7f08873d2d66f850ee524bd85ef5ba"
+    },
+    {
+      "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+      "sha256": "1f79902a3b0866edf297a1424a1230f0e713d9f05f77c2ecd8ab8e6225f76cf4"
+    },
+    {
+      "path": "raw/2026-10-14-063753-190778-archive-bulk/quest.jsonl",
+      "sha256": "7676300e83c6899c5c15de5699300663a42f75aab77e46b3f2f6aca81af0501d"
+    },
+    {
+      "path": "raw/2026-10-14-064613-304096-archive-bulk/quest.jsonl",
+      "sha256": "049a5e6b59c781ea45c75e6b0cbf7c0afab1753f097b407736bafb843adb93ed"
+    },
+    {
+      "path": "raw/2026-10-14-065433-304673-archive-bulk/quest.jsonl",
+      "sha256": "24c1d63eaebd2fd5319d2e7f0063f3a7b1ffde96a2ab8713472c83e00e978b23"
+    },
+    {
+      "path": "raw/2026-10-14-070253-321420-archive-bulk/quest.jsonl",
+      "sha256": "4e0ee62f615c53e4465c7397715af3e398e2c45a243c96e52894e0695386e613"
+    },
+    {
+      "path": "raw/2026-10-14-071933-376694-archive-bulk/quest.jsonl",
+      "sha256": "e1b272e163ac6abf47ce7eac641be01cdf8365acf7fa59fe750b2a87a9a91724"
+    },
+    {
+      "path": "raw/2026-10-14-073613-485486-archive-bulk/quest.jsonl",
+      "sha256": "576fdb66505da468e66cdc491cb4d9c19d80c8816c87273d1e03ea84565e19a0"
+    },
+    {
+      "path": "raw/2026-10-14-081753-695139-archive-bulk/quest.jsonl",
+      "sha256": "7a94679d2e4a25dc95ac15a7facf35e9cbdb930ba085d1ebf7c16ae4a0c31192"
+    },
+    {
+      "path": "raw/2026-10-14-084253-756848-archive-bulk/quest.jsonl",
+      "sha256": "c11470ff8df93579052680dfa035c77bda3756c987726eab3e833972638d12e3"
+    },
+    {
+      "path": "raw/2026-10-14-085933-864919-archive-bulk/quest.jsonl",
+      "sha256": "dcefa28071ada462f362ddd9875432620e0d79f7f813331b55fec2035b726dc4"
+    },
+    {
+      "path": "raw/2026-10-14-091613-912902-archive-bulk/quest.jsonl",
+      "sha256": "bdf98f7865f679ccb9b6b2f64ca3d89a7e8c129a8d3c5ca3612756615c532c69"
+    },
+    {
+      "path": "raw/2026-10-14-092433-944190-archive-bulk/quest.jsonl",
+      "sha256": "dacd34df39aeaa2eccac3e3777185b23368065f562cb5b909a83969133b84dc0"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_CHAIN_LINK_TARGETS_ITERATION204.json",
+      "sha256": "d208ed50d2e87da720b7656e2c065ad7571040ca3ba781518e92bfafc70e77f7"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-i",
+      "cache_path": ".cache/archive/f3a05299f51fbad14a36ed61b91155dd04fa877d4f2e8ea5c135e5a186d1ab99.txt",
+      "cache_sha256": "11183c91270ec7cb7a42b1e88e55398faf2e6dcbb45c2bf5771f44fc8f30a4a0",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Adrid, The Mace of Sorrow Part II",
+          "html": "<dd><a href=\"/quests/adrid-the-mace-of-sorrow-part-ii\">Adrid, The Mace of Sorrow Part II</a>\n</dd>",
+          "links": [
+            {
+              "text": "Adrid, The Mace of Sorrow Part II",
+              "href": "/quests/adrid-the-mace-of-sorrow-part-ii",
+              "absolute_url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-ii"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-032558-351880-archive-bulk/quest.jsonl",
+          "line": 58,
+          "record": {
+            "name": "Adrid, The Mace of Sorrow Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-i",
+                "title": "Adrid, The Mace of Sorrow Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:30:51+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "Adrid, The Mace of Sorrow Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "Adrid, The Mace of Sorrow Part II",
+                "url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Adrid, The Mace of Sorrow Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jin'Ka Beach Dwellers",
+                "count": 25,
+                "objective": "Jin'Ka Beach Dwellers (0/25)"
+              },
+              {
+                "label": "Jin'Ka Stonegazer or Petrifier",
+                "count": 15,
+                "objective": "Jin'Ka Stonegazer or Petrifier (0/15)"
+              },
+              {
+                "label": "Corrupted Petrified Oak",
+                "count": 10,
+                "objective": "Corrupted Petrified Oak (0/10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jin'Ka Beach Dwellers (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Jin'Ka Stonegazer or Petrifier (0/15)",
+                "kind": null,
+                "target": null,
+                "count": 15
+              },
+              {
+                "objective": "Corrupted Petrified Oak (0/10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 211,
+          "record": {
+            "name": "Adrid, The Mace of Sorrow Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-i",
+                "title": "Adrid, The Mace of Sorrow Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "Adrid, The Mace of Sorrow Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "Adrid, The Mace of Sorrow Part II",
+                "url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Adrid, The Mace of Sorrow Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jin'Ka Beach Dwellers",
+                "count": 25,
+                "objective": "Jin'Ka Beach Dwellers (0/25)"
+              },
+              {
+                "label": "Jin'Ka Stonegazer or Petrifier",
+                "count": 15,
+                "objective": "Jin'Ka Stonegazer or Petrifier (0/15)"
+              },
+              {
+                "label": "Corrupted Petrified Oak",
+                "count": 10,
+                "objective": "Corrupted Petrified Oak (0/10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jin'Ka Beach Dwellers (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Jin'Ka Stonegazer or Petrifier (0/15)",
+                "kind": null,
+                "target": null,
+                "count": 15
+              },
+              {
+                "objective": "Corrupted Petrified Oak (0/10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/by-night-part-2",
+      "cache_path": ".cache/archive/2928b3b599bf5a8a172ba3cb02128eb60d440db0b793b0aa41521fff1a425ce8.txt",
+      "cache_sha256": "264f3fccffedc05bc6b0cae8db9b9ae74ed32ec304231263238f0f239108bcf8",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "By Night",
+          "html": "<dd><a href=\"/quests/by-night\">By Night</a>\n</dd>",
+          "links": [
+            {
+              "text": "By Night",
+              "href": "/quests/by-night",
+              "absolute_url": "https://vgsoharchive.com/quests/by-night"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "By Night (Part 3)",
+          "html": "<dd><a href=\"/quests/by-night-part-3\">By Night (Part 3)</a>\n</dd>",
+          "links": [
+            {
+              "text": "By Night (Part 3)",
+              "href": "/quests/by-night-part-3",
+              "absolute_url": "https://vgsoharchive.com/quests/by-night-part-3"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-040738-545222-archive-bulk/quest.jsonl",
+          "line": 40,
+          "record": {
+            "name": "By Night (Part 2)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/by-night-part-2",
+                "title": "By Night (Part 2) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T08:10:57+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Taplim Eningold"
+              ],
+              "location": [
+                "26497, 32544, 46571 in Three Rivers Village (-27, 26)"
+              ],
+              "series": [
+                "Tremean Farm"
+              ],
+              "previous": [
+                "By Night"
+              ],
+              "next": [
+                "By Night (Part 3)"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Three Rivers Village",
+                "url": "https://vgsoharchive.com/zones/three-rivers-village"
+              },
+              {
+                "name": "Taplim Eningold",
+                "url": "https://vgsoharchive.com/mobs/taplim-eningold"
+              },
+              {
+                "name": "By Night",
+                "url": "https://vgsoharchive.com/quests/by-night"
+              },
+              {
+                "name": "By Night (Part 3)",
+                "url": "https://vgsoharchive.com/quests/by-night-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 16,
+            "zone": "Three Rivers Village",
+            "giver": "Taplim Eningold",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "By Night",
+            "chain_next": "By Night (Part 3)",
+            "quest_chain": {
+              "name": "Tremean Farm",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 695,
+          "record": {
+            "name": "By Night (Part 2)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/by-night-part-2",
+                "title": "By Night (Part 2) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:39+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Taplim Eningold"
+              ],
+              "location": [
+                "26497, 32544, 46571 in Three Rivers Village (-27, 26)"
+              ],
+              "series": [
+                "Tremean Farm"
+              ],
+              "previous": [
+                "By Night"
+              ],
+              "next": [
+                "By Night (Part 3)"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Three Rivers Village",
+                "url": "https://vgsoharchive.com/zones/three-rivers-village"
+              },
+              {
+                "name": "Taplim Eningold",
+                "url": "https://vgsoharchive.com/mobs/taplim-eningold"
+              },
+              {
+                "name": "By Night",
+                "url": "https://vgsoharchive.com/quests/by-night"
+              },
+              {
+                "name": "By Night (Part 3)",
+                "url": "https://vgsoharchive.com/quests/by-night-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 16,
+            "zone": "Three Rivers Village",
+            "giver": "Taplim Eningold",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "By Night",
+            "chain_next": "By Night (Part 3)",
+            "quest_chain": {
+              "name": "Tremean Farm",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-i",
+      "cache_path": ".cache/archive/e1315f2578f894cf2604319af7034ac5a3222208636a6ac4f492e85dc8073588.txt",
+      "cache_sha256": "0981bc5abe68d10746f07ae122e76febb0ffb5efd96a1ae1cb7ea0edf316cbb6",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "DakKar, the Gloom Blade Part II",
+          "html": "<dd><a href=\"/quests/dakkar-the-gloom-blade-part-ii\">DakKar, the Gloom Blade Part II</a>\n</dd>",
+          "links": [
+            {
+              "text": "DakKar, the Gloom Blade Part II",
+              "href": "/quests/dakkar-the-gloom-blade-part-ii",
+              "absolute_url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-ii"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-043238-656762-archive-bulk/quest.jsonl",
+          "line": 3,
+          "record": {
+            "name": "DakKar, the Gloom Blade Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-i",
+                "title": "DakKar, the Gloom Blade Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T08:32:57+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "DakKar, the Gloom Blade Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "DakKar, the Gloom Blade Part II",
+                "url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "DakKar, the Gloom Blade Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jun'ka Stonegazers Slain",
+                "count": 15,
+                "objective": "Jun'ka Stonegazers Slain (0/15)"
+              },
+              {
+                "label": "Jin'Ka Creepers Slain",
+                "count": 10,
+                "objective": "Jin'Ka Creepers Slain (0/10)"
+              },
+              {
+                "label": "Ruthless Jin'Ka Wolves",
+                "count": 25,
+                "objective": "Ruthless Jin'Ka Wolves (0/25)"
+              },
+              {
+                "label": "Dakkar, The Blade of Gloom",
+                "count": 1,
+                "objective": "Dakkar, The Blade of Gloom (1/1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jun'ka Stonegazers Slain (0/15)",
+                "kind": "kill",
+                "target": null,
+                "count": 15
+              },
+              {
+                "objective": "Jin'Ka Creepers Slain (0/10)",
+                "kind": "kill",
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Ruthless Jin'Ka Wolves (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Dakkar, The Blade of Gloom (1/1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 961,
+          "record": {
+            "name": "DakKar, the Gloom Blade Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-i",
+                "title": "DakKar, the Gloom Blade Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:40+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "DakKar, the Gloom Blade Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "DakKar, the Gloom Blade Part II",
+                "url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "DakKar, the Gloom Blade Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jun'ka Stonegazers Slain",
+                "count": 15,
+                "objective": "Jun'ka Stonegazers Slain (0/15)"
+              },
+              {
+                "label": "Jin'Ka Creepers Slain",
+                "count": 10,
+                "objective": "Jin'Ka Creepers Slain (0/10)"
+              },
+              {
+                "label": "Ruthless Jin'Ka Wolves",
+                "count": 25,
+                "objective": "Ruthless Jin'Ka Wolves (0/25)"
+              },
+              {
+                "label": "Dakkar, The Blade of Gloom",
+                "count": 1,
+                "objective": "Dakkar, The Blade of Gloom (1/1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jun'ka Stonegazers Slain (0/15)",
+                "kind": "kill",
+                "target": null,
+                "count": 15
+              },
+              {
+                "objective": "Jin'Ka Creepers Slain (0/10)",
+                "kind": "kill",
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Ruthless Jin'Ka Wolves (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Dakkar, The Blade of Gloom (1/1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/deciphering-the-note-part-2",
+      "cache_path": ".cache/archive/8cf0f5f6f4d216e0e23dd0021964a7da12ab66bddfd0a4c40d5e41a69b0a3d94.txt",
+      "cache_sha256": "3893b921ce30bd9383b0d19873ab63ad1ac884102702ec9d51dcc8ef7953ce9a",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Deciphering The Note",
+          "html": "<dd><a href=\"/quests/deciphering-the-note\">Deciphering The Note</a>\n</dd>",
+          "links": [
+            {
+              "text": "Deciphering The Note",
+              "href": "/quests/deciphering-the-note",
+              "absolute_url": "https://vgsoharchive.com/quests/deciphering-the-note"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Deciphering the Note - Part 3",
+          "html": "<dd><a href=\"/quests/deciphering-the-note-part-3\">Deciphering the Note - Part 3</a>\n</dd>",
+          "links": [
+            {
+              "text": "Deciphering the Note - Part 3",
+              "href": "/quests/deciphering-the-note-part-3",
+              "absolute_url": "https://vgsoharchive.com/quests/deciphering-the-note-part-3"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-043238-656762-archive-bulk/quest.jsonl",
+          "line": 66,
+          "record": {
+            "name": "Deciphering the Note - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note-part-2",
+                "title": "Deciphering the Note - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T08:38:07+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Atila"
+              ],
+              "location": [
+                "41791, 27266, 27367 in Ca'ial Brael (-18, 4)"
+              ],
+              "previous": [
+                "Deciphering The Note"
+              ],
+              "next": [
+                "Deciphering the Note - Part 3"
+              ],
+              "coin reward": [
+                "30"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ca'ial Brael",
+                "url": "https://vgsoharchive.com/zones/ca-ial-brael"
+              },
+              {
+                "name": "Atila",
+                "url": "https://vgsoharchive.com/mobs/atila"
+              },
+              {
+                "name": "Deciphering The Note",
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note"
+              },
+              {
+                "name": "Deciphering the Note - Part 3",
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Ca'ial Brael",
+            "giver": "Atila",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Deciphering The Note",
+            "chain_next": "Deciphering the Note - Part 3",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Vaelwyn Writing Sample",
+                "count": 5,
+                "objective": "Vaelwyn Writing Sample (5)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Vaelwyn Writing Sample (5)",
+                "kind": "collect",
+                "target": "Vaelwyn Writing Sample",
+                "count": 5
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1025,
+          "record": {
+            "name": "Deciphering the Note - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note-part-2",
+                "title": "Deciphering the Note - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:40+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Atila"
+              ],
+              "location": [
+                "41791, 27266, 27367 in Ca'ial Brael (-18, 4)"
+              ],
+              "previous": [
+                "Deciphering The Note"
+              ],
+              "next": [
+                "Deciphering the Note - Part 3"
+              ],
+              "coin reward": [
+                "30"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ca'ial Brael",
+                "url": "https://vgsoharchive.com/zones/ca-ial-brael"
+              },
+              {
+                "name": "Atila",
+                "url": "https://vgsoharchive.com/mobs/atila"
+              },
+              {
+                "name": "Deciphering The Note",
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note"
+              },
+              {
+                "name": "Deciphering the Note - Part 3",
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Ca'ial Brael",
+            "giver": "Atila",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Deciphering The Note",
+            "chain_next": "Deciphering the Note - Part 3",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Vaelwyn Writing Sample",
+                "count": 5,
+                "objective": "Vaelwyn Writing Sample (5)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Vaelwyn Writing Sample (5)",
+                "kind": "collect",
+                "target": "Vaelwyn Writing Sample",
+                "count": 5
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/healing-concoction-part-2",
+      "cache_path": ".cache/archive/abd1a07e86e5bdab696c16f3beffac421b7a51f66c157ad4b7aa32ff09bd324a.txt",
+      "cache_sha256": "f96c07dfba3cb63bb3da025c8f364aa339b3f494e853310369837d8fd8a32844",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Healing Concoction",
+          "html": "<dd><a href=\"/quests/healing-concoction\">Healing Concoction</a>\n</dd>",
+          "links": [
+            {
+              "text": "Healing Concoction",
+              "href": "/quests/healing-concoction",
+              "absolute_url": "https://vgsoharchive.com/quests/healing-concoction"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-053932-985913-archive-bulk/quest.jsonl",
+          "line": 24,
+          "record": {
+            "name": "Healing Concoction - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/healing-concoction-part-2",
+                "title": "Healing Concoction - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T09:41:31+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Verta Nicto"
+              ],
+              "location": [
+                "55141, -69886, 859 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ],
+              "previous": [
+                "Healing Concoction"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Verta Nicto",
+                "url": "https://vgsoharchive.com/mobs/verta-nicto"
+              },
+              {
+                "name": "Healing Concoction",
+                "url": "https://vgsoharchive.com/quests/healing-concoction"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Verta Nicto",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Healing Concoction",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Hill Stalker Tail Tuft",
+                "count": 4,
+                "objective": "Hill Stalker Tail Tuft (4)"
+              },
+              {
+                "label": "Slitherwing Bladder",
+                "count": 4,
+                "objective": "Slitherwing Bladder (4)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Hill Stalker Tail Tuft (4)",
+                "kind": "collect",
+                "target": "Hill Stalker Tail Tuft",
+                "count": 4
+              },
+              {
+                "objective": "Slitherwing Bladder (4)",
+                "kind": "collect",
+                "target": "Slitherwing Bladder",
+                "count": 4
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1789,
+          "record": {
+            "name": "Healing Concoction - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/healing-concoction-part-2",
+                "title": "Healing Concoction - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:43+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Verta Nicto"
+              ],
+              "location": [
+                "55141, -69886, 859 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ],
+              "previous": [
+                "Healing Concoction"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Verta Nicto",
+                "url": "https://vgsoharchive.com/mobs/verta-nicto"
+              },
+              {
+                "name": "Healing Concoction",
+                "url": "https://vgsoharchive.com/quests/healing-concoction"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Verta Nicto",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Healing Concoction",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Hill Stalker Tail Tuft",
+                "count": 4,
+                "objective": "Hill Stalker Tail Tuft (4)"
+              },
+              {
+                "label": "Slitherwing Bladder",
+                "count": 4,
+                "objective": "Slitherwing Bladder (4)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Hill Stalker Tail Tuft (4)",
+                "kind": "collect",
+                "target": "Hill Stalker Tail Tuft",
+                "count": 4
+              },
+              {
+                "objective": "Slitherwing Bladder (4)",
+                "kind": "collect",
+                "target": "Slitherwing Bladder",
+                "count": 4
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-i",
+      "cache_path": ".cache/archive/6813abe847008efe107654f5baaf0090e8d6265d571203d57cb7e8875ee02caf.txt",
+      "cache_sha256": "74bf3eba383f5196c0f282ef8044160268fc0ffcd0d20c6fb4f0a518d476286e",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Kel'Set Dar, the Axe of Ruin Part II",
+          "html": "<dd><a href=\"/quests/kel-set-dar-the-axe-of-ruin-part-ii\">Kel'Set Dar, the Axe of Ruin Part II</a>\n</dd>",
+          "links": [
+            {
+              "text": "Kel'Set Dar, the Axe of Ruin Part II",
+              "href": "/quests/kel-set-dar-the-axe-of-ruin-part-ii",
+              "absolute_url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-ii"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+          "line": 88,
+          "record": {
+            "name": "Kel'Set Dar, the Axe of Ruin Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-i",
+                "title": "Kel'Set Dar, the Axe of Ruin Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:03:31+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "Kel'Set Dar, the Axe of Ruin Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "Kel'Set Dar, the Axe of Ruin Part II",
+                "url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Kel'Set Dar, the Axe of Ruin Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jin'ka Hound wolves",
+                "count": 25,
+                "objective": "Jin'ka Hound wolves (0/25)"
+              },
+              {
+                "label": "Corrupt Petrified Oaks",
+                "count": 15,
+                "objective": "Corrupt Petrified Oaks (0/15)"
+              },
+              {
+                "label": "Crystal Nymph Maidservants",
+                "count": 10,
+                "objective": "Crystal Nymph Maidservants (0/10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jin'ka Hound wolves (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Corrupt Petrified Oaks (0/15)",
+                "kind": null,
+                "target": null,
+                "count": 15
+              },
+              {
+                "objective": "Crystal Nymph Maidservants (0/10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2059,
+          "record": {
+            "name": "Kel'Set Dar, the Axe of Ruin Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-i",
+                "title": "Kel'Set Dar, the Axe of Ruin Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:45+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "Kel'Set Dar, the Axe of Ruin Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "Kel'Set Dar, the Axe of Ruin Part II",
+                "url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Kel'Set Dar, the Axe of Ruin Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jin'ka Hound wolves",
+                "count": 25,
+                "objective": "Jin'ka Hound wolves (0/25)"
+              },
+              {
+                "label": "Corrupt Petrified Oaks",
+                "count": 15,
+                "objective": "Corrupt Petrified Oaks (0/15)"
+              },
+              {
+                "label": "Crystal Nymph Maidservants",
+                "count": 10,
+                "objective": "Crystal Nymph Maidservants (0/10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jin'ka Hound wolves (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Corrupt Petrified Oaks (0/15)",
+                "kind": null,
+                "target": null,
+                "count": 15
+              },
+              {
+                "objective": "Crystal Nymph Maidservants (0/10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/mend-the-wounds",
+      "cache_path": ".cache/archive/48bec00d81549cfeb07df9d749b130a3c2540f835553746b2742cfd2bfeb4219.txt",
+      "cache_sha256": "5b24777697f4f1b1ebc0b85b9e7511f47f7be5377fee276deb7f2d5d747d437d",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Bonemender Charms",
+          "html": "<dd><a href=\"/quests/bonemender-charms\">Bonemender Charms</a>\n</dd>",
+          "links": [
+            {
+              "text": "Bonemender Charms",
+              "href": "/quests/bonemender-charms",
+              "absolute_url": "https://vgsoharchive.com/quests/bonemender-charms"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Report to Agent Narglok",
+          "html": "<dd><a href=\"/quests/report-to-agent-narglok\">Report to Agent Narglok</a>\n</dd>",
+          "links": [
+            {
+              "text": "Report to Agent Narglok",
+              "href": "/quests/report-to-agent-narglok",
+              "absolute_url": "https://vgsoharchive.com/quests/report-to-agent-narglok"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-063753-190778-archive-bulk/quest.jsonl",
+          "line": 3,
+          "record": {
+            "name": "Mend the Wounds",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/mend-the-wounds",
+                "title": "Mend the Wounds · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:38:06+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Warden Grizzik"
+              ],
+              "starts in": [
+                "Grimsea Watch"
+              ],
+              "location": [
+                "-13097, 69276, 389"
+              ],
+              "series": [
+                "Bonemender Charms\nMend the Wounds\nReport to Agent Narglok"
+              ],
+              "hand in to": [
+                "Warden Grizzik"
+              ],
+              "previous": [
+                "Bonemender Charms"
+              ],
+              "next": [
+                "Report to Agent Narglok"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "items needed": [
+                "Bonemender Charm"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Grimsea Watch",
+                "url": "https://vgsoharchive.com/zones/grimsea-watch"
+              },
+              {
+                "name": "Warden Grizzik",
+                "url": "https://vgsoharchive.com/mobs/warden-grizzik"
+              },
+              {
+                "name": "Bonemender Charms",
+                "url": "https://vgsoharchive.com/quests/bonemender-charms"
+              },
+              {
+                "name": "Report to Agent Narglok",
+                "url": "https://vgsoharchive.com/quests/report-to-agent-narglok"
+              },
+              {
+                "name": "Blacktusk Hide Boots",
+                "url": "https://vgsoharchive.com/items/blacktusk-hide-boots"
+              },
+              {
+                "name": "Bloodcrab Boots",
+                "url": "https://vgsoharchive.com/items/bloodcrab-boots"
+              },
+              {
+                "name": "Bloodcrab Bracers",
+                "url": "https://vgsoharchive.com/items/bloodcrab-bracers"
+              },
+              {
+                "name": "Darkscale Boots",
+                "url": "https://vgsoharchive.com/items/darkscale-boots"
+              },
+              {
+                "name": "Darkscale Bracers",
+                "url": "https://vgsoharchive.com/items/darkscale-bracers"
+              },
+              {
+                "name": "Goblin Woven Sandals",
+                "url": "https://vgsoharchive.com/items/goblin-woven-sandals"
+              },
+              {
+                "name": "Goblin Woven Wraps",
+                "url": "https://vgsoharchive.com/items/goblin-woven-wraps"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Grimsea Watch",
+            "giver": "Warden Grizzik",
+            "turn_in": "Warden Grizzik",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Bonemender Charms",
+            "chain_next": "Report to Agent Narglok",
+            "quest_chain": {
+              "name": "Bonemender Charms\nMend the Wounds\nReport to Agent Narglok",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2478,
+          "record": {
+            "name": "Mend the Wounds",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/mend-the-wounds",
+                "title": "Mend the Wounds · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:46+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Warden Grizzik"
+              ],
+              "starts in": [
+                "Grimsea Watch"
+              ],
+              "location": [
+                "-13097, 69276, 389"
+              ],
+              "series": [
+                "Bonemender Charms\nMend the Wounds\nReport to Agent Narglok"
+              ],
+              "hand in to": [
+                "Warden Grizzik"
+              ],
+              "previous": [
+                "Bonemender Charms"
+              ],
+              "next": [
+                "Report to Agent Narglok"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "items needed": [
+                "Bonemender Charm"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Grimsea Watch",
+                "url": "https://vgsoharchive.com/zones/grimsea-watch"
+              },
+              {
+                "name": "Warden Grizzik",
+                "url": "https://vgsoharchive.com/mobs/warden-grizzik"
+              },
+              {
+                "name": "Bonemender Charms",
+                "url": "https://vgsoharchive.com/quests/bonemender-charms"
+              },
+              {
+                "name": "Report to Agent Narglok",
+                "url": "https://vgsoharchive.com/quests/report-to-agent-narglok"
+              },
+              {
+                "name": "Blacktusk Hide Boots",
+                "url": "https://vgsoharchive.com/items/blacktusk-hide-boots"
+              },
+              {
+                "name": "Bloodcrab Boots",
+                "url": "https://vgsoharchive.com/items/bloodcrab-boots"
+              },
+              {
+                "name": "Bloodcrab Bracers",
+                "url": "https://vgsoharchive.com/items/bloodcrab-bracers"
+              },
+              {
+                "name": "Darkscale Boots",
+                "url": "https://vgsoharchive.com/items/darkscale-boots"
+              },
+              {
+                "name": "Darkscale Bracers",
+                "url": "https://vgsoharchive.com/items/darkscale-bracers"
+              },
+              {
+                "name": "Goblin Woven Sandals",
+                "url": "https://vgsoharchive.com/items/goblin-woven-sandals"
+              },
+              {
+                "name": "Goblin Woven Wraps",
+                "url": "https://vgsoharchive.com/items/goblin-woven-wraps"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Grimsea Watch",
+            "giver": "Warden Grizzik",
+            "turn_in": "Warden Grizzik",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Bonemender Charms",
+            "chain_next": "Report to Agent Narglok",
+            "quest_chain": {
+              "name": "Bonemender Charms\nMend the Wounds\nReport to Agent Narglok",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/natural-resources-part-2",
+      "cache_path": ".cache/archive/1d2a1aa26624f858cb7cb56eff0a9efaccd8e8da332018ff541c3e932bdb7d51.txt",
+      "cache_sha256": "26e8e642338c885cf8908e7ecd4b33bd646d1209d785d35083066544cd0c2663",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Natural Resources",
+          "html": "<dd><a href=\"/quests/natural-resources\">Natural Resources</a>\n</dd>",
+          "links": [
+            {
+              "text": "Natural Resources",
+              "href": "/quests/natural-resources",
+              "absolute_url": "https://vgsoharchive.com/quests/natural-resources"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-064613-304096-archive-bulk/quest.jsonl",
+          "line": 18,
+          "record": {
+            "name": "Natural Resources - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/natural-resources-part-2",
+                "title": "Natural Resources - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:47:41+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "previous": [
+                "Natural Resources"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Natural Resources",
+                "url": "https://vgsoharchive.com/quests/natural-resources"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": null,
+            "giver": "Colemar Konthari",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Natural Resources",
+            "chain_next": null,
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2593,
+          "record": {
+            "name": "Natural Resources - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/natural-resources-part-2",
+                "title": "Natural Resources - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "previous": [
+                "Natural Resources"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Natural Resources",
+                "url": "https://vgsoharchive.com/quests/natural-resources"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": null,
+            "giver": "Colemar Konthari",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Natural Resources",
+            "chain_next": null,
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/ornamental-shield-part-2",
+      "cache_path": ".cache/archive/3511293ceb1c92812ab262b55b19d9899ae5bcf0ddc5a9565c5aa0745d8a2b22.txt",
+      "cache_sha256": "634fd95a4dd0fdfda0bae6f0e37f17afaaedaf9e07cfbf432c1dac076418d33d",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Ornamental Shield",
+          "html": "<dd><a href=\"/quests/ornamental-shield\">Ornamental Shield</a>\n</dd>",
+          "links": [
+            {
+              "text": "Ornamental Shield",
+              "href": "/quests/ornamental-shield",
+              "absolute_url": "https://vgsoharchive.com/quests/ornamental-shield"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Ornamental Shield - Part 3",
+          "html": "<dd><a href=\"/quests/ornamental-shield-part-3\">Ornamental Shield - Part 3</a>\n</dd>",
+          "links": [
+            {
+              "text": "Ornamental Shield - Part 3",
+              "href": "/quests/ornamental-shield-part-3",
+              "absolute_url": "https://vgsoharchive.com/quests/ornamental-shield-part-3"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-065433-304673-archive-bulk/quest.jsonl",
+          "line": 42,
+          "record": {
+            "name": "Ornamental Shield - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ornamental-shield-part-2",
+                "title": "Ornamental Shield - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:58:01+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Hidgerin Wertpus"
+              ],
+              "location": [
+                "-15409, 18197, 373 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Gaxton Village"
+              ],
+              "previous": [
+                "Ornamental Shield"
+              ],
+              "next": [
+                "Ornamental Shield - Part 3"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Hidgerin Wertpus",
+                "url": "https://vgsoharchive.com/mobs/hidgerin-wertpus"
+              },
+              {
+                "name": "Ornamental Shield",
+                "url": "https://vgsoharchive.com/quests/ornamental-shield"
+              },
+              {
+                "name": "Ornamental Shield - Part 3",
+                "url": "https://vgsoharchive.com/quests/ornamental-shield-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": "Martok",
+            "giver": "Hidgerin Wertpus",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ornamental Shield",
+            "chain_next": "Ornamental Shield - Part 3",
+            "quest_chain": {
+              "name": "Gaxton Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Boxjaw's Shell",
+                "count": 1,
+                "objective": "Boxjaw's Shell (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Boxjaw's Shell (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2720,
+          "record": {
+            "name": "Ornamental Shield - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ornamental-shield-part-2",
+                "title": "Ornamental Shield - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Hidgerin Wertpus"
+              ],
+              "location": [
+                "-15409, 18197, 373 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Gaxton Village"
+              ],
+              "previous": [
+                "Ornamental Shield"
+              ],
+              "next": [
+                "Ornamental Shield - Part 3"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Hidgerin Wertpus",
+                "url": "https://vgsoharchive.com/mobs/hidgerin-wertpus"
+              },
+              {
+                "name": "Ornamental Shield",
+                "url": "https://vgsoharchive.com/quests/ornamental-shield"
+              },
+              {
+                "name": "Ornamental Shield - Part 3",
+                "url": "https://vgsoharchive.com/quests/ornamental-shield-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": "Martok",
+            "giver": "Hidgerin Wertpus",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ornamental Shield",
+            "chain_next": "Ornamental Shield - Part 3",
+            "quest_chain": {
+              "name": "Gaxton Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Boxjaw's Shell",
+                "count": 1,
+                "objective": "Boxjaw's Shell (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Boxjaw's Shell (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/placing-the-blame",
+      "cache_path": ".cache/archive/1703aed429ff673088b2a6f29dd81eaad2adc092f3ac817f154cbe996b3d4e50.txt",
+      "cache_sha256": "b50c668f134cb34490ab3488385dbe9330a916a16c21fe4a8e3090f4378a6986",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Placing The Blame - Part 2",
+          "html": "<dd><a href=\"/quests/placing-the-blame-part-2\">Placing The Blame - Part 2</a>\n</dd>",
+          "links": [
+            {
+              "text": "Placing The Blame - Part 2",
+              "href": "/quests/placing-the-blame-part-2",
+              "absolute_url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-070253-321420-archive-bulk/quest.jsonl",
+          "line": 26,
+          "record": {
+            "name": "Placing the Blame",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame",
+                "title": "Placing the Blame · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:04:56+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "starts in": [
+                "Vault Of Heroes"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "hand in to": [
+                "Colemar Konthari"
+              ],
+              "next": [
+                "Placing The Blame - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Vault Of Heroes",
+                "url": "https://vgsoharchive.com/zones/vault-of-heroes"
+              },
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing The Blame - Part 2",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 12,
+            "zone": "Vault Of Heroes",
+            "giver": "Colemar Konthari",
+            "turn_in": "Colemar Konthari",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Placing The Blame - Part 2",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2804,
+          "record": {
+            "name": "Placing the Blame",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame",
+                "title": "Placing the Blame · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:48+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "starts in": [
+                "Vault Of Heroes"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "hand in to": [
+                "Colemar Konthari"
+              ],
+              "next": [
+                "Placing The Blame - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Vault Of Heroes",
+                "url": "https://vgsoharchive.com/zones/vault-of-heroes"
+              },
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing The Blame - Part 2",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 12,
+            "zone": "Vault Of Heroes",
+            "giver": "Colemar Konthari",
+            "turn_in": "Colemar Konthari",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Placing The Blame - Part 2",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+      "cache_path": ".cache/archive/bec840d0948304d884cfef48444fc087aa399e43b22d3b70e94cb65f2787b8c9.txt",
+      "cache_sha256": "b424c54a18e29c74e1aeb7d734a4036b3b5c3104b9e00956cc91985d9e803313",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Placing the Blame",
+          "html": "<dd><a href=\"/quests/placing-the-blame\">Placing the Blame</a>\n</dd>",
+          "links": [
+            {
+              "text": "Placing the Blame",
+              "href": "/quests/placing-the-blame",
+              "absolute_url": "https://vgsoharchive.com/quests/placing-the-blame"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-070253-321420-archive-bulk/quest.jsonl",
+          "line": 25,
+          "record": {
+            "name": "Placing The Blame - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+                "title": "Placing The Blame - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:05:01+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "series": [
+                "Tahean's Vengeance"
+              ],
+              "previous": [
+                "Placing the Blame"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing the Blame",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": null,
+            "giver": "Colemar Konthari",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Placing the Blame",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Tahean's Vengeance",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Griffons Slain",
+                "count": 10,
+                "objective": "Griffons Slain (10)"
+              },
+              {
+                "label": "Paws Planted in Eggshells",
+                "count": 10,
+                "objective": "Paws Planted in Eggshells (10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Griffons Slain (10)",
+                "kind": "kill",
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Paws Planted in Eggshells (10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2803,
+          "record": {
+            "name": "Placing The Blame - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+                "title": "Placing The Blame - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:48+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "series": [
+                "Tahean's Vengeance"
+              ],
+              "previous": [
+                "Placing the Blame"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing the Blame",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": null,
+            "giver": "Colemar Konthari",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Placing the Blame",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Tahean's Vengeance",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Griffons Slain",
+                "count": 10,
+                "objective": "Griffons Slain (10)"
+              },
+              {
+                "label": "Paws Planted in Eggshells",
+                "count": 10,
+                "objective": "Paws Planted in Eggshells (10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Griffons Slain (10)",
+                "kind": "kill",
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Paws Planted in Eggshells (10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/report-to-agent-narglok-part-2",
+      "cache_path": ".cache/archive/5a6773dd6611130d63d24ef8a2063a28eb03e3d57dc0de8059fae55546216a9d.txt",
+      "cache_sha256": "e365ffa7f90d05f88fe6e728d2bd0dabcc87b794c66107d578ab4523925d1320",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Report to Agent Narglok",
+          "html": "<dd><a href=\"/quests/report-to-agent-narglok\">Report to Agent Narglok</a>\n</dd>",
+          "links": [
+            {
+              "text": "Report to Agent Narglok",
+              "href": "/quests/report-to-agent-narglok",
+              "absolute_url": "https://vgsoharchive.com/quests/report-to-agent-narglok"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Suppressing Canine Senses",
+          "html": "<dd><a href=\"/quests/suppressing-canine-senses\">Suppressing Canine Senses</a>\n</dd>",
+          "links": [
+            {
+              "text": "Suppressing Canine Senses",
+              "href": "/quests/suppressing-canine-senses",
+              "absolute_url": "https://vgsoharchive.com/quests/suppressing-canine-senses"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-071933-376694-archive-bulk/quest.jsonl",
+          "line": 94,
+          "record": {
+            "name": "Report to Agent Narglok (Part 2)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/report-to-agent-narglok-part-2",
+                "title": "Report to Agent Narglok (Part 2) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:25:46+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Jinjaxe"
+              ],
+              "location": [
+                "5321, 75525, 1036"
+              ],
+              "series": [
+                "Grimsea Watch"
+              ],
+              "previous": [
+                "Report to Agent Narglok"
+              ],
+              "next": [
+                "Suppressing Canine Senses"
+              ],
+              "coin reward": [
+                "20"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Grimsea Watch",
+                "url": "https://vgsoharchive.com/zones/grimsea-watch"
+              },
+              {
+                "name": "Jinjaxe",
+                "url": "https://vgsoharchive.com/mobs/jinjaxe"
+              },
+              {
+                "name": "Report to Agent Narglok",
+                "url": "https://vgsoharchive.com/quests/report-to-agent-narglok"
+              },
+              {
+                "name": "Suppressing Canine Senses",
+                "url": "https://vgsoharchive.com/quests/suppressing-canine-senses"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Grimsea Watch",
+            "giver": "Jinjaxe",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report to Agent Narglok",
+            "chain_next": "Suppressing Canine Senses",
+            "quest_chain": {
+              "name": "Grimsea Watch",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3073,
+          "record": {
+            "name": "Report to Agent Narglok (Part 2)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/report-to-agent-narglok-part-2",
+                "title": "Report to Agent Narglok (Part 2) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:49+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Jinjaxe"
+              ],
+              "location": [
+                "5321, 75525, 1036"
+              ],
+              "series": [
+                "Grimsea Watch"
+              ],
+              "previous": [
+                "Report to Agent Narglok"
+              ],
+              "next": [
+                "Suppressing Canine Senses"
+              ],
+              "coin reward": [
+                "20"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Grimsea Watch",
+                "url": "https://vgsoharchive.com/zones/grimsea-watch"
+              },
+              {
+                "name": "Jinjaxe",
+                "url": "https://vgsoharchive.com/mobs/jinjaxe"
+              },
+              {
+                "name": "Report to Agent Narglok",
+                "url": "https://vgsoharchive.com/quests/report-to-agent-narglok"
+              },
+              {
+                "name": "Suppressing Canine Senses",
+                "url": "https://vgsoharchive.com/quests/suppressing-canine-senses"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Grimsea Watch",
+            "giver": "Jinjaxe",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report to Agent Narglok",
+            "chain_next": "Suppressing Canine Senses",
+            "quest_chain": {
+              "name": "Grimsea Watch",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/royal-delivery",
+      "cache_path": ".cache/archive/657a03abf39721006311f0362247ff092826e97bc385cec67ba55b72e4f6aa33.txt",
+      "cache_sha256": "af3eb7ae34b64cf5792c8a74028b872bfacdd6ee896ed7fdf6f7800e1635e821",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Royal Assistance",
+          "html": "<dd><a href=\"/quests/royal-assistance\">Royal Assistance</a>\n</dd>",
+          "links": [
+            {
+              "text": "Royal Assistance",
+              "href": "/quests/royal-assistance",
+              "absolute_url": "https://vgsoharchive.com/quests/royal-assistance"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Royal Servitude",
+          "html": "<dd><a href=\"/quests/royal-servitude\">Royal Servitude</a>\n</dd>",
+          "links": [
+            {
+              "text": "Royal Servitude",
+              "href": "/quests/royal-servitude",
+              "absolute_url": "https://vgsoharchive.com/quests/royal-servitude"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-073613-485486-archive-bulk/quest.jsonl",
+          "line": 3,
+          "record": {
+            "name": "Royal Delivery",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/royal-delivery",
+                "title": "Royal Delivery · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:36:27+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Scribe Fhae"
+              ],
+              "starts in": [
+                "Leth Nurae"
+              ],
+              "location": [
+                "-9444, 3349, 52169 in Leth Nurae (-25, 26)"
+              ],
+              "previous": [
+                "Royal Assistance"
+              ],
+              "next": [
+                "Royal Servitude"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Leth Nurae",
+                "url": "https://vgsoharchive.com/zones/leth-nurae"
+              },
+              {
+                "name": "Scribe Fhae",
+                "url": "https://vgsoharchive.com/mobs/scribe-fhae"
+              },
+              {
+                "name": "Royal Assistance",
+                "url": "https://vgsoharchive.com/quests/royal-assistance"
+              },
+              {
+                "name": "Royal Servitude",
+                "url": "https://vgsoharchive.com/quests/royal-servitude"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": "Leth Nurae",
+            "giver": "Scribe Fhae",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Royal Assistance",
+            "chain_next": "Royal Servitude",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Satchel of Goods",
+                "count": 1,
+                "objective": "Satchel of Goods (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Satchel of Goods (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3183,
+          "record": {
+            "name": "Royal Delivery",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/royal-delivery",
+                "title": "Royal Delivery · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:49+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Scribe Fhae"
+              ],
+              "starts in": [
+                "Leth Nurae"
+              ],
+              "location": [
+                "-9444, 3349, 52169 in Leth Nurae (-25, 26)"
+              ],
+              "previous": [
+                "Royal Assistance"
+              ],
+              "next": [
+                "Royal Servitude"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Leth Nurae",
+                "url": "https://vgsoharchive.com/zones/leth-nurae"
+              },
+              {
+                "name": "Scribe Fhae",
+                "url": "https://vgsoharchive.com/mobs/scribe-fhae"
+              },
+              {
+                "name": "Royal Assistance",
+                "url": "https://vgsoharchive.com/quests/royal-assistance"
+              },
+              {
+                "name": "Royal Servitude",
+                "url": "https://vgsoharchive.com/quests/royal-servitude"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": "Leth Nurae",
+            "giver": "Scribe Fhae",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Royal Assistance",
+            "chain_next": "Royal Servitude",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Satchel of Goods",
+                "count": 1,
+                "objective": "Satchel of Goods (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Satchel of Goods (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/royal-servitude-part-2",
+      "cache_path": ".cache/archive/ad298ce6a08a2a63904d165ce5d2ed4e1fa1ab5d5665d2d233be116053e014b2.txt",
+      "cache_sha256": "5595b810355ce18efba5fad8e72018c275e88d9d45167b37cba79b63d36b44a8",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Royal Servitude",
+          "html": "<dd><a href=\"/quests/royal-servitude\">Royal Servitude</a>\n</dd>",
+          "links": [
+            {
+              "text": "Royal Servitude",
+              "href": "/quests/royal-servitude",
+              "absolute_url": "https://vgsoharchive.com/quests/royal-servitude"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Royal Servitude - Part 3",
+          "html": "<dd><a href=\"/quests/royal-servitude-part-3\">Royal Servitude - Part 3</a>\n</dd>",
+          "links": [
+            {
+              "text": "Royal Servitude - Part 3",
+              "href": "/quests/royal-servitude-part-3",
+              "absolute_url": "https://vgsoharchive.com/quests/royal-servitude-part-3"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-073613-485486-archive-bulk/quest.jsonl",
+          "line": 9,
+          "record": {
+            "name": "Royal Servitude - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/royal-servitude-part-2",
+                "title": "Royal Servitude - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:36:56+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Arbiter Of Ilyia"
+              ],
+              "location": [
+                "-9444, 3349, 52169 in Leth Nurae (-25, 26)"
+              ],
+              "previous": [
+                "Royal Servitude"
+              ],
+              "next": [
+                "Royal Servitude - Part 3"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Leth Nurae",
+                "url": "https://vgsoharchive.com/zones/leth-nurae"
+              },
+              {
+                "name": "Arbiter Of Ilyia",
+                "url": "https://vgsoharchive.com/mobs/arbiter-of-ilyia"
+              },
+              {
+                "name": "Royal Servitude",
+                "url": "https://vgsoharchive.com/quests/royal-servitude"
+              },
+              {
+                "name": "Royal Servitude - Part 3",
+                "url": "https://vgsoharchive.com/quests/royal-servitude-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": "Leth Nurae",
+            "giver": "Arbiter Of Ilyia",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Royal Servitude",
+            "chain_next": "Royal Servitude - Part 3",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3189,
+          "record": {
+            "name": "Royal Servitude - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/royal-servitude-part-2",
+                "title": "Royal Servitude - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:49+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Arbiter Of Ilyia"
+              ],
+              "location": [
+                "-9444, 3349, 52169 in Leth Nurae (-25, 26)"
+              ],
+              "previous": [
+                "Royal Servitude"
+              ],
+              "next": [
+                "Royal Servitude - Part 3"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Leth Nurae",
+                "url": "https://vgsoharchive.com/zones/leth-nurae"
+              },
+              {
+                "name": "Arbiter Of Ilyia",
+                "url": "https://vgsoharchive.com/mobs/arbiter-of-ilyia"
+              },
+              {
+                "name": "Royal Servitude",
+                "url": "https://vgsoharchive.com/quests/royal-servitude"
+              },
+              {
+                "name": "Royal Servitude - Part 3",
+                "url": "https://vgsoharchive.com/quests/royal-servitude-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": "Leth Nurae",
+            "giver": "Arbiter Of Ilyia",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Royal Servitude",
+            "chain_next": "Royal Servitude - Part 3",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-2",
+      "cache_path": ".cache/archive/3807a29712bffe65cddcd8ddde440f6cd591ffeed4c9fc110c69a679c01ccfc1.txt",
+      "cache_sha256": "b0043ef7a21e874007f8e10cf27620ffb8210e03cbf5dbb7c945d0a7da3563e2",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Talisman Of The Worthy",
+          "html": "<dd><a href=\"/quests/talisman-of-the-worthy\">Talisman Of The Worthy</a>\n</dd>",
+          "links": [
+            {
+              "text": "Talisman Of The Worthy",
+              "href": "/quests/talisman-of-the-worthy",
+              "absolute_url": "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Talisman of the Worthy - Part 3",
+          "html": "<dd><a href=\"/quests/talisman-of-the-worthy-part-3\">Talisman of the Worthy - Part 3</a>\n</dd>",
+          "links": [
+            {
+              "text": "Talisman of the Worthy - Part 3",
+              "href": "/quests/talisman-of-the-worthy-part-3",
+              "absolute_url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-3"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-081753-695139-archive-bulk/quest.jsonl",
+          "line": 11,
+          "record": {
+            "name": "Talisman of the Worthy - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-2",
+                "title": "Talisman of the Worthy - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:18:07+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Warseer Grenik"
+              ],
+              "location": [
+                "57125, -59200, 1753 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ],
+              "previous": [
+                "Talisman Of The Worthy"
+              ],
+              "next": [
+                "Talisman of the Worthy - Part 3"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Warseer Grenik",
+                "url": "https://vgsoharchive.com/mobs/warseer-grenik"
+              },
+              {
+                "name": "Talisman Of The Worthy",
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+              },
+              {
+                "name": "Talisman of the Worthy - Part 3",
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Warseer Grenik",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Talisman Of The Worthy",
+            "chain_next": "Talisman of the Worthy - Part 3",
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Grenik's Glowing Talisman",
+                "count": 1,
+                "objective": "Grenik's Glowing Talisman (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Grenik's Glowing Talisman (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3715,
+          "record": {
+            "name": "Talisman of the Worthy - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-2",
+                "title": "Talisman of the Worthy - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:51+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Warseer Grenik"
+              ],
+              "location": [
+                "57125, -59200, 1753 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ],
+              "previous": [
+                "Talisman Of The Worthy"
+              ],
+              "next": [
+                "Talisman of the Worthy - Part 3"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Warseer Grenik",
+                "url": "https://vgsoharchive.com/mobs/warseer-grenik"
+              },
+              {
+                "name": "Talisman Of The Worthy",
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+              },
+              {
+                "name": "Talisman of the Worthy - Part 3",
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-3"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Warseer Grenik",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Talisman Of The Worthy",
+            "chain_next": "Talisman of the Worthy - Part 3",
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Grenik's Glowing Talisman",
+                "count": 1,
+                "objective": "Grenik's Glowing Talisman (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Grenik's Glowing Talisman (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-heart-of-a-leader",
+      "cache_path": ".cache/archive/246fdffd5baa319d0ca23c0f8cdb4f69ec57e9a9f8640ab20f14f82117099918.txt",
+      "cache_sha256": "8ca74101416425714610bf5d5f6f90edd67b3779960e87079a54a020ccba5ec0",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Report To Veenax Garrison",
+          "html": "<dd><a href=\"/quests/report-to-veenax-garrison\">Report To Veenax Garrison</a>\n</dd>",
+          "links": [
+            {
+              "text": "Report To Veenax Garrison",
+              "href": "/quests/report-to-veenax-garrison",
+              "absolute_url": "https://vgsoharchive.com/quests/report-to-veenax-garrison"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Talisman Of The Worthy",
+          "html": "<dd><a href=\"/quests/talisman-of-the-worthy\">Talisman Of The Worthy</a>\n</dd>",
+          "links": [
+            {
+              "text": "Talisman Of The Worthy",
+              "href": "/quests/talisman-of-the-worthy",
+              "absolute_url": "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-084253-756848-archive-bulk/quest.jsonl",
+          "line": 37,
+          "record": {
+            "name": "The Heart of a Leader",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-heart-of-a-leader",
+                "title": "The Heart of a Leader · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:45:57+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Vise Karnag"
+              ],
+              "starts in": [
+                "Martok"
+              ],
+              "location": [
+                "60564, -59845, 1835 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ],
+              "hand in to": [
+                "Vise Karnag"
+              ],
+              "previous": [
+                "Report To Veenax Garrison"
+              ],
+              "next": [
+                "Talisman Of The Worthy"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "25 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Vise Karnag",
+                "url": "https://vgsoharchive.com/mobs/vise-karnag"
+              },
+              {
+                "name": "Report To Veenax Garrison",
+                "url": "https://vgsoharchive.com/quests/report-to-veenax-garrison"
+              },
+              {
+                "name": "Talisman Of The Worthy",
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+              },
+              {
+                "name": "Crude Linked Leg Guards",
+                "url": "https://vgsoharchive.com/items/crude-linked-leg-guards"
+              },
+              {
+                "name": "Distressed Leggings",
+                "url": "https://vgsoharchive.com/items/distressed-leggings"
+              },
+              {
+                "name": "Loose Cut Jodphurs",
+                "url": "https://vgsoharchive.com/items/loose-cut-jodphurs"
+              },
+              {
+                "name": "Torn Cloth Bloomers",
+                "url": "https://vgsoharchive.com/items/torn-cloth-bloomers"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Vise Karnag",
+            "turn_in": "Vise Karnag",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report To Veenax Garrison",
+            "chain_next": "Talisman Of The Worthy",
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4026,
+          "record": {
+            "name": "The Heart of a Leader",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-heart-of-a-leader",
+                "title": "The Heart of a Leader · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Vise Karnag"
+              ],
+              "starts in": [
+                "Martok"
+              ],
+              "location": [
+                "60564, -59845, 1835 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ],
+              "hand in to": [
+                "Vise Karnag"
+              ],
+              "previous": [
+                "Report To Veenax Garrison"
+              ],
+              "next": [
+                "Talisman Of The Worthy"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "25 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Vise Karnag",
+                "url": "https://vgsoharchive.com/mobs/vise-karnag"
+              },
+              {
+                "name": "Report To Veenax Garrison",
+                "url": "https://vgsoharchive.com/quests/report-to-veenax-garrison"
+              },
+              {
+                "name": "Talisman Of The Worthy",
+                "url": "https://vgsoharchive.com/quests/talisman-of-the-worthy"
+              },
+              {
+                "name": "Crude Linked Leg Guards",
+                "url": "https://vgsoharchive.com/items/crude-linked-leg-guards"
+              },
+              {
+                "name": "Distressed Leggings",
+                "url": "https://vgsoharchive.com/items/distressed-leggings"
+              },
+              {
+                "name": "Loose Cut Jodphurs",
+                "url": "https://vgsoharchive.com/items/loose-cut-jodphurs"
+              },
+              {
+                "name": "Torn Cloth Bloomers",
+                "url": "https://vgsoharchive.com/items/torn-cloth-bloomers"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Vise Karnag",
+            "turn_in": "Vise Karnag",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report To Veenax Garrison",
+            "chain_next": "Talisman Of The Worthy",
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-tattered-note-part-2",
+      "cache_path": ".cache/archive/35becdc42f1120420469d5af522f55d0096a29d7473a46026ca3cd4a702dd62d.txt",
+      "cache_sha256": "c1a2bb5404516051c86a3e7ad32924bccdda47316a1c4c9bac0cd6972913b79e",
+      "chain_observations": [],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085933-864919-archive-bulk/quest.jsonl",
+          "line": 14,
+          "record": {
+            "name": "The Tattered Note - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-tattered-note-part-2",
+                "title": "The Tattered Note - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:00:42+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Tattered Note (an item, not a person)"
+              ],
+              "hand in to": [
+                "Shaman Karoak"
+              ],
+              "coin reward": [
+                "70"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Halgarad",
+                "url": "https://vgsoharchive.com/zones/halgarad"
+              },
+              {
+                "name": "Tattered Note",
+                "url": "https://vgsoharchive.com/items/tattered-note"
+              },
+              {
+                "name": "Shaman Karoak",
+                "url": "https://vgsoharchive.com/mobs/shaman-karoak"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Halgarad",
+            "giver": "Tattered Note (an item, not a person)",
+            "turn_in": "Shaman Karoak",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Tattered Note",
+                "count": 1,
+                "objective": "Tattered Note (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Tattered Note (1)",
+                "kind": "collect",
+                "target": "Tattered Note",
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4205,
+          "record": {
+            "name": "The Tattered Note - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-tattered-note-part-2",
+                "title": "The Tattered Note - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Tattered Note (an item, not a person)"
+              ],
+              "hand in to": [
+                "Shaman Karoak"
+              ],
+              "coin reward": [
+                "70"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Halgarad",
+                "url": "https://vgsoharchive.com/zones/halgarad"
+              },
+              {
+                "name": "Tattered Note",
+                "url": "https://vgsoharchive.com/items/tattered-note"
+              },
+              {
+                "name": "Shaman Karoak",
+                "url": "https://vgsoharchive.com/mobs/shaman-karoak"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Halgarad",
+            "giver": "Tattered Note (an item, not a person)",
+            "turn_in": "Shaman Karoak",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Tattered Note",
+                "count": 1,
+                "objective": "Tattered Note (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Tattered Note (1)",
+                "kind": "collect",
+                "target": "Tattered Note",
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+      "cache_path": ".cache/archive/01df45a83b9a139a87f3509eca94969f724b37bd2b4bfe31d070799811570ed8.txt",
+      "cache_sha256": "2abf6a69160a93326332d33ce3cd91c29988dc6d398b09ca246a66a3f7a9ba13",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Juu (Quest)",
+          "html": "<dd><a href=\"/quests/juu-quest\">Juu (Quest)</a>\n</dd>",
+          "links": [
+            {
+              "text": "Juu (Quest)",
+              "href": "/quests/juu-quest",
+              "absolute_url": "https://vgsoharchive.com/quests/juu-quest"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Manifestations Of Jin, Training is Wisdom",
+          "html": "<dd>Manifestations Of Jin, Training is Wisdom\n      </dd>",
+          "links": [],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085933-864919-archive-bulk/quest.jsonl",
+          "line": 52,
+          "record": {
+            "name": "The Unforgotten - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+                "title": "The Unforgotten - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:03:52+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-21690, -62609, 3284 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "Juu (Quest)"
+              ],
+              "next": [
+                "Manifestations Of Jin, Training is Wisdom"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Juu (Quest)",
+                "url": "https://vgsoharchive.com/quests/juu-quest"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Juu (Quest)",
+            "chain_next": "Manifestations Of Jin, Training is Wisdom",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Last Words",
+                "count": 1,
+                "objective": "Last Words (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Last Words (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4244,
+          "record": {
+            "name": "The Unforgotten - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+                "title": "The Unforgotten - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-21690, -62609, 3284 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "Juu (Quest)"
+              ],
+              "next": [
+                "Manifestations Of Jin, Training is Wisdom"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Juu (Quest)",
+                "url": "https://vgsoharchive.com/quests/juu-quest"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Juu (Quest)",
+            "chain_next": "Manifestations Of Jin, Training is Wisdom",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Last Words",
+                "count": 1,
+                "objective": "Last Words (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Last Words (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-vaelwyn-runner",
+      "cache_path": ".cache/archive/def1b2539c2cccd3758181831c026c3ca2a1585d823162498878cc1ca1fe1b6b.txt",
+      "cache_sha256": "9d6dd40b371aff76d9db491f3d63941d2bdd9a3841d03784d800232c9b3406c2",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Deciphering The Note",
+          "html": "<dd><a href=\"/quests/deciphering-the-note\">Deciphering The Note</a>\n</dd>",
+          "links": [
+            {
+              "text": "Deciphering The Note",
+              "href": "/quests/deciphering-the-note",
+              "absolute_url": "https://vgsoharchive.com/quests/deciphering-the-note"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085933-864919-archive-bulk/quest.jsonl",
+          "line": 62,
+          "record": {
+            "name": "The Vaelwyn Runner",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-vaelwyn-runner",
+                "title": "The Vaelwyn Runner · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:04:42+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Vaelwyn Message"
+              ],
+              "location": [
+                "on Vaelwyn Runner"
+              ],
+              "hand in to": [
+                "Celahir Greybranch"
+              ],
+              "also involved": [
+                "Vaelwyn Runner"
+              ],
+              "next": [
+                "Deciphering The Note"
+              ],
+              "coin reward": [
+                "15"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ca'ial Brael",
+                "url": "https://vgsoharchive.com/zones/ca-ial-brael"
+              },
+              {
+                "name": "Vaelwyn Message",
+                "url": "https://vgsoharchive.com/mobs/vaelwyn-message"
+              },
+              {
+                "name": "Celahir Greybranch",
+                "url": "https://vgsoharchive.com/mobs/celahir-greybranch"
+              },
+              {
+                "name": "Vaelwyn Runner",
+                "url": "https://vgsoharchive.com/mobs/vaelwyn-runner"
+              },
+              {
+                "name": "Deciphering The Note",
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Ca'ial Brael",
+            "giver": "Vaelwyn Message",
+            "turn_in": "Celahir Greybranch",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Deciphering The Note",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Vaelwyn Message",
+                "count": 1,
+                "objective": "Vaelwyn Message (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Vaelwyn Message (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4254,
+          "record": {
+            "name": "The Vaelwyn Runner",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-vaelwyn-runner",
+                "title": "The Vaelwyn Runner · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Vaelwyn Message"
+              ],
+              "location": [
+                "on Vaelwyn Runner"
+              ],
+              "hand in to": [
+                "Celahir Greybranch"
+              ],
+              "also involved": [
+                "Vaelwyn Runner"
+              ],
+              "next": [
+                "Deciphering The Note"
+              ],
+              "coin reward": [
+                "15"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ca'ial Brael",
+                "url": "https://vgsoharchive.com/zones/ca-ial-brael"
+              },
+              {
+                "name": "Vaelwyn Message",
+                "url": "https://vgsoharchive.com/mobs/vaelwyn-message"
+              },
+              {
+                "name": "Celahir Greybranch",
+                "url": "https://vgsoharchive.com/mobs/celahir-greybranch"
+              },
+              {
+                "name": "Vaelwyn Runner",
+                "url": "https://vgsoharchive.com/mobs/vaelwyn-runner"
+              },
+              {
+                "name": "Deciphering The Note",
+                "url": "https://vgsoharchive.com/quests/deciphering-the-note"
+              }
+            ],
+            "type": "quest",
+            "level": 3,
+            "zone": "Ca'ial Brael",
+            "giver": "Vaelwyn Message",
+            "turn_in": "Celahir Greybranch",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Deciphering The Note",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Vaelwyn Message",
+                "count": 1,
+                "objective": "Vaelwyn Message (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Vaelwyn Message (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-i",
+      "cache_path": ".cache/archive/0868e5769c8ad904c9a90895c41d403661df7ad8330e5849d23d011ab0bff122.txt",
+      "cache_sha256": "ef30bafac26a72be9ce5ea0746821748699633b6a9e78de0745198d506341ad4",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Ulaar The Blade of Anguish Part II",
+          "html": "<dd><a href=\"/quests/ulaar-the-blade-of-anguish-part-ii\">Ulaar The Blade of Anguish Part II</a>\n</dd>",
+          "links": [
+            {
+              "text": "Ulaar The Blade of Anguish Part II",
+              "href": "/quests/ulaar-the-blade-of-anguish-part-ii",
+              "absolute_url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-ii"
+            }
+          ],
+          "required_prerequisite": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-091613-912902-archive-bulk/quest.jsonl",
+          "line": 57,
+          "record": {
+            "name": "Ulaar The Blade of Anguish Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-i",
+                "title": "Ulaar The Blade of Anguish Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:21:02+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "Ulaar The Blade of Anguish Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "Ulaar The Blade of Anguish Part II",
+                "url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Ulaar The Blade of Anguish Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jin'Ka Stonegazers",
+                "count": 25,
+                "objective": "Jin'Ka Stonegazers (0/25)"
+              },
+              {
+                "label": "Corrupt Petrified Oaks",
+                "count": 10,
+                "objective": "Corrupt Petrified Oaks (0/10)"
+              },
+              {
+                "label": "Giant Jin'Ka Creepers",
+                "count": 15,
+                "objective": "Giant Jin'Ka Creepers (0/15)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jin'Ka Stonegazers (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Corrupt Petrified Oaks (0/10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Giant Jin'Ka Creepers (0/15)",
+                "kind": null,
+                "target": null,
+                "count": 15
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4459,
+          "record": {
+            "name": "Ulaar The Blade of Anguish Part I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-i",
+                "title": "Ulaar The Blade of Anguish Part I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Specter of Tsang's Advisor"
+              ],
+              "next": [
+                "Ulaar The Blade of Anguish Part II"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "The Tomb Of Lord Tsang",
+                "url": "https://vgsoharchive.com/zones/the-tomb-of-lord-tsang"
+              },
+              {
+                "name": "Specter of Tsang's Advisor",
+                "url": "https://vgsoharchive.com/mobs/specter-of-tsang-s-advisor"
+              },
+              {
+                "name": "Ulaar The Blade of Anguish Part II",
+                "url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-ii"
+              }
+            ],
+            "type": "quest",
+            "level": 20,
+            "zone": "The Tomb Of Lord Tsang",
+            "giver": "Specter of Tsang's Advisor",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Ulaar The Blade of Anguish Part II",
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Jin'Ka Stonegazers",
+                "count": 25,
+                "objective": "Jin'Ka Stonegazers (0/25)"
+              },
+              {
+                "label": "Corrupt Petrified Oaks",
+                "count": 10,
+                "objective": "Corrupt Petrified Oaks (0/10)"
+              },
+              {
+                "label": "Giant Jin'Ka Creepers",
+                "count": 15,
+                "objective": "Giant Jin'Ka Creepers (0/15)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Jin'Ka Stonegazers (0/25)",
+                "kind": null,
+                "target": null,
+                "count": 25
+              },
+              {
+                "objective": "Corrupt Petrified Oaks (0/10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Giant Jin'Ka Creepers (0/15)",
+                "kind": null,
+                "target": null,
+                "count": 15
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/vise-taint-part-2",
+      "cache_path": ".cache/archive/a9ab18b2cff1c1aac71c95fdbb0f1f15df6418bd18ade2706faf804b88f65bcf.txt",
+      "cache_sha256": "3c625bd3f8a7aad56ad68eb191d77ff1c0ad1eb88b2a3d1bb52e99be150f4fbc",
+      "chain_observations": [],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-092433-944190-archive-bulk/quest.jsonl",
+          "line": 93,
+          "record": {
+            "name": "Vise Taint - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/vise-taint-part-2",
+                "title": "Vise Taint - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:32:17+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Vinka Dorpel"
+              ],
+              "location": [
+                "52783, 67830, 1049 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Vinka Dorpel",
+                "url": "https://vgsoharchive.com/mobs/vinka-dorpel"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Vinka Dorpel",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Hill Stalker Ear",
+                "count": 4,
+                "objective": "Hill Stalker Ear (4)"
+              },
+              {
+                "label": "Slitherwing Entrails",
+                "count": 3,
+                "objective": "Slitherwing Entrails(3)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Hill Stalker Ear (4)",
+                "kind": "collect",
+                "target": "Hill Stalker Ear",
+                "count": 4
+              },
+              {
+                "objective": "Slitherwing Entrails(3)",
+                "kind": "collect",
+                "target": "Slitherwing Entrails",
+                "count": 3
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4590,
+          "record": {
+            "name": "Vise Taint - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/vise-taint-part-2",
+                "title": "Vise Taint - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:55+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Vinka Dorpel"
+              ],
+              "location": [
+                "52783, 67830, 1049 in Martok (-20, 13)"
+              ],
+              "series": [
+                "Veenax Garrison"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Martok",
+                "url": "https://vgsoharchive.com/zones/martok"
+              },
+              {
+                "name": "Vinka Dorpel",
+                "url": "https://vgsoharchive.com/mobs/vinka-dorpel"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Martok",
+            "giver": "Vinka Dorpel",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Veenax Garrison",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Hill Stalker Ear",
+                "count": 4,
+                "objective": "Hill Stalker Ear (4)"
+              },
+              {
+                "label": "Slitherwing Entrails",
+                "count": 3,
+                "objective": "Slitherwing Entrails(3)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Hill Stalker Ear (4)",
+                "kind": "collect",
+                "target": "Hill Stalker Ear",
+                "count": 4
+              },
+              {
+                "objective": "Slitherwing Entrails(3)",
+                "kind": "collect",
+                "target": "Slitherwing Entrails",
+                "count": 3
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "edge_reviews": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/adrid-the-mace-of-sorrow-part-i",
+      "expected_reciprocal_label": "Previous",
+      "result": "expected_reciprocal_label_absent",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/by-night",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/by-night-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/dakkar-the-gloom-blade-part-i",
+      "expected_reciprocal_label": "Previous",
+      "result": "expected_reciprocal_label_absent",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/deciphering-the-note",
+      "source_label": "Previous",
+      "target_url": "https://vgsoharchive.com/quests/the-vaelwyn-runner",
+      "expected_reciprocal_label": "Next",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/deciphering-the-note",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/deciphering-the-note-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/healing-concoction",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/healing-concoction-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/kel-set-dar-the-axe-of-ruin-part-i",
+      "expected_reciprocal_label": "Previous",
+      "result": "expected_reciprocal_label_absent",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/natural-resources",
+      "source_label": "Previous",
+      "target_url": "https://vgsoharchive.com/quests/placing-the-blame",
+      "expected_reciprocal_label": "Next",
+      "result": "expected_label_without_exact_return_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/natural-resources",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/natural-resources-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ornamental-shield",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/ornamental-shield-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/placing-the-blame",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/report-to-agent-narglok",
+      "source_label": "Previous",
+      "target_url": "https://vgsoharchive.com/quests/mend-the-wounds",
+      "expected_reciprocal_label": "Next",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/report-to-agent-narglok",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/report-to-agent-narglok-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/royal-servitude",
+      "source_label": "Previous",
+      "target_url": "https://vgsoharchive.com/quests/royal-delivery",
+      "expected_reciprocal_label": "Next",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/royal-servitude",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/royal-servitude-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/talisman-of-the-worthy",
+      "source_label": "Previous",
+      "target_url": "https://vgsoharchive.com/quests/the-heart-of-a-leader",
+      "expected_reciprocal_label": "Next",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/talisman-of-the-worthy",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/talisman-of-the-worthy-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "exact_reciprocal_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-tattered-note",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/the-tattered-note-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "expected_reciprocal_label_absent",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/training-is-wisdom",
+      "source_label": "Previous",
+      "target_url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+      "expected_reciprocal_label": "Next",
+      "result": "expected_label_without_exact_return_link",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/ulaar-the-blade-of-anguish-part-i",
+      "expected_reciprocal_label": "Previous",
+      "result": "expected_reciprocal_label_absent",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/vise-taint",
+      "source_label": "Next",
+      "target_url": "https://vgsoharchive.com/quests/vise-taint-part-2",
+      "expected_reciprocal_label": "Previous",
+      "result": "expected_reciprocal_label_absent",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_target_pages": 21,
+    "chain_observations": 29,
+    "full_archive_records_verified": 42,
+    "input_hashes_verified": 39,
+    "reciprocal_results": {
+      "expected_reciprocal_label_absent": 6,
+      "exact_reciprocal_link": 13,
+      "expected_label_without_exact_return_link": 2
+    }
+  }
+}
