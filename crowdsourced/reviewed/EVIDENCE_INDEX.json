@@ -1,22 +1,22 @@
 {
   "summary": {
-    "batches": 382,
-    "research_rows": 60066,
-    "normalized_name_groups": 29673,
+    "batches": 389,
+    "research_rows": 60102,
+    "normalized_name_groups": 29709,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 12558,
+      "creature": 12586,
       "item": 5504,
-      "loot": 2297,
-      "npc": 4204,
+      "loot": 2300,
+      "npc": 4208,
       "quest": 11633,
       "zone": 1334,
       "ability": 21615,
       "diplomacy": 6,
-      "merchant": 907,
+      "merchant": 908,
       "recipe": 8
     },
-    "errors": 0,
+    "errors": 143,
     "note": "Rows and name groups are not counts of distinct game entities. Sources and conflicting versions remain separate."
   },
   "batches": [
@@ -3118,6 +3118,46 @@
     },
     {
       "batch": "raw\\2026-10-17-092900-108296-archive-bulk",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-093032-846495-archive-bulk",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-094412-443514-archive-bulk",
+      "records": 36,
+      "counts": {
+        "creature": 28,
+        "loot": 3,
+        "merchant": 1,
+        "npc": 4
+      }
+    },
+    {
+      "batch": "raw\\2026-10-17-133326-multisource-bootstrap",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-133425-multisource-bootstrap",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration146-multisource-discovery",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration147-item-search-interface",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration148-wiki-cache-review",
       "records": 0,
       "counts": {}
     }
@@ -951394,6 +951434,556 @@
         "Seawatch Coast"
       ],
       "level": 38
+    },
+    {
+      "id": 60066,
+      "type": "creature",
+      "name": "Ulabenian Deadeye",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-deadeye"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ]
+    },
+    {
+      "id": 60067,
+      "type": "creature",
+      "name": "Ulabenian Dock Worker",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-dock-worker"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60068,
+      "type": "creature",
+      "name": "Ulabenian Excavation Assistant",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-excavation-assistant"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 8
+    },
+    {
+      "id": 60069,
+      "type": "creature",
+      "name": "Ulabenian Excavator",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-excavator"
+      ],
+      "zones": [
+        "Strand Of The Ancients"
+      ],
+      "level": 8
+    },
+    {
+      "id": 60070,
+      "type": "creature",
+      "name": "Ulabenian Field Medic",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-field-medic"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60071,
+      "type": "creature",
+      "name": "Ulabenian Hound",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-hound"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60072,
+      "type": "creature",
+      "name": "Ulabenian Intercepter",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-intercepter"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60073,
+      "type": "creature",
+      "name": "Ulabenian Medic",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-medic"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60074,
+      "type": "creature",
+      "name": "Ulabenian Officer",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-officer"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ]
+    },
+    {
+      "id": 60075,
+      "type": "creature",
+      "name": "Ulabenian Overhauler",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-overhauler"
+      ],
+      "zones": [],
+      "level": 7
+    },
+    {
+      "id": 60076,
+      "type": "creature",
+      "name": "Ulabenian Physician",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-physician"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60077,
+      "type": "creature",
+      "name": "Ulabenian Quickshot",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-quickshot"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ]
+    },
+    {
+      "id": 60078,
+      "type": "creature",
+      "name": "Ulabenian Recruit",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-recruit"
+      ],
+      "zones": [],
+      "level": 15
+    },
+    {
+      "id": 60079,
+      "type": "creature",
+      "name": "Ulabenian Researcher",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-researcher"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 7
+    },
+    {
+      "id": 60080,
+      "type": "creature",
+      "name": "Ulabenian Scout",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-scout"
+      ],
+      "zones": [],
+      "level": 15
+    },
+    {
+      "id": 60081,
+      "type": "creature",
+      "name": "Ulabenian Sharpshooter",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-sharpshooter"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60082,
+      "type": "creature",
+      "name": "Ulabenian Supplier",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-supplier"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60083,
+      "type": "creature",
+      "name": "Ulabenian Supressor",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-supressor"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ],
+      "level": 16
+    },
+    {
+      "id": 60084,
+      "type": "creature",
+      "name": "Ulabenian Swoop",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-swoop"
+      ],
+      "zones": [],
+      "level": 15
+    },
+    {
+      "id": 60085,
+      "type": "creature",
+      "name": "Ulabenian Watchman",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-watchman"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ]
+    },
+    {
+      "id": 60086,
+      "type": "creature",
+      "name": "Ulabenian Watchman Captain",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-watchman-captain"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 8
+    },
+    {
+      "id": 60087,
+      "type": "creature",
+      "name": "Ularrar",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ularrar"
+      ],
+      "zones": [
+        "Dargun's Tomb"
+      ],
+      "level": 35
+    },
+    {
+      "id": 60088,
+      "type": "creature",
+      "name": "Ulethil Sylrell",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulethil-sylrell"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60089,
+      "type": "creature",
+      "name": "Ulfar Trendelwood",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulfar-trendelwood"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60090,
+      "type": "creature",
+      "name": "Ulfjorn The Mad",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulfjorn-the-mad"
+      ],
+      "zones": [
+        "Falgarholm"
+      ]
+    },
+    {
+      "id": 60091,
+      "type": "creature",
+      "name": "Ulge Iceand",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulge-iceand"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ]
+    },
+    {
+      "id": 60092,
+      "type": "creature",
+      "name": "Ulgrenda Remkros",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulgrenda-remkros"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 100
+    },
+    {
+      "id": 60093,
+      "type": "creature",
+      "name": "Ulinavac",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulinavac"
+      ],
+      "zones": [],
+      "level": 14
+    },
+    {
+      "id": 60094,
+      "type": "loot",
+      "name": "Ulabenian Scout",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-scout"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60095,
+      "type": "loot",
+      "name": "Ulabenian Sharpshooter",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulabenian-sharpshooter"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60096,
+      "type": "loot",
+      "name": "Ulinavac",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulinavac"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60097,
+      "type": "merchant",
+      "name": "Ulga Pratt",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulga-pratt"
+      ],
+      "zones": [
+        "Halgarad"
+      ]
+    },
+    {
+      "id": 60098,
+      "type": "npc",
+      "name": "Ulga Pratt",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulga-pratt"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 10
+    },
+    {
+      "id": 60099,
+      "type": "npc",
+      "name": "Ulge Icehand",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulge-icehand"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60100,
+      "type": "npc",
+      "name": "Ulla Longwish",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulla-longwish"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60101,
+      "type": "npc",
+      "name": "Ulo Mossbeard",
+      "file": "raw\\2026-10-17-094412-443514-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulo-mossbeard"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 9
     }
   ],
   "by_name": {
@@ -1070808,6 +1071398,114 @@
     ],
     "npc:ulaakar": [
       60065
+    ],
+    "creature:ulabenian deadeye": [
+      60066
+    ],
+    "creature:ulabenian dock worker": [
+      60067
+    ],
+    "creature:ulabenian excavation assistant": [
+      60068
+    ],
+    "creature:ulabenian excavator": [
+      60069
+    ],
+    "creature:ulabenian field medic": [
+      60070
+    ],
+    "creature:ulabenian hound": [
+      60071
+    ],
+    "creature:ulabenian intercepter": [
+      60072
+    ],
+    "creature:ulabenian medic": [
+      60073
+    ],
+    "creature:ulabenian officer": [
+      60074
+    ],
+    "creature:ulabenian overhauler": [
+      60075
+    ],
+    "creature:ulabenian physician": [
+      60076
+    ],
+    "creature:ulabenian quickshot": [
+      60077
+    ],
+    "creature:ulabenian recruit": [
+      60078
+    ],
+    "creature:ulabenian researcher": [
+      60079
+    ],
+    "creature:ulabenian scout": [
+      60080
+    ],
+    "creature:ulabenian sharpshooter": [
+      60081
+    ],
+    "creature:ulabenian supplier": [
+      60082
+    ],
+    "creature:ulabenian supressor": [
+      60083
+    ],
+    "creature:ulabenian swoop": [
+      60084
+    ],
+    "creature:ulabenian watchman": [
+      60085
+    ],
+    "creature:ulabenian watchman captain": [
+      60086
+    ],
+    "creature:ularrar": [
+      60087
+    ],
+    "creature:ulethil sylrell": [
+      60088
+    ],
+    "creature:ulfar trendelwood": [
+      60089
+    ],
+    "creature:ulfjorn the mad": [
+      60090
+    ],
+    "creature:ulge iceand": [
+      60091
+    ],
+    "creature:ulgrenda remkros": [
+      60092
+    ],
+    "creature:ulinavac": [
+      60093
+    ],
+    "loot:ulabenian scout": [
+      60094
+    ],
+    "loot:ulabenian sharpshooter": [
+      60095
+    ],
+    "loot:ulinavac": [
+      60096
+    ],
+    "merchant:ulga pratt": [
+      60097
+    ],
+    "npc:ulga pratt": [
+      60098
+    ],
+    "npc:ulge icehand": [
+      60099
+    ],
+    "npc:ulla longwish": [
+      60100
+    ],
+    "npc:ulo mossbeard": [
+      60101
     ]
   },
   "by_kind": {
@@ -1083369,7 +1084067,35 @@
       60037,
       60038,
       60039,
-      60040
+      60040,
+      60066,
+      60067,
+      60068,
+      60069,
+      60070,
+      60071,
+      60072,
+      60073,
+      60074,
+      60075,
+      60076,
+      60077,
+      60078,
+      60079,
+      60080,
+      60081,
+      60082,
+      60083,
+      60084,
+      60085,
+      60086,
+      60087,
+      60088,
+      60089,
+      60090,
+      60091,
+      60092,
+      60093
     ],
     "item": [
       13,
@@ -1091174,7 +1091900,10 @@
       60051,
       60052,
       60053,
-      60054
+      60054,
+      60094,
+      60095,
+      60096
     ],
     "npc": [
       24,
@@ -1095380,7 +1096109,11 @@
       60062,
       60063,
       60064,
-      60065
+      60065,
+      60098,
+      60099,
+      60100,
+      60101
     ],
     "quest": [
       45,
@@ -1130884,7 +1131617,8 @@
       59843,
       60055,
       60056,
-      60057
+      60057,
+      60097
     ],
     "recipe": [
       419,
@@ -1132327,7 +1133061,10 @@
       59741,
       59760,
       59811,
-      60059
+      60059,
+      60092,
+      60097,
+      60098
     ],
     "Ca'ial Brael": [
       5,
@@ -1132909,7 +1133646,8 @@
       59846,
       59856,
       59861,
-      60031
+      60031,
+      60089
     ],
     "Fathesi Coast": [
       37,
@@ -1137104,7 +1137842,8 @@
       59600,
       59848,
       60055,
-      60060
+      60060,
+      60100
     ],
     "Northern Highlands": [
       107,
@@ -1138763,7 +1139502,15 @@
       59599,
       59838,
       59847,
-      60040
+      60040,
+      60066,
+      60070,
+      60072,
+      60074,
+      60076,
+      60077,
+      60083,
+      60085
     ],
     "The Temple Of Dailuk": [
       115,
@@ -1142076,7 +1142823,9 @@
       59923,
       59924,
       59973,
-      59974
+      59974,
+      60091,
+      60099
     ],
     "Brennan's Stead": [
       166,
@@ -1143452,7 +1144201,8 @@
       59540,
       59541,
       59800,
-      59845
+      59845,
+      60087
     ],
     "Dark Eye Hold": [
       213,
@@ -1144119,7 +1144869,8 @@
       59698,
       59746,
       59748,
-      59750
+      59750,
+      60090
     ],
     "Falgorholm City": [
       235,
@@ -1149024,7 +1149775,8 @@
       59858,
       60029,
       60057,
-      60064
+      60064,
+      60088
     ],
     "Khal": [
       14211,
@@ -1150381,7 +1151133,8 @@
       59530,
       59980,
       59989,
-      60058
+      60058,
+      60101
     ],
     "Southwatch": [
       14415,
@@ -1152822,7 +1153575,15 @@
       59367,
       59645,
       59855,
-      60039
+      60039,
+      60067,
+      60068,
+      60071,
+      60073,
+      60079,
+      60081,
+      60082,
+      60086
     ],
     "Merchant": [
       22627,
@@ -1156161,7 +1156922,8 @@
       58982,
       59622,
       59623,
-      59792
+      59792,
+      60069
     ],
     "Stranglewater Cove": [
       22728,
@@ -1159070,5 +1159832,721 @@
       35068
     ]
   },
-  "errors": []
+  "errors": [
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 1,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 2,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 3,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 4,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 5,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 6,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 7,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 8,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 9,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 10,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 11,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 12,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 13,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 14,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 15,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 16,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 17,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 18,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 19,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 20,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 21,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 22,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 23,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 24,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 25,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 26,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 27,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 28,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 29,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 30,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 31,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 32,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 33,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 34,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 35,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 36,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 37,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 38,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 39,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 40,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 41,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 42,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 43,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 44,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 45,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 46,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 47,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 48,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 49,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 50,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 51,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 52,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 53,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 54,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 55,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 56,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 57,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 58,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 59,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 60,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 61,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 62,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 63,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 64,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 65,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 66,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 67,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 68,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 69,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 70,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 71,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 72,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 73,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 74,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 75,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 76,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 77,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 78,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 79,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 80,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 81,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 82,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 83,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 84,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 85,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 86,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 87,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 88,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 89,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 90,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 91,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 92,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 93,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 94,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 95,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 96,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 97,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 98,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 99,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 100,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 101,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 102,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 103,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 104,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 105,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 106,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 107,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 108,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 109,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 110,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 111,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 112,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 113,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 114,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 115,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 116,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 117,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 118,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 119,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 120,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 121,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 122,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 123,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 124,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 125,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 126,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 127,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 128,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 129,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 130,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 131,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 132,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 133,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 134,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 135,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 136,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 137,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 138,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 139,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 140,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 141,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration147-item-search-interface\\source_search_options.jsonl",
+      "line": 142,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration148-wiki-cache-review\\article_observations.jsonl",
+      "line": 1,
+      "issue": "missing record identity"
+    }
+  ]
 }

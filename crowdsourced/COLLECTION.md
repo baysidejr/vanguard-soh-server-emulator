@@ -106,3 +106,15 @@ Parser version 33 preserves explicit mob-page Where they stood entries in map_lo
 Parser version 34 extracts canonical item links from merchant Sells sections, with unknown purchase prices retained as null. Tooltip values are not purchase prices; missing or empty sections retain unknown stock. reviewed/EXTRACTION_V34.json records a 14-page cache-only replay checked against the prior independent DOM audit: 54 stock links, zero network requests and zero structural validation issues. Earlier immutable batches remain unchanged; the running collector retains its loaded parser until a normal restart. Merchant conversion remains withheld where prices are unknown.
 
 Parser version 35 recognizes all 24 canonical sitemap landing/index routes identified in reviewed/INVENTORY_ROOT_PAGE_GAP_REVIEW_20261017.json, including /stats, /skills and /gameplay. These pages publish source metadata and explicit extraction gaps; they do not create guessed typed entities. Normal run startup merges the authoritative inventory into the saved queue, so a graceful stop/restart loads this support and adds the missing roots without manually editing checkpoints. Tests exercise every excluded inventory URL, linked-item discovery and query rejection. Typed extraction and historical review remain pending.
+
+The continuous runner now schedules one VGOPlayers wiki article before each archive
+batch, using the same process lock, request clock and persisted interval. Discovery
+seeds come from hash-verified cached wiki pages. Alternate checkpoints live in
+`.cache/collector/multisource_queue.json`; archive queues and completion records
+remain separate. Immutable `raw/*-alternate-wiki` batches retain response hashes,
+source URLs, metadata-only classification and extraction gaps. Article failures
+leave the URL pending; transient transport failures use the runner cooldown,
+whereas HTTP/policy/parser failures stop for review without retry. This scheduler
+currently covers wiki articles; quest detail discovery, item search intake and
+other permitted emulator pages still require implementation. Alternate observation
+batches require source-specific review and are not server conversion inputs.

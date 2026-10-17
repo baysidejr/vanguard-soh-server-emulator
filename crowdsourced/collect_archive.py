@@ -753,6 +753,18 @@ def main(argv=None):
         if not urls:
             ap.error("provide --seed, --queue, or use run after inventory")
         while urls:
+            if args.action == 'run' and (HERE / '.cache/multisource-bootstrap.done').exists():
+                from multisource_schedule import step
+                try:
+                    step(HERE)
+                except InterruptedError:
+                    return 0
+                except Exception as error:
+                    if transient_connection_error(error):
+                        if recover_closed_connection(client):
+                            continue
+                        return 0
+                    raise
             urls, fatal, batch = collect(client, urls, args.limit, args.topic, args.follow_links or args.action=='run')
             if (fatal and args.action == "run" and getattr(client, "transient_connection_failure", False)
                     and not (STATE / "stop.request").exists()):
