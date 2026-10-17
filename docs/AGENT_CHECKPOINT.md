@@ -30,6 +30,7 @@ B-016 (packet logger on short packets, found by a deep fuzz with logging on) fix
 - B-008: import archive NPCs into Sundering Wastelands / Wildgrowth Forest.
 - B-009: merge newer scrape-branch commits (only on request); 31 new as of 2026-10-16 evening.
 - B-010: gate parleys on presence with placeholder gain rates, or keep them open.
+- B-017: start new characters at the client's chosen starting area (Isle of Dawn / racial villages, evidence in the backlog) instead of the camp.
 
 ## Data-integrity notes
 - Never run tests on `server/vanguard.db`; use `--data-dir` with `storage.scratch_copy`.
