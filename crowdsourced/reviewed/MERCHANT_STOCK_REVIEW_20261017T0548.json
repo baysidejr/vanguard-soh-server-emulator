@@ -1,0 +1,153 @@
+{
+  "reviewed_at": "2026-10-17T05:48:10+00:00",
+  "scope": "Independent offline Sells-section canonical item-link comparison for every merchant in latest closed batch; no network or parser helper.",
+  "records_reviewed": 3,
+  "stock_links": 0,
+  "issues": [],
+  "checks": [
+    {
+      "record_file": "raw/2026-10-16-235329-549546-archive-bulk/merchant.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/tanira-renfir",
+      "cache_sha256": "d9e6a4a0ffece4f33b5264e8cd105440075a19ee18ef75fbb7a9deba46d524b9",
+      "sells_headings": [],
+      "source_stock": [],
+      "matches": true,
+      "unknown_stock": true,
+      "full_source_record": {
+        "name": "Tanira Renfir",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tanira-renfir",
+            "title": "Tanira Renfir · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T04:20:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ruin Falls"
+          ],
+          "role": [
+            "Merchant - Light Armor Vendor"
+          ],
+          "location": [
+            "-29780, 78155, 7716"
+          ],
+          "chunk": [
+            "Ruin Falls"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "locations seen": [
+            "Elani"
+          ],
+          "parley types": [
+            ", ,"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Tanira Renfir",
+        "zone": "Ruin Falls",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-235329-549546-archive-bulk/merchant.jsonl",
+      "line": 2,
+      "url": "https://vgsoharchive.com/mobs/tarnil-rhalujay",
+      "cache_sha256": "d1ca96b883a5a620b8133afb79f647685b8f9a58127f600d2cad7d9edf4ebfc5",
+      "sells_headings": [],
+      "source_stock": [],
+      "matches": true,
+      "unknown_stock": true,
+      "full_source_record": {
+        "name": "Tarnil Rhalujay",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tarnil-rhalujay",
+            "title": "Tarnil Rhalujay · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T04:47:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Mekalia"
+          ],
+          "role": [
+            "Ranged Weapon Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Mekalia",
+            "url": "https://vgsoharchive.com/zones/mekalia"
+          }
+        ],
+        "type": "merchant",
+        "npc": "Tarnil Rhalujay",
+        "zone": "Mekalia",
+        "sells": null,
+        "buys": null
+      }
+    },
+    {
+      "record_file": "raw/2026-10-16-235329-549546-archive-bulk/merchant.jsonl",
+      "line": 3,
+      "url": "https://vgsoharchive.com/mobs/tarqa-orglesh",
+      "cache_sha256": "4796f61bd4739025021076ba86396fbbf6975c51131bf73ecce1aa9e7b347ece",
+      "sells_headings": [],
+      "source_stock": [],
+      "matches": true,
+      "unknown_stock": true,
+      "full_source_record": {
+        "name": "Tarqa Orglesh",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/tarqa-orglesh",
+            "title": "Tarqa Orglesh · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+        "parser_version": 35,
+        "collected_at": "2026-10-17T04:49:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Coterie Infineum Sanctuary"
+          ],
+          "role": [
+            "Saddlebag Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "race": [
+            "Varanthari"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "merchant",
+        "npc": "Tarqa Orglesh",
+        "zone": "Coterie Infineum Sanctuary",
+        "sells": null,
+        "buys": null
+      }
+    }
+  ],
+  "limitations": "Absent stock stays null, not an empty inventory. Unknown prices remain null; no tooltip values inferred as purchase prices. Collection, historical accuracy, typed metadata extraction and identity review remain incomplete."
+}
