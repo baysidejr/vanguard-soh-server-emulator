@@ -26,9 +26,11 @@ def run(cmd, cwd=ROOT, timeout=900):
     return p.returncode, p.stdout + p.stderr
 
 
-def start_server(*extra):
+def start_server(*extra, quiet=True):
+    """quiet=False keeps the packet log on, as a server run by hand has it (the fuzz phase: the
+    logger itself must survive malformed datagrams)."""
     log = open(os.path.join(SERVER, "check_log.txt"), "w", encoding="utf-8")
-    p = subprocess.Popen([PY, "-u", "login_stub.py", "--quiet-packets", *extra], cwd=SERVER,
+    p = subprocess.Popen([PY, "-u", "login_stub.py", *(["--quiet-packets"] if quiet else []), *extra], cwd=SERVER,
                          stdout=log, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)
     time.sleep(3)
     return p
@@ -102,7 +104,7 @@ def main():
 
     with tempfile.TemporaryDirectory() as data:
         run([PY, "tools/loadtest.py", "--data-dir", data, "--setup", "1"])
-        srv = start_server("--dev-commands", "--data-dir", data)
+        srv = start_server("--dev-commands", "--data-dir", data, quiet=False)
         try:
             code, out = run([PY, "tools/fuzz.py", "--data-dir", data, "--max-event", "0x900", "--per-event", "4",
                              "--raw", "10", "--log", os.path.join(SERVER, "check_log.txt")], timeout=900)
