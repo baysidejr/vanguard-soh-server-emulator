@@ -225,7 +225,7 @@ In order of what each would unlock (numbers from 2026-10-16):
 
 ### 6.4 Server features still open
 - **38 optional messages** never sent: encounter-window details, combat-form state details, map-window signals, petition windows (left alone on purpose), pet ability examine, scripted NPC alert lines, a camera field-of-view message and a few more. The game works without them; list in [UNSENT_MESSAGES.md](UNSENT_MESSAGES.md).
-- **Invisible quest-node particles:** the quest-node glow is attached by the client but was not seen. Its emitters are coin-sized sparkles at the node's pivot (`tools/fx_props.py`, 2026-10-17), probably hidden in the node mesh; a close-up live check is pending. (The corpse loot sparkle does show: small white glints, seen live 2026-10-15, docs/LOOT.md. Fireworks show via sparkler emitters.)
+- **Invisible quest-node particles:** the quest-node glow is attached by the client but was not seen. Its emitters are small sparkles at the node's pivot (`tools/fx_props.py`), but size is not why it is unseen: spawned on open ground next to a visible sparkler it still showed nothing (live, 2026-10-17); a marked node seen up close is the next check. (The corpse loot sparkle does show: small white glints, seen live 2026-10-15, docs/LOOT.md. Fireworks show via sparkler emitters.)
 - **Flight landing** can't trigger where the server's terrain lookup has no height (far east end of the Sundering Wastelands); the flier just stops on what it touches.
 - **Presence gating:** parleys don't require presence yet (deliberately, until presence has a real source).
 - **Other diplomacy lists** (attributes, parley skills, expendables, traits) are decoded but no window shown so far displays them.
