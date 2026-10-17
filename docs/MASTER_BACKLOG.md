@@ -207,3 +207,8 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Evidence (live 2026-10-17, scratch save with 50 bag items):** the Inventory window showed 44: equipped pieces were created in bag slots 49, 48, ... (then moved to the paper doll with 0x1a7), on top of the bag items there, which stayed hidden. Only the client's view; the save was correct.
 - **Fix:** equipped pieces are created with field 7 = their equip slot (the client's FUN_00512430 puts an item in a container only when field 7 is -1); the 0x1a7 stays. Live: all 50 bag items shown and the paper doll intact at login and after a riftway; right-click equipping still works (Attack 6.00 -> 9.00). InventoryResendTests.test_equipped_items_created_in_their_equip_slot fails without the fix.
 - **Also checked live with full bags:** `!give` -> "Your bags are full: Copper Ore is waiting for you in escrow. Any banker can hand it over."; Hollis Grent's escrow option opens the Escrow Merchant window listing it.
+
+## B-026 Riders moved at foot speed after a chunk change
+- **Priority:** P1 · **Category:** player-facing defect (mounts) · **State:** VERIFIED
+- **Evidence (live 2026-10-17, scratch save):** holding W for 3 s in Khal: on foot 1,007 units, freshly mounted 1,582 (1.6x riding speed), but mounted *before* a riftway 1,003: the new zone's pawn showed the horse (its gear attachment) without m_MountType or the riding GroundSpeed.
+- **Fix:** the zone-in flags a rider (`state["remount"]`) and `remount_after_zone_in` re-sends the mount state through `set_mount`. Live after the fix: 1,578-1,580 units in 3 s after a riftway. RemountAfterHandoffTests (2), check_all 6/6.

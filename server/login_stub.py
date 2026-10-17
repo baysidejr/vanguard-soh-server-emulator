@@ -1315,6 +1315,16 @@ def gear_changed(state, args, player):
     save_character_field(player.name, "equipment", [list(e) for e in player.equipment])
 
 
+def remount_after_zone_in(state, args):
+    """A rider who just zoned in (chunk hand-off) gets the mount state again: the new pawn shows
+    the mount but moved at foot speed until m_MountType and GroundSpeed were re-sent (B-026)."""
+    player = state.get("player")
+    if state.pop("remount", False) and player is not None and getattr(player, "mount", None):
+        set_mount(state, args, player, player.mount, getattr(player, "mount_kind", 0) or zone.MOUNT_GROUND)
+        return True
+    return False
+
+
 def set_mount(state, args, player, mount_id, kind=zone.MOUNT_GROUND):
     """Mount (mount_id) or dismount (None): an m_AttachmentGroups entry plus m_MountType,
     for everyone in the chunk."""
@@ -11259,6 +11269,7 @@ def handle_message(sock, server, addr, state, payload, args):
             print_client_log(payload)
         elif msg_type == 1:
             zone.handle_unreal(lambda m: send_message(sock, addr, state, m), state, payload, args)
+            remount_after_zone_in(state, args)
         elif msg_type == 9:
             # Ping: u16 9 + 64-bit client timestamp. The client's type-9 handler
             # (FUN_006edcd0) computes latency as now - timestamp, so echo it back.

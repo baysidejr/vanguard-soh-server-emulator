@@ -90,6 +90,10 @@ def handle_unreal(send, state, payload, args):
         send(unreal_message(ue.build([b])))
     if "<SPAWN>" in replies:
         state.setdefault("position", player.spawned_at)   # until the first ServerMove
+        if getattr(player, "mount", None):
+            # Still riding after a chunk hand-off: the new pawn shows the mount (gear) but moves at
+            # foot speed until m_MountType and GroundSpeed are sent again (measured live, B-026).
+            state["remount"] = True
         motd = "Welcome to the Vanguard emulator."
         send(zone_event(0x70, (motd + "\0").encode("utf-16-le")))   # message of the day
         for event_id in args.zone_in_events:

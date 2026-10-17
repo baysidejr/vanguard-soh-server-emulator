@@ -2573,3 +2573,37 @@ class InventoryResendTests(unittest.TestCase):
                                                              **kw))
         self.assertNotEqual(want, parked)
         self.assertEqual(msg, want)
+
+
+class RemountAfterHandoffTests(unittest.TestCase):
+    """B-026: a rider who changes chunk gets the mount state again (m_MountType, GroundSpeed);
+    without it the horse showed but moved at foot speed (measured live)."""
+
+    def test_hook_only_after_a_flagged_zone_in(self):
+        import login_stub
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n13_n9")
+        player.mount, player.mount_kind = 1000, zone.MOUNT_GROUND
+        calls = []
+        with mock.patch.object(login_stub, "set_mount", lambda *a: calls.append(a[3:])):
+            self.assertFalse(login_stub.remount_after_zone_in({"player": player}, None))      # no flag
+            self.assertTrue(login_stub.remount_after_zone_in({"player": player, "remount": True}, None))
+            player.mount = None
+            self.assertFalse(login_stub.remount_after_zone_in({"player": player, "remount": True}, None))
+        self.assertEqual(calls, [(1000, zone.MOUNT_GROUND)])
+
+    def test_remount_resends_mount_state(self):
+        import login_stub
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n13_n9")
+        player.mount, player.mount_kind = 1000, zone.MOUNT_GROUND
+        sent = []
+        state = {"player": player, "send": sent.append}
+        with mock.patch.object(login_stub.zone, "player_pawn_update", lambda s, a, values: values), \
+                mock.patch.object(login_stub, "mount_barding", lambda a, p: None):
+            login_stub.set_mount(state, mock.Mock(), player, player.mount, player.mount_kind)
+        self.assertTrue(any(isinstance(m, dict) and m.get("m_MountType") == zone.MOUNT_GROUND for m in sent))
+        speeds = [m["GroundSpeed"] for m in sent if isinstance(m, dict) and "GroundSpeed" in m]
+        self.assertEqual(speeds, [login_stub.BASE_GROUND_SPEED * login_stub.MOUNT_SPEED])
