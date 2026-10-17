@@ -2593,6 +2593,22 @@ class RemountAfterHandoffTests(unittest.TestCase):
             self.assertFalse(login_stub.remount_after_zone_in({"player": player, "remount": True}, None))
         self.assertEqual(calls, [(1000, zone.MOUNT_GROUND)])
 
+    def test_walker_speed_resent(self):
+        import login_stub
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n13_n9")
+        player.mount, player.movement_mode = None, 1                     # /walk before the hand-off
+        sent = []
+        state = {"player": player, "send": sent.append, "ue": object(), "remount": True}
+        with mock.patch.object(login_stub.zone, "player_pawn_update", lambda s, a, values: values),                 mock.patch.object(login_stub, "pawn_props_changed", lambda s, v: sent.append(("props", v))):
+            self.assertTrue(login_stub.remount_after_zone_in(state, None))
+        self.assertIn({"GroundSpeed": login_stub.WALK_GROUND_SPEED}, sent)
+        self.assertIn(("props", {"bIsWalking": True}), sent)
+        player.movement_mode = 2                                          # plain running: nothing to send
+        self.assertFalse(login_stub.remount_after_zone_in({"player": player, "send": sent.append,
+                                                           "ue": object(), "remount": True}, None))
+
     def test_remount_resends_mount_state(self):
         import login_stub
         import zone

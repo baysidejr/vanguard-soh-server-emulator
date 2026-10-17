@@ -1316,11 +1316,20 @@ def gear_changed(state, args, player):
 
 
 def remount_after_zone_in(state, args):
-    """A rider who just zoned in (chunk hand-off) gets the mount state again: the new pawn shows
-    the mount but moved at foot speed until m_MountType and GroundSpeed were re-sent (B-026)."""
+    """Right after a zone-in, give the new pawn the movement state the player still has: a rider
+    gets the mount state again (m_MountType + riding speed), a walker or sprinter their speed. The
+    new pawn starts at the default run speed, so after a chunk hand-off the horse showed but moved
+    at foot speed and /walk ran (measured live, B-026)."""
     player = state.get("player")
-    if state.pop("remount", False) and player is not None and getattr(player, "mount", None):
+    if not state.pop("remount", False) or player is None:
+        return False
+    if getattr(player, "mount", None):
         set_mount(state, args, player, player.mount, getattr(player, "mount_kind", 0) or zone.MOUNT_GROUND)
+        return True
+    if ground_speed(player) != BASE_GROUND_SPEED and "ue" in state:
+        if getattr(player, "movement_mode", 2) == 1:
+            pawn_props_changed(state, {"bIsWalking": True})
+        state["send"](zone.player_pawn_update(state, args, {"GroundSpeed": ground_speed(player)}))
         return True
     return False
 
