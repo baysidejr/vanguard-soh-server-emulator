@@ -5,6 +5,7 @@
     python tools/client_ui.py say "/who"                 # type a chat line or command
     python tools/client_ui.py click X Y                  # left-click at window pixel X, Y (as in the screenshot)
     python tools/client_ui.py rclick X Y                 # right-click (altars, merchants, items)
+    python tools/client_ui.py drag X1 Y1 X2 Y2           # drag with the left button (bag to bank, etc.)
     python tools/client_ui.py key 0x1B                   # press a virtual key
     python tools/client_ui.py type TEXT                  # type text into the focused field
     python tools/client_ui.py shot [FILE]                # screenshot of the game window (PNG)
@@ -71,6 +72,21 @@ def _mouse(x, y, down, up):
     u32.mouse_event(up, 0, 0, 0, 0)
 
 
+def drag(x1, y1, x2, y2):
+    """Left-button drag from window pixel (x1, y1) to (x2, y2), in small steps (the UI needs moves)."""
+    l, t, _r, _b = window_rect()
+    smoke_test.focus()
+    time.sleep(0.3)
+    u32.SetCursorPos(l + x1, t + y1)
+    time.sleep(0.2)
+    u32.mouse_event(0x0002, 0, 0, 0, 0)
+    for i in range(1, 11):
+        u32.SetCursorPos(l + x1 + (x2 - x1) * i // 10, t + y1 + (y2 - y1) * i // 10)
+        time.sleep(0.05)
+    time.sleep(0.2)
+    u32.mouse_event(0x0004, 0, 0, 0, 0)
+
+
 def _log():
     try:
         with open(LOG, encoding="utf-8", errors="replace") as f:
@@ -133,6 +149,9 @@ def main(argv):
     elif cmd in ("click", "rclick"):
         _mouse(int(args[0]), int(args[1]), *((0x0002, 0x0004) if cmd == "click" else (0x0008, 0x0010)))
         out = args[2] if len(args) > 2 else out
+    elif cmd == "drag":
+        drag(int(args[0]), int(args[1]), int(args[2]), int(args[3]))
+        out = args[4] if len(args) > 4 else out
     elif cmd == "key":
         smoke_test.focus()
         smoke_test.press(int(args[0], 0))
