@@ -726,6 +726,17 @@ def attach_loot(mobs, loot_recs, content=CONTENT):
     return added
 
 
+def moved_out_of(level, content=CONTENT):
+    """Templates whose spawn tools/chunk_audit.py moved out of this chunk (its "_moved_from" names
+    the chunk): they are placed, just elsewhere, so the import must not put them back."""
+    out = set()
+    for path in glob.glob(os.path.join(content, "spawns", "*.json")):
+        for s in load(path, {"spawns": []}).get("spawns", []):
+            if str(s.get("_moved_from", "")).startswith(level + ":"):
+                out.add(s.get("mob"))
+    return out
+
+
 def apply(level, mobs, spawns, content=CONTENT):
     """Add the templates and spawns that are not there yet; a template that is already there only
     gains the fields it lacks (a builder's edits are never changed). Returns (templates added,
@@ -742,7 +753,7 @@ def apply(level, mobs, spawns, content=CONTENT):
                     grew = True
     spawn_path = os.path.join(content, "spawns", level + ".json")
     doc = load(spawn_path, {"spawns": []})
-    have = {s.get("mob") for s in doc.get("spawns", [])}
+    have = {s.get("mob") for s in doc.get("spawns", [])} | moved_out_of(level, content)
     # Service props (altars, mailboxes) are shared templates: service_props already checked the
     # spacing against the file, so they're added even when the chunk has one of that kind.
     new_spawns = [s for s in spawns if s["mob"] not in have or (s["mob"] in SHARED_PROPS and not any(

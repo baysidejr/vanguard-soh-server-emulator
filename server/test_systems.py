@@ -2438,3 +2438,29 @@ class ChunkAuditTests(unittest.TestCase):
         import chunk_audit
         rows = chunk_audit.candidates(content.Content())
         self.assertEqual([(r[2]["mob"], r[3], r[5]) for r in rows], [])
+
+
+class MovedSpawnImportTests(unittest.TestCase):
+    """B-020: the archive import must not put back a spawn tools/chunk_audit.py moved to another
+    chunk (it did: a refresh re-added 27 moved NPCs to their mislabelled chunks)."""
+
+    def test_moved_spawn_not_reimported(self):
+        import json
+        import sys
+        import tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "spawns"))
+            with open(os.path.join(d, "mobs.json"), "w", encoding="utf-8") as f:
+                json.dump({"arch_nok": {"name": "Tracker Nok"}}, f)
+            with open(os.path.join(d, "spawns", "chunk_b.json"), "w", encoding="utf-8") as f:
+                json.dump({"spawns": [{"mob": "arch_nok", "x": 1, "y": 2,
+                                       "_moved_from": "chunk_a: recorded z ..."}]}, f)
+            added = import_zone.apply("chunk_a", {"arch_nok": {"name": "Tracker Nok"}},
+                                      [{"mob": "arch_nok", "x": 1, "y": 2}], content=d)
+            self.assertEqual(added, (0, 0))
+            self.assertFalse(os.path.exists(os.path.join(d, "spawns", "chunk_a.json")))
+            added = import_zone.apply("chunk_c", {"arch_new": {"name": "New"}},
+                                      [{"mob": "arch_new", "x": 3, "y": 4}], content=d)
+            self.assertEqual(added, (1, 1))                                  # others still import

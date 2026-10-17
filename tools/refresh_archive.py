@@ -6,7 +6,9 @@
 It reads the collection branch's newest raw batches (without merging the branch), then runs the
 zone import (NPCs, creatures, camps, zone-map people, altars and mailboxes, merchant stocks,
 icons; tools/import_zone.py --all) and adds the archive quests that became playable
-(tools/quest_readiness.py). Nothing already there is overwritten. The Sundering Wastelands and
+(tools/quest_readiness.py); with --apply it then moves spawns whose archive chunk label is wrong
+(tools/chunk_audit.py) and reports quests that can't be finished (tools/quest_check.py). Nothing
+already there is overwritten. The Sundering Wastelands and
 Wildgrowth Forest keep their hand-made camps unless --all-zones is given.
 Uses only the Python standard library.
 """
@@ -56,6 +58,15 @@ def main(argv=None):
         print("added %d quests and %d items" % quest_readiness.apply(ready, world, chunks))
         print("added %d delivery quests (%d items)" % quest_readiness.apply(deliveries, world, chunks, steps_for=steps_for))
         print("linked %d quests to the quest before them in their chain" % quest_readiness.link_chains(quests))
+        # Archive zone labels are sometimes wrong (Tracker Nok stood in the sea): move spawns whose
+        # recorded height only fits a neighbouring chunk (backlog B-020), then check every offered
+        # quest can still be finished (B-018).
+        print("== chunks ==")
+        import chunk_audit
+        chunk_audit.main(["--apply"])
+        print("== finishable quests ==")
+        import quest_check
+        quest_check.main([])
         print("== check ==")
         r = subprocess.run([sys.executable, "content.py"], cwd=os.path.join(ROOT, "server"))
         return r.returncode
