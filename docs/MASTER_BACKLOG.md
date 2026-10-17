@@ -60,13 +60,14 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **State:** all done-when parts covered.
 
 ## B-006 Invisible runtime particle effects (quest-node glow)
-- **Priority:** P3 · **Category:** fidelity · **State:** IN_PROGRESS (static evidence; live check pending)
+- **Priority:** P3 · **Category:** fidelity · **State:** IN_PROGRESS (renders on NPCs; hidden on harvest nodes)
 - **Evidence:** docs/QUESTS.md and docs/ABILITY_VISUALS.md: the client reaches the attach calls but nothing renders; `FXmystical_IOParticle001fx` shows nothing even spawned alone with 0x553, while other emitters do.
 - **Done when:** the emitter renders on a node or corpse in a screenshot, or the reason is documented with runtime evidence (winbreak).
 - **2026-10-17 (static, tools/fx_props.py):** FXmystical_IOParticle001fx's own emitters are two tiny sprite clusters (sizes 1-15 units, within ±25 units of the owner's pivot, no skeletal/mesh spawning), so "needs a skeletal owner" is not supported. The guess that followed ("too small / inside the mesh") was refuted live the same night, see below. (A first dump looked up `SpriteEmitter0` by name and got another class's emitter; the tool now lists only the class's own sub-objects.)
 - **Loot sparkle is not part of this:** docs/LOOT.md records it seen live 2026-10-15 (white glints on a dead Canyon Widow); the old wording here was stale. Its class FXspells_Loot001fx has 12 particles of size 50 (plus 20 of 2-6) within ±10-20 units; the quest-node class tops out at 15, which fits "there but too small / inside the mesh".
 - **Live 2026-10-17 (scratch save):** at a spot where a 0x553 red sparkler renders, 0x553 spawns of FXmystical_IOParticle001fx and FXspells_Loot001fx show nothing (zoomed screenshot compare). Loot001fx renders when attached to a corpse, so 0x553 spawns don't predict attached rendering; size is not the cause.
 - **Up close 2026-10-17 (scratch save):** both camp Copper Ore Veins marked (quest step "Gather Copper Ore (0/2)"), camera 250 units away facing them: nothing visible. The spawn point (±25 units of the pivot) is probably inside the rock, so screenshots can't separate hidden from not rendered.
+- **Renders on an NPC (live 2026-10-17, scratch save):** `!prop m_bShowIOParticle 1` + `!event 0x56a T` on Orin the Trader lit gold/orange sparkles around his head. The effect, packages, flag and message are right; the problem is specific to harvest-node pawns (attach "ground" branch; probably inside the rock).
 - **Next action:** winbreak after the 0x56a attach: does the emitter get particles (alive count) and where is the effect actor (Location vs. the vein's mesh bounds)? Low priority (P3). Superseded plans: marked node up close (done);  of the class on open ground, then at a marked node's pivot. The client works again (B-003 complete), but live runs log in as the real characters unless set up on a scratch copy; do it with the user's go-ahead.
 
 ## B-007 Placeholder content: delivery quests and invented camps
