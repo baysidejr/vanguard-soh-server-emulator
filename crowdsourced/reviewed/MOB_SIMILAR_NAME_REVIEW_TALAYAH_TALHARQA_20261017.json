@@ -1,0 +1,405 @@
+{
+  "reviewed_at": "2026-10-17T04:15:31.323113+00:00",
+  "method": "Offline independent cached DOM checks; no network requests. Similar spellings are candidate relationships, not established shared identities.",
+  "cases": [
+    {
+      "urls": [
+        "https://vgsoharchive.com/mobs/talayah-kahdem",
+        "https://vgsoharchive.com/mobs/talayah-khadem"
+      ],
+      "disposition": "Identity unresolved; preserve separate source records. Do not merge names, roles, zones or statistics.",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/talayah-kahdem",
+          "cache_sha256": "55a20fadbb258ab290b29ce749fc2f1111add37fa3eff8fc09c66df3fb3f25a8",
+          "cached_heading": "Talayah Kahdem",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Talayah Kahdem",
+              "cached_h1": "Talayah Kahdem",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/merchant.jsonl",
+              "line": 3,
+              "record": {
+                "name": "Talayah Kahdem",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/talayah-kahdem",
+                    "title": "Talayah Kahdem · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T03:16:15+00:00",
+                "archive_fields": {
+                  "role": [
+                    "General Goods Vendor"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ]
+                },
+                "referenced_entities": [],
+                "type": "merchant",
+                "npc": "Talayah Kahdem",
+                "zone": null,
+                "sells": null,
+                "buys": null
+              }
+            },
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/npc.jsonl",
+              "line": 15,
+              "record": {
+                "name": "Talayah Kahdem",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/talayah-kahdem",
+                    "title": "Talayah Kahdem · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T03:16:15+00:00",
+                "archive_fields": {
+                  "role": [
+                    "General Goods Vendor"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ]
+                },
+                "referenced_entities": [],
+                "type": "npc",
+                "level": null,
+                "zone": null,
+                "health": null,
+                "damage": null,
+                "race": null,
+                "title": null,
+                "services": [
+                  "merchant"
+                ],
+                "quests_given": [],
+                "chunk": null,
+                "location": null,
+                "zones_recorded": [],
+                "continent": "Qalia",
+                "locations_seen_recorded": null,
+                "difficulty_recorded": null,
+                "original_source_urls": []
+              }
+            }
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/talayah-khadem",
+          "cache_sha256": "286970109d9a10c733e76be00fe568a8766dc66e1caba52005dab15aafdc811d",
+          "cached_heading": "Talayah Khadem",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Talayah Khadem",
+              "cached_h1": "Talayah Khadem",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "respawn_time",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/creature.jsonl",
+              "line": 46,
+              "record": {
+                "name": "Talayah Khadem",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/talayah-khadem",
+                    "title": "Talayah Khadem · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T03:17:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Khal"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Khal",
+                    "url": "https://vgsoharchive.com/zones/khal"
+                  }
+                ],
+                "type": "creature",
+                "level": 40,
+                "zone": "Khal",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": null,
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "Khal"
+                ],
+                "original_source_urls": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urls": [
+        "https://vgsoharchive.com/mobs/talharqa-baabekhy",
+        "https://vgsoharchive.com/mobs/talharqa-baarbekhy"
+      ],
+      "disposition": "Identity unresolved; preserve separate source records. Do not merge names, roles, zones or statistics.",
+      "sources": [
+        {
+          "url": "https://vgsoharchive.com/mobs/talharqa-baabekhy",
+          "cache_sha256": "c8529d9d9a634fa469ac51dcd9883b6adc6d87894d885114b72b055ae11647d8",
+          "cached_heading": "Talharqa Baabekhy",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Talharqa Baabekhy",
+              "cached_h1": "Talharqa Baabekhy",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/npc.jsonl",
+              "line": 18,
+              "record": {
+                "name": "Talharqa Baabekhy",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/talharqa-baabekhy",
+                    "title": "Talharqa Baabekhy · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T03:26:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Khal"
+                  ],
+                  "role": [
+                    "General NPC"
+                  ],
+                  "difficulty": [
+                    "3 dots"
+                  ],
+                  "location": [
+                    "-42617, -56840, 1596"
+                  ],
+                  "chunk": [
+                    "Khal"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ],
+                  "locations seen": [
+                    "Khal"
+                  ],
+                  "station": [
+                    "Domestic"
+                  ],
+                  "presence": [
+                    "1"
+                  ],
+                  "parley level": [
+                    "5"
+                  ],
+                  "parley types": [
+                    "[[[ Gossip ]]], , , [[[ Convice ]]], [[[ Interview ]]]"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Khal",
+                    "url": "https://vgsoharchive.com/zones/khal"
+                  },
+                  {
+                    "name": "Blankets for Banan",
+                    "url": "https://vgsoharchive.com/quests/blankets-for-banan"
+                  },
+                  {
+                    "name": "Blankets For Banan",
+                    "url": "https://vgsoharchive.com/quests/blankets-for-banan"
+                  }
+                ],
+                "type": "npc",
+                "level": 10,
+                "zone": "Khal",
+                "health": null,
+                "damage": null,
+                "race": null,
+                "title": null,
+                "services": [
+                  "quest giver"
+                ],
+                "quests_given": [
+                  "Blankets For Banan"
+                ],
+                "chunk": "Khal",
+                "location": {
+                  "raw": "-42617, -56840, 1596",
+                  "format": "source coordinates; axis order unspecified",
+                  "chunk": "Khal"
+                },
+                "zones_recorded": [
+                  "Khal"
+                ],
+                "continent": "Qalia",
+                "locations_seen_recorded": "Khal",
+                "difficulty_recorded": "3 dots",
+                "original_source_urls": []
+              }
+            }
+          ]
+        },
+        {
+          "url": "https://vgsoharchive.com/mobs/talharqa-baarbekhy",
+          "cache_sha256": "3507e4a2de2a87c2f15ab833eba3cf65107ecd8f76e1fffe62391f2c0383e036",
+          "cached_heading": "Talharqa Baarbekhy",
+          "checks": [
+            {
+              "field": "name",
+              "recorded": "Talharqa Baarbekhy",
+              "cached_h1": "Talharqa Baarbekhy",
+              "passed": true
+            },
+            {
+              "field": "health",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "damage",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            },
+            {
+              "field": "respawn_time",
+              "recorded": null,
+              "passed": true,
+              "interpretation": "Unknown remains null; no operative combat/spawn value inferred."
+            }
+          ],
+          "full_source_records": [
+            {
+              "source_file": "raw/2026-10-16-221618-374862-archive-bulk/creature.jsonl",
+              "line": 53,
+              "record": {
+                "name": "Talharqa Baarbekhy",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/mobs/talharqa-baarbekhy",
+                    "title": "Talharqa Baarbekhy · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "low",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+                "parser_version": 31,
+                "collected_at": "2026-10-17T03:27:15+00:00",
+                "archive_fields": {
+                  "zone": [
+                    "Khal"
+                  ],
+                  "continent": [
+                    "Qalia"
+                  ]
+                },
+                "referenced_entities": [],
+                "type": "creature",
+                "level": null,
+                "zone": "Khal",
+                "health": null,
+                "damage": null,
+                "creature_kind": null,
+                "difficulty": null,
+                "spawn_areas": [],
+                "aggressive": null,
+                "aggro_range": null,
+                "respawn_time": null,
+                "zones_recorded": [
+                  "Khal"
+                ],
+                "original_source_urls": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "check_count": 14,
+  "remaining_work": "Candidate identity relationships remain unresolved. Pending downloads, metadata-only typed extraction and collision review remain incomplete."
+}
