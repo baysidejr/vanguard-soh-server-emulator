@@ -147,7 +147,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Hit an Ashen Wolf below 20% health: "Ashen Wolf turns to flee!", it runs for a few seconds and comes back
 
 **Items**
-- [ ] Loot a corpse; buy and sell from Orin; buyback tab; repair
+- [x] Loot a corpse; buy and sell from Orin; buyback tab; repair (2026-10-17, scratch save: bought Travel Rations ("You lose 25 copper.", it appears in the bag panel), sold them back ("You receive 6 copper."), Buyback tab lists them at 6; Repair Merchant listed 6 damaged pieces at 2 silver each, Repair All: "... has been repaired." x6, "You lose 12 silver."; looting not redone here, the loot window was verified on 2026-10-15)
 - [ ] Equip gear: model changes, tooltip shows stats, attributes on the sheet change
 - [ ] Ctrl+click splits a stack; Small Pouch on the main bar holds 8 items
 - [ ] Service items (`!give` each): Experience Debt Clearance (refused with a tombstone out), Gender Change, Race Change, Character Rename (a taken name is refused), Unbinding Tool on a Bind On Equip item
