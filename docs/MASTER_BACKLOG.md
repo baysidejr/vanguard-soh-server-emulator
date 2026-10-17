@@ -59,11 +59,12 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - Actor cleanup done 2026-10-16 as unit tests (LeaveWorldTests): leaving a chunk sends the actor close to every other member and not to the leaver, NPCs fighting the leaver drop it and give up, and a connection already replaced by a re-login leaves the new one alone. (An end-to-end check would need UE bunch parsing in the test bot.) Malformed packets are covered by the fuzzer.
 - **State:** all done-when parts covered.
 
-## B-006 Invisible runtime particle effects (quest-node glow, loot sparkle)
+## B-006 Invisible runtime particle effects (quest-node glow)
 - **Priority:** P3 · **Category:** fidelity · **State:** IN_PROGRESS (static evidence; live check pending)
 - **Evidence:** docs/QUESTS.md and docs/ABILITY_VISUALS.md: the client reaches the attach calls but nothing renders; `FXmystical_IOParticle001fx` shows nothing even spawned alone with 0x553, while other emitters do.
 - **Done when:** the emitter renders on a node or corpse in a screenshot, or the reason is documented with runtime evidence (winbreak).
 - **2026-10-17 (static, tools/fx_props.py):** FXmystical_IOParticle001fx's own emitters are two tiny sprite clusters (sizes 1-15 units, within ±25 units of the owner's pivot, no skeletal/mesh spawning), so "needs a skeletal owner" is not supported; most likely the sparkles are there but hidden in the node mesh or too small to see [I]. (A first dump looked up `SpriteEmitter0` by name and got another class's emitter; the tool now lists only the class's own sub-objects.)
+- **Loot sparkle is not part of this:** docs/LOOT.md records it seen live 2026-10-15 (white glints on a dead Canyon Widow); the old wording here was stale. Its class FXspells_Loot001fx has 12 particles of size 50 (plus 20 of 2-6) within ±10-20 units; the quest-node class tops out at 15, which fits "there but too small / inside the mesh".
 - **Next action:** live: camera close to a 0x553 spawn of the class on open ground, then at a marked node's pivot. The client works again (B-003 complete), but live runs log in as the real characters unless set up on a scratch copy; do it with the user's go-ahead.
 
 ## B-007 Placeholder content: delivery quests and invented camps
