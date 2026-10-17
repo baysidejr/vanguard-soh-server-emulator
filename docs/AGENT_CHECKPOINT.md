@@ -1,5 +1,7 @@
 # Agent Checkpoint
 
+**Paused 2026-10-17 (late) for a reboot / PC switch: start with docs/RESUME.md.**
+
 Recovery aid for the next session. Always re-check the real repository state (`git status`, `git log`) before relying on this.
 
 - **Updated:** 2026-10-16
