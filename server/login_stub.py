@@ -149,6 +149,9 @@ def describe(data, indent="  "):
             describe(data[pos:pos + n], indent + "  ")
             pos += n
     elif 0x09 <= kind <= 0x0C:  # Reliable: u16be sequence, then payload
+        if len(data) < 4:
+            print(f"{indent}  reliable packet too short for a sequence number")
+            return
         (seq,) = struct.unpack_from(">H", data, 2)
         print(f"{indent}  reliable seq={seq}")
         describe(data[4:], indent + "  ")

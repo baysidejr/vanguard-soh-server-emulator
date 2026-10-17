@@ -1362,3 +1362,19 @@ class LeaveWorldTests(unittest.TestCase):
         self.leave(self.b)
         self.assertIs(self.w.members[2], newer)
         self.assertEqual(self.sent_a, [])
+
+
+class DescribeTests(unittest.TestCase):
+    """The packet logger (on without --quiet-packets) must not fail on short or random datagrams:
+    an exception there dropped the whole datagram (deep fuzz 2026-10-16: 2- and 3-byte reliable
+    packets)."""
+
+    def test_short_and_random_packets(self):
+        import contextlib, io, random
+        rng = random.Random(7)
+        packets = [b"\x00\x0a", b"\x00\x09\x01", b"\x00\x03\x05\x00\x09", b"\x00\x19\xff\x00"]
+        packets += [bytes([0, rng.choice((3, 9, 10, 11, 12, 0x19))]) + rng.randbytes(rng.randrange(0, 12))
+                    for _ in range(3000)]
+        with contextlib.redirect_stdout(io.StringIO()):
+            for p in packets:
+                login_stub.describe(p)

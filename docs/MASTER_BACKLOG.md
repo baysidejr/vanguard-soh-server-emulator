@@ -116,3 +116,10 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - 2026-10-16 scenarios "bug report" (0x4aa saved in the data folder, "Saved as bug report #n.") and "lockout commands" (0x4fc answered with 0x4fd, 0x4fb notice 159, 0x273 notice 158). 26 scenarios; check_all 6/6; server/bug_reports.json untouched.
 - `!call` (CallPcTests) and full-bag escrow (test_full_bags_go_to_escrow_then_a_banker_hands_it_over) are already unit-tested; the remaining TESTING.md items are client display checks.
 - **Next action:** none until the client can be driven (B-003).
+
+## B-016 Packet logger failed on short reliable packets
+- **Priority:** P2 · **Category:** stability · **State:** VERIFIED
+- **Evidence:** deep fuzz 2026-10-16 (event ids 0x1-0x900, 16 payloads each, 7 context passes, 40 raw rounds, `--quiet-packets`): 0 handler errors. A second run with packet logging on (the default without `--quiet-packets`) showed 13 errors outside handlers: `describe()` read a u16 sequence from 2- and 3-byte reliable packets (struct.error), and the exception dropped the whole datagram. check_all never saw it because it runs with `--quiet-packets`.
+- **Paths:** `server/login_stub.py` (`describe`), `server/test_login_hooks.py` (DescribeTests)
+- **Fix:** a reliable packet shorter than 4 bytes is logged as too short. DescribeTests (3,000 random and truncated datagrams) fails before the fix, passes after.
+- **Last validation:** fuzz with logging on, 200 raw rounds: 0 tracebacks. Broker events 0x52b-0x53f, which once failed the fuzzer's 3 s ping in the deep run, answered every ping when repeated (a timing effect, not a disconnect).

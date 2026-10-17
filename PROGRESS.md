@@ -95,6 +95,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: Deep fuzz (16 payloads per event, 7 contexts): no handler errors. With packet logging on, 2-3 byte reliable packets broke the logger and dropped the datagram; fixed (B-016), DescribeTests.
+
 - 2026-10-16: Scenarios "bug report" and "lockout commands" (B-015).
 
 - 2026-10-16: Unit tests for leaving a chunk (B-005): others get the actor close, NPCs fighting the leaver give up, a replaced connection is left alone.
