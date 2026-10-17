@@ -111,4 +111,5 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - 2026-10-16 scenario "rescue rope": B targets A and throws (/rope 0x190); A gets 0x58a naming B, accepts (0x191) and gets notice 465 (hauled). B throws so B stays at the brazier for the riftway. 22 scenarios; check_all 6/6.
 - 2026-10-16 scenario "appearance settings saved": /hidehelm 0x114 and /setwearpreference 0x110 are saved in pawn_prefs. 23 scenarios; check_all 6/6.
 - 2026-10-16 scenario "item link": /itemlinkrequest 0x158 for Copper Ore answers 0x158 with its item record. 24 scenarios; check_all 6/6. (/walk's answer is a UE property and MsgScore field, which the test bot does not parse.)
+- 2026-10-16 scenarios "bug report" (0x4aa saved in the data folder, "Saved as bug report #n.") and "lockout commands" (0x4fc answered with 0x4fd, 0x4fb notice 159, 0x273 notice 158). 26 scenarios; check_all 6/6; server/bug_reports.json untouched.
 - **Next action:** `!call` and escrow need dev commands (the check server runs without them); look for other non-dev server answers.

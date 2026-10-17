@@ -377,6 +377,29 @@ def main():
     fails += check("item link", bool(record) and "Copper Ore".encode("utf-16-le") in record[0],
                    f"record={len(record[0]) if record else 0} bytes")
 
+    # /bug window Submit: 0x4aa {wstr description, i32 category, i32 severity, i32 reproducibility};
+    # the server keeps it in the data folder's bug_reports.json and answers "Saved as bug report #n.".
+    bugs_file = os.path.join(DATA, "bug_reports.json")
+    a.got.clear()
+    a.send(0x4AA, wstr("scenario bug report") + struct.pack("<iii", 0, 0, 0))
+    a.pump(0.8)
+    saved_line = any(wstr("Saved as bug report #")[:-2] in m for m in a.events(0x192))
+    filed = os.path.exists(bugs_file) and "scenario bug report" in open(bugs_file, encoding="utf-8").read()
+    fails += check("bug report", saved_line and filed, f"answer={saved_line}, saved={filed}")
+
+    # Raid lockouts (none here): /lockouttimerlist 0x4fc {wstr ""} answers 0x4fd {wstr own name};
+    # /sharelockouttimer 0x4fb {i32} gets notice 159 (invalid lockout); /lockoutaccept 0x273 {u8 1}
+    # gets 158 (no offer).
+    a.got.clear()
+    a.send(0x4FC, wstr(""))
+    a.send(0x4FB, struct.pack("<i", 1))
+    a.send(0x273, struct.pack("<B", 1))
+    a.pump(0.8)
+    listed = any(wstr(a.name)[:-2] in m for m in a.events(0x4FD))
+    notices = [struct.unpack_from("<h", m, 0)[0] for m in a.events(0x0E) if len(m) >= 2]
+    fails += check("lockout commands", listed and 159 in notices and 158 in notices,
+                   f"list answered={listed}, notices {notices}")
+
     # Rescue rope: B targets A (0x5c) and throws (/rope, 0x190); A gets the offer 0x58a {wstr B},
     # accepts (/ropeaccept, 0x191) and is hauled next to B: notice 465 "You grab the rope...".
     # (B throws so that B stays at the brazier for the riftway below.)
