@@ -213,8 +213,9 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Evidence (live 2026-10-17, scratch save):** holding W for 3 s in Khal: on foot 1,007 units, freshly mounted 1,582 (1.6x riding speed), but mounted *before* a riftway 1,003: the new zone's pawn showed the horse (its gear attachment) without m_MountType or the riding GroundSpeed.
 - **Fix:** every zone-in sets `state["remount"]`; `remount_after_zone_in` re-sends the mount state through `set_mount` for a rider, and GroundSpeed (plus bIsWalking) for a walker or sprinter. Live after the fix: mounted across a riftway 1,578-1,580 units in 3 s; `/walk` across a riftway 556 (it was 1,006, running; a fresh /walk is 556). RemountAfterHandoffTests (3), check_all 6/6.
 
-## B-027 A summoned pet was lost on every chunk change
+## B-027 Pets lost and minions stranded on chunk changes and logouts
 - **Priority:** P1 · **Category:** player-facing defect (pets) · **State:** VERIFIED
 - **Evidence:** `leave_world` dismissed the pet on any zone disconnect, hand-offs included, and nothing summoned it again; docs/PETS.md already said the pet must be re-announced on zone-in.
 - **Fix:** on a hand-off the pet's spec is kept (`player.pet_resummon`, from `npc.pet_spec`) and `remount_after_zone_in` summons it again in the new chunk; a logout still dismisses it. Live (scratch save): `!pet Wolf Whistle` at the camp, riftway to Khal: "Ashfang answers your call." again, pet bar and pet health bar back, Ashfang's actor opened. PetHandoffTests (2), check_all 6/6.
-- **Not covered:** Necromancer minions (separate code path) and the pet's current health (it returns at full health).
+- **Minions too (2026-10-17):** they were never removed when their owner left: after a logout they stayed in the world as stray NPCs for good (their expiry only runs while the owner is connected), and after a chunk change they stayed in the old chunk. `leave_world` now takes them out on any disconnect and, on a hand-off, summons them again in the new chunk with the time they have left (quietly). Live: Bone Charm's two Bone Servants, riftway to Khal: they come along. MinionHandoffTests (2).
+- **Not covered:** the pet's and minions' current health (they return at full health).

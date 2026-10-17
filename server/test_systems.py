@@ -2658,3 +2658,51 @@ class PetHandoffTests(unittest.TestCase):
                 mock.patch.object(login_stub, "leave_group", lambda s: None):
             login_stub.leave_world(state, mock.Mock())
         self.assertIsNone(getattr(player, "pet_resummon", None))
+
+
+class MinionHandoffTests(unittest.TestCase):
+    """B-027: minions leave the world with their owner (they stayed as stray NPCs after a logout)
+    and follow through a chunk hand-off with the time they have left."""
+
+    def make(self, handoff):
+        import time
+        import combat
+        import login_stub
+        import world
+        import zone
+        from unittest import mock
+        w = world.World("chunk_n19_12")
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n19_12")
+        m = combat.Npc(0x5000001, "Skeleton", None, "x", location=(0.0, 0.0, 0.0))
+        m.minion_spec, m.expires = {"name": "Skeleton", "race": 1}, time.time() + 30
+        w.npcs[m.entity_id] = m
+        player.minions = [m]
+        state = {"player": player, "send": lambda x: None, "world": w}
+        if handoff:
+            state["handoff"] = True
+        with mock.patch.object(login_stub, "save_character_field", lambda *a: None), \
+                mock.patch.object(login_stub, "caravan_of", lambda n: None), \
+                mock.patch.object(login_stub, "leave_group", lambda s: None), \
+                mock.patch.object(login_stub.zone, "close_actor", lambda s, e: None):
+            login_stub.leave_world(state, mock.Mock())
+        return w, player, m
+
+    def test_logout_removes_minions(self):
+        w, player, m = self.make(False)
+        self.assertNotIn(m.entity_id, w.npcs)
+        self.assertEqual(player.minions, [])
+        self.assertEqual(player.minions_resummon, [])
+
+    def test_handoff_brings_them_with_time_left(self):
+        import login_stub
+        from unittest import mock
+        w, player, m = self.make(True)
+        self.assertNotIn(m.entity_id, w.npcs)
+        self.assertEqual(len(player.minions_resummon), 1)
+        summoned = []
+        with mock.patch.object(login_stub, "summon_minions", lambda s, a, spec, announce=True: summoned.append(spec)):
+            login_stub.remount_after_zone_in({"player": player, "remount": True, "send": lambda x: None}, None)
+        self.assertEqual(len(summoned), 1)
+        self.assertEqual(summoned[0]["count"], 1)
+        self.assertTrue(25 < summoned[0]["seconds"] <= 30)
+        self.assertEqual(player.minions_resummon, [])

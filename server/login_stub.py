@@ -1327,6 +1327,9 @@ def remount_after_zone_in(state, args):
     if spec:
         player.pet_resummon = None
         summon_pet(state, args, spec)          # the pet followed through the chunk change (B-027)
+    for mspec, left in getattr(player, "minions_resummon", None) or []:
+        summon_minions(state, args, dict(mspec, count=1, seconds=left), announce=False)
+    player.minions_resummon = []
     if getattr(player, "mount", None):
         set_mount(state, args, player, player.mount, getattr(player, "mount_kind", 0) or zone.MOUNT_GROUND)
         return True
@@ -3799,7 +3802,7 @@ def summon_pet(state, args, spec):
 MINION_LIMIT = 4
 
 
-def summon_minions(state, args, spec):
+def summon_minions(state, args, spec, announce=True):
     """A minion item (items.json "minions": {name, race, model, level, health, damage, count,
     seconds}): timed helpers listed in the Minions window that follow and fight like a pet."""
     player, send = state["player"], state["send"]
@@ -3824,6 +3827,7 @@ def summon_minions(state, args, spec):
         npc.template_id = "minion"
         npc.pet_owner, npc.pet_mode, npc.pet_target = player, "follow", None
         npc.minion_slot, npc.expires = slot, now + spec.get("seconds", 60)
+        npc.minion_spec = spec
         # Minions have no ability bar: their specials ("abilities": [{name, damage, chance}])
         # fire by themselves on a swing.
         npc.auto_abilities = list(spec.get("abilities", []))
@@ -3837,7 +3841,8 @@ def summon_minions(state, args, spec):
         w.broadcast(lambda s, npc=npc: zone.open_npc(s, args, npc))
         send(pets.minion_new(eid, npc.name, spec.get("seconds", 60)))
         send(pets.minion_health(npc))
-    send(build_system_text(f"{spec['name']} rises to serve you.", SYSTEM_TEXT_WHITE))
+    if announce:
+        send(build_system_text(f"{spec['name']} rises to serve you.", SYSTEM_TEXT_WHITE))
 
 
 def dismiss_minion(state, npc, text=None):
@@ -9415,6 +9420,16 @@ def leave_world(state, args):
             # A chunk hand-off: the pet comes along (summoned again after the zone-in, B-027).
             state["player"].pet_resummon = getattr(state["player"].pet, "pet_spec", None)
         dismiss_pet(state, dust=False)
+    if state.get("player") is not None and getattr(state["player"], "minions", None):
+        # Minions only move while their owner is connected: take them out of the world, or they
+        # stay behind for good (after a logout) or in the old chunk (B-027). A hand-off brings them
+        # along with the time they have left.
+        p, now = state["player"], time.time()
+        keep = [(m.minion_spec, m.expires - now) for m in p.minions
+                if getattr(m, "minion_spec", None) and m.expires - now > 1]
+        for m in list(p.minions):
+            dismiss_minion(state, m)
+        p.minions_resummon = keep if state.get("handoff") else []
     if state.get("player") is not None and not state.get("handoff"):
         p = state["player"]
         p.played = played_seconds(p)
