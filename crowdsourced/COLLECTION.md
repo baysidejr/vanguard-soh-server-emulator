@@ -5,17 +5,17 @@ the calling process to own the existing collector lock, uses the archive's share
 request clock and persisted minimum interval, and evaluates robots separately for
 each allowed host (including query URLs). Robots denial or HTTP errors propagate
 without retry; waits check graceful stop every 250 milliseconds. Cached bodies are
-checked against source URL and SHA-256 metadata. This module is not yet wired into
-the live archive runner: alternate-source queue scheduling, transient recovery and
-article extraction remain required before live alternate-source collection.
+checked against source URL and SHA-256 metadata. The live archive runner now schedules alternate wiki intake sequentially through
+this transport. Intake is currently suspended after a missing robots response,
+as recorded below; no successful live alternate article download is claimed.
 
 `multisource_extract.py` now parses explicitly labelled wiki infobox observations
 without merging repeated labels or assigning canonical IDs or historical eras.
 Missing article regions fail closed. Pages without infobox observations remain
 metadata only; other article tables and prose still require extraction review.
 The immutable iteration148 cache review verifies the cached main-page hash and
-retains 50 pending article links. This parser is not yet scheduled by the live
-runner; the alternate-source resumable queue and scheduling remain required.
+retains 50 pending article links. The live runner now schedules this parser with a separate resumable queue;
+the current policy suspension leaves its 50 discovered articles pending.
 
 The strategy is a whole-site canonical URL inventory followed by batches of linked game records. Sundering Wastelands and Wildgrowth Forest come first. Zone maps supply useful entity/quest relationships, but their links do not enumerate every record associated with a zone. The subsequent site-wide pass collects pages that would otherwise be missed, including items whose zone is unknown.
 
