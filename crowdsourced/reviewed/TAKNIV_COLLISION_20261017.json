@@ -106,5 +106,48 @@
         "original_source_urls": []
       }
     }
-  ]
+  ],
+  "cached_source_review": {
+    "reviewed_at": "2026-10-17T04:09:26.642670+00:00",
+    "network_requests": 0,
+    "pages": [
+      {
+        "url": "https://vgsoharchive.com/mobs/takniv-kyn-lal-2",
+        "cached_source_sha256": "84c8f1720cb5ca1a33fd91fd2275958cfbe1bb61d8cf1aff898742e37a58ce77",
+        "checks": {
+          "name_matches_heading": true,
+          "zone_explicit": true,
+          "continent_explicit": true,
+          "unknown_health_preserved": true,
+          "unknown_damage_preserved": true,
+          "unknown_level_preserved": true,
+          "no_quest_giver_assertion": true
+        },
+        "linked_quests": []
+      },
+      {
+        "url": "https://vgsoharchive.com/mobs/takniv-kyn-lal",
+        "cached_source_sha256": "c3b81b83c0073860e6a7bc7694f3174dab280b427ce9bf5c14045dc285d911b7",
+        "checks": {
+          "name_matches_heading": true,
+          "zone_explicit": true,
+          "continent_explicit": true,
+          "unknown_health_preserved": true,
+          "unknown_damage_preserved": true,
+          "level_explicit": true,
+          "race_explicit": true,
+          "quest_link_explicit": true,
+          "quest_name_explicit": true
+        },
+        "linked_quests": [
+          {
+            "name": "Goods For Evendusk",
+            "url": "/quests/goods-for-evendusk"
+          }
+        ]
+      }
+    ],
+    "checks_passed": 16,
+    "conclusion": "Both pages explicitly name Jharru Flats and Qalia. Only the unsuffixed page supplies level, race and a quest-giver link. Shared zone and similar names do not prove one historical entity. Keep both complete source records separate and all colliding conversion outputs withheld. No loot recorded is archive coverage, not evidence of no drops."
+  }
 }
