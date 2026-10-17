@@ -2423,3 +2423,18 @@ class QuestCheckTests(unittest.TestCase):
     def test_real_content_is_finishable(self):
         bad = [(k, probs) for k, _q, probs in self.tool().check() if probs]
         self.assertEqual(bad, [])
+
+
+@unittest.skipUnless(os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Assets", "Maps",
+                                                 "chunk_n20_13.vgr")), "needs the client's maps")
+class ChunkAuditTests(unittest.TestCase):
+    """tools/chunk_audit.py: no archive spawn sits in a chunk whose terrain contradicts its
+    recorded height while a neighbour's terrain matches it (Tracker Nok was out at sea)."""
+
+    def test_no_spawn_in_the_wrong_chunk(self):
+        import sys
+        import content
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import chunk_audit
+        rows = chunk_audit.candidates(content.Content())
+        self.assertEqual([(r[2]["mob"], r[3], r[5]) for r in rows], [])

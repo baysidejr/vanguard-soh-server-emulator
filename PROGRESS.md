@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: 40 archive NPCs were in the wrong chunk because of mislabelled zone names (Tracker Nok stood in the sea); tools/chunk_audit.py found and moved them, checked live (B-020). B-008's uncertain heights checked live: the Agents stand on their platform, Muerden and Administrator Bazad inside buildings.
+
 - 2026-10-17: tools/quest_check.py (B-018): every quest a player can be offered can be finished with what is placed (99 of 99); a unit test keeps it that way after imports.
 
 - 2026-10-17: Merged the scrape branch (102 commits, reviewed) and promoted its new records: 7 more quests with real archive objectives (77 playable), 51 NPC templates, 54 spawns, titles and difficulty on existing NPCs (B-009).
