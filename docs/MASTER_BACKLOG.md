@@ -186,3 +186,9 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Priority:** P2 · **Category:** content correctness · **State:** VERIFIED
 - **Evidence (2026-10-17 audit):** NPCs named "Varies" (3 spawns) and "various" (1) stood in the world: archive quest pages give the giver as "Starts with: Varies". After filtering those, "Then" ("The Road to Chaos": "Starts with: Then") took the freed spot. Of 4,311 single-name archive givers, 101 have no NPC page; they mix leftovers ("Unknown", "[[]]", "She", "<NPC name>", "Item: Communication Crystal", the zone "Leth Nurae") with real people without a page (Ashlyn, Naji, Karoz of the Ichtakhta).
 - **Done:** the 4 spawns removed; the two templates kept (a disabled quest refers to "various") with `_placeholder` explaining they are not people. `import_zone` skips placeholder words (varies, various, multiple, none, unknown) and places a giver from a quest record only when it has an archive NPC page or an NPC record. The refresh then added only legitimate content (Naji Sevenblade with her NPC page; 4 delivery quests, all disabled under B-007). QuestGiverNameTests; content OK, quest_check 99/99.
+
+## B-023 Dead characters could talk to NPCs and bind at altars
+- **Priority:** P2 · **Category:** gameplay defect · **State:** VERIFIED
+- **Evidence (live 2026-10-17, scratch save):** after dying (the death popup still up), hailing Afshin Budjiri opened his dialogue; `handle_altar_use` had no death check either, so a dead character could bind.
+- **Fix:** both refuse with the client's notice 112, "You cannot do that while dead." (as other actions already do). DeadPlayerTests (altar); the hail checked live: `!die`, hail Orin -> "You cannot do that while dead."
+- **Not changed:** dev `!visit` still moves a dead character (a test tool); a release without a bind point respawns where the character entered the chunk, which after `!visit` can be next to whatever killed it.

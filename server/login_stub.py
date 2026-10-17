@@ -2332,6 +2332,9 @@ def near_altar(player):
 def handle_altar_use(state, npc):
     """0x2b0 on an altar: bind there, and offer the player's tombstone for summoning (0x2bc)."""
     player, send = state["player"], state["send"]
+    if player.health <= 0:
+        send(client_notice(NOT_WHILE_DEAD))                # no binding while dead (release first)
+        return
     if player_distance(player, npc) > ALTAR_RANGE:
         send(client_notice(TOO_FAR_AWAY))
         return
@@ -10449,8 +10452,11 @@ def handle_message(sock, server, addr, state, payload, args):
             print(f"  >>> ZONE say from {speaker!r}: {text!r}")
             hail_target = state.get("player") and state["player"].npcs.get(state["player"].target)
             if text.lower().startswith("hail") and hail_target and hail_target.alive and hail_target.talks():
-                for m in npc_dialog(state, hail_target):
-                    send_message(sock, addr, state, m)
+                if state["player"].health <= 0:
+                    send_message(sock, addr, state, client_notice(NOT_WHILE_DEAD))   # the dead don't chat with NPCs
+                else:
+                    for m in npc_dialog(state, hail_target):
+                        send_message(sock, addr, state, m)
             w = state.get("world")
             if w is not None and not text.startswith("!"):
                 w.broadcast(lambda s: build_chat_line(speaker, text, CHAT_SAY), exclude=state)

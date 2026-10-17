@@ -2487,3 +2487,27 @@ class QuestGiverNameTests(unittest.TestCase):
         quests = {"a": {"name": "A", "zone": "Khal", "giver": "Varies",
                         "archive_fields": {"location": ["1, 2, 3 in Khal (-13, -9)"]}}}
         self.assertEqual(import_zone.quest_giver_spots("Khal", quests, (-13, -9)), {})
+
+
+class DeadPlayerTests(unittest.TestCase):
+    """A dead character can't bind at an altar (or, live-checked, hail an NPC): notice 112."""
+
+    def test_altar_refuses_the_dead(self):
+        import struct
+        import login_stub
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n13_n9")
+        sent = []
+        state = {"player": player, "send": sent.append}
+        altar = mock.Mock(altar=True)
+        with mock.patch.object(login_stub, "player_distance", lambda p, n: 0), \
+                mock.patch.object(login_stub, "bind_here", lambda s, n: sent.append("bound")):
+            player.health = 0
+            login_stub.handle_altar_use(state, altar)
+            self.assertNotIn("bound", sent)
+            self.assertEqual(struct.unpack_from("<h", sent[0], 10)[0], login_stub.NOT_WHILE_DEAD)
+            sent.clear()
+            player.health = 50
+            login_stub.handle_altar_use(state, altar)
+            self.assertIn("bound", sent)
