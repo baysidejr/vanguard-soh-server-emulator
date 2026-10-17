@@ -165,7 +165,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Quest options in the Dialogue window: a yellow star for an available quest, blue dots for one in progress, a green check for one ready to turn in
 - [ ] Click the chosen reward again: Complete hides; choose again and complete
 - [ ] NPCs talk now and then (Thestran Guard, Garret Holm); Orin's greeting voice plays
-- [ ] With a tombstone out, Veyla's "I'd like to summon my earthly remains." brings it to you
+- [x] With a tombstone out, Veyla's "I'd like to summon my earthly remains." brings it to you (2026-10-17: `!die`, release, hail Veyla Brightsteel, the option -> "Veyla Brightsteel summons your tombstone to you.")
 - [ ] Character window, Diplomacy - Factions tab: the factions under Other Factions; `!faction 1005 250` unlocks a prestige faction
 - [ ] Wildgrowth Forest (`!tp -223200 29400 3500`): Elara's two quests, the Forester's Cloak
 - [ ] Conversation trees, faction colors on name plates, `/showfactions`
@@ -197,7 +197,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 **Social**
 - [ ] ✦ Group invite and group window bars; Find tab Request to Join
 - [ ] ✦ Guild create, invite, ranks, guild chat; brotherhood invite and XP bonus
-- [ ] Friends, ignore, `/who`, `/afk`, `/random`, `/inspect`, `/bug` (2026-10-17: `/who`, `/afk` and `/random 100` print their lines in the client; friends, ignore, /inspect and /bug not yet looked at in the client, their server side is in scenarios.py)
+- [ ] Friends, ignore, `/who`, `/afk`, `/random`, `/inspect`, `/bug` (2026-10-17: `/who`, `/afk`, `/random 100` print their lines; `/friend Sorcha` "You have added Sorcha to your friends list.", `/ignore Psi` "You have added Psi to your ignore list."; `/bug` opens the Bug Report window (submitting is in scenarios.py); `/inspect` needs a second player)
 
 **Travel and the world**
 - [ ] Ride the horse, dire wolf and camel; `/dismount`
