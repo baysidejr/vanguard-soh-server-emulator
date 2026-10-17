@@ -33,3 +33,15 @@ class MultiSourceDiscoveryTests(unittest.TestCase):
     def test_missing_content_rejected(self):
         with self.assertRaises(ValueError):
             wiki_links('<html></html>', 'https://vgoplayers.com/wiki/index.php/Main_Page')
+
+    def test_section_links_are_canonicalized_and_encoded_namespaces_rejected(self):
+        html = '''<div id="mw-content-text">
+        <a href="/wiki/index.php/Qalia#Quests">section</a>
+        <a href="/wiki/index.php/Qalia">duplicate</a>
+        <a href="#Local">self</a>
+        <a href="/wiki/index.php/User%3ASomeone#Profile">user</a>
+        <a href="/wiki/index.php/Category%3AQuests#A">category</a>
+        <a href="/wiki/index.php/Qalia?action=edit#A">edit</a></div>'''
+        self.assertEqual(wiki_links(html, 'https://vgoplayers.com/wiki/index.php/Main_Page'),
+                         ['https://vgoplayers.com/wiki/index.php/Category%3AQuests',
+                          'https://vgoplayers.com/wiki/index.php/Qalia'])

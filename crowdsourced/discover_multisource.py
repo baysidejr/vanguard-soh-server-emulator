@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import unquote, urldefrag, urljoin, urlsplit
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / '.tools-current'))
@@ -44,12 +44,12 @@ def wiki_links(html, base):
         raise ValueError('Missing wiki content region')
     urls = set()
     for link in content.select('a[href]'):
-        url = urljoin(base, link['href'])
+        url = urldefrag(urljoin(base, link['href']))[0]
         p = urlsplit(url)
         if (p.scheme == 'https' and p.netloc == 'vgoplayers.com'
                 and p.path.startswith('/wiki/index.php/') and not p.query
                 and not p.fragment):
-            title = p.path.split('/wiki/index.php/', 1)[1]
+            title = unquote(p.path.split('/wiki/index.php/', 1)[1])
             if title and ':' not in title.replace('Category:', '', 1):
                 urls.add(url)
     return sorted(urls - {base})
