@@ -190,7 +190,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Fish on the beach (`!tp -43000 -49500 200 49152`), a combo, the Achievements tab
 
 **Archive content**
-- [ ] An archive quest giver offers its quest (`!visit Inquisitor Nalstom`, Rift Gem); a delivery placeholder plays end to end (`!visit Acolyte Terlan`, A Grave Brownie Threat, then hail Acolyte Weylan)
+- [x] An archive quest giver offers its quest and a kept delivery plays end to end (2026-10-17, scratch save: Parisa Nirumand's "Leafsaw Crawlers" in Karibasa: offer, accept, kills counted, hand-in, 100 XP; Master Rahlsu's "Report To Officer Yu" in Shang Village: accept, hail Imperial Officer Yu, "(complete)", 50 XP. "A Grave Brownie Threat" is now switched off by B-007)
 - [ ] A placeholder camp stands on dry ground near its quest giver (`!visit Dread Waylayer`, Seawatch Coast)
 - [ ] Win an archive parley (`!visit Afshin Budjiri`, a parley, `!parleywin`): diplomacy XP scaled by its level, the Soldiers row in Character > Diplomacy > Presence rises
 
@@ -207,7 +207,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Summon Ashfang and use Savage Bite; a Necromancer abomination; Bone Charm minions
 - [ ] Swim, dive, the breath bar, drowning
 - [ ] Fly the griffon in first person: climb, dive to the ground, land without fall damage
-- [ ] `!visit <NPC name>` travels to any placed NPC (e.g. `!visit Ghobad Houri`, Ahgram)
+- [x] `!visit <NPC name>` travels to any placed NPC (2026-10-17: Parisa Nirumand, Master Rahlsu, Imperial Officer Yu, Tracker Nok, Kurake, Muerden, Agent Jargo across five chunks)
 
 ## Crowded city load (2026-10-15)
 
