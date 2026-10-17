@@ -1,0 +1,626 @@
+{
+  "audit_kind": "cached_quest_objectives_rewards_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal cached objective, description, notes, source attribution and reward observations. Archive transcriptions and variants remain distinct; no historical mechanic verification or identity merge.",
+  "inputs": [
+    {
+      "path": ".cache/archive/457f4b8b223ff23774e41fcfa46e2e043689f02053edcc2756dd21f669167a18.txt",
+      "sha256": "1f9e0f955868016ea7284652fb7295a22c5e53f75e1c2a65dee8be5d01b8ebba"
+    },
+    {
+      "path": ".cache/archive/d44fc32211e4221f9b13b15befd9e4e03a8b6db6ccf83f1aae57a9b4aa742a8d.txt",
+      "sha256": "782a76c2084bfc13c57fce687e738418374b8083b90a83f62c525314ac99f1a0"
+    },
+    {
+      "path": "raw/2026-10-14-083433-894890-archive-bulk/quest.jsonl",
+      "sha256": "01d81656f33a15ce88f37859ef2c9e21fc254b2bc5d651304b32508a88bb5d25"
+    },
+    {
+      "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+      "sha256": "54792d13cb69de9507f411f5880049502b64fab2649c104a2c5098b288e8476d"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+      "cache_path": ".cache/archive/d44fc32211e4221f9b13b15befd9e4e03a8b6db6ccf83f1aae57a9b4aa742a8d.txt",
+      "cache_sha256": "782a76c2084bfc13c57fce687e738418374b8083b90a83f62c525314ac99f1a0",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Speak to Master Garu and Master Ashaine",
+          "html": "<div class=\"tooltip\">Speak to Master Garu and Master Ashaine</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Shaof in Tanvu.\n2) Speak to Master Ashaine and Master Garu to receive the blessings of faith and nature.\n3) Return to Shaof.",
+          "html": "<div class=\"tooltip\">1) Speak to Shaof in Tanvu.\n2) Speak to Master Ashaine and Master Garu to receive the blessings of faith and nature.\n3) Return to Shaof.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "Master Garu gives four followup quests:",
+          "html": "<p class=\"muted\">Master Garu gives four followup quests:</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Obtain the Blessing of Faith\nObtain the Nature of Jin\nFind Master Garu and receive his blessing of faith.\nFind Master Ashaine and receive her blessing of nature.",
+          "html": "<div class=\"tooltip\">Obtain the Blessing of Faith\nObtain the Nature of Jin\nFind Master Garu and receive his blessing of faith.\nFind Master Ashaine and receive her blessing of nature.</div>",
+          "variant": true
+        },
+        {
+          "label": "Objectives as recorded by photographed in game by the archive operator",
+          "text": "- Obtain the Blessing of Faith\n- Obtain the Nature of Jin",
+          "html": "<div class=\"tooltip\">- Obtain the Blessing of Faith\n- Obtain the Nature of Jin</div>",
+          "variant": true
+        },
+        {
+          "label": "Objectives as recorded by photographed in game, Steam community screenshot",
+          "text": "Obtain the Blessing of Faith\nObtain the Nature of Jin",
+          "html": "<div class=\"tooltip\">Obtain the Blessing of Faith\nObtain the Nature of Jin</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/the-final-tests-of-jin-332.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/the-final-tests-of-jin-332.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Reported disagreements",
+          "text": "5 recorded\n    disagreements about this\n    quest — ends npc (wiki.silkyvenom.com:80) , ends npc (quest steps) , level (wiki.silkyvenom.com:80) , level (photographed in game, Steam community screenshot) , level (the Forgotten Horde wiki) .",
+          "html": "<p class=\"muted\">\n    5 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=ends_npc\">ends npc</a> <span class=\"muted\">(quest steps)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(photographed in game, Steam community screenshot)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(the Forgotten Horde wiki)</span>.\n  </p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Shaof",
+          "html": "<dd><a href=\"/mobs/shaof\">Shaof</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-3117, -10368, 5709 in Tanvu (-19, 6)",
+          "html": "<dd>-3117, -10368, 5709 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Master Garu",
+          "html": "<dd><a href=\"/mobs/master-garu\">Master Garu</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Eye Of The Beholder",
+          "html": "<dd><a href=\"/quests/eye-of-the-beholder\">Eye Of The Beholder</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "The Ra'Jin Grand Master",
+          "html": "<dd><a href=\"/quests/the-ra-jin-grand-master\">The Ra'Jin Grand Master</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Shaof\n\"Your path to understanding Jin is almost complete. Only two tests remain.\" \"In the hills to our east lie two Jin masters, waiting to give you your final tests. What you have been through up to this point will seem trivial. These masters will test every fiber of your being - pushing your strength, intelligence, wit and resolve to their breaking points.\" \"Master Garu will test your faith.\" \"Master Ashaine will show you the true nature of Jin.\" \"Return to me when both tests are complete.\" RSS Comments",
+          "html": "<div class=\"tooltip\">\n<strong>Shaof</strong><br/>\n          \"Your path to understanding Jin is almost complete. Only two tests remain.\" \"In the hills to our east lie two Jin masters, waiting to give you your final tests. What you have been through up to this point will seem trivial. These masters will test every fiber of your being - pushing your strength, intelligence, wit and resolve to their breaking points.\" \"Master Garu will test your faith.\" \"Master Ashaine will show you the true nature of Jin.\" \"Return to me when both tests are complete.\" RSS Comments\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by\nvg.curse.com\n.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/4031/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-083433-894890-archive-bulk/quest.jsonl",
+          "line": 77,
+          "record": {
+            "name": "The Final Tests Of Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+                "title": "The Final Tests Of Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:40:57+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Garu"
+              ],
+              "also involved": [
+                "Master Ashaine"
+              ],
+              "previous": [
+                "Eye Of The Beholder"
+              ],
+              "next": [
+                "The Ra'Jin Grand Master"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "Master Garu",
+                "url": "https://vgsoharchive.com/mobs/master-garu"
+              },
+              {
+                "name": "Master Ashaine",
+                "url": "https://vgsoharchive.com/mobs/master-ashaine"
+              },
+              {
+                "name": "Eye Of The Beholder",
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder"
+              },
+              {
+                "name": "The Ra'Jin Grand Master",
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master"
+              }
+            ],
+            "type": "quest",
+            "level": 9,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": "Master Garu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Eye Of The Beholder",
+            "chain_next": "The Ra'Jin Grand Master",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 3964,
+          "record": {
+            "name": "The Final Tests Of Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin",
+                "title": "The Final Tests Of Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:52+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Garu"
+              ],
+              "also involved": [
+                "Master Ashaine"
+              ],
+              "previous": [
+                "Eye Of The Beholder"
+              ],
+              "next": [
+                "The Ra'Jin Grand Master"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "Master Garu",
+                "url": "https://vgsoharchive.com/mobs/master-garu"
+              },
+              {
+                "name": "Master Ashaine",
+                "url": "https://vgsoharchive.com/mobs/master-ashaine"
+              },
+              {
+                "name": "Eye Of The Beholder",
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder"
+              },
+              {
+                "name": "The Ra'Jin Grand Master",
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master"
+              }
+            ],
+            "type": "quest",
+            "level": 9,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": "Master Garu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Eye Of The Beholder",
+            "chain_next": "The Ra'Jin Grand Master",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "cache_path": ".cache/archive/457f4b8b223ff23774e41fcfa46e2e043689f02053edcc2756dd21f669167a18.txt",
+      "cache_sha256": "1f9e0f955868016ea7284652fb7295a22c5e53f75e1c2a65dee8be5d01b8ebba",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Grandmaster Nahuji Slain",
+          "html": "<div class=\"tooltip\">Grandmaster Nahuji Slain</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "The grand master is in a room at the top of the tower. Lvl 10 4 dot aggro.",
+          "html": "<p class=\"muted\">The grand master is in a room at the top of the tower. Lvl 10 4 dot aggro.</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by photographed in game, Steam community screenshot",
+          "text": "Grandmaster Nahuji Slain (1)",
+          "html": "<div class=\"tooltip\">Grandmaster Nahuji Slain (1)</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://vanguard.fandom.com/wiki/The_Ra'Jin_Grand_Master",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://vanguard.fandom.com/wiki/The_Ra'Jin_Grand_Master</p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Shaof",
+          "html": "<dd><a href=\"/mobs/shaof\">Shaof</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-3117, -10368, 5709 in Tanvu (-19, 6)",
+          "html": "<dd>-3117, -10368, 5709 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "The Final Tests Of Jin",
+          "html": "<dd><a href=\"/quests/the-final-tests-of-jin\">The Final Tests Of Jin</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "0",
+          "html": "<dd>0</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Grand Master Shaof is beaming with pride and admiration at your progress.\n\n\"You have done impressively in your training. You have developed yourself adaquately in your understanding of the Jin. I believe you are ready for one final task.\"\n\n\"The Ra'Jin are led by a grand master of their own. He is secretive and remains hidden within a secret room in the center of the fortress.\"\n\n\"If you are up to the challenge, find others like you and come together to defeat him. Without their grandmaster, the Ra'Jin will be greatly crippled and balance may yet be restored.\"",
+          "html": "<div class=\"tooltip\">Grand Master Shaof is beaming with pride and admiration at your progress.\n\n\"You have done impressively in your training. You have developed yourself adaquately in your understanding of the Jin. I believe you are ready for one final task.\"\n\n\"The Ra'Jin are led by a grand master of their own. He is secretive and remains hidden within a secret room in the center of the fortress.\"\n\n\"If you are up to the challenge, find others like you and come together to defeat him. Without their grandmaster, the Ra'Jin will be greatly crippled and balance may yet be restored.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+          "line": 55,
+          "record": {
+            "name": "The Ra'Jin Grand Master",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+                "title": "The Ra'Jin Grand Master · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:55:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Final Tests Of Jin"
+              ],
+              "coin reward": [
+                "0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              }
+            ],
+            "type": "quest",
+            "level": 10,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Final Tests Of Jin",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4145,
+          "record": {
+            "name": "The Ra'Jin Grand Master",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+                "title": "The Ra'Jin Grand Master · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Final Tests Of Jin"
+              ],
+              "coin reward": [
+                "0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              }
+            ],
+            "type": "quest",
+            "level": 10,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Final Tests Of Jin",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "observation": "Primary objective prints Grandmaster Nahuji Slain; the Steam community screenshot attribution prints Grandmaster Nahuji Slain (1). Preserve these separate literal displays; original screenshots were not inspected.",
+      "resolved_objective_count": null,
+      "original_screenshot_verified": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "observation": "Offering dialogue attributed to an in-game photograph names Grand Master Shaof and describes a secret room in the center of the fortress. Notes instead describe a room at the top of the tower and Lvl 10 4 dot aggro. These remain attributed prose observations, not exact spawn coordinates or authenticated combat statistics.",
+      "resolved_spawn_coordinates": null,
+      "resolved_combat_statistics": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "observation": "Starts with names Shaof. Previous links The Final Tests Of Jin, reciprocating that page Next link. No Next or Hand in to detail occurs on this page. Neither an enforced prerequisite nor a turn-in identity follows from this navigation. The four unnamed followups in the previous page Notes remain unresolved.",
+      "enforced_prerequisites": null,
+      "resolved_turn_in": null,
+      "four_followup_identities": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "observation": "Coin reward prints 0 without a denomination; no Rewards heading supplies item or XP rewards. Retain the literal display without copper conversion or inferring complete zero rewards. Source names Fandom; this cached archive transcription is not an independently fetched Fandom record.",
+      "coin_copper": null,
+      "resolved_complete_rewards": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "literal_observations_verified": 29,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 6
+  },
+  "remaining_review": {
+    "required_review_complete": false,
+    "collection_complete": false,
+    "next_actionable_batch": "Review cached Grandmaster Nahuji mob records against the quest target, preserving source-specific level and location claims without a name-only identity merge."
+  }
+}
