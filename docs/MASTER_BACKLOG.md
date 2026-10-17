@@ -18,11 +18,12 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next action:** run `check_all.py --client` once B-003 clears, confirm the fingerprint again, then mark COMPLETE.
 
 ## B-002 Flight landing where the terrain lookup has no height
-- **Priority:** P1 · **Category:** gameplay defect · **State:** NOT_STARTED
+- **Priority:** P1 · **Category:** gameplay defect · **State:** COMPLETE (root cause documented; no safe server-side fix)
 - **Evidence:** live 2026-10-16: diving at (-12891, -4871) in chunk_n19_12 the client stopped at z 4093 while `content.ground_z` returned -12677; `flight_check` never landed the griffon (docs/MOUNTS.md "Descending").
 - **Paths:** `server/login_stub.py` (`flight_check`, `LAND_HEIGHT`), `server/terrain.py`, `server/content.py` (`ground_z`)
 - **Done when:** the cause of -12677 there is known (terrain hole, mesh above terrain, or a lookup bug) and either the lookup is fixed or landing also triggers from the client's own reports (e.g. no height change while moving down for N reports); a unit test covers it.
-- **Next action:** sample `terrain.Terrain` heights around (-12891, -4871) and compare with neighbouring points and the obstacle meshes there.
+- **Result (2026-10-16):** terrain samples show a pit down to the heightmap floor (-20,410) east of x -12,500; no water volume and no listed obstacle within 3,000 units, so the surface is large static meshes the server doesn't model. The lookup is correct for the terrain. No code change: a "height stopped changing" fallback would also land hovering fliers. /dismount ends flight there safely. Documented in docs/MOUNTS.md. A real fix needs mesh-surface heights (collision from the map's static meshes), a larger project.
+- **Next action:** none (reopen if mesh collision is ever modelled).
 
 ## B-003 GameInput service window blocks client focus for automated tests
 - **Priority:** P1 · **Category:** test infrastructure · **State:** BLOCKED (system service / user action)
