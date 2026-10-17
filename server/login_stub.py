@@ -246,9 +246,10 @@ def main():
                         help="open the client's Quest Feedback window after each completed quest")
     parser.add_argument("--quiet-packets", action="store_true",
                         help="don't print every packet's hex dump and acks (for a long-running server)")
-    parser.add_argument("--start-areas", action="store_true",
-                        help="start new characters in the starting area the client asks for (Isle of Dawn, "
-                             "or the race's village) instead of the camp (start_areas.py, backlog B-017)")
+    parser.add_argument("--camp-start", action="store_true",
+                        help="start new characters at the hand-made camp in the Sundering Wastelands (testing) "
+                             "instead of the starting area the client's create screen picked (start_areas.py, B-017)")
+    parser.add_argument("--start-areas", action="store_true", help=argparse.SUPPRESS)   # the default since B-017
     parser.add_argument("--dev-commands", action="store_true",
                         help="enable !stat / !event chat commands (see dev_command)")
     parser.add_argument("--test-npc", action="store_true",
@@ -9561,8 +9562,9 @@ def chunk_name(x, y):
 
 
 def place_new_character(char, raw):
-    """--start-areas: put a new character in the starting chunk its create request asked for,
-    beside that area's anchor NPC (start_areas.py). Leaves it unset (the camp) otherwise."""
+    """Put a new character in the starting chunk its create request asked for (the Isle of Dawn or
+    the race's home town), beside that area's anchor (start_areas.py). Leaves it unset (the camp)
+    for anything else; --camp-start skips this altogether."""
     chunk = start_areas.start_chunk(raw)
     if chunk is None or not chunk_exists(*chunk):
         return
@@ -11331,7 +11333,7 @@ def handle_message(sock, server, addr, state, payload, args):
             result = 0
             new = {"first": first, "last": last, "world": WORLD_NAME, "raw": data[pos:].hex(),
                    "account": state["account"]}
-            if getattr(ARGS, "start_areas", False):
+            if not getattr(ARGS, "camp_start", False):
                 place_new_character(new, data[pos:])
             chars.append(new)
             save_characters(chars)

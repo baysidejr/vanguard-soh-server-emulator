@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Owner decisions applied: real starting areas are the default for new characters (`--camp-start` keeps the camp); parleys stay unrestricted (B-010 deferred).
+
 - 2026-10-17: Start spots revised (B-017): a map's own PlayerStart is used when it stands just above the ground near NPCs; Isle of Dawn now starts outdoors by the palisade, Tursh on the village path (both checked live on scratch saves).
 
 - 2026-10-17: Starting areas checked live (scratch saves): a character at each computed start loads into Isle of Dawn, Tursh Village, Shang Village and Karibasa (Cliffs of Ghelgad) on solid ground; Isle of Dawn's spot is inside a house.

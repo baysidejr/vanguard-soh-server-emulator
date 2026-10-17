@@ -91,11 +91,11 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **2026-10-17 (later):** 84 commits ahead (85c99e5: 100 more archive pages / 115 sourced records, loot and inventory audits); quest readiness with the branch still 70 ready of 4,774. Not merged.
 
 ## B-010 Presence requirements for parleys
-- **Priority:** P3 · **Category:** fidelity · **State:** BLOCKED (user decision; gain rates unknown)
+- **Priority:** P3 · **Category:** fidelity · **State:** DEFERRED (owner decision A: unrestricted until evidence)
 - **Evidence:** archive NPC pages record a presence number (1, 200, 700...) shown on the parley option; the server does not gate on it and presence starts at 0. Real starting presence and gain rates are unknown.
 - **Done when:** documentary or client evidence for how presence gates parleys and how it is earned; until then stays ungated (an approximation, labelled).
 - **Checked 2026-10-16:** the client has the refusal text (dialog response status 17 `ResponseLocked`, "You don't have enough presence to talk about that.", docs/DIPLOMACY.md) and the rank bands (Newcomer < 75 ... Famous >= 4500), so the gating mechanism exists. No client file gives starting presence or gain rates (searched Strings.txt, VGClient.int, VGUIAssets). Gating now would lock most archive parleys (many ask 700, everyone starts at 0, the server's gain of 10 per win is a placeholder).
-- **State change:** BLOCKED (user decision): turn gating on with placeholder rates, or wait for archive evidence about presence gain.
+- **Owner decision 2026-10-17: A, parleys stay unrestricted.** No invented starting presence, costs or gain rates; presence tracking stays as is. Gate only when client or archive evidence supports it.
 
 ## B-011 Content provenance audit
 - **Priority:** P2 · **Category:** content accuracy · **State:** VERIFIED
@@ -136,7 +136,7 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Full-range run with logging on (2026-10-16):** event ids 0x1-0x900 on the login, world and zone servers, 4 payloads each, 7 context passes, 100 raw rounds, seed 23: 0 tracebacks, 0 handler errors. The zone ping failed after some world/login-sweep ids (0x71d, 0x72c-0x737) and the fuzzer re-logged in; no server error was logged. Rechecked with the new `fuzz.py --context N` (one setup pass): ids 0x710-0x740, 16 payloads each, in every one of the 7 passes: no session closed, 0 tracebacks. These ids have no zone handler; the earlier ping failures were timing (the fuzzer's 3 s ping during a long run), not a server fault. Closed.
 
 ## B-017 New characters start in the right starting area
-- **Priority:** P1 · **Category:** fidelity · **State:** VERIFIED (behind --start-areas; making it the default needs the user)
+- **Priority:** P1 · **Category:** fidelity · **State:** VERIFIED (default since 2026-10-17, owner decision; `--camp-start` for the old camp)
 - **Now:** every new character starts at `DEFAULT_CHUNK` (-19, 12), the hand-made camp in the Sundering Wastelands, whatever the race or the client's choice. Only tracked before as a data gap in docs/CONTENT_EDITOR.md.
 - **Evidence (client files, 2026-10-17):**
   - The create request carries the chosen starting chunk (i32 x, y at +9/+13 after the names; docs/PROTOCOL.md). Saved characters sent (-26, 1) = Isle of Dawn (6 of 7) and (-65535, -65535) (1, probably "racial area" [I]).
@@ -149,5 +149,6 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Spot rule revised 2026-10-17:** named intro NPC first, then the map's own PlayerStart when it stands just above the ground near NPCs (Isle of Dawn 192 up / 889 from an NPC, Tursh 155 / 162; Shang's is 44,772 from any NPC and the camp's hang 24,000+ up, so those are rejected), then the NPC cluster. Moves the Isle of Dawn start out of the house to the map's start point. StartSpotTests (2). Live 2026-10-17: Isle of Dawn now starts outdoors on grass beside the village palisade (/loc -11690, 10533, 611; WELCOME chunk_n26_1, smoke PASS). Tursh: the select screen showed "Tursh Village" but the scripted Play never went through (a Main Menu was open over character select; the window had opened elsewhere on screen), so it was rerun: Tursh now starts on a cobbled village path by benches and a long hall (/loc 31047, 19087, 37793; WELCOME chunk_n27_27, smoke PASS). All four starts verified live with the revised rule; real DB fingerprint unchanged.
 - **Bind point:** new characters have none until they bind at an altar; death and Unstuck use the login spot (`player.spawned_at`), so a character starting in a racial village or on the Isle of Dawn respawns there, not at the camp (checked in login_stub: unstuck, release, recall). No change needed.
 - **Racial value:** the create screen's StartingCitySelect has two buttons, choose_trial_island and choose_home_town (VGUICharacterCreationWnd.xml); the two values seen are (-26, 1) and (-65535, -65535), so -65535 = home town [I: two choices, two values].
-- **Still open:** a create through the client's own create screen with the flag on (the create path itself is verified with bot requests).
-- **Decision needed:** turn `--start-areas` on by default (moves new characters off the camp, where the hand-made tutorial quests are).
+- **Owner decision 2026-10-17: YES.** Real starting areas are the default; `login_stub --camp-start` keeps the hand-made camp for testing (`--start-areas` is still accepted, now a no-op).
+- **Onboarding gap (documented, not invented):** quests whose givers stand in each start: Isle of Dawn 10 (0 with real objectives), Tursh Village 28 (2), Shang Village 1 (0), Karibasa Village 3 (2); the rest are delivery placeholders under review in B-007. The hand-made tutorial quests stay at the camp. Real starting-area quests arrive with the archive scrape (B-009).
+- **Still open:** a character made through the client's own create screen (the create path is verified with bot requests carrying the same bytes).

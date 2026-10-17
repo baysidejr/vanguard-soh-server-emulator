@@ -202,8 +202,10 @@ These work in the game but use invented values, because the archive (or the clie
    They would stand beside the hand-made camps, not replace them.
 2. **Keep the 298 delivery placeholders?** Some are real delivery quests ("A Dire Message"); others probably had objectives the archive never recorded ("A Battle Rages"). They are marked and listed in the editor; they can be removed in one step.
 3. **Merging the scrape branch** happens when you ask (it was merged twice on 2026-10-16).
-4. **Start new characters in the real starting areas by default?** Today everyone starts at the hand-made camp. `--start-areas` (verified live 2026-10-17) uses the start the client sends: the Isle of Dawn (the create screen's "trial island" button) or the race's home town (Tursh Village, Shang Village or Karibasa Village, from each race's intro text in the client). They would no longer start where the hand-made tutorial quests are. Backlog B-017.
-5. **Gate parleys on presence?** The client has the refusal message, but starting presence and gain rates are unknown (backlog B-010).
+4. ~~Start new characters in the real starting areas by default?~~ **Decided 2026-10-17: yes.** New characters start on the Isle of Dawn or in their race's home town (`--camp-start` keeps the old camp for testing). Few quests there have real objectives yet (Isle of Dawn 0, Tursh 2, Shang 0, Karibasa 2).
+5. ~~Gate parleys on presence?~~ **Decided 2026-10-17: no**, parleys stay unrestricted until there is evidence for presence values.
+
+The owner's decisions on all five questions (2026-10-17) are being carried out: see docs/MASTER_BACKLOG.md B-007, B-008, B-009, B-010, B-017.
 
 ### 6.2 Waiting on the scrape (data the archive does not have yet)
 In order of what each would unlock (numbers from 2026-10-16):

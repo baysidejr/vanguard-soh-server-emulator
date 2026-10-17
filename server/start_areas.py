@@ -17,7 +17,8 @@ Where in the chunk, in this order:
 3. the densest cluster of the area's peaceful archive NPCs, i.e. the village [I].
 The original spawn spots were server data, so 2 and 3 are approximations.
 
-Off unless the server runs with --start-areas.
+The default since 2026-10-17 (owner decision); `login_stub --camp-start` puts new characters at the
+hand-made camp instead (testing).
 """
 import struct
 
