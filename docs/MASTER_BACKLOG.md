@@ -221,6 +221,6 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Not covered:** the pet's and minions' current health (they return at full health).
 
 ## B-028 Do buff icons survive a chunk change?
-- **Priority:** P3 · **Category:** verification · **State:** IN_PROGRESS (inconclusive)
+- **Priority:** P3 · **Category:** verification · **State:** COMPLETE (no defect)
 - **So far (live 2026-10-17):** buffs live on the server-side player object, so the server keeps them; the client's display is the question. A 45 s buff (Adamant Foeman I) showed its icon with 34 s left, but the riftway took about as long, so its absence afterwards proves nothing; a stance (Offensive Style I) shows no icon in that area even before the riftway.
-- **Next:** a buff of a few minutes (or a winbreak on the client's effect list) before and after a riftway; if the icon is lost, re-send `effects.effect_add` for each active effect in `remount_after_zone_in`.
+- **Settled (live 2026-10-17):** a 10-minute effect sent with `!event 0x23a` (effects.effect_add) showed "9m" before the riftway and still "9m" in Khal after it: the client keeps effect icons across a hand-off. No change needed.
