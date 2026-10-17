@@ -154,3 +154,8 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Owner decision 2026-10-17: YES.** Real starting areas are the default; `login_stub --camp-start` keeps the hand-made camp for testing (`--start-areas` is still accepted, now a no-op).
 - **Onboarding gap (documented, not invented):** quests whose givers stand in each start: Isle of Dawn 10 (0 with real objectives), Tursh Village 28 (2), Shang Village 1 (0), Karibasa Village 3 (2); the rest are delivery placeholders under review in B-007. The hand-made tutorial quests stay at the camp. Real starting-area quests arrive with the archive scrape (B-009).
 - **Still open:** a character made through the client's own create screen (the create path is verified with bot requests carrying the same bytes).
+
+## B-018 Every offered quest can be finished
+- **Priority:** P1 · **Category:** gameplay correctness · **State:** VERIFIED
+- **Why:** content.py only checks that names exist; imports, disabled quests (B-007) and moved spawns could leave a quest whose giver, target or item is nowhere in the world.
+- **Done 2026-10-17:** `python tools/quest_check.py` checks every enabled quest: giver and hand-in spawned, kill and talk targets spawned, each collect item dropped by a spawned creature, gathered from a spawned node, sold by a spawned merchant or given by another quest. Result: 99 of 99 enabled quests can be finished. QuestCheckTests: the checker finds a missing creature and an item with no source, skips disabled quests, and the real content stays clean (guards future imports).

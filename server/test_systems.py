@@ -2382,3 +2382,44 @@ class DisabledQuestTests(unittest.TestCase):
         kept = [v for v in placeholders if not v.get("disabled")]
         self.assertTrue(all(v.get("_delivery_evidence") for v in kept))       # only with evidence
         self.assertTrue(all(v.get("_disabled") for v in placeholders if v.get("disabled")))
+
+
+class QuestCheckTests(unittest.TestCase):
+    """tools/quest_check.py: every quest a player can be offered can be finished."""
+
+    @staticmethod
+    def tool():
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import quest_check
+        return quest_check
+
+    def test_finds_what_is_missing(self):
+        import json
+        import tempfile
+        qc = self.tool()
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "spawns"))
+            mobs = {"giver": {"name": "Giver"}, "wolf": {"name": "Wolf", "loot": "wolf_drops"},
+                    "ghost": {"name": "Ghost"}, "vein": {"name": "Vein", "harvest": {"item": "Ore"}}}
+            files = {"mobs.json": mobs, "loot.json": {"wolf_drops": [{"name": "Pelt"}]}, "merchants.json": {},
+                     "quests.json": {
+                         "ok": {"name": "Ok", "giver": "giver",
+                                "steps": [{"kill": {"wolf": 1}}, {"collect": {"Pelt": 1, "Ore": 1}}]},
+                         "bad": {"name": "Bad", "giver": "giver",
+                                 "steps": [{"kill": {"ghost": 1}}, {"collect": {"Gold Bar": 1}}]},
+                         "off": {"name": "Off", "giver": "ghost", "disabled": True}}}
+            for name, data in files.items():
+                with open(os.path.join(d, name), "w", encoding="utf-8") as f:
+                    json.dump(data, f)
+            with open(os.path.join(d, "spawns", "c.json"), "w", encoding="utf-8") as f:
+                json.dump({"spawns": [{"mob": m} for m in ("giver", "wolf", "vein")]}, f)
+            rows = {k: probs for k, _q, probs in qc.check(d)}
+        self.assertEqual(rows["ok"], [])
+        self.assertTrue(any("'Ghost' is not spawned" in p for p in rows["bad"]))
+        self.assertTrue(any("'Gold Bar'" in p for p in rows["bad"]))
+        self.assertNotIn("off", rows)                                    # disabled quests are skipped
+
+    def test_real_content_is_finishable(self):
+        bad = [(k, probs) for k, _q, probs in self.tool().check() if probs]
+        self.assertEqual(bad, [])
