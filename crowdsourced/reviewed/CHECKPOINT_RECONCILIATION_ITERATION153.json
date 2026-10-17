@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-17T14:58:45+00:00",
+  "inventory": 104855,
+  "done": 26918,
+  "pending": 77954,
+  "missing": [],
+  "overlap": [],
+  "duplicates": 0,
+  "network_requests": 0,
+  "alternate_suspension_preserved": true,
+  "coverage": {
+    "source_only": 1589,
+    "not_downloaded": 77947,
+    "supported": 104855,
+    "published": 25102,
+    "published_with_issues": 1806
+  },
+  "explanation": "Coverage counts reviewed inventory URLs across immutable batches, including cache replays. Live done/queue checkpoints measure downloader progress separately; do not replace them with publication coverage.",
+  "collector_running": false,
+  "run_lock_present": false,
+  "stop_signal_preserved": true,
+  "persisted_interval_seconds": 60.0,
+  "alternate_pending": 50,
+  "tests": "162 passed; python -B -W error::ResourceWarning -m unittest discover -s tests -q"
+}
