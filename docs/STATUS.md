@@ -221,6 +221,7 @@ In order of what each would unlock (numbers from 2026-10-16):
 - **Doors:** none exist in the shipped maps (the protocol is worked out).
 - **Psionicist psionic points:** the messages are known, but the shipped UI has no window for them.
 - **The civic stats window:** none in the shipped UI (`/citystatus` lists them in chat instead).
+- **Other diplomacy lists** (attributes, parley skills, expendables, traits): decoded, but no shipped UI file reads them (VGUIAssets references only `PCDiplomacyPresenceList`, checked 2026-10-17), so nothing can display them.
 - **Adventure Journal quests section** (messages 0x2a2/0x2a7/0x2a8/0x2ab decoded): no window shows it in the shipped UI.
 
 ### 6.4 Server features still open
@@ -228,7 +229,6 @@ In order of what each would unlock (numbers from 2026-10-16):
 - **Invisible quest-node particles:** the quest-node glow is attached by the client but was not seen. Its emitters are small sparkles at the node's pivot (`tools/fx_props.py`), but size is not why it is unseen: spawned on open ground next to a visible sparkler it still showed nothing (live, 2026-10-17); attached to an NPC (Orin) with the same messages it does render (gold sparkles around his head, live 2026-10-17), so only the harvest-node pawns hide it: the client places it at twice the node's collision height (50 for an ore vein, read with winbreak) above its base, inside the taller boulder. Client data; left as is. (The corpse loot sparkle does show: small white glints, seen live 2026-10-15, docs/LOOT.md. Fireworks show via sparkler emitters.)
 - **Flight landing** can't trigger where the server's terrain lookup has no height (far east end of the Sundering Wastelands); the flier just stops on what it touches.
 - **Presence gating:** parleys don't require presence yet (deliberately, until presence has a real source).
-- **Other diplomacy lists** (attributes, parley skills, expendables, traits) are decoded but no window shown so far displays them.
 - **Feel of the numbers:** someone who played the original should judge XP, damage, prices.
 
 ### 6.5 Testing a person should do
