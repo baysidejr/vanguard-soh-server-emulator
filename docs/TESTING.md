@@ -132,9 +132,9 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] Target a mob, auto-attack, see hits, misses, dodges, crits in the Combat tab
 - [ ] Hotbar abilities, cooldown sweep, cast bars, damage over time icon on the target
 - [ ] Warrior chain: Brutal Strike → Savage Cut → finisher; counter Venom Spit with Riposte
-- [ ] Get stunned, rooted and feared (`!cc stun`, `!cc root`, `!cc fear`)
+- [x] Get stunned, rooted and feared (`!cc stun`, `!cc root`, `!cc fear`) (2026-10-17: "Garret Holm's Test Stun stuns you!", "... Test Root roots you!", "... Test Fear terrifies you!", each ending "You can move again.")
 - [ ] `/forcecombatstance on` keeps the combat pose; as a Psionicist, pick a mindset, `/applyformondeath on`, `!die`, release: the mindset comes back
-- [ ] Kill a mob, XP bar rises, level up heals you and raises attributes
+- [ ] Kill a mob, XP bar rises, level up heals you and raises attributes (2026-10-17, scratch save with XP set just under level 22: kills gave "You gain 1 adventuring experience!", then "You have reached level 22! You have gained new adventuring attribute points!" and the portrait read 22; the heal not seen, health was already full)
 - [ ] Die, release, recover the tombstone, bind at the altar
 - [ ] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House (2026-10-17: Recall from Karibasa "You begin to cast Recall." and arrived at the Khal bind point; Sprint's speed and Recall to House not checked yet)
 - [x] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded (2026-10-17: "Right Arm - Mid", then "Some of your wounds have been cured! Right Arm - Minor", then "Right Arm - Unwounded")
