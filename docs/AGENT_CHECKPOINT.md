@@ -20,7 +20,7 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - `AGENT_MISSION.md`: user-provided, ignored by `.gitignore` (`/*`), intentionally not committed.
 
 ## Tests
-- Passed (latest `check_all.py`, 2026-10-17): unit tests (295), content check, scenarios (26), load test, server-log scan, fuzzing; `--client` 7/7 earlier today.
+- Passed (latest `check_all.py`, 2026-10-17): unit tests (294), content check, scenarios (26), load test, server-log scan, fuzzing; `--client` 7/7 earlier today.
 - `check_all.py --client` 7 of 7 on 2026-10-17 (smoke test with the game client).
 
 ## Blockers and user decisions

@@ -175,7 +175,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `/decksave 1`, `/deckclear`, `/deckload 1` re-slot the strategy bar
 
 **Regions and archive content**
-- [ ] At the camp brazier, `/rift KHAL`: Ranger arrives at the caravan stop outside Khal (free, purple); `/rift SUNDERINGWASTELANDS` at the Khal brazier brings you back. Try a paid one (`/rift LOMSHIR`, 50 copper)
+- [x] At the camp brazier, `/rift KHAL`: Ranger arrives at the caravan stop outside Khal (free, purple); `/rift SUNDERINGWASTELANDS` at the Khal brazier brings you back. Try a paid one (`/rift LOMSHIR`, 50 copper) (2026-10-17, scratch save: Khal caravan stop with the wagon, "Location discovered: Riftway"; back at the camp brazier; Lomshir: "You lose 50 copper. The riftway carries you to Lomshir.")
 - [ ] In Khal, Afshin Budjiri (Warrior Trainer) stands in a hall with weapon racks; as a Ranger he offers no training, Telqu Daejieh (Ranger Trainer) does
 - [ ] Hail Afshin: three parley options (Gossip, Convince, Interview); Convince opens "Parley - Convince"
 - [ ] `/con` an imported NPC or creature: the difficulty sentence matches its archive dots (e.g. "much more difficult")
@@ -197,7 +197,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 **Social**
 - [ ] ✦ Group invite and group window bars; Find tab Request to Join
 - [ ] ✦ Guild create, invite, ranks, guild chat; brotherhood invite and XP bonus
-- [ ] Friends, ignore, `/who`, `/afk`, `/random`, `/inspect`, `/bug`
+- [ ] Friends, ignore, `/who`, `/afk`, `/random`, `/inspect`, `/bug` (2026-10-17: `/who`, `/afk` and `/random 100` print their lines in the client; friends, ignore, /inspect and /bug not yet looked at in the client, their server side is in scenarios.py)
 
 **Travel and the world**
 - [ ] Ride the horse, dire wolf and camel; `/dismount`
