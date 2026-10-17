@@ -1,0 +1,450 @@
+{
+  "audit_kind": "cached_quest_label_anomaly_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal labelled observations from one cached archive page; no verified identity or prerequisite resolution",
+  "input": {
+    "path": "reviewed/CROSS_SOURCE_QUEST_IDENTITY_ITERATION201.json",
+    "sha256": "358d197bd23be975af8369edad8af699aad2dcde04e1437c740866a2e866cb8b"
+  },
+  "reviews": [
+    {
+      "normalized_name": "the qalian journeyman",
+      "url": "https://vgsoharchive.com/quests/the-qalian-journeyman",
+      "cache_path": ".cache/archive/89634515cb19d4ddcf42165065a72ac77dbd4afd126134248bf0f44ecf21c6ac.txt",
+      "cache_sha256": "7dc748ec97965cfc773d333058e4181ef4611c55ad36ebb12a7ce880e11a2586",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": "Valer Thanul",
+          "html": "<dd><a href=\"/mobs/valer-thanul\">Valer Thanul</a>\n</dd>",
+          "links": [
+            {
+              "text": "Valer Thanul",
+              "href": "/mobs/valer-thanul"
+            }
+          ]
+        },
+        {
+          "label": "Starts in",
+          "text": "Valer Thanul",
+          "html": "<dd><a href=\"/zones/valer-thanul\">Valer Thanul</a>\n</dd>",
+          "links": [
+            {
+              "text": "Valer Thanul",
+              "href": "/zones/valer-thanul"
+            }
+          ]
+        },
+        {
+          "label": "Hand in to",
+          "text": "Valer Thanul",
+          "html": "<dd><a href=\"/mobs/valer-thanul\">Valer Thanul</a>\n</dd>",
+          "links": [
+            {
+              "text": "Valer Thanul",
+              "href": "/mobs/valer-thanul"
+            }
+          ]
+        },
+        {
+          "label": "Previous",
+          "text": "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice",
+          "html": "<dd>Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Rating",
+          "text": "7.0",
+          "html": "<dd>7.0</dd>",
+          "links": []
+        },
+        {
+          "label": "Faction raised",
+          "text": "Qalian Artisans +100",
+          "html": "<dd>Qalian Artisans +100</dd>",
+          "links": []
+        },
+        {
+          "label": "Items needed",
+          "text": "Worked Haft",
+          "html": "<dd>Worked Haft</dd>",
+          "links": []
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+          "line": 50,
+          "record": {
+            "name": "The Qalian Journeyman",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-qalian-journeyman",
+                "title": "The Qalian Journeyman · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:55:22+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Valer Thanul"
+              ],
+              "starts in": [
+                "Valer Thanul"
+              ],
+              "hand in to": [
+                "Valer Thanul"
+              ],
+              "previous": [
+                "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "faction raised": [
+                "Qalian Artisans +100"
+              ],
+              "items needed": [
+                "Worked Haft"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Valer Thanul",
+                "url": "https://vgsoharchive.com/zones/valer-thanul"
+              },
+              {
+                "name": "Valer Thanul",
+                "url": "https://vgsoharchive.com/mobs/valer-thanul"
+              },
+              {
+                "name": "Qalian Steelmaker's Necklace",
+                "url": "https://vgsoharchive.com/items/qalian-steelmaker-s-necklace"
+              }
+            ],
+            "type": "quest",
+            "level": 16,
+            "zone": "Valer Thanul",
+            "giver": "Valer Thanul",
+            "turn_in": "Valer Thanul",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice",
+            "chain_next": null,
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "- Worked Haft",
+                "count": 5,
+                "objective": "- Worked Haft (0/5)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "- Worked Haft (0/5)",
+                "kind": null,
+                "target": null,
+                "count": 5
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4140,
+          "record": {
+            "name": "The Qalian Journeyman",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-qalian-journeyman",
+                "title": "The Qalian Journeyman · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Valer Thanul"
+              ],
+              "starts in": [
+                "Valer Thanul"
+              ],
+              "hand in to": [
+                "Valer Thanul"
+              ],
+              "previous": [
+                "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "faction raised": [
+                "Qalian Artisans +100"
+              ],
+              "items needed": [
+                "Worked Haft"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Valer Thanul",
+                "url": "https://vgsoharchive.com/zones/valer-thanul"
+              },
+              {
+                "name": "Valer Thanul",
+                "url": "https://vgsoharchive.com/mobs/valer-thanul"
+              },
+              {
+                "name": "Qalian Steelmaker's Necklace",
+                "url": "https://vgsoharchive.com/items/qalian-steelmaker-s-necklace"
+              }
+            ],
+            "type": "quest",
+            "level": 16,
+            "zone": "Valer Thanul",
+            "giver": "Valer Thanul",
+            "turn_in": "Valer Thanul",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice",
+            "chain_next": null,
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "- Worked Haft",
+                "count": 5,
+                "objective": "- Worked Haft (0/5)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "- Worked Haft (0/5)",
+                "kind": null,
+                "target": null,
+                "count": 5
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-110506-005713-archive-quest-additional-trackers-v21/quest.jsonl",
+          "line": 1284,
+          "record": {
+            "name": "The Qalian Journeyman",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-qalian-journeyman",
+                "title": "The Qalian Journeyman · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 21,
+            "collected_at": "2026-10-14T15:05:11+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Valer Thanul"
+              ],
+              "starts in": [
+                "Valer Thanul"
+              ],
+              "hand in to": [
+                "Valer Thanul"
+              ],
+              "previous": [
+                "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "faction raised": [
+                "Qalian Artisans +100"
+              ],
+              "items needed": [
+                "Worked Haft"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Valer Thanul",
+                "url": "https://vgsoharchive.com/zones/valer-thanul"
+              },
+              {
+                "name": "Valer Thanul",
+                "url": "https://vgsoharchive.com/mobs/valer-thanul"
+              },
+              {
+                "name": "Qalian Steelmaker's Necklace",
+                "url": "https://vgsoharchive.com/items/qalian-steelmaker-s-necklace"
+              }
+            ],
+            "type": "quest",
+            "level": 16,
+            "zone": "Valer Thanul",
+            "giver": "Valer Thanul",
+            "turn_in": "Valer Thanul",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice",
+            "chain_next": null,
+            "quest_chain": null,
+            "archive_objective_counters": [
+              {
+                "label": "Worked Haft",
+                "count": 5,
+                "objective": "- Worked Haft (0/5)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "- Worked Haft (0/5)",
+                "kind": null,
+                "target": null,
+                "count": 5
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 3425,
+          "name": "The Qalian Journeyman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 3426,
+          "name": "The Qalian Journeyman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 3427,
+          "name": "The Qalian Journeyman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Source explicitly links Valer Thanul under both Starts with (/mobs/) and Starts in (/zones/). The zone label duplicates the NPC label; retain the source link but withhold verified zone identity. Previous is one unlinked string combining faction, level and quest-name text; no prerequisite semantics or client IDs are established.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null,
+      "extracted_source_observations": [
+        {
+          "label": "Starts with",
+          "value": "Valer Thanul",
+          "linked_path": "/mobs/valer-thanul",
+          "canonical_client_id": null
+        },
+        {
+          "label": "Hand in to",
+          "value": "Valer Thanul",
+          "linked_path": "/mobs/valer-thanul",
+          "canonical_client_id": null
+        },
+        {
+          "label": "Starts in",
+          "value": "Valer Thanul",
+          "linked_path": "/zones/valer-thanul",
+          "verified_zone_identity": null
+        },
+        {
+          "label": "Previous",
+          "raw_value": "Qalian Artisans 400 Outfitter Level 41 The Qalian Apprentice",
+          "required_faction": null,
+          "required_level": null,
+          "required_profession": null,
+          "required_previous_quest": null
+        },
+        {
+          "label": "Faction raised",
+          "raw_value": "Qalian Artisans +100",
+          "faction_label": "Qalian Artisans",
+          "printed_change": 100,
+          "historical_applicability": null
+        },
+        {
+          "label": "Items needed",
+          "raw_value": "Worked Haft",
+          "item_name_label": "Worked Haft",
+          "quantity": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Rating",
+          "raw_value": "7.0",
+          "gameplay_meaning": null
+        }
+      ]
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "request_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cache_hashes_verified": 1,
+    "full_archive_records_verified": 3,
+    "unknown_assignments_withheld": true
+  }
+}
