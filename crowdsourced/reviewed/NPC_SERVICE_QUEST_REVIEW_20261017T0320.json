@@ -1,0 +1,3104 @@
+{
+  "reviewed_at": "2026-10-17T03:20:48.205654+00:00",
+  "scope": "Independent cached DOM review of all NPC service and Quests given relationships in latest published network batch. No network requests, no extraction helpers, no immutable record changes. Quest rewards and general diplomacy links are excluded from giver evidence.",
+  "records_reviewed": 36,
+  "checks_passed": 108,
+  "issues": [],
+  "records": [
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/suspicious-scroll",
+      "cache_sha256": "84b8260c92d562836b2443b32372e9ac9e4d46d0b42dd1a7df1e602973ef3d0b",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "A Suspicious Scroll",
+          "url": "https://vgsoharchive.com/quests/a-suspicious-scroll"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suspicious Scroll",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suspicious-scroll",
+            "title": "Suspicious Scroll · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:37:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "A Suspicious Scroll",
+            "url": "https://vgsoharchive.com/quests/a-suspicious-scroll"
+          },
+          {
+            "name": "Mask of Discernment",
+            "url": "https://vgsoharchive.com/items/mask-of-discernment"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "A Suspicious Scroll"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "url": "https://vgsoharchive.com/mobs/suty-akabanas",
+      "cache_sha256": "6757fbbd906f62375ffccb1709ac7880d392d9cc30d48c2b36c534cb5ec638ff",
+      "source_roles": [
+        "Merchant - Ranged Weapons"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suty Akabanas",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suty-akabanas",
+            "title": "Suty Akabanas · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:41:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Afrit"
+          ],
+          "role": [
+            "Merchant - Ranged Weapons"
+          ],
+          "location": [
+            "2252, -48306, 708"
+          ],
+          "chunk": [
+            "Afrit"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Afrit"
+          ],
+          "station": [
+            "Outsider"
+          ],
+          "presence": [
+            "700"
+          ],
+          "parley level": [
+            "45"
+          ],
+          "parley types": [
+            "[[[ Gossip ]]], , , , [[[ Interview ]]]"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Basic Ammo Case",
+            "url": "https://vgsoharchive.com/items/basic-ammo-case"
+          },
+          {
+            "name": "Basic Light Crossbow",
+            "url": "https://vgsoharchive.com/items/basic-light-crossbow"
+          },
+          {
+            "name": "Basic Short Bow",
+            "url": "https://vgsoharchive.com/items/basic-short-bow"
+          },
+          {
+            "name": "Crude Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/crude-barbed-arrow"
+          },
+          {
+            "name": "Crude Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/crude-bodkin-bolt"
+          },
+          {
+            "name": "Crude Bolt",
+            "url": "https://vgsoharchive.com/items/crude-bolt"
+          },
+          {
+            "name": "Crude Flight Arrow",
+            "url": "https://vgsoharchive.com/items/crude-flight-arrow"
+          },
+          {
+            "name": "Crude Short Spear",
+            "url": "https://vgsoharchive.com/items/crude-short-spear"
+          },
+          {
+            "name": "Crude Shuriken",
+            "url": "https://vgsoharchive.com/items/crude-shuriken"
+          },
+          {
+            "name": "Crude Throwing Axe",
+            "url": "https://vgsoharchive.com/items/crude-throwing-axe"
+          },
+          {
+            "name": "Crude Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/crude-throwing-dagger"
+          },
+          {
+            "name": "Crude Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/crude-throwing-hammer"
+          },
+          {
+            "name": "Honed Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/honed-barbed-arrow"
+          },
+          {
+            "name": "Honed Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/honed-bodkin-bolt"
+          },
+          {
+            "name": "Honed Bolt",
+            "url": "https://vgsoharchive.com/items/honed-bolt"
+          },
+          {
+            "name": "Honed Flight Arrow",
+            "url": "https://vgsoharchive.com/items/honed-flight-arrow"
+          },
+          {
+            "name": "Plain Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/plain-barbed-arrow"
+          },
+          {
+            "name": "Plain Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/plain-bodkin-bolt"
+          },
+          {
+            "name": "Plain Bolt",
+            "url": "https://vgsoharchive.com/items/plain-bolt"
+          },
+          {
+            "name": "Plain Flight Arrow",
+            "url": "https://vgsoharchive.com/items/plain-flight-arrow"
+          },
+          {
+            "name": "Polished Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/polished-barbed-arrow"
+          },
+          {
+            "name": "Polished Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/polished-bodkin-bolt"
+          },
+          {
+            "name": "Polished Bolt",
+            "url": "https://vgsoharchive.com/items/polished-bolt"
+          },
+          {
+            "name": "Polished Flight Arrow",
+            "url": "https://vgsoharchive.com/items/polished-flight-arrow"
+          },
+          {
+            "name": "Polished Short Spear",
+            "url": "https://vgsoharchive.com/items/polished-short-spear"
+          },
+          {
+            "name": "Polished Shuriken",
+            "url": "https://vgsoharchive.com/items/polished-shuriken"
+          },
+          {
+            "name": "Polished Throwing Axe",
+            "url": "https://vgsoharchive.com/items/polished-throwing-axe"
+          },
+          {
+            "name": "Polished Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/polished-throwing-hammer"
+          },
+          {
+            "name": "Precise Barbed Arrow",
+            "url": "https://vgsoharchive.com/items/precise-barbed-arrow"
+          },
+          {
+            "name": "Precise Bodkin Bolt",
+            "url": "https://vgsoharchive.com/items/precise-bodkin-bolt"
+          },
+          {
+            "name": "Precise Bolt",
+            "url": "https://vgsoharchive.com/items/precise-bolt"
+          },
+          {
+            "name": "Precise Flight Arrow",
+            "url": "https://vgsoharchive.com/items/precise-flight-arrow"
+          },
+          {
+            "name": "Precision Short Spear",
+            "url": "https://vgsoharchive.com/items/precision-short-spear"
+          },
+          {
+            "name": "Precision Shuriken",
+            "url": "https://vgsoharchive.com/items/precision-shuriken"
+          },
+          {
+            "name": "Precision Throwing Axe",
+            "url": "https://vgsoharchive.com/items/precision-throwing-axe"
+          },
+          {
+            "name": "Precision Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/precision-throwing-dagger"
+          },
+          {
+            "name": "Precision Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/precision-throwing-hammer"
+          },
+          {
+            "name": "Short Spear",
+            "url": "https://vgsoharchive.com/items/short-spear"
+          },
+          {
+            "name": "Shuriken",
+            "url": "https://vgsoharchive.com/items/shuriken"
+          },
+          {
+            "name": "Splintered Light Crossbow",
+            "url": "https://vgsoharchive.com/items/splintered-light-crossbow"
+          },
+          {
+            "name": "Splintered Short Bow",
+            "url": "https://vgsoharchive.com/items/splintered-short-bow"
+          },
+          {
+            "name": "Throwing Axe",
+            "url": "https://vgsoharchive.com/items/throwing-axe"
+          },
+          {
+            "name": "Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/throwing-dagger"
+          },
+          {
+            "name": "Thrown Hammer",
+            "url": "https://vgsoharchive.com/items/thrown-hammer"
+          },
+          {
+            "name": "Weighted Short Spear",
+            "url": "https://vgsoharchive.com/items/weighted-short-spear"
+          },
+          {
+            "name": "Weighted Shuriken",
+            "url": "https://vgsoharchive.com/items/weighted-shuriken"
+          },
+          {
+            "name": "Weighted Throwing Axe",
+            "url": "https://vgsoharchive.com/items/weighted-throwing-axe"
+          },
+          {
+            "name": "Weighted Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/weighted-throwing-dagger"
+          },
+          {
+            "name": "Weighted Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/weighted-throwing-hammer"
+          },
+          {
+            "name": "Well-Balanced Short Spear",
+            "url": "https://vgsoharchive.com/items/well-balanced-short-spear"
+          },
+          {
+            "name": "Well-Balanced Shuriken",
+            "url": "https://vgsoharchive.com/items/well-balanced-shuriken"
+          },
+          {
+            "name": "Well-Balanced Throwing Axe",
+            "url": "https://vgsoharchive.com/items/well-balanced-throwing-axe"
+          },
+          {
+            "name": "Well-Balanced Throwing Dagger",
+            "url": "https://vgsoharchive.com/items/well-balanced-throwing-dagger"
+          },
+          {
+            "name": "Well-Balanced Throwing Hammer",
+            "url": "https://vgsoharchive.com/items/well-balanced-throwing-hammer"
+          }
+        ],
+        "type": "npc",
+        "level": 40,
+        "zone": "Afrit",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": "Afrit",
+        "location": {
+          "raw": "2252, -48306, 708",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Afrit"
+        },
+        "zones_recorded": [
+          "Afrit"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Afrit",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "url": "https://vgsoharchive.com/mobs/suvean-deathsummoner",
+      "cache_sha256": "e341459dd498bd2d610a4e128b06dec5bdb7e23a94c4f5c32f4d79c984ccfe40",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Deadly Rivals",
+          "url": "https://vgsoharchive.com/quests/deadly-rivals"
+        },
+        {
+          "name": "Die In A Fire",
+          "url": "https://vgsoharchive.com/quests/die-in-a-fire"
+        },
+        {
+          "name": "The Beacon's Fire",
+          "url": "https://vgsoharchive.com/quests/the-beacon-s-fire"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suvean Deathsummoner",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suvean-deathsummoner",
+            "title": "Suvean Deathsummoner · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:42:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Kaon's Rush"
+          ],
+          "difficulty": [
+            "1 dot"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Deadly Rivals",
+            "url": "https://vgsoharchive.com/quests/deadly-rivals"
+          },
+          {
+            "name": "Die In A Fire",
+            "url": "https://vgsoharchive.com/quests/die-in-a-fire"
+          },
+          {
+            "name": "The Beacon's Fire",
+            "url": "https://vgsoharchive.com/quests/the-beacon-s-fire"
+          },
+          {
+            "name": "Suvean's Corpse Fragments",
+            "url": "https://vgsoharchive.com/items/suvean-s-corpse-fragments"
+          }
+        ],
+        "type": "npc",
+        "level": 18,
+        "zone": "Kaon's Rush",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Deadly Rivals",
+          "Die In A Fire",
+          "The Beacon's Fire"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Kaon's Rush"
+        ],
+        "loot_ref": "Suvean Deathsummoner",
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "1 dot",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "url": "https://vgsoharchive.com/mobs/suzou",
+      "cache_sha256": "99cee7ae5232fe7e637be2f3dc093b9fb6268d729068946b73a988f567ce9882",
+      "source_roles": [
+        "Heavy Armor Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suzou",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suzou",
+            "title": "Suzou · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:44:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Tanvu"
+          ],
+          "role": [
+            "Heavy Armor Vendor"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "chunk": [
+            "Tanvu"
+          ],
+          "continent": [
+            "Kojan"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": 1,
+        "zone": "Tanvu",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": "Tanvu",
+        "location": null,
+        "zones_recorded": [
+          "Tanvu"
+        ],
+        "continent": "Kojan",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "url": "https://vgsoharchive.com/mobs/svartr-rugtvedt",
+      "cache_sha256": "a54a75e07f7fa7343e925b941fcd283d3f17884a3d314b58868c40baf4e0dddb",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Chasing Down Pups",
+          "url": "https://vgsoharchive.com/quests/chasing-down-pups"
+        },
+        {
+          "name": "Pooch On The Loose",
+          "url": "https://vgsoharchive.com/quests/pooch-on-the-loose"
+        },
+        {
+          "name": "The Lobo Hunt",
+          "url": "https://vgsoharchive.com/quests/the-lobo-hunt"
+        },
+        {
+          "name": "Hillshadow (Quest)",
+          "url": "https://vgsoharchive.com/quests/hillshadow-quest"
+        },
+        {
+          "name": "Hillshadow",
+          "url": "https://vgsoharchive.com/quests/hillshadow"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Svartr Rugtvedt",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/svartr-rugtvedt",
+            "title": "Svartr Rugtvedt · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:46:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Halgarad"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Halgarad",
+            "url": "https://vgsoharchive.com/zones/halgarad"
+          },
+          {
+            "name": "Chasing Down Pups",
+            "url": "https://vgsoharchive.com/quests/chasing-down-pups"
+          },
+          {
+            "name": "Pooch On The Loose",
+            "url": "https://vgsoharchive.com/quests/pooch-on-the-loose"
+          },
+          {
+            "name": "The Lobo Hunt",
+            "url": "https://vgsoharchive.com/quests/the-lobo-hunt"
+          },
+          {
+            "name": "Hillshadow (Quest)",
+            "url": "https://vgsoharchive.com/quests/hillshadow-quest"
+          },
+          {
+            "name": "Hillshadow",
+            "url": "https://vgsoharchive.com/quests/hillshadow"
+          },
+          {
+            "name": "Companion Cap",
+            "url": "https://vgsoharchive.com/items/companion-cap"
+          },
+          {
+            "name": "Heavy Companion Helm",
+            "url": "https://vgsoharchive.com/items/heavy-companion-helm"
+          },
+          {
+            "name": "Heavy Lobo Gloves",
+            "url": "https://vgsoharchive.com/items/heavy-lobo-gloves"
+          },
+          {
+            "name": "Inscribed Lobo Gloves",
+            "url": "https://vgsoharchive.com/items/inscribed-lobo-gloves"
+          },
+          {
+            "name": "Leather Companion Helm",
+            "url": "https://vgsoharchive.com/items/leather-companion-helm"
+          },
+          {
+            "name": "Oiled Gnollslayer Bracers",
+            "url": "https://vgsoharchive.com/items/oiled-gnollslayer-bracers"
+          },
+          {
+            "name": "Oiled Lobo Gloves",
+            "url": "https://vgsoharchive.com/items/oiled-lobo-gloves"
+          },
+          {
+            "name": "Plated Gnollslayer Bracers",
+            "url": "https://vgsoharchive.com/items/plated-gnollslayer-bracers"
+          },
+          {
+            "name": "Runed Gnollslayer Cuffs",
+            "url": "https://vgsoharchive.com/items/runed-gnollslayer-cuffs"
+          },
+          {
+            "name": "Thin Lobo Gloves",
+            "url": "https://vgsoharchive.com/items/thin-lobo-gloves"
+          }
+        ],
+        "type": "npc",
+        "level": 25,
+        "zone": "Halgarad",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Chasing Down Pups",
+          "Pooch On The Loose",
+          "The Lobo Hunt",
+          "Hillshadow (Quest)",
+          "Hillshadow"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Halgarad"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "url": "https://vgsoharchive.com/mobs/svena-remniol",
+      "cache_sha256": "2b4b9bb370d67428f0e4467a7abfdae0e176d99bf013f27829b687dbf28b15d0",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Deliver The Proclamations",
+          "url": "https://vgsoharchive.com/quests/deliver-the-proclamations"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Svena Remniol",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/svena-remniol",
+            "title": "Svena Remniol · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:47:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "New Targonor"
+          ],
+          "difficulty": [
+            "6 dots"
+          ],
+          "chunk": [
+            "New Targonor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Deliver The Proclamations",
+            "url": "https://vgsoharchive.com/quests/deliver-the-proclamations"
+          },
+          {
+            "name": "Royal Courier",
+            "url": "https://vgsoharchive.com/quests/royal-courier"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "New Targonor",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Deliver The Proclamations"
+        ],
+        "chunk": "New Targonor",
+        "location": null,
+        "zones_recorded": [
+          "New Targonor"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "6 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-bahdor",
+      "cache_sha256": "baeec76279dc06592af6da115fcb21e33a5b93752f5164f73ada9d03839c1d91",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "The Way Out is Through",
+          "url": "https://vgsoharchive.com/quests/the-way-out-is-through"
+        },
+        {
+          "name": "Sharp Dressed Man",
+          "url": "https://vgsoharchive.com/quests/sharp-dressed-man"
+        },
+        {
+          "name": "Delivering On A Promise",
+          "url": "https://vgsoharchive.com/quests/delivering-on-a-promise"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Bahdor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-bahdor",
+            "title": "Swiftfang Bahdor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:14:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Halgarad"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Halgarad",
+            "url": "https://vgsoharchive.com/zones/halgarad"
+          },
+          {
+            "name": "The Way Out is Through",
+            "url": "https://vgsoharchive.com/quests/the-way-out-is-through"
+          },
+          {
+            "name": "Sharp Dressed Man",
+            "url": "https://vgsoharchive.com/quests/sharp-dressed-man"
+          },
+          {
+            "name": "Delivering On A Promise",
+            "url": "https://vgsoharchive.com/quests/delivering-on-a-promise"
+          },
+          {
+            "name": "Ever Deeper",
+            "url": "https://vgsoharchive.com/quests/ever-deeper"
+          },
+          {
+            "name": "Ancient Silver Plate",
+            "url": "https://vgsoharchive.com/items/ancient-silver-plate"
+          },
+          {
+            "name": "Card of Elocution",
+            "url": "https://vgsoharchive.com/items/card-of-elocution-2"
+          },
+          {
+            "name": "Courier Pouch",
+            "url": "https://vgsoharchive.com/items/courier-pouch"
+          },
+          {
+            "name": "Goat Cage",
+            "url": "https://vgsoharchive.com/items/goat-cage"
+          },
+          {
+            "name": "Messenger Boots",
+            "url": "https://vgsoharchive.com/items/messenger-boots-9"
+          },
+          {
+            "name": "Pouch Of Redsand",
+            "url": "https://vgsoharchive.com/items/pouch-of-redsand"
+          },
+          {
+            "name": "Ring Of Gruschka",
+            "url": "https://vgsoharchive.com/items/ring-of-gruschka"
+          },
+          {
+            "name": "Sheep Cage",
+            "url": "https://vgsoharchive.com/items/sheep-cage"
+          },
+          {
+            "name": "Spirit Watcher",
+            "url": "https://vgsoharchive.com/items/spirit-watcher-2"
+          },
+          {
+            "name": "Worn Kyanite",
+            "url": "https://vgsoharchive.com/items/worn-kyanite-4"
+          }
+        ],
+        "type": "npc",
+        "level": 25,
+        "zone": "Halgarad",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "The Way Out is Through",
+          "Sharp Dressed Man",
+          "Delivering On A Promise"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Halgarad"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-carsor",
+      "cache_sha256": "dd5f55e24917701f3cb00dd682323cad9612201d9c94d91da02195db885a210c",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Carsor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-carsor",
+            "title": "Swiftfang Carsor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:16:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "chunk": [
+            "Dahknarg"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": "Dahknarg",
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-cloa",
+      "cache_sha256": "8bb9c8673a56d3aa44cf2f3caf0045434ccc1bedcfb86c1a65558c397d0cdf40",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Eyes In The Dark",
+          "url": "https://vgsoharchive.com/quests/eyes-in-the-dark"
+        },
+        {
+          "name": "Hunter In The Dark",
+          "url": "https://vgsoharchive.com/quests/hunter-in-the-dark"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Cloa",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-cloa",
+            "title": "Swiftfang Cloa · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:17:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Halgarad"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Eyes In The Dark",
+            "url": "https://vgsoharchive.com/quests/eyes-in-the-dark"
+          },
+          {
+            "name": "Hunter In The Dark",
+            "url": "https://vgsoharchive.com/quests/hunter-in-the-dark"
+          },
+          {
+            "name": "Starpine Oil",
+            "url": "https://vgsoharchive.com/items/starpine-oil-2"
+          },
+          {
+            "name": "Strange Leather Bag",
+            "url": "https://vgsoharchive.com/items/strange-leather-bag"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Halgarad",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Eyes In The Dark",
+          "Hunter In The Dark"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Halgarad"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-cortoose",
+      "cache_sha256": "13e0d588befbfe38972411b90fd944baa02a434be79e8addeba0e90d57d97456",
+      "source_roles": [
+        "Banker"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Cortoose",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-cortoose",
+            "title": "Swiftfang Cortoose · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:20:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Banker"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "chunk": [
+            "Dahknarg"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "banker"
+        ],
+        "quests_given": [],
+        "chunk": "Dahknarg",
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-darlaf",
+      "cache_sha256": "d0c7f8334bdf6de2bc0acacf0e1f724c1a9315f83caeb7761ef3b9d8d261b584",
+      "source_roles": [
+        "Rogue Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Darlaf",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-darlaf",
+            "title": "Swiftfang Darlaf · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:21:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Halgarad"
+          ],
+          "role": [
+            "Rogue Instructor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Halgarad",
+            "url": "https://vgsoharchive.com/zones/halgarad"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Halgarad",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Halgarad"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-darlaw",
+      "cache_sha256": "419d264cddbd4d307074ab1ef8f5ccad92e4f8629524a989f2d474696e95616d",
+      "source_roles": [
+        "Rogue Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Darlaw",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-darlaw",
+            "title": "Swiftfang Darlaw · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:22:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Halgarad"
+          ],
+          "role": [
+            "Rogue Instructor"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "chunk": [
+            "Halgarad"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": 50,
+        "zone": "Halgarad",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": "Halgarad",
+        "location": null,
+        "zones_recorded": [
+          "Halgarad"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-drennas",
+      "cache_sha256": "3634ec486e7d3e75ec422c6d2a90458585f29c6d822347b8b0937939dc713646",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Bloodhowler Weapons",
+          "url": "https://vgsoharchive.com/quests/bloodhowler-weapons"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Drennas",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-drennas",
+            "title": "Swiftfang Drennas · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:24:15+00:00",
+        "archive_fields": {
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "Bloodhowler Weapons",
+            "url": "https://vgsoharchive.com/quests/bloodhowler-weapons"
+          },
+          {
+            "name": "Ghostclaw Gloves",
+            "url": "https://vgsoharchive.com/items/ghostclaw-gloves"
+          },
+          {
+            "name": "Nighthunter Gloves",
+            "url": "https://vgsoharchive.com/items/nighthunter-gloves"
+          },
+          {
+            "name": "Swiftfang Gloves",
+            "url": "https://vgsoharchive.com/items/swiftfang-gloves"
+          }
+        ],
+        "type": "npc",
+        "level": 8,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Bloodhowler Weapons"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-gahrdor",
+      "cache_sha256": "2c43582b1df8766dd979c94894e074521970e9833ec72aae07cb36838596d792",
+      "source_roles": [
+        "Medium Armor Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Gahrdor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-gahrdor",
+            "title": "Swiftfang Gahrdor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:27:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Medium Armor Vendor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 15,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-gherron",
+      "cache_sha256": "6ca409fb3e6a5cd2ea3dec39a2df4c575fc2598b8d4ea69de71a601b87d3f724",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Gherron",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-gherron",
+            "title": "Swiftfang Gherron · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:28:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": 25,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 16,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-hekosh",
+      "cache_sha256": "68073a50a143a9f9c9777fed59606c88cee070be96e3f3609119831c802e1d81",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "The Wolf Within",
+          "url": "https://vgsoharchive.com/quests/the-wolf-within"
+        },
+        {
+          "name": "Hounds Of The Invasion",
+          "url": "https://vgsoharchive.com/quests/hounds-of-the-invasion"
+        },
+        {
+          "name": "Many Components",
+          "url": "https://vgsoharchive.com/quests/many-components"
+        },
+        {
+          "name": "Vial Discrepancies",
+          "url": "https://vgsoharchive.com/quests/vial-discrepancies"
+        },
+        {
+          "name": "Qalian Components",
+          "url": "https://vgsoharchive.com/quests/qalian-components"
+        },
+        {
+          "name": "Precision Hoarding",
+          "url": "https://vgsoharchive.com/quests/precision-hoarding"
+        },
+        {
+          "name": "Provoking Shadowhounds",
+          "url": "https://vgsoharchive.com/quests/provoking-shadowhounds"
+        },
+        {
+          "name": "Worgs Of Trengal",
+          "url": "https://vgsoharchive.com/quests/worgs-of-trengal"
+        },
+        {
+          "name": "Mountain Shadows",
+          "url": "https://vgsoharchive.com/quests/mountain-shadows"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Hekosh",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-hekosh",
+            "title": "Swiftfang Hekosh · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:30:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Spider Bluffs"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "chunk": [
+            "Spider Bluffs"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "race": [
+            "Vulmane"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "The Wolf Within",
+            "url": "https://vgsoharchive.com/quests/the-wolf-within"
+          },
+          {
+            "name": "Hounds Of The Invasion",
+            "url": "https://vgsoharchive.com/quests/hounds-of-the-invasion"
+          },
+          {
+            "name": "Many Components",
+            "url": "https://vgsoharchive.com/quests/many-components"
+          },
+          {
+            "name": "Vial Discrepancies",
+            "url": "https://vgsoharchive.com/quests/vial-discrepancies"
+          },
+          {
+            "name": "Qalian Components",
+            "url": "https://vgsoharchive.com/quests/qalian-components"
+          },
+          {
+            "name": "Precision Hoarding",
+            "url": "https://vgsoharchive.com/quests/precision-hoarding"
+          },
+          {
+            "name": "Provoking Shadowhounds",
+            "url": "https://vgsoharchive.com/quests/provoking-shadowhounds"
+          },
+          {
+            "name": "Worgs Of Trengal",
+            "url": "https://vgsoharchive.com/quests/worgs-of-trengal"
+          },
+          {
+            "name": "Mountain Shadows",
+            "url": "https://vgsoharchive.com/quests/mountain-shadows"
+          },
+          {
+            "name": "Vulmane Guidance",
+            "url": "https://vgsoharchive.com/quests/vulmane-guidance"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "Spider Bluffs",
+        "health": null,
+        "damage": null,
+        "race": "Vulmane",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "The Wolf Within",
+          "Hounds Of The Invasion",
+          "Many Components",
+          "Vial Discrepancies",
+          "Qalian Components",
+          "Precision Hoarding",
+          "Provoking Shadowhounds",
+          "Worgs Of Trengal",
+          "Mountain Shadows"
+        ],
+        "chunk": "Spider Bluffs",
+        "location": null,
+        "zones_recorded": [
+          "Spider Bluffs"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 17,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-hrolf",
+      "cache_sha256": "7bfae9f0e23888bbe16c99c39580c0f5c3946da47ddee16f1535fbb8df928ce8",
+      "source_roles": [
+        "Harvesting Supply Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Hrolf",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-hrolf",
+            "title": "Swiftfang Hrolf · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:32:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Harvesting Supply Vendor"
+          ],
+          "difficulty": [
+            "2 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "Harvest a Sapling Log",
+            "url": "https://vgsoharchive.com/quests/harvest-a-sapling-log"
+          }
+        ],
+        "type": "npc",
+        "level": 10,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "2 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 18,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-jharu",
+      "cache_sha256": "2d0548f3295506d69585536b05e6cbe390d56508192ef5d1785a24c54cba7186",
+      "source_roles": [
+        "Weapon Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Jharu",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-jharu",
+            "title": "Swiftfang Jharu · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:33:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Weapon Vendor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 19,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-kalarna",
+      "cache_sha256": "273c6ecd696f80a9eae4cbdb09e701612598fed4d932feecdd5df55e5fd83b4a",
+      "source_roles": [
+        "Rogue Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Kalarna",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-kalarna",
+            "title": "Swiftfang Kalarna · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:34:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Rogue Instructor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 20,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-kellah",
+      "cache_sha256": "5dba089d6383d760f0e06b702b54de2e99d545de0b5c88c0facdbe188e63c40a",
+      "source_roles": [
+        "Crafting Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Kellah",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-kellah",
+            "title": "Swiftfang Kellah · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:35:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Crafting Instructor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": 61,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 21,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-kovr",
+      "cache_sha256": "318c91a5360ad79e57517982aca9926790616cecdd4d894c8b500c082664d3c8",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Gnolls Amok",
+          "url": "https://vgsoharchive.com/quests/gnolls-amok"
+        },
+        {
+          "name": "Resource Denial",
+          "url": "https://vgsoharchive.com/quests/resource-denial"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Kovr",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-kovr",
+            "title": "Swiftfang Kovr · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:36:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "Gnolls Amok",
+            "url": "https://vgsoharchive.com/quests/gnolls-amok"
+          },
+          {
+            "name": "Resource Denial",
+            "url": "https://vgsoharchive.com/quests/resource-denial"
+          }
+        ],
+        "type": "npc",
+        "level": 8,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Gnolls Amok",
+          "Resource Denial"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 22,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-lanna",
+      "cache_sha256": "595ca04bf44c8ea3e3e72991ac0bdc3531ef023346bdb13f2bae7c0c9dbbdfcd",
+      "source_roles": [
+        "Light Armor Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Lanna",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-lanna",
+            "title": "Swiftfang Lanna · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:38:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Light Armor Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 23,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-malarn",
+      "cache_sha256": "dab70f936cd6c1ded1bf863d9f4c3398291a1172e73aab9ee0dd0ea795597e0a",
+      "source_roles": [
+        "Ranger Instructor"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "A Form of Training",
+          "url": "https://vgsoharchive.com/quests/a-form-of-training"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Malarn",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-malarn",
+            "title": "Swiftfang Malarn · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:39:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Ranger Instructor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "A Form of Training",
+            "url": "https://vgsoharchive.com/quests/a-form-of-training"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver",
+          "trainer"
+        ],
+        "quests_given": [
+          "A Form of Training"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 24,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-medash",
+      "cache_sha256": "91c3a54b57396da8f8de531521a5b85825e1bea7f2c718921c16d280cb37f301",
+      "source_roles": [
+        "Artificer Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Medash",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-medash",
+            "title": "Swiftfang Medash · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:41:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Artificer Instructor"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Object"
+          ],
+          "chunk": [
+            "Dahknarg"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": 33,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": "Dahknarg",
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 25,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-nakkar",
+      "cache_sha256": "95c1b23c78a47abb991423178fd68e39bf0817274636792dd70412b3df1e9636",
+      "source_roles": [
+        "Lightfighter Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Nakkar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-nakkar",
+            "title": "Swiftfang Nakkar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:43:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Lightfighter Instructor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 26,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-narmin",
+      "cache_sha256": "e26c4360e56d0ac5b11ceeae97f35b760e48329de318376c1668d7abe0488a66",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Narmin",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-narmin",
+            "title": "Swiftfang Narmin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:44:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 27,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-nekkar",
+      "cache_sha256": "4eb9c0f3fdc1cebe159c2ee967e30dc1f18e0f6df01ce33fd0e0479bcbf0f9ed",
+      "source_roles": [
+        "Light Fighter Instructor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Nekkar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-nekkar",
+            "title": "Swiftfang Nekkar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:45:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Light Fighter Instructor"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "trainer"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 28,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rakmer",
+      "cache_sha256": "fc2e857a89b35fd8660b658b5e387e067e488850d228daf7110d88283ef777f4",
+      "source_roles": [
+        "Clothing Merchant"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Rakmer",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rakmer",
+            "title": "Swiftfang Rakmer · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:50:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Clothing Merchant"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 29,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rarg",
+      "cache_sha256": "5fec87932c57283cf5c8e696e2f7057d76fdd78078714abfaae5d8c04d7d3b40",
+      "source_roles": [
+        "Thestran Exchange Broker"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Rarg",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rarg",
+            "title": "Swiftfang Rarg · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:51:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Thestran Exchange Broker"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "broker"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 30,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-renaks",
+      "cache_sha256": "f49a75a1186cda26efce13e5b3aa87fa71d291a9e97c0a98341f27323882ddcd",
+      "source_roles": [
+        "Weapons Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Renaks",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-renaks",
+            "title": "Swiftfang Renaks · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:53:15+00:00",
+        "archive_fields": {
+          "role": [
+            "Weapons Vendor"
+          ],
+          "difficulty": [
+            "2 dots"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "2 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 31,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rikor",
+      "cache_sha256": "bf187f4172b29d3177e015558c80d8f3f2b94c3052cfa350dab1bca9c5de98f9",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Young Bear Pelts",
+          "url": "https://vgsoharchive.com/quests/young-bear-pelts"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Rikor",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rikor",
+            "title": "Swiftfang Rikor · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:54:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "3 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "Young Bear Pelts",
+            "url": "https://vgsoharchive.com/quests/young-bear-pelts"
+          }
+        ],
+        "type": "npc",
+        "level": 25,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver",
+          "merchant"
+        ],
+        "quests_given": [
+          "Young Bear Pelts"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "3 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 32,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-rordan",
+      "cache_sha256": "a77f48b9a10a6164d02e3a02b6e934eac5f9721cb6656ad13391184865bdb416",
+      "source_roles": [
+        "Heavy Armor Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Rordan",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-rordan",
+            "title": "Swiftfang Rordan · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:55:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Heavy Armor Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "NPC"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": 15,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 33,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-sarkhon",
+      "cache_sha256": "9706712382620f1c4ad9f57f026d54fa4b8705b34126afa8017e9a958c2de7e4",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Sarkhon",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-sarkhon",
+            "title": "Swiftfang Sarkhon · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:56:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "5 dots"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": 25,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 34,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-scout-aladar",
+      "cache_sha256": "b0dada31e6d445ca6b87506046bdb8979e9f590334acdd8849b045a532cfe59c",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "The Clans",
+          "url": "https://vgsoharchive.com/quests/the-clans"
+        },
+        {
+          "name": "The East Gate",
+          "url": "https://vgsoharchive.com/quests/the-east-gate"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Scout Aladar",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-scout-aladar",
+            "title": "Swiftfang Scout Aladar · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T01:57:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "difficulty": [
+            "5 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Dahknarg",
+            "url": "https://vgsoharchive.com/zones/dahknarg"
+          },
+          {
+            "name": "The Clans",
+            "url": "https://vgsoharchive.com/quests/the-clans"
+          },
+          {
+            "name": "The East Gate",
+            "url": "https://vgsoharchive.com/quests/the-east-gate"
+          }
+        ],
+        "type": "npc",
+        "level": 15,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "The Clans",
+          "The East Gate"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "5 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 35,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-tari",
+      "cache_sha256": "f7bfb2f690db9c9f7558094d43a6c188b14a12bd5c90c4c68264520629ae1a6b",
+      "source_roles": [
+        "Banker"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Tari",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-tari",
+            "title": "Swiftfang Tari · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:00:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Southern Stonepine Ridge"
+          ],
+          "role": [
+            "Banker"
+          ],
+          "location": [
+            "-38510, 55515, 35008"
+          ],
+          "chunk": [
+            "Southern Stonepine Ridge"
+          ],
+          "continent": [
+            "Thestra"
+          ],
+          "locations seen": [
+            "Southern Stonepine Ridge"
+          ],
+          "parley types": [
+            "none , none , none , none , none"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Southern Stonepine Ridge",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "banker"
+        ],
+        "quests_given": [],
+        "chunk": "Southern Stonepine Ridge",
+        "location": {
+          "raw": "-38510, 55515, 35008",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Southern Stonepine Ridge"
+        },
+        "zones_recorded": [
+          "Southern Stonepine Ridge"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": "Southern Stonepine Ridge",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-203618-123810-archive-bulk\\npc.jsonl",
+      "line": 36,
+      "url": "https://vgsoharchive.com/mobs/swiftfang-torsh",
+      "cache_sha256": "1cfc2f0e60f7d3f5bffc0d6fb3c284db0be9c34b9719fdb6943495a7c4c29996",
+      "source_roles": [
+        "Diplo Instructor"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "The City Connection",
+          "url": "https://vgsoharchive.com/quests/the-city-connection"
+        },
+        {
+          "name": "A Call From The Otherworld",
+          "url": "https://vgsoharchive.com/quests/a-call-from-the-otherworld"
+        },
+        {
+          "name": "Clearing House",
+          "url": "https://vgsoharchive.com/quests/clearing-house"
+        },
+        {
+          "name": "Rock And Roll",
+          "url": "https://vgsoharchive.com/quests/rock-and-roll"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Swiftfang Torsh",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/swiftfang-torsh",
+            "title": "Swiftfang Torsh · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T02:01:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Dahknarg"
+          ],
+          "role": [
+            "Diplo Instructor"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "The City Connection",
+            "url": "https://vgsoharchive.com/quests/the-city-connection"
+          },
+          {
+            "name": "A Call From The Otherworld",
+            "url": "https://vgsoharchive.com/quests/a-call-from-the-otherworld"
+          },
+          {
+            "name": "Clearing House",
+            "url": "https://vgsoharchive.com/quests/clearing-house"
+          },
+          {
+            "name": "Rock And Roll",
+            "url": "https://vgsoharchive.com/quests/rock-and-roll"
+          },
+          {
+            "name": "A New Scent",
+            "url": "https://vgsoharchive.com/quests/a-new-scent"
+          },
+          {
+            "name": "Ancient Silver Plate",
+            "url": "https://vgsoharchive.com/items/ancient-silver-plate"
+          },
+          {
+            "name": "Card of Resolution",
+            "url": "https://vgsoharchive.com/items/card-of-resolution"
+          },
+          {
+            "name": "Earth Spirit Fetish",
+            "url": "https://vgsoharchive.com/items/earth-spirit-fetish"
+          },
+          {
+            "name": "Ghost Ash",
+            "url": "https://vgsoharchive.com/items/ghost-ash-2"
+          },
+          {
+            "name": "Messenger Boots",
+            "url": "https://vgsoharchive.com/items/messenger-boots-9"
+          },
+          {
+            "name": "Red Chain",
+            "url": "https://vgsoharchive.com/items/red-chain-2"
+          }
+        ],
+        "type": "npc",
+        "level": 40,
+        "zone": "Dahknarg",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver",
+          "trainer"
+        ],
+        "quests_given": [
+          "The City Connection",
+          "A Call From The Otherworld",
+          "Clearing House",
+          "Rock And Roll"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Dahknarg"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    }
+  ],
+  "limitations": [
+    "Printed giver links do not establish prerequisites, rewards or historical accuracy.",
+    "Distinct source spellings remain separate observations; no identity merging.",
+    "Absent quest lists do not establish that the NPC never offered quests.",
+    "Collection, metadata-only extraction, semantic review and unresolved collisions remain incomplete."
+  ]
+}
