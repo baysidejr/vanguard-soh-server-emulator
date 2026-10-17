@@ -77,6 +77,7 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Priority:** P3 · **Category:** content · **State:** BLOCKED (user authorization per merge)
 - **Evidence:** `origin/crowdsourced/archive-collection` at 2ed0b4b, merged into main 2026-10-16 with the user's go-ahead. Mission: do not merge the active scrape branch without explicit authorization.
 - **Next action:** at each session, `git fetch` and report new commits; merge only when asked.
+- **2026-10-16 (later):** 29 new commits on the branch (cbbe68c: mob pages, loot-table and merchant-role reviews). `quest_readiness.py --branch` gives the same result as main (4,774 archive quests, 70 ready), so no delivery placeholder can be replaced from them yet. Not merged.
 
 ## B-010 Presence requirements for parleys
 - **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED (needs evidence)
@@ -90,8 +91,10 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Done 2026-10-16:** `python tools/provenance.py` prints, per content file, records citing an archive page, records marked invented, and unmarked ones (`--unmarked FILE` lists them); unit test ProvenanceTests. Current: mobs 2,438 sourced / 64 unmarked; quests 70 sourced / 298 placeholder / 4 unmarked; items 112 / 66 unmarked; spawns 2,452 sourced / 167 placeholder / 136 unmarked; riftways, factions, titles, hints, recipes, dialogs, plots all unmarked (hand-made). "Sourced" records still carry placeholder values the archive lacks (stats, prices).
 
 ## B-012 Optional unsent messages
-- **Priority:** P4 · **Category:** protocol · **State:** NOT_STARTED
+- **Priority:** P4 · **Category:** protocol · **State:** BLOCKED (live client, B-003)
 - **Evidence:** docs/UNSENT_MESSAGES.md: 38 optional. Only worth doing where they unlock behaviour.
+- **Review 2026-10-16:** none unlocks gameplay. They are encounter-window details (0x3a3-0x3c8; several tried live with no visible change), combat-form state (0x38b-0x399; forms work without them), petitions (0x508/0x50a; left alone at the user's request), camera FOV 0x728, client actor spawn 0x553 (tried, nothing visible), bUse250System 0x11a, pending-death lines 0x193/0x194 and group drain 0x246 (need content). Each needs a live client check to be worth anything.
+- **Next action:** once B-003 clears, try the encounter-window messages again with a multi-mob encounter.
 
 ## B-013 Editor quest form lost turn_in when used before its lists loaded
 - **Priority:** P1 · **Category:** data integrity (content editing) · **State:** VERIFIED

@@ -11,7 +11,7 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 This session also: B-001 (checks on a scratch DB copy), B-002 (flight landing gap documented), B-005 (a) second login and (b) reconnect after a drop, B-013 (editor quest form dropped turn_in).
 
 ## In progress / next action
-B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. B-005 edge walk done (20 scenarios). Next: review B-012 (optional unsent messages) for ones that unlock behaviour; B-010 needs evidence first.
+B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. B-005 edge walk done (20 scenarios). B-012 reviewed (nothing unlocks gameplay; blocked on the live client). Scrape branch: 29 new commits, no newly playable quests, not merged (B-009). Next: look for remaining server-only work in docs/TESTING.md unchecked items that bots can cover.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).
