@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Played the Karibasa archive quest "Leafsaw Crawlers" end to end in the real client (scratch save): offer, accept, kill count, hand-in, 100 XP (B-021).
+
 - 2026-10-17: Character made through the client's own create screen (scratch save): Choose Home Town sends (-65535, -65535); the Dark Elf started in Karibasa Village with the client's own intro text (B-017 complete).
 
 - 2026-10-17: 40 archive NPCs were in the wrong chunk because of mislabelled zone names (Tracker Nok stood in the sea); tools/chunk_audit.py found and moved them, checked live (B-020). B-008's uncertain heights checked live: the Agents stand on their platform, Muerden and Administrator Bazad inside buildings.
