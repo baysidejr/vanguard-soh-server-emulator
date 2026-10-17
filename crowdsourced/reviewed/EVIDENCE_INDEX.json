@@ -1,13 +1,13 @@
 {
   "summary": {
-    "batches": 389,
-    "research_rows": 60102,
-    "normalized_name_groups": 29709,
+    "batches": 391,
+    "research_rows": 60128,
+    "normalized_name_groups": 29735,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 12586,
+      "creature": 12610,
       "item": 5504,
-      "loot": 2300,
+      "loot": 2302,
       "npc": 4208,
       "quest": 11633,
       "zone": 1334,
@@ -3137,6 +3137,14 @@
       }
     },
     {
+      "batch": "raw\\2026-10-17-102235-254830-archive-bulk",
+      "records": 26,
+      "counts": {
+        "creature": 24,
+        "loot": 2
+      }
+    },
+    {
       "batch": "raw\\2026-10-17-133326-multisource-bootstrap",
       "records": 0,
       "counts": {}
@@ -3158,6 +3166,11 @@
     },
     {
       "batch": "raw\\2026-10-17-iteration148-wiki-cache-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration150-alternate-policy-review",
       "records": 0,
       "counts": {}
     }
@@ -951984,6 +951997,399 @@
         "Lomshir Plain"
       ],
       "level": 9
+    },
+    {
+      "id": 60102,
+      "type": "creature",
+      "name": "Ulrich Freawine",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulrich-freawine"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60103,
+      "type": "creature",
+      "name": "Ulvari",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60104,
+      "type": "creature",
+      "name": "Ulvari Corruptor",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-corruptor"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 19
+    },
+    {
+      "id": 60105,
+      "type": "creature",
+      "name": "Ulvari Defiler",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-defiler"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60106,
+      "type": "creature",
+      "name": "Ulvari Devourer",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-devourer"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 15
+    },
+    {
+      "id": 60107,
+      "type": "creature",
+      "name": "Ulvari Dreamreaver",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-dreamreaver"
+      ],
+      "zones": [
+        "Tanvu"
+      ]
+    },
+    {
+      "id": 60108,
+      "type": "creature",
+      "name": "Ulvari Footsoldier",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-footsoldier"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 19
+    },
+    {
+      "id": 60109,
+      "type": "creature",
+      "name": "Ulvari Gazefiend",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-gazefiend"
+      ],
+      "zones": [],
+      "level": 16
+    },
+    {
+      "id": 60110,
+      "type": "creature",
+      "name": "Ulvari Glider",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-glider"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 15
+    },
+    {
+      "id": 60111,
+      "type": "creature",
+      "name": "Ulvari Golem",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-golem"
+      ],
+      "zones": [],
+      "level": 17
+    },
+    {
+      "id": 60112,
+      "type": "creature",
+      "name": "Ulvari Gravecaller",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-gravecaller"
+      ],
+      "zones": [],
+      "level": 18
+    },
+    {
+      "id": 60113,
+      "type": "creature",
+      "name": "Ulvari Guardian",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-guardian"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 19
+    },
+    {
+      "id": 60114,
+      "type": "creature",
+      "name": "Ulvari Knight",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-knight"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60115,
+      "type": "creature",
+      "name": "Ulvari Mutant",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-mutant"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 16
+    },
+    {
+      "id": 60116,
+      "type": "creature",
+      "name": "Ulvari Plagueknight",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-plagueknight"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60117,
+      "type": "creature",
+      "name": "Ulvari Thrall",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-thrall"
+      ],
+      "zones": [],
+      "level": 16
+    },
+    {
+      "id": 60118,
+      "type": "creature",
+      "name": "Ulvari Transcender",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-transcender"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 43
+    },
+    {
+      "id": 60119,
+      "type": "creature",
+      "name": "Ulvari Warlock",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-warlock"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60120,
+      "type": "creature",
+      "name": "Ulvari Warmonger",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-warmonger"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ]
+    },
+    {
+      "id": 60121,
+      "type": "creature",
+      "name": "Ulvari Wizard",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulvari-wizard"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 19
+    },
+    {
+      "id": 60122,
+      "type": "creature",
+      "name": "Ulwa Tebix",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulwa-tebix"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60123,
+      "type": "creature",
+      "name": "Ulya Bluehart",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ulya-bluehart"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60124,
+      "type": "creature",
+      "name": "Umber Beech Tree",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-beech-tree"
+      ],
+      "zones": [],
+      "level": 1
+    },
+    {
+      "id": 60125,
+      "type": "creature",
+      "name": "Umber Oak Tree",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-oak-tree"
+      ],
+      "zones": [],
+      "level": 1
+    },
+    {
+      "id": 60126,
+      "type": "loot",
+      "name": "Umber Beech Tree",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-beech-tree"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60127,
+      "type": "loot",
+      "name": "Umber Oak Tree",
+      "file": "raw\\2026-10-17-102235-254830-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 35,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-oak-tree"
+      ],
+      "zones": []
     }
   ],
   "by_name": {
@@ -1071506,6 +1071912,84 @@
     ],
     "npc:ulo mossbeard": [
       60101
+    ],
+    "creature:ulrich freawine": [
+      60102
+    ],
+    "creature:ulvari": [
+      60103
+    ],
+    "creature:ulvari corruptor": [
+      60104
+    ],
+    "creature:ulvari defiler": [
+      60105
+    ],
+    "creature:ulvari devourer": [
+      60106
+    ],
+    "creature:ulvari dreamreaver": [
+      60107
+    ],
+    "creature:ulvari footsoldier": [
+      60108
+    ],
+    "creature:ulvari gazefiend": [
+      60109
+    ],
+    "creature:ulvari glider": [
+      60110
+    ],
+    "creature:ulvari golem": [
+      60111
+    ],
+    "creature:ulvari gravecaller": [
+      60112
+    ],
+    "creature:ulvari guardian": [
+      60113
+    ],
+    "creature:ulvari knight": [
+      60114
+    ],
+    "creature:ulvari mutant": [
+      60115
+    ],
+    "creature:ulvari plagueknight": [
+      60116
+    ],
+    "creature:ulvari thrall": [
+      60117
+    ],
+    "creature:ulvari transcender": [
+      60118
+    ],
+    "creature:ulvari warlock": [
+      60119
+    ],
+    "creature:ulvari warmonger": [
+      60120
+    ],
+    "creature:ulvari wizard": [
+      60121
+    ],
+    "creature:ulwa tebix": [
+      60122
+    ],
+    "creature:ulya bluehart": [
+      60123
+    ],
+    "creature:umber beech tree": [
+      60124
+    ],
+    "creature:umber oak tree": [
+      60125
+    ],
+    "loot:umber beech tree": [
+      60126
+    ],
+    "loot:umber oak tree": [
+      60127
     ]
   },
   "by_kind": {
@@ -1084095,7 +1084579,31 @@
       60090,
       60091,
       60092,
-      60093
+      60093,
+      60102,
+      60103,
+      60104,
+      60105,
+      60106,
+      60107,
+      60108,
+      60109,
+      60110,
+      60111,
+      60112,
+      60113,
+      60114,
+      60115,
+      60116,
+      60117,
+      60118,
+      60119,
+      60120,
+      60121,
+      60122,
+      60123,
+      60124,
+      60125
     ],
     "item": [
       13,
@@ -1091903,7 +1092411,9 @@
       60054,
       60094,
       60095,
-      60096
+      60096,
+      60126,
+      60127
     ],
     "npc": [
       24,
@@ -1135477,7 +1135987,20 @@
       59517,
       59747,
       59819,
-      60017
+      60017,
+      60104,
+      60105,
+      60106,
+      60108,
+      60110,
+      60113,
+      60114,
+      60115,
+      60116,
+      60118,
+      60119,
+      60120,
+      60121
     ],
     "Coterie Infineum Sanctuary": [
       100,
@@ -1147738,7 +1148261,8 @@
       59503,
       59511,
       59635,
-      59771
+      59771,
+      60107
     ],
     "Tursh Village": [
       14023,
@@ -1148638,7 +1149162,8 @@
       59972,
       59975,
       59978,
-      60011
+      60011,
+      60123
     ],
     "Veskal's Exchange": [
       14036,
@@ -1152150,7 +1152675,8 @@
       59034,
       59159,
       59261,
-      60001
+      60001,
+      60102
     ],
     "Jalen's Retreat": [
       22587,
@@ -1153583,7 +1154109,8 @@
       60079,
       60081,
       60082,
-      60086
+      60086,
+      60122
     ],
     "Merchant": [
       22627,
