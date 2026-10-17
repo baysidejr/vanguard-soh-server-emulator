@@ -7,7 +7,7 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-2026-10-17: owner decisions applied (B-017 default + create screen verified live, B-010 deferred, B-008 imported, B-007 17+1 kept / 294 disabled, B-009 merged twice: 0f14182, 6c9ee94); B-018 quest_check 99/99; B-020 chunk_audit moved 40 mislabelled archive NPCs (Tracker Nok was in the sea), checked live; B-021 "Leafsaw Crawlers" and "Report To Officer Yu" played end to end in the client. TESTING.md: create/delete/enter, /report, wounds, archive quest + delivery, !visit ticked.
+2026-10-17 (later): B-022 import skips placeholder giver names (Varies, Then) and same-spot duplicates; Tracker Nok at the Tracker Camp (his own record); B-023 dead characters can't deal with the world (dialogue, quests, loot, crafting, trade, harvest, mail, broker), found live; tools/client_ui.py drives the client for hand-run checks; TESTING.md items ticked: riftways, altar bind/death/release, Recall, /con, Afshin's Convince parley, /report, wounds, archive quest + delivery, create/delete. Scrape merged three times today (latest 26da133).
 
 ## In progress / next action
 - B-019 (Isle of Dawn has no quests): BLOCKED: OWNER DECISION, options in the backlog.

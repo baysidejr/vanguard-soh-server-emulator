@@ -106,7 +106,7 @@ def play():
     end = time.time() + 120
     while time.time() < end and "WELCOME" not in _log():
         time.sleep(2)
-    time.sleep(12)
+    time.sleep(20)          # the world streams in after WELCOME; chat typed earlier is lost
 
 
 def main(argv):
