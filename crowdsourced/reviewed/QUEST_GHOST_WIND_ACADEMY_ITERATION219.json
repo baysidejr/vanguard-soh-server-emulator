@@ -1,0 +1,725 @@
+{
+  "audit_kind": "cached_quest_objectives_rewards_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal cached objective, description, notes, source attribution and reward observations. Archive transcriptions and variants remain distinct; no historical mechanic verification or identity merge.",
+  "inputs": [
+    {
+      "path": ".cache/archive/07d2fd4c8fc91d06dbd16570710c186c7cc0a716b44653d05501671a20c3271e.txt",
+      "sha256": "c4842b857fae8d11a8a425dc933dcdf368ed72009f232c0453f156bb675ba55e"
+    },
+    {
+      "path": ".cache/archive/c6e0bb545930ae82bb26c77af2921278856bf32c16784afab2879ae6963c0424.txt",
+      "sha256": "c97c06742882abc1df56030f12c7116abae76652c81583968f35d42d53cbab33"
+    },
+    {
+      "path": "raw/2026-10-14-052252-905340-archive-bulk/quest.jsonl",
+      "sha256": "2d6cde3997b8a09d390092636c40e9f3d7dbd39b91140b6d7f3061884ac0769b"
+    },
+    {
+      "path": "raw/2026-10-14-093253-967402-archive-bulk/quest.jsonl",
+      "sha256": "147fce5db711cd507ac3e806af14ee8322e8e0ade23162008dd421891cba052f"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/walking-with-lao-jin",
+      "cache_path": ".cache/archive/07d2fd4c8fc91d06dbd16570710c186c7cc0a716b44653d05501671a20c3271e.txt",
+      "cache_sha256": "c4842b857fae8d11a8a425dc933dcdf368ed72009f232c0453f156bb675ba55e",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Speak to Master Tallon Darkfist",
+          "html": "<div class=\"tooltip\">Speak to Master Tallon Darkfist</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Disciple Hirro in Tanvu.\n2) Speak to Master Tallon Darkfist in Tanvu.",
+          "html": "<div class=\"tooltip\">1) Speak to Disciple Hirro in Tanvu.\n2) Speak to Master Tallon Darkfist in Tanvu.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Return to Master Tallon with the crystal charged with the power of Lai'Jin.",
+          "html": "<div class=\"tooltip\">Return to Master Tallon with the crystal charged with the power of Lai'Jin.</div>",
+          "variant": true
+        },
+        {
+          "label": "Objectives as recorded by merged duplicate",
+          "text": "Return to Master Tallon with the crystal charged with the power of Lao'Jin.",
+          "html": "<div class=\"tooltip\">Return to Master Tallon with the crystal charged with the power of Lao'Jin.</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/walking-with-laojin-324.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/walking-with-laojin-324.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Reported disagreements",
+          "text": "4 recorded\n    disagreements about this\n    quest — coins (fandom) , level (fandom) , level (wiki.silkyvenom.com:80) , level (merged duplicate) .",
+          "html": "<p class=\"muted\">\n    4 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=coins\">coins</a> <span class=\"muted\">(fandom)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(fandom)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(merged duplicate)</span>.\n  </p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Disciple Hirro",
+          "html": "<dd><a href=\"/mobs/disciple-hirro\">Disciple Hirro</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-7897, -77171, 1017 in Tanvu (-19, 6)",
+          "html": "<dd>-7897, -77171, 1017 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Master Tallon Darkfist",
+          "html": "<dd><a href=\"/mobs/master-tallon-darkfist\">Master Tallon Darkfist</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Choosing Your Path",
+          "html": "<dd><a href=\"/quests/choosing-your-path\">Choosing Your Path</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "Ghost Wind Academy",
+          "html": "<dd><a href=\"/quests/ghost-wind-academy\">Ghost Wind Academy</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "50 c",
+          "html": "<dd>50 c</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Disciple Hirro\n\"So you have chosen to follow us on the path of Lao'Jin? I am pleased, as Master Tallon will be as well. Return to him now, I am sure he is waiting.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Disciple Hirro</strong><br/>\n          \"So you have chosen to follow us on the path of Lao'Jin? I am pleased, as Master Tallon will be as well. Return to him now, I am sure he is waiting.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by\nvg.curse.com\n.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/3790/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "4 recorded\n    disagreements about this\n    quest —\ncoins\n(fandom)\n,\nlevel\n(fandom)\n,\nlevel\n(wiki.silkyvenom.com:80)\n,\nlevel\n(merged duplicate)\n.",
+          "html": "<p class=\"muted\">\n    4 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=coins\">coins</a> <span class=\"muted\">(fandom)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(fandom)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(wiki.silkyvenom.com:80)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(merged duplicate)</span>.\n  </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-093253-967402-archive-bulk/quest.jsonl",
+          "line": 14,
+          "record": {
+            "name": "Walking With Lao'Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/walking-with-lao-jin",
+                "title": "Walking With Lao'Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:34:02+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Disciple Hirro"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-7897, -77171, 1017 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "Choosing Your Path"
+              ],
+              "next": [
+                "Ghost Wind Academy"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "50 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Disciple Hirro",
+                "url": "https://vgsoharchive.com/mobs/disciple-hirro"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Choosing Your Path",
+                "url": "https://vgsoharchive.com/quests/choosing-your-path"
+              },
+              {
+                "name": "Ghost Wind Academy",
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy"
+              },
+              {
+                "name": "Lao'Jin Apprentice Robe",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentice-robe"
+              },
+              {
+                "name": "Lao'Jin Apprentice's Studded Tunic",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentice-s-studded-tunic"
+              },
+              {
+                "name": "Lao'Jin Apprentice's Tunic",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentice-s-tunic"
+              },
+              {
+                "name": "Lao'Jin Apprentices Armor",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentices-armor"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Disciple Hirro",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Choosing Your Path",
+            "chain_next": "Ghost Wind Academy",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4611,
+          "record": {
+            "name": "Walking With Lao'Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/walking-with-lao-jin",
+                "title": "Walking With Lao'Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:55+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Disciple Hirro"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-7897, -77171, 1017 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "Choosing Your Path"
+              ],
+              "next": [
+                "Ghost Wind Academy"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "50 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Disciple Hirro",
+                "url": "https://vgsoharchive.com/mobs/disciple-hirro"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Choosing Your Path",
+                "url": "https://vgsoharchive.com/quests/choosing-your-path"
+              },
+              {
+                "name": "Ghost Wind Academy",
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy"
+              },
+              {
+                "name": "Lao'Jin Apprentice Robe",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentice-robe"
+              },
+              {
+                "name": "Lao'Jin Apprentice's Studded Tunic",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentice-s-studded-tunic"
+              },
+              {
+                "name": "Lao'Jin Apprentice's Tunic",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentice-s-tunic"
+              },
+              {
+                "name": "Lao'Jin Apprentices Armor",
+                "url": "https://vgsoharchive.com/items/lao-jin-apprentices-armor"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Disciple Hirro",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Choosing Your Path",
+            "chain_next": "Ghost Wind Academy",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+      "cache_path": ".cache/archive/c6e0bb545930ae82bb26c77af2921278856bf32c16784afab2879ae6963c0424.txt",
+      "cache_sha256": "c97c06742882abc1df56030f12c7116abae76652c81583968f35d42d53cbab33",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Speak to Lao'Jin Master Yaol",
+          "html": "<div class=\"tooltip\">Speak to Lao'Jin Master Yaol</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Master Tallon Darkfist in Tanvu.\n2) Speak to Lao'Jin Master Yaol, north of Tallon Darkfist.",
+          "html": "<div class=\"tooltip\">1) Speak to Master Tallon Darkfist in Tanvu.\n2) Speak to Lao'Jin Master Yaol, north of Tallon Darkfist.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "15164, -96048, 843 in Tanvu (-19, 6).",
+          "html": "<p class=\"muted\">15164, -96048, 843 in Tanvu (-19, 6).</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Head north from Master Tallon's house in search of Ghost Wind Academy, one of the few remaining places the Lao'Jin can be studied.\nOnce there, speak with the school's Headmaster: Master Yaol.",
+          "html": "<div class=\"tooltip\">Head north from Master Tallon's house in search of Ghost Wind Academy, one of the few remaining places the Lao'Jin can be studied.\nOnce there, speak with the school's Headmaster: Master Yaol.</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/ghost-wind-academy-331.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/ghost-wind-academy-331.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Reported disagreements",
+          "text": "5 recorded\n    disagreements about this\n    quest — level (fandom) , level (the Forgotten Horde wiki) , next quest (silkyvenom) , prev quest (silkyvenom) , starts zone (mmodb) .",
+          "html": "<p class=\"muted\">\n    5 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(fandom)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(the Forgotten Horde wiki)</span>, <a href=\"/disagreements?kind=quest&amp;field=next_quest\">next quest</a> <span class=\"muted\">(silkyvenom)</span>, <a href=\"/disagreements?kind=quest&amp;field=prev_quest\">prev quest</a> <span class=\"muted\">(silkyvenom)</span>, <a href=\"/disagreements?kind=quest&amp;field=starts_zone\">starts zone</a> <span class=\"muted\">(mmodb)</span>.\n  </p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Master Tallon Darkfist",
+          "html": "<dd><a href=\"/mobs/master-tallon-darkfist\">Master Tallon Darkfist</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-1521, -79480, 382 in Tanvu (-19, 6)",
+          "html": "<dd>-1521, -79480, 382 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Lao'Jin Master Yaol",
+          "html": "<dd><a href=\"/mobs/lao-jin-master-yaol\">Lao'Jin Master Yaol</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Walking With Lao'Jin",
+          "html": "<dd><a href=\"/quests/walking-with-lao-jin\">Walking With Lao'Jin</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "Ra'Jin Assault",
+          "html": "<dd><a href=\"/quests/ra-jin-assault\">Ra'Jin Assault</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "50",
+          "html": "<dd>50</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Master Tallon Darkfist\n\"We have not always hidden in small villages and shacks outside of Tanvu. Before the Ulvari came, our school stood proud. Our students were honored and revered. But times have changed.\"\n\n\"The emperor refused to aid us in the battle against the Ulvari; instead, he blamed us for their incursion. We are no longer welcome.\"\n\n\"Hidden nearby is the Ghost Wind Academy, one of the last remaining compounds where Lao'Jin can be studied. I want you to go there and speak with the Headmaster. We are done for now.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Master Tallon Darkfist</strong><br/>\n          \"We have not always hidden in small villages and shacks outside of Tanvu. Before the Ulvari came, our school stood proud. Our students were honored and revered. But times have changed.\"\n\n\"The emperor refused to aid us in the battle against the Ulvari; instead, he blamed us for their incursion. We are no longer welcome.\"\n\n\"Hidden nearby is the Ghost Wind Academy, one of the last remaining compounds where Lao'Jin can be studied. I want you to go there and speak with the Headmaster. We are done for now.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-052252-905340-archive-bulk/quest.jsonl",
+          "line": 74,
+          "record": {
+            "name": "Ghost Wind Academy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+                "title": "Ghost Wind Academy · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T09:29:06+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-1521, -79480, 382 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Tanvu"
+              ],
+              "hand in to": [
+                "Lao'Jin Master Yaol"
+              ],
+              "also involved": [
+                "Master Yaol"
+              ],
+              "previous": [
+                "Walking With Lao'Jin"
+              ],
+              "next": [
+                "Ra'Jin Assault"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/master-yaol"
+              },
+              {
+                "name": "Walking With Lao'Jin",
+                "url": "https://vgsoharchive.com/quests/walking-with-lao-jin"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Lao'Jin Master Yaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Walking With Lao'Jin",
+            "chain_next": "Ra'Jin Assault",
+            "quest_chain": {
+              "name": "Tanvu",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1637,
+          "record": {
+            "name": "Ghost Wind Academy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+                "title": "Ghost Wind Academy · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:43+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-1521, -79480, 382 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Tanvu"
+              ],
+              "hand in to": [
+                "Lao'Jin Master Yaol"
+              ],
+              "also involved": [
+                "Master Yaol"
+              ],
+              "previous": [
+                "Walking With Lao'Jin"
+              ],
+              "next": [
+                "Ra'Jin Assault"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/master-yaol"
+              },
+              {
+                "name": "Walking With Lao'Jin",
+                "url": "https://vgsoharchive.com/quests/walking-with-lao-jin"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Lao'Jin Master Yaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Walking With Lao'Jin",
+            "chain_next": "Ra'Jin Assault",
+            "quest_chain": {
+              "name": "Tanvu",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+      "observation": "Primary objective names Lao'Jin Master Yaol; fandom objective names Master Yaol. These remain distinct source strings, not an established canonical identity.",
+      "canonical_client_id": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+      "observation": "Previous links Walking With Lao'Jin, reciprocating its Next link. Next links Ra'Jin Assault. Archive reports next/previous disagreements attributed to silkyvenom. Navigation does not establish enforced prerequisites or branch exclusivity.",
+      "enforced_prerequisites": null,
+      "branch_exclusivity": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+      "observation": "Coin reward is an undenominated 50; copper conversion is withheld. Notes and starting Location are different coordinate strings associated with different page contexts; neither replaces the other. Archive reports five disagreements, retained in full observations.",
+      "coin_copper": null,
+      "resolved_level": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+      "observation": "Offering dialogue is attributed to photographed in game by the archive operator. This is an archive attribution; this review does not inspect an original screenshot or treat mirrors as independent corroboration.",
+      "original_screenshot_verified": false
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "literal_observations_verified": 33,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 6
+  },
+  "remaining_review": {
+    "required_review_complete": false,
+    "collection_complete": false,
+    "next_actionable_batch": "Review cached Ra Jin Assault objectives, rewards and source-attributed navigation disagreements without inferring prerequisites."
+  }
+}
