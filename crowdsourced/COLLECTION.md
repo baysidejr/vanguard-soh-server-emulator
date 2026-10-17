@@ -1,5 +1,14 @@
 # Archive collection
 
+Alternate-source transport groundwork is in `multisource_client.py`. It requires
+the calling process to own the existing collector lock, uses the archive's shared
+request clock and persisted minimum interval, and evaluates robots separately for
+each allowed host (including query URLs). Robots denial or HTTP errors propagate
+without retry; waits check graceful stop every 250 milliseconds. Cached bodies are
+checked against source URL and SHA-256 metadata. This module is not yet wired into
+the live archive runner: alternate-source queue scheduling, transient recovery and
+article extraction remain required before live alternate-source collection.
+
 The strategy is a whole-site canonical URL inventory followed by batches of linked game records. Sundering Wastelands and Wildgrowth Forest come first. Zone maps supply useful entity/quest relationships, but their links do not enumerate every record associated with a zone. The subsequent site-wide pass collects pages that would otherwise be missed, including items whose zone is unknown.
 
 The initial sitemap inventory contains **104,855 distinct URLs**, including 100,666 supported detail pages: 75,066 items, 15,418 archive mob entries, 4,776 quests, 3,057 abilities, 401 zones, 1,582 recipes and 366 diplomacy cards. The collector also reads 27 canonical class/profession indexes, which can supply many ability rows per request. Remaining URLs include other indexes, effects, races, class subpages and guide/lore pages requiring additional extraction rules. The URL inventory is not a dump of all game records.
