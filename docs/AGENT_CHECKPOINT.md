@@ -7,7 +7,7 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-2026-10-17 (later): B-022 import skips placeholder giver names (Varies, Then) and same-spot duplicates; Tracker Nok at the Tracker Camp (his own record); B-023 dead characters can't deal with the world (dialogue, quests, loot, crafting, trade, harvest, mail, broker), found live; tools/client_ui.py drives the client for hand-run checks; TESTING.md items ticked: riftways, altar bind/death/release, Recall, /con, Afshin's Convince parley, /report, wounds, archive quest + delivery, create/delete. Scrape merged three times today (latest 26da133).
+2026-10-17 (evening): **B-024 fixed** (bags looked empty after every chunk change: re-sent inventory now removes items first with 0x1a5; verified live after a riftway, ability book and journal also intact). Before that: B-023 dead characters can't deal with the world; B-022 placeholder giver names; B-020 Tracker Nok and copied coordinates; scrape merged four times today (latest 9abb5a5). Hand-run items ticked with tools/client_ui.py: merchant buy/sell/buyback/repair, equip, Veyla tombstone summon, friends/ignore/bug window, stun/root/fear, level-up, /con, parley, riftways, altar/death/release, Recall.
 
 ## In progress / next action
 - B-019 (Isle of Dawn has no quests): BLOCKED: OWNER DECISION, options in the backlog.
