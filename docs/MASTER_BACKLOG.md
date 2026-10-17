@@ -105,11 +105,12 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Last validation:** 2026-10-16: EditorPageTests 5/5 alone, full unit suite 3/3 OK.
 
 ## B-015 Bot coverage for server-only hand-run checks
-- **Priority:** P3 · **Category:** stability · **State:** IN_PROGRESS
+- **Priority:** P3 · **Category:** stability · **State:** VERIFIED
 - **Evidence:** docs/TESTING.md hand-run items are all unchecked; some depend only on server answers and can run in `scenarios.py` while the client is blocked (B-003).
 - **Progress:** 2026-10-16 scenario "player report": /report (0x4ac) answers 149 "Player report submitted", a second within a minute 148 (wait longer), the report lands in the data folder's player_reports.json (scratch copy, not server/). 21 scenarios; check_all 6/6; real DB fingerprint unchanged. The client's display of the line stays a hand-run check.
 - 2026-10-16 scenario "rescue rope": B targets A and throws (/rope 0x190); A gets 0x58a naming B, accepts (0x191) and gets notice 465 (hauled). B throws so B stays at the brazier for the riftway. 22 scenarios; check_all 6/6.
 - 2026-10-16 scenario "appearance settings saved": /hidehelm 0x114 and /setwearpreference 0x110 are saved in pawn_prefs. 23 scenarios; check_all 6/6.
 - 2026-10-16 scenario "item link": /itemlinkrequest 0x158 for Copper Ore answers 0x158 with its item record. 24 scenarios; check_all 6/6. (/walk's answer is a UE property and MsgScore field, which the test bot does not parse.)
 - 2026-10-16 scenarios "bug report" (0x4aa saved in the data folder, "Saved as bug report #n.") and "lockout commands" (0x4fc answered with 0x4fd, 0x4fb notice 159, 0x273 notice 158). 26 scenarios; check_all 6/6; server/bug_reports.json untouched.
-- **Next action:** `!call` and escrow need dev commands (the check server runs without them); look for other non-dev server answers.
+- `!call` (CallPcTests) and full-bag escrow (test_full_bags_go_to_escrow_then_a_banker_hands_it_over) are already unit-tested; the remaining TESTING.md items are client display checks.
+- **Next action:** none until the client can be driven (B-003).
