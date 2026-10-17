@@ -108,8 +108,9 @@ def handle_unreal(send, state, payload, args):
         send(attributes.set_pool(attributes.pool(sphere(player, CRAFTING)[0], getattr(player, "craft_alloc", {})),
                                  attributes.CRAFTING))
         print("  <- ZONE events 0x2d5/0x2d4 (stats)")
-        for m in inventory_messages(player):
+        for m in inventory_messages(player, resend=getattr(player, "inventory_sent", False)):
             send(m)
+        player.inventory_sent = True        # this client now holds these items (kept across chunk hand-offs)
         print("  <- ZONE events 0x195/0x197/0x1bb (inventory)")
         # Item reuse timers still running from before a relog ({group: (until, seconds)});
         # sent after the items, which pick the timer up by their field 107.
@@ -1407,12 +1408,20 @@ def book_recipes(args, player):
     return out
 
 
-def inventory_messages(player):
+def inventory_messages(player, resend=False):
     """0x195 resets the inventory UI and creates the 50-slot main grid
     (FUN_00513170; field 0 = InventorySpaceAvailable), then one 0x197 per item,
-    then 0x1bb sets the coin total without a chat message (0x1aa prints one)."""
+    then 0x1bb sets the coin total without a chat message (0x1aa prints one).
+    resend: the client already holds these items (a chunk hand-off keeps the client running).
+    0x195 clears the grid, but a 0x197 for an item id the client still has does not put it back
+    (seen live 2026-10-17: after a riftway the bags showed empty), so each item is first removed
+    with 0x1a5 {i32 id, bool8 0} and then created again."""
     main = [i for i in player.items if vgmsg.split_slot(i[4])[0] == -1]
-    out = [zone_event(0x195, struct.pack("<iiii", 50 - len(main), 0, 0, 0))]
+    out = []
+    if resend:
+        out = [zone_event(0x1A5, struct.pack("<iB", item_id, 0))
+               for item_id in [i[0] for i in player.items] + [e[0] for e in player.equipment]]
+    out.append(zone_event(0x195, struct.pack("<iiii", 50 - len(main), 0, 0, 0)))
     dur = getattr(player, "durability", {})
     bound = getattr(player, "bound", set())
     for item_id, name, icon, qty, slot in main:

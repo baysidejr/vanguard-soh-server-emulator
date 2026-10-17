@@ -89,6 +89,7 @@ Notes on the item fields you asked about:
 - `item+0x6ec` is **not from the wire**. It is a client-local handle. FUN_00517b60 increments a global counter DAT_013e9be4 and FUN_00513a10 stores it at +0x6ec. The UI list entries (SGOUIGameVarDataItemInfo) store this handle. **[O]**
 - `item+0x654` is field 15 (parent container). `item+0x650` is field 71 (container ID the item provides). `item+0x570` is field 92. **[O]**
 - FUN_00512d40 sends every 0x197 through FUN_00516610(...,0,-1). That means a resend of the same id creates a new client object, not an update. **[O]**
+- **Seen live 2026-10-17:** after 0x195 (grid reset), re-sending 0x197 for item ids the client still holds leaves the grid empty (so a chunk hand-off made the bags look empty). Removing each item first with 0x1a5 {i32 id, bool8 0} and then sending 0x195 + 0x197 shows them all again (`zone.inventory_messages(resend=True)`).
 
 ## Icons
 Field 13 is a numeric icon ID. FUN_006ab420 -> FUN_00c4b020 formats it as `"%05d"` (e.g. 1 -> "00001") and looks up that key in the client icon map (FUN_00c4ae60). If the ID is < 0 or not found, it falls back to **"00443"**. **[O]** So any 5-digit icon key that exists in the client's icon table works. **443** is guaranteed to resolve because it is the client's own default **[O]**. Which numbers map to swords is unknown, so try small values such as 1..1000 **[I]**.

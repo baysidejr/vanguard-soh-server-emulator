@@ -97,6 +97,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Fixed: after any chunk change (riftway, walking into the next chunk, death release elsewhere) the bags looked empty in the client although nothing was lost. The server now removes and re-creates the items on a hand-off; verified live (B-024).
+
 - 2026-10-17: Dead characters can no longer hail NPCs or bind at altars ("You cannot do that while dead."), found and checked in the client (B-023). Tracker Nok placed at the Tracker Camp from his own record; copied archive coordinates flagged; import skips placeholder giver names (Varies, Then) and same-spot duplicates (B-020, B-022).
 
 - 2026-10-17: Played the Karibasa archive quest "Leafsaw Crawlers" end to end in the real client (scratch save): offer, accept, kill count, hand-in, 100 XP (B-021).

@@ -9862,6 +9862,9 @@ def dev_command(text, player=None):
     if words[0] == "fishbite" and player:
         # !fishbite: as if the bobber landed in water (testing where there is no water).
         return [("fishev", fishing.BOBBER, struct.pack("<fff", 0, 0, 0))]
+    if words[0] == "reinv" and player:
+        # !reinv: send the whole inventory again as after a chunk hand-off (0x1a5 removes, 0x195, 0x197s) (testing).
+        return zone.inventory_messages(player, resend=True)
     if words[0] == "ui" and len(words) > 1:
         # !ui <window name>: toggle a client window (0x598 SGOUI toggle), e.g. !ui Social (testing).
         return [zone.zone_event(0x598, (f'SGOUI toggle "{" ".join(words[1:])}"' + chr(0)).encode("utf-16-le"))]

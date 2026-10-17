@@ -2535,3 +2535,24 @@ class DeadPlayerTests(unittest.TestCase):
             player.quests.active["q"] = quest.new_progress()
             login_stub.handle_quest_event(state, quest.ABANDON, struct.pack("<HIIi", 2, quest.ABANDON, 4, 4243))
             self.assertNotIn("q", player.quests.active)                           # abandoning still works
+
+
+class InventoryResendTests(unittest.TestCase):
+    """B-024: after a chunk hand-off the client still holds the items, and a 0x197 for an id it has
+    does not refill the grid that 0x195 cleared (bags looked empty after every riftway). A resend
+    removes each item (0x1a5) first."""
+
+    def test_resend_removes_first(self):
+        import struct
+        import zone
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n19_12")
+        player.items = [[10001, "Travel Rations", 442, 1, 3]]
+        player.equipment = [[2001, "Rusty Sword", 422, 28]]
+        ids = lambda msgs: [struct.unpack_from("<I", m, 2)[0] for m in msgs]
+        first = zone.inventory_messages(player)
+        self.assertNotIn(0x1A5, ids(first))
+        self.assertEqual(ids(first)[0], 0x195)
+        again = zone.inventory_messages(player, resend=True)
+        self.assertEqual(ids(again)[:3], [0x1A5, 0x1A5, 0x195])           # each item and equipped piece, then reset
+        removed = {struct.unpack_from("<i", m, 10)[0] for m in again if struct.unpack_from("<I", m, 2)[0] == 0x1A5}
+        self.assertEqual(removed, {10001, 2001})
