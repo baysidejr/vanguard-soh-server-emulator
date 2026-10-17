@@ -10,6 +10,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Last test results
 
+- 2026-10-17 (after the owner decisions, imports, chunk moves and death checks): 50 bots for 120 s in Khal on a scratch copy: 50/50 joined, 5,582 steady-state pings median 10.6 ms, p95 11.4 ms, max 22.5 ms, no lost packets, 0 server errors, memory 150 MB under load (as the 15-minute soak). check_all 6/6 (unit 297), --client 7/7 earlier today; many hand-run items checked in the client with tools/client_ui.py (TESTING.md).
 - 2026-10-17 00:40 (after the deep-fuzz logger fix and 26 scenarios): tools/check_all.py --client 7 of 7 passed (unit 282, steady p95 11.2 ms, fuzz clean with the packet log on, smoke PASS: logged in, entered the world, 49 commands); real save database unchanged.
 - 2026-10-16 (after the edge-walk scenario, provenance report): tools/check_all.py 6 of 6 passed (unit 279, 20 scenarios, steady p95 11.1 ms, fuzz clean); --client not run (B-003 focus); real save database unchanged (row fingerprint).
 - 2026-10-16 (15-minute soak, 50 bots in Khal): memory flat at 149.6 MB, p95 11.1 ms, worst steady-state ping 41.9 ms, no errors (docs/TESTING.md).
