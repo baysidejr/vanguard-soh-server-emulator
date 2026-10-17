@@ -767,6 +767,11 @@ def apply(level, mobs, spawns, content=CONTENT):
     # spacing against the file, so they're added even when the chunk has one of that kind.
     new_spawns = [s for s in spawns if s["mob"] not in have or (s["mob"] in SHARED_PROPS and not any(
         o.get("mob") == s["mob"] and o.get("x") == s["x"] and o.get("y") == s["y"] for o in doc.get("spawns", [])))]
+    # Someone already stands on that exact spot under another name ("Naji" from a quest record,
+    # "Naji Sevenblade" from her NPC page, same archive coordinates): the same person.
+    new_spawns = [s for s in new_spawns if s["mob"] in SHARED_PROPS or not any(
+        o.get("mob") != s["mob"] and abs(o.get("x", 1e9) - s["x"]) < 10 and abs(o.get("y", 1e9) - s["y"]) < 10
+        for o in doc.get("spawns", []))]
     if new_mobs or grew:
         existing.update(new_mobs)
         write(mobs_path, existing)

@@ -2465,6 +2465,11 @@ class MovedSpawnImportTests(unittest.TestCase):
             added = import_zone.apply("chunk_c", {"arch_new": {"name": "New"}},
                                       [{"mob": "arch_new", "x": 3, "y": 4}], content=d)
             self.assertEqual(added, (1, 1))                                  # others still import
+            with open(os.path.join(d, "spawns", "chunk_d.json"), "w", encoding="utf-8") as f:
+                json.dump({"spawns": [{"mob": "arch_naji", "x": 5, "y": 5}]}, f)
+            added = import_zone.apply("chunk_d", {"arch_naji_sevenblade": {"name": "Naji Sevenblade"}},
+                                      [{"mob": "arch_naji_sevenblade", "x": 5, "y": 5}], content=d)
+            self.assertEqual(added[1], 0)                                    # same spot, another name: same person
 
 
 class QuestGiverNameTests(unittest.TestCase):
