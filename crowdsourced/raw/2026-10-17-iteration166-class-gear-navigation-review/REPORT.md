@@ -1,0 +1,7 @@
+# Cached class gear navigation review
+
+Reviewed all 15 previously hash-verified cached class pages. Each exposes exactly one labelled gear browse link. Retained 15 source-labelled navigation observations; independent link traversal checked each label/href pair and all 15 body hashes. These records are metadata only: no weapon or armor permissions or canonical class IDs are inferred from archive filters. Archive query links were not requested and do not enter the pending collection queue. Validation: zero issues, zero typed permission facts.
+
+Collection remains suspended. Automatic approval review previously rejected suspension reset/restart and separate stance/learned-ability publication with reason `blocked by policy`. Those actions were not retried. Resumption requires resolution and a recorded policy disposition followed by process/lock inspection and collection.ps1 with preserved checkpoints and 60-second pacing. This phase performed zero network requests.
+
+collection.ps1 Status reports stopped; actual Python process inventory was empty. Checkpoints retain 26,918 completions and 77,954 pending archive URLs. Collection and historical extraction remain incomplete. Next actionable batch: inspect cached class guide navigation links for primary-source attribution and distinguish mirrored live-era guides from modern emulator material, without revisiting withheld stance or learned-ability publications.
