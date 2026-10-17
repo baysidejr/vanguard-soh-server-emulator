@@ -53,3 +53,22 @@ class MultiSourceClientTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     self.client.get(url)
             download.assert_not_called()
+
+    def test_missing_robots_allows_polite_content_but_only_for_robots_url(self):
+        for code in (404, 410):
+            self.client.policies.clear()
+            robots_url = 'https://vgoplayers.com/robots.txt'
+            error = HTTPError(robots_url, code, 'missing', {}, None)
+            with patch.object(self.client, 'download', side_effect=[error, 'page', 'next']) as download:
+                self.assertEqual(self.client.get('https://vgoplayers.com/items.php'), 'page')
+                self.assertEqual(self.client.get('https://vgoplayers.com/quests.php'), 'next')
+                self.assertEqual(download.call_count, 3)
+                self.assertEqual(download.call_args.args[1], 60)
+                self.assertEqual(self.client.policy_evidence['vgoplayers.com']['http_status'], code)
+        self.client.policies.clear()
+        error = HTTPError('https://vgoplayers.com/other', 404, 'missing', {}, None)
+        self.addCleanup(error.close)
+        with patch.object(self.client, 'download', side_effect=error) as download:
+            with self.assertRaises(HTTPError):
+                self.client.get('https://vgoplayers.com/items.php')
+            self.assertEqual(download.call_count, 1)

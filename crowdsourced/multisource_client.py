@@ -10,6 +10,7 @@ import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.parse import urlsplit
 from urllib.request import Request, build_opener
 from urllib.robotparser import RobotFileParser
@@ -28,6 +29,7 @@ class MultiSourceClient:
         self.clock = self.root / '.cache/archive/last-request.json'
         self.interval = self.clock.with_name('request-interval.json')
         self.policies = {}
+        self.policy_evidence = {}
 
     def check_owner(self):
         lock = self.state / 'run.lock'
@@ -84,8 +86,28 @@ class MultiSourceClient:
                       if self.interval.exists() else 15.0)
         policy_entry = self.policies.get(parts.netloc)
         if policy_entry is None or time.time() - policy_entry[0] >= 86400:
-            # A failed robots response aborts before any content request.
-            robots = self.download('https://' + parts.netloc + '/robots.txt', minimum, ttl=86400)
+            robots_url = 'https://' + parts.netloc + '/robots.txt'
+            status = 200
+            try:
+                robots = self.download(robots_url, minimum, ttl=86400)
+            except HTTPError as error:
+                # Missing robots is not a prohibition. Access/rate/server failures
+                # still propagate before any content request; never bypass them.
+                if error.code not in (404, 410) or error.url != robots_url:
+                    raise
+                status = error.code
+                error.close()
+                robots = 'User-agent: *\nAllow: /\n'
+            evidence = {'url': robots_url, 'http_status': status,
+                        'checked_at': datetime.now(timezone.utc).isoformat(),
+                        'interpretation': 'missing robots; conservative collection allowed'
+                            if status in (404, 410) else 'published robots rules applied'}
+            self.policy_evidence[parts.netloc] = evidence
+            self.cache.mkdir(parents=True, exist_ok=True)
+            evidence_path = self.cache / (parts.netloc + '.policy.json')
+            staged = evidence_path.with_suffix('.tmp')
+            staged.write_text(json.dumps(evidence, indent=2) + '\n', encoding='utf-8')
+            staged.replace(evidence_path)
             policy = RobotFileParser()
             policy.parse(robots.splitlines())
             policy_entry = (time.time(), policy)
