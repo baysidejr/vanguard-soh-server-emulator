@@ -97,6 +97,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Fixed: a summoned pet was lost on every chunk change; it now follows through (B-027). /walk and sprint speed also survive a chunk change (B-026).
+
 - 2026-10-17: Fixed: after a chunk change a rider kept the horse but moved at foot speed (measured with /loc); the mount state is re-sent after the zone-in (B-026). Also checked in the client: Sprint, Recall to House, mining, ore conversion, mail, the market window.
 
 - 2026-10-17: Fixed: with full bags six items vanished from view at login (equipped pieces were created in bag slots first); now created in their equip slot. Escrow checked live (B-025).

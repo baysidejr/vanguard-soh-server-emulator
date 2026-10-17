@@ -2623,3 +2623,38 @@ class RemountAfterHandoffTests(unittest.TestCase):
         self.assertTrue(any(isinstance(m, dict) and m.get("m_MountType") == zone.MOUNT_GROUND for m in sent))
         speeds = [m["GroundSpeed"] for m in sent if isinstance(m, dict) and "GroundSpeed" in m]
         self.assertEqual(speeds, [login_stub.BASE_GROUND_SPEED * login_stub.MOUNT_SPEED])
+
+
+class PetHandoffTests(unittest.TestCase):
+    """B-027: a summoned pet comes along through a chunk hand-off (it was dismissed for good)."""
+
+    def test_pet_resummoned_after_zone_in(self):
+        import login_stub
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n19_12")
+        spec = {"name": "Ashfang", "race": 119}
+        player.pet = mock.Mock(pet_spec=spec)
+        state = {"player": player, "send": lambda m: None, "handoff": True}
+        with mock.patch.object(login_stub, "dismiss_pet", lambda s, dust=True: setattr(s["player"], "pet", None)):
+            login_stub.leave_world(state, mock.Mock())
+        self.assertEqual(player.pet_resummon, spec)
+        summoned = []
+        with mock.patch.object(login_stub, "summon_pet", lambda s, a, sp: summoned.append(sp)):
+            login_stub.remount_after_zone_in({"player": player, "remount": True, "send": lambda m: None}, None)
+        self.assertEqual(summoned, [spec])
+        self.assertIsNone(player.pet_resummon)
+
+    def test_logout_does_not_keep_the_pet(self):
+        import login_stub
+        import zone
+        from unittest import mock
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n19_12")
+        player.pet = mock.Mock(pet_spec={"name": "Ashfang"})
+        state = {"player": player, "send": lambda m: None}
+        with mock.patch.object(login_stub, "dismiss_pet", lambda s, dust=True: setattr(s["player"], "pet", None)), \
+                mock.patch.object(login_stub, "save_character_field", lambda *a: None), \
+                mock.patch.object(login_stub, "caravan_of", lambda n: None), \
+                mock.patch.object(login_stub, "leave_group", lambda s: None):
+            login_stub.leave_world(state, mock.Mock())
+        self.assertIsNone(getattr(player, "pet_resummon", None))

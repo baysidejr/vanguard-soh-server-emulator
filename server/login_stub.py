@@ -1323,6 +1323,10 @@ def remount_after_zone_in(state, args):
     player = state.get("player")
     if not state.pop("remount", False) or player is None:
         return False
+    spec = getattr(player, "pet_resummon", None)
+    if spec:
+        player.pet_resummon = None
+        summon_pet(state, args, spec)          # the pet followed through the chunk change (B-027)
     if getattr(player, "mount", None):
         set_mount(state, args, player, player.mount, getattr(player, "mount_kind", 0) or zone.MOUNT_GROUND)
         return True
@@ -3768,6 +3772,7 @@ def summon_pet(state, args, spec):
     npc.level = spec.get("level", 1)
     npc.damage = tuple(spec.get("damage", (5, 10)))
     npc.template_id = "pet"
+    npc.pet_spec = spec
     npc.pet_owner = player
     npc.pet_mode = "follow"
     npc.pet_target = None
@@ -9406,6 +9411,9 @@ def leave_world(state, args):
     """A zone connection ended: remove the player from its chunk and close its
     pawn on everyone else's client."""
     if state.get("player") is not None and getattr(state["player"], "pet", None) is not None:
+        if state.get("handoff"):
+            # A chunk hand-off: the pet comes along (summoned again after the zone-in, B-027).
+            state["player"].pet_resummon = getattr(state["player"].pet, "pet_spec", None)
         dismiss_pet(state, dust=False)
     if state.get("player") is not None and not state.get("handoff"):
         p = state["player"]
