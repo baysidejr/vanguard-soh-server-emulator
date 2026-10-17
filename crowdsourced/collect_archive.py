@@ -27,7 +27,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 33
+PARSER_VERSION = 34
 SUPPLEMENTAL = ('world','guides','lore','ten-ton-hammer','walkthroughs','angry-goblins','races','harvesting','mounts','vgoemulator','crafting','diplomacy')
 SUPPORTED = ("/zones/", "/quests/", "/mobs/", "/items/", "/abilities/", "/crafting/recipes/", "/diplomacy/cards/", "/classes/", "/effects/")
 
@@ -448,8 +448,21 @@ def parse_page(url, html):
     notes.extend(enrich_record(record, main))
     record["notes"] = " ".join(notes)
     if record['type'] == 'npc' and 'merchant' in record.get('services', []):
+        stock = []
+        for node in section(main, 'Sells'):
+            for a in node.find_all('a', href=True):
+                item_url = urljoin(ORIGIN, a['href'])
+                if (urlsplit(item_url).path.startswith('/items/') and
+                        detail_url(item_url) and plain(a)):
+                    sale = dict(item=plain(a), item_url=item_url, price_copper=None)
+                    if sale not in stock:
+                        stock.append(sale)
         merchant = dict(common, type='merchant', npc=name, zone=record.get('zone'), sells=None, buys=None,
                         notes='Merchant service explicitly recorded. Inventory and prices not found by the current extraction rules; null stock is not an empty in-game inventory.')
+        if stock:
+            merchant['sells'] = stock
+            merchant['notes'] = ('Items explicitly linked in the Sells section; completeness, quantities and purchase prices unknown. '
+                                 'Tooltip item values are not merchant prices. Unknown prices withhold conversion.')
         records.append(merchant)
     record["original_source_urls"] = unique(a["href"] for heading in ("Source", "Sources")
         for node in section(main, heading) for a in node.find_all('a', href=True)

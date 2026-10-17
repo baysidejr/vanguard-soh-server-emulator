@@ -19,6 +19,22 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_merchant_stock_is_section_scoped_and_prices_unknown(self):
+        html = page('Vendor', '<dl class="kv"><dt>Role</dt><dd>Merchant</dd></dl>'
+                    '<h2>Sells (3)</h2><ul><li><a href="/items/arrow">Arrow</a>'
+                    '<span>Value: 2 gold</span></li><li><a href="/items/arrow">Arrow</a></li>'
+                    '<li><a href="https://elsewhere.test/items/fake">Fake</a></li>'
+                    '<li><a href="/items/query?x=1">Query</a></li></ul>'
+                    '<h2>Loot</h2><a href="/items/loot">Loot</a>')
+        records, _ = collector.parse_page(ORIGIN + '/mobs/vendor', html)
+        merchant = next(r for r in records if r['type'] == 'merchant')
+        self.assertEqual(merchant['sells'], [dict(item='Arrow', item_url=ORIGIN + '/items/arrow', price_copper=None)])
+
+    def test_merchant_absent_sells_remains_unknown(self):
+        records, _ = collector.parse_page(ORIGIN + '/mobs/vendor', page(
+            'Vendor', '<dl class="kv"><dt>Role</dt><dd>Merchant</dd></dl><h2>Sells (0)</h2><ul></ul>'))
+        self.assertIsNone(next(r for r in records if r['type'] == 'merchant')['sells'])
+
     def test_creature_geography_labels_remain_observations(self):
         from archive_extract import enrich_record
         record = dict(type='creature', archive_fields={
