@@ -12,7 +12,7 @@ This document is for a full review: what the emulator does today, what is placeh
 |---|---|
 | **Goal** | Rebuild the server side of *Vanguard: Saga of Heroes* from the game client alone (client 1.324.1.139565). |
 | **State** | The unmodified client logs in, creates characters, enters a 3D world and plays: combat, quests, crafting, harvesting, diplomacy, groups, guilds, raids, mail, the broker, housing, mounts, flight, pets, fishing, and more. |
-| **Content** | 93 regions populated from a crowdsourced archive scrape: ~2,100 NPCs, ~300 creatures, 368 playable archive quests. Most numbers (stats, prices, rewards) are placeholders. |
+| **Content** | 95 regions populated from a crowdsourced archive scrape: 2,520 archive templates, 2,856 spawns (191 invented camp spawns, marked). Quests: 77 archive quests with real objectives, 18 deliveries kept on title evidence, 294 placeholders switched off (B-007), 4 hand-made; all 99 offered quests can be finished (`tools/quest_check.py`). Most numbers (stats, prices, rewards) are placeholders. |
 | **Code** | 55 server modules (~27,000 lines of Python, standard library only), 15 tools. 1,069 commits since 2026-10-11. |
 | **Checks** | 282 unit tests, 26 multiplayer scenarios, a load test, a fuzzer (packet log on) and a client smoke test: `tools/check_all.py --client` passes 7 of 7 (last run 2026-10-17), on a scratch copy of the save, so the real database is never touched. GitHub CI runs the tests on every push (green). |
 | **Protocol coverage** | The client handles 720 zone messages; 682 (94%) are sent by the server or not needed. 38 optional ones remain. |
@@ -205,7 +205,9 @@ These work in the game but use invented values, because the archive (or the clie
 4. ~~Start new characters in the real starting areas by default?~~ **Decided 2026-10-17: yes.** New characters start on the Isle of Dawn or in their race's home town (`--camp-start` keeps the old camp for testing). Few quests there have real objectives yet (Isle of Dawn 0, Tursh 2, Shang 0, Karibasa 2).
 5. ~~Gate parleys on presence?~~ **Decided 2026-10-17: no**, parleys stay unrestricted until there is evidence for presence values.
 
-The owner's decisions on all five questions (2026-10-17) are being carried out: see docs/MASTER_BACKLOG.md B-007, B-008, B-009, B-010, B-017.
+6. **New question (B-019): Isle of Dawn has no quests.** The create screen's default start, the Isle of Dawn, offers 0 quests now (its 10 were evidence-less delivery placeholders, switched off under B-007). Options: (a) leave it until the scrape records island objectives; (b) send "trial island" picks to the race's home town until it has quests; (c) re-enable the island's 10 delivery placeholders as marked placeholders.
+
+The owner's decisions on all five questions (2026-10-17) are carried out: see docs/MASTER_BACKLOG.md B-007, B-008, B-009, B-010, B-017.
 
 ### 6.2 Waiting on the scrape (data the archive does not have yet)
 In order of what each would unlock (numbers from 2026-10-16):

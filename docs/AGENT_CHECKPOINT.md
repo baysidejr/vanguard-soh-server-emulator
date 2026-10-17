@@ -7,15 +7,12 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-**B-005 (c): chunk hand-off and return** scenario (bots follow world event 8 with `Bot.join_zone`; Khal and back). `check_all.py` 6/6; 19 scenarios, 0 failed; real DB fingerprint `e53c48100b5e8a63` unchanged.
-This session also: B-001 (checks on a scratch DB copy), B-002 (flight landing gap documented), B-005 (a) second login and (b) reconnect after a drop, B-013 (editor quest form dropped turn_in).
+Owner decisions 2026-10-17 applied (VANGUARD_CLAUDE_CONTINUE.md, gitignored): B-017 real starting areas by default (`--camp-start` override), B-010 deferred, B-008 23 camp-zone NPCs imported (11 heights flagged `_uncertain`), B-007 17+1 deliveries kept on title evidence / 294 disabled (reversible), B-009 scrape branch merged (0f14182) and promoted (77 quests with real objectives). B-018 quest_check: 99/99 offered quests finishable.
 
 ## In progress / next action
-B-011 provenance report, B-004 (spike not reproduced in 5 runs), B-014 (temp-folder leak) done. B-005 edge walk done (20 scenarios). B-012 reviewed (nothing unlocks gameplay; blocked on the live client). Scrape branch: 29 new commits, no newly playable quests, not merged (B-009). B-015: scenarios "player report", "rescue rope", "appearance settings saved", "item link", "bug report", "lockout commands" (26 scenarios). B-005 COMPLETE (LeaveWorldTests: actor close and NPC release on leaving). B-003: 2026-10-16 the foreground is Windows Terminal again (GameInput no longer holds it), but the user was active, so the client smoke test was not run; run `check_all.py --client` when the PC is idle (GetLastInputInfo). B-015 VERIFIED.
-
-B-016 (packet logger on short packets, found by a deep fuzz with logging on) fixed and verified.
-
-**Actionable queue is empty without the user or the live client** (2026-10-16 21:45): every open STATUS.md 6.4 item is blocked: optional messages and particles need the client (B-012, B-006), presence gating needs a user decision (B-010: refusal text exists in the client, gain rates do not), flight landing needs mesh collision (B-002), placeholders/camp imports/scrape merge need user decisions (B-007, B-008, B-009). 2026-10-17 00:40: `check_all.py --client` 7 of 7 (unit 282, 26 scenarios, steady p95 11.2 ms, fuzz clean with packet log on, smoke PASS); DB fingerprint unchanged; B-001 and B-003 COMPLETE. B-006: tools/fx_props.py decodes effect emitters; live on a scratch save (smoke_test --keep --data-dir <scratch>, !event 0x553, !tp with yaw, screenshots) the quest-node effect shows nothing next to a visible sparkler, nor on marked veins up close, but it renders attached to an NPC (Orin); Ghidra shows the attach height is 2 x the pawn's collision height + 20 above its ground point, so on a vein it is probably inside the rock; winbreak confirmed the vein's collision height is 50 (Orin 90): B-006 COMPLETE (client data, documented). Next session: `git fetch` and report scrape-branch commits; B-006 live check with the user's go-ahead; otherwise wait for user decisions.
+- B-019 (Isle of Dawn has no quests) is BLOCKED: OWNER DECISION; options in the backlog.
+- Next unblocked: live look at the 11 `_uncertain` NPC heights (scratch save, PC idle); the client's own create screen with the default start (B-017 remainder); each session `git fetch` and repeat the B-009 merge cycle when the scrape branch moves.
+- Resume: `/ralph-loop:ralph-loop "Read VANGUARD_CLAUDE_CONTINUE.md. ..." --max-iterations 100` or read this file.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).

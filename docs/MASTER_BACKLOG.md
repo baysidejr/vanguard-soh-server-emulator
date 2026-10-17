@@ -159,3 +159,9 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Priority:** P1 · **Category:** gameplay correctness · **State:** VERIFIED
 - **Why:** content.py only checks that names exist; imports, disabled quests (B-007) and moved spawns could leave a quest whose giver, target or item is nowhere in the world.
 - **Done 2026-10-17:** `python tools/quest_check.py` checks every enabled quest: giver and hand-in spawned, kill and talk targets spawned, each collect item dropped by a spawned creature, gathered from a spawned node, sold by a spawned merchant or given by another quest. Result: 99 of 99 enabled quests can be finished. QuestCheckTests: the checker finds a missing creature and an item with no source, skips disabled quests, and the real content stays clean (guards future imports).
+
+## B-019 New Isle of Dawn characters have no quests
+- **Priority:** P1 · **Category:** onboarding · **State:** BLOCKED: OWNER DECISION
+- **Evidence (2026-10-17):** quests offered by NPCs standing in each start: Isle of Dawn 0 (its 10 archive quests were delivery placeholders without evidence, switched off by B-007), Tursh Village 5, Shang Village 1, Karibasa Village 2. The create screen sends the Isle of Dawn unless the player picks "home town", so most new characters land with nothing offered (creatures and NPCs are there; no riftway off the island).
+- **Options:** (a) keep as is until the scrape records Isle of Dawn objectives (honest, but new players there have little to do); (b) send "trial island" picks to the race's home town until the island has playable quests, reversibly, and say so in a login message (departs from the client's choice); (c) re-enable the island's 10 delivery placeholders as clearly marked placeholders (reverses B-007 there).
+- **Meanwhile:** nothing changed; the camp's tutorial quests stay reachable with `--camp-start`.
