@@ -10,6 +10,33 @@ sys.path.insert(0, str(HERE / '.tools-current'))
 from bs4 import BeautifulSoup
 
 
+def item_search_form(html, base):
+    """Preserve observed controls, including duplicate labels, without ID mapping."""
+    soup = BeautifulSoup(html, 'html.parser')
+    form = soup.select_one('form#itemSearchForm')
+    if form is None:
+        raise ValueError('Missing item search form')
+    action = urljoin(base, form.get('action', ''))
+    p = urlsplit(action)
+    if p.scheme != 'https' or p.netloc != 'vgoplayers.com' or p.path != '/items.php':
+        raise ValueError('Unexpected item search endpoint')
+    controls = []
+    for control in form.select('input[name], select[name]'):
+        row = {'name': control['name'], 'kind': control.name,
+               'input_type': control.get('type', 'text') if control.name == 'input' else None,
+               'default_value': control.get('value') if control.name == 'input' else None}
+        if control.name == 'select':
+            row['options'] = [{'source_value': option.get('value'),
+                               'label': option.get_text(' ', strip=True)}
+                              for option in control.select('option')]
+        controls.append(row)
+    return {'source_url': base, 'method': form.get('method', 'get').upper(),
+            'action': action.split('#', 1)[0], 'controls': controls,
+            'classification': 'Search interface metadata; not item facts',
+            'canonical_id_mapping': None, 'source_era': None,
+            'policy_status': 'Requires current per-host robots evaluation before submission'}
+
+
 def wiki_links(html, base):
     soup = BeautifulSoup(html, 'html.parser')
     content = soup.select_one('#mw-content-text')
