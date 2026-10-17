@@ -136,7 +136,7 @@ A full pass to check nothing old has broken. Start with `run_test.sh --dev-comma
 - [ ] `/forcecombatstance on` keeps the combat pose; as a Psionicist, pick a mindset, `/applyformondeath on`, `!die`, release: the mindset comes back
 - [ ] Kill a mob, XP bar rises, level up heals you and raises attributes (2026-10-17, scratch save with XP set just under level 22: kills gave "You gain 1 adventuring experience!", then "You have reached level 22! You have gained new adventuring attribute points!" and the portrait read 22; the heal not seen, health was already full)
 - [ ] Die, release, recover the tombstone, bind at the altar
-- [ ] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House (2026-10-17: Recall from Karibasa "You begin to cast Recall." and arrived at the Khal bind point; Sprint's speed and Recall to House not checked yet)
+- [x] Ability book General page: Sprint (faster for 45 s), Recall (bind point), Recall to House (2026-10-17: Recall from Karibasa "You begin to cast Recall." and arrived at the Khal bind point; Sprint "You start to sprint." ... "You stop sprinting." about 45 s later; Recall to House without a house: "You don't have a house to return to."; the speed change itself not measured)
 - [x] `!wound 2 2`: "Right Arm - Mid"; `/sit` heals it to Minor, then Unwounded (2026-10-17: "Right Arm - Mid", then "Some of your wounds have been cured! Right Arm - Minor", then "Right Arm - Unwounded")
 - [ ] A lootable corpse sparkles; spell effects show (Blade of Winter tints the target)
 - [ ] Wound an Ashen Wolf, run past its leash: it walks home, heals to 100%, the target frame turns white and its target line reads "--"; no "notices you!" flood
