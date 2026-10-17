@@ -96,6 +96,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-17: Delivery placeholders (B-007, owner decision C): 17 kept where the archive title names a delivery or report, 281 switched off ("disabled", kept in the file, reversible); givers no longer offer disabled quests.
+
 - 2026-10-17: Imported the archive NPCs of the two camp zones (B-008): 4 in the Sundering Wastelands, 19 in the Wildgrowth Forest (Tracker Nok, Warseer Gulkar, Gazzit Bramble...), with drop tables; 11 recorded heights above the terrain flagged `_uncertain`.
 
 - 2026-10-17: Owner decisions applied: real starting areas are the default for new characters (`--camp-start` keeps the camp); parleys stay unrestricted (B-010 deferred).

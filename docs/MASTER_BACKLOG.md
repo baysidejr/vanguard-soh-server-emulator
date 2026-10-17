@@ -73,10 +73,11 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - Superseded: **Next action (replaces the one below):** winbreak at 0xbbb740 on a marked vein to read pawn+0x330 and confirm; then decide (document as a client-data limit, or try another harvest-node race whose mesh is smaller). Old: winbreak after the 0x56a attach: does the emitter get particles (alive count) and where is the effect actor (Location vs. the vein's mesh bounds)? Low priority (P3). Superseded plans: marked node up close (done);  of the class on open ground, then at a marked node's pivot. The client works again (B-003 complete), but live runs log in as the real characters unless set up on a scratch copy; do it with the user's go-ahead.
 
 ## B-007 Placeholder content: delivery quests and invented camps
-- **Priority:** P2 · **Category:** content accuracy · **State:** BLOCKED (user decision + scrape data)
-- **Evidence:** 298 quests `_placeholder_steps`, 167 spawns `_placeholder`; listed in the editor's "Placeholders to review".
-- **Done when:** each is replaced by archive evidence or the user decides to keep/remove them. Removal of all delivery placeholders needs explicit authorization (mission).
-- **Next action:** after each scrape update, re-run `tools/quest_readiness.py --branch` and replace placeholders whose real objectives/locations appeared.
+- **Priority:** P2 · **Category:** content accuracy · **State:** VERIFIED for the delivery quests (owner decision C, 2026-10-17); invented camps unchanged
+- **Evidence checked:** for all 298 the archive (main and the scrape branch) records only giver, hand-in NPC and chain links: no steps, description or dialogue. The only evidence of a delivery is the quest's own title.
+- **Done 2026-10-17:** 17 kept as playable deliveries with `_delivery_evidence` (titles naming a message, letter, delivery, tidings or a report: "A Message For Fayalas", "Report To Officer Yu", "Potion Delivery"...; where the title names a person it is the hand-in NPC). 281 switched off with `"disabled": true` and `_disabled` (the reason); records, sources and steps stay in quests.json, so removing "disabled" restores one. `quest.offerable` keeps disabled quests out of NPC options, quest icons, accept, share and dialogue `quest:` replies; a quest already in a log still progresses and completes (no real character has one active). `quest_readiness.mark_delivery` applies the same rule to quests the importer adds later; the editor's "Placeholders to review" labels each DISABLED or kept with its evidence.
+- **Tests:** DisabledQuestTests (3), unit 291 OK, content OK, check_all 6/6; real DB fingerprint unchanged.
+- **Still placeholder:** 167 invented camp spawns (`_placeholder`) for quest kill targets with no recorded location; replace as the scrape records locations.
 
 ## B-008 Import archive NPCs into the two original camp zones
 - **Priority:** P3 · **Category:** content · **State:** VERIFIED (owner decision 2026-10-17: yes)

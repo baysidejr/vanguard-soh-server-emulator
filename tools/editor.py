@@ -448,7 +448,9 @@ def placeholders(content_dir):
         quests = {}
     for key, q in quests.items():
         if isinstance(q, dict) and q.get("_placeholder_steps"):
-            out["quests"].append({"key": key, "name": q.get("name"), "note": q["_placeholder_steps"],
+            note = (f"DISABLED (not offered): {q.get('_disabled', '')}" if q.get("disabled")
+                    else f"{q['_placeholder_steps']}; kept: {q.get('_delivery_evidence', 'no evidence noted')}")
+            out["quests"].append({"key": key, "name": q.get("name"), "note": note,
                                   "steps": [s.get("objective") for s in q.get("steps", [])]})
     return out
 

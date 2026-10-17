@@ -6854,7 +6854,7 @@ def npc_dialog(state, npc):
                 opts.append((f"{q['name']} (complete)", q["id"], quest.OPTION_COMPLETE))
             elif q.get("giver") == tpl:
                 opts.append((f"{q['name']} (in progress)", q["id"], quest.OPTION_PROGRESS))
-        elif q.get("giver") == tpl and all(r in log.done for r in q.get("requires", [])):
+        elif q.get("giver") == tpl and quest.offerable(q) and all(r in log.done for r in q.get("requires", [])):
             opts.append((q["name"], q["id"], quest.OPTION_AVAILABLE))
             greeting = greeting or q.get("greeting")
     # Start clean: 0x55f closes an open Dialogue window and frees all its options
@@ -7115,6 +7115,8 @@ def dialog_quest(state, key, npc_eid):
         send(zone.zone_event(quest.END_CONVERSATION))
     elif key in log.active:
         send(quest.page(q, npc_eid, quest.IN_PROGRESS, log.active[key], have=have_items(player)))
+    elif not quest.offerable(q):
+        send(zone.zone_event(quest.END_CONVERSATION))
     else:
         state.setdefault("shared_quests", set()).add(key)
         send(quest.page(q, npc_eid, quest.OFFER))
@@ -7151,7 +7153,7 @@ def handle_quest_event(state, event, payload):
                     finish_quest(state, key, q)
             else:
                 send(quest.page(q, npc_eid, quest.IN_PROGRESS, prog, have=have))
-        elif key not in log.done and tpl == q.get("giver"):
+        elif key not in log.done and tpl == q.get("giver") and quest.offerable(q):
             send(quest.page(q, npc_eid, quest.OFFER))
     elif event == quest.ABANDON and key in log.active:
         del log.active[key]
@@ -7162,7 +7164,7 @@ def handle_quest_event(state, event, payload):
         shared = 0
         for s in group_states(player):
             p = s["player"]
-            if s is state or key in p.quests.active or key in p.quests.done \
+            if s is state or key in p.quests.active or key in p.quests.done or not quest.offerable(q) \
                     or not all(r in p.quests.done for r in q.get("requires", [])):
                 continue
             s.setdefault("shared_quests", set()).add(key)
@@ -7174,7 +7176,7 @@ def handle_quest_event(state, event, payload):
     elif event == quest.ACCEPT and key not in log.active and key not in log.done:
         # Only from the giver (or a quest a groupmate shared), and only once the quests it
         # requires are done.
-        offered = tpl == q.get("giver") or key in state.get("shared_quests", set())
+        offered = (tpl == q.get("giver") or key in state.get("shared_quests", set())) and quest.offerable(q)
         if not offered or not all(r in log.done for r in q.get("requires", [])):
             return
         state.get("shared_quests", set()).discard(key)

@@ -2338,3 +2338,47 @@ class StartSpotTests(unittest.TestCase):
         content.spawns.return_value = [({"x": 7, "y": 7}, {"name": "Master Rahlsu"})]
         self.assertEqual(sa.start_position(content, sa.SHANG, "x", None, 90, starts=[(10, 7, 290)]),
                          [7 + sa.BESIDE, 7, 190.0])
+
+
+class DisabledQuestTests(unittest.TestCase):
+    """B-007: a quest marked "disabled" is not offered, but one already in a log still works."""
+
+    def test_icon_and_offer(self):
+        import types
+        import quest
+        quests = {"off": {"id": 1, "name": "Off", "giver": "orin", "turn_in": "smith", "level": 1,
+                          "steps": [{"talk": "smith"}], "disabled": True}}
+        log = types.SimpleNamespace(active={}, done=[])
+        have = lambda name: 0
+        self.assertIsNone(quest.npc_icon(quests, "orin", log, have, 1))          # no "!" over the giver
+        self.assertFalse(quest.offerable(quests["off"]))
+        log.active["off"] = quest.new_progress()                                 # taken before it was disabled
+        self.assertEqual(quest.npc_icon(quests, "orin", log, have, 1), quest.ICON_IN_PROGRESS)
+
+    def test_accept_refused(self):
+        import login_stub
+        import quest
+        import zone
+        from unittest import mock
+        q = {"id": 4242, "name": "Off", "giver": "orin", "turn_in": "orin", "level": 1,
+             "steps": [{"talk": "orin"}], "disabled": True}
+        npc = mock.Mock(template_id="orin", entity_id=7)
+        player = zone.Player(name="Ann", char_id=1, level="chunk_n19_12")
+        sent = []
+        state = {"player": player, "send": sent.append}
+        args = mock.Mock()
+        args.content.quests = {"off": q}
+        with mock.patch.object(login_stub, "ARGS", args), \
+                mock.patch.object(login_stub, "save_character_field", lambda *a: None):
+            login_stub.dialog_quest(state, "off", 7)
+        self.assertNotIn("off", player.quests.active)
+        self.assertNotIn("off", state.get("shared_quests", set()))             # no offer page
+
+    def test_content_split(self):
+        import json
+        q = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content", "quests.json"),
+                           encoding="utf-8"))
+        placeholders = [v for v in q.values() if isinstance(v, dict) and v.get("_placeholder_steps")]
+        kept = [v for v in placeholders if not v.get("disabled")]
+        self.assertTrue(all(v.get("_delivery_evidence") for v in kept))       # only with evidence
+        self.assertTrue(all(v.get("_disabled") for v in placeholders if v.get("disabled")))

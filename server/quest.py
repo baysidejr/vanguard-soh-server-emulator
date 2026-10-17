@@ -189,6 +189,13 @@ def icon_type(state, sphere="adventure"):
 _BY_NPC = {}
 
 
+def offerable(q):
+    """False for a quest switched off in quests.json ("disabled": true, e.g. a delivery the
+    archive gives no evidence for, backlog B-007). It stays in the file and in logs that already
+    have it; givers just stop offering it."""
+    return not q.get("disabled")
+
+
 def quests_of(quests, tpl):
     """[(key, quest)] in which the NPC template tpl is the giver or the turn-in NPC: an index
     built once per quest table (icons are worked out for every NPC in view)."""
@@ -218,7 +225,7 @@ def npc_icon(quests, tpl, log, have, level):
                 state = ICON_DONE
             elif q.get("giver") == tpl or turn_in(q) == tpl:
                 state = ICON_IN_PROGRESS
-        elif q.get("giver") == tpl and all(r in log.done for r in q.get("requires", [])):
+        elif q.get("giver") == tpl and offerable(q) and all(r in log.done for r in q.get("requires", [])):
             if level < q.get("min_level", 0):
                 state = ICON_SOON
             elif q.get("level", level) + LOW_LEVELS <= level:

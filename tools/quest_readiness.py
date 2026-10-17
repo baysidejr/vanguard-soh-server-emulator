@@ -178,6 +178,31 @@ def to_quest(rec, steps, quest_id, content=z.CONTENT):
     return q
 
 
+# Owner decision B-007 (2026-10-17): a quest the archive records no objectives for is only played
+# as a delivery when something points to one. The only evidence there is so far is the quest's
+# own title ("A Message For Fayalas", "Report To Officer Yu", "Potion Delivery"); others are
+# kept in quests.json but switched off ("disabled", quest.offerable).
+DELIVERY_TITLE = re.compile(r"\b(message|messages|letter|letters|delivery|deliver|delivering|note|missive|"
+                            r"package|parcel|word to|summons|report to|correspondence|dispatch|courier|"
+                            r"orders for|news for|tidings|introduction|send word|errand)\b", re.I)
+DELIVERY_EVIDENCE = ("the archive's quest title names a delivery or a report to the hand-in NPC (inferred "
+                     "from the title; the archive records no objectives)")
+NO_DELIVERY_EVIDENCE = ("B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing "
+                        "points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again.")
+
+
+def mark_delivery(q):
+    """Keep a delivery placeholder playable only with title evidence; switch it off otherwise."""
+    if DELIVERY_TITLE.search(q.get("name", "")) and q.get("giver") != q.get("turn_in"):
+        q["_delivery_evidence"] = DELIVERY_EVIDENCE
+        q.pop("disabled", None)
+        q.pop("_disabled", None)
+    else:
+        q["disabled"] = True
+        q["_disabled"] = NO_DELIVERY_EVIDENCE
+    return q
+
+
 def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
     """Add ready quests (and their collect items) to content. steps_for: {quest name: steps}
     to use instead of plan_steps (delivery_plan). Returns (quests added, items added)."""
@@ -199,6 +224,7 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
             quests[key]["turn_in"] = steps[-1]["talk"]
             quests[key]["_placeholder_steps"] = ("the archive records no objectives; played as a delivery to "
                                                  "the hand-in NPC")
+            mark_delivery(quests[key])
             reward = quests[key].setdefault("reward", {})
             if reward.get("xp") == 100 * int(rec.get("level") or 1):     # the placeholder, not the archive's
                 reward["xp"] = 25 * int(rec.get("level") or 1)              # one conversation: a quarter
