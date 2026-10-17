@@ -502,7 +502,7 @@ function setMode(m) {
   $("lootview").style.display = m === "loot" ? "flex" : "none";
   if (m === "loot" && !lootDoc) initLoot();
   $("questview").style.display = m === "quests" ? "flex" : "none";
-  if (m === "quests" && !questDoc) initQuests();
+  if (m === "quests" && !questDoc && !questLoading) initQuests();
   $("itemview").style.display = m === "items" ? "flex" : "none";
   if (m === "items" && !itemsReady) initItems();
   $("archview").style.display = m === "archive" ? "flex" : "none";
@@ -1932,16 +1932,20 @@ $("saveItems").onclick = async () => {
 };
 
 // ---- quests ----
-let questDoc = null, questSel = null, questMobs = {};
+let questDoc = null, questSel = null, questMobs = {}, questLoading = false;
 $("tabQuests").onclick = () => setMode("quests");
 const csv = v => v.split(",").map(x => x.trim()).filter(Boolean);
 async function initQuests() {
-  questDoc = JSON.parse((await api("/api/file?name=quests.json")).body.text);
+  // questDoc is set last: the form (and #selftest) only start once the giver / turn-in lists are
+  // filled; reading the form before that lost a quest's turn_in (an empty select).
+  questLoading = true;
+  const quests = JSON.parse((await api("/api/file?name=quests.json")).body.text);
   questMobs = JSON.parse((await api("/api/file?name=mobs.json")).body.text);
   if (!Object.keys(itemDoc).length) itemDoc = JSON.parse((await api("/api/file?name=items.json")).body.text);
   $("itemNames").innerHTML = Object.keys(itemDoc).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k.replace(/"/g, "&quot;")}">`).join("");
   const mobOpts = Object.keys(questMobs).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k}">${k} (${questMobs[k].name || ""})</option>`).join("");
   document.querySelectorAll(".mobsel").forEach(s => s.innerHTML = '<option value="">(none)</option>' + mobOpts);
+  questDoc = quests;
   listQuests();
 }
 function listQuests() {

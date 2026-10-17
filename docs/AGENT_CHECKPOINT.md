@@ -7,11 +7,12 @@ Recovery aid for the next session. Always re-check the real repository state (`g
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
 ## Last completed task
-**B-001: automated checks no longer write the real save database.** `check_all.py` and `smoke_test.py` run on a read-only scratch copy (`storage.scratch_copy`); `scenarios.py --data-dir`.
-Verification: `python tools/check_all.py` 6/6 twice; fingerprint of every row in `server/vanguard.db` identical before and after (`e53c48100b5e8a63`, 7 characters); scratch folders removed.
+**B-005 (a): "second login" scenario** (tools/scenarios.py): a second connection for an online character terminates the first; the new one plays. Passed on a scratch copy with all other scenarios (0 failed); real DB fingerprint `e53c48100b5e8a63` unchanged.
+Also fixed: B-013, the editor's quest form could drop turn_in when used before its NPC lists loaded (the intermittent test_forms_round_trip failure); full suite 3/3 OK after the fix.
+Earlier this session: B-001 (checks on a scratch DB copy, verified), B-002 (flight landing gap: root cause documented, no code change).
 
 ## In progress / next action
-Next backlog item: **B-002** (flight landing where the terrain lookup has no height). Exact next step: sample `terrain.Terrain("Assets/Maps/chunk_n19_12.vgr").height` around (-12891, -4871) and its neighbours.
+**B-005 (b):** scenario for an abrupt drop (close the socket without Terminate), then log the same character in again; expect the server to accept it and the character's saved position to be intact.
 
 ## Uncommitted files
 - `server/.claude/ralph-loop.local.md`: the loop tool's state file (not ours to commit).

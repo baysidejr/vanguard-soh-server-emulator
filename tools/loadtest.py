@@ -127,6 +127,7 @@ class SoeConnection:
         self.out_seq = 0
         self.frag = None          # [total, bytes]
         self.inbox = []
+        self.terminated = False   # the server sent Terminate (e.g. the character logged in elsewhere)
         self.expect = 0           # next reliable sequence number to deliver
         self.acked = None         # the server's last AckAll
         self.pending = {}         # seq -> packet that arrived early
@@ -169,6 +170,9 @@ class SoeConnection:
         if len(data) < 2 or data[0] != 0:
             return
         kind = data[1]
+        if kind == 0x05:
+            self.terminated = True    # UdpLibrary Terminate: the server ended this connection
+            return
         if kind == 0x15 and len(data) >= 4:
             self.acked = struct.unpack_from(">H", data, 2)[0]
             last = self.out_seq - 1

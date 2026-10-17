@@ -94,6 +94,8 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-16: Scenario "second login" (B-005a): a second connection for an online character terminates the old one and plays. Editor fix (B-013): the quest form could drop turn_in when used before its NPC lists loaded (the source of the intermittent test_forms_round_trip failure).
+
 - 2026-10-16: Test isolation (backlog B-001): check_all.py and smoke_test.py now run every phase on a read-only scratch copy of server/vanguard.db (storage.scratch_copy; scenarios.py --data-dir); a full run leaves the real database byte-for-byte identical (row fingerprint checked). Added docs/MASTER_BACKLOG.md and docs/AGENT_CHECKPOINT.md.
 
 - 2026-10-16: NPC titles from archive roles drop location notes ("Light Armor Vendor (east city walls ...)" -> "Light Armor Vendor") and skip directions longer than a title; 22 titles fixed. Dry run for the two camp zones (still the user's call): Sundering Wastelands +4 NPCs, Wildgrowth Forest +19 (quest givers such as Tracker Nok); drafts in crowdsourced/drafts.

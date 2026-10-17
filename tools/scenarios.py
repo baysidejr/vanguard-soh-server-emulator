@@ -295,6 +295,29 @@ def main():
     fails += check("ignore", refused and not b.events(0x208), f"refused={refused}, invite reached B={bool(b.events(0x208))}")
     b.world.send(struct.pack("<HII", 5, 0x4F8, len(wstr(a.name)) + 1) + wstr(a.name) + bytes([0]))
     b.pump(0.5)
+    # Second login (B-005): A's character logs in again from a new connection while the first is
+    # still playing. The server must end the older connection (UdpLibrary Terminate, kick_other_session)
+    # and the new one must play: its chat line reaches B.
+    a2 = Player(0, args, loadtest.bot_token(0), pm.net_cache, None)
+    try:
+        a2.play()
+        end = time.time() + 5
+        while time.time() < end and not a.zone.terminated:
+            a.zone.poll()
+            time.sleep(0.2)
+        b.got.clear()
+        a2.send(0x74, wstr("hello from the second login"))
+        heard = False
+        end = time.time() + 5
+        while time.time() < end and not heard:
+            b.pump(0.3)
+            heard = any(wstr("hello from the second login")[:-2] in d for d in b.events(0x0F))
+        fails += check("second login", a.zone.terminated and heard,
+                       f"old connection terminated={a.zone.terminated}, new one heard={heard}")
+    except RuntimeError as e:
+        fails += check("second login", False, f"the second login failed: {e}")
+    a = a2
+
     # Riftway to another region (last: B leaves the chunk): /rift KHAL (0x597 {wstr}) at the camp
     # brazier makes the server send world event 8, "connect to zone", for Khal's chunk.
     b.send(0x597, wstr("KHAL"))

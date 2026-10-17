@@ -40,11 +40,12 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Next action:** run the load test 5 times on a fresh scratch copy and log per-second ping maxima with the server's tick timing.
 
 ## B-005 Automated coverage: reconnects, repeated logins, zone transitions, malformed packets
-- **Priority:** P2 · **Category:** stability · **State:** NOT_STARTED
+- **Priority:** P2 · **Category:** stability · **State:** IN_PROGRESS
 - **Evidence:** scenarios cover chat, group, trade, tell, friend, guild, brotherhood, duel, AA, quest reply, parley line, ignore, riftway; none log the same character in twice, reconnect after a dropped connection, or cross a chunk edge and come back. The fuzzer covers malformed event payloads.
 - **Paths:** `tools/scenarios.py`, `tools/loadtest.py`
 - **Done when:** scenarios cover (a) a second login of an online character (old session closed cleanly), (b) reconnect after an abrupt drop (character saved, NPC state reset), (c) chunk change and return; all pass in `check_all.py`.
-- **Next action:** read how `login_stub` handles a second login of the same character; write scenario (a).
+- **Progress:** (a) done 2026-10-16: scenario "second login" (a second connection for the same character; the old one gets UdpLibrary Terminate via `kick_other_session`, the new one plays and its chat reaches the other bot). The test bot now records Terminate (`loadtest` `terminated`). Passes on a scratch copy; real DB fingerprint unchanged.
+- **Next action:** (b) reconnect after an abrupt drop (no Terminate from the client): the character is saved and can log back in; then (c) chunk change and return.
 
 ## B-006 Invisible runtime particle effects (quest-node glow, loot sparkle)
 - **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED
@@ -81,3 +82,10 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 ## B-012 Optional unsent messages
 - **Priority:** P4 · **Category:** protocol · **State:** NOT_STARTED
 - **Evidence:** docs/UNSENT_MESSAGES.md: 38 optional. Only worth doing where they unlock behaviour.
+
+## B-013 Editor quest form lost turn_in when used before its lists loaded
+- **Priority:** P1 · **Category:** data integrity (content editing) · **State:** VERIFIED
+- **Evidence:** intermittent unit-test failure `EditorPageTests.test_forms_round_trip` (twice on 2026-10-16): `quest forge_supplies` saved without `"turn_in"`. `initQuests` set `questDoc` before fetching mobs.json, so the form could be read while the giver / turn-in selects were still empty; `storeQuest` keeps unknown fields from the original except `turn_in`, so the turn-in NPC was silently dropped. A builder clicking a quest right after opening the tab could lose it the same way. Grew likelier as mobs.json reached 2,500 templates.
+- **Paths:** `tools/editor_ui.html` (`initQuests`, `setMode`)
+- **Fix:** `questDoc` is assigned only after the selects are filled; a `questLoading` flag stops a second concurrent load.
+- **Last validation:** 2026-10-16: EditorPageTests 5/5 alone, full unit suite 3/3 OK.
