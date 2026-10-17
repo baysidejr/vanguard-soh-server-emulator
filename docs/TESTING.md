@@ -113,7 +113,7 @@ Last run: 0x900 event ids x 20 payloads and 200 raw rounds: no handler errors, n
 
 ## Regression run (by hand)
 
-A full pass to check nothing old has broken. Start with `run_test.sh --dev-commands` (or `python login_stub.py --dev-commands`), and a second client for the ✦ items.
+A full pass to check nothing old has broken. Start with `run_test.sh --dev-commands` (or `python login_stub.py --dev-commands`), and a second client for the ✦ items. `python tools/client_ui.py` drives the client for these checks on a scratch copy of the save (start, play, say, click, rclick, shot, stop; from Git Bash use `MSYS_NO_PATHCONV=1` for chat lines starting with /); items ticked 2026-10-17 were checked that way.
 
 **Login and world**
 - [x] Log in, see "Stub World", create a character, delete one, enter the world (2026-10-17, scratch save: created a Dark Elf through the create screen with Choose Home Town, entered the world in Karibasa; deleted a character with Confirm Delete)
