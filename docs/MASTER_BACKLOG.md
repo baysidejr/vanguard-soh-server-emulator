@@ -81,9 +81,11 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **2026-10-16 (later):** 29 new commits on the branch (cbbe68c: mob pages, loot-table and merchant-role reviews). `quest_readiness.py --branch` gives the same result as main (4,774 archive quests, 70 ready), so no delivery placeholder can be replaced from them yet. Not merged.
 
 ## B-010 Presence requirements for parleys
-- **Priority:** P3 · **Category:** fidelity · **State:** NOT_STARTED (needs evidence)
+- **Priority:** P3 · **Category:** fidelity · **State:** BLOCKED (user decision; gain rates unknown)
 - **Evidence:** archive NPC pages record a presence number (1, 200, 700...) shown on the parley option; the server does not gate on it and presence starts at 0. Real starting presence and gain rates are unknown.
 - **Done when:** documentary or client evidence for how presence gates parleys and how it is earned; until then stays ungated (an approximation, labelled).
+- **Checked 2026-10-16:** the client has the refusal text (dialog response status 17 `ResponseLocked`, "You don't have enough presence to talk about that.", docs/DIPLOMACY.md) and the rank bands (Newcomer < 75 ... Famous >= 4500), so the gating mechanism exists. No client file gives starting presence or gain rates (searched Strings.txt, VGClient.int, VGUIAssets). Gating now would lock most archive parleys (many ask 700, everyone starts at 0, the server's gain of 10 per win is a placeholder).
+- **State change:** BLOCKED (user decision): turn gating on with placeholder rates, or wait for archive evidence about presence gain.
 
 ## B-011 Content provenance audit
 - **Priority:** P2 · **Category:** content accuracy · **State:** VERIFIED
