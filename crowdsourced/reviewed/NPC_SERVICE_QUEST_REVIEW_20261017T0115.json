@@ -1,0 +1,755 @@
+{
+  "reviewed_at": "2026-10-17T01:15:31.017881+00:00",
+  "scope": "Independent cached DOM review of all NPC service and Quests given relationships in latest published network batch. No network requests, no extraction helpers, no immutable record changes. Quest rewards and general diplomacy links are excluded from giver evidence.",
+  "records_reviewed": 9,
+  "checks_passed": 27,
+  "issues": [],
+  "records": [
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "url": "https://vgsoharchive.com/mobs/strengun-orvihn",
+      "cache_sha256": "f61e96e9254466b242148788aaaad989ca159a54f287753ba734865aa5231368",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Strengun Orvihn",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/strengun-orvihn",
+            "title": "Strengun Orvihn · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:21:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "The Temple Of Dailuk"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "The Temple Of Dailuk",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "The Temple Of Dailuk"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "url": "https://vgsoharchive.com/mobs/succen-dawi",
+      "cache_sha256": "547d5196cc87b3be61307fd53d6fabe146b68dca0047bdbb29952607128289c2",
+      "source_roles": [
+        "Clothing Merchant"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Succen Dawi",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/succen-dawi",
+            "title": "Succen Dawi · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:36:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ahgram"
+          ],
+          "role": [
+            "Clothing Merchant"
+          ],
+          "chunk": [
+            "Ahgram"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Ahgram",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": "Ahgram",
+        "location": null,
+        "zones_recorded": [
+          "Ahgram"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "url": "https://vgsoharchive.com/mobs/suin-luken",
+      "cache_sha256": "495f095252af53b59f30e72f97665e49e401429d06d91cd31b1086c46487feae",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suin Luken",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suin-luken",
+            "title": "Suin Luken · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:39:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Jharru Flats"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "continent": [
+            "Qalia"
+          ]
+        },
+        "referenced_entities": [],
+        "type": "npc",
+        "level": null,
+        "zone": "Jharru Flats",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "merchant"
+        ],
+        "quests_given": [],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "Jharru Flats"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "url": "https://vgsoharchive.com/mobs/suin-dyl-agara",
+      "cache_sha256": "148e06e616b9184ab53246f8169581e43111ec1dd048308e9f5662c6d7fbd80b",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Skinning Some Lizardmen",
+          "url": "https://vgsoharchive.com/quests/skinning-some-lizardmen"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suin'dyl Agara",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suin-dyl-agara",
+            "title": "Suin'dyl Agara · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:38:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Skinning Some Lizardmen",
+            "url": "https://vgsoharchive.com/quests/skinning-some-lizardmen"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Skinning Some Lizardmen"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "url": "https://vgsoharchive.com/mobs/sukai-sunrain",
+      "cache_sha256": "381377f0401d5b081bb2516bd39a86a5c2b5565e4e88fe256657c6c72502754d",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Artisan Saga: Ulvari Purge",
+          "url": "https://vgsoharchive.com/quests/artisan-saga-ulvari-purge"
+        },
+        {
+          "name": "Artisan's Saga: Introducing Ki",
+          "url": "https://vgsoharchive.com/quests/artisan-s-saga-introducing-ki"
+        },
+        {
+          "name": "Artisan's Saga: Ulvari Purge",
+          "url": "https://vgsoharchive.com/quests/artisan-s-saga-ulvari-purge"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Sukai Sunrain",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/sukai-sunrain",
+            "title": "Sukai Sunrain · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:42:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Artisan Saga: Ulvari Purge",
+            "url": "https://vgsoharchive.com/quests/artisan-saga-ulvari-purge"
+          },
+          {
+            "name": "Artisan's Saga: Introducing Ki",
+            "url": "https://vgsoharchive.com/quests/artisan-s-saga-introducing-ki"
+          },
+          {
+            "name": "Artisan's Saga: Ulvari Purge",
+            "url": "https://vgsoharchive.com/quests/artisan-s-saga-ulvari-purge"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Artisan Saga: Ulvari Purge",
+          "Artisan's Saga: Introducing Ki",
+          "Artisan's Saga: Ulvari Purge"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "url": "https://vgsoharchive.com/mobs/sultan-omid-mahdavi-kia",
+      "cache_sha256": "4dbdf254215c12f3c18938038be7002a57ae8ac386b5d7305a89d129305ded33",
+      "source_roles": [
+        "Sultan of Ahgram"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Qalian Guarantee For Guild Halls",
+          "url": "https://vgsoharchive.com/quests/qalian-guarantee-for-guild-halls"
+        },
+        {
+          "name": "A Finer Suit",
+          "url": "https://vgsoharchive.com/quests/a-finer-suit"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Sultan Omid Mahdavi-Kia",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/sultan-omid-mahdavi-kia",
+            "title": "Sultan Omid Mahdavi-Kia · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-16T23:48:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Ahgram"
+          ],
+          "role": [
+            "Sultan of Ahgram"
+          ],
+          "location": [
+            "-83675, 90, 4835"
+          ],
+          "chunk": [
+            "Ahgram"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "race": [
+            "Qaliathari"
+          ],
+          "locations seen": [
+            "Ahgram"
+          ],
+          "parley types": [
+            ", ,"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Ahgram",
+            "url": "https://vgsoharchive.com/zones/ahgram"
+          },
+          {
+            "name": "A Finer Suit",
+            "url": "https://vgsoharchive.com/quests/a-finer-suit"
+          },
+          {
+            "name": "Qalian Guarantee for Guild Halls",
+            "url": "https://vgsoharchive.com/quests/qalian-guarantee-for-guild-halls"
+          },
+          {
+            "name": "Qalian Guarantee For Guild Halls",
+            "url": "https://vgsoharchive.com/quests/qalian-guarantee-for-guild-halls"
+          },
+          {
+            "name": "Save The Sultan",
+            "url": "https://vgsoharchive.com/quests/save-the-sultan"
+          },
+          {
+            "name": "Sultans Guarantee Of Occupation",
+            "url": "https://vgsoharchive.com/items/sultans-guarantee-of-occupation"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Ahgram",
+        "health": null,
+        "damage": null,
+        "race": "Qaliathari",
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Qalian Guarantee For Guild Halls",
+          "A Finer Suit"
+        ],
+        "chunk": "Ahgram",
+        "location": {
+          "raw": "-83675, 90, 4835",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Ahgram"
+        },
+        "zones_recorded": [
+          "Ahgram"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Ahgram",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "url": "https://vgsoharchive.com/mobs/sun-cho-riververse",
+      "cache_sha256": "2d6b54e748d14ffb73c543d1a29efd2dddbf0c37a34589a64a78f3e2ff518789",
+      "source_roles": [],
+      "quests_given_section_links": [
+        {
+          "name": "Sun Cho's Research",
+          "url": "https://vgsoharchive.com/quests/sun-cho-s-research"
+        },
+        {
+          "name": "Poems of Magic",
+          "url": "https://vgsoharchive.com/quests/poems-of-magic"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Sun Cho Riververse",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/sun-cho-riververse",
+            "title": "Sun Cho Riververse · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:13:15+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Sun Cho's Research",
+            "url": "https://vgsoharchive.com/quests/sun-cho-s-research"
+          },
+          {
+            "name": "Poems of Magic",
+            "url": "https://vgsoharchive.com/quests/poems-of-magic"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": null,
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "Sun Cho's Research",
+          "Poems of Magic"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [],
+        "continent": null,
+        "locations_seen_recorded": null,
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "url": "https://vgsoharchive.com/mobs/supplier-anevka",
+      "cache_sha256": "d2408ce2f6c46d2ae5b529f9b28d562dc578036326cb52cea2d8b1505adcaae3",
+      "source_roles": [
+        "General Goods Vendor"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "Smooth Wings",
+          "url": "https://vgsoharchive.com/quests/smooth-wings"
+        },
+        {
+          "name": "Torn Wings",
+          "url": "https://vgsoharchive.com/quests/torn-wings"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Supplier Anevka",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/supplier-anevka",
+            "title": "Supplier Anevka · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:23:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "The Fallen Cove"
+          ],
+          "role": [
+            "General Goods Vendor"
+          ],
+          "difficulty": [
+            "4 dots"
+          ],
+          "type": [
+            "Quest NPC"
+          ],
+          "continent": [
+            "Thestra"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Smooth Wings",
+            "url": "https://vgsoharchive.com/quests/smooth-wings"
+          },
+          {
+            "name": "Torn Wings",
+            "url": "https://vgsoharchive.com/quests/torn-wings"
+          },
+          {
+            "name": "Anekva's Renewal",
+            "url": "https://vgsoharchive.com/items/anekva-s-renewal"
+          },
+          {
+            "name": "Anevka's Renewal",
+            "url": "https://vgsoharchive.com/items/anevka-s-renewal"
+          },
+          {
+            "name": "Rough Wing Cloak",
+            "url": "https://vgsoharchive.com/items/rough-wing-cloak"
+          }
+        ],
+        "type": "npc",
+        "level": 50,
+        "zone": "The Fallen Cove",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver",
+          "merchant"
+        ],
+        "quests_given": [
+          "Smooth Wings",
+          "Torn Wings"
+        ],
+        "chunk": null,
+        "location": null,
+        "zones_recorded": [
+          "The Fallen Cove"
+        ],
+        "continent": "Thestra",
+        "locations_seen_recorded": null,
+        "difficulty_recorded": "4 dots",
+        "original_source_urls": []
+      }
+    },
+    {
+      "record_file": "raw\\2026-10-16-185617-906647-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "url": "https://vgsoharchive.com/mobs/suri-telqo",
+      "cache_sha256": "7d8bb08a488cf7cd485e244f0b5202f35272e3dd931d539e68910e4bf2a32f24",
+      "source_roles": [
+        "General NPC"
+      ],
+      "quests_given_section_links": [
+        {
+          "name": "The Wayward Husband",
+          "url": "https://vgsoharchive.com/quests/the-wayward-husband"
+        },
+        {
+          "name": "The Other Woman",
+          "url": "https://vgsoharchive.com/quests/the-other-woman"
+        },
+        {
+          "name": "Finding A Guide",
+          "url": "https://vgsoharchive.com/quests/finding-a-guide"
+        }
+      ],
+      "checks": {
+        "quests_given_exact_names": true,
+        "services_supported": true,
+        "quest_source_links_preserved": true
+      },
+      "full_source_record": {
+        "name": "Suri Telqo",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/mobs/suri-telqo",
+            "title": "Suri Telqo · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+        "parser_version": 31,
+        "collected_at": "2026-10-17T00:32:15+00:00",
+        "archive_fields": {
+          "zone": [
+            "Khal"
+          ],
+          "role": [
+            "General NPC"
+          ],
+          "location": [
+            "6389, -58491, 1682"
+          ],
+          "chunk": [
+            "Khal"
+          ],
+          "continent": [
+            "Qalia"
+          ],
+          "locations seen": [
+            "Wayfarers Embassy"
+          ],
+          "station": [
+            "Academic"
+          ],
+          "presence": [
+            "1"
+          ],
+          "parley level": [
+            "27"
+          ],
+          "parley types": [
+            "[[[ Gossip ]]], , , [[[ Convice ]]], [[[ Interview ]]]"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Finding a Guide",
+            "url": "https://vgsoharchive.com/quests/finding-a-guide"
+          },
+          {
+            "name": "The Other Woman",
+            "url": "https://vgsoharchive.com/quests/the-other-woman"
+          },
+          {
+            "name": "The Wayward Husband",
+            "url": "https://vgsoharchive.com/quests/the-wayward-husband"
+          },
+          {
+            "name": "Finding A Guide",
+            "url": "https://vgsoharchive.com/quests/finding-a-guide"
+          },
+          {
+            "name": "Ancient Silver Plate",
+            "url": "https://vgsoharchive.com/items/ancient-silver-plate"
+          },
+          {
+            "name": "Card of Subtle Word",
+            "url": "https://vgsoharchive.com/items/card-of-subtle-word-3"
+          },
+          {
+            "name": "Gold Feather",
+            "url": "https://vgsoharchive.com/items/gold-feather-3"
+          }
+        ],
+        "type": "npc",
+        "level": null,
+        "zone": "Khal",
+        "health": null,
+        "damage": null,
+        "race": null,
+        "title": null,
+        "services": [
+          "quest giver"
+        ],
+        "quests_given": [
+          "The Wayward Husband",
+          "The Other Woman",
+          "Finding A Guide"
+        ],
+        "chunk": "Khal",
+        "location": {
+          "raw": "6389, -58491, 1682",
+          "format": "source coordinates; axis order unspecified",
+          "chunk": "Khal"
+        },
+        "zones_recorded": [
+          "Khal"
+        ],
+        "continent": "Qalia",
+        "locations_seen_recorded": "Wayfarers Embassy",
+        "difficulty_recorded": null,
+        "original_source_urls": []
+      }
+    }
+  ],
+  "limitations": [
+    "Printed giver links do not establish prerequisites, rewards or historical accuracy.",
+    "Distinct source spellings remain separate observations; no identity merging.",
+    "Absent quest lists do not establish that the NPC never offered quests.",
+    "Collection, metadata-only extraction, semantic review and unresolved collisions remain incomplete."
+  ]
+}
