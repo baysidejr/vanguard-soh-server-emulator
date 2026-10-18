@@ -1,0 +1,2191 @@
+{
+  "review_kind": "bard_null_detail_tooltip_cached_html_disposition",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/BARD_DETAIL_FIELD_COMPARISON_ITERATION381.json",
+      "sha256": "f88b0e5549893fd6f6796d6801781f1b0cd8309d30e41bdf918e5e1cc595c69e"
+    },
+    {
+      "path": "reviewed/BARD_LANDING_PAGE_COVERAGE_ITERATION364.json",
+      "sha256": "bea6bfdb1decab25211658ce828cdfe5b4ed046c622fd50f703579673f7578f3"
+    },
+    {
+      "path": "archive_extract.py",
+      "sha256": "d1ba23ff63d24e1daae5812d6a367118dec9817d3eff94f220c13bef264940bf",
+      "relevant_rule": "ability enrichment copies current tooltip only when len(value.split()) <= 25"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/416cd6d06ddf8ca70a816a7a3265ba19ebccc0e174996852f9c2841e7c9f9d5b.txt",
+    "sha256": "11b49c56ece2a3e685e75efb6b318415a6abab97672e40329fdba58688449136"
+  },
+  "class_provenance_warning": "These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 223 abilities,\n      119 have had their tooltip read in game.\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.",
+  "rows": [
+    {
+      "name": "Suann's Entrancing Trill",
+      "table_index": 1,
+      "row_index": 18,
+      "printed_cells": {
+        "level": "16",
+        "ability": "Suann's Entrancing Trill",
+        "school": null,
+        "cost": "78",
+        "cast": "2.0",
+        "range": "25",
+        "effect": "Mesmerizes your opponent, preventing any actions and movement for 18 seconds or 1 hit. Mesmerized targets begin to regenerate..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/suann-s-entrancing-trill.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/suann-s-entrancing-trill\">Suann's Entrancing Trill</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              78\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Mesmerizes your opponent, preventing any actions and movement for 18 seconds or 1 hit. Mesmerized targets begin to regenerate...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/suann-s-entrancing-trill",
+      "detail_cache": {
+        "path": ".cache/archive/11debc7ee9de3a96ffea11a0dedc7f92fd4c6cdfd2f24285fd5e51597fb8a612.txt",
+        "sha256": "29b937502efbff932f8b6ba7add28b735a5731dc1ed9ea70fb60cbc29cab883e"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/suann-s-entrancing-trill.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Suann's Entrancing Trill\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 16\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Mesmerizes your opponent, preventing any actions and movement for 18 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>16</dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>16</dd></div>\n<div><dt>Cast then</dt><dd>2</dd></div>\n<div><dt>Refresh then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">Mesmerizes your opponent, preventing any actions and movement for 18 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once. Cost: Submit Info Cast Time: 2 Refresh: 0 Range: 25</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by mmodb as: “Mesmerizes your opponent, preventing any actions and movement for 9 seconds or until they take damage. Your opponent will begin regenerating after 4 seconds” (http://vg.mmodb.com:80/spells/suanns-entrancing-trill-69.php)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>16</dd></div>\n<div><dt>energy cost</dt><dd>78</dd></div>\n<div><dt>Cast time</dt><dd>2.0</dd></div>\n<div><dt>Refresh</dt><dd>0s</dd></div>\n<div><dt>Duration</dt><dd>9 Seconds</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Shout</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon449.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://vg.mmodb.com:80/spells/suanns-entrancing-trill-69.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Mesmerizes your opponent, preventing any actions and movement for 18 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once.</div>",
+          "word_count": 30
+        }
+      ],
+      "source_record": {
+        "name": "Suann's Entrancing Trill",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/suann-s-entrancing-trill",
+            "title": "Suann's Entrancing Trill · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 15,
+        "collected_at": "2026-10-14T03:12:10+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "16"
+          ],
+          "level in 2007-2008": [
+            "16"
+          ],
+          "cast then": [
+            "2"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "16"
+          ],
+          "energy cost": [
+            "78"
+          ],
+          "cast time": [
+            "2.0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "duration": [
+            "9 Seconds"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon449.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 16,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 78
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": 9,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon449.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 16,
+            "raw": "16"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 16,
+            "raw": "16"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            78
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ],
+          "duration_seconds": [
+            {
+              "label": "duration",
+              "raw": "9 Seconds",
+              "seconds": 9
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://vg.mmodb.com:80/spells/suanns-entrancing-trill-69.php"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "751c426cdf7dd39fe0592bb95fa25ea53cf37160a3cd1c8de7f3a9255b2986ff"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Hazoc's Harmony of Haste",
+      "table_index": 1,
+      "row_index": 26,
+      "printed_cells": {
+        "level": "18",
+        "ability": "Hazoc's Harmony of Haste",
+        "school": null,
+        "cost": "2",
+        "cast": "0",
+        "range": "5",
+        "effect": "Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument:..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<a href=\"/abilities/hazoc-s-harmony-of-haste\">Hazoc's Harmony of Haste</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              2\n            </td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument:...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/hazoc-s-harmony-of-haste",
+      "detail_cache": {
+        "path": ".cache/archive/2b71cc5112303f422bbf896279171ff178559f38ed975a51ffc97ab936d937c3.txt",
+        "sha256": "83e48d6472be9820d12bec71d0b38b3479c5b176f833d3396b5ae44cac0538be"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Hazoc's Harmony of Haste\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 18\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument: None Cast Time: 0 Refresh: 0 Range: 5</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>18</dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>18</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument: None Cast Time: 0 Refresh: 0 Range: 5 Energizing Embellishment</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Description recovered from a 2009 Ten Ton Hammer class table, which is the only source that describes this ability. Its figures are that transcription's and have not been checked against the game.</p>\n<p class=\"muted\">Increases the attack speed of you and your group by 12%.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>18</dd></div>\n<div><dt>Energy cost</dt><dd>2</dd></div>\n<div><dt>Song portion</dt><dd>Embellishment</dd></div>\n<div><dt>Cast time</dt><dd>0</dd></div>\n<div><dt>Refresh</dt><dd>0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://web.archive.org/web/20090309055001id_/http://www.tentonhammer.com/node/59432\" rel=\"noreferrer nofollow\">Ten Ton Hammer (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument: None Cast Time: 0 Refresh: 0 Range: 5</div>",
+          "word_count": 28
+        }
+      ],
+      "source_record": {
+        "name": "Hazoc's Harmony of Haste",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/hazoc-s-harmony-of-haste",
+            "title": "Hazoc's Harmony of Haste · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 15,
+        "collected_at": "2026-10-14T03:12:50+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "18"
+          ],
+          "level in 2007-2008": [
+            "18"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "18"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 18,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 18,
+            "raw": "18"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 18,
+            "raw": "18"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090309055001id_/http://www.tentonhammer.com/node/59432"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 27,
+          "record_sha256": "53b47a9d5cc2c42f011b586f550b963d793b2502b5c538a4059a460b2b42f982"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Lightning Kisses the Ground I",
+      "table_index": 1,
+      "row_index": 40,
+      "printed_cells": {
+        "level": "20",
+        "ability": "Lightning Kisses the Ground I",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A skillful attack that inflicts 300% weapon damage plus 105 to 113 and causes your target to become 15% more vulnerable to..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lightning-kisses-the-ground-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lightning-kisses-the-ground-i\">Lightning Kisses the Ground I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A skillful attack that inflicts 300% weapon damage plus 105 to 113 and causes your target to become 15% more vulnerable to...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-i",
+      "detail_cache": {
+        "path": ".cache/archive/1077b62610bccd7e4596419ae818a57a6d9ca62c052da5305f2e903e73e6bcab.txt",
+        "sha256": "b45ae470506af8a855a102db4eeca279fda1d2d2dc7d945901d4313fe6e6529e"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/lightning-kisses-the-ground-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Lightning Kisses the Ground I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 20\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 105 to 113 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>20</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 111-122 and causes your target to become 15% more vulnerable to spell criticals for 10seconds. Only available after performing Hummingbird Darts In. Cost: Submit Info Cast Time: 0 Refresh: 30 Range: 5 Razor Parts Silk III</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Chain melee attack which leaves a debuff (only available after performing Hummingbird Darts In)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>20</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Hummingbird Darts In</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon557.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 105 to 113 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>",
+          "word_count": 34
+        }
+      ],
+      "source_record": {
+        "name": "Lightning Kisses the Ground I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-i",
+            "title": "Lightning Kisses the Ground I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+        "parser_version": 15,
+        "collected_at": "2026-10-14T03:14:00+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "20"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "30"
+          ],
+          "level": [
+            "20"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Hummingbird Darts In"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "icon": [
+            "Icon557.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 20,
+        "rank": "I",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon557.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 20,
+            "raw": "20"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Hummingbird Darts In",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  105
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  300
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          },
+          {
+            "scope": "historical",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  111
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  300
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 48,
+          "record_sha256": "7d0dd91ccd8aa3f7e5891c36b51d75323b7939196cd0b914586078188bafa3a8"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Eaon's Eerie Echo",
+      "table_index": 2,
+      "row_index": 30,
+      "printed_cells": {
+        "level": "28",
+        "ability": "Eaon's Eerie Echo",
+        "school": null,
+        "cost": "155",
+        "cast": "1.0",
+        "range": "25",
+        "effect": "Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/eaon-s-eerie-echo.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/eaon-s-eerie-echo\">Eaon's Eerie Echo</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              155\n            </td>\n<td class=\"muted\">1.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/eaon-s-eerie-echo",
+      "detail_cache": {
+        "path": ".cache/archive/98bde9cb2df7732beb9f72ff5e08450f0eea20607168b15a671f1e0c2c9960d8.txt",
+        "sha256": "68526ae498c252183af21f1fb16d3a089d5640f4bab4b6d203499b70b32276cf"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/eaon-s-eerie-echo.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Eaon's Eerie Echo\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 28\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player versus player combat this spell stuns your target for 6 seconds. Has a 25% chance to break on hit. Only affects a single target every 30 seconds. Effective on targets level 39 and lower.</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Fear spell (12 sec) (effective on opponents 39 and lower)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>28</dd></div>\n<div><dt>energy cost</dt><dd>155</dd></div>\n<div><dt>Cast time</dt><dd>1.0</dd></div>\n<div><dt>Refresh</dt><dd>8.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Shout</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon20722.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player versus player combat this spell stuns your target for 6 seconds. Has a 25% chance to break on hit. Only affects a single target every 30 seconds. Effective on targets level 39 and lower.</div>",
+          "word_count": 59
+        }
+      ],
+      "source_record": {
+        "name": "Eaon's Eerie Echo",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/eaon-s-eerie-echo",
+            "title": "Eaon's Eerie Echo · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:23:45+00:00",
+        "archive_fields": {
+          "level": [
+            "28"
+          ],
+          "energy cost": [
+            "155"
+          ],
+          "cast time": [
+            "1.0"
+          ],
+          "refresh": [
+            "8.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon20722.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 28,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 155
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 8.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon20722.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            155
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "8.0s",
+              "seconds": 8.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "8793536df58bb88faaa1b5e112939cd26e40d1d31493935e627e24d8370c1b37"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Lightning Kisses the Ground II",
+      "table_index": 2,
+      "row_index": 35,
+      "printed_cells": {
+        "level": "28",
+        "ability": "Lightning Kisses the Ground II",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A skillful attack that inflicts 300% weapon damage plus 148 to 158 and causes your target to become 15% more vulnerable to..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lightning-kisses-the-ground-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lightning-kisses-the-ground-ii\">Lightning Kisses the Ground II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A skillful attack that inflicts 300% weapon damage plus 148 to 158 and causes your target to become 15% more vulnerable to...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-ii",
+      "detail_cache": {
+        "path": ".cache/archive/f0dd4d765c196c7d912a48e1775792faa62c73ed37ee202bbb1519381257ea79.txt",
+        "sha256": "bc5b38d1173df71c09401a54c889edac1380dbe2f0bc80f68ba70f58f2a7b14b"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/lightning-kisses-the-ground-ii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Lightning Kisses the Ground II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 28\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 148 to 158 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Chain melee attack which leaves a debuff (only available after performing Hummingbird Darts In)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>28</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Hummingbird Darts In</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon557.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 148 to 158 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>",
+          "word_count": 34
+        }
+      ],
+      "source_record": {
+        "name": "Lightning Kisses the Ground II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-ii",
+            "title": "Lightning Kisses the Ground II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T05:39:38+00:00",
+        "archive_fields": {
+          "level": [
+            "28"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Hummingbird Darts In"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "icon": [
+            "Icon557.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 28,
+        "rank": "II",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon557.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Hummingbird Darts In",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  148
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  300
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 51,
+          "record_sha256": "5d21750d317f519a40eaad1cb5fea1a20447f9e1e24cbcdaf8c64a4f1ef6d2df"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Feos' Revolution of the Seasons",
+      "table_index": 3,
+      "row_index": 16,
+      "printed_cells": {
+        "level": "35",
+        "ability": "Feos' Revolution of the Seasons",
+        "school": null,
+        "cost": "6",
+        "cast": null,
+        "range": null,
+        "effect": "Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">35</td>\n<td>\n<a href=\"/abilities/feos-revolution-of-the-seasons\">Feos' Revolution of the Seasons</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              6\n            </td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/feos-revolution-of-the-seasons",
+      "detail_cache": {
+        "path": ".cache/archive/23410e026c4488ba27c0ca566651a773140af69144987f4c5a774ec183cc55d2.txt",
+        "sha256": "e5254d537dbcdad85bea291b2355480ead8e7bcb7850bfea3c1270342c274af6"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Feos' Revolution of the Seasons\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 35\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level. Costs 6/sec energy.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>35</dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Description recovered from a 2009 Ten Ton Hammer class table, which is the only source that describes this ability. Its figures are that transcription's and have not been checked against the game.</p>\n<p class=\"muted\">Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>35</dd></div>\n<div><dt>Energy cost</dt><dd>6</dd></div>\n<div><dt>Song portion</dt><dd>Bridge</dd></div>\n<div><dt>Type</dt><dd>Bridge</dd></div>\n<div><dt>Instrument</dt><dd>Wind</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433\" rel=\"noreferrer nofollow\">Ten Ton Hammer (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level. Costs 6/sec energy.</div>",
+          "word_count": 26
+        }
+      ],
+      "source_record": {
+        "name": "Feos' Revolution of the Seasons",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-revolution-of-the-seasons",
+            "title": "Feos' Revolution of the Seasons · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:33:25+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "35"
+          ],
+          "level": [
+            "35"
+          ],
+          "energy cost": [
+            "6"
+          ],
+          "song portion": [
+            "Bridge"
+          ],
+          "type": [
+            "Bridge"
+          ],
+          "instrument": [
+            "Wind"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 35,
+        "rank": null,
+        "category": "Bridge",
+        "cost": {
+          "energy": 6
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 35,
+            "raw": "35"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            6
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "321f575b8ffdf60d6cc637815a11e3ce1c5780ceb47a46f5007d97ccb5fc240c"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Lightning Kisses the Ground III",
+      "table_index": 3,
+      "row_index": 22,
+      "printed_cells": {
+        "level": "36",
+        "ability": "Lightning Kisses the Ground III",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A skillful attack that inflicts 300% weapon damage plus 193 to 207 and causes your target to become 15% more vulnerable to..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">36</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lightning-kisses-the-ground-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lightning-kisses-the-ground-iii\">Lightning Kisses the Ground III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A skillful attack that inflicts 300% weapon damage plus 193 to 207 and causes your target to become 15% more vulnerable to...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-iii",
+      "detail_cache": {
+        "path": ".cache/archive/9c0dfa7f00f7042cfa3a0e5c350ec3c673c371a497becc23b9ae3d56c9a2ee99.txt",
+        "sha256": "588c288d9f2923e5770ab211ca5e8b39bd0ceb0fd7a7d3882d2ffa72e58d7eec"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/lightning-kisses-the-ground-iii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Lightning Kisses the Ground III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 36\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 193 to 207 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Chain melee attack which leaves a debuff (only available after performing Hummingbird Darts In)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>36</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Hummingbird Darts In</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon557.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 193 to 207 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>",
+          "word_count": 34
+        }
+      ],
+      "source_record": {
+        "name": "Lightning Kisses the Ground III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-iii",
+            "title": "Lightning Kisses the Ground III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T05:39:43+00:00",
+        "archive_fields": {
+          "level": [
+            "36"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Hummingbird Darts In"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "icon": [
+            "Icon557.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 36,
+        "rank": "III",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon557.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Hummingbird Darts In",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  193
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  300
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "53c8c0ee9a77d701c5c0e0fdecabbb74faac102e7875cb671123b4bee60885ee"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Eaon's Terrifying Trill",
+      "table_index": 3,
+      "row_index": 32,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Eaon's Terrifying Trill",
+        "school": null,
+        "cost": "199",
+        "cast": "1.0",
+        "range": "25",
+        "effect": "Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/eaon-s-terrifying-trill.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/eaon-s-terrifying-trill\">Eaon's Terrifying Trill</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              199\n            </td>\n<td class=\"muted\">1.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/eaon-s-terrifying-trill",
+      "detail_cache": {
+        "path": ".cache/archive/83837a109d3aa5a992c02ac7586002d6843d2f18500705ac793c545768d3cca5.txt",
+        "sha256": "1d26fc955d54738089b6731b442377db5eda642302215dc8ce00e596d35a304b"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/eaon-s-terrifying-trill.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Eaon's Terrifying Trill\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player versus player combat this spell stuns your target for 6 seconds. Has a 25% chance to break on hit. Only affects a single target every 30 seconds. Effective on targets level 50 and lower.</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Fear spell (12 sec) (effective on opponents 50 and lower)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>energy cost</dt><dd>199</dd></div>\n<div><dt>Cast time</dt><dd>1.0</dd></div>\n<div><dt>Refresh</dt><dd>8.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Shout</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon20722.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player versus player combat this spell stuns your target for 6 seconds. Has a 25% chance to break on hit. Only affects a single target every 30 seconds. Effective on targets level 50 and lower.</div>",
+          "word_count": 59
+        }
+      ],
+      "source_record": {
+        "name": "Eaon's Terrifying Trill",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/eaon-s-terrifying-trill",
+            "title": "Eaon's Terrifying Trill · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:23:55+00:00",
+        "archive_fields": {
+          "level": [
+            "38"
+          ],
+          "energy cost": [
+            "199"
+          ],
+          "cast time": [
+            "1.0"
+          ],
+          "refresh": [
+            "8.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon20722.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 38,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 199
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 8.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon20722.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            199
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "8.0s",
+              "seconds": 8.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 100,
+          "record_sha256": "4625c06b031fa821cf1c3c29f546858490b46644f1ed45d62950930d89679541"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Feos' Segue of the Solace",
+      "table_index": 3,
+      "row_index": 45,
+      "printed_cells": {
+        "level": "40",
+        "ability": "Feos' Segue of the Solace",
+        "school": null,
+        "cost": null,
+        "cast": null,
+        "range": null,
+        "effect": "Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16,..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<a href=\"/abilities/feos-segue-of-the-solace\">Feos' Segue of the Solace</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16,...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/feos-segue-of-the-solace",
+      "detail_cache": {
+        "path": ".cache/archive/c43037baaaa5bdaa53f7f3433f8a6ce304872ca33a7c46d6b81d5975ece5b537.txt",
+        "sha256": "d0d2bdfcc230dbceab7809eb06138d6b42a1e92944deccd9483824eda7329c34"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Feos' Segue of the Solace\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 40\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16, depending on your level. Costs ?/sec energy.</div>\n<h2>Notes</h2>\n<p class=\"muted\">Description recovered from a 2009 Ten Ton Hammer class table, which is the only source that describes this ability. Its figures are that transcription's and have not been checked against the game.</p>\n<p class=\"muted\">Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16, depending on your level.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>40</dd></div>\n<div><dt>Song portion</dt><dd>?</dd></div>\n<div><dt>Type</dt><dd>?</dd></div>\n<div><dt>Instrument</dt><dd>?</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433\" rel=\"noreferrer nofollow\">Ten Ton Hammer (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16, depending on your level. Costs ?/sec energy.</div>",
+          "word_count": 26
+        }
+      ],
+      "source_record": {
+        "name": "Feos' Segue of the Solace",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-segue-of-the-solace",
+            "title": "Feos' Segue of the Solace · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:33:35+00:00",
+        "archive_fields": {
+          "level": [
+            "40"
+          ],
+          "song portion": [
+            "?"
+          ],
+          "type": [
+            "?"
+          ],
+          "instrument": [
+            "?"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 40,
+        "rank": null,
+        "category": "?",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "5bf18503d8926c499b2b5cf737f59a7c82228d6087d55160c4e86f47ef0f611c"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Shatter the Mountain I",
+      "table_index": 3,
+      "row_index": 50,
+      "printed_cells": {
+        "level": "40",
+        "ability": "Shatter the Mountain I",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A devastating leap attack that deals 350% weapon damage plus 244 to 260 and causes your group's next melee or ranged attack..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shatter-the-mountain-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shatter-the-mountain-i\">Shatter the Mountain I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A devastating leap attack that deals 350% weapon damage plus 244 to 260 and causes your group's next melee or ranged attack...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/shatter-the-mountain-i",
+      "detail_cache": {
+        "path": ".cache/archive/80c7965b61c26d778c1065ea2d4fd287a197fd6c54fc638839ac56c5580ed5ed.txt",
+        "sha256": "0ab62b1af8e4ae622cff4631f8572429a6d431ab1e4968c34734427fb262aa96"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/shatter-the-mountain-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Shatter the Mountain I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 40\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A devastating leap attack that deals 350% weapon damage plus 244 to 260 and causes your group's next melee or ranged attack executed within 10 seconds to critically hit. Only available after performing Cleave the Mountain.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Chain melee attack which grants your group a free crit on their next attack (10 sec) (only available after performing Cleave the Mountain)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>40</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Cleave the Mountain</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon20744.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A devastating leap attack that deals 350% weapon damage plus 244 to 260 and causes your group's next melee or ranged attack executed within 10 seconds to critically hit. Only available after performing Cleave the Mountain.</div>",
+          "word_count": 36
+        }
+      ],
+      "source_record": {
+        "name": "Shatter the Mountain I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/shatter-the-mountain-i",
+            "title": "Shatter the Mountain I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:24:28+00:00",
+        "archive_fields": {
+          "level": [
+            "40"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Cleave the Mountain"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "icon": [
+            "Icon20744.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 40,
+        "rank": "I",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon20744.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Cleave the Mountain",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  244
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  350
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 89,
+          "record_sha256": "baad8653f64ccf572c508bc7bf5bfcc87349783affabe96d3eded3e91133d88c"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Suann's Call of the Night",
+      "table_index": 3,
+      "row_index": 52,
+      "printed_cells": {
+        "level": "40",
+        "ability": "Suann's Call of the Night",
+        "school": null,
+        "cost": "166",
+        "cast": "2.0",
+        "range": "25",
+        "effect": "Mesmerizes your opponent, preventing any actions and movement for 24 seconds or 1 hit. Mesmerized targets begin to regenerate..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/suann-s-call-of-the-night.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/suann-s-call-of-the-night\">Suann's Call of the Night</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              166\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Mesmerizes your opponent, preventing any actions and movement for 24 seconds or 1 hit. Mesmerized targets begin to regenerate...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/suann-s-call-of-the-night",
+      "detail_cache": {
+        "path": ".cache/archive/09f8892e7992e7c1166de98a71811a74780f0e57ee0bb8d21e26a2fbe6f82ca6.txt",
+        "sha256": "384c9a8e68010c0383a4c5fdca3da83a3732f6349131f3824f51575a1aa492f0"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/suann-s-call-of-the-night.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Suann's Call of the Night\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 40\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Mesmerizes your opponent, preventing any actions and movement for 24 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once.</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Single target mesmerize (24 sec)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>40</dd></div>\n<div><dt>energy cost</dt><dd>166</dd></div>\n<div><dt>Cast time</dt><dd>2.0</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Shout</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon449.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">Mesmerizes your opponent, preventing any actions and movement for 24 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once.</div>",
+          "word_count": 30
+        }
+      ],
+      "source_record": {
+        "name": "Suann's Call of the Night",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/suann-s-call-of-the-night",
+            "title": "Suann's Call of the Night · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:41:19+00:00",
+        "archive_fields": {
+          "level": [
+            "40"
+          ],
+          "energy cost": [
+            "166"
+          ],
+          "cast time": [
+            "2.0"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon449.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 40,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 166
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon449.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            166
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "943209e5ce9a20d065b53eeb001e32176a7b2c997b8d5916c60fe8f1eb297d74"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bladedancer's Focus",
+      "table_index": 4,
+      "row_index": 11,
+      "printed_cells": {
+        "level": "44",
+        "ability": "Bladedancer's Focus",
+        "school": null,
+        "cost": "38",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "You move and strike with increased focus and speed, advancing to the last phase of your current dance and increasing melee..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/bladedancer-s-focus.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/bladedancer-s-focus\">Bladedancer's Focus</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              38\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You move and strike with increased focus and speed, advancing to the last phase of your current dance and increasing melee...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/bladedancer-s-focus",
+      "detail_cache": {
+        "path": ".cache/archive/ea1f58dabed3128d6d3e24fe5b5ebcbb5b08282af6eb292ebdb53633e6e687df.txt",
+        "sha256": "005f0d3ae35dc50cdecd8f241a6f2c2b9a7162e71dafcb843f91d4f201529a8a"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/bladedancer-s-focus.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Bladedancer's Focus\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 44\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">You move and strike with increased focus and speed, advancing to the last phase of your current dance and increasing melee accuracy and critical chance by 5% for 30 seconds.</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Instantly increase your stance to it's maximum rank” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>44</dd></div>\n<div><dt>energy cost</dt><dd>38</dd></div>\n<div><dt>Song portion</dt><dd>?</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>10:00s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Combat Buff</dd></div>\n<div><dt>Instrument</dt><dd>?</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon420.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">You move and strike with increased focus and speed, advancing to the last phase of your current dance and increasing melee accuracy and critical chance by 5% for 30 seconds.</div>",
+          "word_count": 30
+        }
+      ],
+      "source_record": {
+        "name": "Bladedancer's Focus",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/bladedancer-s-focus",
+            "title": "Bladedancer's Focus · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T03:49:55+00:00",
+        "archive_fields": {
+          "level": [
+            "44"
+          ],
+          "energy cost": [
+            "38"
+          ],
+          "song portion": [
+            "?"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "10:00s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Combat Buff"
+          ],
+          "instrument": [
+            "?"
+          ],
+          "icon": [
+            "Icon420.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 44,
+        "rank": null,
+        "category": "Combat Buff",
+        "cost": {
+          "energy": 38
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon420.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "cost_observations": {
+          "energy": [
+            38
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "9392b07b238403e9c9bad2270c461eb2f28b56fe9ae32b5ad8e0fd2cf1c8a476"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Lightning Kisses the Ground IV",
+      "table_index": 4,
+      "row_index": 14,
+      "printed_cells": {
+        "level": "44",
+        "ability": "Lightning Kisses the Ground IV",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A skillful attack that inflicts 300% weapon damage plus 241 to 257 and causes your target to become 15% more vulnerable to..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<a href=\"/abilities/lightning-kisses-the-ground-iv\">Lightning Kisses the Ground IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A skillful attack that inflicts 300% weapon damage plus 241 to 257 and causes your target to become 15% more vulnerable to...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-iv",
+      "detail_cache": {
+        "path": ".cache/archive/4222eaa8d8947934d64a68f6506bdd08e0784860847c6976aee9309877aa289f.txt",
+        "sha256": "25d33c0ce06fafc3ca8e2e00806cdba4285838041c7fc88702642b0ff882d601"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Lightning Kisses the Ground IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 44\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 241 to 257 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Recorded from the client. This rank was absent from the archive entirely — no wiki source listed it — so there is no earlier wording to compare against.</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>44</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Hummingbird Darts In</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 241 to 257 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>",
+          "word_count": 34
+        }
+      ],
+      "source_record": {
+        "name": "Lightning Kisses the Ground IV",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-iv",
+            "title": "Lightning Kisses the Ground IV · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T05:39:48+00:00",
+        "archive_fields": {
+          "level": [
+            "44"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Hummingbird Darts In"
+          ],
+          "type": [
+            "Finishing Attack"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 44,
+        "rank": "IV",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Hummingbird Darts In",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  241
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  300
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": []
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "b56c876bb6f1a63c44365473c8e554d9cae7f558c522908b3d53d4af9115ce19"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Shatter the Mountain II",
+      "table_index": 4,
+      "row_index": 16,
+      "printed_cells": {
+        "level": "44",
+        "ability": "Shatter the Mountain II",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A devastating leap attack that deals 350% weapon damage plus 301 to 319 and causes your group's next melee or ranged attack..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<a href=\"/abilities/shatter-the-mountain-ii\">Shatter the Mountain II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A devastating leap attack that deals 350% weapon damage plus 301 to 319 and causes your group's next melee or ranged attack...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/shatter-the-mountain-ii",
+      "detail_cache": {
+        "path": ".cache/archive/d9d49b46f97c6a1a17c35424bca3acc775f2b2d301dbacfe13bdd9e1039f58d4.txt",
+        "sha256": "53a2fa74e3322b2754d88891874c4099664d229fda9a3fb7bab1daa3df5d9a41"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Shatter the Mountain II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 44\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A devastating leap attack that deals 350% weapon damage plus 301 to 319 and causes your group's next melee or ranged attack executed within 10 seconds to critically hit. Only available after performing Cleave the Mountain.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Recorded from the client. This rank was absent from the archive entirely — no wiki source listed it — so there is no earlier wording to compare against.</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>44</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Cleave the Mountain</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A devastating leap attack that deals 350% weapon damage plus 301 to 319 and causes your group's next melee or ranged attack executed within 10 seconds to critically hit. Only available after performing Cleave the Mountain.</div>",
+          "word_count": 36
+        }
+      ],
+      "source_record": {
+        "name": "Shatter the Mountain II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/shatter-the-mountain-ii",
+            "title": "Shatter the Mountain II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:24:33+00:00",
+        "archive_fields": {
+          "level": [
+            "44"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Cleave the Mountain"
+          ],
+          "type": [
+            "Finishing Attack"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 44,
+        "rank": "II",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Cleave the Mountain",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  301
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  350
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": []
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 90,
+          "record_sha256": "592216d717ebe71e1eb1660d9221965cb152f46e2f57b1bcb63c2259741c949d"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Lightning Kisses the Ground V",
+      "table_index": 4,
+      "row_index": 51,
+      "printed_cells": {
+        "level": "50",
+        "ability": "Lightning Kisses the Ground V",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A skillful attack that inflicts 300% weapon damage plus 254 to 270 and causes your target to become 15% more vulnerable to..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lightning-kisses-the-ground-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lightning-kisses-the-ground-v\">Lightning Kisses the Ground V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A skillful attack that inflicts 300% weapon damage plus 254 to 270 and causes your target to become 15% more vulnerable to...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-v",
+      "detail_cache": {
+        "path": ".cache/archive/5e4a9f0904a7436418a5ca448967e512eac790fa830447bc4e0046e7f870476e.txt",
+        "sha256": "5fcfa100073c058654c6ec7ee0f865aae2900aee3e05fd6078d7a59c53e256d6"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/lightning-kisses-the-ground-v.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Lightning Kisses the Ground V\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/bard\">Bard</a>\n    \n    · Level 50\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 254 to 270 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Chain melee attack which leaves a debuff (only available after performing Hummingbird Darts In)” (https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>50</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Hummingbird Darts In</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon557.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_tooltip_evidence": [
+        {
+          "html": "<div class=\"tooltip\">A skillful attack that inflicts 300% weapon damage plus 254 to 270 and causes your target to become 15% more vulnerable to spell criticals for 10 sec. Only available after performing Hummingbird Darts In.</div>",
+          "word_count": 34
+        }
+      ],
+      "source_record": {
+        "name": "Lightning Kisses the Ground V",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/lightning-kisses-the-ground-v",
+            "title": "Lightning Kisses the Ground V · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T05:39:53+00:00",
+        "archive_fields": {
+          "level": [
+            "50"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Hummingbird Darts In"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "icon": [
+            "Icon557.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 50,
+        "rank": "V",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon557.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Hummingbird Darts In",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  254
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  300
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 54,
+          "record_sha256": "32d1abb130b5d2156dc21722bc2dd49ee691ffef01814552162bc375898d7833"
+        }
+      ],
+      "disposition": "Current Effect tooltip exists in cached HTML but exceeds the explicit 25-word tooltip-copy limit. Null typed tooltip is intentional copy-limit behavior, not a source omission. Structured effect observations, where present, remain partial and do not represent complete effect semantics. Historical and alternate tooltips remain separate.",
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "null_detail_tooltips_reviewed": 15,
+    "current_tooltip_present_but_exceeds_copy_limit": 15,
+    "source_omissions": 0,
+    "unexplained_null_tooltip_fields": 0,
+    "bard_literal_difference_and_null_tooltip_dispositions_remaining": 0,
+    "other_class_typed_comparisons_pending": true
+  },
+  "qualifications": [
+    "Source presence does not verify game accuracy or historical applicability.",
+    "Class and detail observations share archive provenance; mirrors are not independent corroboration.",
+    "Null operative values remain unchanged; no copy-limit relaxation or source-record rewrite.",
+    "Other classes, download queues and further semantic review remain incomplete."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "cached_html_files_verified": 16,
+    "current_effect_sections_verified": 15,
+    "exact_class_rows_verified": 15,
+    "exact_jsonl_source_lines_verified": 15,
+    "issues": 0
+  }
+}
