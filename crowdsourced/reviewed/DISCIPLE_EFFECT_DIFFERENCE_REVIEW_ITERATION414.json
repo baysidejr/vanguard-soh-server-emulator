@@ -1,0 +1,3421 @@
+{
+  "review_kind": "disciple_effect_difference_cached_html_disposition",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/DISCIPLE_DETAIL_FIELD_COMPARISON_ITERATION411.json",
+      "sha256": "729bded77119e8364b37c8503dbeb86e4d647af93f116457ac692b20f3137dea"
+    },
+    {
+      "path": "reviewed/DISCIPLE_LANDING_PAGE_COVERAGE_ITERATION368.json",
+      "sha256": "d1a49cf3958792a908462a54b288842b9dca71644d09c4403f66af2a59afa956"
+    }
+  ],
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/153ce481a5bfc9c3ca0c5a6d312c57c0f503e78ae5ef1673e1608bbf7af875b1.txt",
+    "sha256": "fe1f39e2cdb995de4d9e7d5cf409904402a5b9bca5419fa3890e6d8cc83260bb"
+  },
+  "class_provenance_warning": "Written by players while Vanguard was running, and mirrored here.",
+  "rows": [
+    {
+      "name": "Resilient Grasshopper I",
+      "table_index": 0,
+      "row_index": 3,
+      "printed_cells": {
+        "level": "1",
+        "ability": "Resilient Grasshopper I",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/resilient-grasshopper-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/resilient-grasshopper-i\">Resilient Grasshopper I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/resilient-grasshopper-i",
+      "detail_cache": {
+        "path": ".cache/archive/326f0538f034d875fdb645d67e9d42eb647fbd2810023affb6a9b294b0a0ef49.txt",
+        "sha256": "8f2b9dbaffb26910b10a2c46466c9b2c39a53c1c7161d65b624bbcd004be4c03"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/resilient-grasshopper-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Resilient Grasshopper I\n  </h1>\n<p class=\"muted\">Also recorded as\n      Resilient Grasshopper</p>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 1\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12 AC\nStacks Best Buff Only</div>\n<h2>Alternate description</h2>\n<p class=\"muted\">\n        A second source words this differently; both are kept rather than\n        one being discarded.\n      </p>\n<div class=\"tooltip\">TGB: STR, DEX, WIS, Physical resist, Mental resist, AC</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Empowers your defensive target's party by increasing their strength by 98, dexterity by 42, armor class by 504, physical and mental resistance by 189 and flurry and rage resistance by 125 for 1 hour” (https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>1</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon665.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12 AC\nStacks Best Buff Only</div>",
+      "current_effect_literal": "Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12 AC\nStacks Best Buff Only",
+      "omitted_suffix_after_literal_prefix": " AC\nStacks Best Buff Only",
+      "source_record": {
+        "name": "Resilient Grasshopper I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/resilient-grasshopper-i",
+            "title": "Resilient Grasshopper I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 12,
+        "collected_at": "2026-10-14T02:52:50+00:00",
+        "archive_fields": {
+          "level": [
+            "1"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ],
+          "icon": [
+            "Icon665.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 1,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12 AC\nStacks Best Buff Only",
+        "icon_name": "Icon665.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "b9a6ca0e0651f60b2a4e1ed74db2261762e0bc46f9389d3c43708f3f4767465a"
+        }
+      ],
+      "snapshot_effect_literal": "Fills your target's group with power.\n+15 Strength\n+10 Dexterity\n+15 Wisdom\n+35 Physical Resist\n+22 Mental Resist\n+12 AC\nStacks Best Buff Only",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Resilient Grasshopper II",
+      "table_index": 0,
+      "row_index": 20,
+      "printed_cells": {
+        "level": "10",
+        "ability": "Resilient Grasshopper II",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/resilient-grasshopper-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/resilient-grasshopper-ii\">Resilient Grasshopper II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/resilient-grasshopper-ii",
+      "detail_cache": {
+        "path": ".cache/archive/8938fd6162fbfa9825d9662101821c2c6aad2556fb1cd3b6112a561f7cfab3c6.txt",
+        "sha256": "45791e1c0ffd36c011cdef3a78ea4d52cd81e24b3cc7def2124c6689d61b8378"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/resilient-grasshopper-ii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Resilient Grasshopper II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 10\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240 AC\nStacks Best Buff Only</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “TGB: STR, DEX, WIS, Physical resist, Mental resist, AC” (https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon665.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240 AC\nStacks Best Buff Only</div>",
+      "current_effect_literal": "Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240 AC\nStacks Best Buff Only",
+      "omitted_suffix_after_literal_prefix": " AC\nStacks Best Buff Only",
+      "source_record": {
+        "name": "Resilient Grasshopper II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/resilient-grasshopper-ii",
+            "title": "Resilient Grasshopper II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 13,
+        "collected_at": "2026-10-14T02:54:33+00:00",
+        "archive_fields": {
+          "level": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "icon": [
+            "Icon665.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 10,
+        "rank": "II",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240 AC\nStacks Best Buff Only",
+        "icon_name": "Icon665.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "38422bdaca6c6153ebc6ffb501c00c0900c84475732afacb221695bb5d02a20b"
+        }
+      ],
+      "snapshot_effect_literal": "Fills your target's group with power.\n+30 Strength\n+20 Dexterity\n+30 Wisdom\n+70 Physical Resist\n+44 Mental Resist\n+240 AC\nStacks Best Buff Only",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dodge I",
+      "table_index": 1,
+      "row_index": 1,
+      "printed_cells": {
+        "level": "12",
+        "ability": "Dodge I",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/dodge-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/dodge-i\">Dodge I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/dodge-i",
+      "detail_cache": {
+        "path": ".cache/archive/02fe955ed3604aff9380322e43d552d4fbfcd3954ad82bdc99888cf0af2a44ce.txt",
+        "sha256": "0019910e443664e0c257c5aed3ae89566c9d13a8e4597161a23e77b044823b1c"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/dodge-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Dodge I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 12\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>8\n                <span class=\"muted\">— now 12</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 30 Range: 5 Astral Wind I</div>\n<p class=\"muted small\">\n<a href=\"http://www.tentonhammer.com/node/59438\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack” (http://thetelonproject.wikidot.com/abilities:dodge-i)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>12</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Duration</dt><dd>1 Minute</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Defensive Maneuver</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:dodge-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>",
+      "current_effect_literal": "Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "omitted_suffix_after_literal_prefix": " your auto-attack.",
+      "source_record": {
+        "name": "Dodge I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/dodge-i",
+            "title": "Dodge I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 13,
+        "collected_at": "2026-10-14T02:54:48+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "8 — now 12"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "30"
+          ],
+          "level": [
+            "12"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "duration": [
+            "1 Minute"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Defensive Maneuver"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 12,
+        "rank": "I",
+        "category": "Defensive Maneuver",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": 60,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 8,
+            "raw": "8 — now 12"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://www.tentonhammer.com/node/59438"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ],
+          "duration_seconds": [
+            {
+              "label": "duration",
+              "raw": "1 Minute",
+              "seconds": 60
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:dodge-i"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "419c2ff51bc9644b6534be558e8da5a9c8e03d09b579e3fe2c891e7f700ade60"
+        }
+      ],
+      "snapshot_effect_literal": "Raises your chance to dodge incoming attacks by 100% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Enfeebling Shuriken I",
+      "table_index": 1,
+      "row_index": 2,
+      "printed_cells": {
+        "level": "12",
+        "ability": "Enfeebling Shuriken I",
+        "school": null,
+        "cost": "39",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/enfeebling-shuriken-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/enfeebling-shuriken-i\">Enfeebling Shuriken I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              39\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-i",
+      "detail_cache": {
+        "path": ".cache/archive/60ee491f909f856c81c0f8072b042201dd0f8d5221e2bb1d857c782e474c9c47.txt",
+        "sha256": "d43c4b4e6a595e6b9fa7bc22a2d665eabe72f18c63b4ffd1e94e5d727c264e5d"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/enfeebling-shuriken-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Enfeebling Shuriken I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 12\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234 damage over 8 seconds.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>12</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>12</dd></div>\n</dl>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 292 to 311 damage over 8 seconds. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 12 Range: 10</div>\n<p class=\"muted small\">\n<a href=\"http://www.tentonhammer.com/node/59438\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 292 to 311 damage over 8 seconds” (http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-i)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>12</dd></div>\n<div><dt>energy cost</dt><dd>39</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>12.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Ranged Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234 damage over 8 seconds.</div>",
+      "current_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234 damage over 8 seconds.",
+      "omitted_suffix_after_literal_prefix": " damage over 8 seconds.",
+      "source_record": {
+        "name": "Enfeebling Shuriken I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-i",
+            "title": "Enfeebling Shuriken I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 13,
+        "collected_at": "2026-10-14T02:54:53+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "12"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "12"
+          ],
+          "level": [
+            "12"
+          ],
+          "energy cost": [
+            "39"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "12.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Ranged Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 12,
+        "rank": "I",
+        "category": "Ranged Attack",
+        "cost": {
+          "energy": 39
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 12.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234 damage over 8 seconds.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 12,
+            "raw": "12"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://www.tentonhammer.com/node/59438"
+        ],
+        "cost_observations": {
+          "energy": [
+            39
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "12.0s",
+              "seconds": 12.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-i"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "18a0297cfba7ec7031d06170d065074ac8bb0175814ab8fe554a8201da09d56d"
+        }
+      ],
+      "snapshot_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 219 to 234 damage over 8 seconds.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dodge II",
+      "table_index": 1,
+      "row_index": 30,
+      "printed_cells": {
+        "level": "20",
+        "ability": "Dodge II",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/dodge-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/dodge-ii\">Dodge II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/dodge-ii",
+      "detail_cache": {
+        "path": ".cache/archive/ba614adc56357a8ab25aa6ec4720e01da3b18a76f67aaad71632ef4691cfa1c4.txt",
+        "sha256": "914a7f7e3279acfa7cc9ff20e472229c8f228459abd3592feeb522ca87b9abdb"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/dodge-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Dodge II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 20\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>20</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 30 Range: 5 Lao'Jin Flare III</div>\n<p class=\"muted small\">\n<a href=\"http://www.tentonhammer.com/node/59438\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack” (http://thetelonproject.wikidot.com/abilities:dodge-ii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>20</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Duration</dt><dd>1 Minute</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Defensive Maneuver</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:dodge-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>",
+      "current_effect_literal": "Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "omitted_suffix_after_literal_prefix": " your auto-attack.",
+      "source_record": {
+        "name": "Dodge II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/dodge-ii",
+            "title": "Dodge II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 13,
+        "collected_at": "2026-10-14T02:57:13+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "20"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "30"
+          ],
+          "level": [
+            "20"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "duration": [
+            "1 Minute"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Defensive Maneuver"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 20,
+        "rank": "II",
+        "category": "Defensive Maneuver",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": 60,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 20,
+            "raw": "20"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://www.tentonhammer.com/node/59438"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ],
+          "duration_seconds": [
+            {
+              "label": "duration",
+              "raw": "1 Minute",
+              "seconds": 60
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:dodge-ii"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+          "line": 27,
+          "record_sha256": "d05d57befd62c3f3091a119d4438878909210231d09cb3509f40ca26ac872cfd"
+        }
+      ],
+      "snapshot_effect_literal": "Raises your chance to dodge incoming attacks by 120% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Resilient Grasshopper III",
+      "table_index": 1,
+      "row_index": 37,
+      "printed_cells": {
+        "level": "20",
+        "ability": "Resilient Grasshopper III",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/resilient-grasshopper-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/resilient-grasshopper-iii\">Resilient Grasshopper III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/resilient-grasshopper-iii",
+      "detail_cache": {
+        "path": ".cache/archive/7c81afc12870c85d71334125bdf8249516a799fc01abf04fb32f6ec0a661a0cd.txt",
+        "sha256": "d7e190514dfb792cd130885675d80018c1ceef81befdc9d9aac51e18ce58c827"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/resilient-grasshopper-iii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Resilient Grasshopper III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 20\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480 AC\nStacks Best Buff Only</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “TGB: STR, DEX, WIS, Physical resist, Mental resist, AC” (https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>20</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon665.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480 AC\nStacks Best Buff Only</div>",
+      "current_effect_literal": "Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480 AC\nStacks Best Buff Only",
+      "omitted_suffix_after_literal_prefix": " AC\nStacks Best Buff Only",
+      "source_record": {
+        "name": "Resilient Grasshopper III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/resilient-grasshopper-iii",
+            "title": "Resilient Grasshopper III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 13,
+        "collected_at": "2026-10-14T02:57:48+00:00",
+        "archive_fields": {
+          "level": [
+            "20"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "icon": [
+            "Icon665.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 20,
+        "rank": "III",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480 AC\nStacks Best Buff Only",
+        "icon_name": "Icon665.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "5368bad14db792880df8eabe0d5d59332022dca3a3b76ce94859331ca02cd3d2"
+        }
+      ],
+      "snapshot_effect_literal": "Fills your target's group with power.\n+60 Strength\n+40 Dexterity\n+60 Wisdom\n+140 Physical Resist\n+88 Mental Resist\n+480 AC\nStacks Best Buff Only",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Enfeebling Shuriken II",
+      "table_index": 2,
+      "row_index": 4,
+      "printed_cells": {
+        "level": "22",
+        "ability": "Enfeebling Shuriken II",
+        "school": null,
+        "cost": "60",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/enfeebling-shuriken-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/enfeebling-shuriken-ii\">Enfeebling Shuriken II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              60\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-ii",
+      "detail_cache": {
+        "path": ".cache/archive/658c64d99fa0efe7d871a59b0ea6b2c043476581c77b2e311eb58f7c4e64d8e4.txt",
+        "sha256": "589d8bc530356cf1388a9e9c0c9fe6afef0605ceaae1aa511252108319deba98"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/enfeebling-shuriken-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Enfeebling Shuriken II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 22\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377 damage over 8 seconds.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>22</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>12</dd></div>\n</dl>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 491 to 521 damage over 8 seconds. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 12 Range: 10 Awakening</div>\n<p class=\"muted small\">\n<a href=\"http://www.tentonhammer.com/node/59438\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 491 to 521 damage over 8 seconds” (http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-ii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>22</dd></div>\n<div><dt>energy cost</dt><dd>60</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>12.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Ranged Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377 damage over 8 seconds.</div>",
+      "current_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377 damage over 8 seconds.",
+      "omitted_suffix_after_literal_prefix": " damage over 8 seconds.",
+      "source_record": {
+        "name": "Enfeebling Shuriken II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-ii",
+            "title": "Enfeebling Shuriken II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:25:35+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "22"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "12"
+          ],
+          "level": [
+            "22"
+          ],
+          "energy cost": [
+            "60"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "12.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Ranged Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 22,
+        "rank": "II",
+        "category": "Ranged Attack",
+        "cost": {
+          "energy": 60
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 12.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377 damage over 8 seconds.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 22,
+            "raw": "22"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://www.tentonhammer.com/node/59438"
+        ],
+        "cost_observations": {
+          "energy": [
+            60
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "12.0s",
+              "seconds": 12.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-ii"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "83a90257c1f333c57b540896e05b106addd53c571bfb8f87266f6d5a27cc7146"
+        }
+      ],
+      "snapshot_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 355 to 377 damage over 8 seconds.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Astral Gate I",
+      "table_index": 2,
+      "row_index": 26,
+      "printed_cells": {
+        "level": "28",
+        "ability": "Astral Gate I",
+        "school": null,
+        "cost": null,
+        "cast": null,
+        "range": null,
+        "effect": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<a href=\"/abilities/astral-gate-i\">Astral Gate I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/astral-gate-i",
+      "detail_cache": {
+        "path": ".cache/archive/946c92616f570920dd62f17e202ebf8f2d40f68425a4df548f7c8ba154f7c6de.txt",
+        "sha256": "1808bd3ecc927344db11f97fcbeee8bf0fa1ae9c2dabbd7227244a7a33ed2c6a"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Astral Gate I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 28\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026. A player at the level cap went through the whole Disciple spellbook; every ability the build has was recorded, and this was not among them. It is kept because this archive records the game as it shipped, not the emulator — an ability the emulator lacks is exactly what its developers would want to find. Its figures are the wiki's and unverified.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>28</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://vg.mmodb.com/spells/astral-gate-i-574.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.</div>",
+      "current_effect_literal": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+      "omitted_suffix_after_literal_prefix": " defensive target.",
+      "source_record": {
+        "name": "Astral Gate I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/astral-gate-i",
+            "title": "Astral Gate I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T03:41:40+00:00",
+        "archive_fields": {
+          "level": [
+            "28"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "everything else missing from it",
+            "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 28,
+        "rank": "I",
+        "category": null,
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/astral-gate-i-574.php"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 87,
+          "record_sha256": "0e1c2a2119229777707ff6d5f50ba665d2806844b158877e38df2e8085c1b9a6"
+        }
+      ],
+      "snapshot_effect_literal": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Concordant Hand III",
+      "table_index": 2,
+      "row_index": 35,
+      "printed_cells": {
+        "level": "30",
+        "ability": "Concordant Hand III",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/concordant-hand-iii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/concordant-hand-iii\">Concordant Hand III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/concordant-hand-iii",
+      "detail_cache": {
+        "path": ".cache/archive/cd51e619c595640450df2a063c1c907d14e89ace6826619e1ba83f14891e3b31.txt",
+        "sha256": "916a73ebecb902779f6c55a488c43a0b4883899372f55ca780881eaeee3f881c"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/concordant-hand-iii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Concordant Hand III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 30\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases Jin by 1.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>30</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>60</dd></div>\n</dl>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 167 to 179 and heals your allies for 1192. Increases Jin by 1. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 60 Range: 5 Falling Petal IV</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 167 to 179 and heals your allies for 1192. Increases Jin by 1” (http://thetelonproject.wikidot.com/abilities:concordant-hand-iii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>30</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>1:00s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:concordant-hand-iii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases Jin by 1.</div>",
+      "current_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases Jin by 1.",
+      "omitted_suffix_after_literal_prefix": " Jin by 1.",
+      "source_record": {
+        "name": "Concordant Hand III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/concordant-hand-iii",
+            "title": "Concordant Hand III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:05:20+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "30"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "60"
+          ],
+          "level": [
+            "30"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "1:00s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 30,
+        "rank": "III",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases Jin by 1.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 30,
+            "raw": "30"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  159
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  1112
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          },
+          {
+            "scope": "historical",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  167
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  1192
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:concordant-hand-iii"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "ec60f7030cb97a3c2b8e7fa9e302dcf57779e002c494bcafb8c986271dd802b6"
+        }
+      ],
+      "snapshot_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 159 to 171 and heals your allies for 1112. Increases Jin by 1.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Resilient Grasshopper IV",
+      "table_index": 2,
+      "row_index": 42,
+      "printed_cells": {
+        "level": "30",
+        "ability": "Resilient Grasshopper IV",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/resilient-grasshopper-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/resilient-grasshopper-iv\">Resilient Grasshopper IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/resilient-grasshopper-iv",
+      "detail_cache": {
+        "path": ".cache/archive/2cd1b4530fdf5ef960244ce393053e58671101caafac6f7b0d84f0791cd66a1a.txt",
+        "sha256": "8965e6e483c7f7cf99d1787a76307f77d93b48b42f236d3502e97c85fb485e15"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/resilient-grasshopper-iv.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Resilient Grasshopper IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 30\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720 AC\nStacks Best Buff Only</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “TGB: STR, DEX, WIS, Physical resist, Mental resist, AC” (https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>30</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon665.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720 AC\nStacks Best Buff Only</div>",
+      "current_effect_literal": "Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720 AC\nStacks Best Buff Only",
+      "omitted_suffix_after_literal_prefix": " AC\nStacks Best Buff Only",
+      "source_record": {
+        "name": "Resilient Grasshopper IV",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/resilient-grasshopper-iv",
+            "title": "Resilient Grasshopper IV · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:10:38+00:00",
+        "archive_fields": {
+          "level": [
+            "30"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "icon": [
+            "Icon665.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 30,
+        "rank": "IV",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720 AC\nStacks Best Buff Only",
+        "icon_name": "Icon665.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "95253a4cea117b78117b16603d218cf2331ce98441910ce0011b1162bbd1b3ba"
+        }
+      ],
+      "snapshot_effect_literal": "Fills your target's group with power.\n+90 Strength\n+60 Dexterity\n+89 Wisdom\n+210 Physical Resist\n+132 Mental Resist\n+720 AC\nStacks Best Buff Only",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dodge III",
+      "table_index": 3,
+      "row_index": 2,
+      "printed_cells": {
+        "level": "32",
+        "ability": "Dodge III",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/dodge-iii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/dodge-iii\">Dodge III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/dodge-iii",
+      "detail_cache": {
+        "path": ".cache/archive/bd7795282ab32da745b79045dab8ea2892647b425bb44cbc9c1e42d37c1c6304.txt",
+        "sha256": "75ebc51f3699c57541800b2ce2c29813e6a6c22d4b3a05c1f4b426b72a2153c9"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/dodge-iii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Dodge III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 32\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>32</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 30 Range: 5 Astral Wind IV</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack” (http://thetelonproject.wikidot.com/abilities:dodge-iii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>32</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Duration</dt><dd>1 Minute</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Defensive Maneuver</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:dodge-iii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>",
+      "current_effect_literal": "Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "omitted_suffix_after_literal_prefix": " your auto-attack.",
+      "source_record": {
+        "name": "Dodge III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/dodge-iii",
+            "title": "Dodge III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:21:20+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "32"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "30"
+          ],
+          "level": [
+            "32"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "duration": [
+            "1 Minute"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Defensive Maneuver"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 32,
+        "rank": "III",
+        "category": "Defensive Maneuver",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": 60,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 32,
+            "raw": "32"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ],
+          "duration_seconds": [
+            {
+              "label": "duration",
+              "raw": "1 Minute",
+              "seconds": 60
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:dodge-iii"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 69,
+          "record_sha256": "c33b6dc7697d45c4bb605c7321b8bab85fc7f23e3e84b7f4d8a1f78f953ef6d0"
+        }
+      ],
+      "snapshot_effect_literal": "Raises your chance to dodge incoming attacks by 140% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Enfeebling Shuriken III",
+      "table_index": 3,
+      "row_index": 3,
+      "printed_cells": {
+        "level": "32",
+        "ability": "Enfeebling Shuriken III",
+        "school": null,
+        "cost": "82",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/enfeebling-shuriken-iii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/enfeebling-shuriken-iii\">Enfeebling Shuriken III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              82\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-iii",
+      "detail_cache": {
+        "path": ".cache/archive/8619b6518132e5fd64be90d36e689309ce7f5e9b673a9ca123a2ccce80694820.txt",
+        "sha256": "4cd0216f99adb1bec3bd61eef530e45a715b53fa4358cf1da44f35f551adf147"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/enfeebling-shuriken-iii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Enfeebling Shuriken III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 32\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533 damage over 8 seconds.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>32</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>12</dd></div>\n</dl>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 711 to 751 damage over 8 seconds. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 12 Range: 10</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 711 to 751 damage over 8 seconds” (http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-iii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>32</dd></div>\n<div><dt>energy cost</dt><dd>82</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>12.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Ranged Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-iii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533 damage over 8 seconds.</div>",
+      "current_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533 damage over 8 seconds.",
+      "omitted_suffix_after_literal_prefix": " damage over 8 seconds.",
+      "source_record": {
+        "name": "Enfeebling Shuriken III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-iii",
+            "title": "Enfeebling Shuriken III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:25:40+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "32"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "12"
+          ],
+          "level": [
+            "32"
+          ],
+          "energy cost": [
+            "82"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "12.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Ranged Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 32,
+        "rank": "III",
+        "category": "Ranged Attack",
+        "cost": {
+          "energy": 82
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 12.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533 damage over 8 seconds.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 32,
+            "raw": "32"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "energy": [
+            82
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "12.0s",
+              "seconds": 12.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-iii"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "8aa00d614523141b5869ff17c39d074b9d051e1dc7e9f6af8d0061a371f4cebb"
+        }
+      ],
+      "snapshot_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 505 to 533 damage over 8 seconds.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Astral Gate II",
+      "table_index": 3,
+      "row_index": 28,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Astral Gate II",
+        "school": null,
+        "cost": null,
+        "cast": null,
+        "range": null,
+        "effect": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<a href=\"/abilities/astral-gate-ii\">Astral Gate II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/astral-gate-ii",
+      "detail_cache": {
+        "path": ".cache/archive/8de13ea9ded6fc5048edf782922a977ff61d333af259c4b1f3e85a56184fe2f1.txt",
+        "sha256": "f7a3c773784330afa5bc83ffe588bb07290efd3bb4320a452c4fefdb930cbb09"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Astral Gate II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026. A player at the level cap went through the whole Disciple spellbook; every ability the build has was recorded, and this was not among them. It is kept because this archive records the game as it shipped, not the emulator — an ability the emulator lacks is exactly what its developers would want to find. Its figures are the wiki's and unverified.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://vg.mmodb.com/spells/astral-gate-ii-575.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.</div>",
+      "current_effect_literal": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+      "omitted_suffix_after_literal_prefix": " defensive target.",
+      "source_record": {
+        "name": "Astral Gate II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/astral-gate-ii",
+            "title": "Astral Gate II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T03:41:45+00:00",
+        "archive_fields": {
+          "level": [
+            "38"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "everything else missing from it",
+            "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 38,
+        "rank": "II",
+        "category": null,
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/astral-gate-ii-575.php"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 88,
+          "record_sha256": "8df1dd597b2185bfe9f4c500bb859e4d970f1c1580d83128a092fd30031a52c9"
+        }
+      ],
+      "snapshot_effect_literal": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Concordant Hand IV",
+      "table_index": 3,
+      "row_index": 30,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Concordant Hand IV",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/concordant-hand-iv.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/concordant-hand-iv\">Concordant Hand IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/concordant-hand-iv",
+      "detail_cache": {
+        "path": ".cache/archive/9d6a06b1e4efb0e48edefc484a4292368f4e0ca40dd5670b1b7341e1fab08d26.txt",
+        "sha256": "19e906899c5534985d0f326db6da1be1cfe15f59cd8b386dfe759fecad854c35"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/concordant-hand-iv.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Concordant Hand IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases Jin by 1.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>38</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>60</dd></div>\n</dl>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 216 to 231 and heals your allies for 1521. Increases Jin by 1. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 60 Range: 5 Concordant Palm I</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 216 to 231 and heals your allies for 1521. Increases Jin by 1” (http://thetelonproject.wikidot.com/abilities:concordant-hand-iv)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>1:00s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:concordant-hand-iv\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases Jin by 1.</div>",
+      "current_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases Jin by 1.",
+      "omitted_suffix_after_literal_prefix": " Jin by 1.",
+      "source_record": {
+        "name": "Concordant Hand IV",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/concordant-hand-iv",
+            "title": "Concordant Hand IV · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:05:25+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "38"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "60"
+          ],
+          "level": [
+            "38"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "1:00s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 38,
+        "rank": "IV",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases Jin by 1.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 38,
+            "raw": "38"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  205
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  1418
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          },
+          {
+            "scope": "historical",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  216
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  1521
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:concordant-hand-iv"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "eeeb1beb7905fca734b2196f66c802d629da722b38a20d30e34c159a8381749a"
+        }
+      ],
+      "snapshot_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 205 to 219 and heals your allies for 1418. Increases Jin by 1.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mindless Clutch I",
+      "table_index": 3,
+      "row_index": 37,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Mindless Clutch I",
+        "school": null,
+        "cost": "25",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mindless-clutch-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mindless-clutch-i\">Mindless Clutch I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/mindless-clutch-i",
+      "detail_cache": {
+        "path": ".cache/archive/c9b89f96e8bdffcfc4a268796e7f16377ea3e173612511238542344b2d11210a.txt",
+        "sha256": "cd19f101ee88dfdbc40e4288e99b390405afeef01bbc9c46e7878735731454a3"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/mindless-clutch-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Mindless Clutch I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>38</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>2</dd></div>\n</dl>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Cost: Submit Info Jin Cost: 3 Cast Time: 0 Refresh: 2 Range: 25 Favor of the Crow III</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes” (http://thetelonproject.wikidot.com/abilities:mindless-clutch-i)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>energy and jin cost</dt><dd>25</dd></div>\n<div><dt>Jin cost</dt><dd>3</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>2.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Dissonant Bond</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:mindless-clutch-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.</div>",
+      "current_effect_literal": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+      "omitted_suffix_after_literal_prefix": " active at a time.",
+      "source_record": {
+        "name": "Mindless Clutch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/mindless-clutch-i",
+            "title": "Mindless Clutch I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T05:46:18+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "38"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "2"
+          ],
+          "level": [
+            "38"
+          ],
+          "energy and jin cost": [
+            "25"
+          ],
+          "jin cost": [
+            "3"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "2.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Dissonant Bond"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 38,
+        "rank": "I",
+        "category": "Dissonant Bond",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": 2.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 38,
+            "raw": "38"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "2.0s",
+              "seconds": 2.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:mindless-clutch-i"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "130b200734960cfa73c35e19707ab549dd614b32a342adc975c96eb5c2734f56"
+        }
+      ],
+      "snapshot_effect_literal": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Resilient Grasshopper V",
+      "table_index": 3,
+      "row_index": 46,
+      "printed_cells": {
+        "level": "40",
+        "ability": "Resilient Grasshopper V",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/resilient-grasshopper-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/resilient-grasshopper-v\">Resilient Grasshopper V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/resilient-grasshopper-v",
+      "detail_cache": {
+        "path": ".cache/archive/feb85f085b30a9caf1e8326fec28e643e86938f01d9e36d1b82af6bc4d0fb698.txt",
+        "sha256": "67d1ddaf6df2af7d5bb57b1ddad2a74502b722994e4a259b18c09cd45c5ce22f"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/resilient-grasshopper-v.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Resilient Grasshopper V\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 40\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960 AC\nStacks Best Buff Only</div>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “TGB: STR, DEX, WIS, Physical resist, Mental resist, AC” (https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>40</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon665.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960 AC\nStacks Best Buff Only</div>",
+      "current_effect_literal": "Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960 AC\nStacks Best Buff Only",
+      "omitted_suffix_after_literal_prefix": " AC\nStacks Best Buff Only",
+      "source_record": {
+        "name": "Resilient Grasshopper V",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/resilient-grasshopper-v",
+            "title": "Resilient Grasshopper V · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:10:43+00:00",
+        "archive_fields": {
+          "level": [
+            "40"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "icon": [
+            "Icon665.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 40,
+        "rank": "V",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960 AC\nStacks Best Buff Only",
+        "icon_name": "Icon665.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517095425id_/https://vgoplayers.com/wiki/index.php/Disciple"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "c6a50c1ed33cf770c78ce8dc5a6fbf81b96309f978327429c2c435a67cd89ee1"
+        }
+      ],
+      "snapshot_effect_literal": "Fills your target's group with power.\n+120 Strength\n+80 Dexterity\n+118 Wisdom\n+280 Physical Resist\n+176 Mental Resist\n+960 AC\nStacks Best Buff Only",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Enfeebling Shuriken IV",
+      "table_index": 4,
+      "row_index": 5,
+      "printed_cells": {
+        "level": "42",
+        "ability": "Enfeebling Shuriken IV",
+        "school": "Ranged Attack",
+        "cost": "104",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/enfeebling-shuriken-iv.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/enfeebling-shuriken-iv\">Enfeebling Shuriken IV</a>\n</td>\n<td class=\"muted\">Ranged Attack</td>\n<td class=\"num muted\">\n              104\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-iv",
+      "detail_cache": {
+        "path": ".cache/archive/ccdf9adb972813ab040b16212b0c973751a96953039ff38a4296b72c82a3d67b.txt",
+        "sha256": "33d4870b409992d91981577573084b044387722528cd7fd94b071878cfa1e96d"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/enfeebling-shuriken-iv.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Enfeebling Shuriken IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 42\n    · Ranged Attack\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702 damage over 8 seconds.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>42</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>12</dd></div>\n</dl>\n<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 952 to 1005 damage over 8 seconds. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 12 Range: 10 Baiting Strike III</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Charges a shuriken with Ra'Jin energies that enfeeble your opponent. lowering movement speed by 60% and dealing 1024 to 1080 damage over 8 seconds” (http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-iv)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>42</dd></div>\n<div><dt>energy cost</dt><dd>104</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>12.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Ranged Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-iv\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702 damage over 8 seconds.</div>",
+      "current_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702 damage over 8 seconds.",
+      "omitted_suffix_after_literal_prefix": " damage over 8 seconds.",
+      "source_record": {
+        "name": "Enfeebling Shuriken IV",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/enfeebling-shuriken-iv",
+            "title": "Enfeebling Shuriken IV · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:25:45+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "42"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "12"
+          ],
+          "level": [
+            "42"
+          ],
+          "energy cost": [
+            "104"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "12.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Ranged Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 42,
+        "rank": "IV",
+        "category": "Ranged Attack",
+        "cost": {
+          "energy": 104
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 12.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702 damage over 8 seconds.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 42,
+            "raw": "42"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "energy": [
+            104
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "12.0s",
+              "seconds": 12.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:enfeebling-shuriken-iv"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 22,
+          "record_sha256": "4c81f621a9e15b9b5a32c0c41f6d1e4534b86f699314b67ef304c9dceb1cea36"
+        }
+      ],
+      "snapshot_effect_literal": "Charges a shuriken with Ra'Jin energies that enfeeble your opponent, lowering movement speed by 60% and dealing 665 to 702 damage over 8 seconds.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dodge IV",
+      "table_index": 4,
+      "row_index": 17,
+      "printed_cells": {
+        "level": "44",
+        "ability": "Dodge IV",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/dodge-iv.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/dodge-iv\">Dodge IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/dodge-iv",
+      "detail_cache": {
+        "path": ".cache/archive/fbe4a3a7a74f673f52ba86f84254794fc81aff4c93b5b0b3bb598ac6ed16f6de.txt",
+        "sha256": "933132331fd2cb607b0b260eb534d595462e4508fa818fdc093376aa7008c2b4"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/dodge-iv.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Dodge IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 44\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>44</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 30 Range: 5 Breath of Renewal VI</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto to attack” (http://thetelonproject.wikidot.com/abilities:dodge-iv)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>44</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Defensive Maneuver</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:dodge-iv\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>",
+      "current_effect_literal": "Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "omitted_suffix_after_literal_prefix": " your auto-attack.",
+      "source_record": {
+        "name": "Dodge IV",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/dodge-iv",
+            "title": "Dodge IV · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:21:25+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "44"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "30"
+          ],
+          "level": [
+            "44"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "30.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Defensive Maneuver"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 44,
+        "rank": "IV",
+        "category": "Defensive Maneuver",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 30.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 44,
+            "raw": "44"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "30.0s",
+              "seconds": 30.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:dodge-iv"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "18028961160a40ef3167b23d8835e5688b7c6e5c548059af3f1693c163b0e421"
+        }
+      ],
+      "snapshot_effect_literal": "Raises your chance to dodge incoming attacks by 160% for 60 sec or until you dodge or activate another ability. This turns off your auto-attack.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Concordant Hand V",
+      "table_index": 4,
+      "row_index": 23,
+      "printed_cells": {
+        "level": "46",
+        "ability": "Concordant Hand V",
+        "school": "Finishing Attack",
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/concordant-hand-v.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/concordant-hand-v\">Concordant Hand V</a>\n</td>\n<td class=\"muted\">Finishing Attack</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/concordant-hand-v",
+      "detail_cache": {
+        "path": ".cache/archive/f9bd9082e7c39caa6e386e581bb5e0c16cb8d24c59bc7157896e2d22e67984dd.txt",
+        "sha256": "a5f1bbd70a16b04dfc12bd351eb401435aaf489bdcbda432b0d7bd62404139c3"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/concordant-hand-v.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Concordant Hand V\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 46\n    · Finishing Attack\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases Jin by 1.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>46</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>60</dd></div>\n</dl>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 267 to 286 and heals your allies for 1868. Increases Jin by 1. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 60 Range: 5 Concordant Palm II</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases Jin by 1.A swell of Lao'Jin” (http://thetelonproject.wikidot.com/abilities:concordant-hand-v)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>46</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>1:00s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:concordant-hand-v\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases Jin by 1.</div>",
+      "current_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases Jin by 1.",
+      "omitted_suffix_after_literal_prefix": " Jin by 1.",
+      "source_record": {
+        "name": "Concordant Hand V",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/concordant-hand-v",
+            "title": "Concordant Hand V · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:05:30+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "46"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "60"
+          ],
+          "level": [
+            "46"
+          ],
+          "endurance cost": [
+            "10"
+          ],
+          "jin cost": [
+            "0"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "1:00s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Finishing Attack"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 46,
+        "rank": "V",
+        "category": "Finishing Attack",
+        "cost": {
+          "endurance": 10
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases Jin by 1.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 46,
+            "raw": "46"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "cost_observations": {
+          "endurance": [
+            10
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  254
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  1743
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          },
+          {
+            "scope": "historical",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  267
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  1868
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:concordant-hand-v"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "7fb9ad01004ed1830acf1555c0da295d2751bddd7994b3f9345f76a13bc3afd6"
+        }
+      ],
+      "snapshot_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 254 to 270 and heals your allies for 1743. Increases Jin by 1.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Astral Gate III",
+      "table_index": 4,
+      "row_index": 33,
+      "printed_cells": {
+        "level": "48",
+        "ability": "Astral Gate III",
+        "school": null,
+        "cost": null,
+        "cast": null,
+        "range": null,
+        "effect": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">48</td>\n<td>\n<a href=\"/abilities/astral-gate-iii\">Astral Gate III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/astral-gate-iii",
+      "detail_cache": {
+        "path": ".cache/archive/d0bd248488f13795e161e0feb067f0d49d481f8023a798eebed08094e7b359d5.txt",
+        "sha256": "bd538a2e130acd2f5cc63cf73fc473613c669ef4e0c7b86b83e1d2ece488a3fe"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Astral Gate III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 48\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026. A player at the level cap went through the whole Disciple spellbook; every ability the build has was recorded, and this was not among them. It is kept because this archive records the game as it shipped, not the emulator — an ability the emulator lacks is exactly what its developers would want to find. Its figures are the wiki's and unverified.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>48</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://vg.mmodb.com/spells/astral-gate-iii-576.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.</div>",
+      "current_effect_literal": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+      "omitted_suffix_after_literal_prefix": " defensive target.",
+      "source_record": {
+        "name": "Astral Gate III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/astral-gate-iii",
+            "title": "Astral Gate III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T03:41:50+00:00",
+        "archive_fields": {
+          "level": [
+            "48"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "everything else missing from it",
+            "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 48,
+        "rank": "III",
+        "category": null,
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/astral-gate-iii-576.php"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 89,
+          "record_sha256": "78eb6d52fe5ccbfff2523ff841da39838041d814e548b1a76a8919ab9693e047"
+        }
+      ],
+      "snapshot_effect_literal": "This counterattack is available after a feint. It drains your opponent of a large amount of endurance, and gives it to your defensive target.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mindless Clutch II",
+      "table_index": 4,
+      "row_index": 40,
+      "printed_cells": {
+        "level": "48",
+        "ability": "Mindless Clutch II",
+        "school": "Dissonant Bond",
+        "cost": "31",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">48</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mindless-clutch-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mindless-clutch-ii\">Mindless Clutch II</a>\n</td>\n<td class=\"muted\">Dissonant Bond</td>\n<td class=\"num muted\">\n              31\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/mindless-clutch-ii",
+      "detail_cache": {
+        "path": ".cache/archive/0b1704ec9b5a10faa9497b2b4d87701616023e87960d8b27fec1bf77dfc20856.txt",
+        "sha256": "40f34166ee535990c599ac2551d056c193fe3362e982e0c4eb07b4063ebf63f1"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/mindless-clutch-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Mindless Clutch II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 48\n    · Dissonant Bond\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>48</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>2</dd></div>\n</dl>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Cost: Submit Info Jin Cost: 3 Cast Time: 0 Refresh: 2 Range: 25 Favor of the Crow IV</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Only 1 Mindless Clutch allowed active at a time.</p>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes” (http://thetelonproject.wikidot.com/abilities:mindless-clutch-ii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>48</dd></div>\n<div><dt>energy and jin cost</dt><dd>31</dd></div>\n<div><dt>Jin cost</dt><dd>3</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>2.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Dissonant Bond</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:mindless-clutch-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.</div>",
+      "current_effect_literal": "Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+      "omitted_suffix_after_literal_prefix": " active at a time.",
+      "source_record": {
+        "name": "Mindless Clutch II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/mindless-clutch-ii",
+            "title": "Mindless Clutch II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T05:46:23+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "48"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "2"
+          ],
+          "level": [
+            "48"
+          ],
+          "energy and jin cost": [
+            "31"
+          ],
+          "jin cost": [
+            "3"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "2.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Dissonant Bond"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 48,
+        "rank": "II",
+        "category": "Dissonant Bond",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": 2.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 48,
+            "raw": "48"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+        ],
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "2.0s",
+              "seconds": 2.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:mindless-clutch-ii"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f5af5e5a70ecb1d1c7754765463a4d432752de8ad96dac33b80813bc56bb8c55"
+        }
+      ],
+      "snapshot_effect_literal": "Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Concordant Hand VI",
+      "table_index": 5,
+      "row_index": 5,
+      "printed_cells": {
+        "level": "53",
+        "ability": "Concordant Hand VI",
+        "school": null,
+        "cost": null,
+        "cast": null,
+        "range": null,
+        "effect": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">53</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/concordant-hand-vi.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/concordant-hand-vi\">Concordant Hand VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/concordant-hand-vi",
+      "detail_cache": {
+        "path": ".cache/archive/888c133af5c3ed4b93521019f5e504a82c87abde3707cccda20863b778245240.txt",
+        "sha256": "5cc5e205bb32c65ce2eed5d1998785ed753528bf481a17140af046aa212f6760"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/concordant-hand-vi.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Concordant Hand VI\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 53\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases Jin by 2.</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026 — a player at the level cap went through the whole Disciple spellbook and does not have it. It is kept because this archive records the game as it shipped, not the emulator. Its figures are the wiki's and unverified.</p>\n<p class=\"muted\">Level 51 and above. The VGO Emulator client these readings are taken from currently stops at level 50, so this ability cannot be checked against the game the way the lower ranks were. Its figures come from the sources credited below and stand unverified for that reason, not because they are in doubt.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>53</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:concordant-hand-vi\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases Jin by 2.</div>",
+      "current_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases Jin by 2.",
+      "omitted_suffix_after_literal_prefix": " Jin by 2.",
+      "source_record": {
+        "name": "Concordant Hand VI",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/concordant-hand-vi",
+            "title": "Concordant Hand VI · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T04:05:35+00:00",
+        "archive_fields": {
+          "level": [
+            "53"
+          ],
+          "type": [
+            "Skill or Spell"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Disciple",
+            "url": "https://vgsoharchive.com/classes/disciple"
+          },
+          {
+            "name": "everything else missing from it",
+            "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+          }
+        ],
+        "type": "ability",
+        "class": "Disciple",
+        "level_learned": 53,
+        "rank": "VI",
+        "category": "Skill or Spell",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases Jin by 2.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "damage_bonus",
+                "values": [
+                  301
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "damage_percent",
+                "values": [
+                  400
+                ],
+                "conditions_unparsed": true
+              },
+              {
+                "kind": "healing_amount",
+                "values": [
+                  2043
+                ],
+                "target_recorded": "your allies",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:concordant-hand-vi"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 80,
+          "record_sha256": "0a418f64fb66d1c775e18de7bafb43103e92484326932dca9346b44903197783"
+        }
+      ],
+      "snapshot_effect_literal": "A swell of Lao'Jin surrounds your attack, dealing 400% weapon damage plus 301 to 321 and heals your allies for 2043. Increases Jin by 2.",
+      "disposition": "display_truncation",
+      "disposition_note": "Display truncations preserve exact prefixes. Snapshot/cache conflicts remain unresolved; cached HTML agreement does not replace immutable snapshots or establish historical applicability.",
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "effect_differences_reviewed": 22,
+    "snapshot_comparisons_reviewed": 22,
+    "exact_prefix_display_truncations": 22,
+    "snapshot_cache_effect_conflicts": 0,
+    "range_differences_still_requiring_review": 0,
+    "absent_detail_tooltips_still_requiring_review": 45
+  },
+  "qualifications": [
+    "Same archive and mirrored historical sources are not independent corroboration.",
+    "Printed damage, healing, duration and consecration limitations remain source observations; historical applicability and combat formulas remain unverified.",
+    "All other class comparisons, collection queues and required source reviews remain pending."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "cached_html_files_verified": 23,
+    "exact_class_rows_verified": 22,
+    "exact_detail_tooltips_verified": 22,
+    "typed_corpus_hashes_verified": 51,
+    "exact_jsonl_source_records_verified": 22,
+    "issues": 0
+  }
+}
