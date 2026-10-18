@@ -1,0 +1,2134 @@
+{
+  "review_kind": "druid_class_snapshot_difference_source_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/DRUID_TYPED_FIELD_COVERAGE_ITERATION418.json",
+      "sha256": "a5f45c679278889d8ee17527ed8c9013ae41f7cb0a7ef33f2ef5e3a083faedbb"
+    },
+    {
+      "path": "reviewed/DRUID_LANDING_PAGE_COVERAGE_ITERATION369.json",
+      "sha256": "9a519bdd25d8b0e0b2f9a99b070fbbbdbed6a406671a9669dac70c0f9d1da58f"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/cc2ee0ef58d1898d1b1e9eb01475c6373eb2ec11a040195bbfe8c9cafcb358ef.txt",
+    "sha256": "b52d0827e2f3d45648b13bd9ed761bb60ae2eb8651882fd77bb5ea894944cea6"
+  },
+  "provenance_warning": "These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 196 abilities,\n      164 have had their tooltip read in game, and 27 were looked for and not\n      found .\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.",
+  "rows": [
+    {
+      "name": "Stormcaller's Fury I",
+      "printed_cells": {
+        "level": "4",
+        "ability": "Stormcaller's Fury I",
+        "school": "Alteration",
+        "cost": "79",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Charges your defensive target's group with the power of lightning. While charged, each attack or spell cast has a 20% chance..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">4</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/stormcaller-s-fury-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/stormcaller-s-fury-i\">Stormcaller's Fury I</a>\n</td>\n<td class=\"muted\">Alteration</td>\n<td class=\"num muted\">\n              79\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Charges your defensive target's group with the power of lightning. While charged, each attack or spell cast has a 20% chance...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+      "detail_cache": {
+        "path": ".cache/archive/7233603aeb4414d78b2a9714f732f6d24dc82555724fd895f2d58608b695fd1a.txt",
+        "sha256": "0c443ef476e6923536bf96715868a57eff974f388399d00c078c32679c3e8f48"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/stormcaller-s-fury-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Stormcaller's Fury I\n  </h1>\n<p class=\"muted\">Also recorded as\n      Stormcaller's Fury</p>\n<p class=\"muted\">\n<a href=\"/classes/druid\">Druid</a>\n    \n    · Level 4\n    · Alteration\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Charges your defensive target's group with the power of lightning. While charged, each attack or spell cast has a 20% chance to deal an extra 17 to 21 Arcane damage.</div>\n<h2>Ranks</h2>\n<div class=\"scroll\">\n<table>\n<thead><tr><th>Rank</th><th>Level</th><th>Cost</th><th>Effect</th></tr></thead>\n<tbody>\n<tr>\n<td>I</td>\n<td class=\"num\">6</td>\n<td class=\"num\">79</td>\n<td class=\"muted\">extra 19 to 24 arcane damage</td>\n</tr>\n</tbody>\n</table>\n</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>6\n                <span class=\"muted\">— now 4</span></dd></div>\n</dl>\n<div class=\"tooltip\">Charges your defensive target's group with the power of lightning. While charged, each attack or spell cast has a 20% change to deal an extra 19 to 24 arcane damage. Cost: 80 energy Cast Time: Instant Refresh: None Range: 25 Lightning Strike II</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59462\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026 — a player at the level cap went through the whole Druid spellbook and does not have it. Note the shape of what is missing: Barbwood Talisman survives only at rank I while every higher rank is gone, and Barkskin, Moon Talisman and Stormcaller's Fury are absent entirely. That could mean the build has not implemented them yet, or that the live game consolidated these buffs into one. The archive cannot tell which. Kept because this records the game as it shipped, not the emulator; the figures are the wiki's and unverified.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>4</dd></div>\n<div><dt>Energy cost</dt><dd>79</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon557.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:stormcaller-s-fury-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Stormcaller%27s_Fury_I\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Stormcaller's Fury I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+              "title": "Stormcaller's Fury I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:30+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "6 — now 4"
+            ],
+            "level": [
+              "4"
+            ],
+            "energy cost": [
+              "79"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon557.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 4,
+          "rank": "I",
+          "category": "Skill or Spell",
+          "cost": {
+            "energy": 79
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon557.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "79"
+            }
+          ],
+          "cost_observations": {
+            "energy": [
+              79
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:stormcaller-s-fury-i",
+            "https://vanguard.fandom.com/wiki/Stormcaller%27s_Fury_I"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Stormcaller's Fury I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:33+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Stormcaller's Fury I",
+                  "url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 4,
+              "rank": "I",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+              "cost_recorded": {
+                "value": 79,
+                "resource": null,
+                "raw": "79"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stormcaller's Fury I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+              "title": "Stormcaller's Fury I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:39:00+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "6 — now 4"
+            ],
+            "level": [
+              "4"
+            ],
+            "energy cost": [
+              "79"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon557.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 4,
+          "rank": "I",
+          "category": "Skill or Spell",
+          "cost": {
+            "energy": 79
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon557.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "79"
+            }
+          ],
+          "cost_observations": {
+            "energy": [
+              79
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:stormcaller-s-fury-i",
+            "https://vanguard.fandom.com/wiki/Stormcaller%27s_Fury_I"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Stormcaller's Fury I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:03+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Stormcaller's Fury I",
+                  "url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 4,
+              "rank": "I",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+              "cost_recorded": {
+                "value": 79,
+                "resource": null,
+                "raw": "79"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stormcaller's Fury I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+              "title": "Stormcaller's Fury I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:59+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "6 — now 4"
+            ],
+            "level": [
+              "4"
+            ],
+            "energy cost": [
+              "79"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon557.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 4,
+          "rank": "I",
+          "category": "Skill or Spell",
+          "cost": {
+            "energy": 79
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon557.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "79"
+            }
+          ],
+          "cost_observations": {
+            "energy": [
+              79
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:stormcaller-s-fury-i",
+            "https://vanguard.fandom.com/wiki/Stormcaller%27s_Fury_I"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Stormcaller's Fury I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Stormcaller's Fury I",
+                  "url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 4,
+              "rank": "I",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/stormcaller-s-fury-i",
+              "cost_recorded": {
+                "value": 79,
+                "resource": null,
+                "raw": "79"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 2475,
+          "record_sha256": "8cdcd2b175784022164fd4e9626be89796907091989e5390d267a72634bed0f8",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 2475,
+          "record_sha256": "172ee2197d2e21577793f442bf44436bb9db16e8aa851b5d2dc20cf8cfc722ba",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 2475,
+          "record_sha256": "ac9d15dd11b23dd81b3463b44cad32c7058a8a30ab40a547115a944b2bf12ed8",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Lightning Strike II",
+      "printed_cells": {
+        "level": "6",
+        "ability": "Lightning Strike II",
+        "school": "Arcane",
+        "cost": "68",
+        "cast": "1.7",
+        "range": "25",
+        "effect": "Calls down a bolt of lightning that deals 235 to 251 arcane damage to an opponent."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lightning-strike-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lightning-strike-ii\">Lightning Strike II</a>\n</td>\n<td class=\"muted\">Arcane</td>\n<td class=\"num muted\">\n              68\n            </td>\n<td class=\"muted\">1.7</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Calls down a bolt of lightning that deals 235 to 251 arcane damage to an opponent.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+      "detail_cache": {
+        "path": ".cache/archive/93aaefdec6adba36f80facd41e1ec62f0c0aa5d6b246618d3fe687fa52b902de.txt",
+        "sha256": "8d94de25e4a28b36410c0b3fc8cbcd460ea68eebcbc948f3178df0ad12e5a371"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/lightning-strike-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Lightning Strike II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/druid\">Druid</a>\n    \n    · Level 6\n    · Arcane\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Calls down a bolt of lightning that deals 235 to 251 arcane damage to an opponent.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>6</dd></div>\n<div><dt>Cast then</dt><dd>2</dd></div>\n</dl>\n<div class=\"tooltip\">Calls down a bolt of lightning that deals 154 to 167 arcane damage to an opponent. Cost: 69 energy Cast Time: 2 .0 Refresh: None Range: 25 Weakness Notes Causes: Staggered Exploits: Vulnerable Summon Earth Elemental I</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59462\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Calls down a bolt of lightning that deals 153 to 163 Arcane damage to an opponent” (http://thetelonproject.wikidot.com/abilities:lightning-strike-ii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>6</dd></div>\n<div><dt>energy cost</dt><dd>68</dd></div>\n<div><dt>Cast time</dt><dd>1.7</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Causes</dt><dd>Staggered</dd></div>\n<div><dt>Exploits</dt><dd>Vulnerable</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Exploits weakness</dt><dd>Vulnerable</dd></div>\n<div><dt>Type</dt><dd>Arcane Evocation</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon614.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:lightning-strike-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Lightning_Strike_II\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Lightning Strike II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+              "title": "Lightning Strike II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:30+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "6"
+            ],
+            "cast then": [
+              "2"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "68"
+            ],
+            "cast time": [
+              "1.7"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Staggered"
+            ],
+            "exploits": [
+              "Vulnerable"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon614.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 6,
+          "rank": "II",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 68
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Calls down a bolt of lightning that deals 235 to 251 arcane damage to an opponent.",
+          "icon_name": "Icon614.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              68
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Staggered",
+          "exploits_weakness": "Vulnerable",
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:lightning-strike-ii",
+            "https://vanguard.fandom.com/wiki/Lightning_Strike_II"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Lightning Strike II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:33+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Lightning Strike II",
+                  "url": "https://vgsoharchive.com/abilities/lightning-strike-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 6,
+              "rank": "II",
+              "category": "Arcane",
+              "cost": null,
+              "cast_time_seconds": null,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+              "cost_recorded": {
+                "value": 68,
+                "resource": null,
+                "raw": "68"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": 1.7,
+                "unit": null,
+                "raw": "1.7"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lightning Strike II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+              "title": "Lightning Strike II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:39:00+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "6"
+            ],
+            "cast then": [
+              "2"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "68"
+            ],
+            "cast time": [
+              "1.7"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Staggered"
+            ],
+            "exploits": [
+              "Vulnerable"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon614.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 6,
+          "rank": "II",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 68
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Calls down a bolt of lightning that deals 235 to 251 arcane damage to an opponent.",
+          "icon_name": "Icon614.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              68
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Staggered",
+          "exploits_weakness": "Vulnerable",
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:lightning-strike-ii",
+            "https://vanguard.fandom.com/wiki/Lightning_Strike_II"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Lightning Strike II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:03+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Lightning Strike II",
+                  "url": "https://vgsoharchive.com/abilities/lightning-strike-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 6,
+              "rank": "II",
+              "category": "Arcane",
+              "cost": null,
+              "cast_time_seconds": null,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+              "cost_recorded": {
+                "value": 68,
+                "resource": null,
+                "raw": "68"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": 1.7,
+                "unit": null,
+                "raw": "1.7"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lightning Strike II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+              "title": "Lightning Strike II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:58+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "6"
+            ],
+            "cast then": [
+              "2"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "68"
+            ],
+            "cast time": [
+              "1.7"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Staggered"
+            ],
+            "exploits": [
+              "Vulnerable"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon614.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 6,
+          "rank": "II",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 68
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Calls down a bolt of lightning that deals 235 to 251 arcane damage to an opponent.",
+          "icon_name": "Icon614.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              68
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Staggered",
+          "exploits_weakness": "Vulnerable",
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:lightning-strike-ii",
+            "https://vanguard.fandom.com/wiki/Lightning_Strike_II"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Lightning Strike II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Lightning Strike II",
+                  "url": "https://vgsoharchive.com/abilities/lightning-strike-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 6,
+              "rank": "II",
+              "category": "Arcane",
+              "cost": null,
+              "cast_time_seconds": null,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/lightning-strike-ii",
+              "cost_recorded": {
+                "value": 68,
+                "resource": null,
+                "raw": "68"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": 1.7,
+                "unit": null,
+                "raw": "1.7"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 1550,
+          "record_sha256": "3b627a13f0a2a06144287a21b05e27f4a7d146fa42ce77dfa5fcc4be1d7dc0fc",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 1550,
+          "record_sha256": "253292d2cfce60b7d2290be7c523914bd881cc77660db13b456fb18ff7b1a337",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 1550,
+          "record_sha256": "217c64349d8f1cd15e50046a4b04861ac168d042f97f7b4609017a955521037b",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Barbwood Talisman II",
+      "printed_cells": {
+        "level": "10",
+        "ability": "Barbwood Talisman II",
+        "school": "Alteration",
+        "cost": "38",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72 and grants a 9 point..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/barbwood-talisman-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/barbwood-talisman-ii\">Barbwood Talisman II</a>\n</td>\n<td class=\"muted\">Alteration</td>\n<td class=\"num muted\">\n              38\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72 and grants a 9 point...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+      "detail_cache": {
+        "path": ".cache/archive/16b4778fd96d23b549fcfad77b01d8bc7ab2ca8b2337e0aa1faea66b94fa5dc1.txt",
+        "sha256": "1446a7299ef53bb02a42e9f805097bad29cef9e5a8c8228c7db6391a1f78980e"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/barbwood-talisman-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Barbwood Talisman II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/druid\">Druid</a>\n    \n    · Level 10\n    · Alteration\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72 and grants a 9 point damage shield.</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>8\n                <span class=\"muted\">— now 10</span></dd></div>\n</dl>\n<div class=\"tooltip\">Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72, and grants a 10 point damage shield. Cost: 39 energy Cast Time: Instant Refresh: None Range: 25 Roseberries I</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59462\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026 — a player at the level cap went through the whole Druid spellbook and does not have it. Note the shape of what is missing: Barbwood Talisman survives only at rank I while every higher rank is gone, and Barkskin, Moon Talisman and Stormcaller's Fury are absent entirely. That could mean the build has not implemented them yet, or that the live game consolidated these buffs into one. The archive cannot tell which. Kept because this records the game as it shipped, not the emulator; the figures are the wiki's and unverified.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>10</dd></div>\n<div><dt>Energy cost</dt><dd>38</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon695.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:barbwood-talisman-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Barbwood_Talisman_II\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Barbwood Talisman II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+              "title": "Barbwood Talisman II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:29+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "8 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "38"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon695.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Skill or Spell",
+          "cost": {
+            "energy": 38
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72 and grants a 9 point damage shield.",
+          "icon_name": "Icon695.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              38
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:barbwood-talisman-ii",
+            "https://vanguard.fandom.com/wiki/Barbwood_Talisman_II"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Barbwood Talisman II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:33+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Barbwood Talisman II",
+                  "url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 10,
+              "rank": "II",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+              "cost_recorded": {
+                "value": 38,
+                "resource": null,
+                "raw": "38"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Barbwood Talisman II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+              "title": "Barbwood Talisman II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:38:59+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "8 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "38"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon695.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Skill or Spell",
+          "cost": {
+            "energy": 38
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72 and grants a 9 point damage shield.",
+          "icon_name": "Icon695.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              38
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:barbwood-talisman-ii",
+            "https://vanguard.fandom.com/wiki/Barbwood_Talisman_II"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Barbwood Talisman II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:03+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Barbwood Talisman II",
+                  "url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 10,
+              "rank": "II",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+              "cost_recorded": {
+                "value": 38,
+                "resource": null,
+                "raw": "38"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Barbwood Talisman II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+              "title": "Barbwood Talisman II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:57+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "8 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "38"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon695.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Skill or Spell",
+          "cost": {
+            "energy": 38
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Imbues your defensive target's party with a talisman that increases armor class by 36, hit points by 72 and grants a 9 point damage shield.",
+          "icon_name": "Icon695.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              38
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:barbwood-talisman-ii",
+            "https://vanguard.fandom.com/wiki/Barbwood_Talisman_II"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Barbwood Talisman II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Barbwood Talisman II",
+                  "url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 10,
+              "rank": "II",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/barbwood-talisman-ii",
+              "cost_recorded": {
+                "value": 38,
+                "resource": null,
+                "raw": "38"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 167,
+          "record_sha256": "7942c8a4bffc03e7d42af1ac391274052f301479e0a6d86c088a7fa5b4bc7c5c",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 167,
+          "record_sha256": "734bd949187a748cff7515b4e4b879e4d3d5b53d964ec1a2e827d0c50f4f1b6b",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 167,
+          "record_sha256": "1da102abd85e12eae7bf9610f576bfaee65f1e7067ad32bb9cb72eb3399cf084",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        },
+        "effect": {
+          "status": "exact_prefix_display_truncation",
+          "omitted_suffix": " damage shield."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Barbwood Talisman III",
+      "printed_cells": {
+        "level": "16",
+        "ability": "Barbwood Talisman III",
+        "school": "Alteration",
+        "cost": "60",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120 and grands a 17 point..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/barbwood-talisman-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/barbwood-talisman-iii\">Barbwood Talisman III</a>\n</td>\n<td class=\"muted\">Alteration</td>\n<td class=\"num muted\">\n              60\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120 and grands a 17 point...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+      "detail_cache": {
+        "path": ".cache/archive/84f79a97ac1e7a8871ea854090fd259037e7f0700bda830351c5be334380f7b0.txt",
+        "sha256": "f26264a5657560885a42d6f5cc9113ba40ff5ac20f5222398cc72b491808aac9"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/barbwood-talisman-iii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Barbwood Talisman III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/druid\">Druid</a>\n    \n    · Level 16\n    · Alteration\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120 and grands a 17 point damage shield.</div>\n<p class=\"absent-note\">\n<strong>Not in the emulator.</strong>\n        This ability is recorded here but does not appear in the VGO Emulator\n        build. It is kept because this archive records the game as it shipped\n        — see\n        <a href=\"/abilities/not-in-the-emulator\">everything else missing from it</a>.\n        Its figures are unverified.\n      </p>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>16</dd></div>\n</dl>\n<div class=\"tooltip\">Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120, and grants a 17 point damage shield. Cost: 61 energy Cast Time: Instant Refresh: None Range: 25 Wild Growth I</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59462\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Not present in the VGO Emulator build as of August 2026 — a player at the level cap went through the whole Druid spellbook and does not have it. Note the shape of what is missing: Barbwood Talisman survives only at rank I while every higher rank is gone, and Barkskin, Moon Talisman and Stormcaller's Fury are absent entirely. That could mean the build has not implemented them yet, or that the live game consolidated these buffs into one. The archive cannot tell which. Kept because this records the game as it shipped, not the emulator; the figures are the wiki's and unverified.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>16</dd></div>\n<div><dt>Energy cost</dt><dd>60</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon695.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://vanguard.fandom.com/wiki/Barbwood_Talisman_III\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Barbwood Talisman III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+              "title": "Barbwood Talisman III · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:29+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "16"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "60"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "icon": [
+              "Icon695.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 16,
+          "rank": "III",
+          "category": null,
+          "cost": {
+            "energy": 60
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120 and grands a 17 point damage shield.",
+          "icon_name": "Icon695.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              60
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Barbwood_Talisman_III"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Barbwood Talisman III",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:33+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Barbwood Talisman III",
+                  "url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 16,
+              "rank": "III",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+              "cost_recorded": {
+                "value": 60,
+                "resource": null,
+                "raw": "60"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Barbwood Talisman III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+              "title": "Barbwood Talisman III · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:38:59+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "16"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "60"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "icon": [
+              "Icon695.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 16,
+          "rank": "III",
+          "category": null,
+          "cost": {
+            "energy": 60
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120 and grands a 17 point damage shield.",
+          "icon_name": "Icon695.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              60
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Barbwood_Talisman_III"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Barbwood Talisman III",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:03+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Barbwood Talisman III",
+                  "url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 16,
+              "rank": "III",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+              "cost_recorded": {
+                "value": 60,
+                "resource": null,
+                "raw": "60"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Barbwood Talisman III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+              "title": "Barbwood Talisman III · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/druid",
+              "title": "Druid · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:57+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "16"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "60"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "icon": [
+              "Icon695.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Druid",
+              "url": "https://vgsoharchive.com/classes/druid"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Druid",
+          "level_learned": 16,
+          "rank": "III",
+          "category": null,
+          "cost": {
+            "energy": 60
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Imbues your defensive target's party with a talisman that increases armor class by 60, hit points by 120 and grands a 17 point damage shield.",
+          "icon_name": "Icon695.png",
+          "ranks": [],
+          "cost_observations": {
+            "energy": [
+              60
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Barbwood_Talisman_III"
+          ],
+          "classes_recorded": [
+            "Druid"
+          ],
+          "archive_variants": [
+            {
+              "name": "Barbwood Talisman III",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/druid",
+                  "title": "Druid · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Barbwood Talisman III",
+                  "url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii"
+                }
+              ],
+              "type": "ability",
+              "class": "Druid",
+              "level_learned": 16,
+              "rank": "III",
+              "category": "Alteration",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/barbwood-talisman-iii",
+              "cost_recorded": {
+                "value": 60,
+                "resource": null,
+                "raw": "60"
+              },
+              "range_recorded": {
+                "value": 25,
+                "unit": null,
+                "raw": "25"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 168,
+          "record_sha256": "fc2f78885b249435b9f2dd38e70027d08303e4a43ccf4d348793cb73c19ba306",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 168,
+          "record_sha256": "82cde4eab51a51667451898a143228cc4c3d74d1d43280fe28675b3dc3643c22",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 168,
+          "record_sha256": "215984fc152508ef6726c9eb5fe27f8a80d862c4714347d9963047ab0e29348e",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "effect": {
+          "status": "exact_prefix_display_truncation",
+          "omitted_suffix": " damage shield."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "school_differences_reviewed": 3,
+    "merged_detail_categories_with_matching_nested_class_school": 3,
+    "effect_differences_reviewed": 2,
+    "exact_prefix_display_truncations": 2
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "run_lock_present": false,
+    "python_processes": 0,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Merged records are not pure class-table snapshots; class source membership alone does not establish field provenance.",
+    "All original records and conflicting labels retained; no canonical IDs, units or historical mechanics inferred.",
+    "Same-provenance mirrors and parser snapshots are not independent corroboration.",
+    "Detail-field comparisons for remaining Druid rows and full collection remain pending."
+  ],
+  "validation": {
+    "cached_files_verified": 5,
+    "source_references_verified": 12,
+    "issues": 0
+  }
+}
