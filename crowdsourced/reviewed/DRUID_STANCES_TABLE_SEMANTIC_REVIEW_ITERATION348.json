@@ -1,0 +1,272 @@
+{
+  "review_kind": "druid_stances_table_semantic_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_census": {
+    "path": "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json",
+    "sha256": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source_page": {
+    "url": "https://vgsoharchive.com/classes/druid/stances",
+    "cache_stored_bytes_sha256": "f6ed2340b7cbc8cfcf1f390264dc0472b851d9a3f6b4a1388a32fb1bb2bb681d",
+    "cache_normalized_text_sha256": "2479e6af2dcbc5e9a82bade85bff300a6212d2226377c085fc08867d4cc79ea2",
+    "sidecar_sha256": "2479e6af2dcbc5e9a82bade85bff300a6212d2226377c085fc08867d4cc79ea2",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Druid — Stances",
+          "url": "https://vgsoharchive.com/classes/druid/stances",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/adventuring:druid-stances"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:09:21+00:00"
+        },
+        "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": null,
+        "row_count": 3,
+        "rows": [
+          [
+            "",
+            "Hierophant's Blessing: Increases the effectiveness of Lightning Strike, Wild Growth, Venomous Thorns, Piercing Roots, Solar Flare, Nature's Wrath, and Thunderclap by 25%. These abilities also have a 50% chance to generate 1 Phenomena point when cast."
+          ],
+          [
+            "",
+            "Lunarian Ire: Increases the damage done by Call Lightning, Deadly Swarm, Earthquake, Ire, and Starfall by 25%."
+          ],
+          [
+            "",
+            "Okeli's Guise: Increases the effectiveness of Life Stream, Restore, Sooth, and Soothing Rain by 20%. Also regenerates 1 Phenomena point every 10 seconds."
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Hierophant's Blessing:</strong><br/>\nIncreases the effectiveness of Lightning Strike, Wild Growth, Venomous Thorns, Piercing Roots, Solar Flare, Nature's Wrath, and Thunderclap by 25%. These abilities also have a 50% chance to generate 1 Phenomena point when cast.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Lunarian Ire:</strong><br/>\nIncreases the damage done by Call Lightning, Deadly Swarm, Earthquake, Ire, and Starfall by 25%.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Okeli's Guise:</strong><br/>\nIncreases the effectiveness of Life Stream, Restore, Sooth, and Soothing Rain by 20%. Also regenerates 1 Phenomena point every 10 seconds.</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "table_evidence": {
+    "table_index": 0,
+    "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Hierophant's Blessing:</strong><br/>\nIncreases the effectiveness of Lightning Strike, Wild Growth, Venomous Thorns, Piercing Roots, Solar Flare, Nature's Wrath, and Thunderclap by 25%. These abilities also have a 50% chance to generate 1 Phenomena point when cast.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Lunarian Ire:</strong><br/>\nIncreases the damage done by Call Lightning, Deadly Swarm, Earthquake, Ire, and Starfall by 25%.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Okeli's Guise:</strong><br/>\nIncreases the effectiveness of Life Stream, Restore, Sooth, and Soothing Rain by 20%. Also regenerates 1 Phenomena point every 10 seconds.</td>\n</tr>\n</table>",
+    "rows": [
+      {
+        "row_index": 0,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Hierophant's Blessing:</strong><br/>\nIncreases the effectiveness of Lightning Strike, Wild Growth, Venomous Thorns, Piercing Roots, Solar Flare, Nature's Wrath, and Thunderclap by 25%. These abilities also have a 50% chance to generate 1 Phenomena point when cast.</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Hierophant's Blessing: Increases the effectiveness of Lightning Strike, Wild Growth, Venomous Thorns, Piercing Roots, Solar Flare, Nature's Wrath, and Thunderclap by 25%. These abilities also have a 50% chance to generate 1 Phenomena point when cast."
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 1,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Lunarian Ire:</strong><br/>\nIncreases the damage done by Call Lightning, Deadly Swarm, Earthquake, Ire, and Starfall by 25%.</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Lunarian Ire: Increases the damage done by Call Lightning, Deadly Swarm, Earthquake, Ire, and Starfall by 25%."
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 2,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Okeli's Guise:</strong><br/>\nIncreases the effectiveness of Life Stream, Restore, Sooth, and Soothing Rain by 20%. Also regenerates 1 Phenomena point every 10 seconds.</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Okeli's Guise: Increases the effectiveness of Life Stream, Restore, Sooth, and Soothing Rain by 20%. Also regenerates 1 Phenomena point every 10 seconds."
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": 1,
+      "source_row_index": 0,
+      "subject": "Hierophant's Blessing",
+      "predicate": "effectiveness_affected_abilities_as_printed",
+      "value": [
+        "Lightning Strike",
+        "Wild Growth",
+        "Venomous Thorns",
+        "Piercing Roots",
+        "Solar Flare",
+        "Nature's Wrath",
+        "Thunderclap"
+      ],
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_row_index": 0,
+      "subject": "Hierophant's Blessing",
+      "predicate": "effectiveness_increase_percent",
+      "value": 25,
+      "qualifier": "Effectiveness metric, ranks and stacking unknown; applies to the listed abilities only.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_row_index": 0,
+      "subject": "Hierophant's Blessing",
+      "predicate": "phenomena_generation_chance_percent",
+      "value": 50,
+      "qualifier": "When listed abilities are cast; eligible cast outcomes and cooldown unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_row_index": 0,
+      "subject": "Hierophant's Blessing",
+      "predicate": "phenomena_points_generated",
+      "value": 1,
+      "qualifier": "Per successful generation event; not per cast unconditionally.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_row_index": 1,
+      "subject": "Lunarian Ire",
+      "predicate": "damage_affected_abilities_as_printed",
+      "value": [
+        "Call Lightning",
+        "Deadly Swarm",
+        "Earthquake",
+        "Ire",
+        "Starfall"
+      ],
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_row_index": 1,
+      "subject": "Lunarian Ire",
+      "predicate": "damage_increase_percent",
+      "value": 25,
+      "qualifier": "Applies to listed abilities; baseline, ranks and stacking unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_row_index": 2,
+      "subject": "Okeli's Guise",
+      "predicate": "effectiveness_affected_abilities_as_printed",
+      "value": [
+        "Life Stream",
+        "Restore",
+        "Sooth",
+        "Soothing Rain"
+      ],
+      "qualifier": "Sooth spelling preserved; identity not inferred.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_row_index": 2,
+      "subject": "Okeli's Guise",
+      "predicate": "effectiveness_increase_percent",
+      "value": 20,
+      "qualifier": "Effectiveness metric, ranks and stacking unknown; applies to listed abilities.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_row_index": 2,
+      "subject": "Okeli's Guise",
+      "predicate": "phenomena_points_regenerated",
+      "value": 1,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_row_index": 2,
+      "subject": "Okeli's Guise",
+      "predicate": "phenomena_regeneration_interval_seconds",
+      "value": 10,
+      "qualifier": "Tick phase, cap and combat restrictions unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "limitations": [
+    "Telon Project mirror provenance; not independent corroboration of existing prose or other Telonica mirrors.",
+    "Effectiveness is not assigned to a damage or healing formula. Listed ability scopes remain separate.",
+    "Ranks, stacking, Phenomena cap, proc eligibility, cooldown, regeneration tick phase and historical applicability remain unknown.",
+    "No canonical identities or operative values assigned; original metadata-only records remain unchanged."
+  ],
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "original_source_records_verified": 1,
+    "table_html_matches": 1,
+    "table_rows_verified": 3
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "table_coverage_delta": {
+    "previous_explicit_tables": 20,
+    "newly_reviewed_tables": 1,
+    "explicit_tables_after": 21,
+    "pending_table_review_or_coverage_verification": 49
+  },
+  "next_review": "Review the cached rogue stances table, retaining source qualifiers and unresolved mechanics."
+}
