@@ -1,0 +1,444 @@
+{
+  "review_kind": "bard_regeneration_claims_and_internal_consistency",
+  "network_requests": 0,
+  "input_sha256": {
+    "reviewed/BARD_COMPOSITION_REVIEW_ITERATION290.json": "7e901300a86d398f7fb26eeb46e2c4ac72b886dc6e836c018c1f3bf2154a6d38"
+  },
+  "source": {
+    "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+    "cache_stored_bytes_sha256": "64acdb07c442feddc3040270bd90131a60148a8387c83d83af7d0c9f38761dd1",
+    "cache_normalized_text_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "sidecar_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:07:10+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "How Instruments Work:",
+            "Instrument Mod Explanation",
+            "Voice Mods",
+            "Instrument Facts",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "How Instruments Work:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Mod Explanation",
+              "linked_entities": []
+            },
+            {
+              "heading": "Voice Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Facts",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/song-composition-guide"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": "Putting it all together (Basic Version):",
+        "row_count": 4,
+        "rows": [
+          [
+            "Melody",
+            "Anthem of War",
+            "2 energy / sec"
+          ],
+          [
+            "Embellishments",
+            "Harmony of War",
+            "4 energy / sec x3 = 12 energy / sec"
+          ],
+          [
+            "Lyrics",
+            "Hazoc's Hasty Lyric",
+            "3 energy / sec"
+          ],
+          [
+            "",
+            "Total Cost:",
+            "17 energy / sec"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>Melody</td>\n<td>Anthem of War</td>\n<td>2 energy / sec</td>\n</tr>\n<tr>\n<td>Embellishments</td>\n<td>Harmony of War</td>\n<td>4 energy / sec x3 = 12 energy / sec</td>\n</tr>\n<tr>\n<td>Lyrics</td>\n<td>Hazoc's Hasty Lyric</td>\n<td>3 energy / sec</td>\n</tr>\n<tr>\n<td></td>\n<td>Total Cost:</td>\n<td>17 energy / sec</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "observations": [
+    {
+      "observation_kind": "song_regeneration_pulse",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 3,
+        "text_as_printed": "Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.",
+        "source_html": "<p>Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "period_as_printed": 4,
+        "unit": "seconds",
+        "scope": "Bard health/energy regeneration songs; persistent effects explicitly distinguished"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "natural_energy_regeneration",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 5,
+        "text_as_printed": "Your natural energy regen (NER) is based on your vitality score. As you increase your vitality you will gain a greater NER. NER ticks every second just like our song “tax”. If you hover your mouse over the word Vitality on your char sheet you will be able to view your NER. This is a constant number both in and out of combat and does not change. However, out of combat, you will receive additional bonuses to the your regeneration which are unrelated to NER..",
+        "source_html": "<p>Your natural energy regen (NER) is based on your vitality score. As you increase your vitality you will gain a greater NER. NER ticks every second just like our song “tax”. If you hover your mouse over the word Vitality on your char sheet you will be able to view your NER. This is a constant number both in and out of combat and does not change. However, out of combat, you will receive additional bonuses to the your regeneration which are unrelated to NER..</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "period_as_printed": 1,
+        "unit": "seconds",
+        "basis_as_printed": "Vitality",
+        "combat_scope_as_printed": "constant in and out of combat; additional out-of-combat bonuses separate"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "initial_regeneration_example",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 8,
+        "text_as_printed": "Let’s discusss song cost in more detail now. As you add more components to the song the song cost tax will also increase. You will be using a combination of your NER (Natural Energy Regen) and Rests to offset this. At L1, a bard begins with a NER of approximately 5 energy / sec. This is significant because it means you can offset up to 5 pts of a song’s cost without using rests. In other words, you don’t actually need that rest at L1 4-pt rest as your NER will cover the cost for you. The important factor however, is that many of our other “non-song” abilities such as mez, charm, shouts, etc… also cost energy.",
+        "source_html": "<p>Let’s discusss song cost in more detail now. As you add more components to the song the song cost tax will also increase. You will be using a combination of your NER (Natural Energy Regen) and Rests to offset this. At L1, a bard begins with a NER of approximately 5 energy / sec. This is significant because it means you can offset up to 5 pts of a song’s cost without using rests. In other words, you don’t actually need that rest at L1 4-pt rest as your NER will cover the cost for you. The important factor however, is that many of our other “non-song” abilities such as mez, charm, shouts, etc… also cost energy.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "level_as_printed": 1,
+        "approximate_energy_per_second_as_printed": 5
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "vitality_only_terminology",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 17,
+        "text_as_printed": "The effects of Vitality DIRECTLY increases your NER. Basically, your NER is completely based off of your Vitality score. Later in the guide I will refer to Energy regen \"increasing your NER\". It is meant only in a loosely relative term and it must be noted that you aren't literally increasing the NER, only simulating the effect.",
+        "source_html": "<p>The effects of Vitality DIRECTLY increases your NER. Basically, your NER is completely based off of your Vitality score. Later in the guide I will refer to Energy regen \"increasing your NER\". It is meant only in a loosely relative term and it must be noted that you aren't literally increasing the NER, only simulating the effect.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "literal_NER_basis_as_printed": "Vitality",
+        "other_regeneration_terminology": "simulated NER effect only"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "vitality_build_commentary",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 18,
+        "text_as_printed": "Of the three methods to increase your NER, that of increasing Vitality is one of the weakest. Regardless, to some bards every bit helps. It is quite possible to increase you're NER to 15 through the correct race, stat point allotment and gear combination. (Most bards run around with a NER of 9-12). It is still undecided as to how important Vitality is to the bard but it is the author's opinion that most bard builds should increase vitality enough to obtain a NER of at least 11 points.",
+        "source_html": "<p>Of the three methods to increase your NER, that of increasing Vitality is one of the weakest. Regardless, to some bards every bit helps. It is quite possible to increase you're NER to 15 through the correct race, stat point allotment and gear combination. (Most bards run around with a NER of 9-12). It is still undecided as to how important Vitality is to the bard but it is the author's opinion that most bard builds should increase vitality enough to obtain a NER of at least 11 points.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "possible_NER_as_printed": 15,
+        "usual_NER_range_as_printed": [
+          9,
+          12
+        ],
+        "recommended_minimum_as_printed": 11,
+        "recommendation_kind": "author opinion"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "item_regeneration",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 21,
+        "text_as_printed": "Energy Regen is on a 6-second return. So in the picture above, one item will give us 7 energy / 6 seconds and the other 6 energy / 6 seconds. However, it is not awarded as a \"chunk\" of energy and is instead divvied out over the 6 seconds. In other words, the +6 energy regen item will give you 1 energy every second. The +7 energy regen item will give it out 1..1..1..2..1..1. So for every 6 points of energy regen an item yields, you effectively gain 1 NER.",
+        "source_html": "<p>Energy Regen is on a 6-second return. So in the picture above, one item will give us 7 energy / 6 seconds and the other 6 energy / 6 seconds. However, it is not awarded as a \"chunk\" of energy and is instead divvied out over the 6 seconds. In other words, the +6 energy regen item will give you 1 energy every second. The +7 energy regen item will give it out 1..1..1..2..1..1. So for every 6 points of energy regen an item yields, you effectively gain 1 NER.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "return_period_seconds_as_printed": 6,
+        "example_return_values_as_printed": [
+          7,
+          6
+        ],
+        "delivery_as_printed": "distributed across seconds",
+        "seven_point_sequence_as_printed": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "effective_NER_per_six_points_as_printed": 1
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "buff_regeneration",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 23,
+        "text_as_printed": "We will discuss our energy regen song components later in the guide. This portion will instead be devoted to discussing the effect's an energy regen buff (such as from a psionicist). Buff energy regen is awarded every 6 seconds just as item energy regen. The biggest difference is that buff energy regen is awarded in a single chunk every 6 seconds. Regardless, that 6-second chunk can still be assigned a NER value. You will need to be able to calculate the returns from the addition. A level 50 Psi can buff your energy regeneration by as much as 174+ energy / 6 seconds. In the L50 example, 174 energy / 6 seconds yields the effects of an additional 29 NER. Although you only get the energy in 6-second chunks, you will still offset 29 pts worth of song. You'll watch your energy bar drop, drop, drop, drop, drop, jump back to full, repeat.",
+        "source_html": "<p>We will discuss our energy regen song components later in the guide. This portion will instead be devoted to discussing the effect's an energy regen buff (such as from a psionicist). Buff energy regen is awarded every 6 seconds just as item energy regen. The biggest difference is that buff energy regen is awarded in a single chunk every 6 seconds. Regardless, that 6-second chunk can still be assigned a NER value. You will need to be able to calculate the returns from the addition. A level 50 Psi can buff your energy regeneration by as much as 174+ energy / 6 seconds. In the L50 example, 174 energy / 6 seconds yields the effects of an additional 29 NER. Although you only get the energy in 6-second chunks, you will still offset 29 pts worth of song. You'll watch your energy bar drop, drop, drop, drop, drop, jump back to full, repeat.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "return_period_seconds_as_printed": 6,
+        "delivery_as_printed": "single chunk",
+        "example_class_as_printed": "Psi",
+        "example_level_as_printed": 50,
+        "example_return_as_printed": "174+ energy / 6 seconds",
+        "worked_example_effective_NER_as_printed": 29
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "group_regeneration_example",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 24,
+        "text_as_printed": "So at L50, an average bard will have vitality based NER of approximately 9-14 pts and can offset that amount of energy in a song before a drain affects the energy pool. Add a L50 Psi to the group and that bard now has the effective NER of 38-43. That's the equivalent to a three rest song (12, 11, 10 pt rests). We will go much further in depth with energy regen when we tackle that particular portion of song composition.",
+        "source_html": "<p>So at L50, an average bard will have vitality based NER of approximately 9-14 pts and can offset that amount of energy in a song before a drain affects the energy pool. Add a L50 Psi to the group and that bard now has the effective NER of 38-43. That's the equivalent to a three rest song (12, 11, 10 pt rests). We will go much further in depth with energy regen when we tackle that particular portion of song composition.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "level_as_printed": 50,
+        "approximate_vitality_NER_range_as_printed": [
+          9,
+          14
+        ],
+        "effective_group_NER_range_as_printed": [
+          38,
+          43
+        ],
+        "equivalent_rest_values_as_printed": [
+          12,
+          11,
+          10
+        ]
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "composer_drain_example",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 48,
+        "text_as_printed": "Note this is my personal DPS song. You'll see that the cost of the song is 20 energy / sec. My NER is 12.47 energy / sec. Therefore, each second I am draining my energy pool of 7.5 energy. This is directly related to the above topics on energy regeneration and NER.",
+        "source_html": "<p>Note this is my personal DPS song. You'll see that the cost of the song is 20 energy / sec. My NER is 12.47 energy / sec. Therefore, each second I am draining my energy pool of 7.5 energy. This is directly related to the above topics on energy regeneration and NER.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "song_energy_per_second_as_printed": 20,
+        "NER_energy_per_second_as_printed": 12.47,
+        "pool_drain_per_second_as_printed": 7.5
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    }
+  ],
+  "internal_checks": [
+    {
+      "expression": "sum([1,1,1,2,1,1]) = 7",
+      "matches": true
+    },
+    {
+      "expression": "174 / 6 = 29",
+      "matches": true
+    },
+    {
+      "expression": "9+29 = 38; 14+29 = 43",
+      "matches": true
+    },
+    {
+      "expression": "20 - 12.47 = 7.53; printed 7.5 is rounded",
+      "matches": true
+    }
+  ],
+  "review_notes": [
+    {
+      "issue": "Guide calls item/buff effects increased NER but explicitly limits literal NER to Vitality.",
+      "evidence_block_indices": [
+        5,
+        14,
+        17,
+        21,
+        23
+      ],
+      "resolution": "Keep three regeneration mechanisms separate; effective averages do not establish delivery cadence."
+    },
+    {
+      "issue": "Usual ranges 9-12 and approximately 9-14 have different wording, not a verified chronological change.",
+      "evidence_block_indices": [
+        18,
+        24
+      ],
+      "resolution": "Retain both attributed ranges; no universal or historical default."
+    },
+    {
+      "issue": "Undated guide includes upcoming and existing one-handed instrument statements.",
+      "evidence_block_indices": [
+        30,
+        39
+      ],
+      "resolution": "Temporal applicability remains null for all extracted claims."
+    }
+  ],
+  "policy": "Arithmetic consistency does not verify game mechanics. Mirrored Telon Project provenance is shared, not independent corroboration. No canonical matching or operative import. Network suspension unchanged.",
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "summary": {
+    "pages": 1,
+    "observations": 9,
+    "internal_checks": 4,
+    "review_notes": 3,
+    "validation_issues": 0
+  },
+  "remaining_work": "Instrument scaling/stacking and composer prose require review; other supplemental pages and all pending downloads remain open."
+}
