@@ -1,0 +1,861 @@
+{
+  "review_kind": "blood_mage_focus_and_cleric_stat_prose_semantic_review",
+  "network_requests": 0,
+  "source_pages": [
+    {
+      "url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "cache_stored_bytes_sha256": "3f4dd1c02b31d3ec12eabe08b5cead08404bcbc9ea3f50f14dc0d8dda6f82c32",
+      "source_records": [
+        {
+          "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+          "record": {
+            "name": "Blood Mage — Stances",
+            "url": "https://vgsoharchive.com/classes/blood-mage/stances",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [],
+            "sections": [],
+            "referenced_entities": [],
+            "original_source_urls": [],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:07:30+00:00"
+          },
+          "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+        },
+        {
+          "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+          "record": {
+            "name": "Blood Mage — Stances",
+            "url": "https://vgsoharchive.com/classes/blood-mage/stances",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [
+              "Unfocused",
+              "Sanguine Focus",
+              "Focus of Gelenia"
+            ],
+            "sections": [
+              {
+                "heading": "Unfocused",
+                "linked_entities": []
+              },
+              {
+                "heading": "Sanguine Focus",
+                "linked_entities": []
+              },
+              {
+                "heading": "Focus of Gelenia",
+                "linked_entities": []
+              }
+            ],
+            "referenced_entities": [],
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/adventuring:blood-mage-stances"
+            ],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:08:49+00:00"
+          },
+          "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+        }
+      ],
+      "scope": "guide-body if present, otherwise main; navigation may remain",
+      "prose_evidence": [
+        {
+          "block_index": 0,
+          "tag": "p",
+          "text_as_printed": "The Blood Mage has three stances, called focuses.",
+          "source_html": "<p>The Blood Mage has three stances, called focuses.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 1,
+          "tag": "p",
+          "text_as_printed": "This stance allows the blood mage to use all spells at their normal level. This is the starting focus.",
+          "source_html": "<p>This stance allows the blood mage to use all spells at their normal level. This is the starting focus.</p>",
+          "preceding_heading": "Unfocused",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 2,
+          "tag": "p",
+          "text_as_printed": "This form allows you to fortify yourself as you focus on healing others. This allows your heals to become more effective and you take less damage. Heals used on you, however, are much less effective and your damage is decreased greatly.",
+          "source_html": "<p>This form allows you to fortify yourself as you focus on healing others. This allows your heals to become more effective and you take less damage. Heals used on you, however, are much less effective and your damage is decreased greatly.</p>",
+          "preceding_heading": "Sanguine Focus",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 3,
+          "tag": "li",
+          "text_as_printed": "Adds a stacking hit point regen",
+          "source_html": "<li>Adds a stacking hit point regen</li>",
+          "preceding_heading": "Sanguine Focus",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 4,
+          "tag": "li",
+          "text_as_printed": "Heals you cast are increased by 25% effectiveness",
+          "source_html": "<li>Heals you cast are increased by 25% effectiveness</li>",
+          "preceding_heading": "Sanguine Focus",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 5,
+          "tag": "li",
+          "text_as_printed": "Your mitigation is increased by 15%",
+          "source_html": "<li>Your mitigation is increased by 15%</li>",
+          "preceding_heading": "Sanguine Focus",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 6,
+          "tag": "li",
+          "text_as_printed": "Your outgoing damage is reduced by 50%",
+          "source_html": "<li>Your outgoing damage is reduced by 50%</li>",
+          "preceding_heading": "Sanguine Focus",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 7,
+          "tag": "p",
+          "text_as_printed": "This form allows you to slowly trade your health for more power. As you lose health you gain increased damage, immunity to poison and disease and you gain an extra blood union with your opponent.",
+          "source_html": "<p>This form allows you to slowly trade your health for more power. As you lose health you gain increased damage, immunity to poison and disease and you gain an extra blood union with your opponent.</p>",
+          "preceding_heading": "Focus of Gelenia",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 8,
+          "tag": "li",
+          "text_as_printed": "You lose 5% of your health every 5 seconds",
+          "source_html": "<li>You lose 5% of your health every 5 seconds</li>",
+          "preceding_heading": "Focus of Gelenia",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 9,
+          "tag": "li",
+          "text_as_printed": "Add 25% Damage",
+          "source_html": "<li>Add 25% Damage</li>",
+          "preceding_heading": "Focus of Gelenia",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 10,
+          "tag": "li",
+          "text_as_printed": "You gain 1 Blood Union Point every 5 seconds",
+          "source_html": "<li>You gain 1 Blood Union Point every 5 seconds</li>",
+          "preceding_heading": "Focus of Gelenia",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null
+    },
+    {
+      "url": "https://vgsoharchive.com/classes/cleric/stats",
+      "cache_stored_bytes_sha256": "d01fcb10a3d217bede0758072594f36ea8498a65f24a57e7ec92d3d1ed4d7f6f",
+      "source_records": [
+        {
+          "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+          "record": {
+            "name": "Cleric — Stats",
+            "url": "https://vgsoharchive.com/classes/cleric/stats",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [],
+            "sections": [],
+            "referenced_entities": [],
+            "original_source_urls": [],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:07:50+00:00"
+          },
+          "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+        },
+        {
+          "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+          "record": {
+            "name": "Cleric — Stats",
+            "url": "https://vgsoharchive.com/classes/cleric/stats",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [
+              "Stats Caps:",
+              "Vitality:",
+              "Heal Focus:",
+              "Critical Heal Chance:",
+              "Critical Heal Multiplier:",
+              "Heal Effectiveness:"
+            ],
+            "sections": [
+              {
+                "heading": "Stats Caps:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Vitality:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Heal Focus:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Critical Heal Chance:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Critical Heal Multiplier:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Heal Effectiveness:",
+                "linked_entities": []
+              }
+            ],
+            "referenced_entities": [],
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/cleric-stats"
+            ],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:08:49+00:00"
+          },
+          "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+        }
+      ],
+      "scope": "guide-body if present, otherwise main; navigation may remain",
+      "prose_evidence": [
+        {
+          "block_index": 0,
+          "tag": "p",
+          "text_as_printed": "contributed by Remedio",
+          "source_html": "<p><sub>contributed by Remedio</sub></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 1,
+          "tag": "p",
+          "text_as_printed": "Well, these are tips to what properties clerics can get more heals from. Most of these information are useful to other healers too.",
+          "source_html": "<p>Well, these are tips to what properties clerics can get more heals from. Most of these information are useful to other healers too.</p>",
+          "preceding_heading": "Stats Caps:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 2,
+          "tag": "p",
+          "text_as_printed": "This is in my opinion the most important. The cap is 990 and when on cap it will give 60% more heal on all your heals. Focus on getting it to the highest you can, it will be very hard to cap, I can only cap with a bard on group.",
+          "source_html": "<p>This is in my opinion the most important. The cap is 990 and when on cap it will give 60% more heal on all your heals. Focus on getting it to the highest you can, it will be very hard to cap, I can only cap with a bard on group.</p>",
+          "preceding_heading": "Vitality:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 3,
+          "tag": "p",
+          "text_as_printed": "A good stat, easy to cap. Cap is 600, but the real cap is the heal level * 10. Meaning that if you use a heal of level 51, only 510 would be enough. Don't worry about it too much, I ran with 400 for a long time.",
+          "source_html": "<p>A good stat, easy to cap. Cap is 600, but the real cap is the heal level * 10. Meaning that if you use a heal of level 51, only 510 would be enough. Don't worry about it too much, I ran with 400 for a long time.</p>",
+          "preceding_heading": "Heal Focus:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 4,
+          "tag": "p",
+          "text_as_printed": "this is the % you will get a critical heal when you cast a normal heal. The cap is 20% from worn items and + what you can get from buffs. You get 3% from the PotA 3 pieces and 1% from KDQ cloak. Easy to cap.",
+          "source_html": "<p>this is the % you will get a critical heal when you cast a normal heal. The cap is 20% from worn items and + what you can get from buffs. You get 3% from the PotA 3 pieces and 1% from KDQ cloak. Easy to cap.</p>",
+          "preceding_heading": "Critical Heal Chance:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 5,
+          "tag": "p",
+          "text_as_printed": "when you land a critical heal, this stat will modify the amount of extra heal it will give. It has no cap. NO cap.",
+          "source_html": "<p>when you land a critical heal, this stat will modify the amount of extra heal it will give. It has no cap. NO cap.</p>",
+          "preceding_heading": "Critical Heal Multiplier:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 6,
+          "tag": "p",
+          "text_as_printed": "very important stat, as like vitality, it will affect all heals. The thing is, it is kind bugged. The cap is 25% from worn items and + what you can get from buffs. The problems is that from the 25% worn only 10% is really effective, some call it a hard cap. Currently I have 45% (25% worn + 15% PotA 3 pieces + 5% Epic) - But only 30% effective (10% worn + 15% PotA 3 pieces + 5% Epic).",
+          "source_html": "<p>very important stat, as like vitality, it will affect all heals. The thing is, it is kind bugged. The cap is 25% from worn items and + what you can get from buffs. The problems is that from the 25% worn only 10% is really effective, some call it a hard cap. Currently I have 45% (25% worn + 15% PotA 3 pieces + 5% Epic) - But only 30% effective (10% worn + 15% PotA 3 pieces + 5% Epic).</p>",
+          "preceding_heading": "Heal Effectiveness:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 7,
+          "tag": "p",
+          "text_as_printed": "After you focus on these stats, you should look for more energy pool and energy regeneration. Also, remember that you will need survivability, so pick some gems of flurry and rage resistance.",
+          "source_html": "<p>After you focus on these stats, you should look for more energy pool and energy regeneration. Also, remember that you will need survivability, so pick some gems of flurry and rage resistance.</p>",
+          "preceding_heading": "Heal Effectiveness:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null
+    }
+  ],
+  "source_date": null,
+  "claims": [
+    {
+      "id": 1,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 0,
+      "subject": "Blood Mage",
+      "predicate": "focus_count",
+      "value": 3,
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 1,
+      "subject": "Unfocused",
+      "predicate": "spell_level",
+      "value": "normal; starting focus",
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 2,
+      "subject": "Sanguine Focus",
+      "predicate": "reported_tradeoff",
+      "value": "stronger outgoing healing and reduced damage taken; weaker incoming healing and outgoing damage",
+      "qualifier": "Incoming-heal penalty magnitude absent.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 3,
+      "subject": "Sanguine Focus",
+      "predicate": "hit_point_regeneration",
+      "value": "stacking",
+      "qualifier": "Amount and stacking limits unspecified.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 4,
+      "subject": "Sanguine Focus",
+      "predicate": "outgoing_heal_effectiveness_increase_percent",
+      "value": 25,
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 5,
+      "subject": "Sanguine Focus",
+      "predicate": "mitigation_increase_percent",
+      "value": 15,
+      "qualifier": "Additive versus multiplicative interpretation unknown.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 6,
+      "subject": "Sanguine Focus",
+      "predicate": "outgoing_damage_reduction_percent",
+      "value": 50,
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 7,
+      "subject": "Focus of Gelenia",
+      "predicate": "tradeoff",
+      "value": "health loss for increased damage",
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 7,
+      "subject": "Focus of Gelenia",
+      "predicate": "reported_immunities",
+      "value": [
+        "poison",
+        "disease"
+      ],
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 8,
+      "subject": "Focus of Gelenia",
+      "predicate": "health_loss",
+      "value": {
+        "percent": 5,
+        "interval_seconds": 5
+      },
+      "qualifier": "Health denominator unspecified; do not assume current or maximum HP.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 9,
+      "subject": "Focus of Gelenia",
+      "predicate": "damage_increase_percent",
+      "value": 25,
+      "qualifier": "Affected damage categories unspecified.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 12,
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 10,
+      "subject": "Focus of Gelenia",
+      "predicate": "blood_union_gain",
+      "value": {
+        "points": 1,
+        "interval_seconds": 5
+      },
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 13,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 2,
+      "subject": "Vitality",
+      "predicate": "reported_cap",
+      "value": 990,
+      "qualifier": "Contributor assertion; historical ruleset unknown.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 14,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 2,
+      "subject": "Vitality",
+      "predicate": "reported_healing_increase_at_cap_percent",
+      "value": 60,
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 15,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 2,
+      "subject": "Vitality",
+      "predicate": "author_priority",
+      "value": "most important",
+      "qualifier": null,
+      "classification": "advice",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 16,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 3,
+      "subject": "Heal Focus",
+      "predicate": "reported_overall_cap",
+      "value": 600,
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 17,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 3,
+      "subject": "Heal Focus",
+      "predicate": "reported_spell_specific_cap",
+      "value": "heal level multiplied by 10",
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 18,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 3,
+      "subject": "Heal Focus",
+      "predicate": "printed_example",
+      "value": {
+        "heal_level": 51,
+        "focus_cap": 510
+      },
+      "qualifier": null,
+      "classification": "guide_example",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 19,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 4,
+      "subject": "Critical Heal Chance",
+      "predicate": "description",
+      "value": "chance of critical heal when casting a normal heal",
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 20,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 4,
+      "subject": "Critical Heal Chance",
+      "predicate": "reported_worn_cap_percent",
+      "value": 20,
+      "qualifier": "Buff contributions are described as additional; no total cap established.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 21,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 4,
+      "subject": "PotA three pieces",
+      "predicate": "reported_critical_heal_chance_percent",
+      "value": 3,
+      "qualifier": "Abbreviation and item identities unresolved.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 22,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 4,
+      "subject": "KDQ cloak",
+      "predicate": "reported_critical_heal_chance_percent",
+      "value": 1,
+      "qualifier": "No canonical item identity established.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 23,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 5,
+      "subject": "Critical Heal Multiplier",
+      "predicate": "description",
+      "value": "modifies extra healing on a critical heal",
+      "qualifier": null,
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 24,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 5,
+      "subject": "Critical Heal Multiplier",
+      "predicate": "author_cap_assertion",
+      "value": "no cap",
+      "qualifier": "Unverified absence claim.",
+      "classification": "author_assertion",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 25,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 6,
+      "subject": "Heal Effectiveness",
+      "predicate": "reported_worn_cap_percent",
+      "value": 25,
+      "qualifier": "Source distinguishes displayed and effective contribution.",
+      "classification": "archive_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 26,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 6,
+      "subject": "Heal Effectiveness",
+      "predicate": "reported_effective_worn_limit_percent",
+      "value": 10,
+      "qualifier": "Contributor describes a bug or hard cap; not independently verified.",
+      "classification": "reported_bug",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 27,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 6,
+      "subject": "Heal Effectiveness",
+      "predicate": "printed_personal_example",
+      "value": {
+        "displayed_total_percent": 45,
+        "worn_percent": 25,
+        "PotA_three_pieces_percent": 15,
+        "Epic_percent": 5,
+        "reported_effective_total_percent": 30,
+        "effective_worn_percent": 10
+      },
+      "qualifier": "Equipment identities and source date unknown.",
+      "classification": "guide_example",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 28,
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 7,
+      "subject": "Cleric gearing",
+      "predicate": "author_recommendation",
+      "value": [
+        "energy pool",
+        "energy regeneration",
+        "flurry resistance",
+        "rage resistance"
+      ],
+      "qualifier": null,
+      "classification": "advice",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "block_reviews": [
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 0,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 1,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 2,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 3,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 4,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 5,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 6,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 7,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 8,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 9,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "block_index": 10,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 0,
+      "classification": "attribution",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 1,
+      "classification": "advice",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 2,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 3,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 4,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 5,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 6,
+      "classification": "source_claim_with_limitations",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "block_index": 7,
+      "classification": "advice",
+      "review_status": "reviewed_as_source_claim_only"
+    }
+  ],
+  "conflicts": [],
+  "uncertainties": [
+    {
+      "topic": "Heal Effectiveness displayed versus effective contribution",
+      "source_url": "https://vgsoharchive.com/classes/cleric/stats",
+      "source_block": 6,
+      "operative_value": null,
+      "resolution": "Preserve both reported contributions; do not collapse into a single canonical cap."
+    },
+    {
+      "topic": "Focus of Gelenia health loss denominator",
+      "source_url": "https://vgsoharchive.com/classes/blood-mage/stances",
+      "source_block": 8,
+      "operative_value": null,
+      "resolution": "Source does not specify current or maximum health."
+    }
+  ],
+  "limitations": [
+    "Source claims are not verified historical mechanics.",
+    "Telon Project mirror provenance is not independent corroboration.",
+    "Tables and linked pages remain separate extraction work.",
+    "Unknown IDs, applicability dates and operative values remain null."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "review_counts": {
+    "reviewed_blocks": 19,
+    "source_claims": 28,
+    "remaining_backlog_blocks_not_covered_by_317_through_322": 834
+  }
+}
