@@ -1,0 +1,3646 @@
+{
+  "review_kind": "healing_touch_i_cross_class_level_collision_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input": {
+    "path": "reviewed/CLERIC_TYPED_ABILITY_COMPARISON_ITERATION392.json",
+    "sha256": "a76a5b49490a22d65aa2750787fa2db109c4fffa8c18fa47bf0604b01fb652b8"
+  },
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "source_pages": [
+    {
+      "url": "https://vgsoharchive.com/classes/cleric",
+      "cache_path": ".cache/archive/08be8724e09c39144a004ad1c5f1178a7d1bdff671556d92477eb1cab6ae1992.txt",
+      "cache_sha256": "9f20171909fd41c7314cc76f283082f2b28a72b718986447c4759795d55891fe",
+      "exact_name_table_rows": [
+        {
+          "table_index": 0,
+          "row_index": 3,
+          "text": "1 Healing Touch I Alteration 67 1.5 30 Heals your defensive target for 117.",
+          "html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/healing-touch-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/healing-touch-i\">Healing Touch I</a>\n</td>\n<td class=\"muted\">Alteration</td>\n<td class=\"num muted\">\n              67\n            </td>\n<td class=\"muted\">1.5</td>\n<td class=\"num muted\">30</td>\n<td class=\"muted\">Heals your defensive target for 117.</td>\n</tr>"
+        }
+      ],
+      "labelled_fields": [
+        {
+          "label": "Strength",
+          "value": "35",
+          "label_html": "<dt>Strength</dt>",
+          "value_html": "<dd>35</dd>"
+        },
+        {
+          "label": "Constitution",
+          "value": "30",
+          "label_html": "<dt>Constitution</dt>",
+          "value_html": "<dd>30</dd>"
+        },
+        {
+          "label": "Dexterity",
+          "value": "25",
+          "label_html": "<dt>Dexterity</dt>",
+          "value_html": "<dd>25</dd>"
+        },
+        {
+          "label": "Vitality",
+          "value": "35",
+          "label_html": "<dt>Vitality</dt>",
+          "value_html": "<dd>35</dd>"
+        },
+        {
+          "label": "Wisdom",
+          "value": "50",
+          "label_html": "<dt>Wisdom</dt>",
+          "value_html": "<dd>50</dd>"
+        },
+        {
+          "label": "Intelligence",
+          "value": "35",
+          "label_html": "<dt>Intelligence</dt>",
+          "value_html": "<dd>35</dd>"
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/classes/paladin",
+      "cache_path": ".cache/archive/c4e1188683f84711884ab389127fc860328841663f765f60318831af32efa597.txt",
+      "cache_sha256": "175a45f3ad598c58692358924dab0b22d1c238c701f499cdadf030ec9e66499b",
+      "exact_name_table_rows": [
+        {
+          "table_index": 1,
+          "row_index": 12,
+          "text": "14 Healing Touch I 108 2.5 30 Heals your defensive target for 461.",
+          "html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<a href=\"/abilities/paladin-healing-touch-i\">Healing Touch I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              108\n            </td>\n<td class=\"muted\">2.5</td>\n<td class=\"num muted\">30</td>\n<td class=\"muted\">Heals your defensive target for 461.</td>\n</tr>"
+        }
+      ],
+      "labelled_fields": [
+        {
+          "label": "Strength",
+          "value": "35",
+          "label_html": "<dt>Strength</dt>",
+          "value_html": "<dd>35</dd>"
+        },
+        {
+          "label": "Constitution",
+          "value": "50",
+          "label_html": "<dt>Constitution</dt>",
+          "value_html": "<dd>50</dd>"
+        },
+        {
+          "label": "Dexterity",
+          "value": "40",
+          "label_html": "<dt>Dexterity</dt>",
+          "value_html": "<dd>40</dd>"
+        },
+        {
+          "label": "Vitality",
+          "value": "35",
+          "label_html": "<dt>Vitality</dt>",
+          "value_html": "<dd>35</dd>"
+        },
+        {
+          "label": "Wisdom",
+          "value": "25",
+          "label_html": "<dt>Wisdom</dt>",
+          "value_html": "<dd>25</dd>"
+        },
+        {
+          "label": "Intelligence",
+          "value": "25",
+          "label_html": "<dt>Intelligence</dt>",
+          "value_html": "<dd>25</dd>"
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/classes/shaman",
+      "cache_path": ".cache/archive/35e45bc8fd8660c78cce28e2899e477165f0b5bcfbf97c61d71a36630e1dc7a7.txt",
+      "cache_sha256": "99a079318859310a0147cbae50b409de422bff9c45e50e333bd0d16c26490395",
+      "exact_name_table_rows": [],
+      "labelled_fields": [
+        {
+          "label": "Strength",
+          "value": "30",
+          "label_html": "<dt>Strength</dt>",
+          "value_html": "<dd>30</dd>"
+        },
+        {
+          "label": "Constitution",
+          "value": "30",
+          "label_html": "<dt>Constitution</dt>",
+          "value_html": "<dd>30</dd>"
+        },
+        {
+          "label": "Dexterity",
+          "value": "25",
+          "label_html": "<dt>Dexterity</dt>",
+          "value_html": "<dd>25</dd>"
+        },
+        {
+          "label": "Vitality",
+          "value": "35",
+          "label_html": "<dt>Vitality</dt>",
+          "value_html": "<dd>35</dd>"
+        },
+        {
+          "label": "Wisdom",
+          "value": "50",
+          "label_html": "<dt>Wisdom</dt>",
+          "value_html": "<dd>50</dd>"
+        },
+        {
+          "label": "Intelligence",
+          "value": "40",
+          "label_html": "<dt>Intelligence</dt>",
+          "value_html": "<dd>40</dd>"
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/abilities/healing-touch-i",
+      "cache_path": ".cache/archive/45fa5c0f8d8487477894775c8365e2c9d0cfef523362c1d7df576837c40a1e7e.txt",
+      "cache_sha256": "b0c75e130ede66482ac0858eb4f55d11f21ee382457b6200642cfed68be42d2a",
+      "exact_name_table_rows": [],
+      "labelled_fields": [
+        {
+          "label": "Level in 2007",
+          "value": "1",
+          "label_html": "<dt>Level in 2007</dt>",
+          "value_html": "<dd>1</dd>"
+        },
+        {
+          "label": "Level in 2007-2008",
+          "value": "4 — now 1",
+          "label_html": "<dt>Level in 2007-2008</dt>",
+          "value_html": "<dd>4\n                <span class=\"muted\">— now 1</span></dd>"
+        },
+        {
+          "label": "Level",
+          "value": "1",
+          "label_html": "<dt>Level</dt>",
+          "value_html": "<dd>1</dd>"
+        },
+        {
+          "label": "energy cost",
+          "value": "67",
+          "label_html": "<dt>energy cost</dt>",
+          "value_html": "<dd>67</dd>"
+        },
+        {
+          "label": "Virtue points",
+          "value": "0",
+          "label_html": "<dt>Virtue points</dt>",
+          "value_html": "<dd>0</dd>"
+        },
+        {
+          "label": "Cast time",
+          "value": "1.5",
+          "label_html": "<dt>Cast time</dt>",
+          "value_html": "<dd>1.5</dd>"
+        },
+        {
+          "label": "Refresh",
+          "value": "0s",
+          "label_html": "<dt>Refresh</dt>",
+          "value_html": "<dd>0s</dd>"
+        },
+        {
+          "label": "Range",
+          "value": "30m",
+          "label_html": "<dt>Range</dt>",
+          "value_html": "<dd>30m</dd>"
+        },
+        {
+          "label": "Target",
+          "value": "Defensive Target",
+          "label_html": "<dt>Target</dt>",
+          "value_html": "<dd>Defensive Target</dd>"
+        },
+        {
+          "label": "Type",
+          "value": "Alteration",
+          "label_html": "<dt>Type</dt>",
+          "value_html": "<dd>Alteration</dd>"
+        },
+        {
+          "label": "Learned from",
+          "value": "Starting Ability (Level 1)",
+          "label_html": "<dt>Learned from</dt>",
+          "value_html": "<dd>Starting Ability (Level 1)</dd>"
+        },
+        {
+          "label": "Icon",
+          "value": "Icon679.png",
+          "label_html": "<dt>Icon</dt>",
+          "value_html": "<dd class=\"muted\">Icon679.png</dd>"
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+      "cache_path": ".cache/archive/0dab27a7d455156b0b76a4adf236c75fe9eb293add6076d44adc843429c1adb4.txt",
+      "cache_sha256": "76da9bae889ad54ba46ea589dc7a9b2e1c5a746f64e5048cc3e364285c8031c1",
+      "exact_name_table_rows": [],
+      "labelled_fields": [
+        {
+          "label": "Level",
+          "value": "14",
+          "label_html": "<dt>Level</dt>",
+          "value_html": "<dd>14</dd>"
+        },
+        {
+          "label": "energy cost",
+          "value": "108",
+          "label_html": "<dt>energy cost</dt>",
+          "value_html": "<dd>108</dd>"
+        },
+        {
+          "label": "Cast time",
+          "value": "2.5",
+          "label_html": "<dt>Cast time</dt>",
+          "value_html": "<dd>2.5</dd>"
+        },
+        {
+          "label": "Range",
+          "value": "30m",
+          "label_html": "<dt>Range</dt>",
+          "value_html": "<dd>30m</dd>"
+        },
+        {
+          "label": "Target",
+          "value": "Defensive Target",
+          "label_html": "<dt>Target</dt>",
+          "value_html": "<dd>Defensive Target</dd>"
+        },
+        {
+          "label": "Type",
+          "value": "Alteration",
+          "label_html": "<dt>Type</dt>",
+          "value_html": "<dd>Alteration</dd>"
+        }
+      ]
+    }
+  ],
+  "original_comparison_row": {
+    "table_index": 0,
+    "row_index": 3,
+    "printed_cells": {
+      "level": "1",
+      "ability": "Healing Touch I",
+      "school": "Alteration",
+      "cost": "67",
+      "cast": "1.5",
+      "range": "30",
+      "effect": "Heals your defensive target for 117."
+    },
+    "linked_urls": [
+      "https://vgsoharchive.com/abilities/healing-touch-i"
+    ],
+    "disposition": "associated_typed_records_require_field_review",
+    "typed_record_count": 8,
+    "typed_levels": [
+      1,
+      14
+    ],
+    "level_disagreement": true,
+    "resolved_level": null,
+    "canonical_client_id": null,
+    "conversion_ready": false
+  },
+  "complete_source_records": [
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "line": 1196,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/classes/cleric",
+            "title": "Cleric · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/paladin",
+            "title": "Paladin · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/shaman",
+            "title": "Shaman · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 2,
+        "collected_at": "2026-10-14T01:40:51+00:00",
+        "archive_fields": {
+          "strength": [
+            "35"
+          ],
+          "constitution": [
+            "30"
+          ],
+          "dexterity": [
+            "25"
+          ],
+          "vitality": [
+            "35"
+          ],
+          "wisdom": [
+            "50"
+          ],
+          "intelligence": [
+            "35"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Artisan's Saga: Ulvari Counter",
+            "url": "https://vgsoharchive.com/quests/artisan-s-saga-ulvari-counter"
+          },
+          {
+            "name": "Ward Shield II",
+            "url": "https://vgsoharchive.com/abilities/ward-shield-ii"
+          },
+          {
+            "name": "Hallow I",
+            "url": "https://vgsoharchive.com/abilities/hallow-i"
+          },
+          {
+            "name": "Ward Shield III",
+            "url": "https://vgsoharchive.com/abilities/ward-shield-iii"
+          },
+          {
+            "name": "were looked for and not\n      found",
+            "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+          },
+          {
+            "name": "Endowment of Fervor I",
+            "url": "https://vgsoharchive.com/abilities/endowment-of-fervor-i"
+          },
+          {
+            "name": "Resolution I",
+            "url": "https://vgsoharchive.com/abilities/resolution-i"
+          },
+          {
+            "name": "Bestowal of Brilliance I",
+            "url": "https://vgsoharchive.com/abilities/bestowal-of-brilliance-i"
+          },
+          {
+            "name": "Endowment of Fervor II",
+            "url": "https://vgsoharchive.com/abilities/endowment-of-fervor-ii"
+          },
+          {
+            "name": "Renewal I",
+            "url": "https://vgsoharchive.com/abilities/renewal-i"
+          },
+          {
+            "name": "Spirit Reward",
+            "url": "https://vgsoharchive.com/abilities/spirit-reward"
+          },
+          {
+            "name": "Bestowal of Brilliance II",
+            "url": "https://vgsoharchive.com/abilities/bestowal-of-brilliance-ii"
+          },
+          {
+            "name": "Divine Aura",
+            "url": "https://vgsoharchive.com/abilities/divine-aura"
+          },
+          {
+            "name": "Endowment of Fervor III",
+            "url": "https://vgsoharchive.com/abilities/endowment-of-fervor-iii"
+          },
+          {
+            "name": "Rebuke of Vol Anari I",
+            "url": "https://vgsoharchive.com/abilities/rebuke-of-vol-anari-i"
+          },
+          {
+            "name": "Soul Schism I",
+            "url": "https://vgsoharchive.com/abilities/soul-schism-i"
+          },
+          {
+            "name": "Spectral Anchor I",
+            "url": "https://vgsoharchive.com/abilities/spectral-anchor-i"
+          },
+          {
+            "name": "Wraith Touch I",
+            "url": "https://vgsoharchive.com/abilities/wraith-touch-i"
+          },
+          {
+            "name": "Bestowal of Brilliance III",
+            "url": "https://vgsoharchive.com/abilities/bestowal-of-brilliance-iii"
+          },
+          {
+            "name": "Endowment of Fervor IV",
+            "url": "https://vgsoharchive.com/abilities/endowment-of-fervor-iv"
+          },
+          {
+            "name": "Gift of Ardor III",
+            "url": "https://vgsoharchive.com/abilities/gift-of-ardor-iii"
+          },
+          {
+            "name": "Endowment of Fervor V",
+            "url": "https://vgsoharchive.com/abilities/endowment-of-fervor-v"
+          },
+          {
+            "name": "Bestowal of Brilliance IV",
+            "url": "https://vgsoharchive.com/abilities/bestowal-of-brilliance-iv"
+          },
+          {
+            "name": "Balance",
+            "url": "https://vgsoharchive.com/abilities/balance"
+          },
+          {
+            "name": "Endowment of Fervor VI",
+            "url": "https://vgsoharchive.com/abilities/endowment-of-fervor-vi"
+          },
+          {
+            "name": "Bestowal of Brilliance V",
+            "url": "https://vgsoharchive.com/abilities/bestowal-of-brilliance-v"
+          },
+          {
+            "name": "Boon of the Shieldmaiden",
+            "url": "https://vgsoharchive.com/abilities/boon-of-the-shieldmaiden"
+          },
+          {
+            "name": "Devout Bestowal of Brilliance I",
+            "url": "https://vgsoharchive.com/abilities/devout-bestowal-of-brilliance-i"
+          },
+          {
+            "name": "Devout Endowment of Fervor I",
+            "url": "https://vgsoharchive.com/abilities/devout-endowment-of-fervor-i"
+          },
+          {
+            "name": "Devout Renewal I",
+            "url": "https://vgsoharchive.com/abilities/devout-renewal-i"
+          },
+          {
+            "name": "Devout Spirit Ward I",
+            "url": "https://vgsoharchive.com/abilities/devout-spirit-ward-i"
+          },
+          {
+            "name": "Shield of the Divine",
+            "url": "https://vgsoharchive.com/abilities/shield-of-the-divine"
+          },
+          {
+            "name": "Anathema I",
+            "url": "https://vgsoharchive.com/abilities/anathema-i"
+          },
+          {
+            "name": "Hand of Censure I",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-i"
+          },
+          {
+            "name": "Healing Touch I",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-i"
+          },
+          {
+            "name": "Power of Reprisal I",
+            "url": "https://vgsoharchive.com/abilities/power-of-reprisal-i"
+          },
+          {
+            "name": "Titanic Reverence I",
+            "url": "https://vgsoharchive.com/abilities/titanic-reverence-i"
+          },
+          {
+            "name": "Strike Down I",
+            "url": "https://vgsoharchive.com/abilities/strike-down-i"
+          },
+          {
+            "name": "Hammer of Penance I",
+            "url": "https://vgsoharchive.com/abilities/hammer-of-penance-i"
+          },
+          {
+            "name": "Ward Shield I",
+            "url": "https://vgsoharchive.com/abilities/ward-shield-i"
+          },
+          {
+            "name": "Anathema II",
+            "url": "https://vgsoharchive.com/abilities/anathema-ii"
+          },
+          {
+            "name": "Fist of Rebuke I",
+            "url": "https://vgsoharchive.com/abilities/fist-of-rebuke-i"
+          },
+          {
+            "name": "Alleviate I",
+            "url": "https://vgsoharchive.com/abilities/alleviate-i"
+          },
+          {
+            "name": "Divine Barrier",
+            "url": "https://vgsoharchive.com/abilities/divine-barrier"
+          },
+          {
+            "name": "Hand of Censure II",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-ii"
+          },
+          {
+            "name": "Healing Touch II",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-ii"
+          },
+          {
+            "name": "Replenishing Strike I",
+            "url": "https://vgsoharchive.com/abilities/replenishing-strike-i"
+          },
+          {
+            "name": "Rejuvenate I",
+            "url": "https://vgsoharchive.com/abilities/rejuvenate-i"
+          },
+          {
+            "name": "Resolution II",
+            "url": "https://vgsoharchive.com/abilities/resolution-ii"
+          },
+          {
+            "name": "Resurrection I",
+            "url": "https://vgsoharchive.com/abilities/resurrection-i"
+          },
+          {
+            "name": "Spiritual Guardian I",
+            "url": "https://vgsoharchive.com/abilities/spiritual-guardian-i"
+          },
+          {
+            "name": "Strike Down II",
+            "url": "https://vgsoharchive.com/abilities/strike-down-ii"
+          },
+          {
+            "name": "Summon Gem of Life",
+            "url": "https://vgsoharchive.com/abilities/summon-gem-of-life"
+          },
+          {
+            "name": "Titanic Reverence II",
+            "url": "https://vgsoharchive.com/abilities/titanic-reverence-ii"
+          },
+          {
+            "name": "Turn Undead I",
+            "url": "https://vgsoharchive.com/abilities/turn-undead-i"
+          },
+          {
+            "name": "Aegis of Blades I",
+            "url": "https://vgsoharchive.com/abilities/aegis-of-blades-i"
+          },
+          {
+            "name": "Anathema III",
+            "url": "https://vgsoharchive.com/abilities/anethema-iii"
+          },
+          {
+            "name": "Divine Chains",
+            "url": "https://vgsoharchive.com/abilities/divine-chains"
+          },
+          {
+            "name": "Divine Light I",
+            "url": "https://vgsoharchive.com/abilities/divine-light-i"
+          },
+          {
+            "name": "Gift of Ardor I",
+            "url": "https://vgsoharchive.com/abilities/gift-of-ardor-i"
+          },
+          {
+            "name": "Hero's Call",
+            "url": "https://vgsoharchive.com/abilities/hero-s-call"
+          },
+          {
+            "name": "Power of Reprisal II",
+            "url": "https://vgsoharchive.com/abilities/power-of-reprisal-ii"
+          },
+          {
+            "name": "Purification I",
+            "url": "https://vgsoharchive.com/abilities/purification-i"
+          },
+          {
+            "name": "Smiting Blow I",
+            "url": "https://vgsoharchive.com/abilities/smiting-blow-i"
+          },
+          {
+            "name": "Fist of Rebuke II",
+            "url": "https://vgsoharchive.com/abilities/fist-of-rebuke-ii"
+          },
+          {
+            "name": "Pacify I",
+            "url": "https://vgsoharchive.com/abilities/pacify-i"
+          },
+          {
+            "name": "Shroud of Health I",
+            "url": "https://vgsoharchive.com/abilities/shroud-of-health-i"
+          },
+          {
+            "name": "Spirit Ward I",
+            "url": "https://vgsoharchive.com/abilities/spirit-ward-i"
+          },
+          {
+            "name": "Hammer of Penance II",
+            "url": "https://vgsoharchive.com/abilities/hammer-of-penance-ii"
+          },
+          {
+            "name": "Hand of Censure III",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-iii"
+          },
+          {
+            "name": "Healing Touch III",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-iii"
+          },
+          {
+            "name": "Maul of Divinity I",
+            "url": "https://vgsoharchive.com/abilities/maul-of-divinity-i"
+          },
+          {
+            "name": "Alleviate II",
+            "url": "https://vgsoharchive.com/abilities/alleviate-ii"
+          },
+          {
+            "name": "Anathema IV",
+            "url": "https://vgsoharchive.com/abilities/anethema-iv"
+          },
+          {
+            "name": "Holy Fire I",
+            "url": "https://vgsoharchive.com/abilities/holy-fire-i"
+          },
+          {
+            "name": "Rejuvenate II",
+            "url": "https://vgsoharchive.com/abilities/rejuvenate-ii"
+          },
+          {
+            "name": "Replenishing Strike II",
+            "url": "https://vgsoharchive.com/abilities/replenishing-strike-ii"
+          },
+          {
+            "name": "Resolution III",
+            "url": "https://vgsoharchive.com/abilities/resolution-iii"
+          },
+          {
+            "name": "Spiritual Guardian II",
+            "url": "https://vgsoharchive.com/abilities/spiritual-guardian-ii"
+          },
+          {
+            "name": "Strike Down III",
+            "url": "https://vgsoharchive.com/abilities/strike-down-iii"
+          },
+          {
+            "name": "Turn Undead II",
+            "url": "https://vgsoharchive.com/abilities/turn-undead-ii"
+          },
+          {
+            "name": "Invisibility to Undead",
+            "url": "https://vgsoharchive.com/abilities/invisibility-to-undead"
+          },
+          {
+            "name": "Power of Reprisal III",
+            "url": "https://vgsoharchive.com/abilities/power-of-reprisal-iii"
+          },
+          {
+            "name": "Purification II",
+            "url": "https://vgsoharchive.com/abilities/purification-ii"
+          },
+          {
+            "name": "Revive I",
+            "url": "https://vgsoharchive.com/abilities/revive-i"
+          },
+          {
+            "name": "Smiting Blow II",
+            "url": "https://vgsoharchive.com/abilities/smiting-blow-ii"
+          },
+          {
+            "name": "Titanic Reverence III",
+            "url": "https://vgsoharchive.com/abilities/titanic-reverence-iii"
+          },
+          {
+            "name": "Aegis of Blades II",
+            "url": "https://vgsoharchive.com/abilities/aegis-of-blades-ii"
+          },
+          {
+            "name": "Divine Light II",
+            "url": "https://vgsoharchive.com/abilities/divine-light-ii"
+          },
+          {
+            "name": "Fist of Rebuke III",
+            "url": "https://vgsoharchive.com/abilities/fist-of-rebuke-iii"
+          },
+          {
+            "name": "Maul of the Gods I",
+            "url": "https://vgsoharchive.com/abilities/maul-of-the-gods-i"
+          },
+          {
+            "name": "Power of Renewal I",
+            "url": "https://vgsoharchive.com/abilities/power-of-renewal-i"
+          },
+          {
+            "name": "Shroud of Health II",
+            "url": "https://vgsoharchive.com/abilities/shroud-of-health-ii"
+          },
+          {
+            "name": "Anathema V",
+            "url": "https://vgsoharchive.com/abilities/anethema-v"
+          },
+          {
+            "name": "Hammer of Penance III",
+            "url": "https://vgsoharchive.com/abilities/hammer-of-penance-iii"
+          },
+          {
+            "name": "Hand of Censure IV",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-iv"
+          },
+          {
+            "name": "Healing Touch IV",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-iv"
+          },
+          {
+            "name": "Maul of Divinity II",
+            "url": "https://vgsoharchive.com/abilities/maul-of-divinity-ii"
+          },
+          {
+            "name": "Renewal II",
+            "url": "https://vgsoharchive.com/abilities/renewal-ii"
+          },
+          {
+            "name": "Spirit Ward II",
+            "url": "https://vgsoharchive.com/abilities/spirit-ward-ii"
+          },
+          {
+            "name": "Holy Fire II",
+            "url": "https://vgsoharchive.com/abilities/holy-fire-ii"
+          },
+          {
+            "name": "Rejuvenate III",
+            "url": "https://vgsoharchive.com/abilities/rejuvenate-iii"
+          },
+          {
+            "name": "Resolution IV",
+            "url": "https://vgsoharchive.com/abilities/resolution-iv"
+          },
+          {
+            "name": "Rout I",
+            "url": "https://vgsoharchive.com/abilities/rout-i"
+          },
+          {
+            "name": "Strike Down IV",
+            "url": "https://vgsoharchive.com/abilities/strike-down-iv"
+          },
+          {
+            "name": "Turn Undead III",
+            "url": "https://vgsoharchive.com/abilities/turn-undead-iii"
+          },
+          {
+            "name": "Alleviate III",
+            "url": "https://vgsoharchive.com/abilities/alleviate-iii"
+          },
+          {
+            "name": "Gift of Ardor II",
+            "url": "https://vgsoharchive.com/abilities/gift-of-ardor-ii"
+          },
+          {
+            "name": "Power of Reprisal IV",
+            "url": "https://vgsoharchive.com/abilities/power-of-reprisal-iv"
+          },
+          {
+            "name": "Replenishing Strike III",
+            "url": "https://vgsoharchive.com/abilities/replenishing-strike-iii"
+          },
+          {
+            "name": "Smiting Blow III",
+            "url": "https://vgsoharchive.com/abilities/smiting-blow-iii"
+          },
+          {
+            "name": "Spiritual Guardian III",
+            "url": "https://vgsoharchive.com/abilities/spiritual-guardian-iii"
+          },
+          {
+            "name": "Anathema VI",
+            "url": "https://vgsoharchive.com/abilities/anethema-vi"
+          },
+          {
+            "name": "Fist of Rebuke IV",
+            "url": "https://vgsoharchive.com/abilities/fist-of-rebuke-iv"
+          },
+          {
+            "name": "Lull",
+            "url": "https://vgsoharchive.com/abilities/lull"
+          },
+          {
+            "name": "Maul of the Gods II",
+            "url": "https://vgsoharchive.com/abilities/maul-of-the-gods-ii"
+          },
+          {
+            "name": "Power of Renewal II",
+            "url": "https://vgsoharchive.com/abilities/power-of-renewal-ii"
+          },
+          {
+            "name": "Shroud of Health III",
+            "url": "https://vgsoharchive.com/abilities/shroud-of-health-iii"
+          },
+          {
+            "name": "Titanic Reverence IV",
+            "url": "https://vgsoharchive.com/abilities/titanic-reverence-iv"
+          },
+          {
+            "name": "Aegis of Blades III",
+            "url": "https://vgsoharchive.com/abilities/aegis-of-blades-iii"
+          },
+          {
+            "name": "Divine Light III",
+            "url": "https://vgsoharchive.com/abilities/divine-light-iii"
+          },
+          {
+            "name": "Hammer of Penance IV",
+            "url": "https://vgsoharchive.com/abilities/hammer-of-penance-iv"
+          },
+          {
+            "name": "Hand of Censure V",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-v"
+          },
+          {
+            "name": "Healing Touch V",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-v"
+          },
+          {
+            "name": "Maul of Divinity III",
+            "url": "https://vgsoharchive.com/abilities/maul-of-divinity-iii"
+          },
+          {
+            "name": "Pacify II",
+            "url": "https://vgsoharchive.com/abilities/pacify-ii"
+          },
+          {
+            "name": "Purification III",
+            "url": "https://vgsoharchive.com/abilities/purification-iii"
+          },
+          {
+            "name": "Holy Fire III",
+            "url": "https://vgsoharchive.com/abilities/holy-fire-iii"
+          },
+          {
+            "name": "Litany of Enjoining",
+            "url": "https://vgsoharchive.com/abilities/litany-of-enjoining"
+          },
+          {
+            "name": "Rejuvenate IV",
+            "url": "https://vgsoharchive.com/abilities/rejuvenate-iv"
+          },
+          {
+            "name": "Resolution V",
+            "url": "https://vgsoharchive.com/abilities/resolution-v"
+          },
+          {
+            "name": "Rout II",
+            "url": "https://vgsoharchive.com/abilities/rout-ii"
+          },
+          {
+            "name": "Spirit Ward III",
+            "url": "https://vgsoharchive.com/abilities/spirit-ward-iii"
+          },
+          {
+            "name": "Strike Down V",
+            "url": "https://vgsoharchive.com/abilities/strike-down-v"
+          },
+          {
+            "name": "Turn Undead IV",
+            "url": "https://vgsoharchive.com/abilities/turn-undead-iv"
+          },
+          {
+            "name": "Bless of Purification",
+            "url": "https://vgsoharchive.com/abilities/bless-of-purification"
+          },
+          {
+            "name": "Condemnation",
+            "url": "https://vgsoharchive.com/abilities/condemnation"
+          },
+          {
+            "name": "Doom I",
+            "url": "https://vgsoharchive.com/abilities/doom-i"
+          },
+          {
+            "name": "Power of Reprisal V",
+            "url": "https://vgsoharchive.com/abilities/power-of-reprisal-v"
+          },
+          {
+            "name": "Renewal III",
+            "url": "https://vgsoharchive.com/abilities/renewal-iii"
+          },
+          {
+            "name": "Smiting Blow IV",
+            "url": "https://vgsoharchive.com/abilities/smiting-blow-iv"
+          },
+          {
+            "name": "Alleviate IV",
+            "url": "https://vgsoharchive.com/abilities/alleviate-iv"
+          },
+          {
+            "name": "Favor of Vothdar",
+            "url": "https://vgsoharchive.com/abilities/favor-of-vothdar"
+          },
+          {
+            "name": "Fist of Rebuke V",
+            "url": "https://vgsoharchive.com/abilities/fist-of-rebuke-v"
+          },
+          {
+            "name": "Maul of the Gods III",
+            "url": "https://vgsoharchive.com/abilities/maul-of-the-gods-iii"
+          },
+          {
+            "name": "Power of Renewal III",
+            "url": "https://vgsoharchive.com/abilities/power-of-renewal-iii"
+          },
+          {
+            "name": "Replenishing Strike IV",
+            "url": "https://vgsoharchive.com/abilities/replenishing-strike-iv"
+          },
+          {
+            "name": "Shroud of Health IV",
+            "url": "https://vgsoharchive.com/abilities/shroud-of-health-iv"
+          },
+          {
+            "name": "Spiritual Guardian IV",
+            "url": "https://vgsoharchive.com/abilities/spiritual-guardian-iv"
+          },
+          {
+            "name": "Hammer of Penance V",
+            "url": "https://vgsoharchive.com/abilities/hammer-of-penance-v"
+          },
+          {
+            "name": "Hand of Censure VI",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-vi"
+          },
+          {
+            "name": "Healing Touch VI",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-vi"
+          },
+          {
+            "name": "Maul of Divinity IV",
+            "url": "https://vgsoharchive.com/abilities/maul-of-divinity-iv"
+          },
+          {
+            "name": "Titanic Reverence V",
+            "url": "https://vgsoharchive.com/abilities/titanic-reverence-v"
+          },
+          {
+            "name": "Aegis of Blades IV",
+            "url": "https://vgsoharchive.com/abilities/aegis-of-blades-iv"
+          },
+          {
+            "name": "Divine Light IV",
+            "url": "https://vgsoharchive.com/abilities/divine-light-iv"
+          },
+          {
+            "name": "Doom II",
+            "url": "https://vgsoharchive.com/abilities/doom-ii"
+          },
+          {
+            "name": "Holy Fire IV",
+            "url": "https://vgsoharchive.com/abilities/holy-fire-iv"
+          },
+          {
+            "name": "Purification IV",
+            "url": "https://vgsoharchive.com/abilities/purification-iv"
+          },
+          {
+            "name": "Rejuvenate V",
+            "url": "https://vgsoharchive.com/abilities/rejuvenate-v"
+          },
+          {
+            "name": "Resolution VI",
+            "url": "https://vgsoharchive.com/abilities/resolution-vi"
+          },
+          {
+            "name": "Rout III",
+            "url": "https://vgsoharchive.com/abilities/rout-iii"
+          },
+          {
+            "name": "Strike Down VI",
+            "url": "https://vgsoharchive.com/abilities/strike-down-vi"
+          },
+          {
+            "name": "Turn Undead V",
+            "url": "https://vgsoharchive.com/abilities/turn-undead-v"
+          },
+          {
+            "name": "Favor of Vaelion",
+            "url": "https://vgsoharchive.com/abilities/favor-of-vaelion"
+          },
+          {
+            "name": "Power of Reprisal VI",
+            "url": "https://vgsoharchive.com/abilities/power-of-reprisal-vi"
+          },
+          {
+            "name": "Renewal IV",
+            "url": "https://vgsoharchive.com/abilities/renewal-iv"
+          },
+          {
+            "name": "Smiting Blow V",
+            "url": "https://vgsoharchive.com/abilities/smiting-blow-v"
+          },
+          {
+            "name": "Spirit Ward IV",
+            "url": "https://vgsoharchive.com/abilities/spirit-ward-iv"
+          },
+          {
+            "name": "Fist of Rebuke VI",
+            "url": "https://vgsoharchive.com/abilities/fist-of-rebuke-vi"
+          },
+          {
+            "name": "Maul of the Gods IV",
+            "url": "https://vgsoharchive.com/abilities/maul-of-the-gods-iv"
+          },
+          {
+            "name": "Power of Renewal IV",
+            "url": "https://vgsoharchive.com/abilities/power-of-renewal-iv"
+          },
+          {
+            "name": "Shroud of Health V",
+            "url": "https://vgsoharchive.com/abilities/shroud-of-health-v"
+          },
+          {
+            "name": "Alleviate V",
+            "url": "https://vgsoharchive.com/abilities/alleviate-v"
+          },
+          {
+            "name": "Doom III",
+            "url": "https://vgsoharchive.com/abilities/doom-iii"
+          },
+          {
+            "name": "Hammer of Penance VI",
+            "url": "https://vgsoharchive.com/abilities/hammer-of-penance-vi"
+          },
+          {
+            "name": "Hand of Censure VII",
+            "url": "https://vgsoharchive.com/abilities/hand-of-censure-vii"
+          },
+          {
+            "name": "Healing Touch VII",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-vii"
+          },
+          {
+            "name": "Maul of Divinity V",
+            "url": "https://vgsoharchive.com/abilities/maul-of-divinity-v"
+          },
+          {
+            "name": "Pacify III",
+            "url": "https://vgsoharchive.com/abilities/pacify-iii"
+          },
+          {
+            "name": "Replenishing Strike V",
+            "url": "https://vgsoharchive.com/abilities/replenishing-strike-v"
+          },
+          {
+            "name": "Sacrifice",
+            "url": "https://vgsoharchive.com/abilities/sacrifice"
+          },
+          {
+            "name": "Spiritual Guardian V",
+            "url": "https://vgsoharchive.com/abilities/spiritual-guardian-v"
+          },
+          {
+            "name": "Aegis of Blades V",
+            "url": "https://vgsoharchive.com/abilities/aegis-of-blades-v"
+          },
+          {
+            "name": "Armor of Faith",
+            "url": "https://vgsoharchive.com/abilities/armor-of-faith"
+          },
+          {
+            "name": "Favor of the Divine",
+            "url": "https://vgsoharchive.com/abilities/favor-of-the-divine"
+          },
+          {
+            "name": "Holy Fire V",
+            "url": "https://vgsoharchive.com/abilities/holy-fire-v"
+          },
+          {
+            "name": "Intervention",
+            "url": "https://vgsoharchive.com/abilities/intervention"
+          },
+          {
+            "name": "Rejuvenate VI",
+            "url": "https://vgsoharchive.com/abilities/rejuvenate-vi"
+          },
+          {
+            "name": "Resolution VII",
+            "url": "https://vgsoharchive.com/abilities/resolution-vii"
+          },
+          {
+            "name": "Rout IV",
+            "url": "https://vgsoharchive.com/abilities/rout-iv"
+          },
+          {
+            "name": "Strike Down VII",
+            "url": "https://vgsoharchive.com/abilities/strike-down-vii"
+          },
+          {
+            "name": "Titanic Reverence VI",
+            "url": "https://vgsoharchive.com/abilities/titanic-reverence-vi"
+          },
+          {
+            "name": "Turn Undead VI",
+            "url": "https://vgsoharchive.com/abilities/turn-undead-vi"
+          },
+          {
+            "name": "Aegis of Renewal",
+            "url": "https://vgsoharchive.com/abilities/aegis-of-renewal"
+          },
+          {
+            "name": "Divinity",
+            "url": "https://vgsoharchive.com/abilities/divinity"
+          },
+          {
+            "name": "Blessed Recovery",
+            "url": "https://vgsoharchive.com/abilities/blessed-recovery"
+          },
+          {
+            "name": "Boon of Spirit",
+            "url": "https://vgsoharchive.com/abilities/boon-of-spirit"
+          },
+          {
+            "name": "Spirit's Elixir",
+            "url": "https://vgsoharchive.com/abilities/spirit-s-elixir"
+          },
+          {
+            "name": "Boon of the Shieldmaiden II",
+            "url": "https://vgsoharchive.com/abilities/boon-of-the-shieldmaiden-ii"
+          }
+        ],
+        "type": "ability",
+        "class": "Cleric",
+        "level_learned": 1,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": null,
+        "ability_ref_url": "https://vgsoharchive.com/abilities/healing-touch-i",
+        "cost_recorded": {
+          "value": 67,
+          "resource": null,
+          "raw": "67"
+        },
+        "range_recorded": {
+          "value": 30,
+          "unit": null,
+          "raw": "30"
+        },
+        "cast_recorded": {
+          "value": 1.5,
+          "unit": null,
+          "raw": "1.5"
+        },
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 2,
+            "collected_at": "2026-10-14T01:41:46+00:00",
+            "archive_fields": {
+              "strength": [
+                "35"
+              ],
+              "constitution": [
+                "50"
+              ],
+              "dexterity": [
+                "40"
+              ],
+              "vitality": [
+                "35"
+              ],
+              "wisdom": [
+                "25"
+              ],
+              "intelligence": [
+                "25"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Blood Oath I",
+                "url": "https://vgsoharchive.com/abilities/blood-oath-i"
+              },
+              {
+                "name": "Blood Oath II",
+                "url": "https://vgsoharchive.com/abilities/blood-oath-ii"
+              },
+              {
+                "name": "Blood Oath III",
+                "url": "https://vgsoharchive.com/abilities/blood-oath-iii"
+              },
+              {
+                "name": "Blessing of Vol Anari I",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vol-anari-i"
+              },
+              {
+                "name": "Holy Strike I",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-i"
+              },
+              {
+                "name": "Hammer of Judgment I",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-judgement-i"
+              },
+              {
+                "name": "Aegis Strike I",
+                "url": "https://vgsoharchive.com/abilities/aegis-strike-i"
+              },
+              {
+                "name": "Boon of Valus I",
+                "url": "https://vgsoharchive.com/abilities/boon-of-valus-i"
+              },
+              {
+                "name": "Devout Foeman I",
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-i"
+              },
+              {
+                "name": "Dictum of Valus I",
+                "url": "https://vgsoharchive.com/abilities/dictum-of-valus-i"
+              },
+              {
+                "name": "Hammer of Valus I",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-valus-i"
+              },
+              {
+                "name": "Champion's Might I",
+                "url": "https://vgsoharchive.com/abilities/champion-s-might-i"
+              },
+              {
+                "name": "Holy Strike II",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-ii"
+              },
+              {
+                "name": "Laying on of Hands I",
+                "url": "https://vgsoharchive.com/abilities/laying-on-of-hands-i"
+              },
+              {
+                "name": "Blade of Vol Anari I",
+                "url": "https://vgsoharchive.com/abilities/blade-of-vol-anari-i"
+              },
+              {
+                "name": "Blessing of Vol Anari II",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vol-anari-ii"
+              },
+              {
+                "name": "Marshalling Cry I",
+                "url": "https://vgsoharchive.com/abilities/marshalling-cry-i"
+              },
+              {
+                "name": "Protector's Fury I",
+                "url": "https://vgsoharchive.com/abilities/protector-s-fury-i"
+              },
+              {
+                "name": "Stalwart Soul",
+                "url": "https://vgsoharchive.com/abilities/stalwart-soul"
+              },
+              {
+                "name": "Boon of Vol Anari I",
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i"
+              },
+              {
+                "name": "Hammer of Judgment II",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-judgment-ii"
+              },
+              {
+                "name": "Hammer of Valus II",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-valus-ii"
+              },
+              {
+                "name": "Judgment of the Impure I",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-impure-i"
+              },
+              {
+                "name": "Retribution I",
+                "url": "https://vgsoharchive.com/abilities/retribution-i"
+              },
+              {
+                "name": "Righteous Supplication",
+                "url": "https://vgsoharchive.com/abilities/righteous-supplication"
+              },
+              {
+                "name": "Smite I",
+                "url": "https://vgsoharchive.com/abilities/smite-i"
+              },
+              {
+                "name": "Zeal",
+                "url": "https://vgsoharchive.com/abilities/zeal"
+              },
+              {
+                "name": "Aegis Strike II",
+                "url": "https://vgsoharchive.com/abilities/aegis-strike-ii"
+              },
+              {
+                "name": "Entwine I",
+                "url": "https://vgsoharchive.com/abilities/entwine-i"
+              },
+              {
+                "name": "Guardian's Assault I",
+                "url": "https://vgsoharchive.com/abilities/guardian-s-assault-i"
+              },
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i"
+              },
+              {
+                "name": "Judgment of the Envious I",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-envious-i"
+              },
+              {
+                "name": "Sunburst I",
+                "url": "https://vgsoharchive.com/abilities/sunburst-i"
+              },
+              {
+                "name": "Vothdar's Mighty Strike I",
+                "url": "https://vgsoharchive.com/abilities/vothdar-s-mighty-strike-i"
+              },
+              {
+                "name": "Laying on of Hands II",
+                "url": "https://vgsoharchive.com/abilities/laying-on-of-hands-ii"
+              },
+              {
+                "name": "Boon of Valus II",
+                "url": "https://vgsoharchive.com/abilities/boon-of-valus-ii"
+              },
+              {
+                "name": "Champion's Might II",
+                "url": "https://vgsoharchive.com/abilities/champion-s-might-ii"
+              },
+              {
+                "name": "Cry of Solace I",
+                "url": "https://vgsoharchive.com/abilities/cry-of-solace-i"
+              },
+              {
+                "name": "Holy Strike III",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-iii"
+              },
+              {
+                "name": "Judgment of the Proud I",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-proud-i"
+              },
+              {
+                "name": "Maul of Valus I",
+                "url": "https://vgsoharchive.com/abilities/maul-of-valus-i"
+              },
+              {
+                "name": "Sentinel's Blessing I",
+                "url": "https://vgsoharchive.com/abilities/sentinel-s-blessing-i"
+              },
+              {
+                "name": "Upbraid I",
+                "url": "https://vgsoharchive.com/abilities/upbraid-i"
+              },
+              {
+                "name": "Blessing of Vol Anari III",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vol-anari-iii"
+              },
+              {
+                "name": "Dictum of Valus II",
+                "url": "https://vgsoharchive.com/abilities/dictum-of-valus-ii"
+              },
+              {
+                "name": "Hammer of Judgment III",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-judgment-iii"
+              },
+              {
+                "name": "Hammer of Valus III",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-valus-iii"
+              },
+              {
+                "name": "Judgment of the Impure II",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-impure-ii"
+              },
+              {
+                "name": "Marshalling Cry II",
+                "url": "https://vgsoharchive.com/abilities/marchalling-cry-ii"
+              },
+              {
+                "name": "Paragon of Justice I",
+                "url": "https://vgsoharchive.com/abilities/paragon-of-justice-i"
+              },
+              {
+                "name": "Protector's Fury II",
+                "url": "https://vgsoharchive.com/abilities/protector-s-fury-ii"
+              },
+              {
+                "name": "Retort I",
+                "url": "https://vgsoharchive.com/abilities/retort-i"
+              },
+              {
+                "name": "Retribution II",
+                "url": "https://vgsoharchive.com/abilities/retribution-ii"
+              },
+              {
+                "name": "Stroke of Conviction I",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-conviction-i"
+              },
+              {
+                "name": "Aegis Strike III",
+                "url": "https://vgsoharchive.com/abilities/aegis-strike-iii"
+              },
+              {
+                "name": "Blade of Vol Anari II",
+                "url": "https://vgsoharchive.com/abilities/blade-of-vol-anari-ii"
+              },
+              {
+                "name": "Boon of Vol Anari II",
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-ii"
+              },
+              {
+                "name": "Guardian's Assault II",
+                "url": "https://vgsoharchive.com/abilities/guardian-s-assault-ii"
+              },
+              {
+                "name": "Healing Touch II",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-ii"
+              },
+              {
+                "name": "Vothdar's Mighty Strike II",
+                "url": "https://vgsoharchive.com/abilities/vothdar-s-mighty-strike-ii"
+              },
+              {
+                "name": "Champion's Might III",
+                "url": "https://vgsoharchive.com/abilities/champion-s-might-iii"
+              },
+              {
+                "name": "Gift of Peace I",
+                "url": "https://vgsoharchive.com/abilities/gift-of-peace-i"
+              },
+              {
+                "name": "Judgment of the Bloodthirsty I",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-bloodthirsty-i"
+              },
+              {
+                "name": "Smite II",
+                "url": "https://vgsoharchive.com/abilities/smite-ii"
+              },
+              {
+                "name": "Sunburst II",
+                "url": "https://vgsoharchive.com/abilities/sunburst-ii"
+              },
+              {
+                "name": "Boon of Valus III",
+                "url": "https://vgsoharchive.com/abilities/boon-of-valus-iii"
+              },
+              {
+                "name": "Devout Foeman II",
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-ii"
+              },
+              {
+                "name": "Maul of Valus II",
+                "url": "https://vgsoharchive.com/abilities/maul-of-valus-ii"
+              },
+              {
+                "name": "Sentinel's Blessing II",
+                "url": "https://vgsoharchive.com/abilities/sentinel-s-blessing-ii"
+              },
+              {
+                "name": "Shield of Gloriann I",
+                "url": "https://vgsoharchive.com/abilities/shield-of-gloriann-i"
+              },
+              {
+                "name": "Wrath of Vol Anari I",
+                "url": "https://vgsoharchive.com/abilities/wrath-of-vol-anari-i"
+              },
+              {
+                "name": "Cry of Solace II",
+                "url": "https://vgsoharchive.com/abilities/cry-of-solace-ii"
+              },
+              {
+                "name": "Entwine II",
+                "url": "https://vgsoharchive.com/abilities/entwine-ii"
+              },
+              {
+                "name": "Hammer of Valus IV",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-valus-iv"
+              },
+              {
+                "name": "Holy Strike IV",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-iv"
+              },
+              {
+                "name": "Judgment of the Proud II",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-proud-ii"
+              },
+              {
+                "name": "Retribution III",
+                "url": "https://vgsoharchive.com/abilities/retribution-iii"
+              },
+              {
+                "name": "Strike of Gloriann I",
+                "url": "https://vgsoharchive.com/abilities/strike-of-gloriann-i"
+              },
+              {
+                "name": "Stroke of Conviction II",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-conviction-ii"
+              },
+              {
+                "name": "Upbraid II",
+                "url": "https://vgsoharchive.com/abilities/upbraid-ii"
+              },
+              {
+                "name": "Vanquish I",
+                "url": "https://vgsoharchive.com/abilities/vanquish-i"
+              },
+              {
+                "name": "Aegis Strike IV",
+                "url": "https://vgsoharchive.com/abilities/aegis-strike-iv"
+              },
+              {
+                "name": "Blessing of Life I",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-life-i"
+              },
+              {
+                "name": "Blessing of Vaelion I",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vaelion-i"
+              },
+              {
+                "name": "Blessing of Vol Anari IV",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vol-anari-iv"
+              },
+              {
+                "name": "Contrition I",
+                "url": "https://vgsoharchive.com/abilities/contrition-i"
+              },
+              {
+                "name": "Dictum of Valus III",
+                "url": "https://vgsoharchive.com/abilities/dictum-of-valus-iii"
+              },
+              {
+                "name": "Guardian's Assault III",
+                "url": "https://vgsoharchive.com/abilities/guardian-s-assault-iii"
+              },
+              {
+                "name": "Hammer of Judgment IV",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-judgment-iv"
+              },
+              {
+                "name": "Healing Touch III",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-iii"
+              },
+              {
+                "name": "Judgment of the Impure III",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-impure-iii"
+              },
+              {
+                "name": "Judgment of the Wrathful I",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-wrathful-i"
+              },
+              {
+                "name": "Laying on of Hands III",
+                "url": "https://vgsoharchive.com/abilities/laying-on-of-hands-iii"
+              },
+              {
+                "name": "Marshalling Cry III",
+                "url": "https://vgsoharchive.com/abilities/marchalling-cry-iii"
+              },
+              {
+                "name": "Paragon of Justice II",
+                "url": "https://vgsoharchive.com/abilities/paragon-of-justice-ii"
+              },
+              {
+                "name": "Protector's Fury III",
+                "url": "https://vgsoharchive.com/abilities/protector-s-fury-iii"
+              },
+              {
+                "name": "Retort II",
+                "url": "https://vgsoharchive.com/abilities/retort-ii"
+              },
+              {
+                "name": "Stroke of Fervor I",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-fervor-i"
+              },
+              {
+                "name": "Vothdar's Mighty Strike III",
+                "url": "https://vgsoharchive.com/abilities/vothdar-s-mighty-strike-iii"
+              },
+              {
+                "name": "Champion's Might IV",
+                "url": "https://vgsoharchive.com/abilities/champion-s-might-iv"
+              },
+              {
+                "name": "Judgment of the Bloodthirsty II",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-bloodthirsty-ii"
+              },
+              {
+                "name": "Judgment of the Envious II",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-envious-ii"
+              },
+              {
+                "name": "Shining Beacon I",
+                "url": "https://vgsoharchive.com/abilities/shining-beacon-i"
+              },
+              {
+                "name": "Barrier of Faith",
+                "url": "https://vgsoharchive.com/abilities/barrier-of-faith"
+              },
+              {
+                "name": "Blade of Vol Anari III",
+                "url": "https://vgsoharchive.com/abilities/blade-of-vol-anari-iii"
+              },
+              {
+                "name": "Cry of Illumination I",
+                "url": "https://vgsoharchive.com/abilities/cry-of-illumination-i"
+              },
+              {
+                "name": "Gift of Peace II",
+                "url": "https://vgsoharchive.com/abilities/gift-of-peace-ii"
+              },
+              {
+                "name": "Maul of Valus III",
+                "url": "https://vgsoharchive.com/abilities/maul-of-valus-iii"
+              },
+              {
+                "name": "Sentinel's Blessing III",
+                "url": "https://vgsoharchive.com/abilities/sentinel-s-blessing-iii"
+              },
+              {
+                "name": "Shield of Rebuke",
+                "url": "https://vgsoharchive.com/abilities/shield-of-rebuke"
+              },
+              {
+                "name": "Sunburst III",
+                "url": "https://vgsoharchive.com/abilities/sunburst-iii"
+              },
+              {
+                "name": "Wrath of Vol Anari II",
+                "url": "https://vgsoharchive.com/abilities/wrath-of-vol-anari-ii"
+              },
+              {
+                "name": "Boon of Valus IV",
+                "url": "https://vgsoharchive.com/abilities/boon-of-valus-iv"
+              },
+              {
+                "name": "Boon of Vol Anari III",
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-iii"
+              },
+              {
+                "name": "Deny Life",
+                "url": "https://vgsoharchive.com/abilities/deny-life"
+              },
+              {
+                "name": "Hammer of Valus V",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-valus-v"
+              },
+              {
+                "name": "Retribution IV",
+                "url": "https://vgsoharchive.com/abilities/retribution-iv"
+              },
+              {
+                "name": "Smite III",
+                "url": "https://vgsoharchive.com/abilities/smite-iii"
+              },
+              {
+                "name": "Strike of Gloriann II",
+                "url": "https://vgsoharchive.com/abilities/strike-of-gloriann-ii"
+              },
+              {
+                "name": "Stroke of Conviction III",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-conviction-iii"
+              },
+              {
+                "name": "Aegis Strike V",
+                "url": "https://vgsoharchive.com/abilities/aegis-strike-v"
+              },
+              {
+                "name": "Blessing of Life II",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-life-ii"
+              },
+              {
+                "name": "Contrition II",
+                "url": "https://vgsoharchive.com/abilities/contrition-ii"
+              },
+              {
+                "name": "Cry of Solace III",
+                "url": "https://vgsoharchive.com/abilities/cry-of-solace-iii"
+              },
+              {
+                "name": "Guardian's Assault IV",
+                "url": "https://vgsoharchive.com/abilities/guardian-s-assault-iv"
+              },
+              {
+                "name": "Healing Touch IV",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-iv"
+              },
+              {
+                "name": "Holy Strike V",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-v"
+              },
+              {
+                "name": "Judgment of the Proud III",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-proud-iii"
+              },
+              {
+                "name": "Shield of Resolve",
+                "url": "https://vgsoharchive.com/abilities/shield-of-resolve"
+              },
+              {
+                "name": "Stroke of Fervor II",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-fervor-ii"
+              },
+              {
+                "name": "Upbraid III",
+                "url": "https://vgsoharchive.com/abilities/upbraid-iii"
+              },
+              {
+                "name": "Vanquish II",
+                "url": "https://vgsoharchive.com/abilities/vanquish-ii"
+              },
+              {
+                "name": "Vothdar's Mighty Strike IV",
+                "url": "https://vgsoharchive.com/abilities/vothdar-s-mighty-strike-iv"
+              },
+              {
+                "name": "Blessing of Vaelion II",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vaelion-ii"
+              },
+              {
+                "name": "Blessing of Vol Anari V",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vol-anari-v"
+              },
+              {
+                "name": "Champion's Might V",
+                "url": "https://vgsoharchive.com/abilities/champion-s-might-v"
+              },
+              {
+                "name": "Devout Sanctuary",
+                "url": "https://vgsoharchive.com/abilities/devout-sanctuary"
+              },
+              {
+                "name": "Dictum of Valus IV",
+                "url": "https://vgsoharchive.com/abilities/dictum-of-valus-iv"
+              },
+              {
+                "name": "Final Stand",
+                "url": "https://vgsoharchive.com/abilities/final-stand"
+              },
+              {
+                "name": "Hammer of Judgment V",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-judgment-v"
+              },
+              {
+                "name": "Holy Strike VI",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-vi"
+              },
+              {
+                "name": "Judgment of the Bloodthirsty III",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-bloodthirsty-iii"
+              },
+              {
+                "name": "Judgment of the Impure IV",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-impure-iv"
+              },
+              {
+                "name": "Judgment of the Wrathful II",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-wrathful-ii"
+              },
+              {
+                "name": "Marshalling Cry IV",
+                "url": "https://vgsoharchive.com/abilities/marchalling-cry-iv"
+              },
+              {
+                "name": "Paragon of Justice III",
+                "url": "https://vgsoharchive.com/abilities/paragon-of-justice-iii"
+              },
+              {
+                "name": "Prayer of Life",
+                "url": "https://vgsoharchive.com/abilities/prayer-of-life"
+              },
+              {
+                "name": "Protector's Fury IV",
+                "url": "https://vgsoharchive.com/abilities/protector-s-fury-iv"
+              },
+              {
+                "name": "Retort III",
+                "url": "https://vgsoharchive.com/abilities/retort-iii"
+              },
+              {
+                "name": "Shining Beacon II",
+                "url": "https://vgsoharchive.com/abilities/shining-beacon-ii"
+              },
+              {
+                "name": "Wings of the Avenger",
+                "url": "https://vgsoharchive.com/abilities/wings-of-the-avenger"
+              },
+              {
+                "name": "Entwine III",
+                "url": "https://vgsoharchive.com/abilities/entwine-iii"
+              },
+              {
+                "name": "Maul of Valus IV",
+                "url": "https://vgsoharchive.com/abilities/maul-of-valus-iv"
+              },
+              {
+                "name": "Sentinel's Blessing IV",
+                "url": "https://vgsoharchive.com/abilities/sentinel-s-blessing-iv"
+              },
+              {
+                "name": "Shield of Chastening",
+                "url": "https://vgsoharchive.com/abilities/shield-of-chastening"
+              },
+              {
+                "name": "Wrath of Vol Anari III",
+                "url": "https://vgsoharchive.com/abilities/wrath-of-vol-anari-iii"
+              },
+              {
+                "name": "Gift of Peace III",
+                "url": "https://vgsoharchive.com/abilities/gift-of-peace-iii"
+              },
+              {
+                "name": "Hammer of Valus VI",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-valus-vi"
+              },
+              {
+                "name": "Laying on of Hands IV",
+                "url": "https://vgsoharchive.com/abilities/laying-on-of-hands-iv"
+              },
+              {
+                "name": "Retribution V",
+                "url": "https://vgsoharchive.com/abilities/retribution-v"
+              },
+              {
+                "name": "Shield of Solace",
+                "url": "https://vgsoharchive.com/abilities/shield-of-solace"
+              },
+              {
+                "name": "Strike of Gloriann III",
+                "url": "https://vgsoharchive.com/abilities/strike-of-gloriann-iii"
+              },
+              {
+                "name": "Stroke of Conviction IV",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-conviction-iv"
+              },
+              {
+                "name": "Sunburst IV",
+                "url": "https://vgsoharchive.com/abilities/sunburst-iv"
+              },
+              {
+                "name": "Aegis Strike VI",
+                "url": "https://vgsoharchive.com/abilities/aegis-strike-vi"
+              },
+              {
+                "name": "Blade of Vol Anari IV",
+                "url": "https://vgsoharchive.com/abilities/blade-of-vol-anari-iv"
+              },
+              {
+                "name": "Blessing of Life III",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-life-iii"
+              },
+              {
+                "name": "Boon of Valus V",
+                "url": "https://vgsoharchive.com/abilities/boon-of-valus-v"
+              },
+              {
+                "name": "Contrition III",
+                "url": "https://vgsoharchive.com/abilities/contrition-iii"
+              },
+              {
+                "name": "Devout Foeman III",
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-iii"
+              },
+              {
+                "name": "Guardian's Assault V",
+                "url": "https://vgsoharchive.com/abilities/guardian-s-assault-v"
+              },
+              {
+                "name": "Healing Touch V",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-v"
+              },
+              {
+                "name": "Judgment of the Unforgiving",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-unforgiving"
+              },
+              {
+                "name": "Stroke of Fervor III",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-fervor-iii"
+              },
+              {
+                "name": "Vothdar's Mighty Strike V",
+                "url": "https://vgsoharchive.com/abilities/vothdar-s-mighty-strike-v"
+              },
+              {
+                "name": "Champion's Might VI",
+                "url": "https://vgsoharchive.com/abilities/champion-s-might-vi"
+              },
+              {
+                "name": "Cry of Illumination II",
+                "url": "https://vgsoharchive.com/abilities/cry-of-illumination-ii"
+              },
+              {
+                "name": "Cry of Prowess",
+                "url": "https://vgsoharchive.com/abilities/cry-of-prowess"
+              },
+              {
+                "name": "Cry of Solace IV",
+                "url": "https://vgsoharchive.com/abilities/cry-of-solace-iv"
+              },
+              {
+                "name": "Forbiddance",
+                "url": "https://vgsoharchive.com/abilities/forbiddance"
+              },
+              {
+                "name": "Holy Strike VII",
+                "url": "https://vgsoharchive.com/abilities/holy-strike-vii"
+              },
+              {
+                "name": "Judgment of the Bloodthirsty IV",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-bloodthirsty-iv"
+              },
+              {
+                "name": "Judgment of the Proud IV",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-proud-iv"
+              },
+              {
+                "name": "Shining Beacon III",
+                "url": "https://vgsoharchive.com/abilities/shining-beacon-iii"
+              },
+              {
+                "name": "Smite IV",
+                "url": "https://vgsoharchive.com/abilities/smite-iv"
+              },
+              {
+                "name": "Smite V",
+                "url": "https://vgsoharchive.com/abilities/smite-v"
+              },
+              {
+                "name": "Upbraid IV",
+                "url": "https://vgsoharchive.com/abilities/upbraid-iv"
+              },
+              {
+                "name": "Upbraid V",
+                "url": "https://vgsoharchive.com/abilities/upbraid-v"
+              },
+              {
+                "name": "Vanquish III",
+                "url": "https://vgsoharchive.com/abilities/vanquish-iii"
+              },
+              {
+                "name": "Blessing of Vaelion III",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vaelion-iii"
+              },
+              {
+                "name": "Blessing of Vol Anari VI",
+                "url": "https://vgsoharchive.com/abilities/blessing-of-vol-anari-vi"
+              },
+              {
+                "name": "Boon of Vol Anari IV",
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-iv"
+              },
+              {
+                "name": "Dictum of Valus V",
+                "url": "https://vgsoharchive.com/abilities/dictum-of-valus-v"
+              },
+              {
+                "name": "Favor of the Protector",
+                "url": "https://vgsoharchive.com/abilities/favor-of-the-protector"
+              },
+              {
+                "name": "Fury of Valus",
+                "url": "https://vgsoharchive.com/abilities/fury-of-valus"
+              },
+              {
+                "name": "Hammer of Judgment VI",
+                "url": "https://vgsoharchive.com/abilities/hammer-of-judgment-vi"
+              },
+              {
+                "name": "Judgment of the Envious III",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-envious-iii"
+              },
+              {
+                "name": "Judgment of the Impure V",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-impure-v"
+              },
+              {
+                "name": "Judgment of the Wrathful III",
+                "url": "https://vgsoharchive.com/abilities/judgment-of-the-wrathful-iii"
+              },
+              {
+                "name": "Marshalling Cry V",
+                "url": "https://vgsoharchive.com/abilities/marchalling-cry-v"
+              },
+              {
+                "name": "Maul of Valus V",
+                "url": "https://vgsoharchive.com/abilities/maul-of-valus-v"
+              },
+              {
+                "name": "Paragon of Justice IV",
+                "url": "https://vgsoharchive.com/abilities/paragon-of-justice-iv"
+              },
+              {
+                "name": "Protector's Fury V",
+                "url": "https://vgsoharchive.com/abilities/protector-s-fury-v"
+              },
+              {
+                "name": "Retort IV",
+                "url": "https://vgsoharchive.com/abilities/retort-iv"
+              },
+              {
+                "name": "Retribution VI",
+                "url": "https://vgsoharchive.com/abilities/retribution-vi"
+              },
+              {
+                "name": "Sentinel's Blessing V",
+                "url": "https://vgsoharchive.com/abilities/sentinel-s-blessing-v"
+              },
+              {
+                "name": "Shield of Gloriann II",
+                "url": "https://vgsoharchive.com/abilities/shield-of-gloriann-ii"
+              },
+              {
+                "name": "Strike of Gloriann IV",
+                "url": "https://vgsoharchive.com/abilities/strike-of-gloriann-iv"
+              },
+              {
+                "name": "Stroke of Conviction V",
+                "url": "https://vgsoharchive.com/abilities/stroke-of-conviction-v"
+              },
+              {
+                "name": "Succor",
+                "url": "https://vgsoharchive.com/abilities/succor"
+              },
+              {
+                "name": "Wrath of Vol Anari IV",
+                "url": "https://vgsoharchive.com/abilities/wrath-of-vol-anari-iv"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "cost_recorded": {
+              "value": 108,
+              "resource": null,
+              "raw": "108"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 2.5,
+              "unit": null,
+              "raw": "2.5"
+            }
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "7e02bbb2a2aa0df2c603d538fa9e3dfa6a04c1ff695f4b4cd0ae38bd0859f85d"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "line": 1196,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/classes/cleric",
+            "title": "Cleric · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/paladin",
+            "title": "Paladin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 3,
+        "collected_at": "2026-10-14T01:47:51+00:00",
+        "archive_fields": {},
+        "referenced_entities": [
+          {
+            "name": "Healing Touch I",
+            "url": "https://vgsoharchive.com/abilities/healing-touch-i"
+          }
+        ],
+        "type": "ability",
+        "class": "Cleric",
+        "level_learned": 1,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": null,
+        "ability_ref_url": "https://vgsoharchive.com/abilities/healing-touch-i",
+        "cost_recorded": {
+          "value": 67,
+          "resource": null,
+          "raw": "67"
+        },
+        "range_recorded": {
+          "value": 30,
+          "unit": null,
+          "raw": "30"
+        },
+        "cast_recorded": {
+          "value": 1.5,
+          "unit": null,
+          "raw": "1.5"
+        },
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 3,
+            "collected_at": "2026-10-14T01:47:52+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "cost_recorded": {
+              "value": 108,
+              "resource": null,
+              "raw": "108"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 2.5,
+              "unit": null,
+              "raw": "2.5"
+            }
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "50d4aedfcdf34c9f114ba6b0fe6323ee110888a8836a266e91798aa14f99bfe2"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "line": 1196,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/cleric",
+            "title": "Cleric · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/paladin",
+            "title": "Paladin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 4,
+        "collected_at": "2026-10-14T02:14:35+00:00",
+        "archive_fields": {
+          "level": [
+            "14"
+          ],
+          "energy cost": [
+            "108"
+          ],
+          "cast time": [
+            "2.5"
+          ],
+          "range": [
+            "30m"
+          ],
+          "target": [
+            "Defensive Target"
+          ],
+          "type": [
+            "Alteration"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Paladin",
+            "url": "https://vgsoharchive.com/classes/paladin"
+          }
+        ],
+        "type": "ability",
+        "class": "Paladin",
+        "level_learned": 14,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": {
+          "energy": 108
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "Heals your defensive target for 461.",
+        "icon_name": null,
+        "ranks": [],
+        "cost_observations": {
+          "energy": [
+            108
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [],
+        "classes_recorded": [
+          "Paladin",
+          "Cleric"
+        ],
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/cleric",
+                "title": "Cleric · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:38+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Cleric",
+            "level_learned": 1,
+            "rank": "I",
+            "category": "Alteration",
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/healing-touch-i",
+            "cost_recorded": {
+              "value": 67,
+              "resource": null,
+              "raw": "67"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 1.5,
+              "unit": null,
+              "raw": "1.5"
+            }
+          },
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:39+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "cost_recorded": {
+              "value": 108,
+              "resource": null,
+              "raw": "108"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 2.5,
+              "unit": null,
+              "raw": "2.5"
+            }
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "7334b304bc48b557ef3407a0cd9365bcdcb7535f2fe1e2ab82ac8ca138512270"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "line": 1196,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/cleric",
+            "title": "Cleric · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/paladin",
+            "title": "Paladin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 5,
+        "collected_at": "2026-10-14T02:27:30+00:00",
+        "archive_fields": {
+          "level": [
+            "14"
+          ],
+          "energy cost": [
+            "108"
+          ],
+          "cast time": [
+            "2.5"
+          ],
+          "range": [
+            "30m"
+          ],
+          "target": [
+            "Defensive Target"
+          ],
+          "type": [
+            "Alteration"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Paladin",
+            "url": "https://vgsoharchive.com/classes/paladin"
+          }
+        ],
+        "type": "ability",
+        "class": "Paladin",
+        "level_learned": 14,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": {
+          "energy": 108
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "Heals your defensive target for 461.",
+        "icon_name": null,
+        "ranks": [],
+        "cost_observations": {
+          "energy": [
+            108
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [],
+        "classes_recorded": [
+          "Paladin",
+          "Cleric"
+        ],
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/cleric",
+                "title": "Cleric · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:33+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Cleric",
+            "level_learned": 1,
+            "rank": "I",
+            "category": "Alteration",
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/healing-touch-i",
+            "cost_recorded": {
+              "value": 67,
+              "resource": null,
+              "raw": "67"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 1.5,
+              "unit": null,
+              "raw": "1.5"
+            }
+          },
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:34+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "cost_recorded": {
+              "value": 108,
+              "resource": null,
+              "raw": "108"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 2.5,
+              "unit": null,
+              "raw": "2.5"
+            }
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "a8ebb65e55f0404e23b2cf63b7a6a637411cc32296036269e6beb99484687ceb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "line": 1196,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/cleric",
+            "title": "Cleric · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/paladin",
+            "title": "Paladin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 6,
+        "collected_at": "2026-10-14T02:39:00+00:00",
+        "archive_fields": {
+          "level": [
+            "14"
+          ],
+          "energy cost": [
+            "108"
+          ],
+          "cast time": [
+            "2.5"
+          ],
+          "range": [
+            "30m"
+          ],
+          "target": [
+            "Defensive Target"
+          ],
+          "type": [
+            "Alteration"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Paladin",
+            "url": "https://vgsoharchive.com/classes/paladin"
+          }
+        ],
+        "type": "ability",
+        "class": "Paladin",
+        "level_learned": 14,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": {
+          "energy": 108
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "Heals your defensive target for 461.",
+        "icon_name": null,
+        "ranks": [],
+        "cost_observations": {
+          "energy": [
+            108
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [],
+        "classes_recorded": [
+          "Paladin",
+          "Cleric"
+        ],
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/cleric",
+                "title": "Cleric · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:03+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Cleric",
+            "level_learned": 1,
+            "rank": "I",
+            "category": "Alteration",
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/healing-touch-i",
+            "cost_recorded": {
+              "value": 67,
+              "resource": null,
+              "raw": "67"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 1.5,
+              "unit": null,
+              "raw": "1.5"
+            }
+          },
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:04+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "cost_recorded": {
+              "value": 108,
+              "resource": null,
+              "raw": "108"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 2.5,
+              "unit": null,
+              "raw": "2.5"
+            }
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "145448ae06bfb436ecb6d3d0ce791b3211bb9a9ce92481f13b4c9a474ffa44bd"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "line": 1196,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/cleric",
+            "title": "Cleric · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/classes/paladin",
+            "title": "Paladin · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 7,
+        "collected_at": "2026-10-14T02:40:58+00:00",
+        "archive_fields": {
+          "level": [
+            "14"
+          ],
+          "energy cost": [
+            "108"
+          ],
+          "cast time": [
+            "2.5"
+          ],
+          "range": [
+            "30m"
+          ],
+          "target": [
+            "Defensive Target"
+          ],
+          "type": [
+            "Alteration"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Paladin",
+            "url": "https://vgsoharchive.com/classes/paladin"
+          }
+        ],
+        "type": "ability",
+        "class": "Paladin",
+        "level_learned": 14,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": {
+          "energy": 108
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "Heals your defensive target for 461.",
+        "icon_name": null,
+        "ranks": [],
+        "cost_observations": {
+          "energy": [
+            108
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [],
+        "classes_recorded": [
+          "Paladin",
+          "Cleric"
+        ],
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/cleric",
+                "title": "Cleric · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:41:01+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Cleric",
+            "level_learned": 1,
+            "rank": "I",
+            "category": "Alteration",
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/healing-touch-i",
+            "cost_recorded": {
+              "value": 67,
+              "resource": null,
+              "raw": "67"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 1.5,
+              "unit": null,
+              "raw": "1.5"
+            }
+          },
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:41:03+00:00",
+            "archive_fields": {},
+            "referenced_entities": [
+              {
+                "name": "Healing Touch I",
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": null,
+            "ability_ref_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "cost_recorded": {
+              "value": 108,
+              "resource": null,
+              "raw": "108"
+            },
+            "range_recorded": {
+              "value": 30,
+              "unit": null,
+              "raw": "30"
+            },
+            "cast_recorded": {
+              "value": 2.5,
+              "unit": null,
+              "raw": "2.5"
+            }
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "c1378dced6dbae25fd66a7658c24741fe45aa77b8e1fe7f1a649e6fdb18e5667"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "line": 45,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 13,
+        "collected_at": "2026-10-14T02:58:03+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "1"
+          ],
+          "level in 2007-2008": [
+            "4 — now 1"
+          ],
+          "level": [
+            "1"
+          ],
+          "energy cost": [
+            "67"
+          ],
+          "virtue points": [
+            "0"
+          ],
+          "cast time": [
+            "1.5"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "30m"
+          ],
+          "target": [
+            "Defensive Target"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "learned from": [
+            "Starting Ability (Level 1)"
+          ],
+          "icon": [
+            "Icon679.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Cleric",
+            "url": "https://vgsoharchive.com/classes/cleric"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Cleric",
+        "level_learned": 1,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": {
+          "energy": 67
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "Heals your defensive target for 117.",
+        "icon_name": "Icon679.png",
+        "ranks": [
+          {
+            "rank": "I",
+            "level_learned": 1,
+            "cost_raw": "68"
+          },
+          {
+            "rank": "II",
+            "level_learned": 8,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "III",
+            "level_learned": 16,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "IV",
+            "level_learned": 24,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "V",
+            "level_learned": 32,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "VI",
+            "level_learned": 40,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "VII",
+            "level_learned": 48,
+            "cost_raw": "??"
+          }
+        ],
+        "target_recorded": "Defensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 1,
+            "raw": "1"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 4,
+            "raw": "4 — now 1"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FCleric",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+        ],
+        "cost_observations": {
+          "energy": [
+            67
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Starting Ability (Level 1)",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:healing-touch-i",
+          "https://vanguard.fandom.com/wiki/Healing_Touch_I"
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "874c6d6d89fc80f05763172b9197cecf19dd25d6e6ac50287bb5a09296d29f6b"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "line": 20,
+      "record": {
+        "name": "Healing Touch I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+            "title": "Healing Touch I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 14,
+        "collected_at": "2026-10-14T03:03:23+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "1"
+          ],
+          "level in 2007-2008": [
+            "4 — now 1"
+          ],
+          "level": [
+            "1"
+          ],
+          "energy cost": [
+            "67"
+          ],
+          "virtue points": [
+            "0"
+          ],
+          "cast time": [
+            "1.5"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "30m"
+          ],
+          "target": [
+            "Defensive Target"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "learned from": [
+            "Starting Ability (Level 1)"
+          ],
+          "icon": [
+            "Icon679.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Cleric",
+            "url": "https://vgsoharchive.com/classes/cleric"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Cleric",
+        "level_learned": 1,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": {
+          "energy": 67
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "Heals your defensive target for 117.",
+        "icon_name": "Icon679.png",
+        "ranks": [
+          {
+            "rank": "I",
+            "level_learned": 1,
+            "cost_raw": "68"
+          },
+          {
+            "rank": "II",
+            "level_learned": 8,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "III",
+            "level_learned": 16,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "IV",
+            "level_learned": 24,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "V",
+            "level_learned": 32,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "VI",
+            "level_learned": 40,
+            "cost_raw": "??"
+          },
+          {
+            "rank": "VII",
+            "level_learned": 48,
+            "cost_raw": "??"
+          }
+        ],
+        "target_recorded": "Defensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 1,
+            "raw": "1"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 4,
+            "raw": "4 — now 1"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FCleric",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+        ],
+        "cost_observations": {
+          "energy": [
+            67
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Starting Ability (Level 1)",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "healing_amount",
+                "values": [
+                  117
+                ],
+                "target_recorded": "your defensive target",
+                "radius_recorded": null,
+                "duration_seconds": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:healing-touch-i",
+          "https://vanguard.fandom.com/wiki/Healing_Touch_I"
+        ],
+        "classes_recorded": [
+          "Cleric",
+          "Paladin"
+        ],
+        "archive_variants": [
+          {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+                "title": "Healing Touch I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+            "parser_version": 14,
+            "collected_at": "2026-10-14T03:03:23+00:00",
+            "archive_fields": {
+              "level": [
+                "14"
+              ],
+              "energy cost": [
+                "108"
+              ],
+              "cast time": [
+                "2.5"
+              ],
+              "range": [
+                "30m"
+              ],
+              "target": [
+                "Defensive Target"
+              ],
+              "type": [
+                "Alteration"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 14,
+            "rank": "I",
+            "category": "Alteration",
+            "cost": {
+              "energy": 108
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 30,
+              "unit": "m",
+              "raw": "30m"
+            },
+            "tooltip": "Heals your defensive target for 461.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Defensive Target",
+            "cost_observations": {
+              "energy": [
+                108
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "healing_amount",
+                    "values": [
+                      461
+                    ],
+                    "target_recorded": "your defensive target",
+                    "radius_recorded": null,
+                    "duration_seconds": null,
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": []
+          }
+        ]
+      },
+      "match_basis": "exact printed name plus exact linked ability URL or class source URL; evidence association only",
+      "line_sha256": "2b09da08ced0db2fbb6610ad307d9d190a589c054b04211446bdc88ab5c874ac"
+    }
+  ],
+  "findings": [
+    "Cached Cleric table explicitly prints Healing Touch I at level 1; cached Paladin table explicitly prints the same anchor name at level 14, with different costs, casts and healing text. These are class-scoped source observations, not one class-independent level.",
+    "Four older snapshots have Paladin level 14 at the top level while retaining Cleric level 1 in archive_variants and Cleric source citations. The broad source/name association therefore exposes a retained cross-class collision, not evidence that the Cleric row should become level 14.",
+    "Four other snapshots have Cleric level 1 at the top level. All eight complete records and all nested variants are preserved. Shared source lists in parser version 2 are not independent corroboration.",
+    "Cached class and detail evidence does not establish canonical client identity or historical applicability. No original snapshot is rewritten and the merged collision remains withheld."
+  ],
+  "resolved_level": null,
+  "canonical_client_id": null,
+  "operative_values": null,
+  "conversion_ready": false,
+  "summary": {
+    "comparison_rows_reviewed": 1,
+    "complete_source_records": 8,
+    "cached_pages_verified": 5,
+    "top_level_cleric_level_1": 4,
+    "top_level_paladin_level_14": 4,
+    "validation_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "run_lock_present": false,
+    "python_processes": 0,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Other Cleric table fields still require comparison to exact source-specific records.",
+    "Archive detail current and historical labels remain distinct observations; modern emulator tooltip reports are not live-era verification.",
+    "Network suspension preserved; no collector restarted."
+  ]
+}
