@@ -1,0 +1,4213 @@
+{
+  "review_kind": "psionicist_effect_source_review",
+  "input_review": {
+    "path": "reviewed/PSIONICIST_TYPED_FIELD_COVERAGE_ITERATION454.json",
+    "sha256": "99914b6f82448e47c6c707c655994fb9ebcf077477193b71d6e729264e2a54b6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "class_cache": {
+    "path": ".cache/archive/9e9f4e81b1c87ce14c4945198f47ed9e97591c2eef4f0d2cb11b3302c09704db.txt",
+    "sha256": "1b84ce0ded1942e5a67855313e2497d996e755f0a37ec3157987949b88954798"
+  },
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Mental Blast II",
+      "table_index": 0,
+      "row_index": 10,
+      "class_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mental-blast-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mental-blast-ii\">Mental Blast II</a>\n</td>\n<td class=\"muted\">Mental Evocation</td>\n<td class=\"num muted\">\n              61\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for...</td>\n</tr>",
+      "printed_effect": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 1615,
+            "record_sha256": "c306cd9513a86face6661ad91582bb7aef53681c7db64ee433908b5f63184687",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Mental Blast II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "title": "Mental Blast II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "6",
+                "8 — now 6"
+              ],
+              "energy then": [
+                "64 — now 61",
+                "60 — now 61"
+              ],
+              "cast then": [
+                "2",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "energy cost": [
+                "61"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 6,
+            "rank": "II",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 61
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                61
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-ii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_II"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast II",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 6,
+                "rank": "II",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "cost_recorded": {
+                  "value": 61,
+                  "resource": null,
+                  "raw": "61"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+          "detail_cache": {
+            "path": ".cache/archive/97b0de79671ae35a79e68a9bc58629d5765588bab47db9fd51c3db782e3de16e.txt",
+            "sha256": "b49a404e894923f042b9f777cda2e634b168cbc653e57a103ab5a9cc1ac92d4f"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 1615,
+            "record_sha256": "be5e45b1bd5b7bc81efcfaff7f2cfb7d28cff041a530c03d45898a1c1bc76ee5",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Mental Blast II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "title": "Mental Blast II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:30+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "6",
+                "8 — now 6"
+              ],
+              "energy then": [
+                "64 — now 61",
+                "60 — now 61"
+              ],
+              "cast then": [
+                "2",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "energy cost": [
+                "61"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 6,
+            "rank": "II",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 61
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                61
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-ii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_II"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast II",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 6,
+                "rank": "II",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "cost_recorded": {
+                  "value": 61,
+                  "resource": null,
+                  "raw": "61"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+          "detail_cache": {
+            "path": ".cache/archive/97b0de79671ae35a79e68a9bc58629d5765588bab47db9fd51c3db782e3de16e.txt",
+            "sha256": "b49a404e894923f042b9f777cda2e634b168cbc653e57a103ab5a9cc1ac92d4f"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 1615,
+            "record_sha256": "1ee6c8cf3733ad1f365058247daaf54d6f32d4dd51ca20bb8649a44c84353783",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Mental Blast II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "title": "Mental Blast II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:00+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "6",
+                "8 — now 6"
+              ],
+              "energy then": [
+                "64 — now 61",
+                "60 — now 61"
+              ],
+              "cast then": [
+                "2",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "energy cost": [
+                "61"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 6,
+            "rank": "II",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 61
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                61
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-ii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_II"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast II",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 6,
+                "rank": "II",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "cost_recorded": {
+                  "value": 61,
+                  "resource": null,
+                  "raw": "61"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+          "detail_cache": {
+            "path": ".cache/archive/97b0de79671ae35a79e68a9bc58629d5765588bab47db9fd51c3db782e3de16e.txt",
+            "sha256": "b49a404e894923f042b9f777cda2e634b168cbc653e57a103ab5a9cc1ac92d4f"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 1615,
+            "record_sha256": "353a7db4bf24e3161935032e20c794a3b756058fb3de450a43cb57fcca3ae775",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Mental Blast II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "title": "Mental Blast II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "6",
+                "8 — now 6"
+              ],
+              "energy then": [
+                "64 — now 61",
+                "60 — now 61"
+              ],
+              "cast then": [
+                "2",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "energy cost": [
+                "61"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 6,
+            "rank": "II",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 61
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                61
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-ii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_II"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast II",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 6,
+                "rank": "II",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+                "cost_recorded": {
+                  "value": 61,
+                  "resource": null,
+                  "raw": "61"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-ii",
+          "detail_cache": {
+            "path": ".cache/archive/97b0de79671ae35a79e68a9bc58629d5765588bab47db9fd51c3db782e3de16e.txt",
+            "sha256": "b49a404e894923f042b9f777cda2e634b168cbc653e57a103ab5a9cc1ac92d4f"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 144 to 156 damage. Decreases your opponent's intelligence by 9 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Blast III",
+      "table_index": 1,
+      "row_index": 3,
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mental-blast-iii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mental-blast-iii\">Mental Blast III</a>\n</td>\n<td class=\"muted\">Mental Evocation</td>\n<td class=\"num muted\">\n              101\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for...</td>\n</tr>",
+      "printed_effect": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 1616,
+            "record_sha256": "4253508fcf8539c58f7ad3f8e0e1710aa680574952d6d62c19e763f6205440c5",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Mental Blast III",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "title": "Mental Blast III · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "12"
+              ],
+              "energy then": [
+                "105 — now 101"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "101"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 12,
+            "rank": "III",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 101
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                101
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_III"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast III",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast III",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 12,
+                "rank": "III",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "cost_recorded": {
+                  "value": 101,
+                  "resource": null,
+                  "raw": "101"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+          "detail_cache": {
+            "path": ".cache/archive/9d42c0f1e7ec1eea4aceb0aa913e7608705dbdc8cdbcc58478d78f08988ce868.txt",
+            "sha256": "d066ae441d0859fdecb3aa8ab88dfd129d14da45163e39e22ff8cd4c4920c69c"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 1616,
+            "record_sha256": "09d2ef685852e71093fd0a827b950134fdc7b531c483646b815c3382e9731f47",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Mental Blast III",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "title": "Mental Blast III · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:30+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "12"
+              ],
+              "energy then": [
+                "105 — now 101"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "101"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 12,
+            "rank": "III",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 101
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                101
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_III"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast III",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast III",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 12,
+                "rank": "III",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "cost_recorded": {
+                  "value": 101,
+                  "resource": null,
+                  "raw": "101"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+          "detail_cache": {
+            "path": ".cache/archive/9d42c0f1e7ec1eea4aceb0aa913e7608705dbdc8cdbcc58478d78f08988ce868.txt",
+            "sha256": "d066ae441d0859fdecb3aa8ab88dfd129d14da45163e39e22ff8cd4c4920c69c"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 1616,
+            "record_sha256": "c4a021b411b52c5169f48f6a779774a17457e58d45be68df7a3992c20fe64da3",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Mental Blast III",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "title": "Mental Blast III · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:00+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "12"
+              ],
+              "energy then": [
+                "105 — now 101"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "101"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 12,
+            "rank": "III",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 101
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                101
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_III"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast III",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast III",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 12,
+                "rank": "III",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "cost_recorded": {
+                  "value": 101,
+                  "resource": null,
+                  "raw": "101"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+          "detail_cache": {
+            "path": ".cache/archive/9d42c0f1e7ec1eea4aceb0aa913e7608705dbdc8cdbcc58478d78f08988ce868.txt",
+            "sha256": "d066ae441d0859fdecb3aa8ab88dfd129d14da45163e39e22ff8cd4c4920c69c"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 1616,
+            "record_sha256": "e9824cc5b8dc495f80a16c3b2aa000121b6fffc55ff0c0732075d004f461527d",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Mental Blast III",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "title": "Mental Blast III · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "12"
+              ],
+              "energy then": [
+                "105 — now 101"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "101"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 12,
+            "rank": "III",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 101
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                101
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iii",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_III"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast III",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast III",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 12,
+                "rank": "III",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+                "cost_recorded": {
+                  "value": 101,
+                  "resource": null,
+                  "raw": "101"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iii",
+          "detail_cache": {
+            "path": ".cache/archive/9d42c0f1e7ec1eea4aceb0aa913e7608705dbdc8cdbcc58478d78f08988ce868.txt",
+            "sha256": "d066ae441d0859fdecb3aa8ab88dfd129d14da45163e39e22ff8cd4c4920c69c"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 222 to 236 damage. Decreases your opponent's intelligence by 15 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Acumen I",
+      "table_index": 1,
+      "row_index": 5,
+      "class_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/acumen-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/acumen-i\">Acumen I</a>\n</td>\n<td class=\"muted\">Alteration</td>\n<td class=\"num muted\">\n              43\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with...</td>\n</tr>",
+      "printed_effect": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 8,
+            "record_sha256": "4877d0dd219ba09d9737752b7604b64a987d3216f67dd3bd8877dc2302d6aba9",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Acumen I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/acumen-i",
+                "title": "Acumen I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:34+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "14",
+                "10 — now 14"
+              ],
+              "energy then": [
+                "43"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "14"
+              ],
+              "level": [
+                "14"
+              ],
+              "energy cost": [
+                "43"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon648.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 14,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 43
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon648.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 14,
+                "cost_raw": "44"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "83"
+              },
+              {
+                "rank": "III",
+                "level_learned": 42,
+                "cost_raw": "123"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                43
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:acumen-i",
+              "https://vanguard.fandom.com/wiki/Acumen_I"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Acumen I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Acumen I",
+                    "url": "https://vgsoharchive.com/abilities/acumen-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 14,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/acumen-i",
+                "cost_recorded": {
+                  "value": 43,
+                  "resource": null,
+                  "raw": "43"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/acumen-i",
+          "detail_cache": {
+            "path": ".cache/archive/d164743c7180ee2768006f5b9cb147965db6d3a9f245aecec8df886a2c542ec2.txt",
+            "sha256": "110308af1cf49f3b8a2038eae48a8744c331408dc0b7d1584f077f4b1c293f3f"
+          },
+          "effect_literal": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 8,
+            "record_sha256": "24105d0602ad2617fec2643dd8c5b095722ad0ed1b85e36d76ed044119b37d02",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Acumen I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/acumen-i",
+                "title": "Acumen I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:28+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "14",
+                "10 — now 14"
+              ],
+              "energy then": [
+                "43"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "14"
+              ],
+              "level": [
+                "14"
+              ],
+              "energy cost": [
+                "43"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon648.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 14,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 43
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon648.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 14,
+                "cost_raw": "44"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "83"
+              },
+              {
+                "rank": "III",
+                "level_learned": 42,
+                "cost_raw": "123"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                43
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:acumen-i",
+              "https://vanguard.fandom.com/wiki/Acumen_I"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Acumen I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Acumen I",
+                    "url": "https://vgsoharchive.com/abilities/acumen-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 14,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/acumen-i",
+                "cost_recorded": {
+                  "value": 43,
+                  "resource": null,
+                  "raw": "43"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/acumen-i",
+          "detail_cache": {
+            "path": ".cache/archive/d164743c7180ee2768006f5b9cb147965db6d3a9f245aecec8df886a2c542ec2.txt",
+            "sha256": "110308af1cf49f3b8a2038eae48a8744c331408dc0b7d1584f077f4b1c293f3f"
+          },
+          "effect_literal": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 8,
+            "record_sha256": "78515f50480570d4742991495da4afcdebac897d0a61a4420a7fbcf7281aacf0",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Acumen I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/acumen-i",
+                "title": "Acumen I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "14",
+                "10 — now 14"
+              ],
+              "energy then": [
+                "43"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "14"
+              ],
+              "level": [
+                "14"
+              ],
+              "energy cost": [
+                "43"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon648.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 14,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 43
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon648.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 14,
+                "cost_raw": "44"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "83"
+              },
+              {
+                "rank": "III",
+                "level_learned": 42,
+                "cost_raw": "123"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                43
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:acumen-i",
+              "https://vanguard.fandom.com/wiki/Acumen_I"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Acumen I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Acumen I",
+                    "url": "https://vgsoharchive.com/abilities/acumen-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 14,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/acumen-i",
+                "cost_recorded": {
+                  "value": 43,
+                  "resource": null,
+                  "raw": "43"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/acumen-i",
+          "detail_cache": {
+            "path": ".cache/archive/d164743c7180ee2768006f5b9cb147965db6d3a9f245aecec8df886a2c542ec2.txt",
+            "sha256": "110308af1cf49f3b8a2038eae48a8744c331408dc0b7d1584f077f4b1c293f3f"
+          },
+          "effect_literal": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 8,
+            "record_sha256": "aafdc8014bb57dbd2ed6cbde06759fb2c43b00d0d37ac4e2b281b62407454e13",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Acumen I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/acumen-i",
+                "title": "Acumen I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:57+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "14",
+                "10 — now 14"
+              ],
+              "energy then": [
+                "43"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "14"
+              ],
+              "level": [
+                "14"
+              ],
+              "energy cost": [
+                "43"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon648.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 14,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 43
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon648.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 14,
+                "cost_raw": "44"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "83"
+              },
+              {
+                "rank": "III",
+                "level_learned": 42,
+                "cost_raw": "123"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                43
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:acumen-i",
+              "https://vanguard.fandom.com/wiki/Acumen_I"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Acumen I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Acumen I",
+                    "url": "https://vgsoharchive.com/abilities/acumen-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 14,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/acumen-i",
+                "cost_recorded": {
+                  "value": 43,
+                  "resource": null,
+                  "raw": "43"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/acumen-i",
+          "detail_cache": {
+            "path": ".cache/archive/d164743c7180ee2768006f5b9cb147965db6d3a9f245aecec8df886a2c542ec2.txt",
+            "sha256": "110308af1cf49f3b8a2038eae48a8744c331408dc0b7d1584f077f4b1c293f3f"
+          },
+          "effect_literal": "Sharpens the mind of your defensive target's party, increasing energy regeneration by 5 every second. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Blast IV",
+      "table_index": 1,
+      "row_index": 18,
+      "class_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mental-blast-iv.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mental-blast-iv\">Mental Blast IV</a>\n</td>\n<td class=\"muted\">Mental Evocation</td>\n<td class=\"num muted\">\n              136\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for...</td>\n</tr>",
+      "printed_effect": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 1617,
+            "record_sha256": "d98e374c06395a31f88d84224cbd94e8ed1f550982047aa415366b3db797bbc8",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Mental Blast IV",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "title": "Mental Blast IV · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "207 — now 136"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "136"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "IV",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 136
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                136
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iv",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_IV"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast IV",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast IV",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iv"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "IV",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "cost_recorded": {
+                  "value": 136,
+                  "resource": null,
+                  "raw": "136"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+          "detail_cache": {
+            "path": ".cache/archive/2582ef4aa7450ff0b5944fea38f33bcf0a4ac8cc2f2cd2c82ad21832e6ce68f6.txt",
+            "sha256": "d28e59e5454c7a8dd7c318721a91fb8168d0c37ab0eb300901992458a987ef36"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 1617,
+            "record_sha256": "aa2e87c188faf0457c02c61b737637f4b822b9fe89844fc16d37226c75e71601",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Mental Blast IV",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "title": "Mental Blast IV · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:30+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "207 — now 136"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "136"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "IV",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 136
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                136
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iv",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_IV"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast IV",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast IV",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iv"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "IV",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "cost_recorded": {
+                  "value": 136,
+                  "resource": null,
+                  "raw": "136"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+          "detail_cache": {
+            "path": ".cache/archive/2582ef4aa7450ff0b5944fea38f33bcf0a4ac8cc2f2cd2c82ad21832e6ce68f6.txt",
+            "sha256": "d28e59e5454c7a8dd7c318721a91fb8168d0c37ab0eb300901992458a987ef36"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 1617,
+            "record_sha256": "990b53dc887ca86b3ec0a8b9ce0ed5d2dde3c83117978b9b0a0f84a3b23b6677",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Mental Blast IV",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "title": "Mental Blast IV · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:00+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "207 — now 136"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "136"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "IV",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 136
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                136
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iv",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_IV"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast IV",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast IV",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iv"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "IV",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "cost_recorded": {
+                  "value": 136,
+                  "resource": null,
+                  "raw": "136"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+          "detail_cache": {
+            "path": ".cache/archive/2582ef4aa7450ff0b5944fea38f33bcf0a4ac8cc2f2cd2c82ad21832e6ce68f6.txt",
+            "sha256": "d28e59e5454c7a8dd7c318721a91fb8168d0c37ab0eb300901992458a987ef36"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 1617,
+            "record_sha256": "2fb59df4ba7f88c4a44ac701b2ca47058a0235fd2c670cc96fad43b3647b96e7",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Mental Blast IV",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "title": "Mental Blast IV · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "207 — now 136"
+              ],
+              "cast then": [
+                "2.5",
+                "2"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "136"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "exploits weakness": [
+                "Shaken"
+              ],
+              "type": [
+                "Mental Evocation"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon519.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "IV",
+            "category": "Mental Evocation",
+            "cost": {
+              "energy": 136
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+            "icon_name": "Icon519.png",
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                136
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": "Shaken",
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mental-blast-iv",
+              "https://vanguard.fandom.com/wiki/Mental_Blast_IV"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Mental Blast IV",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Mental Blast IV",
+                    "url": "https://vgsoharchive.com/abilities/mental-blast-iv"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "IV",
+                "category": "Mental Evocation",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+                "cost_recorded": {
+                  "value": 136,
+                  "resource": null,
+                  "raw": "136"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/mental-blast-iv",
+          "detail_cache": {
+            "path": ".cache/archive/2582ef4aa7450ff0b5944fea38f33bcf0a4ac8cc2f2cd2c82ad21832e6ce68f6.txt",
+            "sha256": "d28e59e5454c7a8dd7c318721a91fb8168d0c37ab0eb300901992458a987ef36"
+          },
+          "effect_literal": "Blasts your opponent's mind with raw mental power, dealing 285 to 303 damage. Decreases your opponent's intelligence by 21 for 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Strength of Will I",
+      "table_index": 1,
+      "row_index": 21,
+      "class_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/strength-of-will-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/strength-of-will-i\">Strength of Will I</a>\n</td>\n<td class=\"muted\">Alteration</td>\n<td class=\"num muted\">\n              89\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass...</td>\n</tr>",
+      "printed_effect": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 2483,
+            "record_sha256": "f370e6a0c19319b9202f567d4e781118f42f3582b48e132b16278f2db90fe557",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Strength of Will I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "title": "Strength of Will I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "64 — now 89"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "89"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon576.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 89
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon576.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 18,
+                "cost_raw": "89"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "III",
+                "level_learned": 38,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "IV",
+                "level_learned": 48,
+                "cost_raw": "??"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                89
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:strength-of-will-i",
+              "https://vanguard.fandom.com/wiki/Strength_of_Will"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Strength of Will I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Strength of Will I",
+                    "url": "https://vgsoharchive.com/abilities/strength-of-will-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "cost_recorded": {
+                  "value": 89,
+                  "resource": null,
+                  "raw": "89"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+          "detail_cache": {
+            "path": ".cache/archive/c499ed9a8bd23c1dcb6079118070d42abb89477f01adc89a3a56aa549b1f4ef4.txt",
+            "sha256": "21f5673ca56ea8e6b477a8fbee2ba00ff1da83bf4170b661ce6d789796228eb2"
+          },
+          "effect_literal": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 2483,
+            "record_sha256": "1fc5ecc5d10a922dad34541a2774a672a9ecfd9923498a6bcf4896a22129c7b3",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Strength of Will I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "title": "Strength of Will I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:30+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "64 — now 89"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "89"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon576.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 89
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon576.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 18,
+                "cost_raw": "89"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "III",
+                "level_learned": 38,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "IV",
+                "level_learned": 48,
+                "cost_raw": "??"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                89
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:strength-of-will-i",
+              "https://vanguard.fandom.com/wiki/Strength_of_Will"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Strength of Will I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Strength of Will I",
+                    "url": "https://vgsoharchive.com/abilities/strength-of-will-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "cost_recorded": {
+                  "value": 89,
+                  "resource": null,
+                  "raw": "89"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+          "detail_cache": {
+            "path": ".cache/archive/c499ed9a8bd23c1dcb6079118070d42abb89477f01adc89a3a56aa549b1f4ef4.txt",
+            "sha256": "21f5673ca56ea8e6b477a8fbee2ba00ff1da83bf4170b661ce6d789796228eb2"
+          },
+          "effect_literal": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 2483,
+            "record_sha256": "3e8f800d43cefae65800e88297eb325d8104b6777ee3ccd2ebadc4518be6eca3",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Strength of Will I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "title": "Strength of Will I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:00+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "64 — now 89"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "89"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon576.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 89
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon576.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 18,
+                "cost_raw": "89"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "III",
+                "level_learned": 38,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "IV",
+                "level_learned": 48,
+                "cost_raw": "??"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                89
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:strength-of-will-i",
+              "https://vanguard.fandom.com/wiki/Strength_of_Will"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Strength of Will I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Strength of Will I",
+                    "url": "https://vgsoharchive.com/abilities/strength-of-will-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "cost_recorded": {
+                  "value": 89,
+                  "resource": null,
+                  "raw": "89"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+          "detail_cache": {
+            "path": ".cache/archive/c499ed9a8bd23c1dcb6079118070d42abb89477f01adc89a3a56aa549b1f4ef4.txt",
+            "sha256": "21f5673ca56ea8e6b477a8fbee2ba00ff1da83bf4170b661ce6d789796228eb2"
+          },
+          "effect_literal": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 2483,
+            "record_sha256": "df5c64514b3979744ff6b7987589f147f65fe9298f662278100cfde290402780",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Strength of Will I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "title": "Strength of Will I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/psionicist",
+                "title": "Psionicist · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:59+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "18"
+              ],
+              "energy then": [
+                "64 — now 89"
+              ],
+              "cast then": [
+                "0",
+                "0"
+              ],
+              "refresh then": [
+                "0",
+                "0"
+              ],
+              "level in 2007-2008": [
+                "18"
+              ],
+              "level": [
+                "18"
+              ],
+              "energy cost": [
+                "89"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Group"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ],
+              "icon": [
+                "Icon576.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Psionicist",
+                "url": "https://vgsoharchive.com/classes/psionicist"
+              },
+              {
+                "name": "everything else missing from it",
+                "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Psionicist",
+            "level_learned": 18,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 89
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+            "icon_name": "Icon576.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 18,
+                "cost_raw": "89"
+              },
+              {
+                "rank": "II",
+                "level_learned": 28,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "III",
+                "level_learned": 38,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "IV",
+                "level_learned": 48,
+                "cost_raw": "??"
+              }
+            ],
+            "cost_observations": {
+              "energy": [
+                89
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:strength-of-will-i",
+              "https://vanguard.fandom.com/wiki/Strength_of_Will"
+            ],
+            "classes_recorded": [
+              "Psionicist"
+            ],
+            "archive_variants": [
+              {
+                "name": "Strength of Will I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/psionicist",
+                    "title": "Psionicist · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Strength of Will I",
+                    "url": "https://vgsoharchive.com/abilities/strength-of-will-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Psionicist",
+                "level_learned": 18,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+                "cost_recorded": {
+                  "value": 89,
+                  "resource": null,
+                  "raw": "89"
+                },
+                "range_recorded": {
+                  "value": 25,
+                  "unit": null,
+                  "raw": "25"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/strength-of-will-i",
+          "detail_cache": {
+            "path": ".cache/archive/c499ed9a8bd23c1dcb6079118070d42abb89477f01adc89a3a56aa549b1f4ef4.txt",
+            "sha256": "21f5673ca56ea8e6b477a8fbee2ba00ff1da83bf4170b661ce6d789796228eb2"
+          },
+          "effect_literal": "Increases mental resistance by 115 and arcane resistance by 46 for your defensive target's party. (Does not stack with Mass Mental Focus)",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "effect_difference_rows_reviewed": 5,
+    "exact_source_references": 20,
+    "detail_pages": 5,
+    "disposition": "All five class strings end in ellipsis; removing that literal ellipsis yields an exact prefix of the cached detail tooltip."
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "validation": {
+    "issues": 0,
+    "corpus_hashes_verified": 51
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes_observed": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Merged top-level tooltips are attributed to primary detail URLs, not automatically to every URL in their source list.",
+    "Full published records are retained for research. No operative mechanics, canonical identities, historical dates or missing class text are inferred.",
+    "Same-provenance snapshots are not independent corroboration. Modern emulator observations do not establish live-era mechanics.",
+    "Absent typed effects and rows without strict class snapshots remain separate coverage work."
+  ]
+}
