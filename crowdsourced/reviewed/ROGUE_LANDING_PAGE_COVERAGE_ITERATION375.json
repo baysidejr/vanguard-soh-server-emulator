@@ -1,0 +1,3704 @@
+{
+  "review_kind": "rogue_landing_page_table_extraction_and_prose_dispositions",
+  "source_url": "https://vgsoharchive.com/classes/rogue",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_audit": {
+    "path": "reviewed/SOURCE_PAGE_SCOPE_GAPS_ITERATION363.json",
+    "sha256": "1d16e7b465b16ba374362ca11a36b224b2e4b24ebe52859ccba94b29c4af1ff6"
+  },
+  "cache": {
+    "path": ".cache/archive/181fd4d8326253e4eab18a838948506df5a157378233cc0614aedb36fac23869.txt",
+    "sha256": "bd817ead54f14bcc65bd95f5b7560006df7f1c693e881d5df0ccc694b369a015"
+  },
+  "existing_source_record_references": [
+    {
+      "path": "raw/2026-10-17-iteration165-class-starting-attributes/source_pages.json",
+      "record_index_zero_based": 11,
+      "file_sha256": "690a10a7c2b128df75e63b8cf7836034171a1f7b7df312e96983125a056ad898"
+    }
+  ],
+  "coverage_comparison": "Existing source_page records retained in the scope audit do not serialize these five ability tables. Full typed-ability corpus comparison remains pending; rows are literal attributed observations, not new independent entities.",
+  "provenance_warning": "Archive compilation preserves fan-source and modern emulator observations; individual row provenance and live-era accuracy remain unresolved.",
+  "tables": [
+    {
+      "index": 0,
+      "sha256": "fe94e217823386dd6a4b9fe2bbe18c1104d3f1a459b5db17161d3c76ed1197a2",
+      "disposition": "Extracted literal attributed cells; blank cells remain null, truncated effects remain verbatim. Units and provenance per row unresolved. No operative mechanics promoted.",
+      "rows": [
+        {
+          "row_index": 1,
+          "source_row_html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/assassin-s-guile.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/assassin-s-guile\">Assassin's Guile</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Passive</td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">Group gains 8% increased damage and 5% increased change to crit</td>\n</tr>",
+          "printed_cells": {
+            "level": "1",
+            "ability": "Assassin's Guile",
+            "school": null,
+            "cost": null,
+            "cast": "Passive",
+            "range": null,
+            "effect": "Group gains 8% increased damage and 5% increased change to crit"
+          },
+          "links": [
+            {
+              "text": "Assassin's Guile",
+              "href": "/abilities/assassin-s-guile"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 2,
+          "source_row_html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lethal-strikes-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lethal-strikes-i\">Lethal Strikes I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              57\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases melee damage by 6% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage...</td>\n</tr>",
+          "printed_cells": {
+            "level": "1",
+            "ability": "Lethal Strikes I",
+            "school": null,
+            "cost": "57",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases melee damage by 6% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage..."
+          },
+          "links": [
+            {
+              "text": "Lethal Strikes I",
+              "href": "/abilities/lethal-strikes-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 3,
+          "source_row_html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/stalk.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/stalk\">Stalk</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Causes you to enter a stealthed state and begin stalking your opponent.</td>\n</tr>",
+          "printed_cells": {
+            "level": "1",
+            "ability": "Stalk",
+            "school": null,
+            "cost": null,
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Causes you to enter a stealthed state and begin stalking your opponent."
+          },
+          "links": [
+            {
+              "text": "Stalk",
+              "href": "/abilities/stalk"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 4,
+          "source_row_html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/wicked-strike-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/wicked-strike-i\">Wicked Strike I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A cruel strike that inflicts melee damage plus 8.</td>\n</tr>",
+          "printed_cells": {
+            "level": "1",
+            "ability": "Wicked Strike I",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A cruel strike that inflicts melee damage plus 8."
+          },
+          "links": [
+            {
+              "text": "Wicked Strike I",
+              "href": "/abilities/wicked-strike-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 5,
+          "source_row_html": "<tr>\n<td class=\"num\">2</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/knee-break-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/knee-break-i\">Knee Break I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A stomping kick that inflicts 17 to 21 damage and reduces your foe's movement by 70% for 20 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "2",
+            "ability": "Knee Break I",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A stomping kick that inflicts 17 to 21 damage and reduces your foe's movement by 70% for 20 sec."
+          },
+          "links": [
+            {
+              "text": "Knee Break I",
+              "href": "/abilities/knee-break-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 6,
+          "source_row_html": "<tr>\n<td class=\"num\">4</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/pickpocket-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/pickpocket-i\">Pickpocket I</a>\n</td>\n<td class=\"muted\">Utility Ability</td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">This ability allows you to pick the pocket of your target. This will occasionally result in usable or crafting items.</td>\n</tr>",
+          "printed_cells": {
+            "level": "4",
+            "ability": "Pickpocket I",
+            "school": "Utility Ability",
+            "cost": null,
+            "cast": "Instant",
+            "range": "5",
+            "effect": "This ability allows you to pick the pocket of your target. This will occasionally result in usable or crafting items."
+          },
+          "links": [
+            {
+              "text": "Pickpocket I",
+              "href": "/abilities/pickpocket-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 7,
+          "source_row_html": "<tr>\n<td class=\"num\">4</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ravage-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ravage-i\">Ravage I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A surprise attack that inflicts 400% weapon damage, plus 38 to 44 and stuns your target for 3 sec. Must be behind target, out...</td>\n</tr>",
+          "printed_cells": {
+            "level": "4",
+            "ability": "Ravage I",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A surprise attack that inflicts 400% weapon damage, plus 38 to 44 and stuns your target for 3 sec. Must be behind target, out..."
+          },
+          "links": [
+            {
+              "text": "Ravage I",
+              "href": "/abilities/ravage-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 8,
+          "source_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/backstab-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/backstab-i\">Backstab I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Backstabs your target, inflicting 300% weapon damage plus 57 to 63. May only be performed from behind the target. Requires a...</td>\n</tr>",
+          "printed_cells": {
+            "level": "6",
+            "ability": "Backstab I",
+            "school": null,
+            "cost": "25",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Backstabs your target, inflicting 300% weapon damage plus 57 to 63. May only be performed from behind the target. Requires a..."
+          },
+          "links": [
+            {
+              "text": "Backstab I",
+              "href": "/abilities/backstab-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 9,
+          "source_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-i\">Lacerate I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              22\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 210 to 224 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "6",
+            "ability": "Lacerate I",
+            "school": null,
+            "cost": "22",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 210 to 224 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate I",
+              "href": "/abilities/lacerate-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 10,
+          "source_row_html": "<tr>\n<td class=\"num\">8</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/revenge-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/revenge-i\">Revenge I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful parry, dealing 150% weapon damage plus 26 to 30.</td>\n</tr>",
+          "printed_cells": {
+            "level": "8",
+            "ability": "Revenge I",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Counterattack after a successful parry, dealing 150% weapon damage plus 26 to 30."
+          },
+          "links": [
+            {
+              "text": "Revenge I",
+              "href": "/abilities/revenge-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 11,
+          "source_row_html": "<tr>\n<td class=\"num\">8</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/wicked-strike-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/wicked-strike-ii\">Wicked Strike II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A cruel strike that inflicts melee damage plus 30.</td>\n</tr>",
+          "printed_cells": {
+            "level": "8",
+            "ability": "Wicked Strike II",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A cruel strike that inflicts melee damage plus 30."
+          },
+          "links": [
+            {
+              "text": "Wicked Strike II",
+              "href": "/abilities/wicked-strike-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 12,
+          "source_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blindside-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blindside-i\">Blindside</a>\n</td>\n<td class=\"muted\">Intercept</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\">You quickly strike at the attacker of your defensive target, dealing 300% weapon damage plus 45 to 51 and causing your next...</td>\n</tr>",
+          "printed_cells": {
+            "level": "10",
+            "ability": "Blindside",
+            "school": "Intercept",
+            "cost": "10",
+            "cast": "Instant",
+            "range": "10",
+            "effect": "You quickly strike at the attacker of your defensive target, dealing 300% weapon damage plus 45 to 51 and causing your next..."
+          },
+          "links": [
+            {
+              "text": "Blindside",
+              "href": "/abilities/blindside-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 13,
+          "source_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/hemorrhage-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/hemorrhage-i\">Hemorrhage I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Cuts your foe deeply, causing 620 to 654 damage over 30 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "10",
+            "ability": "Hemorrhage I",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Cuts your foe deeply, causing 620 to 654 damage over 30 seconds."
+          },
+          "links": [
+            {
+              "text": "Hemorrhage I",
+              "href": "/abilities/hemorrhage-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 14,
+          "source_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-ii\">Lacerate II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              22\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 428 to 454 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "10",
+            "ability": "Lacerate II",
+            "school": null,
+            "cost": "22",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 428 to 454 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate II",
+              "href": "/abilities/lacerate-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 15,
+          "source_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lethal-strikes-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lethal-strikes-ii\">Lethal Strikes II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              57\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases melee damage by 7% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage...</td>\n</tr>",
+          "printed_cells": {
+            "level": "10",
+            "ability": "Lethal Strikes II",
+            "school": null,
+            "cost": "57",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases melee damage by 7% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage..."
+          },
+          "links": [
+            {
+              "text": "Lethal Strikes II",
+              "href": "/abilities/lethal-strikes-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 16,
+          "source_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/plunder-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/plunder-i\">Plunder</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A finishing move that allows you to dig even deeper into your target's pockets, giving you a chance to get more loot. May only...</td>\n</tr>",
+          "printed_cells": {
+            "level": "10",
+            "ability": "Plunder",
+            "school": null,
+            "cost": null,
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A finishing move that allows you to dig even deeper into your target's pockets, giving you a chance to get more loot. May only..."
+          },
+          "links": [
+            {
+              "text": "Plunder",
+              "href": "/abilities/plunder-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 17,
+          "source_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/vicious-strike-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/vicious-strike-i\">Vicious Strike I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A vicious attack that increases melee damage by 115. Deals an additional 65 to 71 damage on a critical hit.</td>\n</tr>",
+          "printed_cells": {
+            "level": "10",
+            "ability": "Vicious Strike I",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A vicious attack that increases melee damage by 115. Deals an additional 65 to 71 damage on a critical hit."
+          },
+          "links": [
+            {
+              "text": "Vicious Strike I",
+              "href": "/abilities/vicious-strike-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "sha256": "cf644138731086efc7b823fe2d6609bffc91e006382e58a9040a512bfefc800e",
+      "disposition": "Extracted literal attributed cells; blank cells remain null, truncated effects remain verbatim. Units and provenance per row unresolved. No operative mechanics promoted.",
+      "rows": [
+        {
+          "row_index": 1,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blinding-flash.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blinding-flash\">Blinding Flash</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              66\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Hurls a bit of flash powder in your target's face, stunning it for 6 seconds or until damage is done. This also turns off...</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Blinding Flash",
+            "school": null,
+            "cost": "66",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Hurls a bit of flash powder in your target's face, stunning it for 6 seconds or until damage is done. This also turns off..."
+          },
+          "links": [
+            {
+              "text": "Blinding Flash",
+              "href": "/abilities/blinding-flash"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 2,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/deter.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/deter\">Deter</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns...</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Deter",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns..."
+          },
+          "links": [
+            {
+              "text": "Deter",
+              "href": "/abilities/deter"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 3,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/drub-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/drub-i\">Drub I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              8\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Disorients your target, lowering its hatred of you by 540.</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Drub I",
+            "school": null,
+            "cost": "8",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Disorients your target, lowering its hatred of you by 540."
+          },
+          "links": [
+            {
+              "text": "Drub I",
+              "href": "/abilities/drub-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 4,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/keen-eye-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/keen-eye-i\">Keen Eye I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              85\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your damage by 25, your accuracy by 6% and your critical chance by 8% for 12 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Keen Eye I",
+            "school": null,
+            "cost": "85",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your damage by 25, your accuracy by 6% and your critical chance by 8% for 12 sec."
+          },
+          "links": [
+            {
+              "text": "Keen Eye I",
+              "href": "/abilities/keen-eye-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 5,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/knee-break-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/knee-break-ii\">Knee Break II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Melee attack with a snare (20 sec)</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Knee Break II",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Melee attack with a snare (20 sec)"
+          },
+          "links": [
+            {
+              "text": "Knee Break II",
+              "href": "/abilities/knee-break-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 6,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ravage-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ravage-ii\">Ravage II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A surprise attack that inflicts 400% weapon damage, plus 83 to 91 and stuns your target for 3 sec. Must be behind target, out...</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Ravage II",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A surprise attack that inflicts 400% weapon damage, plus 83 to 91 and stuns your target for 3 sec. Must be behind target, out..."
+          },
+          "links": [
+            {
+              "text": "Ravage II",
+              "href": "/abilities/ravage-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 7,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<a href=\"/abilities/rogue-ruin-i\">Ruin I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Lowers your offensive target's damage by 10% and accuracy by 12% for 30 sec. Must be stalking your target.</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Ruin I",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Lowers your offensive target's damage by 10% and accuracy by 12% for 30 sec. Must be stalking your target."
+          },
+          "links": [
+            {
+              "text": "Ruin I",
+              "href": "/abilities/rogue-ruin-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 8,
+          "source_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shank-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shank-i\">Shank I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 80 to 88 with each hit. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "12",
+            "ability": "Shank I",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 80 to 88 with each hit. May only be..."
+          },
+          "links": [
+            {
+              "text": "Shank I",
+              "href": "/abilities/shank-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 9,
+          "source_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blackjack-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blackjack-i\">Blackjack I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Stuns the target and prevents it from calling for help for 30 seconds. May only be used on one target at a time. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "14",
+            "ability": "Blackjack I",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Stuns the target and prevents it from calling for help for 30 seconds. May only be used on one target at a time. May only be..."
+          },
+          "links": [
+            {
+              "text": "Blackjack I",
+              "href": "/abilities/blackjack-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 10,
+          "source_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/elusive-mark-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/elusive-mark-i\">Elusive Mark I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              24\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your ability to parry attacks by 50% for 12 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "14",
+            "ability": "Elusive Mark I",
+            "school": null,
+            "cost": "24",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your ability to parry attacks by 50% for 12 sec."
+          },
+          "links": [
+            {
+              "text": "Elusive Mark I",
+              "href": "/abilities/elusive-mark-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 11,
+          "source_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/hemorrhage-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/hemorrhage-ii\">Hemorrhage II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Cuts your foe deeply, causing 1185 to 1249 damage over 30 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "14",
+            "ability": "Hemorrhage II",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Cuts your foe deeply, causing 1185 to 1249 damage over 30 seconds."
+          },
+          "links": [
+            {
+              "text": "Hemorrhage II",
+              "href": "/abilities/hemorrhage-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 12,
+          "source_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ploy.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ploy\">Ploy</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              85\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\">You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "14",
+            "ability": "Ploy",
+            "school": null,
+            "cost": "85",
+            "cast": "Instant",
+            "range": "10",
+            "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+          },
+          "links": [
+            {
+              "text": "Ploy",
+              "href": "/abilities/ploy"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 13,
+          "source_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/arc-of-daggers-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/arc-of-daggers-i\">Arc of Daggers I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              22\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5 - 15</td>\n<td class=\"muted\">You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 15 to 18. Requires 4...</td>\n</tr>",
+          "printed_cells": {
+            "level": "16",
+            "ability": "Arc of Daggers I",
+            "school": null,
+            "cost": "22",
+            "cast": "Instant",
+            "range": "5 - 15",
+            "effect": "You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 15 to 18. Requires 4..."
+          },
+          "links": [
+            {
+              "text": "Arc of Daggers I",
+              "href": "/abilities/arc-of-daggers-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 14,
+          "source_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/relentless.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/relentless\">Relentless</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              194\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your max endurance by 40 and restores 20 endurance every second. This effect lasts for 30 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "16",
+            "ability": "Relentless",
+            "school": null,
+            "cost": "194",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your max endurance by 40 and restores 20 endurance every second. This effect lasts for 30 sec."
+          },
+          "links": [
+            {
+              "text": "Relentless",
+              "href": "/abilities/relentless"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 15,
+          "source_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/revenge-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/revenge-ii\">Revenge II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful parry, dealing 150% weapon damage plus 47 to 53.</td>\n</tr>",
+          "printed_cells": {
+            "level": "16",
+            "ability": "Revenge II",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Counterattack after a successful parry, dealing 150% weapon damage plus 47 to 53."
+          },
+          "links": [
+            {
+              "text": "Revenge II",
+              "href": "/abilities/revenge-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 16,
+          "source_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/wicked-strike-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/wicked-strike-iii\">Wicked Strike III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A cruel strike that inflicts melee damage plus 52.</td>\n</tr>",
+          "printed_cells": {
+            "level": "16",
+            "ability": "Wicked Strike III",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A cruel strike that inflicts melee damage plus 52."
+          },
+          "links": [
+            {
+              "text": "Wicked Strike III",
+              "href": "/abilities/wicked-strike-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 17,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/backstab-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/backstab-ii\">Backstab II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Backstabs your target, inflicting 300% weapon damage plus 95 to 103. May only be performed from behind the target. Requires a...</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Backstab II",
+            "school": null,
+            "cost": "25",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Backstabs your target, inflicting 300% weapon damage plus 95 to 103. May only be performed from behind the target. Requires a..."
+          },
+          "links": [
+            {
+              "text": "Backstab II",
+              "href": "/abilities/backstab-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 18,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/clout.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/clout\">Clout</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Clouts your offensive target, stunning it for 6 sec. The same target can only be affected by clout once every 30 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Clout",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Clouts your offensive target, stunning it for 6 sec. The same target can only be affected by clout once every 30 sec."
+          },
+          "links": [
+            {
+              "text": "Clout",
+              "href": "/abilities/clout"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 19,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/impale-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/impale-i\">Impale I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Impales your opponent, creating a massive wound which causes 1287 to 1357 damage over 30 sec. Only available after performing...</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Impale I",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Impales your opponent, creating a massive wound which causes 1287 to 1357 damage over 30 sec. Only available after performing..."
+          },
+          "links": [
+            {
+              "text": "Impale I",
+              "href": "/abilities/impale-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 20,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-iii\">Lacerate III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              22\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 676 to 714 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Lacerate III",
+            "school": null,
+            "cost": "22",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 676 to 714 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate III",
+              "href": "/abilities/lacerate-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 21,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/smoke-bomb.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/smoke-bomb\">Smoke Bomb</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              119\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Using flashpowder, you can blind nearby opponents, allowing you to enter stalking form. If you are actively being attacked,...</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Smoke Bomb",
+            "school": null,
+            "cost": "119",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Using flashpowder, you can blind nearby opponents, allowing you to enter stalking form. If you are actively being attacked,..."
+          },
+          "links": [
+            {
+              "text": "Smoke Bomb",
+              "href": "/abilities/smoke-bomb"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 22,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/smoke-trick.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/smoke-trick\">Smoke Trick</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              59\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Enables you to create a cloud of smoke and quickly move to the back of your opponent. You must activate this ability and...</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Smoke Trick",
+            "school": null,
+            "cost": "59",
+            "cast": "Instant",
+            "range": "25",
+            "effect": "Enables you to create a cloud of smoke and quickly move to the back of your opponent. You must activate this ability and..."
+          },
+          "links": [
+            {
+              "text": "Smoke Trick",
+              "href": "/abilities/smoke-trick"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 23,
+          "source_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/vicious-strike-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/vicious-strike-ii\">Vicious Strike II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A vicious attack that increases melee damage by 189. Deals an additional 108 to 116 damage on a critical hit.</td>\n</tr>",
+          "printed_cells": {
+            "level": "18",
+            "ability": "Vicious Strike II",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A vicious attack that increases melee damage by 189. Deals an additional 108 to 116 damage on a critical hit."
+          },
+          "links": [
+            {
+              "text": "Vicious Strike II",
+              "href": "/abilities/vicious-strike-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 24,
+          "source_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<a href=\"/abilities/blindside-ii\">Blindside II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "20",
+            "ability": "Blindside II",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "10",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Blindside II",
+              "href": "/abilities/blindside-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 25,
+          "source_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/drub-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/drub-ii\">Drub II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              8\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Disorients your target, lowering its hatred of you by 847.</td>\n</tr>",
+          "printed_cells": {
+            "level": "20",
+            "ability": "Drub II",
+            "school": null,
+            "cost": "8",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Disorients your target, lowering its hatred of you by 847."
+          },
+          "links": [
+            {
+              "text": "Drub II",
+              "href": "/abilities/drub-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 26,
+          "source_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/flee.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/flee\">Flee</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              259\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Causes all nearby opponents to completely forget about their hatred of you.</td>\n</tr>",
+          "printed_cells": {
+            "level": "20",
+            "ability": "Flee",
+            "school": null,
+            "cost": "259",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Causes all nearby opponents to completely forget about their hatred of you."
+          },
+          "links": [
+            {
+              "text": "Flee",
+              "href": "/abilities/flee"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 27,
+          "source_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lethal-strikes-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lethal-strikes-iii\">Lethal Strikes III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              57\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases melee damage by 8% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage...</td>\n</tr>",
+          "printed_cells": {
+            "level": "20",
+            "ability": "Lethal Strikes III",
+            "school": null,
+            "cost": "57",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases melee damage by 8% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage..."
+          },
+          "links": [
+            {
+              "text": "Lethal Strikes III",
+              "href": "/abilities/lethal-strikes-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "sha256": "9ffbac90f0899b65a50d05105ff6f758b2e25bb55b2bb6473c9d718bed79f1e3",
+      "disposition": "Extracted literal attributed cells; blank cells remain null, truncated effects remain verbatim. Units and provenance per row unresolved. No operative mechanics promoted.",
+      "rows": [
+        {
+          "row_index": 1,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/hemorrhage-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/hemorrhage-iii\">Hemorrhage III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Cuts your foe deeply, causing 1789 to 1883 damage over 30 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Hemorrhage III",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Cuts your foe deeply, causing 1789 to 1883 damage over 30 seconds."
+          },
+          "links": [
+            {
+              "text": "Hemorrhage III",
+              "href": "/abilities/hemorrhage-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 2,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/keen-eye-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/keen-eye-ii\">Keen Eye II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              125\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your damage by 40, your accuracy by 6% and your critical chance by 8% for 14 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Keen Eye II",
+            "school": null,
+            "cost": "125",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your damage by 40, your accuracy by 6% and your critical chance by 8% for 14 sec."
+          },
+          "links": [
+            {
+              "text": "Keen Eye II",
+              "href": "/abilities/keen-eye-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 3,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/knee-break-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/knee-break-iii\">Knee Break III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A stomping kick that inflicts 84 to 92 damage and reduces your foe's movement by 70% for 20 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Knee Break III",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A stomping kick that inflicts 84 to 92 damage and reduces your foe's movement by 70% for 20 sec."
+          },
+          "links": [
+            {
+              "text": "Knee Break III",
+              "href": "/abilities/knee-break-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 4,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ravage-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ravage-iii\">Ravage III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A surprise attack that inflicts 400% weapon damage, plus 146 to 156 and stuns your target for 3 sec. Must be behind target,...</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Ravage III",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A surprise attack that inflicts 400% weapon damage, plus 146 to 156 and stuns your target for 3 sec. Must be behind target,..."
+          },
+          "links": [
+            {
+              "text": "Ravage III",
+              "href": "/abilities/ravage-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 5,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shank-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shank-ii\">Shank II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 136 to 146 with each hit. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Shank II",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 136 to 146 with each hit. May only be..."
+          },
+          "links": [
+            {
+              "text": "Shank II",
+              "href": "/abilities/shank-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 6,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shiv-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shiv-i\">Shiv I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 130 to 140 with each hit. Only...</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Shiv I",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 130 to 140 with each hit. Only..."
+          },
+          "links": [
+            {
+              "text": "Shiv I",
+              "href": "/abilities/shiv-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 7,
+          "source_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/trick-attack-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/trick-attack-i\">Trick Attack I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Deals a minor 63 to 69 damage, but increases the hatred that your foe feels for your defensive target by 719. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "22",
+            "ability": "Trick Attack I",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Deals a minor 63 to 69 damage, but increases the hatred that your foe feels for your defensive target by 719. May only be..."
+          },
+          "links": [
+            {
+              "text": "Trick Attack I",
+              "href": "/abilities/trick-attack-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 8,
+          "source_row_html": "<tr>\n<td class=\"num\">24</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-iv\">Lacerate IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 934 to 986 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "24",
+            "ability": "Lacerate IV",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 934 to 986 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate IV",
+              "href": "/abilities/lacerate-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 9,
+          "source_row_html": "<tr>\n<td class=\"num\">24</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/revenge-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/revenge-iii\">Revenge III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful parry, dealing 150% weapon damage plus 70 to 76.</td>\n</tr>",
+          "printed_cells": {
+            "level": "24",
+            "ability": "Revenge III",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Counterattack after a successful parry, dealing 150% weapon damage plus 70 to 76."
+          },
+          "links": [
+            {
+              "text": "Revenge III",
+              "href": "/abilities/revenge-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 10,
+          "source_row_html": "<tr>\n<td class=\"num\">24</td>\n<td>\n<a href=\"/abilities/wicked-strike-iv\">Wicked Strike IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A cruel strike that inflicts melee damage plus 76.</td>\n</tr>",
+          "printed_cells": {
+            "level": "24",
+            "ability": "Wicked Strike IV",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A cruel strike that inflicts melee damage plus 76."
+          },
+          "links": [
+            {
+              "text": "Wicked Strike IV",
+              "href": "/abilities/wicked-strike-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 11,
+          "source_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/arc-of-daggers-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/arc-of-daggers-ii\">Arc of Daggers II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              31\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5 - 15</td>\n<td class=\"muted\">You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 23 to 27. Requires 4...</td>\n</tr>",
+          "printed_cells": {
+            "level": "26",
+            "ability": "Arc of Daggers II",
+            "school": null,
+            "cost": "31",
+            "cast": "Instant",
+            "range": "5 - 15",
+            "effect": "You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 23 to 27. Requires 4..."
+          },
+          "links": [
+            {
+              "text": "Arc of Daggers II",
+              "href": "/abilities/arc-of-daggers-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 12,
+          "source_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/backstab-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/backstab-iii\">Backstab III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Backstabs your target, inflicting 300% weapon damage plus 137 to 147. May only be performed from behind the target. Requires a...</td>\n</tr>",
+          "printed_cells": {
+            "level": "26",
+            "ability": "Backstab III",
+            "school": null,
+            "cost": "25",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Backstabs your target, inflicting 300% weapon damage plus 137 to 147. May only be performed from behind the target. Requires a..."
+          },
+          "links": [
+            {
+              "text": "Backstab III",
+              "href": "/abilities/backstab-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 13,
+          "source_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/deadly-strike-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/deadly-strike-i\">Deadly Strike I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A deadly attack that increases melee damage by 294. Deals an additional 154 to 166 damage on a critical hit. Only available...</td>\n</tr>",
+          "printed_cells": {
+            "level": "26",
+            "ability": "Deadly Strike I",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A deadly attack that increases melee damage by 294. Deals an additional 154 to 166 damage on a critical hit. Only available..."
+          },
+          "links": [
+            {
+              "text": "Deadly Strike I",
+              "href": "/abilities/deadly-strike-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 14,
+          "source_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/fade.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/fade\">Fade</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              40\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you.</td>\n</tr>",
+          "printed_cells": {
+            "level": "26",
+            "ability": "Fade",
+            "school": null,
+            "cost": "40",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you."
+          },
+          "links": [
+            {
+              "text": "Fade",
+              "href": "/abilities/fade"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 15,
+          "source_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/impale-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/impale-ii\">Impale II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Impales your opponent, creating a massive wound which causes 1519 to 1601 damage over 30 sec. Only available after performing...</td>\n</tr>",
+          "printed_cells": {
+            "level": "26",
+            "ability": "Impale II",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Impales your opponent, creating a massive wound which causes 1519 to 1601 damage over 30 sec. Only available after performing..."
+          },
+          "links": [
+            {
+              "text": "Impale II",
+              "href": "/abilities/impale-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 16,
+          "source_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<a href=\"/abilities/vicious-strike-iii\">Vicious Strike III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A vicious attack that increases melee damage by 269. Deals an additional 154 to 166 damage on a critical hit.</td>\n</tr>",
+          "printed_cells": {
+            "level": "26",
+            "ability": "Vicious Strike III",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A vicious attack that increases melee damage by 269. Deals an additional 154 to 166 damage on a critical hit."
+          },
+          "links": [
+            {
+              "text": "Vicious Strike III",
+              "href": "/abilities/vicious-strike-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 17,
+          "source_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blackjack-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blackjack-ii\">Blackjack II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Stuns the target and prevents it from calling for help for 40 seconds. May only be used on one target at a time. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "28",
+            "ability": "Blackjack II",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Stuns the target and prevents it from calling for help for 40 seconds. May only be used on one target at a time. May only be..."
+          },
+          "links": [
+            {
+              "text": "Blackjack II",
+              "href": "/abilities/blackjack-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 18,
+          "source_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/drub-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/drub-iii\">Drub III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              8\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Disorients your target, lowering its hatred of you by 1179.</td>\n</tr>",
+          "printed_cells": {
+            "level": "28",
+            "ability": "Drub III",
+            "school": null,
+            "cost": "8",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Disorients your target, lowering its hatred of you by 1179."
+          },
+          "links": [
+            {
+              "text": "Drub III",
+              "href": "/abilities/drub-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 19,
+          "source_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/elusive-mark-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/elusive-mark-ii\">Elusive Mark II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              43\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your ability to parry attacks by 55% for 14 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "28",
+            "ability": "Elusive Mark II",
+            "school": null,
+            "cost": "43",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your ability to parry attacks by 55% for 14 sec."
+          },
+          "links": [
+            {
+              "text": "Elusive Mark II",
+              "href": "/abilities/elusive-mark-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 20,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<a href=\"/abilities/blindside-iii\">Blindside III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Blindside III",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "10",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Blindside III",
+              "href": "/abilities/blindside-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 21,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/fatal-stroke-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/fatal-stroke-i\">Fatal Stroke I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A killing blow that increases melee damage by 399 to a dying target.</td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Fatal Stroke I",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A killing blow that increases melee damage by 399 to a dying target."
+          },
+          "links": [
+            {
+              "text": "Fatal Stroke I",
+              "href": "/abilities/fatal-stroke-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 22,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/hemorrhage-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/hemorrhage-iv\">Hemorrhage IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Cuts your foe deeply, causing 2447 to 2575 damage over 30 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Hemorrhage IV",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Cuts your foe deeply, causing 2447 to 2575 damage over 30 seconds."
+          },
+          "links": [
+            {
+              "text": "Hemorrhage IV",
+              "href": "/abilities/hemorrhage-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 23,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lethal-strikes-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lethal-strikes-iv\">Lethal Strikes IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              57\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases melee damage by 9% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage...</td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Lethal Strikes IV",
+            "school": null,
+            "cost": "57",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases melee damage by 9% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage..."
+          },
+          "links": [
+            {
+              "text": "Lethal Strikes IV",
+              "href": "/abilities/lethal-strikes-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 24,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ravage-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ravage-iv\">Ravage IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A surprise attack that inflicts 400% weapon damage, plus 198 to 212 and stuns your target for 3 sec. Must be behind target,...</td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Ravage IV",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A surprise attack that inflicts 400% weapon damage, plus 198 to 212 and stuns your target for 3 sec. Must be behind target,..."
+          },
+          "links": [
+            {
+              "text": "Ravage IV",
+              "href": "/abilities/ravage-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 25,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shiv-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shiv-ii\">Shiv II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 179 to 191 with each hit. Only...</td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Shiv II",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 179 to 191 with each hit. Only..."
+          },
+          "links": [
+            {
+              "text": "Shiv II",
+              "href": "/abilities/shiv-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 26,
+          "source_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/trick-attack-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/trick-attack-ii\">Trick Attack II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Deals a minor 86 to 94 damage, but increases the hatred that your foe feels for your defensive target by 981. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "30",
+            "ability": "Trick Attack II",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Deals a minor 86 to 94 damage, but increases the hatred that your foe feels for your defensive target by 981. May only be..."
+          },
+          "links": [
+            {
+              "text": "Trick Attack II",
+              "href": "/abilities/trick-attack-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "sha256": "0a825e097e624f25a472250b42f3345344e63e88e6f105c4e53e2523bffbfb69",
+      "disposition": "Extracted literal attributed cells; blank cells remain null, truncated effects remain verbatim. Units and provenance per row unresolved. No operative mechanics promoted.",
+      "rows": [
+        {
+          "row_index": 1,
+          "source_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/keen-eye-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/keen-eye-iii\">Keen Eye III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              166\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your damage by 55, your accuracy by 6% and your critical chance by 8% for 16 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "32",
+            "ability": "Keen Eye III",
+            "school": null,
+            "cost": "166",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your damage by 55, your accuracy by 6% and your critical chance by 8% for 16 sec."
+          },
+          "links": [
+            {
+              "text": "Keen Eye III",
+              "href": "/abilities/keen-eye-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 2,
+          "source_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/knee-break-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/knee-break-iv\">Knee Break IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A stomping kick that inflicts 122 to 132 damage and reduces your foe's movement by 70% for 20 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "32",
+            "ability": "Knee Break IV",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A stomping kick that inflicts 122 to 132 damage and reduces your foe's movement by 70% for 20 sec."
+          },
+          "links": [
+            {
+              "text": "Knee Break IV",
+              "href": "/abilities/knee-break-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 3,
+          "source_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-v\">Lacerate V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 1192 to 1256 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "32",
+            "ability": "Lacerate V",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 1192 to 1256 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate V",
+              "href": "/abilities/lacerate-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 4,
+          "source_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<a href=\"/abilities/rogue-ruin-ii\">Ruin II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Lowers your offensive target's damage by 12% and accuracy by 14% for 30 sec. Must be stalking your target.</td>\n</tr>",
+          "printed_cells": {
+            "level": "32",
+            "ability": "Ruin II",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Lowers your offensive target's damage by 12% and accuracy by 14% for 30 sec. Must be stalking your target."
+          },
+          "links": [
+            {
+              "text": "Ruin II",
+              "href": "/abilities/rogue-ruin-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 5,
+          "source_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shank-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shank-iii\">Shank III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 198 to 212 with each hit. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "32",
+            "ability": "Shank III",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 198 to 212 with each hit. May only be..."
+          },
+          "links": [
+            {
+              "text": "Shank III",
+              "href": "/abilities/shank-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 6,
+          "source_row_html": "<tr>\n<td class=\"num\">32</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/wicked-strike-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/wicked-strike-v\">Wicked Strike V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Melee attack</td>\n</tr>",
+          "printed_cells": {
+            "level": "32",
+            "ability": "Wicked Strike V",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Melee attack"
+          },
+          "links": [
+            {
+              "text": "Wicked Strike V",
+              "href": "/abilities/wicked-strike-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 7,
+          "source_row_html": "<tr>\n<td class=\"num\">34</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/backstab-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/backstab-iv\">Backstab IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Backstabs your target, inflicting 300% weapon damage plus 182 to 194. May only be performed from behind the target. Requires a...</td>\n</tr>",
+          "printed_cells": {
+            "level": "34",
+            "ability": "Backstab IV",
+            "school": null,
+            "cost": "25",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Backstabs your target, inflicting 300% weapon damage plus 182 to 194. May only be performed from behind the target. Requires a..."
+          },
+          "links": [
+            {
+              "text": "Backstab IV",
+              "href": "/abilities/backstab-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 8,
+          "source_row_html": "<tr>\n<td class=\"num\">34</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/deadly-strike-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/deadly-strike-ii\">Deadly Strike II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A deadly attack that increases melee damage by 388. Deals an additional 204 to 218 damage on a critical hit. Only available...</td>\n</tr>",
+          "printed_cells": {
+            "level": "34",
+            "ability": "Deadly Strike II",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A deadly attack that increases melee damage by 388. Deals an additional 204 to 218 damage on a critical hit. Only available..."
+          },
+          "links": [
+            {
+              "text": "Deadly Strike II",
+              "href": "/abilities/deadly-strike-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 9,
+          "source_row_html": "<tr>\n<td class=\"num\">34</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/impale-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/impale-iii\">Impale III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Impales your opponent, creating a massive wound which causes 2011 to 2117 damage over 30 sec. Only available after performing...</td>\n</tr>",
+          "printed_cells": {
+            "level": "34",
+            "ability": "Impale III",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Impales your opponent, creating a massive wound which causes 2011 to 2117 damage over 30 sec. Only available after performing..."
+          },
+          "links": [
+            {
+              "text": "Impale III",
+              "href": "/abilities/impale-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 10,
+          "source_row_html": "<tr>\n<td class=\"num\">34</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/vicious-strike-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/vicious-strike-iv\">Vicious Strike IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              7\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Chain melee attack (only available after landing a melee critical hit)</td>\n</tr>",
+          "printed_cells": {
+            "level": "34",
+            "ability": "Vicious Strike IV",
+            "school": null,
+            "cost": "7",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Chain melee attack (only available after landing a melee critical hit)"
+          },
+          "links": [
+            {
+              "text": "Vicious Strike IV",
+              "href": "/abilities/vicious-strike-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 11,
+          "source_row_html": "<tr>\n<td class=\"num\">34</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/vital-strikes-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/vital-strikes-i\">Vital Strikes I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              340\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your critical chance by 100% for 6 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "34",
+            "ability": "Vital Strikes I",
+            "school": null,
+            "cost": "340",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your critical chance by 100% for 6 sec."
+          },
+          "links": [
+            {
+              "text": "Vital Strikes I",
+              "href": "/abilities/vital-strikes-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 12,
+          "source_row_html": "<tr>\n<td class=\"num\">36</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/arc-of-daggers-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/arc-of-daggers-iii\">Arc of Daggers III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              40\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5 - 15</td>\n<td class=\"muted\">You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 32 to 37. Requires 4...</td>\n</tr>",
+          "printed_cells": {
+            "level": "36",
+            "ability": "Arc of Daggers III",
+            "school": null,
+            "cost": "40",
+            "cast": "Instant",
+            "range": "5 - 15",
+            "effect": "You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 32 to 37. Requires 4..."
+          },
+          "links": [
+            {
+              "text": "Arc of Daggers III",
+              "href": "/abilities/arc-of-daggers-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 13,
+          "source_row_html": "<tr>\n<td class=\"num\">36</td>\n<td>\n<a href=\"/abilities/deathwhirl-i\">Deathwhirl I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "36",
+            "ability": "Deathwhirl I",
+            "school": null,
+            "cost": null,
+            "cast": null,
+            "range": null,
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Deathwhirl I",
+              "href": "/abilities/deathwhirl-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 14,
+          "source_row_html": "<tr>\n<td class=\"num\">36</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/drub-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/drub-iv\">Drub IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              8\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Disorients your target, lowering its hatred of you by 1537.</td>\n</tr>",
+          "printed_cells": {
+            "level": "36",
+            "ability": "Drub IV",
+            "school": null,
+            "cost": "8",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Disorients your target, lowering its hatred of you by 1537."
+          },
+          "links": [
+            {
+              "text": "Drub IV",
+              "href": "/abilities/drub-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 15,
+          "source_row_html": "<tr>\n<td class=\"num\">36</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/revenge-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/revenge-iv\">Revenge IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful parry, dealing 150% weapon damage plus 108 to 116.</td>\n</tr>",
+          "printed_cells": {
+            "level": "36",
+            "ability": "Revenge IV",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Counterattack after a successful parry, dealing 150% weapon damage plus 108 to 116."
+          },
+          "links": [
+            {
+              "text": "Revenge IV",
+              "href": "/abilities/revenge-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 16,
+          "source_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/fatal-stroke-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/fatal-stroke-ii\">Fatal Stroke II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A killing blow that increases melee damage by 514 to a dying target.</td>\n</tr>",
+          "printed_cells": {
+            "level": "38",
+            "ability": "Fatal Stroke II",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A killing blow that increases melee damage by 514 to a dying target."
+          },
+          "links": [
+            {
+              "text": "Fatal Stroke II",
+              "href": "/abilities/fatal-stroke-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 17,
+          "source_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/hemorrhage-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/hemorrhage-v\">Hemorrhage V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Cuts your foe deeply, causing 3153 to 3317 damage over 30 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "38",
+            "ability": "Hemorrhage V",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Cuts your foe deeply, causing 3153 to 3317 damage over 30 seconds."
+          },
+          "links": [
+            {
+              "text": "Hemorrhage V",
+              "href": "/abilities/hemorrhage-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 18,
+          "source_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/quickblade.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/quickblade\">Quickblade</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              226\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Causes you to strike a second time when you perform some special attacks, dealing additional damage for 8 sec. Attacks that...</td>\n</tr>",
+          "printed_cells": {
+            "level": "38",
+            "ability": "Quickblade",
+            "school": null,
+            "cost": "226",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Causes you to strike a second time when you perform some special attacks, dealing additional damage for 8 sec. Attacks that..."
+          },
+          "links": [
+            {
+              "text": "Quickblade",
+              "href": "/abilities/quickblade"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 19,
+          "source_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ravage-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ravage-v\">Ravage V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A surprise attack that inflicts 400% weapon damage, plus 257 to 273 and stuns your target for 3 sec. Must be behind target,...</td>\n</tr>",
+          "printed_cells": {
+            "level": "38",
+            "ability": "Ravage V",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A surprise attack that inflicts 400% weapon damage, plus 257 to 273 and stuns your target for 3 sec. Must be behind target,..."
+          },
+          "links": [
+            {
+              "text": "Ravage V",
+              "href": "/abilities/ravage-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 20,
+          "source_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shiv-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shiv-iii\">Shiv III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 231 to 245 with each hit. Only...</td>\n</tr>",
+          "printed_cells": {
+            "level": "38",
+            "ability": "Shiv III",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 231 to 245 with each hit. Only..."
+          },
+          "links": [
+            {
+              "text": "Shiv III",
+              "href": "/abilities/shiv-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 21,
+          "source_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/trick-attack-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/trick-attack-iii\">Trick Attack III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Deals a minor 112 to 120 damage, but increases the hatred that your foe feels for your defensive target by 1263. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "38",
+            "ability": "Trick Attack III",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Deals a minor 112 to 120 damage, but increases the hatred that your foe feels for your defensive target by 1263. May only be..."
+          },
+          "links": [
+            {
+              "text": "Trick Attack III",
+              "href": "/abilities/trick-attack-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 22,
+          "source_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blackjack-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blackjack-iii\">Blackjack III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Stuns the target and prevents it from calling for help for 50 seconds. May only be used on one target at a time. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "40",
+            "ability": "Blackjack III",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Stuns the target and prevents it from calling for help for 50 seconds. May only be used on one target at a time. May only be..."
+          },
+          "links": [
+            {
+              "text": "Blackjack III",
+              "href": "/abilities/blackjack-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 23,
+          "source_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/death-whirl-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/death-whirl-i\">Death Whirl I</a>\n</td>\n<td class=\"muted\">unavailable</td>\n<td class=\"num muted\">\n              24\n            </td>\n<td class=\"muted\">?</td>\n<td class=\"num muted\">?</td>\n<td class=\"muted\">75% damage to all nearby opponents and if you have their back plus 200 to 214 damage</td>\n</tr>",
+          "printed_cells": {
+            "level": "40",
+            "ability": "Death Whirl I",
+            "school": "unavailable",
+            "cost": "24",
+            "cast": "?",
+            "range": "?",
+            "effect": "75% damage to all nearby opponents and if you have their back plus 200 to 214 damage"
+          },
+          "links": [
+            {
+              "text": "Death Whirl I",
+              "href": "/abilities/death-whirl-i"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 24,
+          "source_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-vi.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-vi\">Lacerate VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 1441 to 1517 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "40",
+            "ability": "Lacerate VI",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 1441 to 1517 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate VI",
+              "href": "/abilities/lacerate-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 25,
+          "source_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lethal-strikes-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lethal-strikes-v\">Lethal Strikes V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              57\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases melee damage by 10% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage...</td>\n</tr>",
+          "printed_cells": {
+            "level": "40",
+            "ability": "Lethal Strikes V",
+            "school": null,
+            "cost": "57",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases melee damage by 10% while active. Using Lethal Strikes for 8 sec will result in Bloodlust, further increasing damage..."
+          },
+          "links": [
+            {
+              "text": "Lethal Strikes V",
+              "href": "/abilities/lethal-strikes-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 26,
+          "source_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/wicked-strike-vi.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/wicked-strike-vi\">Wicked Strike VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A cruel strike that inflicts melee damage plus 130.</td>\n</tr>",
+          "printed_cells": {
+            "level": "40",
+            "ability": "Wicked Strike VI",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A cruel strike that inflicts melee damage plus 130."
+          },
+          "links": [
+            {
+              "text": "Wicked Strike VI",
+              "href": "/abilities/wicked-strike-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "sha256": "443e061058f8d81807f41181ac1d3225d482c905641addd09e55c00e7fe1ae95",
+      "disposition": "Extracted literal attributed cells; blank cells remain null, truncated effects remain verbatim. Units and provenance per row unresolved. No operative mechanics promoted.",
+      "rows": [
+        {
+          "row_index": 1,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/backstab-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/backstab-v\">Backstab V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Backstabs your target, inflicting 300% weapon damage plus 230 to 244. May only be performed from behind the target. Requires a...</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Backstab V",
+            "school": null,
+            "cost": "25",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Backstabs your target, inflicting 300% weapon damage plus 230 to 244. May only be performed from behind the target. Requires a..."
+          },
+          "links": [
+            {
+              "text": "Backstab V",
+              "href": "/abilities/backstab-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 2,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/deadly-strike-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/deadly-strike-iii\">Deadly Strike III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A deadly attack that increases melee damage by 489. Deals an additional 259 to 275 damage on a critical hit. Only available...</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Deadly Strike III",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A deadly attack that increases melee damage by 489. Deals an additional 259 to 275 damage on a critical hit. Only available..."
+          },
+          "links": [
+            {
+              "text": "Deadly Strike III",
+              "href": "/abilities/deadly-strike-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 3,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/impale-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/impale-iv\">Impale IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Impales your opponent, creating a massive wound which causes 2540 to 2674 damage over 30 sec. Only available after performing...</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Impale IV",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Impales your opponent, creating a massive wound which causes 2540 to 2674 damage over 30 sec. Only available after performing..."
+          },
+          "links": [
+            {
+              "text": "Impale IV",
+              "href": "/abilities/impale-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 4,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/keen-eye-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/keen-eye-iv\">Keen Eye IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              203\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your damage by 70, your accuracy by 6% and your critical chance by 8% for 18 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Keen Eye IV",
+            "school": null,
+            "cost": "203",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your damage by 70, your accuracy by 6% and your critical chance by 8% for 18 sec."
+          },
+          "links": [
+            {
+              "text": "Keen Eye IV",
+              "href": "/abilities/keen-eye-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 5,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<a href=\"/abilities/keen-eye-v\">Keen Eye V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Keen Eye V",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Keen Eye V",
+              "href": "/abilities/keen-eye-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 6,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/knee-break-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/knee-break-v\">Knee Break V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A stomping kick that inflicts 164 to 176 damage and reduces your foe's movement by 70% for 20 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Knee Break V",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A stomping kick that inflicts 164 to 176 damage and reduces your foe's movement by 70% for 20 sec."
+          },
+          "links": [
+            {
+              "text": "Knee Break V",
+              "href": "/abilities/knee-break-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 7,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shank-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shank-iv\">Shank IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 266 to 282 with each hit. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Shank IV",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "You rapidly stab your opponent twice in the back, inflicting 350% weapon damage plus 266 to 282 with each hit. May only be..."
+          },
+          "links": [
+            {
+              "text": "Shank IV",
+              "href": "/abilities/shank-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 8,
+          "source_row_html": "<tr>\n<td class=\"num\">42</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/vicious-strike-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/vicious-strike-v\">Vicious Strike V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A vicious attack that increases melee damage by 448. Deals an additional 259 to 275 damage on a critical hit.</td>\n</tr>",
+          "printed_cells": {
+            "level": "42",
+            "ability": "Vicious Strike V",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A vicious attack that increases melee damage by 448. Deals an additional 259 to 275 damage on a critical hit."
+          },
+          "links": [
+            {
+              "text": "Vicious Strike V",
+              "href": "/abilities/vicious-strike-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 9,
+          "source_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<a href=\"/abilities/backstab-vi\">Backstab VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "44",
+            "ability": "Backstab VI",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Backstab VI",
+              "href": "/abilities/backstab-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 10,
+          "source_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/drub-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/drub-v\">Drub V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              8\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Disorients your target, lowering its hatred of you by 1919.</td>\n</tr>",
+          "printed_cells": {
+            "level": "44",
+            "ability": "Drub V",
+            "school": null,
+            "cost": "8",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Disorients your target, lowering its hatred of you by 1919."
+          },
+          "links": [
+            {
+              "text": "Drub V",
+              "href": "/abilities/drub-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 11,
+          "source_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/eviscerate.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/eviscerate\">Eviscerate</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              36\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A massive strike that deals 450% weapon damage and causes 4692 to 4936 damage over 30 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "44",
+            "ability": "Eviscerate",
+            "school": null,
+            "cost": "36",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A massive strike that deals 450% weapon damage and causes 4692 to 4936 damage over 30 sec."
+          },
+          "links": [
+            {
+              "text": "Eviscerate",
+              "href": "/abilities/eviscerate"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 12,
+          "source_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/revenge-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/revenge-v\">Revenge V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful parry, dealing 150% weapon damage plus 135 to 145.</td>\n</tr>",
+          "printed_cells": {
+            "level": "44",
+            "ability": "Revenge V",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Counterattack after a successful parry, dealing 150% weapon damage plus 135 to 145."
+          },
+          "links": [
+            {
+              "text": "Revenge V",
+              "href": "/abilities/revenge-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 13,
+          "source_row_html": "<tr>\n<td class=\"num\">44</td>\n<td>\n<a href=\"/abilities/rogue-ruin-iii\">Ruin III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Lowers your offensive target's damage by 14% and accuracy by 16% for 30 sec. Must be stalking your target.</td>\n</tr>",
+          "printed_cells": {
+            "level": "44",
+            "ability": "Ruin III",
+            "school": null,
+            "cost": "15",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Lowers your offensive target's damage by 14% and accuracy by 16% for 30 sec. Must be stalking your target."
+          },
+          "links": [
+            {
+              "text": "Ruin III",
+              "href": "/abilities/rogue-ruin-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 14,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/arc-of-daggers-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/arc-of-daggers-iv\">Arc of Daggers IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              49\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5 - 15</td>\n<td class=\"muted\">You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 43 to 47. Requires 4...</td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Arc of Daggers IV",
+            "school": null,
+            "cost": "49",
+            "cast": "Instant",
+            "range": "5 - 15",
+            "effect": "You throw a deadly arc of daggers, hitting up to 4 opponents in front of you for 75% weapon damage plus 43 to 47. Requires 4..."
+          },
+          "links": [
+            {
+              "text": "Arc of Daggers IV",
+              "href": "/abilities/arc-of-daggers-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 15,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<a href=\"/abilities/deathwhirl-ii\">Deathwhirl II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Deathwhirl II",
+            "school": null,
+            "cost": null,
+            "cast": null,
+            "range": null,
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Deathwhirl II",
+              "href": "/abilities/deathwhirl-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 16,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/elusive-mark-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/elusive-mark-iii\">Elusive Mark III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              66\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your ability to parry attacks by 60% for 16 sec.</td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Elusive Mark III",
+            "school": null,
+            "cost": "66",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Increases your ability to parry attacks by 60% for 16 sec."
+          },
+          "links": [
+            {
+              "text": "Elusive Mark III",
+              "href": "/abilities/elusive-mark-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 17,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/fatal-stroke-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/fatal-stroke-iii\">Fatal Stroke III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A killing blow that increases melee damage by 637 to a dying target.</td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Fatal Stroke III",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A killing blow that increases melee damage by 637 to a dying target."
+          },
+          "links": [
+            {
+              "text": "Fatal Stroke III",
+              "href": "/abilities/fatal-stroke-iii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 18,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<a href=\"/abilities/hemorrhage-vi\">Hemorrhage VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Hemorrhage VI",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Hemorrhage VI",
+              "href": "/abilities/hemorrhage-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 19,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ravage-vi.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ravage-vi\">Ravage VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A surprise attack that inflicts 400% weapon damage, plus 318 to 338 and stuns your target for 3 sec. Must be behind target,...</td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Ravage VI",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A surprise attack that inflicts 400% weapon damage, plus 318 to 338 and stuns your target for 3 sec. Must be behind target,..."
+          },
+          "links": [
+            {
+              "text": "Ravage VI",
+              "href": "/abilities/ravage-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 20,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shiv-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shiv-iv\">Shiv IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 286 to 304 with each hit. Only...</td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Shiv IV",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A savage assault that stabs your opponent twice in the back, inflicting 350% weapon damage plus 286 to 304 with each hit. Only..."
+          },
+          "links": [
+            {
+              "text": "Shiv IV",
+              "href": "/abilities/shiv-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 21,
+          "source_row_html": "<tr>\n<td class=\"num\">46</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/trick-attack-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/trick-attack-iv\">Trick Attack IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Deals a minor 140 to 150 damage, but increases the hatred that your foe feels for your defensive target by 1564. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "46",
+            "ability": "Trick Attack IV",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Deals a minor 140 to 150 damage, but increases the hatred that your foe feels for your defensive target by 1564. May only be..."
+          },
+          "links": [
+            {
+              "text": "Trick Attack IV",
+              "href": "/abilities/trick-attack-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 22,
+          "source_row_html": "<tr>\n<td class=\"num\">48</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/escape.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/escape\">Escape</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              276\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Causes all nearby opponents to completely forget about their hatred of you. It also places you into an advanced form of...</td>\n</tr>",
+          "printed_cells": {
+            "level": "48",
+            "ability": "Escape",
+            "school": null,
+            "cost": "276",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Causes all nearby opponents to completely forget about their hatred of you. It also places you into an advanced form of..."
+          },
+          "links": [
+            {
+              "text": "Escape",
+              "href": "/abilities/escape"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 23,
+          "source_row_html": "<tr>\n<td class=\"num\">48</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/lacerate-vii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/lacerate-vii\">Lacerate VII</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Slashes your target, inflicting 1557 to 1639 damage over 15 seconds.</td>\n</tr>",
+          "printed_cells": {
+            "level": "48",
+            "ability": "Lacerate VII",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Slashes your target, inflicting 1557 to 1639 damage over 15 seconds."
+          },
+          "links": [
+            {
+              "text": "Lacerate VII",
+              "href": "/abilities/lacerate-vii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 24,
+          "source_row_html": "<tr>\n<td class=\"num\">48</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/wicked-strike-vii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/wicked-strike-vii\">Wicked Strike VII</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A cruel strike that inflicts melee damage plus 160.</td>\n</tr>",
+          "printed_cells": {
+            "level": "48",
+            "ability": "Wicked Strike VII",
+            "school": null,
+            "cost": "18",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A cruel strike that inflicts melee damage plus 160."
+          },
+          "links": [
+            {
+              "text": "Wicked Strike VII",
+              "href": "/abilities/wicked-strike-vii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 25,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blackjack-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blackjack-iv\">Blackjack IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Stuns the target and prevents it from calling for help for 60 seconds. May only be used on one target at a time. May only be...</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Blackjack IV",
+            "school": null,
+            "cost": "20",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Stuns the target and prevents it from calling for help for 60 seconds. May only be used on one target at a time. May only be..."
+          },
+          "links": [
+            {
+              "text": "Blackjack IV",
+              "href": "/abilities/blackjack-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 26,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/deadly-strike-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/deadly-strike-iv\">Deadly Strike IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A deadly attack that increases melee damage by 542. Deals an additional 286 to 304 damage on a critical hit. Only available...</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Deadly Strike IV",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A deadly attack that increases melee damage by 542. Deals an additional 286 to 304 damage on a critical hit. Only available..."
+          },
+          "links": [
+            {
+              "text": "Deadly Strike IV",
+              "href": "/abilities/deadly-strike-iv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 27,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/death-whirl-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/death-whirl-ii\">Death Whirl II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              24\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Area of effect melee attack ( learned ability )</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Death Whirl II",
+            "school": null,
+            "cost": "24",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Area of effect melee attack ( learned ability )"
+          },
+          "links": [
+            {
+              "text": "Death Whirl II",
+              "href": "/abilities/death-whirl-ii"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 28,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/impale-v.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/impale-v\">Impale V</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Impales your opponent, creating a massive wound which causes 2809 to 2957 damage over 30 sec. Only available after performing...</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Impale V",
+            "school": null,
+            "cost": "10",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Impales your opponent, creating a massive wound which causes 2809 to 2957 damage over 30 sec. Only available after performing..."
+          },
+          "links": [
+            {
+              "text": "Impale V",
+              "href": "/abilities/impale-v"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 29,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/imperil.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/imperil\">Imperil</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              287\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You expose your target's weak points, increasing the chance of critical melee attacks by 100% for the next 4 sec for all...</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Imperil",
+            "school": null,
+            "cost": "287",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "You expose your target's weak points, increasing the chance of critical melee attacks by 100% for the next 4 sec for all..."
+          },
+          "links": [
+            {
+              "text": "Imperil",
+              "href": "/abilities/imperil"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 30,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/revenge-vi.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/revenge-vi\">Revenge VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful parry, dealing 150% weapon damage plus 142 to 152.</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Revenge VI",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "Counterattack after a successful parry, dealing 150% weapon damage plus 142 to 152."
+          },
+          "links": [
+            {
+              "text": "Revenge VI",
+              "href": "/abilities/revenge-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 31,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shroud-of-shadow.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shroud-of-shadow\">Shroud of Shadow</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              143\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">You become one with the shadows around you, instantly entering the maximum level of stalking. Only usable while stalking.</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Shroud of Shadow",
+            "school": null,
+            "cost": "143",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "You become one with the shadows around you, instantly entering the maximum level of stalking. Only usable while stalking."
+          },
+          "links": [
+            {
+              "text": "Shroud of Shadow",
+              "href": "/abilities/shroud-of-shadow"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 32,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-backstab\">Superior Backstab</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Backstab",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Backstab",
+              "href": "/abilities/superior-backstab"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 33,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-drub\">Superior Drub</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Drub",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Drub",
+              "href": "/abilities/superior-drub"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 34,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-eviscerate\">Superior Eviscerate</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Eviscerate",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Eviscerate",
+              "href": "/abilities/superior-eviscerate"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 35,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-fatal-stroke\">Superior Fatal Stroke</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Fatal Stroke",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Fatal Stroke",
+              "href": "/abilities/superior-fatal-stroke"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 36,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-hemorrhage\">Superior Hemorrhage</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Hemorrhage",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Hemorrhage",
+              "href": "/abilities/superior-hemorrhage"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 37,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-shank\">Superior Shank</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Shank",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Shank",
+              "href": "/abilities/superior-shank"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 38,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<a href=\"/abilities/superior-shiv\">Superior Shiv</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\"></td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Superior Shiv",
+            "school": null,
+            "cost": null,
+            "cast": "0",
+            "range": "5",
+            "effect": null
+          },
+          "links": [
+            {
+              "text": "Superior Shiv",
+              "href": "/abilities/superior-shiv"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        },
+        {
+          "row_index": 39,
+          "source_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/vicious-strike-vi.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/vicious-strike-vi\">Vicious Strike VI</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              9\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A vicious attack that increases melee damage by 497. Deals an additional 286 to 304 damage on a critical hit.</td>\n</tr>",
+          "printed_cells": {
+            "level": "50",
+            "ability": "Vicious Strike VI",
+            "school": null,
+            "cost": "9",
+            "cast": "Instant",
+            "range": "5",
+            "effect": "A vicious attack that increases melee damage by 497. Deals an additional 286 to 304 damage on a critical hit."
+          },
+          "links": [
+            {
+              "text": "Vicious Strike VI",
+              "href": "/abilities/vicious-strike-vi"
+            }
+          ],
+          "canonical_client_id": null,
+          "historical_era": null,
+          "operative_values": null,
+          "conversion_ready": false
+        }
+      ]
+    }
+  ],
+  "prose_dispositions": [
+    {
+      "index": 0,
+      "evidence": {
+        "tag": "p",
+        "html": "<p class=\"muted\">\n    Offensive Fighter\n    \n    · <code>ROG</code>\n    · game id 21\n  </p>",
+        "text": "Offensive Fighter\n    \n    · ROG · game id 21",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Archive class label and source-local game id only; canonical client identity remains null."
+    },
+    {
+      "index": 1,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/items?class=21\">Gear usable by Rogues</a></li>",
+        "text": "Gear usable by Rogues",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 2,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities?class=21\">All Rogue abilities</a></li>",
+        "text": "All Rogue abilities",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 3,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/classes/rogue/trainers\"><strong>Class trainers</strong></a>\n          — 12 who teach Rogues</li>",
+        "text": "Class trainers — 12 who teach Rogues",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 4,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/classes/rogue/stances\"><strong>Stances</strong></a></li>",
+        "text": "Stances",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 5,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/classes/rogue/stealth\"><strong>Stealth</strong></a></li>",
+        "text": "Stealth",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 6,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/classes/rogue/armor-sets\"><strong>Armor Sets</strong></a></li>",
+        "text": "Armor Sets",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 7,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/classes/rogue/poisons\"><strong>Poison crafting recipes</strong></a>\n          — 28 poisons, flechettes, darts and scrolls</li>",
+        "text": "Poison crafting recipes — 28 poisons, flechettes, darts and scrolls",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    },
+    {
+      "index": 8,
+      "evidence": {
+        "tag": "p",
+        "html": "<p class=\"muted\">\n    Forms this class can adopt, each changing how its abilities behave.\n  </p>",
+        "text": "Forms this class can adopt, each changing how its abilities behave.",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Generic form description; no individual mechanic inferred."
+    },
+    {
+      "index": 9,
+      "evidence": {
+        "tag": "p",
+        "html": "<p class=\"muted\">\n    Not taught by a trainer — these come from a tome, a dropped item or\n    a quest. Where the quest that grants one is known it is linked; where only\n    a phrase survives, that phrase is shown as it stands.\n  </p>",
+        "text": "Not taught by a trainer — these come from a tome, a dropped item or\n    a quest. Where the quest that grants one is known it is linked; where only\n    a phrase survives, that phrase is shown as it stands.",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Generic acquisition qualification; no specific prerequisite inferred."
+    },
+    {
+      "index": 10,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/deathwhirl-i\">Deathwhirl I</a>\n<span class=\"muted\">— level 36</span>\n<br/><span class=\"muted small\">Graystone</span>\n</li>",
+        "text": "Deathwhirl I — level 36 Graystone",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Literal acquisition observation. Deathwhirl and Death Whirl spellings have differing printed levels and locations; preserve separate full source evidence without identity merging or operative acquisition claims."
+    },
+    {
+      "index": 11,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/death-whirl-i\">Death Whirl I</a>\n<span class=\"muted\">— level 40</span>\n<br/><span class=\"muted small\">Graystone, Rakshasa Citadel</span>\n</li>",
+        "text": "Death Whirl I — level 40 Graystone, Rakshasa Citadel",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Literal acquisition observation. Deathwhirl and Death Whirl spellings have differing printed levels and locations; preserve separate full source evidence without identity merging or operative acquisition claims."
+    },
+    {
+      "index": 12,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/deathwhirl-ii\">Deathwhirl II</a>\n<span class=\"muted\">— level 46</span>\n<br/><span class=\"muted small\">Rahz Inkur</span>\n</li>",
+        "text": "Deathwhirl II — level 46 Rahz Inkur",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Literal acquisition observation. Deathwhirl and Death Whirl spellings have differing printed levels and locations; preserve separate full source evidence without identity merging or operative acquisition claims."
+    },
+    {
+      "index": 13,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/death-whirl-ii\">Death Whirl II</a>\n<span class=\"muted\">— level 50</span>\n<br/><span class=\"muted small\">Rhaz</span>\n</li>",
+        "text": "Death Whirl II — level 50 Rhaz",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Literal acquisition observation. Deathwhirl and Death Whirl spellings have differing printed levels and locations; preserve separate full source evidence without identity merging or operative acquisition claims."
+    },
+    {
+      "index": 14,
+      "evidence": {
+        "tag": "p",
+        "html": "<p class=\"muted\">\n    Written by players while Vanguard was running, and mirrored here.\n  </p>",
+        "text": "Written by players while Vanguard was running, and mirrored here.",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 15,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/guides/safehouse-poison-devices\">Poison &amp; Devices</a>\n<span class=\"muted small\">— The Safehouse</span>\n<span class=\"muted small\">· By Nocte and the Resident Rogues Mar 20, 2007, 12:19</span>\n</li>",
+        "text": "Poison & Devices — The Safehouse · By Nocte and the Resident Rogues Mar 20, 2007, 12:19",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 16,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/guides/05-13-08-rogue-skills-1-25\">05.13.08 - Rogue Skills 1-25</a>\n<span class=\"muted small\">— Ten Ton Hammer</span>\n<span class=\"muted small\">· Dalmarus</span>\n</li>",
+        "text": "05.13.08 - Rogue Skills 1-25 — Ten Ton Hammer · Dalmarus",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 17,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/guides/1-19-07-rog-creation-guide\">1.19.07 ROG Creation Guide</a>\n<span class=\"muted small\">— Ten Ton Hammer</span>\n<span class=\"muted small\">· Ralsu</span>\n</li>",
+        "text": "1.19.07 ROG Creation Guide — Ten Ton Hammer · Ralsu",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 18,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/guides/2-23-07-rogue-skills-26-50\">2.23.07 - Rogue Skills 26-50</a>\n<span class=\"muted small\">— Ten Ton Hammer</span>\n<span class=\"muted small\">· Shayalyn</span>\n</li>",
+        "text": "2.23.07 - Rogue Skills 26-50 — Ten Ton Hammer · Shayalyn",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 19,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/guides/5-30-07-rogue-bugs-amp-issues-may-2007\">5.30.07 - Rogue Bugs &amp;amp; Issues May 2007</a>\n<span class=\"muted small\">— Ten Ton Hammer</span>\n<span class=\"muted small\">· Shayalyn</span>\n</li>",
+        "text": "5.30.07 - Rogue Bugs &amp; Issues May 2007 — Ten Ton Hammer · Shayalyn",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 20,
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/guides/sub-portal-rogue\">Sub-portal: ROGUE</a>\n<span class=\"muted small\">— Ten Ton Hammer</span>\n<span class=\"muted small\">· Shayalyn</span>\n</li>",
+        "text": "Sub-portal: ROGUE — Ten Ton Hammer · Shayalyn",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Player-source attribution or guide title only. Mirroring is not independent corroboration; dates and linked titles do not authenticate mechanics."
+    },
+    {
+      "index": 21,
+      "evidence": {
+        "tag": "p",
+        "html": "<p class=\"muted\">\n    These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 135 abilities,\n      113 have had their tooltip read in game.\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.\n  </p>",
+        "text": "These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 135 abilities,\n      113 have had their tooltip read in game.\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Explicit warning about unconfirmed fan-wiki figures and modern emulator tooltips. Counts and disagreement rates remain archive assertions; no historical authentication inferred."
+    },
+    {
+      "index": 22,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/assassin-s-guile\">Assassin's Guile</a>\n<span class=\"muted\">— level 1</span>\n</li>",
+        "text": "Assassin's Guile — level 1",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 23,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/pickpocket-i\">Pickpocket I</a>\n<span class=\"muted\">— level 4</span>\n</li>",
+        "text": "Pickpocket I — level 4",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 24,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/wicked-strike-ii\">Wicked Strike II</a>\n<span class=\"muted\">— level 8</span>\n</li>",
+        "text": "Wicked Strike II — level 8",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 25,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/knee-break-ii\">Knee Break II</a>\n<span class=\"muted\">— level 12</span>\n</li>",
+        "text": "Knee Break II — level 12",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 26,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/blindside-ii\">Blindside II</a>\n<span class=\"muted\">— level 20</span>\n</li>",
+        "text": "Blindside II — level 20",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 27,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/blindside-iii\">Blindside III</a>\n<span class=\"muted\">— level 30</span>\n</li>",
+        "text": "Blindside III — level 30",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 28,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/wicked-strike-v\">Wicked Strike V</a>\n<span class=\"muted\">— level 32</span>\n</li>",
+        "text": "Wicked Strike V — level 32",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 29,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/vicious-strike-iv\">Vicious Strike IV</a>\n<span class=\"muted\">— level 34</span>\n</li>",
+        "text": "Vicious Strike IV — level 34",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 30,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/keen-eye-v\">Keen Eye V</a>\n<span class=\"muted\">— level 42</span>\n</li>",
+        "text": "Keen Eye V — level 42",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 31,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/backstab-vi\">Backstab VI</a>\n<span class=\"muted\">— level 44</span>\n</li>",
+        "text": "Backstab VI — level 44",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 32,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/hemorrhage-vi\">Hemorrhage VI</a>\n<span class=\"muted\">— level 46</span>\n</li>",
+        "text": "Hemorrhage VI — level 46",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 33,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-backstab\">Superior Backstab</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Backstab — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 34,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-drub\">Superior Drub</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Drub — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 35,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-eviscerate\">Superior Eviscerate</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Eviscerate — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 36,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-fatal-stroke\">Superior Fatal Stroke</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Fatal Stroke — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 37,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-hemorrhage\">Superior Hemorrhage</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Hemorrhage — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 38,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-shank\">Superior Shank</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Shank — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 39,
+      "evidence": {
+        "tag": "li",
+        "html": "<li><a href=\"/abilities/superior-shiv\">Superior Shiv</a>\n<span class=\"muted\">— level 50</span>\n</li>",
+        "text": "Superior Shiv — level 50",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Ability label within explicitly unconfirmed wiki section; printed level remains attributed text, with operative value and historical applicability null."
+    },
+    {
+      "index": 40,
+      "evidence": {
+        "tag": "p",
+        "html": "<p style=\"margin-top:26px\"><a href=\"/classes\">← All classes</a></p>",
+        "text": "← All classes",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "disposition": "Navigation or section label only; no operative mechanics inferred."
+    }
+  ],
+  "summary": {
+    "tables_reviewed": 5,
+    "attributed_table_rows": 135,
+    "prose_blocks_dispositioned": 41,
+    "remaining_scope_audit_tables": 17,
+    "remaining_scope_audit_prose_blocks": 217,
+    "validation_issues": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "limitations": [
+    "Full typed ability record comparison and historical provenance review remain pending.",
+    "No network access, canonical matching, inferred units, completion claim or suspension reset."
+  ],
+  "unresolved_collisions": [
+    {
+      "kind": "possible_same_rank_acquisition_claim_conflict",
+      "label": "Deathwhirl I / Death Whirl I",
+      "source_url": "https://vgsoharchive.com/classes/rogue",
+      "full_source_records": [
+        {
+          "tag": "li",
+          "html": "<li>\n<a href=\"/abilities/deathwhirl-i\">Deathwhirl I</a>\n<span class=\"muted\">— level 36</span>\n<br/><span class=\"muted small\">Graystone</span>\n</li>",
+          "text": "Deathwhirl I — level 36 Graystone",
+          "review_status": "unreviewed prose; no game fact promoted"
+        },
+        {
+          "tag": "li",
+          "html": "<li>\n<a href=\"/abilities/death-whirl-i\">Death Whirl I</a>\n<span class=\"muted\">— level 40</span>\n<br/><span class=\"muted small\">Graystone, Rakshasa Citadel</span>\n</li>",
+          "text": "Death Whirl I — level 40 Graystone, Rakshasa Citadel",
+          "review_status": "unreviewed prose; no game fact promoted"
+        }
+      ],
+      "resolved_identity": null,
+      "operative_level": null,
+      "resolved_acquisition": null,
+      "disposition": "Withheld: spelling similarity does not establish identity, and conflicting levels and locations cannot be reconciled from this page."
+    },
+    {
+      "kind": "possible_same_rank_acquisition_claim_conflict",
+      "label": "Deathwhirl II / Death Whirl II",
+      "source_url": "https://vgsoharchive.com/classes/rogue",
+      "full_source_records": [
+        {
+          "tag": "li",
+          "html": "<li>\n<a href=\"/abilities/deathwhirl-ii\">Deathwhirl II</a>\n<span class=\"muted\">— level 46</span>\n<br/><span class=\"muted small\">Rahz Inkur</span>\n</li>",
+          "text": "Deathwhirl II — level 46 Rahz Inkur",
+          "review_status": "unreviewed prose; no game fact promoted"
+        },
+        {
+          "tag": "li",
+          "html": "<li>\n<a href=\"/abilities/death-whirl-ii\">Death Whirl II</a>\n<span class=\"muted\">— level 50</span>\n<br/><span class=\"muted small\">Rhaz</span>\n</li>",
+          "text": "Death Whirl II — level 50 Rhaz",
+          "review_status": "unreviewed prose; no game fact promoted"
+        }
+      ],
+      "resolved_identity": null,
+      "operative_level": null,
+      "resolved_acquisition": null,
+      "disposition": "Withheld: spelling similarity does not establish identity, and conflicting levels and locations cannot be reconciled from this page."
+    }
+  ],
+  "acquisition_observations": [
+    {
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/deathwhirl-i\">Deathwhirl I</a>\n<span class=\"muted\">— level 36</span>\n<br/><span class=\"muted small\">Graystone</span>\n</li>",
+        "text": "Deathwhirl I — level 36 Graystone",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "canonical_client_id": null,
+      "historical_era": null,
+      "resolved_acquisition": null,
+      "operative_level": null
+    },
+    {
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/death-whirl-i\">Death Whirl I</a>\n<span class=\"muted\">— level 40</span>\n<br/><span class=\"muted small\">Graystone, Rakshasa Citadel</span>\n</li>",
+        "text": "Death Whirl I — level 40 Graystone, Rakshasa Citadel",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "canonical_client_id": null,
+      "historical_era": null,
+      "resolved_acquisition": null,
+      "operative_level": null
+    },
+    {
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/deathwhirl-ii\">Deathwhirl II</a>\n<span class=\"muted\">— level 46</span>\n<br/><span class=\"muted small\">Rahz Inkur</span>\n</li>",
+        "text": "Deathwhirl II — level 46 Rahz Inkur",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "canonical_client_id": null,
+      "historical_era": null,
+      "resolved_acquisition": null,
+      "operative_level": null
+    },
+    {
+      "evidence": {
+        "tag": "li",
+        "html": "<li>\n<a href=\"/abilities/death-whirl-ii\">Death Whirl II</a>\n<span class=\"muted\">— level 50</span>\n<br/><span class=\"muted small\">Rhaz</span>\n</li>",
+        "text": "Death Whirl II — level 50 Rhaz",
+        "review_status": "unreviewed prose; no game fact promoted"
+      },
+      "canonical_client_id": null,
+      "historical_era": null,
+      "resolved_acquisition": null,
+      "operative_level": null
+    }
+  ]
+}
