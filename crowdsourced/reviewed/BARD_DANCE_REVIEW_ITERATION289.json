@@ -1,0 +1,313 @@
+{
+  "review_kind": "bard_dance_progression_source_observations",
+  "network_requests": 0,
+  "input_sha256": {
+    "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source": {
+    "url": "https://vgsoharchive.com/classes/bard/dances",
+    "cache_stored_bytes_sha256": "bc6a0f8ab1b923163ab3cb35347929ace43b884b8c2f8799b0fea2fa8086d9b9",
+    "cache_normalized_text_sha256": "d295ca02774d79f6cdb487777e76b851010b39267b67ac63a0ec7c09c73e0995",
+    "sidecar_sha256": "d295ca02774d79f6cdb487777e76b851010b39267b67ac63a0ec7c09c73e0995",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Bard — Dances",
+          "url": "https://vgsoharchive.com/classes/bard/dances",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:07:00+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Bard — Dances",
+          "url": "https://vgsoharchive.com/classes/bard/dances",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/adventuring:bard-dances"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 3,
+    "tables": [
+      {
+        "preceding_heading": null,
+        "row_count": 2,
+        "rows": [
+          [
+            "",
+            "Dance of Blades: This dance increases melee damage. It is useful in groups against tough foes."
+          ],
+          [
+            "",
+            "+4% when activated +6% at level 1 +8% at level 2 +10% at level 3 +14% at level 4 +24% at level 5"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Dance of Blades:</strong><br/>\nThis dance increases melee damage. It is useful in groups against tough foes.</td>\n</tr>\n<tr>\n<td></td>\n<td>+4% when activated<br/>\n+6% at level 1<br/>\n+8% at level 2<br/>\n+10% at level 3<br/>\n+14% at level 4<br/>\n+24% at level 5</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      },
+      {
+        "preceding_heading": null,
+        "row_count": 2,
+        "rows": [
+          [
+            "",
+            "Water Dance: This dance increases evasion, dodge, and parry. It is useful solo."
+          ],
+          [
+            "",
+            "+5% evade when activated +6% evade at level 1 +7% evade at level 2, +3% dodge and parry +8% evade at level 3, +4% dodge and parry +9% evade at level 4, +6% dodge and parry +18% evade at level 5, +12% dodge and parry"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Water Dance:</strong><br/>\nThis dance increases evasion, dodge, and parry. It is useful solo.</td>\n</tr>\n<tr>\n<td></td>\n<td>+5% evade when activated<br/>\n+6% evade at level 1<br/>\n+7% evade at level 2, +3% dodge and parry<br/>\n+8% evade at level 3, +4% dodge and parry<br/>\n+9% evade at level 4, +6% dodge and parry<br/>\n+18% evade at level 5, +12% dodge and parry</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      },
+      {
+        "preceding_heading": null,
+        "row_count": 2,
+        "rows": [
+          [
+            "",
+            "Careen of the Cunning: This dance increases accuracy rating and the chance to score a critical hit. It is useful for normal grinding in groups."
+          ],
+          [
+            "",
+            "+2% accuracy when activated, +1% critical chance +3% accuracy when activated, +1% critical chance +4% accuracy when activated, +2% critical chance +5% accuracy when activated, +2% critical chance +6% accuracy when activated, +3% critical chance +12% accuracy when activated, +6% critical chance"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Careen of the Cunning:</strong><br/>\nThis dance increases accuracy rating and the chance to score a critical hit. It is useful for normal grinding in groups.</td>\n</tr>\n<tr>\n<td></td>\n<td>+2% accuracy when activated, +1% critical chance<br/>\n+3% accuracy when activated, +1% critical chance<br/>\n+4% accuracy when activated, +2% critical chance<br/>\n+5% accuracy when activated, +2% critical chance<br/>\n+6% accuracy when activated, +3% critical chance<br/>\n+12% accuracy when activated, +6% critical chance</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "observations": [
+    {
+      "name_as_printed": "Dance of Blades",
+      "description_as_printed": "Dance of Blades: This dance increases melee damage. It is useful in groups against tough foes.",
+      "table_index": 0,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Dance of Blades:</strong><br/>\nThis dance increases melee damage. It is useful in groups against tough foes.</td>\n</tr>\n<tr>\n<td></td>\n<td>+4% when activated<br/>\n+6% at level 1<br/>\n+8% at level 2<br/>\n+10% at level 3<br/>\n+14% at level 4<br/>\n+24% at level 5</td>\n</tr>\n</table>",
+      "progression_observations": [
+        {
+          "line_index": 0,
+          "text_as_printed": "+4% when activated",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 1,
+          "text_as_printed": "+6% at level 1",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "1",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 2,
+          "text_as_printed": "+8% at level 2",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "2",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 3,
+          "text_as_printed": "+10% at level 3",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "3",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 4,
+          "text_as_printed": "+14% at level 4",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "4",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 5,
+          "text_as_printed": "+24% at level 5",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "5",
+          "level_semantics": null,
+          "operative_values": null
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "review_status": "source_labels_preserved_level_semantics_unresolved",
+      "operative_progression": null
+    },
+    {
+      "name_as_printed": "Water Dance",
+      "description_as_printed": "Water Dance: This dance increases evasion, dodge, and parry. It is useful solo.",
+      "table_index": 1,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Water Dance:</strong><br/>\nThis dance increases evasion, dodge, and parry. It is useful solo.</td>\n</tr>\n<tr>\n<td></td>\n<td>+5% evade when activated<br/>\n+6% evade at level 1<br/>\n+7% evade at level 2, +3% dodge and parry<br/>\n+8% evade at level 3, +4% dodge and parry<br/>\n+9% evade at level 4, +6% dodge and parry<br/>\n+18% evade at level 5, +12% dodge and parry</td>\n</tr>\n</table>",
+      "progression_observations": [
+        {
+          "line_index": 0,
+          "text_as_printed": "+5% evade when activated",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 1,
+          "text_as_printed": "+6% evade at level 1",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "1",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 2,
+          "text_as_printed": "+7% evade at level 2, +3% dodge and parry",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "2",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 3,
+          "text_as_printed": "+8% evade at level 3, +4% dodge and parry",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "3",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 4,
+          "text_as_printed": "+9% evade at level 4, +6% dodge and parry",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "4",
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 5,
+          "text_as_printed": "+18% evade at level 5, +12% dodge and parry",
+          "activation_label_as_printed": null,
+          "level_label_as_printed": "5",
+          "level_semantics": null,
+          "operative_values": null
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "review_status": "source_labels_preserved_level_semantics_unresolved",
+      "operative_progression": null
+    },
+    {
+      "name_as_printed": "Careen of the Cunning",
+      "description_as_printed": "Careen of the Cunning: This dance increases accuracy rating and the chance to score a critical hit. It is useful for normal grinding in groups.",
+      "table_index": 2,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Careen of the Cunning:</strong><br/>\nThis dance increases accuracy rating and the chance to score a critical hit. It is useful for normal grinding in groups.</td>\n</tr>\n<tr>\n<td></td>\n<td>+2% accuracy when activated, +1% critical chance<br/>\n+3% accuracy when activated, +1% critical chance<br/>\n+4% accuracy when activated, +2% critical chance<br/>\n+5% accuracy when activated, +2% critical chance<br/>\n+6% accuracy when activated, +3% critical chance<br/>\n+12% accuracy when activated, +6% critical chance</td>\n</tr>\n</table>",
+      "progression_observations": [
+        {
+          "line_index": 0,
+          "text_as_printed": "+2% accuracy when activated, +1% critical chance",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 1,
+          "text_as_printed": "+3% accuracy when activated, +1% critical chance",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 2,
+          "text_as_printed": "+4% accuracy when activated, +2% critical chance",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 3,
+          "text_as_printed": "+5% accuracy when activated, +2% critical chance",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 4,
+          "text_as_printed": "+6% accuracy when activated, +3% critical chance",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        },
+        {
+          "line_index": 5,
+          "text_as_printed": "+12% accuracy when activated, +6% critical chance",
+          "activation_label_as_printed": "when activated",
+          "level_label_as_printed": null,
+          "level_semantics": null,
+          "operative_values": null
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "review_status": "ambiguous_repeated_activation_label",
+      "operative_progression": null
+    }
+  ],
+  "collision_review": {
+    "name": "Careen of the Cunning",
+    "issue": "All six different accuracy/critical pairs carry the same when activated label. No levels are printed. Sequence position does not establish a rank or level.",
+    "full_source_evidence": "source.tables[2] and observations[2] preserve the full table; source.source_records preserves both original records.",
+    "resolution": "withhold operative values and progression; retain every source line without assigning ranks"
+  },
+  "policy": "Guide claims are source observations, not independently verified live-era mechanics. Printed level labels do not establish character level, dance rank or required level. Percentages remain in verbatim observations. No identity matching, canonical ID assignment or operative import. Mirrored Telon Project provenance is not independent corroboration.",
+  "summary": {
+    "pages": 1,
+    "tables": 3,
+    "dance_observations": 3,
+    "progression_lines": 18,
+    "unresolved_progression_collisions": 1,
+    "validation_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "remaining_work": "Other supplemental tables, uncached source pages, historical verification and canonical identities remain pending. Network suspension preserved."
+}
