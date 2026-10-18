@@ -1,0 +1,878 @@
+{
+  "review_kind": "blood_mage_effect_difference_cached_html_disposition",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/BLOOD_MAGE_DETAIL_FIELD_COMPARISON_ITERATION387.json",
+      "sha256": "a6c22d63e67dbaaf3260807e2ea1fe855908769af8e79da3102a90e1ae9ed38d"
+    },
+    {
+      "path": "reviewed/BLOOD_MAGE_LANDING_PAGE_COVERAGE_ITERATION365.json",
+      "sha256": "3031af413b19ad6d44faa6acacd71951bcf2edf5793fe08a96a98fff66000234"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/1a7237d790018263f13d5b6c3320679e99e4e4f4d9994dfbfb87eb121487e78c.txt",
+    "sha256": "1cd8c5817ffdd49388989c817853cdca90b41bb70d76e8619d63dfba2ea07cc1"
+  },
+  "class_provenance_warning": "These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 181 abilities,\n      146 have had their tooltip read in game.\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.",
+  "rows": [
+    {
+      "name": "Favor of the Life Giver I",
+      "table_index": 0,
+      "row_index": 3,
+      "printed_cells": {
+        "level": "1",
+        "ability": "Favor of the Life Giver I",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your targets group with power.\n+14 Constitution\n+7 Vitality\n+16 Intelligence\n+11 Wisdom\n+150 Hit Points\n+2 Hit Point..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">1</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/favor-of-the-life-giver-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/favor-of-the-life-giver-i\">Favor of the Life Giver I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your targets group with power.\n+14 Constitution\n+7 Vitality\n+16 Intelligence\n+11 Wisdom\n+150 Hit Points\n+2 Hit Point...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i",
+      "detail_cache": {
+        "path": ".cache/archive/e9fb87568231c9324b0c8e08e6fe6b5470d356e21cb13212f9a83f3483854763.txt",
+        "sha256": "f1c500ac3671b123366340173a7f955b03265384fcf07aa59a235176e68e907e"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/favor-of-the-life-giver-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Favor of the Life Giver I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/blood-mage\">Blood Mage</a>\n    \n    · Level 1\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your targets group with power.\n+14 Constitution\n+7 Vitality\n+16 Intelligence\n+11 Wisdom\n+150 Hit Points\n+2 Hit Point Regeneration\n+40 Physical Resistance</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “TGB: CON, VIT, INT, WIS, HP, Health regen, Physical resist” (https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>1</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon1052.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your targets group with power.\n+14 Constitution\n+7 Vitality\n+16 Intelligence\n+11 Wisdom\n+150 Hit Points\n+2 Hit Point Regeneration\n+40 Physical Resistance</div>",
+      "current_effect_literal": "Fills your targets group with power.\n+14 Constitution\n+7 Vitality\n+16 Intelligence\n+11 Wisdom\n+150 Hit Points\n+2 Hit Point Regeneration\n+40 Physical Resistance",
+      "omitted_suffix_after_literal_prefix": " Regeneration\n+40 Physical Resistance",
+      "source_record": {
+        "name": "Favor of the Life Giver I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i",
+            "title": "Favor of the Life Giver I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 14,
+        "collected_at": "2026-10-14T03:03:43+00:00",
+        "archive_fields": {
+          "level": [
+            "1"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "icon": [
+            "Icon1052.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blood Mage",
+            "url": "https://vgsoharchive.com/classes/blood-mage"
+          }
+        ],
+        "type": "ability",
+        "class": "Blood Mage",
+        "level_learned": 1,
+        "rank": "I",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your targets group with power.\n+14 Constitution\n+7 Vitality\n+16 Intelligence\n+11 Wisdom\n+150 Hit Points\n+2 Hit Point Regeneration\n+40 Physical Resistance",
+        "icon_name": "Icon1052.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c2bb4fe74e6fc92da7325776614fec478790724f3e82b56c0e7e90d931660260"
+        }
+      ],
+      "disposition": "Class-table display truncation: after removing exactly the terminal three-dot marker, the entire printed effect is an exact prefix of the current detail tooltip. No contradictory effect wording observed in this pair. This does not validate the underlying mechanic, historical applicability or source independence.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Favor of the Life Giver II",
+      "table_index": 0,
+      "row_index": 22,
+      "printed_cells": {
+        "level": "10",
+        "ability": "Favor of the Life Giver II",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Fills your targets group with power.\n+28 Constitution\n+14 Vitality\n+32 Intelligence\n+22 Wisdom\n+300 Hit Points\n+3 Hit Point..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/favor-of-the-life-giver-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/favor-of-the-life-giver-ii\">Favor of the Life Giver II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Fills your targets group with power.\n+28 Constitution\n+14 Vitality\n+32 Intelligence\n+22 Wisdom\n+300 Hit Points\n+3 Hit Point...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii",
+      "detail_cache": {
+        "path": ".cache/archive/9b8c61d8b28a036a18e6a9465e8ded6e0f671fa31ec1d141b10b184f31e25398.txt",
+        "sha256": "559e3d13afa491b683426188574360d0dbe0ae51aab566366738267424182c87"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/favor-of-the-life-giver-ii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Favor of the Life Giver II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/blood-mage\">Blood Mage</a>\n    \n    · Level 10\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills your targets group with power.\n+28 Constitution\n+14 Vitality\n+32 Intelligence\n+22 Wisdom\n+300 Hit Points\n+3 Hit Point Regeneration\n+80 Physical Resistance</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “TGB: CON, VIT, INT, WIS, HP, Health regen, Physical resist” (https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Group</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon1052.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Fills your targets group with power.\n+28 Constitution\n+14 Vitality\n+32 Intelligence\n+22 Wisdom\n+300 Hit Points\n+3 Hit Point Regeneration\n+80 Physical Resistance</div>",
+      "current_effect_literal": "Fills your targets group with power.\n+28 Constitution\n+14 Vitality\n+32 Intelligence\n+22 Wisdom\n+300 Hit Points\n+3 Hit Point Regeneration\n+80 Physical Resistance",
+      "omitted_suffix_after_literal_prefix": " Regeneration\n+80 Physical Resistance",
+      "source_record": {
+        "name": "Favor of the Life Giver II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii",
+            "title": "Favor of the Life Giver II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 14,
+        "collected_at": "2026-10-14T03:05:18+00:00",
+        "archive_fields": {
+          "level": [
+            "10"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Alteration"
+          ],
+          "icon": [
+            "Icon1052.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blood Mage",
+            "url": "https://vgsoharchive.com/classes/blood-mage"
+          }
+        ],
+        "type": "ability",
+        "class": "Blood Mage",
+        "level_learned": 10,
+        "rank": "II",
+        "category": "Alteration",
+        "cost": null,
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Fills your targets group with power.\n+28 Constitution\n+14 Vitality\n+32 Intelligence\n+22 Wisdom\n+300 Hit Points\n+3 Hit Point Regeneration\n+80 Physical Resistance",
+        "icon_name": "Icon1052.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "5595540641ee4c37a76217d761a8cd914975896310277d8b3f740d91b79a9278"
+        }
+      ],
+      "disposition": "Class-table display truncation: after removing exactly the terminal three-dot marker, the entire printed effect is an exact prefix of the current detail tooltip. No contradictory effect wording observed in this pair. This does not validate the underlying mechanic, historical applicability or source independence.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "table_index": 1,
+      "row_index": 16,
+      "printed_cells": {
+        "level": "16",
+        "ability": "Serak's Mantle I",
+        "school": "Conjuration",
+        "cost": "66",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/serak-s-mantle-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/serak-s-mantle-i\">Serak's Mantle I</a>\n</td>\n<td class=\"muted\">Conjuration</td>\n<td class=\"num muted\">\n              66\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "detail_cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/serak-s-mantle-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Serak's Mantle I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/blood-mage\">Blood Mage</a>\n    \n    · Level 16\n    · Conjuration\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>33\n                <span class=\"muted\">— now 66</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">Increases your armor class . The amount of armor class given increases with your adventuring level</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034635id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>4\n                <span class=\"muted\">— now 16</span></dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>4\n                <span class=\"muted\">— now 16</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>33\n                <span class=\"muted\">— now 66</span></dd></div>\n</dl>\n<div class=\"tooltip\">Increases your armor class. The amount of armor class gained increases with your adventuring level.</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by an earlier source as: “Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level”</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>16</dd></div>\n<div><dt>energy cost</dt><dd>66</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Conjuration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon663.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Serak%27s_Mantle\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>",
+      "current_effect_literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+      "omitted_suffix_after_literal_prefix": " not stack with Construct's Augmentation.",
+      "source_record": {
+        "name": "Serak's Mantle I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+            "title": "Serak's Mantle I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 14,
+        "collected_at": "2026-10-14T03:06:58+00:00",
+        "archive_fields": {
+          "energy then": [
+            "33 — now 66",
+            "33 — now 66"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "level in 2007": [
+            "4 — now 16"
+          ],
+          "level in 2007-2008": [
+            "4 — now 16"
+          ],
+          "level": [
+            "16"
+          ],
+          "energy cost": [
+            "66"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "Nones"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Conjuration"
+          ],
+          "icon": [
+            "Icon663.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blood Mage",
+            "url": "https://vgsoharchive.com/classes/blood-mage"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Blood Mage",
+        "level_learned": 16,
+        "rank": "I",
+        "category": "Conjuration",
+        "cost": {
+          "energy": 66
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+        "icon_name": "Icon663.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 4,
+            "raw": "4 — now 16"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 4,
+            "raw": "4 — now 16"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/20130227034635id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_I",
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        ],
+        "cost_observations": {
+          "energy": [
+            66
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://vanguard.fandom.com/wiki/Serak%27s_Mantle"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "disposition": "Class-table display truncation: after removing exactly the terminal three-dot marker, the entire printed effect is an exact prefix of the current detail tooltip. No contradictory effect wording observed in this pair. This does not validate the underlying mechanic, historical applicability or source independence.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle II",
+      "table_index": 2,
+      "row_index": 24,
+      "printed_cells": {
+        "level": "28",
+        "ability": "Serak's Mantle II",
+        "school": null,
+        "cost": "100",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/serak-s-mantle-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/serak-s-mantle-ii\">Serak's Mantle II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              100\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/serak-s-mantle-ii",
+      "detail_cache": {
+        "path": ".cache/archive/285296902655b4de3ea63a4a622f1b9c64235f43889946a4cd1f713fd22d0965.txt",
+        "sha256": "8511a5130f86310b549c9cff1eb3df9715c00d19aff0d47ff076bb40c123c10e"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/serak-s-mantle-ii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Serak's Mantle II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/blood-mage\">Blood Mage</a>\n    \n    · Level 28\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>65\n                <span class=\"muted\">— now 100</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">Increases your armor class</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034638id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>16\n                <span class=\"muted\">— now 28</span></dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>16\n                <span class=\"muted\">— now 28</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>65\n                <span class=\"muted\">— now 100</span></dd></div>\n</dl>\n<div class=\"tooltip\">Increases your armor class. The amount of armor class gained increases with your adventuring level.</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by mmodb as: “Increases the casters armor class” (http://vg.mmodb.com:80/spells/seraks-mantle-ii-771.php)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>28</dd></div>\n<div><dt>energy cost</dt><dd>100</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Conjuration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon663.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://vg.mmodb.com:80/spells/seraks-mantle-ii-771.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>",
+      "current_effect_literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+      "omitted_suffix_after_literal_prefix": " not stack with Construct's Augmentation.",
+      "source_record": {
+        "name": "Serak's Mantle II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/serak-s-mantle-ii",
+            "title": "Serak's Mantle II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:22:18+00:00",
+        "archive_fields": {
+          "energy then": [
+            "65 — now 100",
+            "65 — now 100"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "level in 2007": [
+            "16 — now 28"
+          ],
+          "level in 2007-2008": [
+            "16 — now 28"
+          ],
+          "level": [
+            "28"
+          ],
+          "energy cost": [
+            "100"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "Nones"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Conjuration"
+          ],
+          "icon": [
+            "Icon663.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blood Mage",
+            "url": "https://vgsoharchive.com/classes/blood-mage"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Blood Mage",
+        "level_learned": 28,
+        "rank": "II",
+        "category": "Conjuration",
+        "cost": {
+          "energy": 100
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+        "icon_name": "Icon663.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 16,
+            "raw": "16 — now 28"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 16,
+            "raw": "16 — now 28"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/20130227034638id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_II",
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        ],
+        "cost_observations": {
+          "energy": [
+            100
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://vg.mmodb.com:80/spells/seraks-mantle-ii-771.php"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "5a76c429775f4ef96b7fffed3a65656ddddd089b962d15ef47ed3238bd7b46df"
+        }
+      ],
+      "disposition": "Class-table display truncation: after removing exactly the terminal three-dot marker, the entire printed effect is an exact prefix of the current detail tooltip. No contradictory effect wording observed in this pair. This does not validate the underlying mechanic, historical applicability or source independence.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle III",
+      "table_index": 3,
+      "row_index": 37,
+      "printed_cells": {
+        "level": "40",
+        "ability": "Serak's Mantle III",
+        "school": null,
+        "cost": "134",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">40</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/serak-s-mantle-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/serak-s-mantle-iii\">Serak's Mantle III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              134\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/serak-s-mantle-iii",
+      "detail_cache": {
+        "path": ".cache/archive/82f1065226b2db6d77542df89e8b4abf9b561997fab5c61a93cc62e92630ddea.txt",
+        "sha256": "e4cc4af32bc00b5de34fbd15354999b52d136fd6025cb048a1a2973d6e0984ee"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/serak-s-mantle-iii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Serak's Mantle III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/blood-mage\">Blood Mage</a>\n    \n    · Level 40\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>113\n                <span class=\"muted\">— now 134</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">Increases your armor class</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034646id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_III\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>28\n                <span class=\"muted\">— now 40</span></dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Self buff increasing your AC and HP” (https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>40</dd></div>\n<div><dt>energy cost</dt><dd>134</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Conjuration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon663.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>",
+      "current_effect_literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+      "omitted_suffix_after_literal_prefix": " not stack with Construct's Augmentation.",
+      "source_record": {
+        "name": "Serak's Mantle III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/serak-s-mantle-iii",
+            "title": "Serak's Mantle III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:22:23+00:00",
+        "archive_fields": {
+          "energy then": [
+            "113 — now 134"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "level in 2007": [
+            "28 — now 40"
+          ],
+          "level": [
+            "40"
+          ],
+          "energy cost": [
+            "134"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "Nones"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Conjuration"
+          ],
+          "icon": [
+            "Icon663.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blood Mage",
+            "url": "https://vgsoharchive.com/classes/blood-mage"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Blood Mage",
+        "level_learned": 40,
+        "rank": "III",
+        "category": "Conjuration",
+        "cost": {
+          "energy": 134
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+        "icon_name": "Icon663.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 28,
+            "raw": "28 — now 40"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/20130227034646id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_III",
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        ],
+        "cost_observations": {
+          "energy": [
+            134
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "4c537bb6ca85250cc58c37ad5a521b19d2da707ebcc642e5d608da1d8d852127"
+        }
+      ],
+      "disposition": "Class-table display truncation: after removing exactly the terminal three-dot marker, the entire printed effect is an exact prefix of the current detail tooltip. No contradictory effect wording observed in this pair. This does not validate the underlying mechanic, historical applicability or source independence.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle IV",
+      "table_index": 4,
+      "row_index": 43,
+      "printed_cells": {
+        "level": "50",
+        "ability": "Serak's Mantle IV",
+        "school": null,
+        "cost": "143",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/serak-s-mantle-iv.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/serak-s-mantle-iv\">Serak's Mantle IV</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              143\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/serak-s-mantle-iv",
+      "detail_cache": {
+        "path": ".cache/archive/f593356e5c7c5567dbcb77ed0201d4d6d6edc96814f6ee926aa6cf75c6623142.txt",
+        "sha256": "68352f682bfebf0ab4d36fb21226685969209c214dea488fd25c15ece2a44533"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/serak-s-mantle-iv.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Serak's Mantle IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/blood-mage\">Blood Mage</a>\n    \n    · Level 50\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">Increases your armor class</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034653id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_IV\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>40\n                <span class=\"muted\">— now 50</span></dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “Self buff increasing your AC and HP” (https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>50</dd></div>\n<div><dt>energy cost</dt><dd>143</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>Nones</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Conjuration</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon663.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "current_effect_html": "<div class=\"tooltip\">Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.</div>",
+      "current_effect_literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+      "omitted_suffix_after_literal_prefix": " not stack with Construct's Augmentation.",
+      "source_record": {
+        "name": "Serak's Mantle IV",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/serak-s-mantle-iv",
+            "title": "Serak's Mantle IV · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:22:28+00:00",
+        "archive_fields": {
+          "cast then": [
+            "0"
+          ],
+          "level in 2007": [
+            "40 — now 50"
+          ],
+          "level": [
+            "50"
+          ],
+          "energy cost": [
+            "143"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "Nones"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Conjuration"
+          ],
+          "icon": [
+            "Icon663.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Blood Mage",
+            "url": "https://vgsoharchive.com/classes/blood-mage"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Blood Mage",
+        "level_learned": 50,
+        "rank": "IV",
+        "category": "Conjuration",
+        "cost": {
+          "energy": 143
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+        "icon_name": "Icon663.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 40,
+            "raw": "40 — now 50"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/20130227034653id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_IV",
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        ],
+        "cost_observations": {
+          "energy": [
+            143
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+        ]
+      },
+      "source_record_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 65,
+          "record_sha256": "a5b0a69317577f637b888c63084c4292c12395d1e8c99578a72a00098e0615f3"
+        }
+      ],
+      "disposition": "Class-table display truncation: after removing exactly the terminal three-dot marker, the entire printed effect is an exact prefix of the current detail tooltip. No contradictory effect wording observed in this pair. This does not validate the underlying mechanic, historical applicability or source independence.",
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "effect_differences_reviewed": 6,
+    "exact_prefix_display_truncations": 6,
+    "contradictory_effect_wording_observed": 0,
+    "range_differences_still_requiring_review": 0,
+    "absent_detail_tooltips_still_requiring_review": 79
+  },
+  "qualifications": [
+    "Same archive and mirrored historical sources are not independent corroboration.",
+    "Favor of the Life Giver printed bonuses remain attributed observations, without proof of historical applicability or independent corroboration.",
+    "Serak mantle tooltips provide no numeric armor or health scaling; missing magnitudes remain unknown and the printed stacking claim is not promoted to an operative rule.",
+    "All other class comparisons, collection queues and required source reviews remain pending."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "cached_html_files_verified": 7,
+    "exact_class_rows_verified": 6,
+    "exact_detail_tooltips_verified": 6,
+    "exact_jsonl_source_records_verified": 6,
+    "issues": 0
+  }
+}
