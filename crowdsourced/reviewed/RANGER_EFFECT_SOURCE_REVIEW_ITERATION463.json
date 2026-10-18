@@ -1,0 +1,2603 @@
+{
+  "review_kind": "ranger_effect_source_review",
+  "input_review": {
+    "path": "reviewed/RANGER_TYPED_FIELD_COVERAGE_ITERATION461.json",
+    "sha256": "972e552363c408aa59adcb66e3ea0f20f2632ad3115ff5e98a2441e91eda9ba4"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "class_cache": {
+    "path": ".cache/archive/0f7d4b621d0fba2593f88c6780c169849cd54e299ba815cab95d9920e2c101d1.txt",
+    "sha256": "6e2bc49e01ecd72e49c56d943380cf092f6797caea0a65b7a1a00df1f93de36a"
+  },
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Intercept I",
+      "table_index": 1,
+      "row_index": 3,
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/intercept-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/intercept-i\">Intercept I</a>\n</td>\n<td class=\"muted\">Physical Intercept</td>\n<td class=\"num muted\">\n              22\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\">Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your...</td>\n</tr>",
+      "printed_effect": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 1374,
+            "record_sha256": "7c2bd5c2e56bea328d4ae55107be5bfc1c96bdf61a7f3c0b86696a4448de52e7",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Intercept I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-i",
+                "title": "Intercept I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept I",
+                    "url": "https://vgsoharchive.com/abilities/intercept-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Physical Intercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-i",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-i",
+          "detail_cache": {
+            "path": ".cache/archive/5b7b6e50ee46e1cccb63919d087786bd7cfcf9830d75179347efd963cb4230c5.txt",
+            "sha256": "4b6d5b89dca235d895a59f9693e6abe8c533c9e1b47da2f0b43bb07cc551e9f3"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 1374,
+            "record_sha256": "e87a0fb1d81d3553b268f9b480518a588dee100ab57d2b67294590fb5304dbf7",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Intercept I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-i",
+                "title": "Intercept I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:29+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept I",
+                    "url": "https://vgsoharchive.com/abilities/intercept-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Physical Intercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-i",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-i",
+          "detail_cache": {
+            "path": ".cache/archive/5b7b6e50ee46e1cccb63919d087786bd7cfcf9830d75179347efd963cb4230c5.txt",
+            "sha256": "4b6d5b89dca235d895a59f9693e6abe8c533c9e1b47da2f0b43bb07cc551e9f3"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 1374,
+            "record_sha256": "7c74b529f1ab5164bde365f6217d0aeef5583666514fb244dfda0735925296c6",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Intercept I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-i",
+                "title": "Intercept I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "10.0s",
+                  "seconds": 10.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept I",
+                    "url": "https://vgsoharchive.com/abilities/intercept-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Physical Intercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-i",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-i",
+          "detail_cache": {
+            "path": ".cache/archive/5b7b6e50ee46e1cccb63919d087786bd7cfcf9830d75179347efd963cb4230c5.txt",
+            "sha256": "4b6d5b89dca235d895a59f9693e6abe8c533c9e1b47da2f0b43bb07cc551e9f3"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 1374,
+            "record_sha256": "39e3da3b90427fac398f89b6b0b35f5f8e5b78c5164364301bad9995fd22a8db",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Intercept I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-i",
+                "title": "Intercept I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "10.0s",
+                  "seconds": 10.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept I",
+                    "url": "https://vgsoharchive.com/abilities/intercept-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Physical Intercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-i",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-i",
+          "detail_cache": {
+            "path": ".cache/archive/5b7b6e50ee46e1cccb63919d087786bd7cfcf9830d75179347efd963cb4230c5.txt",
+            "sha256": "4b6d5b89dca235d895a59f9693e6abe8c533c9e1b47da2f0b43bb07cc551e9f3"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 264 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Parry I",
+      "table_index": 1,
+      "row_index": 4,
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/parry-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/parry-i\">Parry I</a>\n</td>\n<td class=\"muted\">Defensive Manuever</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns...</td>\n</tr>",
+      "printed_effect": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 1802,
+            "record_sha256": "cb4a89fb858cf0c2f19f2a422bd2fdedb3cb266857be5f8f537d85be17a1efd3",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Parry I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/parry-i",
+                "title": "Parry I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "4 — now 12"
+              ],
+              "level in 2007-2008": [
+                "4 — now 12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "duration": [
+                "1 Minute"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Defensive Maneuver",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": 60,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:parry-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Parry I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Parry I",
+                    "url": "https://vgsoharchive.com/abilities/parry-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Defensive Manuever",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/parry-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/parry-i",
+          "detail_cache": {
+            "path": ".cache/archive/d7269db089331d412911c8b49fc6ea8d8a796b9d758f948226cc27d290ea6a06.txt",
+            "sha256": "ad4cd7170f3bd3d133d3bab94d3ff9d030cb829665780a76d91bba04c66f2c08"
+          },
+          "effect_literal": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 1802,
+            "record_sha256": "145b9bf6c8e869c80ec0f64a31c753b1678fe514a744a3ba67d65dce550b7491",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Parry I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/parry-i",
+                "title": "Parry I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:30+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "4 — now 12"
+              ],
+              "level in 2007-2008": [
+                "4 — now 12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "duration": [
+                "1 Minute"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Defensive Maneuver",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": 60,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:parry-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Parry I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Parry I",
+                    "url": "https://vgsoharchive.com/abilities/parry-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Defensive Manuever",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/parry-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/parry-i",
+          "detail_cache": {
+            "path": ".cache/archive/d7269db089331d412911c8b49fc6ea8d8a796b9d758f948226cc27d290ea6a06.txt",
+            "sha256": "ad4cd7170f3bd3d133d3bab94d3ff9d030cb829665780a76d91bba04c66f2c08"
+          },
+          "effect_literal": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 1802,
+            "record_sha256": "c0c2489322372f5890ae40f04106355062e407632611bc5dc3885be9c02449d5",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Parry I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/parry-i",
+                "title": "Parry I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:00+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "4 — now 12"
+              ],
+              "level in 2007-2008": [
+                "4 — now 12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "duration": [
+                "1 Minute"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Defensive Maneuver",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": 60,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "30.0s",
+                  "seconds": 30.0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "1 Minute",
+                  "seconds": 60
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:parry-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Parry I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Parry I",
+                    "url": "https://vgsoharchive.com/abilities/parry-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Defensive Manuever",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/parry-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/parry-i",
+          "detail_cache": {
+            "path": ".cache/archive/d7269db089331d412911c8b49fc6ea8d8a796b9d758f948226cc27d290ea6a06.txt",
+            "sha256": "ad4cd7170f3bd3d133d3bab94d3ff9d030cb829665780a76d91bba04c66f2c08"
+          },
+          "effect_literal": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 1802,
+            "record_sha256": "9594fd2c183114f389307c4b3c70ebdf54266d5494b1960badc24bb7138faa4c",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Parry I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/parry-i",
+                "title": "Parry I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "4 — now 12"
+              ],
+              "level in 2007-2008": [
+                "4 — now 12"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "12"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "duration": [
+                "1 Minute"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Defensive Maneuver",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": 60,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "30.0s",
+                  "seconds": 30.0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "1 Minute",
+                  "seconds": 60
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:parry-i"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Parry I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Parry I",
+                    "url": "https://vgsoharchive.com/abilities/parry-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Defensive Manuever",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/parry-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/parry-i",
+          "detail_cache": {
+            "path": ".cache/archive/d7269db089331d412911c8b49fc6ea8d8a796b9d758f948226cc27d290ea6a06.txt",
+            "sha256": "ad4cd7170f3bd3d133d3bab94d3ff9d030cb829665780a76d91bba04c66f2c08"
+          },
+          "effect_literal": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Intercept II",
+      "table_index": 1,
+      "row_index": 28,
+      "class_row_html": "<tr>\n<td class=\"num\">20</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/intercept-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/intercept-ii\">Intercept II</a>\n</td>\n<td class=\"muted\">Physical Incercept</td>\n<td class=\"num muted\">\n              22\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\">Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your...</td>\n</tr>",
+      "printed_effect": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 1375,
+            "record_sha256": "ad80247c5aaf46062afa9015d0dfd45a8bb1044381439e73a2a017f6fa3f7e39",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Intercept II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "title": "Intercept II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "20"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "20"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 20,
+            "rank": "II",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-ii"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept II",
+                    "url": "https://vgsoharchive.com/abilities/intercept-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 20,
+                "rank": "II",
+                "category": "Physical Incercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-ii",
+          "detail_cache": {
+            "path": ".cache/archive/35df4976f6eb54e27415b971fef923b6d3cf2c7faabfd21179544f19bbe54fc7.txt",
+            "sha256": "7b5db503c507713febe113767cd5526e3939cffcbb27ffc12c6735e22855d78e"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 1375,
+            "record_sha256": "597ae7a3b6ec17c037e8203b0e6f63f135480b07df5811adea40594976939eb1",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Intercept II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "title": "Intercept II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:29+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "20"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "20"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 20,
+            "rank": "II",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-ii"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept II",
+                    "url": "https://vgsoharchive.com/abilities/intercept-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 20,
+                "rank": "II",
+                "category": "Physical Incercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-ii",
+          "detail_cache": {
+            "path": ".cache/archive/35df4976f6eb54e27415b971fef923b6d3cf2c7faabfd21179544f19bbe54fc7.txt",
+            "sha256": "7b5db503c507713febe113767cd5526e3939cffcbb27ffc12c6735e22855d78e"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 1375,
+            "record_sha256": "cd2781981b5c37aa22f5f1bc100bf5bd6e42adad458cad078747cdbdc8b6c2ed",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Intercept II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "title": "Intercept II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "20"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "20"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 20,
+            "rank": "II",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "10.0s",
+                  "seconds": 10.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-ii"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept II",
+                    "url": "https://vgsoharchive.com/abilities/intercept-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 20,
+                "rank": "II",
+                "category": "Physical Incercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-ii",
+          "detail_cache": {
+            "path": ".cache/archive/35df4976f6eb54e27415b971fef923b6d3cf2c7faabfd21179544f19bbe54fc7.txt",
+            "sha256": "7b5db503c507713febe113767cd5526e3939cffcbb27ffc12c6735e22855d78e"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 1375,
+            "record_sha256": "edcb5498db8b24f69402e0c81b366609241ee51ca56c6b26b82aa807697de204",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Intercept II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "title": "Intercept II · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/ranger",
+                "title": "Ranger · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "20"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "10"
+              ],
+              "level": [
+                "20"
+              ],
+              "endurance cost": [
+                "22"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "10.0s"
+              ],
+              "range": [
+                "10m"
+              ],
+              "target": [
+                "Ally"
+              ],
+              "type": [
+                "Physical Intercept"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Ranger",
+                "url": "https://vgsoharchive.com/classes/ranger"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Ranger",
+            "level_learned": 20,
+            "rank": "II",
+            "category": "Physical Intercept",
+            "cost": {
+              "endurance": 22
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 10.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                22
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "10.0s",
+                  "seconds": 10.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:intercept-ii"
+            ],
+            "classes_recorded": [
+              "Ranger"
+            ],
+            "archive_variants": [
+              {
+                "name": "Intercept II",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/ranger",
+                    "title": "Ranger · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Intercept II",
+                    "url": "https://vgsoharchive.com/abilities/intercept-ii"
+                  }
+                ],
+                "type": "ability",
+                "class": "Ranger",
+                "level_learned": 20,
+                "rank": "II",
+                "category": "Physical Incercept",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/intercept-ii",
+                "cost_recorded": {
+                  "value": 22,
+                  "resource": null,
+                  "raw": "22"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/intercept-ii",
+          "detail_cache": {
+            "path": ".cache/archive/35df4976f6eb54e27415b971fef923b6d3cf2c7faabfd21179544f19bbe54fc7.txt",
+            "sha256": "7b5db503c507713febe113767cd5526e3939cffcbb27ffc12c6735e22855d78e"
+          },
+          "effect_literal": "Intercepts an enemy who is attacking your defensive target, dealing 125% weapon damage, adding 396 hate and rooting your opponent for 6 to 8 seconds.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "effect_difference_rows_reviewed": 3,
+    "exact_source_references": 12,
+    "detail_pages": 3,
+    "disposition": "All three class strings end in ellipsis; removing that literal ellipsis yields an exact prefix of the cached detail tooltip."
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "validation": {
+    "issues": 0,
+    "corpus_hashes_verified": 51
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes_observed": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Merged top-level tooltips are attributed to primary detail URLs, not automatically to every URL in their source list.",
+    "Full published records are retained for research. No operative mechanics, canonical identities, historical dates or missing class text are inferred.",
+    "Same-provenance snapshots are not independent corroboration. Modern emulator observations do not establish live-era mechanics.",
+    "Absent typed effects and rows without strict class snapshots remain separate coverage work."
+  ]
+}
