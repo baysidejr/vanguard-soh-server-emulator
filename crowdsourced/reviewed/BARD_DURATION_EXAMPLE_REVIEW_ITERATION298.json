@@ -1,0 +1,242 @@
+{
+  "review_kind": "bard_guide_remaining_duration_example_review",
+  "network_requests": 0,
+  "input_sha256": {
+    "reviewed/BARD_GUIDE_COVERAGE_AUDIT_ITERATION297.json": "b396578608018c59e9ba8a9b241a5b8ab86547267c2bd1c800d56a1297b5acbb",
+    "reviewed/BARD_COMPOSITION_REVIEW_ITERATION290.json": "7e901300a86d398f7fb26eeb46e2c4ac72b886dc6e836c018c1f3bf2154a6d38"
+  },
+  "source": {
+    "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+    "cache_stored_bytes_sha256": "64acdb07c442feddc3040270bd90131a60148a8387c83d83af7d0c9f38761dd1",
+    "cache_normalized_text_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "sidecar_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:07:10+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "How Instruments Work:",
+            "Instrument Mod Explanation",
+            "Voice Mods",
+            "Instrument Facts",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "How Instruments Work:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Mod Explanation",
+              "linked_entities": []
+            },
+            {
+              "heading": "Voice Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Facts",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/song-composition-guide"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": "Putting it all together (Basic Version):",
+        "row_count": 4,
+        "rows": [
+          [
+            "Melody",
+            "Anthem of War",
+            "2 energy / sec"
+          ],
+          [
+            "Embellishments",
+            "Harmony of War",
+            "4 energy / sec x3 = 12 energy / sec"
+          ],
+          [
+            "Lyrics",
+            "Hazoc's Hasty Lyric",
+            "3 energy / sec"
+          ],
+          [
+            "",
+            "Total Cost:",
+            "17 energy / sec"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>Melody</td>\n<td>Anthem of War</td>\n<td>2 energy / sec</td>\n</tr>\n<tr>\n<td>Embellishments</td>\n<td>Harmony of War</td>\n<td>4 energy / sec x3 = 12 energy / sec</td>\n</tr>\n<tr>\n<td>Lyrics</td>\n<td>Hazoc's Hasty Lyric</td>\n<td>3 energy / sec</td>\n</tr>\n<tr>\n<td></td>\n<td>Total Cost:</td>\n<td>17 energy / sec</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "observations": [
+    {
+      "observation_kind": "worked_energy_pool_duration_example",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 11,
+        "text_as_printed": "Let’s assume our NER is 8, that leaves us with a song costing 9 energy / sec. With an energy pool of 600, we can play our song for approximately 67 seconds before we run out of energy. If we add a 5 pt rest to an empty lyric slot, reducing the cost to 4 energy / sec, we can now maintain the song for 150 seconds before draining our pool. The important thing to remember when composing songs is that at any given time you may need your energy for Crowd Control and emergency situations. Never let yourself run so dry that you can’t take charge of adds.",
+        "source_html": "<p>Let’s assume our NER is 8, that leaves us with a song costing 9 energy / sec. With an energy pool of 600, we can play our song for approximately 67 seconds before we run out of energy. If we add a 5 pt rest to an empty lyric slot, reducing the cost to 4 energy / sec, we can now maintain the song for 150 seconds before draining our pool. The important thing to remember when composing songs is that at any given time you may need your energy for Crowd Control and emergency situations. Never let yourself run so dry that you can’t take charge of adds.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "NER": 8,
+        "net_energy_drain_per_second": 9,
+        "energy_pool": 600,
+        "approximate_duration_seconds": 67,
+        "rest_reduction": 5,
+        "net_drain_with_rest_per_second": 4,
+        "duration_with_rest_seconds": 150,
+        "tactical_recommendation": "Retain energy for crowd control and emergencies."
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    }
+  ],
+  "internal_checks": [
+    {
+      "expression": "600 / 9 rounded to whole seconds = 67",
+      "matches": true
+    },
+    {
+      "expression": "9 - 5 = 4",
+      "matches": true
+    },
+    {
+      "expression": "600 / 4 = 150",
+      "matches": true
+    }
+  ],
+  "review_notes": [
+    "Arithmetic treats the stated 9 energy/sec as net pool drain after NER, not gross component cost.",
+    "67 seconds is rounded from 66.666...; pulse timing, pool quantization and action costs are not established.",
+    "The example assumes constant drain and an initially available 600 energy pool; it establishes no universal duration or level requirement.",
+    "Emergency reserve advice is author opinion; no numeric reserve threshold is supplied."
+  ],
+  "coverage_resolution": {
+    "prior_unmapped_blocks": [
+      11
+    ],
+    "reviewed_here": [
+      11
+    ],
+    "remaining_unmapped_blocks": [],
+    "scope": "Only the 50 preserved prose blocks in this guide; does not prove full image/table or linked-target extraction completeness."
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "validation": {
+    "evidence_blocks_checked": 1,
+    "arithmetic_checks": 3,
+    "issues": []
+  },
+  "policy": "Offline only; suspension and queues unchanged. Shared mirror provenance is not independent corroboration. No operative facts promoted.",
+  "remaining_work": "Review separate cached Vitality Returns and Bard Gear Mod List targets, remaining supplemental evidence and all pending downloads."
+}
