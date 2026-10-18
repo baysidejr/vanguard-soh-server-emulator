@@ -1,0 +1,186 @@
+{
+  "review_kind": "shaman_epic_table_placeholder_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_census": {
+    "path": "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json",
+    "sha256": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source_page": {
+    "url": "https://vgsoharchive.com/classes/shaman/epics",
+    "cache_stored_bytes_sha256": "ad92c5a6b0b08a03e520ab3e55e42e0528ca12bab331a304b302e842d8435ea0",
+    "cache_normalized_text_sha256": "217c66e295980dac8be11482f5c79336b048abdca71df53302f17eeafe1dc755",
+    "sidecar_sha256": "217c66e295980dac8be11482f5c79336b048abdca71df53302f17eeafe1dc755",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Shaman — Epics",
+          "url": "https://vgsoharchive.com/classes/shaman/epics",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/shaman-epics"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:11:11+00:00"
+        },
+        "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+      }
+    ],
+    "table_count": 2,
+    "tables": [
+      {
+        "preceding_heading": null,
+        "row_count": 4,
+        "rows": [
+          [
+            "Primary Hand Secondary Hand Chaos Epics Order Epics Still To Come Still To Come"
+          ],
+          [
+            "",
+            "Primary Hand",
+            "Secondary Hand"
+          ],
+          [
+            "Chaos Epics",
+            "",
+            ""
+          ],
+          [
+            "Order Epics",
+            "Still To Come",
+            "Still To Come"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>\n<table>\n<tr>\n<td></td>\n<td><strong>Primary Hand</strong></td>\n<td><strong>Secondary Hand</strong></td>\n</tr>\n<tr>\n<td><strong>Chaos Epics</strong></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Order Epics</strong></td>\n<td>Still To Come</td>\n<td>Still To Come</td>\n</tr>\n</table>\n</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      },
+      {
+        "preceding_heading": null,
+        "row_count": 3,
+        "rows": [
+          [
+            "Primary Hand Epic Secondary Hand Epic"
+          ],
+          [
+            "Primary Hand Epic",
+            "Secondary Hand Epic"
+          ],
+          [
+            "",
+            ""
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>\n<table>\n<tr>\n<td><strong>Primary Hand Epic</strong></td>\n<td><strong>Secondary Hand Epic</strong></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</table>\n</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "table_evidence": [
+    {
+      "table_index": 0,
+      "source_html": "<table>\n<tr>\n<td>\n<table>\n<tr>\n<td></td>\n<td><strong>Primary Hand</strong></td>\n<td><strong>Secondary Hand</strong></td>\n</tr>\n<tr>\n<td><strong>Chaos Epics</strong></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Order Epics</strong></td>\n<td>Still To Come</td>\n<td>Still To Come</td>\n</tr>\n</table>\n</td>\n</tr>\n</table>",
+      "cells_as_printed": [
+        [
+          "Primary Hand Secondary Hand Chaos Epics Order Epics Still To Come Still To Come"
+        ],
+        [
+          "",
+          "Primary Hand",
+          "Secondary Hand"
+        ],
+        [
+          "Chaos Epics",
+          "",
+          ""
+        ],
+        [
+          "Order Epics",
+          "Still To Come",
+          "Still To Come"
+        ]
+      ],
+      "images": [],
+      "links": [],
+      "review_status": "headings_and_placeholders_only",
+      "game_fact": false,
+      "item_identity": null,
+      "item_stats": null
+    },
+    {
+      "table_index": 1,
+      "source_html": "<table>\n<tr>\n<td>\n<table>\n<tr>\n<td><strong>Primary Hand Epic</strong></td>\n<td><strong>Secondary Hand Epic</strong></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</table>\n</td>\n</tr>\n</table>",
+      "cells_as_printed": [
+        [
+          "Primary Hand Epic Secondary Hand Epic"
+        ],
+        [
+          "Primary Hand Epic",
+          "Secondary Hand Epic"
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "images": [],
+      "links": [],
+      "review_status": "headings_and_placeholders_only",
+      "game_fact": false,
+      "item_identity": null,
+      "item_stats": null
+    }
+  ],
+  "claims": [],
+  "prior_prose_review": {
+    "path": "reviewed/SHAMAN_SUPPLEMENTAL_SEMANTIC_REVIEW_ITERATION337.json",
+    "sha256": "5e626637f707877ea09f4199e77dbcc0fd1897cf4bfe624febf17f4d79714efe",
+    "relationship": "Acquisition prose reviewed separately; this review supplies table coverage only."
+  },
+  "limitations": [
+    "Chaos and Order headings do not identify canonical items.",
+    "Still To Come is an archive placeholder, not proof items did not exist.",
+    "Empty cells do not establish absent equipment or missing game statistics.",
+    "Tables contain no image or link elements; page-level images and external assets are outside this table review.",
+    "Historical applicability, canonical item identities and operative item statistics remain null."
+  ],
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "original_source_records_verified": 1,
+    "table_html_matches": 2,
+    "table_rows_verified": 7
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "table_coverage_delta": {
+    "previous_explicit_tables": 66,
+    "newly_reviewed_tables": 2,
+    "explicit_tables_after": 68,
+    "pending_table_review_or_coverage_verification": 2
+  },
+  "next_review": "Review spirit-bond mechanics and reconcile the final remaining census table against existing coverage."
+}
