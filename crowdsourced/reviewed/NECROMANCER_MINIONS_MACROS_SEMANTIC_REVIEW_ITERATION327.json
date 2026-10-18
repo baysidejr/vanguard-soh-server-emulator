@@ -1,0 +1,1165 @@
+{
+  "review_kind": "necromancer_minions_and_macros_semantic_review",
+  "network_requests": 0,
+  "source_pages": [
+    {
+      "url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "cache_stored_bytes_sha256": "d7b2dc8bb106fa384bd12587fa530a82b55535a7606b49b0d5da16656e7f0def",
+      "source_records": [
+        {
+          "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+          "record": {
+            "name": "Necromancer — Macros",
+            "url": "https://vgsoharchive.com/classes/necromancer/macros",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [
+              "Target options:",
+              "Loot your corpse quick!",
+              "Quit casting current spell and fire off that counterspell:",
+              "Abomination Commands:",
+              "Minion Commands:"
+            ],
+            "sections": [
+              {
+                "heading": "Target options:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Loot your corpse quick!",
+                "linked_entities": []
+              },
+              {
+                "heading": "Quit casting current spell and fire off that counterspell:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Abomination Commands:",
+                "linked_entities": []
+              },
+              {
+                "heading": "Minion Commands:",
+                "linked_entities": []
+              }
+            ],
+            "referenced_entities": [],
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/adventuring:necromancer-macro-s"
+            ],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:09:46+00:00"
+          },
+          "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+        }
+      ],
+      "scope": "guide-body if present, otherwise main; navigation may remain",
+      "prose_evidence": [
+        {
+          "block_index": 0,
+          "tag": "p",
+          "text_as_printed": "from vgnecro.com",
+          "source_html": "<p><sub>from vgnecro.com</sub></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 1,
+          "tag": "p",
+          "text_as_printed": "Have all exsting Pets and minions attack your target: /pet attack /minions attack",
+          "source_html": "<p>Have all exsting Pets and minions attack your target:<br/>\n/pet attack<br/>\n/minions attack</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 2,
+          "tag": "p",
+          "text_as_printed": "Have your pet use its grafts and Taunt your target: /cast \"Fist of insert name of ability here \" /cast \"Claw of insert name of ability here \" /cast \"Sneer\"",
+          "source_html": "<p>Have your pet use its grafts and Taunt your target:<br/>\n/cast \"Fist of <span>insert name of ability here</span>\"<br/>\n/cast \"Claw of <span>insert name of ability here</span>\"<br/>\n/cast \"Sneer\"</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 3,
+          "tag": "p",
+          "text_as_printed": "Note: The /cast command is case sensitive. Once you have the graft in it's slot, mouse over the graft's ability icon on your pet control bar and use the ability name exactly as it is called in the tooltip.",
+          "source_html": "<p>Note: The /cast command is case sensitive. Once you have the graft in it's slot, mouse over the graft's ability icon on your pet control bar and use the ability name exactly as it is called in the tooltip.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 4,
+          "tag": "p",
+          "text_as_printed": "Have your pet and minions disengage a target and return to you: /pet backoff /minions backoff",
+          "source_html": "<p>Have your pet and minions disengage a target and return to you:<br/>\n/pet backoff<br/>\n/minions backoff</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 5,
+          "tag": "p",
+          "text_as_printed": "Loot the targeted corpse and then Necropsy it: /lootall /cast \"Necrospy\"",
+          "source_html": "<p>Loot the targeted corpse and then Necropsy it:<br/>\n/lootall<br/>\n/cast \"Necrospy\"</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 6,
+          "tag": "p",
+          "text_as_printed": "This short macro either fully loots a corpse without confirmation or it casts necropsy. If the corpse has loot then click again for necrospy.",
+          "source_html": "<p>This short macro either fully loots a corpse without confirmation or it casts necropsy. If the corpse has loot then click again for necrospy.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 7,
+          "tag": "p",
+          "text_as_printed": "Target the Main Tank;s target have your pet / minions attack it: /assist /pet attack /minions attack",
+          "source_html": "<p>Target the Main Tank;s target have your pet / minions attack it:<br/>\n/assist<br/>\n/pet attack<br/>\n/minions attack</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 8,
+          "tag": "p",
+          "text_as_printed": "what can I target via text macro?",
+          "source_html": "<p>what can I target via text macro?</p>",
+          "preceding_heading": "Target options:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 9,
+          "tag": "p",
+          "text_as_printed": "/targetauto \"name\" (Sets your automatic target to the name in quotes) /targetdefensive \"name\" (Sets your Defensive target to the name provided) /targetoffensive \"name\" (Sets your offensive target to the name provided) /targetgroupmember # (Sets your Defensive target to thegroup member number you gave. you are group number 1, then count downward on your group list) /targetself (Sets yourself as your defensive target.. Duh) /targetnearestnpc (Sets the nearest NPC as your offensive target) /targetnearestpc (Sets the nearest PC as your defensive target) /targetmynearestcorpse (Sets your nearest tombstone as your offensive target) /targetnearestpccorpse (Sets the nearest PC tombstone as your offensive target) /targetnextcorpse (targets the next corpse as your targeted offensive target) /targetnextnode (Selects the next nearest harvesting node as your offensive target) /targetnextnpc (Selects your offensive target to the next nearest NPC) /targetnextpcdefensive (Selects your defensive target to be the next nearest PC)",
+          "source_html": "<p>/targetauto \"name\" (Sets your automatic target to the name in quotes)<br/>\n/targetdefensive \"name\" (Sets your Defensive target to the name provided)<br/>\n/targetoffensive \"name\" (Sets your offensive target to the name provided)<br/>\n/targetgroupmember # (Sets your Defensive target to thegroup member number you gave. you are group number 1, then count downward on your group list)<br/>\n/targetself (Sets yourself as your defensive target.. Duh)<br/>\n/targetnearestnpc (Sets the nearest NPC as your offensive target)<br/>\n/targetnearestpc (Sets the nearest PC as your defensive target)<br/>\n/targetmynearestcorpse (Sets your nearest tombstone as your offensive target)<br/>\n/targetnearestpccorpse (Sets the nearest PC tombstone as your offensive target)<br/>\n/targetnextcorpse (targets the next corpse as your targeted offensive target)<br/>\n/targetnextnode (Selects the next nearest harvesting node as your offensive target)<br/>\n/targetnextnpc (Selects your offensive target to the next nearest NPC)<br/>\n/targetnextpcdefensive (Selects your defensive target to be the next nearest PC)</p>",
+          "preceding_heading": "Target options:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 10,
+          "tag": "p",
+          "text_as_printed": "/targetm /corpse /lootall",
+          "source_html": "<p>/targetm<br/>\n/corpse<br/>\n/lootall</p>",
+          "preceding_heading": "Loot your corpse quick!",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 11,
+          "tag": "p",
+          "text_as_printed": "/cancelability /cast “Annul Magic I”",
+          "source_html": "<p>/cancelability<br/>\n/cast “Annul Magic I”</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 12,
+          "tag": "p",
+          "text_as_printed": "Follow someone (aka autopilot ): /follow",
+          "source_html": "<p>Follow someone (aka autopilot ):<br/>\n/follow</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 13,
+          "tag": "p",
+          "text_as_printed": "you can also type /follow while targeting the person you wish to follow.",
+          "source_html": "<p>you can also type /follow while targeting the person you wish to follow.</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 14,
+          "tag": "p",
+          "text_as_printed": "Find an specific NPC or other Targetable character nearby: /targetauto (Only need first name)",
+          "source_html": "<p>Find an specific NPC or other Targetable character nearby:<br/>\n/targetauto (Only need first name)</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 15,
+          "tag": "p",
+          "text_as_printed": "You only need the first name. This works with anything (NPC, Resource, etc), just enter the text of the target. If there are spaces, enclose it in quotes (\"this space\").",
+          "source_html": "<p>You only need the first name. This works with anything (NPC, Resource, etc), just enter the text of the target. If there are spaces, enclose it in quotes (\"this space\").</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 16,
+          "tag": "p",
+          "text_as_printed": "Give your abomination a specific name: /petname insert petname here",
+          "source_html": "<p>Give your abomination a specific name:<br/>\n/petname <span>insert petname here</span></p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 17,
+          "tag": "p",
+          "text_as_printed": "Currently when you log out or the pet dies it will forget it's name so you will have to do to name it again.",
+          "source_html": "<p>Currently when you log out or the pet dies it will forget it's name so you will have to do to name it again.</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 18,
+          "tag": "p",
+          "text_as_printed": "Have your pet backoff and quit attacking right before you MEZ a target: /pet backoff /cast \"Spirit Trap I\"",
+          "source_html": "<p>Have your pet backoff and quit attacking right before you MEZ a target:<br/>\n/pet backoff<br/>\n/cast \"Spirit Trap I\"</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 19,
+          "tag": "p",
+          "text_as_printed": "In case you wanted to know all possible pet commands, here you go:",
+          "source_html": "<p>In case you wanted to know all possible pet commands, here you go:</p>",
+          "preceding_heading": "Quit casting current spell and fire off that counterspell:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 20,
+          "tag": "p",
+          "text_as_printed": "/pet attack /pet follow /pet backoff /pet assistmealways /pet stay /pet dismiss /pet toggledefendself /pet guard",
+          "source_html": "<p>/pet attack<br/>\n/pet follow<br/>\n/pet backoff<br/>\n/pet assistmealways<br/>\n/pet stay<br/>\n/pet dismiss<br/>\n/pet toggledefendself<br/>\n/pet guard</p>",
+          "preceding_heading": "Abomination Commands:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 21,
+          "tag": "p",
+          "text_as_printed": "/minions attack /minions backoff /minions resumebehavior /minions follow /minions dismiss",
+          "source_html": "<p>/minions attack<br/>\n/minions backoff<br/>\n/minions resumebehavior<br/>\n/minions follow<br/>\n/minions dismiss</p>",
+          "preceding_heading": "Minion Commands:",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null
+    },
+    {
+      "url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "cache_stored_bytes_sha256": "17fd3060f9072e3f90c89977ad469845239ef643e0b5a8b7cc490bbf3fed8713",
+      "source_records": [
+        {
+          "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+          "record": {
+            "name": "Necromancer — Minions",
+            "url": "https://vgsoharchive.com/classes/necromancer/minions",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [
+              "Minions types:",
+              "1. Guardian -",
+              "2. Plague Bearer -",
+              "Lich Necromancer Version",
+              "Wraith Necromancer Version",
+              "3. Slayer",
+              "4. Servant",
+              "5. Advocate - NO LONGER IN GAME - REMOVED DURING CLASS REVAMP"
+            ],
+            "sections": [
+              {
+                "heading": "Minions types:",
+                "linked_entities": []
+              },
+              {
+                "heading": "1. Guardian -",
+                "linked_entities": []
+              },
+              {
+                "heading": "2. Plague Bearer -",
+                "linked_entities": []
+              },
+              {
+                "heading": "Lich Necromancer Version",
+                "linked_entities": []
+              },
+              {
+                "heading": "Wraith Necromancer Version",
+                "linked_entities": []
+              },
+              {
+                "heading": "3. Slayer",
+                "linked_entities": []
+              },
+              {
+                "heading": "4. Servant",
+                "linked_entities": []
+              },
+              {
+                "heading": "5. Advocate - NO LONGER IN GAME - REMOVED DURING CLASS REVAMP",
+                "linked_entities": []
+              }
+            ],
+            "referenced_entities": [],
+            "original_source_urls": [
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Guardian%20Lich.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Guardian%20Wraith.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Plague%20Bearer%20Lich.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Plague%20Bearer%20Wraith.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Slayer%20Lich.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Slayer%20Wraith.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Servant%20Lich.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Servant%20Wraith.png",
+              "http://thetelonproject.wdfiles.com/local--files/necromancer-minions/Advocate%20Lich.jpg",
+              "http://thetelonproject.wikidot.com/necromancer-minions"
+            ],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:09:51+00:00"
+          },
+          "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+        }
+      ],
+      "scope": "guide-body if present, otherwise main; navigation may remain",
+      "prose_evidence": [
+        {
+          "block_index": 0,
+          "tag": "p",
+          "text_as_printed": "from www.vgnecro.com, Updated by Enkur (In Progress 3/8/13)",
+          "source_html": "<p><sub>from www.vgnecro.com, Updated by Enkur (In Progress 3/8/13)</sub></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 1,
+          "tag": "p",
+          "text_as_printed": "Minions you say? Well of course Necromancers have minions, grafted fleshy ones, dead ones, ghost ones, nasty smelly rotting ones…",
+          "source_html": "<p>Minions you say? Well of course Necromancers have minions, grafted fleshy ones, dead ones, ghost ones, nasty smelly rotting ones…</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 2,
+          "tag": "p",
+          "text_as_printed": "Necromancers can summon additional minions through rituals performed on corpses although these minions are persistent like the abomination and are not as controllable. While one might argue that the creatures summoned using out Ritual Animatus I and Ritual Anbimatus II spells are minions, I did not include them in this list since they look like green shaded versions of the corpse you raised and they are not persistent pets due to their very short durations.",
+          "source_html": "<p>Necromancers can summon additional minions through rituals performed on corpses although these minions are persistent like the abomination and are not as controllable. While one might argue that the creatures summoned using out Ritual Animatus I and Ritual Anbimatus II spells are minions, I did not include them in this list since they look like green shaded versions of the corpse you raised and they are not persistent pets due to their very short durations.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 3,
+          "tag": "p",
+          "text_as_printed": "A necro will learn to summon 4 distinct variations of these minions that are classified based on their abilities and purpose.",
+          "source_html": "<p>A necro will learn to summon 4 distinct variations of these minions that are classified based on their abilities and purpose.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 4,
+          "tag": "p",
+          "text_as_printed": "The Necromancer is limited to a certain number of minions under his control at a time. This limit increases as the necromancer grows in levels up to a maximum of 3 minions plus your abomination at any one time when the necromancer is Level 50.",
+          "source_html": "<p>The Necromancer is limited to a certain number of minions under his control at a time. This limit increases as the necromancer grows in levels up to a maximum of 3 minions plus your abomination at any one time when the necromancer is Level 50.</p>",
+          "preceding_heading": "4. Servant",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 5,
+          "tag": "p",
+          "text_as_printed": "If one exceeds the maximum number of allowable minions, the oldest minions is dismissed by the one newly summoned (great way to swap out and get the right combination of minions you want out at a given time).",
+          "source_html": "<p>If one exceeds the maximum number of allowable minions, the oldest minions is dismissed by the one newly summoned (great way to swap out and get the right combination of minions you want out at a given time).</p>",
+          "preceding_heading": "4. Servant",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 6,
+          "tag": "p",
+          "text_as_printed": "Lich Necromancer Version: This is the Advocate Minion which you gain at level 46 and is summoned via the spell Advocate's Ritual . This spell summons a minion that does considerable damage to your enemies. Sometimes referred to as the Zealot and is an upgraded version of the Slayer Pet. The two versions do the same thing but look noticeably different. It looks the same as the lvl 38 Servant minion.",
+          "source_html": "<p><br/>\nLich Necromancer Version: This is the Advocate Minion which you gain at level 46 and is summoned via the spell Advocate's Ritual . This spell summons a minion that does considerable damage to your enemies. Sometimes referred to as the Zealot and is an upgraded version of the Slayer Pet. The two versions do the same thing but look noticeably different. It looks the same as the lvl 38 Servant minion.</p>",
+          "preceding_heading": "5. Advocate - NO LONGER IN GAME - REMOVED DURING CLASS REVAMP",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 7,
+          "tag": "p",
+          "text_as_printed": "Wraith Necromancer Version: This is the Advocate Minion which you gain at level 46 and is summoned via the spell Advocate's Ritual . This spell summons a minion that does considerable damage to your enemies. Sometimes referred to as the Zealot and is an upgraded version of the Slayer Pet. The two versions do the same thing but look noticeably different. It looks the same as the lvl 38 Servant minion.",
+          "source_html": "<p>Wraith Necromancer Version: This is the Advocate Minion which you gain at level 46 and is summoned via the spell Advocate's Ritual . This spell summons a minion that does considerable damage to your enemies. Sometimes referred to as the Zealot and is an upgraded version of the Slayer Pet. The two versions do the same thing but look noticeably different. It looks the same as the lvl 38 Servant minion.</p>",
+          "preceding_heading": "5. Advocate - NO LONGER IN GAME - REMOVED DURING CLASS REVAMP",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null
+    }
+  ],
+  "claims": [
+    {
+      "id": 1,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 1,
+      "subject": "Pet and minions",
+      "predicate": "attack_example",
+      "value": [
+        "/pet attack",
+        "/minions attack"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 2,
+      "subject": "Graft and taunt macro",
+      "predicate": "example_abilities",
+      "value": "Fist and Claw placeholders followed by Sneer; placeholders are not actual ability names",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 3,
+      "subject": "/cast",
+      "predicate": "reported_case_requirement",
+      "value": "Case sensitive; use exact pet-bar tooltip name",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 4,
+      "subject": "Pet and minions",
+      "predicate": "disengage_example",
+      "value": [
+        "/pet backoff",
+        "/minions backoff"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 6,
+      "subject": "Loot and Necropsy macro",
+      "predicate": "reported_activation",
+      "value": "One activation loots or casts; second click needed when corpse has loot",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 7,
+      "subject": "Assist macro",
+      "predicate": "reported_sequence",
+      "value": [
+        "/assist",
+        "/pet attack",
+        "/minions attack"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetauto",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": "\"name\"",
+        "description_as_printed": "Sets your automatic target to the name in quotes"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetdefensive",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": "\"name\"",
+        "description_as_printed": "Sets your Defensive target to the name provided"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetoffensive",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": "\"name\"",
+        "description_as_printed": "Sets your offensive target to the name provided"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetgroupmember",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": "#",
+        "description_as_printed": "Sets your Defensive target to thegroup member number you gave. you are group number 1, then count downward on your group list"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetself",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Sets yourself as your defensive target.. Duh"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 12,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnearestnpc",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Sets the nearest NPC as your offensive target"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 13,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnearestpc",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Sets the nearest PC as your defensive target"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 14,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetmynearestcorpse",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Sets your nearest tombstone as your offensive target"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 15,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnearestpccorpse",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Sets the nearest PC tombstone as your offensive target"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 16,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnextcorpse",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "targets the next corpse as your targeted offensive target"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 17,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnextnode",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Selects the next nearest harvesting node as your offensive target"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 18,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnextnpc",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Selects your offensive target to the next nearest NPC"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 19,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 9,
+      "subject": "/targetnextpcdefensive",
+      "predicate": "printed_target_command",
+      "value": {
+        "argument_as_printed": null,
+        "description_as_printed": "Selects your defensive target to be the next nearest PC"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 20,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 11,
+      "subject": "Cancel and counterspell macro",
+      "predicate": "example_sequence",
+      "value": [
+        "/cancelability",
+        "/cast Annul Magic I"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 21,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 13,
+      "subject": "/follow",
+      "predicate": "reported_target",
+      "value": "Target the person to follow",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 22,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 15,
+      "subject": "/targetauto",
+      "predicate": "reported_matching",
+      "value": "First name sufficient; targets include NPCs and resources; quote text with spaces",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 23,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 16,
+      "subject": "Abomination",
+      "predicate": "naming_command",
+      "value": "/petname with chosen name",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 24,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 17,
+      "subject": "Pet name",
+      "predicate": "reported_loss_conditions",
+      "value": [
+        "logout",
+        "pet death"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 25,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 18,
+      "subject": "Spirit Trap I macro",
+      "predicate": "example_sequence",
+      "value": "Pet backoff before casting Spirit Trap I; no confirmed mez duration",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 26,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 20,
+      "subject": "Abomination",
+      "predicate": "printed_command_list",
+      "value": [
+        "/pet attack",
+        "/pet follow",
+        "/pet backoff",
+        "/pet assistmealways",
+        "/pet stay",
+        "/pet dismiss",
+        "/pet toggledefendself",
+        "/pet guard"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 27,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_block": 21,
+      "subject": "Minions",
+      "predicate": "printed_command_list",
+      "value": [
+        "/minions attack",
+        "/minions backoff",
+        "/minions resumebehavior",
+        "/minions follow",
+        "/minions dismiss"
+      ],
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 28,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 0,
+      "subject": "Minion guide",
+      "predicate": "printed_update_marker",
+      "value": "Updated by Enkur (In Progress 3/8/13); date format not resolved",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 29,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 2,
+      "subject": "Additional minions",
+      "predicate": "reported_summoning",
+      "value": "Rituals performed on corpses; persistent like abomination but less controllable",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 30,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 2,
+      "subject": "Ritual Animatus I / Ritual Anbimatus II",
+      "predicate": "reported_exclusion",
+      "value": "Short-duration green corpse versions excluded by author; spelling retained without identity resolution",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 31,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 3,
+      "subject": "Minions",
+      "predicate": "reported_variation_count",
+      "value": 4,
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 32,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 4,
+      "subject": "Level 50 Necromancer",
+      "predicate": "reported_simultaneous_limit",
+      "value": {
+        "minions": 3,
+        "additional_abomination": 1
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 33,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 5,
+      "subject": "Minion limit overflow",
+      "predicate": "reported_replacement",
+      "value": "New summon dismisses oldest minion",
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 34,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 6,
+      "subject": "Advocate Lich version",
+      "predicate": "historical_removed_entry",
+      "value": {
+        "acquisition_level": 46,
+        "summoning_spell": "Advocate’s Ritual",
+        "alias_as_printed": "Zealot",
+        "upgrades": "Slayer Pet",
+        "appearance_comparison": "level 38 Servant",
+        "heading_status": "NO LONGER IN GAME - REMOVED DURING CLASS REVAMP"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 35,
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_block": 7,
+      "subject": "Advocate Wraith version",
+      "predicate": "historical_removed_entry",
+      "value": {
+        "acquisition_level": 46,
+        "summoning_spell": "Advocate’s Ritual",
+        "alias_as_printed": "Zealot",
+        "upgrades": "Slayer Pet",
+        "appearance_comparison": "level 38 Servant",
+        "heading_status": "NO LONGER IN GAME - REMOVED DURING CLASS REVAMP"
+      },
+      "classification": "archived_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "block_reviews": [
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 0,
+      "classification": "provenance_or_context",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 1,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 2,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 3,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 4,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 5,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 6,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 7,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 8,
+      "classification": "provenance_or_context",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 9,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 10,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 11,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 12,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 13,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 14,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 15,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 16,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 17,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 18,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 19,
+      "classification": "provenance_or_context",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 20,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "block_index": 21,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 0,
+      "classification": "provenance_or_context",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 1,
+      "classification": "provenance_or_context",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 2,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 3,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 4,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 5,
+      "classification": "source_claim_or_unexecuted_macro",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 6,
+      "classification": "removed_historical_entry",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "block_index": 7,
+      "classification": "removed_historical_entry",
+      "review_status": "reviewed_as_source_claim_only"
+    }
+  ],
+  "ambiguities": [
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/macros",
+      "source_blocks": [
+        5,
+        6
+      ],
+      "details": "Prose names Necropsy; macro spells Necrospy. Preserve mismatch and withhold executable canonical spell name.",
+      "operative_value": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_blocks": [
+        3,
+        6,
+        7
+      ],
+      "details": "Four-variation claim coexists with fifth Advocate section explicitly marked removed. Advocate level and variants are historical entries, not current availability. Revamp date unknown.",
+      "operative_value": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/necromancer/minions",
+      "source_blocks": [
+        2
+      ],
+      "details": "Ritual Anbimatus spelling differs from Animatus in same paragraph; no canonical identity correction inferred.",
+      "operative_value": null
+    }
+  ],
+  "limitations": [
+    "Shared vgnecro.com provenance is not independent corroboration.",
+    "Macro examples are not execution tests; command abbreviations and unspecified arguments remain unverified.",
+    "Only prose backlog reviewed; other tables, headings and linked entities may still require separate extraction. No operative server facts promoted."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_counts": {
+    "reviewed_blocks": 30,
+    "source_claims": 35,
+    "remaining_backlog_blocks_not_covered_by_317_through_327": 591
+  },
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 2,
+    "source_records_verified": 2,
+    "prose_blocks_verified": 30
+  }
+}
