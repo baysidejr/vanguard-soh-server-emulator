@@ -19,6 +19,21 @@ def page(name, body, head=""):
 
 
 class ArchiveParsingTests(unittest.TestCase):
+    def test_unlinked_loot_preserves_name_and_sample_without_identity(self):
+        html = page('Advisor', '<h2>Loot</h2><table><tbody>'
+                    '<tr><td>Whistling Sword<br><span class="muted">Level 46 5.20%</span></td>'
+                    '<td>RARE</td><td>5.2%<br><span>3/58</span></td></tr>'
+                    '<tr><td><span class="muted">Description only</span></td><td></td><td></td></tr>'
+                    '<tr><td><a href="/items/known">Known</a></td><td></td><td></td></tr>'
+                    '</tbody></table>')
+        records, _ = collector.parse_page(ORIGIN + '/mobs/advisor', html)
+        drops = next(r for r in records if r['type'] == 'loot')['drops']
+        self.assertEqual(len(drops), 2)
+        self.assertEqual(drops[0], dict(item='Whistling Sword', chance='5.2%',
+                         quantity=None, observed_sample='5.2% 3/58', url=None))
+        self.assertEqual(drops[1]['url'], ORIGIN + '/items/known')
+        self.assertIsNone(drops[1]['chance'])
+
     def test_merchant_stock_is_section_scoped_and_prices_unknown(self):
         html = page('Vendor', '<dl class="kv"><dt>Role</dt><dd>Merchant</dd></dl>'
                     '<h2>Sells (3)</h2><ul><li><a href="/items/arrow">Arrow</a>'

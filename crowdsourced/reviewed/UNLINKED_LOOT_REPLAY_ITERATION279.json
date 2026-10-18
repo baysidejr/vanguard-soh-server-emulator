@@ -1,0 +1,3324 @@
+{
+  "review_kind": "unlinked_loot_parser36_cached_replay",
+  "network_requests": 0,
+  "parser_version": 36,
+  "inputs": [
+    {
+      "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+      "sha256": "d52735fd8cc856e1232f239b4459d9675142b90e73fee7074e236a170a2b2d3e"
+    },
+    {
+      "path": ".cache/archive/3436ad4dfdba3440c153b3073aea45d2b765e918f6e7a1ebbd786238ad6f748c.txt",
+      "sha256": "c0e41d5b9f8caab8462b80948b250b0e164e75c6c0d18de553d5fc50e1044abd"
+    },
+    {
+      "path": ".cache/archive/fa69b1821d135b538d15c459380252925778c3f79d4e9fb9a061738c5ad071ce.txt",
+      "sha256": "a199afa0924887fc7192dcd2958cf84f1640d94e67d195feb18a143e67fac7b5"
+    },
+    {
+      "path": ".cache/archive/4d9451c0044c8f2a0ae7c3d7dcf86989f1176c372b803421538a7e1bdaa13be9.txt",
+      "sha256": "28f450e4472cf10f77e4bbcef7acc97f6be93655213bf673efd9ea9e27c22d17"
+    },
+    {
+      "path": ".cache/archive/73cb55346c1cc60eb622d7ce27f028cfc283e8bb13d3c1827065c33fa1474cfb.txt",
+      "sha256": "3bff76d2117a571275ae2386a2040df0bcafca12fd85b39e41da7d69cb3980be"
+    },
+    {
+      "path": ".cache/archive/1eb1f4e8b118069682c03ec1cc4a58ee8fc7fa565a133c74ff5358bba7b8488b.txt",
+      "sha256": "82cd500a7f69a2e724db325c3a1fea3faf98f44613d54e611f91087464dd32c8"
+    },
+    {
+      "path": ".cache/archive/c82805e26474355ae6a0a115bc12ea9bcad5261a95ce2aa29be095e4b3572e34.txt",
+      "sha256": "50e82124fa365bf93c2c1ee83e34c7ead34793480caedc4ff49d69e7cd2a7e9c"
+    },
+    {
+      "path": ".cache/archive/9cffab8b6e536f049142789bf5651d7a17922a339df429196cdecb132d939f94.txt",
+      "sha256": "761dd228838f95003354e8db61a2f96c9b140b2849c2ad520cc68f67d8ba943e"
+    },
+    {
+      "path": ".cache/archive/fc44d7d3d2841a270b6fb89897cae65b8685a0f1d1931d4d7a672361ca4e9a40.txt",
+      "sha256": "3fa4ead85ea5ebfbd74a8271acef00d0a578ab547ac96e407b03c57cde2d4f0e"
+    },
+    {
+      "path": ".cache/archive/ab4178c88b75a7d13f097e68c0f1392c59ec605fa1577e882b82ea1c13c874a5.txt",
+      "sha256": "6a80362919b15fa6cd1a16e5e13f44fd1c70c03db235a4891d269e4a0bc985c0"
+    },
+    {
+      "path": ".cache/archive/f006dbf85c6919c30674ef29cdff0b7019b0bbde07d38c1df5ddcea5998d28b7.txt",
+      "sha256": "9c06b2418524db48f829e89b68453a4a149ecf8cb405af0db9bc4092b16f9654"
+    }
+  ],
+  "pages": [
+    {
+      "source_url": "https://vgsoharchive.com/mobs/ataraxis-the-devourer",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 1,
+        "record": {
+          "name": "ATARAXIS THE DEVOURER",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/ataraxis-the-devourer",
+              "title": "ATARAXIS THE DEVOURER · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T21:57:21+00:00",
+          "archive_fields": {
+            "zone": [
+              "Strand Of The Ancients"
+            ],
+            "difficulty": [
+              "5 dots"
+            ],
+            "behaviour": [
+              "Passive"
+            ],
+            "type": [
+              "Animal"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "1 Minutes"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "chunk": [
+              "Strand of the Ancients"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Arbalest of Magic",
+              "url": "https://vgsoharchive.com/items/arbalest-of-magic"
+            },
+            {
+              "name": "Ataraxi's Feathered Sleaves",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-sleaves"
+            },
+            {
+              "name": "Ataraxis Bloody Belt",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-belt"
+            },
+            {
+              "name": "Ataraxis Bloody Girdle",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-girdle"
+            },
+            {
+              "name": "Ataraxis' Armguard",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "name": "Ataraxis' Armplate",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "name": "Ataraxis' Battleshield",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "name": "Ataraxis' Club",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "name": "Ataraxis' Feathered Mesh",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "name": "Ataraxis' Shawl",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "name": "Ataraxis' Talon",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            },
+            {
+              "name": "Blade of Magic",
+              "url": "https://vgsoharchive.com/items/blade-of-magic"
+            },
+            {
+              "name": "Cloak of the Void",
+              "url": "https://vgsoharchive.com/items/cloak-of-the-void"
+            },
+            {
+              "name": "Feathered Knuckles",
+              "url": "https://vgsoharchive.com/items/feathered-knuckles"
+            },
+            {
+              "name": "The Grave Digger",
+              "url": "https://vgsoharchive.com/items/the-grave-digger"
+            },
+            {
+              "name": "Void Shard",
+              "url": "https://vgsoharchive.com/items/void-shard"
+            },
+            {
+              "name": "Void Smasher",
+              "url": "https://vgsoharchive.com/items/void-smasher"
+            },
+            {
+              "name": "Warbow of Magic",
+              "url": "https://vgsoharchive.com/items/warbow-of-magic"
+            },
+            {
+              "name": "Wind Blade of Magic",
+              "url": "https://vgsoharchive.com/items/wind-blade-of-magic"
+            },
+            {
+              "name": "Ataraxi s Feathered Mesh",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "name": "Ataraxis Club",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "name": "Ataraxis Battleshield",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "name": "Ataraxis Armguard",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "name": "Ataraxis Armplate",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "name": "Ataraxis Feathered Sleeves",
+              "url": "https://vgsoharchive.com/items/ataraxis-feathered-sleeves"
+            },
+            {
+              "name": "Ataraxis Shawl",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "name": "Ataraxis Talon",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            }
+          ],
+          "type": "loot",
+          "source": "ATARAXIS THE DEVOURER",
+          "drops": [
+            {
+              "item": "Ataraxi s Feathered Mesh",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "item": "Ataraxis Bloody Belt",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-belt"
+            },
+            {
+              "item": "Ataraxis Bloody Girdle",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-girdle"
+            },
+            {
+              "item": "Ataraxis Club",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "item": "Ataraxis Battleshield",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "item": "Ataraxis Armguard",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "item": "Ataraxis Armplate",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "item": "Ataraxis Feathered Sleeves",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-feathered-sleeves"
+            },
+            {
+              "item": "Ataraxis Shawl",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "item": "Ataraxis Talon",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            },
+            {
+              "item": "Blade of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/blade-of-magic"
+            },
+            {
+              "item": "Feathered Knuckles",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/feathered-knuckles"
+            },
+            {
+              "item": "The Grave Digger",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/the-grave-digger"
+            },
+            {
+              "item": "Void Smasher",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/void-smasher"
+            },
+            {
+              "item": "Warbow of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/warbow-of-magic"
+            },
+            {
+              "item": "Wind Blade of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/wind-blade-of-magic"
+            },
+            {
+              "item": "Void Shard",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/void-shard"
+            },
+            {
+              "item": "Cloak of the Void",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/cloak-of-the-void"
+            },
+            {
+              "item": "Arbalest of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/arbalest-of-magic"
+            },
+            {
+              "item": "Ataraxi's Feathered Sleaves",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-sleaves"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "ATARAXIS THE DEVOURER",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/ataraxis-the-devourer",
+              "title": "ATARAXIS THE DEVOURER · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Strand Of The Ancients"
+            ],
+            "difficulty": [
+              "5 dots"
+            ],
+            "behaviour": [
+              "Passive"
+            ],
+            "type": [
+              "Animal"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "1 Minutes"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "chunk": [
+              "Strand of the Ancients"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Arbalest of Magic",
+              "url": "https://vgsoharchive.com/items/arbalest-of-magic"
+            },
+            {
+              "name": "Ataraxi's Feathered Sleaves",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-sleaves"
+            },
+            {
+              "name": "Ataraxis Bloody Belt",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-belt"
+            },
+            {
+              "name": "Ataraxis Bloody Girdle",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-girdle"
+            },
+            {
+              "name": "Ataraxis' Armguard",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "name": "Ataraxis' Armplate",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "name": "Ataraxis' Battleshield",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "name": "Ataraxis' Club",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "name": "Ataraxis' Feathered Mesh",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "name": "Ataraxis' Shawl",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "name": "Ataraxis' Talon",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            },
+            {
+              "name": "Blade of Magic",
+              "url": "https://vgsoharchive.com/items/blade-of-magic"
+            },
+            {
+              "name": "Cloak of the Void",
+              "url": "https://vgsoharchive.com/items/cloak-of-the-void"
+            },
+            {
+              "name": "Feathered Knuckles",
+              "url": "https://vgsoharchive.com/items/feathered-knuckles"
+            },
+            {
+              "name": "The Grave Digger",
+              "url": "https://vgsoharchive.com/items/the-grave-digger"
+            },
+            {
+              "name": "Void Shard",
+              "url": "https://vgsoharchive.com/items/void-shard"
+            },
+            {
+              "name": "Void Smasher",
+              "url": "https://vgsoharchive.com/items/void-smasher"
+            },
+            {
+              "name": "Warbow of Magic",
+              "url": "https://vgsoharchive.com/items/warbow-of-magic"
+            },
+            {
+              "name": "Wind Blade of Magic",
+              "url": "https://vgsoharchive.com/items/wind-blade-of-magic"
+            },
+            {
+              "name": "Ataraxi s Feathered Mesh",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "name": "Ataraxis Club",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "name": "Ataraxis Battleshield",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "name": "Ataraxis Armguard",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "name": "Ataraxis Armplate",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "name": "Ataraxis Feathered Sleeves",
+              "url": "https://vgsoharchive.com/items/ataraxis-feathered-sleeves"
+            },
+            {
+              "name": "Ataraxis Shawl",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "name": "Ataraxis Talon",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            }
+          ],
+          "type": "creature",
+          "level": 57,
+          "zone": "Strand Of The Ancients",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "5 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Strand Of The Ancients"
+          ],
+          "loot_ref": "ATARAXIS THE DEVOURER",
+          "map_location_observations": null,
+          "continent": "Qalia",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": "5 dots",
+          "original_source_urls": []
+        },
+        {
+          "name": "ATARAXIS THE DEVOURER",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/ataraxis-the-devourer",
+              "title": "ATARAXIS THE DEVOURER · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Strand Of The Ancients"
+            ],
+            "difficulty": [
+              "5 dots"
+            ],
+            "behaviour": [
+              "Passive"
+            ],
+            "type": [
+              "Animal"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "1 Minutes"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "chunk": [
+              "Strand of the Ancients"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Arbalest of Magic",
+              "url": "https://vgsoharchive.com/items/arbalest-of-magic"
+            },
+            {
+              "name": "Ataraxi's Feathered Sleaves",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-sleaves"
+            },
+            {
+              "name": "Ataraxis Bloody Belt",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-belt"
+            },
+            {
+              "name": "Ataraxis Bloody Girdle",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-girdle"
+            },
+            {
+              "name": "Ataraxis' Armguard",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "name": "Ataraxis' Armplate",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "name": "Ataraxis' Battleshield",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "name": "Ataraxis' Club",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "name": "Ataraxis' Feathered Mesh",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "name": "Ataraxis' Shawl",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "name": "Ataraxis' Talon",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            },
+            {
+              "name": "Blade of Magic",
+              "url": "https://vgsoharchive.com/items/blade-of-magic"
+            },
+            {
+              "name": "Cloak of the Void",
+              "url": "https://vgsoharchive.com/items/cloak-of-the-void"
+            },
+            {
+              "name": "Feathered Knuckles",
+              "url": "https://vgsoharchive.com/items/feathered-knuckles"
+            },
+            {
+              "name": "The Grave Digger",
+              "url": "https://vgsoharchive.com/items/the-grave-digger"
+            },
+            {
+              "name": "Void Shard",
+              "url": "https://vgsoharchive.com/items/void-shard"
+            },
+            {
+              "name": "Void Smasher",
+              "url": "https://vgsoharchive.com/items/void-smasher"
+            },
+            {
+              "name": "Warbow of Magic",
+              "url": "https://vgsoharchive.com/items/warbow-of-magic"
+            },
+            {
+              "name": "Wind Blade of Magic",
+              "url": "https://vgsoharchive.com/items/wind-blade-of-magic"
+            },
+            {
+              "name": "Ataraxi s Feathered Mesh",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "name": "Ataraxis Club",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "name": "Ataraxis Battleshield",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "name": "Ataraxis Armguard",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "name": "Ataraxis Armplate",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "name": "Ataraxis Feathered Sleeves",
+              "url": "https://vgsoharchive.com/items/ataraxis-feathered-sleeves"
+            },
+            {
+              "name": "Ataraxis Shawl",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "name": "Ataraxis Talon",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            }
+          ],
+          "type": "loot",
+          "source": "ATARAXIS THE DEVOURER",
+          "drops": [
+            {
+              "item": "Ataraxi s Feathered Mesh",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-mesh"
+            },
+            {
+              "item": "Ataraxis Bloody Belt",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-belt"
+            },
+            {
+              "item": "Ataraxis Bloody Girdle",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-bloody-girdle"
+            },
+            {
+              "item": "Ataraxis Club",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-club"
+            },
+            {
+              "item": "Ataraxis Battleshield",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-battleshield"
+            },
+            {
+              "item": "Ataraxis Armguard",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-armguard"
+            },
+            {
+              "item": "Ataraxis Armplate",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-armplate"
+            },
+            {
+              "item": "Ataraxis Feathered Sleeves",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-feathered-sleeves"
+            },
+            {
+              "item": "Ataraxis Shawl",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-shawl"
+            },
+            {
+              "item": "Ataraxis Talon",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxis-talon"
+            },
+            {
+              "item": "Blade of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/blade-of-magic"
+            },
+            {
+              "item": "Feathered Knuckles",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/feathered-knuckles"
+            },
+            {
+              "item": "The Grave Digger",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/the-grave-digger"
+            },
+            {
+              "item": "Void Smasher",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/void-smasher"
+            },
+            {
+              "item": "Warbow of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/warbow-of-magic"
+            },
+            {
+              "item": "Wind Blade of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/wind-blade-of-magic"
+            },
+            {
+              "item": "Void Shard",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/void-shard"
+            },
+            {
+              "item": "Cloak of the Void",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/cloak-of-the-void"
+            },
+            {
+              "item": "Arbalest of Magic",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/arbalest-of-magic"
+            },
+            {
+              "item": "Ataraxi's Feathered Sleaves",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ataraxi-s-feathered-sleaves"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxi-s-feathered-mesh\">Ataraxi s Feathered Mesh</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20029.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxi's Feathered Mesh</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Medium Armor</span>\n<span class=\"tt-line stat\">163 Armor Class</span>\n<span class=\"tt-line stat\">+83 Melee Damage Rating</span>\n<span class=\"tt-line stat\">+64 Global Recovery Haste</span>\n<span class=\"tt-line stat\">+24 Strength</span>\n<span class=\"tt-line stat\">+8 Constitution</span>\n<span class=\"tt-line stat\">+12 Dexterity</span>\n<span class=\"tt-line stat\">+95 Hit Points</span>\n<span class=\"tt-line stat\">+57 Melee Critical Hit Rating</span>\n<span class=\"tt-line stat\">+38 Critical Damage Bonus</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Monk, Ranger, Rogue</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxi-s-feathered-mesh/Ataraxi-s-Feathered-Mesh.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-bloody-belt\">Ataraxis Bloody Belt</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20003.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis Bloody Belt</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Light Armor</span><span>Waist</span></span>\n<span class=\"tt-line stat\">82 Armor Class</span>\n<span class=\"tt-line stat\">+11 Spell Damage Focus</span>\n<span class=\"tt-line stat\">+96 Spell Damage Rating</span>\n<span class=\"tt-line stat\">+5 Energy Regeneration</span>\n<span class=\"tt-line stat\">+23 Intelligence</span>\n<span class=\"tt-line stat\">+8 Wisdom</span>\n<span class=\"tt-line stat\">+59 Hit Points</span>\n<span class=\"tt-line stat\">+54 Energy</span>\n<span class=\"tt-line stat\">+37 Shadow Resistance</span>\n<span class=\"tt-line stat\">+37 Holy Resistance</span>\n<span class=\"tt-line stat\">+37 Shadow Absorption</span>\n<span class=\"tt-line stat\">+37 Holy Absorption</span>\n<span class=\"tt-line stat\">+77 Spell Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Shaman, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-bloody-belt/Ataraxis-Bloody-Belt.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-bloody-girdle\">Ataraxis Bloody Girdle</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20039.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis Bloody Girdle</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-row type\"><span>Heavy Armor</span><span>Waist</span></span>\n<span class=\"tt-line stat\">326 Armor Class</span>\n<span class=\"tt-line stat\">+11 Healing Focus</span>\n<span class=\"tt-line stat\">+5 Energy Regeneration</span>\n<span class=\"tt-line stat\">+19 Vitality</span>\n<span class=\"tt-line stat\">+13 Wisdom</span>\n<span class=\"tt-line stat\">+147 Hit Points</span>\n<span class=\"tt-line stat\">+119 Energy</span>\n<span class=\"tt-line stat\">+37 Shadow Resistance</span>\n<span class=\"tt-line stat\">+37 Holy Resistance</span>\n<span class=\"tt-line stat\">+37 Shadow Absorption</span>\n<span class=\"tt-line stat\">+37 Holy Absorption</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Cleric, Shaman, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-bloody-girdle/Ataraxis-Bloody-Girdle.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-club\">Ataraxis Club</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis Club</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Mace</span>\n<span class=\"tt-line plain\">169 - 254 Damage</span>\n<span class=\"tt-line stat\">+16 Energy Regeneration</span>\n<span class=\"tt-line stat\">+41 Weapon Damage</span>\n<span class=\"tt-line stat\">+8 Constitution</span>\n<span class=\"tt-line stat\">+17 Vitality</span>\n<span class=\"tt-line stat\">+17 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Cleric, Shaman, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-club/Ataraxis-Club.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-battleshield\">Ataraxis Battleshield</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis'  Battleshield</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Shield</span>\n<span class=\"tt-line stat\">326 Armor Class</span>\n<span class=\"tt-line stat\">+70 Healing Focus</span>\n<span class=\"tt-line stat\">24.0% Block Chance</span>\n<span class=\"tt-line stat\">+9 Constitution</span>\n<span class=\"tt-line stat\">+14 Vitality</span>\n<span class=\"tt-line stat\">+48 Hit Points</span>\n<span class=\"tt-line stat\">+102 Energy</span>\n<span class=\"tt-line stat\">+141 Heal Critical Chance</span>\n<span class=\"tt-line stat\">+141 Heal Critical Multiplier</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Cleric, Shaman, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-battleshield/Ataraxis-Battleshield.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-armguard\">Ataraxis Armguard</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20044.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis' Armguard</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Heavy Armor</span>\n<span class=\"tt-line stat\">245 Armor Class</span>\n<span class=\"tt-line stat\">+77 Melee Accuracy Rating</span>\n<span class=\"tt-line stat\">+51 Melee Damage Rating</span>\n<span class=\"tt-line stat\">+70 Melee Mitigation Rating</span>\n<span class=\"tt-line stat\">+12 Strength</span>\n<span class=\"tt-line stat\">+6 Dexterity</span>\n<span class=\"tt-line stat\">+166 Hit Points</span>\n<span class=\"tt-line stat\">+32 Melee Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Paladin, Dread Knight, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-armguard/Ataraxis-Armguard.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-armplate\">Ataraxis Armplate</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20044.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis' Armplate</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Heavy Armor</span>\n<span class=\"tt-line stat\">245 Armor Class</span>\n<span class=\"tt-line stat\">+16 Healing Focus</span>\n<span class=\"tt-line stat\">+64 Melee Mitigation Rating</span>\n<span class=\"tt-line stat\">+1 Spell Haste</span>\n<span class=\"tt-line stat\">+22 Vitality</span>\n<span class=\"tt-line stat\">+11 Wisdom</span>\n<span class=\"tt-line stat\">+77 Hit Points</span>\n<span class=\"tt-line stat\">+26 Energy</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Cleric, Shaman, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-armplate/Ataraxis-Armplate.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-feathered-sleeves\">Ataraxis Feathered Sleeves</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis' Feathered Sleeves</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Light Armor</span><span>Arms</span></span>\n<span class=\"tt-line stat\">82 Armor Class</span>\n<span class=\"tt-line stat\">+70 Spell Damage Rating</span>\n<span class=\"tt-line stat\">+57 Global Recovery Haste</span>\n<span class=\"tt-line stat\">+16 Intelligence</span>\n<span class=\"tt-line stat\">+16 Wisdom</span>\n<span class=\"tt-line stat\">+89 Hit Points</span>\n<span class=\"tt-line stat\">+143 Energy</span>\n<span class=\"tt-line stat\">+32 Spell Critical Hit Rating</span>\n<span class=\"tt-line stat\">+38 General Critical Damage Bonus</span>\n<span class=\"tt-line stat\">+38 Critical Damage Bonus</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Shaman, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-feathered-sleeves/Ataraxis-Feathered-Sleeves.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-shawl\">Ataraxis Shawl</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20023.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis' Shawl</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Medium Armor</span>\n<span class=\"tt-line stat\">122 Armor Class</span>\n<span class=\"tt-line stat\">+12 Melee Accuracy Rating</span>\n<span class=\"tt-line stat\">+192 Melee Damage Rating</span>\n<span class=\"tt-line stat\">+19 Global Recovery Haste</span>\n<span class=\"tt-line stat\">+3 Strength</span>\n<span class=\"tt-line stat\">+56 Hit Points</span>\n<span class=\"tt-line stat\">+26 Shadow Resistance</span>\n<span class=\"tt-line stat\">+26 Holy Resistance</span>\n<span class=\"tt-line stat\">+26 Shadow Absorption</span>\n<span class=\"tt-line stat\">+26 Holy Absorption</span>\n<span class=\"tt-line stat\">+186 Melee Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 89%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Monk, Ranger, Rogue</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-shawl/Ataraxis-Shawl.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxis-talon\">Ataraxis Talon</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20365.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxis' Talon</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Focus</span>\n<span class=\"tt-line stat\">+177 Spell Damage Focus</span>\n<span class=\"tt-line stat\">+109 Spell Accuracy Rating</span>\n<span class=\"tt-line stat\">+212 Spell Damage Rating</span>\n<span class=\"tt-line stat\">+48 Energy</span>\n<span class=\"tt-line stat\">+263 Spell Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Shaman, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ataraxis-talon/Ataraxis-Talon.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/blade-of-magic\">Blade of Magic</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20092.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Blade of Magic</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Longsword</span>\n<span class=\"tt-line plain\">194 - 291 Damage</span>\n<span class=\"tt-line stat\">+141 Damage Rating</span>\n<span class=\"tt-line stat\">+76 Weapon Damage</span>\n<span class=\"tt-line stat\">+8 Dexterity</span>\n<span class=\"tt-line stat\">+124 Hit Points</span>\n<span class=\"tt-line stat\">+147 General Critical Hit Rating</span>\n<span class=\"tt-line ability\">Equipped Effect: Nomakir's Subtle Anger</span>\n<span class=\"tt-line ability indent\">Channeling the power of Nomakir you cause your target to increase their hatred towards their current target while increasing your melee damage. If you channel this ability again before the effects go away it will increase the amount of hatred transfered and power increased. This effect requires the mastery of close quarters combat in order to fire.</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Ranger, Dread Knight, Rogue, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:blade-of-magic/Blade-of-Magic.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/feathered-knuckles\">Feathered Knuckles</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/01148.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Feathered Knuckles</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Knuckles</span>\n<span class=\"tt-line plain\">193 - 212 Damage</span>\n<span class=\"tt-line stat\">+128 Melee Accuracy Rating</span>\n<span class=\"tt-line stat\">+167 Melee Damage Rating</span>\n<span class=\"tt-line stat\">+66 Weapon Damage</span>\n<span class=\"tt-line stat\">+17 Vitality</span>\n<span class=\"tt-line stat\">+68 Hit Points</span>\n<span class=\"tt-line stat\">+64 Melee Critical Hit Rating</span>\n<span class=\"tt-line ability\">Equipped Effect: Chaos Warp</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Monk, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:feathered-knuckles/Feathered-Knuckles.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/the-grave-digger\">The Grave Digger</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20094.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">The Grave Digger</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Greatsword</span>\n<span class=\"tt-line plain\">272 - 409 Damage</span>\n<span class=\"tt-line stat\">+167 Damage Rating</span>\n<span class=\"tt-line stat\">+90 Weapon Damage</span>\n<span class=\"tt-line stat\">+26 Strength</span>\n<span class=\"tt-line stat\">+13 Constitution</span>\n<span class=\"tt-line stat\">+249 Hit Points</span>\n<span class=\"tt-line stat\">+137 Energy</span>\n<span class=\"tt-line stat\">+96 General Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Paladin, Dread Knight, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:the-grave-digger/The-Grave-Digger.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/void-smasher\">Void Smasher</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20076.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Void Smasher</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Mace</span>\n<span class=\"tt-line plain\">194 - 291 Damage</span>\n<span class=\"tt-line stat\">26 Armor Class</span>\n<span class=\"tt-line stat\">+173 Damage Rating</span>\n<span class=\"tt-line stat\">+76 Weapon Damage</span>\n<span class=\"tt-line stat\">+175 Hit Points</span>\n<span class=\"tt-line stat\">+122 General Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Paladin, Cleric, Druid, Ranger, Dread Knight, Rogue, Shaman, Warrior, Blood Mage</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:void-smasher/Void-Smasher.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/warbow-of-magic\">Warbow of Magic</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20074.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Warbow of Magic</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">War Bow</span>\n<span class=\"tt-line plain\">268 - 268 Damage</span>\n<span class=\"tt-line stat\">+128 Accuracy Rating</span>\n<span class=\"tt-line stat\">+282 Damage Rating</span>\n<span class=\"tt-line stat\">+230 Weapon Damage</span>\n<span class=\"tt-line stat\">+25 Dexterity</span>\n<span class=\"tt-line stat\">+249 Hit Points</span>\n<span class=\"tt-line stat\">+101 Energy</span>\n<span class=\"tt-line stat\">+295 General Critical Hit Rating</span>\n<span class=\"tt-line ability\">Equipped Effect: Nomakir's Invigoration</span>\n<span class=\"tt-line ability indent\">Channeling the power of Nomakir you drain the essence of your target and add it to your own over time. If you channel this ability again before the effects go away it will increase in power granting you an energy and eventually endurance heal over time for a short time. This effect requires the mastery of ranged combat in order to fire.</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 84%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Ranger, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:warbow-of-magic/Warbow-of-Magic.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/wind-blade-of-magic\">Wind Blade of Magic</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20096.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Wind Blade of Magic</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-line type\">Martial Sword</span>\n<span class=\"tt-line plain\">207 - 252 Damage</span>\n<span class=\"tt-line stat\">+391 Damage Rating</span>\n<span class=\"tt-line stat\">18.0% Parry Chance</span>\n<span class=\"tt-line stat\">+76 Weapon Damage</span>\n<span class=\"tt-line stat\">+395 Hit Points</span>\n<span class=\"tt-line stat\">+224 General Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Monk, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:wind-blade-of-magic/Wind-Blade-of-Magic.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/void-shard\">Void Shard</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20728.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Void Shard</span>\n<span class=\"tt-line soulbound\">No Trade</span>\n<span class=\"tt-line type\">Weapon</span>\n<span class=\"tt-line plain\">183 - 222 Damage</span>\n<span class=\"tt-line stat\">+122 Accuracy Rating</span>\n<span class=\"tt-line stat\">+147 Damage Rating</span>\n<span class=\"tt-line stat\">+66 Weapon Damage</span>\n<span class=\"tt-line stat\">+102 Hit Points</span>\n<span class=\"tt-line stat\">+179 General Critical Hit Rating</span>\n<span class=\"tt-line effect\">This attack strikes for 3000 damage over 30 seconds, returns 25% in stolen hit points and gives 100 energy. Does 3000 damage and transfers 25% of damage done back to caster.</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Druid, Psionicist, Ranger, Rogue, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/cloak-of-the-void\">Cloak of the Void</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20023.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Cloak of the Void</span>\n<span class=\"tt-line soulbound\">Unique No Trade</span>\n<span class=\"tt-row type\"><span>Heavy Armor</span><span>Cloak</span></span>\n<span class=\"tt-line stat\">245 Armor Class</span>\n<span class=\"tt-line stat\">+44 Melee Accuracy Rating</span>\n<span class=\"tt-line stat\">+102 Melee Mitigation Rating</span>\n<span class=\"tt-line stat\">+212 Spell Mitigation Rating</span>\n<span class=\"tt-line stat\">+19 Global Recovery Haste</span>\n<span class=\"tt-line stat\">+157 Hit Points</span>\n<span class=\"tt-line stat\">+1 Endurance</span>\n<span class=\"tt-line stat\">+26 Shadow Resistance</span>\n<span class=\"tt-line stat\">+26 Holy Resistance</span>\n<span class=\"tt-line stat\">+26 Shadow Absorption</span>\n<span class=\"tt-line stat\">+26 Holy Absorption</span>\n<span class=\"tt-line stat\">+51 Melee Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Paladin, Dread Knight, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/arbalest-of-magic\">Arbalest of Magic</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20073.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Arbalest of Magic</span>\n<span class=\"tt-line soulbound\">No Trade</span>\n<span class=\"tt-line type\">Ranged Weapon</span>\n<span class=\"tt-line plain\">269 - 269 Damage</span>\n<span class=\"tt-line stat\">+128 Accuracy Rating</span>\n<span class=\"tt-line stat\">+282 Damage Rating</span>\n<span class=\"tt-line stat\">+239 Weapon Damage</span>\n<span class=\"tt-line stat\">+25 Dexterity</span>\n<span class=\"tt-line stat\">+249 Hit Points</span>\n<span class=\"tt-line stat\">+101 Energy</span>\n<span class=\"tt-line stat\">+295 General Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Ranger, Dread Knight, Rogue, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ataraxi-s-feathered-sleaves\">Ataraxi's Feathered Sleaves</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ataraxi's Feathered Sleaves</span>\n<span class=\"tt-line soulbound\">Unique No Trade</span>\n<span class=\"tt-line stat\">82 Armor Class</span>\n<span class=\"tt-line stat\">+70 Spell Damage Rating</span>\n<span class=\"tt-line stat\">+57 Global Recovery Haste</span>\n<span class=\"tt-line stat\">+16 Intelligence</span>\n<span class=\"tt-line stat\">+16 Wisdom</span>\n<span class=\"tt-line stat\">+89 Hit Points</span>\n<span class=\"tt-line stat\">+143 Energy</span>\n<span class=\"tt-line stat\">+32 Spell Critical Hit Rating</span>\n<span class=\"tt-line stat\">+38 Critical Damage Bonus</span>\n<span class=\"tt-line plain\">Required Level: 55 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 58</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Shaman, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 20,
+      "replayed_drop_count": 20,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/athriss-essal",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 2,
+        "record": {
+          "name": "ATHRISS ESSAL",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/athriss-essal",
+              "title": "ATHRISS ESSAL · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T21:57:56+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ancient Port Warehouse"
+            ],
+            "difficulty": [
+              "6 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "Minutes"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "chunk": [
+              "Ancient Port Warehouse (10000, 10000)"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Ancient Resonating Crystals of Devastation",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-devastation"
+            },
+            {
+              "name": "Ancient Resonating Crystals of Painful Dispersion",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-painful-dispersion"
+            },
+            {
+              "name": "Ancient Resonating Crystals of Winds",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-winds"
+            },
+            {
+              "name": "Athriss' Dagger of Betrayal",
+              "url": "https://vgsoharchive.com/items/athriss-dagger-of-betrayal"
+            },
+            {
+              "name": "Essal's Cloak of Warding",
+              "url": "https://vgsoharchive.com/items/essal-s-cloak-of-warding"
+            },
+            {
+              "name": "Essal's Staff of Seduction",
+              "url": "https://vgsoharchive.com/items/essal-s-staff-of-seduction"
+            },
+            {
+              "name": "Fevered Pauldrons of Ambition",
+              "url": "https://vgsoharchive.com/items/fevered-pauldrons-of-ambition"
+            }
+          ],
+          "type": "loot",
+          "source": "ATHRISS ESSAL",
+          "drops": [
+            {
+              "item": "Fevered Pauldrons of Ambition",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/fevered-pauldrons-of-ambition"
+            },
+            {
+              "item": "Essal's Cloak of Warding",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/essal-s-cloak-of-warding"
+            },
+            {
+              "item": "Essal's Staff of Seduction",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/essal-s-staff-of-seduction"
+            },
+            {
+              "item": "Ancient Resonating Crystals of Painful Dispersion",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-painful-dispersion"
+            },
+            {
+              "item": "Ancient Resonating Crystals of Devastation",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-devastation"
+            },
+            {
+              "item": "Athriss' Dagger of Betrayal",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/athriss-dagger-of-betrayal"
+            },
+            {
+              "item": "Ancient Resonating Crystals of Winds",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-winds"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "ATHRISS ESSAL",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/athriss-essal",
+              "title": "ATHRISS ESSAL · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ancient Port Warehouse"
+            ],
+            "difficulty": [
+              "6 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "Minutes"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "chunk": [
+              "Ancient Port Warehouse (10000, 10000)"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Ancient Resonating Crystals of Devastation",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-devastation"
+            },
+            {
+              "name": "Ancient Resonating Crystals of Painful Dispersion",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-painful-dispersion"
+            },
+            {
+              "name": "Ancient Resonating Crystals of Winds",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-winds"
+            },
+            {
+              "name": "Athriss' Dagger of Betrayal",
+              "url": "https://vgsoharchive.com/items/athriss-dagger-of-betrayal"
+            },
+            {
+              "name": "Essal's Cloak of Warding",
+              "url": "https://vgsoharchive.com/items/essal-s-cloak-of-warding"
+            },
+            {
+              "name": "Essal's Staff of Seduction",
+              "url": "https://vgsoharchive.com/items/essal-s-staff-of-seduction"
+            },
+            {
+              "name": "Fevered Pauldrons of Ambition",
+              "url": "https://vgsoharchive.com/items/fevered-pauldrons-of-ambition"
+            }
+          ],
+          "type": "creature",
+          "level": 53,
+          "zone": "Ancient Port Warehouse",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "6 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Ancient Port Warehouse"
+          ],
+          "loot_ref": "ATHRISS ESSAL",
+          "map_location_observations": null,
+          "continent": "Thestra",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": "6 dots",
+          "original_source_urls": []
+        },
+        {
+          "name": "ATHRISS ESSAL",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/athriss-essal",
+              "title": "ATHRISS ESSAL · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ancient Port Warehouse"
+            ],
+            "difficulty": [
+              "6 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "Minutes"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "chunk": [
+              "Ancient Port Warehouse (10000, 10000)"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Ancient Resonating Crystals of Devastation",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-devastation"
+            },
+            {
+              "name": "Ancient Resonating Crystals of Painful Dispersion",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-painful-dispersion"
+            },
+            {
+              "name": "Ancient Resonating Crystals of Winds",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-winds"
+            },
+            {
+              "name": "Athriss' Dagger of Betrayal",
+              "url": "https://vgsoharchive.com/items/athriss-dagger-of-betrayal"
+            },
+            {
+              "name": "Essal's Cloak of Warding",
+              "url": "https://vgsoharchive.com/items/essal-s-cloak-of-warding"
+            },
+            {
+              "name": "Essal's Staff of Seduction",
+              "url": "https://vgsoharchive.com/items/essal-s-staff-of-seduction"
+            },
+            {
+              "name": "Fevered Pauldrons of Ambition",
+              "url": "https://vgsoharchive.com/items/fevered-pauldrons-of-ambition"
+            }
+          ],
+          "type": "loot",
+          "source": "ATHRISS ESSAL",
+          "drops": [
+            {
+              "item": "Fevered Pauldrons of Ambition",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/fevered-pauldrons-of-ambition"
+            },
+            {
+              "item": "Essal's Cloak of Warding",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/essal-s-cloak-of-warding"
+            },
+            {
+              "item": "Essal's Staff of Seduction",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/essal-s-staff-of-seduction"
+            },
+            {
+              "item": "Ancient Resonating Crystals of Painful Dispersion",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-painful-dispersion"
+            },
+            {
+              "item": "Ancient Resonating Crystals of Devastation",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-devastation"
+            },
+            {
+              "item": "Athriss' Dagger of Betrayal",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/athriss-dagger-of-betrayal"
+            },
+            {
+              "item": "Ancient Resonating Crystals of Winds",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ancient-resonating-crystals-of-winds"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/fevered-pauldrons-of-ambition\">Fevered Pauldrons of Ambition</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Fevered Pauldrons of Ambition</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">179 Armor Class</span>\n<span class=\"tt-line stat\">+50 Melee Damage Rating</span>\n<span class=\"tt-line stat\">+29 Vitality</span>\n<span class=\"tt-line stat\">+11 Wisdom</span>\n<span class=\"tt-line stat\">+89 Hit Points</span>\n<span class=\"tt-line stat\">+89 Energy</span>\n<span class=\"tt-line plain\">Required Level: 48 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/essal-s-cloak-of-warding\">Essal's Cloak of Warding</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20010.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Essal's Cloak of Warding</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Armor</span><span>Cloak</span></span>\n<span class=\"tt-line stat\">245 Armor Class</span>\n<span class=\"tt-line stat\">+68 Evasion Rating</span>\n<span class=\"tt-line stat\">+12 Strength</span>\n<span class=\"tt-line stat\">+12 Constitution</span>\n<span class=\"tt-line stat\">+140 Hit Points</span>\n<span class=\"tt-line ability\">Equipped Effect: Essal's Ward</span>\n<span class=\"tt-line ability indent\">Enables you to see invisible objects and persons. See Invisibility</span>\n<span class=\"tt-line plain\">Required Level: 48 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/essal-s-staff-of-seduction\">Essal's Staff of Seduction</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20090.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Essal's Staff of Seduction</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Weapon</span>\n<span class=\"tt-line plain\">201 - 302 Damage</span>\n<span class=\"tt-line stat\">+329 Spell Damage Focus</span>\n<span class=\"tt-line stat\">+109 Spell Damage Rating</span>\n<span class=\"tt-line stat\">+39 Intelligence</span>\n<span class=\"tt-line stat\">+15 Wisdom</span>\n<span class=\"tt-line stat\">+127 Spell Critical Hit Rating</span>\n<span class=\"tt-line ability\">Activated Ability: Psionic Dart VI</span>\n<span class=\"tt-line ability indent\">Damages your opponent with a mental spell.</span>\n<span class=\"tt-line plain\">Required Level: 48 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/ancient-resonating-crystals-of-painful-dispersion\">Ancient Resonating Crystals of Painful Dispersion</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20205.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Ancient Resonating Crystals of Painful Dispersion</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line ability\">Equipped Effect: Sage's Pain</span>\n<span class=\"tt-line ability indent\">15% chance on spell cast to:Increase spell damage by 20% for 6 seconds.</span>\n<span class=\"tt-line ability\">Equipped Effect: Sage's Painful Sphere</span>\n<span class=\"tt-line ability indent\">15% chance to do AE damage to casters target when spell is cast</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/ancient-resonating-crystals-of-devastation\">Ancient Resonating Crystals of Devastation</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20203.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Ancient Resonating Crystals of Devastation</span>\n<span class=\"tt-line soulbound\">No Sell</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/athriss-dagger-of-betrayal\">Athriss' Dagger of Betrayal</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20079.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Athriss' Dagger of Betrayal</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Weapon</span>\n<span class=\"tt-line plain\">141 - 172 Damage</span>\n<span class=\"tt-line stat\">+12 Energy Regeneration</span>\n<span class=\"tt-line stat\">+21 Weapon Damage</span>\n<span class=\"tt-line stat\">+15 Strength</span>\n<span class=\"tt-line stat\">+8 Dexterity</span>\n<span class=\"tt-line stat\">+127 Melee Critical Hit Rating</span>\n<span class=\"tt-line effect\">This dagger will steal life from your target.</span>\n<span class=\"tt-line plain\">Required Level: 48 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Druid, Psionicist, Ranger, Rogue, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-legendary\" href=\"/items/ancient-resonating-crystals-of-winds\">Ancient Resonating Crystals of Winds</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-legendary\">Ancient Resonating Crystals of Winds</span>\n<span class=\"tt-line soulbound\">No Sell</span>\n<span class=\"tt-line ability\">Equipped Effect: Touch of Winds</span>\n<span class=\"tt-line ability indent\">5% chance on hit to: Heal group members when caster is struck in combat</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">xanadu</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 7,
+      "replayed_drop_count": 7,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/athanalor",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 3,
+        "record": {
+          "name": "Athanalor",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/athanalor",
+              "title": "Athanalor · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T21:57:41+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ceros Isle"
+            ],
+            "difficulty": [
+              "3 dots"
+            ],
+            "chunk": [
+              "Ceros Isle"
+            ],
+            "continent": [
+              "Kojan"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Luminous Tuft of Fur",
+              "url": "https://vgsoharchive.com/items/luminous-tuft-of-fur"
+            }
+          ],
+          "type": "loot",
+          "source": "Athanalor",
+          "drops": [
+            {
+              "item": "Luminous Tuft of Fur",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/luminous-tuft-of-fur"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Athanalor",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/athanalor",
+              "title": "Athanalor · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ceros Isle"
+            ],
+            "difficulty": [
+              "3 dots"
+            ],
+            "chunk": [
+              "Ceros Isle"
+            ],
+            "continent": [
+              "Kojan"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Luminous Tuft of Fur",
+              "url": "https://vgsoharchive.com/items/luminous-tuft-of-fur"
+            }
+          ],
+          "type": "creature",
+          "level": 45,
+          "zone": "Ceros Isle",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "3 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Ceros Isle"
+          ],
+          "loot_ref": "Athanalor",
+          "map_location_observations": null,
+          "continent": "Kojan",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": "3 dots",
+          "original_source_urls": []
+        },
+        {
+          "name": "Athanalor",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/athanalor",
+              "title": "Athanalor · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ceros Isle"
+            ],
+            "difficulty": [
+              "3 dots"
+            ],
+            "chunk": [
+              "Ceros Isle"
+            ],
+            "continent": [
+              "Kojan"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Luminous Tuft of Fur",
+              "url": "https://vgsoharchive.com/items/luminous-tuft-of-fur"
+            }
+          ],
+          "type": "loot",
+          "source": "Athanalor",
+          "drops": [
+            {
+              "item": "Luminous Tuft of Fur",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/luminous-tuft-of-fur"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/luminous-tuft-of-fur\">Luminous Tuft of Fur</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20120.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Luminous Tuft Of Fur</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n<span class=\"tt-line muted\">This item cannot be deconstructed.</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 1,
+      "replayed_drop_count": 1,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/atoll-shroomling",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 4,
+        "record": {
+          "name": "Atoll Shroomling",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/atoll-shroomling",
+              "title": "Atoll Shroomling · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T21:59:21+00:00",
+          "archive_fields": {
+            "zone": [
+              "Skawlra Rock"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Fine Fungus Essence",
+              "url": "https://vgsoharchive.com/items/fine-fungus-essence"
+            }
+          ],
+          "type": "loot",
+          "source": "Atoll Shroomling",
+          "drops": [
+            {
+              "item": "Fine Fungus Essence",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/fine-fungus-essence"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Atoll Shroomling",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/atoll-shroomling",
+              "title": "Atoll Shroomling · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Skawlra Rock"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Fine Fungus Essence",
+              "url": "https://vgsoharchive.com/items/fine-fungus-essence"
+            }
+          ],
+          "type": "creature",
+          "level": 20,
+          "zone": "Skawlra Rock",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Skawlra Rock"
+          ],
+          "loot_ref": "Atoll Shroomling",
+          "map_location_observations": null,
+          "continent": "Qalia",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": null,
+          "original_source_urls": []
+        },
+        {
+          "name": "Atoll Shroomling",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/atoll-shroomling",
+              "title": "Atoll Shroomling · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Skawlra Rock"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Fine Fungus Essence",
+              "url": "https://vgsoharchive.com/items/fine-fungus-essence"
+            }
+          ],
+          "type": "loot",
+          "source": "Atoll Shroomling",
+          "drops": [
+            {
+              "item": "Fine Fungus Essence",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/fine-fungus-essence"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/fine-fungus-essence\">Fine Fungus Essence</a></span>\n<br/><span class=\"muted\">mmodb</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 1,
+      "replayed_drop_count": 1,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/attendant-rogan",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 5,
+        "record": {
+          "name": "Attendant Rogan",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/attendant-rogan",
+              "title": "Attendant Rogan · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T22:00:51+00:00",
+          "archive_fields": {
+            "zone": [
+              "Vault Of Heroes"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "Humanoid"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "location": [
+              "71592, 46771, 29007"
+            ],
+            "chunk": [
+              "Vault of Heroes"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Scale Gloves Of The Vault",
+              "url": "https://vgsoharchive.com/items/scale-gloves-of-the-vault"
+            },
+            {
+              "name": "Bloodstone Ring Of The Vault",
+              "url": "https://vgsoharchive.com/items/bloodstone-ring-of-the-vault"
+            },
+            {
+              "name": "Abettors Bracelet",
+              "url": "https://vgsoharchive.com/items/abettors-bracelet"
+            },
+            {
+              "name": "Abettors Belt",
+              "url": "https://vgsoharchive.com/items/abettors-belt"
+            }
+          ],
+          "type": "loot",
+          "source": "Attendant Rogan",
+          "drops": [
+            {
+              "item": "Bloodstone Ring Of The Vault",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/bloodstone-ring-of-the-vault"
+            },
+            {
+              "item": "Scale Gloves Of The Vault",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/scale-gloves-of-the-vault"
+            },
+            {
+              "item": "Abettors Bracelet",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/abettors-bracelet"
+            },
+            {
+              "item": "Abettors Belt",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/abettors-belt"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Attendant Rogan",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/attendant-rogan",
+              "title": "Attendant Rogan · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Vault Of Heroes"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "Humanoid"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "location": [
+              "71592, 46771, 29007"
+            ],
+            "chunk": [
+              "Vault of Heroes"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Scale Gloves Of The Vault",
+              "url": "https://vgsoharchive.com/items/scale-gloves-of-the-vault"
+            },
+            {
+              "name": "Bloodstone Ring Of The Vault",
+              "url": "https://vgsoharchive.com/items/bloodstone-ring-of-the-vault"
+            },
+            {
+              "name": "Abettors Bracelet",
+              "url": "https://vgsoharchive.com/items/abettors-bracelet"
+            },
+            {
+              "name": "Abettors Belt",
+              "url": "https://vgsoharchive.com/items/abettors-belt"
+            }
+          ],
+          "type": "creature",
+          "level": 13,
+          "zone": "Vault Of Heroes",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "4 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Vault Of Heroes"
+          ],
+          "loot_ref": "Attendant Rogan",
+          "map_location_observations": null,
+          "continent": "Thestra",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": "4 dots",
+          "original_source_urls": []
+        },
+        {
+          "name": "Attendant Rogan",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/attendant-rogan",
+              "title": "Attendant Rogan · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Vault Of Heroes"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "Humanoid"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "location": [
+              "71592, 46771, 29007"
+            ],
+            "chunk": [
+              "Vault of Heroes"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Scale Gloves Of The Vault",
+              "url": "https://vgsoharchive.com/items/scale-gloves-of-the-vault"
+            },
+            {
+              "name": "Bloodstone Ring Of The Vault",
+              "url": "https://vgsoharchive.com/items/bloodstone-ring-of-the-vault"
+            },
+            {
+              "name": "Abettors Bracelet",
+              "url": "https://vgsoharchive.com/items/abettors-bracelet"
+            },
+            {
+              "name": "Abettors Belt",
+              "url": "https://vgsoharchive.com/items/abettors-belt"
+            }
+          ],
+          "type": "loot",
+          "source": "Attendant Rogan",
+          "drops": [
+            {
+              "item": "Bloodstone Ring Of The Vault",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/bloodstone-ring-of-the-vault"
+            },
+            {
+              "item": "Scale Gloves Of The Vault",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/scale-gloves-of-the-vault"
+            },
+            {
+              "item": "Abettors Bracelet",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/abettors-bracelet"
+            },
+            {
+              "item": "Abettors Belt",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/abettors-belt"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/bloodstone-ring-of-the-vault\">Bloodstone Ring Of The Vault</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/00444.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Bloodstone Ring Of The Vault</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Right Finger</span></span>\n<span class=\"tt-line stat\">+13 Ranged</span>\n<span class=\"tt-line stat\">+3 Constitution</span>\n<span class=\"tt-line stat\">+8 Dexterity</span>\n<span class=\"tt-line stat\">+8 Mental Resistance</span>\n<span class=\"tt-line stat\">+13 Hit Points</span>\n<span class=\"tt-line plain\">Item Level: 13</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">mmodb</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/scale-gloves-of-the-vault\">Scale Gloves Of The Vault</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20033.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Scale Gloves Of The Vault</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Hands</span></span>\n<span class=\"tt-line stat\">25 Armor Class</span>\n<span class=\"tt-line stat\">+5 Wisdom</span>\n<span class=\"tt-line stat\">+25 Energy</span>\n<span class=\"tt-line plain\">Item Level: 18</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Inquisitor, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">mmodb</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/abettors-bracelet\">Abettors Bracelet</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Abettors Bracelet</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Light Armor</span><span>Wrists</span></span>\n<span class=\"tt-line stat\">10 Armor Class</span>\n<span class=\"tt-line stat\">+3 Constitution</span>\n<span class=\"tt-line stat\">+2 Dexterity</span>\n<span class=\"tt-line stat\">+18 Energy</span>\n<span class=\"tt-line effect\">Dungeon Tier 2\n\n\n\n\n\n\n\n\n\n\n\n'</span>\n<span class=\"tt-line plain\">Required Level: 8 Adventuring</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Shaman, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:abettors-bracelet/Abettors-Bracelet.PNG</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/abettors-belt\">Abettors Belt</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Abettors Belt</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line soulbound\">Unique</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Waist</span></span>\n<span class=\"tt-line stat\">26 Armor Class</span>\n<span class=\"tt-line stat\">+4 Strength</span>\n<span class=\"tt-line stat\">+2 Vitality</span>\n<span class=\"tt-line stat\">+2 General Critical Hit Rating</span>\n<span class=\"tt-line plain\">Required Level: 8 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 18</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">a photograph in game (2026-10-09)</span>\n</td>\n<td class=\"muted\">seen</td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 4,
+      "replayed_drop_count": 4,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/aufrex-the-lost",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 6,
+        "record": {
+          "name": "Aufrex the Lost",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/aufrex-the-lost",
+              "title": "Aufrex the Lost · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T22:01:06+00:00",
+          "archive_fields": {
+            "zone": [
+              "Nusibe Necropolis"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "chunk": [
+              "Nusibe Necropolis"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Maker's Essence of Reasoning",
+              "url": "https://vgsoharchive.com/items/maker-s-essence-of-reasoning"
+            },
+            {
+              "name": "Etching of Laceration",
+              "url": "https://vgsoharchive.com/items/etching-of-laceration"
+            }
+          ],
+          "type": "loot",
+          "source": "Aufrex the Lost",
+          "drops": [
+            {
+              "item": "Maker's Essence of Reasoning",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/maker-s-essence-of-reasoning"
+            },
+            {
+              "item": "Etching of Laceration",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/etching-of-laceration"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Aufrex the Lost",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/aufrex-the-lost",
+              "title": "Aufrex the Lost · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Nusibe Necropolis"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "chunk": [
+              "Nusibe Necropolis"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Maker's Essence of Reasoning",
+              "url": "https://vgsoharchive.com/items/maker-s-essence-of-reasoning"
+            },
+            {
+              "name": "Etching of Laceration",
+              "url": "https://vgsoharchive.com/items/etching-of-laceration"
+            }
+          ],
+          "type": "creature",
+          "level": null,
+          "zone": "Nusibe Necropolis",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "4 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Nusibe Necropolis"
+          ],
+          "loot_ref": "Aufrex the Lost",
+          "map_location_observations": null,
+          "continent": "Qalia",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": "4 dots",
+          "original_source_urls": []
+        },
+        {
+          "name": "Aufrex the Lost",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/aufrex-the-lost",
+              "title": "Aufrex the Lost · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Nusibe Necropolis"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "chunk": [
+              "Nusibe Necropolis"
+            ],
+            "continent": [
+              "Qalia"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Maker's Essence of Reasoning",
+              "url": "https://vgsoharchive.com/items/maker-s-essence-of-reasoning"
+            },
+            {
+              "name": "Etching of Laceration",
+              "url": "https://vgsoharchive.com/items/etching-of-laceration"
+            }
+          ],
+          "type": "loot",
+          "source": "Aufrex the Lost",
+          "drops": [
+            {
+              "item": "Maker's Essence of Reasoning",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/maker-s-essence-of-reasoning"
+            },
+            {
+              "item": "Etching of Laceration",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/etching-of-laceration"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/maker-s-essence-of-reasoning\">Maker's Essence of Reasoning</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/00962.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Maker's Essence Of Reasoning</span>\n<span class=\"tt-line type\">Crafting Component</span>\n<span class=\"tt-line plain\">Item Level: 1</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/etching-of-laceration\">Etching of Laceration</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Etching Of Laceration</span>\n<span class=\"tt-line type\">Crafting Material</span>\n<span class=\"tt-line craft\">Crafting: Journeyman Blacksmith</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 2,
+      "replayed_drop_count": 2,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/augur-lyld",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 7,
+        "record": {
+          "name": "Augur Lyld",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/augur-lyld",
+              "title": "Augur Lyld · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T22:01:16+00:00",
+          "archive_fields": {
+            "zone": [
+              "Veskal's Exchange"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Verdant Sewing Kit",
+              "url": "https://vgsoharchive.com/items/verdant-sewing-kit"
+            }
+          ],
+          "type": "loot",
+          "source": "Augur Lyld",
+          "drops": [
+            {
+              "item": "Verdant Sewing Kit",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/verdant-sewing-kit"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Augur Lyld",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/augur-lyld",
+              "title": "Augur Lyld · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Veskal's Exchange"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Verdant Sewing Kit",
+              "url": "https://vgsoharchive.com/items/verdant-sewing-kit"
+            }
+          ],
+          "type": "creature",
+          "level": 11,
+          "zone": "Veskal's Exchange",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Veskal's Exchange"
+          ],
+          "loot_ref": "Augur Lyld",
+          "map_location_observations": null,
+          "continent": "Thestra",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": null,
+          "original_source_urls": []
+        },
+        {
+          "name": "Augur Lyld",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/augur-lyld",
+              "title": "Augur Lyld · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Veskal's Exchange"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Verdant Sewing Kit",
+              "url": "https://vgsoharchive.com/items/verdant-sewing-kit"
+            }
+          ],
+          "type": "loot",
+          "source": "Augur Lyld",
+          "drops": [
+            {
+              "item": "Verdant Sewing Kit",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/verdant-sewing-kit"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/verdant-sewing-kit\">Verdant Sewing Kit</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/00989.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Verdant Sewing Kit</span>\n<span class=\"tt-line type\">Quest</span>\n<span class=\"tt-line plain\">Item Level: 23</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">mmodb</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 1,
+      "replayed_drop_count": 1,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/avisor-selikzer",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 8,
+        "record": {
+          "name": "Avisor Selikzer",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/avisor-selikzer",
+              "title": "Avisor Selikzer · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T22:03:56+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ichtakhta"
+            ],
+            "continent": [
+              "Thestra"
+            ],
+            "can swim": [
+              "Yes"
+            ],
+            "can fly": [
+              "No"
+            ],
+            "wall crawl": [
+              "No"
+            ],
+            "kills sampled": [
+              "58"
+            ],
+            "locations seen": [
+              "1"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Swampweed Facemask",
+              "url": "https://vgsoharchive.com/items/swampweed-facemask"
+            },
+            {
+              "name": "Pulsing Mucus Shawl",
+              "url": "https://vgsoharchive.com/items/pulsing-mucus-shawl"
+            },
+            {
+              "name": "Tough Membranous Shoulders",
+              "url": "https://vgsoharchive.com/items/tough-membranous-shoulders"
+            },
+            {
+              "name": "Cracked Husk Pauldrons",
+              "url": "https://vgsoharchive.com/items/cracked-husk-pauldrons"
+            },
+            {
+              "name": "Shattered Chitin Shoulders",
+              "url": "https://vgsoharchive.com/items/shattered-chitin-shoulders"
+            },
+            {
+              "name": "Selikzer's Trophy",
+              "url": "https://vgsoharchive.com/items/selikzer-s-trophy"
+            },
+            {
+              "name": "Gorgalok Skin Drum",
+              "url": "https://vgsoharchive.com/items/gorgalok-skin-drum"
+            },
+            {
+              "name": "Avatar's Prayer Beads",
+              "url": "https://vgsoharchive.com/items/avatar-s-prayer-beads"
+            },
+            {
+              "name": "Reliable Stud of the Lightfoot",
+              "url": "https://vgsoharchive.com/items/reliable-stud-of-the-lightfoot"
+            },
+            {
+              "name": "Ichtakhta Chitin Fragment",
+              "url": "https://vgsoharchive.com/items/ichtakhta-chitin-fragment"
+            },
+            {
+              "name": "Rusted Shadowbound Chain Greaves",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-greaves"
+            },
+            {
+              "name": "Rusted Shadowbound Chain Pauldrons",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-pauldrons"
+            },
+            {
+              "name": "Earthstar Cotton Healer's Sash",
+              "url": "https://vgsoharchive.com/items/earthstar-cotton-healer-s-sash"
+            },
+            {
+              "name": "Ichtakhta Heart",
+              "url": "https://vgsoharchive.com/items/ichtakhta-heart"
+            },
+            {
+              "name": "Spiked Chitinous Leg",
+              "url": "https://vgsoharchive.com/items/spiked-chitinous-leg"
+            },
+            {
+              "name": "Pristine Chitinous Carapace",
+              "url": "https://vgsoharchive.com/items/pristine-chitinous-carapace"
+            },
+            {
+              "name": "Large Faceted Eye",
+              "url": "https://vgsoharchive.com/items/large-faceted-eye"
+            },
+            {
+              "name": "Residual Chaos Energy",
+              "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+            }
+          ],
+          "type": "loot",
+          "source": "Avisor Selikzer",
+          "drops": [
+            {
+              "item": "Swampweed Facemask",
+              "chance": "8.6%",
+              "quantity": null,
+              "observed_sample": "8.6% 5/58",
+              "url": "https://vgsoharchive.com/items/swampweed-facemask"
+            },
+            {
+              "item": "Pulsing Mucus Shawl",
+              "chance": "6.9%",
+              "quantity": null,
+              "observed_sample": "6.9% 4/58",
+              "url": "https://vgsoharchive.com/items/pulsing-mucus-shawl"
+            },
+            {
+              "item": "Tough Membranous Shoulders",
+              "chance": "5.2%",
+              "quantity": null,
+              "observed_sample": "5.2% 3/58",
+              "url": "https://vgsoharchive.com/items/tough-membranous-shoulders"
+            },
+            {
+              "item": "Cracked Husk Pauldrons",
+              "chance": "3.4%",
+              "quantity": null,
+              "observed_sample": "3.4% 2/58",
+              "url": "https://vgsoharchive.com/items/cracked-husk-pauldrons"
+            },
+            {
+              "item": "Shattered Chitin Shoulders",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/shattered-chitin-shoulders"
+            },
+            {
+              "item": "Selikzer's Trophy",
+              "chance": "36.2%",
+              "quantity": null,
+              "observed_sample": "36.2% 21/58",
+              "url": "https://vgsoharchive.com/items/selikzer-s-trophy"
+            },
+            {
+              "item": "Gorgalok Skin Drum",
+              "chance": "29.3%",
+              "quantity": null,
+              "observed_sample": "29.3% 17/58",
+              "url": "https://vgsoharchive.com/items/gorgalok-skin-drum"
+            },
+            {
+              "item": "Avatar's Prayer Beads",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/avatar-s-prayer-beads"
+            },
+            {
+              "item": "Reliable Stud of the Lightfoot",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/reliable-stud-of-the-lightfoot"
+            },
+            {
+              "item": "Ichtakhta Chitin Fragment",
+              "chance": "3.4%",
+              "quantity": null,
+              "observed_sample": "3.4% 2/58",
+              "url": "https://vgsoharchive.com/items/ichtakhta-chitin-fragment"
+            },
+            {
+              "item": "Rusted Shadowbound Chain Greaves",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-greaves"
+            },
+            {
+              "item": "Rusted Shadowbound Chain Pauldrons",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-pauldrons"
+            },
+            {
+              "item": "Earthstar Cotton Healer's Sash",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/earthstar-cotton-healer-s-sash"
+            },
+            {
+              "item": "Ichtakhta Heart",
+              "chance": "60.3%",
+              "quantity": null,
+              "observed_sample": "60.3% 35/58",
+              "url": "https://vgsoharchive.com/items/ichtakhta-heart"
+            },
+            {
+              "item": "Spiked Chitinous Leg",
+              "chance": "25.9%",
+              "quantity": null,
+              "observed_sample": "25.9% 15/58",
+              "url": "https://vgsoharchive.com/items/spiked-chitinous-leg"
+            },
+            {
+              "item": "Pristine Chitinous Carapace",
+              "chance": "5.2%",
+              "quantity": null,
+              "observed_sample": "5.2% 3/58",
+              "url": "https://vgsoharchive.com/items/pristine-chitinous-carapace"
+            },
+            {
+              "item": "Large Faceted Eye",
+              "chance": "3.4%",
+              "quantity": null,
+              "observed_sample": "3.4% 2/58",
+              "url": "https://vgsoharchive.com/items/large-faceted-eye"
+            },
+            {
+              "item": "Residual Chaos Energy",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Avisor Selikzer",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/avisor-selikzer",
+              "title": "Avisor Selikzer · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ichtakhta"
+            ],
+            "continent": [
+              "Thestra"
+            ],
+            "can swim": [
+              "Yes"
+            ],
+            "can fly": [
+              "No"
+            ],
+            "wall crawl": [
+              "No"
+            ],
+            "kills sampled": [
+              "58"
+            ],
+            "locations seen": [
+              "1"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Swampweed Facemask",
+              "url": "https://vgsoharchive.com/items/swampweed-facemask"
+            },
+            {
+              "name": "Pulsing Mucus Shawl",
+              "url": "https://vgsoharchive.com/items/pulsing-mucus-shawl"
+            },
+            {
+              "name": "Tough Membranous Shoulders",
+              "url": "https://vgsoharchive.com/items/tough-membranous-shoulders"
+            },
+            {
+              "name": "Cracked Husk Pauldrons",
+              "url": "https://vgsoharchive.com/items/cracked-husk-pauldrons"
+            },
+            {
+              "name": "Shattered Chitin Shoulders",
+              "url": "https://vgsoharchive.com/items/shattered-chitin-shoulders"
+            },
+            {
+              "name": "Selikzer's Trophy",
+              "url": "https://vgsoharchive.com/items/selikzer-s-trophy"
+            },
+            {
+              "name": "Gorgalok Skin Drum",
+              "url": "https://vgsoharchive.com/items/gorgalok-skin-drum"
+            },
+            {
+              "name": "Avatar's Prayer Beads",
+              "url": "https://vgsoharchive.com/items/avatar-s-prayer-beads"
+            },
+            {
+              "name": "Reliable Stud of the Lightfoot",
+              "url": "https://vgsoharchive.com/items/reliable-stud-of-the-lightfoot"
+            },
+            {
+              "name": "Ichtakhta Chitin Fragment",
+              "url": "https://vgsoharchive.com/items/ichtakhta-chitin-fragment"
+            },
+            {
+              "name": "Rusted Shadowbound Chain Greaves",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-greaves"
+            },
+            {
+              "name": "Rusted Shadowbound Chain Pauldrons",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-pauldrons"
+            },
+            {
+              "name": "Earthstar Cotton Healer's Sash",
+              "url": "https://vgsoharchive.com/items/earthstar-cotton-healer-s-sash"
+            },
+            {
+              "name": "Ichtakhta Heart",
+              "url": "https://vgsoharchive.com/items/ichtakhta-heart"
+            },
+            {
+              "name": "Spiked Chitinous Leg",
+              "url": "https://vgsoharchive.com/items/spiked-chitinous-leg"
+            },
+            {
+              "name": "Pristine Chitinous Carapace",
+              "url": "https://vgsoharchive.com/items/pristine-chitinous-carapace"
+            },
+            {
+              "name": "Large Faceted Eye",
+              "url": "https://vgsoharchive.com/items/large-faceted-eye"
+            },
+            {
+              "name": "Residual Chaos Energy",
+              "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+            }
+          ],
+          "type": "creature",
+          "level": 47,
+          "zone": "Ichtakhta",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Ichtakhta"
+          ],
+          "loot_ref": "Avisor Selikzer",
+          "map_location_observations": null,
+          "continent": "Thestra",
+          "locations_seen_recorded": "1",
+          "difficulty_recorded": null,
+          "original_source_urls": []
+        },
+        {
+          "name": "Avisor Selikzer",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/avisor-selikzer",
+              "title": "Avisor Selikzer · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Ichtakhta"
+            ],
+            "continent": [
+              "Thestra"
+            ],
+            "can swim": [
+              "Yes"
+            ],
+            "can fly": [
+              "No"
+            ],
+            "wall crawl": [
+              "No"
+            ],
+            "kills sampled": [
+              "58"
+            ],
+            "locations seen": [
+              "1"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Swampweed Facemask",
+              "url": "https://vgsoharchive.com/items/swampweed-facemask"
+            },
+            {
+              "name": "Pulsing Mucus Shawl",
+              "url": "https://vgsoharchive.com/items/pulsing-mucus-shawl"
+            },
+            {
+              "name": "Tough Membranous Shoulders",
+              "url": "https://vgsoharchive.com/items/tough-membranous-shoulders"
+            },
+            {
+              "name": "Cracked Husk Pauldrons",
+              "url": "https://vgsoharchive.com/items/cracked-husk-pauldrons"
+            },
+            {
+              "name": "Shattered Chitin Shoulders",
+              "url": "https://vgsoharchive.com/items/shattered-chitin-shoulders"
+            },
+            {
+              "name": "Selikzer's Trophy",
+              "url": "https://vgsoharchive.com/items/selikzer-s-trophy"
+            },
+            {
+              "name": "Gorgalok Skin Drum",
+              "url": "https://vgsoharchive.com/items/gorgalok-skin-drum"
+            },
+            {
+              "name": "Avatar's Prayer Beads",
+              "url": "https://vgsoharchive.com/items/avatar-s-prayer-beads"
+            },
+            {
+              "name": "Reliable Stud of the Lightfoot",
+              "url": "https://vgsoharchive.com/items/reliable-stud-of-the-lightfoot"
+            },
+            {
+              "name": "Ichtakhta Chitin Fragment",
+              "url": "https://vgsoharchive.com/items/ichtakhta-chitin-fragment"
+            },
+            {
+              "name": "Rusted Shadowbound Chain Greaves",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-greaves"
+            },
+            {
+              "name": "Rusted Shadowbound Chain Pauldrons",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-pauldrons"
+            },
+            {
+              "name": "Earthstar Cotton Healer's Sash",
+              "url": "https://vgsoharchive.com/items/earthstar-cotton-healer-s-sash"
+            },
+            {
+              "name": "Ichtakhta Heart",
+              "url": "https://vgsoharchive.com/items/ichtakhta-heart"
+            },
+            {
+              "name": "Spiked Chitinous Leg",
+              "url": "https://vgsoharchive.com/items/spiked-chitinous-leg"
+            },
+            {
+              "name": "Pristine Chitinous Carapace",
+              "url": "https://vgsoharchive.com/items/pristine-chitinous-carapace"
+            },
+            {
+              "name": "Large Faceted Eye",
+              "url": "https://vgsoharchive.com/items/large-faceted-eye"
+            },
+            {
+              "name": "Residual Chaos Energy",
+              "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+            }
+          ],
+          "type": "loot",
+          "source": "Avisor Selikzer",
+          "drops": [
+            {
+              "item": "Swampweed Facemask",
+              "chance": "8.6%",
+              "quantity": null,
+              "observed_sample": "8.6% 5/58",
+              "url": "https://vgsoharchive.com/items/swampweed-facemask"
+            },
+            {
+              "item": "Pulsing Mucus Shawl",
+              "chance": "6.9%",
+              "quantity": null,
+              "observed_sample": "6.9% 4/58",
+              "url": "https://vgsoharchive.com/items/pulsing-mucus-shawl"
+            },
+            {
+              "item": "Tough Membranous Shoulders",
+              "chance": "5.2%",
+              "quantity": null,
+              "observed_sample": "5.2% 3/58",
+              "url": "https://vgsoharchive.com/items/tough-membranous-shoulders"
+            },
+            {
+              "item": "Cracked Husk Pauldrons",
+              "chance": "3.4%",
+              "quantity": null,
+              "observed_sample": "3.4% 2/58",
+              "url": "https://vgsoharchive.com/items/cracked-husk-pauldrons"
+            },
+            {
+              "item": "Shattered Chitin Shoulders",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/shattered-chitin-shoulders"
+            },
+            {
+              "item": "Selikzer's Trophy",
+              "chance": "36.2%",
+              "quantity": null,
+              "observed_sample": "36.2% 21/58",
+              "url": "https://vgsoharchive.com/items/selikzer-s-trophy"
+            },
+            {
+              "item": "Gorgalok Skin Drum",
+              "chance": "29.3%",
+              "quantity": null,
+              "observed_sample": "29.3% 17/58",
+              "url": "https://vgsoharchive.com/items/gorgalok-skin-drum"
+            },
+            {
+              "item": "Avatar's Prayer Beads",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/avatar-s-prayer-beads"
+            },
+            {
+              "item": "Reliable Stud of the Lightfoot",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/reliable-stud-of-the-lightfoot"
+            },
+            {
+              "item": "Ichtakhta Chitin Fragment",
+              "chance": "3.4%",
+              "quantity": null,
+              "observed_sample": "3.4% 2/58",
+              "url": "https://vgsoharchive.com/items/ichtakhta-chitin-fragment"
+            },
+            {
+              "item": "Rusted Shadowbound Chain Greaves",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-greaves"
+            },
+            {
+              "item": "Rusted Shadowbound Chain Pauldrons",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/rusted-shadowbound-chain-pauldrons"
+            },
+            {
+              "item": "Earthstar Cotton Healer's Sash",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/earthstar-cotton-healer-s-sash"
+            },
+            {
+              "item": "Ichtakhta Heart",
+              "chance": "60.3%",
+              "quantity": null,
+              "observed_sample": "60.3% 35/58",
+              "url": "https://vgsoharchive.com/items/ichtakhta-heart"
+            },
+            {
+              "item": "Spiked Chitinous Leg",
+              "chance": "25.9%",
+              "quantity": null,
+              "observed_sample": "25.9% 15/58",
+              "url": "https://vgsoharchive.com/items/spiked-chitinous-leg"
+            },
+            {
+              "item": "Pristine Chitinous Carapace",
+              "chance": "5.2%",
+              "quantity": null,
+              "observed_sample": "5.2% 3/58",
+              "url": "https://vgsoharchive.com/items/pristine-chitinous-carapace"
+            },
+            {
+              "item": "Large Faceted Eye",
+              "chance": "3.4%",
+              "quantity": null,
+              "observed_sample": "3.4% 2/58",
+              "url": "https://vgsoharchive.com/items/large-faceted-eye"
+            },
+            {
+              "item": "Residual Chaos Energy",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": "https://vgsoharchive.com/items/residual-chaos-energy"
+            },
+            {
+              "item": "Whistling Advisor's Sword",
+              "chance": "5.2%",
+              "quantity": null,
+              "observed_sample": "5.2% 3/58",
+              "url": null
+            },
+            {
+              "item": "Crushed Carapace",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": null
+            },
+            {
+              "item": "Crushed Carapace Pieces",
+              "chance": "1.7%",
+              "quantity": null,
+              "observed_sample": "1.7% 1/58",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/swampweed-facemask\">Swampweed Facemask</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20063.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Swampweed Facemask</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+28 Fire Resistance</span>\n<span class=\"tt-line stat\">+56 Physical Resistance</span>\n<span class=\"tt-line stat\">+18 Mental Resistance</span>\n<span class=\"tt-line stat\">+28 Arcane Resistance</span>\n<span class=\"tt-line stat\">+37 Cold Resistance</span>\n<span class=\"tt-line stat\">+18 Spirit Resistance</span>\n<span class=\"tt-line plain\">Item Level: 51</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Jewelry, Level 46 (Rare)        8.60%</span>\n</td>\n<td class=\"muted\">RARE/HEROIC/LEGENDARY//EPIC</td>\n<td class=\"num\">\n              8.6%\n              <br/><span class=\"muted\">5/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/pulsing-mucus-shawl\">Pulsing Mucus Shawl</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20018.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Pulsing Mucus Shawl</span>\n<span class=\"tt-row type\"><span>Light Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">66 Armor Class</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Druid, Psionicist, Sorcerer, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Light Armor, 66 AC, Level 50 (Rare)        6.90%</span>\n</td>\n<td class=\"muted\">RARE/HEROIC/LEGENDARY//EPIC</td>\n<td class=\"num\">\n              6.9%\n              <br/><span class=\"muted\">4/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/tough-membranous-shoulders\">Tough Membranous Shoulders</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20030.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Tough Membranous Shoulders</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">139 Armor Class</span>\n<span class=\"tt-line plain\">Required Level: 45 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Monk, Ranger, Rogue, Shaman, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Medium Armor, 132 AC, Level 50 (Rare)        5.20%</span>\n</td>\n<td class=\"muted\">RARE/HEROIC/LEGENDARY//EPIC</td>\n<td class=\"num\">\n              5.2%\n              <br/><span class=\"muted\">3/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/cracked-husk-pauldrons\">Cracked Husk Pauldrons</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20042.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Cracked Husk Pauldrons</span>\n<span class=\"tt-row type\"><span>Heavy Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">264 Armor Class</span>\n<span class=\"tt-line plain\">Item Level: 53</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Paladin, Cleric, Dread Knight, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Heavy Armor, 264 AC, Level 50 (Rare)        3.40%</span>\n</td>\n<td class=\"muted\">RARE/HEROIC/LEGENDARY//EPIC</td>\n<td class=\"num\">\n              3.4%\n              <br/><span class=\"muted\">2/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/shattered-chitin-shoulders\">Shattered Chitin Shoulders</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20030.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Shattered Chitin Shoulders</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">132 Armor Class</span>\n<span class=\"tt-line plain\">Item Level: 50</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Cleric, Shaman, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Medium Armor, 132 AC, Level 50 (Rare)        1.70%</span>\n</td>\n<td class=\"muted\">RARE/HEROIC/LEGENDARY//EPIC</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/selikzer-s-trophy\">Selikzer's Trophy</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20093.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Selikzer's Trophy</span>\n<span class=\"tt-line type\">Weapon</span>\n<span class=\"tt-line plain\">100 - 151 Damage</span>\n<span class=\"tt-line stat\">+12 Strength</span>\n<span class=\"tt-line stat\">+129 Hit Points</span>\n<span class=\"tt-line stat\">+86 Energy</span>\n<span class=\"tt-line plain\">Required Level: 41 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 51</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Ranger, Dread Knight, Rogue, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Longsword Weapon, 87-130 Damage, Level 46 (Uncommon)        36.20%</span>\n</td>\n<td class=\"muted\">UNCOMMON</td>\n<td class=\"num\">\n              36.2%\n              <br/><span class=\"muted\">21/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/gorgalok-skin-drum\">Gorgalok Skin Drum</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20226.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Gorgalok Skin Drum</span>\n<span class=\"tt-row type\"><span>Musical Instrument</span><span>Two Hands</span></span>\n<span class=\"tt-line stat\">+2.7 Percussion Instrument Mod</span>\n<span class=\"tt-line plain\">Item Level: 51</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Musical instrument, Level 1 (Uncommon)        29.30%</span>\n</td>\n<td class=\"muted\">UNCOMMON</td>\n<td class=\"num\">\n              29.3%\n              <br/><span class=\"muted\">17/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/avatar-s-prayer-beads\">Avatar's Prayer Beads</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20058.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Avatar's Prayer Beads</span>\n<span class=\"tt-line type\">Crafting Material</span>\n<span class=\"tt-line plain\">Item Level: 1</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n<span class=\"tt-line muted\">This item cannot be deconstructed.</span>\n<span class=\"tt-line craft\">Crafting: Journeyman Artificer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 1 (Uncommon)        1.70%</span>\n</td>\n<td class=\"muted\">UNCOMMON</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/reliable-stud-of-the-lightfoot\">Reliable Stud of the Lightfoot</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20059.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Reliable Stud of the Lightfoot</span>\n<span class=\"tt-line boe\">Bind On Equip</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+12 Dexterity</span>\n<span class=\"tt-line stat\">+62 Hit Points</span>\n<span class=\"tt-line plain\">Required Level: 32 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 37</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Jewelry, Level 37 (Common)        1.70%</span>\n</td>\n<td class=\"muted\">COMMON</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/ichtakhta-chitin-fragment\">Ichtakhta Chitin Fragment</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20211.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Ichtakhta Chitin Fragment</span>\n<span class=\"tt-line type\">Quest</span>\n<span class=\"tt-line effect\">Ichtakhta Chitin Fragment\n\nUnknown\nItem Level: 1\nA special resource.</span>\n<span class=\"tt-line plain\">Item Level: 1</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n<span class=\"tt-line muted\">This item cannot be deconstructed.</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 1 (Common)        3.40%</span>\n</td>\n<td class=\"muted\">COMMON</td>\n<td class=\"num\">\n              3.4%\n              <br/><span class=\"muted\">2/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/rusted-shadowbound-chain-greaves\">Rusted Shadowbound Chain Greaves</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20026.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Rusted Shadowbound Chain Greaves</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Legs</span></span>\n<span class=\"tt-line stat\">130 Armor Class</span>\n<span class=\"tt-line plain\">Required Level: 40 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Medium Armor, 187 AC, Level 45 (Common)        1.70%</span>\n</td>\n<td class=\"muted\">COMMON</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/rusted-shadowbound-chain-pauldrons\">Rusted Shadowbound Chain Pauldrons</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20030.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Rusted Shadowbound Chain Pauldrons</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">97 Armor Class</span>\n<span class=\"tt-line stat\">+9 Strength</span>\n<span class=\"tt-line stat\">+9 Vitality</span>\n<span class=\"tt-line stat\">+98 Hit Points</span>\n<span class=\"tt-line plain\">Item Level: 42</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Medium Armor, 85 AC, Level 42 (Common)        1.70%</span>\n</td>\n<td class=\"muted\">COMMON</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/earthstar-cotton-healer-s-sash\">Earthstar Cotton Healer's Sash</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20003.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Earthstar Cotton Healer's Sash</span>\n<span class=\"tt-row type\"><span>Light Armor</span><span>Waist</span></span>\n<span class=\"tt-line stat\">41 Armor Class</span>\n<span class=\"tt-line stat\">+6 Vitality</span>\n<span class=\"tt-line stat\">+6 Intelligence</span>\n<span class=\"tt-line stat\">+6 Wisdom</span>\n<span class=\"tt-line stat\">+47 Energy</span>\n<span class=\"tt-line plain\">Required Level: 36 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 41</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Cleric, Druid, Psionicist, Monk, Ranger, Rogue, Shaman, Sorcerer, Disciple, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Light Armor, 41 AC, Level 41 (Common)        1.70%</span>\n</td>\n<td class=\"muted\">COMMON</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/ichtakhta-heart\">Ichtakhta Heart</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20214.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Ichtakhta Heart</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Item Level: 1</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 1 (Mundane)        60.30%</span>\n</td>\n<td class=\"muted\">MUNDANE</td>\n<td class=\"num\">\n              60.3%\n              <br/><span class=\"muted\">35/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/spiked-chitinous-leg\">Spiked Chitinous Leg</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20113.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Spiked Chitinous Leg</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Item Level: 50</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 50 (Mundane)        25.90%</span>\n</td>\n<td class=\"muted\">MUNDANE</td>\n<td class=\"num\">\n              25.9%\n              <br/><span class=\"muted\">15/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/pristine-chitinous-carapace\">Pristine Chitinous Carapace</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20107.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Pristine Chitinous Carapace</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n<span class=\"tt-line muted\">This item cannot be deconstructed.</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 918 (Mundane)        5.20%</span>\n</td>\n<td class=\"muted\">MUNDANE</td>\n<td class=\"num\">\n              5.2%\n              <br/><span class=\"muted\">3/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/large-faceted-eye\">Large Faceted Eye</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20118.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Large Faceted Eye</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 919 (Mundane)        3.40%</span>\n</td>\n<td class=\"muted\">MUNDANE</td>\n<td class=\"num\">\n              3.4%\n              <br/><span class=\"muted\">2/58</span>\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/residual-chaos-energy\">Residual Chaos Energy</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20282.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Residual Chaos Energy</span>\n<span class=\"tt-line type\">Quest</span>\n<span class=\"tt-line plain\">Item Level: 1</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">Level 1 (Mundane)        1.70%</span>\n</td>\n<td class=\"muted\">MUNDANE</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n              Whistling Advisor's Sword\n              <br/><span class=\"muted\">Martial Sword Weapon, 109-132 Damage, Level 46 (Rare)        5.20%</span>\n</td>\n<td class=\"muted\">RARE/HEROIC/LEGENDARY//EPIC</td>\n<td class=\"num\">\n              5.2%\n              <br/><span class=\"muted\">3/58</span>\n</td>\n</tr>\n<tr>\n<td>\n              Crushed Carapace\n              <br/><span class=\"muted\">Level 1 (Common)        1.70%</span>\n</td>\n<td class=\"muted\">COMMON</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n<tr>\n<td>\n              Crushed Carapace Pieces\n              <br/><span class=\"muted\">Level 1 (Mundane)        1.70%</span>\n</td>\n<td class=\"muted\">MUNDANE</td>\n<td class=\"num\">\n              1.7%\n              <br/><span class=\"muted\">1/58</span>\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 18,
+      "replayed_drop_count": 21,
+      "recovered_unlinked_observations": [
+        {
+          "item": "Whistling Advisor's Sword",
+          "chance": "5.2%",
+          "quantity": null,
+          "observed_sample": "5.2% 3/58",
+          "url": null
+        },
+        {
+          "item": "Crushed Carapace",
+          "chance": "1.7%",
+          "quantity": null,
+          "observed_sample": "1.7% 1/58",
+          "url": null
+        },
+        {
+          "item": "Crushed Carapace Pieces",
+          "chance": "1.7%",
+          "quantity": null,
+          "observed_sample": "1.7% 1/58",
+          "url": null
+        }
+      ]
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/awakened-guard",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 9,
+        "record": {
+          "name": "Awakened Guard",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/awakened-guard",
+              "title": "Awakened Guard · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T22:04:06+00:00",
+          "archive_fields": {},
+          "referenced_entities": [
+            {
+              "name": "Shandrel's Ancient Greatblade",
+              "url": "https://vgsoharchive.com/items/shandrel-s-ancient-greatblade"
+            },
+            {
+              "name": "Bone Ring Greaves",
+              "url": "https://vgsoharchive.com/items/bone-ring-greaves"
+            }
+          ],
+          "type": "loot",
+          "source": "Awakened Guard",
+          "drops": [
+            {
+              "item": "Shandrel's Ancient Greatblade",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/shandrel-s-ancient-greatblade"
+            },
+            {
+              "item": "Bone Ring Greaves",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/bone-ring-greaves"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Awakened Guard",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/awakened-guard",
+              "title": "Awakened Guard · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {},
+          "referenced_entities": [
+            {
+              "name": "Shandrel's Ancient Greatblade",
+              "url": "https://vgsoharchive.com/items/shandrel-s-ancient-greatblade"
+            },
+            {
+              "name": "Bone Ring Greaves",
+              "url": "https://vgsoharchive.com/items/bone-ring-greaves"
+            }
+          ],
+          "type": "creature",
+          "level": null,
+          "zone": null,
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": null,
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [],
+          "loot_ref": "Awakened Guard",
+          "map_location_observations": null,
+          "continent": null,
+          "locations_seen_recorded": null,
+          "difficulty_recorded": null,
+          "original_source_urls": []
+        },
+        {
+          "name": "Awakened Guard",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/awakened-guard",
+              "title": "Awakened Guard · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {},
+          "referenced_entities": [
+            {
+              "name": "Shandrel's Ancient Greatblade",
+              "url": "https://vgsoharchive.com/items/shandrel-s-ancient-greatblade"
+            },
+            {
+              "name": "Bone Ring Greaves",
+              "url": "https://vgsoharchive.com/items/bone-ring-greaves"
+            }
+          ],
+          "type": "loot",
+          "source": "Awakened Guard",
+          "drops": [
+            {
+              "item": "Shandrel's Ancient Greatblade",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/shandrel-s-ancient-greatblade"
+            },
+            {
+              "item": "Bone Ring Greaves",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/bone-ring-greaves"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/shandrel-s-ancient-greatblade\">Shandrel's Ancient Greatblade</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20094.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Shandrel's Ancient Greatblade</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Weapon</span><span>TwoHands</span></span>\n<span class=\"tt-line plain\">138 - 207 Damage</span>\n<span class=\"tt-line plain\">Required Level: 40 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">a photograph in game (2026-09-25)</span>\n</td>\n<td class=\"muted\">seen</td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/bone-ring-greaves\">Bone Ring Greaves</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20014.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Bone Ring Greaves</span>\n<span class=\"tt-line boe\">Bind On Equip</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Legs</span></span>\n<span class=\"tt-line stat\">240 Armor Class</span>\n<span class=\"tt-line stat\">+30 Strength</span>\n<span class=\"tt-line stat\">+13 Physical Resistance</span>\n<span class=\"tt-line stat\">+15 Dexterity</span>\n<span class=\"tt-line stat\">+169 Hit Points</span>\n<span class=\"tt-line stat\">+48 Energy</span>\n<span class=\"tt-line stat\">+13 Physical Absorption</span>\n<span class=\"tt-line plain\">Required Level: 40 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 50</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">a photograph in game (2026-09-25)</span>\n</td>\n<td class=\"muted\">seen</td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 2,
+      "replayed_drop_count": 2,
+      "recovered_unlinked_observations": []
+    },
+    {
+      "source_url": "https://vgsoharchive.com/mobs/ayl-elgyre",
+      "full_prior_source_record": {
+        "path": "raw/2026-10-14-175653-980799-archive-bulk/loot.jsonl",
+        "line": 10,
+        "record": {
+          "name": "Ayl Elgyre",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/ayl-elgyre",
+              "title": "Ayl Elgyre · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 29,
+          "collected_at": "2026-10-14T22:04:51+00:00",
+          "archive_fields": {
+            "zone": [
+              "Thelaseen"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "High Elf"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "?"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "location": [
+              "36730, 59900, 13449"
+            ],
+            "chunk": [
+              "Thelaseen"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Ayl's Drakeskin Mask",
+              "url": "https://vgsoharchive.com/items/ayl-s-drakeskin-mask"
+            },
+            {
+              "name": "Ayl's Pauldrons of Cured leather",
+              "url": "https://vgsoharchive.com/items/ayl-s-pauldrons-of-cured-leather"
+            },
+            {
+              "name": "Ayl Elgyre s Studded Bladestaff",
+              "url": "https://vgsoharchive.com/items/ayl-elgyre-s-studded-bladestaff"
+            },
+            {
+              "name": "Drakesbane Dagger",
+              "url": "https://vgsoharchive.com/items/drakesbane-dagger"
+            },
+            {
+              "name": "Ayl s Ivory Helm",
+              "url": "https://vgsoharchive.com/items/ayl-s-ivory-helm"
+            },
+            {
+              "name": "Drakebane Dagger",
+              "url": "https://vgsoharchive.com/items/drakebane-dagger"
+            },
+            {
+              "name": "Golem s Greaves of Flesh",
+              "url": "https://vgsoharchive.com/items/golem-s-greaves-of-flesh"
+            },
+            {
+              "name": "Ayl s Paudrons of Cured Leather",
+              "url": "https://vgsoharchive.com/items/ayl-s-paudrons-of-cured-leather"
+            },
+            {
+              "name": "Ayl s Pendant",
+              "url": "https://vgsoharchive.com/items/ayl-s-pendant"
+            }
+          ],
+          "type": "loot",
+          "source": "Ayl Elgyre",
+          "drops": [
+            {
+              "item": "Ayl Elgyre s Studded Bladestaff",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-elgyre-s-studded-bladestaff"
+            },
+            {
+              "item": "Drakesbane Dagger",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/drakesbane-dagger"
+            },
+            {
+              "item": "Ayl s Ivory Helm",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-ivory-helm"
+            },
+            {
+              "item": "Ayl's Pauldrons of Cured leather",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-pauldrons-of-cured-leather"
+            },
+            {
+              "item": "Drakebane Dagger",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/drakebane-dagger"
+            },
+            {
+              "item": "Golem s Greaves of Flesh",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/golem-s-greaves-of-flesh"
+            },
+            {
+              "item": "Ayl s Paudrons of Cured Leather",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-paudrons-of-cured-leather"
+            },
+            {
+              "item": "Ayl s Pendant",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-pendant"
+            }
+          ]
+        }
+      },
+      "full_replayed_source_records": [
+        {
+          "name": "Ayl Elgyre",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/ayl-elgyre",
+              "title": "Ayl Elgyre · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Thelaseen"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "High Elf"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "?"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "location": [
+              "36730, 59900, 13449"
+            ],
+            "chunk": [
+              "Thelaseen"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Ayl's Drakeskin Mask",
+              "url": "https://vgsoharchive.com/items/ayl-s-drakeskin-mask"
+            },
+            {
+              "name": "Ayl's Pauldrons of Cured leather",
+              "url": "https://vgsoharchive.com/items/ayl-s-pauldrons-of-cured-leather"
+            },
+            {
+              "name": "Ayl Elgyre s Studded Bladestaff",
+              "url": "https://vgsoharchive.com/items/ayl-elgyre-s-studded-bladestaff"
+            },
+            {
+              "name": "Drakesbane Dagger",
+              "url": "https://vgsoharchive.com/items/drakesbane-dagger"
+            },
+            {
+              "name": "Ayl s Ivory Helm",
+              "url": "https://vgsoharchive.com/items/ayl-s-ivory-helm"
+            },
+            {
+              "name": "Drakebane Dagger",
+              "url": "https://vgsoharchive.com/items/drakebane-dagger"
+            },
+            {
+              "name": "Golem s Greaves of Flesh",
+              "url": "https://vgsoharchive.com/items/golem-s-greaves-of-flesh"
+            },
+            {
+              "name": "Ayl s Paudrons of Cured Leather",
+              "url": "https://vgsoharchive.com/items/ayl-s-paudrons-of-cured-leather"
+            },
+            {
+              "name": "Ayl s Pendant",
+              "url": "https://vgsoharchive.com/items/ayl-s-pendant"
+            }
+          ],
+          "type": "creature",
+          "level": 38,
+          "zone": "Thelaseen",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "4 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Thelaseen"
+          ],
+          "loot_ref": "Ayl Elgyre",
+          "map_location_observations": null,
+          "continent": "Thestra",
+          "locations_seen_recorded": null,
+          "difficulty_recorded": "4 dots",
+          "original_source_urls": []
+        },
+        {
+          "name": "Ayl Elgyre",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/ayl-elgyre",
+              "title": "Ayl Elgyre · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 36,
+          "collected_at": "2026-10-18T03:59:58+00:00",
+          "archive_fields": {
+            "zone": [
+              "Thelaseen"
+            ],
+            "difficulty": [
+              "4 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "High Elf"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "?"
+            ],
+            "harvestable": [
+              "No"
+            ],
+            "location": [
+              "36730, 59900, 13449"
+            ],
+            "chunk": [
+              "Thelaseen"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Ayl's Drakeskin Mask",
+              "url": "https://vgsoharchive.com/items/ayl-s-drakeskin-mask"
+            },
+            {
+              "name": "Ayl's Pauldrons of Cured leather",
+              "url": "https://vgsoharchive.com/items/ayl-s-pauldrons-of-cured-leather"
+            },
+            {
+              "name": "Ayl Elgyre s Studded Bladestaff",
+              "url": "https://vgsoharchive.com/items/ayl-elgyre-s-studded-bladestaff"
+            },
+            {
+              "name": "Drakesbane Dagger",
+              "url": "https://vgsoharchive.com/items/drakesbane-dagger"
+            },
+            {
+              "name": "Ayl s Ivory Helm",
+              "url": "https://vgsoharchive.com/items/ayl-s-ivory-helm"
+            },
+            {
+              "name": "Drakebane Dagger",
+              "url": "https://vgsoharchive.com/items/drakebane-dagger"
+            },
+            {
+              "name": "Golem s Greaves of Flesh",
+              "url": "https://vgsoharchive.com/items/golem-s-greaves-of-flesh"
+            },
+            {
+              "name": "Ayl s Paudrons of Cured Leather",
+              "url": "https://vgsoharchive.com/items/ayl-s-paudrons-of-cured-leather"
+            },
+            {
+              "name": "Ayl s Pendant",
+              "url": "https://vgsoharchive.com/items/ayl-s-pendant"
+            }
+          ],
+          "type": "loot",
+          "source": "Ayl Elgyre",
+          "drops": [
+            {
+              "item": "Ayl Elgyre s Studded Bladestaff",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-elgyre-s-studded-bladestaff"
+            },
+            {
+              "item": "Drakesbane Dagger",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/drakesbane-dagger"
+            },
+            {
+              "item": "Ayl s Ivory Helm",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-ivory-helm"
+            },
+            {
+              "item": "Ayl's Pauldrons of Cured leather",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-pauldrons-of-cured-leather"
+            },
+            {
+              "item": "Drakebane Dagger",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/drakebane-dagger"
+            },
+            {
+              "item": "Golem s Greaves of Flesh",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/golem-s-greaves-of-flesh"
+            },
+            {
+              "item": "Ayl s Paudrons of Cured Leather",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-paudrons-of-cured-leather"
+            },
+            {
+              "item": "Ayl s Pendant",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/ayl-s-pendant"
+            }
+          ]
+        }
+      ],
+      "loot_table_html": "<table>\n<thead><tr><th>Item</th><th>Rarity</th><th>Drop rate</th></tr></thead>\n<tbody>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-heroic\" href=\"/items/ayl-elgyre-s-studded-bladestaff\">Ayl Elgyre s Studded Bladestaff</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20081.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-heroic\">Ayl Elgyre's Studded Bladestaff</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Bladed Staff</span>\n<span class=\"tt-line plain\">152 - 229 Damage</span>\n<span class=\"tt-line stat\">+55 Accuracy Rating</span>\n<span class=\"tt-line stat\">+9 Strength</span>\n<span class=\"tt-line stat\">+28 Fire Resistance</span>\n<span class=\"tt-line stat\">+27 Constitution</span>\n<span class=\"tt-line stat\">+18 Dexterity</span>\n<span class=\"tt-line stat\">+28 Arcane Resistance</span>\n<span class=\"tt-line stat\">+28 Cold Resistance</span>\n<span class=\"tt-line stat\">+65 Hit Points</span>\n<span class=\"tt-line stat\">+28 Cold Absorption</span>\n<span class=\"tt-line stat\">+28 Arcane Absorption</span>\n<span class=\"tt-line stat\">+28 Fire Absorption</span>\n<span class=\"tt-line plain\">Required Level: 35 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Monk, Disciple</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ayl-elgyre-s-studded-bladestaff/Ayl-Elgyre-s-Studded-Bladestaff.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/drakesbane-dagger\">Drakesbane Dagger</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/00422.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Drakesbane Dagger</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Parrying Dagger</span><span>Secondary Hand</span></span>\n<span class=\"tt-line stat\">112 Armor Class</span>\n<span class=\"tt-line stat\">15.0% Parry Chance</span>\n<span class=\"tt-line stat\">+93 Parry</span>\n<span class=\"tt-line stat\">+141 Hit Points</span>\n<span class=\"tt-line plain\">Required Level: 33 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 43</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Ranger, Rogue</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:drakesbane-dagger/Drakesbane-Dagger.JPG</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/ayl-s-ivory-helm\">Ayl s Ivory Helm</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20461.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Ayl's Ivory Helm</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Head</span></span>\n<span class=\"tt-line stat\">118 Armor Class</span>\n<span class=\"tt-line stat\">+33 Healing Focus</span>\n<span class=\"tt-line stat\">+4 Constitution</span>\n<span class=\"tt-line stat\">+12 Vitality</span>\n<span class=\"tt-line stat\">+8 Wisdom</span>\n<span class=\"tt-line stat\">+15 General Critical Damage Bonus</span>\n<span class=\"tt-line stat\">+15 Critical Damage Bonus</span>\n<span class=\"tt-line plain\">Required Level: 35 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ayl-s-ivory-helm/Ayl-s-Ivory-Helm.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/ayl-s-pauldrons-of-cured-leather\">Ayl's Pauldrons of Cured leather</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20465.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Ayl's Pauldrons of Cured leather</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Shoulders</span></span>\n<span class=\"tt-line stat\">118 Armor Class</span>\n<span class=\"tt-line stat\">+4 Constitution</span>\n<span class=\"tt-line stat\">+12 Vitality</span>\n<span class=\"tt-line stat\">+8 Wisdom</span>\n<span class=\"tt-line stat\">+100 Hit Points</span>\n<span class=\"tt-line stat\">+15 General Critical Damage Bonus</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">named in the item's own tooltip</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/drakebane-dagger\">Drakebane Dagger</a></span>\n<br/><span class=\"muted\">named in the item's own tooltip</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/golem-s-greaves-of-flesh\">Golem s Greaves of Flesh</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20499.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Golem's Greaves of Flesh</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Heavy Armor</span><span>Legs</span></span>\n<span class=\"tt-line stat\">470 Armor Class</span>\n<span class=\"tt-line stat\">+26 Energy Regeneration</span>\n<span class=\"tt-line stat\">+25 Strength</span>\n<span class=\"tt-line stat\">+17 Vitality</span>\n<span class=\"tt-line stat\">+8 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 35 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 45</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Paladin, Cleric, Dread Knight, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:golem-s-greaves-of-flesh/Golem-s-Greaves-of-Flesh.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/ayl-s-paudrons-of-cured-leather\">Ayl s Paudrons of Cured Leather</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Ayl's Paudrons of Cured Leather</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line stat\">118 Armor Class</span>\n<span class=\"tt-line stat\">+4 Constitution</span>\n<span class=\"tt-line stat\">+12 Vitality</span>\n<span class=\"tt-line stat\">+8 Wisdom</span>\n<span class=\"tt-line stat\">+100 Hit Points</span>\n<span class=\"tt-line stat\">+15 Critical Damage Bonus</span>\n<span class=\"tt-line plain\">Required Level: 35 Adventuring</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ayl-s-paudrons-of-cured-leather/Ayl-s-Paudrons-of-Cured-Leather.png</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/ayl-s-pendant\">Ayl s Pendant</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20058.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Ayl's Pendant</span>\n<span class=\"tt-line boe\">Bind On Equip</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+2 Constitution</span>\n<span class=\"tt-line stat\">+2 Dexterity</span>\n<span class=\"tt-line stat\">+113 Hit Points</span>\n<span class=\"tt-line stat\">+113 Energy</span>\n<span class=\"tt-line plain\">Required Level: 33 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 43</span>\n<span class=\"tt-line plain\">Durability: 100%</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">http://thetelonproject.wdfiles.com/local--files/moblootitem:ayl-s-pendant/Ayl-s-Pendant.JPG</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>\n</tbody>\n</table>",
+      "prior_drop_count": 8,
+      "replayed_drop_count": 8,
+      "recovered_unlinked_observations": []
+    }
+  ],
+  "issues": [],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "findings": [
+    "Three previously omitted Avisor Selikzer unlinked loot observations recovered with null URLs; printed names do not establish canonical identity.",
+    "All existing linked drops unchanged across ten cached pages; all 67 HTML rows now represented.",
+    "Printed sample frequencies remain research observations; quantities, canonical IDs and operative probabilities unknown. No production conversion authorized.",
+    "Original immutable batches retained; replay is not a download or independent corroboration."
+  ],
+  "validation": {
+    "issues": [],
+    "input_hashes_verified": 11,
+    "pages_replayed": 10,
+    "recovered_rows": 3,
+    "all_records_structurally_valid": true,
+    "tests": "173 tests passed: python -B -W error::ResourceWarning -m unittest discover -s tests -q"
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected suspension reset/restart as blocked by policy; no reset or downloads performed."
+  },
+  "remaining_review": {
+    "collection_complete": false,
+    "required_review_complete": false,
+    "global_semantic_review_count": null,
+    "next_action": "Audit cached unlinked loot rows outside this ten-page batch for additional extraction omissions."
+  }
+}

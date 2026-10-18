@@ -27,7 +27,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 35
+PARSER_VERSION = 36
 CANONICAL_ROOT_PATHS = frozenset(('/', '/items', '/quests', '/mobs', '/zones',
     '/classes', '/races', '/abilities', '/effects', '/stats', '/skills', '/gameplay',
     '/diplomacy', '/diplomacy/cards', '/crafting', '/harvesting', '/crafting/recipes',
@@ -368,9 +368,14 @@ def parse_page(url, html):
                     continue
                 a = cells[0].find("a", href=re.compile(r"^/items/"))
                 rate = re.search(r"(\d+(?:\.\d+)?)\s*%", plain(cells[-1]))
-                if a:
-                    observations.append(dict(item=plain(a), chance=rate.group(0) if rate else None, quantity=None,
-                                             observed_sample=plain(cells[-1]), url=urljoin(ORIGIN, a["href"])))
+                # Unlinked archive rows still carry observations. Read only the
+                # leading name, excluding descriptive spans and tooltip fields.
+                item_name = plain(a) if a else " ".join(
+                    str(child).strip() for child in cells[0].children
+                    if isinstance(child, str) and str(child).strip())
+                if item_name:
+                    observations.append(dict(item=item_name, chance=rate.group(0) if rate else None, quantity=None,
+                                             observed_sample=plain(cells[-1]), url=urljoin(ORIGIN, a["href"]) if a else None))
         if observations:
             loot = dict(common, type="loot", source=name, drops=observations, confidence="low",
                         notes="Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.")
