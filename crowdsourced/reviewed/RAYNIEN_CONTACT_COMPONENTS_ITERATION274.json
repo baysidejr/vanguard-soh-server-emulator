@@ -1,0 +1,1001 @@
+{
+  "audit_kind": "cached_raynien_contact_and_component_evidence_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "inputs": [
+    {
+      "path": "reviewed/QUEST_FINDER_DEVICE_ITERATION273.json",
+      "sha256": "abef64a21ecaef5367bb7e34d2b8208f7c3b9b42a02f5662ddcdb33c8ead5e41"
+    },
+    {
+      "path": ".cache/archive/6ba27a6d47f0d70d63d016d515eb4d25cc0e51439b2aa4ab9c1438f8bf5bccd1.txt",
+      "sha256": "aef51469e4497409a6ed69eec6575eb137d6137b4996602eed5059e26b82b4fd"
+    },
+    {
+      "path": "raw/2026-10-15-172852-775452-archive-bulk/creature.jsonl",
+      "sha256": "3967e2958a4927244cb97671a40280ac6d81a70776c05e25df21be593b680ce6"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/mobs/raynien",
+      "cache_path": ".cache/archive/6ba27a6d47f0d70d63d016d515eb4d25cc0e51439b2aa4ab9c1438f8bf5bccd1.txt",
+      "cache_sha256": "aef51469e4497409a6ed69eec6575eb137d6137b4996602eed5059e26b82b4fd",
+      "title": "Raynien",
+      "detail_observations": [
+        {
+          "label": "Zone",
+          "text": "Jalen's Retreat",
+          "html": "<dd>Jalen's Retreat</dd>"
+        },
+        {
+          "label": "Difficulty",
+          "text": "3 dots",
+          "html": "<dd>3 dots</dd>"
+        },
+        {
+          "label": "Chunk",
+          "text": "Jalen's Retreat",
+          "html": "<dd>Jalen's Retreat</dd>"
+        },
+        {
+          "label": "Details",
+          "text": "Zone Jalen's Retreat Difficulty 3 dots Chunk Jalen's Retreat",
+          "html": "<dl class=\"kv\">\n<div><dt>Zone</dt><dd>Jalen's Retreat</dd></div>\n<div><dt>Difficulty</dt><dd>3 dots</dd></div>\n<div><dt>Chunk</dt><dd>Jalen's Retreat</dd></div>\n</dl>"
+        },
+        {
+          "label": "Loot (0)",
+          "text": "No loot recorded.",
+          "html": "<div class=\"empty\"><p>No loot recorded.</p></div>"
+        }
+      ],
+      "quest_links": [],
+      "article_text": "Raynien Level 45\n    · Jalen's Retreat Details Zone Jalen's Retreat Difficulty 3 dots Chunk Jalen's Retreat Loot (0) No loot recorded. ← Back to creatures",
+      "article_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<div class=\"detail-head-text\">\n<h1>Raynien</h1>\n<p class=\"muted\">\n    Level 45\n    · <a href=\"/mobs?zone=322\">Jalen's Retreat</a>\n</p>\n</div>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Zone</dt><dd>Jalen's Retreat</dd></div>\n<div><dt>Difficulty</dt><dd>3 dots</dd></div>\n<div><dt>Chunk</dt><dd>Jalen's Retreat</dd></div>\n</dl>\n</div>\n<div>\n<h2>Loot (0)</h2>\n<div class=\"empty\"><p>No loot recorded.</p></div>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/mobs\">← Back to creatures</a></p>\n</main>",
+      "source_records": [
+        {
+          "path": "raw/2026-10-15-172852-775452-archive-bulk/creature.jsonl",
+          "line": 5,
+          "record": {
+            "name": "Raynien",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/mobs/raynien",
+                "title": "Raynien · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+            "parser_version": 31,
+            "collected_at": "2026-10-15T21:29:53+00:00",
+            "archive_fields": {
+              "zone": [
+                "Jalen's Retreat"
+              ],
+              "difficulty": [
+                "3 dots"
+              ],
+              "chunk": [
+                "Jalen's Retreat"
+              ]
+            },
+            "referenced_entities": [],
+            "type": "creature",
+            "level": 45,
+            "zone": "Jalen's Retreat",
+            "health": null,
+            "damage": null,
+            "creature_kind": null,
+            "difficulty": "3 dots",
+            "spawn_areas": [],
+            "aggressive": null,
+            "aggro_range": null,
+            "respawn_time": null,
+            "zones_recorded": [
+              "Jalen's Retreat"
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "observation": "Raynien explicitly has a Level 45 header, Zone and Chunk Jalen's Retreat, and Difficulty 3 dots. These archive labels are not an enforced quest level or verified spawn.",
+      "source_url": "https://vgsoharchive.com/mobs/raynien",
+      "canonical_client_id": null,
+      "verified_spawn": null
+    },
+    {
+      "observation": "Raynien has no quest-contact link or dialogue on this cached page. Testing The Finder names Raynien in objective prose but does not link that name to this creature URL. The contact identity remains a candidate rather than a canonical merge.",
+      "canonical_contact_identity": null,
+      "enforced_contact_script": null
+    },
+    {
+      "observation": "Loot (0) and No loot recorded indicate absent archive evidence; they do not establish an empty operative loot table.",
+      "operative_loot_table": null
+    },
+    {
+      "observation": "Neither retained Finder quest page explicitly links an item detail URL. Covalisien, Adreduct, Telethym and Ceratescryer occur as text, so no component page identity or loot source can be resolved from those links.",
+      "component_client_ids": null,
+      "component_drop_probabilities": null
+    },
+    {
+      "observation": "Testing The Finder notes give /loc -18756, -56584, 14314 and relative directions. These remain separately attributed quest-note observations; Raynien's page does not independently verify them.",
+      "independent_coordinate_corroboration": false
+    }
+  ],
+  "contact_context": {
+    "path": "reviewed/QUEST_FINDER_DEVICE_ITERATION273.json",
+    "pages": [
+      {
+        "url": "https://vgsoharchive.com/quests/keys-to-the-finder",
+        "cache_path": ".cache/archive/e80ff9cae011076c62ebad676cd7a23f35a5948c2bd57ba9d62cc65354d28360.txt",
+        "cache_sha256": "6ab2b774fa1cb11dc251973905bbac8b04407a6561f60cbe8d55281a47c159b3",
+        "title": "Keys To The Finder",
+        "detail_observations": [
+          {
+            "label": "Starts with",
+            "text": "Adaenyl",
+            "html": "<dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd>"
+          },
+          {
+            "label": "Starts in",
+            "text": "Lomshir",
+            "html": "<dd><a href=\"/zones/lomshir\">Lomshir</a>\n</dd>"
+          },
+          {
+            "label": "Location",
+            "text": "-81360, 86389, 17154 in Lomshir (-15, -9)",
+            "html": "<dd>-81360, 86389, 17154 in Lomshir (-15, -9)</dd>"
+          },
+          {
+            "label": "Series",
+            "text": "Unicorn",
+            "html": "<dd>Unicorn</dd>"
+          },
+          {
+            "label": "Hand in to",
+            "text": "Adaenyl",
+            "html": "<dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd>"
+          },
+          {
+            "label": "Previous",
+            "text": "End The Cruelty",
+            "html": "<dd><a href=\"/quests/end-the-cruelty\">End The Cruelty</a>\n</dd>"
+          },
+          {
+            "label": "Next",
+            "text": "Testing The Finder",
+            "html": "<dd><a href=\"/quests/testing-the-finder\">Testing The Finder</a>\n</dd>"
+          },
+          {
+            "label": "Objectives",
+            "text": "Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.\n- Covalisien (0/1)\n- Adreduct (0/1)\n- Telethym (0/1)",
+            "html": "<div class=\"tooltip\">Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.\n- Covalisien (0/1)\n- Adreduct (0/1)\n- Telethym (0/1)</div>"
+          },
+          {
+            "label": "Description",
+            "text": "Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\"",
+            "html": "<div class=\"tooltip\">Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\"</div>"
+          },
+          {
+            "label": "What they say",
+            "text": "On offering it",
+            "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>"
+          },
+          {
+            "label": "What they say",
+            "text": "Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\" RSS Comments",
+            "html": "<div class=\"tooltip\">Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\" RSS Comments\n        </div>"
+          },
+          {
+            "label": "What they say",
+            "text": "Recorded by vg.curse.com .",
+            "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/5949/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>"
+          },
+          {
+            "label": "Notes",
+            "text": "The Witch Doctors are east of the Skrilen Point Riftstone.\nThe mobs are 2-dots but usually wander or stay in groups of 3-4.\nThe witch doctors in the huts had a better drop rate. (Confirmed?)\nSkrillien Point - Map Location: lvl 22-24 2dot nameds\nWarlord Thrak'ssez drops Covalisien (inside the NE hut - may not always be up).\nBloodletter Sarek drops Telethym (wanders the village area the area).\nStrands of the Ancient - Ssre'Vessk: lvl 25 - 27 3-4dot nameds\nThaumaturge Lass'Revik drops both Covalisien and Adreduct (loc -20493, -16892, 4090 SW part of the village)\nJekrissk the Champion drops both 2 of the following Covalisien, Adreduct and Telethym (loc -22609, -37323, 9908 on the stone pathway to Pantheon of the Ancient)",
+            "html": "<p class=\"muted\">The Witch Doctors are east of the Skrilen Point Riftstone.\nThe mobs are 2-dots but usually wander or stay in groups of 3-4.\nThe witch doctors in the huts had a better drop rate. (Confirmed?)\nSkrillien Point - Map Location: lvl 22-24 2dot nameds\nWarlord Thrak'ssez drops Covalisien (inside the NE hut - may not always be up).\nBloodletter Sarek drops Telethym (wanders the village area the area).\nStrands of the Ancient - Ssre'Vessk: lvl 25 - 27 3-4dot nameds\nThaumaturge Lass'Revik drops both Covalisien and Adreduct (loc -20493, -16892, 4090 SW part of the village)\nJekrissk the Champion drops both 2 of the following Covalisien, Adreduct and Telethym (loc -22609, -37323, 9908 on the stone pathway to Pantheon of the Ancient)</p>"
+          },
+          {
+            "label": "Notes",
+            "text": "1 recorded\n    disagreement about this\n    quest — level (curse) .",
+            "html": "<p class=\"muted\">\n    1 recorded\n    disagreement about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(curse)</span>.\n  </p>"
+          },
+          {
+            "label": "Another account",
+            "text": "A second source described this quest differently. Both are kept\n          here; neither is a correction of the other.",
+            "html": "<p class=\"muted small\">\n        \n          A second source described this quest differently. Both are kept\n          here; neither is a correction of the other.\n        \n      </p>"
+          },
+          {
+            "label": "Another account",
+            "text": "Objectives as recorded by curse Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow&#039;s Edge.\nCovalisien (1)\nAdreduct (1)\nTelethym (1)",
+            "html": "<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by curse</span></h3>\n<div class=\"tooltip\">Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow&amp;#039;s Edge.\nCovalisien (1)\nAdreduct (1)\nTelethym (1)</div>\n</div>"
+          },
+          {
+            "label": "Another account",
+            "text": "Objectives as recorded by fandom Covalisien (1)\nAdreduct (1)\nTelethym (1)\nGo to Skrilien Point to find Skrilien witch doctors and other powerful Skrilen. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.",
+            "html": "<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by fandom</span></h3>\n<div class=\"tooltip\">Covalisien (1)\nAdreduct (1)\nTelethym (1)\nGo to Skrilien Point to find Skrilien witch doctors and other powerful Skrilen. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.</div>\n</div>"
+          },
+          {
+            "label": "Objectives as recorded by curse",
+            "text": "Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow&#039;s Edge.\nCovalisien (1)\nAdreduct (1)\nTelethym (1)",
+            "html": "<div class=\"tooltip\">Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow&amp;#039;s Edge.\nCovalisien (1)\nAdreduct (1)\nTelethym (1)</div>"
+          },
+          {
+            "label": "Objectives as recorded by fandom",
+            "text": "Covalisien (1)\nAdreduct (1)\nTelethym (1)\nGo to Skrilien Point to find Skrilien witch doctors and other powerful Skrilen. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.",
+            "html": "<div class=\"tooltip\">Covalisien (1)\nAdreduct (1)\nTelethym (1)\nGo to Skrilien Point to find Skrilien witch doctors and other powerful Skrilen. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.</div>"
+          },
+          {
+            "label": "Details",
+            "text": "Starts with Adaenyl Starts in Lomshir Location -81360, 86389, 17154 in Lomshir (-15, -9) Series Unicorn Hand in to Adaenyl Previous End The Cruelty Next Testing The Finder",
+            "html": "<dl class=\"kv\">\n<div><dt>Starts with</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n<div><dt>Starts in</dt><dd><a href=\"/zones/lomshir\">Lomshir</a>\n</dd></div>\n<div><dt>Location</dt><dd>-81360, 86389, 17154 in Lomshir (-15, -9)</dd></div>\n<div><dt>Series</dt><dd>Unicorn</dd></div>\n<div><dt>Hand in to</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n<div><dt>Previous</dt><dd><a href=\"/quests/end-the-cruelty\">End The Cruelty</a>\n</dd></div>\n<div><dt>Next</dt><dd><a href=\"/quests/testing-the-finder\">Testing The Finder</a>\n</dd></div>\n</dl>"
+          },
+          {
+            "label": "Source",
+            "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/keys-to-the-finder-2794.html",
+            "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/keys-to-the-finder-2794.html</p>"
+          },
+          {
+            "label": "Guides covering this",
+            "text": "Part 2 - Adaenyl's Bidding — VG Walkthroughs Unicorn Mount — World",
+            "html": "<ul class=\"plain\">\n<li>\n<a href=\"/walkthroughs/part-2-adaenyl-s-bidding\">Part 2 - Adaenyl's Bidding</a>\n<span class=\"muted\">— VG Walkthroughs</span>\n</li>\n<li>\n<a href=\"/world/unicorn-mount\">Unicorn Mount</a>\n<span class=\"muted\">— World</span>\n</li>\n</ul>"
+          }
+        ],
+        "quest_links": [
+          {
+            "text": "End The Cruelty",
+            "url": "https://vgsoharchive.com/quests/end-the-cruelty",
+            "html": "<a href=\"/quests/end-the-cruelty\">End The Cruelty</a>"
+          },
+          {
+            "text": "Testing The Finder",
+            "url": "https://vgsoharchive.com/quests/testing-the-finder",
+            "html": "<a href=\"/quests/testing-the-finder\">Testing The Finder</a>"
+          }
+        ],
+        "article_text": "Keys To The Finder Level 24\n    · Adventuring\n    · Lomshir Objectives Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.\n- Covalisien (0/1)\n- Adreduct (0/1)\n- Telethym (0/1) Description Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\" What they say On offering it Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\" RSS Comments Recorded by vg.curse.com . Notes The Witch Doctors are east of the Skrilen Point Riftstone.\nThe mobs are 2-dots but usually wander or stay in groups of 3-4.\nThe witch doctors in the huts had a better drop rate. (Confirmed?)\nSkrillien Point - Map Location: lvl 22-24 2dot nameds\nWarlord Thrak'ssez drops Covalisien (inside the NE hut - may not always be up).\nBloodletter Sarek drops Telethym (wanders the village area the area).\nStrands of the Ancient - Ssre'Vessk: lvl 25 - 27 3-4dot nameds\nThaumaturge Lass'Revik drops both Covalisien and Adreduct (loc -20493, -16892, 4090 SW part of the village)\nJekrissk the Champion drops both 2 of the following Covalisien, Adreduct and Telethym (loc -22609, -37323, 9908 on the stone pathway to Pantheon of the Ancient) 1 recorded\n    disagreement about this\n    quest — level (curse) . Another account A second source described this quest differently. Both are kept\n          here; neither is a correction of the other. Objectives as recorded by curse Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow&#039;s Edge.\nCovalisien (1)\nAdreduct (1)\nTelethym (1) Objectives as recorded by fandom Covalisien (1)\nAdreduct (1)\nTelethym (1)\nGo to Skrilien Point to find Skrilien witch doctors and other powerful Skrilen. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge. Details Starts with Adaenyl Starts in Lomshir Location -81360, 86389, 17154 in Lomshir (-15, -9) Series Unicorn Hand in to Adaenyl Previous End The Cruelty Next Testing The Finder Source https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/keys-to-the-finder-2794.html ← Back to quests Guides covering this Part 2 - Adaenyl's Bidding — VG Walkthroughs Unicorn Mount — World",
+        "article_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>Keys To The Finder</h1>\n<p class=\"muted\">\n    Level 24\n    · Adventuring\n    · <a href=\"/zones/lomshir\">Lomshir</a>\n</p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Objectives</h2>\n<div class=\"tooltip\">Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.\n- Covalisien (0/1)\n- Adreduct (0/1)\n- Telethym (0/1)</div>\n<h2>Description</h2>\n<div class=\"tooltip\">Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\"</div>\n<h2>What they say</h2>\n<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>\n<div class=\"tooltip\">Adaenyl says, \"In order to construct a ceratescryer, I need your help.\" \"The witch doctors of the Skrilien have some talent at constructing magical devices. If you collect certain of their shamanic creations, we will be able to combine them into a ceratescryer.\" \"The Skrilien are tuatiren - a religious group of lizardlike two-legs who live far to the east. I can direct you to where their witch doctors can be found in Skrilien Point.\" \"Obtain one each of a covalisien, adreduct, and telethym.\" RSS Comments\n        </div>\n<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/5949/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>\n<h2>Notes</h2>\n<p class=\"muted\">The Witch Doctors are east of the Skrilen Point Riftstone.\nThe mobs are 2-dots but usually wander or stay in groups of 3-4.\nThe witch doctors in the huts had a better drop rate. (Confirmed?)\nSkrillien Point - Map Location: lvl 22-24 2dot nameds\nWarlord Thrak'ssez drops Covalisien (inside the NE hut - may not always be up).\nBloodletter Sarek drops Telethym (wanders the village area the area).\nStrands of the Ancient - Ssre'Vessk: lvl 25 - 27 3-4dot nameds\nThaumaturge Lass'Revik drops both Covalisien and Adreduct (loc -20493, -16892, 4090 SW part of the village)\nJekrissk the Champion drops both 2 of the following Covalisien, Adreduct and Telethym (loc -22609, -37323, 9908 on the stone pathway to Pantheon of the Ancient)</p>\n<p class=\"muted\">\n    1 recorded\n    disagreement about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(curse)</span>.\n  </p>\n<h2>Another account</h2>\n<p class=\"muted small\">\n        \n          A second source described this quest differently. Both are kept\n          here; neither is a correction of the other.\n        \n      </p>\n<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by curse</span></h3>\n<div class=\"tooltip\">Go to Skrilien Point to find Skrilien witch doctors and other powerful Skrilien. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow&amp;#039;s Edge.\nCovalisien (1)\nAdreduct (1)\nTelethym (1)</div>\n</div>\n<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by fandom</span></h3>\n<div class=\"tooltip\">Covalisien (1)\nAdreduct (1)\nTelethym (1)\nGo to Skrilien Point to find Skrilien witch doctors and other powerful Skrilen. Slay them and recover one each of the following shamanic devices: covalisien, adreduct, and telethym. Bring them to Adaenyl at Shadow's Edge.</div>\n</div>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Starts with</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n<div><dt>Starts in</dt><dd><a href=\"/zones/lomshir\">Lomshir</a>\n</dd></div>\n<div><dt>Location</dt><dd>-81360, 86389, 17154 in Lomshir (-15, -9)</dd></div>\n<div><dt>Series</dt><dd>Unicorn</dd></div>\n<div><dt>Hand in to</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n<div><dt>Previous</dt><dd><a href=\"/quests/end-the-cruelty\">End The Cruelty</a>\n</dd></div>\n<div><dt>Next</dt><dd><a href=\"/quests/testing-the-finder\">Testing The Finder</a>\n</dd></div>\n</dl>\n<h2>Source</h2>\n<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/keys-to-the-finder-2794.html</p>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/quests\">← Back to quests</a></p>\n<h2>Guides covering this</h2>\n<ul class=\"plain\">\n<li>\n<a href=\"/walkthroughs/part-2-adaenyl-s-bidding\">Part 2 - Adaenyl's Bidding</a>\n<span class=\"muted\">— VG Walkthroughs</span>\n</li>\n<li>\n<a href=\"/world/unicorn-mount\">Unicorn Mount</a>\n<span class=\"muted\">— World</span>\n</li>\n</ul>\n</main>",
+        "source_records": [
+          {
+            "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+            "line": 93,
+            "record": {
+              "name": "Keys To The Finder",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/quests/keys-to-the-finder",
+                  "title": "Keys To The Finder · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+              "parser_version": 18,
+              "collected_at": "2026-10-14T10:03:56+00:00",
+              "archive_fields": {
+                "starts with": [
+                  "Adaenyl"
+                ],
+                "starts in": [
+                  "Lomshir"
+                ],
+                "location": [
+                  "-81360, 86389, 17154 in Lomshir (-15, -9)"
+                ],
+                "series": [
+                  "Unicorn"
+                ],
+                "hand in to": [
+                  "Adaenyl"
+                ],
+                "previous": [
+                  "End The Cruelty"
+                ],
+                "next": [
+                  "Testing The Finder"
+                ]
+              },
+              "referenced_entities": [
+                {
+                  "name": "Lomshir",
+                  "url": "https://vgsoharchive.com/zones/lomshir"
+                },
+                {
+                  "name": "Adaenyl",
+                  "url": "https://vgsoharchive.com/mobs/adaenyl"
+                },
+                {
+                  "name": "End The Cruelty",
+                  "url": "https://vgsoharchive.com/quests/end-the-cruelty"
+                },
+                {
+                  "name": "Testing The Finder",
+                  "url": "https://vgsoharchive.com/quests/testing-the-finder"
+                }
+              ],
+              "type": "quest",
+              "level": 24,
+              "zone": "Lomshir",
+              "giver": "Adaenyl",
+              "turn_in": "Adaenyl",
+              "prerequisites": null,
+              "steps": null,
+              "repeatable": null,
+              "start_text": null,
+              "completion_text": null,
+              "description": null,
+              "summary": null,
+              "rewards": {
+                "xp": null,
+                "coin_copper": null,
+                "items": null,
+                "choice": null
+              },
+              "chain_previous": "End The Cruelty",
+              "chain_next": "Testing The Finder",
+              "quest_chain": {
+                "name": "Unicorn",
+                "position": null
+              },
+              "archive_objective_counters": [
+                {
+                  "label": "- Covalisien",
+                  "count": 1,
+                  "objective": "- Covalisien (0/1)"
+                },
+                {
+                  "label": "- Adreduct",
+                  "count": 1,
+                  "objective": "- Adreduct (0/1)"
+                },
+                {
+                  "label": "- Telethym",
+                  "count": 1,
+                  "objective": "- Telethym (0/1)"
+                }
+              ],
+              "candidate_steps": [
+                {
+                  "objective": "- Covalisien (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                },
+                {
+                  "objective": "- Adreduct (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                },
+                {
+                  "objective": "- Telethym (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                }
+              ],
+              "original_source_urls": []
+            }
+          },
+          {
+            "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+            "line": 2064,
+            "record": {
+              "name": "Keys To The Finder",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/quests/keys-to-the-finder",
+                  "title": "Keys To The Finder · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+              "parser_version": 19,
+              "collected_at": "2026-10-14T14:48:45+00:00",
+              "archive_fields": {
+                "starts with": [
+                  "Adaenyl"
+                ],
+                "starts in": [
+                  "Lomshir"
+                ],
+                "location": [
+                  "-81360, 86389, 17154 in Lomshir (-15, -9)"
+                ],
+                "series": [
+                  "Unicorn"
+                ],
+                "hand in to": [
+                  "Adaenyl"
+                ],
+                "previous": [
+                  "End The Cruelty"
+                ],
+                "next": [
+                  "Testing The Finder"
+                ]
+              },
+              "referenced_entities": [
+                {
+                  "name": "Lomshir",
+                  "url": "https://vgsoharchive.com/zones/lomshir"
+                },
+                {
+                  "name": "Adaenyl",
+                  "url": "https://vgsoharchive.com/mobs/adaenyl"
+                },
+                {
+                  "name": "End The Cruelty",
+                  "url": "https://vgsoharchive.com/quests/end-the-cruelty"
+                },
+                {
+                  "name": "Testing The Finder",
+                  "url": "https://vgsoharchive.com/quests/testing-the-finder"
+                }
+              ],
+              "type": "quest",
+              "level": 24,
+              "zone": "Lomshir",
+              "giver": "Adaenyl",
+              "turn_in": "Adaenyl",
+              "prerequisites": null,
+              "steps": null,
+              "repeatable": null,
+              "start_text": null,
+              "completion_text": null,
+              "description": null,
+              "summary": null,
+              "rewards": {
+                "xp": null,
+                "coin_copper": null,
+                "items": null,
+                "choice": null
+              },
+              "chain_previous": "End The Cruelty",
+              "chain_next": "Testing The Finder",
+              "quest_chain": {
+                "name": "Unicorn",
+                "position": null
+              },
+              "archive_objective_counters": [
+                {
+                  "label": "- Covalisien",
+                  "count": 1,
+                  "objective": "- Covalisien (0/1)"
+                },
+                {
+                  "label": "- Adreduct",
+                  "count": 1,
+                  "objective": "- Adreduct (0/1)"
+                },
+                {
+                  "label": "- Telethym",
+                  "count": 1,
+                  "objective": "- Telethym (0/1)"
+                }
+              ],
+              "candidate_steps": [
+                {
+                  "objective": "- Covalisien (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                },
+                {
+                  "objective": "- Adreduct (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                },
+                {
+                  "objective": "- Telethym (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                }
+              ],
+              "original_source_urls": []
+            }
+          },
+          {
+            "path": "raw/2026-10-14-110506-005713-archive-quest-additional-trackers-v21/quest.jsonl",
+            "line": 597,
+            "record": {
+              "name": "Keys To The Finder",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/quests/keys-to-the-finder",
+                  "title": "Keys To The Finder · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+              "parser_version": 21,
+              "collected_at": "2026-10-14T15:05:08+00:00",
+              "archive_fields": {
+                "starts with": [
+                  "Adaenyl"
+                ],
+                "starts in": [
+                  "Lomshir"
+                ],
+                "location": [
+                  "-81360, 86389, 17154 in Lomshir (-15, -9)"
+                ],
+                "series": [
+                  "Unicorn"
+                ],
+                "hand in to": [
+                  "Adaenyl"
+                ],
+                "previous": [
+                  "End The Cruelty"
+                ],
+                "next": [
+                  "Testing The Finder"
+                ]
+              },
+              "referenced_entities": [
+                {
+                  "name": "Lomshir",
+                  "url": "https://vgsoharchive.com/zones/lomshir"
+                },
+                {
+                  "name": "Adaenyl",
+                  "url": "https://vgsoharchive.com/mobs/adaenyl"
+                },
+                {
+                  "name": "End The Cruelty",
+                  "url": "https://vgsoharchive.com/quests/end-the-cruelty"
+                },
+                {
+                  "name": "Testing The Finder",
+                  "url": "https://vgsoharchive.com/quests/testing-the-finder"
+                }
+              ],
+              "type": "quest",
+              "level": 24,
+              "zone": "Lomshir",
+              "giver": "Adaenyl",
+              "turn_in": "Adaenyl",
+              "prerequisites": null,
+              "steps": null,
+              "repeatable": null,
+              "start_text": null,
+              "completion_text": null,
+              "description": null,
+              "summary": null,
+              "rewards": {
+                "xp": null,
+                "coin_copper": null,
+                "items": null,
+                "choice": null
+              },
+              "chain_previous": "End The Cruelty",
+              "chain_next": "Testing The Finder",
+              "quest_chain": {
+                "name": "Unicorn",
+                "position": null
+              },
+              "archive_objective_counters": [
+                {
+                  "label": "Covalisien",
+                  "count": 1,
+                  "objective": "- Covalisien (0/1)"
+                },
+                {
+                  "label": "Adreduct",
+                  "count": 1,
+                  "objective": "- Adreduct (0/1)"
+                },
+                {
+                  "label": "Telethym",
+                  "count": 1,
+                  "objective": "- Telethym (0/1)"
+                }
+              ],
+              "candidate_steps": [
+                {
+                  "objective": "- Covalisien (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                },
+                {
+                  "objective": "- Adreduct (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                },
+                {
+                  "objective": "- Telethym (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                }
+              ],
+              "original_source_urls": []
+            }
+          }
+        ]
+      },
+      {
+        "url": "https://vgsoharchive.com/quests/testing-the-finder",
+        "cache_path": ".cache/archive/0dc31cffd2d646b76dd9cd0d78a9fae875c75e5762bcbfa197e4093e98755ad8.txt",
+        "cache_sha256": "7758ffde4e3e5d5b6676b37d1cd23fed84abc081221beeb6db08b10ee65f5f92",
+        "title": "Testing The Finder",
+        "detail_observations": [
+          {
+            "label": "Starts with",
+            "text": "Adaenyl",
+            "html": "<dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd>"
+          },
+          {
+            "label": "Starts in",
+            "text": "Lomshir",
+            "html": "<dd><a href=\"/zones/lomshir\">Lomshir</a>\n</dd>"
+          },
+          {
+            "label": "Hand in to",
+            "text": "Adaenyl",
+            "html": "<dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd>"
+          },
+          {
+            "label": "Objectives",
+            "text": "Find the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.\n- Reestablish Contact with Raynien\n- Ceratescryer (0/1)",
+            "html": "<div class=\"tooltip\">Find the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.\n- Reestablish Contact with Raynien\n- Ceratescryer (0/1)</div>"
+          },
+          {
+            "label": "Description",
+            "text": "Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Indica. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\"",
+            "html": "<div class=\"tooltip\">Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Indica. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\"</div>"
+          },
+          {
+            "label": "What they say",
+            "text": "On offering it",
+            "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>"
+          },
+          {
+            "label": "What they say",
+            "text": "Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Naughtis. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\" RSS Comments",
+            "html": "<div class=\"tooltip\">Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Naughtis. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\" RSS Comments\n        </div>"
+          },
+          {
+            "label": "What they say",
+            "text": "Recorded by vg.curse.com .",
+            "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/5950/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>"
+          },
+          {
+            "label": "Notes",
+            "text": "Raynien is located 4 chunks to the west and 1 south. /loc -18756, -56584, 14314",
+            "html": "<p class=\"muted\">Raynien is located 4 chunks to the west and 1 south. /loc -18756, -56584, 14314</p>"
+          },
+          {
+            "label": "Another account",
+            "text": "A second source described this quest differently. Both are kept\n          here; neither is a correction of the other.",
+            "html": "<p class=\"muted small\">\n        \n          A second source described this quest differently. Both are kept\n          here; neither is a correction of the other.\n        \n      </p>"
+          },
+          {
+            "label": "Another account",
+            "text": "Objectives as recorded by curse Find the unicorn Raynien at the west Qalian island of Jalen&#039;s Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow&#039;s Edge.\nReestablish Contact with Raynien\nCeratescryer (1)",
+            "html": "<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by curse</span></h3>\n<div class=\"tooltip\">Find the unicorn Raynien at the west Qalian island of Jalen&amp;#039;s Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow&amp;#039;s Edge.\nReestablish Contact with Raynien\nCeratescryer (1)</div>\n</div>"
+          },
+          {
+            "label": "Another account",
+            "text": "Objectives as recorded by fandom Reestablish Contact with Raynien\nCeratescryer (1)\nFind the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.",
+            "html": "<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by fandom</span></h3>\n<div class=\"tooltip\">Reestablish Contact with Raynien\nCeratescryer (1)\nFind the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.</div>\n</div>"
+          },
+          {
+            "label": "Objectives as recorded by curse",
+            "text": "Find the unicorn Raynien at the west Qalian island of Jalen&#039;s Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow&#039;s Edge.\nReestablish Contact with Raynien\nCeratescryer (1)",
+            "html": "<div class=\"tooltip\">Find the unicorn Raynien at the west Qalian island of Jalen&amp;#039;s Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow&amp;#039;s Edge.\nReestablish Contact with Raynien\nCeratescryer (1)</div>"
+          },
+          {
+            "label": "Objectives as recorded by fandom",
+            "text": "Reestablish Contact with Raynien\nCeratescryer (1)\nFind the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.",
+            "html": "<div class=\"tooltip\">Reestablish Contact with Raynien\nCeratescryer (1)\nFind the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.</div>"
+          },
+          {
+            "label": "Details",
+            "text": "Starts with Adaenyl Starts in Lomshir Hand in to Adaenyl",
+            "html": "<dl class=\"kv\">\n<div><dt>Starts with</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n<div><dt>Starts in</dt><dd><a href=\"/zones/lomshir\">Lomshir</a>\n</dd></div>\n<div><dt>Hand in to</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n</dl>"
+          },
+          {
+            "label": "Source",
+            "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/testing-the-finder-2883.html",
+            "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/testing-the-finder-2883.html</p>"
+          },
+          {
+            "label": "Guides covering this",
+            "text": "Hathor Zhi Zone — World Unicorn Mount — World",
+            "html": "<ul class=\"plain\">\n<li>\n<a href=\"/world/hathor-zhi-zone\">Hathor Zhi Zone</a>\n<span class=\"muted\">— World</span>\n</li>\n<li>\n<a href=\"/world/unicorn-mount\">Unicorn Mount</a>\n<span class=\"muted\">— World</span>\n</li>\n</ul>"
+          }
+        ],
+        "quest_links": [],
+        "article_text": "Testing The Finder Level 24\n    · Adventuring\n    · Lomshir Objectives Find the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.\n- Reestablish Contact with Raynien\n- Ceratescryer (0/1) Description Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Indica. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\" What they say On offering it Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Naughtis. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\" RSS Comments Recorded by vg.curse.com . Notes Raynien is located 4 chunks to the west and 1 south. /loc -18756, -56584, 14314 Another account A second source described this quest differently. Both are kept\n          here; neither is a correction of the other. Objectives as recorded by curse Find the unicorn Raynien at the west Qalian island of Jalen&#039;s Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow&#039;s Edge.\nReestablish Contact with Raynien\nCeratescryer (1) Objectives as recorded by fandom Reestablish Contact with Raynien\nCeratescryer (1)\nFind the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge. Details Starts with Adaenyl Starts in Lomshir Hand in to Adaenyl Source https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/testing-the-finder-2883.html ← Back to quests Guides covering this Hathor Zhi Zone — World Unicorn Mount — World",
+        "article_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>Testing The Finder</h1>\n<p class=\"muted\">\n    Level 24\n    · Adventuring\n    · <a href=\"/zones/lomshir\">Lomshir</a>\n</p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Objectives</h2>\n<div class=\"tooltip\">Find the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.\n- Reestablish Contact with Raynien\n- Ceratescryer (0/1)</div>\n<h2>Description</h2>\n<div class=\"tooltip\">Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Indica. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\"</div>\n<h2>What they say</h2>\n<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>\n<div class=\"tooltip\">Adaenyl says, \"It looks like the ceratescryer is working. I thank you for your help.\" \"With the device, I am sensing one of my kin far to the west. His name is Raynien. He's on an island called Jalen's Retreat. He is so far away that I cannot reach him.\" \"You must be the one to make contact, Naughtis. Seek him out, and hand him the ceratescryer. Once he is aware of me via the device, I should be able to speak with him in return.\" \"Bring the ceratescryer back to me once contact has been made.\" RSS Comments\n        </div>\n<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"http://vg.curse.com/database/quests/details/5950/\" rel=\"noreferrer nofollow\">vg.curse.com</a>.\n        </p>\n<h2>Notes</h2>\n<p class=\"muted\">Raynien is located 4 chunks to the west and 1 south. /loc -18756, -56584, 14314</p>\n<h2>Another account</h2>\n<p class=\"muted small\">\n        \n          A second source described this quest differently. Both are kept\n          here; neither is a correction of the other.\n        \n      </p>\n<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by curse</span></h3>\n<div class=\"tooltip\">Find the unicorn Raynien at the west Qalian island of Jalen&amp;#039;s Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow&amp;#039;s Edge.\nReestablish Contact with Raynien\nCeratescryer (1)</div>\n</div>\n<div class=\"variant\">\n<h3>Objectives\n            <span class=\"muted small\">as recorded by fandom</span></h3>\n<div class=\"tooltip\">Reestablish Contact with Raynien\nCeratescryer (1)\nFind the unicorn Raynien at the west Qalian island of Jalen's Retreat. Let him use the ceratescryer to make contact with Adaenyl. Bring the ceratescryer back to Adaenyl at Shadow's Edge.</div>\n</div>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Starts with</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n<div><dt>Starts in</dt><dd><a href=\"/zones/lomshir\">Lomshir</a>\n</dd></div>\n<div><dt>Hand in to</dt><dd><a href=\"/mobs/adaenyl\">Adaenyl</a>\n</dd></div>\n</dl>\n<h2>Source</h2>\n<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/testing-the-finder-2883.html</p>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/quests\">← Back to quests</a></p>\n<h2>Guides covering this</h2>\n<ul class=\"plain\">\n<li>\n<a href=\"/world/hathor-zhi-zone\">Hathor Zhi Zone</a>\n<span class=\"muted\">— World</span>\n</li>\n<li>\n<a href=\"/world/unicorn-mount\">Unicorn Mount</a>\n<span class=\"muted\">— World</span>\n</li>\n</ul>\n</main>",
+        "source_records": [
+          {
+            "path": "raw/2026-10-14-082613-669763-archive-bulk/quest.jsonl",
+            "line": 41,
+            "record": {
+              "name": "Testing The Finder",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/quests/testing-the-finder",
+                  "title": "Testing The Finder · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+              "parser_version": 18,
+              "collected_at": "2026-10-14T12:29:37+00:00",
+              "archive_fields": {
+                "starts with": [
+                  "Adaenyl"
+                ],
+                "starts in": [
+                  "Lomshir"
+                ],
+                "hand in to": [
+                  "Adaenyl"
+                ]
+              },
+              "referenced_entities": [
+                {
+                  "name": "Lomshir",
+                  "url": "https://vgsoharchive.com/zones/lomshir"
+                },
+                {
+                  "name": "Adaenyl",
+                  "url": "https://vgsoharchive.com/mobs/adaenyl"
+                }
+              ],
+              "type": "quest",
+              "level": 24,
+              "zone": "Lomshir",
+              "giver": "Adaenyl",
+              "turn_in": "Adaenyl",
+              "prerequisites": null,
+              "steps": null,
+              "repeatable": null,
+              "start_text": null,
+              "completion_text": null,
+              "description": null,
+              "summary": null,
+              "rewards": {
+                "xp": null,
+                "coin_copper": null,
+                "items": null,
+                "choice": null
+              },
+              "chain_previous": null,
+              "chain_next": null,
+              "quest_chain": null,
+              "archive_objective_counters": [
+                {
+                  "label": "- Ceratescryer",
+                  "count": 1,
+                  "objective": "- Ceratescryer (0/1)"
+                }
+              ],
+              "candidate_steps": [
+                {
+                  "objective": "- Ceratescryer (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                }
+              ],
+              "original_source_urls": []
+            }
+          },
+          {
+            "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+            "line": 3827,
+            "record": {
+              "name": "Testing The Finder",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/quests/testing-the-finder",
+                  "title": "Testing The Finder · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+              "parser_version": 19,
+              "collected_at": "2026-10-14T14:48:52+00:00",
+              "archive_fields": {
+                "starts with": [
+                  "Adaenyl"
+                ],
+                "starts in": [
+                  "Lomshir"
+                ],
+                "hand in to": [
+                  "Adaenyl"
+                ]
+              },
+              "referenced_entities": [
+                {
+                  "name": "Lomshir",
+                  "url": "https://vgsoharchive.com/zones/lomshir"
+                },
+                {
+                  "name": "Adaenyl",
+                  "url": "https://vgsoharchive.com/mobs/adaenyl"
+                }
+              ],
+              "type": "quest",
+              "level": 24,
+              "zone": "Lomshir",
+              "giver": "Adaenyl",
+              "turn_in": "Adaenyl",
+              "prerequisites": null,
+              "steps": null,
+              "repeatable": null,
+              "start_text": null,
+              "completion_text": null,
+              "description": null,
+              "summary": null,
+              "rewards": {
+                "xp": null,
+                "coin_copper": null,
+                "items": null,
+                "choice": null
+              },
+              "chain_previous": null,
+              "chain_next": null,
+              "quest_chain": null,
+              "archive_objective_counters": [
+                {
+                  "label": "- Ceratescryer",
+                  "count": 1,
+                  "objective": "- Ceratescryer (0/1)"
+                }
+              ],
+              "candidate_steps": [
+                {
+                  "objective": "- Ceratescryer (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                }
+              ],
+              "original_source_urls": []
+            }
+          },
+          {
+            "path": "raw/2026-10-14-110506-005713-archive-quest-additional-trackers-v21/quest.jsonl",
+            "line": 1218,
+            "record": {
+              "name": "Testing The Finder",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/quests/testing-the-finder",
+                  "title": "Testing The Finder · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+              "parser_version": 21,
+              "collected_at": "2026-10-14T15:05:11+00:00",
+              "archive_fields": {
+                "starts with": [
+                  "Adaenyl"
+                ],
+                "starts in": [
+                  "Lomshir"
+                ],
+                "hand in to": [
+                  "Adaenyl"
+                ]
+              },
+              "referenced_entities": [
+                {
+                  "name": "Lomshir",
+                  "url": "https://vgsoharchive.com/zones/lomshir"
+                },
+                {
+                  "name": "Adaenyl",
+                  "url": "https://vgsoharchive.com/mobs/adaenyl"
+                }
+              ],
+              "type": "quest",
+              "level": 24,
+              "zone": "Lomshir",
+              "giver": "Adaenyl",
+              "turn_in": "Adaenyl",
+              "prerequisites": null,
+              "steps": null,
+              "repeatable": null,
+              "start_text": null,
+              "completion_text": null,
+              "description": null,
+              "summary": null,
+              "rewards": {
+                "xp": null,
+                "coin_copper": null,
+                "items": null,
+                "choice": null
+              },
+              "chain_previous": null,
+              "chain_next": null,
+              "quest_chain": null,
+              "archive_objective_counters": [
+                {
+                  "label": "Ceratescryer",
+                  "count": 1,
+                  "objective": "- Ceratescryer (0/1)"
+                }
+              ],
+              "candidate_steps": [
+                {
+                  "objective": "- Ceratescryer (0/1)",
+                  "kind": null,
+                  "target": null,
+                  "count": 1
+                }
+              ],
+              "original_source_urls": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "component_link_audit": [
+    {
+      "url": "https://vgsoharchive.com/quests/keys-to-the-finder",
+      "explicit_item_detail_links": [],
+      "name_only_url_guesses_used": false
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/testing-the-finder",
+      "explicit_item_detail_links": [],
+      "name_only_url_guesses_used": false
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 1,
+    "detail_observations": 5,
+    "quest_links": 0,
+    "full_source_records": 1,
+    "input_hashes_verified": 3
+  },
+  "remaining_review": {
+    "collection_complete": false,
+    "required_review_complete": false,
+    "global_semantic_review_count": null,
+    "next_actionable_batch": "Review cached Unicorns Of Kojan using its explicit Adaenyl contact link; distinguish quest objectives from unverified component identities."
+  }
+}
