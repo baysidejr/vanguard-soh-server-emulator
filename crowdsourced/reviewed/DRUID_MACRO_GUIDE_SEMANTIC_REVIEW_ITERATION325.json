@@ -1,0 +1,1493 @@
+{
+  "review_kind": "druid_macro_guide_semantic_review",
+  "network_requests": 0,
+  "source_pages": [
+    {
+      "url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "cache_stored_bytes_sha256": "92a5f09f8de97e8977b272ecc418983a4e267afa4101e2218ffeb34ef7f01827",
+      "source_records": [
+        {
+          "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+          "record": {
+            "name": "Druid — Macro Guide",
+            "url": "https://vgsoharchive.com/classes/druid/macro-guide",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [],
+            "sections": [],
+            "referenced_entities": [],
+            "original_source_urls": [],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:08:50+00:00"
+          },
+          "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+        }
+      ],
+      "scope": "guide-body if present, otherwise main; navigation may remain",
+      "prose_evidence": [
+        {
+          "block_index": 0,
+          "tag": "p",
+          "text_as_printed": "original content taken from the Vanguard forums, written by Emberfire, please note this information may be out of date",
+          "source_html": "<p><sub><em>original content taken from the Vanguard forums, written by Emberfire, please note this information may be out of date</em></sub></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 1,
+          "tag": "p",
+          "text_as_printed": "What follows is a guide to making damage macros for druids. I have played a druid for about eight months. My “Main Character” is a druid. Before I continue, I know a lot of experienced druids may read this. They will stroke their druidic beards and look at what I write with a very critical eye. They will muffle and mumble and try and pick apart my words and find mistakes! To these druids I would like to very politely tell you to go and get bent please do so! I am not precious. I welcome and will consider all feedback and correction.",
+          "source_html": "<p>What follows is a guide to making damage macros for druids. I have played a druid for about eight months. My “Main Character” is a druid. Before I continue, I know a lot of experienced druids may read this. They will stroke their druidic beards and look at what I write with a very critical eye. They will muffle and mumble and try and pick apart my words and find mistakes! To these druids I would like to very politely tell you to go and get bent please do so! I am not precious. I welcome and will consider all feedback and correction.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 2,
+          "tag": "p",
+          "text_as_printed": "The bulk of this guide is my own original research. However, in an attempt to stave off any possible accusations of plagiarism, I’d like to acknowledge that part of this guide incorporates some words and ideas from a guide written by Graye Penumbra of Veracity.",
+          "source_html": "<p>The bulk of this guide is my own original research. However, in an attempt to stave off any possible accusations of plagiarism, I’d like to acknowledge that part of this guide incorporates some words and ideas from a guide written by Graye Penumbra of Veracity.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 3,
+          "tag": "p",
+          "text_as_printed": "Before looking at building any Druid damage macros its worthwhile analysing the druid’s combat spells. Just what does a druid have in her or his arsenal? What are the strengths and limitations of each spell? And how can you bind them all together into some sort of useful combat macro?",
+          "source_html": "<p>Before looking at building any Druid damage macros its worthwhile analysing the druid’s combat spells. Just what does a druid have in her or his arsenal? What are the strengths and limitations of each spell? And how can you bind them all together into some sort of useful combat macro?</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 4,
+          "tag": "p",
+          "text_as_printed": "The druid’s damaging abilities all fall under three damage types, Arcane, Fire and Physical. The druid has many “Dots” and many direct damage spells or “Nukes” as I think of them. The druid uses up energy or phenomenon points to cast his or her spells. Some spells are instant cast, some have no cooldown and some don’t trigger the global refresh timer, but none of them have all three of the above. So lets look at them one by one.",
+          "source_html": "<p>The druid’s damaging abilities all fall under three damage types, Arcane, Fire and Physical. The druid has many “Dots” and many direct damage spells or “Nukes” as I think of them. The druid uses up energy or phenomenon points to cast his or her spells. Some spells are instant cast, some have no cooldown and some don’t trigger the global refresh timer, but none of them have all three of the above. So lets look at them one by one.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 5,
+          "tag": "p",
+          "text_as_printed": "Starfall",
+          "source_html": "<p><strong>Starfall</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 6,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: Yes Cast build time: No Phenomenon Cost: High Damage Type: Arcane Damage Notes: Very Large Nuke Sartfall is sometimes thought of as the Druid’s signature spell. The high damage yield combined with instant cast make this THE spell that young druid’s drool over. (Ew! Drood drool?). However the high phenom cost means that you cant just fire off Starfall after Startfall and the base two minute ability cooldown stops you from doing that anyway.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: Yes<br/>\nCast build time: No<br/>\nPhenomenon Cost: High<br/>\nDamage Type: Arcane<br/>\nDamage Notes: Very Large Nuke<br/>\nSartfall is sometimes thought of as the Druid’s signature spell. The high damage yield combined with instant cast make this THE spell that young druid’s drool over. (Ew! Drood drool?). However the high phenom cost means that you cant just fire off Starfall after Startfall and the base two minute ability cooldown stops you from doing that anyway.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 7,
+          "tag": "p",
+          "text_as_printed": "Ire",
+          "source_html": "<p><strong>Ire</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 8,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: No Ability Cooldown: Yes Cast build time: No Phenomenon Cost: Small Damage Type: Arcane Damage Notes: Medium Nuke So Druids have a medium nuke, yawn and big deal you say. Well yes and no - the lack of global refresh, instant cast and VERY short ability cooldown make this spell a very desirable candidate for a macro. However the phenom cost though quite small will soon eat up your phenom pool if you spam this ability.",
+          "source_html": "<blockquote>\n<p>Global Refresh: No<br/>\nAbility Cooldown: Yes<br/>\nCast build time: No<br/>\nPhenomenon Cost: Small<br/>\nDamage Type: Arcane<br/>\nDamage Notes: Medium Nuke<br/>\nSo Druids have a medium nuke, yawn and big deal you say. Well yes and no - the lack of global refresh, instant cast and VERY short ability cooldown make this spell a very desirable candidate for a macro. However the phenom cost though quite small will soon eat up your phenom pool if you spam this ability.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 9,
+          "tag": "p",
+          "text_as_printed": "Lightning Blast",
+          "source_html": "<p><strong>Lightning Blast</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 10,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: No Ability Cooldown: No Cast build time: Yes Phenomenon Cost: Very Small Damage Type: Arcane Damage Notes: Large Nuke The druid’s bread and butter, tediously long cast time, yet you’ll be firing this baby off again and again for its high damage yield.",
+          "source_html": "<blockquote>\n<p>Global Refresh: No<br/>\nAbility Cooldown: No<br/>\nCast build time: Yes<br/>\nPhenomenon Cost: Very Small<br/>\nDamage Type: Arcane<br/>\nDamage Notes: Large Nuke<br/>\nThe druid’s bread and butter, tediously long cast time, yet you’ll be firing this baby off again and again for its high damage yield.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 11,
+          "tag": "p",
+          "text_as_printed": "Reverberate.",
+          "source_html": "<p><strong>Reverberate.</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 12,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: No Cast build time: No Phenomenon Cost: None Damage Type: Arcane Damage Notes: Large Nuke, Finisher This is your basic nuking finisher and thus requires a crit from one of your other spells to trigger it, fire it off whenever you get it unless; a) one of the other finisher’s would be more useful, b) you are fighting a ‘no arcane’ mob or c) you really really don’t want to.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: No<br/>\nCast build time: No<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Arcane<br/>\nDamage Notes: Large Nuke, Finisher<br/>\nThis is your basic nuking finisher and thus requires a crit from one of your other spells to trigger it, fire it off whenever you get it unless; a) one of the other finisher’s would be more useful, b) you are fighting a ‘no arcane’ mob or c) you really really don’t want to.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 13,
+          "tag": "p",
+          "text_as_printed": "Call Lightning",
+          "source_html": "<p><strong>Call Lightning</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 14,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: No Cast build time: Yes Phenomenon Cost: None Damage Type: Arcane Damage Notes: Medium Nuke I never use this, it’s the weak-as-water, no phenomenon, version of LB and you’ll see where that one phenomenon point goes when you compare the two. Just use LB or Solar Flare instead, certainly not worth putting in a macro. In fact do yourself a favour and take the dang thing off your taskbar.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: No<br/>\nCast build time: Yes<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Arcane<br/>\nDamage Notes: Medium Nuke<br/>\nI never use this, it’s the weak-as-water, no phenomenon, version of LB and you’ll see where that one phenomenon point goes when you compare the two. Just use LB or Solar Flare instead, certainly not worth putting in a macro. In fact do yourself a favour and take the dang thing off your taskbar.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 15,
+          "tag": "p",
+          "text_as_printed": "Solar Flare",
+          "source_html": "<p><strong>Solar Flare</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 16,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: Yes Cast build time: No Phenomenon Cost: None Damage Type: Fire Damage Notes: Medium Nuke + Small Dot A great little spell, fire damage for variety, no drain on your phenomenon and instant cast. This spell is a vital part of your toolkit against ‘No arcane’ mobs and useful for soloing. Note: Many druids are not very fond of Solar Flare as Lightning Blast provides a better yield in most circumstances. When soloing however Solar Flare is preferable as the long cast time of LB slows you down to walking speed and can mean you get interrupted a lot.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: Yes<br/>\nCast build time: No<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Fire<br/>\nDamage Notes: Medium Nuke + Small Dot<br/>\nA great little spell, fire damage for variety, no drain on your phenomenon and instant cast. This spell is a vital part of your toolkit against ‘No arcane’ mobs and useful for soloing. Note: Many druids are not very fond of Solar Flare as Lightning Blast provides a better yield in most circumstances. When soloing however Solar Flare is preferable as the long cast time of LB slows you down to walking speed and can mean you get interrupted a lot.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 17,
+          "tag": "p",
+          "text_as_printed": "Fireseeds",
+          "source_html": "<p><strong>Fireseeds</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 18,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: No Ability Cooldown: Yes Cast build time: No Phenomenon Cost: None Damage Type: Fire Damage Notes: Small Dot Low damage fire but still a very useful ‘spell’ Instant cast and no global refresh make fireseeds great for macros. I wish the fireseed stack was bigger than ten, fifty would be ideal in my opinion, even twenty would be a big improvement.",
+          "source_html": "<blockquote>\n<p>Global Refresh: No<br/>\nAbility Cooldown: Yes<br/>\nCast build time: No<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Fire<br/>\nDamage Notes: Small Dot<br/>\nLow damage fire but still a very useful ‘spell’ Instant cast and no global refresh make fireseeds great for macros. I wish the fireseed stack was bigger than ten, fifty would be ideal in my opinion, even twenty would be a big improvement.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 19,
+          "tag": "p",
+          "text_as_printed": "Wild Growth",
+          "source_html": "<p><strong>Wild Growth</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 20,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: No Cast build time: Yes Phenomenon Cost: None Damage Type: Physical Damage Notes: Small Dot A little physical dot, very uninspiring, yet you still need to use it. It’s a low aggro generator so fire it off early in the fight and refresh when required. The dot stays on the mob a while but, meh, so what. If it was instant cast and no global refresh (similar to fireseeds) it would be worth macroing but it aint, so its not.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: No<br/>\nCast build time: Yes<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Physical<br/>\nDamage Notes: Small Dot<br/>\nA little physical dot, very uninspiring, yet you still need to use it. It’s a low aggro generator so fire it off early in the fight and refresh when required. The dot stays on the mob a while but, meh, so what. If it was instant cast and no global refresh (similar to fireseeds) it would be worth macroing but it aint, so its not.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 21,
+          "tag": "p",
+          "text_as_printed": "Superior Venomous Thorns",
+          "source_html": "<p><strong>Superior Venomous Thorns</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 22,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: No Ability Cooldown: No Cast build time: Yes Phenomenon Cost: None Damage Type: Physical Damage Notes: Medium Dot A physical dot with a better yield, not a bad one I suppose, however I always feel like I could be doing something better with my time. Apply early in the fight and keep it refreshed",
+          "source_html": "<blockquote>\n<p>Global Refresh: No<br/>\nAbility Cooldown: No<br/>\nCast build time: Yes<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Physical<br/>\nDamage Notes: Medium Dot<br/>\nA physical dot with a better yield, not a bad one I suppose, however I always feel like I could be doing something better with my time. Apply early in the fight and keep it refreshed</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 23,
+          "tag": "p",
+          "text_as_printed": "Nature’s Wrath",
+          "source_html": "<p><strong>Nature’s Wrath</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 24,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: No Cast build time: No Phenomenon Cost: None Damage Type: Physical Damage Notes: Medium Dot, Finisher Yet another physical dot, this time a finisher, Instant cast is nice but the damage is still pretty uninspiring.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: No<br/>\nCast build time: No<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Physical<br/>\nDamage Notes: Medium Dot, Finisher<br/>\nYet another physical dot, this time a finisher, Instant cast is nice but the damage is still pretty uninspiring.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 25,
+          "tag": "p",
+          "text_as_printed": "Piercing Roots",
+          "source_html": "<p><strong>Piercing Roots</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 26,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: No Cast build time: Yes Phenomenon Cost: None Damage Type: Physical Damage Notes: Small Dot, Snare Are you still awake? Well, here’s another physical dot, this time with a snare, which most end game mobs are immune to and breaks anyway if anyone lays on any damage. Pretty weak really, apply all other physical dots before this one.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: No<br/>\nCast build time: Yes<br/>\nPhenomenon Cost: None<br/>\nDamage Type: Physical<br/>\nDamage Notes: Small Dot, Snare<br/>\nAre you still awake? Well, here’s another physical dot, this time with a snare, which most end game mobs are immune to and breaks anyway if anyone lays on any damage. Pretty weak really, apply all other physical dots before this one.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 27,
+          "tag": "p",
+          "text_as_printed": "Deadly Swarm",
+          "source_html": "<p><strong>Deadly Swarm</strong></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 28,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: Yes Ability Cooldown: Yes Cast build time: No Phenomenon Cost: Medium Damage Type: Physical Damage Notes: Large Dot Another physical dot, but this one is actually worth a [Removed for Content]. Its really part of your burst dps toolkit because of its phenom cost and ability cooldown.",
+          "source_html": "<blockquote>\n<p>Global Refresh: Yes<br/>\nAbility Cooldown: Yes<br/>\nCast build time: No<br/>\nPhenomenon Cost: Medium<br/>\nDamage Type: Physical<br/>\nDamage Notes: Large Dot<br/>\nAnother physical dot, but this one is actually worth a [Removed for Content]. Its really part of your burst dps toolkit because of its phenom cost and ability cooldown.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 29,
+          "tag": "p",
+          "text_as_printed": "Weapon Clickies (Example is “Ulvari Burst” from the wand from Teraxes)",
+          "source_html": "<p><strong>Weapon Clickies</strong> (Example is “Ulvari Burst” from the wand from Teraxes)</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 30,
+          "tag": "blockquote",
+          "text_as_printed": "Global Refresh: No Ability Cooldown: Yes Cast build time: No Phenomenon Cost: Medium Damage Type: Planar Damage Notes: Medium Nuke Most staffs and wands have a ‘clickie’ ability. I tend to like wands as they allow a macroable clickie and they also allow you to have something else in your off hand. This is a bit of a choice thing. Depending on what weapons you have access to. Of course depending on the nature of the clickie the above info will differ.",
+          "source_html": "<blockquote>\n<p>Global Refresh: No<br/>\nAbility Cooldown: Yes<br/>\nCast build time: No<br/>\nPhenomenon Cost: Medium<br/>\nDamage Type: Planar<br/>\nDamage Notes: Medium Nuke<br/>\nMost staffs and wands have a ‘clickie’ ability. I tend to like wands as they allow a macroable clickie and they also allow you to have something else in your off hand. This is a bit of a choice thing. Depending on what weapons you have access to. Of course depending on the nature of the clickie the above info will differ.</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 31,
+          "tag": "p",
+          "text_as_printed": "Ok we have the basic druidic abilities, but this guide is all about druid macros. Because the druid deals Fire, Arcane and Physical damage. I approached macro creating with the starting point that you will want to damage mobs that are immune, resistant or even benefit from you doing these types of damage. So what follows are my basic “No physical”,”No fire” and “No arcane” Macros.",
+          "source_html": "<p>Ok we have the basic druidic abilities, but this guide is all about druid macros. Because the druid deals Fire, Arcane and Physical damage. I approached macro creating with the starting point that you will want to damage mobs that are immune, resistant or even benefit from you doing these types of damage. So what follows are my basic “No physical”,”No fire” and “No arcane” Macros.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 32,
+          "tag": "p",
+          "text_as_printed": "SOLOING (also can be used as ‘NO PHYSICAL’)",
+          "source_html": "<p>SOLOING (also can be used as ‘NO PHYSICAL’)</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 33,
+          "tag": "blockquote",
+          "text_as_printed": "/cast “Star Mantle” /itemuse “Large Mottleberry” /cast “Ulvari Burst” /itemuse “Fireseeds” /cast “Reverberate” /cast “Solar Flare” /cast “Lightning Blast”",
+          "source_html": "<blockquote>\n<p>/cast “Star Mantle”<br/>\n/itemuse “Large Mottleberry”<br/>\n/cast “Ulvari Burst”<br/>\n/itemuse “Fireseeds”<br/>\n/cast “Reverberate”<br/>\n/cast “Solar Flare”<br/>\n/cast “Lightning Blast”</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 34,
+          "tag": "p",
+          "text_as_printed": "This macro also serves as a general damage macro for soloing. The first time you fire this off you should automatically cast Star Mantle, your weapon clickie, Fireseeds and Solar flare as well as eating a mana berry! Pretty neat huh? Your solar flare may trigger a crit and if so the next time you hit your macro you will fire off Reverberate if not it will default to Lightning Blast which may of course itself trigger a crit. Everything else in this macro will fire off again as soon as its ability cooldown timer is over. This macro has many benefits; it’s low on mana costs and very low on phenom costs. Very useful in many situations, not least of which when you are low on phenomenon or mana. (Duh!) For mobs that are not “No physical” intersperse your physical dots in between spamming this macro. A bit more on this later.",
+          "source_html": "<p>This macro also serves as a general damage macro for soloing. The first time you fire this off you should automatically cast Star Mantle, your weapon clickie, Fireseeds and Solar flare as well as eating a mana berry! Pretty neat huh? Your solar flare may trigger a crit and if so the next time you hit your macro you will fire off Reverberate if not it will default to Lightning Blast which may of course itself trigger a crit. Everything else in this macro will fire off again as soon as its ability cooldown timer is over. This macro has many benefits; it’s low on mana costs and very low on phenom costs. Very useful in many situations, not least of which when you are low on phenomenon or mana. (Duh!) For mobs that are not “No physical” intersperse your physical dots in between spamming this macro. A bit more on this later.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 35,
+          "tag": "p",
+          "text_as_printed": "SUSTAINED GROUP DPS (also can be used as ‘NO PHYSICAL’)",
+          "source_html": "<p>SUSTAINED GROUP DPS (also can be used as ‘NO PHYSICAL’)</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 36,
+          "tag": "blockquote",
+          "text_as_printed": "/itemuse “Large Mottleberry” /cast “Ulvari Burst” /itemuse “Fireseeds” /cast “Reverberate” /cast “Lightning Blast” /cast “Solar Flare”",
+          "source_html": "<blockquote>\n<p>/itemuse “Large Mottleberry”<br/>\n/cast “Ulvari Burst”<br/>\n/itemuse “Fireseeds”<br/>\n/cast “Reverberate”<br/>\n/cast “Lightning Blast”<br/>\n/cast “Solar Flare”</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 37,
+          "tag": "p",
+          "text_as_printed": "Similar to the soloing macro except Solar Flare no longer has precedence over Lightning Blast. Solar Flare will only kick in when you have no phenomenon. Intersperse your physical dots as required to maximise your DPS. Except when fighting ‘No Physical’ Mobs of course!.",
+          "source_html": "<p>Similar to the soloing macro except Solar Flare no longer has precedence over Lightning Blast. Solar Flare will only kick in when you have no phenomenon. Intersperse your physical dots as required to maximise your DPS. Except when fighting ‘No Physical’ Mobs of course!.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 38,
+          "tag": "p",
+          "text_as_printed": "NO ARCANE",
+          "source_html": "<p>NO ARCANE</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 39,
+          "tag": "blockquote",
+          "text_as_printed": "/itemuse “Large Mottleberry” /cast “Ulvari Burst” /itemuse “Fireseeds” /cast “Solar Flare” /cast “Nature’s Wrath” /cast “Deadly Swarm IV” /cast “Superior Venomous Thorns”",
+          "source_html": "<blockquote>\n<p>/itemuse “Large Mottleberry”<br/>\n/cast “Ulvari Burst”<br/>\n/itemuse “Fireseeds”<br/>\n/cast “Solar Flare”<br/>\n/cast “Nature’s Wrath”<br/>\n/cast “Deadly Swarm IV”<br/>\n/cast “Superior Venomous Thorns”</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 40,
+          "tag": "p",
+          "text_as_printed": "Ok so it sucks not being able to use your arcane spells but you are not helpless. This macro pulls in the best and brightest of your non arcane arsenal. Beware, this macro has a slight weakness. Spamming it over and over again will inevitably just reapply SVT on the mob, not very efficient. Try and avoid this. Just intersperse Wild growth or even dare I say it Piercing Roots when required and you should be ok. Note: Some druids object to putting Deadly Swarm in a general damage macro. I keep it in this macro mainly because your damaging toolkit is much limited by not being able use any arcane spells. It’s a user choice thing really. Just take it out if you like and manually click it as required.",
+          "source_html": "<p>Ok so it sucks not being able to use your arcane spells but you are not helpless. This macro pulls in the best and brightest of your non arcane arsenal. Beware, this macro has a slight weakness. Spamming it over and over again will inevitably just reapply SVT on the mob, not very efficient. Try and avoid this. Just intersperse Wild growth or even dare I say it Piercing Roots when required and you should be ok. Note: Some druids object to putting Deadly Swarm in a general damage macro. I keep it in this macro mainly because your damaging toolkit is much limited by not being able use any arcane spells. It’s a user choice thing really. Just take it out if you like and manually click it as required.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 41,
+          "tag": "p",
+          "text_as_printed": "NO FIRE",
+          "source_html": "<p>NO FIRE</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 42,
+          "tag": "blockquote",
+          "text_as_printed": "/itemuse “Large Mottleberry” /cast “Ulvari Burst” /cast “Nature’s Wrath” /cast “Reverberate” /cast “Lightning Blast”",
+          "source_html": "<blockquote>\n<p>/itemuse “Large Mottleberry”<br/>\n/cast “Ulvari Burst”<br/>\n/cast “Nature’s Wrath”<br/>\n/cast “Reverberate”<br/>\n/cast “Lightning Blast”</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 43,
+          "tag": "p",
+          "text_as_printed": "This is similar to the other macros just taking out Fireseeds and Solar Flare and adding in Nature’s Wrath. Manually apply your other physical dots as required.",
+          "source_html": "<p>This is similar to the other macros just taking out Fireseeds and Solar Flare and adding in Nature’s Wrath. Manually apply your other physical dots as required.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 44,
+          "tag": "p",
+          "text_as_printed": "Ok now its time to look at a burst damage macro. Consider the following:",
+          "source_html": "<p>Ok now its time to look at a burst damage macro. Consider the following:</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 45,
+          "tag": "p",
+          "text_as_printed": "BURST DPS",
+          "source_html": "<p>BURST DPS</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 46,
+          "tag": "blockquote",
+          "text_as_printed": "/cast “Quickening jolt” /cast “Ire” /cast “Ulvari Burst” /itemuse “Fireseeds” /cast “Reverberate” /cast “Deadly Swarm IV” /cast “Starfall IV” /cast “Lightning Blast”",
+          "source_html": "<blockquote>\n<p>/cast “Quickening jolt”<br/>\n/cast “Ire”<br/>\n/cast “Ulvari Burst”<br/>\n/itemuse “Fireseeds”<br/>\n/cast “Reverberate”<br/>\n/cast “Deadly Swarm IV”<br/>\n/cast “Starfall IV”<br/>\n/cast “Lightning Blast”</p>\n</blockquote>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 47,
+          "tag": "p",
+          "text_as_printed": "Now the first thing to note is that this macro is not very useful against No Arcane or No physical mobs. However you are lucky because not a whole lot of raid targets are like this. (yes there are some) but overall this macro is fine on raid targets. So perhaps consider this your ‘Raid Burst DPS’ macro with many non-raid uses. This macro brings in all your best ‘Specials’, all the abilities you have been saving up till its time to let loose the smackdown, including Starfall and deadly swarm. It assumes you have been given QJ by your friendly neighbourhood BM but still works without it. It also very importantly includes Ire, the only macro I would put Ire in, see my above comments on this ability for why.",
+          "source_html": "<p>Now the first thing to note is that this macro is not very useful against No Arcane or No physical mobs. However you are lucky because not a whole lot of raid targets are like this. (yes there are some) but overall this macro is fine on raid targets. So perhaps consider this your ‘Raid Burst DPS’ macro with many non-raid uses. This macro brings in all your best ‘Specials’, all the abilities you have been saving up till its time to let loose the smackdown, including Starfall and deadly swarm. It assumes you have been given QJ by your friendly neighbourhood BM but still works without it. It also very importantly includes Ire, the only macro I would put Ire in, see my above comments on this ability for why.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 48,
+          "tag": "p",
+          "text_as_printed": "For fights where you are unrestricted and can use all your spells this is a basic rundown of what a druid should be doing.",
+          "source_html": "<p>For fights where you are unrestricted and can use all your spells this is a basic rundown of what a druid should be doing.</p>",
+          "preceding_heading": "How and when to use your macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 49,
+          "tag": "blockquote",
+          "text_as_printed": "Your tank aggro’s the mob Cast “Star Mantle” on the tank Cast “Suncaller’s Fury” on the tank Cast “Wither” Cast “Wild Growth” Cast “Superior Venomous Thorns” Cast “Nature’s Wrath” (if available) Cast “Nature’s Tempest” Use your “Sustained DPS” Macro and keep using it. Refresh your physical dots as required Cast ‘Quelling Wind” as required to reduce your hate The mobs Health is reduced to about 60% Do a full aggro wipe using Tranquility or Treeshape Use your “Burst DPS” Macro Repeat steps 9 to 11 Repeat steps 13 and 14",
+          "source_html": "<blockquote>\n<p>Your tank aggro’s the mob<br/>\nCast “Star Mantle” on the tank<br/>\nCast “Suncaller’s Fury” on the tank<br/>\nCast “Wither”<br/>\nCast “Wild Growth”<br/>\nCast “Superior Venomous Thorns”<br/>\nCast “Nature’s Wrath” (if available)<br/>\nCast “Nature’s Tempest”<br/>\nUse your “Sustained DPS” Macro and keep using it.<br/>\nRefresh your physical dots as required<br/>\nCast ‘Quelling Wind” as required to reduce your hate<br/>\nThe mobs Health is reduced to about 60%<br/>\nDo a full aggro wipe using Tranquility or Treeshape<br/>\nUse your “Burst DPS” Macro<br/>\nRepeat steps 9 to 11<br/>\nRepeat steps 13 and 14</p>\n</blockquote>",
+          "preceding_heading": "How and when to use your macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 50,
+          "tag": "p",
+          "text_as_printed": "Remember aggro management is YOUR responsibility too, not just your tank. It’s your job to maximise the benefit of your hate reduction abilities. Do a full aggro wipe BEFORE you burst, not after and don’t forget to use quelling wind.",
+          "source_html": "<p>Remember aggro management is YOUR responsibility too, not just your tank. It’s your job to maximise the benefit of your hate reduction abilities. Do a full aggro wipe BEFORE you burst, not after and don’t forget to use quelling wind.</p>",
+          "preceding_heading": "How and when to use your macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 51,
+          "tag": "p",
+          "text_as_printed": "For fights where you are restricted to not using a certain damage type apply a similar methodology while avoiding using that damage type.",
+          "source_html": "<p>For fights where you are restricted to not using a certain damage type apply a similar methodology while avoiding using that damage type.</p>",
+          "preceding_heading": "How and when to use your macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 52,
+          "tag": "p",
+          "text_as_printed": "Global refresh: The second after you have cast most spells where you cannot cast anything. All your spells will be unavailable during this time, including abilities that don’t themselves trigger the global refresh. A macro will not fire off two spells with a global refresh at the same time. Druid berries, Fireseeds, weapon clickies, Ire and Quickening Jolt do not trigger the global refresh. Abilities with no global refresh usually also are instant cast which makes them very useful in macros as you can fire off many abilities with just one click.",
+          "source_html": "<p>Global refresh: The second after you have cast most spells where you cannot cast anything. All your spells will be unavailable during this time, including abilities that don’t themselves trigger the global refresh. A macro will not fire off two spells with a global refresh at the same time. Druid berries, Fireseeds, weapon clickies, Ire and Quickening Jolt do not trigger the global refresh. Abilities with no global refresh usually also are instant cast which makes them very useful in macros as you can fire off many abilities with just one click.</p>",
+          "preceding_heading": "Notes on terminology and making macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 53,
+          "tag": "p",
+          "text_as_printed": "Cast time: The time it takes to cast a spell. Can range from instant cast for example Reverberate or Solar Flare, to three or four seconds (Lightning Blast) right up to ten seconds or more. (KDQ task generator). A macro will not fire off more than one spell in a single click with a cast time longer than instant.",
+          "source_html": "<p>Cast time: The time it takes to cast a spell. Can range from instant cast for example Reverberate or Solar Flare, to three or four seconds (Lightning Blast) right up to ten seconds or more. (KDQ task generator). A macro will not fire off more than one spell in a single click with a cast time longer than instant.</p>",
+          "preceding_heading": "Notes on terminology and making macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 54,
+          "tag": "p",
+          "text_as_printed": "Ability cooldown: The time it takes for this ability or spell to be available again. It can range from no cooldown to ten seconds, two minutes or even 20 hours!",
+          "source_html": "<p>Ability cooldown: The time it takes for this ability or spell to be available again. It can range from no cooldown to ten seconds, two minutes or even 20 hours!</p>",
+          "preceding_heading": "Notes on terminology and making macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 55,
+          "tag": "p",
+          "text_as_printed": "To take an ability out of a macro temporarily, simply add * before the macro text.",
+          "source_html": "<p>To take an ability out of a macro temporarily, simply add * before the macro text.</p>",
+          "preceding_heading": "Notes on terminology and making macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 56,
+          "tag": "p",
+          "text_as_printed": "Remember, constructing a good macro requires a real and critical understanding of the nature of your abilities, the order you put them in the macro is very important. As is an understanding of what you are trying to achieve with the macro you are building.",
+          "source_html": "<p>Remember, constructing a good macro requires a real and critical understanding of the nature of your abilities, the order you put them in the macro is very important. As is an understanding of what you are trying to achieve with the macro you are building.</p>",
+          "preceding_heading": "Notes on terminology and making macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 57,
+          "tag": "p",
+          "text_as_printed": "I hope this guide helps at least some druids. Our class is oft derided for its lack of dps lack of functionality, lack of utility lack of whatever. But with a bit of care, you can find a place… and not just as a buff bot or berry vending machine. Don’t be afraid to use your phenomenon. Situational healing, burst DPS or just plain survivability CAN be real strong suits. Remember, a dead druid = no dps. I’ve been in raids where the AE is killing all the high powered sorcs and necro’s around me but I alone of the squishies can live through it.",
+          "source_html": "<p>I hope this guide helps at least some druids. Our class is oft derided for its lack of dps lack of functionality, lack of utility lack of whatever. But with a bit of care, you can find a place… and not just as a buff bot or berry vending machine. Don’t be afraid to use your phenomenon. Situational healing, burst DPS or just plain survivability CAN be real strong suits. Remember, a dead druid = no dps. I’ve been in raids where the AE is killing all the high powered sorcs and necro’s around me but I alone of the squishies can live through it.</p>",
+          "preceding_heading": "Notes on terminology and making macros",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null
+    }
+  ],
+  "claims": [
+    {
+      "id": 1,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 4,
+      "subject": "Druid",
+      "predicate": "reported_damage_types",
+      "value": [
+        "Arcane",
+        "Fire",
+        "Physical"
+      ],
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 4,
+      "subject": "Druid",
+      "predicate": "casting_resources",
+      "value": [
+        "energy",
+        "phenomenon points"
+      ],
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 6,
+      "subject": "Starfall",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": true,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "High",
+        "damage_type": "Arcane",
+        "damage_notes": "Very Large Nuke"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 8,
+      "subject": "Ire",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": false,
+        "has_ability_cooldown": true,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "Small",
+        "damage_type": "Arcane",
+        "damage_notes": "Medium Nuke"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 10,
+      "subject": "Lightning Blast",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": false,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": true,
+        "phenomenon_cost_label": "Very Small",
+        "damage_type": "Arcane",
+        "damage_notes": "Large Nuke"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 12,
+      "subject": "Reverberate",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Arcane",
+        "damage_notes": "Large Nuke, Finisher"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 14,
+      "subject": "Call Lightning",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": true,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Arcane",
+        "damage_notes": "Medium Nuke"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 16,
+      "subject": "Solar Flare",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": true,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Fire",
+        "damage_notes": "Medium Nuke + Small Dot"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 18,
+      "subject": "Fireseeds",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": false,
+        "has_ability_cooldown": true,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Fire",
+        "damage_notes": "Small Dot"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 20,
+      "subject": "Wild Growth",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": true,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Physical",
+        "damage_notes": "Small Dot"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 22,
+      "subject": "Superior Venomous Thorns",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": false,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": true,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Physical",
+        "damage_notes": "Medium Dot"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 12,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 24,
+      "subject": "Nature’s Wrath",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Physical",
+        "damage_notes": "Medium Dot, Finisher"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 13,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 26,
+      "subject": "Piercing Roots",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": false,
+        "has_cast_build_time": true,
+        "phenomenon_cost_label": "None",
+        "damage_type": "Physical",
+        "damage_notes": "Small Dot, Snare"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 14,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 28,
+      "subject": "Deadly Swarm",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": true,
+        "has_ability_cooldown": true,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "Medium",
+        "damage_type": "Physical",
+        "damage_notes": "Large Dot"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 15,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 30,
+      "subject": "Ulvari Burst example weapon click",
+      "predicate": "printed_ability_labels",
+      "value": {
+        "triggers_global_refresh": false,
+        "has_ability_cooldown": true,
+        "has_cast_build_time": false,
+        "phenomenon_cost_label": "Medium",
+        "damage_type": "Planar",
+        "damage_notes": "Medium Nuke"
+      },
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 16,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 6,
+      "subject": "Starfall",
+      "predicate": "base_cooldown_seconds",
+      "value": 120,
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 17,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 12,
+      "subject": "Reverberate",
+      "predicate": "trigger",
+      "value": "Critical hit from another spell",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 18,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 14,
+      "subject": "Lightning Blast",
+      "predicate": "phenomenon_cost_in_comparison",
+      "value": 1,
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 19,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 18,
+      "subject": "Fireseeds",
+      "predicate": "reported_stack_size",
+      "value": 10,
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 20,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 26,
+      "subject": "Piercing Roots",
+      "predicate": "snare_behavior",
+      "value": "Guide says most end-game mobs are immune and damage breaks snare; scope and probability unknown",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 21,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 29,
+      "subject": "Ulvari Burst",
+      "predicate": "example_weapon_origin",
+      "value": "Wand from Teraxes; item identity not supplied",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 22,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 34,
+      "subject": "Solo macro",
+      "predicate": "reported_behavior",
+      "value": "Repeated activation can trigger Reverberate after a critical hit, otherwise Lightning Blast; other abilities repeat when cooldown permits",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 23,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 37,
+      "subject": "Sustained group macro",
+      "predicate": "reported_behavior",
+      "value": "Solar Flare follows Lightning Blast and is said to execute when phenomenon is exhausted",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 24,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 40,
+      "subject": "No Arcane macro",
+      "predicate": "reported_behavior",
+      "value": "Repeated use can reapply Superior Venomous Thorns",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 25,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 47,
+      "subject": "Burst macro",
+      "predicate": "external_buff_context",
+      "value": "Quickening Jolt supplied by Blood Mage; guide says macro works without it",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 26,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 49,
+      "subject": "Quelling Wind",
+      "predicate": "reported_effect",
+      "value": "Reduce hate",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 27,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 49,
+      "subject": "Tranquility or Treeshape",
+      "predicate": "reported_effect",
+      "value": "Full aggro wipe; two alternatives retained without equating canonical identities",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 28,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 52,
+      "subject": "Global refresh",
+      "predicate": "reported_duration_seconds",
+      "value": 1,
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 29,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 52,
+      "subject": "Global refresh",
+      "predicate": "reported_lockout",
+      "value": "All spells unavailable, including spells which do not themselves trigger global refresh",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 30,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 52,
+      "subject": "Macro activation",
+      "predicate": "global_refresh_limit",
+      "value": "Cannot fire two spells that trigger global refresh at the same time",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 31,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 52,
+      "subject": "Global refresh",
+      "predicate": "reported_nontriggering_abilities",
+      "value": [
+        "Druid berries",
+        "Fireseeds",
+        "weapon clickies",
+        "Ire",
+        "Quickening Jolt"
+      ],
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 32,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 53,
+      "subject": "Lightning Blast",
+      "predicate": "reported_cast_time_seconds_range",
+      "value": [
+        3,
+        4
+      ],
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 33,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 53,
+      "subject": "Macro activation",
+      "predicate": "cast_time_limit",
+      "value": "At most one spell with noninstant cast time per click",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 34,
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "source_block": 55,
+      "subject": "Macro entry",
+      "predicate": "temporary_disable_prefix",
+      "value": "*",
+      "classification": "historically_undated_guide_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "block_reviews": [
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 0,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 1,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 2,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 3,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 4,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 5,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 6,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 7,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 8,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 9,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 10,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 11,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 12,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 13,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 14,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 15,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 16,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 17,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 18,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 19,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 20,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 21,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 22,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 23,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 24,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 25,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 26,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 27,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 28,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 29,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 30,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 31,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 32,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 33,
+      "classification": "macro_example_not_execution_test",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 34,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 35,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 36,
+      "classification": "macro_example_not_execution_test",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 37,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 38,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 39,
+      "classification": "macro_example_not_execution_test",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 40,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 41,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 42,
+      "classification": "macro_example_not_execution_test",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 43,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 44,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 45,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 46,
+      "classification": "macro_example_not_execution_test",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 47,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 48,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 49,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 50,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 51,
+      "classification": "strategy_with_possible_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 52,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 53,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 54,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 55,
+      "classification": "source_reported_mechanics",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 56,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/druid/macro-guide",
+      "block_index": 57,
+      "classification": "context_heading_or_opinion",
+      "review_status": "reviewed_as_source_claim_only"
+    }
+  ],
+  "ambiguities": [
+    {
+      "source_blocks": [
+        0
+      ],
+      "details": "Archive warns guide may be out of date; original forum date and game build unknown.",
+      "operative_value": null
+    },
+    {
+      "source_blocks": [
+        4,
+        30
+      ],
+      "details": "Opening three-type description excludes Planar weapon-click example. Scope differs; do not apply class spell taxonomy to all equipment effects.",
+      "operative_value": null
+    },
+    {
+      "source_blocks": [
+        10,
+        14
+      ],
+      "details": "Lightning Blast qualitative Very Small phenomenon cost is compared with one phenomenon point elsewhere. Rank/build applicability and equivalence unverified.",
+      "operative_value": null
+    },
+    {
+      "source_blocks": [
+        30,
+        34,
+        37
+      ],
+      "details": "Medium phenomenon label for Ulvari Burst sits alongside low-cost macro advice. Do not infer cost or exact resource exhaustion behavior.",
+      "operative_value": null
+    },
+    {
+      "source_blocks": [
+        52,
+        53,
+        54
+      ],
+      "details": "General timing prose is approximate; cooldown examples lack named abilities and cast-time example KDQ task generator lacks precise identity. No operative timing promoted.",
+      "operative_value": null
+    }
+  ],
+  "limitations": [
+    "Single archived contributor guide, not independent corroboration.",
+    "Qualitative damage and cost labels are not numeric values. No rank expansion or canonical IDs inferred.",
+    "Macro examples retained as evidence; no execution tests or parser syntax validation performed.",
+    "Tactical recommendations and subjective damage comparisons are not verified mechanics."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_counts": {
+    "reviewed_blocks": 58,
+    "source_claims": 34,
+    "remaining_backlog_blocks_not_covered_by_317_through_325": 656
+  }
+}
