@@ -1,0 +1,855 @@
+{
+  "review_kind": "disciple_ambiguous_and_conflicting_cost_labels",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/DISCIPLE_COST_DIFFERENCE_REVIEW_ITERATION412.json",
+      "sha256": "aba8c97b36f06ef83c524daeddfdb55c738b0979d764eae745407211bdab62f8"
+    }
+  ],
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/153ce481a5bfc9c3ca0c5a6d312c57c0f503e78ae5ef1673e1608bbf7af875b1.txt",
+    "sha256": "fe1f39e2cdb995de4d9e7d5cf409904402a5b9bca5419fa3890e6d8cc83260bb"
+  },
+  "rows": [
+    {
+      "table_index": 3,
+      "row_index": 37,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Mindless Clutch I",
+        "school": null,
+        "cost": "25",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mindless-clutch-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mindless-clutch-i\">Mindless Clutch I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              25\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/mindless-clutch-i",
+      "detail_cache": {
+        "path": ".cache/archive/c9b89f96e8bdffcfc4a268796e7f16377ea3e173612511238542344b2d11210a.txt",
+        "sha256": "cd19f101ee88dfdbc40e4288e99b390405afeef01bbc9c46e7878735731454a3"
+      },
+      "cached_cost_facts": [
+        {
+          "label": "energy and jin cost",
+          "value": "25",
+          "html": "<div><dt>energy and jin cost</dt><dd>25</dd></div>"
+        },
+        {
+          "label": "Jin cost",
+          "value": "3",
+          "html": "<div><dt>Jin cost</dt><dd>3</dd></div>"
+        }
+      ],
+      "cached_cost_projection": {
+        "energy and jin cost": [
+          "25"
+        ],
+        "jin cost": [
+          "3"
+        ]
+      },
+      "snapshots": [
+        {
+          "snapshot_cost_projection": {
+            "energy and jin cost": [
+              "25"
+            ],
+            "jin cost": [
+              "3"
+            ]
+          },
+          "complete_source_record": {
+            "name": "Mindless Clutch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mindless-clutch-i",
+                "title": "Mindless Clutch I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T05:46:18+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "38"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "2"
+              ],
+              "level": [
+                "38"
+              ],
+              "energy and jin cost": [
+                "25"
+              ],
+              "jin cost": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "2.0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Dissonant Bond"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Disciple",
+                "url": "https://vgsoharchive.com/classes/disciple"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Disciple",
+            "level_learned": 38,
+            "rank": "I",
+            "category": "Dissonant Bond",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 2.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 38,
+                "raw": "38"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+            ],
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "2.0s",
+                  "seconds": 2.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mindless-clutch-i"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+              "line": 31,
+              "record_sha256": "130b200734960cfa73c35e19707ab549dd614b32a342adc975c96eb5c2734f56"
+            }
+          ],
+          "snapshot_matches_cached_cost_labels": true,
+          "classification": "additional_or_conflicting_labelled_values_require_review"
+        }
+      ],
+      "class_cost_resource": null,
+      "operative_cost": null,
+      "conversion_ready": false,
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/mindless-clutch-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Mindless Clutch I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>38</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>2</dd></div>\n</dl>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes. Cost: Submit Info Jin Cost: 3 Cast Time: 0 Refresh: 2 Range: 25 Favor of the Crow III</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Forms a dissonant bond with an opponent, draining 40 energy every 4 seconds for 2 minutes” (http://thetelonproject.wikidot.com/abilities:mindless-clutch-i)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>energy and jin cost</dt><dd>25</dd></div>\n<div><dt>Jin cost</dt><dd>3</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>2.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Dissonant Bond</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:mindless-clutch-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "disposition": "Combined Energy and Jin Cost label does not specify how its number is allocated between resources. Separate Jin Cost 3 is explicit. Bare class cost agrees with the combined-label number, but does not establish an Energy-only interpretation. Preserve both observations without allocating or subtracting costs.",
+      "conflict_kind": "ambiguous_combined_resource_label",
+      "canonical_client_id": null
+    },
+    {
+      "table_index": 4,
+      "row_index": 40,
+      "printed_cells": {
+        "level": "48",
+        "ability": "Mindless Clutch II",
+        "school": "Dissonant Bond",
+        "cost": "31",
+        "cast": "Instant",
+        "range": "25",
+        "effect": "Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">48</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/mindless-clutch-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/mindless-clutch-ii\">Mindless Clutch II</a>\n</td>\n<td class=\"muted\">Dissonant Bond</td>\n<td class=\"num muted\">\n              31\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">25</td>\n<td class=\"muted\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/mindless-clutch-ii",
+      "detail_cache": {
+        "path": ".cache/archive/0b1704ec9b5a10faa9497b2b4d87701616023e87960d8b27fec1bf77dfc20856.txt",
+        "sha256": "40f34166ee535990c599ac2551d056c193fe3362e982e0c4eb07b4063ebf63f1"
+      },
+      "cached_cost_facts": [
+        {
+          "label": "energy and jin cost",
+          "value": "31",
+          "html": "<div><dt>energy and jin cost</dt><dd>31</dd></div>"
+        },
+        {
+          "label": "Jin cost",
+          "value": "3",
+          "html": "<div><dt>Jin cost</dt><dd>3</dd></div>"
+        }
+      ],
+      "cached_cost_projection": {
+        "energy and jin cost": [
+          "31"
+        ],
+        "jin cost": [
+          "3"
+        ]
+      },
+      "snapshots": [
+        {
+          "snapshot_cost_projection": {
+            "energy and jin cost": [
+              "31"
+            ],
+            "jin cost": [
+              "3"
+            ]
+          },
+          "complete_source_record": {
+            "name": "Mindless Clutch II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/mindless-clutch-ii",
+                "title": "Mindless Clutch II · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T05:46:23+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "48"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "2"
+              ],
+              "level": [
+                "48"
+              ],
+              "energy and jin cost": [
+                "31"
+              ],
+              "jin cost": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "2.0s"
+              ],
+              "range": [
+                "25m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Dissonant Bond"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Disciple",
+                "url": "https://vgsoharchive.com/classes/disciple"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Disciple",
+            "level_learned": 48,
+            "rank": "II",
+            "category": "Dissonant Bond",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 2.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 25,
+              "unit": "m",
+              "raw": "25m"
+            },
+            "tooltip": "Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 48,
+                "raw": "48"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+            ],
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "2.0s",
+                  "seconds": 2.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:mindless-clutch-ii"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+              "line": 32,
+              "record_sha256": "f5af5e5a70ecb1d1c7754765463a4d432752de8ad96dac33b80813bc56bb8c55"
+            }
+          ],
+          "snapshot_matches_cached_cost_labels": true,
+          "classification": "additional_or_conflicting_labelled_values_require_review"
+        }
+      ],
+      "class_cost_resource": null,
+      "operative_cost": null,
+      "conversion_ready": false,
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/mindless-clutch-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Mindless Clutch II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 48\n    · Dissonant Bond\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Only 1 Mindless Clutch allowed active at a time.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>48</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>2</dd></div>\n</dl>\n<div class=\"tooltip\">Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes. Cost: Submit Info Jin Cost: 3 Cast Time: 0 Refresh: 2 Range: 25 Favor of the Crow IV</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Only 1 Mindless Clutch allowed active at a time.</p>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Forms a dissonant bond with an opponent, draining 54 energy every 4 seconds for 2 minutes” (http://thetelonproject.wikidot.com/abilities:mindless-clutch-ii)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>48</dd></div>\n<div><dt>energy and jin cost</dt><dd>31</dd></div>\n<div><dt>Jin cost</dt><dd>3</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>2.0s</dd></div>\n<div><dt>Range</dt><dd>25m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Dissonant Bond</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:mindless-clutch-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "disposition": "Combined Energy and Jin Cost label does not specify how its number is allocated between resources. Separate Jin Cost 3 is explicit. Bare class cost agrees with the combined-label number, but does not establish an Energy-only interpretation. Preserve both observations without allocating or subtracting costs.",
+      "conflict_kind": "ambiguous_combined_resource_label",
+      "canonical_client_id": null
+    },
+    {
+      "table_index": 4,
+      "row_index": 46,
+      "printed_cells": {
+        "level": "50",
+        "ability": "Blooming Ridge Hand IV",
+        "school": "Melee Attack",
+        "cost": "146",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A potent strike that deals 150% weapon damage plus 142 to 152. Whenever an opponent affected by this ability is attacked with..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blooming-ridge-hand-iv.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blooming-ridge-hand-iv\">Blooming Ridge Hand IV</a>\n</td>\n<td class=\"muted\">Melee Attack</td>\n<td class=\"num muted\">\n              146\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A potent strike that deals 150% weapon damage plus 142 to 152. Whenever an opponent affected by this ability is attacked with...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/blooming-ridge-hand-iv",
+      "detail_cache": {
+        "path": ".cache/archive/2a872a8ed3fbafe79f4cf9839cd63d923b20986203135e39bd96cd2926d51a1e.txt",
+        "sha256": "9044211f9c021425ef7a96a4674f2227b5713905983afb5a663dcc5b3bc2d655"
+      },
+      "cached_cost_facts": [
+        {
+          "label": "endurance cost",
+          "value": "146",
+          "html": "<div><dt>endurance cost</dt><dd>146</dd></div>"
+        },
+        {
+          "label": "Endurance cost",
+          "value": "28",
+          "html": "<div><dt>Endurance cost</dt><dd>28</dd></div>"
+        },
+        {
+          "label": "Jin cost",
+          "value": "0",
+          "html": "<div><dt>Jin cost</dt><dd>0</dd></div>"
+        }
+      ],
+      "cached_cost_projection": {
+        "endurance cost": [
+          "146",
+          "28"
+        ],
+        "jin cost": [
+          "0"
+        ]
+      },
+      "snapshots": [
+        {
+          "snapshot_cost_projection": {
+            "endurance cost": [
+              "146",
+              "28"
+            ],
+            "jin cost": [
+              "0"
+            ]
+          },
+          "complete_source_record": {
+            "name": "Blooming Ridge Hand IV",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/blooming-ridge-hand-iv",
+                "title": "Blooming Ridge Hand IV · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Contradictory labelled resource costs retained in cost_observations; no operative cost chosen. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T03:54:00+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "50"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "0"
+              ],
+              "level": [
+                "50"
+              ],
+              "endurance cost": [
+                "146",
+                "28"
+              ],
+              "jin cost": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Melee Attack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Disciple",
+                "url": "https://vgsoharchive.com/classes/disciple"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Disciple",
+            "level_learned": 50,
+            "rank": "IV",
+            "category": "Melee Attack",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": null,
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 50,
+                "raw": "50"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+            ],
+            "cost_observations": {
+              "endurance": [
+                146,
+                28
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      142
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      150
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      165
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      150
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:blooming-ridge-hand-iv"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+              "line": 41,
+              "record_sha256": "786d173f88af7a7880b2d2b5dcea010e60ade98cfc33dd233841e3d631604c89"
+            }
+          ],
+          "snapshot_matches_cached_cost_labels": true,
+          "classification": "additional_or_conflicting_labelled_values_require_review"
+        }
+      ],
+      "class_cost_resource": null,
+      "operative_cost": null,
+      "conversion_ready": false,
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/blooming-ridge-hand-iv.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Blooming Ridge Hand IV\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/disciple\">Disciple</a>\n    \n    · Level 50\n    · Melee Attack\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A potent strike that deals 150% weapon damage plus 142 to 152. Whenever an opponent affected by this ability is attacked with a melee ability, the attacker is healed for a small amount of health. Lasts 30 seconds. Increases Jin by 1.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>50</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>0</dd></div>\n</dl>\n<div class=\"tooltip\">A potent strike that deals 150% weapon damage plus 165 to 177. Whenever an opponent affected by this ability is attacked with a melee ability, the attacker is healed for a small amount of health. Lasts 30 seconds. Increases Jin by 1. Cost: Submit Info Jin Cost: 0 Cast Time: 0 Refresh: 0 Range: 5 Palm of Discord III</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “A potent strike that deals 150% weapon damage plus 142 to 152. Whenever an oppenent affected by this ability is attacked with a melee ability, the attacker is healed for a small amount of health. Lasts for 30 seconds. Increased Jin by 1” (http://thetelonproject.wikidot.com/abilities:blooming-ridge-hand-iv)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>50</dd></div>\n<div><dt>endurance cost</dt><dd>146</dd></div>\n<div><dt>Endurance cost</dt><dd>28</dd></div>\n<div><dt>Jin cost</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Melee Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:blooming-ridge-hand-iv\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "disposition": "Two Endurance Cost labels print unequal values, 146 and 28, on the same cached detail page. Class cost 146 agrees with one observation but does not resolve the other. Jin Cost 0 is separate. No operative Endurance cost selected.",
+      "conflict_kind": "unequal_repeated_resource_label",
+      "canonical_client_id": null
+    }
+  ],
+  "summary": {
+    "reviewed_rows": 3,
+    "ambiguous_combined_resource_labels": 2,
+    "unequal_repeated_resource_labels": 1,
+    "unresolved_operative_costs": 3
+  },
+  "limitations": [
+    "Cached class and detail pages share archive provenance and are not independent corroboration.",
+    "No allocation, arithmetic inference, source preference or historical applicability is established.",
+    "Full immutable source records and cached detail HTML preserved; operative costs and canonical client IDs remain null.",
+    "Collection and further class/source review remain incomplete."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "typed_corpus_hashes_verified": 51,
+    "cached_pages_verified": 4,
+    "exact_source_references_verified": 3,
+    "issues": 0
+  }
+}
