@@ -12,6 +12,11 @@ this transport. A robots 404/410 now records missing-file evidence and permits c
 without merging repeated labels or assigning canonical IDs or historical eras.
 Missing article regions fail closed. Pages without infobox observations remain
 metadata only; other article tables and prose still require extraction review.
+Non-infobox tables and paragraph/list blocks are now retained in
+`unreviewed_article_evidence` with source HTML and URL, explicitly marked
+`game_fact: false`. Nested tables are preserved once inside their outer table.
+This evidence capture does not promote navigation or prose to typed facts;
+`reviewed/WIKI_NONINFOBOX_EVIDENCE_ITERATION283.json` records the cached replay.
 The immutable iteration148 cache review verifies the cached main-page hash and
 retains 50 pending article links. The live runner now schedules this parser with a separate resumable queue;
 its discovered articles remain pending until fetched and parsed.
