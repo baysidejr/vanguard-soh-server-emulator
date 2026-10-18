@@ -1,0 +1,344 @@
+{
+  "review_kind": "bard_component_stacking_and_pulse_refresh",
+  "network_requests": 0,
+  "input_sha256": {
+    "reviewed/BARD_COMPOSITION_REVIEW_ITERATION290.json": "7e901300a86d398f7fb26eeb46e2c4ac72b886dc6e836c018c1f3bf2154a6d38"
+  },
+  "source": {
+    "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+    "cache_stored_bytes_sha256": "64acdb07c442feddc3040270bd90131a60148a8387c83d83af7d0c9f38761dd1",
+    "cache_normalized_text_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "sidecar_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:07:10+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "How Instruments Work:",
+            "Instrument Mod Explanation",
+            "Voice Mods",
+            "Instrument Facts",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "How Instruments Work:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Mod Explanation",
+              "linked_entities": []
+            },
+            {
+              "heading": "Voice Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Facts",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/song-composition-guide"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": "Putting it all together (Basic Version):",
+        "row_count": 4,
+        "rows": [
+          [
+            "Melody",
+            "Anthem of War",
+            "2 energy / sec"
+          ],
+          [
+            "Embellishments",
+            "Harmony of War",
+            "4 energy / sec x3 = 12 energy / sec"
+          ],
+          [
+            "Lyrics",
+            "Hazoc's Hasty Lyric",
+            "3 energy / sec"
+          ],
+          [
+            "",
+            "Total Cost:",
+            "17 energy / sec"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>Melody</td>\n<td>Anthem of War</td>\n<td>2 energy / sec</td>\n</tr>\n<tr>\n<td>Embellishments</td>\n<td>Harmony of War</td>\n<td>4 energy / sec x3 = 12 energy / sec</td>\n</tr>\n<tr>\n<td>Lyrics</td>\n<td>Hazoc's Hasty Lyric</td>\n<td>3 energy / sec</td>\n</tr>\n<tr>\n<td></td>\n<td>Total Cost:</td>\n<td>17 energy / sec</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "observations": [
+    {
+      "observation_kind": "repeated_component_stacking",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 2,
+        "text_as_printed": "Let's first look at the various components of a Bard Song. Depending on your level you will have between 1-7 Song Component types titled Melody, Embellishment, Lyric, Chorus, Verse, Bridge and Coda. Each of these song component types will have between 1-3 slots available for a single component.. All together, at Level 50, you will be able to mix and match up to 16 separate components each having an cost of between 2 – 9 energy per second. The more components you use, the more energy your song will cost per second. It is important to note that the majority of our song components WILL STACK with each other. In other words, you can put 3 Mellarien's Harmony of War in a song for a \"triple effect\". It is better in most situations to focus your song in such a way (using multiple same components) as opposed to mixxing and matching individual components. In some cases, components do not stack (or stack for a lessened effect) and those will be addressed individually in a later section.",
+        "source_html": "<p>Let's first look at the various components of a Bard Song. Depending on your level you will have between 1-7 Song Component types titled Melody, Embellishment, Lyric, Chorus, Verse, Bridge and Coda. Each of these song component types will have between 1-3 slots available for a single component.. All together, at Level 50, you will be able to mix and match up to 16 separate components each having an cost of between 2 – 9 energy per second. The more components you use, the more energy your song will cost per second. It is important to note that the majority of our song components WILL STACK with each other. In other words, you can put 3 Mellarien's Harmony of War in a song for a \"triple effect\". It is better in most situations to focus your song in such a way (using multiple same components) as opposed to mixxing and matching individual components. In some cases, components do not stack (or stack for a lessened effect) and those will be addressed individually in a later section.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "majority_stack_claim": true,
+        "example_name_as_printed": "Mellarien's Harmony of War",
+        "example_copies": 3,
+        "example_effect_as_printed": "triple effect",
+        "exceptions_as_printed": "some components do not stack or stack for a lessened effect",
+        "complete_exception_list": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "pulse_cadence",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 3,
+        "text_as_printed": "Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.",
+        "source_html": "<p>Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "component_pulse_seconds_as_printed": 4,
+        "initial_pulse_time": null,
+        "cross_song_phase_alignment": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "persistent_effect",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 3,
+        "text_as_printed": "Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.",
+        "source_html": "<p>Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "component_name_as_printed": "Harmony of War",
+        "damage_points_as_printed": [
+          12,
+          20
+        ],
+        "duration_as_printed": "entire duration of song",
+        "four_second_pulse_effect_claim": false
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "regeneration_pulse",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 3,
+        "text_as_printed": "Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.",
+        "source_html": "<p>Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "health_and_energy_regeneration_benefit_interval_seconds_as_printed": 4,
+        "between_pulse_benefit_claim": false,
+        "regeneration_amount": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "rune_refresh",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 3,
+        "text_as_printed": "Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.",
+        "source_html": "<p>Song components pulse once every four seconds. Many song components are persistent so they do not have an effect that fades. Harmony of War for instance will add 12-20 pts of damage for the entire duration of the song without any 4 second pulse effects. However, Bard Regen Songs will only give a benefit of Health / energy regen once every 4 seconds while having no effect in between. In addition, some songs have effects that will be refreshed every 4 seconds such as our Irion’s Psalm of Shields, which gives a Rune component; if you take damage and the rune fades, it will refresh again on the next 4-second pulse of the song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "component_name_as_printed": "Irion’s Psalm of Shields",
+        "effect_as_printed": "Rune",
+        "trigger_as_printed": "damage causes rune to fade",
+        "refresh_as_printed": "next 4-second pulse of song",
+        "immediate_refresh_claim": false,
+        "rune_capacity": null,
+        "unbroken_rune_refresh_behavior": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "energy_payment_cadence",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 4,
+        "text_as_printed": "Each song component has an energy cost that is paid every second. Mellarien’s Anthem of War, for instance, costs 2 energy every second in order to play. There are two ways that a bard can offset this tax; the first is in the form of natural energy regen.",
+        "source_html": "<p>Each song component has an energy cost that is paid every second. Mellarien’s Anthem of War, for instance, costs 2 energy every second in order to play. There are two ways that a bard can offset this tax; the first is in the form of natural energy regen.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "payment_interval_seconds_as_printed": 1,
+        "example_name_as_printed": "Mellarien’s Anthem of War",
+        "example_energy_per_second": 2,
+        "payment_phase_relative_to_effect_pulse": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "General four-second pulse statement is qualified by persistent effects and separate one-second energy payments.",
+      "evidence_block_indices": [
+        3,
+        4
+      ],
+      "resolution": "Cadences retained separately; no universal combat update scheduler inferred."
+    },
+    {
+      "issue": "Triple-effect example is qualified by unspecified nonstacking and reduced-stacking exceptions.",
+      "evidence_block_indices": [
+        2
+      ],
+      "resolution": "No universal multiplier, complete exception list or per-ability stacking policy assigned."
+    },
+    {
+      "issue": "Rune refresh after depletion does not establish initial phase, refresh of an intact rune, capacity, or refresh on song switching.",
+      "evidence_block_indices": [
+        3
+      ],
+      "resolution": "Unspecified fields remain null."
+    }
+  ],
+  "policy": "Source-attributed guide claims only. Shared Telon Project mirrors are not independent corroboration. No name-only identity merge, operative imports or historical date inference. Network suspension preserved.",
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "summary": {
+    "pages": 1,
+    "distinct_prose_blocks": 3,
+    "observations": 6,
+    "ambiguities": 3,
+    "validation_issues": 0
+  },
+  "remaining_work": "Review rest eligibility and replacement-cost claims against preserved guide HTML; other supplemental extraction and pending archive/alternate downloads remain open."
+}
