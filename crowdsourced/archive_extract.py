@@ -18,6 +18,17 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact resistance buff literals reviewed in iteration677.
+    resistance_buff = {
+        'This voice embellishment increases the arcane and physical resistances of you and your allies.': {'direction_reported': 'increase', 'resistance_types_reported': ['arcane', 'physical'], 'resistance_scope_reported': 'explicit_named_types', 'target_reported': 'you and your allies', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        'This voice embellishment increases the mental and spiritual resistances of you and your allies.': {'direction_reported': 'increase', 'resistance_types_reported': ['mental', 'spiritual'], 'resistance_scope_reported': 'explicit_named_types', 'target_reported': 'you and your allies', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        'This percussion melody increases fire and cold resistances of you and your allies.': {'direction_reported': 'increase', 'resistance_types_reported': ['fire', 'cold'], 'resistance_scope_reported': 'explicit_named_types', 'target_reported': 'you and your allies', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        'Increases all resistance of you and your group.': {'direction_reported': 'increase', 'resistance_types_reported': None, 'resistance_scope_reported': 'all', 'target_reported': 'you and your group', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        'Increases all resistances of you and your allies.': {'direction_reported': 'increase', 'resistance_types_reported': None, 'resistance_scope_reported': 'all', 'target_reported': 'you and your allies', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+    }.get(value.strip())
+    if resistance_buff:
+        facts.append(dict(kind='resistance_buff_tooltip_observation',
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **resistance_buff))
     # Exact resistance debuff literals reviewed in iteration675.
     resistance_debuff = {
         "This brass embellishment lowers your opponent's arcane resistance.": {'direction_reported': 'decrease', 'resistance_types_reported': ['arcane'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
