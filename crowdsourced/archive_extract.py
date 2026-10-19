@@ -18,6 +18,55 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact resource literals reviewed in iteration681; no inferred tick or transfer.
+    resource_observation = {'Increases health and energy regeneration of you and your allies.': {'direction_reported': 'increase',
+                                                                      'resources_reported': ['health',
+                                                                                             'energy'],
+                                                                      'target_reported': 'you and '
+                                                                                         'your '
+                                                                                         'allies',
+                                                                      'regeneration_reported': True,
+                                                                      'drain_reported': False,
+                                                                      'resource_transfer_to_caster': None,
+                                                                      'magnitude': None,
+                                                                      'unit': None,
+                                                                      'tick_interval_seconds': None,
+                                                                      'duration_seconds': None,
+                                                                      'stacking_rules': None,
+                                                                      'operative_values': None,
+                                                                      'historical_authentication': None},
+ 'Drains energy from your opponent.': {'direction_reported': 'drain',
+                                       'resources_reported': ['energy'],
+                                       'target_reported': 'your opponent',
+                                       'regeneration_reported': False,
+                                       'drain_reported': True,
+                                       'resource_transfer_to_caster': None,
+                                       'magnitude': None,
+                                       'unit': None,
+                                       'tick_interval_seconds': None,
+                                       'duration_seconds': None,
+                                       'stacking_rules': None,
+                                       'operative_values': None,
+                                       'historical_authentication': None},
+ 'Increases mana and health regeneration of you and your allies.': {'direction_reported': 'increase',
+                                                                    'resources_reported': ['mana',
+                                                                                           'health'],
+                                                                    'target_reported': 'you and '
+                                                                                       'your '
+                                                                                       'allies',
+                                                                    'regeneration_reported': True,
+                                                                    'drain_reported': False,
+                                                                    'resource_transfer_to_caster': None,
+                                                                    'magnitude': None,
+                                                                    'unit': None,
+                                                                    'tick_interval_seconds': None,
+                                                                    'duration_seconds': None,
+                                                                    'stacking_rules': None,
+                                                                    'operative_values': None,
+                                                                    'historical_authentication': None}}.get(value.strip())
+    if resource_observation:
+        facts.append(dict(kind='resource_regeneration_drain_tooltip_observation',
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **resource_observation))
     # Exact armor and absorption literals reviewed in iteration679.
     armor_absorption = {
         'This string chorus causes a curtain of sound to protect you and your allies that increases armor class, block skill and absorbs damage each pulse.': {'modifiers_reported': ['armor_class', 'block_skill'], 'direction_reported': 'increase', 'target_reported': 'you and your allies', 'damage_absorption_reported': True, 'absorption_cadence_reported': 'each pulse', 'absorption_magnitude_reported': None, 'modifier_magnitudes': None, 'absorption_amount': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'stacking_rules': None, 'operative_values': None, 'historical_authentication': None},
