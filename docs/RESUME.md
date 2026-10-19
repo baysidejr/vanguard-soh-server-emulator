@@ -24,7 +24,14 @@ below is committed and pushed to `main` on GitHub (baysidejr/vanguard-soh-server
 - **B-010 parley presence: A.** Unrestricted until evidence. Deferred.
 - Standing rules: never invent original game data; test on scratch copies, never the real `server/vanguard.db`; commit and push verified work; keep going after each task; only stop for true owner decisions (record them as `BLOCKED: OWNER DECISION`).
 
-## Where exactly I stopped
+## Resumed on a new PC (2026-10-19)
+
+- Tools set up: Ghidra 12.1.4 (`C:\tools\ghidra`), JDK 21, the ReVa extension and headless MCP server (`ReVa`, user scope), a persistent Ghidra project of the client at `C:\dev\vanguard\ghidra_projects\VGClient`, capstone, the `ralph-loop` plugin. Client files sit at the repo root; `bin/loginserver.txt` is 127.0.0.1; the client hash matches PROTOCOL.md.
+- `check_all.py` 6/6 and the client smoke test PASS on 2026-10-19 (the real save, 8 characters, fingerprint unchanged). Step 1 below is done.
+- B-009 cycle done 2026-10-19 (merge ac58915, review data only; refresh --apply changed nothing).
+- This PC: Windows PowerShell scripts are disabled, so stop servers with `powershell -ExecutionPolicy Bypass -File tools/stop_servers.ps1`.
+
+## Where exactly I stopped (2026-10-17)
 
 - Last commit before this file: `954abb4` (scenario: a group survives a chunk change).
 - I was running `python tools/check_all.py --client`: **6 of 7 passed** (unit 307, content, 26+ scenarios, load test p95 11.6 ms, server log, fuzzing). The **client smoke test FAILED** without any server error: the server log stops before the character's Play, i.e. the scripted Enter on character select never reached the client (most likely the PC was in use / focus was elsewhere). **First thing to do: run `python tools/check_all.py --client` again with the PC idle** and confirm 7/7 (it passed 7/7 earlier today).

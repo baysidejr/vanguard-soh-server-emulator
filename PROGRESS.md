@@ -10,6 +10,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Last test results
 
+- 2026-10-19 (new PC, tools reinstalled): tools/check_all.py 6 of 6 (unit 307, content, 26 scenarios, load p95 10.8 ms, server log, fuzzing clean) and the client smoke test PASS (logged in, entered the world, 49 commands); real save database fingerprint unchanged (8 characters).
 - 2026-10-17 (late, at the pause): check_all --client 6 of 7: unit 307, content, scenarios, load p95 11.6 ms, server log, fuzzing passed; the client smoke test failed before Play with no server error (scripted input, PC in use). Re-run with the PC idle (docs/RESUME.md).
 - 2026-10-17 (after the owner decisions, imports, chunk moves and death checks): 50 bots for 120 s in Khal on a scratch copy: 50/50 joined, 5,582 steady-state pings median 10.6 ms, p95 11.4 ms, max 22.5 ms, no lost packets, 0 server errors, memory 150 MB under load (as the 15-minute soak). check_all 6/6 (unit 297), --client 7/7 earlier today; many hand-run items checked in the client with tools/client_ui.py (TESTING.md).
 - 2026-10-17 00:40 (after the deep-fuzz logger fix and 26 scenarios): tools/check_all.py --client 7 of 7 passed (unit 282, steady p95 11.2 ms, fuzz clean with the packet log on, smoke PASS: logged in, entered the world, 49 commands); real save database unchanged.
@@ -98,6 +99,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-19: Resumed on a new PC: Ghidra 12.1.4 with ReVa (extension and headless MCP), JDK 21, capstone, a persistent Ghidra project of VGClient.exe; client files at the repo root; all checks pass. B-009: merged the scrape branch (ac58915, 15 review-data commits); refresh --apply changed nothing.
 - 2026-10-17: Fixed: a summoned pet was lost on every chunk change; it now follows through (B-027). /walk and sprint speed also survive a chunk change (B-026).
 
 - 2026-10-17: Fixed: after a chunk change a rider kept the horse but moved at foot speed (measured with /loc); the mount state is re-sent after the zone-in (B-026). Also checked in the client: Sprint, Recall to House, mining, ore conversion, mail, the market window.

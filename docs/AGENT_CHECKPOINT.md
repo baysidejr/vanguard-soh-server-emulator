@@ -4,7 +4,7 @@
 
 Recovery aid for the next session. Always re-check the real repository state (`git status`, `git log`) before relying on this.
 
-- **Updated:** 2026-10-16
+- **Updated:** 2026-10-19 (new PC: tools installed, 7/7 checks pass, B-009 merge ac58915; see docs/RESUME.md)
 - **Branch:** `main` (tracks `origin/main`)
 - **Latest commit at writing:** see `git log -1` (this checkpoint is committed with B-001)
 
