@@ -18,6 +18,19 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    echo = re.fullmatch(
+        r'You shout after a successful parry, dealing (\d+) to (\d+) damage '
+        r'and restoring (\d+) of your endurance\. Only usable after you parry\.',
+        value.strip(), re.I)
+    if echo:
+        minimum, maximum, endurance = map(int, echo.groups())
+        if 0 < minimum <= maximum and endurance > 0:
+            facts.append(dict(kind='parry_damage_endurance_observation',
+                damage_minimum_recorded=minimum, damage_maximum_recorded=maximum,
+                endurance_restored_recorded=endurance,
+                prerequisite_recorded='successful parry', damage_school=None,
+                damage_target=None, activation_window_seconds=None, scaling=None,
+                conditions_unparsed=True))
     charm = re.fullmatch(
         r'Charms your opponent, forcing it to fight for you for (\d+) seconds\. '
         r'Effective on targets level (\d+) and lower\.', value.strip(), re.I)
