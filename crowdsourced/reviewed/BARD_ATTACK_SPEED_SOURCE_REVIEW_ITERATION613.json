@@ -1,0 +1,363 @@
+{
+  "review_kind": "bard_attack_speed_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 54,
+  "rows": [
+    {
+      "name": "Hazoc's Hasty Lyric",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-hasty-lyric",
+      "cache": {
+        "path": ".cache/archive/934e2ad31d822ce244e0f6455b8306972a88edbbae20a8a18d3801239c9ecc57.txt",
+        "sha256": "30c3c18dca2ef58b011870309318d12dc85f9025d5542a755df0a26178d83a12"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 28,
+          "record_sha256": "2c7c3ce87f5b7155506edcfad9273fda9bf8d093d02bbfe0a79a661fb645adf5"
+        }
+      ],
+      "literal": "Increases the melee attack speed for your gruop by 12%",
+      "effect_text_sha256": "162f079bebd2c29fe2386fc6a80b3d3c8d6585560672d3b3db4f8ba517014c51",
+      "observation": {
+        "action_recorded": "Increases",
+        "target_phrase_recorded": "your gruop",
+        "attack_speed_phrase_recorded": "melee attack speed",
+        "increase_percent_recorded": 12,
+        "stacking": null,
+        "scaling": null,
+        "base_attack_interval": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Hazoc's Hasty Lyric",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/hazoc-s-hasty-lyric",
+            "title": "Hazoc's Hasty Lyric · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 54,
+        "collected_at": "2026-10-19T15:08:57+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "6"
+          ],
+          "level in 2007-2008": [
+            "6"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "6"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 6,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the melee attack speed for your gruop by 12%",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 6,
+            "raw": "6"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 6,
+            "raw": "6"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:hazoc-s-hasty-lyric"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Hazoc's Hymn of Haste",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-hymn-of-haste",
+      "cache": {
+        "path": ".cache/archive/b87cd7f6f642327999d68dba6bfc65729512963378575c2fa0d1dfe7b289b2e7.txt",
+        "sha256": "2e42056e3084408b8ab01576886cc053df256e20f4148bafd6f39307572c7e4c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "9c54a9c403870b2e4c4463d3064b4a03b65360bb29596865f0801ff05b68f789"
+        }
+      ],
+      "literal": "Increases the attack speed of your group by 12%",
+      "effect_text_sha256": "168243fb67fe33615820f3e5b312483b2418220cc1cbd02c1f0e25e1bfd7e132",
+      "observation": {
+        "action_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "attack_speed_phrase_recorded": "attack speed",
+        "increase_percent_recorded": 12,
+        "stacking": null,
+        "scaling": null,
+        "base_attack_interval": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Hazoc's Hymn of Haste",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/hazoc-s-hymn-of-haste",
+            "title": "Hazoc's Hymn of Haste · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 54,
+        "collected_at": "2026-10-19T15:08:57+00:00",
+        "archive_fields": {
+          "level": [
+            "18"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 18,
+        "rank": null,
+        "category": "Song Component",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Increases the attack speed of your group by 12%",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:hazoc-s-hymn-of-haste"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Hazoc's Rhythm of Rapidity",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-rhythm-of-rapidity",
+      "cache": {
+        "path": ".cache/archive/beb44c3413c56f7f740f9194ba3d123f694e726c8f2803fbd0c196617185abb5.txt",
+        "sha256": "472e27a5cb50fd9688304059db1fdedc36a9349dd363d810b85cac6feb60d7e9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "cb99429d82189dfd1c6b67bb1052f8cd15109fcae52c294eed0e7652d691b6ff"
+        }
+      ],
+      "literal": "This voice melody increases the attack speed of you and your allies by 8 to 10%",
+      "effect_text_sha256": "779af8b61f76ea7b1f401564ef3f3254b4a29193a592536c8eebff8d100cca6e",
+      "observation": {
+        "action_recorded": "increases",
+        "target_phrase_recorded": "you and your allies",
+        "attack_speed_phrase_recorded": "attack speed",
+        "increase_percent_min_recorded": 8,
+        "increase_percent_max_recorded": 10,
+        "range_dependency": null,
+        "stacking": null,
+        "scaling": null,
+        "base_attack_interval": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Hazoc's Rhythm of Rapidity",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/hazoc-s-rhythm-of-rapidity",
+            "title": "Hazoc's Rhythm of Rapidity · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 54,
+        "collected_at": "2026-10-19T15:08:57+00:00",
+        "archive_fields": {
+          "level": [
+            "18"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 18,
+        "rank": null,
+        "category": null,
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This voice melody increases the attack speed of you and your allies by 8 to 10%",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/hazocs-rhythm-of-rapidity-130.php"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "observation_fields_checked": true,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 211
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive tooltip is an emulator observation, not independently authenticated live-era evidence.",
+    "Printed target typo gruop is retained verbatim; melee attack speed and attack speed are not assumed equivalent.",
+    "Percent base, stacking, scaling, range dependency, attack interval formula and duration are not established by effect prose.",
+    "Original immutable source records remain unchanged; observations are not operative mechanics."
+  ],
+  "next_step": "Implement and test constrained attack speed observations for these three exact tooltips, preserving the target typo, melee qualifier and unknown range dependency and attack interval formula."
+}
