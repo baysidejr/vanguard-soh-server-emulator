@@ -18,6 +18,19 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    needle = re.fullmatch(
+        r"A fast piercing attack that deals (\d+)% of weapon damage and lowers your opponent's damage by (\d+) for (\d+) sec\.",
+        value.strip(), re.I)
+    if needle:
+        percent, reduction, duration = map(int, needle.groups())
+        if percent > 0 and reduction > 0 and duration > 0:
+            facts.append(dict(kind='weapon_damage_and_opponent_reduction_observation',
+                weapon_damage_percent_recorded=percent,
+                opponent_damage_reduction_recorded=reduction,
+                reduction_duration_seconds_recorded=duration,
+                damage_reduction_unit=None, weapon_damage_basis=None,
+                damage_school=None, target_recorded='opponent', stacking=None,
+                conditions_unparsed=True))
     chant = re.fullmatch(
         r'You begin to chant (?:vile|fiery|chilling) words, inflicting (\d+) to (\d+) '
         r'(physical|fire|cold) damage over (\d+) seconds\.', value.strip(), re.I)

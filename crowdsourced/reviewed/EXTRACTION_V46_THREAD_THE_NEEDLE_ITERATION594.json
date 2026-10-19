@@ -1,0 +1,353 @@
+{
+  "review_kind": "parser_v46_thread_the_needle_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_THREAD_THE_NEEDLE_SOURCE_REVIEW_ITERATION593.json",
+    "sha256": "0d367c3c1f5450356b395de62060bd75670985486add0896535ddfb8c77f54b0"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Thread the Needle I",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-i",
+      "cache": {
+        "path": ".cache/archive/8003e03dd79c7b0b0c3a5b5002ea0813b97747924cc476a91bb4b349cf01938c.txt",
+        "sha256": "fa4859526579662f3ee154e895db35af1e4b01422f4a32a5cd68da5092c39184"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "7f3a95ae3605dd107bb7ec1e4561c090a7e1c4d93d54a94c8793613183a43675"
+        }
+      ],
+      "effect_text_sha256": "192999c455abc6daea8f7e39789b532eda2dd8a161c4313e041b6d8620e76736",
+      "literal": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 15 for 30 sec.",
+      "observation": {
+        "weapon_damage_percent_recorded": 50,
+        "opponent_damage_reduction_recorded": 15,
+        "reduction_duration_seconds_recorded": 30,
+        "damage_reduction_unit": null,
+        "weapon_damage_basis": null,
+        "damage_school": null,
+        "target_recorded": "opponent",
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v46_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "weapon_damage_and_opponent_reduction_observation",
+          "weapon_damage_percent_recorded": 50,
+          "opponent_damage_reduction_recorded": 15,
+          "reduction_duration_seconds_recorded": 30,
+          "damage_reduction_unit": null,
+          "weapon_damage_basis": null,
+          "damage_school": null,
+          "target_recorded": "opponent",
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "weapon_damage_and_opponent_reduction_observation",
+              "weapon_damage_percent_recorded": 50,
+              "opponent_damage_reduction_recorded": 15,
+              "reduction_duration_seconds_recorded": 30,
+              "damage_reduction_unit": null,
+              "weapon_damage_basis": null,
+              "damage_school": null,
+              "target_recorded": "opponent",
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Thread the Needle II",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-ii",
+      "cache": {
+        "path": ".cache/archive/94f76700f8a66a7453b360668407d8ff39b07900a9b792fe45afac9ad5e4d32c.txt",
+        "sha256": "f5900c183278fc36e0c5c6831d666afd744502684512e8092d498c7d5aea031f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 28,
+          "record_sha256": "5fb5f8bc8a31c756073506cf84846be73cb96b9f13a2d470dc96b418ae7c3ce6"
+        }
+      ],
+      "effect_text_sha256": "66b6f3dfc88130709f9d1ae1d8aec7c6a898de63773960091912174db808d38e",
+      "literal": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 20 for 30 sec.",
+      "observation": {
+        "weapon_damage_percent_recorded": 50,
+        "opponent_damage_reduction_recorded": 20,
+        "reduction_duration_seconds_recorded": 30,
+        "damage_reduction_unit": null,
+        "weapon_damage_basis": null,
+        "damage_school": null,
+        "target_recorded": "opponent",
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v46_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "weapon_damage_and_opponent_reduction_observation",
+          "weapon_damage_percent_recorded": 50,
+          "opponent_damage_reduction_recorded": 20,
+          "reduction_duration_seconds_recorded": 30,
+          "damage_reduction_unit": null,
+          "weapon_damage_basis": null,
+          "damage_school": null,
+          "target_recorded": "opponent",
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "weapon_damage_and_opponent_reduction_observation",
+              "weapon_damage_percent_recorded": 50,
+              "opponent_damage_reduction_recorded": 20,
+              "reduction_duration_seconds_recorded": 30,
+              "damage_reduction_unit": null,
+              "weapon_damage_basis": null,
+              "damage_school": null,
+              "target_recorded": "opponent",
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Thread the Needle III",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-iii",
+      "cache": {
+        "path": ".cache/archive/17284bf2e3a882d51d9eae7d3a04154f3dd88cdb8b50b75bc899476ecd12489c.txt",
+        "sha256": "6a2dde1f43f44fd0272c7041bd8ed311f55b0b4a8aaee870852c38dcf280fa8e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "bd1808bececac719e3b9e39bf3f9b82091bb791bfbc26df2e0348d7d870b69b1"
+        }
+      ],
+      "effect_text_sha256": "f14acf06b40fbb5e77db761ea09ddca9b03a10ba3a088f37784936affb9ca966",
+      "literal": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 25 for 30 sec.",
+      "observation": {
+        "weapon_damage_percent_recorded": 50,
+        "opponent_damage_reduction_recorded": 25,
+        "reduction_duration_seconds_recorded": 30,
+        "damage_reduction_unit": null,
+        "weapon_damage_basis": null,
+        "damage_school": null,
+        "target_recorded": "opponent",
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v46_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "weapon_damage_and_opponent_reduction_observation",
+          "weapon_damage_percent_recorded": 50,
+          "opponent_damage_reduction_recorded": 25,
+          "reduction_duration_seconds_recorded": 30,
+          "damage_reduction_unit": null,
+          "weapon_damage_basis": null,
+          "damage_school": null,
+          "target_recorded": "opponent",
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "weapon_damage_and_opponent_reduction_observation",
+              "weapon_damage_percent_recorded": 50,
+              "opponent_damage_reduction_recorded": 25,
+              "reduction_duration_seconds_recorded": 30,
+              "damage_reduction_unit": null,
+              "weapon_damage_basis": null,
+              "damage_school": null,
+              "target_recorded": "opponent",
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Thread the Needle IV",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-iv",
+      "cache": {
+        "path": ".cache/archive/f0c0e89a408c60e25a4d9035a19f2bf1bbdb0721a5855335a742bf7b1ee66b14.txt",
+        "sha256": "be3f215c3bd983df9e4533c055350ade45ada06b18d668d0f8b1b9857f59fb69"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "1a2760a9df328353a730a3dbe0e17441e65af71c28c8ab4c98873583867e621f"
+        }
+      ],
+      "effect_text_sha256": "8a0a5349c954f78a067f2af5e6b67781a46edd8e07bc4e3a22a67bf30f6ff704",
+      "literal": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 30 for 30 sec.",
+      "observation": {
+        "weapon_damage_percent_recorded": 50,
+        "opponent_damage_reduction_recorded": 30,
+        "reduction_duration_seconds_recorded": 30,
+        "damage_reduction_unit": null,
+        "weapon_damage_basis": null,
+        "damage_school": null,
+        "target_recorded": "opponent",
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v46_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "weapon_damage_and_opponent_reduction_observation",
+          "weapon_damage_percent_recorded": 50,
+          "opponent_damage_reduction_recorded": 30,
+          "reduction_duration_seconds_recorded": 30,
+          "damage_reduction_unit": null,
+          "weapon_damage_basis": null,
+          "damage_school": null,
+          "target_recorded": "opponent",
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "weapon_damage_and_opponent_reduction_observation",
+              "weapon_damage_percent_recorded": 50,
+              "opponent_damage_reduction_recorded": 30,
+              "reduction_duration_seconds_recorded": 30,
+              "damage_reduction_unit": null,
+              "weapon_damage_basis": null,
+              "damage_school": null,
+              "target_recorded": "opponent",
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Thread the Needle V",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-v",
+      "cache": {
+        "path": ".cache/archive/2442c57cf4be428d3548d1cd1cb2c3299a4ce4bfca1856dc3b49f7d3a0dfbb4c.txt",
+        "sha256": "7cbc34948724b4b39936a0b6075af254dd3edea0f7272d16cca85e9fa41f429d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "812070f3406ec4bdc889cef8de9dbdc5da9034a433c0648e559dd89e1f8b4339"
+        }
+      ],
+      "effect_text_sha256": "974fc6b79237bb124dcc5c57355854c9cea679b7c7fa42a4d632ec6301dce2d5",
+      "literal": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 40 for 30 sec.",
+      "observation": {
+        "weapon_damage_percent_recorded": 50,
+        "opponent_damage_reduction_recorded": 40,
+        "reduction_duration_seconds_recorded": 30,
+        "damage_reduction_unit": null,
+        "weapon_damage_basis": null,
+        "damage_school": null,
+        "target_recorded": "opponent",
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v46_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "weapon_damage_and_opponent_reduction_observation",
+          "weapon_damage_percent_recorded": 50,
+          "opponent_damage_reduction_recorded": 40,
+          "reduction_duration_seconds_recorded": 30,
+          "damage_reduction_unit": null,
+          "weapon_damage_basis": null,
+          "damage_school": null,
+          "target_recorded": "opponent",
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "weapon_damage_and_opponent_reduction_observation",
+              "weapon_damage_percent_recorded": 50,
+              "opponent_damage_reduction_recorded": 40,
+              "reduction_duration_seconds_recorded": 30,
+              "damage_reduction_unit": null,
+              "weapon_damage_basis": null,
+              "damage_school": null,
+              "target_recorded": "opponent",
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "exact_effect_section_matches": 5,
+    "issues": 0,
+    "python_tests_passed": 195,
+    "whole_page_observations_verified": 5
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Explicit weapon-damage percentage and separate opponent-damage reduction retained as sourced research. Reduction unit, weapon damage basis, damage school, stacking and live-era authenticity remain unknown. Piercing attack wording does not establish a damage school. Distinct rank records retained; original records unchanged and no operative facts promoted.",
+  "next_step": "Review remaining numeric Bard tooltips for explicit mechanics absent from typed observations.",
+  "parser_version": 46
+}
