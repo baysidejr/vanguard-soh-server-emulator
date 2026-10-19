@@ -18,6 +18,24 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration652 transcriptions; preserve spelling and unknown scaling.
+    reviewed_reductions = {
+        "Reduces your opponent's AC by 25-95 and strengthe by 6-8": [
+            dict(attribute_literal='AC', direction_recorded='reduction',
+                 range_recorded=[25, 95], unit=None),
+            dict(attribute_literal='strengthe', direction_recorded='reduction',
+                 range_recorded=[6, 8], unit=None)],
+        'Reduces the potency of heals on your opponent by 10%.': [
+            dict(attribute_literal='potency of heals', direction_recorded='reduction',
+                 percent_recorded=10)],
+    }.get(value.strip())
+    if reviewed_reductions:
+        facts.append(dict(kind='ac_strength_healing_potency_tooltip_observation',
+                          modifiers_recorded=reviewed_reductions,
+                          target_phrase_recorded='your opponent', range_scaling=None,
+                          percentage_calculation=None, stacking_formula=None,
+                          instrument_scaling=None, operative_values=None,
+                          conditions_unparsed=True))
     # Exact iteration649 reviews; unquantified skills and duration scope stay unknown.
     reviewed_modifiers = {
         'This string chorus increases you and your allies evasion by 2% and increases parry and dodge skill.':

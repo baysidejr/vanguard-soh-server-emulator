@@ -1,0 +1,644 @@
+{
+  "review_kind": "parser_v70_ac_strength_healing_potency_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_AC_STRENGTH_HEALING_POTENCY_SOURCE_REVIEW_ITERATION652.json",
+    "sha256": "6d038d79b4f871609e3034d0dcd5cb7ba11dcaef4473ac42cfa9866823971413"
+  },
+  "parser_version": 70,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Fasant's Hymn of Frailty",
+        "source_url": "https://vgsoharchive.com/abilities/fasant-s-hymn-of-frailty",
+        "cache": {
+          "path": ".cache/archive/9b99578e2036eb318c7d5d219fb84fdd09a97faf777e995e7ddd4ae1bb82dfb2.txt",
+          "sha256": "6b61a481d4a35ed57757511c39bdab0c9cc13e05646ed2ee8b768e22aa5d0f56"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+            "line": 78,
+            "record_sha256": "446f589237dae27b96949b4220bdf9f485048011ebbd5912d599bfd92aa16212"
+          }
+        ],
+        "effect_sections": [
+          "Reduces your opponent's AC by 25-95 and strengthe by 6-8"
+        ],
+        "observations": [
+          {
+            "literal": "Reduces your opponent's AC by 25-95 and strengthe by 6-8",
+            "text_sha256": "281c65130f170662545b0d37946903844843a7ac9d304c62fd023157f33422f2",
+            "modifiers_recorded": [
+              {
+                "attribute_literal": "AC",
+                "direction_recorded": "reduction",
+                "range_recorded": [
+                  25,
+                  95
+                ],
+                "unit": null
+              },
+              {
+                "attribute_literal": "strengthe",
+                "direction_recorded": "reduction",
+                "range_recorded": [
+                  6,
+                  8
+                ],
+                "unit": null
+              }
+            ],
+            "target_phrase_recorded": "your opponent",
+            "range_scaling": null,
+            "percentage_calculation": null,
+            "stacking_formula": null,
+            "instrument_scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Fasant's Hymn of Frailty",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/fasant-s-hymn-of-frailty",
+              "title": "Fasant's Hymn of Frailty \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 69,
+          "collected_at": "2026-10-19T19:11:02+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "25"
+            ],
+            "level in 2007-2008": [
+              "25"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "25"
+            ],
+            "energy cost": [
+              "5"
+            ],
+            "song portion": [
+              "Chorus"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Voice"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 25,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 5
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Reduces your opponent's AC by 25-95 and strengthe by 6-8",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 25,
+              "raw": "25"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 25,
+              "raw": "25"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              5
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:fasant-s-hymn-of-frailty"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Fasant's Hymn of Frailty",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/fasant-s-hymn-of-frailty",
+            "title": "Fasant's Hymn of Frailty \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 70,
+        "collected_at": "2026-10-19T19:17:15+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "25"
+          ],
+          "level in 2007-2008": [
+            "25"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "25"
+          ],
+          "energy cost": [
+            "5"
+          ],
+          "song portion": [
+            "Chorus"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Voice"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 25,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 5
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Reduces your opponent's AC by 25-95 and strengthe by 6-8",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 25,
+            "raw": "25"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 25,
+            "raw": "25"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            5
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "ac_strength_healing_potency_tooltip_observation",
+                "modifiers_recorded": [
+                  {
+                    "attribute_literal": "AC",
+                    "direction_recorded": "reduction",
+                    "range_recorded": [
+                      25,
+                      95
+                    ],
+                    "unit": null
+                  },
+                  {
+                    "attribute_literal": "strengthe",
+                    "direction_recorded": "reduction",
+                    "range_recorded": [
+                      6,
+                      8
+                    ],
+                    "unit": null
+                  }
+                ],
+                "target_phrase_recorded": "your opponent",
+                "range_scaling": null,
+                "percentage_calculation": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:fasant-s-hymn-of-frailty"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "ac_strength_healing_potency_tooltip_observation",
+          "modifiers_recorded": [
+            {
+              "attribute_literal": "AC",
+              "direction_recorded": "reduction",
+              "range_recorded": [
+                25,
+                95
+              ],
+              "unit": null
+            },
+            {
+              "attribute_literal": "strengthe",
+              "direction_recorded": "reduction",
+              "range_recorded": [
+                6,
+                8
+              ],
+              "unit": null
+            }
+          ],
+          "target_phrase_recorded": "your opponent",
+          "range_scaling": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Naman's Nefarious Barrier",
+        "source_url": "https://vgsoharchive.com/abilities/naman-s-nefarious-barrier",
+        "cache": {
+          "path": ".cache/archive/81ff868433b84bdcaf46c3322d5f98eb595a58e580a6e06b9d20151c84247d6c.txt",
+          "sha256": "caa4e6409e61f1f3081a14209b8fbee59d17cfcccb8599b58c15f598c9078aee"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+            "line": 89,
+            "record_sha256": "379591145226ba5568d7714a2a61364b74675c5fa7e743f77db54d56a30754d7"
+          }
+        ],
+        "effect_sections": [
+          "Reduces the potency of heals on your opponent by 10%."
+        ],
+        "observations": [
+          {
+            "literal": "Reduces the potency of heals on your opponent by 10%.",
+            "text_sha256": "760e377437048f533803946b79d1d0a4f802e57c527cb07ca0c1ee18d2528c11",
+            "modifiers_recorded": [
+              {
+                "attribute_literal": "potency of heals",
+                "direction_recorded": "reduction",
+                "percent_recorded": 10
+              }
+            ],
+            "target_phrase_recorded": "your opponent",
+            "range_scaling": null,
+            "percentage_calculation": null,
+            "stacking_formula": null,
+            "instrument_scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Naman's Nefarious Barrier",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-nefarious-barrier",
+              "title": "Naman's Nefarious Barrier \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 69,
+          "collected_at": "2026-10-19T19:11:02+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 42,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Reduces the potency of heals on your opponent by 10%.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-nefarious-barrier-172.php"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Naman's Nefarious Barrier",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/naman-s-nefarious-barrier",
+            "title": "Naman's Nefarious Barrier \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 70,
+        "collected_at": "2026-10-19T19:17:15+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "42"
+          ],
+          "level": [
+            "42"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 42,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Reduces the potency of heals on your opponent by 10%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 42,
+            "raw": "42"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "ac_strength_healing_potency_tooltip_observation",
+                "modifiers_recorded": [
+                  {
+                    "attribute_literal": "potency of heals",
+                    "direction_recorded": "reduction",
+                    "percent_recorded": 10
+                  }
+                ],
+                "target_phrase_recorded": "your opponent",
+                "range_scaling": null,
+                "percentage_calculation": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/namans-nefarious-barrier-172.php"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "ac_strength_healing_potency_tooltip_observation",
+          "modifiers_recorded": [
+            {
+              "attribute_literal": "potency of heals",
+              "direction_recorded": "reduction",
+              "percent_recorded": 10
+            }
+          ],
+          "target_phrase_recorded": "your opponent",
+          "range_scaling": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 243
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Refresh Bard numeric-pattern coverage against parser v70 to identify remaining unextracted observations."
+}
