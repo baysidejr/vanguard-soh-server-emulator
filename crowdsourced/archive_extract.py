@@ -18,6 +18,20 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    environmental = {
+        'Whistling this little tune will cause you and your nearby group mates to levitate for 60 minutes.':
+            dict(action_recorded='levitate', target_phrase_recorded='you and your nearby group mates',
+                 duration_minutes_recorded=60, nearby_radius=None, height=None, combat_applicability=None),
+        'Enables your group to breathe underwater. Costs 7/sec energy.':
+            dict(action_recorded='breathe underwater', target_phrase_recorded='your group',
+                 energy_per_second_recorded=7, duration=None, upkeep_timing=None),
+        'Levitates your group off of the ground. Costs 6/sec energy.':
+            dict(action_recorded='Levitates', target_phrase_recorded='your group',
+                 energy_per_second_recorded=6, height=None, combat_applicability=None, upkeep_timing=None),
+    }.get(value.strip())
+    if environmental:
+        facts.append(dict(kind='environmental_movement_tooltip_observation', **environmental,
+                          stacking=None, scaling=None, operative_values=None, conditions_unparsed=True))
     resistance = re.fullmatch(
         r'Increases the (arcane, mental and spiritual|mental and spiritual|cold, fire and physical) '
         r'(resistances|resistance) of all nearby allies by (20|10)\. Costs 4/sec energy\.',
