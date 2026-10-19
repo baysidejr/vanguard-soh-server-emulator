@@ -18,6 +18,21 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration658 transcriptions; no normal-damage or control mechanics inferred.
+    if value.strip() == 'Deals 400% of normal damage. This ability is only available when a target is below 20% health.':
+        facts.append(dict(kind='normal_damage_health_availability_tooltip_observation',
+            damage_percent_of_normal_recorded=400,
+            availability_condition_recorded=dict(target_health_percent=20,
+                comparison_literal='below', comparison='strictly_less_than'),
+            target_phrase_recorded='a target', normal_damage_definition=None,
+            damage_type=None, health_denominator=None, condition_evaluation_timing=None,
+            stacking_formula=None, operative_values=None, conditions_unparsed=True))
+    if value.strip() == 'Single target mesmerize (28 sec)':
+        facts.append(dict(kind='single_target_mesmerize_tooltip_observation',
+            effect_literal='mesmerize', target_phrase_recorded='Single target',
+            duration_recorded=dict(amount=28, unit_literal='sec'),
+            mesmerize_break_conditions=None, immunity_rules=None,
+            instrument_scaling=None, operative_values=None, conditions_unparsed=True))
     # Exact iteration655 reviews; upkeep scheduling and percentage base are unknown.
     refresh_upkeep = {
         'Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy.':
