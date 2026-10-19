@@ -18,6 +18,23 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact reviewed prose only: neither effect establishes complete action denial.
+    if value.strip() == 'Lulls the target, preventing it from assisting nearby allies for 18 seconds.':
+        facts.append(dict(kind='lull_tooltip_observation',
+            effect_word_recorded='Lulls', target_phrase_recorded='the target',
+            prevents_assisting_nearby_allies_recorded=True,
+            duration_seconds_recorded=18, assistance_radius=None,
+            prevents_actions=None, prevents_movement=None,
+            target_level_limit=None, player_target_applicability=None,
+            operative_values=None, conditions_unparsed=True))
+    if value.strip() == 'Silences your opponent, preventing the casting of most spells for 10 seconds.':
+        facts.append(dict(kind='silence_tooltip_observation',
+            effect_word_recorded='Silences', target_phrase_recorded='your opponent',
+            prevents_casting_recorded='most spells', duration_seconds_recorded=10,
+            spell_exceptions=None, interrupts_active_cast=None,
+            prevents_nonspell_abilities=None, target_level_limit=None,
+            player_target_applicability=None, operative_values=None,
+            conditions_unparsed=True))
     mesmerize = re.fullmatch(
         r'Mesmerizes your opponent, preventing any actions and movement for (18|24) '
         r'seconds or 1 hit\. Mesmerized targets begin to regenerate after 4 sec\. '
