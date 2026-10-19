@@ -19,6 +19,45 @@ def effect_facts(value):
     facts = []
     num = r'(\d+(?:\.\d+)?)'
     # Exact reviewed transcriptions; truncated Frost wording is deliberately retained.
+    armor_pulse = {'Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse.': {'armor_class_increase_recorded': 25,
+                                                                                                                            'damage_absorbed_each_pulse_recorded': 25,
+                                                                                                                            'energy_per_second_recorded': None,
+                                                                                                                            'energy_cost_explicitly_unknown': False,
+                                                                                                                            'recipient_phrase_recorded': 'your '
+                                                                                                                                                         'group',
+                                                                                                                            'pulse_interval_seconds': None,
+                                                                                                                            'absorption_refresh_model': None,
+                                                                                                                            'damage_types_absorbed': None,
+                                                                                                                            'duration_seconds': None,
+                                                                                                                            'scaling': None,
+                                                                                                                            'operative_values': None},
+     'Causes a curtain of sound to protect your group that increases armor class by 50 and absorbs 50 damage each pulse. Costs ?/sec energy.': {'armor_class_increase_recorded': 50,
+                                                                                                                                                'damage_absorbed_each_pulse_recorded': 50,
+                                                                                                                                                'energy_per_second_recorded': None,
+                                                                                                                                                'energy_cost_explicitly_unknown': True,
+                                                                                                                                                'recipient_phrase_recorded': 'your '
+                                                                                                                                                                             'group',
+                                                                                                                                                'pulse_interval_seconds': None,
+                                                                                                                                                'absorption_refresh_model': None,
+                                                                                                                                                'damage_types_absorbed': None,
+                                                                                                                                                'duration_seconds': None,
+                                                                                                                                                'scaling': None,
+                                                                                                                                                'operative_values': None},
+     "Increases your group's armor class by 150 and absorbs damage each pulse. Costs 2/sec energy.": {'armor_class_increase_recorded': 150,
+                                                                                                      'damage_absorbed_each_pulse_recorded': None,
+                                                                                                      'energy_per_second_recorded': 2,
+                                                                                                      'energy_cost_explicitly_unknown': False,
+                                                                                                      'recipient_phrase_recorded': 'your '
+                                                                                                                                   'group',
+                                                                                                      'pulse_interval_seconds': None,
+                                                                                                      'absorption_refresh_model': None,
+                                                                                                      'damage_types_absorbed': None,
+                                                                                                      'duration_seconds': None,
+                                                                                                      'scaling': None,
+                                                                                                      'operative_values': None}}.get(value.strip())
+    if armor_pulse:
+        facts.append(dict(kind="armor_pulse_tooltip_observation", **armor_pulse,
+                          conditions_unparsed=True))
     proc_damage = {'Adds a 10% chance for your group to deal 144-159 cold damage with melee and ranged attac': {'chance_percent_recorded': 10,
                                                                                                   'damage_range_recorded': [144,
                                                                                                                             159],
