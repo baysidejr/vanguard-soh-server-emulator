@@ -1,0 +1,203 @@
+{
+  "review_kind": "bard_compound_and_periodic_restoration_manual_observations",
+  "inputs": [
+    {
+      "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+      "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+    }
+  ],
+  "network_requests": 0,
+  "policy": "Manual source observations; immutable source records unchanged. Explicit each-interval amounts are not total duration or per-second rates. Scaling maps and operational values withheld; compound song cost is not assigned a resource from neighboring labels.",
+  "rows": [
+    {
+      "name": "Energizing Embellishment",
+      "source_url": "https://vgsoharchive.com/abilities/energizing-embellishment",
+      "cache": {
+        "path": ".cache/archive/66c1fa4562c6e793061ad6668a6f3db29adcf657bce0b079ce3f3a3439b8b02d.txt",
+        "sha256": "9a4adb2eeb8ade73acdc753d815a326d7801eb73a782a7fba1e37afffefb0541"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "cafb40b1aed5b7bf5159942ebb35b7da0ba6416025c4b9ec0b26312451d1ae5c"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Restores 2 to 4 energy, depending on your level, to your group every 4 sec.",
+        "offset": 0,
+        "tooltip_text_sha256": "30a9ab29258d06fba2d80cf2b4b6546e532b59214f755c9f0496f8c36e08fa8b"
+      },
+      "observations": [
+        {
+          "kind": "periodic_group_energy_restoration_range_observation",
+          "values": [
+            2,
+            4
+          ],
+          "resource": "energy",
+          "interval_seconds": 4,
+          "target_recorded": "your group",
+          "scaling_condition_recorded": "depending on your level",
+          "level_to_value_mapping": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "confidence": "medium",
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit archive tooltip observations only; no canonical client IDs or historical era inferred. Adjacent cost/detail text is excluded. Unknown targets and cost resources remain null."
+    },
+    {
+      "name": "Cirel's Anthem of Clarity",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-anthem-of-clarity",
+      "cache": {
+        "path": ".cache/archive/6197fa3814892aeff5f53b2065f2e85a797381824d2a041d360aa0f6574a9ba4.txt",
+        "sha256": "b2cbfb2c6a69a2634ab5302b3f445fc4777688d6b8b53d14ef4a02a805dd8cc7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "a441a660918518e1488a4c7a8a3b8b4be8bae5f6f8ceed40f77585b94bb8c611"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Restores 12 to 21 energy, depending on your level, to your group every 4 sec.",
+        "offset": 0,
+        "tooltip_text_sha256": "a93d9b48a9f37cde2e35a53ec0709a81c7bb04ac67d5560e9adf3285487e7b23"
+      },
+      "observations": [
+        {
+          "kind": "periodic_group_energy_restoration_range_observation",
+          "values": [
+            12,
+            21
+          ],
+          "resource": "energy",
+          "interval_seconds": 4,
+          "target_recorded": "your group",
+          "scaling_condition_recorded": "depending on your level",
+          "level_to_value_mapping": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "confidence": "medium",
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit archive tooltip observations only; no canonical client IDs or historical era inferred. Adjacent cost/detail text is excluded. Unknown targets and cost resources remain null."
+    },
+    {
+      "name": "Cirel's Air of the Clear Mind",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-air-of-the-clear-mind",
+      "cache": {
+        "path": ".cache/archive/c8f70ed9bb46ddcadb6a77d887e5aaeb531accf09f81d7779d8a5dcc74aa8f3e.txt",
+        "sha256": "f7f70b25de8d5326a20e0c533d25a3afd267b16b48e763819e2129314f089c81"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "c693022dc9eee747a6a6cb3aebb3d96ad607b993adf0ada2fdb078900475353a"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Restores 4 to 7 energy, depending on your level, to your group every 4 sec.",
+        "offset": 0,
+        "tooltip_text_sha256": "21827dc491e019aac071d9eb736ac39d8806dab7589757dd94a7ff81090483aa"
+      },
+      "observations": [
+        {
+          "kind": "periodic_group_energy_restoration_range_observation",
+          "values": [
+            4,
+            7
+          ],
+          "resource": "energy",
+          "interval_seconds": 4,
+          "target_recorded": "your group",
+          "scaling_condition_recorded": "depending on your level",
+          "level_to_value_mapping": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "confidence": "medium",
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit archive tooltip observations only; no canonical client IDs or historical era inferred. Adjacent cost/detail text is excluded. Unknown targets and cost resources remain null."
+    },
+    {
+      "name": "Sung's Renewing Rest",
+      "source_url": "https://vgsoharchive.com/abilities/sung-s-renewing-rest",
+      "cache": {
+        "path": ".cache/archive/9cc5a74d3138871ad30a581b4faf2dc924f8945b470d94d5faf3410ec5363f1f.txt",
+        "sha256": "710081f2ad703c35601db9a7c5d82be33c6efd4eac03af087c449f865122877f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "6b3ee0c9ff376b5d12edb083f7e8d539634be7d5bdbdd33d5e66dcce992469e6"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Reduces Song cost by 11 and restores 30 hit points every 4 seconds.",
+        "offset": 0,
+        "tooltip_text_sha256": "8ad31357cac04391f7f646ab38a75b7f5d07030e4e1ab145ead24ea512e105a6"
+      },
+      "observations": [
+        {
+          "kind": "song_cost_reduction_observation",
+          "values": [
+            11
+          ],
+          "resource": null,
+          "unit": null,
+          "conditions_unparsed": true
+        },
+        {
+          "kind": "periodic_hit_point_restoration_observation",
+          "values": [
+            30
+          ],
+          "resource_recorded": "hit points",
+          "interval_seconds": 4,
+          "target_recorded": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "confidence": "medium",
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit archive tooltip observations only; no canonical client IDs or historical era inferred. Adjacent cost/detail text is excluded. Unknown targets and cost resources remain null."
+    }
+  ],
+  "validation": {
+    "cached_page_hashes_verified": 150,
+    "source_record_hashes_verified": 150,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Implement tested exact compound and level-dependent periodic-restoration extraction using these four reviewed cases, preserving null targets and unknown scaling."
+}
