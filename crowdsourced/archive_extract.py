@@ -18,6 +18,21 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    mesmerize = re.fullmatch(
+        r'Mesmerizes your opponent, preventing any actions and movement for (18|24) '
+        r'seconds or 1 hit\. Mesmerized targets begin to regenerate after 4 sec\. '
+        r'Only one target can be mesmerized at once\.', value.strip())
+    if mesmerize:
+        facts.append(dict(kind='mesmerize_tooltip_observation',
+            effect_word_recorded='Mesmerizes', prevents_actions_recorded=True,
+            prevents_movement_recorded=True,
+            duration_seconds_recorded=int(mesmerize.group(1)),
+            hit_expiry_count_recorded=1, regeneration_delay_seconds_recorded=4,
+            maximum_mesmerized_targets_recorded=1, hit_definition=None,
+            regeneration_resource=None, regeneration_rate=None,
+            regeneration_after_expiry=None, target_level_limit=None,
+            player_target_applicability=None, operative_duration_seconds=None,
+            conditions_unparsed=True))
     energy = re.fullmatch(
         r'Restores (\d+)-(\d+) energy to (your group) every (\d+) (?:secs|seconds)\.?',
         value.strip(), re.I)
