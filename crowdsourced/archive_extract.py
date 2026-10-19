@@ -18,6 +18,20 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration635 source literals; cadence alone establishes no total damage.
+    periodic_damage = {
+        'Deals 12-43 damage to your offensive target every 4 secs': (12, 43, None),
+        'Deals 10 arcane damage to your offensive target every 4 secs.': (10, 10, 'arcane'),
+    }.get(value.strip())
+    if periodic_damage:
+        low, high, damage_type = periodic_damage
+        facts.append(dict(kind='periodic_damage_tooltip_observation',
+                          damage_min_recorded=low, damage_max_recorded=high,
+                          damage_type_recorded=damage_type, interval_seconds_recorded=4,
+                          target_phrase_recorded='your offensive target', scaling=None,
+                          duration=None, tick_count=None, initial_tick_timing=None,
+                          trigger_mechanics=None, operative_values=None,
+                          conditions_unparsed=True))
     # Exact reviewed transcriptions; truncated Frost wording is deliberately retained.
     # Literal-scoped observations from the hash-verified iteration630 source review.
     # Exact resource-cost transcriptions verified in iteration632; formulas remain unknown.
