@@ -18,6 +18,27 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration649 reviews; unquantified skills and duration scope stay unknown.
+    reviewed_modifiers = {
+        'This string chorus increases you and your allies evasion by 2% and increases parry and dodge skill.':
+            ([('evasion', 'increase', 2), ('parry skill', 'increase', None),
+              ('dodge skill', 'increase', None)], 'you and your allies', None, None),
+        'Confuses your opponent, reducing their accuracy by 20% and increasing the cost of their spells by 30% for 45 sec.':
+            ([('accuracy', 'reduction', 20), ('cost of spells', 'increase', 30)],
+             'your opponent', 'for 45 sec.', 45),
+    }.get(value.strip())
+    if reviewed_modifiers:
+        modifiers, target, duration_phrase, duration_seconds = reviewed_modifiers
+        facts.append(dict(kind='evasion_accuracy_spell_cost_tooltip_observation',
+                          modifiers_recorded=[dict(attribute_recorded=a,
+                              direction_recorded=d, percent_recorded=p)
+                              for a, d, p in modifiers],
+                          target_phrase_recorded=target,
+                          duration_phrase_recorded=duration_phrase,
+                          duration_seconds_recorded=duration_seconds, duration_scope=None,
+                          percentage_calculation=None, stacking_formula=None,
+                          instrument_scaling=None, operative_values=None,
+                          conditions_unparsed=True))
     # Exact iteration646 transcriptions; printed percentages establish no formula.
     percent_modifier = {
         'Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song.':
