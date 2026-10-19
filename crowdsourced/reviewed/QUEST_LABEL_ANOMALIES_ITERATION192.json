@@ -1,0 +1,491 @@
+{
+  "audit_kind": "cached_quest_label_anomaly_review",
+  "network_requests": 0,
+  "metadata_only": true,
+  "input": {
+    "path": "reviewed/CROSS_SOURCE_QUEST_IDENTITY_ITERATION191.json",
+    "sha256": "e6fab52e3a8f4139ae4891958b68b43d28bd54fadfe562b14a30fdf20a459c04"
+  },
+  "reviews": [
+    {
+      "normalized_name": "back to the head inquisitor",
+      "url": "https://vgsoharchive.com/quests/back-to-the-head-inquisitor",
+      "cache_path": ".cache/archive/4be48ffcb9d128738b6de51181121ae058b8344173ab44f6c1894c86f5bf7273.txt",
+      "cache_sha256": "30803929df35f0d94c36788f743dd290a50b1cf37fad1fa8582510a0f5460cbe",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": "|loc= in Tursh Village (-27, 27)",
+          "html": "<dd>|loc= in Tursh Village (-27, 27)\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Location",
+          "text": "in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}",
+          "html": "<dd>in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}</dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "Tursh Village",
+          "html": "<dd>Tursh Village</dd>",
+          "links": []
+        },
+        {
+          "label": "Previous",
+          "text": "Light Fighter Training, Spellcaster Training",
+          "html": "<dd>Light Fighter Training, Spellcaster Training\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Next",
+          "text": "Speak With Inquisitor Westlen",
+          "html": "<dd><a href=\"/quests/speak-with-inquisitor-westlen\">Speak With Inquisitor Westlen</a>\n</dd>",
+          "links": [
+            {
+              "text": "Speak With Inquisitor Westlen",
+              "href": "/quests/speak-with-inquisitor-westlen"
+            }
+          ]
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-035058-444718-archive-bulk/quest.jsonl",
+          "line": 15,
+          "record": {
+            "name": "Back to the Head Inquisitor",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/back-to-the-head-inquisitor",
+                "title": "Back to the Head Inquisitor · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:51:52+00:00",
+            "archive_fields": {
+              "starts with": [
+                "|loc= in Tursh Village (-27, 27)"
+              ],
+              "location": [
+                "in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}"
+              ],
+              "series": [
+                "Tursh Village"
+              ],
+              "previous": [
+                "Light Fighter Training, Spellcaster Training"
+              ],
+              "next": [
+                "Speak With Inquisitor Westlen"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tursh Village",
+                "url": "https://vgsoharchive.com/zones/tursh-village"
+              },
+              {
+                "name": "Speak With Inquisitor Westlen",
+                "url": "https://vgsoharchive.com/quests/speak-with-inquisitor-westlen"
+              }
+            ],
+            "type": "quest",
+            "level": 2,
+            "zone": "Tursh Village",
+            "giver": "|loc= in Tursh Village (-27, 27)",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Light Fighter Training, Spellcaster Training",
+            "chain_next": "Speak With Inquisitor Westlen",
+            "quest_chain": {
+              "name": "Tursh Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 469,
+          "record": {
+            "name": "Back to the Head Inquisitor",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/back-to-the-head-inquisitor",
+                "title": "Back to the Head Inquisitor · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:38+00:00",
+            "archive_fields": {
+              "starts with": [
+                "|loc= in Tursh Village (-27, 27)"
+              ],
+              "location": [
+                "in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}"
+              ],
+              "series": [
+                "Tursh Village"
+              ],
+              "previous": [
+                "Light Fighter Training, Spellcaster Training"
+              ],
+              "next": [
+                "Speak With Inquisitor Westlen"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tursh Village",
+                "url": "https://vgsoharchive.com/zones/tursh-village"
+              },
+              {
+                "name": "Speak With Inquisitor Westlen",
+                "url": "https://vgsoharchive.com/quests/speak-with-inquisitor-westlen"
+              }
+            ],
+            "type": "quest",
+            "level": 2,
+            "zone": "Tursh Village",
+            "giver": "|loc= in Tursh Village (-27, 27)",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Light Fighter Training, Spellcaster Training",
+            "chain_next": "Speak With Inquisitor Westlen",
+            "quest_chain": {
+              "name": "Tursh Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8712,
+          "name": "Back to the Head Inquisitor",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8711,
+          "name": "Back to the Head Inquisitor",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8714,
+          "name": "Back to the Head Inquisitor",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8715,
+          "name": "Back to the Head Inquisitor",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Starts with prints location markup rather than an NPC. Location contains High Inquisitor Velman inside an unresolved template, with no linked NPC. This does not establish giver identity, coordinates, or correspondence to VGOPlayers source IDs. Withhold assignments.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    },
+    {
+      "normalized_name": "back to velman",
+      "url": "https://vgsoharchive.com/quests/back-to-velman",
+      "cache_path": ".cache/archive/9e0c1273092f8324676e961ccf52400359f8e4fc68438950a2a976614dbb09e6.txt",
+      "cache_sha256": "cac5dcb4e24c6ae7e257dde772ce16f40c6d86e6ef9268a49dacd06c0bdbc38b",
+      "labelled_source_fields": [
+        {
+          "label": "Starts with",
+          "text": "|loc= in Tursh Village (-27, 27)",
+          "html": "<dd>|loc= in Tursh Village (-27, 27)\n      </dd>",
+          "links": []
+        },
+        {
+          "label": "Location",
+          "text": "in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}",
+          "html": "<dd>in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}</dd>",
+          "links": []
+        },
+        {
+          "label": "Series",
+          "text": "Tursh Village",
+          "html": "<dd>Tursh Village</dd>",
+          "links": []
+        },
+        {
+          "label": "Chain",
+          "text": "Tursh Village Adventuring",
+          "html": "<dd>Tursh Village Adventuring</dd>",
+          "links": []
+        },
+        {
+          "label": "Previous",
+          "text": "Further Training",
+          "html": "<dd><a href=\"/quests/further-training\">Further Training</a>\n</dd>",
+          "links": [
+            {
+              "text": "Further Training",
+              "href": "/quests/further-training"
+            }
+          ]
+        },
+        {
+          "label": "Next",
+          "text": "Missive To Tursh",
+          "html": "<dd><a href=\"/quests/missive-to-tursh\">Missive To Tursh</a>\n</dd>",
+          "links": [
+            {
+              "text": "Missive To Tursh",
+              "href": "/quests/missive-to-tursh"
+            }
+          ]
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-035058-444718-archive-bulk/quest.jsonl",
+          "line": 14,
+          "record": {
+            "name": "Back to Velman",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/back-to-velman",
+                "title": "Back to Velman · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:52:17+00:00",
+            "archive_fields": {
+              "starts with": [
+                "|loc= in Tursh Village (-27, 27)"
+              ],
+              "location": [
+                "in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}"
+              ],
+              "series": [
+                "Tursh Village"
+              ],
+              "chain": [
+                "Tursh Village Adventuring"
+              ],
+              "previous": [
+                "Further Training"
+              ],
+              "next": [
+                "Missive To Tursh"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tursh Village",
+                "url": "https://vgsoharchive.com/zones/tursh-village"
+              },
+              {
+                "name": "Further Training",
+                "url": "https://vgsoharchive.com/quests/further-training"
+              },
+              {
+                "name": "Missive To Tursh",
+                "url": "https://vgsoharchive.com/quests/missive-to-tursh"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tursh Village",
+            "giver": "|loc= in Tursh Village (-27, 27)",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Further Training",
+            "chain_next": "Missive To Tursh",
+            "quest_chain": {
+              "name": "Tursh Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 468,
+          "record": {
+            "name": "Back to Velman",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/back-to-velman",
+                "title": "Back to Velman · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:38+00:00",
+            "archive_fields": {
+              "starts with": [
+                "|loc= in Tursh Village (-27, 27)"
+              ],
+              "location": [
+                "in Tursh Village (-27, 27) {{location|128|-27|27|31083, 18964, 37798,High Inquisitor Velman}}"
+              ],
+              "series": [
+                "Tursh Village"
+              ],
+              "chain": [
+                "Tursh Village Adventuring"
+              ],
+              "previous": [
+                "Further Training"
+              ],
+              "next": [
+                "Missive To Tursh"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tursh Village",
+                "url": "https://vgsoharchive.com/zones/tursh-village"
+              },
+              {
+                "name": "Further Training",
+                "url": "https://vgsoharchive.com/quests/further-training"
+              },
+              {
+                "name": "Missive To Tursh",
+                "url": "https://vgsoharchive.com/quests/missive-to-tursh"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tursh Village",
+            "giver": "|loc= in Tursh Village (-27, 27)",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Further Training",
+            "chain_next": "Missive To Tursh",
+            "quest_chain": {
+              "name": "Tursh Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ],
+      "vgoplayers_inventory_records": [
+        {
+          "source_quest_id": 8721,
+          "name": "Back To Velman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 8724,
+          "name": "Back To Velman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 9097,
+          "name": "Back To Velman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        },
+        {
+          "source_quest_id": 9098,
+          "name": "Back To Velman",
+          "source_url": "https://vgoplayers.com/quests.php",
+          "status": "source index entry only; not a complete quest or canonical client ID"
+        }
+      ],
+      "review_result": "Starts with prints location markup rather than an NPC. Location contains High Inquisitor Velman inside an unresolved template, with no linked NPC. This does not establish giver identity, coordinates, or correspondence to VGOPlayers source IDs. Withhold assignments.",
+      "resolved_zone": null,
+      "resolved_giver": null,
+      "identity_merge_authorized": false,
+      "historical_applicability": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "request_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cache_hashes_verified": 2,
+    "full_archive_records_verified": 4,
+    "unknown_assignments_withheld": true
+  }
+}
