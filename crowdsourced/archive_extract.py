@@ -18,6 +18,16 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    counter_removal = re.fullmatch(
+        r'(?:Purifies|Cures) all group members within (\d+)m, removing (\d+) (disease|poison) counters\.',
+        value.strip(), re.I)
+    if counter_removal:
+        radius, count, counter_type = counter_removal.groups()
+        if int(radius) > 0 and int(count) > 0:
+            facts.append(dict(kind='group_counter_removal_observation',
+                counter_type_recorded=counter_type.lower(), counters_removed=int(count),
+                target_recorded='all group members',
+                radius_recorded=dict(value=int(radius), unit='m'), conditions_unparsed=True))
     group_restoration = re.fullmatch(
         rf'Restores {num} to {num} energy, depending on your level, to your group every {num} sec\.',
         value.strip(), re.I)
