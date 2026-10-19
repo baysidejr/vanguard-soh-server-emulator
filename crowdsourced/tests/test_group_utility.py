@@ -24,4 +24,3 @@ class GroupUtilityTests(unittest.TestCase):
             for changed in (literal.replace('group members', 'enemies').replace('your group', 'your pet').replace('your allies', 'your enemies'), literal + ' Only outdoors.', 'Does not: ' + literal):
                 with self.subTest(changed=changed):
                     self.assertFalse(any(f['kind'] == 'group_utility_tooltip_observation' for f in effect_facts(changed)))
-
