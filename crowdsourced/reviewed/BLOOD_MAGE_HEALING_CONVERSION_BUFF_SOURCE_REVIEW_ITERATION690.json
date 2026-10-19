@@ -1,0 +1,890 @@
+{
+  "review_kind": "blood_mage_healing_conversion_party_buff_source_review",
+  "parser_version": 85,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Infuse Health I",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-i",
+      "cache": {
+        "path": ".cache/archive/2e2b4e31553e80a405ca3d6d43dbcde8aa246a20af1a339288e75921a40d4281.txt",
+        "sha256": "fbada0c57d46261640830588f9a650bbf0a9ab26cfa4fbaef4c9407a3da8f6b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "49225b9c8560dbe9f21e0a01d29982fffc773487969b2e6acf8cdf5f58a151d4"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 113 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "15dba7ae0c7e16deeaea37f5cfb245e37c48f70e5f79c75210adabec1960481e",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "healing",
+            "recipient_reported": "your defensive target",
+            "health_amount": 113,
+            "blood_union_bonus_percent_per_level": 2,
+            "bonus_basis": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Infuse Health I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuse-health-i",
+              "title": "Infuse Health I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 85,
+          "collected_at": "2026-10-19T23:06:16+00:00",
+          "archive_fields": {
+            "energy then": [
+              "53 — now 67",
+              "53 — now 67",
+              "66 — now 67"
+            ],
+            "cast then": [
+              "1.5",
+              "1.5",
+              "1.5"
+            ],
+            "level in 2007": [
+              "1"
+            ],
+            "level in 2007-2008": [
+              "1"
+            ],
+            "level": [
+              "1"
+            ],
+            "energy cost": [
+              "67"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon679.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": "I",
+          "category": "Heal",
+          "cost": {
+            "energy": 67
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Infuses 113 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon679.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 1,
+              "cost_raw": "66"
+            }
+          ],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 1,
+              "raw": "1"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 1,
+              "raw": "1"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130522205725id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              67
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/infuse-health-767.php",
+            "https://vanguard.fandom.com/wiki/Infuse_Health"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Health Graft I",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-i",
+      "cache": {
+        "path": ".cache/archive/6b66fce44166c69ba8dcbc61ee7591532971a3170338090bad3ae304a41ea56c.txt",
+        "sha256": "04e4001a5d4ca2a27252a608b15ba09783b612d8ef39dcfe12be0e86b2e2c5a6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 22,
+          "record_sha256": "6e6367bf7c4c35be5b8a358d699903ef260b56fb670c7e57d7aa8a2e98035a2d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Grafts blood and flesh onto your defensive target's party, granting them an additional 54 health for 1 hour.",
+          "literal_sha256": "366cf6acf47c2d7e9f38d616b0b1876a20baaf504e158b959a2f0d8b56f43593",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "additional_health",
+            "recipient_reported": "your defensive target's party",
+            "health_amount": 54,
+            "duration_seconds": 3600,
+            "health_pool_semantics": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Health Graft I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/health-graft-i",
+              "title": "Health Graft I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 85,
+          "collected_at": "2026-10-19T23:06:16+00:00",
+          "archive_fields": {
+            "energy then": [
+              "28",
+              "28"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "4"
+            ],
+            "level in 2007-2008": [
+              "4"
+            ],
+            "level": [
+              "4"
+            ],
+            "energy cost": [
+              "28"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "1 Hour"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon411.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 4,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 28
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Grafts blood and flesh onto your defensive target's party, granting them an additional 54 health for 1 hour.",
+          "icon_name": "Icon411.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 4,
+              "cost_raw": "28"
+            }
+          ],
+          "target_recorded": "Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 4,
+              "raw": "4"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 4,
+              "raw": "4"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032959id_/http://wiki.silkyvenom.com/index.php/Health_Graft_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              28
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Health_Graft"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health II",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-ii",
+      "cache": {
+        "path": ".cache/archive/376c8a5570a745b910a16c0febbe33f96dc20b956d284a826b3bde74b3175e31.txt",
+        "sha256": "26571af31c28963a56d1e3cdfa458fd6d0ab0413dccbf925999335667b0eccbe"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 25,
+          "record_sha256": "0b07961ec38a36166ea2e9cea86c52c51ce8fdd285d89f4b40b55a80c580715f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 321 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "846d981624f43768de5a164d511d003c29cea532f0350f53c673870cc6979da7",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "healing",
+            "recipient_reported": "your defensive target",
+            "health_amount": 321,
+            "blood_union_bonus_percent_per_level": 2,
+            "bonus_basis": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Infuse Health II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuse-health-ii",
+              "title": "Infuse Health II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 85,
+          "collected_at": "2026-10-19T23:06:16+00:00",
+          "archive_fields": {
+            "energy then": [
+              "86 — now 158"
+            ],
+            "cast then": [
+              "1.5",
+              "1.5",
+              "1.5"
+            ],
+            "level in 2007": [
+              "8"
+            ],
+            "level in 2007-2008": [
+              "8"
+            ],
+            "level": [
+              "8"
+            ],
+            "energy cost": [
+              "158"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon679.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 8,
+          "rank": "II",
+          "category": "Heal",
+          "cost": {
+            "energy": 158
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Infuses 321 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon679.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 8,
+              "raw": "8"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 8,
+              "raw": "8"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033020id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              158
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-i",
+      "cache": {
+        "path": ".cache/archive/cda86b8aa6878cf8255761208561ab7708423a70fa5ed56ccfdc5d9b8f84406e.txt",
+        "sha256": "0699fae6f93e2cdcf9fc1589b1e6c980058d95afab33bd80cb5a4fd281655a5c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "3d53d6e6c5573f0e05cd0262a2087c9199f13faa98f9491d2a36d3778fd87145"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 115 health into 115 energy.",
+          "literal_sha256": "d7d99e1b292c4d97f33959eab235b95edfb78f7314ff95cf49117477ec4915c3",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_to_energy_conversion",
+            "health_consumed": 115,
+            "energy_granted": 115,
+            "recipient_reported": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mental Transmutation I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mental-transmutation-i",
+              "title": "Mental Transmutation I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 85,
+          "collected_at": "2026-10-19T23:06:16+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "8"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007-2008": [
+              "8"
+            ],
+            "refresh then": [
+              "10.0"
+            ],
+            "level": [
+              "8"
+            ],
+            "energy cost": [
+              "115"
+            ],
+            "health cost": [
+              "115"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "10.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon449.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 8,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 115
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 10.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Transmutes 115 health into 115 energy.",
+          "icon_name": "Icon449.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 8,
+              "raw": "8"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 8,
+              "raw": "8"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              115
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "10.0s",
+                "seconds": 10.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your defensive target's party with life, granting them 23 additional vitality.",
+          "literal_sha256": "3a9da08a445a1619e265c4250c6574e858ce12ac39e64bf3c92124876c0e77d8",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "stat_increase",
+            "recipient_reported": "your defensive target's party",
+            "stat_reported": "vitality",
+            "amount": 23,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Vitalize I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/vitalize-i",
+              "title": "Vitalize I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 85,
+          "collected_at": "2026-10-19T23:06:16+00:00",
+          "archive_fields": {
+            "energy then": [
+              "35 — now 41"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "8"
+            ],
+            "level in 2007-2008": [
+              "8"
+            ],
+            "level": [
+              "8"
+            ],
+            "energy cost": [
+              "41"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon455.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 8,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 41
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Fills your defensive target's party with life, granting them 23 additional vitality.",
+          "icon_name": "Icon455.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 8,
+              "cost_raw": "41"
+            }
+          ],
+          "target_recorded": "Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 8,
+              "raw": "8"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 8,
+              "raw": "8"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034803id_/http://wiki.silkyvenom.com/index.php/Vitalize_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              41
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Vitalize"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 125,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 120,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Blood Union percentage bonus basis, stacking and historical applicability remain unknown.",
+    "Additional health does not establish maximum-health or immediate-heal semantics.",
+    "Health-to-energy conversion does not explicitly identify a recipient or timing.",
+    "One hour is normalized to 3600 seconds; unspecified durations remain null.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained Blood Mage healing, health-to-energy conversion and party buff observations for these five reviewed sources."
+}
