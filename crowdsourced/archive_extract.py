@@ -18,6 +18,17 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    chant = re.fullmatch(
+        r'You begin to chant (?:vile|fiery|chilling) words, inflicting (\d+) to (\d+) '
+        r'(physical|fire|cold) damage over (\d+) seconds\.', value.strip(), re.I)
+    if chant:
+        lower, upper, damage_type, duration = chant.groups()
+        if int(lower) <= int(upper) and int(duration) > 0:
+            facts.append(dict(kind='damage_over_duration_range_observation',
+                values=[int(lower), int(upper)], damage_type_recorded=damage_type.lower(),
+                duration_seconds=int(duration), tick_interval_seconds=None,
+                tick_count=None, damage_per_tick=None, target_recorded=None,
+                range_basis=None, conditions_unparsed=True))
     # Some embedded tooltips append Details labels after the complete sentence.
     # Only the explicit Cost label is a boundary; trailing prose is not discarded.
     bellow = re.match(

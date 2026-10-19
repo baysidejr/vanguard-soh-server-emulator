@@ -1,0 +1,686 @@
+{
+  "review_kind": "parser_v45_chant_damage_duration_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_CHANT_DAMAGE_DURATION_REVIEW_ITERATION591.json",
+    "sha256": "b9d902a8f3f51dbc57e701777f6bd9e8f6fbbe506840e4060f171f7146c0223f"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Fasant's Chant of Corruption I",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-corruption-i",
+      "cache": {
+        "path": ".cache/archive/acc47ecf739eb0d3ce2c104248b2243f79e58a68f1a9acc9316ce11f7b100dc5.txt",
+        "sha256": "28bb7144825622c33ae5e2938774c7b341d4a1053d0782fe6d7d2f4cbd71dc5d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 69,
+          "record_sha256": "fc82fd2441bf684c5abc845fd6951074e8f95607ff698b79f5452e5007a8739f"
+        }
+      ],
+      "effect_text_sha256": "b3d6c753306380da8e373c078204ee2cfc93fe97e14a654f73a5d9270767caac",
+      "literal": "You begin to chant vile words, inflicting 448 to 472 physical damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          448,
+          472
+        ],
+        "damage_type_recorded": "physical",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            448,
+            472
+          ],
+          "damage_type_recorded": "physical",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                448,
+                472
+              ],
+              "damage_type_recorded": "physical",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of the Flame I",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-the-flame-i",
+      "cache": {
+        "path": ".cache/archive/570d3b607dc7d9366b1f9419f2a4e22143979207fe794a0ec10fd003a1dd5e7a.txt",
+        "sha256": "77014b69c8d1b1b81877c2f6aa3954c756cb9fbd48c1372d7f563492b9e9d845"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "270e9223bf19899d14c04dd07014d63a6df538201aa4b050309f19b2def1d881"
+        }
+      ],
+      "effect_text_sha256": "282bcd5f657cd101bc4e1d2486a7bbcd4c58839033b14cff6609ff9ec6585721",
+      "literal": "You begin to chant fiery words, inflicting 490 to 517 fire damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          490,
+          517
+        ],
+        "damage_type_recorded": "fire",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            490,
+            517
+          ],
+          "damage_type_recorded": "fire",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                490,
+                517
+              ],
+              "damage_type_recorded": "fire",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of Winter I",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-winter-i",
+      "cache": {
+        "path": ".cache/archive/7d8a8b5f79a059d3fd8488463717b91ec0c6cb79cfa1adda6b85f238a19b87b3.txt",
+        "sha256": "33baa42c7a02761776f33ff0a08684193f12a6941096156dfbd6bf87accc2e25"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "55e5dcb492a32ce07aa3b60747d5b13e5622abf0d4b413be9dbfeaf819806c2e"
+        }
+      ],
+      "effect_text_sha256": "856d7669b9f54a12b81a4277b274dc425ed9ac11fb25f524860f23ef121f2ed2",
+      "literal": "You begin to chant chilling words, inflicting 465 to 490 cold damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          465,
+          490
+        ],
+        "damage_type_recorded": "cold",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            465,
+            490
+          ],
+          "damage_type_recorded": "cold",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                465,
+                490
+              ],
+              "damage_type_recorded": "cold",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of Corruption II",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-corruption-ii",
+      "cache": {
+        "path": ".cache/archive/178f2f5bf39e4632aec70d14cd1e674943b865a856e655569c84be0726b8b1f7.txt",
+        "sha256": "5db644db79af9485633a1638dcae7a1a929a6d2c8f77f353ff85f0586e3d1ae0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "69dcb1a53eaae5b94d4e855e823c5931ec73a2349e51face480b1b212fb11e5f"
+        }
+      ],
+      "effect_text_sha256": "7e63ef40d2a72fefd82a5f69459928b8bafe530b072e90d44ff8dadf4c2f560b",
+      "literal": "You begin to chant vile words, inflicting 564 to 595 physical damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          564,
+          595
+        ],
+        "damage_type_recorded": "physical",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            564,
+            595
+          ],
+          "damage_type_recorded": "physical",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                564,
+                595
+              ],
+              "damage_type_recorded": "physical",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of the Flame II",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-the-flame-ii",
+      "cache": {
+        "path": ".cache/archive/3d52598bd15747abfb83e5a1491fe52aee1a18981740fea281ed7c3d099debfe.txt",
+        "sha256": "d40fb30e86ac3e19a37196c6c6c8f7fe7af86efe681e067a7944911454e1ba7f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "52ccb227f9700f60fa8804791cb248075d13737635ca932564c4c6a0457c3b20"
+        }
+      ],
+      "effect_text_sha256": "2b74ebf7adaac727bd7d66193bd0f69b15d56abdddfd4766630490767b66ddb7",
+      "literal": "You begin to chant fiery words, inflicting 609 to 642 fire damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          609,
+          642
+        ],
+        "damage_type_recorded": "fire",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            609,
+            642
+          ],
+          "damage_type_recorded": "fire",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                609,
+                642
+              ],
+              "damage_type_recorded": "fire",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of Winter II",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-winter-ii",
+      "cache": {
+        "path": ".cache/archive/38d93b58243ab3ccc75fedabe0cbe77945b8e4f55c0154809f06c1b46584f312.txt",
+        "sha256": "b94bf23dac0db199840c3f58bac2b14eb98fc1a061ef60ec2bdbd40982c37084"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "d0fd7cc5d89d4a7b6bb11380ed02309eb02c041fd2d7cfc50da15cce24cb3016"
+        }
+      ],
+      "effect_text_sha256": "e52dbcfb0e05578fa17050f9d9d89135f4f021ede22f9c6afd9294f842497b8c",
+      "literal": "You begin to chant chilling words, inflicting 570 to 600 cold damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          570,
+          600
+        ],
+        "damage_type_recorded": "cold",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            570,
+            600
+          ],
+          "damage_type_recorded": "cold",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                570,
+                600
+              ],
+              "damage_type_recorded": "cold",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of Corruption III",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-corruption-iii",
+      "cache": {
+        "path": ".cache/archive/ec3cf6754bacdcb64069848a70bba9d597e01ac6c0f8e3af43958af092e4c104.txt",
+        "sha256": "9c779854a081ddc3039e902a3ad922d88b32728e26119b37527d8708019a6059"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "6d7561f85faafc54923a3a5e22700b98f27989b963d7a2e8874c0ded93dea8cb"
+        }
+      ],
+      "effect_text_sha256": "096eaf66778f392dddd8f78ebeab6190d116382ff671fabea1b350dc58778520",
+      "literal": "You begin to chant vile words, inflicting 671 to 707 physical damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          671,
+          707
+        ],
+        "damage_type_recorded": "physical",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            671,
+            707
+          ],
+          "damage_type_recorded": "physical",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                671,
+                707
+              ],
+              "damage_type_recorded": "physical",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of Winter III",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-winter-iii",
+      "cache": {
+        "path": ".cache/archive/662fd877f2da8356ccc54d4924470446389804b0b4ff4da99aa4133d53cb6dec.txt",
+        "sha256": "7d6dc9ac52720f6f9d76b12e6f00c3c54e5219c32557ca9b1cf100eb2b04ff92"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "3f3cc338dbc2a822e4c9ba3f7e0d38d73bc1529bf686deeb7caa5d77b5411034"
+        }
+      ],
+      "effect_text_sha256": "e52dbcfb0e05578fa17050f9d9d89135f4f021ede22f9c6afd9294f842497b8c",
+      "literal": "You begin to chant chilling words, inflicting 570 to 600 cold damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          570,
+          600
+        ],
+        "damage_type_recorded": "cold",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            570,
+            600
+          ],
+          "damage_type_recorded": "cold",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                570,
+                600
+              ],
+              "damage_type_recorded": "cold",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Chant of the Flame III",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-the-flame-iii",
+      "cache": {
+        "path": ".cache/archive/f2de4d24d9d2fd9f50fd459628192152e8f155780a971efcba2e928df2acf333.txt",
+        "sha256": "6e8d4305c5f030c6f9b0a6c8e1b14ca790e4f70a6b67a74eba0bfe9363ed85ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "ade65636b39425e8e0b174e7217adc9a70ad10b8d937385ebff415bbc66c4138"
+        }
+      ],
+      "effect_text_sha256": "c1eb3c7dd321ad69433f462681615a7e63921cf723526523672941d577c2f2c6",
+      "literal": "You begin to chant fiery words, inflicting 671 to 707 fire damage over 28 seconds.",
+      "observation": {
+        "damage_range_recorded": [
+          671,
+          707
+        ],
+        "damage_type_recorded": "fire",
+        "duration_seconds_recorded": 28,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "damage_per_tick": null,
+        "target": null,
+        "range_basis": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v45_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "damage_over_duration_range_observation",
+          "values": [
+            671,
+            707
+          ],
+          "damage_type_recorded": "fire",
+          "duration_seconds": 28,
+          "tick_interval_seconds": null,
+          "tick_count": null,
+          "damage_per_tick": null,
+          "target_recorded": null,
+          "range_basis": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_over_duration_range_observation",
+              "values": [
+                671,
+                707
+              ],
+              "damage_type_recorded": "fire",
+              "duration_seconds": 28,
+              "tick_interval_seconds": null,
+              "tick_count": null,
+              "damage_per_tick": null,
+              "target_recorded": null,
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 9,
+    "source_record_hashes_verified": 9,
+    "exact_effect_section_matches": 9,
+    "issues": 0,
+    "python_tests_passed": 193,
+    "whole_page_observations_verified": 9
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Displayed ranges and explicit over-duration wording retained as sourced research. Do not infer tick interval, per-tick damage, total-versus-base range scaling, target, client IDs or live-era authenticity. Repeated equal ranges across ranks are preserved separately, never corrected or averaged. Original records unchanged; no operative facts promoted.",
+  "next_step": "Review remaining numeric Bard tooltips for explicit mechanics absent from typed observations.",
+  "parser_version": 45
+}
