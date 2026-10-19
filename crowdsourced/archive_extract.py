@@ -18,6 +18,27 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration667 reviews; tooltip observations do not establish mechanics.
+    if value.strip() == 'Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument: None Cast Time: 0 Refresh: 0 Range: 5':
+        facts.append(dict(kind='attack_speed_energy_upkeep_tooltip_observation',
+            attack_speed_increase_percent_recorded=12,
+            target_phrase_recorded='you and your group',
+            energy_upkeep_recorded=dict(amount=2, unit_literal='per second',
+                resource_literal='energy'),
+            song_portion_literal='Embellishment', instrument_literal='None',
+            timing_and_range_literals=dict(cast_time='0', refresh='0', range='5'),
+            cast_time_unit=None, refresh_unit=None, range_unit=None,
+            percentage_calculation=None, upkeep_schedule=None, stacking_formula=None,
+            operative_values=None, conditions_unparsed=True))
+    if value.strip() == 'You move and strike with increased focus and speed, advancing to the last phase of your current dance and increasing melee accuracy and critical chance by 5% for 30 seconds.':
+        facts.append(dict(kind='dance_accuracy_critical_tooltip_observation',
+            melee_accuracy_increase_percent_recorded=5,
+            critical_chance_increase_percent_recorded=5,
+            duration_seconds_recorded=30,
+            dance_transition_phrase_recorded='advancing to the last phase of your current dance',
+            percentage_calculation=None, resulting_critical_probability=None,
+            dance_phase_identifier=None, stacking_formula=None,
+            operative_values=None, conditions_unparsed=True))
     # Exact reviewed fear tooltips; unqualified clauses retain unknown mode scope.
     fear = re.fullmatch(
         r'Fills your target with fear, causing it to flee in terror for 12 sec\. '
