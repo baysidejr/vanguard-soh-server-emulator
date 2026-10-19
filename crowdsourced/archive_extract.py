@@ -18,6 +18,15 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact armor and absorption literals reviewed in iteration679.
+    armor_absorption = {
+        'This string chorus causes a curtain of sound to protect you and your allies that increases armor class, block skill and absorbs damage each pulse.': {'modifiers_reported': ['armor_class', 'block_skill'], 'direction_reported': 'increase', 'target_reported': 'you and your allies', 'damage_absorption_reported': True, 'absorption_cadence_reported': 'each pulse', 'absorption_magnitude_reported': None, 'modifier_magnitudes': None, 'absorption_amount': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'stacking_rules': None, 'operative_values': None, 'historical_authentication': None},
+        "This string melody increases you and your allies' armor class, block, dodge, parry skills and absorbs damage each pulse.": {'modifiers_reported': ['armor_class', 'block', 'dodge', 'parry_skills'], 'direction_reported': 'increase', 'target_reported': 'you and your allies', 'damage_absorption_reported': True, 'absorption_cadence_reported': 'each pulse', 'absorption_magnitude_reported': None, 'modifier_magnitudes': None, 'absorption_amount': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'stacking_rules': None, 'operative_values': None, 'historical_authentication': None},
+        'Instills you and your allies with pure resolution that increases armor class and absorbs a small amount of damage each pulse.': {'modifiers_reported': ['armor_class'], 'direction_reported': 'increase', 'target_reported': 'you and your allies', 'damage_absorption_reported': True, 'absorption_cadence_reported': 'each pulse', 'absorption_magnitude_reported': 'small amount', 'modifier_magnitudes': None, 'absorption_amount': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'stacking_rules': None, 'operative_values': None, 'historical_authentication': None},
+    }.get(value.strip())
+    if armor_absorption:
+        facts.append(dict(kind='armor_absorption_tooltip_observation',
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **armor_absorption))
     # Exact resistance buff literals reviewed in iteration677.
     resistance_buff = {
         'This voice embellishment increases the arcane and physical resistances of you and your allies.': {'direction_reported': 'increase', 'resistance_types_reported': ['arcane', 'physical'], 'resistance_scope_reported': 'explicit_named_types', 'target_reported': 'you and your allies', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
