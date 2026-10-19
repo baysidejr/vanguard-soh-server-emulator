@@ -18,6 +18,20 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Literal-scoped iteration637 reviews; percentages establish no timing formula.
+    speed_modifier = {
+        'Increase the spell casting speed for your group by 5%':
+            ('spell casting speed', 'increase', 5, 'your group'),
+        "This brass lyric reduces your opponent's attacks speed by 3%.":
+            ('attacks speed', 'reduce', 3, 'your opponent'),
+    }.get(value.strip())
+    if speed_modifier:
+        subject, direction, percentage, target = speed_modifier
+        facts.append(dict(kind='speed_modifier_tooltip_observation',
+                          modifier_subject_recorded=subject, direction_recorded=direction,
+                          percentage_recorded=percentage, target_phrase_recorded=target,
+                          stacking=None, duration=None, timing_formula=None,
+                          eligibility=None, operative_values=None, conditions_unparsed=True))
     # Exact iteration635 source literals; cadence alone establishes no total damage.
     periodic_damage = {
         'Deals 12-43 damage to your offensive target every 4 secs': (12, 43, None),
