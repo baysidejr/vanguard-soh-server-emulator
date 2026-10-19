@@ -18,6 +18,28 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    group_restoration = re.fullmatch(
+        rf'Restores {num} to {num} energy, depending on your level, to your group every {num} sec\.',
+        value.strip(), re.I)
+    if group_restoration:
+        lower, upper, interval = map(numeric, group_restoration.groups())
+        if lower <= upper and interval > 0:
+            facts.append(dict(kind='periodic_group_energy_restoration_range_observation',
+                values=[lower, upper], resource='energy', interval_seconds=interval,
+                target_recorded='your group', scaling_condition_recorded='depending on your level',
+                level_to_value_mapping=None, range_basis=None, conditions_unparsed=True))
+    compound_restoration = re.fullmatch(
+        rf'Reduces Song cost by {num} and restores {num} hit points every {num} seconds\.',
+        value.strip(), re.I)
+    if compound_restoration:
+        cost, amount, interval = map(numeric, compound_restoration.groups())
+        if interval > 0:
+            facts.extend([
+                dict(kind='song_cost_reduction_observation', values=[cost],
+                    resource=None, unit=None, conditions_unparsed=True),
+                dict(kind='periodic_hit_point_restoration_observation', values=[amount],
+                    resource_recorded='hit points', interval_seconds=interval,
+                    target_recorded=None, conditions_unparsed=True)])
     song_cost = re.fullmatch(
         rf'(?:This rest song reduces|Reduces?) song cost by {num}\.?',
         value.strip(), re.I)

@@ -27,7 +27,7 @@ from convert import record_errors
 from archive_extract import enrich_record, role_services, class_abilities, class_trainers
 
 STATE = HERE / ".cache" / "collector"
-PARSER_VERSION = 40
+PARSER_VERSION = 41
 CANONICAL_ROOT_PATHS = frozenset(('/', '/items', '/quests', '/mobs', '/zones',
     '/classes', '/races', '/abilities', '/effects', '/stats', '/skills', '/gameplay',
     '/diplomacy', '/diplomacy/cards', '/crafting', '/harvesting', '/crafting/recipes',
