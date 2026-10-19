@@ -18,6 +18,16 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration661 transcription; printed endpoints do not establish scaling.
+    if value.strip() == 'You release a deep, booming bellow, smashing your opponent for 790 to 832 arcane damage and stunning it for 4 sec.':
+        facts.append(dict(kind='arcane_damage_stun_tooltip_observation',
+            damage_range_recorded=dict(minimum=790, maximum=832,
+                damage_type_literal='arcane'),
+            stun_duration_recorded=dict(amount=4, unit_literal='sec'),
+            target_phrase_recorded='your opponent', range_scaling_basis=None,
+            damage_formula=None, stun_immunity_rules=None,
+            stun_break_conditions=None, stacking_formula=None,
+            instrument_scaling=None, operative_values=None, conditions_unparsed=True))
     # Exact iteration658 transcriptions; no normal-damage or control mechanics inferred.
     if value.strip() == 'Deals 400% of normal damage. This ability is only available when a target is below 20% health.':
         facts.append(dict(kind='normal_damage_health_availability_tooltip_observation',
