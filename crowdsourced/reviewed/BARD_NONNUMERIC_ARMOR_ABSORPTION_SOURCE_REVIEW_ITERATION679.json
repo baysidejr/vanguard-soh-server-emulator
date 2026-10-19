@@ -1,0 +1,367 @@
+{
+  "review_kind": "bard_nonnumeric_armor_absorption_source_review",
+  "parser_version": 80,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Irion's Chorus of Shields",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-chorus-of-shields",
+      "cache": {
+        "path": ".cache/archive/e1e472225d444b3d12abe5fc600c1ff6532fe21323545b32121d17513e14f55a.txt",
+        "sha256": "761c72c3b9522c3e25d9440fe05f23016e1559fd11fd69769c4f567dc97d703d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 44,
+          "record_sha256": "9106d7d17ec034e7a0a562942dc9c70377f485a387b153c0b8b9c7177a4eb099"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This string chorus causes a curtain of sound to protect you and your allies that increases armor class, block skill and absorbs damage each pulse.",
+          "literal_sha256": "2409df4577dbac21c263f165716b6e9a4415aa4f00b196b2c4895144f4168585",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "modifiers_reported": [
+              "armor_class",
+              "block_skill"
+            ],
+            "direction_reported": "increase",
+            "target_reported": "you and your allies",
+            "damage_absorption_reported": true,
+            "absorption_cadence_reported": "each pulse",
+            "absorption_magnitude_reported": null,
+            "modifier_magnitudes": null,
+            "absorption_amount": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Irion's Chorus of Shields",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-chorus-of-shields",
+              "title": "Irion's Chorus of Shields · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 80,
+          "collected_at": "2026-10-19T21:57:58+00:00",
+          "archive_fields": {
+            "level": [
+              "17"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 17,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This string chorus causes a curtain of sound to protect you and your allies that increases armor class, block skill and absorbs damage each pulse.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/irions-chorus-of-shields-127.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Irion's Tune of Safety",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-tune-of-safety",
+      "cache": {
+        "path": ".cache/archive/0495867915584c8d999e57006b66bd199a5ec3bac1a7ecf9dc4a8f738b8372f0.txt",
+        "sha256": "27c3743be0e3716946e06c8b4a4de42ce9dc22d56be4ff68db4a9be3a56dafb1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 57,
+          "record_sha256": "9d85f70fc8c457968bf76b0d529d1904dcf44ee20d0b67007d7b09454e5554c9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This string melody increases you and your allies' armor class, block, dodge, parry skills and absorbs damage each pulse.",
+          "literal_sha256": "a886a8acfbcf4aeed4d0ce41839e7c52048582371a575633e23010260106c96c",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "modifiers_reported": [
+              "armor_class",
+              "block",
+              "dodge",
+              "parry_skills"
+            ],
+            "direction_reported": "increase",
+            "target_reported": "you and your allies",
+            "damage_absorption_reported": true,
+            "absorption_cadence_reported": "each pulse",
+            "absorption_magnitude_reported": null,
+            "modifier_magnitudes": null,
+            "absorption_amount": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Irion's Tune of Safety",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-tune-of-safety",
+              "title": "Irion's Tune of Safety · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 80,
+          "collected_at": "2026-10-19T21:57:58+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 30,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This string melody increases you and your allies' armor class, block, dodge, parry skills and absorbs damage each pulse.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/irions-tune-of-safety-151.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Irion's Refrain of Resolution",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-refrain-of-resolution",
+      "cache": {
+        "path": ".cache/archive/5ae856f3b76067c80b94c574790c032a96ee9b0a21a45e8a3124ea68983e295d.txt",
+        "sha256": "1da8828c26e61ffcc5ef1ee65968c757c42677e0fa0c2b099d98422596501eec"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 54,
+          "record_sha256": "6951c15c6eb2cd12cf8e4d639c3f538f6b9f2c8717235ed94a4a9fffdf285da6"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Instills you and your allies with pure resolution that increases armor class and absorbs a small amount of damage each pulse.",
+          "literal_sha256": "9ed27844a8b9acd3156c3405349bba20b6431600c3dc3c4958ea232848c2097a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "modifiers_reported": [
+              "armor_class"
+            ],
+            "direction_reported": "increase",
+            "target_reported": "you and your allies",
+            "damage_absorption_reported": true,
+            "absorption_cadence_reported": "each pulse",
+            "absorption_magnitude_reported": "small amount",
+            "modifier_magnitudes": null,
+            "absorption_amount": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Irion's Refrain of Resolution",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-refrain-of-resolution",
+              "title": "Irion's Refrain of Resolution · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 80,
+          "collected_at": "2026-10-19T21:57:58+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "45"
+            ],
+            "level": [
+              "45"
+            ],
+            "energy cost": [
+              "8"
+            ],
+            "song portion": [
+              "Coda"
+            ],
+            "instrument": [
+              "String"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 45,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 8
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Instills you and your allies with pure resolution that increases armor class and absorbs a small amount of damage each pulse.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 45,
+              "raw": "45"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              8
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/irions-refrain-of-resolution-176.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process show no collector; only unrelated login_stub.py and multiprocessing child",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_unreviewed_nonnumeric_sections": 16,
+    "source_sections_reviewed_here": 3,
+    "remaining_unreviewed_nonnumeric_sections": 13,
+    "reviewed_sections_awaiting_parser_implementation": 3
+  },
+  "limitations": [
+    "Modifier names retain the source wording; the shared skills suffix is not expanded into invented labels.",
+    "Each pulse describes reported absorption cadence only; its interval, amount, duration and stacking remain null.",
+    "Small amount is qualitative source wording, never converted into a number.",
+    "No typed facts promoted; source records and checkpoints unchanged; no independent historical authentication."
+  ],
+  "next_step": "Implement and test constrained armor-modifier and per-pulse absorption observations for these three hash-verified Bard sources."
+}
