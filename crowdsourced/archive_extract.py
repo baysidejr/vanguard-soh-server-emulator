@@ -18,6 +18,20 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    healing = re.fullmatch(
+        r'(?:A restoring chant that )?heals (you and your group|your group|you) '
+        r'(?:for|by) (\d+)-(\d+) every (\d+) (?:secs|seconds)\.?',
+        value.strip(), re.I)
+    if healing:
+        target, minimum, maximum, interval = healing.groups()
+        minimum, maximum, interval = map(int, (minimum, maximum, interval))
+        if 0 < minimum <= maximum and interval > 0:
+            facts.append(dict(kind='periodic_healing_range_observation',
+                healing_minimum_recorded=minimum, healing_maximum_recorded=maximum,
+                pulse_interval_seconds_recorded=interval,
+                target_phrase_recorded=target.lower(), total_duration_seconds=None,
+                first_pulse_timing=None, scaling=None, healing_per_target=None,
+                conditions_unparsed=True))
     fence = re.fullmatch(
         r'Raises your chance to parry incoming attacks by (\d+)% for (\d+) seconds '
         r'or until you parry\. This turns off your auto-attack\.', value.strip(), re.I)
