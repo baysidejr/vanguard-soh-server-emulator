@@ -18,6 +18,13 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    song_cost = re.fullmatch(
+        rf'(?:This rest song reduces|Reduces?) song cost by {num}\.?',
+        value.strip(), re.I)
+    if song_cost:
+        facts.append(dict(kind='song_cost_reduction_observation',
+            values=[numeric(song_cost.group(1))], resource=None, unit=None,
+            conditions_unparsed=True))
     group_attributes = re.fullmatch(
         rf'Increases the (strength|dexterity|intelligence|wisdom|constitution|vitality) and '
         rf'(strength|dexterity|intelligence|wisdom|constitution|vitality) of your group by {num}-{num}\.?',
