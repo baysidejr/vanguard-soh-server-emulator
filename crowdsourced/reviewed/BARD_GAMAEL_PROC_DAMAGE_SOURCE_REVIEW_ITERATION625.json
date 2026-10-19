@@ -1,0 +1,815 @@
+{
+  "review_kind": "bard_gamael_proc_damage_source_review",
+  "input": {
+    "path": "reviewed/BARD_NUMERIC_PATTERN_COVERAGE_ITERATION624.json",
+    "sha256": "32bc384d09002f6222ba70c5929846eef9d00b0f5ada93b82afcb180a37b5320"
+  },
+  "parser_version": 59,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Gamael's Blades of Frost",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-frost",
+      "cache": {
+        "path": ".cache/archive/00139b5f3adde6b814a888d59e385eb668970fa27e4e344fe5a40cdfc98fe372.txt",
+        "sha256": "5ed39197fd381041f87051a7fe2b829e0e97e898e092f9bdb83bf2feb695c7a4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "23f0985b3fc1d0b71ecd385a77f2212d7807d23c60947b55dd5ce8b5ad0ae443"
+        }
+      ],
+      "effect_sections": [
+        "Adds a 10% chance for your group to deal 144-159 cold damage with melee and ranged attac"
+      ],
+      "observations": [
+        {
+          "literal": "Adds a 10% chance for your group to deal 144-159 cold damage with melee and ranged attac",
+          "text_sha256": "cb63e061226f732c26da8d9245f6f0c1e9aa277d6a49151e8a3d6afd828f6ac3",
+          "chance_percent_recorded": 10,
+          "damage_range_recorded": [
+            144,
+            159
+          ],
+          "damage_type_recorded": "cold",
+          "recipient_recorded": "your group",
+          "attack_phrase_recorded": "melee and ranged attac",
+          "truncated_text": true,
+          "energy_per_second_recorded": null,
+          "instrument_modifier_statement_recorded": null,
+          "trigger_probability_model": null,
+          "trigger_eligibility": null,
+          "damage_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Gamael's Blades of Frost",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-frost",
+            "title": "Gamael's Blades of Frost · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 59,
+        "collected_at": "2026-10-19T16:25:06+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "19"
+          ],
+          "level in 2007-2008": [
+            "19"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "19"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Brass"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 19,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Adds a 10% chance for your group to deal 144-159 cold damage with melee and ranged attac",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 19,
+            "raw": "19"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 19,
+            "raw": "19"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:gamael-s-blades-of-frost"
+        ]
+      },
+      "disposition": "source_review_pending_constrained_parser",
+      "historical_authentication": null,
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blades of Flame",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-flame",
+      "cache": {
+        "path": ".cache/archive/4b95405156cb5ca6bc96ada1c7dd7553ff3a6953826820efd88c40c03b4c9633.txt",
+        "sha256": "3cbec2e7cf80b7edefb2ec35c054f4a74835678128b826f24fcd3262c4eb5dc3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "822b6e03d7b39d0e138d8d88c33de29e4da47b76662a9d2984fd2dac65d5b308"
+        }
+      ],
+      "effect_sections": [
+        "Adds a 10% chance for your group to deal 186-201 fire damage with melee and ranged attacks."
+      ],
+      "observations": [
+        {
+          "literal": "Adds a 10% chance for your group to deal 186-201 fire damage with melee and ranged attacks.",
+          "text_sha256": "e2ea12df66a967cc80a4c233efe4926e91749e2cc73bfb5673312744617f3af4",
+          "chance_percent_recorded": 10,
+          "damage_range_recorded": [
+            186,
+            201
+          ],
+          "damage_type_recorded": "fire",
+          "recipient_recorded": "your group",
+          "attack_phrase_recorded": "melee and ranged attacks",
+          "truncated_text": false,
+          "energy_per_second_recorded": null,
+          "instrument_modifier_statement_recorded": null,
+          "trigger_probability_model": null,
+          "trigger_eligibility": null,
+          "damage_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Gamael's Blades of Flame",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-flame",
+            "title": "Gamael's Blades of Flame · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 59,
+        "collected_at": "2026-10-19T16:25:06+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "27 — now 26"
+          ],
+          "level": [
+            "26"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Brass"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 26,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Adds a 10% chance for your group to deal 186-201 fire damage with melee and ranged attacks.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 27,
+            "raw": "27 — now 26"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:gamael-s-blades-of-flame"
+        ]
+      },
+      "disposition": "source_review_pending_constrained_parser",
+      "historical_authentication": null,
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blades of Venom",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+      "cache": {
+        "path": ".cache/archive/4acf77afd0f118e816e3d3d7104378da71976bba44395260bba16679ec4d77e8.txt",
+        "sha256": "badda2fc38330e3873e414e0bbe270288011e8ba82982b332183fb88b7fc63b7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "4a3bc4914b2290ed2be868997451ed14f8b33c3e9cc21591506ec27b4c0714ba"
+        }
+      ],
+      "effect_sections": [
+        "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance."
+      ],
+      "observations": [],
+      "whole_page_replay": {
+        "name": "Gamael's Blades of Venom",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+            "title": "Gamael's Blades of Venom · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 59,
+        "collected_at": "2026-10-19T16:25:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "35 — now 32"
+          ],
+          "level": [
+            "32"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "instrument": [
+            "Brass"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 32,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 35,
+            "raw": "35 — now 32"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/gamaels-blades-of-venom-154.php"
+        ]
+      },
+      "disposition": "no_numeric_effect_evidence_no_values_inferred",
+      "historical_authentication": null,
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blade of Conflagration",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-conflagration",
+      "cache": {
+        "path": ".cache/archive/869c573c7a871571885ebffb5ddc41244a04ec07184e08107976b9e2c3d1aca4.txt",
+        "sha256": "9d59ab1aa5d67dae0b81e8caa40c750aab5c6be1fd85738fbe93aa4362fd7a70"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4230a3d8960b716c4700c710c552d484724060d8b888d23c7be4b6bb86a7fc4a"
+        }
+      ],
+      "effect_sections": [
+        "Adds a 10% chance to deal 283 to 302 fire damage with melee and ranged attacks. Costs 3/sec energy."
+      ],
+      "observations": [
+        {
+          "literal": "Adds a 10% chance to deal 283 to 302 fire damage with melee and ranged attacks. Costs 3/sec energy.",
+          "text_sha256": "fe892a551468685c7ea63f8213fc4109250dd5fb123e207aa1b084d0d9b02de3",
+          "chance_percent_recorded": 10,
+          "damage_range_recorded": [
+            283,
+            302
+          ],
+          "damage_type_recorded": "fire",
+          "recipient_recorded": null,
+          "attack_phrase_recorded": "melee and ranged attacks",
+          "truncated_text": false,
+          "energy_per_second_recorded": 3,
+          "instrument_modifier_statement_recorded": null,
+          "trigger_probability_model": null,
+          "trigger_eligibility": null,
+          "damage_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Gamael's Blade of Conflagration",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-conflagration",
+            "title": "Gamael's Blade of Conflagration · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 59,
+        "collected_at": "2026-10-19T16:25:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "35 — now 43"
+          ],
+          "level": [
+            "43"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "type": [
+            "Lyric"
+          ],
+          "instrument": [
+            "Brass"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 43,
+        "rank": null,
+        "category": "Lyric",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Adds a 10% chance to deal 283 to 302 fire damage with melee and ranged attacks. Costs 3/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 35,
+            "raw": "35 — now 43"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "disposition": "source_review_pending_constrained_parser",
+      "historical_authentication": null,
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blade of the Blizzard",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-the-blizzard",
+      "cache": {
+        "path": ".cache/archive/bce2fec2673084c0e7a15e1adfc3666e931d2744c52dbd9e869e8a582ae8f2f7.txt",
+        "sha256": "16905dae494d773bbb7e93aa016e52c1488067385d21716172608554bfba331a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "046a33bdafa7107b4bb2468e3ed6e2e9b762bae4eae78d6519a7c6cb3d895d66"
+        }
+      ],
+      "effect_sections": [
+        "Adds a 10% chance to deal 316 to 338 cold damage with melee and ranged attacks. Costs 3/sec energy."
+      ],
+      "observations": [
+        {
+          "literal": "Adds a 10% chance to deal 316 to 338 cold damage with melee and ranged attacks. Costs 3/sec energy.",
+          "text_sha256": "194c772a034fcb358642004b8d2b4732bf79000777c1c78b35abf325416ca523",
+          "chance_percent_recorded": 10,
+          "damage_range_recorded": [
+            316,
+            338
+          ],
+          "damage_type_recorded": "cold",
+          "recipient_recorded": null,
+          "attack_phrase_recorded": "melee and ranged attacks",
+          "truncated_text": false,
+          "energy_per_second_recorded": 3,
+          "instrument_modifier_statement_recorded": null,
+          "trigger_probability_model": null,
+          "trigger_eligibility": null,
+          "damage_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Gamael's Blade of the Blizzard",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-the-blizzard",
+            "title": "Gamael's Blade of the Blizzard · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 59,
+        "collected_at": "2026-10-19T16:25:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "35 — now 47"
+          ],
+          "level": [
+            "47"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "type": [
+            "Lyric"
+          ],
+          "instrument": [
+            "Brass"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 47,
+        "rank": null,
+        "category": "Lyric",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Adds a 10% chance to deal 316 to 338 cold damage with melee and ranged attacks. Costs 3/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 35,
+            "raw": "35 — now 47"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "disposition": "source_review_pending_constrained_parser",
+      "historical_authentication": null,
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blade of the Viper",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-the-viper",
+      "cache": {
+        "path": ".cache/archive/f7cb677533cef48a4f0f2c4ad2824d6b8fe48a0491e12f83cf4dd38f95c5d86b.txt",
+        "sha256": "4d5f657c947ca18579edd12b641c2f4b683562e63067b2edd2a1dd71ccd4cbfb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "7f02dc5eb6d1df1a98bcbe8f3ad861ccb0ec4b001fae73cd5bc121d1054ba88a"
+        }
+      ],
+      "effect_sections": [
+        "Adds a 10% chance to deal 343 to 364 poison damage with melee and ranged attacks. - Instrument modifiers alter proc chance. Costs 3/sec energy."
+      ],
+      "observations": [
+        {
+          "literal": "Adds a 10% chance to deal 343 to 364 poison damage with melee and ranged attacks. - Instrument modifiers alter proc chance. Costs 3/sec energy.",
+          "text_sha256": "4b02965fded61f4d49009907a8371c7ad1f7c99cbb332c6add8f99d9f65a1e34",
+          "chance_percent_recorded": 10,
+          "damage_range_recorded": [
+            343,
+            364
+          ],
+          "damage_type_recorded": "poison",
+          "recipient_recorded": null,
+          "attack_phrase_recorded": "melee and ranged attacks",
+          "truncated_text": false,
+          "energy_per_second_recorded": 3,
+          "instrument_modifier_statement_recorded": "Instrument modifiers alter proc chance.",
+          "trigger_probability_model": null,
+          "trigger_eligibility": null,
+          "damage_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Gamael's Blade of the Viper",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-the-viper",
+            "title": "Gamael's Blade of the Viper · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 59,
+        "collected_at": "2026-10-19T16:25:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "35 — now 50"
+          ],
+          "level": [
+            "50"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "type": [
+            "Lyric"
+          ],
+          "instrument": [
+            "Brass"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 50,
+        "rank": null,
+        "category": "Lyric",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Adds a 10% chance to deal 343 to 364 poison damage with melee and ranged attacks. - Instrument modifiers alter proc chance. Costs 3/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 35,
+            "raw": "35 — now 50"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "disposition": "source_review_pending_constrained_parser",
+      "historical_authentication": null,
+      "operative_values": null
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 6,
+    "source_record_hashes_verified": 6,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 6,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Single archive transcription; no independent historical authentication.",
+    "Frost ends at attac: truncated text is preserved without completing the word or inferring attack eligibility.",
+    "Chance is a printed percentage; proc normalization, independent rolls, cooldown and actual trigger mechanics remain unknown.",
+    "Only two tooltips explicitly name your group; recipient is unknown in the other three.",
+    "Among the five numeric tooltips, only Viper mentions instrument modifiers. Venom also mentions modifiers without numbers; no modifier values or applicability to other abilities are inferred.",
+    "Venom has no numeric Effect evidence; values are not copied from related names.",
+    "Energy upkeep is separate from proc chance and damage; unknown scaling, durations and operative values remain null."
+  ],
+  "next_step": "Implement and test constrained proc-chance and damage-range observations for the five reviewed Gamael literals, preserving truncation and unknown trigger mechanics."
+}
