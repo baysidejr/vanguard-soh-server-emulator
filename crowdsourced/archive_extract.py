@@ -18,6 +18,51 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact speed and damage literals reviewed in iteration683.
+    speed_damage = {"This brass verse reduces your opponent's movement speed.": {'direction_reported': 'decrease',
+                                                                  'stat_reported': 'movement_speed',
+                                                                  'target_reported': 'your opponent',
+                                                                  'attack_scope_reported': None,
+                                                                  'qualitative_magnitude_reported': None,
+                                                                  'magnitude': None,
+                                                                  'unit': None,
+                                                                  'tick_interval_seconds': None,
+                                                                  'duration_seconds': None,
+                                                                  'stacking_rules': None,
+                                                                  'operative_values': None,
+                                                                  'historical_authentication': None},
+     'Causes your feet to move at great speeds, increasing your movement speed.': {'direction_reported': 'increase',
+                                                                                   'stat_reported': 'movement_speed',
+                                                                                   'target_reported': 'you',
+                                                                                   'attack_scope_reported': None,
+                                                                                   'qualitative_magnitude_reported': None,
+                                                                                   'magnitude': None,
+                                                                                   'unit': None,
+                                                                                   'tick_interval_seconds': None,
+                                                                                   'duration_seconds': None,
+                                                                                   'stacking_rules': None,
+                                                                                   'operative_values': None,
+                                                                                   'historical_authentication': None},
+     'Increases damage of all attacks made by you or your allies by a small amount.': {'direction_reported': 'increase',
+                                                                                       'stat_reported': 'attack_damage',
+                                                                                       'target_reported': 'you '
+                                                                                                          'or '
+                                                                                                          'your '
+                                                                                                          'allies',
+                                                                                       'attack_scope_reported': 'all '
+                                                                                                                'attacks',
+                                                                                       'qualitative_magnitude_reported': 'small '
+                                                                                                                         'amount',
+                                                                                       'magnitude': None,
+                                                                                       'unit': None,
+                                                                                       'tick_interval_seconds': None,
+                                                                                       'duration_seconds': None,
+                                                                                       'stacking_rules': None,
+                                                                                       'operative_values': None,
+                                                                                       'historical_authentication': None}}.get(value.strip())
+    if speed_damage:
+        facts.append(dict(kind="speed_damage_tooltip_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **speed_damage))
     # Exact resource literals reviewed in iteration681; no inferred tick or transfer.
     resource_observation = {'Increases health and energy regeneration of you and your allies.': {'direction_reported': 'increase',
                                                                       'resources_reported': ['health',
