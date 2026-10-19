@@ -20,6 +20,20 @@ def effect_facts(value):
     num = r'(\d+(?:\.\d+)?)'
     # Exact reviewed transcriptions; truncated Frost wording is deliberately retained.
     # Literal-scoped observations from the hash-verified iteration630 source review.
+    # Exact resource-cost transcriptions verified in iteration632; formulas remain unknown.
+    resource_cost = {
+        'This brass chrous reduces the amount of mana consumed when your allies cast spells. 5% decrease in mana cost.': dict(
+            resource_recorded='mana', cost_reduction_percent_recorded=5,
+            beneficiary_phrase_recorded='your allies', action_phrase_recorded='cast spells'),
+        'This brass chrous reduces the amount of endurance consumed by the melee attacks of you and your allies by 5%.': dict(
+            resource_recorded='endurance', cost_reduction_percent_recorded=5,
+            beneficiary_phrase_recorded='you and your allies', action_phrase_recorded='melee attacks'),
+    }.get(value.strip())
+    if resource_cost:
+        facts.append(dict(kind='resource_cost_reduction_tooltip_observation',
+                          **resource_cost, cost_formula=None, rounding=None, minimum_cost=None,
+                          eligible_abilities=None, scaling=None, operative_values=None,
+                          conditions_unparsed=True))
     hatred_critical = {
         'Calms your opponent, reducing their hatred of you by 30%.': dict(
             kind='hatred_reduction_tooltip_observation',
