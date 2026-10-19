@@ -18,6 +18,15 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    bellow = re.fullmatch(
+        rf'You bellow, blasting your opponent for {num}(?: to |-){num} arcane damage\.',
+        value.strip(), re.I)
+    if bellow:
+        lower, upper = map(numeric, bellow.groups())
+        if lower <= upper:
+            facts.append(dict(kind='damage_range', values=[lower, upper],
+                damage_type_recorded='arcane', target_recorded='your opponent',
+                range_basis=None, conditions_unparsed=True))
     counter_removal = re.fullmatch(
         r'(?:Purifies|Cures) all group members within (\d+)m, removing (\d+) (disease|poison) counters\.',
         value.strip(), re.I)
