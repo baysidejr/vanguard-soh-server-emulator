@@ -18,6 +18,18 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    charm = re.fullmatch(
+        r'Charms your opponent, forcing it to fight for you for (\d+) seconds\. '
+        r'Effective on targets level (\d+) and lower\.', value.strip(), re.I)
+    if charm:
+        duration, level = map(int, charm.groups())
+        if duration > 0 and level > 0:
+            facts.append(dict(kind='charm_duration_target_level_observation',
+                charm_duration_seconds_recorded=duration,
+                maximum_target_level_recorded=level, target_recorded='opponent',
+                resist_check=None, break_conditions=None,
+                player_target_applicability=None, stacking=None,
+                conditions_unparsed=True))
     needle = re.fullmatch(
         r"A fast piercing attack that deals (\d+)% of weapon damage and lowers your opponent's damage by (\d+) for (\d+) sec\.",
         value.strip(), re.I)

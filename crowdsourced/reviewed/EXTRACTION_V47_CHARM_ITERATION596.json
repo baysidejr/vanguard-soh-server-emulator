@@ -1,0 +1,218 @@
+{
+  "review_kind": "parser_v47_charm_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_CHARM_SOURCE_REVIEW_ITERATION595.json",
+    "sha256": "9434d96dd4ad41bc6c19d51fff289b2c68c126e3b236154da0d056061f9aec2f"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Asilam's Alluring Call",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-alluring-call",
+      "cache": {
+        "path": ".cache/archive/e1835bdd56b7494b5868088e343ccaf2a359ffa8a67006af85ffc81182f6c1e3.txt",
+        "sha256": "61aa474dfa0402a4662ba76e7dff502b16652d0f410d78cc790544ada44dadf5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "6e36a9faa0faf120a41acc2743c29c59d3a393d056af5a19c95be6ef441ac97a"
+        }
+      ],
+      "effect_text_sha256": "5aa1f2a2e3307fcf3e20cde686d314afc96174da18a16716dc343f73171e4263",
+      "literal": "Charms your opponent, forcing it to fight for you for 18 seconds. Effective on targets level 35 and lower.",
+      "observation": {
+        "charm_duration_seconds_recorded": 18,
+        "maximum_target_level_recorded": 35,
+        "target_recorded": "opponent",
+        "resist_check": null,
+        "break_conditions": null,
+        "player_target_applicability": null,
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v47_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "charm_duration_target_level_observation",
+          "charm_duration_seconds_recorded": 18,
+          "maximum_target_level_recorded": 35,
+          "target_recorded": "opponent",
+          "resist_check": null,
+          "break_conditions": null,
+          "player_target_applicability": null,
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "charm_duration_target_level_observation",
+              "charm_duration_seconds_recorded": 18,
+              "maximum_target_level_recorded": 35,
+              "target_recorded": "opponent",
+              "resist_check": null,
+              "break_conditions": null,
+              "player_target_applicability": null,
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Beguiling Call",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-beguiling-call",
+      "cache": {
+        "path": ".cache/archive/52f4da59787d83f308fc5348bfed73f4a695381827e6df50a2d039067b128b20.txt",
+        "sha256": "530ab83ac4716a26b6deda00dddbfede83e1836f8b56702d3dec33553187f57a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "260dba8f5333dde81269cf4953f49e78e7ecafc6bac0068c47a1f718fa1e9e1c"
+        }
+      ],
+      "effect_text_sha256": "70f282df280bebe578f8aabf09c5bd414c265fa7e493299581c3e08298cef77e",
+      "literal": "Charms your opponent, forcing it to fight for you for 18 seconds. Effective on targets level 50 and lower.",
+      "observation": {
+        "charm_duration_seconds_recorded": 18,
+        "maximum_target_level_recorded": 50,
+        "target_recorded": "opponent",
+        "resist_check": null,
+        "break_conditions": null,
+        "player_target_applicability": null,
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v47_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "charm_duration_target_level_observation",
+          "charm_duration_seconds_recorded": 18,
+          "maximum_target_level_recorded": 50,
+          "target_recorded": "opponent",
+          "resist_check": null,
+          "break_conditions": null,
+          "player_target_applicability": null,
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "charm_duration_target_level_observation",
+              "charm_duration_seconds_recorded": 18,
+              "maximum_target_level_recorded": 50,
+              "target_recorded": "opponent",
+              "resist_check": null,
+              "break_conditions": null,
+              "player_target_applicability": null,
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Call of the Siren",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-call-of-the-siren",
+      "cache": {
+        "path": ".cache/archive/9174c06dd0ebdc633a3592f3b62e257d4f5c7fb3c4e94061139f457a4c4d67d3.txt",
+        "sha256": "d33afc0dd067e783673e514b535c893b92fb2d995868e0cba050431e18c8d682"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "03ed2e4d240f14ff429be704771478be4a04fc1229b9d6492df9b3028d5efa18"
+        }
+      ],
+      "effect_text_sha256": "250bbacdab8179a75c02ee3d92d2c38966e21576b910a984a8ebf6c67e98e603",
+      "literal": "Charms your opponent, forcing it to fight for you for 22 seconds. Effective on targets level 50 and lower.",
+      "observation": {
+        "charm_duration_seconds_recorded": 22,
+        "maximum_target_level_recorded": 50,
+        "target_recorded": "opponent",
+        "resist_check": null,
+        "break_conditions": null,
+        "player_target_applicability": null,
+        "stacking": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v47_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "charm_duration_target_level_observation",
+          "charm_duration_seconds_recorded": 22,
+          "maximum_target_level_recorded": 50,
+          "target_recorded": "opponent",
+          "resist_check": null,
+          "break_conditions": null,
+          "player_target_applicability": null,
+          "stacking": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "charm_duration_target_level_observation",
+              "charm_duration_seconds_recorded": 22,
+              "maximum_target_level_recorded": 50,
+              "target_recorded": "opponent",
+              "resist_check": null,
+              "break_conditions": null,
+              "player_target_applicability": null,
+              "stacking": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "exact_effect_section_matches": 3,
+    "issues": 0,
+    "python_tests_passed": 197,
+    "whole_page_observations_verified": 3
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Explicit charm duration and maximum target level retained as sourced research. Resist checks, break conditions, player-target applicability, stacking and live-era authenticity remain unknown. Distinct source records retained; original records unchanged and no operative facts promoted.",
+  "next_step": "Review remaining numeric Bard tooltips for explicit mechanics absent from typed observations.",
+  "parser_version": 47
+}
