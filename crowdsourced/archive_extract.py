@@ -18,6 +18,18 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact cure/dispel source literals reviewed in iteration673.
+    removal = {
+        'This voice lyric cures a friendly target of disease. The cure is slow, but constant.': {'action_reported': 'cure', 'condition_reported': 'disease', 'target_reported': 'friendly target', 'timing_qualifier_reported': 'slow but constant', 'enchantment_qualifier_reported': None, 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
+        'This voice lyric cures a friendly target of poison. The cure is slow, but constant.': {'action_reported': 'cure', 'condition_reported': 'poison', 'target_reported': 'friendly target', 'timing_qualifier_reported': 'slow but constant', 'enchantment_qualifier_reported': None, 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
+        'Strips a lesser enchantment from your opponent.': {'action_reported': 'strip_enchantment', 'condition_reported': 'enchantment', 'target_reported': 'opponent', 'timing_qualifier_reported': None, 'enchantment_qualifier_reported': 'lesser', 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
+        'This voice lyric removes enchantment effects over time from a friendly target.': {'action_reported': 'remove_enchantment_effects', 'condition_reported': 'enchantment effects', 'target_reported': 'friendly target', 'timing_qualifier_reported': 'over time', 'enchantment_qualifier_reported': None, 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
+        'Strips an enchantment from your opponent.': {'action_reported': 'strip_enchantment', 'condition_reported': 'enchantment', 'target_reported': 'opponent', 'timing_qualifier_reported': None, 'enchantment_qualifier_reported': None, 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
+        'Strips a greater enchantment from your opponent.': {'action_reported': 'strip_enchantment', 'condition_reported': 'enchantment', 'target_reported': 'opponent', 'timing_qualifier_reported': None, 'enchantment_qualifier_reported': 'greater', 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
+    }.get(value.strip())
+    if removal:
+        facts.append(dict(kind='cure_dispel_tooltip_observation',
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **removal))
     # Exact cached Bard effect literals reviewed in iteration671.
     utility = {
         'Allows your group to fall slowly and safely from any height.':
