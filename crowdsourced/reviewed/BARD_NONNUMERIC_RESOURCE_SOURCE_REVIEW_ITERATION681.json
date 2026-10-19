@@ -1,0 +1,398 @@
+{
+  "review_kind": "bard_nonnumeric_resource_source_review",
+  "parser_version": 81,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Cirel's Verse of Restoration",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-verse-of-restoration",
+      "cache": {
+        "path": ".cache/archive/026018ae6b1774599eb2fcdc4e28cd0ac59d3f95c2883fcecdfaa3909b4a9dcd.txt",
+        "sha256": "1f4f6ea01400b356bfc5be78cd27ca86a876d4dc224b65eaefc347c87fa04953"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 48,
+          "record_sha256": "b675f16a4b6a0319327feb06e2b8a5e7454d906b0c1e236379fbff9f760be25a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases health and energy regeneration of you and your allies.",
+          "literal_sha256": "9c5fe1d3b56df1b6d68f4d278751eb574dd55c8fa8ad6aea466d8a558340a78a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resources_reported": [
+              "health",
+              "energy"
+            ],
+            "target_reported": "you and your allies",
+            "regeneration_reported": true,
+            "drain_reported": false,
+            "resource_transfer_to_caster": null,
+            "magnitude": null,
+            "unit": null,
+            "tick_interval_seconds": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Cirel's Verse of Restoration",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/cirel-s-verse-of-restoration",
+              "title": "Cirel's Verse of Restoration · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 81,
+          "collected_at": "2026-10-19T22:09:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "7"
+            ],
+            "song portion": [
+              "Verse"
+            ],
+            "instrument": [
+              "String"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 40,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 7
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases health and energy regeneration of you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              7
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dirge of Empty Thought",
+      "source_url": "https://vgsoharchive.com/abilities/dirge-of-empty-thought",
+      "cache": {
+        "path": ".cache/archive/e44cdf5803edaf90b706febfe38eed5c3b833c9e7029b721acf6c7b14c5c1ab9.txt",
+        "sha256": "14a42be0381d042997a41e174e80a0c84b5cbab2a6ac1d527d73d57406deb4e4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "e308dba045c7e15e9119fe9fd7bc58e58ecfa1db7a9fd8d3c91a5e205408c108"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Drains energy from your opponent.",
+          "literal_sha256": "89d35655978fb98b1ad641e0d5bed0da42903c3c244e78f8902beb27414d6f4b",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "drain",
+            "resources_reported": [
+              "energy"
+            ],
+            "target_reported": "your opponent",
+            "regeneration_reported": false,
+            "drain_reported": true,
+            "resource_transfer_to_caster": null,
+            "magnitude": null,
+            "unit": null,
+            "tick_interval_seconds": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Dirge of Empty Thought",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/dirge-of-empty-thought",
+              "title": "Dirge of Empty Thought · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 81,
+          "collected_at": "2026-10-19T22:09:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "43"
+            ],
+            "level": [
+              "43"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 43,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Drains energy from your opponent.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 43,
+              "raw": "43"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/dirge-of-empty-thought-174.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cirel's Tranquil Tune",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-tranquil-tune",
+      "cache": {
+        "path": ".cache/archive/ef998019d5a8c5b841c82f666952308001a1647b90bcde5273d5e79ef7e3f4c8.txt",
+        "sha256": "06c1f7e8e446105b5556ee10d648f5d6484018ff1598d963bbf4087eca602e71"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "e806ab4a0e3dc539c5884bb81d9ff94646b584181ad411a27ad3c24042671497"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases mana and health regeneration of you and your allies.",
+          "literal_sha256": "13cade09e150bf31d06b99f70e5c46a1d66d6d33a64294f7d9324fd67761f89c",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resources_reported": [
+              "mana",
+              "health"
+            ],
+            "target_reported": "you and your allies",
+            "regeneration_reported": true,
+            "drain_reported": false,
+            "resource_transfer_to_caster": null,
+            "magnitude": null,
+            "unit": null,
+            "tick_interval_seconds": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Cirel's Tranquil Tune",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/cirel-s-tranquil-tune",
+              "title": "Cirel's Tranquil Tune · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 81,
+          "collected_at": "2026-10-19T22:09:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "47"
+            ],
+            "level": [
+              "47"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Melody"
+            ],
+            "instrument": [
+              "String"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 47,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases mana and health regeneration of you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 47,
+              "raw": "47"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process show no collector; no matching collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_unreviewed_nonnumeric_sections": 13,
+    "source_sections_reviewed_here": 3,
+    "remaining_unreviewed_nonnumeric_sections": 10,
+    "reviewed_sections_awaiting_parser_implementation": 3
+  },
+  "limitations": [
+    "Regeneration and drain retain explicit resource and target wording only; mana and energy are not conflated.",
+    "Drain does not establish transfer to the caster, a periodic cadence, or an amount.",
+    "Regeneration amount, tick interval, duration, stacking and historical applicability remain unknown.",
+    "No typed facts promoted; source records and checkpoints unchanged; no independent historical authentication."
+  ],
+  "next_step": "Implement and test constrained regeneration and energy-drain observations for these three hash-verified Bard sources."
+}
