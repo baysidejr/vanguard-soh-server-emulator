@@ -383,6 +383,12 @@ def enrich_ability(record, main):
         match = re.fullmatch(r'(\d+(?:\.\d+)?)\s*(m|meters?|feet|ft)', raw_range, re.I)
         if match:
             record['range'] = dict(value=numeric(match.group(1)), unit=match.group(2).lower(), raw=raw_range)
+        interval = re.fullmatch(r'(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)\s*(m|meters?|feet|ft)', raw_range, re.I)
+        if interval and numeric(interval.group(1)) <= numeric(interval.group(2)):
+            record['range_interval_reported_by_archive'] = dict(
+                minimum=numeric(interval.group(1)), maximum=numeric(interval.group(2)),
+                unit=interval.group(3).lower(), raw=raw_range,
+                historical_authentication=None)
     record['trainer'] = field(record, 'learned from', 'trainer')
     record['requirements']=field(record,'requires')
     record['causes_weakness']=field(record,'causes weakness','causes')
@@ -411,6 +417,11 @@ def enrich_ability(record, main):
         record['verification_reported_by_archive']='tooltip read in VGO Emulator; not independently verified by this collector'
     elif 'tooltip has not been read' in note_text:
         record['verification_reported_by_archive']='spellbook existence only; numerical tooltip unverified'
+    if any(text(n.select_one('strong')) == 'Not in the emulator.'
+           for n in main.select('p.absent-note')):
+        record['emulator_absence_reported_by_archive'] = dict(
+            reported_absent=True, independently_verified=False,
+            emulator_build=None, historical_authentication=None)
     return notes
 
 

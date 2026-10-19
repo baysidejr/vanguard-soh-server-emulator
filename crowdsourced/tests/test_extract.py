@@ -16,6 +16,31 @@ converter = conversions.converter
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_range_interval_is_separate_and_requires_ordered_explicit_units(self):
+        for raw, expected in [('5 - 20m', (5, 20)), ('1.5–2.5 ft', (1.5, 2.5)),
+                              ('20 - 5m', None), ('5 - 20', None), ('5m', None)]:
+            html = page('Fixture', '<dl class="kv"><dt>Range</dt><dd>'+raw+'</dd></dl>')
+            r = collector.parse_page(collector.ORIGIN+'/abilities/fixture', html)[0][0]
+            observation = r.get('range_interval_reported_by_archive')
+            if expected:
+                self.assertEqual((observation['minimum'], observation['maximum']), expected)
+                self.assertIsNone(r['range'])
+                self.assertIsNone(observation['historical_authentication'])
+            else:
+                self.assertIsNone(observation)
+
+    def test_emulator_absence_requires_explicit_notice_and_is_not_verification(self):
+        for notice, expected in [('<p class="absent-note"><strong>Not in the emulator.</strong></p>', True),
+                                 ('<p>Not in the emulator.</p>', False),
+                                 ('<p class="absent-note"><strong>Unknown.</strong></p>', False)]:
+            r = collector.parse_page(collector.ORIGIN+'/abilities/fixture', page('Fixture', notice))[0][0]
+            observation = r.get('emulator_absence_reported_by_archive')
+            self.assertEqual(observation is not None, expected)
+            self.assertIsNone(r.get('verification_reported_by_archive'))
+            if expected:
+                self.assertFalse(observation['independently_verified'])
+                self.assertIsNone(observation['emulator_build'])
+
     def test_map_observations_preserve_multiple_points_and_unknowns(self):
         html=page('Fixture', '''<h2>Where they stood</h2><ul>
             <li>Spot <strong>32</strong>, Inn, <a href="/zones/tursh-village">Tursh Village</a>

@@ -111,6 +111,16 @@ Parser version 34 extracts canonical item links from merchant Sells sections, wi
 
 Parser version 35 recognizes all 24 canonical sitemap landing/index routes identified in reviewed/INVENTORY_ROOT_PAGE_GAP_REVIEW_20261017.json, including /stats, /skills and /gameplay. These pages publish source metadata and explicit extraction gaps; they do not create guessed typed entities. Normal run startup merges the authoritative inventory into the saved queue, so a graceful stop/restart loads this support and adds the missing roots without manually editing checkpoints. Tests exercise every excluded inventory URL, linked-item discovery and query rejection. Typed extraction and historical review remain pending.
 
+Parser version 37 retains explicitly unit-bearing, ordered ability range intervals
+in `range_interval_reported_by_archive`, without substituting a scalar range.
+Explicit `absent-note` notices produce `emulator_absence_reported_by_archive`,
+with independent verification false and build and historical authentication unknown.
+These archive reports do not verify tooltip figures or establish historical facts.
+`reviewed/WARRIOR_TYPED_OBSERVATIONS_REPLAY_ITERATION572.json` records nine
+hash-verified cache replays: one interval, six absence notices, and two cast values
+whose missing units remain unresolved. All 177 Python tests pass. No network
+requests occurred; suspension, queues and persisted 60-second pacing are preserved.
+
 The continuous runner now schedules one VGOPlayers wiki article before each archive
 batch, using the same process lock, request clock and persisted interval. Discovery
 seeds come from hash-verified cached wiki pages. Alternate checkpoints live in
