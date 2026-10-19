@@ -1,0 +1,367 @@
+{
+  "review_kind": "bard_resistance_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 55,
+  "rows": [
+    {
+      "name": "Feos' Substitution of Warding",
+      "source_url": "https://vgsoharchive.com/abilities/feos-substitution-of-warding",
+      "cache": {
+        "path": ".cache/archive/8f3f390b7c109d0af1855b0e12b71c186c5577d280276142812ffddfbcf59805.txt",
+        "sha256": "5400048c36edd7482dae99f68635d53d9a73d6c398b6ea1f5cb8febe1bbb65fc"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "4b5a853162d174a47c2289910c373c594d4a45df5a0166d8bd9f4bcaf959eee4"
+        }
+      ],
+      "literal": "Increases the arcane, mental and spiritual resistances of all nearby allies by 20. Costs 4/sec energy.",
+      "effect_text_sha256": "a137da5428695960ea23360708361b8ae79a6f4822d198530e94041ba45c7d42",
+      "observation": {
+        "action_recorded": "Increases",
+        "target_phrase_recorded": "all nearby allies",
+        "resistance_types_recorded": [
+          "arcane",
+          "mental",
+          "spiritual"
+        ],
+        "increase_recorded": 20,
+        "energy_per_second_recorded": 4,
+        "stacking": null,
+        "scaling": null,
+        "nearby_radius": null,
+        "resistance_unit": null,
+        "upkeep_tick_timing": null,
+        "duration_seconds": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Feos' Substitution of Warding",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-substitution-of-warding",
+            "title": "Feos' Substitution of Warding · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 55,
+        "collected_at": "2026-10-19T15:27:59+00:00",
+        "archive_fields": {
+          "level": [
+            "43"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "type": [
+            "Embellishment"
+          ],
+          "instrument": [
+            "Wind"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 43,
+        "rank": null,
+        "category": "Embellishment",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Increases the arcane, mental and spiritual resistances of all nearby allies by 20. Costs 4/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Feos' Substitution of Infinity",
+      "source_url": "https://vgsoharchive.com/abilities/feos-substitution-of-infinity",
+      "cache": {
+        "path": ".cache/archive/c0fb185797d1c6bb5324b0f256eb884e26fb26a24ea6c40ec46617a3590c7983.txt",
+        "sha256": "0158e0b7d66a168a25b9acd399a3312cf8672c7bfc4d60dd9f4cdadb2d615f4c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "3ecee2168131df8cb9158f565f31a5ab1fca7280dba14be72029aff1e53784eb"
+        }
+      ],
+      "literal": "Increases the mental and spiritual resistances of all nearby allies by 10. Costs 4/sec energy.",
+      "effect_text_sha256": "8e4f143b8671fd051b8c4a7ffb06b6cab5e4d871f7d27b5c51d0b758828241aa",
+      "observation": {
+        "action_recorded": "Increases",
+        "target_phrase_recorded": "all nearby allies",
+        "resistance_types_recorded": [
+          "mental",
+          "spiritual"
+        ],
+        "increase_recorded": 10,
+        "energy_per_second_recorded": 4,
+        "stacking": null,
+        "scaling": null,
+        "nearby_radius": null,
+        "resistance_unit": null,
+        "upkeep_tick_timing": null,
+        "duration_seconds": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Feos' Substitution of Infinity",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-substitution-of-infinity",
+            "title": "Feos' Substitution of Infinity · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 55,
+        "collected_at": "2026-10-19T15:27:59+00:00",
+        "archive_fields": {
+          "level": [
+            "45"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "type": [
+            "Embellishment"
+          ],
+          "instrument": [
+            "Wind"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 45,
+        "rank": null,
+        "category": "Embellishment",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Increases the mental and spiritual resistances of all nearby allies by 10. Costs 4/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Illestine's Epic Substitution",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-epic-substitution",
+      "cache": {
+        "path": ".cache/archive/f0980ea0207b168f3e14c6c5666e036200946459aa77659ad0b74ce0cd79c1a4.txt",
+        "sha256": "a0284abe8b524bf10a1667e000c35adffcffc4ebd4527189c94cbc182a60a3b1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "387f6372c6a786f16b6b29ac9563b0c2a043b9c86282328175f89a535af5aa37"
+        }
+      ],
+      "literal": "Increases the cold, fire and physical resistance of all nearby allies by 10. Costs 4/sec energy.",
+      "effect_text_sha256": "f038b504bc1c1f0fff4e821f3106fc23a24a60cd2de9249a0df4365e67784f3f",
+      "observation": {
+        "action_recorded": "Increases",
+        "target_phrase_recorded": "all nearby allies",
+        "resistance_types_recorded": [
+          "cold",
+          "fire",
+          "physical"
+        ],
+        "increase_recorded": 10,
+        "energy_per_second_recorded": 4,
+        "stacking": null,
+        "scaling": null,
+        "nearby_radius": null,
+        "resistance_unit": null,
+        "upkeep_tick_timing": null,
+        "duration_seconds": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Illestine's Epic Substitution",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/illestine-s-epic-substitution",
+            "title": "Illestine's Epic Substitution · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 55,
+        "collected_at": "2026-10-19T15:27:59+00:00",
+        "archive_fields": {
+          "level": [
+            "49"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "type": [
+            "Embellishment"
+          ],
+          "instrument": [
+            "Percussion"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 49,
+        "rank": null,
+        "category": "Embellishment",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Increases the cold, fire and physical resistance of all nearby allies by 10. Costs 4/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "observation_fields_checked": true,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 213
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive tooltip is an emulator observation, not independently authenticated live-era evidence.",
+    "Resistance type lists and energy upkeep are recorded separately; resistance units are not supplied by this prose.",
+    "Resistance formula, stacking, scaling, nearby radius, duration and upkeep timing are not established by effect prose.",
+    "Original immutable source records remain unchanged; observations are not operative mechanics."
+  ],
+  "next_step": "Implement and test constrained resistance observations for these three exact tooltips, preserving separate energy upkeep and unknown resistance units, radius and scaling.",
+  "remaining_review_scope": {
+    "numeric_bard_sections_without_recognized_pattern": 50,
+    "sections_reviewed_here_pending_parser": 3,
+    "complete_extraction_established": false
+  }
+}
