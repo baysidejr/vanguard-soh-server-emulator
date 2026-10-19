@@ -1,0 +1,369 @@
+{
+  "review_kind": "constrained_fear_pvp_stun_extraction",
+  "parser_version": 75,
+  "input": {
+    "path": "reviewed/BARD_REMAINING_NUMERIC_SOURCE_REVIEW_ITERATION667.json",
+    "sha256": "0c294b3ee54570377f5eec04389a3101bd095c5408fd54c18b84868d87c48ff1"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Eaon's Eerie Echo",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-eerie-echo",
+      "cache": {
+        "path": ".cache/archive/98bde9cb2df7732beb9f72ff5e08450f0eea20607168b15a671f1e0c2c9960d8.txt",
+        "sha256": "68526ae498c252183af21f1fb16d3a089d5640f4bab4b6d203499b70b32276cf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "8793536df58bb88faaa1b5e112939cd26e40d1d31493935e627e24d8370c1b37"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player versus player combat this spell stuns your target for 6 seconds. Has a 25% chance to break on hit. Only affects a single target every 30 seconds. Effective on targets level 39 and lower.",
+          "text_sha256": "de9afcd1b2263eae1c668f6ad5265ac3bf1860ee3bc0973dcf2be9fad076e5e4",
+          "effect_facts": [
+            {
+              "kind": "fear_pvp_stun_tooltip_observation",
+              "target_phrase_recorded": "your target",
+              "fear_duration_seconds_recorded": 12,
+              "maximum_feared_targets_recorded": 1,
+              "pvp_effect_recorded": {
+                "effect_literal": "stuns",
+                "duration_seconds": 6
+              },
+              "break_on_hit_chance_percent_recorded": 25,
+              "single_target_interval_seconds_recorded": 30,
+              "target_level_maximum_recorded": 39,
+              "fear_mode_scope": null,
+              "break_on_hit_mode_scope": null,
+              "target_interval_mode_scope": null,
+              "target_level_limit_mode_scope": null,
+              "interval_reset_mechanics": null,
+              "hit_definition": null,
+              "stun_immunity_rules": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Eaon's Eerie Echo",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/eaon-s-eerie-echo",
+            "title": "Eaon's Eerie Echo · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 75,
+        "collected_at": "2026-10-19T20:49:56+00:00",
+        "archive_fields": {
+          "level": [
+            "28"
+          ],
+          "energy cost": [
+            "155"
+          ],
+          "cast time": [
+            "1.0"
+          ],
+          "refresh": [
+            "8.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon20722.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 28,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 155
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 8.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon20722.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            155
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "8.0s",
+              "seconds": 8.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "fear_pvp_stun_tooltip_observation",
+                "target_phrase_recorded": "your target",
+                "fear_duration_seconds_recorded": 12,
+                "maximum_feared_targets_recorded": 1,
+                "pvp_effect_recorded": {
+                  "effect_literal": "stuns",
+                  "duration_seconds": 6
+                },
+                "break_on_hit_chance_percent_recorded": 25,
+                "single_target_interval_seconds_recorded": 30,
+                "target_level_maximum_recorded": 39,
+                "fear_mode_scope": null,
+                "break_on_hit_mode_scope": null,
+                "target_interval_mode_scope": null,
+                "target_level_limit_mode_scope": null,
+                "interval_reset_mechanics": null,
+                "hit_definition": null,
+                "stun_immunity_rules": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      }
+    },
+    {
+      "name": "Eaon's Terrifying Trill",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-terrifying-trill",
+      "cache": {
+        "path": ".cache/archive/83837a109d3aa5a992c02ac7586002d6843d2f18500705ac793c545768d3cca5.txt",
+        "sha256": "1d26fc955d54738089b6731b442377db5eda642302215dc8ce00e596d35a304b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 100,
+          "record_sha256": "4625c06b031fa821cf1c3c29f546858490b46644f1ed45d62950930d89679541"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your target with fear, causing it to flee in terror for 12 sec. Only one target can be feared at a time. In player versus player combat this spell stuns your target for 6 seconds. Has a 25% chance to break on hit. Only affects a single target every 30 seconds. Effective on targets level 50 and lower.",
+          "text_sha256": "6cee095a6e2bb425f7b4dd5de37bf925704df26127565910a7846811acc12be4",
+          "effect_facts": [
+            {
+              "kind": "fear_pvp_stun_tooltip_observation",
+              "target_phrase_recorded": "your target",
+              "fear_duration_seconds_recorded": 12,
+              "maximum_feared_targets_recorded": 1,
+              "pvp_effect_recorded": {
+                "effect_literal": "stuns",
+                "duration_seconds": 6
+              },
+              "break_on_hit_chance_percent_recorded": 25,
+              "single_target_interval_seconds_recorded": 30,
+              "target_level_maximum_recorded": 50,
+              "fear_mode_scope": null,
+              "break_on_hit_mode_scope": null,
+              "target_interval_mode_scope": null,
+              "target_level_limit_mode_scope": null,
+              "interval_reset_mechanics": null,
+              "hit_definition": null,
+              "stun_immunity_rules": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Eaon's Terrifying Trill",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/eaon-s-terrifying-trill",
+            "title": "Eaon's Terrifying Trill · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 75,
+        "collected_at": "2026-10-19T20:49:56+00:00",
+        "archive_fields": {
+          "level": [
+            "38"
+          ],
+          "energy cost": [
+            "199"
+          ],
+          "cast time": [
+            "1.0"
+          ],
+          "refresh": [
+            "8.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon20722.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 38,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 199
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 8.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon20722.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            199
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "8.0s",
+              "seconds": 8.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "fear_pvp_stun_tooltip_observation",
+                "target_phrase_recorded": "your target",
+                "fear_duration_seconds_recorded": 12,
+                "maximum_feared_targets_recorded": 1,
+                "pvp_effect_recorded": {
+                  "effect_literal": "stuns",
+                  "duration_seconds": 6
+                },
+                "break_on_hit_chance_percent_recorded": 25,
+                "single_target_interval_seconds_recorded": 30,
+                "target_level_maximum_recorded": 50,
+                "fear_mode_scope": null,
+                "break_on_hit_mode_scope": null,
+                "target_interval_mode_scope": null,
+                "target_level_limit_mode_scope": null,
+                "interval_reset_mechanics": null,
+                "hit_definition": null,
+                "stun_immunity_rules": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 253
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Printed tooltip observations only; historical correctness and operative mechanics remain unverified.",
+    "Hazoc embeds metadata inside Effect prose; numeric cast, refresh and range labels lack units and must not acquire inferred units.",
+    "Fear break-on-hit mode scope and target interval mechanics are unspecified.",
+    "Bladedancer percentage calculation and dance phase identity remain unknown.",
+    "Original immutable batches are unchanged; no extraction completeness claim."
+  ],
+  "next_step": "Extract the reviewed Hazoc attack-speed/upkeep and Bladedancer accuracy/critical-chance observations while preserving unknown units and mechanics."
+}

@@ -18,6 +18,25 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact reviewed fear tooltips; unqualified clauses retain unknown mode scope.
+    fear = re.fullmatch(
+        r'Fills your target with fear, causing it to flee in terror for 12 sec\. '
+        r'Only one target can be feared at a time\. In player versus player combat '
+        r'this spell stuns your target for 6 seconds\. Has a 25% chance to break on hit\. '
+        r'Only affects a single target every 30 seconds\. '
+        r'Effective on targets level (39|50) and lower\.', value.strip())
+    if fear:
+        facts.append(dict(kind='fear_pvp_stun_tooltip_observation',
+            target_phrase_recorded='your target', fear_duration_seconds_recorded=12,
+            maximum_feared_targets_recorded=1,
+            pvp_effect_recorded=dict(effect_literal='stuns', duration_seconds=6),
+            break_on_hit_chance_percent_recorded=25,
+            single_target_interval_seconds_recorded=30,
+            target_level_maximum_recorded=int(fear.group(1)),
+            fear_mode_scope=None, break_on_hit_mode_scope=None,
+            target_interval_mode_scope=None, target_level_limit_mode_scope=None,
+            interval_reset_mechanics=None, hit_definition=None,
+            stun_immunity_rules=None, operative_values=None, conditions_unparsed=True))
     # Exact iteration664 transcriptions; level mapping and unknown upkeep stay null.
     resistance_upkeep = {
         'Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level. Costs 6/sec energy.':
