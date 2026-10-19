@@ -18,6 +18,21 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    resistance = re.fullmatch(
+        r'Increases the (arcane, mental and spiritual|mental and spiritual|cold, fire and physical) '
+        r'(resistances|resistance) of all nearby allies by (20|10)\. Costs 4/sec energy\.',
+        value.strip())
+    if resistance and resistance.groups() in (
+            ('arcane, mental and spiritual', 'resistances', '20'),
+            ('mental and spiritual', 'resistances', '10'),
+            ('cold, fire and physical', 'resistance', '10')):
+        facts.append(dict(kind='nearby_resistance_tooltip_observation',
+            action_recorded='Increases', target_phrase_recorded='all nearby allies',
+            resistance_types_recorded=re.split(r', | and ', resistance.group(1)),
+            increase_recorded=int(resistance.group(3)), energy_per_second_recorded=4,
+            resistance_unit=None, nearby_radius=None, stacking=None, scaling=None,
+            upkeep_tick_timing=None, duration_seconds=None, operative_values=None,
+            conditions_unparsed=True))
     attack_speed = re.fullmatch(
         r'(Increases) the (melee attack speed) for (your gruop) by (12)%\.?'
         r'|(Increases) the (attack speed) of (your group) by (12)%\.?'
