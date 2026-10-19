@@ -18,6 +18,25 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration664 transcriptions; level mapping and unknown upkeep stay null.
+    resistance_upkeep = {
+        'Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level. Costs 6/sec energy.':
+            (['fire', 'cold', 'physical'], 6, '6'),
+        'Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16, depending on your level. Costs ?/sec energy.':
+            (['arcane', 'mental', 'spiritual'], None, '?'),
+    }.get(value.strip())
+    if resistance_upkeep:
+        schools, upkeep, upkeep_literal = resistance_upkeep
+        facts.append(dict(kind='level_dependent_resistance_upkeep_tooltip_observation',
+            resistance_range_recorded=dict(minimum=12, maximum=16,
+                resistance_types_literal=schools),
+            target_phrase_recorded='you and your group',
+            scaling_phrase_recorded='depending on your level',
+            energy_upkeep_recorded=dict(amount=upkeep, amount_literal=upkeep_literal,
+                unit_literal='/sec', resource_literal='energy'),
+            level_scaling_formula=None, resistance_unit=None, upkeep_schedule=None,
+            stacking_formula=None, instrument_scaling=None, operative_values=None,
+            conditions_unparsed=True))
     # Exact iteration661 transcription; printed endpoints do not establish scaling.
     if value.strip() == 'You release a deep, booming bellow, smashing your opponent for 790 to 832 arcane damage and stunning it for 4 sec.':
         facts.append(dict(kind='arcane_damage_stun_tooltip_observation',
