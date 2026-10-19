@@ -18,6 +18,19 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact resistance debuff literals reviewed in iteration675.
+    resistance_debuff = {
+        "This brass embellishment lowers your opponent's arcane resistance.": {'direction_reported': 'decrease', 'resistance_types_reported': ['arcane'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        'This brass embellishment lowers your opponents cold resistance.': {'direction_reported': 'decrease', 'resistance_types_reported': ['cold'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        "This brass embellishment lowers your opponent's physical resistance.": {'direction_reported': 'decrease', 'resistance_types_reported': ['physical'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        "This brass embellishment lowers your opponent's spiritual and mental restistance.": {'direction_reported': 'decrease', 'resistance_types_reported': ['spiritual', 'mental'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        "This brass embellishment lowers your opponent's fire resistance.": {'direction_reported': 'decrease', 'resistance_types_reported': ['fire'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        "This brass bridge reduces your opponent's arcane, fire and cold resistances.": {'direction_reported': 'decrease', 'resistance_types_reported': ['arcane', 'fire', 'cold'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+        "Reduces your opponent's physical, spiritual and mental resistances.": {'direction_reported': 'decrease', 'resistance_types_reported': ['physical', 'spiritual', 'mental'], 'target_reported': 'opponent', 'magnitude': None, 'unit': None, 'duration_seconds': None, 'stacking_rules': None, 'resistance_floor': None, 'operative_values': None, 'historical_authentication': None},
+    }.get(value.strip())
+    if resistance_debuff:
+        facts.append(dict(kind='resistance_debuff_tooltip_observation',
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **resistance_debuff))
     # Exact cure/dispel source literals reviewed in iteration673.
     removal = {
         'This voice lyric cures a friendly target of disease. The cure is slow, but constant.': {'action_reported': 'cure', 'condition_reported': 'disease', 'target_reported': 'friendly target', 'timing_qualifier_reported': 'slow but constant', 'enchantment_qualifier_reported': None, 'cure_count': None, 'pulse_interval_seconds': None, 'duration_seconds': None, 'dispel_strength': None, 'operative_values': None, 'historical_authentication': None},
