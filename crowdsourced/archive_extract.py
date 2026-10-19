@@ -19,6 +19,22 @@ def effect_facts(value):
     facts = []
     num = r'(\d+(?:\.\d+)?)'
     # Exact reviewed transcriptions; truncated Frost wording is deliberately retained.
+    # Literal-scoped observations from the hash-verified iteration630 source review.
+    hatred_critical = {
+        'Calms your opponent, reducing their hatred of you by 30%.': dict(
+            kind='hatred_reduction_tooltip_observation',
+            hatred_reduction_percent_recorded=30, subject_phrase_recorded='your opponent',
+            hatred_target_phrase_recorded='you', threat_formula=None, threat_floor=None,
+            duration_seconds=None),
+        'Your strikes become more precise as your weapons begin to sing, increasing critical chance by 100% for 3 sec.': dict(
+            kind='critical_chance_tooltip_observation',
+            critical_chance_increase_percent_recorded=100, duration_seconds_recorded=3,
+            relative_or_percentage_point_increase=None, resulting_critical_probability=None,
+            eligible_attack_types=None),
+    }.get(value.strip())
+    if hatred_critical:
+        facts.append(dict(**hatred_critical, scaling=None, operative_values=None,
+                          conditions_unparsed=True))
     armor_pulse = {'Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse.': {'armor_class_increase_recorded': 25,
                                                                                                                             'damage_absorbed_each_pulse_recorded': 25,
                                                                                                                             'energy_per_second_recorded': None,
