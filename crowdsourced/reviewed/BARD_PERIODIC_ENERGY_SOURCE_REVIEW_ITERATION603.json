@@ -1,0 +1,130 @@
+{
+  "review_kind": "bard_periodic_energy_restoration_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Energizing Embellishment",
+      "source_url": "https://vgsoharchive.com/abilities/energizing-embellishment",
+      "cache": {
+        "path": ".cache/archive/66c1fa4562c6e793061ad6668a6f3db29adcf657bce0b079ce3f3a3439b8b02d.txt",
+        "sha256": "9a4adb2eeb8ade73acdc753d815a326d7801eb73a782a7fba1e37afffefb0541"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "cafb40b1aed5b7bf5159942ebb35b7da0ba6416025c4b9ec0b26312451d1ae5c"
+        }
+      ],
+      "effect_text_sha256": "41a8390328c4a3b6853babb45316cb979c062928b3ef1e62e4c21acdb9e65600",
+      "literal": "Restores 2-4 energy to your group every 4 seconds",
+      "observation": {
+        "energy_minimum_recorded": 2,
+        "energy_maximum_recorded": 4,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "your group",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "energy_per_target": null
+      },
+      "current_literal_parser_facts": [],
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "periodic_energy_restoration_requires_tested_parser"
+    },
+    {
+      "name": "Cirel's Anthem of Clarity",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-anthem-of-clarity",
+      "cache": {
+        "path": ".cache/archive/6197fa3814892aeff5f53b2065f2e85a797381824d2a041d360aa0f6574a9ba4.txt",
+        "sha256": "b2cbfb2c6a69a2634ab5302b3f445fc4777688d6b8b53d14ef4a02a805dd8cc7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "a441a660918518e1488a4c7a8a3b8b4be8bae5f6f8ceed40f77585b94bb8c611"
+        }
+      ],
+      "effect_text_sha256": "b5f37a4b8c7f2449ec1b21c4eb2ba0f082ea4efb79579c78162a64672561c18d",
+      "literal": "Restores 12-21 energy to your group every 4 secs",
+      "observation": {
+        "energy_minimum_recorded": 12,
+        "energy_maximum_recorded": 21,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "your group",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "energy_per_target": null
+      },
+      "current_literal_parser_facts": [],
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "periodic_energy_restoration_requires_tested_parser"
+    },
+    {
+      "name": "Cirel's Air of the Clear Mind",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-air-of-the-clear-mind",
+      "cache": {
+        "path": ".cache/archive/c8f70ed9bb46ddcadb6a77d887e5aaeb531accf09f81d7779d8a5dcc74aa8f3e.txt",
+        "sha256": "f7f70b25de8d5326a20e0c533d25a3afd267b16b48e763819e2129314f089c81"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "c693022dc9eee747a6a6cb3aebb3d96ad607b993adf0ada2fdb078900475353a"
+        }
+      ],
+      "effect_text_sha256": "4db420a67cf49bed0b40be346d44f5653033a6632261c1b6d41f93928c19ec84",
+      "literal": "Restores 4-7 energy to your group every 4 secs",
+      "observation": {
+        "energy_minimum_recorded": 4,
+        "energy_maximum_recorded": 7,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "your group",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "energy_per_target": null
+      },
+      "current_literal_parser_facts": [],
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "periodic_energy_restoration_requires_tested_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "exact_effect_section_matches": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "python_tests_passed": 203
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Printed energy ranges, target phrases and pulse intervals retained as source claims. Total duration, first pulse timing, scaling and per-target application remain unknown. Original records unchanged; operative values withheld.",
+  "next_step": "Implement and test narrowly scoped periodic energy restoration extraction against these three cached cases, preserving unknown duration and scaling."
+}
