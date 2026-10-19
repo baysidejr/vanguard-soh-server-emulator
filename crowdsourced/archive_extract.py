@@ -18,6 +18,26 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration646 transcriptions; printed percentages establish no formula.
+    percent_modifier = {
+        'Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song.':
+            ([('spell accuracy', 'increase', 3), ('spell damage', 'increase', 3),
+              ('spell critical chance', 'increase', 2)], None,
+             'This component can only be used once in a song.'),
+        "Reduces your opponent's attack speed by 15% and movement by 60%. Does not stack with other snaring components.":
+            ([('attack speed', 'reduction', 15), ('movement', 'reduction', 60)],
+             'your opponent', 'Does not stack with other snaring components.'),
+    }.get(value.strip())
+    if percent_modifier:
+        modifiers, target, restriction = percent_modifier
+        facts.append(dict(kind='percent_modifier_tooltip_observation',
+                          modifiers_recorded=[dict(attribute_recorded=a,
+                              direction_recorded=d, percent_recorded=p)
+                              for a, d, p in modifiers],
+                          target_phrase_recorded=target,
+                          restriction_phrase_recorded=restriction,
+                          duration=None, percentage_calculation=None, stacking_formula=None,
+                          instrument_scaling=None, operative_values=None, conditions_unparsed=True))
     # Literal-scoped iteration643 review; printed level dependence is not a formula.
     periodic_recovery = {
         'Heals you and your group for 7-9, depending on your level, every 4 seconds. Costs 4/sec energy.':
