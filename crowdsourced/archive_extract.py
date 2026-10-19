@@ -18,6 +18,19 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    fence = re.fullmatch(
+        r'Raises your chance to parry incoming attacks by (\d+)% for (\d+) seconds '
+        r'or until you parry\. This turns off your auto-attack\.', value.strip(), re.I)
+    if fence:
+        percent, duration = map(int, fence.groups())
+        if percent > 0 and duration > 0:
+            facts.append(dict(kind='conditional_parry_buff_observation',
+                parry_chance_increase_percent_recorded=percent,
+                duration_seconds_recorded=duration,
+                early_expiry_condition_recorded='until you parry',
+                auto_attack_disabled_recorded=True, percent_interpretation=None,
+                guaranteed_parry=None, expiry_event_order=None,
+                affected_attack_types=None, conditions_unparsed=True))
     echo = re.fullmatch(
         r'You shout after a successful parry, dealing (\d+) to (\d+) damage '
         r'and restoring (\d+) of your endurance\. Only usable after you parry\.',
