@@ -18,6 +18,96 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact reviewed transcriptions; truncated Frost wording is deliberately retained.
+    proc_damage = {'Adds a 10% chance for your group to deal 144-159 cold damage with melee and ranged attac': {'chance_percent_recorded': 10,
+                                                                                                  'damage_range_recorded': [144,
+                                                                                                                            159],
+                                                                                                  'damage_type_recorded': 'cold',
+                                                                                                  'recipient_recorded': 'your '
+                                                                                                                        'group',
+                                                                                                  'attack_phrase_recorded': 'melee '
+                                                                                                                            'and '
+                                                                                                                            'ranged '
+                                                                                                                            'attac',
+                                                                                                  'truncated_text': True,
+                                                                                                  'energy_per_second_recorded': None,
+                                                                                                  'instrument_modifier_statement_recorded': None,
+                                                                                                  'trigger_probability_model': None,
+                                                                                                  'trigger_eligibility': None,
+                                                                                                  'damage_scaling': None,
+                                                                                                  'operative_values': None},
+     'Adds a 10% chance for your group to deal 186-201 fire damage with melee and ranged attacks.': {'chance_percent_recorded': 10,
+                                                                                                     'damage_range_recorded': [186,
+                                                                                                                               201],
+                                                                                                     'damage_type_recorded': 'fire',
+                                                                                                     'recipient_recorded': 'your '
+                                                                                                                           'group',
+                                                                                                     'attack_phrase_recorded': 'melee '
+                                                                                                                               'and '
+                                                                                                                               'ranged '
+                                                                                                                               'attacks',
+                                                                                                     'truncated_text': False,
+                                                                                                     'energy_per_second_recorded': None,
+                                                                                                     'instrument_modifier_statement_recorded': None,
+                                                                                                     'trigger_probability_model': None,
+                                                                                                     'trigger_eligibility': None,
+                                                                                                     'damage_scaling': None,
+                                                                                                     'operative_values': None},
+     'Adds a 10% chance to deal 283 to 302 fire damage with melee and ranged attacks. Costs 3/sec energy.': {'chance_percent_recorded': 10,
+                                                                                                             'damage_range_recorded': [283,
+                                                                                                                                       302],
+                                                                                                             'damage_type_recorded': 'fire',
+                                                                                                             'recipient_recorded': None,
+                                                                                                             'attack_phrase_recorded': 'melee '
+                                                                                                                                       'and '
+                                                                                                                                       'ranged '
+                                                                                                                                       'attacks',
+                                                                                                             'truncated_text': False,
+                                                                                                             'energy_per_second_recorded': 3,
+                                                                                                             'instrument_modifier_statement_recorded': None,
+                                                                                                             'trigger_probability_model': None,
+                                                                                                             'trigger_eligibility': None,
+                                                                                                             'damage_scaling': None,
+                                                                                                             'operative_values': None},
+     'Adds a 10% chance to deal 316 to 338 cold damage with melee and ranged attacks. Costs 3/sec energy.': {'chance_percent_recorded': 10,
+                                                                                                             'damage_range_recorded': [316,
+                                                                                                                                       338],
+                                                                                                             'damage_type_recorded': 'cold',
+                                                                                                             'recipient_recorded': None,
+                                                                                                             'attack_phrase_recorded': 'melee '
+                                                                                                                                       'and '
+                                                                                                                                       'ranged '
+                                                                                                                                       'attacks',
+                                                                                                             'truncated_text': False,
+                                                                                                             'energy_per_second_recorded': 3,
+                                                                                                             'instrument_modifier_statement_recorded': None,
+                                                                                                             'trigger_probability_model': None,
+                                                                                                             'trigger_eligibility': None,
+                                                                                                             'damage_scaling': None,
+                                                                                                             'operative_values': None},
+     'Adds a 10% chance to deal 343 to 364 poison damage with melee and ranged attacks. - Instrument modifiers alter proc chance. Costs 3/sec energy.': {'chance_percent_recorded': 10,
+                                                                                                                                                         'damage_range_recorded': [343,
+                                                                                                                                                                                   364],
+                                                                                                                                                         'damage_type_recorded': 'poison',
+                                                                                                                                                         'recipient_recorded': None,
+                                                                                                                                                         'attack_phrase_recorded': 'melee '
+                                                                                                                                                                                   'and '
+                                                                                                                                                                                   'ranged '
+                                                                                                                                                                                   'attacks',
+                                                                                                                                                         'truncated_text': False,
+                                                                                                                                                         'energy_per_second_recorded': 3,
+                                                                                                                                                         'instrument_modifier_statement_recorded': 'Instrument '
+                                                                                                                                                                                                   'modifiers '
+                                                                                                                                                                                                   'alter '
+                                                                                                                                                                                                   'proc '
+                                                                                                                                                                                                   'chance.',
+                                                                                                                                                         'trigger_probability_model': None,
+                                                                                                                                                         'trigger_eligibility': None,
+                                                                                                                                                         'damage_scaling': None,
+                                                                                                                                                         'operative_values': None}}.get(value.strip())
+    if proc_damage:
+        facts.append(dict(kind="proc_damage_tooltip_observation", **proc_damage,
+                          conditions_unparsed=True))
     reactive = {
         'Attacks against you resonate sharply, dealing 15 damage to your attackers.':
             (15, 'your attackers', 'Attacks against you'),
