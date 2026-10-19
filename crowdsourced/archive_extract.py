@@ -18,6 +18,67 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration690.
+    blood_mage = {'Infuses 113 health into your defensive target. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'healing',
+                                                                                                        'recipient_reported': 'your '
+                                                                                                                              'defensive '
+                                                                                                                              'target',
+                                                                                                        'health_amount': 113,
+                                                                                                        'blood_union_bonus_percent_per_level': 2,
+                                                                                                        'bonus_basis': None,
+                                                                                                        'duration_seconds': None,
+                                                                                                        'tick_interval_seconds': None,
+                                                                                                        'stacking_rules': None,
+                                                                                                        'operative_values': None,
+                                                                                                        'historical_authentication': None},
+     "Grafts blood and flesh onto your defensive target's party, granting them an additional 54 health for 1 hour.": {'effect_reported': 'additional_health',
+                                                                                                                      'recipient_reported': 'your '
+                                                                                                                                            'defensive '
+                                                                                                                                            "target's "
+                                                                                                                                            'party',
+                                                                                                                      'health_amount': 54,
+                                                                                                                      'duration_seconds': 3600,
+                                                                                                                      'health_pool_semantics': None,
+                                                                                                                      'tick_interval_seconds': None,
+                                                                                                                      'stacking_rules': None,
+                                                                                                                      'operative_values': None,
+                                                                                                                      'historical_authentication': None},
+     'Infuses 321 health into your defensive target. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'healing',
+                                                                                                        'recipient_reported': 'your '
+                                                                                                                              'defensive '
+                                                                                                                              'target',
+                                                                                                        'health_amount': 321,
+                                                                                                        'blood_union_bonus_percent_per_level': 2,
+                                                                                                        'bonus_basis': None,
+                                                                                                        'duration_seconds': None,
+                                                                                                        'tick_interval_seconds': None,
+                                                                                                        'stacking_rules': None,
+                                                                                                        'operative_values': None,
+                                                                                                        'historical_authentication': None},
+     'Transmutes 115 health into 115 energy.': {'effect_reported': 'health_to_energy_conversion',
+                                                'health_consumed': 115,
+                                                'energy_granted': 115,
+                                                'recipient_reported': None,
+                                                'duration_seconds': None,
+                                                'tick_interval_seconds': None,
+                                                'stacking_rules': None,
+                                                'operative_values': None,
+                                                'historical_authentication': None},
+     "Fills your defensive target's party with life, granting them 23 additional vitality.": {'effect_reported': 'stat_increase',
+                                                                                              'recipient_reported': 'your '
+                                                                                                                    'defensive '
+                                                                                                                    "target's "
+                                                                                                                    'party',
+                                                                                              'stat_reported': 'vitality',
+                                                                                              'amount': 23,
+                                                                                              'duration_seconds': None,
+                                                                                              'tick_interval_seconds': None,
+                                                                                              'stacking_rules': None,
+                                                                                              'operative_values': None,
+                                                                                              'historical_authentication': None}}.get(value.strip())
+    if blood_mage:
+        facts.append(dict(kind="blood_mage_healing_conversion_buff_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **blood_mage))
     # Exact remaining Bard literals source-reviewed in iteration685.
     remaining_bard = {'This wind bridge protects you and your allies from fire and cold.': {'effect_reported': 'protection',
                                                                            'damage_types_reported': ['fire',
