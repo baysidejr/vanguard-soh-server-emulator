@@ -1,0 +1,68 @@
+{
+  "review_kind": "bard_fence_conditional_parry_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Fence",
+      "source_url": "https://vgsoharchive.com/abilities/fence",
+      "cache": {
+        "path": ".cache/archive/b2fda1113539fe06ec2a77b768d5abe6a960cd25ea571eb262be5dbfb09d2727.txt",
+        "sha256": "11d1ed6b22667c039ccb9a41f4b3e19c6f318003cbe8a88ade7e8e644ce3af79"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "d013c7de9108933ce82c8170b217e144481b71ceb8e133991998a579312dc8f4"
+        }
+      ],
+      "effect_text_sha256": "6cbcb97af21c30e38f49297047e444c0ef86c7e9ee8a27af3070becaf313c9f5",
+      "literal": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry. This turns off your auto-attack.",
+      "observation": {
+        "parry_chance_increase_percent_recorded": 100,
+        "duration_seconds_recorded": 60,
+        "early_expiry_condition_recorded": "until you parry",
+        "auto_attack_disabled_recorded": true,
+        "percent_interpretation": null,
+        "guaranteed_parry": null,
+        "expiry_event_order": null,
+        "affected_attack_types": null
+      },
+      "current_literal_parser_facts": [],
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "conditional_parry_buff_requires_tested_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "exact_effect_section_matches": 1,
+    "whole_page_replays": 1,
+    "issues": 0,
+    "python_tests_passed": 199
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Printed parry chance increase, duration, conditional expiry and auto-attack shutdown retained as source claims. A 100% increase does not establish a guaranteed parry or percentage-point arithmetic. Attack eligibility, event ordering and historical authenticity remain unknown. Original records unchanged; operative values withheld.",
+  "next_step": "Implement and test narrowly scoped Fence extraction preserving conditional expiry and unknown percent interpretation."
+}
