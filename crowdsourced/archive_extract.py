@@ -18,6 +18,24 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration640 transcriptions; resistance school is not damage school.
+    resistance_shield = {
+        'Increases the cold resistance of your group by 8 and burns any attackkers for 6 damage.':
+            ('cold', 8, 'your group', 6, None, 'any attackkers'),
+        'Increases the fire resistance of your group by 8 burns any attackers for 6 damage.':
+            ('fire', 8, 'your group', 6, None, 'any attackers'),
+        'This wind embellishment increases the cold resistance of you and your allies and grants a 2 point damage shield.':
+            ('cold', None, 'you and your allies', None, 2, None),
+    }.get(value.strip())
+    if resistance_shield:
+        school, amount, target, damage, shield, reactive_target = resistance_shield
+        facts.append(dict(kind='resistance_damage_shield_tooltip_observation',
+                          resistance_type_recorded=school, resistance_increase_recorded=amount,
+                          target_phrase_recorded=target, reactive_damage_recorded=damage,
+                          damage_shield_points_recorded=shield,
+                          reactive_target_phrase_recorded=reactive_target,
+                          damage_school=None, trigger=None, scaling=None, stacking=None,
+                          duration=None, operative_values=None, conditions_unparsed=True))
     # Literal-scoped iteration637 reviews; percentages establish no timing formula.
     speed_modifier = {
         'Increase the spell casting speed for your group by 5%':
