@@ -18,6 +18,23 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Literal-scoped iteration643 review; printed level dependence is not a formula.
+    periodic_recovery = {
+        'Heals you and your group for 7-9, depending on your level, every 4 seconds. Costs 4/sec energy.':
+            ('health', 7, 9, 'you and your group'),
+        'Restores 6 energy, depending on your level, to your group every 4 seconds. Costs 4/sec energy.':
+            ('energy', 6, 6, 'your group'),
+    }.get(value.strip())
+    if periodic_recovery:
+        resource, low, high, target = periodic_recovery
+        facts.append(dict(kind='level_dependent_periodic_recovery_tooltip_observation',
+                          recovery_resource_recorded=resource,
+                          recovery_minimum_recorded=low, recovery_maximum_recorded=high,
+                          recovery_interval_seconds_recorded=4, target_phrase_recorded=target,
+                          cost_resource_recorded='energy', cost_per_second_recorded=4,
+                          level_dependency_phrase_recorded='depending on your level',
+                          level_scaling_formula=None, duration=None, stacking=None,
+                          eligibility=None, operative_values=None, conditions_unparsed=True))
     # Exact iteration640 transcriptions; resistance school is not damage school.
     resistance_shield = {
         'Increases the cold resistance of your group by 8 and burns any attackkers for 6 damage.':
