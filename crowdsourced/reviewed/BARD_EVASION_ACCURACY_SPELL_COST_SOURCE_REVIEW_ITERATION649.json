@@ -1,0 +1,305 @@
+{
+  "review_kind": "bard_evasion_accuracy_spell_cost_source_review",
+  "input": {
+    "path": "reviewed/BARD_NUMERIC_PATTERN_COVERAGE_ITERATION648.json",
+    "sha256": "9722d81af799a04d16e0f8f301a875f930ed8d6255c7c401141b3809d826ca0a"
+  },
+  "parser_version": 68,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Irion's Hymn of the Lithe",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-lithe",
+      "cache": {
+        "path": ".cache/archive/7bd3a9db7ceab82b2f8acf07c9d842d0b97569ae55fb689910ce9b918b0580dc.txt",
+        "sha256": "6f63e12c9bd72b072f09f249e158cd04f596b5a955149359b8601dd8c1179bd1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "443b602185d814b6ca91c5a3f04521a4f1df323588e2a7d599f81bfdac5bbffe"
+        }
+      ],
+      "effect_sections": [
+        "This string chorus increases you and your allies evasion by 2% and increases parry and dodge skill."
+      ],
+      "observations": [
+        {
+          "literal": "This string chorus increases you and your allies evasion by 2% and increases parry and dodge skill.",
+          "text_sha256": "5a7e02095b7d48510fec02db0e6a9d591588e06bb2af5e216eae50d7830fbba8",
+          "modifiers_recorded": [
+            {
+              "attribute_recorded": "evasion",
+              "direction_recorded": "increase",
+              "percent_recorded": 2
+            },
+            {
+              "attribute_recorded": "parry skill",
+              "direction_recorded": "increase",
+              "percent_recorded": null
+            },
+            {
+              "attribute_recorded": "dodge skill",
+              "direction_recorded": "increase",
+              "percent_recorded": null
+            }
+          ],
+          "target_phrase_recorded": "you and your allies",
+          "duration_phrase_recorded": null,
+          "duration_seconds_recorded": null,
+          "duration_scope": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Irion's Hymn of the Lithe",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-lithe",
+            "title": "Irion's Hymn of the Lithe · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 68,
+        "collected_at": "2026-10-19T18:52:34+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "33"
+          ],
+          "level": [
+            "33"
+          ],
+          "energy cost": [
+            "5"
+          ],
+          "song portion": [
+            "Chorus"
+          ],
+          "instrument": [
+            "String"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 33,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 5
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This string chorus increases you and your allies evasion by 2% and increases parry and dodge skill.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 33,
+            "raw": "33"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            5
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/irions-hymn-of-the-lithe-156.php"
+        ]
+      }
+    },
+    {
+      "name": "Ariezel's Insidious Shriek",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-insidious-shriek",
+      "cache": {
+        "path": ".cache/archive/dcee63f8710ce2b317dddb97e7fec6d7480b7a04c4a337a95af50552cd4a2d76.txt",
+        "sha256": "902369c7ad20333e27b156fa8f3e9e516646f32ef357397c355a56368cfa5a46"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "f1906e0849afa75ae65b205282f4c1edaae16b4583b7ebf6c8704e4b64485bfc"
+        }
+      ],
+      "effect_sections": [
+        "Confuses your opponent, reducing their accuracy by 20% and increasing the cost of their spells by 30% for 45 sec."
+      ],
+      "observations": [
+        {
+          "literal": "Confuses your opponent, reducing their accuracy by 20% and increasing the cost of their spells by 30% for 45 sec.",
+          "text_sha256": "314e8f0a6a820e82ebe07a8eff997ac44dcc1423ba5af97ed4c89b872bf485ef",
+          "modifiers_recorded": [
+            {
+              "attribute_recorded": "accuracy",
+              "direction_recorded": "reduction",
+              "percent_recorded": 20
+            },
+            {
+              "attribute_recorded": "cost of spells",
+              "direction_recorded": "increase",
+              "percent_recorded": 30
+            }
+          ],
+          "target_phrase_recorded": "your opponent",
+          "duration_phrase_recorded": "for 45 sec.",
+          "duration_seconds_recorded": 45,
+          "duration_scope": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Ariezel's Insidious Shriek",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/ariezel-s-insidious-shriek",
+            "title": "Ariezel's Insidious Shriek · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 68,
+        "collected_at": "2026-10-19T18:52:34+00:00",
+        "archive_fields": {
+          "level": [
+            "37"
+          ],
+          "energy cost": [
+            "88"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "1:00s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon439.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 37,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 88
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Confuses your opponent, reducing their accuracy by 20% and increasing the cost of their spells by 30% for 45 sec.",
+        "icon_name": "Icon439.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            88
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Single archive transcriptions do not establish historical mechanics.",
+    "Printed percentages do not establish calculation bases or instrument scaling. The final duration phrase is preserved without inferring its scope across clauses.",
+    "Parry and dodge skill increases are unquantified; the evasion percentage is not assigned to them. Confusion wording does not establish crowd-control mechanics.",
+    "Original batches remain immutable; observations are not operative server values."
+  ],
+  "next_step": "Implement and test constrained evasion, accuracy and spell-cost observations for these two tooltips, preserving unquantified skills and unknown duration scope."
+}
