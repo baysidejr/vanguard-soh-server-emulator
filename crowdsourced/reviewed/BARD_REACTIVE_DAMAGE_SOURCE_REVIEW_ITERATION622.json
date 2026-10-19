@@ -1,0 +1,434 @@
+{
+  "review_kind": "bard_reactive_damage_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 58,
+  "rows": [
+    {
+      "name": "Ariezel's Minor Resonation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-minor-resonation",
+      "cache": {
+        "path": ".cache/archive/ada35ce76de9778528e278e01da95298586d1919743da258f6a6880a578e33a7.txt",
+        "sha256": "fcef6f5a94c68fdbb5c0a274035e2c8bb9440a4b44f2f265d740264ebb88b50e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 3,
+          "record_sha256": "d73cf3fa997f6d6af36f9b92b9fbaa2ea34cb5d0bf210e8a375bac04c9d0d30b"
+        }
+      ],
+      "literal": "Attacks against you resonate sharply, dealing 15 damage to your attackers.",
+      "effect_text_sha256": "dfe88dfbe825c7fae5741614bbfc2f5a2704b26444bd439aff8e3cb8a47dd8ac",
+      "observation": {
+        "damage_recorded": 15,
+        "recipient_recorded": "your attackers",
+        "trigger_recorded": "Attacks against you",
+        "damage_type": null,
+        "trigger_probability": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Ariezel's Minor Resonation",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/ariezel-s-minor-resonation",
+            "title": "Ariezel's Minor Resonation · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 58,
+        "collected_at": "2026-10-19T16:05:48+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "8"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "8"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 8,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Attacks against you resonate sharply, dealing 15 damage to your attackers.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 8,
+            "raw": "8"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:ariezel-s-minor-resonation"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Ariezel's Deafening Discord",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-deafening-discord",
+      "cache": {
+        "path": ".cache/archive/6d9ade024d78beeeb844f71628f67029984cbe50ae711eb587961aa3fb7b22ac.txt",
+        "sha256": "9f9fd78d91db00cf0d79f8dd86b52f0f86f24fc7c27749063717e31c1174ecae"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "530bc09a5a45c3297115d0c93326cdcda4fc69f48a1626a5aee6e0766a38d3c1"
+        }
+      ],
+      "literal": "Strikes those that attack you or your group with discordant notes, causing 24 damage",
+      "effect_text_sha256": "25f79813c8dc6654b1a6248eaaccea26acccc1ef94991cc987023f68dfbc7d55",
+      "observation": {
+        "damage_recorded": 24,
+        "recipient_recorded": "those that attack you or your group",
+        "trigger_recorded": "attack you or your group",
+        "damage_type": null,
+        "trigger_probability": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Ariezel's Deafening Discord",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/ariezel-s-deafening-discord",
+            "title": "Ariezel's Deafening Discord · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 58,
+        "collected_at": "2026-10-19T16:05:48+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "48 — now 25"
+          ],
+          "level in 2007-2008": [
+            "25"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "25"
+          ],
+          "energy cost": [
+            "5"
+          ],
+          "song portion": [
+            "Verse"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Voice"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 25,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 5
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Strikes those that attack you or your group with discordant notes, causing 24 damage",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 48,
+            "raw": "48 — now 25"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 25,
+            "raw": "25"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            5
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:ariezel-s-deafening-discord"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Ariezel's Resonation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-resonation",
+      "cache": {
+        "path": ".cache/archive/6cc26ea7a173eafcc8aad1e5653910a6994bc6dbb112251f1625c68e0127228e.txt",
+        "sha256": "6edcac8c9356416f1dfabbaaf6563435ee627c0108d3d7d653371817e216c85b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 56,
+          "record_sha256": "e937c69b2f43ec11191f4179fb4688380fa3687240a3c44841ea31d61d285e21"
+        }
+      ],
+      "literal": "Attacks against you resonate sharply, dealing 30 damage to your attackers.",
+      "effect_text_sha256": "bbfe079d9e6c43e1a0568ced02251e7e54d7c215903a793b0a5e41ee28e9d1a6",
+      "observation": {
+        "damage_recorded": 30,
+        "recipient_recorded": "your attackers",
+        "trigger_recorded": "Attacks against you",
+        "damage_type": null,
+        "trigger_probability": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Ariezel's Resonation",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/ariezel-s-resonation",
+            "title": "Ariezel's Resonation · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 58,
+        "collected_at": "2026-10-19T16:05:48+00:00",
+        "archive_fields": {
+          "level": [
+            "28"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 28,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Attacks against you resonate sharply, dealing 30 damage to your attackers.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:ariezel-s-resonation"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 219
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive transcriptions are not independently authenticated live-era evidence.",
+    "Damage amounts are printed observations; damage type, mitigation, scaling, radius, proc chance and attack eligibility remain unknown.",
+    "Deafening Discord names attacks on you or your group; group-wide attacker selection and per-hit behavior are not inferred.",
+    "No operative combat values are promoted."
+  ],
+  "next_step": "Implement and test constrained reactive-damage observations for these three tooltips, preserving unknown damage type and trigger mechanics."
+}
