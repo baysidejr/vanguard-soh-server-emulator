@@ -18,6 +18,17 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    movement = re.fullmatch(
+        r'Increases the (movement speed|movement rate) of your group by (\d+)%\.?',
+        value.strip())
+    if movement and int(movement.group(2)) > 0:
+        facts.append(dict(kind='group_movement_tooltip_observation',
+            effect_word_recorded='Increases', target_phrase_recorded='your group',
+            movement_word_recorded=movement.group(1),
+            increase_percent_recorded=int(movement.group(2)),
+            stacking=None, scaling=None, base_movement_speed=None,
+            percent_interpretation=None, combat_applicability=None,
+            duration_seconds=None, operative_values=None, conditions_unparsed=True))
     # Exact reviewed prose only: neither effect establishes complete action denial.
     if value.strip() == 'Lulls the target, preventing it from assisting nearby allies for 18 seconds.':
         facts.append(dict(kind='lull_tooltip_observation',
