@@ -18,6 +18,14 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact reactive and poison attack literals reviewed in iteration685.
+    combat_observation = {
+        'This voice lyric deals damage to anyone who attack you and your allies.': {'effect_reported': 'reactive_damage', 'recipient_reported': 'anyone who attack you and your allies', 'trigger_reported': 'attack you and your allies', 'damage_type_reported': None, 'magnitude': None, 'unit': None, 'duration_seconds': None, 'tick_interval_seconds': None, 'stacking_rules': None, 'operative_values': None, 'historical_authentication': None},
+        'This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.': {'effect_reported': 'additional_attack_damage', 'damage_type_reported': 'poison', 'target_reported': 'you and your allies', 'proc_modifier_reported': 'Instrument modifiers alter proc chance', 'proc_chance': None, 'magnitude': None, 'unit': None, 'duration_seconds': None, 'tick_interval_seconds': None, 'stacking_rules': None, 'operative_values': None, 'historical_authentication': None},
+    }.get(value.strip())
+    if combat_observation:
+        facts.append(dict(kind="nonnumeric_combat_tooltip_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **combat_observation))
     # Exact speed and damage literals reviewed in iteration683.
     speed_damage = {"This brass verse reduces your opponent's movement speed.": {'direction_reported': 'decrease',
                                                                   'stat_reported': 'movement_speed',

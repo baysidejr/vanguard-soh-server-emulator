@@ -1,0 +1,337 @@
+{
+  "review_kind": "constrained_reactive_poison_attack_extraction",
+  "parser_version": 84,
+  "input": {
+    "path": "reviewed/BARD_REMAINING_NONNUMERIC_COMBAT_SOURCE_REVIEW_ITERATION685.json",
+    "sha256": "8689c5a62d626e98ff480ced834b545dfb6f300c88cd5530767b604ebf22f6f0"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Ariezel's Resounding Reverberation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-resounding-reverberation",
+      "cache": {
+        "path": ".cache/archive/11f573a34c31426f5a6763f4ccec87b4a2795f2dfc950ec1fc810741b240b802.txt",
+        "sha256": "6015127c5ea6708b2d0c82509e75e497a0f5ba1b706545225180e4c7cf6b2631"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 57,
+          "record_sha256": "8434a8e5492063c3906a69551fb279b616fe1f700ef29ce579d82c45082fde11"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice lyric deals damage to anyone who attack you and your allies.",
+          "literal_sha256": "21b571eea061417d2278dcb9b69f37bdf69d278ec1e330dc9f4ca2af01fadd30",
+          "effect_facts": [
+            {
+              "kind": "nonnumeric_combat_tooltip_observation",
+              "effect_phrase_recorded": "This voice lyric deals damage to anyone who attack you and your allies.",
+              "conditions_unparsed": true,
+              "effect_reported": "reactive_damage",
+              "recipient_reported": "anyone who attack you and your allies",
+              "trigger_reported": "attack you and your allies",
+              "damage_type_reported": null,
+              "magnitude": null,
+              "unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Ariezel's Resounding Reverberation",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ariezel-s-resounding-reverberation",
+              "title": "Ariezel's Resounding Reverberation · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 84,
+          "collected_at": "2026-10-19T22:41:01+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "32"
+            ],
+            "level": [
+              "32"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "instrument": [
+              "Voice"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 32,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice lyric deals damage to anyone who attack you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 32,
+              "raw": "32"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "nonnumeric_combat_tooltip_observation",
+                  "effect_phrase_recorded": "This voice lyric deals damage to anyone who attack you and your allies.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "reactive_damage",
+                  "recipient_reported": "anyone who attack you and your allies",
+                  "trigger_reported": "attack you and your allies",
+                  "damage_type_reported": null,
+                  "magnitude": null,
+                  "unit": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/ariezels-resounding-reverberation-155.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gamael's Blades of Venom",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+      "cache": {
+        "path": ".cache/archive/4acf77afd0f118e816e3d3d7104378da71976bba44395260bba16679ec4d77e8.txt",
+        "sha256": "badda2fc38330e3873e414e0bbe270288011e8ba82982b332183fb88b7fc63b7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "4a3bc4914b2290ed2be868997451ed14f8b33c3e9cc21591506ec27b4c0714ba"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+          "literal_sha256": "728a625df222a775657087e8aee7a17c384c7e1f306dfa9632e92deb1632b9a9",
+          "effect_facts": [
+            {
+              "kind": "nonnumeric_combat_tooltip_observation",
+              "effect_phrase_recorded": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+              "conditions_unparsed": true,
+              "effect_reported": "additional_attack_damage",
+              "damage_type_reported": "poison",
+              "target_reported": "you and your allies",
+              "proc_modifier_reported": "Instrument modifiers alter proc chance",
+              "proc_chance": null,
+              "magnitude": null,
+              "unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Gamael's Blades of Venom",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+              "title": "Gamael's Blades of Venom · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 84,
+          "collected_at": "2026-10-19T22:41:01+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "35 — now 32"
+            ],
+            "level": [
+              "32"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 32,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 35,
+              "raw": "35 — now 32"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "nonnumeric_combat_tooltip_observation",
+                  "effect_phrase_recorded": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "additional_attack_damage",
+                  "damage_type_reported": "poison",
+                  "target_reported": "you and your allies",
+                  "proc_modifier_reported": "Instrument modifiers alter proc chance",
+                  "proc_chance": null,
+                  "magnitude": null,
+                  "unit": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/gamaels-blades-of-venom-154.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 272
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_unreviewed_nonnumeric_sections": 0,
+  "reviewed_sections_awaiting_parser_implementation": 5,
+  "limitations": [
+    "Candidates are source review, not typed game facts or operative server mechanics.",
+    "Protection from fire and cold does not establish resistance, absorption or immunity.",
+    "Instrument modifiers alter proc chance without specifying direction, magnitude or formula.",
+    "Reactive damage trigger and recipient wording retained literally; no attack type or reflection formula inferred.",
+    "Unspecified magnitude, timing, stacking, target and historical applicability remain null.",
+    "Zero remaining sections refers only to the iteration671 nonnumeric review inventory; archive collection and other extraction remain incomplete.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Implement and test the five remaining source-reviewed Bard nonnumeric observations."
+}
