@@ -18,6 +18,25 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact iteration655 reviews; upkeep scheduling and percentage base are unknown.
+    refresh_upkeep = {
+        'Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy.':
+            ([dict(attribute_literal='spell and attack refresh timers',
+                   direction_recorded='reduction', percent_recorded=20,
+                   target_phrase_recorded='your group')], 8),
+        'Increases all resistances of you and your allies. Costs 2/sec energy.':
+            ([dict(attribute_literal='all resistances', direction_recorded='increase',
+                   value=None, target_phrase_recorded='you and your allies')], 2),
+    }.get(value.strip())
+    if refresh_upkeep:
+        modifiers, upkeep = refresh_upkeep
+        facts.append(dict(kind='refresh_energy_upkeep_tooltip_observation',
+                          modifiers_recorded=modifiers,
+                          energy_upkeep_recorded=dict(amount=upkeep,
+                              resource_literal='energy', per_unit_literal='sec'),
+                          resistance_amount=None, percentage_calculation=None,
+                          stacking_formula=None, instrument_scaling=None,
+                          duration=None, operative_values=None, conditions_unparsed=True))
     # Exact iteration652 transcriptions; preserve spelling and unknown scaling.
     reviewed_reductions = {
         "Reduces your opponent's AC by 25-95 and strengthe by 6-8": [

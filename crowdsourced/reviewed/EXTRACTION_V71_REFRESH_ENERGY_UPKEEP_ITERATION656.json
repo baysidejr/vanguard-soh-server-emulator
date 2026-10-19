@@ -1,0 +1,533 @@
+{
+  "review_kind": "parser_v71_refresh_energy_upkeep_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_REFRESH_ENERGY_UPKEEP_SOURCE_REVIEW_ITERATION655.json",
+    "sha256": "867687ba051d892d5b072ff66d59008444e93b8f7052e8d8453e8f31e12e875a"
+  },
+  "parser_version": 71,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Coda of Alacrity",
+        "source_url": "https://vgsoharchive.com/abilities/coda-of-alacrity",
+        "cache": {
+          "path": ".cache/archive/9a4ec3cdc8f625bd29f02cb5a71455d8e8c8cb8db7fc44cf225cb9621de60d08.txt",
+          "sha256": "783d32d8fbf83dc55a2b69dc96e3f8d6cd1d3296f9c128996f64b59170a9f6c6"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+            "line": 61,
+            "record_sha256": "d77fb7ecb998aa0280744df937470e23c6aebd49dc3fd8dd2b8a42a146c08dbb"
+          }
+        ],
+        "effect_sections": [
+          "Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy."
+        ],
+        "observations": [
+          {
+            "literal": "Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy.",
+            "text_sha256": "24318c5f736daeb170aaedbe7ac93c7b848442d9d496c6de1273be5c28a496a1",
+            "modifiers_recorded": [
+              {
+                "attribute_literal": "spell and attack refresh timers",
+                "direction_recorded": "reduction",
+                "percent_recorded": 20,
+                "target_phrase_recorded": "your group"
+              }
+            ],
+            "energy_upkeep_recorded": {
+              "amount": 8,
+              "resource_literal": "energy",
+              "per_unit_literal": "sec"
+            },
+            "resistance_amount": null,
+            "percentage_calculation": null,
+            "stacking_formula": null,
+            "instrument_scaling": null,
+            "duration": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Coda of Alacrity",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/coda-of-alacrity",
+              "title": "Coda of Alacrity \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 70,
+          "collected_at": "2026-10-19T19:29:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "48"
+            ],
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "8"
+            ],
+            "song portion": [
+              "Coda"
+            ],
+            "type": [
+              "Coda"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 48,
+          "rank": null,
+          "category": "Coda",
+          "cost": {
+            "energy": 8
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 48,
+              "raw": "48"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              8
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Coda of Alacrity",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/coda-of-alacrity",
+            "title": "Coda of Alacrity \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 71,
+        "collected_at": "2026-10-19T19:35:35+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "48"
+          ],
+          "level": [
+            "48"
+          ],
+          "energy cost": [
+            "8"
+          ],
+          "song portion": [
+            "Coda"
+          ],
+          "type": [
+            "Coda"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 48,
+        "rank": null,
+        "category": "Coda",
+        "cost": {
+          "energy": 8
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 48,
+            "raw": "48"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            8
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "refresh_energy_upkeep_tooltip_observation",
+                "modifiers_recorded": [
+                  {
+                    "attribute_literal": "spell and attack refresh timers",
+                    "direction_recorded": "reduction",
+                    "percent_recorded": 20,
+                    "target_phrase_recorded": "your group"
+                  }
+                ],
+                "energy_upkeep_recorded": {
+                  "amount": 8,
+                  "resource_literal": "energy",
+                  "per_unit_literal": "sec"
+                },
+                "resistance_amount": null,
+                "percentage_calculation": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "duration": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "refresh_energy_upkeep_tooltip_observation",
+          "modifiers_recorded": [
+            {
+              "attribute_literal": "spell and attack refresh timers",
+              "direction_recorded": "reduction",
+              "percent_recorded": 20,
+              "target_phrase_recorded": "your group"
+            }
+          ],
+          "energy_upkeep_recorded": {
+            "amount": 8,
+            "resource_literal": "energy",
+            "per_unit_literal": "sec"
+          },
+          "resistance_amount": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "duration": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Feos' Securing Anthem",
+        "source_url": "https://vgsoharchive.com/abilities/feos-securing-anthem",
+        "cache": {
+          "path": ".cache/archive/1fc1ac4b6a279d3a0d25787304769067cadfb5297c00931f1acd3b52d9e85fd6.txt",
+          "sha256": "547f6283511f02b27743926ed9bfe56bae67fad80fef2c7c269b6f7581bcfaa5"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+            "line": 14,
+            "record_sha256": "1f73266f39a0eb46776784da61f8f39d70172bcbc27ec0502017e4535c859d78"
+          }
+        ],
+        "effect_sections": [
+          "Increases all resistances of you and your allies. Costs 2/sec energy."
+        ],
+        "observations": [
+          {
+            "literal": "Increases all resistances of you and your allies. Costs 2/sec energy.",
+            "text_sha256": "ec3e3556757330e068780294971d8b407541c00e0c27cbba4e2c7391074e2b60",
+            "modifiers_recorded": [
+              {
+                "attribute_literal": "all resistances",
+                "direction_recorded": "increase",
+                "value": null,
+                "target_phrase_recorded": "you and your allies"
+              }
+            ],
+            "energy_upkeep_recorded": {
+              "amount": 2,
+              "resource_literal": "energy",
+              "per_unit_literal": "sec"
+            },
+            "resistance_amount": null,
+            "percentage_calculation": null,
+            "stacking_formula": null,
+            "instrument_scaling": null,
+            "duration": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Feos' Securing Anthem",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/feos-securing-anthem",
+              "title": "Feos' Securing Anthem \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 70,
+          "collected_at": "2026-10-19T19:29:17+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Melody"
+            ],
+            "type": [
+              "Melody"
+            ],
+            "instrument": [
+              "Wind"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 50,
+          "rank": null,
+          "category": "Melody",
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases all resistances of you and your allies. Costs 2/sec energy.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Feos' Securing Anthem",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-securing-anthem",
+            "title": "Feos' Securing Anthem \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 71,
+        "collected_at": "2026-10-19T19:35:35+00:00",
+        "archive_fields": {
+          "level": [
+            "50"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Melody"
+          ],
+          "type": [
+            "Melody"
+          ],
+          "instrument": [
+            "Wind"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 50,
+        "rank": null,
+        "category": "Melody",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Increases all resistances of you and your allies. Costs 2/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "refresh_energy_upkeep_tooltip_observation",
+                "modifiers_recorded": [
+                  {
+                    "attribute_literal": "all resistances",
+                    "direction_recorded": "increase",
+                    "value": null,
+                    "target_phrase_recorded": "you and your allies"
+                  }
+                ],
+                "energy_upkeep_recorded": {
+                  "amount": 2,
+                  "resource_literal": "energy",
+                  "per_unit_literal": "sec"
+                },
+                "resistance_amount": null,
+                "percentage_calculation": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "duration": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "refresh_energy_upkeep_tooltip_observation",
+          "modifiers_recorded": [
+            {
+              "attribute_literal": "all resistances",
+              "direction_recorded": "increase",
+              "value": null,
+              "target_phrase_recorded": "you and your allies"
+            }
+          ],
+          "energy_upkeep_recorded": {
+            "amount": 2,
+            "resource_literal": "energy",
+            "per_unit_literal": "sec"
+          },
+          "resistance_amount": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "duration": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 245
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Refresh Bard numeric-pattern coverage against parser v71 to identify remaining unextracted observations."
+}
