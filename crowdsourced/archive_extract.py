@@ -18,6 +18,27 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    attack_speed = re.fullmatch(
+        r'(Increases) the (melee attack speed) for (your gruop) by (12)%\.?'
+        r'|(Increases) the (attack speed) of (your group) by (12)%\.?'
+        r'|This voice melody (increases) the (attack speed) of (you and your allies) by (8) to (10)%\.?',
+        value.strip())
+    if attack_speed:
+        groups = attack_speed.groups()
+        offset = 0 if groups[0] else 4 if groups[4] else 8
+        action, phrase, target, low = groups[offset:offset + 4]
+        observation = dict(kind='group_attack_speed_tooltip_observation',
+            action_recorded=action, target_phrase_recorded=target,
+            attack_speed_phrase_recorded=phrase, stacking=None, scaling=None,
+            base_attack_interval=None, attack_interval_formula=None,
+            range_dependency=None, duration_seconds=None, operative_values=None,
+            conditions_unparsed=True)
+        if offset == 8:
+            observation.update(increase_percent_min_recorded=int(low),
+                               increase_percent_max_recorded=int(groups[12]))
+        else:
+            observation['increase_percent_recorded'] = int(low)
+        facts.append(observation)
     movement = re.fullmatch(
         r'Increases the (movement speed|movement rate) of your group by (\d+)%\.?',
         value.strip())
