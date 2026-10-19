@@ -18,6 +18,19 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    energy = re.fullmatch(
+        r'Restores (\d+)-(\d+) energy to (your group) every (\d+) (?:secs|seconds)\.?',
+        value.strip(), re.I)
+    if energy:
+        minimum, maximum, target, interval = energy.groups()
+        minimum, maximum, interval = map(int, (minimum, maximum, interval))
+        if 0 < minimum <= maximum and interval > 0:
+            facts.append(dict(kind='periodic_energy_restoration_range_observation',
+                energy_minimum_recorded=minimum, energy_maximum_recorded=maximum,
+                pulse_interval_seconds_recorded=interval,
+                target_phrase_recorded=target.lower(), total_duration_seconds=None,
+                first_pulse_timing=None, scaling=None, energy_per_target=None,
+                conditions_unparsed=True))
     healing = re.fullmatch(
         r'(?:A restoring chant that )?heals (you and your group|your group|you) '
         r'(?:for|by) (\d+)-(\d+) every (\d+) (?:secs|seconds)\.?',
