@@ -18,6 +18,24 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    group_damage = {
+        "Increases the damage of your group by 15%, strength, intelligence by 6-30 and AC by 8-62. Does not stack with Mellarien's Requiem of War":
+            dict(damage_percent_recorded=15, strength_range_recorded=[6, 30],
+                 intelligence_range_recorded=[6, 30], ac_range_recorded=[8, 62],
+                 does_not_stack_with_recorded="Mellarien's Requiem of War",
+                 percentage_base=None, range_scaling=None),
+        "Increases the damage of your group by 12-20.":
+            dict(damage_range_recorded=[12, 20], damage_unit=None,
+                 range_scaling=None, stacking=None),
+        "Increase the damage of your group by 5%, does not stack with Mellarien's Anthem of War":
+            dict(damage_percent_recorded=5,
+                 does_not_stack_with_recorded="Mellarien's Anthem of War",
+                 percentage_base=None, range_scaling=None),
+    }.get(value.strip())
+    if group_damage:
+        facts.append(dict(kind='group_damage_tooltip_observation', **group_damage,
+                          target_phrase_recorded='your group', operative_values=None,
+                          conditions_unparsed=True))
     environmental = {
         'Whistling this little tune will cause you and your nearby group mates to levitate for 60 minutes.':
             dict(action_recorded='levitate', target_phrase_recorded='you and your nearby group mates',
