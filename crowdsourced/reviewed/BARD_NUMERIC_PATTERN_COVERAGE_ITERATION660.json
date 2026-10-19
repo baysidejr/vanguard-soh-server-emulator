@@ -1,0 +1,4404 @@
+{
+  "review_kind": "bard_numeric_effect_pattern_coverage_reaudit",
+  "parser_version": 72,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input": {
+    "path": "reviewed/BARD_NUMERIC_PATTERN_COVERAGE_ITERATION657.json",
+    "sha256": "a05b5337093c3b6e4d2eceab6d7a8e4191a4fba5615c0f3c2341ef9b4b45c3f6"
+  },
+  "summary": {
+    "recognized_numeric_pattern_present": 104,
+    "numeric_prose_without_recognized_pattern": 7
+  },
+  "changed_sections": [
+    {
+      "name": "Fox Overtake the Hare I",
+      "section_node_index": 0,
+      "previous_kinds": [],
+      "current_kinds": [
+        "normal_damage_health_availability_tooltip_observation"
+      ]
+    },
+    {
+      "name": "Suann's Nocturnal Call",
+      "section_node_index": 0,
+      "previous_kinds": [],
+      "current_kinds": [
+        "single_target_mesmerize_tooltip_observation"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "name": "Emboldening Embellishment",
+      "source_url": "https://vgsoharchive.com/abilities/emboldening-embellishment",
+      "cache": {
+        "path": ".cache/archive/701e46f255fb4f22e2ebf2f6e758c239e560cd3331a35b826197c5e82a3a1d51.txt",
+        "sha256": "44842d1e139c2079e61fd0d145d353bb472f8b48bf5bf61a087da9c34e6ebfbd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "72d018c43a02e3e837d7fc1fd6cf621a06a4556a66b5b9b40bcc72a37018a73a"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "c58c9f082dc0c5911fb79bef6a942ae5c6e88ef6fd9d6b2aa7bc3960ae871b25",
+          "numeric_literals": [
+            "10",
+            "18"
+          ],
+          "recognized_fact_kinds": [
+            "group_attribute_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the dexterity and vitality of your group by 10-18",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Mellarien's Anthem of War",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-anthem-of-war",
+      "cache": {
+        "path": ".cache/archive/4c212c5ec37722f2ef76b3793bb5e831d991295efab87a0aae99f3fa150f37e3.txt",
+        "sha256": "80fae266283c88552a29bca1a2b4c3faab06ea04160fc08a4ab26ee1c43047ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 49,
+          "record_sha256": "2769ac90a3224b190bb1e2dc9a4cbc317ffd7be448ad83124fce11284b2d5731"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "5f868adf6348cd811b4bbcb35a4d4781275dccf5ab5b321c455949dbd0358d28",
+          "numeric_literals": [
+            "15",
+            "6",
+            "30",
+            "8",
+            "62"
+          ],
+          "recognized_fact_kinds": [
+            "group_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the damage of your group by 15%, strength, intelligence by 6-30 and AC by 8-62. Does not stack with Mellarien's Requiem of War",
+          "word_count": 24
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Minim",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-minim",
+      "cache": {
+        "path": ".cache/archive/af0a30650a96e7636ee9e688ea32aed75f509476dfa78b011017b4b208d8fd28.txt",
+        "sha256": "0119c4f61c13039d6ebc49b38fd815388c64e9a6e2f946ca2afa5c6725b81c33"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 82,
+          "record_sha256": "f038b5e176ee6652d4db5afce22dba8c2ec3e35e7fba178e96db7b3b7dfee867"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "1df20a88f2fe79fbac76ac1780f69528b611eda1a1b3aed6e17013b5f4fc84ac",
+          "numeric_literals": [
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduce song cost by 4.",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Mellarien's Harmony of War",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-harmony-of-war",
+      "cache": {
+        "path": ".cache/archive/418e6f4adb6e35fb44a5d7a27f169d1d3ef28a7f4402261c1668627cccd0cee1.txt",
+        "sha256": "afc203e1a7c84f13564aa4679f76ed59a33c3687d9dcb0c53d8ca11e74c04593"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 50,
+          "record_sha256": "39cc096d8cea59d4cd3b8d9b7a2586b9ad95701ee0a4dbada2d6cb1f87a5bb44"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "2b9bc5caa3d33b248a3e293f1a6ca7e9b56aabaf56057f9aa3e55e0272861390",
+          "numeric_literals": [
+            "12",
+            "20"
+          ],
+          "recognized_fact_kinds": [
+            "group_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the damage of your group by 12-20.",
+          "word_count": 8
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Rhythm of Renewal",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-rhythm-of-renewal",
+      "cache": {
+        "path": ".cache/archive/e412b8b8886a9feee551c42ac7b75d9d3ebf1de413e62fad70e03caaf2d161c6.txt",
+        "sha256": "b0221f575dd10881baff8678e7abe0eeaacb0e56a30153176435c8cb88d0f0e1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "d9a03b1f3dde87db47a4b055e067cdc94248f489e25a14150f2b3f44fb7f34e9"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "f9630cf5300a42a99e66c4d3a4a70348042bcd0a10c8b1d68c339202fd8da487",
+          "numeric_literals": [
+            "8",
+            "40",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_healing_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Heals your group for 8-40 every 4 secs",
+          "word_count": 8
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Blasting Bellow I",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-i",
+      "cache": {
+        "path": ".cache/archive/16e6dc691d643ac3cf1f476eded603a7a7a736b337edefb352399d43b5e6e205.txt",
+        "sha256": "29d5431cc33a666ad855d06c9e90fafa8499d0b5fa431ff0caa1744a304c59c2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "36f6cd7160eff8cd0abdd012c69a745f77ae7c5efe0f6bd1da4a688ea3001645"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "b1d14fb2668cff1ddd4ad8135bcc2a810108f632961af40b42aeb99b1eb0f343",
+          "numeric_literals": [
+            "84",
+            "91"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 84 to 91 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hazoc's Hasty Lyric",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-hasty-lyric",
+      "cache": {
+        "path": ".cache/archive/934e2ad31d822ce244e0f6455b8306972a88edbbae20a8a18d3801239c9ecc57.txt",
+        "sha256": "30c3c18dca2ef58b011870309318d12dc85f9025d5542a755df0a26178d83a12"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 28,
+          "record_sha256": "2c7c3ce87f5b7155506edcfad9273fda9bf8d093d02bbfe0a79a661fb645adf5"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "162f079bebd2c29fe2386fc6a80b3d3c8d6585560672d3b3db4f8ba517014c51",
+          "numeric_literals": [
+            "12"
+          ],
+          "recognized_fact_kinds": [
+            "group_attack_speed_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the melee attack speed for your gruop by 12%",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Thread the Needle I",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-i",
+      "cache": {
+        "path": ".cache/archive/8003e03dd79c7b0b0c3a5b5002ea0813b97747924cc476a91bb4b349cf01938c.txt",
+        "sha256": "fa4859526579662f3ee154e895db35af1e4b01422f4a32a5cd68da5092c39184"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "7f3a95ae3605dd107bb7ec1e4561c090a7e1c4d93d54a94c8793613183a43675"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "192999c455abc6daea8f7e39789b532eda2dd8a161c4313e041b6d8620e76736",
+          "numeric_literals": [
+            "50",
+            "15",
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "weapon_damage_and_opponent_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 15 for 30 sec.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's Melody of Acceleration",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-melody-of-acceleration",
+      "cache": {
+        "path": ".cache/archive/bcf6594d51ea06181f6a2604ce2f0f99a98ee955edbb4642e40856f0eb805e60.txt",
+        "sha256": "662263a632b445160d9e8849dce52ffb34bca8d0a22c879ee0d74a5eb2697d11"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "5abd5ec59bbf0cdbb5ccc4d2721456293b4a2bb285eb17b08ffbd6b164ff7cd4"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "bb6d3cef714f49b64e800730e40f09b65181f348c569081279adf03fd5853efd",
+          "numeric_literals": [
+            "29"
+          ],
+          "recognized_fact_kinds": [
+            "group_movement_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the movement speed of your group by 29%",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Minor Interlude",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-minor-interlude",
+      "cache": {
+        "path": ".cache/archive/613d3f84cebb736a2e17a2f749ac233d86301a0536c3778ba45aac1f3960d76d.txt",
+        "sha256": "65b247e88fec93886ad10ea38b85afb73057f6cf63f328d7311dc4d1d43e8a35"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "78b41142c039053274af448e56b4ec4bf91541c3f1950094ef70b1c73a0d6dfc"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "303d15de27abf57010c6d4c0c2b1ef870a91aa4d55961c8fdd8d8ba81f18fada",
+          "numeric_literals": [
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduce song cost by 2",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Minor Resonation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-minor-resonation",
+      "cache": {
+        "path": ".cache/archive/ada35ce76de9778528e278e01da95298586d1919743da258f6a6880a578e33a7.txt",
+        "sha256": "fcef6f5a94c68fdbb5c0a274035e2c8bb9440a4b44f2f265d740264ebb88b50e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 3,
+          "record_sha256": "d73cf3fa997f6d6af36f9b92b9fbaa2ea34cb5d0bf210e8a375bac04c9d0d30b"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "dfe88dfbe825c7fae5741614bbfc2f5a2704b26444bd439aff8e3cb8a47dd8ac",
+          "numeric_literals": [
+            "15"
+          ],
+          "recognized_fact_kinds": [
+            "reactive_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Attacks against you resonate sharply, dealing 15 damage to your attackers.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Soothing Substitution",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-soothing-substitution",
+      "cache": {
+        "path": ".cache/archive/6b8c89fd19eed417be266807d0978b7d84a542956dce2e0b7188c1d9dec2b0c1.txt",
+        "sha256": "1bb91d187fb9f28e2633657a37ef6de54523bd299ac1b0090fa3f1dd786c5118"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "f967268528fad0e6b42b4b288e5bad47fbf676771baa2948b39c852f7372e13b"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "ea860fa526c1a18915e0ca132cf0c06d88266478b46d8d3a5a9b6804159cf2c9",
+          "numeric_literals": [
+            "4",
+            "6",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_healing_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Heals your group by 4-6 every 4 seconds.",
+          "word_count": 8
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's Strain of the Swift",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-strain-of-the-swift",
+      "cache": {
+        "path": ".cache/archive/05df69f4af678486c3afde3dc733f65f89f6dfb6d4020324c707ea82810c376b.txt",
+        "sha256": "7581a71ff9f137f02ab26b486c624c4eee9451e26d7d1eb91306a69eeafc223b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "6cd167baf3c608272d08be0a91a388a60fad99b1c53cc1e6685642b2d6f6ae71"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "aae853bf9477a286b925449b47adfa2d0cffec3267dbec64d9650acd251c2f4c",
+          "numeric_literals": [
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "group_movement_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the movement rate of your group by 3%.",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's Speedy Substitution",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-speedy-substitution",
+      "cache": {
+        "path": ".cache/archive/deb6d0f968bd27ced224baa7d3cf20125f99fc226f5275bd09ed0bd636d3af00.txt",
+        "sha256": "f7bf23de56925353ab51223f9537823df67a2e958f3a8cebec9b182ba42805d8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "46b5f6b919323090ee944c4fb028f3de686e7605b98f7d89cb553fc9394a3853"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "97fa6cafabf4c23c953a493a13254172e76a0e700abce3c083998387b34e1cd6",
+          "numeric_literals": [
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "group_movement_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the movement rate of your group by 2%.",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Calming Lullaby",
+      "source_url": "https://vgsoharchive.com/abilities/calming-lullaby",
+      "cache": {
+        "path": ".cache/archive/0d627a7e91be458689fa67882de791198482d6fd616b8a8fb671a8eaa67fba6c.txt",
+        "sha256": "87b49838fbacd05a55b09e856b871031caa6ad60ab7fccc1ad70c00407a21c2e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "894d980680e153187480dd60ad1be2c105df04eebf4804e776f0fe6bad3d0d32"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "2e42921a75b46dc63c569fb47e81eb27cb7b3bcc30f9df22e59c15b47f29727a",
+          "numeric_literals": [
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "hatred_reduction_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Calms your opponent, reducing their hatred of you by 30%.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fence",
+      "source_url": "https://vgsoharchive.com/abilities/fence",
+      "cache": {
+        "path": ".cache/archive/b2fda1113539fe06ec2a77b768d5abe6a960cd25ea571eb262be5dbfb09d2727.txt",
+        "sha256": "11d1ed6b22667c039ccb9a41f4b3e19c6f318003cbe8a88ade7e8e644ce3af79"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "d013c7de9108933ce82c8170b217e144481b71ceb8e133991998a579312dc8f4"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "6cbcb97af21c30e38f49297047e444c0ef86c7e9ee8a27af3070becaf313c9f5",
+          "numeric_literals": [
+            "100",
+            "60"
+          ],
+          "recognized_fact_kinds": [
+            "conditional_parry_buff_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry. This turns off your auto-attack.",
+          "word_count": 21
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Mellarien's Requiem of War",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-requiem-of-war",
+      "cache": {
+        "path": ".cache/archive/c0e32de047256c3e316a6fca396608fc682eeac1e0b4e1fe6486345b23b3e4d9.txt",
+        "sha256": "3767451ec563d63cd4db895de6aae8ea875d11414ca353a2554ee753c824e4e7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 51,
+          "record_sha256": "820ba92d04058983b63408eb12d888f87ce008d2975cb8d46974ad1c6af00a93"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "ddcffa924e700bb4264a1a5ecd6848eddc368ba9563c0a0c2ca1f41fa75bd57c",
+          "numeric_literals": [
+            "5"
+          ],
+          "recognized_fact_kinds": [
+            "group_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increase the damage of your group by 5%, does not stack with Mellarien's Anthem of War",
+          "word_count": 16
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Long Rest",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-long-rest",
+      "cache": {
+        "path": ".cache/archive/ad74ac9a9b09bf3ee780cd3cabb4b80454f22b660ec0110be828635325a02f04.txt",
+        "sha256": "645185c33646428ca33b7d7b4dd05ea98ab0768f585e36c37ea3addd132c6e40"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 81,
+          "record_sha256": "92f68bc636d845d95ec3a848eb9db9fbf2599dceeb4503bd01488fc79938f7b9"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "46e0053c8cb00f7a6acf2152ccecc2e251e5bbe433690ab733940677880400e1",
+          "numeric_literals": [
+            "5"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduce song cost by 5",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Assonance of Pain",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-assonance-of-pain",
+      "cache": {
+        "path": ".cache/archive/0e0241fa6e5c8e4ce2a2ceb1768202db929cb46532527a815fb8a52ecae663a7.txt",
+        "sha256": "16e4e408b9fcfb09a2a0edb9886aa274e615d8383088c8874051f41d5082d7e5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 2,
+          "record_sha256": "6ead04b1e2c82cd2df6868abed31f9e1b67b0aad8124fcc398681d23b916c67b"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "9ce0ee9d343103e1e5d1a1a195c4c26b8c6d52a9a88a08ab9f50275127e0eb07",
+          "numeric_literals": [
+            "12",
+            "43",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Deals 12-43 damage to your offensive target every 4 secs",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Briel's Lyric of Descent",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-lyric-of-descent",
+      "cache": {
+        "path": ".cache/archive/20329404599404cfb025aee869a410506afe9d0090c8c35066f0fa3a314b8b7a.txt",
+        "sha256": "e0ae1f113ea004ae8e7b690b2a297a0f855d22531be7e004206d2dd7d31da1ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 7,
+          "record_sha256": "0fc449fe29ebf2d747caa4a1d43dfdfcda0f8161af249acaee829a273f234a75"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Singing Blade",
+      "source_url": "https://vgsoharchive.com/abilities/singing-blade",
+      "cache": {
+        "path": ".cache/archive/98102ef150d0b5152d019ba800bc23f02d8592d2e5b3fa16447af8e6aa73c6d4.txt",
+        "sha256": "89ef5585a30f12c5b78debefedbc0cfeaf4f8ed70bb8e982107b9144d0b69779"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "172ba58af6be79daeddbb4b2d011eedb97f05a0dfbbc1de38eebb50615ffd82e"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "3b6ad3b600ff24b7dc87399dc5decfda8271c0212fdb015c6c75c21ff1c8d691",
+          "numeric_literals": [
+            "100",
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "critical_chance_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Your strikes become more precise as your weapons begin to sing, increasing critical chance by 100% for 3 sec.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Aria of Calm Thoughts",
+      "source_url": "https://vgsoharchive.com/abilities/aria-of-calm-thoughts",
+      "cache": {
+        "path": ".cache/archive/cc53ca3f587cba8949e3de6b6f210faa915e006413f4fdd343ea01b95b60f0d0.txt",
+        "sha256": "e84c96b19616dd0d83abc643ffd33fb5bfc1fd62ddb94ff78b05294483d52ed1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 1,
+          "record_sha256": "ca38f0406cf2e96a30f415741bf826440869c4de86cb51977e442500979c9198"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "2cf42b63d6e9f653011f7df905dc19c4de6aba1634508659d03c8fea21ac224c",
+          "numeric_literals": [
+            "3",
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "percent_modifier_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song.",
+          "word_count": 23
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Chorale of Calm Thoughts",
+      "source_url": "https://vgsoharchive.com/abilities/chorale-of-calm-thoughts",
+      "cache": {
+        "path": ".cache/archive/0a0fe2422a0975dc5ea0a80418dfc3e77647bbf5b6f93f8864de343a0bc88970.txt",
+        "sha256": "68c0627eb39fe0d4d962a25740e332225adbe775ded201a6f6183306464fdc76"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "bb9c6d11b3f67cc4c45f476964ab76a1279b8fc7ae373716fcfe282fb389db49"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "6ac2e0c36a4cbd1364227dc35c03cf247550548d9b5f7cf39bcf674085de92da",
+          "numeric_literals": [
+            "5"
+          ],
+          "recognized_fact_kinds": [
+            "resource_cost_reduction_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This brass chrous reduces the amount of mana consumed when your allies cast spells. 5% decrease in mana cost.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Substitution of Shielding",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-substitution-of-shielding",
+      "cache": {
+        "path": ".cache/archive/982d07d45c440792685996e2eef7e809e3bfa17544f9412863ac88d44216b79c.txt",
+        "sha256": "e1e574570365a9907b4c1351afcf469ad8ad986bf0a9dc841e0d41e50c6f3ad8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 46,
+          "record_sha256": "047667f0a2e4298523443b17d1a975955b081c0bd74a5e2b4a4c4c89bc314a2b"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Blasting Bellow II",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-ii",
+      "cache": {
+        "path": ".cache/archive/e69abf064d6d90bbee133d47f33dc2b0c3c6f920a783ce962e18b2e7ecb50315.txt",
+        "sha256": "3005288932eea18ecf2d789a3022769d8a5c53f12e2fdd5d88da8e8630f13c0a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "44a02db6bfff258a37988ce61012c59e307362e818c44e5c8562fc84be7eb154"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "51b86aaa98a8eb17d206c4a5769763e0a5b9893ea178f6ad35d1634138b7686a",
+          "numeric_literals": [
+            "119",
+            "127"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 119 to 127 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Entrancing Trill",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-entrancing-trill",
+      "cache": {
+        "path": ".cache/archive/11debc7ee9de3a96ffea11a0dedc7f92fd4c6cdfd2f24285fd5e51597fb8a612.txt",
+        "sha256": "29b937502efbff932f8b6ba7add28b735a5731dc1ed9ea70fb60cbc29cab883e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "751c426cdf7dd39fe0592bb95fa25ea53cf37160a3cd1c8de7f3a9255b2986ff"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "64406bde094d302ff9130c5676a9aa912b439f2ee26a8d387df0cd4991562c8e",
+          "numeric_literals": [
+            "18",
+            "1",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "mesmerize_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 30
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Illestine's Harmony of Warmth",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-harmony-of-warmth",
+      "cache": {
+        "path": ".cache/archive/f321b544ae380a5b77a41c2c0df63eddd6c25e18450e8288705d9caf60a94b4d.txt",
+        "sha256": "38d117832cf3cfaf9947662c51755d18396b7612179b037cf1d60271873b4837"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 41,
+          "record_sha256": "bd6a4d655af6328a07b4e9394b0201bf448af4506393555a027260c588eb380d"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "453f8e31429167111fe5be6e8df69026df8e5167b3159fa466c02b4dab174b98",
+          "numeric_literals": [
+            "8",
+            "6"
+          ],
+          "recognized_fact_kinds": [
+            "resistance_damage_shield_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the cold resistance of your group by 8 and burns any attackkers for 6 damage.",
+          "word_count": 16
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Illestine's Harmony of Wrath",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-harmony-of-wrath",
+      "cache": {
+        "path": ".cache/archive/b700533a9f50fc3f3d65941aa7bd04cf9c75da226b2875395f614cc723f7b38a.txt",
+        "sha256": "2c7a77420315ec40418597fbe6a7dc78bcf5e3f0701e2661008286317eed2c75"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "ff0ef7bd46817c7486a79506f4606fb53a4f4657777aaaa71d6f72d9c1999ea7"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "9ba8f35e0ea823c135cacf95f4771fc996034aa430d9f0d19d06a81e620779db",
+          "numeric_literals": [
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "resistance_damage_shield_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This wind embellishment increases the cold resistance of you and your allies and grants a 2 point damage shield.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Chorus of Shields",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-chorus-of-shields",
+      "cache": {
+        "path": ".cache/archive/e1e472225d444b3d12abe5fc600c1ff6532fe21323545b32121d17513e14f55a.txt",
+        "sha256": "761c72c3b9522c3e25d9440fe05f23016e1559fd11fd69769c4f567dc97d703d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 44,
+          "record_sha256": "9106d7d17ec034e7a0a562942dc9c70377f485a387b153c0b8b9c7177a4eb099"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Psalm of Shields",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-psalm-of-shields",
+      "cache": {
+        "path": ".cache/archive/23f928ecc8fd74c15e85bd44cf9a6dd91339cc512a269987a7145e707c483959.txt",
+        "sha256": "3b9861458a3f2b6b8542f33c77b52096d605a8ccff453c4b177607bc705671da"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 45,
+          "record_sha256": "e73a8cb6194e481e26a20bef6705c98dedc5f56b899d96007cb449fbe3d4e631"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "8fd5f308da0e36af8546f06b8661d14d97477c0041dfc2ea1f19276f0db3cf05",
+          "numeric_literals": [
+            "25",
+            "25"
+          ],
+          "recognized_fact_kinds": [
+            "armor_pulse_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse.",
+          "word_count": 21
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Lament of the Sea",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-lament-of-the-sea",
+      "cache": {
+        "path": ".cache/archive/67d6ebd1115f6c75dfc45e4cd0955e976f9d49cb469971e498913cef9d57132a.txt",
+        "sha256": "6f712c80db0d3546fb088b9b77f067e7f4b5da8392cbf0be38c2686a619301e7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "a5847e68a395510dd0c3927c5506b24310dfe6811bc57fae93bf40311c1886ce"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Chorus of Stamina",
+      "source_url": "https://vgsoharchive.com/abilities/chorus-of-stamina",
+      "cache": {
+        "path": ".cache/archive/ecbe138fc0e3d23e9e8f67940df6421226489fa027638139b5c174edfcf4eec9.txt",
+        "sha256": "e557bb392c1fd220d51c90c6dac45ac99306019af21ddf9797072e7f585201f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "8bb813164343fc8522d5e36fa023bdec77ccb5385c04695c3224d71c3c9194ec"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "d98db7a45337781c38c900a8c01db168cb2c8340cbd41acb3202b44e07216d99",
+          "numeric_literals": [
+            "5"
+          ],
+          "recognized_fact_kinds": [
+            "resource_cost_reduction_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This brass chrous reduces the amount of endurance consumed by the melee attacks of you and your allies by 5%.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Energizing Embellishment",
+      "source_url": "https://vgsoharchive.com/abilities/energizing-embellishment",
+      "cache": {
+        "path": ".cache/archive/66c1fa4562c6e793061ad6668a6f3db29adcf657bce0b079ce3f3a3439b8b02d.txt",
+        "sha256": "9a4adb2eeb8ade73acdc753d815a326d7801eb73a782a7fba1e37afffefb0541"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "cafb40b1aed5b7bf5159942ebb35b7da0ba6416025c4b9ec0b26312451d1ae5c"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "41a8390328c4a3b6853babb45316cb979c062928b3ef1e62e4c21acdb9e65600",
+          "numeric_literals": [
+            "2",
+            "4",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_energy_restoration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Restores 2-4 energy to your group every 4 seconds",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hazoc's Harmony of Haste",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-harmony-of-haste",
+      "cache": {
+        "path": ".cache/archive/2b71cc5112303f422bbf896279171ff178559f38ed975a51ffc97ab936d937c3.txt",
+        "sha256": "83e48d6472be9820d12bec71d0b38b3479c5b176f833d3396b5ae44cac0538be"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 27,
+          "record_sha256": "53b47a9d5cc2c42f011b586f550b963d793b2502b5c538a4059a460b2b42f982"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "753bd84c7236f27cb24a558ad5594c4bbd02c8dc24e3c1d0a4e572299714a5ef",
+          "numeric_literals": [
+            "12",
+            "2",
+            "0",
+            "0",
+            "5"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 28
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hazoc's Hymn of Haste",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-hymn-of-haste",
+      "cache": {
+        "path": ".cache/archive/b87cd7f6f642327999d68dba6bfc65729512963378575c2fa0d1dfe7b289b2e7.txt",
+        "sha256": "2e42056e3084408b8ab01576886cc053df256e20f4148bafd6f39307572c7e4c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "9c54a9c403870b2e4c4463d3064b4a03b65360bb29596865f0801ff05b68f789"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "168243fb67fe33615820f3e5b312483b2418220cc1cbd02c1f0e25e1bfd7e132",
+          "numeric_literals": [
+            "12"
+          ],
+          "recognized_fact_kinds": [
+            "group_attack_speed_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the attack speed of your group by 12%",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hazoc's Rhythm of Rapidity",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-rhythm-of-rapidity",
+      "cache": {
+        "path": ".cache/archive/beb44c3413c56f7f740f9194ba3d123f694e726c8f2803fbd0c196617185abb5.txt",
+        "sha256": "472e27a5cb50fd9688304059db1fdedc36a9349dd363d810b85cac6feb60d7e9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "cb99429d82189dfd1c6b67bb1052f8cd15109fcae52c294eed0e7652d691b6ff"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "779af8b61f76ea7b1f401564ef3f3254b4a29193a592536c8eebff8d100cca6e",
+          "numeric_literals": [
+            "8",
+            "10"
+          ],
+          "recognized_fact_kinds": [
+            "group_attack_speed_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This voice melody increases the attack speed of you and your allies by 8 to 10%",
+          "word_count": 16
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Expiating Echo I",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-i",
+      "cache": {
+        "path": ".cache/archive/4c4f50580fe542f92e4fd5ac432500b53e06af64a5c4eebdef0601576430b785.txt",
+        "sha256": "fca7ec0a7fae50fc1ebf043253597e09b71220c0c991b68a305fe8adab57a64b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 80,
+          "record_sha256": "44b4dec273885f48910ffaa72f813e8deca97b834ff3b04ddc1aad6f406a88cc"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "4d4572108cd353fcf52f59727527d0fa3afe34a7f4c4d67ee8519409709e8d2c",
+          "numeric_literals": [
+            "144",
+            "153",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "parry_damage_endurance_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You shout after a successful parry, dealing 144 to 153 damage and restoring 50 of your endurance. Only usable after you parry.",
+          "word_count": 22
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Whole Rest",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-whole-rest",
+      "cache": {
+        "path": ".cache/archive/a1f7b3129180707410d725ddb655e88bb18924d2d2a4faa5b0ee8133e942c467.txt",
+        "sha256": "8cea5f488789534aadb6f83da0e060e63d96d90a768f8938fee6686d5e3f9ec9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 84,
+          "record_sha256": "543d25d0fdcebf4983a0b0f2a5763629df6642dd83203253a5b1c1e800237062"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "b25e5483afdbe64a8a4acd1df0808791ebdfd06e2699a67456ade3589c87309f",
+          "numeric_literals": [
+            "7"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduce Song cost by 7",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Briel's Aria of the Clouds",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-aria-of-the-clouds",
+      "cache": {
+        "path": ".cache/archive/599571da79fa9303698f29365a19441464cec2a99662a8db4c07797963c9f3c1.txt",
+        "sha256": "f026adedd831b3c44dfb149764031275d751185ef32fd05887bcfdb6b2c210fa"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 6,
+          "record_sha256": "f49a04bd242c5a1fbff9d4624994b9a8100c6cabbcc3a5be678b63aafb9ce359"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blades of Frost",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-frost",
+      "cache": {
+        "path": ".cache/archive/00139b5f3adde6b814a888d59e385eb668970fa27e4e344fe5a40cdfc98fe372.txt",
+        "sha256": "5ed39197fd381041f87051a7fe2b829e0e97e898e092f9bdb83bf2feb695c7a4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "23f0985b3fc1d0b71ecd385a77f2212d7807d23c60947b55dd5ce8b5ad0ae443"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "cb63e061226f732c26da8d9245f6f0c1e9aa277d6a49151e8a3d6afd828f6ac3",
+          "numeric_literals": [
+            "10",
+            "144",
+            "159"
+          ],
+          "recognized_fact_kinds": [
+            "proc_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Adds a 10% chance for your group to deal 144-159 cold damage with melee and ranged attac",
+          "word_count": 17
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Illestine's Harmony of the Snow",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-harmony-of-the-snow",
+      "cache": {
+        "path": ".cache/archive/70c6e307a2bee24dfed65d32cbea923ac8f0be1961e983eb71101536f49bef30.txt",
+        "sha256": "5a48a44d08e989385efd5b16d236b2250bb23bc9803fa9cfd32f03f4b7e762f8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "fb55a7b61747562dcc85d479a29163d517a4edce9c83ff03be349210121400be"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "baba694ee4895fa6ae0f704338b2df60e6c920c42eb7bc6f977f4e363f2fd162",
+          "numeric_literals": [
+            "8",
+            "6"
+          ],
+          "recognized_fact_kinds": [
+            "resistance_damage_shield_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the fire resistance of your group by 8 burns any attackers for 6 damage.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Briel's Trill of the Clouds",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-trill-of-the-clouds",
+      "cache": {
+        "path": ".cache/archive/73d54ae98fa72017d633a3650c762a4823bea1e7dc9bb78c32b2242eac18f424.txt",
+        "sha256": "26be460a0ae3ed2d7cc6e97c9222abd058968849346e2445762ff50b4226ab14"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "0869206509f508c2c6d5da21add1a653298ef4840fa3155709a40ae29e3ea8f5"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "de75f1ab615d320efca09c7cb02159271581d08221a06cb64f99ac19aab2c055",
+          "numeric_literals": [
+            "60"
+          ],
+          "recognized_fact_kinds": [
+            "environmental_movement_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Whistling this little tune will cause you and your nearby group mates to levitate for 60 minutes.",
+          "word_count": 17
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hue of Purity I",
+      "source_url": "https://vgsoharchive.com/abilities/hue-of-purity-i",
+      "cache": {
+        "path": ".cache/archive/af467ff1e1d77e95ee5d2438d822dcf23e364eab2c43e00e953a52d75ba19626.txt",
+        "sha256": "77578c4c2496c56cfb908696cfcc4338eb0a4c5ea341f74b2b3d31f30f3575be"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 35,
+          "record_sha256": "77cb1a4bbf449aa440bd54f6c60039be6dd73f38157267735ec292cfa18da661"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "80648ac8c89af2ef28780dc1283d010cf5322ec5770a57a068f371187bddd5d3",
+          "numeric_literals": [
+            "15",
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "group_counter_removal_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Purifies all group members within 15m, removing 2 disease counters.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Strain of Purification",
+      "source_url": "https://vgsoharchive.com/abilities/strain-of-purification",
+      "cache": {
+        "path": ".cache/archive/c3aaee832de7b8b83536a4dc2d5051b88b90462d0a89a8dd7303418a9cfeb3ca.txt",
+        "sha256": "19f83e3f54634008138272a9ceac4750d537bd03d52d7479cd4d35746d9b1d00"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 66,
+          "record_sha256": "d285b504971b5fb916bb83f8e1c2182736243f8ca65163b6fb539e04499f4b39"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Call of Slumber",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-call-of-slumber",
+      "cache": {
+        "path": ".cache/archive/d057a8fcf73d7ccb0e4faf6544e285c74c5fbf255a9baf44ffe7666db577be2b.txt",
+        "sha256": "b8704814f8e5c6972222de6fc234e04904fb9a4bb2057c20054a3c808312d146"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "51a2c11cc3963ad9ca80fa3410aadfbe2d332fb772f523c0cf6ed91b80502395"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "8ed94ab1cf74b500c05bf41aea72600017f34a8d7e0f4fbc032932fe7ce1c9e3",
+          "numeric_literals": [
+            "18"
+          ],
+          "recognized_fact_kinds": [
+            "lull_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Lulls the target, preventing it from assisting nearby allies for 18 seconds.",
+          "word_count": 12
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Substitution of the Ether",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-substitution-of-the-ether",
+      "cache": {
+        "path": ".cache/archive/abed73a8cad1b3554de95b05100ef76e499176bf05809228ec15eac0fbc6616e.txt",
+        "sha256": "b51d4bd5fcead5dd85dc0ed5964be822081ca4455cfd99ef63d279532c61ba4b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 56,
+          "record_sha256": "b58ee5559d0f3f53f07b67fe439c000ce5ab8fd83cef8c97553268e6a5992916"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's March of the Mire",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-march-of-the-mire",
+      "cache": {
+        "path": ".cache/archive/8f1ab7117eabd8f1f8ef2eaf8603ad68fa6a22e0a6f058a08d262ce0dee2064c.txt",
+        "sha256": "e5ee18ed13c1948970d6f225552485bdad4cee6bbf0f09392bdaa8ce96c82224"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 90,
+          "record_sha256": "0d9c5e6f57e647201ffe422265d06fd42b8c70babbbba9f7d3e0d69a788596e6"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "13ab5ca0f32c14489e8e287eaa11456fb7909e6b39c0a46c689d7b71b76687ff",
+          "numeric_literals": [
+            "15",
+            "60"
+          ],
+          "recognized_fact_kinds": [
+            "percent_modifier_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces your opponent's attack speed by 15% and movement by 60%. Does not stack with other snaring components.",
+          "word_count": 18
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Strain of Vanishing",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-strain-of-vanishing",
+      "cache": {
+        "path": ".cache/archive/7e5b61514073dcd40db45802fd273296384ca71c4fdb3a591b85be424a09560e.txt",
+        "sha256": "97022c8c886171ecfca64980f62b168014e7b828a0045d828ae29c629159b8fb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "41b478f7631ee462204af45546acbff6aff0845fd6e05911514a8f768632421a"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Thread the Needle II",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-ii",
+      "cache": {
+        "path": ".cache/archive/94f76700f8a66a7453b360668407d8ff39b07900a9b792fe45afac9ad5e4d32c.txt",
+        "sha256": "f5900c183278fc36e0c5c6831d666afd744502684512e8092d498c7d5aea031f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 28,
+          "record_sha256": "5fb5f8bc8a31c756073506cf84846be73cb96b9f13a2d470dc96b418ae7c3ce6"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "66b6f3dfc88130709f9d1ae1d8aec7c6a898de63773960091912174db808d38e",
+          "numeric_literals": [
+            "50",
+            "20",
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "weapon_damage_and_opponent_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 20 for 30 sec.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Anti-Venom Aria",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-anti-venom-aria",
+      "cache": {
+        "path": ".cache/archive/4e034141f04e226c2e49947bf407b7874d9b92aa45e38073a89a76cdb5223371.txt",
+        "sha256": "e2455a3035df0e255148b55a37ee0274da88db1310a1bfe353da33598485cfcf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "2f7d5fc22c69d616c1801ce0b27c5150878f9cb600c4e5321d8df40bd1ad0087"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Cry of Curing I",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-cry-of-curing-i",
+      "cache": {
+        "path": ".cache/archive/e26b0b679feddf360d4c157833ffcabab92e81b81826501b97fda5465d19b663.txt",
+        "sha256": "6aa929b1d511a0c97bc59d079c67eb8676e742d8882bed613c29e09d554e6932"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "fe0890e46589b154c0304fd7f0e67cc3157bdff8bfecfd57a4978cf1deccc99c"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "bdc29009961a0db006a37dd7c8c186d783230c2e961fdaff38335f8974ca5ffe",
+          "numeric_literals": [
+            "15",
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "group_counter_removal_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Cures all group members within 15m, removing 2 poison counters.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Mystical Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-mystical-counterpoint",
+      "cache": {
+        "path": ".cache/archive/65ade9ce908dc0e4db91c67d336ab942bb76f5b1bbbacd68ec8e8a6055f42bdd.txt",
+        "sha256": "8f8e259e9ac949fc21a0602c6faefe1ec8691b83bae69a3885f4ceaef3a535ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 88,
+          "record_sha256": "a1a1c4ca34af865548b2b8d37b1eb2bb5289dc3d5e7a9e7c29b93345e78d0ea5"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Alluring Call",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-alluring-call",
+      "cache": {
+        "path": ".cache/archive/e1835bdd56b7494b5868088e343ccaf2a359ffa8a67006af85ffc81182f6c1e3.txt",
+        "sha256": "61aa474dfa0402a4662ba76e7dff502b16652d0f410d78cc790544ada44dadf5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "6e36a9faa0faf120a41acc2743c29c59d3a393d056af5a19c95be6ef441ac97a"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "5aa1f2a2e3307fcf3e20cde686d314afc96174da18a16716dc343f73171e4263",
+          "numeric_literals": [
+            "18",
+            "35"
+          ],
+          "recognized_fact_kinds": [
+            "charm_duration_target_level_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Charms your opponent, forcing it to fight for you for 18 seconds. Effective on targets level 35 and lower.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Anthem of Clarity",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-anthem-of-clarity",
+      "cache": {
+        "path": ".cache/archive/6197fa3814892aeff5f53b2065f2e85a797381824d2a041d360aa0f6574a9ba4.txt",
+        "sha256": "b2cbfb2c6a69a2634ab5302b3f445fc4777688d6b8b53d14ef4a02a805dd8cc7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "a441a660918518e1488a4c7a8a3b8b4be8bae5f6f8ceed40f77585b94bb8c611"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "b5f37a4b8c7f2449ec1b21c4eb2ba0f082ea4efb79579c78162a64672561c18d",
+          "numeric_literals": [
+            "12",
+            "21",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_energy_restoration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Restores 12-21 energy to your group every 4 secs",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Blasting Bellow III",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-iii",
+      "cache": {
+        "path": ".cache/archive/3f684d13705fe86b9722cfc3e1edd029721fcb0b6758f1fee7c5a58dfe98536d.txt",
+        "sha256": "8b2150ddaa2dc7e0660113b57023879ca2598ec4d80d3ba9a826bdaed5a6ef70"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "88e0af68f6ea5f1a7c4e16cc7e121d6214d56efaa8123b305f9b4bfd00bc58d9"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "09ec74645ecb4f4b75651f704c8fb1ec14b647f87c2155f0c167a64f2f21743e",
+          "numeric_literals": [
+            "166",
+            "176"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 166 to 176 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Quaver",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-quaver",
+      "cache": {
+        "path": ".cache/archive/dc9dda88b753665edb9adfa54de18f344ed36a63dae96b509cedeabcb543320f.txt",
+        "sha256": "88e8b1df612c17519d4530371e9ff2a440d57bbe2e7a4e54310f6e1d354f99c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "e56937faa52c1998fcbf58520c3524109725dc9d90a3c82ecc691dccd577abbb"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "cf3c7c555bfdb5fc56d6fed0596f261795d5cbaf772fdd7f0ec56d20a26f6eba",
+          "numeric_literals": [
+            "8"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces song cost by 8",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Deafening Discord",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-deafening-discord",
+      "cache": {
+        "path": ".cache/archive/6d9ade024d78beeeb844f71628f67029984cbe50ae711eb587961aa3fb7b22ac.txt",
+        "sha256": "9f9fd78d91db00cf0d79f8dd86b52f0f86f24fc7c27749063717e31c1174ecae"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "530bc09a5a45c3297115d0c93326cdcda4fc69f48a1626a5aee6e0766a38d3c1"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "25f79813c8dc6654b1a6248eaaccea26acccc1ef94991cc987023f68dfbc7d55",
+          "numeric_literals": [
+            "24"
+          ],
+          "recognized_fact_kinds": [
+            "reactive_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Strikes those that attack you or your group with discordant notes, causing 24 damage",
+          "word_count": 14
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Air of the Clear Mind",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-air-of-the-clear-mind",
+      "cache": {
+        "path": ".cache/archive/c8f70ed9bb46ddcadb6a77d887e5aaeb531accf09f81d7779d8a5dcc74aa8f3e.txt",
+        "sha256": "f7f70b25de8d5326a20e0c533d25a3afd267b16b48e763819e2129314f089c81"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "c693022dc9eee747a6a6cb3aebb3d96ad607b993adf0ada2fdb078900475353a"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "4db420a67cf49bed0b40be346d44f5653033a6632261c1b6d41f93928c19ec84",
+          "numeric_literals": [
+            "4",
+            "7",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_energy_restoration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Restores 4-7 energy to your group every 4 secs",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Healing Phrase",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-healing-phrase",
+      "cache": {
+        "path": ".cache/archive/47217c6dc2c28fcae7863859eb07ce9c43793ee2d7bd406f337d3fc61501291b.txt",
+        "sha256": "3f194127498988a449e224b6ccd502fc0ced960f52ecd144c53032e5fd188358"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 45,
+          "record_sha256": "ba094bd71a17ccdd4fbbd8421d37369a5e10595250663afd0f605b017612588b"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "b1b243eef41aa288f0e944bcd01bfbc0089e21a159d0564cde290f76d41b9890",
+          "numeric_literals": [
+            "40",
+            "70",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_healing_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "A restoring chant that heals you for 40-70 every 4 secs.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Hymn of Frailty",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-hymn-of-frailty",
+      "cache": {
+        "path": ".cache/archive/9b99578e2036eb318c7d5d219fb84fdd09a97faf777e995e7ddd4ae1bb82dfb2.txt",
+        "sha256": "6b61a481d4a35ed57757511c39bdab0c9cc13e05646ed2ee8b768e22aa5d0f56"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "446f589237dae27b96949b4220bdf9f485048011ebbd5912d599bfd92aa16212"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "281c65130f170662545b0d37946903844843a7ac9d304c62fd023157f33422f2",
+          "numeric_literals": [
+            "25",
+            "95",
+            "6",
+            "8"
+          ],
+          "recognized_fact_kinds": [
+            "ac_strength_healing_potency_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces your opponent's AC by 25-95 and strengthe by 6-8",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hazoc's Magical Aria",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-magical-aria",
+      "cache": {
+        "path": ".cache/archive/03294f3cd9def5ada8d79af5f387676befe035e4931dde8758a786cd3a7acad1.txt",
+        "sha256": "3753e31fac7f097fd36e51562c4a6ae357441e20a52beffd30c27cec18e3b87a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "acb91307d35709bf7c422b2f1a89ce29673572419fbfe4ca8e87197ceadce034"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "f860dd19cc2b7a55ec450cb71328d164130a8f35a8d31c52528f5a978530607d",
+          "numeric_literals": [
+            "5"
+          ],
+          "recognized_fact_kinds": [
+            "speed_modifier_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increase the spell casting speed for your group by 5%",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Dirge of Doom",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-dirge-of-doom",
+      "cache": {
+        "path": ".cache/archive/f8db43250fe53b65dc24e8b3191dcbc2f2a7af4dca991223ae5dfad00cbc7bae.txt",
+        "sha256": "4ee86cf2276e551322dbf8c6e87ad293386d5d4a6ab9e44cc9d38914c2ca2ac3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 54,
+          "record_sha256": "3328e08726b8ed1419441341525f08112f2c118dbf344b05615d6719dfe8e9e3"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "4e4fbc2750de692879804f35570d05f5be8069ae323e4e894ed3aac68beafc99",
+          "numeric_literals": [
+            "10",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Deals 10 arcane damage to your offensive target every 4 secs.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blades of Flame",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-flame",
+      "cache": {
+        "path": ".cache/archive/4b95405156cb5ca6bc96ada1c7dd7553ff3a6953826820efd88c40c03b4c9633.txt",
+        "sha256": "3cbec2e7cf80b7edefb2ec35c054f4a74835678128b826f24fcd3262c4eb5dc3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "822b6e03d7b39d0e138d8d88c33de29e4da47b76662a9d2984fd2dac65d5b308"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "e2ea12df66a967cc80a4c233efe4926e91749e2cc73bfb5673312744617f3af4",
+          "numeric_literals": [
+            "10",
+            "186",
+            "201"
+          ],
+          "recognized_fact_kinds": [
+            "proc_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Adds a 10% chance for your group to deal 186-201 fire damage with melee and ranged attacks.",
+          "word_count": 17
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Phrase of Renewal",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-phrase-of-renewal",
+      "cache": {
+        "path": ".cache/archive/038a73e367b162c96a278e59049a12ae2f0aca3e4fe48e8836da2b2418b0974b.txt",
+        "sha256": "487afac2ef07fae6472dbd9b563eb4064faa8d404932a05a8fd3f333604d2efb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 46,
+          "record_sha256": "f69c798d8381c7f305141ffbb04d56388d628a2406a033d24f0664b23cc4ac26"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "62345634e5c03d461d8a04c97723ad0533988fc16b57ccfb0c5ac466f1b402b6",
+          "numeric_literals": [
+            "12",
+            "18",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_healing_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Heals you and your group for 12-18 every 4 secs",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Chilly Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-chilly-counterpoint",
+      "cache": {
+        "path": ".cache/archive/cb7c99911688ff1af1f0f700503b4c608aabff82f2524c7c573096ea8426d484.txt",
+        "sha256": "a11fedd01c7d265ceb7e05f0ecc5aaebf89370fba1ac12e17e9a04d7c11e3256"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 84,
+          "record_sha256": "9c659d3ffe6abe00f895818d334b5abab9ec6e1fbfc1ab4b1ddffcc9a501ab0a"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Resonation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-resonation",
+      "cache": {
+        "path": ".cache/archive/6cc26ea7a173eafcc8aad1e5653910a6994bc6dbb112251f1625c68e0127228e.txt",
+        "sha256": "6edcac8c9356416f1dfabbaaf6563435ee627c0108d3d7d653371817e216c85b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 56,
+          "record_sha256": "e937c69b2f43ec11191f4179fb4688380fa3687240a3c44841ea31d61d285e21"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "bbfe079d9e6c43e1a0568ced02251e7e54d7c215903a793b0a5e41ee28e9d1a6",
+          "numeric_literals": [
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "reactive_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Attacks against you resonate sharply, dealing 30 damage to your attackers.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Disenchanting Cry I",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-i",
+      "cache": {
+        "path": ".cache/archive/6b9972b873e996fe2366a9017ecb6692a4a972ef1d26eced1cf44b8c8e710590.txt",
+        "sha256": "9231453a98f6fa94f50e6ed1a318bbbb2c31d1a2781ec839fe40ed50f2c845d6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "71995e4dac88a636cf8a15d7d62c5dc3ae24d2ba58d83e07b86b303c2df5e240"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Disenchanting Strain",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-strain",
+      "cache": {
+        "path": ".cache/archive/94e58f296305f6fa02e1dc87a564b924a2d1e61f2f6a8fa07505edb78c81a311.txt",
+        "sha256": "6627302b172145a162bedd12f8a1db725e847860e899a6fdb00b74ded4d17528"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 82,
+          "record_sha256": "90b86613d78c8ff2f712392463160bfc2c5c48c3d4caa435b7b6e2982e6173d6"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Eerie Echo",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-eerie-echo",
+      "cache": {
+        "path": ".cache/archive/98bde9cb2df7732beb9f72ff5e08450f0eea20607168b15a671f1e0c2c9960d8.txt",
+        "sha256": "68526ae498c252183af21f1fb16d3a089d5640f4bab4b6d203499b70b32276cf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "8793536df58bb88faaa1b5e112939cd26e40d1d31493935e627e24d8370c1b37"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "de9afcd1b2263eae1c668f6ad5265ac3bf1860ee3bc0973dcf2be9fad076e5e4",
+          "numeric_literals": [
+            "12",
+            "6",
+            "25",
+            "30",
+            "39"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 59
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Dramatic Pause",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-dramatic-pause",
+      "cache": {
+        "path": ".cache/archive/3465a14c18ad937408ffbb42bfad95ec92b24a80341bad6a7c845270e62e45f5.txt",
+        "sha256": "441251f2f85e6ae159ca7fe1d14c2380a4131ace1ee1eddbc3ec6ddbd241544f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "2854a535938ca142b17a256fd103b4a0b1d515599f24cb5b9374b71ada0c020d"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "f296cb00d88192b5988a664c3a274b0e5fac9bbe80fe0e10662591e146abf4bc",
+          "numeric_literals": [
+            "10"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces song cost by 10.",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Expiating Echo II",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-ii",
+      "cache": {
+        "path": ".cache/archive/285405fa40cb49bfc525faf420fe91f0ddc0c10f56ce4571df9d810b04ed0946.txt",
+        "sha256": "c58456ac61059970ac8078ca3e9edded8c8b51bd997f4a0ced0921ef459b5df8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "83588ad2bd0584562998742096cb62255954dcce824f82d9596972470cb8d892"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "9e10e43af0a669c088c44638784b0be4599fbdcb265c63aab3b4e5bc10e315c0",
+          "numeric_literals": [
+            "210",
+            "222",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "parry_damage_endurance_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You shout after a successful parry, dealing 210 to 222 damage and restoring 50 of your endurance. Only usable after you parry.",
+          "word_count": 22
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Temporal Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-temporal-counterpoint",
+      "cache": {
+        "path": ".cache/archive/31ab111d995e3f40708a3eb176ef23f07c9def47d61e21c242123f6723128942.txt",
+        "sha256": "3622e081fe51f48b28a7851eeec2ec4b690b19c59d8ea6894b38b50297dba863"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "7ae981da9f28afda60be8c72d45d333a1e3c1eb301173d0cfb665f7b450a0606"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of Corruption I",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-corruption-i",
+      "cache": {
+        "path": ".cache/archive/acc47ecf739eb0d3ce2c104248b2243f79e58a68f1a9acc9316ce11f7b100dc5.txt",
+        "sha256": "28bb7144825622c33ae5e2938774c7b341d4a1053d0782fe6d7d2f4cbd71dc5d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 69,
+          "record_sha256": "fc82fd2441bf684c5abc845fd6951074e8f95607ff698b79f5452e5007a8739f"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "b3d6c753306380da8e373c078204ee2cfc93fe97e14a654f73a5d9270767caac",
+          "numeric_literals": [
+            "448",
+            "472",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant vile words, inflicting 448 to 472 physical damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fox Overtake the Hare I",
+      "source_url": "https://vgsoharchive.com/abilities/fox-overtake-the-hare-i",
+      "cache": {
+        "path": ".cache/archive/8c6198a117c89b2630f0caa4cf8b3d538f3594e9c3867200a179bc2aef8eda62.txt",
+        "sha256": "f2fbc828578b480f451f9b15e09bcebf7190df130fbc8d0ff73b3af7a892d591"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 90,
+          "record_sha256": "89722e9eb9c680af57028a46ba12b01ee2c658f6d62887905137ff50084bec11"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "c2f2328d4b2ad2446e5a567743dffd5875c8cf049461e9defa98da5f45d9ca4d",
+          "numeric_literals": [
+            "400",
+            "20"
+          ],
+          "recognized_fact_kinds": [
+            "normal_damage_health_availability_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Deals 400% of normal damage. This ability is only available when a target is below 20% health.",
+          "word_count": 17
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hue of Purity II",
+      "source_url": "https://vgsoharchive.com/abilities/hue-of-purity-ii",
+      "cache": {
+        "path": ".cache/archive/f757d524050093bae1258a9652837ae2400256b1f9f0cfcf1be9b2200c9ff152.txt",
+        "sha256": "80d6f48f3fa743d25de6579a2322357058abd31426419512ae416cad5ac0356a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "ee8123618bcaff09de680ed3e891b650790f75e310bd61c306932b9cc5a33564"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "ca70b49c34cd99a52d2ab69397fb4c6682049562e5cd5860eec0900277b221a9",
+          "numeric_literals": [
+            "15",
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "group_counter_removal_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Purifies all group members within 15m, removing 3 disease counters.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Tune of Safety",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-tune-of-safety",
+      "cache": {
+        "path": ".cache/archive/0495867915584c8d999e57006b66bd199a5ec3bac1a7ecf9dc4a8f738b8372f0.txt",
+        "sha256": "27c3743be0e3716946e06c8b4a4de42ce9dc22d56be4ff68db4a9be3a56dafb1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 57,
+          "record_sha256": "9d85f70fc8c457968bf76b0d529d1904dcf44ee20d0b67007d7b09454e5554c9"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Empyreal Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-empyreal-counterpoint",
+      "cache": {
+        "path": ".cache/archive/4f7e435351b3bdc8c10467c520db77648d0157c5156d90515a188659c25251b3.txt",
+        "sha256": "623a42f2adc10fd4ae738cce6cd11348e3d7405b62c0aee4570fae46ad9dc476"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 85,
+          "record_sha256": "6b1fa7d3c474307c25eb9cd6cec94b4630e510eae730859d16c74933f600a6a8"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Resounding Reverberation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-resounding-reverberation",
+      "cache": {
+        "path": ".cache/archive/11f573a34c31426f5a6763f4ccec87b4a2795f2dfc950ec1fc810741b240b802.txt",
+        "sha256": "6015127c5ea6708b2d0c82509e75e497a0f5ba1b706545225180e4c7cf6b2631"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 57,
+          "record_sha256": "8434a8e5492063c3906a69551fb279b616fe1f700ef29ce579d82c45082fde11"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Beguiling Call",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-beguiling-call",
+      "cache": {
+        "path": ".cache/archive/52f4da59787d83f308fc5348bfed73f4a695381827e6df50a2d039067b128b20.txt",
+        "sha256": "530ab83ac4716a26b6deda00dddbfede83e1836f8b56702d3dec33553187f57a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "260dba8f5333dde81269cf4953f49e78e7ecafc6bac0068c47a1f718fa1e9e1c"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "70f282df280bebe578f8aabf09c5bd414c265fa7e493299581c3e08298cef77e",
+          "numeric_literals": [
+            "18",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "charm_duration_target_level_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Charms your opponent, forcing it to fight for you for 18 seconds. Effective on targets level 50 and lower.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Blasting Bellow IV",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-iv",
+      "cache": {
+        "path": ".cache/archive/9a0451632cc2286e057cd100bb47d3880a23181e80e497a825f833c68671ad53.txt",
+        "sha256": "dd8779d351623af5ac51b22b7276adafeb3c92d07cdbbef9a8b7e0940471de9f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "b2a64cc5347c9970942b471853d80c90d7c50438586f6217e966a7b8aeb3f81e"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "c9850c7b000064c55d4c09a2bb142d7a825cd0055d737ad68e29db1332909dc4",
+          "numeric_literals": [
+            "218",
+            "231"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 218 to 231 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blades of Venom",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+      "cache": {
+        "path": ".cache/archive/4acf77afd0f118e816e3d3d7104378da71976bba44395260bba16679ec4d77e8.txt",
+        "sha256": "badda2fc38330e3873e414e0bbe270288011e8ba82982b332183fb88b7fc63b7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "4a3bc4914b2290ed2be868997451ed14f8b33c3e9cc21591506ec27b4c0714ba"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Thread the Needle III",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-iii",
+      "cache": {
+        "path": ".cache/archive/17284bf2e3a882d51d9eae7d3a04154f3dd88cdb8b50b75bc899476ecd12489c.txt",
+        "sha256": "6a2dde1f43f44fd0272c7041bd8ed311f55b0b4a8aaee870852c38dcf280fa8e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "bd1808bececac719e3b9e39bf3f9b82091bb791bfbc26df2e0348d7d870b69b1"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "f14acf06b40fbb5e77db761ea09ddca9b03a10ba3a088f37784936affb9ca966",
+          "numeric_literals": [
+            "50",
+            "25",
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "weapon_damage_and_opponent_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 25 for 30 sec.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Cry of Curing II",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-cry-of-curing-ii",
+      "cache": {
+        "path": ".cache/archive/a0bddab363b06a6b4198a899df80fed6c96cbee4fa8eb4f28aaa9d58eec4f647.txt",
+        "sha256": "21571c367cd72b47b3fe3bc93ec90a29baee7b45e69977e324456f9f3d3fc713"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "93900024ab4bb23fd38b2d28b4232d318d3d3f0ec303c82d96302427516dcef0"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "54697ab3235c3796f62367e1b3e6e759b35660604aa1868d88864e689f0f6a32",
+          "numeric_literals": [
+            "15",
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "group_counter_removal_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Cures all group members within 15m, removing 3 poison counters.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Hymn of the Lithe",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-lithe",
+      "cache": {
+        "path": ".cache/archive/7bd3a9db7ceab82b2f8acf07c9d842d0b97569ae55fb689910ce9b918b0580dc.txt",
+        "sha256": "6f63e12c9bd72b072f09f249e158cd04f596b5a955149359b8601dd8c1179bd1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "443b602185d814b6ca91c5a3f04521a4f1df323588e2a7d599f81bfdac5bbffe"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "5a7e02095b7d48510fec02db0e6a9d591588e06bb2af5e216eae50d7830fbba8",
+          "numeric_literals": [
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "evasion_accuracy_spell_cost_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This string chorus increases you and your allies evasion by 2% and increases parry and dodge skill.",
+          "word_count": 17
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's Chant of Chains",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-chant-of-chains",
+      "cache": {
+        "path": ".cache/archive/1871389dedf0c87036be2b75c3177dedef16b5e565e11b7bda06133158c0ee9c.txt",
+        "sha256": "2bbba06bee3a81d0e684c43ace385f9cc6130680c705dbf526e8cce8fa7f09b2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 87,
+          "record_sha256": "31573629ee7ff5bdf2f5ffad72d6d1c9f41652a29a5de37ea838437d256b7f87"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Dirge of the Mariner",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-dirge-of-the-mariner",
+      "cache": {
+        "path": ".cache/archive/7334db98933a8b866f20b966a80ae481d0383fe7fbc9cb434f79495e7f554ca8.txt",
+        "sha256": "925a6a972c0ac2ce9b4182c3ac84a3a1d3f99f4a19807e097806d56092053c6c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "7d569f54fc25657f54aebb57d55589789e9abbce18225e0d79c4847a17b47e95"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "87bfbb80dea690d3010ee24ad50558231d85ccf0637b92ac40ee1e51c0b4c137",
+          "numeric_literals": [
+            "7"
+          ],
+          "recognized_fact_kinds": [
+            "environmental_movement_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Enables your group to breathe underwater. Costs 7/sec energy.",
+          "word_count": 9
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of the Flame I",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-the-flame-i",
+      "cache": {
+        "path": ".cache/archive/570d3b607dc7d9366b1f9419f2a4e22143979207fe794a0ec10fd003a1dd5e7a.txt",
+        "sha256": "77014b69c8d1b1b81877c2f6aa3954c756cb9fbd48c1372d7f563492b9e9d845"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "270e9223bf19899d14c04dd07014d63a6df538201aa4b050309f19b2def1d881"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "282bcd5f657cd101bc4e1d2486a7bbcd4c58839033b14cff6609ff9ec6585721",
+          "numeric_literals": [
+            "490",
+            "517",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant fiery words, inflicting 490 to 517 fire damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Fiery Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-fiery-counterpoint",
+      "cache": {
+        "path": ".cache/archive/b6d06a8020c3179aeb0f1c3a52d830334d350ab2800b78c14dd380e7989cfb91.txt",
+        "sha256": "6e3ec88ebd7a331c2292a5fd480728dbd7f1547b137c69e027388d148eed187a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 86,
+          "record_sha256": "427310078ddea7df2bd17d1e8e2efcc996beddac683e66f65ada0189c065946e"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Feos' Revolution of the Seasons",
+      "source_url": "https://vgsoharchive.com/abilities/feos-revolution-of-the-seasons",
+      "cache": {
+        "path": ".cache/archive/23410e026c4488ba27c0ca566651a773140af69144987f4c5a774ec183cc55d2.txt",
+        "sha256": "e5254d537dbcdad85bea291b2355480ead8e7bcb7850bfea3c1270342c274af6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "321f575b8ffdf60d6cc637815a11e3ce1c5780ceb47a46f5007d97ccb5fc240c"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "ef7428912a977bb35497068f7d0cbfec782f6ac84f4b8977c13b195a85466923",
+          "numeric_literals": [
+            "12",
+            "16",
+            "6"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 26
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Illestine's Elemental March",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-elemental-march",
+      "cache": {
+        "path": ".cache/archive/41d5bc25a49a988f37c7a8652cb59e5e7654c897a155bebf9edfc22b16a9a101.txt",
+        "sha256": "43b492f2b0f8d7548ae201a4eb4db8de67ee048a192de6327b595377e3a70cb4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "ecf0c6ebe4f4771bee55c8193ffcf88ebb6455c216526f8527a966ced445f7c3"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Illestine's Revolution of the Seasons",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-revolution-of-the-seasons",
+      "cache": {
+        "path": ".cache/archive/5c14ce1e9b25db93de0fa0bc07626ca558947904d992dc5490c8e50f91d656c8.txt",
+        "sha256": "f9f691061a32fe72e24b99328e09253a92532f0733b40405ac835f13dfc61307"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "5c148189c9db44f57250a5ca28c1a2a0e419cbfb066eff346dfe1af22d9d74e7"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Cierl's Healing Harmony",
+      "source_url": "https://vgsoharchive.com/abilities/cierl-s-healing-harmony",
+      "cache": {
+        "path": ".cache/archive/a81f61b2a080297382309405ca4967d0a367eb31893934a4ba124792d9081814.txt",
+        "sha256": "32a1687bf2e8df43a6ce54a65c095a4db338ae1468129c55ea5805c07f2af53d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 41,
+          "record_sha256": "84a9a58a9c0bfaf5547fa289c2edd1371484fa421790f610716d9a5dce951e89"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "3652ed2692a4ed872105bcc06ca0b9e2f6ac06daf92cd607684cd2b83dc7bfdf",
+          "numeric_literals": [
+            "7",
+            "9",
+            "4",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "level_dependent_periodic_recovery_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Heals you and your group for 7-9, depending on your level, every 4 seconds. Costs 4/sec energy.",
+          "word_count": 17
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Hymn of the Bastion",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-bastion",
+      "cache": {
+        "path": ".cache/archive/62a23040dbdee556ecb7d440aa36026d773f60a80ae36f88bae0d96207a5ef1e.txt",
+        "sha256": "f763a59244fede837d4fb2de6b92ea5a9ea8949ef1a814aa8e5eb5c7dd7bc0ad"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "39fb8128f6405987060fbf12d618cdd72ed7efcc4c1fb2ecdc78cdc69c6567c9"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "03f27c9bd89a641347c4831754e072a008cdbfd3b3d06b36625fe2abfab275bd",
+          "numeric_literals": [
+            "50",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "armor_pulse_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Causes a curtain of sound to protect your group that increases armor class by 50 and absorbs 50 damage each pulse. Costs ?/sec energy.",
+          "word_count": 24
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's Languorous Lament",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-languorous-lament",
+      "cache": {
+        "path": ".cache/archive/6ce9fb4aadeeb1eaf90b41a755cb8e10f8e178a2576f6dd90b9b8b03b4b74e6a.txt",
+        "sha256": "2f5c628a7c19068b8031e5d22e41ba4ffd03d935f86ae57bd84a1fa423d18ba2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 89,
+          "record_sha256": "11479a7e44e8885ecca496df12820eb2bb872472b31db3de23d6bd051e458a86"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "3962a289b0ad11f14cb5e282e480ba89c935d675980af2f0dca5f89b83235ac4",
+          "numeric_literals": [
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "speed_modifier_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This brass lyric reduces your opponent's attacks speed by 3%.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Caesura",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-caesura",
+      "cache": {
+        "path": ".cache/archive/0c7430564b54477f20cb1ff3f6f66789e5f17981ff36e4171a56d9bea2e601f2.txt",
+        "sha256": "5393f2f9efff4412cedb72210b349812d926c67f3338a7c366ae9826cec05bbf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "925630d659a17a9703251ea64dc581f98ad90ee628602f1e6809c716259a0fd1"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "e740ee2d20f3038f339941fbf29dab90f6e9de5472e73d2b25af3fe6b5bbf505",
+          "numeric_literals": [
+            "12"
+          ],
+          "recognized_fact_kinds": [
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "This rest song reduces song cost by 12.",
+          "word_count": 8
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Confusing Chorus",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-confusing-chorus",
+      "cache": {
+        "path": ".cache/archive/c987e25df1bcdc58d734204c02fe24bddea9373197edb64aaaecc8dabc1466b6.txt",
+        "sha256": "321285753188fe9913a1834186b7901221fc1559427b414d6f4e2ad36cd6abc6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "9d322dff7d32ba6ebe8193674f8bb1062690ab0a029a23217f05fe972b552894"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Ariezel's Insidious Shriek",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-insidious-shriek",
+      "cache": {
+        "path": ".cache/archive/dcee63f8710ce2b317dddb97e7fec6d7480b7a04c4a337a95af50552cd4a2d76.txt",
+        "sha256": "902369c7ad20333e27b156fa8f3e9e516646f32ef357397c355a56368cfa5a46"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "f1906e0849afa75ae65b205282f4c1edaae16b4583b7ebf6c8704e4b64485bfc"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "314e8f0a6a820e82ebe07a8eff997ac44dcc1423ba5af97ed4c89b872bf485ef",
+          "numeric_literals": [
+            "20",
+            "30",
+            "45"
+          ],
+          "recognized_fact_kinds": [
+            "evasion_accuracy_spell_cost_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Confuses your opponent, reducing their accuracy by 20% and increasing the cost of their spells by 30% for 45 sec.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Ruinous Revolution",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-ruinous-revolution",
+      "cache": {
+        "path": ".cache/archive/0d5de8503d3b1ca2918be3364752183a10cc53f2f0c0a1dc9e3e30bd778ee66f.txt",
+        "sha256": "29d1c1655c98887b49fe52f41fac5c96c91e5fedeef969e0aae04393350284a4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 90,
+          "record_sha256": "f77a25cedfc4fc9084f9bc5ef6f074594a686360c54176a1d3a54d82cbf308fa"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Disenchanting Cry II",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-ii",
+      "cache": {
+        "path": ".cache/archive/81d8777899883ea3adf1496052d169865dc8486e24426dbc5516490142f4055a.txt",
+        "sha256": "7abda8c9be7bc3693b092b79139779eab6f72cf70520e74deb2aa0550b1c9cf2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 80,
+          "record_sha256": "0bb238878baccbedfdb6875df70725abe75f014a6c1e05205ba1586e6a51b116"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Terrifying Trill",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-terrifying-trill",
+      "cache": {
+        "path": ".cache/archive/83837a109d3aa5a992c02ac7586002d6843d2f18500705ac793c545768d3cca5.txt",
+        "sha256": "1d26fc955d54738089b6731b442377db5eda642302215dc8ce00e596d35a304b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 100,
+          "record_sha256": "4625c06b031fa821cf1c3c29f546858490b46644f1ed45d62950930d89679541"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "6cee095a6e2bb425f7b4dd5de37bf925704df26127565910a7846811acc12be4",
+          "numeric_literals": [
+            "12",
+            "6",
+            "25",
+            "30",
+            "50"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 59
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of Winter I",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-winter-i",
+      "cache": {
+        "path": ".cache/archive/7d8a8b5f79a059d3fd8488463717b91ec0c6cb79cfa1adda6b85f238a19b87b3.txt",
+        "sha256": "33baa42c7a02761776f33ff0a08684193f12a6941096156dfbd6bf87accc2e25"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "55e5dcb492a32ce07aa3b60747d5b13e5622abf0d4b413be9dbfeaf819806c2e"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "856d7669b9f54a12b81a4277b274dc425ed9ac11fb25f524860f23ef121f2ed2",
+          "numeric_literals": [
+            "465",
+            "490",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant chilling words, inflicting 465 to 490 cold damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Verse of Vanishing",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-verse-of-vanishing",
+      "cache": {
+        "path": ".cache/archive/1023edd7b675e9bb0c1e19fd4e5a91e4a3cf06a2553c4bbf8be0aee5d32fe51d.txt",
+        "sha256": "1cb07b1121c4759ad542e57b3b03fb16116d8907d8bf1d850c75e230097d98ba"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "85fc7ee612b87a8772d452f3bd14397c56d02418021550195d62edf6af1faa77"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Expiating Echo III",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-iii",
+      "cache": {
+        "path": ".cache/archive/b071a59425d922c5e1bcf697a401ccc2ffc96512e20f06ec7916c367bfeb305d.txt",
+        "sha256": "833672061c6e3b9e1f328c8224ae729c379b5a18b6811261a9012bba1b92d0f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "6d31c60c0c17e1244c5c223a9c1e91105fc04661c256d65ffdc176bb87597acc"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "891b10ae200655a671fe5ff5cfdfb072fc1666e7763c9b4910dbee8c7e87967d",
+          "numeric_literals": [
+            "282",
+            "298",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "parry_damage_endurance_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You shout after a successful parry, dealing 282 to 298 damage and restoring 50 of your endurance. Only usable after you parry.",
+          "word_count": 22
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of Corruption II",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-corruption-ii",
+      "cache": {
+        "path": ".cache/archive/178f2f5bf39e4632aec70d14cd1e674943b865a856e655569c84be0726b8b1f7.txt",
+        "sha256": "5db644db79af9485633a1638dcae7a1a929a6d2c8f77f353ff85f0586e3d1ae0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "69dcb1a53eaae5b94d4e855e823c5931ec73a2349e51face480b1b212fb11e5f"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "7e63ef40d2a72fefd82a5f69459928b8bafe530b072e90d44ff8dadf4c2f560b",
+          "numeric_literals": [
+            "564",
+            "595",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant vile words, inflicting 564 to 595 physical damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Baleful Bridge",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-baleful-bridge",
+      "cache": {
+        "path": ".cache/archive/ec1d51722dedd5d23e1138b9519dddda7c8c342fa78baaca92db4c1f2898fc15.txt",
+        "sha256": "c5db5065c95adc51bbb70e0740a836800ef9561b644eaa3744882cbfc2f1e367"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "0009841e32e05226090dce1f43e65582d998d8ae43e3e32aa3f9bcdb45037cd6"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Briel's Segue of the Sky",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-segue-of-the-sky",
+      "cache": {
+        "path": ".cache/archive/cddc8539b8ceb10c0dcc18fbb23d57676cc1ed518d66c42cb83ceaf745d35051.txt",
+        "sha256": "71e1a4f77f99bdea901b1b74c647514d20a10f8a884e5e544eb6acf6f5d3357c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 97,
+          "record_sha256": "e98fe211784526001b009b7843ea235b7fd851c1bf33fd1e89a15963af005d14"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "e2ef3d838e1d45e467af3b43b484a13a6512f5445b0c2544beb83a19a30bbc62",
+          "numeric_literals": [
+            "6"
+          ],
+          "recognized_fact_kinds": [
+            "environmental_movement_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Levitates your group off of the ground. Costs 6/sec energy.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Verse of Restoration",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-verse-of-restoration",
+      "cache": {
+        "path": ".cache/archive/026018ae6b1774599eb2fcdc4e28cd0ac59d3f95c2883fcecdfaa3909b4a9dcd.txt",
+        "sha256": "1f4f6ea01400b356bfc5be78cd27ca86a876d4dc224b65eaefc347c87fa04953"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 48,
+          "record_sha256": "b675f16a4b6a0319327feb06e2b8a5e7454d906b0c1e236379fbff9f760be25a"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Blasting Bellow V",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-v",
+      "cache": {
+        "path": ".cache/archive/eb3155ae41b8afff1ad05b179de62256cc8084cdd690c4d5610be7ff086caaac.txt",
+        "sha256": "938dcc8fa03f0cd122ee28b7deb9ca0d5b33c3f6cc19ca8f88ca73c67e8d585f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "9857899b09e7ae7f5db44b42f3844dd2d3291d5867b6972f9f86b864a93e9399"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "8db2523e020c922585d27a37a9426ca735e523dd2d15bf8ce49e9fcf884c146c",
+          "numeric_literals": [
+            "273",
+            "289"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 273 to 289 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Feos' Segue of the Solace",
+      "source_url": "https://vgsoharchive.com/abilities/feos-segue-of-the-solace",
+      "cache": {
+        "path": ".cache/archive/c43037baaaa5bdaa53f7f3433f8a6ce304872ca33a7c46d6b81d5975ece5b537.txt",
+        "sha256": "d0d2bdfcc230dbceab7809eb06138d6b42a1e92944deccd9483824eda7329c34"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "5bf18503d8926c499b2b5cf737f59a7c82228d6087d55160c4e86f47ef0f611c"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "eeafb38ad6a7a4afad0938f5f4971dfcc3d86328a0cd211340a16ccb2fa79766",
+          "numeric_literals": [
+            "12",
+            "16"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 26
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Hue of Purity III",
+      "source_url": "https://vgsoharchive.com/abilities/hue-of-purity-iii",
+      "cache": {
+        "path": ".cache/archive/ff72ea2325960bbf10a01578d45b593c1f2418d21e29d1f0200d56888e1433b0.txt",
+        "sha256": "c5b7ffced3466527109971012f46a6135712b15cf2f6cb0085611e34be4eaf0e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 56,
+          "record_sha256": "8596cd552188cfc43170b7501b3a83f61a6bc569510dc3db7755fe465237208b"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "4de151c9f97fade4d723a3d042b0053f5dfc36e34bfd35193c7e66ea1da936c0",
+          "numeric_literals": [
+            "15",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "group_counter_removal_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Purifies all group members within 15m, removing 4 disease counters.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Guardian Rhythm",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-guardian-rhythm",
+      "cache": {
+        "path": ".cache/archive/8e1196c52fea07ba978972c653e439e5f7696aa53bf9d7a3aceb9257a9130def.txt",
+        "sha256": "6fa9faa52c0b66e548a23f87719aa3e98489e8151c0e7f80a14bbb2dbadb6335"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 87,
+          "record_sha256": "9dadd43b211b83400fbacb76e081199893dd7ba8766b1664e00fd83d75e51d11"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Call of the Night",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-call-of-the-night",
+      "cache": {
+        "path": ".cache/archive/09f8892e7992e7c1166de98a71811a74780f0e57ee0bb8d21e26a2fbe6f82ca6.txt",
+        "sha256": "384c9a8e68010c0383a4c5fdca3da83a3732f6349131f3824f51575a1aa492f0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "943209e5ce9a20d065b53eeb001e32176a7b2c997b8d5916c60fe8f1eb297d74"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "66848362cfb6231009865f2a69516269293a4e39f5dba6032eda5536ff578339",
+          "numeric_literals": [
+            "24",
+            "1",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "mesmerize_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 30
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Call of the Siren",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-call-of-the-siren",
+      "cache": {
+        "path": ".cache/archive/9174c06dd0ebdc633a3592f3b62e257d4f5c7fb3c4e94061139f457a4c4d67d3.txt",
+        "sha256": "d33afc0dd067e783673e514b535c893b92fb2d995868e0cba050431e18c8d682"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "03ed2e4d240f14ff429be704771478be4a04fc1229b9d6492df9b3028d5efa18"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "250bbacdab8179a75c02ee3d92d2c38966e21576b910a984a8ebf6c67e98e603",
+          "numeric_literals": [
+            "22",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "charm_duration_target_level_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Charms your opponent, forcing it to fight for you for 22 seconds. Effective on targets level 50 and lower.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of the Flame II",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-the-flame-ii",
+      "cache": {
+        "path": ".cache/archive/3d52598bd15747abfb83e5a1491fe52aee1a18981740fea281ed7c3d099debfe.txt",
+        "sha256": "d40fb30e86ac3e19a37196c6c6c8f7fe7af86efe681e067a7944911454e1ba7f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "52ccb227f9700f60fa8804791cb248075d13737635ca932564c4c6a0457c3b20"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "2b74ebf7adaac727bd7d66193bd0f69b15d56abdddfd4766630490767b66ddb7",
+          "numeric_literals": [
+            "609",
+            "642",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant fiery words, inflicting 609 to 642 fire damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Naman's Nefarious Barrier",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-nefarious-barrier",
+      "cache": {
+        "path": ".cache/archive/81ff868433b84bdcaf46c3322d5f98eb595a58e580a6e06b9d20151c84247d6c.txt",
+        "sha256": "caa4e6409e61f1f3081a14209b8fbee59d17cfcccb8599b58c15f598c9078aee"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 89,
+          "record_sha256": "379591145226ba5568d7714a2a61364b74675c5fa7e743f77db54d56a30754d7"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "760e377437048f533803946b79d1d0a4f802e57c527cb07ca0c1ee18d2528c11",
+          "numeric_literals": [
+            "10"
+          ],
+          "recognized_fact_kinds": [
+            "ac_strength_healing_potency_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces the potency of heals on your opponent by 10%.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Sendune's Scream of Silence",
+      "source_url": "https://vgsoharchive.com/abilities/sendune-s-scream-of-silence",
+      "cache": {
+        "path": ".cache/archive/97d7730a24b6133bf353bb97e0cffe4a4c2e2a518ad373860ba60c462ac3d46b.txt",
+        "sha256": "356f67b88d8909383c180083fa88b12ffe16b0765d4bdb23c032f7dbc3a85e3b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "e2f5b28bbdfe417528c7812bc72de96f5b5df865f4927afe5bebf3f8ee96f587"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "de03ac3ca6f842aaa54a12861500afbce58f6fbe78d348d4c09bea2a3a333302",
+          "numeric_literals": [
+            "10"
+          ],
+          "recognized_fact_kinds": [
+            "silence_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Silences your opponent, preventing the casting of most spells for 10 seconds.",
+          "word_count": 12
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Thread the Needle IV",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-iv",
+      "cache": {
+        "path": ".cache/archive/f0c0e89a408c60e25a4d9035a19f2bf1bbdb0721a5855335a742bf7b1ee66b14.txt",
+        "sha256": "be3f215c3bd983df9e4533c055350ade45ada06b18d668d0f8b1b9857f59fb69"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "1a2760a9df328353a730a3dbe0e17441e65af71c28c8ab4c98873583867e621f"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "8a0a5349c954f78a067f2af5e6b67781a46edd8e07bc4e3a22a67bf30f6ff704",
+          "numeric_literals": [
+            "50",
+            "30",
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "weapon_damage_and_opponent_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 30 for 30 sec.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Dirge of Empty Thought",
+      "source_url": "https://vgsoharchive.com/abilities/dirge-of-empty-thought",
+      "cache": {
+        "path": ".cache/archive/e44cdf5803edaf90b706febfe38eed5c3b833c9e7029b721acf6c7b14c5c1ab9.txt",
+        "sha256": "14a42be0381d042997a41e174e80a0c84b5cbab2a6ac1d527d73d57406deb4e4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "e308dba045c7e15e9119fe9fd7bc58e58ecfa1db7a9fd8d3c91a5e205408c108"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Feos' Substitution of Warding",
+      "source_url": "https://vgsoharchive.com/abilities/feos-substitution-of-warding",
+      "cache": {
+        "path": ".cache/archive/8f3f390b7c109d0af1855b0e12b71c186c5577d280276142812ffddfbcf59805.txt",
+        "sha256": "5400048c36edd7482dae99f68635d53d9a73d6c398b6ea1f5cb8febe1bbb65fc"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "4b5a853162d174a47c2289910c373c594d4a45df5a0166d8bd9f4bcaf959eee4"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "a137da5428695960ea23360708361b8ae79a6f4822d198530e94041ba45c7d42",
+          "numeric_literals": [
+            "20",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "nearby_resistance_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the arcane, mental and spiritual resistances of all nearby allies by 20. Costs 4/sec energy.",
+          "word_count": 16
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blade of Conflagration",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-conflagration",
+      "cache": {
+        "path": ".cache/archive/869c573c7a871571885ebffb5ddc41244a04ec07184e08107976b9e2c3d1aca4.txt",
+        "sha256": "9d59ab1aa5d67dae0b81e8caa40c750aab5c6be1fd85738fbe93aa4362fd7a70"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4230a3d8960b716c4700c710c552d484724060d8b888d23c7be4b6bb86a7fc4a"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "fe892a551468685c7ea63f8213fc4109250dd5fb123e207aa1b084d0d9b02de3",
+          "numeric_literals": [
+            "10",
+            "283",
+            "302",
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "proc_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Adds a 10% chance to deal 283 to 302 fire damage with melee and ranged attacks. Costs 3/sec energy.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Transforming Transition",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-transforming-transition",
+      "cache": {
+        "path": ".cache/archive/660b7a064a77863a8a73ccf519f05f3db9558dd35080ddc63cbc477b258e07e0.txt",
+        "sha256": "ae1e30b0ba030b6cf315575ac0a78cdb70fc0a2ee2093dacd1b495e721da873e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "2eb76a9b34867357111ebc265780ab13f0e7b7dced91e8acff8cf2ccacb089a7"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Bladedancer's Focus",
+      "source_url": "https://vgsoharchive.com/abilities/bladedancer-s-focus",
+      "cache": {
+        "path": ".cache/archive/ea1f58dabed3128d6d3e24fe5b5ebcbb5b08282af6eb292ebdb53633e6e687df.txt",
+        "sha256": "005f0d3ae35dc50cdecd8f241a6f2c2b9a7162e71dafcb843f91d4f201529a8a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "9392b07b238403e9c9bad2270c461eb2f28b56fe9ae32b5ad8e0fd2cf1c8a476"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "a5388e1c8aca969665e2bc71538f766f170cf53d7957debb6fe16a099e9f2a02",
+          "numeric_literals": [
+            "5",
+            "30"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": null,
+          "word_count": 30
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Psalm of the Dance",
+      "source_url": "https://vgsoharchive.com/abilities/psalm-of-the-dance",
+      "cache": {
+        "path": ".cache/archive/b1e12dcaae944503dbc55708c2437123d0e4a43a19ccb31632f1de5d96b17390.txt",
+        "sha256": "3ec292dfea89a554768b0a2d2918184d1e71975985be88ba48725034aac74a5a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "ae97d29d8c4af5d50fa1a69833a1767961d0ceb874fc7c147396ff96fe2d543c"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Cry of Curing III",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-cry-of-curing-iii",
+      "cache": {
+        "path": ".cache/archive/e886ae7e8a340e8970d85aeb675a589f37bdfe904d2fd20f52a37f2d942e3bd1.txt",
+        "sha256": "9c305703fd4dcf733f8f0879aff84cd355d4feb654ed1985a8cf1d211859cd5d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "5870d825154a793055cc006bca1f6d0512834227e0ccb10daaa4618a2b5a7309"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "c281e48e756d9dba96963f48305f9729db6b2335d9e6c5881ff37e7c98465dfc",
+          "numeric_literals": [
+            "15",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "group_counter_removal_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Cures all group members within 15m, removing 4 poison counters.",
+          "word_count": 10
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Feos' Substitution of Infinity",
+      "source_url": "https://vgsoharchive.com/abilities/feos-substitution-of-infinity",
+      "cache": {
+        "path": ".cache/archive/c0fb185797d1c6bb5324b0f256eb884e26fb26a24ea6c40ec46617a3590c7983.txt",
+        "sha256": "0158e0b7d66a168a25b9acd399a3312cf8672c7bfc4d60dd9f4cdadb2d615f4c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "3ecee2168131df8cb9158f565f31a5ab1fca7280dba14be72029aff1e53784eb"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "8e4f143b8671fd051b8c4a7ffb06b6cab5e4d871f7d27b5c51d0b758828241aa",
+          "numeric_literals": [
+            "10",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "nearby_resistance_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the mental and spiritual resistances of all nearby allies by 10. Costs 4/sec energy.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Refrain of Resolution",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-refrain-of-resolution",
+      "cache": {
+        "path": ".cache/archive/5ae856f3b76067c80b94c574790c032a96ee9b0a21a45e8a3124ea68983e295d.txt",
+        "sha256": "1da8828c26e61ffcc5ef1ee65968c757c42677e0fa0c2b099d98422596501eec"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 54,
+          "record_sha256": "6951c15c6eb2cd12cf8e4d639c3f538f6b9f2c8717235ed94a4a9fffdf285da6"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Booming Bellow",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-booming-bellow",
+      "cache": {
+        "path": ".cache/archive/5ba9e1468b40b7de58028f8e54ce125d2bc69cd38158de503635ff7823a620f9.txt",
+        "sha256": "0064fa7f86a8f7bc10828aec6e4dd709dc455dff7aeb5c489787335018cebf1b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 97,
+          "record_sha256": "da11b061ce5f4a59647081a651a5dfdbf82de60553fc62b1f16b33c1e64d20ee"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "25683da9a612de6b9371306d246b641fd08f680b5170507e7b4ade5863fef47d",
+          "numeric_literals": [
+            "790",
+            "832",
+            "4"
+          ],
+          "recognized_fact_kinds": [],
+          "disposition": "numeric_prose_without_recognized_pattern",
+          "coverage_complete": null,
+          "short_text": "You release a deep, booming bellow, smashing your opponent for 790 to 832 arcane damage and stunning it for 4 sec.",
+          "word_count": 21
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of Winter II",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-winter-ii",
+      "cache": {
+        "path": ".cache/archive/38d93b58243ab3ccc75fedabe0cbe77945b8e4f55c0154809f06c1b46584f312.txt",
+        "sha256": "b94bf23dac0db199840c3f58bac2b14eb98fc1a061ef60ec2bdbd40982c37084"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "d0fd7cc5d89d4a7b6bb11380ed02309eb02c041fd2d7cfc50da15cce24cb3016"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "e52dbcfb0e05578fa17050f9d9d89135f4f021ede22f9c6afd9294f842497b8c",
+          "numeric_literals": [
+            "570",
+            "600",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant chilling words, inflicting 570 to 600 cold damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Tranquil Tune",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-tranquil-tune",
+      "cache": {
+        "path": ".cache/archive/ef998019d5a8c5b841c82f666952308001a1647b90bcde5273d5e79ef7e3f4c8.txt",
+        "sha256": "06c1f7e8e446105b5556ee10d648f5d6484018ff1598d963bbf4087eca602e71"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "e806ab4a0e3dc539c5884bb81d9ff94646b584181ad411a27ad3c24042671497"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of Corruption III",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-corruption-iii",
+      "cache": {
+        "path": ".cache/archive/ec3cf6754bacdcb64069848a70bba9d597e01ac6c0f8e3af43958af092e4c104.txt",
+        "sha256": "9c779854a081ddc3039e902a3ad922d88b32728e26119b37527d8708019a6059"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "6d7561f85faafc54923a3a5e22700b98f27989b963d7a2e8874c0ded93dea8cb"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "096eaf66778f392dddd8f78ebeab6190d116382ff671fabea1b350dc58778520",
+          "numeric_literals": [
+            "671",
+            "707",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant vile words, inflicting 671 to 707 physical damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blade of the Blizzard",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-the-blizzard",
+      "cache": {
+        "path": ".cache/archive/bce2fec2673084c0e7a15e1adfc3666e931d2744c52dbd9e869e8a582ae8f2f7.txt",
+        "sha256": "16905dae494d773bbb7e93aa016e52c1488067385d21716172608554bfba331a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "046a33bdafa7107b4bb2468e3ed6e2e9b762bae4eae78d6519a7c6cb3d895d66"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "194c772a034fcb358642004b8d2b4732bf79000777c1c78b35abf325416ca523",
+          "numeric_literals": [
+            "10",
+            "316",
+            "338",
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "proc_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Adds a 10% chance to deal 316 to 338 cold damage with melee and ranged attacks. Costs 3/sec energy.",
+          "word_count": 19
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Asilam's Disenchanting Cry III",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-iii",
+      "cache": {
+        "path": ".cache/archive/5eb1cbee9ce2d6257906ac8b676a3bce0a6e44963cb027bdf50641fff689d7af.txt",
+        "sha256": "c16552dfd7c84b475e5bb0b439b591863e08900b38ddec70c6d8e749340e4e85"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 81,
+          "record_sha256": "a5f70c2ae757f5fec39d004bb0b9b918a2eea09abde26d29fd83eee19dfa95f2"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Coda of Alacrity",
+      "source_url": "https://vgsoharchive.com/abilities/coda-of-alacrity",
+      "cache": {
+        "path": ".cache/archive/9a4ec3cdc8f625bd29f02cb5a71455d8e8c8cb8db7fc44cf225cb9621de60d08.txt",
+        "sha256": "783d32d8fbf83dc55a2b69dc96e3f8d6cd1d3296f9c128996f64b59170a9f6c6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "d77fb7ecb998aa0280744df937470e23c6aebd49dc3fd8dd2b8a42a146c08dbb"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "24318c5f736daeb170aaedbe7ac93c7b848442d9d496c6de1273be5c28a496a1",
+          "numeric_literals": [
+            "20",
+            "8"
+          ],
+          "recognized_fact_kinds": [
+            "refresh_energy_upkeep_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces the spell and attack refresh timers of your group by 20%. Costs 8/sec energy.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Blasting Bellow VI",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-vi",
+      "cache": {
+        "path": ".cache/archive/5c77f683e704294e39e93d5c126c3ef81bf8f63c1edc12a53c8c073e660055a2.txt",
+        "sha256": "369c23160d304b9e57643f3f6900cebe1c05d8bd82edc94181618342d0be14dc"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 96,
+          "record_sha256": "285e62361269ffcd2ca2f8d6eb95c057849a2c0bbdc30e463340e1881ad40ebf"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "648323f96fc11bf1ebf115608ffa4468ae9c4b1cd285b942b4177f867116f19a",
+          "numeric_literals": [
+            "317",
+            "335"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 317 to 335 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Weirlaun's Expiating Echo IV",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-iv",
+      "cache": {
+        "path": ".cache/archive/2dc2dde164dfeaf3abfc93997131c0474f1c321081d5c4269fa70ff71b2beb07.txt",
+        "sha256": "27e293c4497a72a0627c2d002e8e80fc96536406c5e77bbefc6c892d9eb2f61e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "808eb6e3b1815cac49b76dc59f2a54ed267b0143256d7fa4385f4d08e1799dc2"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "dbf115859283e7ac377d7b178ebe0b239bc70287f1971b56e19b9ea7eb94ca48",
+          "numeric_literals": [
+            "336",
+            "355",
+            "50"
+          ],
+          "recognized_fact_kinds": [
+            "parry_damage_endurance_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You shout after a successful parry, dealing 336 to 355 damage and restoring 50 of your endurance. Only usable after you parry.",
+          "word_count": 22
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Illestine's Epic Substitution",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-epic-substitution",
+      "cache": {
+        "path": ".cache/archive/f0980ea0207b168f3e14c6c5666e036200946459aa77659ad0b74ce0cd79c1a4.txt",
+        "sha256": "a0284abe8b524bf10a1667e000c35adffcffc4ebd4527189c94cbc182a60a3b1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "387f6372c6a786f16b6b29ac9563b0c2a043b9c86282328175f89a535af5aa37"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "f038b504bc1c1f0fff4e821f3106fc23a24a60cd2de9249a0df4365e67784f3f",
+          "numeric_literals": [
+            "10",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "nearby_resistance_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases the cold, fire and physical resistance of all nearby allies by 10. Costs 4/sec energy.",
+          "word_count": 16
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Tynen's Coda of Velocity",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-coda-of-velocity",
+      "cache": {
+        "path": ".cache/archive/b8ae355a69f30cf813bb5dbcbe8fb2b6c29dbeaa4334e3b299c2c730c8d4c61a.txt",
+        "sha256": "b213e9c137ae1b3e1e13b975627684ea29b0fec5d0dfd7f2bbb425371b87612f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 88,
+          "record_sha256": "0d75926c51e6f5b2d40a34d621e19c7fa117be336b9d6877f4a013d468dd92c4"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Cirel's Counterpoint of Clarity",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-counterpoint-of-clarity",
+      "cache": {
+        "path": ".cache/archive/c32a4cddf1e19f5a211005a6e700c658bdecc12343a54b9ae48428987210e884.txt",
+        "sha256": "2dec0db68dc2a642ed61df7c8469ff902cbe63e73c2b494231665578900236fd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 44,
+          "record_sha256": "92c917060d26665fade4a2fd59e7aa741c92de671a465f5048f81db744c212ea"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "78c14f6413bc8006a30f4748d4a25b022b532db7bfe347dabfa6d69f0b5b5a86",
+          "numeric_literals": [
+            "6",
+            "4",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "level_dependent_periodic_recovery_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Restores 6 energy, depending on your level, to your group every 4 seconds. Costs 4/sec energy.",
+          "word_count": 16
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Eaon's Superior Blasting Bellow",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-superior-blasting-bellow",
+      "cache": {
+        "path": ".cache/archive/e790f0a72338555343e31d73813ef5cf88a34a0297101c93692a2bc45cc81af5.txt",
+        "sha256": "e0afdc60985e9d2bed0cd324a835c5c37933f1f6bfdb1281ce68ddaa478370b1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 99,
+          "record_sha256": "7ecd2cecba73a8ff9c2c672160e42591babf61ad8352e9a8133b0929dfb0bb77"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "c2a4aa9ae90f267a1636f9f80c8ec60e01c20082f587178f4b014427de0ba9eb",
+          "numeric_literals": [
+            "348",
+            "368"
+          ],
+          "recognized_fact_kinds": [
+            "damage_range"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You bellow, blasting your opponent for 348 to 368 arcane damage.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of Winter III",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-winter-iii",
+      "cache": {
+        "path": ".cache/archive/662fd877f2da8356ccc54d4924470446389804b0b4ff4da99aa4133d53cb6dec.txt",
+        "sha256": "7d6dc9ac52720f6f9d76b12e6f00c3c54e5219c32557ca9b1cf100eb2b04ff92"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "3f3cc338dbc2a822e4c9ba3f7e0d38d73bc1529bf686deeb7caa5d77b5411034"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "e52dbcfb0e05578fa17050f9d9d89135f4f021ede22f9c6afd9294f842497b8c",
+          "numeric_literals": [
+            "570",
+            "600",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant chilling words, inflicting 570 to 600 cold damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Chant of the Flame III",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-chant-of-the-flame-iii",
+      "cache": {
+        "path": ".cache/archive/f2de4d24d9d2fd9f50fd459628192152e8f155780a971efcba2e928df2acf333.txt",
+        "sha256": "6e8d4305c5f030c6f9b0a6c8e1b14ca790e4f70a6b67a74eba0bfe9363ed85ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "ade65636b39425e8e0b174e7217adc9a70ad10b8d937385ebff415bbc66c4138"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "c1eb3c7dd321ad69433f462681615a7e63921cf723526523672941d577c2f2c6",
+          "numeric_literals": [
+            "671",
+            "707",
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "damage_over_duration_range_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "You begin to chant fiery words, inflicting 671 to 707 fire damage over 28 seconds.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Fasant's Segue of Sundering",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-segue-of-sundering",
+      "cache": {
+        "path": ".cache/archive/1ee44ae5ff84f351b79ee39c12f1798e33efcc824081d81aa3a79daafdbbc60d.txt",
+        "sha256": "32f23214183ba45e41eb36cc83064bce65b38bc997ccf114f90680664996cace"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "58ed11ee1150c6448e82ca3421197da94c4138cf92387884fd6afb6667718b6f"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Feos' Securing Anthem",
+      "source_url": "https://vgsoharchive.com/abilities/feos-securing-anthem",
+      "cache": {
+        "path": ".cache/archive/1fc1ac4b6a279d3a0d25787304769067cadfb5297c00931f1acd3b52d9e85fd6.txt",
+        "sha256": "547f6283511f02b27743926ed9bfe56bae67fad80fef2c7c269b6f7581bcfaa5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "1f73266f39a0eb46776784da61f8f39d70172bcbc27ec0502017e4535c859d78"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "ec3e3556757330e068780294971d8b407541c00e0c27cbba4e2c7391074e2b60",
+          "numeric_literals": [
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "refresh_energy_upkeep_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases all resistances of you and your allies. Costs 2/sec energy.",
+          "word_count": 11
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Gamael's Blade of the Viper",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blade-of-the-viper",
+      "cache": {
+        "path": ".cache/archive/f7cb677533cef48a4f0f2c4ad2824d6b8fe48a0491e12f83cf4dd38f95c5d86b.txt",
+        "sha256": "4d5f657c947ca18579edd12b641c2f4b683562e63067b2edd2a1dd71ccd4cbfb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "7f02dc5eb6d1df1a98bcbe8f3ad861ccb0ec4b001fae73cd5bc121d1054ba88a"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "4b02965fded61f4d49009907a8371c7ad1f7c99cbb332c6add8f99d9f65a1e34",
+          "numeric_literals": [
+            "10",
+            "343",
+            "364",
+            "3"
+          ],
+          "recognized_fact_kinds": [
+            "proc_damage_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Adds a 10% chance to deal 343 to 364 poison damage with melee and ranged attacks. - Instrument modifiers alter proc chance. Costs 3/sec energy.",
+          "word_count": 25
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Securing Anthem",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-securing-anthem",
+      "cache": {
+        "path": ".cache/archive/31f4146846f2bbe01b5675363c3075b0aefaa1dd68d9500321d109e31fbba16e.txt",
+        "sha256": "ec4a3d28b4a91f8e6844dca2c73cc5a3bf361e0b189f9ca23614503333b06d57"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "2f77ef4dfad63c0effe763d7cb0353f644924c15ad3e49b935862a483331dd9f"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Irion's Tune of Warding",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-tune-of-warding",
+      "cache": {
+        "path": ".cache/archive/01c3c209856a348b3de56359899aa1cca046a8f96ac51167809168722280c7d0.txt",
+        "sha256": "02d9ea8695c9a37926cf5cf36da0565da0c8a848c8369031a6d197b344e5b24d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 58,
+          "record_sha256": "a2f561108a1b13e6c18842fe54838ef8e227b6ef1f9b597a27b306f999219134"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "042424de3926e14ae22f5209045ba5e18f50ab23755382f1f0c2313a29956077",
+          "numeric_literals": [
+            "150",
+            "2"
+          ],
+          "recognized_fact_kinds": [
+            "armor_pulse_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Increases your group's armor class by 150 and absorbs damage each pulse. Costs 2/sec energy.",
+          "word_count": 15
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Mellarien's Victorious Finale",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-victorious-finale",
+      "cache": {
+        "path": ".cache/archive/ba71376c41967462737d8c3cbafe65f87341f2a043e8df47dc39918fc6dba1cf.txt",
+        "sha256": "fcf1545a2ec22e1a1f9c5d2df8646694085a822908dc7d2fdcd097b2b1098666"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "67ff30ea2d0b58d2efa22c813ea76b3aa728cdedf165c3460c774aa0bcff8cc4"
+        }
+      ],
+      "numeric_sections": [],
+      "operative_values": null
+    },
+    {
+      "name": "Suann's Nocturnal Call",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-nocturnal-call",
+      "cache": {
+        "path": ".cache/archive/6eaf2e27e9c9bb6f2519147422acde64001082e4a62bada029994c27020a9091.txt",
+        "sha256": "3cf9c06cddcd7ab4b03ce8737a4a15f2124bef91927e4a6bd27d14faa3bbee12"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "d8a38f173750130624a16455424ba06c778744890d741a827449ab3a258b797b"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "253df5cdd41054ea8526267ff124579a8d593b70d8513ce01ae20c7587601cdb",
+          "numeric_literals": [
+            "28"
+          ],
+          "recognized_fact_kinds": [
+            "single_target_mesmerize_tooltip_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Single target mesmerize (28 sec)",
+          "word_count": 5
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Sung's Renewing Rest",
+      "source_url": "https://vgsoharchive.com/abilities/sung-s-renewing-rest",
+      "cache": {
+        "path": ".cache/archive/9cc5a74d3138871ad30a581b4faf2dc924f8945b470d94d5faf3410ec5363f1f.txt",
+        "sha256": "710081f2ad703c35601db9a7c5d82be33c6efd4eac03af087c449f865122877f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "6b3ee0c9ff376b5d12edb083f7e8d539634be7d5bdbdd33d5e66dcce992469e6"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "8ad31357cac04391f7f646ab38a75b7f5d07030e4e1ab145ead24ea512e105a6",
+          "numeric_literals": [
+            "11",
+            "30",
+            "4"
+          ],
+          "recognized_fact_kinds": [
+            "periodic_hit_point_restoration_observation",
+            "song_cost_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "Reduces Song cost by 11 and restores 30 hit points every 4 seconds.",
+          "word_count": 13
+        }
+      ],
+      "operative_values": null
+    },
+    {
+      "name": "Thread the Needle V",
+      "source_url": "https://vgsoharchive.com/abilities/thread-the-needle-v",
+      "cache": {
+        "path": ".cache/archive/2442c57cf4be428d3548d1cd1cb2c3299a4ce4bfca1856dc3b49f7d3a0dfbb4c.txt",
+        "sha256": "7cbc34948724b4b39936a0b6075af254dd3edea0f7272d16cca85e9fa41f429d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "812070f3406ec4bdc889cef8de9dbdc5da9034a433c0648e559dd89e1f8b4339"
+        }
+      ],
+      "numeric_sections": [
+        {
+          "section_node_index": 0,
+          "text_sha256": "974fc6b79237bb124dcc5c57355854c9cea679b7c7fa42a4d632ec6301dce2d5",
+          "numeric_literals": [
+            "50",
+            "40",
+            "30"
+          ],
+          "recognized_fact_kinds": [
+            "weapon_damage_and_opponent_reduction_observation"
+          ],
+          "disposition": "recognized_numeric_pattern_present",
+          "coverage_complete": null,
+          "short_text": "A fast piercing attack that deals 50% of weapon damage and lowers your opponent's damage by 40 for 30 sec.",
+          "word_count": 20
+        }
+      ],
+      "operative_values": null
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 150,
+    "source_record_hashes_verified": 150,
+    "whole_page_replays": 150,
+    "issues": 0,
+    "unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 247
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Pattern presence does not establish complete extraction.",
+    "Whole-page structural validation does not authenticate historical mechanics.",
+    "Unrecognized numeric prose still requires source review; original batches remain immutable."
+  ],
+  "next_step": "Review Eaon's Booming Bellow for explicit arcane-damage range and stun duration, preserving unknown mechanics and canonical mappings."
+}
