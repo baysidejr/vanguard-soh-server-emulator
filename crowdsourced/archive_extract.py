@@ -18,6 +18,17 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    group_attributes = re.fullmatch(
+        rf'Increases the (strength|dexterity|intelligence|wisdom|constitution|vitality) and '
+        rf'(strength|dexterity|intelligence|wisdom|constitution|vitality) of your group by {num}-{num}\.?',
+        value.strip(), re.I)
+    if group_attributes:
+        first, second, lower, upper = group_attributes.groups()
+        if first.lower() != second.lower() and numeric(lower) <= numeric(upper):
+            facts.append(dict(kind='group_attribute_range_observation',
+                attributes_recorded=[first.lower(), second.lower()],
+                values=[numeric(lower), numeric(upper)], target_recorded='your group',
+                range_basis=None, conditions_unparsed=True))
     patterns = [
         ('damage_range', rf'\b(?:deals?|inflicts?|inflicting)\s+(?:an additional\s+)?{num}\s+to\s+{num}\s+damage'),
         ('damage_bonus', rf'\b(?:normal|weapon|melee) damage\s+(?:plus|by)\s+{num}(?!\d|%|\.\d)'),
