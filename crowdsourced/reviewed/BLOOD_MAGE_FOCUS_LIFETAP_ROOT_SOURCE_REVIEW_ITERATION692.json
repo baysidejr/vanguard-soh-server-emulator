@@ -1,0 +1,558 @@
+{
+  "review_kind": "blood_mage_focus_lifetap_root_source_review",
+  "parser_version": 86,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Focus of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/focus-of-gelenia",
+      "cache": {
+        "path": ".cache/archive/6909d8ce3cb5bb3c306f07416c4eb35201675c4b4c314d703d6e99a234b4ee90.txt",
+        "sha256": "aa312aad7f73a70fa3eddce9f122249ebfbb349dd0eaeac8cb55b7da7153369a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "9097d450945b4ebe23e37deba495e1e3856522f841db3d86dffe7dd280e7db3b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You sufffer a 5% health loss every 5 seconds, but gain one point of Blood Union. All disease and poison counters are also reset on each tick.",
+          "literal_sha256": "1b30afa173f57fed2582f794953d7ee439103a9986991c294e7d0dc7c9264268",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "periodic_health_loss_and_blood_union_gain",
+            "health_loss_percent": 5,
+            "tick_interval_seconds": 5,
+            "blood_union_gain_points": 1,
+            "counters_reset_reported": [
+              "disease",
+              "poison"
+            ],
+            "health_loss_basis": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Focus of Gelenia",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/focus-of-gelenia",
+              "title": "Focus of Gelenia · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 86,
+          "collected_at": "2026-10-19T23:18:36+00:00",
+          "archive_fields": {
+            "level": [
+              "1"
+            ],
+            "duration": [
+              "1 Hour"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/focus-of-gelenia-762.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lifetap",
+      "source_url": "https://vgsoharchive.com/abilities/lifetap",
+      "cache": {
+        "path": ".cache/archive/6c1470983a6078a031a7d98be9b29c88baa4ae751a2c1a59f9866a80a8b52c23.txt",
+        "sha256": "7f310e88939589a3c8a28c411f252bb3f9cd1ef5c5b1d9ef0c77c66e7fce4b21"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 28,
+          "record_sha256": "f471c745c1100153d744b5a8f81f27e6fe9892705ea098afe6aee9e8b6bffa11"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Lifetaps your opponent, draining their hit points, while adding it to yours. You gain a 20% health bonus for each level of Blood Union you have built up.",
+          "literal_sha256": "8e607188c05cc5cb0befa5700d6e3b7a1f989711f5cd69606ccc18043e9da2fe",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "lifetap",
+            "recipient_reported": "you",
+            "drain_target_reported": "your opponent",
+            "health_bonus_percent_per_blood_union_level": 20,
+            "drain_amount": null,
+            "bonus_basis": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Lifetap",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/lifetap",
+              "title": "Lifetap · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 86,
+          "collected_at": "2026-10-19T23:18:36+00:00",
+          "archive_fields": {
+            "level": [
+              "1"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/lifetap-766.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sanguine Focus",
+      "source_url": "https://vgsoharchive.com/abilities/sanguine-focus",
+      "cache": {
+        "path": ".cache/archive/eed072b81564c65c696d17b49e5802d391297074fb97f8006fdaa2bf9425002f.txt",
+        "sha256": "4239b62b949dfbfdb322df92a27bbb9e6bcf44eafa0acabfaffbd30a466c68ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 33,
+          "record_sha256": "37265c6da8c9307fb29e2fbb079dc07a5300965a71ada6d880f607ae3fd7e1cc"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Your healing spells are increased by 25% effectiveness, your mitigation by 15% and you regain health faster than normal. This comes at the cost of reducing your spell damage by 50%, and reducing the effect of healing spells cast on you by 50%.",
+          "literal_sha256": "5daaa4562992e57bc6a8ac4f568d715d475c21acd87037882b192929fa1439d0",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "healing_mitigation_damage_tradeoff",
+            "healing_spell_effectiveness_increase_percent": 25,
+            "mitigation_increase_percent": 15,
+            "spell_damage_reduction_percent": 50,
+            "incoming_healing_spell_effect_reduction_percent": 50,
+            "health_regeneration_increase_amount": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Sanguine Focus",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/sanguine-focus",
+              "title": "Sanguine Focus · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 86,
+          "collected_at": "2026-10-19T23:18:36+00:00",
+          "archive_fields": {
+            "level": [
+              "1"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/sanguine-focus-763.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursting Blister I",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-blister-i",
+      "cache": {
+        "path": ".cache/archive/c5e88e638e70a7e6b4c206b7352e88d3cb3aaf2702390f36ade1e5b88c23991a.txt",
+        "sha256": "7eff5456d26e9f5e6f5aee9ee399c7992f12cf28972f2d658ccc773906ea2cce"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 6,
+          "record_sha256": "283183b6ef08a6b5009e77d58953f3e64ef60696d8fe6e8d25d9d3299f0fb979"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+          "literal_sha256": "40cb405e272651bd65de132f281fe6c367fe97247a9fa6a974e6dcc145f71ad0",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "instant_and_periodic_damage_with_blood_union_gain",
+            "blood_union_gain_points": 1,
+            "instant_damage_amount": null,
+            "periodic_damage_amount": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Blister I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-blister-i",
+              "title": "Bursting Blister I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 86,
+          "collected_at": "2026-10-19T23:18:36+00:00",
+          "archive_fields": {
+            "level": [
+              "4"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 4,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/bursting-blister-i-769.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.",
+          "literal_sha256": "3889435d04dc7278438a4413019f4b72ff70a60b347518813c91e8975cdaaafc",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "root",
+            "recipient_reported": "your opponent",
+            "duration_seconds": 30,
+            "break_on_hit_chance_percent": 60,
+            "hit_definition": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Constrict I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/constrict-i",
+              "title": "Constrict I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 86,
+          "collected_at": "2026-10-19T23:18:36+00:00",
+          "archive_fields": {
+            "energy then": [
+              "29 — now 23",
+              "29 — now 23"
+            ],
+            "cast then": [
+              "2",
+              "2.0"
+            ],
+            "level in 2007": [
+              "6 — now 4"
+            ],
+            "level in 2007-2008": [
+              "6 — now 4"
+            ],
+            "level": [
+              "4"
+            ],
+            "energy cost": [
+              "23"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "30 seconds"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon704.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 4,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 23
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 30,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.",
+          "icon_name": "Icon704.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "29"
+            }
+          ],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 6,
+              "raw": "6 — now 4"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 6,
+              "raw": "6 — now 4"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034105id_/http://wiki.silkyvenom.com/index.php/Constrict_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              23
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "30 seconds",
+                "seconds": 30
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Constrict"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 120,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 115,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Health percentage bases, unspecified damage and regeneration amounts remain null.",
+    "Lifetap percentage bonus basis and hit definition remain unresolved.",
+    "Qualitative instant damage does not establish cast time or a numeric damage amount.",
+    "Counter resets are reported literally without inferring cleanse immunity or further effects.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained Blood Mage focus, lifetap, Blood Union gain and root observations for these five reviewed sources."
+}
