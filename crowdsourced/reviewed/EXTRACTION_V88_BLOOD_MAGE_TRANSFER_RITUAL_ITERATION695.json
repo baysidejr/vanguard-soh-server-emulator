@@ -1,0 +1,1053 @@
+{
+  "review_kind": "constrained_blood_mage_transfer_ritual_extraction",
+  "parser_version": 88,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_TRANSFER_RITUAL_SOURCE_REVIEW_ITERATION694.json",
+    "sha256": "82b35a7f46b0a791b23dd94477d177c8799a666d36825925cc717668ab3336a0"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Union of Blood I",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-i",
+      "cache": {
+        "path": ".cache/archive/0aa525419c4d8a170d54798e5fe132ef6735ff9b129219826635d47f026af5bc.txt",
+        "sha256": "d7bbb845a13228bb3b8e672df7bd6d0f510fee4c0da0a33f8a5dc16f8106ce52"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "ea439e6649734b170c7c63ba55618358e96883ae6457c238e7815886e732c880"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "fe1c0636d50b3e57560e667b61d715370fea8a7d80a9a1c19129dba2621489b3",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_damage_with_blood_union_gain",
+              "damage_min": 291,
+              "damage_max": 309,
+              "duration_seconds": 24,
+              "blood_union_gain_points": 2,
+              "damage_school": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Union of Blood I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/union-of-blood-i",
+              "title": "Union of Blood I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 88,
+          "collected_at": "2026-10-19T23:36:45+00:00",
+          "archive_fields": {
+            "energy then": [
+              "54 — now 114",
+              "19 — now 114"
+            ],
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "8",
+              "8.0"
+            ],
+            "level in 2007": [
+              "2 — now 4"
+            ],
+            "level in 2007-2008": [
+              "2 — now 4"
+            ],
+            "level": [
+              "4"
+            ],
+            "health and energy cost": [
+              "114"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "health cost": [
+              "42"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "duration": [
+              "24 seconds"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon708.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 4,
+          "rank": "I",
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": 24,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+          "icon_name": "Icon708.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 1,
+              "cost_raw": "{{HP|19}},54"
+            }
+          ],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 2,
+              "raw": "2 — now 4"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 2,
+              "raw": "2 — now 4"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033438id_/http://wiki.silkyvenom.com/index.php/Union_of_Blood_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "24 seconds",
+                "seconds": 24
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_transfer_ritual_observation",
+                  "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "periodic_damage_with_blood_union_gain",
+                  "damage_min": 291,
+                  "damage_max": 309,
+                  "duration_seconds": 24,
+                  "blood_union_gain_points": 2,
+                  "damage_school": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/union-of-blood-764.php",
+            "https://vanguard.fandom.com/wiki/Union_of_Blood"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein I",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-i",
+      "cache": {
+        "path": ".cache/archive/34ed5200ddde540e9f53c56d6a44c063fd0ffd0fcd56022810acde22e2fc06e7.txt",
+        "sha256": "b3d49942051c1b737c806b5f0ec2273f32ba62d7c85321fc7359798d47efbfaf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "bd8e76fe0de2ba96be5a8f3495150db479191687060ec180b671b849fc159584"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 120 to 130 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "f8866d17c61c7699a312d08d8d226f159c59ccdf9c45e1c30a855f299bdc2c38",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Steals 120 to 130 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_and_return",
+              "health_stolen_min": 120,
+              "health_stolen_max": 130,
+              "return_percent": 130,
+              "recipient_reported": "your defensive target",
+              "returned_portion_bonus_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 1,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Entwining Vein I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/entwining-vein-i",
+              "title": "Entwining Vein I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 88,
+          "collected_at": "2026-10-19T23:36:45+00:00",
+          "archive_fields": {
+            "energy then": [
+              "66 — now 115"
+            ],
+            "cast then": [
+              "2",
+              "2.0"
+            ],
+            "level in 2007": [
+              "10 — now 6"
+            ],
+            "level in 2007-2008": [
+              "10 — now 6"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "115"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Lethargic"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon620.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 6,
+          "rank": "I",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 115
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon620.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10 — now 6"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10 — now 6"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034145id_/http://wiki.silkyvenom.com/index.php/Entwining_Vein_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              115
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Lethargic",
+          "exploits_weakness": "Vulnerable",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_transfer_ritual_observation",
+                  "effect_phrase_recorded": "Steals 120 to 130 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_and_return",
+                  "health_stolen_min": 120,
+                  "health_stolen_max": 130,
+                  "return_percent": 130,
+                  "recipient_reported": "your defensive target",
+                  "returned_portion_bonus_percent_per_blood_union_level": 10,
+                  "blood_union_gain_points": 1,
+                  "bonus_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 218 to 232 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "efbc21334ceae10d89df825ebddd80884d404db2df255f8fb4e5f0f0404a65a7",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Steals 218 to 232 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_and_return",
+              "health_stolen_min": 218,
+              "health_stolen_max": 232,
+              "return_percent": 100,
+              "recipient_reported": "allies within 10m of the caster",
+              "recipient_radius_meters": 10,
+              "returned_portion_bonus_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Tribute I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+              "title": "Blood Tribute I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 88,
+          "collected_at": "2026-10-19T23:36:45+00:00",
+          "archive_fields": {
+            "energy then": [
+              "68 — now 106",
+              "104 — now 106"
+            ],
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "5"
+            ],
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "106"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Finish"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": "I",
+          "category": "Arcane Finish",
+          "cost": {
+            "energy": 106
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032707id_/http://wiki.silkyvenom.com/index.php/Blood_Tribute_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              106
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_transfer_ritual_observation",
+                  "effect_phrase_recorded": "Steals 218 to 232 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_and_return",
+                  "health_stolen_min": 218,
+                  "health_stolen_max": 232,
+                  "return_percent": 100,
+                  "recipient_reported": "allies within 10m of the caster",
+                  "recipient_radius_meters": 10,
+                  "returned_portion_bonus_percent_per_blood_union_level": 10,
+                  "blood_union_gain_points": 2,
+                  "bonus_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-i",
+      "cache": {
+        "path": ".cache/archive/71df076809a88b455ba8b6216aad7819081c7e2fd0fa507ad2f65d0276671a80.txt",
+        "sha256": "aff423e2b22ce07c0613c424864ec5caa8b7f8c859422813e53efd032e1ff331"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "a33388bf3060c304170dc2456728a4cb3723d7517b0578b9bd83efbe55121c81"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 1224 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "f0de57020f077303880f2746290d8d56fba0e5a240359015890df9f2a13b22f0",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 1224 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_healing_with_blood_union_cost",
+              "health_amount": 1224,
+              "duration_seconds": 20,
+              "recipient_reported": "an ally, other than yourself",
+              "blood_union_reduction_points": 3,
+              "minimum_blood_union_reported": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Mender's Ritual I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-i",
+              "title": "Flesh Mender's Ritual I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 88,
+          "collected_at": "2026-10-19T23:36:45+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "1",
+              "1:00"
+            ],
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "energy then": [
+              "3"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "duration": [
+              "20 seconds"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon683.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": "I",
+          "category": "Heal",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 20,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon683.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032924id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "20 seconds",
+                "seconds": 20
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_transfer_ritual_observation",
+                  "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 1224 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "periodic_healing_with_blood_union_cost",
+                  "health_amount": 1224,
+                  "duration_seconds": 20,
+                  "recipient_reported": "an ally, other than yourself",
+                  "blood_union_reduction_points": 3,
+                  "minimum_blood_union_reported": 3,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Siphon Blood",
+      "source_url": "https://vgsoharchive.com/abilities/siphon-blood",
+      "cache": {
+        "path": ".cache/archive/df85e7623c63412d7c5824f9873ffb13b0209eea7aa810639930e0dd8f249637.txt",
+        "sha256": "cc91a5e1aa992dda07e828869553b05af6e2ab7f93004fe6150dc91149c90e24"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 39,
+          "record_sha256": "09c75a6783abaf523ec94e58fe40e427beed22990c48463cfacb8c98965968ee"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes your blood to rise to the surface of your skin so that you may take a vial of it. This process is painful and dangerous, lowering your health by 25%.",
+          "literal_sha256": "cf61cba5cbb2cba50460fb99b34760dabc52abfb2166d0fc551c7246a56cc2bd",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Causes your blood to rise to the surface of your skin so that you may take a vial of it. This process is painful and dangerous, lowering your health by 25%.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_loss_for_blood_vial",
+              "health_loss_percent": 25,
+              "health_loss_basis": null,
+              "vial_quantity": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Siphon Blood",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/siphon-blood",
+              "title": "Siphon Blood · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 88,
+          "collected_at": "2026-10-19T23:36:45+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "8 — now 10"
+            ],
+            "level in 2007-2008": [
+              "8 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "25"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Unknown"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon20147.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 25
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20147.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 8,
+              "raw": "8 — now 10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 8,
+              "raw": "8 — now 10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033329id_/http://wiki.silkyvenom.com/index.php/Siphon_Blood",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              25
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_transfer_ritual_observation",
+                  "effect_phrase_recorded": "Causes your blood to rise to the surface of your skin so that you may take a vial of it. This process is painful and dangerous, lowering your health by 25%.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_loss_for_blood_vial",
+                  "health_loss_percent": 25,
+                  "health_loss_basis": null,
+                  "vial_quantity": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/siphon-blood-783.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 280
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 110,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Typed observations retain the archive transcription; they do not establish operative server mechanics.",
+    "Percentage bonus arithmetic and health-loss basis remain unknown.",
+    "Periodic totals do not establish individual tick amounts or tick intervals.",
+    "Blood vial creation does not establish a canonical item identity or quantity.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 110 Blood Mage numeric effect sections against exact cached prose."
+}
