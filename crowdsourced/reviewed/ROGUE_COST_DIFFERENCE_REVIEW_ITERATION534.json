@@ -1,0 +1,1575 @@
+{
+  "review_kind": "rogue_cost_difference_cached_html_disposition",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_review": {
+    "path": "reviewed/ROGUE_DETAIL_FIELD_COMPARISON_ITERATION533.json",
+    "sha256": "a50988f6d3c5237fdcf40b35d4019cec5039ae5644d0e6b1c354ae0ed81a4a92"
+  },
+  "class_cache": {
+    "path": ".cache/archive/181fd4d8326253e4eab18a838948506df5a157378233cc0614aedb36fac23869.txt",
+    "sha256": "bd817ead54f14bcc65bd95f5b7560006df7f1c693e881d5df0ccc694b369a015"
+  },
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Ploy",
+      "table_index": 1,
+      "row_index": 12,
+      "printed_cells": {
+        "level": "14",
+        "ability": "Ploy",
+        "school": null,
+        "cost": "85",
+        "cast": "Instant",
+        "range": "10",
+        "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ploy.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ploy\">Ploy</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              85\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">10</td>\n<td class=\"muted\">You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/ploy",
+      "detail_cache": {
+        "path": ".cache/archive/66ee14e8c3c2c5523c1468ff4b276a1b71d22491ddfe2bd15b7e3a10d4897643.txt",
+        "sha256": "521dbbbd402a6d7252232fc4fb800d89ace691bab8329772f911337b734d6513"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/ploy.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Ploy\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/rogue\">Rogue</a>\n    \n    · Level 14\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>14</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>20</dd></div>\n</dl>\n<div class=\"tooltip\">You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec. Cost: Submit Info Cast Time: 0 Refresh: 20 Range: 10</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59406\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by mmodb as: “This ability will make your opponent vulnerable for 8 seconds, as well as halting their next two attacks” (http://vg.mmodb.com:80/spells/ploy-50.php)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>14</dd></div>\n<div><dt>endurance cost</dt><dd>85</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>18.0s</dd></div>\n<div><dt>Duration</dt><dd>8 Seconds</dd></div>\n<div><dt>Range</dt><dd>10m</dd></div>\n<div><dt>Causes</dt><dd>Vulnerable</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Defensive Maneuver</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon404.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://vg.mmodb.com:80/spells/ploy-50.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "labelled_cost_facts": [
+        {
+          "label": "endurance cost",
+          "value": "85",
+          "dt_html": "<dt>endurance cost</dt>",
+          "dd_html": "<dd>85</dd>"
+        },
+        {
+          "label": "Endurance cost",
+          "value": "10",
+          "dt_html": "<dt>Endurance cost</dt>",
+          "dd_html": "<dd>10</dd>"
+        }
+      ],
+      "source_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "85",
+                "10"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "10m"
+            ],
+            "effect": null
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "detail_field_absent"
+          },
+          "source_record": {
+            "name": "Ploy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ploy",
+                "title": "Ploy · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+            "parser_version": 3,
+            "collected_at": "2026-10-14T02:00:32+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "14"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "20"
+              ],
+              "level": [
+                "14"
+              ],
+              "endurance cost": [
+                "85",
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "18.0s"
+              ],
+              "duration": [
+                "8 Seconds"
+              ],
+              "range": [
+                "10m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "icon": [
+                "Icon404.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 14,
+            "rank": null,
+            "category": "Defensive Maneuver",
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": 18.0,
+            "duration_seconds": 8,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": null,
+            "icon_name": "Icon404.png",
+            "ranks": [],
+            "trainer": null,
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/ploy-50.php"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+              "line": 61,
+              "record_sha256": "4190ea78f9d1a6a9fcf2c18f726efcdc44572a9c15631f1082365be178ecadb7"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "85",
+                "10"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "10m"
+            ],
+            "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_equal"
+          },
+          "source_record": {
+            "name": "Ploy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ploy",
+                "title": "Ploy · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/rogue",
+                "title": "Rogue · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Contradictory labelled resource costs retained in cost_observations; no operative cost chosen. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "14"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "20"
+              ],
+              "level": [
+                "14"
+              ],
+              "endurance cost": [
+                "85",
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "18.0s"
+              ],
+              "duration": [
+                "8 Seconds"
+              ],
+              "range": [
+                "10m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "icon": [
+                "Icon404.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 14,
+            "rank": null,
+            "category": "Defensive Maneuver",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 18.0,
+            "duration_seconds": 8,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.",
+            "icon_name": "Icon404.png",
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                85,
+                10
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/ploy-50.php"
+            ],
+            "classes_recorded": [
+              "Rogue"
+            ],
+            "archive_variants": [
+              {
+                "name": "Ploy",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/rogue",
+                    "title": "Rogue · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:40+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Ploy",
+                    "url": "https://vgsoharchive.com/abilities/ploy"
+                  }
+                ],
+                "type": "ability",
+                "class": "Rogue",
+                "level_learned": 14,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/ploy",
+                "cost_recorded": {
+                  "value": 85,
+                  "resource": null,
+                  "raw": "85"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+              "line": 1834,
+              "record_sha256": "601e2a7df3d4b9b514e133db0a56364734c1be12ddf09c6f685b3bfc1a6ce273"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "85",
+                "10"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "10m"
+            ],
+            "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_equal"
+          },
+          "source_record": {
+            "name": "Ploy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ploy",
+                "title": "Ploy · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/rogue",
+                "title": "Rogue · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Contradictory labelled resource costs retained in cost_observations; no operative cost chosen. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:30+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "14"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "20"
+              ],
+              "level": [
+                "14"
+              ],
+              "endurance cost": [
+                "85",
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "18.0s"
+              ],
+              "duration": [
+                "8 Seconds"
+              ],
+              "range": [
+                "10m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "icon": [
+                "Icon404.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 14,
+            "rank": null,
+            "category": "Defensive Maneuver",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 18.0,
+            "duration_seconds": 8,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.",
+            "icon_name": "Icon404.png",
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                85,
+                10
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/ploy-50.php"
+            ],
+            "classes_recorded": [
+              "Rogue"
+            ],
+            "archive_variants": [
+              {
+                "name": "Ploy",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/rogue",
+                    "title": "Rogue · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:35+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Ploy",
+                    "url": "https://vgsoharchive.com/abilities/ploy"
+                  }
+                ],
+                "type": "ability",
+                "class": "Rogue",
+                "level_learned": 14,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/ploy",
+                "cost_recorded": {
+                  "value": 85,
+                  "resource": null,
+                  "raw": "85"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+              "line": 1834,
+              "record_sha256": "b16918a06a2420015f6aa6d9a6cc72775c56859bf361574e0bbe9c4d7394b6ad"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "85",
+                "10"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "10m"
+            ],
+            "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_equal"
+          },
+          "source_record": {
+            "name": "Ploy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ploy",
+                "title": "Ploy · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/rogue",
+                "title": "Rogue · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Contradictory labelled resource costs retained in cost_observations; no operative cost chosen. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:00+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "14"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "20"
+              ],
+              "level": [
+                "14"
+              ],
+              "endurance cost": [
+                "85",
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "18.0s"
+              ],
+              "duration": [
+                "8 Seconds"
+              ],
+              "range": [
+                "10m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "icon": [
+                "Icon404.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 14,
+            "rank": null,
+            "category": "Defensive Maneuver",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 18.0,
+            "duration_seconds": 8,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.",
+            "icon_name": "Icon404.png",
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                85,
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "18.0s",
+                  "seconds": 18.0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "8 Seconds",
+                  "seconds": 8
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/ploy-50.php"
+            ],
+            "classes_recorded": [
+              "Rogue"
+            ],
+            "archive_variants": [
+              {
+                "name": "Ploy",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/rogue",
+                    "title": "Rogue · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Ploy",
+                    "url": "https://vgsoharchive.com/abilities/ploy"
+                  }
+                ],
+                "type": "ability",
+                "class": "Rogue",
+                "level_learned": 14,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/ploy",
+                "cost_recorded": {
+                  "value": 85,
+                  "resource": null,
+                  "raw": "85"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+              "line": 1834,
+              "record_sha256": "981260a50287e3dfb59643cc9065237460375e408fd522a1a14e5b6e65b08e33"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "85",
+                "10"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "10m"
+            ],
+            "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_equal"
+          },
+          "source_record": {
+            "name": "Ploy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ploy",
+                "title": "Ploy · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/rogue",
+                "title": "Rogue · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Contradictory labelled resource costs retained in cost_observations; no operative cost chosen. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "14"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "20"
+              ],
+              "level": [
+                "14"
+              ],
+              "endurance cost": [
+                "85",
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "18.0s"
+              ],
+              "duration": [
+                "8 Seconds"
+              ],
+              "range": [
+                "10m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "icon": [
+                "Icon404.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 14,
+            "rank": null,
+            "category": "Defensive Maneuver",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 18.0,
+            "duration_seconds": 8,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.",
+            "icon_name": "Icon404.png",
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                85,
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "18.0s",
+                  "seconds": 18.0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "8 Seconds",
+                  "seconds": 8
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/ploy-50.php"
+            ],
+            "classes_recorded": [
+              "Rogue"
+            ],
+            "archive_variants": [
+              {
+                "name": "Ploy",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/rogue",
+                    "title": "Rogue · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Ploy",
+                    "url": "https://vgsoharchive.com/abilities/ploy"
+                  }
+                ],
+                "type": "ability",
+                "class": "Rogue",
+                "level_learned": 14,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/ploy",
+                "cost_recorded": {
+                  "value": 85,
+                  "resource": null,
+                  "raw": "85"
+                },
+                "range_recorded": {
+                  "value": 10,
+                  "unit": null,
+                  "raw": "10"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+              "line": 1834,
+              "record_sha256": "bb81c3de8d89c947c32ef96a0fcc589057a2fc595025b2e0199de12666975450"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "85",
+                "10"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "10m"
+            ],
+            "effect": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_equal"
+          },
+          "source_record": {
+            "name": "Ploy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ploy",
+                "title": "Ploy · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Contradictory labelled resource costs retained in cost_observations; no operative cost chosen.",
+            "parser_version": 12,
+            "collected_at": "2026-10-14T02:51:21+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "14"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "20"
+              ],
+              "level": [
+                "14"
+              ],
+              "endurance cost": [
+                "85",
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "18.0s"
+              ],
+              "duration": [
+                "8 Seconds"
+              ],
+              "range": [
+                "10m"
+              ],
+              "causes": [
+                "Vulnerable"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "type": [
+                "Defensive Maneuver"
+              ],
+              "icon": [
+                "Icon404.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 14,
+            "rank": null,
+            "category": "Defensive Maneuver",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": 18.0,
+            "duration_seconds": 8,
+            "range": {
+              "value": 10,
+              "unit": "m",
+              "raw": "10m"
+            },
+            "tooltip": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.",
+            "icon_name": "Icon404.png",
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 14,
+                "raw": "14"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59406"
+            ],
+            "cost_observations": {
+              "endurance": [
+                85,
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "18.0s",
+                  "seconds": 18.0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "8 Seconds",
+                  "seconds": 8
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": "Vulnerable",
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/ploy-50.php"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+              "line": 280,
+              "record_sha256": "87a52c2a58b049411b9b5c258265a70741926d0e7f0df70ed944f070389ca1f5"
+            }
+          ]
+        }
+      ],
+      "disposition": "Conflicting same-resource labels in cached Details: endurance cost 85 and Endurance cost 10. Class table prints 85 without a resource. Neither value is selected; this is an unresolved source contradiction, not independent corroboration or an established historical change.",
+      "class_cost_resource": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Fade",
+      "table_index": 2,
+      "row_index": 14,
+      "printed_cells": {
+        "level": "26",
+        "ability": "Fade",
+        "school": null,
+        "cost": "40",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/fade.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/fade\">Fade</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              40\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/fade",
+      "detail_cache": {
+        "path": ".cache/archive/c163d1f2f23b71434a6c43d9c7ed3552ee5279c1d0cbdff8bcfdc79ace57088b.txt",
+        "sha256": "47095dc81bf99badbf5b7f87dda84fa713252ecfcb7f2d3f71ffe72b3dc79d02"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/fade.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Fade\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/rogue\">Rogue</a>\n    \n    · Level 26\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>26</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>60</dd></div>\n</dl>\n<div class=\"tooltip\">After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you. Cost: Submit Info Cast Time: 0 Refresh: 60 Range: 5 Deadly Strike I</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59407\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by the vgoplayers wiki as: “After successful feint, you fade from combat, greatly lowering your offensive target's hatred of you” (https://web.archive.org/web/20211024235801id_/https://vgoplayers.com/wiki/index.php/Rogue)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>26</dd></div>\n<div><dt>energy cost</dt><dd>40</dd></div>\n<div><dt>Endurance cost</dt><dd>9</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>54.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>A successful feint</dd></div>\n<div><dt>Type</dt><dd>Counterattack</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon559.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://web.archive.org/web/20211024235801id_/https://vgoplayers.com/wiki/index.php/Rogue\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "labelled_cost_facts": [
+        {
+          "label": "energy cost",
+          "value": "40",
+          "dt_html": "<dt>energy cost</dt>",
+          "dd_html": "<dd>40</dd>"
+        },
+        {
+          "label": "Endurance cost",
+          "value": "9",
+          "dt_html": "<dt>Endurance cost</dt>",
+          "dd_html": "<dd>9</dd>"
+        }
+      ],
+      "source_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "40"
+              ],
+              "endurance cost": [
+                "9"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_equal"
+          },
+          "source_record": {
+            "name": "Fade",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/fade",
+                "title": "Fade · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T04:29:20+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "26"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "60"
+              ],
+              "level": [
+                "26"
+              ],
+              "energy cost": [
+                "40"
+              ],
+              "endurance cost": [
+                "9"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "54.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "A successful feint"
+              ],
+              "type": [
+                "Counterattack"
+              ],
+              "icon": [
+                "Icon559.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Rogue",
+                "url": "https://vgsoharchive.com/classes/rogue"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Rogue",
+            "level_learned": 26,
+            "rank": null,
+            "category": "Counterattack",
+            "cost": {
+              "energy": 40,
+              "endurance": 9
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 54.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you.",
+            "icon_name": "Icon559.png",
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 26,
+                "raw": "26"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59407"
+            ],
+            "cost_observations": {
+              "energy": [
+                40
+              ],
+              "endurance": [
+                9
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "54.0s",
+                  "seconds": 54.0
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": "A successful feint",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "https://web.archive.org/web/20211024235801id_/https://vgoplayers.com/wiki/index.php/Rogue"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+              "line": 64,
+              "record_sha256": "a23f8f99f2d49aa0e8b2d7c0d2616a45302d798685b831cf15c915bc063d321a"
+            }
+          ]
+        }
+      ],
+      "disposition": "Detail lists two different resource labels, energy cost 40 and Endurance cost 9. Class table prints only 40 without a resource. The literal comparison flattened different resource fields; this does not establish conflicting values for one resource, nor prove both costs apply simultaneously. No resource is assigned to the class value.",
+      "class_cost_resource": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "rows_reviewed": 2,
+    "same_resource_contradictions_withheld": 1,
+    "different_resource_labels_not_same_resource_conflict": 1
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "inventory_pending": 77952,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "stop_request_present": true,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "corpus_hashes_verified": 51,
+    "cached_html_files_verified": 3,
+    "full_source_references_verified": 7,
+    "issues": 0
+  },
+  "limitations": [
+    "Archive mixes live-era guide transcriptions with modern emulator observations; historical applicability is unresolved.",
+    "Same archive and Telonica mirrors are not independent corroboration.",
+    "132 Rogue range rows and six effect rows require source review; collection and other extraction reviews remain pending."
+  ]
+}
