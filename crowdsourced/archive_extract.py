@@ -18,6 +18,23 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    reactive = {
+        'Attacks against you resonate sharply, dealing 15 damage to your attackers.':
+            (15, 'your attackers', 'Attacks against you'),
+        'Attacks against you resonate sharply, dealing 30 damage to your attackers.':
+            (30, 'your attackers', 'Attacks against you'),
+        'Strikes those that attack you or your group with discordant notes, causing 24 damage':
+            (24, 'those that attack you or your group', 'attack you or your group'),
+    }.get(value.strip())
+    if reactive:
+        damage, recipient, trigger = reactive
+        facts.append(dict(kind='reactive_damage_tooltip_observation',
+                          damage_recorded=damage, recipient_recorded=recipient,
+                          trigger_recorded=trigger, damage_type=None,
+                          trigger_probability=None, attack_eligibility=None,
+                          mitigation=None, scaling=None, radius=None,
+                          per_hit_behavior=None, operative_values=None,
+                          conditions_unparsed=True))
     group_damage = {
         "Increases the damage of your group by 15%, strength, intelligence by 6-30 and AC by 8-62. Does not stack with Mellarien's Requiem of War":
             dict(damage_percent_recorded=15, strength_range_recorded=[6, 30],
