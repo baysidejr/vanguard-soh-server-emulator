@@ -16,6 +16,17 @@ converter = conversions.converter
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_timing_seconds_abbreviations_require_unambiguous_units(self):
+        for raw, expected in [('18 secs', 18), ('1.5 SEC', 1.5),
+                              ('18', None), ('0', None), ('1:30s', None),
+                              ('18 secs extra', None)]:
+            html = page('Fixture', '<dl class="kv"><dt>Duration</dt><dd>'+raw+'</dd></dl>')
+            r = collector.parse_page(collector.ORIGIN+'/abilities/fixture', html)[0][0]
+            self.assertEqual(r.get('duration_seconds'), expected)
+            if expected is not None:
+                self.assertEqual(r['timing_observations']['duration_seconds'],
+                                 [dict(label='duration', raw=raw, seconds=expected)])
+
     def test_range_interval_is_separate_and_requires_ordered_explicit_units(self):
         for raw, expected in [('5 - 20m', (5, 20)), ('1.5–2.5 ft', (1.5, 2.5)),
                               ('20 - 5m', None), ('5 - 20', None), ('5m', None)]:

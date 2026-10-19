@@ -363,7 +363,7 @@ def enrich_ability(record, main):
             if raw.lower()=='instant':
                 value = 0
             else:
-                match = re.fullmatch(r'(\d+(?:\.\d+)?)\s*(s|seconds?|minutes?)', raw, re.I)
+                match = re.fullmatch(r'(\d+(?:\.\d+)?)\s*(s|secs?|seconds?|minutes?)', raw, re.I)
                 if match:
                     value = numeric(match.group(1))
                     if match.group(2).lower().startswith('minute'):
