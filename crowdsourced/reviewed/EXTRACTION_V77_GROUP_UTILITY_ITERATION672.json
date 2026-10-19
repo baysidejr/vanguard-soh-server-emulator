@@ -1,0 +1,850 @@
+{
+  "review_kind": "constrained_group_utility_extraction",
+  "parser_version": 77,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Briel's Lyric of Descent",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-lyric-of-descent",
+      "cache": {
+        "path": ".cache/archive/20329404599404cfb025aee869a410506afe9d0090c8c35066f0fa3a314b8b7a.txt",
+        "sha256": "e0ae1f113ea004ae8e7b690b2a297a0f855d22531be7e004206d2dd7d31da1ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 7,
+          "record_sha256": "0fc449fe29ebf2d747caa4a1d43dfdfcda0f8161af249acaee829a273f234a75"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Allows your group to fall slowly and safely from any height.",
+          "text_sha256": "4158ceaf51934f0130468a9f99518bf2f31e6029fdb58d1b078caa6a825f6170",
+          "effect_facts": [
+            {
+              "kind": "group_utility_tooltip_observation",
+              "effect_recorded": "slow_fall",
+              "target_phrase_recorded": "your group",
+              "effect_phrase_recorded": "Allows your group to fall slowly and safely from any height.",
+              "duration_seconds": null,
+              "range": null,
+              "range_unit": null,
+              "break_conditions": null,
+              "movement_speed": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Briel's Lyric of Descent",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/briel-s-lyric-of-descent",
+              "title": "Briel's Lyric of Descent · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:14:45+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "14"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Wind"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 14,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Allows your group to fall slowly and safely from any height.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "group_utility_tooltip_observation",
+                  "effect_recorded": "slow_fall",
+                  "target_phrase_recorded": "your group",
+                  "effect_phrase_recorded": "Allows your group to fall slowly and safely from any height.",
+                  "duration_seconds": null,
+                  "range": null,
+                  "range_unit": null,
+                  "break_conditions": null,
+                  "movement_speed": null,
+                  "stacking_formula": null,
+                  "operative_values": null,
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:briel-s-lyric-of-descent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Lament of the Sea",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-lament-of-the-sea",
+      "cache": {
+        "path": ".cache/archive/67d6ebd1115f6c75dfc45e4cd0955e976f9d49cb469971e498913cef9d57132a.txt",
+        "sha256": "6f712c80db0d3546fb088b9b77f067e7f4b5da8392cbf0be38c2686a619301e7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "a5847e68a395510dd0c3927c5506b24310dfe6811bc57fae93bf40311c1886ce"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Allows your group to breathe underwater.",
+          "text_sha256": "5037e68e423b32781530b6d76a9b3bbb4e25de14bce623a84e936e455cd75fa8",
+          "effect_facts": [
+            {
+              "kind": "group_utility_tooltip_observation",
+              "effect_recorded": "water_breathing",
+              "target_phrase_recorded": "your group",
+              "effect_phrase_recorded": "Allows your group to breathe underwater.",
+              "duration_seconds": null,
+              "range": null,
+              "range_unit": null,
+              "break_conditions": null,
+              "movement_speed": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Asilam's Lament of the Sea",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/asilam-s-lament-of-the-sea",
+              "title": "Asilam's Lament of the Sea · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:14:45+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 18,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Allows your group to breathe underwater.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "group_utility_tooltip_observation",
+                  "effect_recorded": "water_breathing",
+                  "target_phrase_recorded": "your group",
+                  "effect_phrase_recorded": "Allows your group to breathe underwater.",
+                  "duration_seconds": null,
+                  "range": null,
+                  "range_unit": null,
+                  "break_conditions": null,
+                  "movement_speed": null,
+                  "stacking_formula": null,
+                  "operative_values": null,
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:asilam-s-lament-of-the-sea"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Briel's Aria of the Clouds",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-aria-of-the-clouds",
+      "cache": {
+        "path": ".cache/archive/599571da79fa9303698f29365a19441464cec2a99662a8db4c07797963c9f3c1.txt",
+        "sha256": "f026adedd831b3c44dfb149764031275d751185ef32fd05887bcfdb6b2c210fa"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 6,
+          "record_sha256": "f49a04bd242c5a1fbff9d4624994b9a8100c6cabbcc3a5be678b63aafb9ce359"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Levitates you and your nearby group members off the ground",
+          "text_sha256": "1434c3a2847e6904f6e1baff56023e6b2e20c1e390864f234c7206f91dbf0d3d",
+          "effect_facts": [
+            {
+              "kind": "group_utility_tooltip_observation",
+              "effect_recorded": "levitation",
+              "target_phrase_recorded": "you and your nearby group members",
+              "effect_phrase_recorded": "Levitates you and your nearby group members off the ground",
+              "duration_seconds": null,
+              "range": null,
+              "range_unit": null,
+              "break_conditions": null,
+              "movement_speed": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Briel's Aria of the Clouds",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/briel-s-aria-of-the-clouds",
+              "title": "Briel's Aria of the Clouds · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:14:45+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "19"
+            ],
+            "level": [
+              "19"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Wind"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 19,
+          "rank": null,
+          "category": "Song Component",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Levitates you and your nearby group members off the ground",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 19,
+              "raw": "19"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "group_utility_tooltip_observation",
+                  "effect_recorded": "levitation",
+                  "target_phrase_recorded": "you and your nearby group members",
+                  "effect_phrase_recorded": "Levitates you and your nearby group members off the ground",
+                  "duration_seconds": null,
+                  "range": null,
+                  "range_unit": null,
+                  "break_conditions": null,
+                  "movement_speed": null,
+                  "stacking_formula": null,
+                  "operative_values": null,
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:briel-s-aria-of-the-clouds"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Suann's Strain of Vanishing",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-strain-of-vanishing",
+      "cache": {
+        "path": ".cache/archive/7e5b61514073dcd40db45802fd273296384ca71c4fdb3a591b85be424a09560e.txt",
+        "sha256": "97022c8c886171ecfca64980f62b168014e7b828a0045d828ae29c629159b8fb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "41b478f7631ee462204af45546acbff6aff0845fd6e05911514a8f768632421a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes you and nearby group members to become invisible",
+          "text_sha256": "f0fefdd406ec78e0287bae4c1347a1550bd904ecfd12c388957cf702fccef7b8",
+          "effect_facts": [
+            {
+              "kind": "group_utility_tooltip_observation",
+              "effect_recorded": "invisibility",
+              "target_phrase_recorded": "you and nearby group members",
+              "effect_phrase_recorded": "Causes you and nearby group members to become invisible",
+              "duration_seconds": null,
+              "range": null,
+              "range_unit": null,
+              "break_conditions": null,
+              "movement_speed": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Suann's Strain of Vanishing",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/suann-s-strain-of-vanishing",
+              "title": "Suann's Strain of Vanishing · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:14:45+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "22"
+            ],
+            "energy cost": [
+              "6"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Wind"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 22,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 6
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Causes you and nearby group members to become invisible",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              6
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "group_utility_tooltip_observation",
+                  "effect_recorded": "invisibility",
+                  "target_phrase_recorded": "you and nearby group members",
+                  "effect_phrase_recorded": "Causes you and nearby group members to become invisible",
+                  "duration_seconds": null,
+                  "range": null,
+                  "range_unit": null,
+                  "break_conditions": null,
+                  "movement_speed": null,
+                  "stacking_formula": null,
+                  "operative_values": null,
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:suann-s-strain-of-vanishing"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Suann's Verse of Vanishing",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-verse-of-vanishing",
+      "cache": {
+        "path": ".cache/archive/1023edd7b675e9bb0c1e19fd4e5a91e4a3cf06a2553c4bbf8be0aee5d32fe51d.txt",
+        "sha256": "1cb07b1121c4759ad542e57b3b03fb16116d8907d8bf1d850c75e230097d98ba"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "85fc7ee612b87a8772d452f3bd14397c56d02418021550195d62edf6af1faa77"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This wind verse causes you and your allies to become invisible.",
+          "text_sha256": "4bcfe98a3c05fecc36d64becf81db027d4ca3f96ad7629cab91e8105ab7f930c",
+          "effect_facts": [
+            {
+              "kind": "group_utility_tooltip_observation",
+              "effect_recorded": "invisibility",
+              "target_phrase_recorded": "you and your allies",
+              "effect_phrase_recorded": "This wind verse causes you and your allies to become invisible.",
+              "duration_seconds": null,
+              "range": null,
+              "range_unit": null,
+              "break_conditions": null,
+              "movement_speed": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Suann's Verse of Vanishing",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/suann-s-verse-of-vanishing",
+              "title": "Suann's Verse of Vanishing · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:14:45+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "energy cost": [
+              "10"
+            ],
+            "song portion": [
+              "Verse"
+            ],
+            "instrument": [
+              "Wind"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 38,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 10
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This wind verse causes you and your allies to become invisible.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              10
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "group_utility_tooltip_observation",
+                  "effect_recorded": "invisibility",
+                  "target_phrase_recorded": "you and your allies",
+                  "effect_phrase_recorded": "This wind verse causes you and your allies to become invisible.",
+                  "duration_seconds": null,
+                  "range": null,
+                  "range_unit": null,
+                  "break_conditions": null,
+                  "movement_speed": null,
+                  "stacking_formula": null,
+                  "operative_values": null,
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/suanns-verse-of-vanishing-166.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 257
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "process_verification": "collection.ps1 Status reported stopped; Win32_Process found only unrelated login_stub.py and its multiprocessing child.",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "remaining_nonnumeric_sections_requiring_review": 34,
+  "limitations": [
+    "Exact tooltip observations only; no operative mechanics or historical authentication established.",
+    "Duration, range, break conditions, movement speed and stacking remain null.",
+    "Original immutable batches, suspension, stop request and persisted pacing unchanged."
+  ],
+  "next_step": "Review the remaining 34 Bard nonnumeric mechanic sections for constrained extraction candidates."
+}

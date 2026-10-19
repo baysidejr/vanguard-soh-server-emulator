@@ -18,6 +18,27 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact cached Bard effect literals reviewed in iteration671.
+    utility = {
+        'Allows your group to fall slowly and safely from any height.':
+            ('slow_fall', 'your group'),
+        'Allows your group to breathe underwater.':
+            ('water_breathing', 'your group'),
+        'Levitates you and your nearby group members off the ground':
+            ('levitation', 'you and your nearby group members'),
+        'Causes you and nearby group members to become invisible':
+            ('invisibility', 'you and nearby group members'),
+        'This wind verse causes you and your allies to become invisible.':
+            ('invisibility', 'you and your allies'),
+    }.get(value.strip())
+    if utility:
+        effect, targets = utility
+        facts.append(dict(kind='group_utility_tooltip_observation',
+            effect_recorded=effect, target_phrase_recorded=targets,
+            effect_phrase_recorded=value.strip(), duration_seconds=None,
+            range=None, range_unit=None, break_conditions=None,
+            movement_speed=None, stacking_formula=None, operative_values=None,
+            conditions_unparsed=True))
     # Exact iteration667 reviews; tooltip observations do not establish mechanics.
     if value.strip() == 'Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument: None Cast Time: 0 Refresh: 0 Range: 5':
         facts.append(dict(kind='attack_speed_energy_upkeep_tooltip_observation',
