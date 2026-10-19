@@ -18,8 +18,10 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
-    bellow = re.fullmatch(
-        rf'You bellow, blasting your opponent for {num}(?: to |-){num} arcane damage\.',
+    # Some embedded tooltips append Details labels after the complete sentence.
+    # Only the explicit Cost label is a boundary; trailing prose is not discarded.
+    bellow = re.match(
+        rf'You bellow, blasting your opponent for {num}(?: to |-){num} arcane damage\.(?=$| Cost:)',
         value.strip(), re.I)
     if bellow:
         lower, upper = map(numeric, bellow.groups())

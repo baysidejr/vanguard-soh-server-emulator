@@ -1,0 +1,604 @@
+{
+  "review_kind": "parser_v44_blasting_bellow_whole_page_cached_replay",
+  "input": {
+    "path": "reviewed/EXTRACTION_V43_BLASTING_BELLOW_ITERATION589.json",
+    "sha256": "478a41d35bac2a09102fca6d2ac35b2e66d9ce96a16a1739873fa2d63fb320ea"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Eaon's Blasting Bellow I",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-i",
+      "cache": {
+        "path": ".cache/archive/16e6dc691d643ac3cf1f476eded603a7a7a736b337edefb352399d43b5e6e205.txt",
+        "sha256": "29d5431cc33a666ad855d06c9e90fafa8499d0b5fa431ff0caa1744a304c59c2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "36f6cd7160eff8cd0abdd012c69a745f77ae7c5efe0f6bd1da4a688ea3001645"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            84,
+            91
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 84 to 91 arcane damage.",
+          "tooltip_text_sha256": "b1d14fb2668cff1ddd4ad8135bcc2a810108f632961af40b42aeb99b1eb0f343",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                84,
+                91
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        },
+        {
+          "context": "alternate_embedded_tooltip",
+          "values": [
+            132,
+            143
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 132-143 arcane damage.",
+          "tooltip_text_sha256": "2dfe9d19548086910d06b3be741cdd01b9ccfc5258de7a43b898cad8c88e5cfd",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                132,
+                143
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                84,
+                91
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        },
+        {
+          "scope": "historical",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                132,
+                143
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eaon's Blasting Bellow II",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-ii",
+      "cache": {
+        "path": ".cache/archive/e69abf064d6d90bbee133d47f33dc2b0c3c6f920a783ce962e18b2e7ecb50315.txt",
+        "sha256": "3005288932eea18ecf2d789a3022769d8a5c53f12e2fdd5d88da8e8630f13c0a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "44a02db6bfff258a37988ce61012c59e307362e818c44e5c8562fc84be7eb154"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            119,
+            127
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 119 to 127 arcane damage.",
+          "tooltip_text_sha256": "51b86aaa98a8eb17d206c4a5769763e0a5b9893ea178f6ad35d1634138b7686a",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                119,
+                127
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        },
+        {
+          "context": "alternate_embedded_tooltip",
+          "values": [
+            195,
+            210
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 195-210 arcane damage.",
+          "tooltip_text_sha256": "3fc34d6f2d5e12c74d8d3dd89a17cfe0774b3dae96a52ca15bf4146c871a3064",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                195,
+                210
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                119,
+                127
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        },
+        {
+          "scope": "historical",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                195,
+                210
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eaon's Blasting Bellow III",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-iii",
+      "cache": {
+        "path": ".cache/archive/3f684d13705fe86b9722cfc3e1edd029721fcb0b6758f1fee7c5a58dfe98536d.txt",
+        "sha256": "8b2150ddaa2dc7e0660113b57023879ca2598ec4d80d3ba9a826bdaed5a6ef70"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "88e0af68f6ea5f1a7c4e16cc7e121d6214d56efaa8123b305f9b4bfd00bc58d9"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            166,
+            176
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 166 to 176 arcane damage.",
+          "tooltip_text_sha256": "09ec74645ecb4f4b75651f704c8fb1ec14b647f87c2155f0c167a64f2f21743e",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                166,
+                176
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        },
+        {
+          "context": "alternate_embedded_tooltip",
+          "values": [
+            288,
+            308
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 288-308 arcane damage.",
+          "tooltip_text_sha256": "118c6df4547712f9fdacce207d5d5d966f685f273e894f4d8f6ced16a97a4c74",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                288,
+                308
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                166,
+                176
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        },
+        {
+          "scope": "historical",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                288,
+                308
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eaon's Blasting Bellow IV",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-iv",
+      "cache": {
+        "path": ".cache/archive/9a0451632cc2286e057cd100bb47d3880a23181e80e497a825f833c68671ad53.txt",
+        "sha256": "dd8779d351623af5ac51b22b7276adafeb3c92d07cdbbef9a8b7e0940471de9f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "b2a64cc5347c9970942b471853d80c90d7c50438586f6217e966a7b8aeb3f81e"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            218,
+            231
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 218 to 231 arcane damage.",
+          "tooltip_text_sha256": "c9850c7b000064c55d4c09a2bb142d7a825cd0055d737ad68e29db1332909dc4",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                218,
+                231
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                218,
+                231
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eaon's Blasting Bellow V",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-v",
+      "cache": {
+        "path": ".cache/archive/eb3155ae41b8afff1ad05b179de62256cc8084cdd690c4d5610be7ff086caaac.txt",
+        "sha256": "938dcc8fa03f0cd122ee28b7deb9ca0d5b33c3f6cc19ca8f88ca73c67e8d585f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "9857899b09e7ae7f5db44b42f3844dd2d3291d5867b6972f9f86b864a93e9399"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            273,
+            289
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 273 to 289 arcane damage.",
+          "tooltip_text_sha256": "8db2523e020c922585d27a37a9426ca735e523dd2d15bf8ce49e9fcf884c146c",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                273,
+                289
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                273,
+                289
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eaon's Blasting Bellow VI",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-blasting-bellow-vi",
+      "cache": {
+        "path": ".cache/archive/5c77f683e704294e39e93d5c126c3ef81bf8f63c1edc12a53c8c073e660055a2.txt",
+        "sha256": "369c23160d304b9e57643f3f6900cebe1c05d8bd82edc94181618342d0be14dc"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 96,
+          "record_sha256": "285e62361269ffcd2ca2f8d6eb95c057849a2c0bbdc30e463340e1881ad40ebf"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            317,
+            335
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 317 to 335 arcane damage.",
+          "tooltip_text_sha256": "648323f96fc11bf1ebf115608ffa4468ae9c4b1cd285b942b4177f867116f19a",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                317,
+                335
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                317,
+                335
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eaon's Superior Blasting Bellow",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-superior-blasting-bellow",
+      "cache": {
+        "path": ".cache/archive/e790f0a72338555343e31d73813ef5cf88a34a0297101c93692a2bc45cc81af5.txt",
+        "sha256": "e0afdc60985e9d2bed0cd324a835c5c37933f1f6bfdb1281ce68ddaa478370b1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 99,
+          "record_sha256": "7ecd2cecba73a8ff9c2c672160e42591babf61ad8352e9a8133b0929dfb0bb77"
+        }
+      ],
+      "observations": [
+        {
+          "context": "current_effect_section",
+          "values": [
+            348,
+            368
+          ],
+          "damage_type_recorded": "arcane",
+          "target_recorded": "your opponent",
+          "literal": "You bellow, blasting your opponent for 348 to 368 arcane damage.",
+          "tooltip_text_sha256": "c2a4aa9ae90f267a1636f9f80c8ec60e01c20082f587178f4b014427de0ba9eb",
+          "parsed_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                348,
+                368
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "conditions_unparsed": true,
+      "disposition": "whole_page_replay_verified_current_and_historical_contexts_separate",
+      "parser_version": 44,
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                348,
+                368
+              ],
+              "damage_type_recorded": "arcane",
+              "target_recorded": "your opponent",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 7,
+    "source_record_hashes_verified": 7,
+    "exact_tooltips_and_parsed_observations_verified": 10,
+    "issues": [],
+    "whole_page_observations_verified": 10,
+    "python_tests_passed": 191
+  },
+  "reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_process_check": "No collect_archive.py process in Win32_Process inventory",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "request_interval": 60.0,
+    "alternate_suspension_preserved": true
+  },
+  "limitations": "Embedded alternate tooltips occur under As it was earlier and retain historical parser scope. Only the complete damage sentence before the explicit Cost label is recognized; appended labels, names and conditions remain unparsed. No operative damage selected; no historical authentication inferred."
+}
