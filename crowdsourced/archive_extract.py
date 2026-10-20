@@ -18,6 +18,81 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration720.
+    ritual_union_return_healing_symbiote = {'This ritual severs life from all opponents within 10m, dealing 350 to 370 damage and 479 to 506 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.': {'effect_reported': 'area_initial_and_periodic_damage_union_requirement',
+                                                                                                                                                                            'radius_meters': 10,
+                                                                                                                                                                            'radius_origin': None,
+                                                                                                                                                                            'recipient_reported': 'all '
+                                                                                                                                                                                                  'opponents '
+                                                                                                                                                                                                  'within '
+                                                                                                                                                                                                  '10m',
+                                                                                                                                                                            'damage_min': 350,
+                                                                                                                                                                            'damage_max': 370,
+                                                                                                                                                                            'damage_over_duration_min': 479,
+                                                                                                                                                                            'damage_over_duration_max': 506,
+                                                                                                                                                                            'duration_seconds': 10,
+                                                                                                                                                                            'blood_union_reduction': 3,
+                                                                                                                                                                            'required_blood_union': 3,
+                                                                                                                                                                            'damage_type': None,
+                                                                                                                                                                            'tick_interval_seconds': None,
+                                                                                                                                                                            'stacking_rules': None,
+                                                                                                                                                                            'operative_values': None,
+                                                                                                                                                                            'historical_authentication': None},
+ 'Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.': {'effect_reported': 'periodic_damage_blood_union_gain',
+                                                                                                                 'damage_over_duration_min': 721,
+                                                                                                                 'damage_over_duration_max': 760,
+                                                                                                                 'duration_seconds': 24,
+                                                                                                                 'blood_union_increase': 2,
+                                                                                                                 'damage_type': None,
+                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                 'stacking_rules': None,
+                                                                                                                 'operative_values': None,
+                                                                                                                 'historical_authentication': None},
+ 'Steals 287 to 304 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_self_return_union_scaling',
+                                                                                                                                                                                 'health_stolen_min': 287,
+                                                                                                                                                                                 'health_stolen_max': 304,
+                                                                                                                                                                                 'returned_percent': 130,
+                                                                                                                                                                                 'recipient_reported': 'you',
+                                                                                                                                                                                 'returned_portion_increase_percent_per_blood_union_level': 25,
+                                                                                                                                                                                 'blood_union_increase': 1,
+                                                                                                                                                                                 'scaling_base': None,
+                                                                                                                                                                                 'duration_seconds': None,
+                                                                                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                                                                                 'stacking_rules': None,
+                                                                                                                                                                                 'operative_values': None,
+                                                                                                                                                                                 'historical_authentication': None},
+ 'You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'other_ally_healing_union_scaling',
+                                                                                                                        'recipient_reported': 'an '
+                                                                                                                                              'ally, '
+                                                                                                                                              'other '
+                                                                                                                                              'than '
+                                                                                                                                              'yourself',
+                                                                                                                        'healing_amount': 2334,
+                                                                                                                        'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                                        'scaling_base': None,
+                                                                                                                        'duration_seconds': None,
+                                                                                                                        'tick_interval_seconds': None,
+                                                                                                                        'stacking_rules': None,
+                                                                                                                        'operative_values': None,
+                                                                                                                        'historical_authentication': None},
+ 'Attaches a frenzied symbiote to an ally, increasing their damage by 45 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'ally_damage_increase_symbiote',
+                                                                                                                                                                    'recipient_reported': 'an '
+                                                                                                                                                                                          'ally',
+                                                                                                                                                                    'damage_increase': 45,
+                                                                                                                                                                    'duration_seconds': 3600,
+                                                                                                                                                                    'expended_item_reported': 'Frenzied '
+                                                                                                                                                                                              'Symbiote',
+                                                                                                                                                                    'expended_item_count': 1,
+                                                                                                                                                                    'symbiote_limit_per_target': 1,
+                                                                                                                                                                    'damage_scaling_basis': None,
+                                                                                                                                                                    'tick_interval_seconds': None,
+                                                                                                                                                                    'stacking_rules': None,
+                                                                                                                                                                    'operative_values': None,
+                                                                                                                                                                    'historical_authentication': None}}.get(value.strip())
+    if ritual_union_return_healing_symbiote:
+        facts.append(dict(kind="blood_mage_ritual_union_return_healing_symbiote_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True,
+            **ritual_union_return_healing_symbiote))
     # Exact Blood Mage literals source-reviewed in iteration718.
     steal_damage_hate_quickening = {'Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.': {'effect_reported': 'health_steal_area_return_union_scaling',
                                                                                                                                                                                                         'health_stolen_min': 485,

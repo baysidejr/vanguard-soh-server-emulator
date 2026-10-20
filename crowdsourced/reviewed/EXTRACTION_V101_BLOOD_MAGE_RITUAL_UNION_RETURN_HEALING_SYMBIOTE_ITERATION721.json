@@ -1,0 +1,908 @@
+{
+  "review_kind": "constrained_blood_mage_ritual_union_return_healing_symbiote_extraction",
+  "parser_version": 101,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_RITUAL_UNION_RETURN_HEALING_SYMBIOTE_SOURCE_REVIEW_ITERATION720.json",
+    "sha256": "cbc848163ee7eb27997f2e0325f254f94470558cc11e7ca34d56f2bb771799c1"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Severing Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/fff62c3025170d5348613eb62b29765a7922ef0806a57b29c91266c4ea0548b2.txt",
+        "sha256": "7be756381fd1460369f73856408e87d002adb1ad377f83e6f04b65729cb492b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "6e4e16af687a489cd82e2109c593765b1f6a8b2eeb32608dd94442db8408261a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 350 to 370 damage and 479 to 506 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "362b296ae0cb03cd2535d923fe446b7d85a7476e30683a39c0345bda9eeabd72",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 350 to 370 damage and 479 to 506 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_initial_and_periodic_damage_union_requirement",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "recipient_reported": "all opponents within 10m",
+              "damage_min": 350,
+              "damage_max": 370,
+              "damage_over_duration_min": 479,
+              "damage_over_duration_max": 506,
+              "duration_seconds": 10,
+              "blood_union_reduction": 3,
+              "required_blood_union": 3,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Severing Ritual II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+              "title": "Severing Ritual II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 101,
+          "collected_at": "2026-10-20T02:20:10+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon532.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": "II",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon532.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034706id_/http://wiki.silkyvenom.com/index.php/Severing_Ritual_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+                  "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 350 to 370 damage and 479 to 506 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "area_initial_and_periodic_damage_union_requirement",
+                  "radius_meters": 10,
+                  "radius_origin": null,
+                  "recipient_reported": "all opponents within 10m",
+                  "damage_min": 350,
+                  "damage_max": 370,
+                  "damage_over_duration_min": 479,
+                  "damage_over_duration_max": 506,
+                  "duration_seconds": 10,
+                  "blood_union_reduction": 3,
+                  "required_blood_union": 3,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood IV",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-iv",
+      "cache": {
+        "path": ".cache/archive/aa6f70b6147fc4aaf98f59976353bf959c73fc2824c9c8903efdf8fc2c5c0ad4.txt",
+        "sha256": "65524e1011630381b3310daca902a7c448172150d548acf8e134d0d6734958ff"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 96,
+          "record_sha256": "26d3de59d3342c9df047ff6d09095f87c57f1d8093c1aaf27463dd3624ad0b3e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "87da58744e461954a3ee2346b1d98eac60a972159af26e3d2308ad7bb7a0d7c8",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_damage_blood_union_gain",
+              "damage_over_duration_min": 721,
+              "damage_over_duration_max": 760,
+              "duration_seconds": 24,
+              "blood_union_increase": 2,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Union of Blood IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/union-of-blood-iv",
+              "title": "Union of Blood IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 101,
+          "collected_at": "2026-10-20T02:20:10+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007": [
+              "26 — now 34"
+            ],
+            "level": [
+              "34"
+            ],
+            "health and energy cost": [
+              "287"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "health cost": [
+              "126"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon708.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": "IV",
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.",
+          "icon_name": "Icon708.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26 — now 34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034748id_/http://wiki.silkyvenom.com/index.php/Union_of_Blood_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+                  "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "periodic_damage_blood_union_gain",
+                  "damage_over_duration_min": 721,
+                  "damage_over_duration_max": 760,
+                  "duration_seconds": 24,
+                  "blood_union_increase": 2,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Despoil V",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-v",
+      "cache": {
+        "path": ".cache/archive/840bf5112dda60ec160d78e918653a55c6414e75292e1043b06fbf925100a454.txt",
+        "sha256": "7310949f3c2633b5403476910ef4e3461fb56dd94c9eacc4dcbf6b7bdcdafbf4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "a5193198ce60e6fc6c81d4d033a04bbcba025c219c4e57ca6804ced728bad0a5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 287 to 304 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "235e45f30bea987629251b894df8114d3b8fc18cbfafbbd5bfcfd665743157f8",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "Steals 287 to 304 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_self_return_union_scaling",
+              "health_stolen_min": 287,
+              "health_stolen_max": 304,
+              "returned_percent": 130,
+              "recipient_reported": "you",
+              "returned_portion_increase_percent_per_blood_union_level": 25,
+              "blood_union_increase": 1,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Despoil V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/despoil-v",
+              "title": "Despoil V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 101,
+          "collected_at": "2026-10-20T02:20:10+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "36"
+            ],
+            "level": [
+              "36"
+            ],
+            "energy cost": [
+              "211"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon707.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 36,
+          "rank": "V",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 211
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon707.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 36,
+              "raw": "36"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034124id_/http://wiki.silkyvenom.com/index.php/Despoil_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              211
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+                  "effect_phrase_recorded": "Steals 287 to 304 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_self_return_union_scaling",
+                  "health_stolen_min": 287,
+                  "health_stolen_max": 304,
+                  "returned_percent": 130,
+                  "recipient_reported": "you",
+                  "returned_portion_increase_percent_per_blood_union_level": 25,
+                  "blood_union_increase": 1,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "2b2bfdeed42c9c6e3812a00c930fc07a755f8e3f4abd7a4f3793095dec3e2471",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "other_ally_healing_union_scaling",
+              "recipient_reported": "an ally, other than yourself",
+              "healing_amount": 2334,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Gift IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+              "title": "Blood Gift IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 101,
+          "collected_at": "2026-10-20T02:20:10+00:00",
+          "archive_fields": {
+            "energy then": [
+              "361 — now 482"
+            ],
+            "cast then": [
+              "3"
+            ],
+            "level in 2007": [
+              "30 — now 38"
+            ],
+            "level": [
+              "38"
+            ],
+            "health and energy cost": [
+              "482"
+            ],
+            "health cost": [
+              "57"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon677.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "IV",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon677.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30 — now 38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033617id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+                  "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "other_ally_healing_union_scaling",
+                  "recipient_reported": "an ally, other than yourself",
+                  "healing_amount": 2334,
+                  "extra_healing_percent_per_blood_union_level": 2,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote III",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-iii",
+      "cache": {
+        "path": ".cache/archive/6a40499308ac8a2d001e437ca5e8d72e2d706db0716093a83f30bbd50a5ea284.txt",
+        "sha256": "0d4e9f52262c6f073eb92df5c06b9112be20e6f71e64033c6f7e51eb1e6b711c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 100,
+          "record_sha256": "94ab7b75e3042e9150a9f5e2bab34335eaeea6c12ce8362c0b262fe13b161608"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 45 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "646424ca93bf8b3ed256824d9eb1511d53874b77b53c17aff57cdc61677b0bf1",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 45 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_increase_symbiote",
+              "recipient_reported": "an ally",
+              "damage_increase": 45,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Frenzied Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_scaling_basis": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Frenzied Symbiote III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/frenzied-symbiote-iii",
+              "title": "Frenzied Symbiote III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 101,
+          "collected_at": "2026-10-20T02:20:10+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Frenzied Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon651.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon651.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034205id_/http://wiki.silkyvenom.com/index.php/Frenzied_Symbiote_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Frenzied Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+                  "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 45 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_damage_increase_symbiote",
+                  "recipient_reported": "an ally",
+                  "damage_increase": 45,
+                  "duration_seconds": 3600,
+                  "expended_item_reported": "Frenzied Symbiote",
+                  "expended_item_count": 1,
+                  "symbiote_limit_per_target": 1,
+                  "damage_scaling_basis": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 306
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 45,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Unspecified damage types, area origin, return and healing scaling bases, damage scaling basis and tick intervals remain null.",
+    "Blood Gift excludes the caster; Severing Ritual retains both initial and periodic damage and its explicit Blood Union requirement.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 45 Blood Mage numeric effect sections against exact cached prose."
+}
