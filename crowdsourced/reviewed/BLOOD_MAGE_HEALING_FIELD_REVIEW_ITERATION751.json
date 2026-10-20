@@ -1,0 +1,672 @@
+{
+  "review_kind": "blood_mage_direct_area_healing_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Infuse Health I",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-i",
+      "cache": {
+        "path": ".cache/archive/2e2b4e31553e80a405ca3d6d43dbcde8aa246a20af1a339288e75921a40d4281.txt",
+        "sha256": "fbada0c57d46261640830588f9a650bbf0a9ab26cfa4fbaef4c9407a3da8f6b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "49225b9c8560dbe9f21e0a01d29982fffc773487969b2e6acf8cdf5f58a151d4"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 113 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "15dba7ae0c7e16deeaea37f5cfb245e37c48f70e5f79c75210adabec1960481e",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 113,
+              "extracted_value": 113,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            },
+            {
+              "field": "blood_union_bonus_percent_per_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_conversion_buff_observation",
+              "effect_phrase_recorded": "Infuses 113 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "healing",
+              "recipient_reported": "your defensive target",
+              "health_amount": 113,
+              "blood_union_bonus_percent_per_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health II",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-ii",
+      "cache": {
+        "path": ".cache/archive/376c8a5570a745b910a16c0febbe33f96dc20b956d284a826b3bde74b3175e31.txt",
+        "sha256": "26571af31c28963a56d1e3cdfa458fd6d0ab0413dccbf925999335667b0eccbe"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 25,
+          "record_sha256": "0b07961ec38a36166ea2e9cea86c52c51ce8fdd285d89f4b40b55a80c580715f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 321 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "846d981624f43768de5a164d511d003c29cea532f0350f53c673870cc6979da7",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 321,
+              "extracted_value": 321,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            },
+            {
+              "field": "blood_union_bonus_percent_per_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_conversion_buff_observation",
+              "effect_phrase_recorded": "Infuses 321 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "healing",
+              "recipient_reported": "your defensive target",
+              "health_amount": 321,
+              "blood_union_bonus_percent_per_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-i",
+      "cache": {
+        "path": ".cache/archive/1dcda0f33b62b06371a46693b2243f7a20d613d4164bbd2522734e8b7cbe50f9.txt",
+        "sha256": "0ab27b4fa44e15786a49130c549be89cd4d77c12840fd9a8b34c48205d2d825d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 3,
+          "record_sha256": "dd2ee34ccba84cf90fe821623434d030132cd7dffdd2763d563bce918344ca21"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 914. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "c657c36c0f8132ac356613a8beace8b54feeb43594fae005e00207d4109f3480",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 914,
+              "extracted_value": 914,
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_cost",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_cleansing_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 914. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "healing_with_blood_union_bonus",
+              "health_amount": 914,
+              "recipient_reported": "an ally, other than yourself",
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "health_cost": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst I",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-i",
+      "cache": {
+        "path": ".cache/archive/981c1b50910f101abb0b3674f98a7054c0e75c8f07dac8c432f23eee2302a8ce.txt",
+        "sha256": "44a1d05f6b5168e03a0ef2666b77bff399b61ba292c84e017a5cb9c7da6ebc87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "adefaab415f03d8b440a8c23f52fc5655a4ab8aadb372747a4e1a708195e1795"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "98c1eacade1844d51d894a44fd7f024f5bf18cc09c8cbc58b23b33a227795a6c",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all allies within 10m",
+              "extracted_value": "all allies within 10m",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 533,
+              "extracted_value": 533,
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_healing_with_blood_union_bonus",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "health_amount": 533,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 545 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "80c669fad81b37616e0caae3b719a7a88590b6dcf36a96e85582b9232074ea2c",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 545,
+              "extracted_value": 545,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Infuses 545 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "healing_with_blood_union_bonus",
+              "recipient_reported": "your defensive target",
+              "health_amount": 545,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "1acf165a5e060a473794257a0413a88a1abeddee3a1ea914c3dc7966c78a773e",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all allies within 10m",
+              "extracted_value": "all allies within 10m",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 791,
+              "extracted_value": 791,
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_healing_with_blood_union_bonus",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "health_amount": 791,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health IV",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iv",
+      "cache": {
+        "path": ".cache/archive/157d8ea5943838bf0b7c02d19432e6033c70784635fd57751d0e7a4515d9de94.txt",
+        "sha256": "32e7503e4627b647c8db1f3d6e3c40a2f591acbc1065e66ddf1a0ef80f1b74d1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "9a12dc9cfab2f4d4fa8050292a45fbe07f61aec2973b5a5efa75c9f9f7e8c20c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 785 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "9245670cd2b402f188ec1ab27667ea716f30b14c19ae60c53cc9048a2bd93604",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 785,
+              "extracted_value": 785,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_party_buffs_health_return_observation",
+              "effect_phrase_recorded": "Infuses 785 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "target_heal_blood_union_scaling",
+              "recipient_reported": "your defensive target",
+              "health_amount": 785,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 7,
+    "source_record_hashes_verified": 7,
+    "whole_page_replays": 7,
+    "literal_hashes_verified": 7,
+    "field_comparisons_passed": 52,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 136,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Literal coverage does not authenticate historical game behavior or establish operative combat formulas.",
+    "Blood Union bonus basis and stacking rules remain unstated and null; no calculated healing values are promoted.",
+    "Blood Gift wording does not quantify a caster health cost; this remains null. No canonical IDs or name-only merges introduced."
+  ],
+  "next_step": "Review remaining Blood Mage health-transfer observations field by field against cached prose."
+}
