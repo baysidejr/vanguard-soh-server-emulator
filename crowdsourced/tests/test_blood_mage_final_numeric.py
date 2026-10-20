@@ -12,6 +12,8 @@ class BloodMageFinalNumericTests(unittest.TestCase):
                 with self.subTest(name=row['name']):
                     fact, = [f for f in effect_facts(o['literal']) if f['kind'] == KIND]
                     for key, value in o['candidate_observation'].items():
+                        # Historical review labels are superseded by iteration762's literal-only qualifiers.
+                        key = key.replace('_resist_percent_at_level_55', '_resist_percent_reported')
                         self.assertEqual(fact[key], value)
                     self.assertIsNone(fact['operative_values'])
                     self.assertIsNone(fact['historical_authentication'])
