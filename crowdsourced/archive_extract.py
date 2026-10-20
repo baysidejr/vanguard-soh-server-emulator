@@ -18,6 +18,71 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration728.
+    steal_hate_ritual_rune_healing = {'Steals 330 to 350 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_with_defensive_target_return',
+                                                                                                                                                                                                   'health_stolen_min': 330,
+                                                                                                                                                                                                   'health_stolen_max': 350,
+                                                                                                                                                                                                   'returned_portion_percent': 130,
+                                                                                                                                                                                                   'recipient_reported': 'defensive '
+                                                                                                                                                                                                                         'target',
+                                                                                                                                                                                                   'returned_portion_increase_percent_per_blood_union_level': 10,
+                                                                                                                                                                                                   'blood_union_gain_points': 1,
+                                                                                                                                                                                                   'percentage_bonus_combination_rule': None,
+                                                                                                                                                                                                   'duration_seconds': None,
+                                                                                                                                                                                                   'tick_interval_seconds': None,
+                                                                                                                                                                                                   'stacking_rules': None,
+                                                                                                                                                                                                   'operative_values': None,
+                                                                                                                                                                                                   'historical_authentication': None},
+ "Numbs your opponent's mind, lowering your hate by 4542.": {'effect_reported': 'hate_reduction',
+                                                             'hate_reduction_amount': 4542,
+                                                             'hate_unit': None,
+                                                             'duration_seconds': None,
+                                                             'tick_interval_seconds': None,
+                                                             'stacking_rules': None,
+                                                             'operative_values': None,
+                                                             'historical_authentication': None},
+ 'This ritual severs life from all opponents within 10m, dealing 430 to 454 damage and 591 to 624 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.': {'effect_reported': 'area_damage_with_periodic_damage_and_union_cost',
+                                                                                                                                                                            'radius_meters': 10,
+                                                                                                                                                                            'recipient_reported': 'all '
+                                                                                                                                                                                                  'opponents '
+                                                                                                                                                                                                  'within '
+                                                                                                                                                                                                  '10m',
+                                                                                                                                                                            'damage_min': 430,
+                                                                                                                                                                            'damage_max': 454,
+                                                                                                                                                                            'periodic_damage_min': 591,
+                                                                                                                                                                            'periodic_damage_max': 624,
+                                                                                                                                                                            'periodic_damage_duration_seconds': 10,
+                                                                                                                                                                            'blood_union_cost_points': 3,
+                                                                                                                                                                            'required_blood_union_reported': 3,
+                                                                                                                                                                            'periodic_damage_distribution': None,
+                                                                                                                                                                            'duration_seconds': None,
+                                                                                                                                                                            'tick_interval_seconds': None,
+                                                                                                                                                                            'stacking_rules': None,
+                                                                                                                                                                            'operative_values': None,
+                                                                                                                                                                            'historical_authentication': None},
+ 'Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 6 seconds.': {'effect_reported': 'defensive_target_physical_arcane_damage_reduction',
+                                                                                                                                           'recipient_reported': 'defensive '
+                                                                                                                                                                 'target',
+                                                                                                                                           'physical_damage_reduction_percent': 100,
+                                                                                                                                           'arcane_damage_reduction_percent': 100,
+                                                                                                                                           'duration_seconds': 6,
+                                                                                                                                           'absorption_limit': None,
+                                                                                                                                           'tick_interval_seconds': None,
+                                                                                                                                           'stacking_rules': None,
+                                                                                                                                           'operative_values': None,
+                                                                                                                                           'historical_authentication': None},
+ 'Heals for 1200 health over 16 seconds.': {'effect_reported': 'periodic_healing',
+                                            'healing_amount': 1200,
+                                            'duration_seconds': 16,
+                                            'recipient_reported': None,
+                                            'healing_distribution': None,
+                                            'tick_interval_seconds': None,
+                                            'stacking_rules': None,
+                                            'operative_values': None,
+                                            'historical_authentication': None}}.get(value.strip())
+    if steal_hate_ritual_rune_healing:
+        facts.append(dict(kind="blood_mage_steal_hate_ritual_rune_healing_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **steal_hate_ritual_rune_healing))
     # Exact Blood Mage literals source-reviewed in iteration726.
     healing_counter_symbiote_steal = {'Infuses your defensive target with 1314 health. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'defensive_target_healing_with_union_bonus',
                                                                                                      'healing_amount': 1314,
