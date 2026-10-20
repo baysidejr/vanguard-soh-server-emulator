@@ -1,0 +1,219 @@
+{
+  "review_kind": "blood_mage_qualitative_support_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Grim Harvest",
+      "source_url": "https://vgsoharchive.com/abilities/grim-harvest",
+      "cache": {
+        "path": ".cache/archive/d3b097d5873d6a15afc0941f0c27fcb6d07781d5452ae0de2b295e830c1d80d5.txt",
+        "sha256": "16186f71f42531d5c27ffb1b46e9545fbbf9644fb9d6c14fe84ecc3a40f214bc"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "a37ef3e3702b835dfa68ddb86f10a4c070a7361e0e82d67e885d9fe5bf6abcb5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Harvests an organ out of a living body. Which organ it harvests is based on what your opponent has been affected by. Works in conjunction with Union of Blood, Constrict, Exploding Cyst and Blood Letting Ritual.",
+          "literal_sha256": "e80a57d78ee53d419ea151228da864bf1be888309d083686fe43a91f7820edf7",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "harvest_organ_from_living_body",
+              "extracted_value": "harvest_organ_from_living_body",
+              "equal": true
+            },
+            {
+              "field": "organ_selection_depends_on",
+              "source_value": "effects_on_opponent",
+              "extracted_value": "effects_on_opponent",
+              "equal": true
+            },
+            {
+              "field": "related_abilities_reported",
+              "source_value": [
+                "Union of Blood",
+                "Constrict",
+                "Exploding Cyst",
+                "Blood Letting Ritual"
+              ],
+              "extracted_value": [
+                "Union of Blood",
+                "Constrict",
+                "Exploding Cyst",
+                "Blood Letting Ritual"
+              ],
+              "equal": true
+            },
+            {
+              "field": "organ_mapping",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Harvests an organ out of a living body. Which organ it harvests is based on what your opponent has been affected by. Works in conjunction with Union of Blood, Constrict, Exploding Cyst and Blood Letting Ritual.",
+              "conditions_unparsed": true,
+              "effect_reported": "harvest_organ_from_living_body",
+              "organ_selection_depends_on": "effects_on_opponent",
+              "related_abilities_reported": [
+                "Union of Blood",
+                "Constrict",
+                "Exploding Cyst",
+                "Blood Letting Ritual"
+              ],
+              "organ_mapping": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Mortal Calling",
+      "source_url": "https://vgsoharchive.com/abilities/mortal-calling",
+      "cache": {
+        "path": ".cache/archive/49fe2b04b5ef101c9604f472b14cd71262ab7128728509cab0952daf41f37664.txt",
+        "sha256": "1c1991c0de6f54aad71aecc7a7101addb066ed0fa6a142a7dedece783794b1e1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "b4ae74c8c22174c2d4606bfb0ae5253b9b8fa306af2a6f270971fdb9d3d595ec"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This spell summons a group mate to your side. The call's distance is restricted, and you can only call in certain areas.",
+          "literal_sha256": "80753c59e9a28009c6752c5daf80c14c3e9c02900bcf791590ead07abffefa52",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "summon_group_mate",
+              "extracted_value": "summon_group_mate",
+              "equal": true
+            },
+            {
+              "field": "destination_reported",
+              "source_value": "caster_side",
+              "extracted_value": "caster_side",
+              "equal": true
+            },
+            {
+              "field": "distance_restricted",
+              "source_value": true,
+              "extracted_value": true,
+              "equal": true
+            },
+            {
+              "field": "distance_limit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "area_restricted",
+              "source_value": true,
+              "extracted_value": true,
+              "equal": true
+            },
+            {
+              "field": "permitted_areas",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "This spell summons a group mate to your side. The call's distance is restricted, and you can only call in certain areas.",
+              "conditions_unparsed": true,
+              "effect_reported": "summon_group_mate",
+              "destination_reported": "caster_side",
+              "distance_restricted": true,
+              "distance_limit": null,
+              "area_restricted": true,
+              "permitted_areas": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "literal_hashes_verified": 2,
+    "field_comparisons_passed": 12,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 69,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Two current qualitative support clauses reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Summon distance and permitted areas remain unknown. Related harvest abilities are retained without inferring organ mappings.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections and identify unsupported clauses for cache-only extraction."
+}
