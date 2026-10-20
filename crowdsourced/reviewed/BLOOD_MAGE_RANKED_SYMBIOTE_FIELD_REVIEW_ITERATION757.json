@@ -1,0 +1,1374 @@
+{
+  "review_kind": "blood_mage_ranked_symbiote_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Plated Symbiote I",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-i",
+      "cache": {
+        "path": ".cache/archive/7c299449b527656a54e7647ba031fba630a6020277b253dae0e36d814959405c.txt",
+        "sha256": "a316f29bead95de088b87741c89bda8a134f52b63c51bac8d0e1dbf41653445d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "b8a51eb52d1d5e0225b57441c88a71dc1d53fb8dbb5f4fd4adc9ac5b77bcb97c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 29 damage upon their attackers and increases armor class by 54 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "3799b756e9537900f907958121490cc2e818a32b3405e4acc5d7b314bb35d684",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumed_component_reported",
+              "source_value": "Plated Symbiote",
+              "extracted_value": "Plated Symbiote",
+              "equal": true
+            },
+            {
+              "field": "component_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "returned_damage",
+              "source_value": 29,
+              "extracted_value": 29,
+              "equal": true
+            },
+            {
+              "field": "armor_class_increase",
+              "source_value": 54,
+              "extracted_value": 54,
+              "equal": true
+            },
+            {
+              "field": "duration_hours_reported",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "trigger_frequency",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "canonical_component_id",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_conversion_ritual_observation",
+              "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 29 damage upon their attackers and increases armor class by 54 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "retaliatory_damage_armor_buff",
+              "recipient_reported": "an ally",
+              "returned_damage": 29,
+              "armor_class_increase": 54,
+              "duration_hours_reported": 1,
+              "consumed_component_reported": "Plated Symbiote",
+              "component_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "canonical_component_id": null,
+              "damage_type": null,
+              "trigger_frequency": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote I",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-i",
+      "cache": {
+        "path": ".cache/archive/524c98ee8351f9fd223a93de66b55bcaa06ae572b3ff07c74674f8b882eab783.txt",
+        "sha256": "81e97c42bb16c94017519936614d526148ace7a9dc65efe06b516911f484cbc7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "2be9e816bfe36c8164acf4211bac89d9144c1fa99e3c36980465bdf0364c574d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 20 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "27ea64d2ad70eb13aec19853793be24eaacf45614c1e87cbbeb9cd978bd1f5b3",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Frenzied Symbiote",
+              "extracted_value": "Frenzied Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "damage_increase",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "damage_application_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_hate_ritual_union_observation",
+              "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 20 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_buff_symbiote",
+              "recipient_reported": "an ally",
+              "damage_increase": 20,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Frenzied Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_application_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Plated Symbiote II",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-ii",
+      "cache": {
+        "path": ".cache/archive/7dd7df1339c0d1dccc8c5848e6d79523422adc069360675cf4def7ac9c563b4d.txt",
+        "sha256": "7c972bd51d7d419f4475d8249c3ac496000a5a9b46701b4645dcdeedb1c471f3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "ee71465524bda08cb1afb7af3c3e85715ddd9ed6ac74ab17be7584ff408a0776"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 49 damage upon their attackers and increases armor class by 84 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "ab27e3d9dd2b9bbd5af75402be07cf2543d43a028d0741539787093f19c98f97",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Plated Symbiote",
+              "extracted_value": "Plated Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "returned_damage",
+              "source_value": 49,
+              "extracted_value": 49,
+              "equal": true
+            },
+            {
+              "field": "armor_class_increase",
+              "source_value": 84,
+              "extracted_value": 84,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "damage_return_trigger_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 49 damage upon their attackers and increases armor class by 84 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_return_armor_symbiote",
+              "recipient_reported": "an ally",
+              "returned_damage": 49,
+              "armor_class_increase": 84,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Plated Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_return_trigger_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Renewing Symbiote I",
+      "source_url": "https://vgsoharchive.com/abilities/renewing-symbiote-i",
+      "cache": {
+        "path": ".cache/archive/338dfcb8566d91be7a736cc549d89d6f62b65332814581dc83a20c00eaa8f54e.txt",
+        "sha256": "3c289ccbebb069285f4fc6499831513f7409eb7db38853ddfc73861575e03f38"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c32f1107675222a764c4332e6cceb93f9294d4b0e4d6e9608a2620d70ed37459"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 680 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "7dec28bb962e3e79b42cf908ac934e50042489b9ffebf1ef31220c8410a7db66",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Renewing Symbiote",
+              "extracted_value": "Renewing Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "chance_percent",
+              "source_value": 5,
+              "extracted_value": 5,
+              "equal": true
+            },
+            {
+              "field": "health_over_duration",
+              "source_value": 680,
+              "extracted_value": 680,
+              "equal": true
+            },
+            {
+              "field": "healing_duration_seconds",
+              "source_value": 6,
+              "extracted_value": 6,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 1800,
+              "extracted_value": 1800,
+              "equal": true
+            },
+            {
+              "field": "trigger_reported",
+              "source_value": "on hit",
+              "extracted_value": "on hit",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "trigger_direction",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "trigger_cooldown_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 680 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_on_hit_chance_periodic_healing_symbiote",
+              "recipient_reported": "an ally",
+              "chance_percent": 5,
+              "trigger_reported": "on hit",
+              "health_over_duration": 680,
+              "healing_duration_seconds": 6,
+              "duration_seconds": 1800,
+              "expended_item_reported": "Renewing Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "trigger_direction": null,
+              "trigger_cooldown_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote II",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-ii",
+      "cache": {
+        "path": ".cache/archive/a223c5fe046e49e90376213fbb85cc236ae8efa8a9ec20e00069b1ced570b36a.txt",
+        "sha256": "630427911781e528c0e08a89262f457bb6f023ed750d159512a8b0e854d6e5b1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 99,
+          "record_sha256": "26ebc40eba624544779c5b07c0f505b37d1b1f3c9ce5dfd975ef363e6e46950b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 32 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "b9121252edde303f3c7a1f25e710a4546a37a94b473d3597490c4c1891aa3dbe",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Frenzied Symbiote",
+              "extracted_value": "Frenzied Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "damage_increase",
+              "source_value": 32,
+              "extracted_value": 32,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "damage_scaling_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_execute_symbiote_healing_absorption_observation",
+              "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 32 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_increase_symbiote",
+              "recipient_reported": "an ally",
+              "damage_increase": 32,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Frenzied Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_scaling_basis": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote III",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-iii",
+      "cache": {
+        "path": ".cache/archive/6a40499308ac8a2d001e437ca5e8d72e2d706db0716093a83f30bbd50a5ea284.txt",
+        "sha256": "0d4e9f52262c6f073eb92df5c06b9112be20e6f71e64033c6f7e51eb1e6b711c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 100,
+          "record_sha256": "94ab7b75e3042e9150a9f5e2bab34335eaeea6c12ce8362c0b262fe13b161608"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 45 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "646424ca93bf8b3ed256824d9eb1511d53874b77b53c17aff57cdc61677b0bf1",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Frenzied Symbiote",
+              "extracted_value": "Frenzied Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "damage_increase",
+              "source_value": 45,
+              "extracted_value": 45,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "damage_scaling_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 45 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_increase_symbiote",
+              "recipient_reported": "an ally",
+              "damage_increase": 45,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Frenzied Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_scaling_basis": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Plated Symbiote III",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-iii",
+      "cache": {
+        "path": ".cache/archive/d8fb89e64e6eb8348f39018dcda220cbebd7d9f069bc4139e9db0d3c2b31cf7f.txt",
+        "sha256": "3f7dcc3173d7445dbea4e2d295dc10eed39340fda2427ddde7943b510e4c5a7a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "d26fe75dc07e91103ea2beee44a798af8823da3e5ff51e7357245362ebfeda88"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 70 damage upon their attackers and increases armor class by 114 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "67d142c8aeff7a0cd0ccba0908a5c589f4919d5fccea229c61eace7c24bab3fb",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Plated Symbiote",
+              "extracted_value": "Plated Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "returned_damage",
+              "source_value": 70,
+              "extracted_value": 70,
+              "equal": true
+            },
+            {
+              "field": "armor_class_increase",
+              "source_value": 114,
+              "extracted_value": 114,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "damage_return_trigger_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 70 damage upon their attackers and increases armor class by 114 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_return_armor_symbiote",
+              "recipient_reported": "an ally",
+              "returned_damage": 70,
+              "armor_class_increase": 114,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Plated Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_return_trigger_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Renewing Symbiote II",
+      "source_url": "https://vgsoharchive.com/abilities/renewing-symbiote-ii",
+      "cache": {
+        "path": ".cache/archive/6665a107b68f7f3241536d4860eace3f87455820253a06a406ab32362f2d0cc9.txt",
+        "sha256": "cf0b16cc2aee0c7d192ef7e6fc100a24249a56e6bcf5bb67e46c9d18e1c6e226"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "b9eb1101ff12249e9fd3ffa237018e9199ec895d4a054191b9629cb7201119fc"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 912 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "0cab7fcef38af912edaa76b5882b16191f62ab9081e81529d22a61dbf5f4957a",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "Renewing Symbiote",
+              "extracted_value": "Renewing Symbiote",
+              "equal": true
+            },
+            {
+              "field": "consumed_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "proc_chance_percent",
+              "source_value": 5,
+              "extracted_value": 5,
+              "equal": true
+            },
+            {
+              "field": "healing_amount",
+              "source_value": 912,
+              "extracted_value": 912,
+              "equal": true
+            },
+            {
+              "field": "healing_duration_seconds",
+              "source_value": 6,
+              "extracted_value": 6,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 1800,
+              "extracted_value": 1800,
+              "equal": true
+            },
+            {
+              "field": "trigger_reported",
+              "source_value": "on hit",
+              "extracted_value": "on hit",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "trigger_actor",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "proc_roll_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_counter_symbiote_steal_observation",
+              "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 912 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "symbiote_on_hit_periodic_healing",
+              "recipient_reported": "an ally",
+              "trigger_reported": "on hit",
+              "proc_chance_percent": 5,
+              "healing_amount": 912,
+              "healing_duration_seconds": 6,
+              "duration_seconds": 1800,
+              "consumed_item_reported": "Renewing Symbiote",
+              "consumed_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "trigger_actor": null,
+              "proc_roll_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote IV",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-iv",
+      "cache": {
+        "path": ".cache/archive/bb91c5b6b4a113be620b705db5aff8bd5792e5153f4481b415bb1a282bd4b85e.txt",
+        "sha256": "18bfa842d78364f41632570dc1999f4a8e5bb89e1235bb6d7dce22a9976ad3fe"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 1,
+          "record_sha256": "1bd8e765aecd88d99975d42f9eb27871b26fde9a8b654e073d8d8d3c78b09a8a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 63 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "86be6a87a488a9caec182029a69cfc92cdead322e5d8f8c6f82678d7f457ecc8",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "Frenzied Symbiote",
+              "extracted_value": "Frenzied Symbiote",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "damage_bonus_amount",
+              "source_value": 63,
+              "extracted_value": 63,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "ally",
+              "extracted_value": "ally",
+              "equal": true
+            },
+            {
+              "field": "damage_bonus_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_union_root_steal_symbiote_absorption_observation",
+              "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 63 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_bonus_with_symbiote_cost_and_limit",
+              "damage_bonus_amount": 63,
+              "damage_bonus_unit": null,
+              "duration_seconds": 3600,
+              "recipient_reported": "ally",
+              "consumed_item_reported": "Frenzied Symbiote",
+              "consumed_item_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Plated Symbiote IV",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-iv",
+      "cache": {
+        "path": ".cache/archive/4b351a24cc2927e207491b2a7d6a5d58f3d19a0a82357fb6b88b12ae8727c7c6.txt",
+        "sha256": "02a6e849d54332251d49505c4348165cea69a2ddd9ed682013c99dd97aba04a6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "2a5cca653a5ad7d50cfc8e5d5cc0d0a79f2f8b62e8595b1e8ce6b60d68ddceee"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 93 damage upon their attackers and increases armor class by 144 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "a93fbf8de6b852c55b8bf6925d16b12176ba2cf9f63a6b07dc63216dec285740",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "Plated Symbiote",
+              "extracted_value": "Plated Symbiote",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "retaliation_damage_amount",
+              "source_value": 93,
+              "extracted_value": 93,
+              "equal": true
+            },
+            {
+              "field": "armor_class_bonus",
+              "source_value": 144,
+              "extracted_value": 144,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "ally",
+              "extracted_value": "ally",
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transmutation_symbiote_thief_tribute_vein_observation",
+              "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 93 damage upon their attackers and increases armor class by 144 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_retaliation_and_armor_symbiote",
+              "retaliation_damage_amount": 93,
+              "damage_type": null,
+              "armor_class_bonus": 144,
+              "duration_seconds": 3600,
+              "recipient_reported": "ally",
+              "consumed_item_reported": "Plated Symbiote",
+              "consumed_item_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote V",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-v",
+      "cache": {
+        "path": ".cache/archive/bfff47e8702ec71aef69495620051d6696cced499c573e11bf6ff8409a59da36.txt",
+        "sha256": "a7633bddf691fad9ff467a5d1c527494513335dfcc916ee2cc7335d2db4f8f32"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 2,
+          "record_sha256": "3240d16fe5d2edfee969ce805531049998b8067502048a267c75d7f2599bb3ab"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 84 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "545e422af31debbd76793293fcf685c22c1ea44cefcc69020d4e69ce8b00f9ce",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "Frenzied Symbiote",
+              "extracted_value": "Frenzied Symbiote",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "damage_increase_amount",
+              "source_value": 84,
+              "extracted_value": 84,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "ally",
+              "extracted_value": "ally",
+              "equal": true
+            },
+            {
+              "field": "damage_increase_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_final_numeric_observation",
+              "effect_phrase_recorded": "Attaches a frenzied symbiote to an ally, increasing their damage by 84 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_increase_symbiote",
+              "damage_increase_amount": 84,
+              "damage_increase_unit": null,
+              "duration_seconds": 3600,
+              "recipient_reported": "ally",
+              "consumed_item_reported": "Frenzied Symbiote",
+              "consumed_item_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Renewing Symbiote III",
+      "source_url": "https://vgsoharchive.com/abilities/renewing-symbiote-iii",
+      "cache": {
+        "path": ".cache/archive/7d37008364b7ab09ce4254ee356eccff874dbb01dca27356581acd7ca509295d.txt",
+        "sha256": "673e7266809db282abc29a4d059ff468b87b59ddc6af6468766bab2f10509f80"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "0ad4405249561800f03610e7f78ba52624c81d9048a3757d05752b318cf9cb0c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 1032 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "67cc7ba8801c2014c27a87ffb6d5d9ef451b0b784573521bc31ed45097b5a422",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "Renewing Symbiote",
+              "extracted_value": "Renewing Symbiote",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "proc_chance_percent",
+              "source_value": 5,
+              "extracted_value": 5,
+              "equal": true
+            },
+            {
+              "field": "healing_amount",
+              "source_value": 1032,
+              "extracted_value": 1032,
+              "equal": true
+            },
+            {
+              "field": "healing_duration_seconds",
+              "source_value": 6,
+              "extracted_value": 6,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 1800,
+              "extracted_value": 1800,
+              "equal": true
+            },
+            {
+              "field": "trigger_reported",
+              "source_value": "on_hit",
+              "extracted_value": "on_hit",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "bearer",
+              "extracted_value": "bearer",
+              "equal": true
+            },
+            {
+              "field": "proc_roll_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 1032 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_on_hit_healing_symbiote",
+              "proc_chance_percent": 5,
+              "trigger_reported": "on_hit",
+              "healing_amount": 1032,
+              "healing_duration_seconds": 6,
+              "duration_seconds": 1800,
+              "recipient_reported": "bearer",
+              "consumed_item_reported": "Renewing Symbiote",
+              "consumed_item_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "proc_roll_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 12,
+    "source_record_hashes_verified": 12,
+    "whole_page_replays": 12,
+    "literal_hashes_verified": 12,
+    "field_comparisons_passed": 126,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 85,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Plated I reports hours separately; no duration normalization or parser rewrite is performed by this review.",
+    "Damage application, retaliation trigger and on-hit direction remain unresolved; unknown values stay null and no operative game facts are promoted."
+  ],
+  "next_step": "Review remaining Blood Mage conversion and energy-recovery observations field by field."
+}
