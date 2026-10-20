@@ -20,4 +20,3 @@ class BloodMageRenewingRitualVeinRuneUnionTests(unittest.TestCase):
         literal = 'Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.'
         for changed in (literal.replace('240', '241'), literal.replace('defensive target', 'offensive target'), literal + ' Only against undead.'):
             self.assertFalse(any(f['kind'] == KIND for f in effect_facts(changed)))
-
