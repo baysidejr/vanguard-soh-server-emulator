@@ -18,6 +18,71 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration712.
+    steal_conversion_symbiote_healing = {'Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_self_return',
+                                                                                                                                                                                 'recipient_reported': 'you',
+                                                                                                                                                                                 'health_stolen_min': 234,
+                                                                                                                                                                                 'health_stolen_max': 247,
+                                                                                                                                                                                 'health_return_percent': 130,
+                                                                                                                                                                                 'returned_portion_increase_percent_per_blood_union_level': 25,
+                                                                                                                                                                                 'blood_union_increase': 1,
+                                                                                                                                                                                 'return_scaling_base': None,
+                                                                                                                                                                                 'duration_seconds': None,
+                                                                                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                                                                                 'stacking_rules': None,
+                                                                                                                                                                                 'operative_values': None,
+                                                                                                                                                                                 'historical_authentication': None},
+ 'Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.': {'effect_reported': 'direct_damage_blood_union_gain',
+                                                                                                                 'recipient_reported': 'your '
+                                                                                                                                       'opponent',
+                                                                                                                 'damage_min': 666,
+                                                                                                                 'damage_max': 703,
+                                                                                                                 'blood_union_increase': 3,
+                                                                                                                 'duration_seconds': None,
+                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                 'stacking_rules': None,
+                                                                                                                 'operative_values': None,
+                                                                                                                 'historical_authentication': None},
+ 'Transmutes 400 health into 480 energy.': {'effect_reported': 'health_to_energy_conversion',
+                                            'health_expended': 400,
+                                            'energy_returned': 480,
+                                            'duration_seconds': None,
+                                            'tick_interval_seconds': None,
+                                            'stacking_rules': None,
+                                            'operative_values': None,
+                                            'historical_authentication': None},
+ 'Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 49 damage upon their attackers and increases armor class by 84 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'ally_damage_return_armor_symbiote',
+                                                                                                                                                                                                                                                       'recipient_reported': 'an '
+                                                                                                                                                                                                                                                                             'ally',
+                                                                                                                                                                                                                                                       'returned_damage': 49,
+                                                                                                                                                                                                                                                       'armor_class_increase': 84,
+                                                                                                                                                                                                                                                       'duration_seconds': 3600,
+                                                                                                                                                                                                                                                       'expended_item_reported': 'Plated '
+                                                                                                                                                                                                                                                                                 'Symbiote',
+                                                                                                                                                                                                                                                       'expended_item_count': 1,
+                                                                                                                                                                                                                                                       'symbiote_limit_per_target': 1,
+                                                                                                                                                                                                                                                       'damage_return_trigger_rules': None,
+                                                                                                                                                                                                                                                       'tick_interval_seconds': None,
+                                                                                                                                                                                                                                                       'stacking_rules': None,
+                                                                                                                                                                                                                                                       'operative_values': None,
+                                                                                                                                                                                                                                                       'historical_authentication': None},
+ 'You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'ally_except_self_heal',
+                                                                                                                        'recipient_reported': 'an '
+                                                                                                                                              'ally, '
+                                                                                                                                              'other '
+                                                                                                                                              'than '
+                                                                                                                                              'yourself',
+                                                                                                                        'health_amount': 1830,
+                                                                                                                        'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                                        'scaling_base': None,
+                                                                                                                        'duration_seconds': None,
+                                                                                                                        'tick_interval_seconds': None,
+                                                                                                                        'stacking_rules': None,
+                                                                                                                        'operative_values': None,
+                                                                                                                        'historical_authentication': None}}.get(value.strip())
+    if steal_conversion_symbiote_healing:
+        facts.append(dict(kind="blood_mage_steal_damage_conversion_symbiote_healing_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **steal_conversion_symbiote_healing))
     # Exact Blood Mage literals source-reviewed in iteration710.
     symbiote_hate_ritual_union = {'Steals 220 to 234 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_defensive_target_return',
                                                                                                                                                                                                    'recipient_reported': 'your '
