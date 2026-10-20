@@ -1,0 +1,445 @@
+{
+  "review_kind": "blood_mage_health_energy_conversion_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Mental Transmutation I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-i",
+      "cache": {
+        "path": ".cache/archive/cda86b8aa6878cf8255761208561ab7708423a70fa5ed56ccfdc5d9b8f84406e.txt",
+        "sha256": "0699fae6f93e2cdcf9fc1589b1e6c980058d95afab33bd80cb5a4fd281655a5c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "3d53d6e6c5573f0e05cd0262a2087c9199f13faa98f9491d2a36d3778fd87145"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 115 health into 115 energy.",
+          "literal_sha256": "d7d99e1b292c4d97f33959eab235b95edfb78f7314ff95cf49117477ec4915c3",
+          "field_comparisons": [
+            {
+              "field": "health_consumed",
+              "source_value": 115,
+              "extracted_value": 115,
+              "equal": true
+            },
+            {
+              "field": "energy_granted",
+              "source_value": 115,
+              "extracted_value": 115,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "health_to_energy_conversion",
+              "extracted_value": "health_to_energy_conversion",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_conversion_buff_observation",
+              "effect_phrase_recorded": "Transmutes 115 health into 115 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_consumed": 115,
+              "energy_granted": 115,
+              "recipient_reported": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 268 health into 294 energy.",
+          "literal_sha256": "cdd5709c7670858333bb8a77f669d6c52efd8bf3245f692ad3a0154b562e86a9",
+          "field_comparisons": [
+            {
+              "field": "health_consumed",
+              "source_value": 268,
+              "extracted_value": 268,
+              "equal": true
+            },
+            {
+              "field": "energy_restored",
+              "source_value": 294,
+              "extracted_value": 294,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "health_to_energy_conversion",
+              "extracted_value": "health_to_energy_conversion",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_conversion_ritual_observation",
+              "effect_phrase_recorded": "Transmutes 268 health into 294 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_consumed": 268,
+              "energy_restored": 294,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation III",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-iii",
+      "cache": {
+        "path": ".cache/archive/6b8bfbce7040b68214c0bd9d8acaa3da6540793eb7ca4c4ab3d23dc6a02288ff.txt",
+        "sha256": "60e06f640c330813034fa6da8f56fecbcc88e478901a9083282495b5484d501c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "7a4929a8226c009c498e5d5c66124b604937ae42d63622f271e57fba31cd41d5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 400 health into 480 energy.",
+          "literal_sha256": "e7ba12e7ead738f4696a1fc74ef8b0b4cdb74bac3bc0baaad234942f32488439",
+          "field_comparisons": [
+            {
+              "field": "health_expended",
+              "source_value": 400,
+              "extracted_value": 400,
+              "equal": true
+            },
+            {
+              "field": "energy_returned",
+              "source_value": 480,
+              "extracted_value": 480,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "health_to_energy_conversion",
+              "extracted_value": "health_to_energy_conversion",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Transmutes 400 health into 480 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_expended": 400,
+              "energy_returned": 480,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation IV",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-iv",
+      "cache": {
+        "path": ".cache/archive/60dab898459d495352c6390cfcd117421f919029eea7c215d305d8107b2c7ceb.txt",
+        "sha256": "4ffe0c8bf3ef02ddbcaf19faec41dfc3b597f4eef941a6c0ece49107477a9263"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "81e7be9c28783e94768258f6705afb0d83371727ee78e0c3d4639d6e69fe0a4c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 583 health into 758 energy.",
+          "literal_sha256": "4a3c39968890580426a9c7f1e723c5d7b952c92fcfbf991c21a3eeb9d1293cfc",
+          "field_comparisons": [
+            {
+              "field": "health_expended",
+              "source_value": 583,
+              "extracted_value": 583,
+              "equal": true
+            },
+            {
+              "field": "energy_returned",
+              "source_value": 758,
+              "extracted_value": 758,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "health_to_energy_conversion",
+              "extracted_value": "health_to_energy_conversion",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Transmutes 583 health into 758 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_expended": 583,
+              "energy_returned": 758,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation V",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-v",
+      "cache": {
+        "path": ".cache/archive/3b3431750b6c14e48a2e6d5d6fb394b1b6d2075af1b95bae9d9541fc560e703c.txt",
+        "sha256": "e95e153dc80f5435bc2308efab4b93e13542d34f530ee58124772174ebf40f00"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "35a43e55331b9453d7f39158c9afb82fbc5cca04d4adbdc7980af03c1c99a19f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 747 health into 1047 energy.",
+          "literal_sha256": "8e9570ff9b29805f82ea9c6d824fe1559bf96ff902bfd6e8596a2bfacb673025",
+          "field_comparisons": [
+            {
+              "field": "health_consumed",
+              "source_value": 747,
+              "extracted_value": 747,
+              "equal": true
+            },
+            {
+              "field": "energy_received",
+              "source_value": 1047,
+              "extracted_value": 1047,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "health_to_energy_conversion",
+              "extracted_value": "health_to_energy_conversion",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_gift_rend_burst_infusion_transmutation_observation",
+              "effect_phrase_recorded": "Transmutes 747 health into 1047 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_consumed": 747,
+              "energy_received": 1047,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 31,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 80,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only current Mental Transmutation Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Rank-specific field aliases are retained verbatim; no canonical schema rewrite or operative promotion occurs.",
+    "Recipient, resource pool limits, percentage scaling and execution conditions are not established by these clauses; unstated values remain unknown."
+  ],
+  "next_step": "Review remaining Blood Mage attribute and group-buff observations field by field."
+}
