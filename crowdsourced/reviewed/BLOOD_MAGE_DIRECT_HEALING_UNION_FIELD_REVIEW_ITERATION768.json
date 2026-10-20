@@ -1,0 +1,585 @@
+{
+  "review_kind": "blood_mage_direct_healing_union_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual uses positive energy harnessed from your blood union to heal an ally for 15% of their total life. The amount healed increases for each level of your Blood Union. Removes all Blood Union when used.",
+          "literal_sha256": "b207399ed2ad5cd9948e2fc48dce38055bc4680eb5a55755ccdf6897ed5ba140",
+          "field_comparisons": [
+            {
+              "field": "healing_percent_of_total_life",
+              "source_value": 15,
+              "extracted_value": 15,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "blood_union_scaling_reported",
+              "source_value": "amount healed increases for each level",
+              "extracted_value": "amount healed increases for each level",
+              "equal": true
+            },
+            {
+              "field": "blood_union_removed_reported",
+              "source_value": "all",
+              "extracted_value": "all",
+              "equal": true
+            },
+            {
+              "field": "scaling_per_level",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_conversion_ritual_observation",
+              "effect_phrase_recorded": "This ritual uses positive energy harnessed from your blood union to heal an ally for 15% of their total life. The amount healed increases for each level of your Blood Union. Removes all Blood Union when used.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_healing_ritual",
+              "recipient_reported": "an ally",
+              "healing_percent_of_total_life": 15,
+              "blood_union_scaling_reported": "amount healed increases for each level",
+              "blood_union_removed_reported": "all",
+              "scaling_per_level": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 1357. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "4d110ee7109a45a97665d765e987819ca97bb48d2f936c57e06ab1d20eb730e7",
+          "field_comparisons": [
+            {
+              "field": "healing_base",
+              "source_value": 1357,
+              "extracted_value": 1357,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_cost",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_absorption_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 1357. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_heal_blood_union_scaling",
+              "recipient_reported": "an ally, other than yourself",
+              "healing_base": 1357,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "health_cost": null,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift III",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iii",
+      "cache": {
+        "path": ".cache/archive/75822c8987817304f018ebaff714d38d40d93467210bf3b0e55cd0b5e381ead5.txt",
+        "sha256": "f19a24a02bdcb88a1718e5a0db5f7c9a5ef143e67daa2e7a13215c6063cd5d09"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2aee997a8695c03d4b33271aa0502d77dde285c58bf2cb75cd742c8695c6b4f9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "52216542811ec29293c3da772f5da00857015cb5f518d1af8eafde06f067b401",
+          "field_comparisons": [
+            {
+              "field": "health_amount",
+              "source_value": 1830,
+              "extracted_value": 1830,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_except_self_heal",
+              "recipient_reported": "an ally, other than yourself",
+              "health_amount": 1830,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "2b2bfdeed42c9c6e3812a00c930fc07a755f8e3f4abd7a4f3793095dec3e2471",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 2334,
+              "extracted_value": 2334,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 2334. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "other_ally_healing_union_scaling",
+              "recipient_reported": "an ally, other than yourself",
+              "healing_amount": 2334,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 2869. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "fd2c5df6938a30ed0b378207872c9e8c235790c0ad7785a9d7a112205e0d94f4",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 2869,
+              "extracted_value": 2869,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "ally_other_than_self",
+              "extracted_value": "ally_other_than_self",
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_cost",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_gift_rend_burst_infusion_transmutation_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 2869. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_heal_excluding_self",
+              "healing_amount": 2869,
+              "recipient_reported": "ally_other_than_self",
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "health_cost": null,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health VII",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-vii",
+      "cache": {
+        "path": ".cache/archive/ba8c5589190f92944a689ace0eda4285cb7ef54c07175a2a9e31cd476042e482.txt",
+        "sha256": "996b89d5c42e5e5d92868fe469210b3f8137b0fbb9bf380e0296ed4f79bef434"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "72094521fa29ce4e24d502b6c4878fdefc25975c7f0ebaeb7a900bd702b993ea"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses your defensive target with 1530 health. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "6c9de188213b912dbda9fce946d5908bab7052765575c59017b392b62627342e",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 1530,
+              "extracted_value": 1530,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "defensive_target",
+              "extracted_value": "defensive_target",
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_gift_rend_burst_infusion_transmutation_observation",
+              "effect_phrase_recorded": "Infuses your defensive target with 1530 health. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "defensive_target_health_infusion",
+              "healing_amount": 1530,
+              "recipient_reported": "defensive_target",
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 6,
+    "source_record_hashes_verified": 6,
+    "whole_page_replays": 6,
+    "literal_hashes_verified": 6,
+    "field_comparisons_passed": 45,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 46,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Six current direct-healing and Blood Union sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Blood Union percentage combination rules remain unknown. Gelenia provides no numeric per-level scaling; no formula or unstated health cost is inferred.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage area-healing and spell-counter healing clauses against cached prose."
+}
