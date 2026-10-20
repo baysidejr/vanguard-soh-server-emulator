@@ -1,0 +1,894 @@
+{
+  "review_kind": "constrained_blood_mage_conversion_armor_healing_energy_symbiote_extraction",
+  "parser_version": 102,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CONVERSION_ARMOR_HEALING_ENERGY_SYMBIOTE_SOURCE_REVIEW_ITERATION722.json",
+    "sha256": "a152882bf46c0a376d7b01062b0d2a8561a6f6c61068311b813803b04a6dbf56"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Mental Transmutation IV",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-iv",
+      "cache": {
+        "path": ".cache/archive/60dab898459d495352c6390cfcd117421f919029eea7c215d305d8107b2c7ceb.txt",
+        "sha256": "4ffe0c8bf3ef02ddbcaf19faec41dfc3b597f4eef941a6c0ece49107477a9263"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "81e7be9c28783e94768258f6705afb0d83371727ee78e0c3d4639d6e69fe0a4c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 583 health into 758 energy.",
+          "literal_sha256": "4a3c39968890580426a9c7f1e723c5d7b952c92fcfbf991c21a3eeb9d1293cfc",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Transmutes 583 health into 758 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_expended": 583,
+              "energy_returned": 758,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mental Transmutation IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mental-transmutation-iv",
+              "title": "Mental Transmutation IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 102,
+          "collected_at": "2026-10-20T02:33:05+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "10"
+            ],
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "energy cost": [
+              "583"
+            ],
+            "health cost": [
+              "583"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "10.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon449.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": {
+            "energy": 583
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 10.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Transmutes 583 health into 758 energy.",
+          "icon_name": "Icon449.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034343id_/http://wiki.silkyvenom.com/index.php/Mental_Transmutation_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              583
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "10.0s",
+                "seconds": 10.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+                  "effect_phrase_recorded": "Transmutes 583 health into 758 energy.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_to_energy_conversion",
+                  "health_expended": 583,
+                  "energy_returned": 758,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical Transmutation I",
+      "source_url": "https://vgsoharchive.com/abilities/physical-transmutation-i",
+      "cache": {
+        "path": ".cache/archive/807277c4ca233029327a04ede5b0d891badd8434cd85f6ae1b611037c078a06a.txt",
+        "sha256": "1f1652bdca673993b81ae4b353b7d10c7f6a2e0382b565b1411e47e18270bef7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "4e19a4027810e2ef4b611e70e226583d652ce011a875f611b7d669b703734a27"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Draws on your physical power, transmuting 99% of your endurance into health at a 1500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+          "literal_sha256": "4c5588395ab78c4e73dacb2fcdb663e55b2ed0ef27ea64e1b378f1dd7228d8d0",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Draws on your physical power, transmuting 99% of your endurance into health at a 1500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "endurance_to_health_conversion_damage_penalty",
+              "endurance_consumed_percent": 99,
+              "health_conversion_rate_percent": 1500,
+              "conversion_rate_basis": null,
+              "damage_reduction_percent": 25,
+              "damage_reduction_duration_seconds": 10,
+              "conversion_rounding": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Physical Transmutation I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/physical-transmutation-i",
+              "title": "Physical Transmutation I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 102,
+          "collected_at": "2026-10-20T02:33:05+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "45.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon684.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 45.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon684.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033138id_/http://wiki.silkyvenom.com/index.php/Physical_Transmutation_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "45.0s",
+                "seconds": 45.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+                  "effect_phrase_recorded": "Draws on your physical power, transmuting 99% of your endurance into health at a 1500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "endurance_to_health_conversion_damage_penalty",
+                  "endurance_consumed_percent": 99,
+                  "health_conversion_rate_percent": 1500,
+                  "conversion_rate_basis": null,
+                  "damage_reduction_percent": 25,
+                  "damage_reduction_duration_seconds": 10,
+                  "conversion_rounding": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plated Symbiote III",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-iii",
+      "cache": {
+        "path": ".cache/archive/d8fb89e64e6eb8348f39018dcda220cbebd7d9f069bc4139e9db0d3c2b31cf7f.txt",
+        "sha256": "3f7dcc3173d7445dbea4e2d295dc10eed39340fda2427ddde7943b510e4c5a7a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "d26fe75dc07e91103ea2beee44a798af8823da3e5ff51e7357245362ebfeda88"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 70 damage upon their attackers and increases armor class by 114 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "67d142c8aeff7a0cd0ccba0908a5c589f4919d5fccea229c61eace7c24bab3fb",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 70 damage upon their attackers and increases armor class by 114 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_return_armor_symbiote",
+              "recipient_reported": "an ally",
+              "returned_damage": 70,
+              "armor_class_increase": 114,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Plated Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_return_trigger_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Plated Symbiote III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/plated-symbiote-iii",
+              "title": "Plated Symbiote III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 102,
+          "collected_at": "2026-10-20T02:33:05+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Plated Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon648.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon648.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033151id_/http://wiki.silkyvenom.com/index.php/Plated_Symbiote_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Plated Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+                  "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 70 damage upon their attackers and increases armor class by 114 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_damage_return_armor_symbiote",
+                  "recipient_reported": "an ally",
+                  "returned_damage": 70,
+                  "armor_class_increase": 114,
+                  "duration_seconds": 3600,
+                  "expended_item_reported": "Plated Symbiote",
+                  "expended_item_count": 1,
+                  "symbiote_limit_per_target": 1,
+                  "damage_return_trigger_rules": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst IV",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-iv",
+      "cache": {
+        "path": ".cache/archive/f36d361d5a85e677bd6d010a6b8a549d33de184d03f8b27b0fd1e082c9c5bd52.txt",
+        "sha256": "d5d3bfce5fde59df5045902817b2e4198d06428a00893bd6990eaa77be9b9078"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 85,
+          "record_sha256": "f29945eea523d6f7184ffc9ec7041ffad1dbdf39448bf2c0d2ccb79dce3cff06"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 1361. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "9d29326f22b36fc8871ac4ddc63a4fbccf8c4f189ddf469ffc4a0195aa8ef202",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1361. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_ally_healing_union_scaling",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "healing_amount": 1361,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Recovering Burst IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/recovering-burst-iv",
+              "title": "Recovering Burst IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 102,
+          "collected_at": "2026-10-20T02:33:05+00:00",
+          "archive_fields": {
+            "cast then": [
+              "4.5"
+            ],
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "health and energy cost": [
+              "801"
+            ],
+            "health cost": [
+              "228"
+            ],
+            "cast time": [
+              "4.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Your Group"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon680.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "IV",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": "Releases a burst of life, healing all allies within 10m by 1361. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon680.png",
+          "ranks": [],
+          "target_recorded": "Your Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034531id_/http://wiki.silkyvenom.com/index.php/Recovering_Burst_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+                  "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1361. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "area_ally_healing_union_scaling",
+                  "recipient_reported": "all allies within 10m",
+                  "radius_meters": 10,
+                  "radius_origin": null,
+                  "healing_amount": 1361,
+                  "extra_healing_percent_per_blood_union_level": 2,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vitalizing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/vitalizing-symbiote",
+      "cache": {
+        "path": ".cache/archive/b9b52c3a159f5d960b8fb1c6b279ecb8b2c9e1339ba5ca9b9c46a2257b3c74a6.txt",
+        "sha256": "46b89d61bb3d4e0870c5ce45db8628f9f65be9aa89dc3722326ee768408525bb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 44,
+          "record_sha256": "7edf0b91e2b92b95d2c804ff8e6bea1d1b91d230fff0b9a8c0a91e0e985be7e3"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a vitalizing symbiote to an ally, giving its bearer a 10% chance on spell cast to gain a 50% energy cost reduction for one spell. Lasts 30 minutes. Expends 1 Vitalizing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "6ca29c46bf9cb3b0c4ec60c4cb3b69814d294e7dd8583ed5b4232f6af9892875",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Attaches a vitalizing symbiote to an ally, giving its bearer a 10% chance on spell cast to gain a 50% energy cost reduction for one spell. Lasts 30 minutes. Expends 1 Vitalizing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_spell_cast_energy_discount_symbiote",
+              "recipient_reported": "an ally",
+              "proc_chance_percent": 10,
+              "trigger_reported": "on spell cast",
+              "energy_cost_reduction_percent": 50,
+              "discounted_spell_count": 1,
+              "duration_seconds": 1800,
+              "expended_item_reported": "Vitalizing Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "proc_cooldown_seconds": null,
+              "proc_stacking_rules": null,
+              "eligible_spell_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Vitalizing Symbiote",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/vitalizing-symbiote",
+              "title": "Vitalizing Symbiote · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 102,
+          "collected_at": "2026-10-20T02:33:06+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Vitalizing Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1063.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": null,
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1063.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": "1 Vitalizing Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+                  "effect_phrase_recorded": "Attaches a vitalizing symbiote to an ally, giving its bearer a 10% chance on spell cast to gain a 50% energy cost reduction for one spell. Lasts 30 minutes. Expends 1 Vitalizing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_spell_cast_energy_discount_symbiote",
+                  "recipient_reported": "an ally",
+                  "proc_chance_percent": 10,
+                  "trigger_reported": "on spell cast",
+                  "energy_cost_reduction_percent": 50,
+                  "discounted_spell_count": 1,
+                  "duration_seconds": 1800,
+                  "expended_item_reported": "Vitalizing Symbiote",
+                  "expended_item_count": 1,
+                  "symbiote_limit_per_target": 1,
+                  "proc_cooldown_seconds": null,
+                  "proc_stacking_rules": null,
+                  "eligible_spell_rules": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 308
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 40,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Physical Transmutation conversion-rate basis and rounding, damage-return triggers, radius origin, healing scaling base and proc eligibility/cooldown/stacking remain null.",
+    "The symbiote lifetime is separate from the unspecified duration of the one-spell energy discount.",
+    "Accounting tracks the original iteration689 review inventory; existing generic recognition does not establish complete coverage of every section.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 40 Blood Mage numeric effect sections against exact cached prose."
+}
