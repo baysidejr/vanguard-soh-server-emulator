@@ -1,0 +1,467 @@
+{
+  "review_kind": "blood_mage_health_vitality_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Health Graft I",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-i",
+      "cache": {
+        "path": ".cache/archive/6b66fce44166c69ba8dcbc61ee7591532971a3170338090bad3ae304a41ea56c.txt",
+        "sha256": "04e4001a5d4ca2a27252a608b15ba09783b612d8ef39dcfe12be0e86b2e2c5a6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 22,
+          "record_sha256": "6e6367bf7c4c35be5b8a358d699903ef260b56fb670c7e57d7aa8a2e98035a2d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Grafts blood and flesh onto your defensive target's party, granting them an additional 54 health for 1 hour.",
+          "literal_sha256": "366cf6acf47c2d7e9f38d616b0b1876a20baaf504e158b959a2f0d8b56f43593",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_amount",
+              "source_value": 54,
+              "extracted_value": 54,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target's party",
+              "extracted_value": "your defensive target's party",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_pool_semantics",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_conversion_buff_observation",
+              "effect_phrase_recorded": "Grafts blood and flesh onto your defensive target's party, granting them an additional 54 health for 1 hour.",
+              "conditions_unparsed": true,
+              "effect_reported": "additional_health",
+              "recipient_reported": "your defensive target's party",
+              "health_amount": 54,
+              "duration_seconds": 3600,
+              "health_pool_semantics": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your defensive target's party with life, granting them 23 additional vitality.",
+          "literal_sha256": "3a9da08a445a1619e265c4250c6574e858ce12ac39e64bf3c92124876c0e77d8",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "amount",
+              "source_value": 23,
+              "extracted_value": 23,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target's party",
+              "extracted_value": "your defensive target's party",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stat_reported",
+              "source_value": "vitality",
+              "extracted_value": "vitality",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_conversion_buff_observation",
+              "effect_phrase_recorded": "Fills your defensive target's party with life, granting them 23 additional vitality.",
+              "conditions_unparsed": true,
+              "effect_reported": "stat_increase",
+              "recipient_reported": "your defensive target's party",
+              "stat_reported": "vitality",
+              "amount": 23,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This spell grafts blood and flesh onto you, giving you hit points.",
+          "literal_sha256": "a4caca3b91e103acb0a4c1a0b7a55c6c46b33d08a778c4ca7e3cd19018c61e90",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "hit_points_gained",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "self_hit_point_gain",
+              "extracted_value": "self_hit_point_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "This spell grafts blood and flesh onto you, giving you hit points.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_hit_point_gain",
+              "hit_points_gained": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Vitalize II",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-ii",
+      "cache": {
+        "path": ".cache/archive/59baddad110ca2cfcd2750bd1b779dade2507449fae72c14671108b87b2eb0c2.txt",
+        "sha256": "8ecd6c1b82b24e8bb1450e6bc0aceed59e6acf3853420025f4b733d2e127fe71"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "d78f66df49b4ca1ca2ddc5a714219b489cba905c0b37c858eab7cd455ebbce38"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your defensive target's party with life, granting them 40 additional vitality.",
+          "literal_sha256": "6f18de75bdb23586a81ebfbf2bf8d57109bac476f190599a218e289e12372556",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "vitality_increase",
+              "source_value": 40,
+              "extracted_value": 40,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target's party",
+              "extracted_value": "your defensive target's party",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_absorption_observation",
+              "effect_phrase_recorded": "Fills your defensive target's party with life, granting them 40 additional vitality.",
+              "conditions_unparsed": true,
+              "effect_reported": "party_vitality_buff",
+              "recipient_reported": "your defensive target's party",
+              "vitality_increase": 40,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Health Graft III",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-iii",
+      "cache": {
+        "path": ".cache/archive/d287252e7273b2e25fcc0fe67e4613c868d71e15691ec855113d22298acc6916.txt",
+        "sha256": "748920de64a8deeafa056b541e9d46017684bdb0bce031950facb89b7d82525f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "14d2af2ebc7333c1cd953d1ebf23fd2977585e8dfa3cf45e4af596f9010c8c4c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Grafts blood and flesh onto your defensive target's party, granting them an additional 290 health for 1 hour.",
+          "literal_sha256": "9ccb3dbbe5f4d731b9f8b8c41cd6d4a4ad7cffc7c273d98b892552065537631e",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_increase",
+              "source_value": 290,
+              "extracted_value": 290,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target's party",
+              "extracted_value": "your defensive target's party",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_party_buffs_health_return_observation",
+              "effect_phrase_recorded": "Grafts blood and flesh onto your defensive target's party, granting them an additional 290 health for 1 hour.",
+              "conditions_unparsed": true,
+              "effect_reported": "party_health_buff",
+              "recipient_reported": "your defensive target's party",
+              "health_increase": 290,
+              "duration_seconds": 3600,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 35,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 20,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Five current health and vitality sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Health pool semantics, unspecified durations and stacking remain unknown; no health-to-vitality conversion is inferred.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage Flesh Rend damage clauses against cached prose."
+}
