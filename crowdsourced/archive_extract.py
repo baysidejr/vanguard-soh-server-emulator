@@ -18,6 +18,81 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration718.
+    steal_damage_hate_quickening = {'Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.': {'effect_reported': 'health_steal_area_return_union_scaling',
+                                                                                                                                                                                                        'health_stolen_min': 485,
+                                                                                                                                                                                                        'health_stolen_max': 512,
+                                                                                                                                                                                                        'returned_percent': 100,
+                                                                                                                                                                                                        'recipient_reported': 'allies '
+                                                                                                                                                                                                                              'within '
+                                                                                                                                                                                                                              '10m '
+                                                                                                                                                                                                                              'of '
+                                                                                                                                                                                                                              'the '
+                                                                                                                                                                                                                              'caster',
+                                                                                                                                                                                                        'radius_meters': 10,
+                                                                                                                                                                                                        'radius_origin': 'caster',
+                                                                                                                                                                                                        'returned_portion_increase_percent_per_blood_union_level': 10,
+                                                                                                                                                                                                        'blood_union_increase': 2,
+                                                                                                                                                                                                        'scaling_base': None,
+                                                                                                                                                                                                        'duration_seconds': None,
+                                                                                                                                                                                                        'tick_interval_seconds': None,
+                                                                                                                                                                                                        'stacking_rules': None,
+                                                                                                                                                                                                        'operative_values': None,
+                                                                                                                                                                                                        'historical_authentication': None},
+ 'Steals 273 to 289 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_defensive_target_return_union_scaling',
+                                                                                                                                                                                                   'health_stolen_min': 273,
+                                                                                                                                                                                                   'health_stolen_max': 289,
+                                                                                                                                                                                                   'returned_percent': 130,
+                                                                                                                                                                                                   'recipient_reported': 'your '
+                                                                                                                                                                                                                         'defensive '
+                                                                                                                                                                                                                         'target',
+                                                                                                                                                                                                   'returned_portion_increase_percent_per_blood_union_level': 10,
+                                                                                                                                                                                                   'blood_union_increase': 1,
+                                                                                                                                                                                                   'scaling_base': None,
+                                                                                                                                                                                                   'duration_seconds': None,
+                                                                                                                                                                                                   'tick_interval_seconds': None,
+                                                                                                                                                                                                   'stacking_rules': None,
+                                                                                                                                                                                                   'operative_values': None,
+                                                                                                                                                                                                   'historical_authentication': None},
+ 'Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.': {'effect_reported': 'damage_blood_union_gain',
+                                                                                                                 'damage_min': 783,
+                                                                                                                 'damage_max': 826,
+                                                                                                                 'blood_union_increase': 3,
+                                                                                                                 'damage_type': None,
+                                                                                                                 'duration_seconds': None,
+                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                 'stacking_rules': None,
+                                                                                                                 'operative_values': None,
+                                                                                                                 'historical_authentication': None},
+ "Numbs your opponent's mind, lowering your hate by 3603.": {'effect_reported': 'hate_reduction',
+                                                             'hate_reduction': 3603,
+                                                             'hate_unit': None,
+                                                             'duration_seconds': None,
+                                                             'tick_interval_seconds': None,
+                                                             'stacking_rules': None,
+                                                             'operative_values': None,
+                                                             'historical_authentication': None},
+ 'Attaches a quickening symbiote to an ally, this symbiote grants you the use of an ability that doubles your damage for 8 seconds. This symbiote lasts for 1 hour. Expends 1 Quickening Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'ally_symbiote_grants_self_damage_doubling_ability',
+                                                                                                                                                                                                                                                     'recipient_reported': 'an '
+                                                                                                                                                                                                                                                                           'ally',
+                                                                                                                                                                                                                                                     'granted_ability_recipient_reported': 'you',
+                                                                                                                                                                                                                                                     'damage_multiplier': 2,
+                                                                                                                                                                                                                                                     'damage_buff_duration_seconds': 8,
+                                                                                                                                                                                                                                                     'duration_seconds': 3600,
+                                                                                                                                                                                                                                                     'expended_item_reported': 'Quickening '
+                                                                                                                                                                                                                                                                               'Symbiote',
+                                                                                                                                                                                                                                                     'expended_item_count': 1,
+                                                                                                                                                                                                                                                     'symbiote_limit_per_target': 1,
+                                                                                                                                                                                                                                                     'granted_ability_name': None,
+                                                                                                                                                                                                                                                     'activation_rules': None,
+                                                                                                                                                                                                                                                     'damage_scaling_basis': None,
+                                                                                                                                                                                                                                                     'tick_interval_seconds': None,
+                                                                                                                                                                                                                                                     'stacking_rules': None,
+                                                                                                                                                                                                                                                     'operative_values': None,
+                                                                                                                                                                                                                                                     'historical_authentication': None}}.get(value.strip())
+    if steal_damage_hate_quickening:
+        facts.append(dict(kind="blood_mage_steal_damage_hate_quickening_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **steal_damage_hate_quickening))
     # Exact Blood Mage literals source-reviewed in iteration716.
     execute_symbiote_healing_absorption = {'Has a chance to kill an opponent who is under 5% health. The chance to kill them increases for each level of Blood Union.': {'effect_reported': 'low_health_execute_chance_union_scaling',
                                                                                                                                'target_health_threshold_percent': 5,
