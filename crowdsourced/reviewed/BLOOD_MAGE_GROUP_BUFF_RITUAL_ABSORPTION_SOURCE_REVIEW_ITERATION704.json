@@ -1,0 +1,812 @@
+{
+  "review_kind": "blood_mage_group_buff_ritual_absorption_source_review",
+  "parser_version": 92,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Vitalize II",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-ii",
+      "cache": {
+        "path": ".cache/archive/59baddad110ca2cfcd2750bd1b779dade2507449fae72c14671108b87b2eb0c2.txt",
+        "sha256": "8ecd6c1b82b24e8bb1450e6bc0aceed59e6acf3853420025f4b733d2e127fe71"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "d78f66df49b4ca1ca2ddc5a714219b489cba905c0b37c858eab7cd455ebbce38"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your defensive target's party with life, granting them 40 additional vitality.",
+          "literal_sha256": "6f18de75bdb23586a81ebfbf2bf8d57109bac476f190599a218e289e12372556",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "party_vitality_buff",
+            "recipient_reported": "your defensive target's party",
+            "vitality_increase": 40,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Vitalize II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/vitalize-ii",
+              "title": "Vitalize II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 92,
+          "collected_at": "2026-10-20T00:33:06+00:00",
+          "archive_fields": {
+            "energy then": [
+              "69 — now 68",
+              "68"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "68"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "II",
+          "category": null,
+          "cost": {
+            "energy": 68
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Fills your defensive target's party with life, granting them 40 additional vitality.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034809id_/http://wiki.silkyvenom.com/index.php/Vitalize_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              68
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090302072913id_/http://www.tentonhammer.com/node/59450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver III",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii",
+      "cache": {
+        "path": ".cache/archive/1cb5a2e6728feab65b7b8202d7358f56e8fb2bef79f76b10913b83acf8b5bc5e.txt",
+        "sha256": "328274b051fa95a4438c9890f3aae96d7eda07011dfc365bc79cbe9f537f4697"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "390209ec4bee87a4a78075659333356884e736200007a86935f73b23616a6a78"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+56 Constitution\r\n+28 Vitality\r\n+64 Intelligence\r\n+44 Wisdom\r\n+600 Hit Points\r\n+6 Hit Point Regeneration\r\n+160 Physical Resistance\r\nStacks Best Buff Only",
+          "literal_sha256": "a8cd83c356e55949f23d06378a7c5369e19aba38fa3388022506a1303e89ec2d",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "group_stat_buff",
+            "recipient_reported": "your targets group",
+            "constitution_increase": 56,
+            "vitality_increase": 28,
+            "intelligence_increase": 64,
+            "wisdom_increase": 44,
+            "hit_points_increase": 600,
+            "hit_point_regeneration_increase": 6,
+            "physical_resistance_increase": 160,
+            "regeneration_interval_seconds": null,
+            "stacking_reported": "Stacks Best Buff Only",
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii",
+              "title": "Favor of the Life Giver III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 92,
+          "collected_at": "2026-10-20T00:33:06+00:00",
+          "archive_fields": {
+            "level": [
+              "20"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 20,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/56270faf8b271d1baafa3ee5a9f4f1d0e1d5ae778285e3874047c330aa5c8231.txt",
+        "sha256": "f93fd1240385ec3cf447ef6c5217e3d2ded6cd40133ceb04d080f914302de839"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 25,
+          "record_sha256": "fbcef7de2691d9a637bc35c19433e23ec2b215559d307dbc09eb3bdbc70a9ae2"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 2112 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "393443adf2ff8d99d3b3f533f0949acc715cc3e4ef665b023c2b28586c8bca21",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "periodic_ally_heal_blood_union_consumption",
+            "recipient_reported": "an ally, other than yourself",
+            "healing_total": 2112,
+            "duration_seconds": 20,
+            "blood_union_reduction": 3,
+            "minimum_blood_union": 3,
+            "healing_per_tick": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Mender's Ritual II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-ii",
+              "title": "Flesh Mender's Ritual II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 92,
+          "collected_at": "2026-10-20T00:33:06+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "1",
+              "1:00"
+            ],
+            "level in 2007": [
+              "20"
+            ],
+            "level in 2007-2008": [
+              "20"
+            ],
+            "energy then": [
+              "3"
+            ],
+            "level": [
+              "20"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon683.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 20,
+          "rank": "II",
+          "category": "Heal",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon683.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 20,
+              "raw": "20"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 20,
+              "raw": "20"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034150id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Life Husk II",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-ii",
+      "cache": {
+        "path": ".cache/archive/a64afd834d5c7549a509cef1ea3253d453927809e0f59bde4287d5418d6844a2.txt",
+        "sha256": "a13bf248073036cd225146232c2e9261b1c0c5b241527ee5f8a419d608d94651"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "160db1ee6c03b972e060aca00aa27cbdcb0fc1678f4b97c9208a88e99539950a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 7 seconds. Consumes a vial of blood.",
+          "literal_sha256": "aca4c146b67fc32b00cea6314dccf287e37bc23bb42b05befad4b68b18ae64cf",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "self_damage_absorption",
+            "recipient_reported": "you",
+            "damage_absorption_reported": "all incoming damage",
+            "duration_seconds": 7,
+            "consumed_component_reported": "a vial of blood",
+            "component_quantity": null,
+            "canonical_component_id": null,
+            "absorption_cap": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Life Husk II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/life-husk-ii",
+              "title": "Life Husk II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 92,
+          "collected_at": "2026-10-20T00:33:06+00:00",
+          "archive_fields": {
+            "energy then": [
+              "61 — now 60",
+              "60"
+            ],
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "5",
+              "5:00"
+            ],
+            "level in 2007": [
+              "20"
+            ],
+            "level in 2007-2008": [
+              "20"
+            ],
+            "level": [
+              "20"
+            ],
+            "energy cost": [
+              "60"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "5:00s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "requires": [
+              "A vial of blood"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon531.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 20,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 60
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Covers you in a husk of energy, absorbing all incoming damage for 7 seconds. Consumes a vial of blood.",
+          "icon_name": "Icon531.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 20,
+              "raw": "20"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 20,
+              "raw": "20"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034254id_/http://wiki.silkyvenom.com/index.php/Life_Husk_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              60
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": "A vial of blood",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/life-husk-ii-1010.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 1357. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "4d110ee7109a45a97665d765e987819ca97bb48d2f936c57e06ab1d20eb730e7",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "ally_heal_blood_union_scaling",
+            "recipient_reported": "an ally, other than yourself",
+            "healing_base": 1357,
+            "extra_healing_percent_per_blood_union_level": 2,
+            "health_cost": null,
+            "scaling_base": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Gift II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+              "title": "Blood Gift II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 92,
+          "collected_at": "2026-10-20T00:33:06+00:00",
+          "archive_fields": {
+            "energy then": [
+              "164 — now 303",
+              "22 — now 303"
+            ],
+            "cast then": [
+              "3",
+              "3.0",
+              "3.0"
+            ],
+            "level in 2007": [
+              "14 — now 22"
+            ],
+            "level in 2007-2008": [
+              "14 — now 22"
+            ],
+            "level": [
+              "22"
+            ],
+            "health and energy cost": [
+              "303"
+            ],
+            "health cost": [
+              "32"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon677.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": "II",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "You use your blood to heal an ally, other than yourself, for 1357. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon677.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14 — now 22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14 — now 22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032636id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 90,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 85,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Blood Gift II does not specify health cost or the basis for percent scaling; those values remain null.",
+    "Regeneration interval, healing tick size and absorption cap remain unknown.",
+    "Named blood component does not establish a canonical client ID or explicit numeric quantity.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained Blood Mage group-buff, ritual-healing and damage-absorption observations for these five reviewed sources."
+}
