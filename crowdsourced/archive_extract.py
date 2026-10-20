@@ -18,6 +18,67 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration724.
+    damage_group_buff_ritual_union = {'This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.': {'effect_reported': 'health_energy_consumption_full_blood_union',
+                                                                                                              'health_consumed_percent': 25,
+                                                                                                              'energy_consumed_percent': 15,
+                                                                                                              'blood_union_result_reported': 'full',
+                                                                                                              'blood_union_numeric_result': None,
+                                                                                                              'consumption_percentage_basis': None,
+                                                                                                              'duration_seconds': None,
+                                                                                                              'tick_interval_seconds': None,
+                                                                                                              'stacking_rules': None,
+                                                                                                              'operative_values': None,
+                                                                                                              'historical_authentication': None},
+ 'Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only': {'effect_reported': 'target_group_attribute_buff',
+                                                                                                                                                                                                                         'recipient_reported': 'your '
+                                                                                                                                                                                                                                               'targets '
+                                                                                                                                                                                                                                               'group',
+                                                                                                                                                                                                                         'constitution_increase': 113,
+                                                                                                                                                                                                                         'vitality_increase': 56,
+                                                                                                                                                                                                                         'intelligence_increase': 128,
+                                                                                                                                                                                                                         'wisdom_increase': 88,
+                                                                                                                                                                                                                         'hit_points_increase': 1200,
+                                                                                                                                                                                                                         'hit_point_regeneration_increase': 12,
+                                                                                                                                                                                                                         'regeneration_time_basis': None,
+                                                                                                                                                                                                                         'physical_resistance_increase': 320,
+                                                                                                                                                                                                                         'stacking_reported': 'Stacks '
+                                                                                                                                                                                                                                              'Best '
+                                                                                                                                                                                                                                              'Buff '
+                                                                                                                                                                                                                                              'Only',
+                                                                                                                                                                                                                         'duration_seconds': None,
+                                                                                                                                                                                                                         'tick_interval_seconds': None,
+                                                                                                                                                                                                                         'stacking_rules': None,
+                                                                                                                                                                                                                         'operative_values': None,
+                                                                                                                                                                                                                         'historical_authentication': None},
+ 'This ritual heals an ally, other than yourself, for 4110 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.': {'effect_reported': 'other_ally_periodic_healing_union_cost',
+                                                                                                                                                           'recipient_reported': 'an '
+                                                                                                                                                                                 'ally, '
+                                                                                                                                                                                 'other '
+                                                                                                                                                                                 'than '
+                                                                                                                                                                                 'yourself',
+                                                                                                                                                           'healing_amount': 4110,
+                                                                                                                                                           'duration_seconds': 20,
+                                                                                                                                                           'blood_union_reduction': 3,
+                                                                                                                                                           'minimum_blood_union': 3,
+                                                                                                                                                           'tick_interval_seconds': None,
+                                                                                                                                                           'stacking_rules': None,
+                                                                                                                                                           'operative_values': None,
+                                                                                                                                                           'historical_authentication': None},
+ 'Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.': {'effect_reported': 'damage_with_blood_union_gain',
+                                                                                                                 'damage_min': 904,
+                                                                                                                 'damage_max': 953,
+                                                                                                                 'damage_type': None,
+                                                                                                                 'blood_union_gain_points': 3,
+                                                                                                                 'duration_seconds': None,
+                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                 'stacking_rules': None,
+                                                                                                                 'operative_values': None,
+                                                                                                                 'historical_authentication': None}} .get(value.strip())
+    if damage_group_buff_ritual_union:
+        facts.append(dict(kind="blood_mage_damage_group_buff_ritual_union_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True,
+            **damage_group_buff_ritual_union))
     # Exact Blood Mage literals source-reviewed in iteration722.
     conversion_armor_healing_energy_symbiote = {'Transmutes 583 health into 758 energy.': {'effect_reported': 'health_to_energy_conversion',
                                             'health_expended': 583,
