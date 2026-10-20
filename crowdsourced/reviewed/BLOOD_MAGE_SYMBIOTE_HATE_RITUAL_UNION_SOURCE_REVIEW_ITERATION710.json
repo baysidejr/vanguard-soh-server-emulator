@@ -1,0 +1,792 @@
+{
+  "review_kind": "blood_mage_symbiote_hate_ritual_union_source_review",
+  "parser_version": 95,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Entwining Vein III",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-iii",
+      "cache": {
+        "path": ".cache/archive/f0aa71fe72dc60e6dcaca141a6ddfeda90da7fcb6c47d5cfc8b17c9062785c74.txt",
+        "sha256": "48f8765e06b3d54b12940f8220ab642e77bade1e8e9f5f614856f08cad9e42f0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 38,
+          "record_sha256": "ec275d18a5ba833eae91834d6f6e6064beac440b68ab0deb8529a317372d3149"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 220 to 234 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "973a0a522fbe6b6b55185b0715d0d998c1e6bd4c9253263c02f81e476f7d324a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_steal_defensive_target_return",
+            "recipient_reported": "your defensive target",
+            "health_stolen_min": 220,
+            "health_stolen_max": 234,
+            "health_return_percent": 130,
+            "returned_portion_increase_percent_per_blood_union_level": 10,
+            "blood_union_increase": 1,
+            "return_scaling_base": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Entwining Vein III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/entwining-vein-iii",
+              "title": "Entwining Vein III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 95,
+          "collected_at": "2026-10-20T01:10:27+00:00",
+          "archive_fields": {
+            "energy then": [
+              "168 — now 231"
+            ],
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "231"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Lethargic"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon620.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "III",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 231
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon620.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032834id_/http://wiki.silkyvenom.com/index.php/Entwining_Vein_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              231
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Lethargic",
+          "exploits_weakness": "Vulnerable",
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote I",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-i",
+      "cache": {
+        "path": ".cache/archive/524c98ee8351f9fd223a93de66b55bcaa06ae572b3ff07c74674f8b882eab783.txt",
+        "sha256": "81e97c42bb16c94017519936614d526148ace7a9dc65efe06b516911f484cbc7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "2be9e816bfe36c8164acf4211bac89d9144c1fa99e3c36980465bdf0364c574d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 20 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "27ea64d2ad70eb13aec19853793be24eaacf45614c1e87cbbeb9cd978bd1f5b3",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "ally_damage_buff_symbiote",
+            "recipient_reported": "an ally",
+            "damage_increase": 20,
+            "duration_seconds": 3600,
+            "expended_item_reported": "Frenzied Symbiote",
+            "expended_item_count": 1,
+            "symbiote_limit_per_target": 1,
+            "damage_application_rules": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Frenzied Symbiote I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/frenzied-symbiote-i",
+              "title": "Frenzied Symbiote I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 95,
+          "collected_at": "2026-10-20T01:10:27+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Frenzied Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon651.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon651.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034159id_/http://wiki.silkyvenom.com/index.php/Frenzied_Symbiote_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Frenzied Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Numb II",
+      "source_url": "https://vgsoharchive.com/abilities/numb-ii",
+      "cache": {
+        "path": ".cache/archive/f4e86d216320ae301aa8a19d7464f72fb9773cdbb5591a56365db6b46de45548.txt",
+        "sha256": "25da3daccf6b68c534efc151690089829fcb5e8e2b2f2ff8279c60780620846f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "0f9cc44a25fb172017b85d944293486f786aa349f07d59ace557254253f6144c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 2729.",
+          "literal_sha256": "6966ad0a22dd2007713bb6dab6ce11d81dccac8522f93d1c42e0c6270c32b1ce",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "hate_reduction",
+            "recipient_reported": "your opponent",
+            "hate_reduction": 2729,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Numb II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/numb-ii",
+              "title": "Numb II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 95,
+          "collected_at": "2026-10-20T01:10:27+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "88"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon697.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 88
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Numbs your opponent's mind, lowering your hate by 2729.",
+          "icon_name": "Icon697.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033125id_/http://wiki.silkyvenom.com/index.php/Numb_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              88
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Severing Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-i",
+      "cache": {
+        "path": ".cache/archive/2bd568d8959cbfd06f8b4c21b275a7bc2d489b3d649e3d5f857a2fb0c816deaa.txt",
+        "sha256": "56b3bf6a8e6a5729167ad4d93c6953698c694e5b039640a17f3a30a557b3d6fb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "ba62760298acdb46acf6aa716ba6068f93c4fe79a604d5bc5af7b1756ced9bf4"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 275 to 291 damage and 377 to 398 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "d216c63f4121d32fc07701a56714c265a48df4eb257563202810becc7c642bce",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "area_direct_and_over_time_damage",
+            "recipient_reported": "all opponents within 10m",
+            "radius_meters": 10,
+            "damage_min": 275,
+            "damage_max": 291,
+            "damage_over_time_min": 377,
+            "damage_over_time_max": 398,
+            "duration_seconds": 10,
+            "blood_union_reduction": 3,
+            "required_blood_union": 3,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Severing Ritual I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/severing-ritual-i",
+              "title": "Severing Ritual I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 95,
+          "collected_at": "2026-10-20T01:10:27+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon532.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "I",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon532.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034700id_/http://wiki.silkyvenom.com/index.php/Severing_Ritual_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood III",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-iii",
+      "cache": {
+        "path": ".cache/archive/62d1cdd822c2cb0bbbba4668a89893616812efe293b389b20f55e959f8fbaae0.txt",
+        "sha256": "fdd1923491f6f4e07fc8028b31d519206fa7aa2a746e84afc159e4824b2b88f3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "5d84994a4daf2dca0d34cb01210560838d3194d696909729741d993fc00d710b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 569 to 600 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "5dfdd9ae81ad54322486332714c78aef998b5251cba5d5fefabceb6026d47b7e",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "damage_over_time_blood_union_gain",
+            "recipient_reported": "your opponent",
+            "damage_over_time_min": 569,
+            "damage_over_time_max": 600,
+            "duration_seconds": 24,
+            "blood_union_increase": 2,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Union of Blood III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/union-of-blood-iii",
+              "title": "Union of Blood III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 95,
+          "collected_at": "2026-10-20T01:10:27+00:00",
+          "archive_fields": {
+            "energy then": [
+              "169 — now 229",
+              "69 — now 229"
+            ],
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "8",
+              "8.0"
+            ],
+            "level in 2007": [
+              "18 — now 26"
+            ],
+            "level in 2007-2008": [
+              "18 — now 26"
+            ],
+            "level": [
+              "26"
+            ],
+            "health and energy cost": [
+              "229"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "health cost": [
+              "96"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon708.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "III",
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Forms a strong union with your opponent, dealing 569 to 600 damage over 24 sec. Increases Blood Union by 2.",
+          "icon_name": "Icon708.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18 — now 26"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18 — now 26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034742id_/http://wiki.silkyvenom.com/index.php/Union_of_Blood_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 75,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 70,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Return scaling, damage application, tick intervals and unspecified durations remain null.",
+    "Entwining Vein III preserves the returned-portion bonus without assuming additive or multiplicative scaling.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained observations for these five reviewed Blood Mage symbiote, hate, ritual and union sources."
+}
