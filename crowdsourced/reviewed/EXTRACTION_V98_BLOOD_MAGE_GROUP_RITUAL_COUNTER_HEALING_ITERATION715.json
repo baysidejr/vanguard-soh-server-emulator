@@ -1,0 +1,877 @@
+{
+  "review_kind": "constrained_blood_mage_group_ritual_counter_healing_extraction",
+  "parser_version": 98,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_DAMAGE_GROUP_BUFF_RITUAL_COUNTER_HEALING_SOURCE_REVIEW_ITERATION714.json",
+    "sha256": "fb64c66de259d3145526de3891046f97b9b009ea243eef12e6f7ef19ca019ab6"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Favor of the Life Giver IV",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv",
+      "cache": {
+        "path": ".cache/archive/95b7c5e6604240136dc289d79299cf69dd16a684f08c30ac772a0a38c57ec8cf.txt",
+        "sha256": "34a1f42d6f99c6c4775cda0fcccb1137916c21fe1d88fef5141154abae19cd1e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "f910b3680f71205de23b5a877c07c75bbd604a1c547f3c07fdf26677f53fb440"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only",
+          "literal_sha256": "64f4fae1e612fc6d736ce338193d633cc808232287ee4a5db0ccdac8362e97d1",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only",
+              "conditions_unparsed": true,
+              "effect_reported": "target_group_attribute_buff",
+              "recipient_reported": "targets group",
+              "constitution_increase": 85,
+              "vitality_increase": 42,
+              "intelligence_increase": 96,
+              "wisdom_increase": 66,
+              "hit_points_increase": 900,
+              "hit_point_regeneration_increase": 9,
+              "hit_point_regeneration_unit": null,
+              "physical_resistance_increase": 240,
+              "stacking_reported": "Stacks Best Buff Only",
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv",
+              "title": "Favor of the Life Giver IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 98,
+          "collected_at": "2026-10-20T01:42:06+00:00",
+          "archive_fields": {
+            "level": [
+              "30"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_counter_healing_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only",
+                  "conditions_unparsed": true,
+                  "effect_reported": "target_group_attribute_buff",
+                  "recipient_reported": "targets group",
+                  "constitution_increase": 85,
+                  "vitality_increase": 42,
+                  "intelligence_increase": 96,
+                  "wisdom_increase": 66,
+                  "hit_points_increase": 900,
+                  "hit_point_regeneration_increase": 9,
+                  "hit_point_regeneration_unit": null,
+                  "physical_resistance_increase": 240,
+                  "stacking_reported": "Stacks Best Buff Only",
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual III",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iii",
+      "cache": {
+        "path": ".cache/archive/60e5719c394a53fd92f556444551018f610f828e56bbb4775f2b2701eddc103a.txt",
+        "sha256": "b2a940088fb0fa57e131ac79f7482d2e013c7155e5c3b152dad1291c8e60990d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 58,
+          "record_sha256": "c7d8301d0a745a875291e9aac00c5591f393ff4bfdd01add24def19dbcc30fd7"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 3072 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "6ed62b86882443728ed8e9d181a0969b6f513878f340ed1625cf1bb4ceec7f8c",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 3072 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_except_self_periodic_healing_union_cost",
+              "recipient_reported": "an ally, other than yourself",
+              "health_over_duration": 3072,
+              "duration_seconds": 20,
+              "blood_union_reduction": 3,
+              "minimum_blood_union": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Mender's Ritual III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iii",
+              "title": "Flesh Mender's Ritual III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 98,
+          "collected_at": "2026-10-20T01:42:06+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "1"
+            ],
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon683.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "III",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon683.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032933id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_counter_healing_observation",
+                  "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 3072 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_except_self_periodic_healing_union_cost",
+                  "recipient_reported": "an ally, other than yourself",
+                  "health_over_duration": 3072,
+                  "duration_seconds": 20,
+                  "blood_union_reduction": 3,
+                  "minimum_blood_union": 3,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metamorphism I",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-i",
+      "cache": {
+        "path": ".cache/archive/33f7849dc6270252a1019feea47059d1ec91b81b6d525c6a89408ec4cae42264.txt",
+        "sha256": "7fbb280c5818304bae15cfbc6e16cd48fe682350cc8c399e4ffea10320606225"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "a1365db0d4331b92c7252c33d6643b9b5b37779dc9358e2297541dc02b873819"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.",
+          "literal_sha256": "65696d517b6e1f381d4325193aef65072ee3092b49af5076008fd337b6e60a92",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.",
+              "conditions_unparsed": true,
+              "effect_reported": "spell_counter_group_healing",
+              "healing_amount": 492,
+              "recipient_reported": "all group members",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "counter_success_rules": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Metamorphism I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/metamorphism-i",
+              "title": "Metamorphism I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 98,
+          "collected_at": "2026-10-20T01:42:06+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "energy cost": [
+              "607"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon726.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "I",
+          "category": "Counterspell",
+          "cost": {
+            "energy": 607
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.",
+          "icon_name": "Icon726.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              607
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_counter_healing_observation",
+                  "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "spell_counter_group_healing",
+                  "healing_amount": 492,
+                  "recipient_reported": "all group members",
+                  "radius_meters": 10,
+                  "radius_origin": null,
+                  "counter_success_rules": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst III",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-iii",
+      "cache": {
+        "path": ".cache/archive/b778a5f093bc3919245030789e9110f4eeb00e16cc7f267a35b6380c751e4bb9.txt",
+        "sha256": "e7d8501ff2db7df575bc0ecddb90c2e506b5ba82aefefc9ad69e5ef3b6eb9b06"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 84,
+          "record_sha256": "e456465d65c54fe490dc09f26e08d6f3a9146a1004920a075cdf1720d90057aa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "46730fae34441c228000808b46cfe29d8d36fc4d64304f4ae2c35c3654350276",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_ally_healing_union_scaling",
+              "healing_amount": 1067,
+              "recipient_reported": "all allies",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Recovering Burst III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/recovering-burst-iii",
+              "title": "Recovering Burst III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 98,
+          "collected_at": "2026-10-20T01:42:06+00:00",
+          "archive_fields": {
+            "cast then": [
+              "4.5"
+            ],
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "health and energy cost": [
+              "652"
+            ],
+            "health cost": [
+              "178"
+            ],
+            "cast time": [
+              "4.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Your Group"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon680.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "III",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": "Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon680.png",
+          "ranks": [],
+          "target_recorded": "Your Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606142458id_/http://wiki.silkyvenom.com/index.php/Recovering_Burst_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_counter_healing_observation",
+                  "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "area_ally_healing_union_scaling",
+                  "healing_amount": 1067,
+                  "recipient_reported": "all allies",
+                  "radius_meters": 10,
+                  "radius_origin": null,
+                  "extra_healing_percent_per_blood_union_level": 2,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Renewing Symbiote I",
+      "source_url": "https://vgsoharchive.com/abilities/renewing-symbiote-i",
+      "cache": {
+        "path": ".cache/archive/338dfcb8566d91be7a736cc549d89d6f62b65332814581dc83a20c00eaa8f54e.txt",
+        "sha256": "3c289ccbebb069285f4fc6499831513f7409eb7db38853ddfc73861575e03f38"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c32f1107675222a764c4332e6cceb93f9294d4b0e4d6e9608a2620d70ed37459"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 680 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "7dec28bb962e3e79b42cf908ac934e50042489b9ffebf1ef31220c8410a7db66",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 680 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_on_hit_chance_periodic_healing_symbiote",
+              "recipient_reported": "an ally",
+              "chance_percent": 5,
+              "trigger_reported": "on hit",
+              "health_over_duration": 680,
+              "healing_duration_seconds": 6,
+              "duration_seconds": 1800,
+              "expended_item_reported": "Renewing Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "trigger_direction": null,
+              "trigger_cooldown_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Renewing Symbiote I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/renewing-symbiote-i",
+              "title": "Renewing Symbiote I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 98,
+          "collected_at": "2026-10-20T01:42:06+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Renewing Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1062.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1062.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034540id_/http://wiki.silkyvenom.com/index.php/Renewing_Symbiote_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Renewing Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_counter_healing_observation",
+                  "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 680 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_on_hit_chance_periodic_healing_symbiote",
+                  "recipient_reported": "an ally",
+                  "chance_percent": 5,
+                  "trigger_reported": "on hit",
+                  "health_over_duration": 680,
+                  "healing_duration_seconds": 6,
+                  "duration_seconds": 1800,
+                  "expended_item_reported": "Renewing Symbiote",
+                  "expended_item_count": 1,
+                  "symbiote_limit_per_target": 1,
+                  "trigger_direction": null,
+                  "trigger_cooldown_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 300
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 60,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Regeneration units, unspecified durations, radius origins, tick intervals, symbiote hit direction and healing scaling bases remain null.",
+    "Best-buff wording is retained without inventing a stacking priority or interaction formula.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 60 Blood Mage numeric effect sections against exact cached prose."
+}

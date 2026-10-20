@@ -18,6 +18,89 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration714.
+    group_ritual_counter_healing = {'Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only': {'effect_reported': 'target_group_attribute_buff',
+                                                                                                                                                                                                                     'recipient_reported': 'targets '
+                                                                                                                                                                                                                                           'group',
+                                                                                                                                                                                                                     'constitution_increase': 85,
+                                                                                                                                                                                                                     'vitality_increase': 42,
+                                                                                                                                                                                                                     'intelligence_increase': 96,
+                                                                                                                                                                                                                     'wisdom_increase': 66,
+                                                                                                                                                                                                                     'hit_points_increase': 900,
+                                                                                                                                                                                                                     'hit_point_regeneration_increase': 9,
+                                                                                                                                                                                                                     'hit_point_regeneration_unit': None,
+                                                                                                                                                                                                                     'physical_resistance_increase': 240,
+                                                                                                                                                                                                                     'stacking_reported': 'Stacks '
+                                                                                                                                                                                                                                          'Best '
+                                                                                                                                                                                                                                          'Buff '
+                                                                                                                                                                                                                                          'Only',
+                                                                                                                                                                                                                     'duration_seconds': None,
+                                                                                                                                                                                                                     'tick_interval_seconds': None,
+                                                                                                                                                                                                                     'stacking_rules': None,
+                                                                                                                                                                                                                     'operative_values': None,
+                                                                                                                                                                                                                     'historical_authentication': None},
+ 'This ritual heals an ally, other than yourself, for 3072 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.': {'effect_reported': 'ally_except_self_periodic_healing_union_cost',
+                                                                                                                                                           'recipient_reported': 'an '
+                                                                                                                                                                                 'ally, '
+                                                                                                                                                                                 'other '
+                                                                                                                                                                                 'than '
+                                                                                                                                                                                 'yourself',
+                                                                                                                                                           'health_over_duration': 3072,
+                                                                                                                                                           'duration_seconds': 20,
+                                                                                                                                                           'blood_union_reduction': 3,
+                                                                                                                                                           'minimum_blood_union': 3,
+                                                                                                                                                           'tick_interval_seconds': None,
+                                                                                                                                                           'stacking_rules': None,
+                                                                                                                                                           'operative_values': None,
+                                                                                                                                                           'historical_authentication': None},
+ 'Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.': {'effect_reported': 'spell_counter_group_healing',
+                                                                                                                          'healing_amount': 492,
+                                                                                                                          'recipient_reported': 'all '
+                                                                                                                                                'group '
+                                                                                                                                                'members',
+                                                                                                                          'radius_meters': 10,
+                                                                                                                          'radius_origin': None,
+                                                                                                                          'counter_success_rules': None,
+                                                                                                                          'duration_seconds': None,
+                                                                                                                          'tick_interval_seconds': None,
+                                                                                                                          'stacking_rules': None,
+                                                                                                                          'operative_values': None,
+                                                                                                                          'historical_authentication': None},
+ 'Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'area_ally_healing_union_scaling',
+                                                                                                                      'healing_amount': 1067,
+                                                                                                                      'recipient_reported': 'all '
+                                                                                                                                            'allies',
+                                                                                                                      'radius_meters': 10,
+                                                                                                                      'radius_origin': None,
+                                                                                                                      'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                                      'scaling_base': None,
+                                                                                                                      'duration_seconds': None,
+                                                                                                                      'tick_interval_seconds': None,
+                                                                                                                      'stacking_rules': None,
+                                                                                                                      'operative_values': None,
+                                                                                                                      'historical_authentication': None},
+ 'Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 680 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'ally_on_hit_chance_periodic_healing_symbiote',
+                                                                                                                                                                                                                      'recipient_reported': 'an '
+                                                                                                                                                                                                                                            'ally',
+                                                                                                                                                                                                                      'chance_percent': 5,
+                                                                                                                                                                                                                      'trigger_reported': 'on '
+                                                                                                                                                                                                                                          'hit',
+                                                                                                                                                                                                                      'health_over_duration': 680,
+                                                                                                                                                                                                                      'healing_duration_seconds': 6,
+                                                                                                                                                                                                                      'duration_seconds': 1800,
+                                                                                                                                                                                                                      'expended_item_reported': 'Renewing '
+                                                                                                                                                                                                                                                'Symbiote',
+                                                                                                                                                                                                                      'expended_item_count': 1,
+                                                                                                                                                                                                                      'symbiote_limit_per_target': 1,
+                                                                                                                                                                                                                      'trigger_direction': None,
+                                                                                                                                                                                                                      'trigger_cooldown_seconds': None,
+                                                                                                                                                                                                                      'tick_interval_seconds': None,
+                                                                                                                                                                                                                      'stacking_rules': None,
+                                                                                                                                                                                                                      'operative_values': None,
+                                                                                                                                                                                                                      'historical_authentication': None}}.get(value.strip())
+    if group_ritual_counter_healing:
+        facts.append(dict(kind="blood_mage_group_ritual_counter_healing_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **group_ritual_counter_healing))
     # Exact Blood Mage literals source-reviewed in iteration712.
     steal_conversion_symbiote_healing = {'Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_self_return',
                                                                                                                                                                                  'recipient_reported': 'you',
