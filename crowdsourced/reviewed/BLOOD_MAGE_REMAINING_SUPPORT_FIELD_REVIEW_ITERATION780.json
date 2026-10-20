@@ -1,0 +1,520 @@
+{
+  "review_kind": "blood_mage_remaining_current_support_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Regeneration I",
+      "source_url": "https://vgsoharchive.com/abilities/regeneration-i",
+      "cache": {
+        "path": ".cache/archive/b5068632eac068e070183eb6e2ee5d7f18d5c54b8772170aba4fab1bd967ea4f.txt",
+        "sha256": "51efbb2346a63322b142fbe1833b47d471be7a7058c2c6707023ea224934b9a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f96487f7205d6852fec0cdacfc3345eac1d640212ca5cfc70a4e88b90af348aa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases you and your allies health regeneration.",
+          "literal_sha256": "2be56550ba7f3e783a456b8a0c4a08d75d7d57acd467db78f917257be64daea4",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "health_regeneration_increase",
+              "extracted_value": "health_regeneration_increase",
+              "equal": true
+            },
+            {
+              "field": "recipients_reported",
+              "source_value": [
+                "self",
+                "allies"
+              ],
+              "extracted_value": [
+                "self",
+                "allies"
+              ],
+              "equal": true
+            },
+            {
+              "field": "bonus_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases you and your allies health regeneration.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_regeneration_increase",
+              "recipients_reported": [
+                "self",
+                "allies"
+              ],
+              "bonus_amount": null,
+              "tick_interval_seconds": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Call of the Warehouse",
+      "source_url": "https://vgsoharchive.com/abilities/call-of-the-warehouse",
+      "cache": {
+        "path": ".cache/archive/e59c1b60abdf365a0a233d01fd9987f10d585fc3d5abe041ad40094c45a737f9.txt",
+        "sha256": "bc91971e8d1298bacef807158a99a437113725e87baea56a7fa9c34a505e511b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "6ebfb02d508876a26d5f379602b47c605fb2ece2e3cc0d4f63e436bc00b87be6"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Summons a group mate to your side within the walls of Ancient Port Warehouse.",
+          "literal_sha256": "8ca12c0f36af7d2792c1c8c805e030025fb43a6887233afc3415902cdf7e249c",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "summon_group_mate",
+              "extracted_value": "summon_group_mate",
+              "equal": true
+            },
+            {
+              "field": "destination_reported",
+              "source_value": "caster_side",
+              "extracted_value": "caster_side",
+              "equal": true
+            },
+            {
+              "field": "location_restriction_reported",
+              "source_value": "within the walls of Ancient Port Warehouse",
+              "extracted_value": "within the walls of Ancient Port Warehouse",
+              "equal": true
+            },
+            {
+              "field": "distance_limit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Summons a group mate to your side within the walls of Ancient Port Warehouse.",
+              "conditions_unparsed": true,
+              "effect_reported": "summon_group_mate",
+              "destination_reported": "caster_side",
+              "location_restriction_reported": "within the walls of Ancient Port Warehouse",
+              "distance_limit": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver VI",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi",
+      "cache": {
+        "path": ".cache/archive/2d9274afa0dc14dd077c6baef568ab6e746399d445b3735741c66d520caa7205.txt",
+        "sha256": "2f8141228cf1fe71d184547e7fab3f2fbd452715f8e314d3c7dc8ec9c3feeec2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "229c8f4b112c301fdf45f52b09198a807a7a778a14bef5865afb03469f4f3415"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+141 Constitution\r\n+70 Vitality\r\n+160 Intelligence\r\n+110 Wisdom\r\n+1500 Hit Points\r\n+15 Hit Point Regeneration\r\n+400 Physical Resistance\r\n+2.27% Flurry Resist @55\r\n+2.27% Rampage Resist @55\r\nStacks Best Buff Only",
+          "literal_sha256": "7951715c5ee13154ccb12bb3f5c7fa40361d0c8600609dd53605e4e02fcbacfa",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "target_group_attribute_and_resistance_buff",
+              "extracted_value": "target_group_attribute_and_resistance_buff",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "targets_group",
+              "extracted_value": "targets_group",
+              "equal": true
+            },
+            {
+              "field": "constitution_bonus",
+              "source_value": 141,
+              "extracted_value": 141,
+              "equal": true
+            },
+            {
+              "field": "vitality_bonus",
+              "source_value": 70,
+              "extracted_value": 70,
+              "equal": true
+            },
+            {
+              "field": "intelligence_bonus",
+              "source_value": 160,
+              "extracted_value": 160,
+              "equal": true
+            },
+            {
+              "field": "wisdom_bonus",
+              "source_value": 110,
+              "extracted_value": 110,
+              "equal": true
+            },
+            {
+              "field": "hit_points_bonus",
+              "source_value": 1500,
+              "extracted_value": 1500,
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_bonus",
+              "source_value": 15,
+              "extracted_value": 15,
+              "equal": true
+            },
+            {
+              "field": "regeneration_time_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_bonus",
+              "source_value": 400,
+              "extracted_value": 400,
+              "equal": true
+            },
+            {
+              "field": "flurry_resist_percent_reported",
+              "source_value": 2.27,
+              "extracted_value": 2.27,
+              "equal": true
+            },
+            {
+              "field": "flurry_resist_qualifier_reported",
+              "source_value": "@55",
+              "extracted_value": "@55",
+              "equal": true
+            },
+            {
+              "field": "flurry_resist_qualifier_meaning",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "rampage_resist_percent_reported",
+              "source_value": 2.27,
+              "extracted_value": 2.27,
+              "equal": true
+            },
+            {
+              "field": "rampage_resist_qualifier_reported",
+              "source_value": "@55",
+              "extracted_value": "@55",
+              "equal": true
+            },
+            {
+              "field": "rampage_resist_qualifier_meaning",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_reported",
+              "source_value": "Best Buff Only",
+              "extracted_value": "Best Buff Only",
+              "equal": true
+            },
+            {
+              "field": "resistance_scaling_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_final_numeric_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+141 Constitution\r\n+70 Vitality\r\n+160 Intelligence\r\n+110 Wisdom\r\n+1500 Hit Points\r\n+15 Hit Point Regeneration\r\n+400 Physical Resistance\r\n+2.27% Flurry Resist @55\r\n+2.27% Rampage Resist @55\r\nStacks Best Buff Only",
+              "conditions_unparsed": true,
+              "effect_reported": "target_group_attribute_and_resistance_buff",
+              "recipient_reported": "targets_group",
+              "constitution_bonus": 141,
+              "vitality_bonus": 70,
+              "intelligence_bonus": 160,
+              "wisdom_bonus": 110,
+              "hit_points_bonus": 1500,
+              "hit_point_regeneration_bonus": 15,
+              "regeneration_time_unit": null,
+              "physical_resistance_bonus": 400,
+              "flurry_resist_percent_reported": 2.27,
+              "flurry_resist_qualifier_reported": "@55",
+              "flurry_resist_qualifier_meaning": null,
+              "rampage_resist_percent_reported": 2.27,
+              "rampage_resist_qualifier_reported": "@55",
+              "rampage_resist_qualifier_meaning": null,
+              "stacking_reported": "Best Buff Only",
+              "resistance_scaling_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "literal_hashes_verified": 3,
+    "field_comparisons_passed": 34,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "additional_field_review_still_required": true,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Three remaining current support sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Regeneration amount, summon distance and resistance qualifier meanings remain unknown; printed values are archive observations, not operative combat values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Audit historical and alternate Blood Mage effect scopes against existing reviews.",
+  "current_section_reconciliation": {
+    "input_reviews": [
+      {
+        "path": "reviewed/BLOOD_MAGE_AREA_HEALING_FIELD_REVIEW_ITERATION769.json",
+        "sha256": "1c410ce29ce5b7da202206307f9eb0fd075253cbba2d37e035fea5e95f763cc1"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_ATTRIBUTE_PARTY_BUFF_FIELD_REVIEW_ITERATION759.json",
+        "sha256": "f5f03e19f1e04ed29e500be66b27fe15d04df15ce39462bcee6f6a5e6c88a155"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_BUFF_CLEANSING_FIELD_REVIEW_ITERATION773.json",
+        "sha256": "93cc84c34fc7a24996a0383b237c671d3c1518934352577c8f23015421337939"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_CYST_PACT_FIELD_REVIEW_ITERATION749.json",
+        "sha256": "949cd83a2f4fc279641280d184c1af2e6338ec207ceef26cabc04f2259b5a068"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_DEFENSIVE_RUNE_FIELD_REVIEW_ITERATION771.json",
+        "sha256": "f8d75b5da93275820fdf740e26e55e47d8ac94d43dc3a9686968507d8242fb93"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_DIRECT_HEALING_UNION_FIELD_REVIEW_ITERATION768.json",
+        "sha256": "ca1fb8a85d9907cb223eef74dc68d8f312d7fd884e4ae81cf256715f5295bfb7"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_EXECUTE_HEALING_SYMBIOTE_FIELD_REVIEW_ITERATION779.json",
+        "sha256": "41274df073c942977c64572293045fec7b7483f40d8a1f5ef82fc61b0131da62"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_FLESH_REND_FIELD_REVIEW_ITERATION775.json",
+        "sha256": "baf600deb25ea8f7260ded8c34d093614b2776145ee7a7f1e0a482c256460cd1"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_FOCUS_LIFETAP_FIELD_REVIEW_ITERATION763.json",
+        "sha256": "2a235c2475731b9b93f04c74c6e8f28d1c2599853f55e0e61b24d98d992f6e46"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_HEALING_FIELD_REVIEW_ITERATION751.json",
+        "sha256": "76df12fb537512159869992672abddb27e4d9548b33e0052ca51d616396347a8"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_HEALTH_CONVERSION_FIELD_REVIEW_ITERATION777.json",
+        "sha256": "e2385c2c285790f7e529ed4727d8d4783795742c96e6ee8c8a9a498d3cbd4425"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_HEALTH_ENERGY_CONVERSION_FIELD_REVIEW_ITERATION758.json",
+        "sha256": "706b4a3be45a7e75bab7ae3cf31e1d22af23d92d3c30290db4c244bbf49e60f7"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_HEALTH_STEAL_RETURN_FIELD_REVIEW_ITERATION752.json",
+        "sha256": "729b5c2631ca9276bce38f20fae115eba1bec591f48efa9663166eb10b3a4d17"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_HEALTH_VITALITY_FIELD_REVIEW_ITERATION774.json",
+        "sha256": "e0337498c57ba07212c967f22643349c4da3f34b2393a81a975be07a5ff521d0"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_NUMB_HATE_FIELD_REVIEW_ITERATION776.json",
+        "sha256": "1b617c332feacd2517a3e81a832e4e6aa19b8545cdea2d0fd4c2bc4cb274d673"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_PERIODIC_DAMAGE_FIELD_REVIEW_ITERATION754.json",
+        "sha256": "b27160438bc8968a1fb8bdd3db4aa57ffd85de10b9da5a3fdb39b2e74e77805b"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_PERIODIC_HEALING_FIELD_REVIEW_ITERATION767.json",
+        "sha256": "adba4963599a66c08a65c6eee88b5a0765fc8fa26ce6ce6d4fd8652dcf3a43de"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_QUALITATIVE_SUPPORT_FIELD_REVIEW_ITERATION765.json",
+        "sha256": "3601720ca036fc77f25fdc057328f9bccc9990ec660a7beafe41c26bb841d27c"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_QUALITATIVE_SUPPORT_FIELD_REVIEW_ITERATION766.json",
+        "sha256": "8b0441d1e6ee41eb6f5f82357048f3a0fc5e0155c21e4a859aef02aee5eab8c9"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_RANKED_SYMBIOTE_FIELD_REVIEW_ITERATION757.json",
+        "sha256": "421ea9883d83340f92208e89fa7841eb3e7384f7f8a0f024ebbb89d37339be05"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_RESOURCE_HEALTH_RETURN_FIELD_REVIEW_ITERATION778.json",
+        "sha256": "e94a0fdcb37698fe72cf72d2985d4555447290ee62b0d4f8aef48912b82b6d74"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_RESURRECTION_REVIVAL_ITEM_FIELD_REVIEW_ITERATION764.json",
+        "sha256": "2ea7c9197f82f1d59fe9ac98e22cd333e051bbcb9030c6694c739296c76ae0be"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_RITUAL_WAVE_FIELD_REVIEW_ITERATION750.json",
+        "sha256": "e2b5007ed9612cea8b0617e9a67ed89e12508ac15a0970e50d428eff40f5050a"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_ROOT_COUNTER_FIELD_REVIEW_ITERATION755.json",
+        "sha256": "142d5e931cc3a4b73b0779055b0f4040f538872bb9e74852c4f5d3b6500860a4"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_SELF_ABSORPTION_FIELD_REVIEW_ITERATION753.json",
+        "sha256": "63a2c5b3e66b9cc4b96097e35aed61a7ed017417264a2348391237eef0628fac"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_SEVERING_RITUAL_FIELD_REVIEW_ITERATION772.json",
+        "sha256": "65c57b1bc5895e34767a8da9a01f702c2567594a4d917ef8333110df2bc6d5af"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_SPELL_COUNTER_HEALING_FIELD_REVIEW_ITERATION770.json",
+        "sha256": "6c1ea04f85b33aad9c42ba8c1f824411effa96666fe6a34ad8058a6a877075ba"
+      },
+      {
+        "path": "reviewed/BLOOD_MAGE_SYMBIOTE_CONTROL_UTILITY_FIELD_REVIEW_ITERATION756.json",
+        "sha256": "a88b8bb923fb0d3b4460f8c22300059b9eee1bb09ef430010283fcf830e503e8"
+      }
+    ],
+    "total_game_effect_sections": 166,
+    "excluded_commentary_sections": 12,
+    "remaining_current_sections": [],
+    "scope": "Current Effect sections in iteration747 only; no full ability or historical completeness claim."
+  }
+}
