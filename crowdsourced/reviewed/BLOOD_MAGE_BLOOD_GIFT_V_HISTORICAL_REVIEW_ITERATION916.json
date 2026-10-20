@@ -1,0 +1,214 @@
+{
+  "review_kind": "blood_mage_blood_gift_v_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "scope": "historical",
+      "section_node_index": 0,
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "literal_sha256": "898bf19d26cc2706bda947f1964f7c142af6a99214757e757b0e4f1b035d9c7b",
+      "source_literal": "What guides written while Vanguard was running recorded for this\r\n        ability. Kept beside the current figures rather than replacing them\r\n        — the game was rebalanced across its life, so both are right for\r\n        their own year.",
+      "source_html": "<p class=\"muted small\">\r\n        What guides written while Vanguard was running recorded for this\r\n        ability. Kept beside the current figures rather than replacing them\r\n        — the game was rebalanced across its life, so both are right for\r\n        their own year.\r\n      </p>",
+      "reviewed_observations": [],
+      "attribution_links": [],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "literal_sha256": "d359c189560040aec6b2bb207c0bcc6f13ec69ce3d3445a4b0457f77397c0b6a",
+      "source_literal": "Cast then 3",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>3</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "3",
+          "direct_value_literal": "3",
+          "numeric_value": 3,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "literal_sha256": "29abbf9f8e931a8f4ade92ddd35c71a5ef574084c3f014d3b63d996a82f6320a",
+      "source_literal": "You use your blood to heal an ally, other than yourself, for 2457. Heals for an extra 2% per level of Blood Union",
+      "source_html": "<div class=\"tooltip\">You use your blood to heal an ally, other than yourself, for 2457. Heals for an extra 2% per level of Blood Union</div>",
+      "reviewed_observations": {
+        "effect_literal": "You use your blood to heal an ally, other than yourself, for 2457. Heals for an extra 2% per level of Blood Union",
+        "healing": 2457,
+        "additional_healing_percent_per_blood_union_level": 2,
+        "target_literal": "an ally, other than yourself",
+        "self_target_allowed": false,
+        "blood_cost": null,
+        "scaling_formula": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227033622id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_V\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227033622id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_V"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+      "source_literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+      "source_html": "<p class=\"muted small figure-note\">\r\n        Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.\r\n      </p>",
+      "reviewed_observations": [],
+      "attribution_links": [],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 5,
+    "label_value_comparisons": 1,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 120,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical claims report 2457 healing to an ally other than yourself and an extra 2% per level of Blood Union. Cast then 3 has no printed unit. Blood cost and exact scaling formula remain unknown.",
+    "Historical attribution dates are archive claims, not independently authenticated live-era evidence.",
+    "Attribution and general scaling context remain metadata; operative values remain null."
+  ],
+  "next_step": "Review Blood Gift VI historical source sections against cached evidence.",
+  "review_accounting": {
+    "section_reviews": 5,
+    "newly_covered_scope_nodes": 3
+  }
+}
