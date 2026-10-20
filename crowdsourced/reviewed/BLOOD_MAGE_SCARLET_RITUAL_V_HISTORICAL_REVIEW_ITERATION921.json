@@ -1,0 +1,215 @@
+{
+  "review_kind": "blood_mage_scarlet_ritual_v_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "scope": "historical",
+      "section_node_index": 0,
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "literal_sha256": "898bf19d26cc2706bda947f1964f7c142af6a99214757e757b0e4f1b035d9c7b",
+      "source_literal": "What guides written while Vanguard was running recorded for this\r\n        ability. Kept beside the current figures rather than replacing them\r\n        — the game was rebalanced across its life, so both are right for\r\n        their own year.",
+      "source_html": "<p class=\"muted small\">\r\n        What guides written while Vanguard was running recorded for this\r\n        ability. Kept beside the current figures rather than replacing them\r\n        — the game was rebalanced across its life, so both are right for\r\n        their own year.\r\n      </p>",
+      "reviewed_observations": [],
+      "attribution_links": [],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "literal_sha256": "0083f4a78b772351c4e4ebdf2b7acddf1fa0eac70f17b249e9580b898609dd37",
+      "source_literal": "Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "literal_sha256": "9db864f3976797c132dc74427bc6aa8aa97e2af2375c31055cedb28741bd20d6",
+      "source_literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1138 to 1200 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater",
+      "source_html": "<div class=\"tooltip\">This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1138 to 1200 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater</div>",
+      "reviewed_observations": {
+        "effect_literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1138 to 1200 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater",
+        "direct_damage_min": 1138,
+        "direct_damage_max": 1200,
+        "blood_union_reduction": 4,
+        "blood_union_condition_minimum": 4,
+        "damage_school": null,
+        "scaling_formula": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034627id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_V\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034627id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_V"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+      "source_literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+      "source_html": "<p class=\"muted small figure-note\">\r\n        Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.\r\n      </p>",
+      "reviewed_observations": [],
+      "attribution_links": [],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 5,
+    "label_value_comparisons": 1,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 103,
+  "collector_observation": {
+    "status": "running",
+    "actual_collector_processes": 1,
+    "run_lock_present": true,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": false,
+    "alternate_policy_suspension_preserved": true
+  },
+  "limitations": [
+    "Damage range and 2007 attribution are archive claims, not independently authenticated live-era evidence.",
+    "Bare cast value 0 has no printed unit; seconds and operative cast time remain null. Damage scaling and damage school remain unknown.",
+    "Attribution links are metadata; linked sources were not downloaded or independently verified.",
+    "Historical values remain separate from current values; operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed Blood Mage historical scope nodes after Scarlet Ritual V against cached evidence.",
+  "review_accounting": {
+    "section_reviews": 5,
+    "newly_covered_scope_nodes": 3
+  }
+}
