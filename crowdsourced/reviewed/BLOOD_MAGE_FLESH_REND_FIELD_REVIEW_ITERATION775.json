@@ -1,0 +1,545 @@
+{
+  "review_kind": "blood_mage_flesh_rend_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Flesh Rend I",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-i",
+      "cache": {
+        "path": ".cache/archive/d8979061fa8e266c8c32d520f47b5e59cf74b35e757477713928d85ebfb9259c.txt",
+        "sha256": "ea026fd25aa5ebaa09f9ad6e0f211c7d5b11bb7a5c27a088bdefd3eb6d41b481"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "5876696aa6674db09fbbfacce38477c398accb58d79edeb344b38217e3649441"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 557 to 588 damage. Increases Blood Union by 3.",
+          "literal_sha256": "60d727c0bc1d7b120b677972071ed7cb9cab68fcb6c89a147e32d77d8db83112",
+          "field_comparisons": [
+            {
+              "field": "damage_min",
+              "source_value": 557,
+              "extracted_value": 557,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 588,
+              "extracted_value": 588,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 557 to 588 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_blood_union_gain",
+              "recipient_reported": "your opponent",
+              "damage_min": 557,
+              "damage_max": 588,
+              "blood_union_increase": 3,
+              "damage_type": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend II",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-ii",
+      "cache": {
+        "path": ".cache/archive/c2ebe551b25cb05ec6e87baa87328a0e0bd97ab2b8d4f9d584392e3641d320ff.txt",
+        "sha256": "0a612fd72630638c70a8d9713aca8428fe6a121f09cef32a440325111b4d7967"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 62,
+          "record_sha256": "7edd9615353c2eece516df31497ef5b9c689024d0e8d7ff855ef97f4ea53d299"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.",
+          "literal_sha256": "b0f04c8a7e889e0f882bf8b3f638925a02868d29a7b9906eea5f0b9ee4877d43",
+          "field_comparisons": [
+            {
+              "field": "damage_min",
+              "source_value": 666,
+              "extracted_value": 666,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 703,
+              "extracted_value": 703,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "direct_damage_blood_union_gain",
+              "recipient_reported": "your opponent",
+              "damage_min": 666,
+              "damage_max": 703,
+              "blood_union_increase": 3,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend III",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-iii",
+      "cache": {
+        "path": ".cache/archive/77796f61dd2c9ad46bd9b9fb2cc94802afd5441c579b8477b66c46a7b71adfce.txt",
+        "sha256": "e1d46c236ca757defe0ab7957d19dfe3b702b52db0e0e0e084a3af4d70f880f4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "c7a88b0fc8ade9b90de47b9135f001eba86ca94294d4574074a6db96f3d46e68"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.",
+          "literal_sha256": "4ee0630490d8a38c3d06adfc49fe45070c9257175413aa93b6c8c176a3f1d8ca",
+          "field_comparisons": [
+            {
+              "field": "damage_min",
+              "source_value": 783,
+              "extracted_value": 783,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 826,
+              "extracted_value": 826,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_blood_union_gain",
+              "damage_min": 783,
+              "damage_max": 826,
+              "blood_union_increase": 3,
+              "damage_type": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-iv",
+      "cache": {
+        "path": ".cache/archive/8ab74430693e5939b3670869ee806a041dfd8eb7d403a1d4cf29ca93e336474a.txt",
+        "sha256": "630a79e790709df2d359f5b167d78404ed5ce59d062a9897905e6ff1a04404ea"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "c7ab3a01772b62b5a440acc31f016872944019ee1a71583cb30430c01a5efc3f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.",
+          "literal_sha256": "6ea605ced6c8569abba74119a7a22b4da91f62af19c3a720ab0a530152b2db1c",
+          "field_comparisons": [
+            {
+              "field": "damage_min",
+              "source_value": 904,
+              "extracted_value": 904,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 953,
+              "extracted_value": 953,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_with_blood_union_gain",
+              "damage_min": 904,
+              "damage_max": 953,
+              "damage_type": null,
+              "blood_union_gain_points": 3,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend V",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-v",
+      "cache": {
+        "path": ".cache/archive/a9665cf4506a759fe4e55f44115894e459837886f615a11ddc8f795c8777ddfe.txt",
+        "sha256": "015eafc5b17c54031a69e7010d3c00b17941b9e65bb7eecebdc2e8e17f625f40"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 65,
+          "record_sha256": "61412c2a183ede5a3a2f028fe21d23746cc4932543a4d7c0334739cebce70081"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 1032 to 1088 damage. Increases Blood Union by 3.",
+          "literal_sha256": "cbdb9fd4c0db9d7c5c4efce71131e71b24ffa5f37d4253086f5f8cfa8af0d7de",
+          "field_comparisons": [
+            {
+              "field": "damage_min",
+              "source_value": 1032,
+              "extracted_value": 1032,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 1088,
+              "extracted_value": 1088,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_gift_rend_burst_infusion_transmutation_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 1032 to 1088 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_with_union_gain",
+              "damage_min": 1032,
+              "damage_max": 1088,
+              "blood_union_gain_points": 3,
+              "damage_type": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 46,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 15,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Five current Flesh Rend sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Damage type, scaling formulas and stacking remain unknown; amounts are archive observations, not operative combat values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections against cached source prose."
+}
