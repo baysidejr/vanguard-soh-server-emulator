@@ -1,0 +1,277 @@
+{
+  "review_kind": "blood_mage_resurrection_revival_item_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Awaken",
+      "source_url": "https://vgsoharchive.com/abilities/awaken",
+      "cache": {
+        "path": ".cache/archive/e6c81d4e41c1860a51f74151cb0d012eac8fcf7c6bf7744bdbf529b9f0fe17d6.txt",
+        "sha256": "e9fd5f9b2e72cca5b77900cdba96997909906900d5d3eea08505b84e6240ad6b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 1,
+          "record_sha256": "12452eaa3703b1cb8af04d8f9039a40e12e8b588ac688249fdee8a23066d0366"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Restores a fallen ally to life.",
+          "literal_sha256": "c148c5addc9e804b7476a6892ddae78ec2dd9b8bfc561eec803da8ad8e4e803a",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "resurrection",
+              "extracted_value": "resurrection",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "fallen_ally",
+              "extracted_value": "fallen_ally",
+              "equal": true
+            },
+            {
+              "field": "restored_health",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "combat_usable",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Restores a fallen ally to life.",
+              "conditions_unparsed": true,
+              "effect_reported": "resurrection",
+              "recipient_reported": "fallen_ally",
+              "restored_health": null,
+              "combat_usable": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+          "literal_sha256": "8a00fd1e4eacbe3f881f405374a5964b3b6a95cfaeae9e4f5cf471c174db429b",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "summon_revival_item",
+              "extracted_value": "summon_revival_item",
+              "equal": true
+            },
+            {
+              "field": "item_name_reported",
+              "source_value": "sanguine shard",
+              "extracted_value": "sanguine shard",
+              "equal": true
+            },
+            {
+              "field": "revival_recipients_reported",
+              "source_value": [
+                "self",
+                "another Blood Mage"
+              ],
+              "extracted_value": [
+                "self",
+                "another Blood Mage"
+              ],
+              "equal": true
+            },
+            {
+              "field": "consumption_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+              "conditions_unparsed": true,
+              "effect_reported": "summon_revival_item",
+              "item_name_reported": "sanguine shard",
+              "revival_recipients_reported": [
+                "self",
+                "another Blood Mage"
+              ],
+              "consumption_rules": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Reanimate",
+      "source_url": "https://vgsoharchive.com/abilities/reanimate",
+      "cache": {
+        "path": ".cache/archive/07535a46f54a534c7e62616047dd221d5115079c15d8b73225dacb6997b8cfd6.txt",
+        "sha256": "8c0d6558f7d22a57d2620739bf92732a93a833be717ff7e42452ded049024d43"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "e9c8ee0fd26ebe81ba242de82be968e5254da266651c444ca012cda70f8ee3d0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+          "literal_sha256": "57317f3f4092c6583fa3f198c834b848202f38ccb6de78117bb78350e23446d9",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "resurrection",
+              "extracted_value": "resurrection",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "fallen_ally",
+              "extracted_value": "fallen_ally",
+              "equal": true
+            },
+            {
+              "field": "restored_health_qualifier",
+              "source_value": "small amount",
+              "extracted_value": "small amount",
+              "equal": true
+            },
+            {
+              "field": "restored_health",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "combat_usable",
+              "source_value": true,
+              "extracted_value": true,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+              "conditions_unparsed": true,
+              "effect_reported": "resurrection",
+              "recipient_reported": "fallen_ally",
+              "restored_health_qualifier": "small amount",
+              "restored_health": null,
+              "combat_usable": true,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "literal_hashes_verified": 3,
+    "field_comparisons_passed": 16,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 71,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Three current resurrection/revival-item clauses reviewed; full abilities, historical and alternate scopes remain pending.",
+    "The qualitative small amount of health is preserved without inventing a numeric amount. Awaken combat usability and shard consumption remain unknown.",
+    "No canonical item ID, resurrection penalty, cast requirements, operative values or historical authentication is inferred."
+  ],
+  "next_step": "Review remaining Blood Mage qualitative support observations, starting with Mortal Calling and Harvest."
+}
