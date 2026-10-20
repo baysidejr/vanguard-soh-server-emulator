@@ -1,0 +1,903 @@
+{
+  "review_kind": "constrained_blood_mage_renewing_ritual_vein_rune_union_extraction",
+  "parser_version": 109,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_RENEWING_RITUAL_VEIN_RUNE_UNION_SOURCE_REVIEW_ITERATION736.json",
+    "sha256": "60769fb3643d7c60c243eae689a2e92e5cda17ac58161411fddcff527629002f"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Renewing Symbiote III",
+      "source_url": "https://vgsoharchive.com/abilities/renewing-symbiote-iii",
+      "cache": {
+        "path": ".cache/archive/7d37008364b7ab09ce4254ee356eccff874dbb01dca27356581acd7ca509295d.txt",
+        "sha256": "673e7266809db282abc29a4d059ff468b87b59ddc6af6468766bab2f10509f80"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "0ad4405249561800f03610e7f78ba52624c81d9048a3757d05752b318cf9cb0c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 1032 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "67cc7ba8801c2014c27a87ffb6d5d9ef451b0b784573521bc31ed45097b5a422",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 1032 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_on_hit_healing_symbiote",
+              "proc_chance_percent": 5,
+              "trigger_reported": "on_hit",
+              "healing_amount": 1032,
+              "healing_duration_seconds": 6,
+              "duration_seconds": 1800,
+              "recipient_reported": "bearer",
+              "consumed_item_reported": "Renewing Symbiote",
+              "consumed_item_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "proc_roll_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Renewing Symbiote III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/renewing-symbiote-iii",
+              "title": "Renewing Symbiote III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:02:12+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Renewing Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1062.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1062.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033229id_/http://wiki.silkyvenom.com/index.php/Renewing_Symbiote_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Renewing Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+                  "effect_phrase_recorded": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 1032 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_on_hit_healing_symbiote",
+                  "proc_chance_percent": 5,
+                  "trigger_reported": "on_hit",
+                  "healing_amount": 1032,
+                  "healing_duration_seconds": 6,
+                  "duration_seconds": 1800,
+                  "recipient_reported": "bearer",
+                  "consumed_item_reported": "Renewing Symbiote",
+                  "consumed_item_quantity": 1,
+                  "maximum_symbiotes_per_target": 1,
+                  "proc_roll_rules": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Severing Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-iv",
+      "cache": {
+        "path": ".cache/archive/81113506a84e7b7c488f5aafb7fe1accb6ec3ea973e32690a605bc62272a5e6c.txt",
+        "sha256": "beda4835701ceccd93dd04fa4f56d640339e5724cdf7f1b2c65af8cb0aefb4e4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "0feb8d99062416c3e7a331f487fa462f19ee72faa1ee58201e9794d059e76246"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 472 to 498 damage and 650 to 685 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "f4e9508d1dbfeb4cdc045a9178321c7e9532db273c6224d22b89efeecf2d4781",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 472 to 498 damage and 650 to 685 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_direct_and_over_time_damage_ritual",
+              "radius_meters": 10,
+              "recipient_reported": "all_opponents_within_range",
+              "direct_damage_min": 472,
+              "direct_damage_max": 498,
+              "damage_over_time_min": 650,
+              "damage_over_time_max": 685,
+              "duration_seconds": 10,
+              "blood_union_consumed_points": 3,
+              "required_blood_union_reported": "3",
+              "blood_union_above_three_eligibility": null,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Severing Ritual IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/severing-ritual-iv",
+              "title": "Severing Ritual IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:02:12+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "IV",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033313id_/http://wiki.silkyvenom.com/index.php/Severing_Ritual_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+                  "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 472 to 498 damage and 650 to 685 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "area_direct_and_over_time_damage_ritual",
+                  "radius_meters": 10,
+                  "recipient_reported": "all_opponents_within_range",
+                  "direct_damage_min": 472,
+                  "direct_damage_max": 498,
+                  "damage_over_time_min": 650,
+                  "damage_over_time_max": 685,
+                  "duration_seconds": 10,
+                  "blood_union_consumed_points": 3,
+                  "required_blood_union_reported": "3",
+                  "blood_union_above_three_eligibility": null,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20090304141809id_/http://www.tentonhammer.com/node/59451"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shadow Vein",
+      "source_url": "https://vgsoharchive.com/abilities/shadow-vein",
+      "cache": {
+        "path": ".cache/archive/4625219ab0e816c4a0aad695de0c633bb8eb1b80315daf91fedaaa2961264384.txt",
+        "sha256": "32114a8acfd3de796633b1284a18c8c3dfafdd5725c0cde6bfbac615df3004f2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "324c7841746fb4e701612eccfea72c80bd9c072e81ee15b007266acc5fda80c8"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "2a66eff233e0b6d9a8a12efa95d10c8273fa16d41fe0db1f9c8324dd06aa7aa6",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_defensive_target_return",
+              "health_stolen_min": 240,
+              "health_stolen_max": 254,
+              "returned_portion_percent": 130,
+              "recipient_reported": "defensive_target",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 1,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Shadow Vein",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/shadow-vein",
+              "title": "Shadow Vein · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:02:12+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "372"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Lethargic"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Shadow Evocation"
+            ],
+            "icon": [
+              "Icon20739.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": null,
+          "category": "Shadow Evocation",
+          "cost": {
+            "energy": 372
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20739.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              372
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Lethargic",
+          "exploits_weakness": "Vulnerable",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+                  "effect_phrase_recorded": "Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_with_defensive_target_return",
+                  "health_stolen_min": 240,
+                  "health_stolen_max": 254,
+                  "returned_portion_percent": 130,
+                  "recipient_reported": "defensive_target",
+                  "returned_portion_increase_percent_per_blood_union_level": 10,
+                  "blood_union_gain_points": 1,
+                  "percentage_bonus_combination_rule": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sheltering Rune II",
+      "source_url": "https://vgsoharchive.com/abilities/sheltering-rune-ii",
+      "cache": {
+        "path": ".cache/archive/234c1c31f9fa6fe50d07a367c9aaa50b4a217a5d5596abe6a9e3dbd637d4e60d.txt",
+        "sha256": "0ea92caa91f883607b740b2764a463e32bc3f555fae1402d4f68f1ccd4e4b061"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "180a715a6274b64a9fe9d4835d4949239065563ccee92d27b7a33ffb88ab49fd"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 8 seconds.",
+          "literal_sha256": "87c78c492c8f840368aefb23547d10babc76221a59ac4d4cc576fe9f89a6b7ee",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 8 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "defensive_target_physical_and_arcane_damage_reduction",
+              "damage_reduction_percent": 100,
+              "damage_types_reported": [
+                "physical",
+                "arcane"
+              ],
+              "duration_seconds": 8,
+              "recipient_reported": "defensive_target",
+              "absorption_cap": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Sheltering Rune II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/sheltering-rune-ii",
+              "title": "Sheltering Rune II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:02:12+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "286"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "2:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon661.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "II",
+          "category": "Conjuration",
+          "cost": {
+            "energy": 286
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 8 seconds.",
+          "icon_name": "Icon661.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033325id_/http://wiki.silkyvenom.com/index.php/Sheltering_Rune_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              286
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+                  "effect_phrase_recorded": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 8 seconds.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "defensive_target_physical_and_arcane_damage_reduction",
+                  "damage_reduction_percent": 100,
+                  "damage_types_reported": [
+                    "physical",
+                    "arcane"
+                  ],
+                  "duration_seconds": 8,
+                  "recipient_reported": "defensive_target",
+                  "absorption_cap": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood VI",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-vi",
+      "cache": {
+        "path": ".cache/archive/6322778004f5bf5ae953c4c0e3d52e7c62e4c35e7eb7c8f9e3d478fd3328b0ff.txt",
+        "sha256": "b272da672aa4ce45ec7cfc81fa7a47477ab68a5004cba4825a19a37bfbbfe1fb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "0b296f68b44703f57ee0f6ccd99d61445724a996ffc73bc563c7b398368a904e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 974 to 1027 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "8a7aa4630f86813a4b1de8c6217ecc584b8649c5fa3d58edc25c4db960ef8ec3",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 974 to 1027 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "opponent_damage_over_time_with_blood_union_gain",
+              "damage_over_time_min": 974,
+              "damage_over_time_max": 1027,
+              "duration_seconds": 24,
+              "blood_union_gain_points": 2,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Union of Blood VI",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/union-of-blood-vi",
+              "title": "Union of Blood VI · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:02:12+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007": [
+              "42 — now 50"
+            ],
+            "level": [
+              "50"
+            ],
+            "health and energy cost": [
+              "369"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "health cost": [
+              "176"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "VI",
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Forms a strong union with your opponent, dealing 974 to 1027 damage over 24 sec. Increases Blood Union by 2.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42 — now 50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033443id_/http://wiki.silkyvenom.com/index.php/Union_of_Blood_VI",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+                  "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 974 to 1027 damage over 24 sec. Increases Blood Union by 2.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "opponent_damage_over_time_with_blood_union_gain",
+                  "damage_over_time_min": 974,
+                  "damage_over_time_max": 1027,
+                  "duration_seconds": 24,
+                  "blood_union_gain_points": 2,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20090304141809id_/http://www.tentonhammer.com/node/59451"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 322
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 5,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Five reviewed literals require constrained parser implementation.",
+    "Unstated proc rules, damage type and percentage combination rules remain null; Blood Union 3 wording is not expanded to higher values.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 5 Blood Mage numeric effect sections against exact cached prose."
+}
