@@ -1,0 +1,135 @@
+{
+  "review_kind": "blood_mage_historical_cyst_damage_union_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Burning Cyst I",
+      "source_url": "https://vgsoharchive.com/abilities/burning-cyst-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/c4317fd9111ce930f3c8896d0a1239fd71fafc6898f2f1da66a4016fd77271ed.txt",
+        "sha256": "9d0ee3f1cc49620989832789c166c126d8d19ac8b2b66c0ee64f9cefaa4fd8f4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 5,
+          "record_sha256": "1b98eea2e3b7108ce7502699b86964da7f43347346ab518f96f36c702f8fbc8a"
+        }
+      ],
+      "literal_sha256": "9e93d9b57ceb1c8f3fee75782d0b5c6993da5deaf7cd466dc4118797be8037e8",
+      "source_literal": "Forms a large blister on your opponent and forces it to explode, dealing 51 to 58 damage. If you are at Blood Union 3 or greater it will deal an additional 36 to 41 damage over 12 seconds. Increases Blood Union by 1.",
+      "archive_attribution_context": [
+        {
+          "section_node_index": 3,
+          "literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed"
+        }
+      ],
+      "reviewed_observations": {
+        "direct_damage_min": 51,
+        "direct_damage_max": 58,
+        "conditional_additional_damage_min": 36,
+        "conditional_additional_damage_max": 41,
+        "conditional_duration_seconds": 12,
+        "blood_union_condition_minimum": 3,
+        "blood_union_increase": 1,
+        "unresolved_trailing_label": null,
+        "damage_school": null,
+        "tick_interval_seconds": null,
+        "tick_count": null
+      },
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false,
+      "disposition": "historical_archive_claim_only"
+    },
+    {
+      "name": "Bursting Cyst I",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/d38c09a5c852390844e2f03b31cfe2ed874a85b3bbdc48f7105f21c282415d6e.txt",
+        "sha256": "52693c5281c0d340af0d5245ba9fc215cd59515395f97ab010875ecd86caf86f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 7,
+          "record_sha256": "769dbeeb9858c055da25516fd0a91043c787dbadcfd44592517877d1a59a9680"
+        }
+      ],
+      "literal_sha256": "ac290350c371d73511db27a618632d0969e4e8ce8921b927179573105ea1b8d9",
+      "source_literal": "Forms a large blister on your opponent and explodes it, dealing 52 to 60 damage. If you are at Blood Union 3 or greater it will deal an additional 28 to 34 damage over 12 seconds. Increases Blood Union by 1. Bleeding Afflicted",
+      "archive_attribution_context": [
+        {
+          "section_node_index": 3,
+          "literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed"
+        },
+        {
+          "section_node_index": 5,
+          "literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed"
+        }
+      ],
+      "reviewed_observations": {
+        "direct_damage_min": 52,
+        "direct_damage_max": 60,
+        "conditional_additional_damage_min": 28,
+        "conditional_additional_damage_max": 34,
+        "conditional_duration_seconds": 12,
+        "blood_union_condition_minimum": 3,
+        "blood_union_increase": 1,
+        "unresolved_trailing_label": "Bleeding Afflicted",
+        "damage_school": null,
+        "tick_interval_seconds": null,
+        "tick_count": null
+      },
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false,
+      "disposition": "historical_archive_claim_only"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "literal_hashes_verified": 2,
+    "exact_expected_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 881,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive historical attribution is retained as a claim, not independently authenticated live-era evidence.",
+    "Bursting Cyst lists two historical attributions around one prose block; no exclusive attribution to either mirror is inferred.",
+    "Additional damage over 12 seconds does not establish tick spacing or per-tick damage.",
+    "Bleeding Afflicted remains an unresolved label; no weakness application or exploitation is inferred.",
+    "Historical values remain separate from current and alternate scopes; no canonical IDs or operative combat values are assigned."
+  ],
+  "next_step": "Review historical Blood Mage cyst timing/resource metadata and attribution nodes against cached sections."
+}
