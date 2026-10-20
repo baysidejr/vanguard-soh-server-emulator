@@ -162,3 +162,5 @@ pending URLs against 104,855 supported inventory URLs (including off-inventory
 discoveries in checkpoint counts). Publication coverage remains 25,102 zero-issue
 URLs and 1,806 URLs in research batches with issues; 77,947 inventory URLs remain
 undownloaded. Metadata-only pages and extraction review remain separate work.
+
+Parser version 115 normalizes effect line endings to the CRLF convention of reviewed literals, preserving wording and numeric guards. reviewed/FAVOR_LINE_ENDING_REPLAY_ITERATION761.json records six hash-verified cache replays across LF, CRLF and CR (126 stat comparisons), with zero structural issues and 334 passing tests. The immutable replay is research, not new downloads or historical authentication; operative values remain null and existing @55 field interpretation still requires review. Network suspension, queues and 60-second pacing remain preserved.

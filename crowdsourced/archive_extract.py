@@ -16,6 +16,9 @@ def numeric(value):
 
 def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
+    # Reviewed multiline literals use CRLF; text-mode cache reads use LF.
+    # Normalize only line endings, preserving exact wording and numeric guards.
+    value = value.replace('\r\n', '\n').replace('\r', '\n').replace('\n', '\r\n')
     facts = []
     num = r'(\d+(?:\.\d+)?)'
     # Exact remaining qualitative literals source-reviewed in iteration744.

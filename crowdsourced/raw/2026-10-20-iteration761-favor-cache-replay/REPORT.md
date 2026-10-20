@@ -1,0 +1,1 @@
+Cache-only replay of six Favor ranks with parser 115. Emulator-attributed observations; operative values remain null. No new downloads or independent corroboration. Existing @55 field labels require separate source interpretation review; conversion remains withheld.
