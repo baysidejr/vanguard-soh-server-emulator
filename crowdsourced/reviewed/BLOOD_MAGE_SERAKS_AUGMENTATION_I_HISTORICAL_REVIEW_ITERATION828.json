@@ -1,0 +1,355 @@
+{
+  "review_kind": "blood_mage_seraks_augmentation_i_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "c1f40349e4b32cd4930020d889f0439091591088b5d7b3043aef2b89be0f0318",
+      "source_literal": "Energy then 55 — now 57 Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>55\r\n                <span class=\"muted\">— now 57</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "55 — now 57",
+          "direct_value_literal": "55",
+          "numeric_value": 55,
+          "comparison_literal": "— now 57",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "119b8b8395e5aa6571fa73daf5498cefe26f150e5885e4f969ad3b51d4197968",
+      "source_literal": "Augments the skin of an ally, granting them 33 constitution and 95 phyiscal resistance",
+      "source_html": "<div class=\"tooltip\">Augments the skin of an ally, granting them 33 constitution and 95 phyiscal resistance</div>",
+      "reviewed_observations": {
+        "effect_literal": "Augments the skin of an ally, granting them 33 constitution and 95 phyiscal resistance",
+        "recipient_literal": "ally",
+        "constitution_increase": 33,
+        "physical_resistance_increase": 95,
+        "physical_resistance_source_spelling": "phyiscal resistance",
+        "duration_seconds": null,
+        "stacking_rule": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034631id_/http://wiki.silkyvenom.com/index.php/Serak's_Augmentation_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034631id_/http://wiki.silkyvenom.com/index.php/Serak's_Augmentation_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "824550d558688b64355b503494adaceab6433679c315e6b1846ce88ed875e23f",
+      "source_literal": "Level in 2007 14 — now 18",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>14\r\n                <span class=\"muted\">— now 18</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "14 — now 18",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": "— now 18",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "720332f845936617be408f0c8bf87c7b5259769d3b8dcb28e733bae0c137d9d7",
+      "source_literal": "Level in 2007-2008 14 — now 18 Energy then 57",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>14\r\n                <span class=\"muted\">— now 18</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>57</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "14 — now 18",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": "— now 18",
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "57",
+          "direct_value_literal": "57",
+          "numeric_value": 57,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "89b051475d604f95340e365d57a34b24771cfc77432ddf07b67837ff606b3553",
+      "source_literal": "Augments the skin of your defensive target's party, granting them 33 constitution and 95 physical resistance.",
+      "source_html": "<div class=\"tooltip\">Augments the skin of your defensive target's party, granting them 33 constitution and 95 physical resistance.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Augments the skin of your defensive target's party, granting them 33 constitution and 95 physical resistance.",
+        "recipient_literal": "your defensive target's party",
+        "constitution_increase": 33,
+        "physical_resistance_increase": 95,
+        "physical_resistance_source_spelling": "physical resistance",
+        "duration_seconds": null,
+        "stacking_rule": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 556,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical energy claims of 55 and 57 remain separate; operative values remain null.",
+    "The tooltips name different recipients, an ally and the defensive target party; neither overwrites the other.",
+    "The first source misspells physical as phyiscal; its exact literal is preserved.",
+    "Bare cast values retain unknown units. Attribution is an archive claim, not independent historical authentication."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}
