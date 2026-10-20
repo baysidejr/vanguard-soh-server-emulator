@@ -1,0 +1,901 @@
+{
+  "review_kind": "constrained_blood_mage_qualitative_control_revival_extraction",
+  "parser_version": 113,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_NONNUMERIC_SOURCE_REVIEW_ITERATION744.json",
+    "sha256": "3323b6f3758ef796e85babaa0eb3fd7d62e68bc216e801c9d2636500522d9076"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Constricting Wisps I",
+      "source_url": "https://vgsoharchive.com/abilities/constricting-wisps-i",
+      "cache": {
+        "path": ".cache/archive/eff22a4670e48a5dcc48420f029925a9715874ab6f195a5b3fedb418f3d7da69.txt",
+        "sha256": "64e88fc2b94e699cd93e1bc975bd690a349f0de71df2241df1404e0339d04ee4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "da39fd7f8a848c3de72fa7a6bc42759857c0941d69f5dddb81fb6b9603b6bab0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+          "literal_sha256": "be9047921493a21f271dc27c9e58d17ce2d8c24bb5a1b174ee0c2e78e33b5a80",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+              "conditions_unparsed": true,
+              "effect_reported": "root",
+              "recipient_reported": "opponent",
+              "prevents_movement": true,
+              "may_break_on_damage": true,
+              "break_probability": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Constricting Wisps I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/constricting-wisps-i",
+              "title": "Constricting Wisps I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 113,
+          "collected_at": "2026-10-20T04:52:17+00:00",
+          "archive_fields": {
+            "level": [
+              "6"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 6,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "root",
+                  "recipient_reported": "opponent",
+                  "prevents_movement": true,
+                  "may_break_on_damage": true,
+                  "break_probability": null,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/constricting-wisps-i-773.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Awaken",
+      "source_url": "https://vgsoharchive.com/abilities/awaken",
+      "cache": {
+        "path": ".cache/archive/e6c81d4e41c1860a51f74151cb0d012eac8fcf7c6bf7744bdbf529b9f0fe17d6.txt",
+        "sha256": "e9fd5f9b2e72cca5b77900cdba96997909906900d5d3eea08505b84e6240ad6b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 1,
+          "record_sha256": "12452eaa3703b1cb8af04d8f9039a40e12e8b588ac688249fdee8a23066d0366"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Restores a fallen ally to life.",
+          "literal_sha256": "c148c5addc9e804b7476a6892ddae78ec2dd9b8bfc561eec803da8ad8e4e803a",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Restores a fallen ally to life.",
+              "conditions_unparsed": true,
+              "effect_reported": "resurrection",
+              "recipient_reported": "fallen_ally",
+              "restored_health": null,
+              "combat_usable": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Awaken",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/awaken",
+              "title": "Awaken · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 113,
+          "collected_at": "2026-10-20T04:52:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "energy then": [
+              "66"
+            ],
+            "cast then": [
+              "5.0"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "66"
+            ],
+            "cast time": [
+              "5.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "20m"
+            ],
+            "target": [
+              "Player Corpse"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon559.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 66
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 20,
+            "unit": "m",
+            "raw": "20m"
+          },
+          "tooltip": "Restores a fallen ally to life.",
+          "icon_name": "Icon559.png",
+          "ranks": [],
+          "target_recorded": "Player Corpse",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              66
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Restores a fallen ally to life.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "resurrection",
+                  "recipient_reported": "fallen_ally",
+                  "restored_health": null,
+                  "combat_usable": null,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Restores a fallen ally to life.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "resurrection",
+                  "recipient_reported": "fallen_ally",
+                  "restored_health": null,
+                  "combat_usable": null,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/awaken-779.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Counters the effects of a spell by dispersing it.",
+          "literal_sha256": "9e65de478e5887b6155533d0cbac22726dea58814b94a49e25b312049414bab5",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Counters the effects of a spell by dispersing it.",
+              "conditions_unparsed": true,
+              "effect_reported": "spell_counter",
+              "counter_eligibility_rules": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Dissolve",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/dissolve",
+              "title": "Dissolve · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 113,
+          "collected_at": "2026-10-20T04:52:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "134 — now 133",
+              "131 — now 133"
+            ],
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "refresh then": [
+              "25.0"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "133"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "25.0s"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon467.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Counterspell",
+          "cost": {
+            "energy": 133
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 25.0,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters the effects of a spell by dispersing it.",
+          "icon_name": "Icon467.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034137id_/http://wiki.silkyvenom.com/index.php/Dissolve",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              133
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "25.0s",
+                "seconds": 25.0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Counters the effects of a spell by dispersing it.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "spell_counter",
+                  "counter_eligibility_rules": null,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Counters the effects of a spell by dispersing it.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "spell_counter",
+                  "counter_eligibility_rules": null,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+          "literal_sha256": "8a00fd1e4eacbe3f881f405374a5964b3b6a95cfaeae9e4f5cf471c174db429b",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+              "conditions_unparsed": true,
+              "effect_reported": "summon_revival_item",
+              "item_name_reported": "sanguine shard",
+              "revival_recipients_reported": [
+                "self",
+                "another Blood Mage"
+              ],
+              "consumption_rules": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Summon Sanguine Shard",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+              "title": "Summon Sanguine Shard · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 113,
+          "collected_at": "2026-10-20T04:52:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "67 — now 66",
+              "12 — now 66"
+            ],
+            "cast then": [
+              "5",
+              "5.0"
+            ],
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "level": [
+              "10"
+            ],
+            "health and energy cost": [
+              "66"
+            ],
+            "health cost": [
+              "12"
+            ],
+            "cast time": [
+              "5.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Until Used"
+            ],
+            "range": [
+              "15m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon712.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Conjuration",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 15,
+            "unit": "m",
+            "raw": "15m"
+          },
+          "tooltip": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+          "icon_name": "Icon712.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033352id_/http://wiki.silkyvenom.com/index.php/Summon_Sanguine_Shard",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "summon_revival_item",
+                  "item_name_reported": "sanguine shard",
+                  "revival_recipients_reported": [
+                    "self",
+                    "another Blood Mage"
+                  ],
+                  "consumption_rules": null,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/summon-sanguine-shard-781.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reanimate",
+      "source_url": "https://vgsoharchive.com/abilities/reanimate",
+      "cache": {
+        "path": ".cache/archive/07535a46f54a534c7e62616047dd221d5115079c15d8b73225dacb6997b8cfd6.txt",
+        "sha256": "8c0d6558f7d22a57d2620739bf92732a93a833be717ff7e42452ded049024d43"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "e9c8ee0fd26ebe81ba242de82be968e5254da266651c444ca012cda70f8ee3d0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+          "literal_sha256": "57317f3f4092c6583fa3f198c834b848202f38ccb6de78117bb78350e23446d9",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+              "conditions_unparsed": true,
+              "effect_reported": "resurrection",
+              "recipient_reported": "fallen_ally",
+              "restored_health_qualifier": "small amount",
+              "restored_health": null,
+              "combat_usable": true,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Reanimate",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/reanimate",
+              "title": "Reanimate · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 113,
+          "collected_at": "2026-10-20T04:52:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "energy then": [
+              "130 — now 132"
+            ],
+            "cast then": [
+              "10.0"
+            ],
+            "refresh then": [
+              "10:00"
+            ],
+            "level": [
+              "22"
+            ],
+            "energy cost": [
+              "132"
+            ],
+            "cast time": [
+              "10.0"
+            ],
+            "refresh": [
+              "2:00s"
+            ],
+            "range": [
+              "20m"
+            ],
+            "target": [
+              "Player Corpse"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon559.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 132
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 20,
+            "unit": "m",
+            "raw": "20m"
+          },
+          "tooltip": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+          "icon_name": "Icon559.png",
+          "ranks": [],
+          "target_recorded": "Player Corpse",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034521id_/http://wiki.silkyvenom.com/index.php/Reanimate",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              132
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_qualitative_control_revival_observation",
+                  "effect_phrase_recorded": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "resurrection",
+                  "recipient_reported": "fallen_ally",
+                  "restored_health_qualifier": "small amount",
+                  "restored_health": null,
+                  "combat_usable": true,
+                  "duration_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 330
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "archive_commentary_sections_excluded": 12,
+  "reviewed_sections_awaiting_parser_implementation": 16,
+  "limitations": [
+    "Qualitative candidates remain research, not operative facts. Unknown amounts, eligibility, scaling, duration and historical applicability remain null.",
+    "Repeated archive scaling commentary is editorial context, not an additional ability mechanic or a verified combat formula.",
+    "Current Effect section review does not cover historical or alternate sections or resolve class-table wording differences.",
+    "Immutable source records remain unchanged; no name-only merging or canonical client IDs inferred.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Implement constrained qualitative observations for the remaining 16 reviewed Blood Mage mechanic sections."
+}

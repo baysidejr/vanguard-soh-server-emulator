@@ -18,6 +18,50 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact qualitative control and revival literals source-reviewed in iteration744.
+    qualitative_control_revival = {'Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.': {'effect_reported': 'root',
+                                                                                                            'recipient_reported': 'opponent',
+                                                                                                            'prevents_movement': True,
+                                                                                                            'may_break_on_damage': True,
+                                                                                                            'break_probability': None,
+                                                                                                            'duration_seconds': None,
+                                                                                                            'operative_values': None,
+                                                                                                            'historical_authentication': None},
+ 'Restores a fallen ally to life.': {'effect_reported': 'resurrection',
+                                     'recipient_reported': 'fallen_ally',
+                                     'restored_health': None,
+                                     'combat_usable': None,
+                                     'duration_seconds': None,
+                                     'operative_values': None,
+                                     'historical_authentication': None},
+ 'Counters the effects of a spell by dispersing it.': {'effect_reported': 'spell_counter',
+                                                       'counter_eligibility_rules': None,
+                                                       'duration_seconds': None,
+                                                       'operative_values': None,
+                                                       'historical_authentication': None},
+ 'Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.': {'effect_reported': 'summon_revival_item',
+                                                                                                                  'item_name_reported': 'sanguine '
+                                                                                                                                        'shard',
+                                                                                                                  'revival_recipients_reported': ['self',
+                                                                                                                                                  'another '
+                                                                                                                                                  'Blood '
+                                                                                                                                                  'Mage'],
+                                                                                                                  'consumption_rules': None,
+                                                                                                                  'duration_seconds': None,
+                                                                                                                  'operative_values': None,
+                                                                                                                  'historical_authentication': None},
+ 'Brings a fallen ally back to life with a small amount of health. Can be used in combat.': {'effect_reported': 'resurrection',
+                                                                                             'recipient_reported': 'fallen_ally',
+                                                                                             'restored_health_qualifier': 'small '
+                                                                                                                          'amount',
+                                                                                             'restored_health': None,
+                                                                                             'combat_usable': True,
+                                                                                             'duration_seconds': None,
+                                                                                             'operative_values': None,
+                                                                                             'historical_authentication': None}}.get(value.strip())
+    if qualitative_control_revival:
+        facts.append(dict(kind="blood_mage_qualitative_control_revival_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **qualitative_control_revival))
     # Exact ritual and wave literals source-reviewed in iteration741.
     ritual_wave = {'This ritual summons negative energy from the blood union you have forced upon your opponent to deal 170 to 183 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.': {'effect_reported': 'blood_union_damage_ritual',
                                                                                                                                                                                                          'recipient_reported': 'opponent',
