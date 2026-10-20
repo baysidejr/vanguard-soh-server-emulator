@@ -1,0 +1,122 @@
+{
+  "review_kind": "blood_mage_cerebral_graft_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Cerebral Graft",
+      "source_url": "https://vgsoharchive.com/abilities/cerebral-graft",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/a5adda98dfe888af54f879d53f21e557b07b790b88f94022e7d5a14885340906.txt",
+        "sha256": "65bb6f76cf2987288a39ee95cc4a2f67813a7151f140cf1e2e7861f13cd70c3f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "33a62eafb5bfd7d310867de54db3f7e1356ca2634004034b42c0a9bbd3b7b60c"
+        }
+      ],
+      "literal_sha256": "d0d3956e1a8fd7c0a177e7cadf6358c241e3bc43c23919c70a6211b03907cdd8",
+      "source_literal": "Level in 2007 30",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>30</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "30",
+          "direct_value_literal": "30",
+          "numeric_value": 30,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cerebral Graft",
+      "source_url": "https://vgsoharchive.com/abilities/cerebral-graft",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/a5adda98dfe888af54f879d53f21e557b07b790b88f94022e7d5a14885340906.txt",
+        "sha256": "65bb6f76cf2987288a39ee95cc4a2f67813a7151f140cf1e2e7861f13cd70c3f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "33a62eafb5bfd7d310867de54db3f7e1356ca2634004034b42c0a9bbd3b7b60c"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 2,
+    "label_value_comparisons": 1,
+    "exact_mechanic_literal_comparisons": 0,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 355,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "The historical level is an archive claim; the linked 2007 attribution has not been independently authenticated.",
+    "Attribution links are metadata, not additional game facts or independent corroboration.",
+    "Historical values remain separate from current and alternate observations; operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability after Cerebral Graft against cached source sections.",
+  "review_accounting": {
+    "section_reviews": 2,
+    "newly_covered_scope_nodes": 2
+  }
+}
