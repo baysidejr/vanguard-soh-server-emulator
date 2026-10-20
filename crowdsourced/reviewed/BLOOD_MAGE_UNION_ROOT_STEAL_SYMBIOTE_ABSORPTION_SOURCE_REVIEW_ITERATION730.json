@@ -1,0 +1,778 @@
+{
+  "review_kind": "blood_mage_union_root_steal_symbiote_absorption_source_review",
+  "parser_version": 105,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Union of Blood V",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-v",
+      "cache": {
+        "path": ".cache/archive/854b6e1565ddea2f59d94a85ef8cebb2438b0217c454f8bc6864bc0a730c1ebb.txt",
+        "sha256": "e5a597c584095e09e7e72c80897cc1d1337e532aedff8bccb64cfa78dabb87c0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 97,
+          "record_sha256": "cb69857e3b5b4fc7701efa613666e7bbf2e31c45534cd76bf4a7b16607276240"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Forms a strong union with your opponent, dealing 889 to 937 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "e083d4395af7ec20761c6f2f8fc4398f2d1d62561e919da86b53d9c42465e955",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "periodic_damage_with_union_gain",
+            "damage_min": 889,
+            "damage_max": 937,
+            "duration_seconds": 24,
+            "blood_union_gain_points": 2,
+            "damage_distribution": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Union of Blood V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/union-of-blood-v",
+              "title": "Union of Blood V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 105,
+          "collected_at": "2026-10-20T03:17:52+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007": [
+              "34 — now 42"
+            ],
+            "level": [
+              "42"
+            ],
+            "health and energy cost": [
+              "347"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "health cost": [
+              "159"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon708.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "V",
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Forms a strong union with your opponent, dealing 889 to 937 damage over 24 sec. Increases Blood Union by 2.",
+          "icon_name": "Icon708.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34 — now 42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034753id_/http://wiki.silkyvenom.com/index.php/Union_of_Blood_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Constrict III",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-iii",
+      "cache": {
+        "path": ".cache/archive/d78268eca504f892934cd3950baff36b91435c5b43560b8c29a14d9aea2aa174.txt",
+        "sha256": "5bce31240353ce8a52c19a8943b119410c77c7a8b50f051bf7f93db588a62008"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 96,
+          "record_sha256": "a216c9974aa1d29745d372e18624094e2226a6760ca0bf816561d82380f2ddd1"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Constricts the movement of your opponent, rooting them in place for 60 seconds. Has a 60% chance to break on hit.",
+          "literal_sha256": "01eb35b214324ba143b5dd6df8f2a53cf622b8536af30f0e3e9a160a19cc635a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "root_with_break_on_hit_chance",
+            "duration_seconds": 60,
+            "break_on_hit_chance_percent": 60,
+            "recipient_reported": "opponent",
+            "hit_definition": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Constrict III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/constrict-iii",
+              "title": "Constrict III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 105,
+          "collected_at": "2026-10-20T03:17:52+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "46 — now 44"
+            ],
+            "level": [
+              "44"
+            ],
+            "energy cost": [
+              "180"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "icon": [
+              "Icon704.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 44,
+          "rank": "III",
+          "category": null,
+          "cost": {
+            "energy": 180
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Constricts the movement of your opponent, rooting them in place for 60 seconds. Has a 60% chance to break on hit.",
+          "icon_name": "Icon704.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 46,
+              "raw": "46 — now 44"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034109id_/http://wiki.silkyvenom.com/index.php/Constrict_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              180
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Steals 344 to 364 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "a4e80e85580314e53c009fe65fb8babffb0f054018ea0c798508655feea63207",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_steal_with_self_return",
+            "health_stolen_min": 344,
+            "health_stolen_max": 364,
+            "returned_portion_percent": 130,
+            "recipient_reported": "self",
+            "returned_portion_increase_percent_per_blood_union_level": 25,
+            "blood_union_gain_points": 1,
+            "percentage_bonus_combination_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Despoil VI",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/despoil-vi",
+              "title": "Despoil VI · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 105,
+          "collected_at": "2026-10-20T03:17:52+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "44"
+            ],
+            "level": [
+              "44"
+            ],
+            "energy cost": [
+              "252"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon707.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 44,
+          "rank": "VI",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 252
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon707.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 44,
+              "raw": "44"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034129id_/http://wiki.silkyvenom.com/index.php/Despoil_VI",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              252
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote IV",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-iv",
+      "cache": {
+        "path": ".cache/archive/bb91c5b6b4a113be620b705db5aff8bd5792e5153f4481b415bb1a282bd4b85e.txt",
+        "sha256": "18bfa842d78364f41632570dc1999f4a8e5bb89e1235bb6d7dce22a9976ad3fe"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 1,
+          "record_sha256": "1bd8e765aecd88d99975d42f9eb27871b26fde9a8b654e073d8d8d3c78b09a8a"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 63 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "86be6a87a488a9caec182029a69cfc92cdead322e5d8f8c6f82678d7f457ecc8",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "ally_damage_bonus_with_symbiote_cost_and_limit",
+            "damage_bonus_amount": 63,
+            "damage_bonus_unit": null,
+            "duration_seconds": 3600,
+            "recipient_reported": "ally",
+            "consumed_item_reported": "Frenzied Symbiote",
+            "consumed_item_quantity": 1,
+            "maximum_symbiotes_per_target": 1,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Frenzied Symbiote IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/frenzied-symbiote-iv",
+              "title": "Frenzied Symbiote IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 105,
+          "collected_at": "2026-10-20T03:17:52+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "44"
+            ],
+            "level": [
+              "44"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Frenzied Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon651.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 44,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon651.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 44,
+              "raw": "44"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034211id_/http://wiki.silkyvenom.com/index.php/Frenzied_Symbiote_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Frenzied Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Life Husk IV",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-iv",
+      "cache": {
+        "path": ".cache/archive/c00035a5219270a863ca70ae22d54c36147481558cee6e12b4088f00bbef6723.txt",
+        "sha256": "cd84466bc21f5ee97d2b4014e18edd60df07104ca1c40e38654496a3adf5f8d7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "167316502713f76dfa69df81bf9451493ed2f176ca772b7bd9907fe0ee715ca0"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 9 seconds. Consumes a vial of blood.",
+          "literal_sha256": "a031fb498ada375f43acd5447a3eb96141b6661c700c09a94becbad86064b8dd",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "self_all_incoming_damage_absorption",
+            "duration_seconds": 9,
+            "recipient_reported": "self",
+            "consumed_item_reported": "vial of blood",
+            "consumed_item_quantity": 1,
+            "absorption_limit": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Life Husk IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/life-husk-iv",
+              "title": "Life Husk IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 105,
+          "collected_at": "2026-10-20T03:17:52+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "5"
+            ],
+            "level in 2007": [
+              "44"
+            ],
+            "level": [
+              "44"
+            ],
+            "energy cost": [
+              "128"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "5:00s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "requires": [
+              "A vial of blood"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon531.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 44,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": {
+            "energy": 128
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Covers you in a husk of energy, absorbing all incoming damage for 9 seconds. Consumes a vial of blood.",
+          "icon_name": "Icon531.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 44,
+              "raw": "44"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034313id_/http://wiki.silkyvenom.com/index.php/Life_Husk_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              128
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": "A vial of blood",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 25,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 20,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Five reviewed literals require constrained parser implementation.",
+    "Damage distribution, hit definition, bonus units, percentage combination rules and absorption limits remain null when unstated.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained observations for the five reviewed Blood Mage union, root, steal, symbiote and absorption sources."
+}
