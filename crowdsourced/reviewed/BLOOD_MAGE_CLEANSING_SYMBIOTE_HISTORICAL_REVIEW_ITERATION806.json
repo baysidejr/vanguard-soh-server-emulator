@@ -1,0 +1,368 @@
+{
+  "review_kind": "blood_mage_cleansing_symbiote_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "d18c4f9d756fcb0f008f09ddca3215cc723eb4f560decd9b937dd9b31fe949c5",
+      "source_literal": "Cast then 1",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>1</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "1",
+          "direct_value_literal": "1",
+          "numeric_value": 1,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "cc18d4ea8df58afcca4c915b54c9414c0309089e7328a94724b2504899855106",
+      "source_literal": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. -Expends 1 Cleansing Symbiote",
+      "source_html": "<div class=\"tooltip\">Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. -Expends 1 Cleansing Symbiote</div>",
+      "reviewed_observations": {
+        "effect_literal": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. -Expends 1 Cleansing Symbiote",
+        "target_ally": true,
+        "cleanses": [
+          "poison",
+          "disease"
+        ],
+        "effect_duration_minutes": 15,
+        "expended_item": "Cleansing Symbiote",
+        "expended_quantity": 1,
+        "printed_cost_label": null,
+        "energy_cost": null,
+        "cast_literal": null,
+        "cast_unit": null,
+        "refresh_literal": null,
+        "range_literal": null,
+        "range_unit": null,
+        "unresolved_trailing_label": null,
+        "cleansing_frequency": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227032739id_/http://wiki.silkyvenom.com/index.php/Cleansing_Symbiote\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227032739id_/http://wiki.silkyvenom.com/index.php/Cleansing_Symbiote"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "f7ffd7db5c495dcf95746a4e605b21b3957104ea335537783cb22499d42f5ff6",
+      "source_literal": "Level in 2007 14",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>14</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "14",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "88b3377314aafec785c58d30b158e7ac324e4970314b5b4fa1d24a00e98c528b",
+      "source_literal": "Level in 2007-2008 14 Cast then 1.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>14</dd></div>\n<div><dt>Cast then</dt><dd>1.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "14",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "1.0",
+          "direct_value_literal": "1.0",
+          "numeric_value": 1.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "7174f06587bf3216948c40450401c676f72d018c9e234582243742e52e08fa09",
+      "source_literal": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote",
+      "source_html": "<div class=\"tooltip\">Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote</div>",
+      "reviewed_observations": {
+        "effect_literal": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote",
+        "target_ally": true,
+        "cleanses": [
+          "poison",
+          "disease"
+        ],
+        "effect_duration_minutes": 15,
+        "expended_item": "Cleansing Symbiote",
+        "expended_quantity": 1,
+        "printed_cost_label": "Energy Cost",
+        "energy_cost": null,
+        "cast_literal": "1.0",
+        "cast_unit": null,
+        "refresh_literal": "None",
+        "range_literal": "25",
+        "range_unit": null,
+        "unresolved_trailing_label": "Controlling Symbiote",
+        "cleansing_frequency": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 4,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 718,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical sections are archive claims, not independently authenticated live-era evidence. Mirrors do not provide independent corroboration.",
+    "The printed Energy Cost value names a consumable; numeric energy cost remains null. Bare cast and range units, cleansing frequency and complete mechanics remain unknown.",
+    "Refresh None and trailing Controlling Symbiote are retained literally; neither establishes cooldown or an ability relationship. Operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}
