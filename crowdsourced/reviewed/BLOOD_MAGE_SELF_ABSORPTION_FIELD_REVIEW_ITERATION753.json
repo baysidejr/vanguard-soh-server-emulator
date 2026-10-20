@@ -1,0 +1,438 @@
+{
+  "review_kind": "blood_mage_self_absorption_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Life Husk I",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-i",
+      "cache": {
+        "path": ".cache/archive/56e891a47f14473eab17195b4cf498f2fe2164b78704cccaed8e394c96e8f09c.txt",
+        "sha256": "05680d138257d5fdbe57dca96320afb815203f0f6a3cf84b70a2b0a8e2311564"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 27,
+          "record_sha256": "4708e6eb0fa200a347874ad289eb23f0a77b0d067a1cd612be8345c683bf096b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+          "literal_sha256": "b4d1d5b964fb6b3cbbb18cc9b40474a5a6541861e6b108fc45a11e09e5e41229",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 6,
+              "extracted_value": 6,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "canonical_component_id",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "absorption_limit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            },
+            {
+              "field": "consumed_component_reported",
+              "source_value": "vial of blood",
+              "extracted_value": "vial of blood",
+              "equal": true
+            },
+            {
+              "field": "damage_scope_reported",
+              "source_value": "all incoming damage",
+              "extracted_value": "all incoming damage",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "incoming_damage_absorption",
+              "extracted_value": "incoming_damage_absorption",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+              "conditions_unparsed": true,
+              "effect_reported": "incoming_damage_absorption",
+              "recipient_reported": "you",
+              "damage_scope_reported": "all incoming damage",
+              "duration_seconds": 6,
+              "consumed_component_reported": "vial of blood",
+              "canonical_component_id": null,
+              "absorption_limit": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Life Husk II",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-ii",
+      "cache": {
+        "path": ".cache/archive/a64afd834d5c7549a509cef1ea3253d453927809e0f59bde4287d5418d6844a2.txt",
+        "sha256": "a13bf248073036cd225146232c2e9261b1c0c5b241527ee5f8a419d608d94651"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "160db1ee6c03b972e060aca00aa27cbdcb0fc1678f4b97c9208a88e99539950a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 7 seconds. Consumes a vial of blood.",
+          "literal_sha256": "aca4c146b67fc32b00cea6314dccf287e37bc23bb42b05befad4b68b18ae64cf",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 7,
+              "extracted_value": 7,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "canonical_component_id",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "absorption_cap",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            },
+            {
+              "field": "consumed_component_reported",
+              "source_value": "a vial of blood",
+              "extracted_value": "a vial of blood",
+              "equal": true
+            },
+            {
+              "field": "damage_absorption_reported",
+              "source_value": "all incoming damage",
+              "extracted_value": "all incoming damage",
+              "equal": true
+            },
+            {
+              "field": "component_quantity",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "self_damage_absorption",
+              "extracted_value": "self_damage_absorption",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_absorption_observation",
+              "effect_phrase_recorded": "Covers you in a husk of energy, absorbing all incoming damage for 7 seconds. Consumes a vial of blood.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_damage_absorption",
+              "recipient_reported": "you",
+              "damage_absorption_reported": "all incoming damage",
+              "duration_seconds": 7,
+              "consumed_component_reported": "a vial of blood",
+              "component_quantity": null,
+              "canonical_component_id": null,
+              "absorption_cap": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Life Husk III",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-iii",
+      "cache": {
+        "path": ".cache/archive/0aa064ed913e65368456314fbe004b8807683cc0b3be286b7a5250ce606089d8.txt",
+        "sha256": "f79f9079b1a74de8e5098f893e7bc54db87d8693ecc9dea542bda156ebd7380c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "e3e0a14e2ca9199f5fe83de8c5ed3763da6e7212670c49bc7f8824e288ec2f15"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 8 seconds. Consumes a vial of blood.",
+          "literal_sha256": "039087e3abde95020ac56ccd868837eaf4290a27cf11eafbf824a5c7c0963c1f",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 8,
+              "extracted_value": 8,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "absorption_cap",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "vial of blood",
+              "extracted_value": "vial of blood",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "self_all_incoming_damage_absorption",
+              "extracted_value": "self_all_incoming_damage_absorption",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_execute_symbiote_healing_absorption_observation",
+              "effect_phrase_recorded": "Covers you in a husk of energy, absorbing all incoming damage for 8 seconds. Consumes a vial of blood.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_all_incoming_damage_absorption",
+              "recipient_reported": "you",
+              "duration_seconds": 8,
+              "consumed_item_reported": "vial of blood",
+              "consumed_item_count": 1,
+              "absorption_cap": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Life Husk IV",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-iv",
+      "cache": {
+        "path": ".cache/archive/c00035a5219270a863ca70ae22d54c36147481558cee6e12b4088f00bbef6723.txt",
+        "sha256": "cd84466bc21f5ee97d2b4014e18edd60df07104ca1c40e38654496a3adf5f8d7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "167316502713f76dfa69df81bf9451493ed2f176ca772b7bd9907fe0ee715ca0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 9 seconds. Consumes a vial of blood.",
+          "literal_sha256": "a031fb498ada375f43acd5447a3eb96141b6661c700c09a94becbad86064b8dd",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 9,
+              "extracted_value": 9,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "absorption_limit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "self",
+              "extracted_value": "self",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "vial of blood",
+              "extracted_value": "vial of blood",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "self_all_incoming_damage_absorption",
+              "extracted_value": "self_all_incoming_damage_absorption",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_union_root_steal_symbiote_absorption_observation",
+              "effect_phrase_recorded": "Covers you in a husk of energy, absorbing all incoming damage for 9 seconds. Consumes a vial of blood.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_all_incoming_damage_absorption",
+              "duration_seconds": 9,
+              "recipient_reported": "self",
+              "consumed_item_reported": "vial of blood",
+              "consumed_item_quantity": 1,
+              "absorption_limit": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 4,
+    "source_record_hashes_verified": 4,
+    "whole_page_replays": 4,
+    "literal_hashes_verified": 4,
+    "field_comparisons_passed": 35,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 115,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Literal coverage does not authenticate historical game behavior or establish operative combat formulas.",
+    "Absorption caps and stacking rules remain unstated and null. No combat formula or canonical component IDs promoted.",
+    "Ranks use different field names; recipient and component aliases are checked as wording only. Indefinite article a is represented as one item in ranks III/IV and remains unquantified in rank II; no stack consumption rule is inferred."
+  ],
+  "next_step": "Review remaining Blood Mage damage-over-time observations field by field against cached prose."
+}
