@@ -18,6 +18,89 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration704.
+    group_ritual_effect = {"Fills your defensive target's party with life, granting them 40 additional vitality.": {'effect_reported': 'party_vitality_buff',
+                                                                                          'recipient_reported': 'your '
+                                                                                                                'defensive '
+                                                                                                                "target's "
+                                                                                                                'party',
+                                                                                          'vitality_increase': 40,
+                                                                                          'duration_seconds': None,
+                                                                                          'tick_interval_seconds': None,
+                                                                                          'stacking_rules': None,
+                                                                                          'operative_values': None,
+                                                                                          'historical_authentication': None},
+ 'Fills your targets group with power.\r\n+56 Constitution\r\n+28 Vitality\r\n+64 Intelligence\r\n+44 Wisdom\r\n+600 Hit Points\r\n+6 Hit Point Regeneration\r\n+160 Physical Resistance\r\nStacks Best Buff Only': {'effect_reported': 'group_stat_buff',
+                                                                                                                                                                                                                     'recipient_reported': 'your '
+                                                                                                                                                                                                                                           'targets '
+                                                                                                                                                                                                                                           'group',
+                                                                                                                                                                                                                     'constitution_increase': 56,
+                                                                                                                                                                                                                     'vitality_increase': 28,
+                                                                                                                                                                                                                     'intelligence_increase': 64,
+                                                                                                                                                                                                                     'wisdom_increase': 44,
+                                                                                                                                                                                                                     'hit_points_increase': 600,
+                                                                                                                                                                                                                     'hit_point_regeneration_increase': 6,
+                                                                                                                                                                                                                     'physical_resistance_increase': 160,
+                                                                                                                                                                                                                     'regeneration_interval_seconds': None,
+                                                                                                                                                                                                                     'stacking_reported': 'Stacks '
+                                                                                                                                                                                                                                          'Best '
+                                                                                                                                                                                                                                          'Buff '
+                                                                                                                                                                                                                                          'Only',
+                                                                                                                                                                                                                     'duration_seconds': None,
+                                                                                                                                                                                                                     'tick_interval_seconds': None,
+                                                                                                                                                                                                                     'stacking_rules': None,
+                                                                                                                                                                                                                     'operative_values': None,
+                                                                                                                                                                                                                     'historical_authentication': None},
+ 'This ritual heals an ally, other than yourself, for 2112 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.': {'effect_reported': 'periodic_ally_heal_blood_union_consumption',
+                                                                                                                                                           'recipient_reported': 'an '
+                                                                                                                                                                                 'ally, '
+                                                                                                                                                                                 'other '
+                                                                                                                                                                                 'than '
+                                                                                                                                                                                 'yourself',
+                                                                                                                                                           'healing_total': 2112,
+                                                                                                                                                           'duration_seconds': 20,
+                                                                                                                                                           'blood_union_reduction': 3,
+                                                                                                                                                           'minimum_blood_union': 3,
+                                                                                                                                                           'healing_per_tick': None,
+                                                                                                                                                           'tick_interval_seconds': None,
+                                                                                                                                                           'stacking_rules': None,
+                                                                                                                                                           'operative_values': None,
+                                                                                                                                                           'historical_authentication': None},
+ 'Covers you in a husk of energy, absorbing all incoming damage for 7 seconds. Consumes a vial of blood.': {'effect_reported': 'self_damage_absorption',
+                                                                                                            'recipient_reported': 'you',
+                                                                                                            'damage_absorption_reported': 'all '
+                                                                                                                                          'incoming '
+                                                                                                                                          'damage',
+                                                                                                            'duration_seconds': 7,
+                                                                                                            'consumed_component_reported': 'a '
+                                                                                                                                           'vial '
+                                                                                                                                           'of '
+                                                                                                                                           'blood',
+                                                                                                            'component_quantity': None,
+                                                                                                            'canonical_component_id': None,
+                                                                                                            'absorption_cap': None,
+                                                                                                            'tick_interval_seconds': None,
+                                                                                                            'stacking_rules': None,
+                                                                                                            'operative_values': None,
+                                                                                                            'historical_authentication': None},
+ 'You use your blood to heal an ally, other than yourself, for 1357. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'ally_heal_blood_union_scaling',
+                                                                                                                        'recipient_reported': 'an '
+                                                                                                                                              'ally, '
+                                                                                                                                              'other '
+                                                                                                                                              'than '
+                                                                                                                                              'yourself',
+                                                                                                                        'healing_base': 1357,
+                                                                                                                        'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                                        'health_cost': None,
+                                                                                                                        'scaling_base': None,
+                                                                                                                        'duration_seconds': None,
+                                                                                                                        'tick_interval_seconds': None,
+                                                                                                                        'stacking_rules': None,
+                                                                                                                        'operative_values': None,
+                                                                                                                        'historical_authentication': None}}.get(value.strip())
+    if group_ritual_effect:
+        facts.append(dict(kind="blood_mage_group_ritual_absorption_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **group_ritual_effect))
     # Exact Blood Mage literals source-reviewed in iteration702.
     symbiote_effect = {'Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote': {'effect_reported': 'poison_disease_cleansing',
                                                                                                                                                                                                'recipient_reported': 'an '
