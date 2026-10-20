@@ -1,0 +1,754 @@
+{
+  "review_kind": "blood_mage_healing_counter_symbiote_steal_source_review",
+  "parser_version": 103,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Infuse Health VI",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-vi",
+      "cache": {
+        "path": ".cache/archive/3d6dc16eae19ad57d9446499d6338c0df15a4e6acadb94e626c5584bb6afe1a5.txt",
+        "sha256": "ea3200a36c5e49808fc7362ca4e5f3fdea95aa6ce74fab4b84081ecc0b9eb18e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "a1f23ffcd4c84187acbe309ed0b89f61a91ae0e2581118cb96b553930d4aec47"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Infuses your defensive target with 1314 health. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "43196fa09a2aa2fdf5a8cdf58194d7ceb6c56122dc43bbdf8d7dd6e60a41ced0",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "defensive_target_healing_with_union_bonus",
+            "healing_amount": 1314,
+            "extra_healing_percent_per_blood_union_level": 2,
+            "percentage_basis": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Infuse Health VI",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuse-health-vi",
+              "title": "Infuse Health VI · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:52:39+00:00",
+          "archive_fields": {
+            "cast then": [
+              "1.5"
+            ],
+            "level in 2007": [
+              "40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "525"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon679.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "VI",
+          "category": "Heal",
+          "cost": {
+            "energy": 525
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Infuses your defensive target with 1314 health. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon679.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034243id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_VI",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              525
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metamorphism II",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-ii",
+      "cache": {
+        "path": ".cache/archive/3d2249aafb4219aeed3b2540eae0dda44442b7d0769ea049e9218bae2dae808d.txt",
+        "sha256": "f180ead69c2a5126853ded09afe672ea8440561528f36929d475a5aceeadf87a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "e8626e5fc766240c2e1f48a5c5ff712a53107ffd515b3be50421daf39b791340"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.",
+          "literal_sha256": "05517f9e42f7f8d6f06203e6376b683772ec0d8c08e8be8873a1cf5d5e9868b2",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "spell_counter_with_group_healing",
+            "healing_amount": 659,
+            "recipient_reported": "all group members",
+            "radius_meters": 10,
+            "counter_restrictions": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Metamorphism II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/metamorphism-ii",
+              "title": "Metamorphism II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:52:39+00:00",
+          "archive_fields": {
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "777"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon726.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "II",
+          "category": "Counterspell",
+          "cost": {
+            "energy": 777
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.",
+          "icon_name": "Icon726.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              777
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Renewing Symbiote II",
+      "source_url": "https://vgsoharchive.com/abilities/renewing-symbiote-ii",
+      "cache": {
+        "path": ".cache/archive/6665a107b68f7f3241536d4860eace3f87455820253a06a406ab32362f2d0cc9.txt",
+        "sha256": "cf0b16cc2aee0c7d192ef7e6fc100a24249a56e6bcf5bb67e46c9d18e1c6e226"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "b9eb1101ff12249e9fd3ffa237018e9199ec895d4a054191b9629cb7201119fc"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 912 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "0cab7fcef38af912edaa76b5882b16191f62ab9081e81529d22a61dbf5f4957a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "symbiote_on_hit_periodic_healing",
+            "recipient_reported": "an ally",
+            "trigger_reported": "on hit",
+            "proc_chance_percent": 5,
+            "healing_amount": 912,
+            "healing_duration_seconds": 6,
+            "duration_seconds": 1800,
+            "consumed_item_reported": "Renewing Symbiote",
+            "consumed_quantity": 1,
+            "maximum_symbiotes_per_target": 1,
+            "trigger_actor": null,
+            "proc_roll_rules": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Renewing Symbiote II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/renewing-symbiote-ii",
+              "title": "Renewing Symbiote II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:52:39+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Renewing Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1062.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1062.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20070826023827id_/http://wiki.silkyvenom.com/index.php/Renewing_Symbiote_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Renewing Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-v",
+      "cache": {
+        "path": ".cache/archive/e628005e873ebc0479a81c2da944446551f652c7df7666dd61e180796836ac65.txt",
+        "sha256": "7208b745c6dfb4b149e4ef1206f9e4c95162a70cba311409dac144bc63a3e973"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "4f9fce796ad5bb90e5d9cb67821e89c387c312eeda7f229cdb1f3c27b11f4ee7"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Steals 586 to 618 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "6dca647eb76e2aed234fb854ed3ba3d872803fece8b71f0908b5f88f55562683",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_steal_with_nearby_ally_return",
+            "health_stolen_min": 586,
+            "health_stolen_max": 618,
+            "returned_portion_percent": 100,
+            "recipient_reported": "allies within 10m of the caster",
+            "radius_meters": 10,
+            "returned_portion_increase_percent_per_blood_union_level": 10,
+            "blood_union_gain_points": 2,
+            "percentage_bonus_combination_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Tribute V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-tribute-v",
+              "title": "Blood Tribute V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:52:39+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "5"
+            ],
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "323"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Finish"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "V",
+          "category": "Arcane Finish",
+          "cost": {
+            "energy": 323
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034048id_/http://wiki.silkyvenom.com/index.php/Blood_Tribute_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              323
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conducive Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/conducive-symbiote",
+      "cache": {
+        "path": ".cache/archive/497123766869ecd89ac9a9c5d80ad8b74f9c9f2e897072ef2b13718a1918a5f2.txt",
+        "sha256": "d83ba77514151b49d0f197c69f0b7db0d4792b15845fbee534f3ca5b70899202"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 85,
+          "record_sha256": "29b819d0620f263e3ea2fc0c7bc4ba993d29260c846fcd0642640592b342a153"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Attaches a conducive symbiote to an ally, this symbiote grants you the use of an ability that instantly heals an ally. This symbiote lasts for 1 hour. Expends 1 Conducive Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "27b34b4c78bcc2271645b4cebf0e303696f7141dfd89b18ab9989afdde79ff51",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "symbiote_grants_instant_ally_healing_ability",
+            "recipient_reported": "an ally",
+            "granted_ability_healing_amount": null,
+            "granted_ability_cast_reported": "instantly",
+            "duration_seconds": 3600,
+            "consumed_item_reported": "Conducive Symbiote",
+            "consumed_quantity": 1,
+            "maximum_symbiotes_per_target": 1,
+            "granted_ability_identifier": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Conducive Symbiote",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/conducive-symbiote",
+              "title": "Conducive Symbiote · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:52:39+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Conducive Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1065.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": null,
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1065.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": "1 Conducive Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 35,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 30,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Five reviewed literals require constrained parser implementation.",
+    "Percentage bases, proc trigger actor, bonus combination rules, granted ability identifier and unstated mechanics remain null.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained observations for the five reviewed Blood Mage healing, counter, symbiote and health-steal sources."
+}
