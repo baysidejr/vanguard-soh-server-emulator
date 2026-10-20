@@ -1,0 +1,734 @@
+{
+  "review_kind": "blood_mage_final_numeric_source_review",
+  "parser_version": 109,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Favor of the Life Giver VI",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi",
+      "cache": {
+        "path": ".cache/archive/2d9274afa0dc14dd077c6baef568ab6e746399d445b3735741c66d520caa7205.txt",
+        "sha256": "2f8141228cf1fe71d184547e7fab3f2fbd452715f8e314d3c7dc8ec9c3feeec2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "229c8f4b112c301fdf45f52b09198a807a7a778a14bef5865afb03469f4f3415"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Fills your targets group with power.\r\n+141 Constitution\r\n+70 Vitality\r\n+160 Intelligence\r\n+110 Wisdom\r\n+1500 Hit Points\r\n+15 Hit Point Regeneration\r\n+400 Physical Resistance\r\n+2.27% Flurry Resist @55\r\n+2.27% Rampage Resist @55\r\nStacks Best Buff Only",
+          "literal_sha256": "7951715c5ee13154ccb12bb3f5c7fa40361d0c8600609dd53605e4e02fcbacfa",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "target_group_attribute_and_resistance_buff",
+            "recipient_reported": "targets_group",
+            "constitution_bonus": 141,
+            "vitality_bonus": 70,
+            "intelligence_bonus": 160,
+            "wisdom_bonus": 110,
+            "hit_points_bonus": 1500,
+            "hit_point_regeneration_bonus": 15,
+            "regeneration_time_unit": null,
+            "physical_resistance_bonus": 400,
+            "flurry_resist_percent_at_level_55": 2.27,
+            "rampage_resist_percent_at_level_55": 2.27,
+            "stacking_reported": "Best Buff Only",
+            "resistance_scaling_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver VI",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi",
+              "title": "Favor of the Life Giver VI · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:08:33+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "VI",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-v",
+      "cache": {
+        "path": ".cache/archive/ebc3a422747d4a5d001ad94a87d41fb9c4817ee47dbbf19c594c454c6e6f95d5.txt",
+        "sha256": "b402ba01e346999dcdfa63859493296920980369341f21309d9be975fa776888"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "aa603f31e0bdad9ea5ad44a0e90675e13bea3658d917cb4bf57a1a98981a32bf"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "This ritual heals an ally, other than yourself, for 4662 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "90f96cd099f8c2fe767f5255694b306c9459c07ef045f3df0ec537f9d709c61b",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "other_ally_healing_over_time_ritual",
+            "healing_amount": 4662,
+            "duration_seconds": 20,
+            "recipient_reported": "ally_other_than_self",
+            "blood_union_consumed_points": 3,
+            "minimum_blood_union": 3,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Mender's Ritual V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-v",
+              "title": "Flesh Mender's Ritual V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:08:33+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "1"
+            ],
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon683.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "V",
+          "category": "Heal",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon683.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032938id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Symbiote V",
+      "source_url": "https://vgsoharchive.com/abilities/frenzied-symbiote-v",
+      "cache": {
+        "path": ".cache/archive/bfff47e8702ec71aef69495620051d6696cced499c573e11bf6ff8409a59da36.txt",
+        "sha256": "a7633bddf691fad9ff467a5d1c527494513335dfcc916ee2cc7335d2db4f8f32"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 2,
+          "record_sha256": "3240d16fe5d2edfee969ce805531049998b8067502048a267c75d7f2599bb3ab"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Attaches a frenzied symbiote to an ally, increasing their damage by 84 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "545e422af31debbd76793293fcf685c22c1ea44cefcc69020d4e69ce8b00f9ce",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "ally_damage_increase_symbiote",
+            "damage_increase_amount": 84,
+            "damage_increase_unit": null,
+            "duration_seconds": 3600,
+            "recipient_reported": "ally",
+            "consumed_item_reported": "Frenzied Symbiote",
+            "consumed_item_quantity": 1,
+            "maximum_symbiotes_per_target": 1,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Frenzied Symbiote V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/frenzied-symbiote-v",
+              "title": "Frenzied Symbiote V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:08:33+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Frenzied Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon651.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "V",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon651.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032952id_/http://wiki.silkyvenom.com/index.php/Frenzied_Symbiote_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Frenzied Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metamorphism III",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-iii",
+      "cache": {
+        "path": ".cache/archive/528b5b546cf0dc2cec8c1e6144cb2cd45711391391c7b63f4e1e1a9f43c4d726.txt",
+        "sha256": "773db9cab2408b91469010893ae9aef6cba42fd42fd24b35cecc4f752b3f006a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "807fb41ac63167a3c035684aae35897d78adc711cffeacbdf861dc735a5a78fb"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 747.",
+          "literal_sha256": "64182d383c1136846ef38cd1c905a8d6a5ed362e8d037c4770c01851e4265db8",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "spell_counter_with_group_healing",
+            "healing_amount": 747,
+            "radius_meters": 10,
+            "recipient_reported": "all_group_members_within_range",
+            "counter_eligibility_rules": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Metamorphism III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/metamorphism-iii",
+              "title": "Metamorphism III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:08:33+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "847"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon726.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "III",
+          "category": "Counterspell",
+          "cost": {
+            "energy": 847
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 747.",
+          "icon_name": "Icon726.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              847
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Numb V",
+      "source_url": "https://vgsoharchive.com/abilities/numb-v",
+      "cache": {
+        "path": ".cache/archive/de989153ed4494fa722b9c646525ad2b0d4e939fa04676add12217689ab7c869.txt",
+        "sha256": "932af64ec377abb1f61e72491de38e94c09b134042319ff686c017a4dd14a73d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "01413b85b0626d4b612b524de0f77c914d183d8a900b992773fe16e3581e8e6c"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Numbs your opponent's mind, lowering your hate by 5034.",
+          "literal_sha256": "b143aa01e1dba2717aa977ff504cdb8e4e40441100a85509cf127b6d55068f35",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "opponent_hate_reduction",
+            "hate_reduction_amount": 5034,
+            "hate_unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Numb V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/numb-v",
+              "title": "Numb V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 109,
+          "collected_at": "2026-10-20T04:08:33+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "143"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon697.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "V",
+          "category": "Alteration",
+          "cost": {
+            "energy": 143
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Numbs your opponent's mind, lowering your hate by 5034.",
+          "icon_name": "Icon697.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033130id_/http://wiki.silkyvenom.com/index.php/Numb_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              143
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 5,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 0,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Five reviewed literals require constrained parser implementation.",
+    "Unstated regeneration time units, damage bonus units, resistance scaling and counter eligibility remain null. Best Buff Only wording is retained without inventing its combination rules.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained observations for the reviewed Favor, Flesh Mender ritual, Frenzied Symbiote, Metamorphism and Numb sources."
+}
