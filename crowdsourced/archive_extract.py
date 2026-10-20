@@ -18,6 +18,85 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration726.
+    healing_counter_symbiote_steal = {'Infuses your defensive target with 1314 health. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'defensive_target_healing_with_union_bonus',
+                                                                                                     'healing_amount': 1314,
+                                                                                                     'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                     'percentage_basis': None,
+                                                                                                     'duration_seconds': None,
+                                                                                                     'tick_interval_seconds': None,
+                                                                                                     'stacking_rules': None,
+                                                                                                     'operative_values': None,
+                                                                                                     'historical_authentication': None},
+ 'Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.': {'effect_reported': 'spell_counter_with_group_healing',
+                                                                                                                          'healing_amount': 659,
+                                                                                                                          'recipient_reported': 'all '
+                                                                                                                                                'group '
+                                                                                                                                                'members',
+                                                                                                                          'radius_meters': 10,
+                                                                                                                          'counter_restrictions': None,
+                                                                                                                          'duration_seconds': None,
+                                                                                                                          'tick_interval_seconds': None,
+                                                                                                                          'stacking_rules': None,
+                                                                                                                          'operative_values': None,
+                                                                                                                          'historical_authentication': None},
+ 'Attaches a renewing symbiote to an ally, giving its bearer a 5% chance on hit to be healed for 912 over 6 seconds. Lasts 30 minutes. Expends 1 Renewing Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'symbiote_on_hit_periodic_healing',
+                                                                                                                                                                                                                      'recipient_reported': 'an '
+                                                                                                                                                                                                                                            'ally',
+                                                                                                                                                                                                                      'trigger_reported': 'on '
+                                                                                                                                                                                                                                          'hit',
+                                                                                                                                                                                                                      'proc_chance_percent': 5,
+                                                                                                                                                                                                                      'healing_amount': 912,
+                                                                                                                                                                                                                      'healing_duration_seconds': 6,
+                                                                                                                                                                                                                      'duration_seconds': 1800,
+                                                                                                                                                                                                                      'consumed_item_reported': 'Renewing '
+                                                                                                                                                                                                                                                'Symbiote',
+                                                                                                                                                                                                                      'consumed_quantity': 1,
+                                                                                                                                                                                                                      'maximum_symbiotes_per_target': 1,
+                                                                                                                                                                                                                      'trigger_actor': None,
+                                                                                                                                                                                                                      'proc_roll_rules': None,
+                                                                                                                                                                                                                      'tick_interval_seconds': None,
+                                                                                                                                                                                                                      'stacking_rules': None,
+                                                                                                                                                                                                                      'operative_values': None,
+                                                                                                                                                                                                                      'historical_authentication': None},
+ 'Steals 586 to 618 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.': {'effect_reported': 'health_steal_with_nearby_ally_return',
+                                                                                                                                                                                                        'health_stolen_min': 586,
+                                                                                                                                                                                                        'health_stolen_max': 618,
+                                                                                                                                                                                                        'returned_portion_percent': 100,
+                                                                                                                                                                                                        'recipient_reported': 'allies '
+                                                                                                                                                                                                                              'within '
+                                                                                                                                                                                                                              '10m '
+                                                                                                                                                                                                                              'of '
+                                                                                                                                                                                                                              'the '
+                                                                                                                                                                                                                              'caster',
+                                                                                                                                                                                                        'radius_meters': 10,
+                                                                                                                                                                                                        'returned_portion_increase_percent_per_blood_union_level': 10,
+                                                                                                                                                                                                        'blood_union_gain_points': 2,
+                                                                                                                                                                                                        'percentage_bonus_combination_rule': None,
+                                                                                                                                                                                                        'duration_seconds': None,
+                                                                                                                                                                                                        'tick_interval_seconds': None,
+                                                                                                                                                                                                        'stacking_rules': None,
+                                                                                                                                                                                                        'operative_values': None,
+                                                                                                                                                                                                        'historical_authentication': None},
+ 'Attaches a conducive symbiote to an ally, this symbiote grants you the use of an ability that instantly heals an ally. This symbiote lasts for 1 hour. Expends 1 Conducive Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'symbiote_grants_instant_ally_healing_ability',
+                                                                                                                                                                                                                                         'recipient_reported': 'an '
+                                                                                                                                                                                                                                                               'ally',
+                                                                                                                                                                                                                                         'granted_ability_healing_amount': None,
+                                                                                                                                                                                                                                         'granted_ability_cast_reported': 'instantly',
+                                                                                                                                                                                                                                         'duration_seconds': 3600,
+                                                                                                                                                                                                                                         'consumed_item_reported': 'Conducive '
+                                                                                                                                                                                                                                                                   'Symbiote',
+                                                                                                                                                                                                                                         'consumed_quantity': 1,
+                                                                                                                                                                                                                                         'maximum_symbiotes_per_target': 1,
+                                                                                                                                                                                                                                         'granted_ability_identifier': None,
+                                                                                                                                                                                                                                         'tick_interval_seconds': None,
+                                                                                                                                                                                                                                         'stacking_rules': None,
+                                                                                                                                                                                                                                         'operative_values': None,
+                                                                                                                                                                                                                                         'historical_authentication': None}} .get(value.strip())
+    if healing_counter_symbiote_steal:
+        facts.append(dict(kind="blood_mage_healing_counter_symbiote_steal_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True,
+            **healing_counter_symbiote_steal))
     # Exact Blood Mage literals source-reviewed in iteration724.
     damage_group_buff_ritual_union = {'This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.': {'effect_reported': 'health_energy_consumption_full_blood_union',
                                                                                                               'health_consumed_percent': 25,
