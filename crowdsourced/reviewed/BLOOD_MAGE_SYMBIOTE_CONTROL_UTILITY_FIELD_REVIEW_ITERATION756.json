@@ -1,0 +1,671 @@
+{
+  "review_kind": "blood_mage_symbiote_control_utility_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote",
+          "literal_sha256": "7174f06587bf3216948c40450401c676f72d018c9e234582243742e52e08fa09",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "poison_disease_cleansing",
+              "extracted_value": "poison_disease_cleansing",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "duration_minutes_reported",
+              "source_value": 15,
+              "extracted_value": 15,
+              "equal": true
+            },
+            {
+              "field": "cleansing_frequency",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "conditions_removed_per_tick",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "component_quantity",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "cast_time_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "range_meters",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_conversion_ritual_observation",
+              "effect_phrase_recorded": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote",
+              "conditions_unparsed": true,
+              "effect_reported": "poison_disease_cleansing",
+              "recipient_reported": "an ally",
+              "duration_minutes_reported": 15,
+              "cleansing_frequency": null,
+              "conditions_removed_per_tick": null,
+              "component_quantity": null,
+              "cast_time_seconds": null,
+              "range_meters": null,
+              "source_anomaly": "Effect block includes Energy Cost, Cast Time, Refresh, Range and trailing Controlling Symbiote labels; those values are withheld pending structural review.",
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a controlling symbiote to an opponent forcing them to obey your commands for 30 sec. Repeated symbiote uses will be ignored completely. Draconic, undead, construct and elemental targets are immune to suggestion. Expends 1 Controlling Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "5d5b06c203c79651ce31481a299e68e15b646577411afd2cd893cefc3c8b0ad2",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "target_control",
+              "extracted_value": "target_control",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an opponent",
+              "extracted_value": "an opponent",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 30,
+              "extracted_value": 30,
+              "equal": true
+            },
+            {
+              "field": "repeated_use_reported",
+              "source_value": "ignored completely",
+              "extracted_value": "ignored completely",
+              "equal": true
+            },
+            {
+              "field": "immune_target_types_reported",
+              "source_value": [
+                "draconic",
+                "undead",
+                "construct",
+                "elemental"
+              ],
+              "extracted_value": [
+                "draconic",
+                "undead",
+                "construct",
+                "elemental"
+              ],
+              "equal": true
+            },
+            {
+              "field": "consumed_component_reported",
+              "source_value": "Controlling Symbiote",
+              "extracted_value": "Controlling Symbiote",
+              "equal": true
+            },
+            {
+              "field": "component_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "canonical_component_id",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "control_break_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_health_return_hate_observation",
+              "effect_phrase_recorded": "Attaches a controlling symbiote to an opponent forcing them to obey your commands for 30 sec. Repeated symbiote uses will be ignored completely. Draconic, undead, construct and elemental targets are immune to suggestion. Expends 1 Controlling Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "target_control",
+              "recipient_reported": "an opponent",
+              "duration_seconds": 30,
+              "repeated_use_reported": "ignored completely",
+              "immune_target_types_reported": [
+                "draconic",
+                "undead",
+                "construct",
+                "elemental"
+              ],
+              "consumed_component_reported": "Controlling Symbiote",
+              "component_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "canonical_component_id": null,
+              "control_break_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Hollow Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/hollow-symbiote",
+      "cache": {
+        "path": ".cache/archive/88881e55a76b5e14238590e0b11ac1038b43d80b31d5325be06e92edff14924e.txt",
+        "sha256": "99ea1baef20164f9d404fc4ee02e6570609b3c92fa52a0b59c6299b8c79ba176"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 46,
+          "record_sha256": "5a77f62f788a2cb6f1cd98954d9a73c88ac222f68b756df206b330941451ee5e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a hollow symbiote to a targets group, allowing them to float off of the ground for 1 hour. Expends 1 Hollow Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "90edbfaa1e6e7df37b8aedac583ab5ed21383d174925f5a52bec95a587db3aeb",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "group_levitation_symbiote",
+              "extracted_value": "group_levitation_symbiote",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "a targets group",
+              "extracted_value": "a targets group",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "consumed_component_reported",
+              "source_value": "Hollow Symbiote",
+              "extracted_value": "Hollow Symbiote",
+              "equal": true
+            },
+            {
+              "field": "component_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "canonical_component_id",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Attaches a hollow symbiote to a targets group, allowing them to float off of the ground for 1 hour. Expends 1 Hollow Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "group_levitation_symbiote",
+              "recipient_reported": "a targets group",
+              "duration_seconds": 3600,
+              "consumed_component_reported": "Hollow Symbiote",
+              "component_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "canonical_component_id": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Quickening Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/quickening-symbiote",
+      "cache": {
+        "path": ".cache/archive/643475ec8b4984d9ed42d7cbb62ba62c30cbd1b75e183834ffd3e946b1b98da7.txt",
+        "sha256": "84c511200e68a9868aa1dc67ddd401e340af5bd3e45a312f2d19c63e2b75218f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "3383d5a5a005a86791013ebf91dd38a2a052a025ebbac9fc383494db41303f35"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a quickening symbiote to an ally, this symbiote grants you the use of an ability that doubles your damage for 8 seconds. This symbiote lasts for 1 hour. Expends 1 Quickening Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "172da91eee20b6b5b491f08778c4fc2820ff2f3931fc057eef64c3e56cb0a619",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "ally_symbiote_grants_self_damage_doubling_ability",
+              "extracted_value": "ally_symbiote_grants_self_damage_doubling_ability",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "granted_ability_recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            },
+            {
+              "field": "damage_multiplier",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "damage_buff_duration_seconds",
+              "source_value": 8,
+              "extracted_value": 8,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Quickening Symbiote",
+              "extracted_value": "Quickening Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "granted_ability_name",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "activation_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_scaling_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Attaches a quickening symbiote to an ally, this symbiote grants you the use of an ability that doubles your damage for 8 seconds. This symbiote lasts for 1 hour. Expends 1 Quickening Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_symbiote_grants_self_damage_doubling_ability",
+              "recipient_reported": "an ally",
+              "granted_ability_recipient_reported": "you",
+              "damage_multiplier": 2,
+              "damage_buff_duration_seconds": 8,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Quickening Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "granted_ability_name": null,
+              "activation_rules": null,
+              "damage_scaling_basis": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Vitalizing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/vitalizing-symbiote",
+      "cache": {
+        "path": ".cache/archive/b9b52c3a159f5d960b8fb1c6b279ecb8b2c9e1339ba5ca9b9c46a2257b3c74a6.txt",
+        "sha256": "46b89d61bb3d4e0870c5ce45db8628f9f65be9aa89dc3722326ee768408525bb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 44,
+          "record_sha256": "7edf0b91e2b92b95d2c804ff8e6bea1d1b91d230fff0b9a8c0a91e0e985be7e3"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a vitalizing symbiote to an ally, giving its bearer a 10% chance on spell cast to gain a 50% energy cost reduction for one spell. Lasts 30 minutes. Expends 1 Vitalizing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "6ca29c46bf9cb3b0c4ec60c4cb3b69814d294e7dd8583ed5b4232f6af9892875",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "ally_spell_cast_energy_discount_symbiote",
+              "extracted_value": "ally_spell_cast_energy_discount_symbiote",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "proc_chance_percent",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "trigger_reported",
+              "source_value": "on spell cast",
+              "extracted_value": "on spell cast",
+              "equal": true
+            },
+            {
+              "field": "energy_cost_reduction_percent",
+              "source_value": 50,
+              "extracted_value": 50,
+              "equal": true
+            },
+            {
+              "field": "discounted_spell_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 1800,
+              "extracted_value": 1800,
+              "equal": true
+            },
+            {
+              "field": "expended_item_reported",
+              "source_value": "Vitalizing Symbiote",
+              "extracted_value": "Vitalizing Symbiote",
+              "equal": true
+            },
+            {
+              "field": "expended_item_count",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "symbiote_limit_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "proc_cooldown_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "proc_stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "eligible_spell_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Attaches a vitalizing symbiote to an ally, giving its bearer a 10% chance on spell cast to gain a 50% energy cost reduction for one spell. Lasts 30 minutes. Expends 1 Vitalizing Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_spell_cast_energy_discount_symbiote",
+              "recipient_reported": "an ally",
+              "proc_chance_percent": 10,
+              "trigger_reported": "on spell cast",
+              "energy_cost_reduction_percent": 50,
+              "discounted_spell_count": 1,
+              "duration_seconds": 1800,
+              "expended_item_reported": "Vitalizing Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "proc_cooldown_seconds": null,
+              "proc_stacking_rules": null,
+              "eligible_spell_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 61,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 97,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Cleansing Effect block contains unrelated labels; component quantity, casting time and range remain withheld pending structural review.",
+    "Control break rules, granted ability identity, proc cooldown and spell eligibility remain unknown; no operative game facts promoted."
+  ],
+  "next_step": "Review remaining Blood Mage plated, frenzied and renewing symbiote ranks field by field."
+}
