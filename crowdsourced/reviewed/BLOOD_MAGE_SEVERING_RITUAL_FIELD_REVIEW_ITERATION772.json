@@ -1,0 +1,546 @@
+{
+  "review_kind": "blood_mage_severing_ritual_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Severing Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-i",
+      "cache": {
+        "path": ".cache/archive/2bd568d8959cbfd06f8b4c21b275a7bc2d489b3d649e3d5f857a2fb0c816deaa.txt",
+        "sha256": "56b3bf6a8e6a5729167ad4d93c6953698c694e5b039640a17f3a30a557b3d6fb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "ba62760298acdb46acf6aa716ba6068f93c4fe79a604d5bc5af7b1756ced9bf4"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 275 to 291 damage and 377 to 398 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "d216c63f4121d32fc07701a56714c265a48df4eb257563202810becc7c642bce",
+          "field_comparisons": [
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_min",
+              "source_value": 275,
+              "extracted_value": 275,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 291,
+              "extracted_value": 291,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_min",
+              "source_value": 377,
+              "extracted_value": 377,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_max",
+              "source_value": 398,
+              "extracted_value": 398,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "blood_union_reduction",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "required_blood_union",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all opponents within 10m",
+              "extracted_value": "all opponents within 10m",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_hate_ritual_union_observation",
+              "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 275 to 291 damage and 377 to 398 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_direct_and_over_time_damage",
+              "recipient_reported": "all opponents within 10m",
+              "radius_meters": 10,
+              "damage_min": 275,
+              "damage_max": 291,
+              "damage_over_time_min": 377,
+              "damage_over_time_max": 398,
+              "duration_seconds": 10,
+              "blood_union_reduction": 3,
+              "required_blood_union": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Severing Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/fff62c3025170d5348613eb62b29765a7922ef0806a57b29c91266c4ea0548b2.txt",
+        "sha256": "7be756381fd1460369f73856408e87d002adb1ad377f83e6f04b65729cb492b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "6e4e16af687a489cd82e2109c593765b1f6a8b2eeb32608dd94442db8408261a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 350 to 370 damage and 479 to 506 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "362b296ae0cb03cd2535d923fe446b7d85a7476e30683a39c0345bda9eeabd72",
+          "field_comparisons": [
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_min",
+              "source_value": 350,
+              "extracted_value": 350,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 370,
+              "extracted_value": 370,
+              "equal": true
+            },
+            {
+              "field": "damage_over_duration_min",
+              "source_value": 479,
+              "extracted_value": 479,
+              "equal": true
+            },
+            {
+              "field": "damage_over_duration_max",
+              "source_value": 506,
+              "extracted_value": 506,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "blood_union_reduction",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "required_blood_union",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all opponents within 10m",
+              "extracted_value": "all opponents within 10m",
+              "equal": true
+            },
+            {
+              "field": "radius_origin",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 350 to 370 damage and 479 to 506 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_initial_and_periodic_damage_union_requirement",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "recipient_reported": "all opponents within 10m",
+              "damage_min": 350,
+              "damage_max": 370,
+              "damage_over_duration_min": 479,
+              "damage_over_duration_max": 506,
+              "duration_seconds": 10,
+              "blood_union_reduction": 3,
+              "required_blood_union": 3,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Severing Ritual III",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-iii",
+      "cache": {
+        "path": ".cache/archive/4cc366b8d1913ae858a31926047fc3db0d6355cbcea65c5cdcef586e79857168.txt",
+        "sha256": "1a0cac92455c5c1c3e9ebb9c26e482f2a6f9f2605481b857df456bc8831ab702"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "66df98464d82a5b28f71b265c10d00dc1856721672fdaf00d5a98a97d7bace5d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 430 to 454 damage and 591 to 624 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "b4c1cf737c777676bad5e8494329ed329de4ae76fef50f55b832b2c03290ea8a",
+          "field_comparisons": [
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_min",
+              "source_value": 430,
+              "extracted_value": 430,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 454,
+              "extracted_value": 454,
+              "equal": true
+            },
+            {
+              "field": "periodic_damage_min",
+              "source_value": 591,
+              "extracted_value": 591,
+              "equal": true
+            },
+            {
+              "field": "periodic_damage_max",
+              "source_value": 624,
+              "extracted_value": 624,
+              "equal": true
+            },
+            {
+              "field": "periodic_damage_duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "blood_union_cost_points",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "required_blood_union_reported",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all opponents within 10m",
+              "extracted_value": "all opponents within 10m",
+              "equal": true
+            },
+            {
+              "field": "periodic_damage_distribution",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_hate_ritual_rune_healing_observation",
+              "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 430 to 454 damage and 591 to 624 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_damage_with_periodic_damage_and_union_cost",
+              "radius_meters": 10,
+              "recipient_reported": "all opponents within 10m",
+              "damage_min": 430,
+              "damage_max": 454,
+              "periodic_damage_min": 591,
+              "periodic_damage_max": 624,
+              "periodic_damage_duration_seconds": 10,
+              "blood_union_cost_points": 3,
+              "required_blood_union_reported": 3,
+              "periodic_damage_distribution": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Severing Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-iv",
+      "cache": {
+        "path": ".cache/archive/81113506a84e7b7c488f5aafb7fe1accb6ec3ea973e32690a605bc62272a5e6c.txt",
+        "sha256": "beda4835701ceccd93dd04fa4f56d640339e5724cdf7f1b2c65af8cb0aefb4e4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "0feb8d99062416c3e7a331f487fa462f19ee72faa1ee58201e9794d059e76246"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual severs life from all opponents within 10m, dealing 472 to 498 damage and 650 to 685 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "f4e9508d1dbfeb4cdc045a9178321c7e9532db273c6224d22b89efeecf2d4781",
+          "field_comparisons": [
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "direct_damage_min",
+              "source_value": 472,
+              "extracted_value": 472,
+              "equal": true
+            },
+            {
+              "field": "direct_damage_max",
+              "source_value": 498,
+              "extracted_value": 498,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_min",
+              "source_value": 650,
+              "extracted_value": 650,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_max",
+              "source_value": 685,
+              "extracted_value": 685,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "blood_union_consumed_points",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "required_blood_union_reported",
+              "source_value": "3",
+              "extracted_value": "3",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all_opponents_within_range",
+              "extracted_value": "all_opponents_within_range",
+              "equal": true
+            },
+            {
+              "field": "blood_union_above_three_eligibility",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "This ritual severs life from all opponents within 10m, dealing 472 to 498 damage and 650 to 685 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_direct_and_over_time_damage_ritual",
+              "radius_meters": 10,
+              "recipient_reported": "all_opponents_within_range",
+              "direct_damage_min": 472,
+              "direct_damage_max": 498,
+              "damage_over_time_min": 650,
+              "damage_over_time_max": 685,
+              "duration_seconds": 10,
+              "blood_union_consumed_points": 3,
+              "required_blood_union_reported": "3",
+              "blood_union_above_three_eligibility": null,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 4,
+    "source_record_hashes_verified": 4,
+    "whole_page_replays": 4,
+    "literal_hashes_verified": 4,
+    "field_comparisons_passed": 50,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 32,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Four current area damage ritual sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Tick timing, damage type, radius origin and above-three Blood Union eligibility remain unknown; rank-specific nulls and literal qualifiers are preserved.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current buff and cleansing clauses against cached prose."
+}
