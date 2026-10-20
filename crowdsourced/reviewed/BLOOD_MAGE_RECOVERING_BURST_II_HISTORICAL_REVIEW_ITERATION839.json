@@ -1,0 +1,372 @@
+{
+  "review_kind": "blood_mage_recovering_burst_ii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "46f6fbc558e2c2ae9230ae2baae978cd661b3d8bef4e7c9fe03d2e5b0c24eab6",
+      "source_literal": "Energy then 541 — now 505 Cast then 4.5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>541\r\n                <span class=\"muted\">— now 505</span></dd></div>\n<div><dt>Cast then</dt><dd>4.5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "541 — now 505",
+          "direct_value_literal": "541",
+          "numeric_value": 541,
+          "comparison_literal": "— now 505",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "4.5",
+          "direct_value_literal": "4.5",
+          "numeric_value": 4.5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "da7edfd06b470d93252dee8302163407a43736952130758235c42e7e1ff51b9c",
+      "source_literal": "Releases a burst of life, healing all allies within 10m by 838. Heals for an extra 2% per level of Blood Union",
+      "source_html": "<div class=\"tooltip\">Releases a burst of life, healing all allies within 10m by 838. Heals for an extra 2% per level of Blood Union</div>",
+      "reviewed_observations": {
+        "effect_literal": "Releases a burst of life, healing all allies within 10m by 838. Heals for an extra 2% per level of Blood Union",
+        "recipient_literal": "all allies within 10m",
+        "radius_meters": 10,
+        "healing_amount": 838,
+        "extra_healing_percent_per_blood_union_level": 2,
+        "scaling_formula": null,
+        "maximum_recipients": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034526id_/http://wiki.silkyvenom.com/index.php/Recovering_Burst_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034526id_/http://wiki.silkyvenom.com/index.php/Recovering_Burst_II"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "dae164159608e2f364fecbdf3e18f34e222530058dd9f9c35d2617b83c22871c",
+      "source_literal": "Level in 2007 22 Cast then 4.5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>22</dd></div>\n<div><dt>Cast then</dt><dd>4.5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "22",
+          "direct_value_literal": "22",
+          "numeric_value": 22,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "4.5",
+          "direct_value_literal": "4.5",
+          "numeric_value": 4.5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "08cc92e8d8421a5eb6d3481b1bb777cb48bd333833f56f014c780379b13eb4eb",
+      "source_literal": "Level in 2007-2008 22 Energy then 132 — now 505 Cast then 4.5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>22</dd></div>\n<div><dt>Energy then</dt>\n<dd>132\r\n                <span class=\"muted\">— now 505</span></dd></div>\n<div><dt>Cast then</dt><dd>4.5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "22",
+          "direct_value_literal": "22",
+          "numeric_value": 22,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "132 — now 505",
+          "direct_value_literal": "132",
+          "numeric_value": 132,
+          "comparison_literal": "— now 505",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "4.5",
+          "direct_value_literal": "4.5",
+          "numeric_value": 4.5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "5f8ee0d483865fbd72baa9315912743ebb75d22aa4f4e4f1dbbbc294c716a3da",
+      "source_literal": "Releases a burst of life, healing all allies within 10m by 849. Heals for an extra 2% per level of Blood Union.",
+      "source_html": "<div class=\"tooltip\">Releases a burst of life, healing all allies within 10m by 849. Heals for an extra 2% per level of Blood Union.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Releases a burst of life, healing all allies within 10m by 849. Heals for an extra 2% per level of Blood Union.",
+        "recipient_literal": "all allies within 10m",
+        "radius_meters": 10,
+        "healing_amount": 849,
+        "extra_healing_percent_per_blood_union_level": 2,
+        "scaling_formula": null,
+        "maximum_recipients": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 7,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 478,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical healing claims 838 and 849 remain separate; no preferred value is selected.",
+    "Historical energy claims 541 and 132 remain separate from current comparison 505.",
+    "Cast 4.5 has no explicit unit; no seconds conversion is inferred.",
+    "Extra 2% per Blood Union level does not establish a complete scaling formula or cap.",
+    "Attribution links are metadata rather than independent historical authentication; operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability after Recovering Burst II against cached source sections."
+}
