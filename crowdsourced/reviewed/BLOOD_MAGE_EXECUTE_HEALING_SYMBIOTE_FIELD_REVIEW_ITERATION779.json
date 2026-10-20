@@ -1,0 +1,454 @@
+{
+  "review_kind": "blood_mage_execute_healing_symbiote_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Steal Mortality",
+      "source_url": "https://vgsoharchive.com/abilities/steal-mortality",
+      "cache": {
+        "path": ".cache/archive/758bab1763ee1549daf129c8d8716fa8639cc783f73ef4ea42a3b2fd041f0082.txt",
+        "sha256": "3c962d041702b4218cb5e3518a8f5e7c29ecebc4301b20f3a263063e533621f0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "32c0f6bb8558e7bc84510c75d14611f83a38a5d08d716f73259e789892de7ea0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Has a chance to kill an opponent who is under 5% health. The chance to kill them increases for each level of Blood Union.",
+          "literal_sha256": "a5dd5896c70709c1df91459d271cc1e88f1c0e51ac436315cc757a81e9bc0ed5",
+          "field_comparisons": [
+            {
+              "field": "target_health_threshold_percent",
+              "source_value": 5,
+              "extracted_value": 5,
+              "equal": true
+            },
+            {
+              "field": "threshold_comparison",
+              "source_value": "under",
+              "extracted_value": "under",
+              "equal": true
+            },
+            {
+              "field": "kill_chance_percent",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "chance_increase_per_blood_union_level",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_execute_symbiote_healing_absorption_observation",
+              "effect_phrase_recorded": "Has a chance to kill an opponent who is under 5% health. The chance to kill them increases for each level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "low_health_execute_chance_union_scaling",
+              "target_health_threshold_percent": 5,
+              "threshold_comparison": "under",
+              "kill_chance_percent": null,
+              "chance_increase_per_blood_union_level": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health V",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-v",
+      "cache": {
+        "path": ".cache/archive/af0392f2365b2640b394cbe69a39d51c508d05e43a014209cae54eb7f4649771.txt",
+        "sha256": "59c126e1875e95f1376e38b335677e3c8664a93344770bac620f65aa20a5fba2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "a2a8f7b6c16c8c6a824164f78c392f26fb934ef96ab919b1f5aa8fc5e2d31fc5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses your defensive target with 1042 health. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "d27d418d6ff20d1cfc28deffbd69b958c4c54e9a82d2558c7b776745f89268e0",
+          "field_comparisons": [
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            },
+            {
+              "field": "healing_amount",
+              "source_value": 1042,
+              "extracted_value": 1042,
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_execute_symbiote_healing_absorption_observation",
+              "effect_phrase_recorded": "Infuses your defensive target with 1042 health. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "defensive_target_healing_union_scaling",
+              "recipient_reported": "your defensive target",
+              "healing_amount": 1042,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health VI",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-vi",
+      "cache": {
+        "path": ".cache/archive/3d6dc16eae19ad57d9446499d6338c0df15a4e6acadb94e626c5584bb6afe1a5.txt",
+        "sha256": "ea3200a36c5e49808fc7362ca4e5f3fdea95aa6ce74fab4b84081ecc0b9eb18e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "a1f23ffcd4c84187acbe309ed0b89f61a91ae0e2581118cb96b553930d4aec47"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses your defensive target with 1314 health. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "43196fa09a2aa2fdf5a8cdf58194d7ceb6c56122dc43bbdf8d7dd6e60a41ced0",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 1314,
+              "extracted_value": 1314,
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "percentage_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_counter_symbiote_steal_observation",
+              "effect_phrase_recorded": "Infuses your defensive target with 1314 health. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "defensive_target_healing_with_union_bonus",
+              "healing_amount": 1314,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "percentage_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Conducive Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/conducive-symbiote",
+      "cache": {
+        "path": ".cache/archive/497123766869ecd89ac9a9c5d80ad8b74f9c9f2e897072ef2b13718a1918a5f2.txt",
+        "sha256": "d83ba77514151b49d0f197c69f0b7db0d4792b15845fbee534f3ca5b70899202"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 85,
+          "record_sha256": "29b819d0620f263e3ea2fc0c7bc4ba993d29260c846fcd0642640592b342a153"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a conducive symbiote to an ally, this symbiote grants you the use of an ability that instantly heals an ally. This symbiote lasts for 1 hour. Expends 1 Conducive Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "27b34b4c78bcc2271645b4cebf0e303696f7141dfd89b18ab9989afdde79ff51",
+          "field_comparisons": [
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally",
+              "extracted_value": "an ally",
+              "equal": true
+            },
+            {
+              "field": "granted_ability_healing_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "granted_ability_cast_reported",
+              "source_value": "instantly",
+              "extracted_value": "instantly",
+              "equal": true
+            },
+            {
+              "field": "consumed_item_reported",
+              "source_value": "Conducive Symbiote",
+              "extracted_value": "Conducive Symbiote",
+              "equal": true
+            },
+            {
+              "field": "consumed_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "maximum_symbiotes_per_target",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "granted_ability_identifier",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 3600,
+              "extracted_value": 3600,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_counter_symbiote_steal_observation",
+              "effect_phrase_recorded": "Attaches a conducive symbiote to an ally, this symbiote grants you the use of an ability that instantly heals an ally. This symbiote lasts for 1 hour. Expends 1 Conducive Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "symbiote_grants_instant_ally_healing_ability",
+              "recipient_reported": "an ally",
+              "granted_ability_healing_amount": null,
+              "granted_ability_cast_reported": "instantly",
+              "duration_seconds": 3600,
+              "consumed_item_reported": "Conducive Symbiote",
+              "consumed_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "granted_ability_identifier": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 4,
+    "source_record_hashes_verified": 4,
+    "whole_page_replays": 4,
+    "literal_hashes_verified": 4,
+    "field_comparisons_passed": 38,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "additional_field_review_still_required": true,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Four execute, healing and symbiote sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Kill chance, healing scaling bases and granted ability identity remain unknown; printed values are archive observations, not operative combat values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections against cached source prose."
+}
