@@ -1,0 +1,374 @@
+{
+  "review_kind": "blood_mage_bursting_cyst_ii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "636566871302d5727ea6d7d5559cac1c68e8841b76fbb916946524336a201803",
+      "source_literal": "Energy then 67 — now 68 Cast then 2",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>67\r\n                <span class=\"muted\">— now 68</span></dd></div>\n<div><dt>Cast then</dt><dd>2</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "67 — now 68",
+          "direct_value_literal": "67",
+          "numeric_value": 67,
+          "comparison_literal": "— now 68",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "2",
+          "direct_value_literal": "2",
+          "numeric_value": 2,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_unresolved_damage_and_energy_collision",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "77bcad81feb9955744ec532337f7c510f817be45d0547328dda32ed0a6983058",
+      "source_literal": "Forms a large blister on your opponent and explodes it, dealing 112 to 121 damage. If you are at Blood Union 3 or greater it will deal an additional 65 to 73 damage over 12 seconds. Increases Blood Union by 1. Bleeding Afflicted",
+      "source_html": "<div class=\"tooltip\">Forms a large blister on your opponent and explodes it, dealing 112 to 121 damage. If you are at Blood Union 3 or greater it will deal an additional 65 to 73 damage over 12 seconds. Increases Blood Union by 1. Bleeding Afflicted</div>",
+      "reviewed_observations": {
+        "direct_damage_min": 112,
+        "direct_damage_max": 121,
+        "conditional_damage_min": 65,
+        "conditional_damage_max": 73,
+        "conditional_duration_seconds": 12,
+        "blood_union_condition_minimum": 3,
+        "blood_union_increase": 1,
+        "unresolved_trailing_label": "Bleeding Afflicted",
+        "embedded_metadata_literal": null,
+        "damage_school": null,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "operative_damage": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_unresolved_damage_and_energy_collision",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227032724id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227032724id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_II"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "6eb303cb40d029ae1c889617a44b58d6295d08a20f586396338b34a75441d4d3",
+      "source_literal": "Level in 2007 6 Cast then 2.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>6</dd></div>\n<div><dt>Cast then</dt><dd>2.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "6",
+          "direct_value_literal": "6",
+          "numeric_value": 6,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "2.0",
+          "direct_value_literal": "2.0",
+          "numeric_value": 2.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_unresolved_damage_and_energy_collision",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "e4e80f762163fc64a47c03e39e7ce0ef702db6406db2d6d5ba43e5b0606847cf",
+      "source_literal": "Level in 2007-2008 6 Cast then 2.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>6</dd></div>\n<div><dt>Cast then</dt><dd>2.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "6",
+          "direct_value_literal": "6",
+          "numeric_value": 6,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "2.0",
+          "direct_value_literal": "2.0",
+          "numeric_value": 2.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_unresolved_damage_and_energy_collision",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "c72bae5bef29e6a86389afe580f57f67548791b7360ef43dc900e146d0458629",
+      "source_literal": "Forms a large blister on your opponent and forces it to explode, dealing 127 to 138 damage. If you are at Blood Union 3 or greater it will deal an additional 102 to 113 damage over 12 seconds. Increases Blood Union by 1. Energy Cost: 67 Blood Union Increase : 1 Cast Time: 2.0 Refresh: None Range: 25 Scarlet Ritual I",
+      "source_html": "<div class=\"tooltip\">Forms a large blister on your opponent and forces it to explode, dealing 127 to 138 damage. If you are at Blood Union 3 or greater it will deal an additional 102 to 113 damage over 12 seconds. Increases Blood Union by 1. Energy Cost: 67 Blood Union Increase : 1 Cast Time: 2.0 Refresh: None Range: 25 Scarlet Ritual I</div>",
+      "reviewed_observations": {
+        "direct_damage_min": 127,
+        "direct_damage_max": 138,
+        "conditional_damage_min": 102,
+        "conditional_damage_max": 113,
+        "conditional_duration_seconds": 12,
+        "blood_union_condition_minimum": 3,
+        "blood_union_increase": 1,
+        "unresolved_trailing_label": "Scarlet Ritual I",
+        "embedded_metadata_literal": "Energy Cost: 67 Blood Union Increase : 1 Cast Time: 2.0 Refresh: None Range: 25",
+        "damage_school": null,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "operative_damage": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_unresolved_damage_and_energy_collision",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 6,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 834,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical direct damage 112-121 versus 127-138 and conditional damage 65-73 versus 102-113 remain unresolved; no operative value selected. Full source records and section evidence preserved. Embedded bare timing/range and Refresh None remain literal claims with unknown units. Trailing labels do not establish mechanics.",
+    "Historical attribution links were not fetched and do not authenticate live-era mechanics.",
+    "Bare cast and refresh numbers have unknown units; tick timing, school and character scaling remain null."
+  ],
+  "next_step": "Review historical Entwining Vein I mechanic and metadata differences against cached sections."
+}
