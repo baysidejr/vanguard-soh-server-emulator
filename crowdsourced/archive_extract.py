@@ -18,6 +18,66 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration716.
+    execute_symbiote_healing_absorption = {'Has a chance to kill an opponent who is under 5% health. The chance to kill them increases for each level of Blood Union.': {'effect_reported': 'low_health_execute_chance_union_scaling',
+                                                                                                                               'target_health_threshold_percent': 5,
+                                                                                                                               'threshold_comparison': 'under',
+                                                                                                                               'kill_chance_percent': None,
+                                                                                                                               'chance_increase_per_blood_union_level': None,
+                                                                                                                               'duration_seconds': None,
+                                                                                                                               'tick_interval_seconds': None,
+                                                                                                                               'stacking_rules': None,
+                                                                                                                               'operative_values': None,
+                                                                                                                               'historical_authentication': None},
+ 'Attaches a frenzied symbiote to an ally, increasing their damage by 32 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'ally_damage_increase_symbiote',
+                                                                                                                                                                    'recipient_reported': 'an '
+                                                                                                                                                                                          'ally',
+                                                                                                                                                                    'damage_increase': 32,
+                                                                                                                                                                    'duration_seconds': 3600,
+                                                                                                                                                                    'expended_item_reported': 'Frenzied '
+                                                                                                                                                                                              'Symbiote',
+                                                                                                                                                                    'expended_item_count': 1,
+                                                                                                                                                                    'symbiote_limit_per_target': 1,
+                                                                                                                                                                    'damage_scaling_basis': None,
+                                                                                                                                                                    'tick_interval_seconds': None,
+                                                                                                                                                                    'stacking_rules': None,
+                                                                                                                                                                    'operative_values': None,
+                                                                                                                                                                    'historical_authentication': None},
+ 'Infuses your defensive target with 1042 health. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'defensive_target_healing_union_scaling',
+                                                                                                     'recipient_reported': 'your '
+                                                                                                                           'defensive '
+                                                                                                                           'target',
+                                                                                                     'healing_amount': 1042,
+                                                                                                     'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                     'scaling_base': None,
+                                                                                                     'duration_seconds': None,
+                                                                                                     'tick_interval_seconds': None,
+                                                                                                     'stacking_rules': None,
+                                                                                                     'operative_values': None,
+                                                                                                     'historical_authentication': None},
+ 'Covers you in a husk of energy, absorbing all incoming damage for 8 seconds. Consumes a vial of blood.': {'effect_reported': 'self_all_incoming_damage_absorption',
+                                                                                                            'recipient_reported': 'you',
+                                                                                                            'duration_seconds': 8,
+                                                                                                            'consumed_item_reported': 'vial '
+                                                                                                                                      'of '
+                                                                                                                                      'blood',
+                                                                                                            'consumed_item_count': 1,
+                                                                                                            'absorption_cap': None,
+                                                                                                            'tick_interval_seconds': None,
+                                                                                                            'stacking_rules': None,
+                                                                                                            'operative_values': None,
+                                                                                                            'historical_authentication': None},
+ 'Heals for 905 health over 16 seconds.': {'effect_reported': 'periodic_healing',
+                                           'health_over_duration': 905,
+                                           'duration_seconds': 16,
+                                           'recipient_reported': None,
+                                           'tick_interval_seconds': None,
+                                           'stacking_rules': None,
+                                           'operative_values': None,
+                                           'historical_authentication': None}}.get(value.strip())
+    if execute_symbiote_healing_absorption:
+        facts.append(dict(kind="blood_mage_execute_symbiote_healing_absorption_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **execute_symbiote_healing_absorption))
     # Exact Blood Mage literals source-reviewed in iteration714.
     group_ritual_counter_healing = {'Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only': {'effect_reported': 'target_group_attribute_buff',
                                                                                                                                                                                                                      'recipient_reported': 'targets '
