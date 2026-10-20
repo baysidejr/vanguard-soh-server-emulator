@@ -18,6 +18,75 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration708.
+    control_party_effect = {'Constricts the movement of your opponent, rooting them in place for 45 seconds. Has a 60% chance to break on hit.': {'effect_reported': 'root_with_break_chance',
+                                                                                                                       'recipient_reported': 'your '
+                                                                                                                                             'opponent',
+                                                                                                                       'duration_seconds': 45,
+                                                                                                                       'break_on_hit_percent': 60,
+                                                                                                                       'break_roll_rules': None,
+                                                                                                                       'tick_interval_seconds': None,
+                                                                                                                       'stacking_rules': None,
+                                                                                                                       'operative_values': None,
+                                                                                                                       'historical_authentication': None},
+ "Grafts blood and flesh onto your defensive target's party, granting them an additional 290 health for 1 hour.": {'effect_reported': 'party_health_buff',
+                                                                                                                   'recipient_reported': 'your '
+                                                                                                                                         'defensive '
+                                                                                                                                         "target's "
+                                                                                                                                         'party',
+                                                                                                                   'health_increase': 290,
+                                                                                                                   'duration_seconds': 3600,
+                                                                                                                   'tick_interval_seconds': None,
+                                                                                                                   'stacking_rules': None,
+                                                                                                                   'operative_values': None,
+                                                                                                                   'historical_authentication': None},
+ 'Infuses 785 health into your defensive target. Heals for an extra 2% per level of Blood Union.': {'effect_reported': 'target_heal_blood_union_scaling',
+                                                                                                    'recipient_reported': 'your '
+                                                                                                                          'defensive '
+                                                                                                                          'target',
+                                                                                                    'health_amount': 785,
+                                                                                                    'extra_healing_percent_per_blood_union_level': 2,
+                                                                                                    'scaling_base': None,
+                                                                                                    'duration_seconds': None,
+                                                                                                    'tick_interval_seconds': None,
+                                                                                                    'stacking_rules': None,
+                                                                                                    'operative_values': None,
+                                                                                                    'historical_authentication': None},
+ "Augments the skin of your defensive target's party, granting them 51 constitution and 145 physical resistance.": {'effect_reported': 'party_constitution_resistance_buff',
+                                                                                                                    'recipient_reported': 'your '
+                                                                                                                                          'defensive '
+                                                                                                                                          "target's "
+                                                                                                                                          'party',
+                                                                                                                    'constitution_increase': 51,
+                                                                                                                    'physical_resistance_increase': 145,
+                                                                                                                    'duration_seconds': None,
+                                                                                                                    'tick_interval_seconds': None,
+                                                                                                                    'stacking_rules': None,
+                                                                                                                    'operative_values': None,
+                                                                                                                    'historical_authentication': None},
+ 'Steals 392 to 414 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.': {'effect_reported': 'area_health_steal_return_blood_union_gain',
+                                                                                                                                                                                                        'recipient_reported': 'allies '
+                                                                                                                                                                                                                              'within '
+                                                                                                                                                                                                                              '10m '
+                                                                                                                                                                                                                              'of '
+                                                                                                                                                                                                                              'the '
+                                                                                                                                                                                                                              'caster',
+                                                                                                                                                                                                        'health_stolen_min': 392,
+                                                                                                                                                                                                        'health_stolen_max': 414,
+                                                                                                                                                                                                        'health_return_percent': 100,
+                                                                                                                                                                                                        'radius_meters': 10,
+                                                                                                                                                                                                        'returned_portion_increase_percent_per_blood_union_level': 10,
+                                                                                                                                                                                                        'blood_union_increase': 2,
+                                                                                                                                                                                                        'return_scaling_base': None,
+                                                                                                                                                                                                        'distribution_rule': None,
+                                                                                                                                                                                                        'duration_seconds': None,
+                                                                                                                                                                                                        'tick_interval_seconds': None,
+                                                                                                                                                                                                        'stacking_rules': None,
+                                                                                                                                                                                                        'operative_values': None,
+                                                                                                                                                                                                        'historical_authentication': None}}.get(value.strip())
+    if control_party_effect:
+        facts.append(dict(kind="blood_mage_control_party_buffs_health_return_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **control_party_effect))
     # Exact Blood Mage literals source-reviewed in iteration706.
     pact_levitation_effect = {'Bonds you with your allies, allowing you to split incoming damage amongst each other. The ally who is hit takes 70% of the incoming damage; the rest of the group splits 200% of the remaining damage.': {'effect_reported': 'group_incoming_damage_sharing',
                                                                                                                                                                                                             'hit_ally_damage_percent': 70,
