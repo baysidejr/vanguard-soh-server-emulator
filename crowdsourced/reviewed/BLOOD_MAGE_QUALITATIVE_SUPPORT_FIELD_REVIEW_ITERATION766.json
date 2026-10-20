@@ -1,0 +1,798 @@
+{
+  "review_kind": "blood_mage_qualitative_support_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "self_armor_class_and_health_increase",
+              "extracted_value": "self_armor_class_and_health_increase",
+              "equal": true
+            },
+            {
+              "field": "scales_with_reported",
+              "source_value": "adventuring level",
+              "extracted_value": "adventuring level",
+              "equal": true
+            },
+            {
+              "field": "does_not_stack_with_reported",
+              "source_value": "Construct's Augmentation",
+              "extracted_value": "Construct's Augmentation",
+              "equal": true
+            },
+            {
+              "field": "armor_class_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "scaling_formula",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_armor_class_and_health_increase",
+              "scales_with_reported": "adventuring level",
+              "does_not_stack_with_reported": "Construct's Augmentation",
+              "armor_class_bonus": null,
+              "health_bonus": null,
+              "scaling_formula": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Strip Enchantment I",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-i",
+      "cache": {
+        "path": ".cache/archive/a922943154ed71ca6634cfff9bb9196a196d5803a02a7c16c7428563baabe415.txt",
+        "sha256": "df2fdfaf1910ef09f66db64ebffd23ecf3b9638f86a68d4b60ac5823c0b99e41"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "a19ed7bb2b2e6d36782f3089d271911d2a297c9f8c1173385feb7fd66e086835"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips a minor enchantment from your opponent.",
+          "literal_sha256": "244e93eccf0f4d91a313f2b93c5b32c61cdba9b8337b9c6dc0451a605b54bf4a",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "remove_enchantment",
+              "extracted_value": "remove_enchantment",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "opponent",
+              "extracted_value": "opponent",
+              "equal": true
+            },
+            {
+              "field": "enchantment_qualifier_reported",
+              "source_value": "minor",
+              "extracted_value": "minor",
+              "equal": true
+            },
+            {
+              "field": "eligible_enchantments",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Strips a minor enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "effect_reported": "remove_enchantment",
+              "recipient_reported": "opponent",
+              "enchantment_qualifier_reported": "minor",
+              "eligible_enchantments": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Serak's Mantle II",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-ii",
+      "cache": {
+        "path": ".cache/archive/285296902655b4de3ea63a4a622f1b9c64235f43889946a4cd1f713fd22d0965.txt",
+        "sha256": "8511a5130f86310b549c9cff1eb3df9715c00d19aff0d47ff076bb40c123c10e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "5a76c429775f4ef96b7fffed3a65656ddddd089b962d15ef47ed3238bd7b46df"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "self_armor_class_and_health_increase",
+              "extracted_value": "self_armor_class_and_health_increase",
+              "equal": true
+            },
+            {
+              "field": "scales_with_reported",
+              "source_value": "adventuring level",
+              "extracted_value": "adventuring level",
+              "equal": true
+            },
+            {
+              "field": "does_not_stack_with_reported",
+              "source_value": "Construct's Augmentation",
+              "extracted_value": "Construct's Augmentation",
+              "equal": true
+            },
+            {
+              "field": "armor_class_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "scaling_formula",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_armor_class_and_health_increase",
+              "scales_with_reported": "adventuring level",
+              "does_not_stack_with_reported": "Construct's Augmentation",
+              "armor_class_bonus": null,
+              "health_bonus": null,
+              "scaling_formula": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Strip Enchantment II",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-ii",
+      "cache": {
+        "path": ".cache/archive/57b623b85c34ce4a1c0ea0c78bfc955a2a04667e72e654e85dd6cb67d31cfaaf.txt",
+        "sha256": "fdeab524da30f56f96b5bd52899cb6adcca7e1f3495ad1a407f128afdca7f184"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "6a1682884082cf78f6b6769c9108cb3a9b3e325371810a132cce6b063657f037"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips a lesser enchantment from your opponent.",
+          "literal_sha256": "485abe80d83ab6b2b672f76ee91d2f04c535b3922e49d1feccc1b472e59c728f",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "remove_enchantment",
+              "extracted_value": "remove_enchantment",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "opponent",
+              "extracted_value": "opponent",
+              "equal": true
+            },
+            {
+              "field": "enchantment_qualifier_reported",
+              "source_value": "lesser",
+              "extracted_value": "lesser",
+              "equal": true
+            },
+            {
+              "field": "eligible_enchantments",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Strips a lesser enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "effect_reported": "remove_enchantment",
+              "recipient_reported": "opponent",
+              "enchantment_qualifier_reported": "lesser",
+              "eligible_enchantments": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            },
+            {
+              "kind": "cure_dispel_tooltip_observation",
+              "effect_phrase_recorded": "Strips a lesser enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "action_reported": "strip_enchantment",
+              "condition_reported": "enchantment",
+              "target_reported": "opponent",
+              "timing_qualifier_reported": null,
+              "enchantment_qualifier_reported": "lesser",
+              "cure_count": null,
+              "pulse_interval_seconds": null,
+              "duration_seconds": null,
+              "dispel_strength": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Strip Enchantment III",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-iii",
+      "cache": {
+        "path": ".cache/archive/e8701423b2c8d966448f40c55dcffdc95a9f460083e8dd832f9277b3b51cd2b3.txt",
+        "sha256": "d4bb1c69e985fe80425ec7ca2e5b80997b0c1fbec7adb6fe57815420a3c6190a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "e105098b591182af8b437c4dd7d47218528e9caf2f73c8e87684ea08c1803950"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips an enchantment from your opponent.",
+          "literal_sha256": "82dcdb528a1d9684d453655d9fbce20108b0d0ab6380ceb70234d8585c64778e",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "remove_enchantment",
+              "extracted_value": "remove_enchantment",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "opponent",
+              "extracted_value": "opponent",
+              "equal": true
+            },
+            {
+              "field": "enchantment_qualifier_reported",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "eligible_enchantments",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Strips an enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "effect_reported": "remove_enchantment",
+              "recipient_reported": "opponent",
+              "enchantment_qualifier_reported": null,
+              "eligible_enchantments": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            },
+            {
+              "kind": "cure_dispel_tooltip_observation",
+              "effect_phrase_recorded": "Strips an enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "action_reported": "strip_enchantment",
+              "condition_reported": "enchantment",
+              "target_reported": "opponent",
+              "timing_qualifier_reported": null,
+              "enchantment_qualifier_reported": null,
+              "cure_count": null,
+              "pulse_interval_seconds": null,
+              "duration_seconds": null,
+              "dispel_strength": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Serak's Mantle III",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-iii",
+      "cache": {
+        "path": ".cache/archive/82f1065226b2db6d77542df89e8b4abf9b561997fab5c61a93cc62e92630ddea.txt",
+        "sha256": "e4cc4af32bc00b5de34fbd15354999b52d136fd6025cb048a1a2973d6e0984ee"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "4c537bb6ca85250cc58c37ad5a521b19d2da707ebcc642e5d608da1d8d852127"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "self_armor_class_and_health_increase",
+              "extracted_value": "self_armor_class_and_health_increase",
+              "equal": true
+            },
+            {
+              "field": "scales_with_reported",
+              "source_value": "adventuring level",
+              "extracted_value": "adventuring level",
+              "equal": true
+            },
+            {
+              "field": "does_not_stack_with_reported",
+              "source_value": "Construct's Augmentation",
+              "extracted_value": "Construct's Augmentation",
+              "equal": true
+            },
+            {
+              "field": "armor_class_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "scaling_formula",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_armor_class_and_health_increase",
+              "scales_with_reported": "adventuring level",
+              "does_not_stack_with_reported": "Construct's Augmentation",
+              "armor_class_bonus": null,
+              "health_bonus": null,
+              "scaling_formula": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Strip Enchantment IV",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-iv",
+      "cache": {
+        "path": ".cache/archive/e59f4aa575fb501af2ce28e32ab698c32a4a30311de2591cf7c4d758e5c0f41a.txt",
+        "sha256": "d42bc73db03ceff9f2d9ef8c2d21481fb379ece974e5d63fc86001f72c6872d6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "f9c19d9ac2f510f4fd6034f343c7c519841834913b49935ca8ec6fd7412c04bf"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips a greater enchantment from your opponent.",
+          "literal_sha256": "811982a48c8418944243899d594430231753de9f1fb761b2a50da04b71e76827",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "remove_enchantment",
+              "extracted_value": "remove_enchantment",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "opponent",
+              "extracted_value": "opponent",
+              "equal": true
+            },
+            {
+              "field": "enchantment_qualifier_reported",
+              "source_value": "greater",
+              "extracted_value": "greater",
+              "equal": true
+            },
+            {
+              "field": "eligible_enchantments",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Strips a greater enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "effect_reported": "remove_enchantment",
+              "recipient_reported": "opponent",
+              "enchantment_qualifier_reported": "greater",
+              "eligible_enchantments": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            },
+            {
+              "kind": "cure_dispel_tooltip_observation",
+              "effect_phrase_recorded": "Strips a greater enchantment from your opponent.",
+              "conditions_unparsed": true,
+              "action_reported": "strip_enchantment",
+              "condition_reported": "enchantment",
+              "target_reported": "opponent",
+              "timing_qualifier_reported": null,
+              "enchantment_qualifier_reported": "greater",
+              "cure_count": null,
+              "pulse_interval_seconds": null,
+              "duration_seconds": null,
+              "dispel_strength": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Ritual of Shielding",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-shielding",
+      "cache": {
+        "path": ".cache/archive/69287b11d120c17afc8b2694231990e4058993597b6fe61bddf5f87443be5ad9.txt",
+        "sha256": "bc1825051badab2fd2a8e66ebe74a10a9a153dd7caa40a0b7d05daa444225bf2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "80111e0ff96554d2de2f48906f5c030f52e3e236b08d1849f5f04ebf24ca3f9c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Group rune spell (reduces Blood Union) ( learned ability )",
+          "literal_sha256": "75560ea4cde8950bca4947999325a2bcf37898ae5334bd7bc9a2d8fceb4c34ca",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "group_rune",
+              "extracted_value": "group_rune",
+              "equal": true
+            },
+            {
+              "field": "reduces_resource_reported",
+              "source_value": "Blood Union",
+              "extracted_value": "Blood Union",
+              "equal": true
+            },
+            {
+              "field": "resource_reduction_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "learned_ability_reported",
+              "source_value": true,
+              "extracted_value": true,
+              "equal": true
+            },
+            {
+              "field": "absorption_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Group rune spell (reduces Blood Union) ( learned ability )",
+              "conditions_unparsed": true,
+              "effect_reported": "group_rune",
+              "reduces_resource_reported": "Blood Union",
+              "resource_reduction_amount": null,
+              "learned_ability_reported": true,
+              "absorption_amount": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Serak's Mantle IV",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-iv",
+      "cache": {
+        "path": ".cache/archive/f593356e5c7c5567dbcb77ed0201d4d6d6edc96814f6ee926aa6cf75c6623142.txt",
+        "sha256": "68352f682bfebf0ab4d36fb21226685969209c214dea488fd25c15ece2a44533"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 65,
+          "record_sha256": "a5b0a69317577f637b888c63084c4292c12395d1e8c99578a72a00098e0615f3"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "self_armor_class_and_health_increase",
+              "extracted_value": "self_armor_class_and_health_increase",
+              "equal": true
+            },
+            {
+              "field": "scales_with_reported",
+              "source_value": "adventuring level",
+              "extracted_value": "adventuring level",
+              "equal": true
+            },
+            {
+              "field": "does_not_stack_with_reported",
+              "source_value": "Construct's Augmentation",
+              "extracted_value": "Construct's Augmentation",
+              "equal": true
+            },
+            {
+              "field": "armor_class_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_bonus",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "scaling_formula",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+              "conditions_unparsed": true,
+              "effect_reported": "self_armor_class_and_health_increase",
+              "scales_with_reported": "adventuring level",
+              "does_not_stack_with_reported": "Construct's Augmentation",
+              "armor_class_bonus": null,
+              "health_bonus": null,
+              "scaling_formula": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 9,
+    "source_record_hashes_verified": 9,
+    "whole_page_replays": 9,
+    "literal_hashes_verified": 9,
+    "field_comparisons_passed": 54,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 60,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Nine current qualitative support sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Dispel eligibility and strength, mantle bonuses and scaling formula, and shielding absorption and resource cost remain unknown.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections and identify unsupported clauses for cache-only extraction."
+}
